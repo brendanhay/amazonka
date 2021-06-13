@@ -69,27 +69,28 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
 
 -- | /See:/ 'newCreateRuleGroup' smart constructor.
 data CreateRuleGroup = CreateRuleGroup'
-  { tags :: Core.Maybe (Core.NonEmpty Tag),
+  { tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | A friendly name or description of the RuleGroup. You can\'t change
     -- @Name@ after you create a @RuleGroup@.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | A friendly name or description for the metrics for this @RuleGroup@. The
     -- name can contain only alphanumeric characters (A-Z, a-z, 0-9), with
     -- maximum length 128 and minimum length one. It can\'t contain whitespace
     -- or metric names reserved for AWS WAF, including \"All\" and
     -- \"Default_Action.\" You can\'t change the name of the metric after you
     -- create the @RuleGroup@.
-    metricName :: Core.Text,
+    metricName :: Prelude.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text
+    changeToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateRuleGroup' with all optional fields omitted.
@@ -114,27 +115,27 @@ data CreateRuleGroup = CreateRuleGroup'
 -- 'changeToken', 'createRuleGroup_changeToken' - The value returned by the most recent call to GetChangeToken.
 newCreateRuleGroup ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   CreateRuleGroup
 newCreateRuleGroup pName_ pMetricName_ pChangeToken_ =
   CreateRuleGroup'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       name = pName_,
       metricName = pMetricName_,
       changeToken = pChangeToken_
     }
 
 -- |
-createRuleGroup_tags :: Lens.Lens' CreateRuleGroup (Core.Maybe (Core.NonEmpty Tag))
-createRuleGroup_tags = Lens.lens (\CreateRuleGroup' {tags} -> tags) (\s@CreateRuleGroup' {} a -> s {tags = a} :: CreateRuleGroup) Core.. Lens.mapping Lens._Coerce
+createRuleGroup_tags :: Lens.Lens' CreateRuleGroup (Prelude.Maybe (Prelude.NonEmpty Tag))
+createRuleGroup_tags = Lens.lens (\CreateRuleGroup' {tags} -> tags) (\s@CreateRuleGroup' {} a -> s {tags = a} :: CreateRuleGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A friendly name or description of the RuleGroup. You can\'t change
 -- @Name@ after you create a @RuleGroup@.
-createRuleGroup_name :: Lens.Lens' CreateRuleGroup Core.Text
+createRuleGroup_name :: Lens.Lens' CreateRuleGroup Prelude.Text
 createRuleGroup_name = Lens.lens (\CreateRuleGroup' {name} -> name) (\s@CreateRuleGroup' {} a -> s {name = a} :: CreateRuleGroup)
 
 -- | A friendly name or description for the metrics for this @RuleGroup@. The
@@ -143,11 +144,11 @@ createRuleGroup_name = Lens.lens (\CreateRuleGroup' {name} -> name) (\s@CreateRu
 -- or metric names reserved for AWS WAF, including \"All\" and
 -- \"Default_Action.\" You can\'t change the name of the metric after you
 -- create the @RuleGroup@.
-createRuleGroup_metricName :: Lens.Lens' CreateRuleGroup Core.Text
+createRuleGroup_metricName :: Lens.Lens' CreateRuleGroup Prelude.Text
 createRuleGroup_metricName = Lens.lens (\CreateRuleGroup' {metricName} -> metricName) (\s@CreateRuleGroup' {} a -> s {metricName = a} :: CreateRuleGroup)
 
 -- | The value returned by the most recent call to GetChangeToken.
-createRuleGroup_changeToken :: Lens.Lens' CreateRuleGroup Core.Text
+createRuleGroup_changeToken :: Lens.Lens' CreateRuleGroup Prelude.Text
 createRuleGroup_changeToken = Lens.lens (\CreateRuleGroup' {changeToken} -> changeToken) (\s@CreateRuleGroup' {} a -> s {changeToken = a} :: CreateRuleGroup)
 
 instance Core.AWSRequest CreateRuleGroup where
@@ -159,57 +160,59 @@ instance Core.AWSRequest CreateRuleGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateRuleGroupResponse'
-            Core.<$> (x Core..?> "RuleGroup")
-            Core.<*> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RuleGroup")
+            Prelude.<*> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateRuleGroup
+instance Prelude.Hashable CreateRuleGroup
 
-instance Core.NFData CreateRuleGroup
+instance Prelude.NFData CreateRuleGroup
 
 instance Core.ToHeaders CreateRuleGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_20150824.CreateRuleGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateRuleGroup where
   toJSON CreateRuleGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("MetricName" Core..= metricName),
-            Core.Just ("ChangeToken" Core..= changeToken)
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("MetricName" Core..= metricName),
+            Prelude.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
 instance Core.ToPath CreateRuleGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateRuleGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRuleGroupResponse' smart constructor.
 data CreateRuleGroupResponse = CreateRuleGroupResponse'
   { -- | An empty RuleGroup.
-    ruleGroup :: Core.Maybe RuleGroup,
+    ruleGroup :: Prelude.Maybe RuleGroup,
     -- | The @ChangeToken@ that you used to submit the @CreateRuleGroup@ request.
     -- You can also use this value to query the status of the request. For more
     -- information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateRuleGroupResponse' with all optional fields omitted.
@@ -228,27 +231,28 @@ data CreateRuleGroupResponse = CreateRuleGroupResponse'
 -- 'httpStatus', 'createRuleGroupResponse_httpStatus' - The response's http status code.
 newCreateRuleGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateRuleGroupResponse
 newCreateRuleGroupResponse pHttpStatus_ =
   CreateRuleGroupResponse'
-    { ruleGroup = Core.Nothing,
-      changeToken = Core.Nothing,
+    { ruleGroup =
+        Prelude.Nothing,
+      changeToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An empty RuleGroup.
-createRuleGroupResponse_ruleGroup :: Lens.Lens' CreateRuleGroupResponse (Core.Maybe RuleGroup)
+createRuleGroupResponse_ruleGroup :: Lens.Lens' CreateRuleGroupResponse (Prelude.Maybe RuleGroup)
 createRuleGroupResponse_ruleGroup = Lens.lens (\CreateRuleGroupResponse' {ruleGroup} -> ruleGroup) (\s@CreateRuleGroupResponse' {} a -> s {ruleGroup = a} :: CreateRuleGroupResponse)
 
 -- | The @ChangeToken@ that you used to submit the @CreateRuleGroup@ request.
 -- You can also use this value to query the status of the request. For more
 -- information, see GetChangeTokenStatus.
-createRuleGroupResponse_changeToken :: Lens.Lens' CreateRuleGroupResponse (Core.Maybe Core.Text)
+createRuleGroupResponse_changeToken :: Lens.Lens' CreateRuleGroupResponse (Prelude.Maybe Prelude.Text)
 createRuleGroupResponse_changeToken = Lens.lens (\CreateRuleGroupResponse' {changeToken} -> changeToken) (\s@CreateRuleGroupResponse' {} a -> s {changeToken = a} :: CreateRuleGroupResponse)
 
 -- | The response's http status code.
-createRuleGroupResponse_httpStatus :: Lens.Lens' CreateRuleGroupResponse Core.Int
+createRuleGroupResponse_httpStatus :: Lens.Lens' CreateRuleGroupResponse Prelude.Int
 createRuleGroupResponse_httpStatus = Lens.lens (\CreateRuleGroupResponse' {httpStatus} -> httpStatus) (\s@CreateRuleGroupResponse' {} a -> s {httpStatus = a} :: CreateRuleGroupResponse)
 
-instance Core.NFData CreateRuleGroupResponse
+instance Prelude.NFData CreateRuleGroupResponse

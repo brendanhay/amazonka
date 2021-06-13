@@ -61,6 +61,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -69,7 +70,7 @@ import qualified Network.AWS.Response as Response
 data StartContentModeration = StartContentModeration'
   { -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
     -- publish the completion status of the unsafe content analysis to.
-    notificationChannel :: Core.Maybe NotificationChannel,
+    notificationChannel :: Prelude.Maybe NotificationChannel,
     -- | Specifies the minimum confidence that Amazon Rekognition must have in
     -- order to return a moderated content label. Confidence represents how
     -- certain Amazon Rekognition is that the moderated content is correctly
@@ -78,22 +79,22 @@ data StartContentModeration = StartContentModeration'
     -- confidence level lower than this specified value. If you don\'t specify
     -- @MinConfidence@, @GetContentModeration@ returns labels with confidence
     -- values greater than or equal to 50 percent.
-    minConfidence :: Core.Maybe Core.Double,
+    minConfidence :: Prelude.Maybe Prelude.Double,
     -- | Idempotent token used to identify the start request. If you use the same
     -- token with multiple @StartContentModeration@ requests, the same @JobId@
     -- is returned. Use @ClientRequestToken@ to prevent the same job from being
     -- accidently started more than once.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | An identifier you specify that\'s returned in the completion
     -- notification that\'s published to your Amazon Simple Notification
     -- Service topic. For example, you can use @JobTag@ to group related jobs
     -- and identify them in the completion notification.
-    jobTag :: Core.Maybe Core.Text,
+    jobTag :: Prelude.Maybe Prelude.Text,
     -- | The video in which you want to detect unsafe content. The video must be
     -- stored in an Amazon S3 bucket.
     video :: Video
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartContentModeration' with all optional fields omitted.
@@ -134,16 +135,16 @@ newStartContentModeration ::
 newStartContentModeration pVideo_ =
   StartContentModeration'
     { notificationChannel =
-        Core.Nothing,
-      minConfidence = Core.Nothing,
-      clientRequestToken = Core.Nothing,
-      jobTag = Core.Nothing,
+        Prelude.Nothing,
+      minConfidence = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      jobTag = Prelude.Nothing,
       video = pVideo_
     }
 
 -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
 -- publish the completion status of the unsafe content analysis to.
-startContentModeration_notificationChannel :: Lens.Lens' StartContentModeration (Core.Maybe NotificationChannel)
+startContentModeration_notificationChannel :: Lens.Lens' StartContentModeration (Prelude.Maybe NotificationChannel)
 startContentModeration_notificationChannel = Lens.lens (\StartContentModeration' {notificationChannel} -> notificationChannel) (\s@StartContentModeration' {} a -> s {notificationChannel = a} :: StartContentModeration)
 
 -- | Specifies the minimum confidence that Amazon Rekognition must have in
@@ -154,21 +155,21 @@ startContentModeration_notificationChannel = Lens.lens (\StartContentModeration'
 -- confidence level lower than this specified value. If you don\'t specify
 -- @MinConfidence@, @GetContentModeration@ returns labels with confidence
 -- values greater than or equal to 50 percent.
-startContentModeration_minConfidence :: Lens.Lens' StartContentModeration (Core.Maybe Core.Double)
+startContentModeration_minConfidence :: Lens.Lens' StartContentModeration (Prelude.Maybe Prelude.Double)
 startContentModeration_minConfidence = Lens.lens (\StartContentModeration' {minConfidence} -> minConfidence) (\s@StartContentModeration' {} a -> s {minConfidence = a} :: StartContentModeration)
 
 -- | Idempotent token used to identify the start request. If you use the same
 -- token with multiple @StartContentModeration@ requests, the same @JobId@
 -- is returned. Use @ClientRequestToken@ to prevent the same job from being
 -- accidently started more than once.
-startContentModeration_clientRequestToken :: Lens.Lens' StartContentModeration (Core.Maybe Core.Text)
+startContentModeration_clientRequestToken :: Lens.Lens' StartContentModeration (Prelude.Maybe Prelude.Text)
 startContentModeration_clientRequestToken = Lens.lens (\StartContentModeration' {clientRequestToken} -> clientRequestToken) (\s@StartContentModeration' {} a -> s {clientRequestToken = a} :: StartContentModeration)
 
 -- | An identifier you specify that\'s returned in the completion
 -- notification that\'s published to your Amazon Simple Notification
 -- Service topic. For example, you can use @JobTag@ to group related jobs
 -- and identify them in the completion notification.
-startContentModeration_jobTag :: Lens.Lens' StartContentModeration (Core.Maybe Core.Text)
+startContentModeration_jobTag :: Lens.Lens' StartContentModeration (Prelude.Maybe Prelude.Text)
 startContentModeration_jobTag = Lens.lens (\StartContentModeration' {jobTag} -> jobTag) (\s@StartContentModeration' {} a -> s {jobTag = a} :: StartContentModeration)
 
 -- | The video in which you want to detect unsafe content. The video must be
@@ -185,56 +186,58 @@ instance Core.AWSRequest StartContentModeration where
     Response.receiveJSON
       ( \s h x ->
           StartContentModerationResponse'
-            Core.<$> (x Core..?> "JobId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartContentModeration
+instance Prelude.Hashable StartContentModeration
 
-instance Core.NFData StartContentModeration
+instance Prelude.NFData StartContentModeration
 
 instance Core.ToHeaders StartContentModeration where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "RekognitionService.StartContentModeration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartContentModeration where
   toJSON StartContentModeration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("NotificationChannel" Core..=)
-              Core.<$> notificationChannel,
-            ("MinConfidence" Core..=) Core.<$> minConfidence,
+              Prelude.<$> notificationChannel,
+            ("MinConfidence" Core..=) Prelude.<$> minConfidence,
             ("ClientRequestToken" Core..=)
-              Core.<$> clientRequestToken,
-            ("JobTag" Core..=) Core.<$> jobTag,
-            Core.Just ("Video" Core..= video)
+              Prelude.<$> clientRequestToken,
+            ("JobTag" Core..=) Prelude.<$> jobTag,
+            Prelude.Just ("Video" Core..= video)
           ]
       )
 
 instance Core.ToPath StartContentModeration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartContentModeration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartContentModerationResponse' smart constructor.
 data StartContentModerationResponse = StartContentModerationResponse'
   { -- | The identifier for the unsafe content analysis job. Use @JobId@ to
     -- identify the job in a subsequent call to @GetContentModeration@.
-    jobId :: Core.Maybe Core.Text,
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartContentModerationResponse' with all optional fields omitted.
@@ -250,22 +253,24 @@ data StartContentModerationResponse = StartContentModerationResponse'
 -- 'httpStatus', 'startContentModerationResponse_httpStatus' - The response's http status code.
 newStartContentModerationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartContentModerationResponse
 newStartContentModerationResponse pHttpStatus_ =
   StartContentModerationResponse'
     { jobId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier for the unsafe content analysis job. Use @JobId@ to
 -- identify the job in a subsequent call to @GetContentModeration@.
-startContentModerationResponse_jobId :: Lens.Lens' StartContentModerationResponse (Core.Maybe Core.Text)
+startContentModerationResponse_jobId :: Lens.Lens' StartContentModerationResponse (Prelude.Maybe Prelude.Text)
 startContentModerationResponse_jobId = Lens.lens (\StartContentModerationResponse' {jobId} -> jobId) (\s@StartContentModerationResponse' {} a -> s {jobId = a} :: StartContentModerationResponse)
 
 -- | The response's http status code.
-startContentModerationResponse_httpStatus :: Lens.Lens' StartContentModerationResponse Core.Int
+startContentModerationResponse_httpStatus :: Lens.Lens' StartContentModerationResponse Prelude.Int
 startContentModerationResponse_httpStatus = Lens.lens (\StartContentModerationResponse' {httpStatus} -> httpStatus) (\s@StartContentModerationResponse' {} a -> s {httpStatus = a} :: StartContentModerationResponse)
 
-instance Core.NFData StartContentModerationResponse
+instance
+  Prelude.NFData
+    StartContentModerationResponse

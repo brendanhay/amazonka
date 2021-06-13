@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -53,15 +54,15 @@ data RemoveRoleFromDBCluster = RemoveRoleFromDBCluster'
   { -- | The name of the feature for the DB cluster that the IAM role is to be
     -- disassociated from. For the list of supported feature names, see
     -- DBEngineVersion.
-    featureName :: Core.Maybe Core.Text,
+    featureName :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB cluster to disassociate the IAM role from.
-    dbClusterIdentifier :: Core.Text,
+    dbClusterIdentifier :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role to disassociate from the
     -- Aurora DB cluster, for example
     -- @arn:aws:iam::123456789012:role\/AuroraAccessRole@.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveRoleFromDBCluster' with all optional fields omitted.
@@ -82,16 +83,16 @@ data RemoveRoleFromDBCluster = RemoveRoleFromDBCluster'
 -- @arn:aws:iam::123456789012:role\/AuroraAccessRole@.
 newRemoveRoleFromDBCluster ::
   -- | 'dbClusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   RemoveRoleFromDBCluster
 newRemoveRoleFromDBCluster
   pDBClusterIdentifier_
   pRoleArn_ =
     RemoveRoleFromDBCluster'
       { featureName =
-          Core.Nothing,
+          Prelude.Nothing,
         dbClusterIdentifier = pDBClusterIdentifier_,
         roleArn = pRoleArn_
       }
@@ -99,17 +100,17 @@ newRemoveRoleFromDBCluster
 -- | The name of the feature for the DB cluster that the IAM role is to be
 -- disassociated from. For the list of supported feature names, see
 -- DBEngineVersion.
-removeRoleFromDBCluster_featureName :: Lens.Lens' RemoveRoleFromDBCluster (Core.Maybe Core.Text)
+removeRoleFromDBCluster_featureName :: Lens.Lens' RemoveRoleFromDBCluster (Prelude.Maybe Prelude.Text)
 removeRoleFromDBCluster_featureName = Lens.lens (\RemoveRoleFromDBCluster' {featureName} -> featureName) (\s@RemoveRoleFromDBCluster' {} a -> s {featureName = a} :: RemoveRoleFromDBCluster)
 
 -- | The name of the DB cluster to disassociate the IAM role from.
-removeRoleFromDBCluster_dbClusterIdentifier :: Lens.Lens' RemoveRoleFromDBCluster Core.Text
+removeRoleFromDBCluster_dbClusterIdentifier :: Lens.Lens' RemoveRoleFromDBCluster Prelude.Text
 removeRoleFromDBCluster_dbClusterIdentifier = Lens.lens (\RemoveRoleFromDBCluster' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@RemoveRoleFromDBCluster' {} a -> s {dbClusterIdentifier = a} :: RemoveRoleFromDBCluster)
 
 -- | The Amazon Resource Name (ARN) of the IAM role to disassociate from the
 -- Aurora DB cluster, for example
 -- @arn:aws:iam::123456789012:role\/AuroraAccessRole@.
-removeRoleFromDBCluster_roleArn :: Lens.Lens' RemoveRoleFromDBCluster Core.Text
+removeRoleFromDBCluster_roleArn :: Lens.Lens' RemoveRoleFromDBCluster Prelude.Text
 removeRoleFromDBCluster_roleArn = Lens.lens (\RemoveRoleFromDBCluster' {roleArn} -> roleArn) (\s@RemoveRoleFromDBCluster' {} a -> s {roleArn = a} :: RemoveRoleFromDBCluster)
 
 instance Core.AWSRequest RemoveRoleFromDBCluster where
@@ -121,22 +122,23 @@ instance Core.AWSRequest RemoveRoleFromDBCluster where
     Response.receiveNull
       RemoveRoleFromDBClusterResponse'
 
-instance Core.Hashable RemoveRoleFromDBCluster
+instance Prelude.Hashable RemoveRoleFromDBCluster
 
-instance Core.NFData RemoveRoleFromDBCluster
+instance Prelude.NFData RemoveRoleFromDBCluster
 
 instance Core.ToHeaders RemoveRoleFromDBCluster where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath RemoveRoleFromDBCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RemoveRoleFromDBCluster where
   toQuery RemoveRoleFromDBCluster' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("RemoveRoleFromDBCluster" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("RemoveRoleFromDBCluster" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "FeatureName" Core.=: featureName,
         "DBClusterIdentifier" Core.=: dbClusterIdentifier,
         "RoleArn" Core.=: roleArn
@@ -146,7 +148,7 @@ instance Core.ToQuery RemoveRoleFromDBCluster where
 data RemoveRoleFromDBClusterResponse = RemoveRoleFromDBClusterResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveRoleFromDBClusterResponse' with all optional fields omitted.
@@ -157,4 +159,6 @@ newRemoveRoleFromDBClusterResponse ::
 newRemoveRoleFromDBClusterResponse =
   RemoveRoleFromDBClusterResponse'
 
-instance Core.NFData RemoveRoleFromDBClusterResponse
+instance
+  Prelude.NFData
+    RemoveRoleFromDBClusterResponse

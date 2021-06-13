@@ -22,6 +22,7 @@ module Network.AWS.CertificateManagerPCA.Types.AccessMethod where
 import Network.AWS.CertificateManagerPCA.Types.AccessMethodType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the type and format of extension access. Only one of
 -- @CustomObjectIdentifier@ or @AccessMethodType@ may be provided.
@@ -30,14 +31,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAccessMethod' smart constructor.
 data AccessMethod = AccessMethod'
   { -- | Specifies the @AccessMethod@.
-    accessMethodType :: Core.Maybe AccessMethodType,
+    accessMethodType :: Prelude.Maybe AccessMethodType,
     -- | An object identifier (OID) specifying the @AccessMethod@. The OID must
     -- satisfy the regular expression shown below. For more information, see
     -- NIST\'s definition of
     -- <https://csrc.nist.gov/glossary/term/Object_Identifier Object Identifier (OID)>.
-    customObjectIdentifier :: Core.Maybe Core.Text
+    customObjectIdentifier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccessMethod' with all optional fields omitted.
@@ -57,19 +58,19 @@ newAccessMethod ::
   AccessMethod
 newAccessMethod =
   AccessMethod'
-    { accessMethodType = Core.Nothing,
-      customObjectIdentifier = Core.Nothing
+    { accessMethodType = Prelude.Nothing,
+      customObjectIdentifier = Prelude.Nothing
     }
 
 -- | Specifies the @AccessMethod@.
-accessMethod_accessMethodType :: Lens.Lens' AccessMethod (Core.Maybe AccessMethodType)
+accessMethod_accessMethodType :: Lens.Lens' AccessMethod (Prelude.Maybe AccessMethodType)
 accessMethod_accessMethodType = Lens.lens (\AccessMethod' {accessMethodType} -> accessMethodType) (\s@AccessMethod' {} a -> s {accessMethodType = a} :: AccessMethod)
 
 -- | An object identifier (OID) specifying the @AccessMethod@. The OID must
 -- satisfy the regular expression shown below. For more information, see
 -- NIST\'s definition of
 -- <https://csrc.nist.gov/glossary/term/Object_Identifier Object Identifier (OID)>.
-accessMethod_customObjectIdentifier :: Lens.Lens' AccessMethod (Core.Maybe Core.Text)
+accessMethod_customObjectIdentifier :: Lens.Lens' AccessMethod (Prelude.Maybe Prelude.Text)
 accessMethod_customObjectIdentifier = Lens.lens (\AccessMethod' {customObjectIdentifier} -> customObjectIdentifier) (\s@AccessMethod' {} a -> s {customObjectIdentifier = a} :: AccessMethod)
 
 instance Core.FromJSON AccessMethod where
@@ -78,21 +79,21 @@ instance Core.FromJSON AccessMethod where
       "AccessMethod"
       ( \x ->
           AccessMethod'
-            Core.<$> (x Core..:? "AccessMethodType")
-            Core.<*> (x Core..:? "CustomObjectIdentifier")
+            Prelude.<$> (x Core..:? "AccessMethodType")
+            Prelude.<*> (x Core..:? "CustomObjectIdentifier")
       )
 
-instance Core.Hashable AccessMethod
+instance Prelude.Hashable AccessMethod
 
-instance Core.NFData AccessMethod
+instance Prelude.NFData AccessMethod
 
 instance Core.ToJSON AccessMethod where
   toJSON AccessMethod' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AccessMethodType" Core..=)
-              Core.<$> accessMethodType,
+              Prelude.<$> accessMethodType,
             ("CustomObjectIdentifier" Core..=)
-              Core.<$> customObjectIdentifier
+              Prelude.<$> customObjectIdentifier
           ]
       )

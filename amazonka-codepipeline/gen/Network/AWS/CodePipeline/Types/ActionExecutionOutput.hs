@@ -23,6 +23,7 @@ import Network.AWS.CodePipeline.Types.ActionExecutionResult
 import Network.AWS.CodePipeline.Types.ArtifactDetail
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Output details listed for an action execution, such as the action
 -- execution result.
@@ -31,15 +32,15 @@ import qualified Network.AWS.Lens as Lens
 data ActionExecutionOutput = ActionExecutionOutput'
   { -- | Execution result information listed in the output details for an action
     -- execution.
-    executionResult :: Core.Maybe ActionExecutionResult,
+    executionResult :: Prelude.Maybe ActionExecutionResult,
     -- | The outputVariables field shows the key-value pairs that were output as
     -- part of that execution.
-    outputVariables :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    outputVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Details of output artifacts of the action that correspond to the action
     -- execution.
-    outputArtifacts :: Core.Maybe [ArtifactDetail]
+    outputArtifacts :: Prelude.Maybe [ArtifactDetail]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActionExecutionOutput' with all optional fields omitted.
@@ -62,25 +63,25 @@ newActionExecutionOutput ::
 newActionExecutionOutput =
   ActionExecutionOutput'
     { executionResult =
-        Core.Nothing,
-      outputVariables = Core.Nothing,
-      outputArtifacts = Core.Nothing
+        Prelude.Nothing,
+      outputVariables = Prelude.Nothing,
+      outputArtifacts = Prelude.Nothing
     }
 
 -- | Execution result information listed in the output details for an action
 -- execution.
-actionExecutionOutput_executionResult :: Lens.Lens' ActionExecutionOutput (Core.Maybe ActionExecutionResult)
+actionExecutionOutput_executionResult :: Lens.Lens' ActionExecutionOutput (Prelude.Maybe ActionExecutionResult)
 actionExecutionOutput_executionResult = Lens.lens (\ActionExecutionOutput' {executionResult} -> executionResult) (\s@ActionExecutionOutput' {} a -> s {executionResult = a} :: ActionExecutionOutput)
 
 -- | The outputVariables field shows the key-value pairs that were output as
 -- part of that execution.
-actionExecutionOutput_outputVariables :: Lens.Lens' ActionExecutionOutput (Core.Maybe (Core.HashMap Core.Text Core.Text))
-actionExecutionOutput_outputVariables = Lens.lens (\ActionExecutionOutput' {outputVariables} -> outputVariables) (\s@ActionExecutionOutput' {} a -> s {outputVariables = a} :: ActionExecutionOutput) Core.. Lens.mapping Lens._Coerce
+actionExecutionOutput_outputVariables :: Lens.Lens' ActionExecutionOutput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+actionExecutionOutput_outputVariables = Lens.lens (\ActionExecutionOutput' {outputVariables} -> outputVariables) (\s@ActionExecutionOutput' {} a -> s {outputVariables = a} :: ActionExecutionOutput) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Details of output artifacts of the action that correspond to the action
 -- execution.
-actionExecutionOutput_outputArtifacts :: Lens.Lens' ActionExecutionOutput (Core.Maybe [ArtifactDetail])
-actionExecutionOutput_outputArtifacts = Lens.lens (\ActionExecutionOutput' {outputArtifacts} -> outputArtifacts) (\s@ActionExecutionOutput' {} a -> s {outputArtifacts = a} :: ActionExecutionOutput) Core.. Lens.mapping Lens._Coerce
+actionExecutionOutput_outputArtifacts :: Lens.Lens' ActionExecutionOutput (Prelude.Maybe [ArtifactDetail])
+actionExecutionOutput_outputArtifacts = Lens.lens (\ActionExecutionOutput' {outputArtifacts} -> outputArtifacts) (\s@ActionExecutionOutput' {} a -> s {outputArtifacts = a} :: ActionExecutionOutput) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ActionExecutionOutput where
   parseJSON =
@@ -88,11 +89,15 @@ instance Core.FromJSON ActionExecutionOutput where
       "ActionExecutionOutput"
       ( \x ->
           ActionExecutionOutput'
-            Core.<$> (x Core..:? "executionResult")
-            Core.<*> (x Core..:? "outputVariables" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "outputArtifacts" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "executionResult")
+            Prelude.<*> ( x Core..:? "outputVariables"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "outputArtifacts"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable ActionExecutionOutput
+instance Prelude.Hashable ActionExecutionOutput
 
-instance Core.NFData ActionExecutionOutput
+instance Prelude.NFData ActionExecutionOutput

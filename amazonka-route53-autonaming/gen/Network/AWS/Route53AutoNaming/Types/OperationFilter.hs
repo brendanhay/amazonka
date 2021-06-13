@@ -21,6 +21,7 @@ module Network.AWS.Route53AutoNaming.Types.OperationFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53AutoNaming.Types.FilterCondition
 import Network.AWS.Route53AutoNaming.Types.OperationFilterName
 
@@ -45,7 +46,7 @@ data OperationFilter = OperationFilter'
     -- -   @BETWEEN@: Specify a start date and an end date in Unix date\/time
     --     format and Coordinated Universal Time (UTC). The start date must be
     --     the first value. @BETWEEN@ is supported for @UPDATE_DATE@.
-    condition :: Core.Maybe FilterCondition,
+    condition :: Prelude.Maybe FilterCondition,
     -- | Specify the operations that you want to get:
     --
     -- -   __NAMESPACE_ID__: Gets operations related to specified namespaces.
@@ -77,9 +78,9 @@ data OperationFilter = OperationFilter'
     -- -   __UPDATE_DATE__: Specify a start date and an end date in Unix
     --     date\/time format and Coordinated Universal Time (UTC). The start
     --     date must be the first value.
-    values :: [Core.Text]
+    values :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OperationFilter' with all optional fields omitted.
@@ -143,9 +144,9 @@ newOperationFilter ::
   OperationFilter
 newOperationFilter pName_ =
   OperationFilter'
-    { condition = Core.Nothing,
+    { condition = Prelude.Nothing,
       name = pName_,
-      values = Core.mempty
+      values = Prelude.mempty
     }
 
 -- | The operator that you want to use to determine whether an operation
@@ -164,7 +165,7 @@ newOperationFilter pName_ =
 -- -   @BETWEEN@: Specify a start date and an end date in Unix date\/time
 --     format and Coordinated Universal Time (UTC). The start date must be
 --     the first value. @BETWEEN@ is supported for @UPDATE_DATE@.
-operationFilter_condition :: Lens.Lens' OperationFilter (Core.Maybe FilterCondition)
+operationFilter_condition :: Lens.Lens' OperationFilter (Prelude.Maybe FilterCondition)
 operationFilter_condition = Lens.lens (\OperationFilter' {condition} -> condition) (\s@OperationFilter' {} a -> s {condition = a} :: OperationFilter)
 
 -- | Specify the operations that you want to get:
@@ -200,19 +201,19 @@ operationFilter_name = Lens.lens (\OperationFilter' {name} -> name) (\s@Operatio
 -- -   __UPDATE_DATE__: Specify a start date and an end date in Unix
 --     date\/time format and Coordinated Universal Time (UTC). The start
 --     date must be the first value.
-operationFilter_values :: Lens.Lens' OperationFilter [Core.Text]
-operationFilter_values = Lens.lens (\OperationFilter' {values} -> values) (\s@OperationFilter' {} a -> s {values = a} :: OperationFilter) Core.. Lens._Coerce
+operationFilter_values :: Lens.Lens' OperationFilter [Prelude.Text]
+operationFilter_values = Lens.lens (\OperationFilter' {values} -> values) (\s@OperationFilter' {} a -> s {values = a} :: OperationFilter) Prelude.. Lens._Coerce
 
-instance Core.Hashable OperationFilter
+instance Prelude.Hashable OperationFilter
 
-instance Core.NFData OperationFilter
+instance Prelude.NFData OperationFilter
 
 instance Core.ToJSON OperationFilter where
   toJSON OperationFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Condition" Core..=) Core.<$> condition,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("Values" Core..= values)
+      ( Prelude.catMaybes
+          [ ("Condition" Core..=) Prelude.<$> condition,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Values" Core..= values)
           ]
       )

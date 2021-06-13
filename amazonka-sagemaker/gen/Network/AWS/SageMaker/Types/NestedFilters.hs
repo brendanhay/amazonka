@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.NestedFilters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.Filter
 
 -- | A list of nested Filter objects. A resource must satisfy the conditions
@@ -39,15 +40,15 @@ import Network.AWS.SageMaker.Types.Filter
 data NestedFilters = NestedFilters'
   { -- | The name of the property to use in the nested filters. The value must
     -- match a listed property name, such as @InputDataConfig@.
-    nestedPropertyName :: Core.Text,
+    nestedPropertyName :: Prelude.Text,
     -- | A list of filters. Each filter acts on a property. Filters must contain
     -- at least one @Filters@ value. For example, a @NestedFilters@ call might
     -- include a filter on the @PropertyName@ parameter of the
     -- @InputDataConfig@ property:
     -- @InputDataConfig.DataSource.S3DataSource.S3Uri@.
-    filters :: Core.NonEmpty Filter
+    filters :: Prelude.NonEmpty Filter
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NestedFilters' with all optional fields omitted.
@@ -67,9 +68,9 @@ data NestedFilters = NestedFilters'
 -- @InputDataConfig.DataSource.S3DataSource.S3Uri@.
 newNestedFilters ::
   -- | 'nestedPropertyName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'filters'
-  Core.NonEmpty Filter ->
+  Prelude.NonEmpty Filter ->
   NestedFilters
 newNestedFilters pNestedPropertyName_ pFilters_ =
   NestedFilters'
@@ -80,7 +81,7 @@ newNestedFilters pNestedPropertyName_ pFilters_ =
 
 -- | The name of the property to use in the nested filters. The value must
 -- match a listed property name, such as @InputDataConfig@.
-nestedFilters_nestedPropertyName :: Lens.Lens' NestedFilters Core.Text
+nestedFilters_nestedPropertyName :: Lens.Lens' NestedFilters Prelude.Text
 nestedFilters_nestedPropertyName = Lens.lens (\NestedFilters' {nestedPropertyName} -> nestedPropertyName) (\s@NestedFilters' {} a -> s {nestedPropertyName = a} :: NestedFilters)
 
 -- | A list of filters. Each filter acts on a property. Filters must contain
@@ -88,19 +89,19 @@ nestedFilters_nestedPropertyName = Lens.lens (\NestedFilters' {nestedPropertyNam
 -- include a filter on the @PropertyName@ parameter of the
 -- @InputDataConfig@ property:
 -- @InputDataConfig.DataSource.S3DataSource.S3Uri@.
-nestedFilters_filters :: Lens.Lens' NestedFilters (Core.NonEmpty Filter)
-nestedFilters_filters = Lens.lens (\NestedFilters' {filters} -> filters) (\s@NestedFilters' {} a -> s {filters = a} :: NestedFilters) Core.. Lens._Coerce
+nestedFilters_filters :: Lens.Lens' NestedFilters (Prelude.NonEmpty Filter)
+nestedFilters_filters = Lens.lens (\NestedFilters' {filters} -> filters) (\s@NestedFilters' {} a -> s {filters = a} :: NestedFilters) Prelude.. Lens._Coerce
 
-instance Core.Hashable NestedFilters
+instance Prelude.Hashable NestedFilters
 
-instance Core.NFData NestedFilters
+instance Prelude.NFData NestedFilters
 
 instance Core.ToJSON NestedFilters where
   toJSON NestedFilters' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("NestedPropertyName" Core..= nestedPropertyName),
-            Core.Just ("Filters" Core..= filters)
+            Prelude.Just ("Filters" Core..= filters)
           ]
       )

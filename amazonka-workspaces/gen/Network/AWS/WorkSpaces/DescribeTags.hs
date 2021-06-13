@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -50,9 +51,9 @@ data DescribeTags = DescribeTags'
   { -- | The identifier of the WorkSpaces resource. The supported resource types
     -- are WorkSpaces, registered directories, images, custom bundles, IP
     -- access control groups, and connection aliases.
-    resourceId :: Core.Text
+    resourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTags' with all optional fields omitted.
@@ -67,7 +68,7 @@ data DescribeTags = DescribeTags'
 -- access control groups, and connection aliases.
 newDescribeTags ::
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeTags
 newDescribeTags pResourceId_ =
   DescribeTags' {resourceId = pResourceId_}
@@ -75,7 +76,7 @@ newDescribeTags pResourceId_ =
 -- | The identifier of the WorkSpaces resource. The supported resource types
 -- are WorkSpaces, registered directories, images, custom bundles, IP
 -- access control groups, and connection aliases.
-describeTags_resourceId :: Lens.Lens' DescribeTags Core.Text
+describeTags_resourceId :: Lens.Lens' DescribeTags Prelude.Text
 describeTags_resourceId = Lens.lens (\DescribeTags' {resourceId} -> resourceId) (\s@DescribeTags' {} a -> s {resourceId = a} :: DescribeTags)
 
 instance Core.AWSRequest DescribeTags where
@@ -85,48 +86,50 @@ instance Core.AWSRequest DescribeTags where
     Response.receiveJSON
       ( \s h x ->
           DescribeTagsResponse'
-            Core.<$> (x Core..?> "TagList" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TagList" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeTags
+instance Prelude.Hashable DescribeTags
 
-instance Core.NFData DescribeTags
+instance Prelude.NFData DescribeTags
 
 instance Core.ToHeaders DescribeTags where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.DescribeTags" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeTags where
   toJSON DescribeTags' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ResourceId" Core..= resourceId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ResourceId" Core..= resourceId)]
       )
 
 instance Core.ToPath DescribeTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeTags where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
   { -- | The tags.
-    tagList :: Core.Maybe [Tag],
+    tagList :: Prelude.Maybe [Tag],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTagsResponse' with all optional fields omitted.
@@ -141,20 +144,20 @@ data DescribeTagsResponse = DescribeTagsResponse'
 -- 'httpStatus', 'describeTagsResponse_httpStatus' - The response's http status code.
 newDescribeTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeTagsResponse
 newDescribeTagsResponse pHttpStatus_ =
   DescribeTagsResponse'
-    { tagList = Core.Nothing,
+    { tagList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The tags.
-describeTagsResponse_tagList :: Lens.Lens' DescribeTagsResponse (Core.Maybe [Tag])
-describeTagsResponse_tagList = Lens.lens (\DescribeTagsResponse' {tagList} -> tagList) (\s@DescribeTagsResponse' {} a -> s {tagList = a} :: DescribeTagsResponse) Core.. Lens.mapping Lens._Coerce
+describeTagsResponse_tagList :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe [Tag])
+describeTagsResponse_tagList = Lens.lens (\DescribeTagsResponse' {tagList} -> tagList) (\s@DescribeTagsResponse' {} a -> s {tagList = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Core.Int
+describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int
 describeTagsResponse_httpStatus = Lens.lens (\DescribeTagsResponse' {httpStatus} -> httpStatus) (\s@DescribeTagsResponse' {} a -> s {httpStatus = a} :: DescribeTagsResponse)
 
-instance Core.NFData DescribeTagsResponse
+instance Prelude.NFData DescribeTagsResponse

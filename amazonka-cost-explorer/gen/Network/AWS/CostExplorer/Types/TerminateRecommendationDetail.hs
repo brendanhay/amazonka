@@ -21,18 +21,19 @@ module Network.AWS.CostExplorer.Types.TerminateRecommendationDetail where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details on termination recommendation.
 --
 -- /See:/ 'newTerminateRecommendationDetail' smart constructor.
 data TerminateRecommendationDetail = TerminateRecommendationDetail'
   { -- | Estimated savings resulting from modification, on a monthly basis.
-    estimatedMonthlySavings :: Core.Maybe Core.Text,
+    estimatedMonthlySavings :: Prelude.Maybe Prelude.Text,
     -- | The currency code that AWS used to calculate the costs for this
     -- instance.
-    currencyCode :: Core.Maybe Core.Text
+    currencyCode :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TerminateRecommendationDetail' with all optional fields omitted.
@@ -51,17 +52,17 @@ newTerminateRecommendationDetail ::
 newTerminateRecommendationDetail =
   TerminateRecommendationDetail'
     { estimatedMonthlySavings =
-        Core.Nothing,
-      currencyCode = Core.Nothing
+        Prelude.Nothing,
+      currencyCode = Prelude.Nothing
     }
 
 -- | Estimated savings resulting from modification, on a monthly basis.
-terminateRecommendationDetail_estimatedMonthlySavings :: Lens.Lens' TerminateRecommendationDetail (Core.Maybe Core.Text)
+terminateRecommendationDetail_estimatedMonthlySavings :: Lens.Lens' TerminateRecommendationDetail (Prelude.Maybe Prelude.Text)
 terminateRecommendationDetail_estimatedMonthlySavings = Lens.lens (\TerminateRecommendationDetail' {estimatedMonthlySavings} -> estimatedMonthlySavings) (\s@TerminateRecommendationDetail' {} a -> s {estimatedMonthlySavings = a} :: TerminateRecommendationDetail)
 
 -- | The currency code that AWS used to calculate the costs for this
 -- instance.
-terminateRecommendationDetail_currencyCode :: Lens.Lens' TerminateRecommendationDetail (Core.Maybe Core.Text)
+terminateRecommendationDetail_currencyCode :: Lens.Lens' TerminateRecommendationDetail (Prelude.Maybe Prelude.Text)
 terminateRecommendationDetail_currencyCode = Lens.lens (\TerminateRecommendationDetail' {currencyCode} -> currencyCode) (\s@TerminateRecommendationDetail' {} a -> s {currencyCode = a} :: TerminateRecommendationDetail)
 
 instance Core.FromJSON TerminateRecommendationDetail where
@@ -70,10 +71,12 @@ instance Core.FromJSON TerminateRecommendationDetail where
       "TerminateRecommendationDetail"
       ( \x ->
           TerminateRecommendationDetail'
-            Core.<$> (x Core..:? "EstimatedMonthlySavings")
-            Core.<*> (x Core..:? "CurrencyCode")
+            Prelude.<$> (x Core..:? "EstimatedMonthlySavings")
+            Prelude.<*> (x Core..:? "CurrencyCode")
       )
 
-instance Core.Hashable TerminateRecommendationDetail
+instance
+  Prelude.Hashable
+    TerminateRecommendationDetail
 
-instance Core.NFData TerminateRecommendationDetail
+instance Prelude.NFData TerminateRecommendationDetail

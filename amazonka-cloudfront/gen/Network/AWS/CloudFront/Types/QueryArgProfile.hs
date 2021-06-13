@@ -21,6 +21,7 @@ module Network.AWS.CloudFront.Types.QueryArgProfile where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Query argument-profile mapping for field-level encryption.
 --
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 data QueryArgProfile = QueryArgProfile'
   { -- | Query argument for field-level encryption query argument-profile
     -- mapping.
-    queryArg :: Core.Text,
+    queryArg :: Prelude.Text,
     -- | ID of profile to use for field-level encryption query argument-profile
     -- mapping
-    profileId :: Core.Text
+    profileId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QueryArgProfile' with all optional fields omitted.
@@ -50,9 +51,9 @@ data QueryArgProfile = QueryArgProfile'
 -- mapping
 newQueryArgProfile ::
   -- | 'queryArg'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'profileId'
-  Core.Text ->
+  Prelude.Text ->
   QueryArgProfile
 newQueryArgProfile pQueryArg_ pProfileId_ =
   QueryArgProfile'
@@ -62,27 +63,27 @@ newQueryArgProfile pQueryArg_ pProfileId_ =
 
 -- | Query argument for field-level encryption query argument-profile
 -- mapping.
-queryArgProfile_queryArg :: Lens.Lens' QueryArgProfile Core.Text
+queryArgProfile_queryArg :: Lens.Lens' QueryArgProfile Prelude.Text
 queryArgProfile_queryArg = Lens.lens (\QueryArgProfile' {queryArg} -> queryArg) (\s@QueryArgProfile' {} a -> s {queryArg = a} :: QueryArgProfile)
 
 -- | ID of profile to use for field-level encryption query argument-profile
 -- mapping
-queryArgProfile_profileId :: Lens.Lens' QueryArgProfile Core.Text
+queryArgProfile_profileId :: Lens.Lens' QueryArgProfile Prelude.Text
 queryArgProfile_profileId = Lens.lens (\QueryArgProfile' {profileId} -> profileId) (\s@QueryArgProfile' {} a -> s {profileId = a} :: QueryArgProfile)
 
 instance Core.FromXML QueryArgProfile where
   parseXML x =
     QueryArgProfile'
-      Core.<$> (x Core..@ "QueryArg")
-      Core.<*> (x Core..@ "ProfileId")
+      Prelude.<$> (x Core..@ "QueryArg")
+      Prelude.<*> (x Core..@ "ProfileId")
 
-instance Core.Hashable QueryArgProfile
+instance Prelude.Hashable QueryArgProfile
 
-instance Core.NFData QueryArgProfile
+instance Prelude.NFData QueryArgProfile
 
 instance Core.ToXML QueryArgProfile where
   toXML QueryArgProfile' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "QueryArg" Core.@= queryArg,
         "ProfileId" Core.@= profileId
       ]

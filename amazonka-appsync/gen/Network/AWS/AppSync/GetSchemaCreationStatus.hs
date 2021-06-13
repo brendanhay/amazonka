@@ -43,15 +43,16 @@ where
 import Network.AWS.AppSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetSchemaCreationStatus' smart constructor.
 data GetSchemaCreationStatus = GetSchemaCreationStatus'
   { -- | The API ID.
-    apiId :: Core.Text
+    apiId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSchemaCreationStatus' with all optional fields omitted.
@@ -64,13 +65,13 @@ data GetSchemaCreationStatus = GetSchemaCreationStatus'
 -- 'apiId', 'getSchemaCreationStatus_apiId' - The API ID.
 newGetSchemaCreationStatus ::
   -- | 'apiId'
-  Core.Text ->
+  Prelude.Text ->
   GetSchemaCreationStatus
 newGetSchemaCreationStatus pApiId_ =
   GetSchemaCreationStatus' {apiId = pApiId_}
 
 -- | The API ID.
-getSchemaCreationStatus_apiId :: Lens.Lens' GetSchemaCreationStatus Core.Text
+getSchemaCreationStatus_apiId :: Lens.Lens' GetSchemaCreationStatus Prelude.Text
 getSchemaCreationStatus_apiId = Lens.lens (\GetSchemaCreationStatus' {apiId} -> apiId) (\s@GetSchemaCreationStatus' {} a -> s {apiId = a} :: GetSchemaCreationStatus)
 
 instance Core.AWSRequest GetSchemaCreationStatus where
@@ -82,44 +83,46 @@ instance Core.AWSRequest GetSchemaCreationStatus where
     Response.receiveJSON
       ( \s h x ->
           GetSchemaCreationStatusResponse'
-            Core.<$> (x Core..?> "status")
-            Core.<*> (x Core..?> "details")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "status")
+            Prelude.<*> (x Core..?> "details")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSchemaCreationStatus
+instance Prelude.Hashable GetSchemaCreationStatus
 
-instance Core.NFData GetSchemaCreationStatus
+instance Prelude.NFData GetSchemaCreationStatus
 
 instance Core.ToHeaders GetSchemaCreationStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetSchemaCreationStatus where
   toPath GetSchemaCreationStatus' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/apis/", Core.toBS apiId, "/schemacreation"]
 
 instance Core.ToQuery GetSchemaCreationStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSchemaCreationStatusResponse' smart constructor.
 data GetSchemaCreationStatusResponse = GetSchemaCreationStatusResponse'
   { -- | The current state of the schema (PROCESSING, FAILED, SUCCESS, or
     -- NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add
     -- data.
-    status :: Core.Maybe SchemaStatus,
+    status :: Prelude.Maybe SchemaStatus,
     -- | Detailed information about the status of the schema creation operation.
-    details :: Core.Maybe Core.Text,
+    details :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSchemaCreationStatusResponse' with all optional fields omitted.
@@ -138,28 +141,30 @@ data GetSchemaCreationStatusResponse = GetSchemaCreationStatusResponse'
 -- 'httpStatus', 'getSchemaCreationStatusResponse_httpStatus' - The response's http status code.
 newGetSchemaCreationStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSchemaCreationStatusResponse
 newGetSchemaCreationStatusResponse pHttpStatus_ =
   GetSchemaCreationStatusResponse'
     { status =
-        Core.Nothing,
-      details = Core.Nothing,
+        Prelude.Nothing,
+      details = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current state of the schema (PROCESSING, FAILED, SUCCESS, or
 -- NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add
 -- data.
-getSchemaCreationStatusResponse_status :: Lens.Lens' GetSchemaCreationStatusResponse (Core.Maybe SchemaStatus)
+getSchemaCreationStatusResponse_status :: Lens.Lens' GetSchemaCreationStatusResponse (Prelude.Maybe SchemaStatus)
 getSchemaCreationStatusResponse_status = Lens.lens (\GetSchemaCreationStatusResponse' {status} -> status) (\s@GetSchemaCreationStatusResponse' {} a -> s {status = a} :: GetSchemaCreationStatusResponse)
 
 -- | Detailed information about the status of the schema creation operation.
-getSchemaCreationStatusResponse_details :: Lens.Lens' GetSchemaCreationStatusResponse (Core.Maybe Core.Text)
+getSchemaCreationStatusResponse_details :: Lens.Lens' GetSchemaCreationStatusResponse (Prelude.Maybe Prelude.Text)
 getSchemaCreationStatusResponse_details = Lens.lens (\GetSchemaCreationStatusResponse' {details} -> details) (\s@GetSchemaCreationStatusResponse' {} a -> s {details = a} :: GetSchemaCreationStatusResponse)
 
 -- | The response's http status code.
-getSchemaCreationStatusResponse_httpStatus :: Lens.Lens' GetSchemaCreationStatusResponse Core.Int
+getSchemaCreationStatusResponse_httpStatus :: Lens.Lens' GetSchemaCreationStatusResponse Prelude.Int
 getSchemaCreationStatusResponse_httpStatus = Lens.lens (\GetSchemaCreationStatusResponse' {httpStatus} -> httpStatus) (\s@GetSchemaCreationStatusResponse' {} a -> s {httpStatus = a} :: GetSchemaCreationStatusResponse)
 
-instance Core.NFData GetSchemaCreationStatusResponse
+instance
+  Prelude.NFData
+    GetSchemaCreationStatusResponse

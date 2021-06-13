@@ -21,6 +21,7 @@ module Network.AWS.DynamoDB.Types.ProvisionedThroughput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the provisioned throughput settings for a specified table or
 -- index. The settings can be modified using the @UpdateTable@ operation.
@@ -38,16 +39,16 @@ data ProvisionedThroughput = ProvisionedThroughput'
     -- in the /Amazon DynamoDB Developer Guide/.
     --
     -- If read\/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
-    readCapacityUnits :: Core.Natural,
+    readCapacityUnits :: Prelude.Natural,
     -- | The maximum number of writes consumed per second before DynamoDB returns
     -- a @ThrottlingException@. For more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
     -- in the /Amazon DynamoDB Developer Guide/.
     --
     -- If read\/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
-    writeCapacityUnits :: Core.Natural
+    writeCapacityUnits :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProvisionedThroughput' with all optional fields omitted.
@@ -73,9 +74,9 @@ data ProvisionedThroughput = ProvisionedThroughput'
 -- If read\/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
 newProvisionedThroughput ::
   -- | 'readCapacityUnits'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'writeCapacityUnits'
-  Core.Natural ->
+  Prelude.Natural ->
   ProvisionedThroughput
 newProvisionedThroughput
   pReadCapacityUnits_
@@ -93,7 +94,7 @@ newProvisionedThroughput
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- If read\/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
-provisionedThroughput_readCapacityUnits :: Lens.Lens' ProvisionedThroughput Core.Natural
+provisionedThroughput_readCapacityUnits :: Lens.Lens' ProvisionedThroughput Prelude.Natural
 provisionedThroughput_readCapacityUnits = Lens.lens (\ProvisionedThroughput' {readCapacityUnits} -> readCapacityUnits) (\s@ProvisionedThroughput' {} a -> s {readCapacityUnits = a} :: ProvisionedThroughput)
 
 -- | The maximum number of writes consumed per second before DynamoDB returns
@@ -102,7 +103,7 @@ provisionedThroughput_readCapacityUnits = Lens.lens (\ProvisionedThroughput' {re
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- If read\/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
-provisionedThroughput_writeCapacityUnits :: Lens.Lens' ProvisionedThroughput Core.Natural
+provisionedThroughput_writeCapacityUnits :: Lens.Lens' ProvisionedThroughput Prelude.Natural
 provisionedThroughput_writeCapacityUnits = Lens.lens (\ProvisionedThroughput' {writeCapacityUnits} -> writeCapacityUnits) (\s@ProvisionedThroughput' {} a -> s {writeCapacityUnits = a} :: ProvisionedThroughput)
 
 instance Core.FromJSON ProvisionedThroughput where
@@ -111,21 +112,21 @@ instance Core.FromJSON ProvisionedThroughput where
       "ProvisionedThroughput"
       ( \x ->
           ProvisionedThroughput'
-            Core.<$> (x Core..: "ReadCapacityUnits")
-            Core.<*> (x Core..: "WriteCapacityUnits")
+            Prelude.<$> (x Core..: "ReadCapacityUnits")
+            Prelude.<*> (x Core..: "WriteCapacityUnits")
       )
 
-instance Core.Hashable ProvisionedThroughput
+instance Prelude.Hashable ProvisionedThroughput
 
-instance Core.NFData ProvisionedThroughput
+instance Prelude.NFData ProvisionedThroughput
 
 instance Core.ToJSON ProvisionedThroughput where
   toJSON ProvisionedThroughput' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ReadCapacityUnits" Core..= readCapacityUnits),
-            Core.Just
+            Prelude.Just
               ("WriteCapacityUnits" Core..= writeCapacityUnits)
           ]
       )

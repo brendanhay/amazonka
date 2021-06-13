@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,13 +62,13 @@ import qualified Network.AWS.Response as Response
 data AllocateTransitVirtualInterface = AllocateTransitVirtualInterface'
   { -- | The ID of the connection on which the transit virtual interface is
     -- provisioned.
-    connectionId :: Core.Text,
+    connectionId :: Prelude.Text,
     -- | The ID of the AWS account that owns the transit virtual interface.
-    ownerAccount :: Core.Text,
+    ownerAccount :: Prelude.Text,
     -- | Information about the transit virtual interface.
     newTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AllocateTransitVirtualInterface' with all optional fields omitted.
@@ -85,9 +86,9 @@ data AllocateTransitVirtualInterface = AllocateTransitVirtualInterface'
 -- 'newTransitVirtualInterfaceAllocation'', 'allocateTransitVirtualInterface_newTransitVirtualInterfaceAllocation' - Information about the transit virtual interface.
 newAllocateTransitVirtualInterface ::
   -- | 'connectionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'ownerAccount'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'newTransitVirtualInterfaceAllocation''
   NewTransitVirtualInterfaceAllocation ->
   AllocateTransitVirtualInterface
@@ -105,11 +106,11 @@ newAllocateTransitVirtualInterface
 
 -- | The ID of the connection on which the transit virtual interface is
 -- provisioned.
-allocateTransitVirtualInterface_connectionId :: Lens.Lens' AllocateTransitVirtualInterface Core.Text
+allocateTransitVirtualInterface_connectionId :: Lens.Lens' AllocateTransitVirtualInterface Prelude.Text
 allocateTransitVirtualInterface_connectionId = Lens.lens (\AllocateTransitVirtualInterface' {connectionId} -> connectionId) (\s@AllocateTransitVirtualInterface' {} a -> s {connectionId = a} :: AllocateTransitVirtualInterface)
 
 -- | The ID of the AWS account that owns the transit virtual interface.
-allocateTransitVirtualInterface_ownerAccount :: Lens.Lens' AllocateTransitVirtualInterface Core.Text
+allocateTransitVirtualInterface_ownerAccount :: Lens.Lens' AllocateTransitVirtualInterface Prelude.Text
 allocateTransitVirtualInterface_ownerAccount = Lens.lens (\AllocateTransitVirtualInterface' {ownerAccount} -> ownerAccount) (\s@AllocateTransitVirtualInterface' {} a -> s {ownerAccount = a} :: AllocateTransitVirtualInterface)
 
 -- | Information about the transit virtual interface.
@@ -128,39 +129,43 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AllocateTransitVirtualInterfaceResponse'
-            Core.<$> (x Core..?> "virtualInterface")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "virtualInterface")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AllocateTransitVirtualInterface
 
-instance Core.NFData AllocateTransitVirtualInterface
+instance
+  Prelude.NFData
+    AllocateTransitVirtualInterface
 
 instance
   Core.ToHeaders
     AllocateTransitVirtualInterface
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.AllocateTransitVirtualInterface" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AllocateTransitVirtualInterface where
   toJSON AllocateTransitVirtualInterface' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("connectionId" Core..= connectionId),
-            Core.Just ("ownerAccount" Core..= ownerAccount),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("connectionId" Core..= connectionId),
+            Prelude.Just ("ownerAccount" Core..= ownerAccount),
+            Prelude.Just
               ( "newTransitVirtualInterfaceAllocation"
                   Core..= newTransitVirtualInterfaceAllocation'
               )
@@ -168,18 +173,18 @@ instance Core.ToJSON AllocateTransitVirtualInterface where
       )
 
 instance Core.ToPath AllocateTransitVirtualInterface where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AllocateTransitVirtualInterface where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAllocateTransitVirtualInterfaceResponse' smart constructor.
 data AllocateTransitVirtualInterfaceResponse = AllocateTransitVirtualInterfaceResponse'
-  { virtualInterface :: Core.Maybe VirtualInterface,
+  { virtualInterface :: Prelude.Maybe VirtualInterface,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AllocateTransitVirtualInterfaceResponse' with all optional fields omitted.
@@ -194,24 +199,24 @@ data AllocateTransitVirtualInterfaceResponse = AllocateTransitVirtualInterfaceRe
 -- 'httpStatus', 'allocateTransitVirtualInterfaceResponse_httpStatus' - The response's http status code.
 newAllocateTransitVirtualInterfaceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AllocateTransitVirtualInterfaceResponse
 newAllocateTransitVirtualInterfaceResponse
   pHttpStatus_ =
     AllocateTransitVirtualInterfaceResponse'
       { virtualInterface =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-allocateTransitVirtualInterfaceResponse_virtualInterface :: Lens.Lens' AllocateTransitVirtualInterfaceResponse (Core.Maybe VirtualInterface)
+allocateTransitVirtualInterfaceResponse_virtualInterface :: Lens.Lens' AllocateTransitVirtualInterfaceResponse (Prelude.Maybe VirtualInterface)
 allocateTransitVirtualInterfaceResponse_virtualInterface = Lens.lens (\AllocateTransitVirtualInterfaceResponse' {virtualInterface} -> virtualInterface) (\s@AllocateTransitVirtualInterfaceResponse' {} a -> s {virtualInterface = a} :: AllocateTransitVirtualInterfaceResponse)
 
 -- | The response's http status code.
-allocateTransitVirtualInterfaceResponse_httpStatus :: Lens.Lens' AllocateTransitVirtualInterfaceResponse Core.Int
+allocateTransitVirtualInterfaceResponse_httpStatus :: Lens.Lens' AllocateTransitVirtualInterfaceResponse Prelude.Int
 allocateTransitVirtualInterfaceResponse_httpStatus = Lens.lens (\AllocateTransitVirtualInterfaceResponse' {httpStatus} -> httpStatus) (\s@AllocateTransitVirtualInterfaceResponse' {} a -> s {httpStatus = a} :: AllocateTransitVirtualInterfaceResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AllocateTransitVirtualInterfaceResponse

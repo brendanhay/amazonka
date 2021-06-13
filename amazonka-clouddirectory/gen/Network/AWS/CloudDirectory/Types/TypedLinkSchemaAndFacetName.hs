@@ -21,6 +21,7 @@ module Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies the schema Amazon Resource Name (ARN) and facet name for the
 -- typed link.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 data TypedLinkSchemaAndFacetName = TypedLinkSchemaAndFacetName'
   { -- | The Amazon Resource Name (ARN) that is associated with the schema. For
     -- more information, see arns.
-    schemaArn :: Core.Text,
+    schemaArn :: Prelude.Text,
     -- | The unique name of the typed link facet.
-    typedLinkName :: Core.Text
+    typedLinkName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TypedLinkSchemaAndFacetName' with all optional fields omitted.
@@ -49,9 +50,9 @@ data TypedLinkSchemaAndFacetName = TypedLinkSchemaAndFacetName'
 -- 'typedLinkName', 'typedLinkSchemaAndFacetName_typedLinkName' - The unique name of the typed link facet.
 newTypedLinkSchemaAndFacetName ::
   -- | 'schemaArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'typedLinkName'
-  Core.Text ->
+  Prelude.Text ->
   TypedLinkSchemaAndFacetName
 newTypedLinkSchemaAndFacetName
   pSchemaArn_
@@ -64,11 +65,11 @@ newTypedLinkSchemaAndFacetName
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For
 -- more information, see arns.
-typedLinkSchemaAndFacetName_schemaArn :: Lens.Lens' TypedLinkSchemaAndFacetName Core.Text
+typedLinkSchemaAndFacetName_schemaArn :: Lens.Lens' TypedLinkSchemaAndFacetName Prelude.Text
 typedLinkSchemaAndFacetName_schemaArn = Lens.lens (\TypedLinkSchemaAndFacetName' {schemaArn} -> schemaArn) (\s@TypedLinkSchemaAndFacetName' {} a -> s {schemaArn = a} :: TypedLinkSchemaAndFacetName)
 
 -- | The unique name of the typed link facet.
-typedLinkSchemaAndFacetName_typedLinkName :: Lens.Lens' TypedLinkSchemaAndFacetName Core.Text
+typedLinkSchemaAndFacetName_typedLinkName :: Lens.Lens' TypedLinkSchemaAndFacetName Prelude.Text
 typedLinkSchemaAndFacetName_typedLinkName = Lens.lens (\TypedLinkSchemaAndFacetName' {typedLinkName} -> typedLinkName) (\s@TypedLinkSchemaAndFacetName' {} a -> s {typedLinkName = a} :: TypedLinkSchemaAndFacetName)
 
 instance Core.FromJSON TypedLinkSchemaAndFacetName where
@@ -77,19 +78,20 @@ instance Core.FromJSON TypedLinkSchemaAndFacetName where
       "TypedLinkSchemaAndFacetName"
       ( \x ->
           TypedLinkSchemaAndFacetName'
-            Core.<$> (x Core..: "SchemaArn")
-            Core.<*> (x Core..: "TypedLinkName")
+            Prelude.<$> (x Core..: "SchemaArn")
+            Prelude.<*> (x Core..: "TypedLinkName")
       )
 
-instance Core.Hashable TypedLinkSchemaAndFacetName
+instance Prelude.Hashable TypedLinkSchemaAndFacetName
 
-instance Core.NFData TypedLinkSchemaAndFacetName
+instance Prelude.NFData TypedLinkSchemaAndFacetName
 
 instance Core.ToJSON TypedLinkSchemaAndFacetName where
   toJSON TypedLinkSchemaAndFacetName' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("SchemaArn" Core..= schemaArn),
-            Core.Just ("TypedLinkName" Core..= typedLinkName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("SchemaArn" Core..= schemaArn),
+            Prelude.Just
+              ("TypedLinkName" Core..= typedLinkName)
           ]
       )

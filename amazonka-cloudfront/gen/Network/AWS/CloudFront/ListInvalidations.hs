@@ -46,6 +46,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,7 +56,7 @@ import qualified Network.AWS.Response as Response
 data ListInvalidations = ListInvalidations'
   { -- | The maximum number of invalidation batches that you want in the response
     -- body.
-    maxItems :: Core.Maybe Core.Text,
+    maxItems :: Prelude.Maybe Prelude.Text,
     -- | Use this parameter when paginating results to indicate where to begin in
     -- your list of invalidation batches. Because the results are returned in
     -- decreasing order from most recent to oldest, the most recent results are
@@ -63,11 +64,11 @@ data ListInvalidations = ListInvalidations'
     -- on. To get the next page of results, set @Marker@ to the value of the
     -- @NextMarker@ from the current page\'s response. This value is the same
     -- as the ID of the last invalidation batch on that page.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The distribution\'s ID.
-    distributionId :: Core.Text
+    distributionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListInvalidations' with all optional fields omitted.
@@ -91,18 +92,18 @@ data ListInvalidations = ListInvalidations'
 -- 'distributionId', 'listInvalidations_distributionId' - The distribution\'s ID.
 newListInvalidations ::
   -- | 'distributionId'
-  Core.Text ->
+  Prelude.Text ->
   ListInvalidations
 newListInvalidations pDistributionId_ =
   ListInvalidations'
-    { maxItems = Core.Nothing,
-      marker = Core.Nothing,
+    { maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing,
       distributionId = pDistributionId_
     }
 
 -- | The maximum number of invalidation batches that you want in the response
 -- body.
-listInvalidations_maxItems :: Lens.Lens' ListInvalidations (Core.Maybe Core.Text)
+listInvalidations_maxItems :: Lens.Lens' ListInvalidations (Prelude.Maybe Prelude.Text)
 listInvalidations_maxItems = Lens.lens (\ListInvalidations' {maxItems} -> maxItems) (\s@ListInvalidations' {} a -> s {maxItems = a} :: ListInvalidations)
 
 -- | Use this parameter when paginating results to indicate where to begin in
@@ -112,11 +113,11 @@ listInvalidations_maxItems = Lens.lens (\ListInvalidations' {maxItems} -> maxIte
 -- on. To get the next page of results, set @Marker@ to the value of the
 -- @NextMarker@ from the current page\'s response. This value is the same
 -- as the ID of the last invalidation batch on that page.
-listInvalidations_marker :: Lens.Lens' ListInvalidations (Core.Maybe Core.Text)
+listInvalidations_marker :: Lens.Lens' ListInvalidations (Prelude.Maybe Prelude.Text)
 listInvalidations_marker = Lens.lens (\ListInvalidations' {marker} -> marker) (\s@ListInvalidations' {} a -> s {marker = a} :: ListInvalidations)
 
 -- | The distribution\'s ID.
-listInvalidations_distributionId :: Lens.Lens' ListInvalidations Core.Text
+listInvalidations_distributionId :: Lens.Lens' ListInvalidations Prelude.Text
 listInvalidations_distributionId = Lens.lens (\ListInvalidations' {distributionId} -> distributionId) (\s@ListInvalidations' {} a -> s {distributionId = a} :: ListInvalidations)
 
 instance Core.AWSPager ListInvalidations where
@@ -124,24 +125,24 @@ instance Core.AWSPager ListInvalidations where
     | Core.stop
         ( rs
             Lens.^. listInvalidationsResponse_invalidationList
-              Core.. invalidationList_isTruncated
+              Prelude.. invalidationList_isTruncated
         ) =
-      Core.Nothing
-    | Core.isNothing
+      Prelude.Nothing
+    | Prelude.isNothing
         ( rs
             Lens.^? listInvalidationsResponse_invalidationList
-              Core.. invalidationList_nextMarker
-              Core.. Lens._Just
+              Prelude.. invalidationList_nextMarker
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listInvalidations_marker
+          Prelude.& listInvalidations_marker
           Lens..~ rs
           Lens.^? listInvalidationsResponse_invalidationList
-            Core.. invalidationList_nextMarker
-            Core.. Lens._Just
+            Prelude.. invalidationList_nextMarker
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInvalidations where
   type
@@ -152,20 +153,20 @@ instance Core.AWSRequest ListInvalidations where
     Response.receiveXML
       ( \s h x ->
           ListInvalidationsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.parseXML x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.parseXML x)
       )
 
-instance Core.Hashable ListInvalidations
+instance Prelude.Hashable ListInvalidations
 
-instance Core.NFData ListInvalidations
+instance Prelude.NFData ListInvalidations
 
 instance Core.ToHeaders ListInvalidations where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListInvalidations where
   toPath ListInvalidations' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-05-31/distribution/",
         Core.toBS distributionId,
         "/invalidation"
@@ -173,7 +174,7 @@ instance Core.ToPath ListInvalidations where
 
 instance Core.ToQuery ListInvalidations where
   toQuery ListInvalidations' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker
       ]
@@ -183,11 +184,11 @@ instance Core.ToQuery ListInvalidations where
 -- /See:/ 'newListInvalidationsResponse' smart constructor.
 data ListInvalidationsResponse = ListInvalidationsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Information about invalidation batches.
     invalidationList :: InvalidationList
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListInvalidationsResponse' with all optional fields omitted.
@@ -202,7 +203,7 @@ data ListInvalidationsResponse = ListInvalidationsResponse'
 -- 'invalidationList', 'listInvalidationsResponse_invalidationList' - Information about invalidation batches.
 newListInvalidationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'invalidationList'
   InvalidationList ->
   ListInvalidationsResponse
@@ -216,11 +217,11 @@ newListInvalidationsResponse
       }
 
 -- | The response's http status code.
-listInvalidationsResponse_httpStatus :: Lens.Lens' ListInvalidationsResponse Core.Int
+listInvalidationsResponse_httpStatus :: Lens.Lens' ListInvalidationsResponse Prelude.Int
 listInvalidationsResponse_httpStatus = Lens.lens (\ListInvalidationsResponse' {httpStatus} -> httpStatus) (\s@ListInvalidationsResponse' {} a -> s {httpStatus = a} :: ListInvalidationsResponse)
 
 -- | Information about invalidation batches.
 listInvalidationsResponse_invalidationList :: Lens.Lens' ListInvalidationsResponse InvalidationList
 listInvalidationsResponse_invalidationList = Lens.lens (\ListInvalidationsResponse' {invalidationList} -> invalidationList) (\s@ListInvalidationsResponse' {} a -> s {invalidationList = a} :: ListInvalidationsResponse)
 
-instance Core.NFData ListInvalidationsResponse
+instance Prelude.NFData ListInvalidationsResponse

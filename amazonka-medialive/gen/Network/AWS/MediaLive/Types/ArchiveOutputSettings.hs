@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.ArchiveOutputSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.ArchiveContainerSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Archive Output Settings
 --
@@ -29,14 +30,14 @@ import Network.AWS.MediaLive.Types.ArchiveContainerSettings
 data ArchiveOutputSettings = ArchiveOutputSettings'
   { -- | Output file extension. If excluded, this will be auto-selected from the
     -- container type.
-    extension :: Core.Maybe Core.Text,
+    extension :: Prelude.Maybe Prelude.Text,
     -- | String concatenated to the end of the destination filename. Required for
     -- multiple outputs of the same type.
-    nameModifier :: Core.Maybe Core.Text,
+    nameModifier :: Prelude.Maybe Prelude.Text,
     -- | Settings specific to the container type of the file.
     containerSettings :: ArchiveContainerSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ArchiveOutputSettings' with all optional fields omitted.
@@ -59,19 +60,19 @@ newArchiveOutputSettings ::
   ArchiveOutputSettings
 newArchiveOutputSettings pContainerSettings_ =
   ArchiveOutputSettings'
-    { extension = Core.Nothing,
-      nameModifier = Core.Nothing,
+    { extension = Prelude.Nothing,
+      nameModifier = Prelude.Nothing,
       containerSettings = pContainerSettings_
     }
 
 -- | Output file extension. If excluded, this will be auto-selected from the
 -- container type.
-archiveOutputSettings_extension :: Lens.Lens' ArchiveOutputSettings (Core.Maybe Core.Text)
+archiveOutputSettings_extension :: Lens.Lens' ArchiveOutputSettings (Prelude.Maybe Prelude.Text)
 archiveOutputSettings_extension = Lens.lens (\ArchiveOutputSettings' {extension} -> extension) (\s@ArchiveOutputSettings' {} a -> s {extension = a} :: ArchiveOutputSettings)
 
 -- | String concatenated to the end of the destination filename. Required for
 -- multiple outputs of the same type.
-archiveOutputSettings_nameModifier :: Lens.Lens' ArchiveOutputSettings (Core.Maybe Core.Text)
+archiveOutputSettings_nameModifier :: Lens.Lens' ArchiveOutputSettings (Prelude.Maybe Prelude.Text)
 archiveOutputSettings_nameModifier = Lens.lens (\ArchiveOutputSettings' {nameModifier} -> nameModifier) (\s@ArchiveOutputSettings' {} a -> s {nameModifier = a} :: ArchiveOutputSettings)
 
 -- | Settings specific to the container type of the file.
@@ -84,22 +85,22 @@ instance Core.FromJSON ArchiveOutputSettings where
       "ArchiveOutputSettings"
       ( \x ->
           ArchiveOutputSettings'
-            Core.<$> (x Core..:? "extension")
-            Core.<*> (x Core..:? "nameModifier")
-            Core.<*> (x Core..: "containerSettings")
+            Prelude.<$> (x Core..:? "extension")
+            Prelude.<*> (x Core..:? "nameModifier")
+            Prelude.<*> (x Core..: "containerSettings")
       )
 
-instance Core.Hashable ArchiveOutputSettings
+instance Prelude.Hashable ArchiveOutputSettings
 
-instance Core.NFData ArchiveOutputSettings
+instance Prelude.NFData ArchiveOutputSettings
 
 instance Core.ToJSON ArchiveOutputSettings where
   toJSON ArchiveOutputSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("extension" Core..=) Core.<$> extension,
-            ("nameModifier" Core..=) Core.<$> nameModifier,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("extension" Core..=) Prelude.<$> extension,
+            ("nameModifier" Core..=) Prelude.<$> nameModifier,
+            Prelude.Just
               ("containerSettings" Core..= containerSettings)
           ]
       )

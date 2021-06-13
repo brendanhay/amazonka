@@ -21,6 +21,7 @@ module Network.AWS.KinesisAnalytics.Types.JSONMappingParameters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides additional mapping information when JSON is the record format
 -- on the streaming source.
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newJSONMappingParameters' smart constructor.
 data JSONMappingParameters = JSONMappingParameters'
   { -- | Path to the top-level parent that contains the records.
-    recordRowPath :: Core.Text
+    recordRowPath :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JSONMappingParameters' with all optional fields omitted.
@@ -43,7 +44,7 @@ data JSONMappingParameters = JSONMappingParameters'
 -- 'recordRowPath', 'jSONMappingParameters_recordRowPath' - Path to the top-level parent that contains the records.
 newJSONMappingParameters ::
   -- | 'recordRowPath'
-  Core.Text ->
+  Prelude.Text ->
   JSONMappingParameters
 newJSONMappingParameters pRecordRowPath_ =
   JSONMappingParameters'
@@ -52,7 +53,7 @@ newJSONMappingParameters pRecordRowPath_ =
     }
 
 -- | Path to the top-level parent that contains the records.
-jSONMappingParameters_recordRowPath :: Lens.Lens' JSONMappingParameters Core.Text
+jSONMappingParameters_recordRowPath :: Lens.Lens' JSONMappingParameters Prelude.Text
 jSONMappingParameters_recordRowPath = Lens.lens (\JSONMappingParameters' {recordRowPath} -> recordRowPath) (\s@JSONMappingParameters' {} a -> s {recordRowPath = a} :: JSONMappingParameters)
 
 instance Core.FromJSON JSONMappingParameters where
@@ -61,16 +62,18 @@ instance Core.FromJSON JSONMappingParameters where
       "JSONMappingParameters"
       ( \x ->
           JSONMappingParameters'
-            Core.<$> (x Core..: "RecordRowPath")
+            Prelude.<$> (x Core..: "RecordRowPath")
       )
 
-instance Core.Hashable JSONMappingParameters
+instance Prelude.Hashable JSONMappingParameters
 
-instance Core.NFData JSONMappingParameters
+instance Prelude.NFData JSONMappingParameters
 
 instance Core.ToJSON JSONMappingParameters where
   toJSON JSONMappingParameters' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("RecordRowPath" Core..= recordRowPath)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("RecordRowPath" Core..= recordRowPath)
+          ]
       )

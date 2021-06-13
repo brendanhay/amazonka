@@ -22,6 +22,7 @@ module Network.AWS.GameLift.Types.CertificateConfiguration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.CertificateType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the use of a TLS\/SSL certificate for a fleet. TLS
 -- certificate generation is enabled at the fleet level, with one
@@ -36,7 +37,7 @@ data CertificateConfiguration = CertificateConfiguration'
   { -- | Indicates whether a TLS\/SSL certificate was generated for a fleet.
     certificateType :: CertificateType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CertificateConfiguration' with all optional fields omitted.
@@ -67,18 +68,18 @@ instance Core.FromJSON CertificateConfiguration where
       "CertificateConfiguration"
       ( \x ->
           CertificateConfiguration'
-            Core.<$> (x Core..: "CertificateType")
+            Prelude.<$> (x Core..: "CertificateType")
       )
 
-instance Core.Hashable CertificateConfiguration
+instance Prelude.Hashable CertificateConfiguration
 
-instance Core.NFData CertificateConfiguration
+instance Prelude.NFData CertificateConfiguration
 
 instance Core.ToJSON CertificateConfiguration where
   toJSON CertificateConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("CertificateType" Core..= certificateType)
           ]
       )

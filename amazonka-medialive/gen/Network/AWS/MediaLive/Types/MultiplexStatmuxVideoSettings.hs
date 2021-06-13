@@ -21,24 +21,25 @@ module Network.AWS.MediaLive.Types.MultiplexStatmuxVideoSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Statmux rate control settings
 --
 -- /See:/ 'newMultiplexStatmuxVideoSettings' smart constructor.
 data MultiplexStatmuxVideoSettings = MultiplexStatmuxVideoSettings'
   { -- | Minimum statmux bitrate.
-    minimumBitrate :: Core.Maybe Core.Natural,
+    minimumBitrate :: Prelude.Maybe Prelude.Natural,
     -- | Maximum statmux bitrate.
-    maximumBitrate :: Core.Maybe Core.Natural,
+    maximumBitrate :: Prelude.Maybe Prelude.Natural,
     -- | The purpose of the priority is to use a combination of the\\nmultiplex
     -- rate control algorithm and the QVBR capability of the\\nencoder to
     -- prioritize the video quality of some channels in a\\nmultiplex over
     -- others. Channels that have a higher priority will\\nget higher video
     -- quality at the expense of the video quality of\\nother channels in the
     -- multiplex with lower priority.
-    priority :: Core.Maybe Core.Int
+    priority :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MultiplexStatmuxVideoSettings' with all optional fields omitted.
@@ -63,17 +64,17 @@ newMultiplexStatmuxVideoSettings ::
 newMultiplexStatmuxVideoSettings =
   MultiplexStatmuxVideoSettings'
     { minimumBitrate =
-        Core.Nothing,
-      maximumBitrate = Core.Nothing,
-      priority = Core.Nothing
+        Prelude.Nothing,
+      maximumBitrate = Prelude.Nothing,
+      priority = Prelude.Nothing
     }
 
 -- | Minimum statmux bitrate.
-multiplexStatmuxVideoSettings_minimumBitrate :: Lens.Lens' MultiplexStatmuxVideoSettings (Core.Maybe Core.Natural)
+multiplexStatmuxVideoSettings_minimumBitrate :: Lens.Lens' MultiplexStatmuxVideoSettings (Prelude.Maybe Prelude.Natural)
 multiplexStatmuxVideoSettings_minimumBitrate = Lens.lens (\MultiplexStatmuxVideoSettings' {minimumBitrate} -> minimumBitrate) (\s@MultiplexStatmuxVideoSettings' {} a -> s {minimumBitrate = a} :: MultiplexStatmuxVideoSettings)
 
 -- | Maximum statmux bitrate.
-multiplexStatmuxVideoSettings_maximumBitrate :: Lens.Lens' MultiplexStatmuxVideoSettings (Core.Maybe Core.Natural)
+multiplexStatmuxVideoSettings_maximumBitrate :: Lens.Lens' MultiplexStatmuxVideoSettings (Prelude.Maybe Prelude.Natural)
 multiplexStatmuxVideoSettings_maximumBitrate = Lens.lens (\MultiplexStatmuxVideoSettings' {maximumBitrate} -> maximumBitrate) (\s@MultiplexStatmuxVideoSettings' {} a -> s {maximumBitrate = a} :: MultiplexStatmuxVideoSettings)
 
 -- | The purpose of the priority is to use a combination of the\\nmultiplex
@@ -82,7 +83,7 @@ multiplexStatmuxVideoSettings_maximumBitrate = Lens.lens (\MultiplexStatmuxVideo
 -- others. Channels that have a higher priority will\\nget higher video
 -- quality at the expense of the video quality of\\nother channels in the
 -- multiplex with lower priority.
-multiplexStatmuxVideoSettings_priority :: Lens.Lens' MultiplexStatmuxVideoSettings (Core.Maybe Core.Int)
+multiplexStatmuxVideoSettings_priority :: Lens.Lens' MultiplexStatmuxVideoSettings (Prelude.Maybe Prelude.Int)
 multiplexStatmuxVideoSettings_priority = Lens.lens (\MultiplexStatmuxVideoSettings' {priority} -> priority) (\s@MultiplexStatmuxVideoSettings' {} a -> s {priority = a} :: MultiplexStatmuxVideoSettings)
 
 instance Core.FromJSON MultiplexStatmuxVideoSettings where
@@ -91,21 +92,25 @@ instance Core.FromJSON MultiplexStatmuxVideoSettings where
       "MultiplexStatmuxVideoSettings"
       ( \x ->
           MultiplexStatmuxVideoSettings'
-            Core.<$> (x Core..:? "minimumBitrate")
-            Core.<*> (x Core..:? "maximumBitrate")
-            Core.<*> (x Core..:? "priority")
+            Prelude.<$> (x Core..:? "minimumBitrate")
+            Prelude.<*> (x Core..:? "maximumBitrate")
+            Prelude.<*> (x Core..:? "priority")
       )
 
-instance Core.Hashable MultiplexStatmuxVideoSettings
+instance
+  Prelude.Hashable
+    MultiplexStatmuxVideoSettings
 
-instance Core.NFData MultiplexStatmuxVideoSettings
+instance Prelude.NFData MultiplexStatmuxVideoSettings
 
 instance Core.ToJSON MultiplexStatmuxVideoSettings where
   toJSON MultiplexStatmuxVideoSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("minimumBitrate" Core..=) Core.<$> minimumBitrate,
-            ("maximumBitrate" Core..=) Core.<$> maximumBitrate,
-            ("priority" Core..=) Core.<$> priority
+      ( Prelude.catMaybes
+          [ ("minimumBitrate" Core..=)
+              Prelude.<$> minimumBitrate,
+            ("maximumBitrate" Core..=)
+              Prelude.<$> maximumBitrate,
+            ("priority" Core..=) Prelude.<$> priority
           ]
       )

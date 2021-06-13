@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.Asset where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.GroundTruthManifest
 
 -- | Assets are the images that you use to train and evaluate a model
@@ -29,9 +30,9 @@ import Network.AWS.Rekognition.Types.GroundTruthManifest
 --
 -- /See:/ 'newAsset' smart constructor.
 data Asset = Asset'
-  { groundTruthManifest :: Core.Maybe GroundTruthManifest
+  { groundTruthManifest :: Prelude.Maybe GroundTruthManifest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Asset' with all optional fields omitted.
@@ -44,10 +45,11 @@ data Asset = Asset'
 -- 'groundTruthManifest', 'asset_groundTruthManifest' - Undocumented member.
 newAsset ::
   Asset
-newAsset = Asset' {groundTruthManifest = Core.Nothing}
+newAsset =
+  Asset' {groundTruthManifest = Prelude.Nothing}
 
 -- | Undocumented member.
-asset_groundTruthManifest :: Lens.Lens' Asset (Core.Maybe GroundTruthManifest)
+asset_groundTruthManifest :: Lens.Lens' Asset (Prelude.Maybe GroundTruthManifest)
 asset_groundTruthManifest = Lens.lens (\Asset' {groundTruthManifest} -> groundTruthManifest) (\s@Asset' {} a -> s {groundTruthManifest = a} :: Asset)
 
 instance Core.FromJSON Asset where
@@ -55,18 +57,19 @@ instance Core.FromJSON Asset where
     Core.withObject
       "Asset"
       ( \x ->
-          Asset' Core.<$> (x Core..:? "GroundTruthManifest")
+          Asset'
+            Prelude.<$> (x Core..:? "GroundTruthManifest")
       )
 
-instance Core.Hashable Asset
+instance Prelude.Hashable Asset
 
-instance Core.NFData Asset
+instance Prelude.NFData Asset
 
 instance Core.ToJSON Asset where
   toJSON Asset' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("GroundTruthManifest" Core..=)
-              Core.<$> groundTruthManifest
+              Prelude.<$> groundTruthManifest
           ]
       )

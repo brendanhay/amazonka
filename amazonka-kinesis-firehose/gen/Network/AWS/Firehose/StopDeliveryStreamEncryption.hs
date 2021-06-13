@@ -66,6 +66,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,9 +74,9 @@ import qualified Network.AWS.Response as Response
 data StopDeliveryStreamEncryption = StopDeliveryStreamEncryption'
   { -- | The name of the delivery stream for which you want to disable
     -- server-side encryption (SSE).
-    deliveryStreamName :: Core.Text
+    deliveryStreamName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopDeliveryStreamEncryption' with all optional fields omitted.
@@ -89,7 +90,7 @@ data StopDeliveryStreamEncryption = StopDeliveryStreamEncryption'
 -- server-side encryption (SSE).
 newStopDeliveryStreamEncryption ::
   -- | 'deliveryStreamName'
-  Core.Text ->
+  Prelude.Text ->
   StopDeliveryStreamEncryption
 newStopDeliveryStreamEncryption pDeliveryStreamName_ =
   StopDeliveryStreamEncryption'
@@ -99,7 +100,7 @@ newStopDeliveryStreamEncryption pDeliveryStreamName_ =
 
 -- | The name of the delivery stream for which you want to disable
 -- server-side encryption (SSE).
-stopDeliveryStreamEncryption_deliveryStreamName :: Lens.Lens' StopDeliveryStreamEncryption Core.Text
+stopDeliveryStreamEncryption_deliveryStreamName :: Lens.Lens' StopDeliveryStreamEncryption Prelude.Text
 stopDeliveryStreamEncryption_deliveryStreamName = Lens.lens (\StopDeliveryStreamEncryption' {deliveryStreamName} -> deliveryStreamName) (\s@StopDeliveryStreamEncryption' {} a -> s {deliveryStreamName = a} :: StopDeliveryStreamEncryption)
 
 instance Core.AWSRequest StopDeliveryStreamEncryption where
@@ -111,47 +112,51 @@ instance Core.AWSRequest StopDeliveryStreamEncryption where
     Response.receiveEmpty
       ( \s h x ->
           StopDeliveryStreamEncryptionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopDeliveryStreamEncryption
+instance
+  Prelude.Hashable
+    StopDeliveryStreamEncryption
 
-instance Core.NFData StopDeliveryStreamEncryption
+instance Prelude.NFData StopDeliveryStreamEncryption
 
 instance Core.ToHeaders StopDeliveryStreamEncryption where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Firehose_20150804.StopDeliveryStreamEncryption" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopDeliveryStreamEncryption where
   toJSON StopDeliveryStreamEncryption' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("DeliveryStreamName" Core..= deliveryStreamName)
           ]
       )
 
 instance Core.ToPath StopDeliveryStreamEncryption where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopDeliveryStreamEncryption where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopDeliveryStreamEncryptionResponse' smart constructor.
 data StopDeliveryStreamEncryptionResponse = StopDeliveryStreamEncryptionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopDeliveryStreamEncryptionResponse' with all optional fields omitted.
@@ -164,7 +169,7 @@ data StopDeliveryStreamEncryptionResponse = StopDeliveryStreamEncryptionResponse
 -- 'httpStatus', 'stopDeliveryStreamEncryptionResponse_httpStatus' - The response's http status code.
 newStopDeliveryStreamEncryptionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopDeliveryStreamEncryptionResponse
 newStopDeliveryStreamEncryptionResponse pHttpStatus_ =
   StopDeliveryStreamEncryptionResponse'
@@ -173,9 +178,9 @@ newStopDeliveryStreamEncryptionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-stopDeliveryStreamEncryptionResponse_httpStatus :: Lens.Lens' StopDeliveryStreamEncryptionResponse Core.Int
+stopDeliveryStreamEncryptionResponse_httpStatus :: Lens.Lens' StopDeliveryStreamEncryptionResponse Prelude.Int
 stopDeliveryStreamEncryptionResponse_httpStatus = Lens.lens (\StopDeliveryStreamEncryptionResponse' {httpStatus} -> httpStatus) (\s@StopDeliveryStreamEncryptionResponse' {} a -> s {httpStatus = a} :: StopDeliveryStreamEncryptionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     StopDeliveryStreamEncryptionResponse

@@ -28,6 +28,7 @@ import Network.AWS.Lightsail.Types.RelationalDatabaseHardware
 import Network.AWS.Lightsail.Types.ResourceLocation
 import Network.AWS.Lightsail.Types.ResourceType
 import Network.AWS.Lightsail.Types.Tag
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a database.
 --
@@ -35,78 +36,78 @@ import Network.AWS.Lightsail.Types.Tag
 data RelationalDatabase = RelationalDatabase'
   { -- | The bundle ID for the database. A bundle describes the performance
     -- specifications for your database.
-    relationalDatabaseBundleId :: Core.Maybe Core.Text,
+    relationalDatabaseBundleId :: Prelude.Maybe Prelude.Text,
     -- | The master endpoint for the database.
-    masterEndpoint :: Core.Maybe RelationalDatabaseEndpoint,
+    masterEndpoint :: Prelude.Maybe RelationalDatabaseEndpoint,
     -- | Describes the pending maintenance actions for the database.
-    pendingMaintenanceActions :: Core.Maybe [PendingMaintenanceAction],
+    pendingMaintenanceActions :: Prelude.Maybe [PendingMaintenanceAction],
     -- | The daily time range during which automated backups are created for the
     -- database (for example, @16:00-16:30@).
-    preferredBackupWindow :: Core.Maybe Core.Text,
+    preferredBackupWindow :: Prelude.Maybe Prelude.Text,
     -- | The certificate associated with the database.
-    caCertificateIdentifier :: Core.Maybe Core.Text,
+    caCertificateIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The blueprint ID for the database. A blueprint describes the major
     -- engine version of a database.
-    relationalDatabaseBlueprintId :: Core.Maybe Core.Text,
+    relationalDatabaseBlueprintId :: Prelude.Maybe Prelude.Text,
     -- | The latest point in time to which the database can be restored.
     -- Formatted in Unix time.
-    latestRestorableTime :: Core.Maybe Core.POSIX,
+    latestRestorableTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the master database created when the Lightsail database
     -- resource is created.
-    masterDatabaseName :: Core.Maybe Core.Text,
+    masterDatabaseName :: Prelude.Maybe Prelude.Text,
     -- | Describes the hardware of the database.
-    hardware :: Core.Maybe RelationalDatabaseHardware,
+    hardware :: Prelude.Maybe RelationalDatabaseHardware,
     -- | The timestamp when the database was created. Formatted in Unix time.
-    createdAt :: Core.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the database.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The master user name of the database.
-    masterUsername :: Core.Maybe Core.Text,
+    masterUsername :: Prelude.Maybe Prelude.Text,
     -- | The Lightsail resource type for the database (for example,
     -- @RelationalDatabase@).
-    resourceType :: Core.Maybe ResourceType,
+    resourceType :: Prelude.Maybe ResourceType,
     -- | A Boolean value indicating whether the database is publicly accessible.
-    publiclyAccessible :: Core.Maybe Core.Bool,
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
     -- | The support code for the database. Include this code in your email to
     -- support when you have questions about a database in Lightsail. This code
     -- enables our support team to look up your Lightsail information more
     -- easily.
-    supportCode :: Core.Maybe Core.Text,
+    supportCode :: Prelude.Maybe Prelude.Text,
     -- | Describes the current state of the database.
-    state :: Core.Maybe Core.Text,
+    state :: Prelude.Maybe Prelude.Text,
     -- | The unique name of the database resource in Lightsail.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value indicating whether automated backup retention is enabled
     -- for the database.
-    backupRetentionEnabled :: Core.Maybe Core.Bool,
+    backupRetentionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The database engine version (for example, @5.7.23@).
-    engineVersion :: Core.Maybe Core.Text,
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The weekly time range during which system maintenance can occur on the
     -- database.
     --
     -- In the format @ddd:hh24:mi-ddd:hh24:mi@. For example,
     -- @Tue:17:00-Tue:17:30@.
-    preferredMaintenanceWindow :: Core.Maybe Core.Text,
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | The tag keys and optional values for the resource. For more information
     -- about tags in Lightsail, see the
     -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The status of parameter updates for the database.
-    parameterApplyStatus :: Core.Maybe Core.Text,
+    parameterApplyStatus :: Prelude.Maybe Prelude.Text,
     -- | Describes pending database value modifications.
-    pendingModifiedValues :: Core.Maybe PendingModifiedRelationalDatabaseValues,
+    pendingModifiedValues :: Prelude.Maybe PendingModifiedRelationalDatabaseValues,
     -- | The database software (for example, @MySQL@).
-    engine :: Core.Maybe Core.Text,
+    engine :: Prelude.Maybe Prelude.Text,
     -- | Describes the secondary Availability Zone of a high availability
     -- database.
     --
     -- The secondary database is used for failover support of a high
     -- availability database.
-    secondaryAvailabilityZone :: Core.Maybe Core.Text,
+    secondaryAvailabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The Region name and Availability Zone where the database is located.
-    location :: Core.Maybe ResourceLocation
+    location :: Prelude.Maybe ResourceLocation
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RelationalDatabase' with all optional fields omitted.
@@ -192,118 +193,118 @@ newRelationalDatabase ::
 newRelationalDatabase =
   RelationalDatabase'
     { relationalDatabaseBundleId =
-        Core.Nothing,
-      masterEndpoint = Core.Nothing,
-      pendingMaintenanceActions = Core.Nothing,
-      preferredBackupWindow = Core.Nothing,
-      caCertificateIdentifier = Core.Nothing,
-      relationalDatabaseBlueprintId = Core.Nothing,
-      latestRestorableTime = Core.Nothing,
-      masterDatabaseName = Core.Nothing,
-      hardware = Core.Nothing,
-      createdAt = Core.Nothing,
-      arn = Core.Nothing,
-      masterUsername = Core.Nothing,
-      resourceType = Core.Nothing,
-      publiclyAccessible = Core.Nothing,
-      supportCode = Core.Nothing,
-      state = Core.Nothing,
-      name = Core.Nothing,
-      backupRetentionEnabled = Core.Nothing,
-      engineVersion = Core.Nothing,
-      preferredMaintenanceWindow = Core.Nothing,
-      tags = Core.Nothing,
-      parameterApplyStatus = Core.Nothing,
-      pendingModifiedValues = Core.Nothing,
-      engine = Core.Nothing,
-      secondaryAvailabilityZone = Core.Nothing,
-      location = Core.Nothing
+        Prelude.Nothing,
+      masterEndpoint = Prelude.Nothing,
+      pendingMaintenanceActions = Prelude.Nothing,
+      preferredBackupWindow = Prelude.Nothing,
+      caCertificateIdentifier = Prelude.Nothing,
+      relationalDatabaseBlueprintId = Prelude.Nothing,
+      latestRestorableTime = Prelude.Nothing,
+      masterDatabaseName = Prelude.Nothing,
+      hardware = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      masterUsername = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      publiclyAccessible = Prelude.Nothing,
+      supportCode = Prelude.Nothing,
+      state = Prelude.Nothing,
+      name = Prelude.Nothing,
+      backupRetentionEnabled = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      parameterApplyStatus = Prelude.Nothing,
+      pendingModifiedValues = Prelude.Nothing,
+      engine = Prelude.Nothing,
+      secondaryAvailabilityZone = Prelude.Nothing,
+      location = Prelude.Nothing
     }
 
 -- | The bundle ID for the database. A bundle describes the performance
 -- specifications for your database.
-relationalDatabase_relationalDatabaseBundleId :: Lens.Lens' RelationalDatabase (Core.Maybe Core.Text)
+relationalDatabase_relationalDatabaseBundleId :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Text)
 relationalDatabase_relationalDatabaseBundleId = Lens.lens (\RelationalDatabase' {relationalDatabaseBundleId} -> relationalDatabaseBundleId) (\s@RelationalDatabase' {} a -> s {relationalDatabaseBundleId = a} :: RelationalDatabase)
 
 -- | The master endpoint for the database.
-relationalDatabase_masterEndpoint :: Lens.Lens' RelationalDatabase (Core.Maybe RelationalDatabaseEndpoint)
+relationalDatabase_masterEndpoint :: Lens.Lens' RelationalDatabase (Prelude.Maybe RelationalDatabaseEndpoint)
 relationalDatabase_masterEndpoint = Lens.lens (\RelationalDatabase' {masterEndpoint} -> masterEndpoint) (\s@RelationalDatabase' {} a -> s {masterEndpoint = a} :: RelationalDatabase)
 
 -- | Describes the pending maintenance actions for the database.
-relationalDatabase_pendingMaintenanceActions :: Lens.Lens' RelationalDatabase (Core.Maybe [PendingMaintenanceAction])
-relationalDatabase_pendingMaintenanceActions = Lens.lens (\RelationalDatabase' {pendingMaintenanceActions} -> pendingMaintenanceActions) (\s@RelationalDatabase' {} a -> s {pendingMaintenanceActions = a} :: RelationalDatabase) Core.. Lens.mapping Lens._Coerce
+relationalDatabase_pendingMaintenanceActions :: Lens.Lens' RelationalDatabase (Prelude.Maybe [PendingMaintenanceAction])
+relationalDatabase_pendingMaintenanceActions = Lens.lens (\RelationalDatabase' {pendingMaintenanceActions} -> pendingMaintenanceActions) (\s@RelationalDatabase' {} a -> s {pendingMaintenanceActions = a} :: RelationalDatabase) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The daily time range during which automated backups are created for the
 -- database (for example, @16:00-16:30@).
-relationalDatabase_preferredBackupWindow :: Lens.Lens' RelationalDatabase (Core.Maybe Core.Text)
+relationalDatabase_preferredBackupWindow :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Text)
 relationalDatabase_preferredBackupWindow = Lens.lens (\RelationalDatabase' {preferredBackupWindow} -> preferredBackupWindow) (\s@RelationalDatabase' {} a -> s {preferredBackupWindow = a} :: RelationalDatabase)
 
 -- | The certificate associated with the database.
-relationalDatabase_caCertificateIdentifier :: Lens.Lens' RelationalDatabase (Core.Maybe Core.Text)
+relationalDatabase_caCertificateIdentifier :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Text)
 relationalDatabase_caCertificateIdentifier = Lens.lens (\RelationalDatabase' {caCertificateIdentifier} -> caCertificateIdentifier) (\s@RelationalDatabase' {} a -> s {caCertificateIdentifier = a} :: RelationalDatabase)
 
 -- | The blueprint ID for the database. A blueprint describes the major
 -- engine version of a database.
-relationalDatabase_relationalDatabaseBlueprintId :: Lens.Lens' RelationalDatabase (Core.Maybe Core.Text)
+relationalDatabase_relationalDatabaseBlueprintId :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Text)
 relationalDatabase_relationalDatabaseBlueprintId = Lens.lens (\RelationalDatabase' {relationalDatabaseBlueprintId} -> relationalDatabaseBlueprintId) (\s@RelationalDatabase' {} a -> s {relationalDatabaseBlueprintId = a} :: RelationalDatabase)
 
 -- | The latest point in time to which the database can be restored.
 -- Formatted in Unix time.
-relationalDatabase_latestRestorableTime :: Lens.Lens' RelationalDatabase (Core.Maybe Core.UTCTime)
-relationalDatabase_latestRestorableTime = Lens.lens (\RelationalDatabase' {latestRestorableTime} -> latestRestorableTime) (\s@RelationalDatabase' {} a -> s {latestRestorableTime = a} :: RelationalDatabase) Core.. Lens.mapping Core._Time
+relationalDatabase_latestRestorableTime :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.UTCTime)
+relationalDatabase_latestRestorableTime = Lens.lens (\RelationalDatabase' {latestRestorableTime} -> latestRestorableTime) (\s@RelationalDatabase' {} a -> s {latestRestorableTime = a} :: RelationalDatabase) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the master database created when the Lightsail database
 -- resource is created.
-relationalDatabase_masterDatabaseName :: Lens.Lens' RelationalDatabase (Core.Maybe Core.Text)
+relationalDatabase_masterDatabaseName :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Text)
 relationalDatabase_masterDatabaseName = Lens.lens (\RelationalDatabase' {masterDatabaseName} -> masterDatabaseName) (\s@RelationalDatabase' {} a -> s {masterDatabaseName = a} :: RelationalDatabase)
 
 -- | Describes the hardware of the database.
-relationalDatabase_hardware :: Lens.Lens' RelationalDatabase (Core.Maybe RelationalDatabaseHardware)
+relationalDatabase_hardware :: Lens.Lens' RelationalDatabase (Prelude.Maybe RelationalDatabaseHardware)
 relationalDatabase_hardware = Lens.lens (\RelationalDatabase' {hardware} -> hardware) (\s@RelationalDatabase' {} a -> s {hardware = a} :: RelationalDatabase)
 
 -- | The timestamp when the database was created. Formatted in Unix time.
-relationalDatabase_createdAt :: Lens.Lens' RelationalDatabase (Core.Maybe Core.UTCTime)
-relationalDatabase_createdAt = Lens.lens (\RelationalDatabase' {createdAt} -> createdAt) (\s@RelationalDatabase' {} a -> s {createdAt = a} :: RelationalDatabase) Core.. Lens.mapping Core._Time
+relationalDatabase_createdAt :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.UTCTime)
+relationalDatabase_createdAt = Lens.lens (\RelationalDatabase' {createdAt} -> createdAt) (\s@RelationalDatabase' {} a -> s {createdAt = a} :: RelationalDatabase) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the database.
-relationalDatabase_arn :: Lens.Lens' RelationalDatabase (Core.Maybe Core.Text)
+relationalDatabase_arn :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Text)
 relationalDatabase_arn = Lens.lens (\RelationalDatabase' {arn} -> arn) (\s@RelationalDatabase' {} a -> s {arn = a} :: RelationalDatabase)
 
 -- | The master user name of the database.
-relationalDatabase_masterUsername :: Lens.Lens' RelationalDatabase (Core.Maybe Core.Text)
+relationalDatabase_masterUsername :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Text)
 relationalDatabase_masterUsername = Lens.lens (\RelationalDatabase' {masterUsername} -> masterUsername) (\s@RelationalDatabase' {} a -> s {masterUsername = a} :: RelationalDatabase)
 
 -- | The Lightsail resource type for the database (for example,
 -- @RelationalDatabase@).
-relationalDatabase_resourceType :: Lens.Lens' RelationalDatabase (Core.Maybe ResourceType)
+relationalDatabase_resourceType :: Lens.Lens' RelationalDatabase (Prelude.Maybe ResourceType)
 relationalDatabase_resourceType = Lens.lens (\RelationalDatabase' {resourceType} -> resourceType) (\s@RelationalDatabase' {} a -> s {resourceType = a} :: RelationalDatabase)
 
 -- | A Boolean value indicating whether the database is publicly accessible.
-relationalDatabase_publiclyAccessible :: Lens.Lens' RelationalDatabase (Core.Maybe Core.Bool)
+relationalDatabase_publiclyAccessible :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Bool)
 relationalDatabase_publiclyAccessible = Lens.lens (\RelationalDatabase' {publiclyAccessible} -> publiclyAccessible) (\s@RelationalDatabase' {} a -> s {publiclyAccessible = a} :: RelationalDatabase)
 
 -- | The support code for the database. Include this code in your email to
 -- support when you have questions about a database in Lightsail. This code
 -- enables our support team to look up your Lightsail information more
 -- easily.
-relationalDatabase_supportCode :: Lens.Lens' RelationalDatabase (Core.Maybe Core.Text)
+relationalDatabase_supportCode :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Text)
 relationalDatabase_supportCode = Lens.lens (\RelationalDatabase' {supportCode} -> supportCode) (\s@RelationalDatabase' {} a -> s {supportCode = a} :: RelationalDatabase)
 
 -- | Describes the current state of the database.
-relationalDatabase_state :: Lens.Lens' RelationalDatabase (Core.Maybe Core.Text)
+relationalDatabase_state :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Text)
 relationalDatabase_state = Lens.lens (\RelationalDatabase' {state} -> state) (\s@RelationalDatabase' {} a -> s {state = a} :: RelationalDatabase)
 
 -- | The unique name of the database resource in Lightsail.
-relationalDatabase_name :: Lens.Lens' RelationalDatabase (Core.Maybe Core.Text)
+relationalDatabase_name :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Text)
 relationalDatabase_name = Lens.lens (\RelationalDatabase' {name} -> name) (\s@RelationalDatabase' {} a -> s {name = a} :: RelationalDatabase)
 
 -- | A Boolean value indicating whether automated backup retention is enabled
 -- for the database.
-relationalDatabase_backupRetentionEnabled :: Lens.Lens' RelationalDatabase (Core.Maybe Core.Bool)
+relationalDatabase_backupRetentionEnabled :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Bool)
 relationalDatabase_backupRetentionEnabled = Lens.lens (\RelationalDatabase' {backupRetentionEnabled} -> backupRetentionEnabled) (\s@RelationalDatabase' {} a -> s {backupRetentionEnabled = a} :: RelationalDatabase)
 
 -- | The database engine version (for example, @5.7.23@).
-relationalDatabase_engineVersion :: Lens.Lens' RelationalDatabase (Core.Maybe Core.Text)
+relationalDatabase_engineVersion :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Text)
 relationalDatabase_engineVersion = Lens.lens (\RelationalDatabase' {engineVersion} -> engineVersion) (\s@RelationalDatabase' {} a -> s {engineVersion = a} :: RelationalDatabase)
 
 -- | The weekly time range during which system maintenance can occur on the
@@ -311,25 +312,25 @@ relationalDatabase_engineVersion = Lens.lens (\RelationalDatabase' {engineVersio
 --
 -- In the format @ddd:hh24:mi-ddd:hh24:mi@. For example,
 -- @Tue:17:00-Tue:17:30@.
-relationalDatabase_preferredMaintenanceWindow :: Lens.Lens' RelationalDatabase (Core.Maybe Core.Text)
+relationalDatabase_preferredMaintenanceWindow :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Text)
 relationalDatabase_preferredMaintenanceWindow = Lens.lens (\RelationalDatabase' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@RelationalDatabase' {} a -> s {preferredMaintenanceWindow = a} :: RelationalDatabase)
 
 -- | The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
 -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-relationalDatabase_tags :: Lens.Lens' RelationalDatabase (Core.Maybe [Tag])
-relationalDatabase_tags = Lens.lens (\RelationalDatabase' {tags} -> tags) (\s@RelationalDatabase' {} a -> s {tags = a} :: RelationalDatabase) Core.. Lens.mapping Lens._Coerce
+relationalDatabase_tags :: Lens.Lens' RelationalDatabase (Prelude.Maybe [Tag])
+relationalDatabase_tags = Lens.lens (\RelationalDatabase' {tags} -> tags) (\s@RelationalDatabase' {} a -> s {tags = a} :: RelationalDatabase) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The status of parameter updates for the database.
-relationalDatabase_parameterApplyStatus :: Lens.Lens' RelationalDatabase (Core.Maybe Core.Text)
+relationalDatabase_parameterApplyStatus :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Text)
 relationalDatabase_parameterApplyStatus = Lens.lens (\RelationalDatabase' {parameterApplyStatus} -> parameterApplyStatus) (\s@RelationalDatabase' {} a -> s {parameterApplyStatus = a} :: RelationalDatabase)
 
 -- | Describes pending database value modifications.
-relationalDatabase_pendingModifiedValues :: Lens.Lens' RelationalDatabase (Core.Maybe PendingModifiedRelationalDatabaseValues)
+relationalDatabase_pendingModifiedValues :: Lens.Lens' RelationalDatabase (Prelude.Maybe PendingModifiedRelationalDatabaseValues)
 relationalDatabase_pendingModifiedValues = Lens.lens (\RelationalDatabase' {pendingModifiedValues} -> pendingModifiedValues) (\s@RelationalDatabase' {} a -> s {pendingModifiedValues = a} :: RelationalDatabase)
 
 -- | The database software (for example, @MySQL@).
-relationalDatabase_engine :: Lens.Lens' RelationalDatabase (Core.Maybe Core.Text)
+relationalDatabase_engine :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Text)
 relationalDatabase_engine = Lens.lens (\RelationalDatabase' {engine} -> engine) (\s@RelationalDatabase' {} a -> s {engine = a} :: RelationalDatabase)
 
 -- | Describes the secondary Availability Zone of a high availability
@@ -337,11 +338,11 @@ relationalDatabase_engine = Lens.lens (\RelationalDatabase' {engine} -> engine) 
 --
 -- The secondary database is used for failover support of a high
 -- availability database.
-relationalDatabase_secondaryAvailabilityZone :: Lens.Lens' RelationalDatabase (Core.Maybe Core.Text)
+relationalDatabase_secondaryAvailabilityZone :: Lens.Lens' RelationalDatabase (Prelude.Maybe Prelude.Text)
 relationalDatabase_secondaryAvailabilityZone = Lens.lens (\RelationalDatabase' {secondaryAvailabilityZone} -> secondaryAvailabilityZone) (\s@RelationalDatabase' {} a -> s {secondaryAvailabilityZone = a} :: RelationalDatabase)
 
 -- | The Region name and Availability Zone where the database is located.
-relationalDatabase_location :: Lens.Lens' RelationalDatabase (Core.Maybe ResourceLocation)
+relationalDatabase_location :: Lens.Lens' RelationalDatabase (Prelude.Maybe ResourceLocation)
 relationalDatabase_location = Lens.lens (\RelationalDatabase' {location} -> location) (\s@RelationalDatabase' {} a -> s {location = a} :: RelationalDatabase)
 
 instance Core.FromJSON RelationalDatabase where
@@ -350,36 +351,36 @@ instance Core.FromJSON RelationalDatabase where
       "RelationalDatabase"
       ( \x ->
           RelationalDatabase'
-            Core.<$> (x Core..:? "relationalDatabaseBundleId")
-            Core.<*> (x Core..:? "masterEndpoint")
-            Core.<*> ( x Core..:? "pendingMaintenanceActions"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "preferredBackupWindow")
-            Core.<*> (x Core..:? "caCertificateIdentifier")
-            Core.<*> (x Core..:? "relationalDatabaseBlueprintId")
-            Core.<*> (x Core..:? "latestRestorableTime")
-            Core.<*> (x Core..:? "masterDatabaseName")
-            Core.<*> (x Core..:? "hardware")
-            Core.<*> (x Core..:? "createdAt")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "masterUsername")
-            Core.<*> (x Core..:? "resourceType")
-            Core.<*> (x Core..:? "publiclyAccessible")
-            Core.<*> (x Core..:? "supportCode")
-            Core.<*> (x Core..:? "state")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "backupRetentionEnabled")
-            Core.<*> (x Core..:? "engineVersion")
-            Core.<*> (x Core..:? "preferredMaintenanceWindow")
-            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "parameterApplyStatus")
-            Core.<*> (x Core..:? "pendingModifiedValues")
-            Core.<*> (x Core..:? "engine")
-            Core.<*> (x Core..:? "secondaryAvailabilityZone")
-            Core.<*> (x Core..:? "location")
+            Prelude.<$> (x Core..:? "relationalDatabaseBundleId")
+            Prelude.<*> (x Core..:? "masterEndpoint")
+            Prelude.<*> ( x Core..:? "pendingMaintenanceActions"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "preferredBackupWindow")
+            Prelude.<*> (x Core..:? "caCertificateIdentifier")
+            Prelude.<*> (x Core..:? "relationalDatabaseBlueprintId")
+            Prelude.<*> (x Core..:? "latestRestorableTime")
+            Prelude.<*> (x Core..:? "masterDatabaseName")
+            Prelude.<*> (x Core..:? "hardware")
+            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "masterUsername")
+            Prelude.<*> (x Core..:? "resourceType")
+            Prelude.<*> (x Core..:? "publiclyAccessible")
+            Prelude.<*> (x Core..:? "supportCode")
+            Prelude.<*> (x Core..:? "state")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "backupRetentionEnabled")
+            Prelude.<*> (x Core..:? "engineVersion")
+            Prelude.<*> (x Core..:? "preferredMaintenanceWindow")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "parameterApplyStatus")
+            Prelude.<*> (x Core..:? "pendingModifiedValues")
+            Prelude.<*> (x Core..:? "engine")
+            Prelude.<*> (x Core..:? "secondaryAvailabilityZone")
+            Prelude.<*> (x Core..:? "location")
       )
 
-instance Core.Hashable RelationalDatabase
+instance Prelude.Hashable RelationalDatabase
 
-instance Core.NFData RelationalDatabase
+instance Prelude.NFData RelationalDatabase

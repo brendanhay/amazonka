@@ -58,17 +58,18 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDetectStackResourceDrift' smart constructor.
 data DetectStackResourceDrift = DetectStackResourceDrift'
   { -- | The name of the stack to which the resource belongs.
-    stackName :: Core.Text,
+    stackName :: Prelude.Text,
     -- | The logical name of the resource for which to return drift information.
-    logicalResourceId :: Core.Text
+    logicalResourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetectStackResourceDrift' with all optional fields omitted.
@@ -83,9 +84,9 @@ data DetectStackResourceDrift = DetectStackResourceDrift'
 -- 'logicalResourceId', 'detectStackResourceDrift_logicalResourceId' - The logical name of the resource for which to return drift information.
 newDetectStackResourceDrift ::
   -- | 'stackName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'logicalResourceId'
-  Core.Text ->
+  Prelude.Text ->
   DetectStackResourceDrift
 newDetectStackResourceDrift
   pStackName_
@@ -96,11 +97,11 @@ newDetectStackResourceDrift
       }
 
 -- | The name of the stack to which the resource belongs.
-detectStackResourceDrift_stackName :: Lens.Lens' DetectStackResourceDrift Core.Text
+detectStackResourceDrift_stackName :: Lens.Lens' DetectStackResourceDrift Prelude.Text
 detectStackResourceDrift_stackName = Lens.lens (\DetectStackResourceDrift' {stackName} -> stackName) (\s@DetectStackResourceDrift' {} a -> s {stackName = a} :: DetectStackResourceDrift)
 
 -- | The logical name of the resource for which to return drift information.
-detectStackResourceDrift_logicalResourceId :: Lens.Lens' DetectStackResourceDrift Core.Text
+detectStackResourceDrift_logicalResourceId :: Lens.Lens' DetectStackResourceDrift Prelude.Text
 detectStackResourceDrift_logicalResourceId = Lens.lens (\DetectStackResourceDrift' {logicalResourceId} -> logicalResourceId) (\s@DetectStackResourceDrift' {} a -> s {logicalResourceId = a} :: DetectStackResourceDrift)
 
 instance Core.AWSRequest DetectStackResourceDrift where
@@ -113,26 +114,27 @@ instance Core.AWSRequest DetectStackResourceDrift where
       "DetectStackResourceDriftResult"
       ( \s h x ->
           DetectStackResourceDriftResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "StackResourceDrift")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "StackResourceDrift")
       )
 
-instance Core.Hashable DetectStackResourceDrift
+instance Prelude.Hashable DetectStackResourceDrift
 
-instance Core.NFData DetectStackResourceDrift
+instance Prelude.NFData DetectStackResourceDrift
 
 instance Core.ToHeaders DetectStackResourceDrift where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DetectStackResourceDrift where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetectStackResourceDrift where
   toQuery DetectStackResourceDrift' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DetectStackResourceDrift" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("DetectStackResourceDrift" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "StackName" Core.=: stackName,
         "LogicalResourceId" Core.=: logicalResourceId
       ]
@@ -140,13 +142,13 @@ instance Core.ToQuery DetectStackResourceDrift where
 -- | /See:/ 'newDetectStackResourceDriftResponse' smart constructor.
 data DetectStackResourceDriftResponse = DetectStackResourceDriftResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Information about whether the resource\'s actual configuration has
     -- drifted from its expected template configuration, including actual and
     -- expected property values and any differences detected.
     stackResourceDrift :: StackResourceDrift
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetectStackResourceDriftResponse' with all optional fields omitted.
@@ -163,7 +165,7 @@ data DetectStackResourceDriftResponse = DetectStackResourceDriftResponse'
 -- expected property values and any differences detected.
 newDetectStackResourceDriftResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'stackResourceDrift'
   StackResourceDrift ->
   DetectStackResourceDriftResponse
@@ -177,7 +179,7 @@ newDetectStackResourceDriftResponse
       }
 
 -- | The response's http status code.
-detectStackResourceDriftResponse_httpStatus :: Lens.Lens' DetectStackResourceDriftResponse Core.Int
+detectStackResourceDriftResponse_httpStatus :: Lens.Lens' DetectStackResourceDriftResponse Prelude.Int
 detectStackResourceDriftResponse_httpStatus = Lens.lens (\DetectStackResourceDriftResponse' {httpStatus} -> httpStatus) (\s@DetectStackResourceDriftResponse' {} a -> s {httpStatus = a} :: DetectStackResourceDriftResponse)
 
 -- | Information about whether the resource\'s actual configuration has
@@ -186,4 +188,6 @@ detectStackResourceDriftResponse_httpStatus = Lens.lens (\DetectStackResourceDri
 detectStackResourceDriftResponse_stackResourceDrift :: Lens.Lens' DetectStackResourceDriftResponse StackResourceDrift
 detectStackResourceDriftResponse_stackResourceDrift = Lens.lens (\DetectStackResourceDriftResponse' {stackResourceDrift} -> stackResourceDrift) (\s@DetectStackResourceDriftResponse' {} a -> s {stackResourceDrift = a} :: DetectStackResourceDriftResponse)
 
-instance Core.NFData DetectStackResourceDriftResponse
+instance
+  Prelude.NFData
+    DetectStackResourceDriftResponse

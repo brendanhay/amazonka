@@ -27,6 +27,7 @@ module Network.AWS.MediaLive.Types.Ac3LfeFilter
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Ac3 Lfe Filter
 newtype Ac3LfeFilter = Ac3LfeFilter'
@@ -34,15 +35,15 @@ newtype Ac3LfeFilter = Ac3LfeFilter'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

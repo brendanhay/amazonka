@@ -22,6 +22,7 @@ module Network.AWS.KinesisAnalytics.Types.InputProcessingConfiguration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types.InputLambdaProcessor
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides a description of a processor that is used to preprocess the
 -- records in the stream before being processed by your application code.
@@ -36,7 +37,7 @@ data InputProcessingConfiguration = InputProcessingConfiguration'
     -- processed by your application code.
     inputLambdaProcessor :: InputLambdaProcessor
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputProcessingConfiguration' with all optional fields omitted.
@@ -68,15 +69,17 @@ newInputProcessingConfiguration
 inputProcessingConfiguration_inputLambdaProcessor :: Lens.Lens' InputProcessingConfiguration InputLambdaProcessor
 inputProcessingConfiguration_inputLambdaProcessor = Lens.lens (\InputProcessingConfiguration' {inputLambdaProcessor} -> inputLambdaProcessor) (\s@InputProcessingConfiguration' {} a -> s {inputLambdaProcessor = a} :: InputProcessingConfiguration)
 
-instance Core.Hashable InputProcessingConfiguration
+instance
+  Prelude.Hashable
+    InputProcessingConfiguration
 
-instance Core.NFData InputProcessingConfiguration
+instance Prelude.NFData InputProcessingConfiguration
 
 instance Core.ToJSON InputProcessingConfiguration where
   toJSON InputProcessingConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "InputLambdaProcessor"
                   Core..= inputLambdaProcessor
               )

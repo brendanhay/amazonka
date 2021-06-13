@@ -21,15 +21,16 @@ module Network.AWS.CloudFront.Types.OriginGroupMember where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An origin in an origin group.
 --
 -- /See:/ 'newOriginGroupMember' smart constructor.
 data OriginGroupMember = OriginGroupMember'
   { -- | The ID for an origin in an origin group.
-    originId :: Core.Text
+    originId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OriginGroupMember' with all optional fields omitted.
@@ -42,23 +43,24 @@ data OriginGroupMember = OriginGroupMember'
 -- 'originId', 'originGroupMember_originId' - The ID for an origin in an origin group.
 newOriginGroupMember ::
   -- | 'originId'
-  Core.Text ->
+  Prelude.Text ->
   OriginGroupMember
 newOriginGroupMember pOriginId_ =
   OriginGroupMember' {originId = pOriginId_}
 
 -- | The ID for an origin in an origin group.
-originGroupMember_originId :: Lens.Lens' OriginGroupMember Core.Text
+originGroupMember_originId :: Lens.Lens' OriginGroupMember Prelude.Text
 originGroupMember_originId = Lens.lens (\OriginGroupMember' {originId} -> originId) (\s@OriginGroupMember' {} a -> s {originId = a} :: OriginGroupMember)
 
 instance Core.FromXML OriginGroupMember where
   parseXML x =
-    OriginGroupMember' Core.<$> (x Core..@ "OriginId")
+    OriginGroupMember'
+      Prelude.<$> (x Core..@ "OriginId")
 
-instance Core.Hashable OriginGroupMember
+instance Prelude.Hashable OriginGroupMember
 
-instance Core.NFData OriginGroupMember
+instance Prelude.NFData OriginGroupMember
 
 instance Core.ToXML OriginGroupMember where
   toXML OriginGroupMember' {..} =
-    Core.mconcat ["OriginId" Core.@= originId]
+    Prelude.mconcat ["OriginId" Core.@= originId]

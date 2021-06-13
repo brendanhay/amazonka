@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ScheduleConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration details about the monitoring schedule.
 --
@@ -62,9 +63,9 @@ data ScheduleConfig = ScheduleConfig'
     -- -   We recommend that if you would like a daily schedule, you do not
     --     provide this parameter. Amazon SageMaker will pick a time for
     --     running every day.
-    scheduleExpression :: Core.Text
+    scheduleExpression :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScheduleConfig' with all optional fields omitted.
@@ -112,7 +113,7 @@ data ScheduleConfig = ScheduleConfig'
 --     running every day.
 newScheduleConfig ::
   -- | 'scheduleExpression'
-  Core.Text ->
+  Prelude.Text ->
   ScheduleConfig
 newScheduleConfig pScheduleExpression_ =
   ScheduleConfig'
@@ -156,7 +157,7 @@ newScheduleConfig pScheduleExpression_ =
 -- -   We recommend that if you would like a daily schedule, you do not
 --     provide this parameter. Amazon SageMaker will pick a time for
 --     running every day.
-scheduleConfig_scheduleExpression :: Lens.Lens' ScheduleConfig Core.Text
+scheduleConfig_scheduleExpression :: Lens.Lens' ScheduleConfig Prelude.Text
 scheduleConfig_scheduleExpression = Lens.lens (\ScheduleConfig' {scheduleExpression} -> scheduleExpression) (\s@ScheduleConfig' {} a -> s {scheduleExpression = a} :: ScheduleConfig)
 
 instance Core.FromJSON ScheduleConfig where
@@ -165,18 +166,18 @@ instance Core.FromJSON ScheduleConfig where
       "ScheduleConfig"
       ( \x ->
           ScheduleConfig'
-            Core.<$> (x Core..: "ScheduleExpression")
+            Prelude.<$> (x Core..: "ScheduleExpression")
       )
 
-instance Core.Hashable ScheduleConfig
+instance Prelude.Hashable ScheduleConfig
 
-instance Core.NFData ScheduleConfig
+instance Prelude.NFData ScheduleConfig
 
 instance Core.ToJSON ScheduleConfig where
   toJSON ScheduleConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ScheduleExpression" Core..= scheduleExpression)
           ]
       )

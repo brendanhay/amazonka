@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.LabelCountersForWorkteam where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides counts for human-labeled tasks in the labeling job.
 --
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 data LabelCountersForWorkteam = LabelCountersForWorkteam'
   { -- | The total number of data objects that need to be labeled by a human
     -- worker.
-    pendingHuman :: Core.Maybe Core.Natural,
+    pendingHuman :: Prelude.Maybe Prelude.Natural,
     -- | The total number of tasks in the labeling job.
-    total :: Core.Maybe Core.Natural,
+    total :: Prelude.Maybe Prelude.Natural,
     -- | The total number of data objects labeled by a human worker.
-    humanLabeled :: Core.Maybe Core.Natural
+    humanLabeled :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LabelCountersForWorkteam' with all optional fields omitted.
@@ -55,22 +56,22 @@ newLabelCountersForWorkteam ::
 newLabelCountersForWorkteam =
   LabelCountersForWorkteam'
     { pendingHuman =
-        Core.Nothing,
-      total = Core.Nothing,
-      humanLabeled = Core.Nothing
+        Prelude.Nothing,
+      total = Prelude.Nothing,
+      humanLabeled = Prelude.Nothing
     }
 
 -- | The total number of data objects that need to be labeled by a human
 -- worker.
-labelCountersForWorkteam_pendingHuman :: Lens.Lens' LabelCountersForWorkteam (Core.Maybe Core.Natural)
+labelCountersForWorkteam_pendingHuman :: Lens.Lens' LabelCountersForWorkteam (Prelude.Maybe Prelude.Natural)
 labelCountersForWorkteam_pendingHuman = Lens.lens (\LabelCountersForWorkteam' {pendingHuman} -> pendingHuman) (\s@LabelCountersForWorkteam' {} a -> s {pendingHuman = a} :: LabelCountersForWorkteam)
 
 -- | The total number of tasks in the labeling job.
-labelCountersForWorkteam_total :: Lens.Lens' LabelCountersForWorkteam (Core.Maybe Core.Natural)
+labelCountersForWorkteam_total :: Lens.Lens' LabelCountersForWorkteam (Prelude.Maybe Prelude.Natural)
 labelCountersForWorkteam_total = Lens.lens (\LabelCountersForWorkteam' {total} -> total) (\s@LabelCountersForWorkteam' {} a -> s {total = a} :: LabelCountersForWorkteam)
 
 -- | The total number of data objects labeled by a human worker.
-labelCountersForWorkteam_humanLabeled :: Lens.Lens' LabelCountersForWorkteam (Core.Maybe Core.Natural)
+labelCountersForWorkteam_humanLabeled :: Lens.Lens' LabelCountersForWorkteam (Prelude.Maybe Prelude.Natural)
 labelCountersForWorkteam_humanLabeled = Lens.lens (\LabelCountersForWorkteam' {humanLabeled} -> humanLabeled) (\s@LabelCountersForWorkteam' {} a -> s {humanLabeled = a} :: LabelCountersForWorkteam)
 
 instance Core.FromJSON LabelCountersForWorkteam where
@@ -79,11 +80,11 @@ instance Core.FromJSON LabelCountersForWorkteam where
       "LabelCountersForWorkteam"
       ( \x ->
           LabelCountersForWorkteam'
-            Core.<$> (x Core..:? "PendingHuman")
-            Core.<*> (x Core..:? "Total")
-            Core.<*> (x Core..:? "HumanLabeled")
+            Prelude.<$> (x Core..:? "PendingHuman")
+            Prelude.<*> (x Core..:? "Total")
+            Prelude.<*> (x Core..:? "HumanLabeled")
       )
 
-instance Core.Hashable LabelCountersForWorkteam
+instance Prelude.Hashable LabelCountersForWorkteam
 
-instance Core.NFData LabelCountersForWorkteam
+instance Prelude.NFData LabelCountersForWorkteam

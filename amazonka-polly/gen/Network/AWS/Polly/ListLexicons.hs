@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Polly.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +55,9 @@ import qualified Network.AWS.Response as Response
 data ListLexicons = ListLexicons'
   { -- | An opaque pagination token returned from previous @ListLexicons@
     -- operation. If present, indicates where to continue the list of lexicons.
-    nextToken :: Core.Maybe Core.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListLexicons' with all optional fields omitted.
@@ -71,31 +72,31 @@ data ListLexicons = ListLexicons'
 newListLexicons ::
   ListLexicons
 newListLexicons =
-  ListLexicons' {nextToken = Core.Nothing}
+  ListLexicons' {nextToken = Prelude.Nothing}
 
 -- | An opaque pagination token returned from previous @ListLexicons@
 -- operation. If present, indicates where to continue the list of lexicons.
-listLexicons_nextToken :: Lens.Lens' ListLexicons (Core.Maybe Core.Text)
+listLexicons_nextToken :: Lens.Lens' ListLexicons (Prelude.Maybe Prelude.Text)
 listLexicons_nextToken = Lens.lens (\ListLexicons' {nextToken} -> nextToken) (\s@ListLexicons' {} a -> s {nextToken = a} :: ListLexicons)
 
 instance Core.AWSPager ListLexicons where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listLexiconsResponse_nextToken Core.. Lens._Just
+            Lens.^? listLexiconsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listLexiconsResponse_lexicons Core.. Lens._Just
+            Lens.^? listLexiconsResponse_lexicons Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listLexicons_nextToken
+          Prelude.& listLexicons_nextToken
           Lens..~ rs
-          Lens.^? listLexiconsResponse_nextToken Core.. Lens._Just
+          Lens.^? listLexiconsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLexicons where
   type AWSResponse ListLexicons = ListLexiconsResponse
@@ -104,36 +105,36 @@ instance Core.AWSRequest ListLexicons where
     Response.receiveJSON
       ( \s h x ->
           ListLexiconsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Lexicons" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Lexicons" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListLexicons
+instance Prelude.Hashable ListLexicons
 
-instance Core.NFData ListLexicons
+instance Prelude.NFData ListLexicons
 
 instance Core.ToHeaders ListLexicons where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListLexicons where
-  toPath = Core.const "/v1/lexicons"
+  toPath = Prelude.const "/v1/lexicons"
 
 instance Core.ToQuery ListLexicons where
   toQuery ListLexicons' {..} =
-    Core.mconcat ["NextToken" Core.=: nextToken]
+    Prelude.mconcat ["NextToken" Core.=: nextToken]
 
 -- | /See:/ 'newListLexiconsResponse' smart constructor.
 data ListLexiconsResponse = ListLexiconsResponse'
   { -- | The pagination token to use in the next request to continue the listing
     -- of lexicons. @NextToken@ is returned only if the response is truncated.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of lexicon names and attributes.
-    lexicons :: Core.Maybe [LexiconDescription],
+    lexicons :: Prelude.Maybe [LexiconDescription],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListLexiconsResponse' with all optional fields omitted.
@@ -151,26 +152,26 @@ data ListLexiconsResponse = ListLexiconsResponse'
 -- 'httpStatus', 'listLexiconsResponse_httpStatus' - The response's http status code.
 newListLexiconsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListLexiconsResponse
 newListLexiconsResponse pHttpStatus_ =
   ListLexiconsResponse'
-    { nextToken = Core.Nothing,
-      lexicons = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      lexicons = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The pagination token to use in the next request to continue the listing
 -- of lexicons. @NextToken@ is returned only if the response is truncated.
-listLexiconsResponse_nextToken :: Lens.Lens' ListLexiconsResponse (Core.Maybe Core.Text)
+listLexiconsResponse_nextToken :: Lens.Lens' ListLexiconsResponse (Prelude.Maybe Prelude.Text)
 listLexiconsResponse_nextToken = Lens.lens (\ListLexiconsResponse' {nextToken} -> nextToken) (\s@ListLexiconsResponse' {} a -> s {nextToken = a} :: ListLexiconsResponse)
 
 -- | A list of lexicon names and attributes.
-listLexiconsResponse_lexicons :: Lens.Lens' ListLexiconsResponse (Core.Maybe [LexiconDescription])
-listLexiconsResponse_lexicons = Lens.lens (\ListLexiconsResponse' {lexicons} -> lexicons) (\s@ListLexiconsResponse' {} a -> s {lexicons = a} :: ListLexiconsResponse) Core.. Lens.mapping Lens._Coerce
+listLexiconsResponse_lexicons :: Lens.Lens' ListLexiconsResponse (Prelude.Maybe [LexiconDescription])
+listLexiconsResponse_lexicons = Lens.lens (\ListLexiconsResponse' {lexicons} -> lexicons) (\s@ListLexiconsResponse' {} a -> s {lexicons = a} :: ListLexiconsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listLexiconsResponse_httpStatus :: Lens.Lens' ListLexiconsResponse Core.Int
+listLexiconsResponse_httpStatus :: Lens.Lens' ListLexiconsResponse Prelude.Int
 listLexiconsResponse_httpStatus = Lens.lens (\ListLexiconsResponse' {httpStatus} -> httpStatus) (\s@ListLexiconsResponse' {} a -> s {httpStatus = a} :: ListLexiconsResponse)
 
-instance Core.NFData ListLexiconsResponse
+instance Prelude.NFData ListLexiconsResponse

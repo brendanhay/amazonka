@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.MarketType
 import Network.AWS.EMR.Types.SimpleScalingPolicyConfiguration
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The type of adjustment the automatic scaling activity makes when
 -- triggered, and the periodicity of the adjustment.
@@ -31,12 +32,12 @@ import qualified Network.AWS.Lens as Lens
 data ScalingAction = ScalingAction'
   { -- | Not available for instance groups. Instance groups use the market type
     -- specified for the group.
-    market :: Core.Maybe MarketType,
+    market :: Prelude.Maybe MarketType,
     -- | The type of adjustment the automatic scaling activity makes when
     -- triggered, and the periodicity of the adjustment.
     simpleScalingPolicyConfiguration :: SimpleScalingPolicyConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScalingAction' with all optional fields omitted.
@@ -57,14 +58,14 @@ newScalingAction ::
   ScalingAction
 newScalingAction pSimpleScalingPolicyConfiguration_ =
   ScalingAction'
-    { market = Core.Nothing,
+    { market = Prelude.Nothing,
       simpleScalingPolicyConfiguration =
         pSimpleScalingPolicyConfiguration_
     }
 
 -- | Not available for instance groups. Instance groups use the market type
 -- specified for the group.
-scalingAction_market :: Lens.Lens' ScalingAction (Core.Maybe MarketType)
+scalingAction_market :: Lens.Lens' ScalingAction (Prelude.Maybe MarketType)
 scalingAction_market = Lens.lens (\ScalingAction' {market} -> market) (\s@ScalingAction' {} a -> s {market = a} :: ScalingAction)
 
 -- | The type of adjustment the automatic scaling activity makes when
@@ -78,20 +79,20 @@ instance Core.FromJSON ScalingAction where
       "ScalingAction"
       ( \x ->
           ScalingAction'
-            Core.<$> (x Core..:? "Market")
-            Core.<*> (x Core..: "SimpleScalingPolicyConfiguration")
+            Prelude.<$> (x Core..:? "Market")
+            Prelude.<*> (x Core..: "SimpleScalingPolicyConfiguration")
       )
 
-instance Core.Hashable ScalingAction
+instance Prelude.Hashable ScalingAction
 
-instance Core.NFData ScalingAction
+instance Prelude.NFData ScalingAction
 
 instance Core.ToJSON ScalingAction where
   toJSON ScalingAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Market" Core..=) Core.<$> market,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Market" Core..=) Prelude.<$> market,
+            Prelude.Just
               ( "SimpleScalingPolicyConfiguration"
                   Core..= simpleScalingPolicyConfiguration
               )

@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetInstanceSnapshot' smart constructor.
 data GetInstanceSnapshot = GetInstanceSnapshot'
   { -- | The name of the snapshot for which you are requesting information.
-    instanceSnapshotName :: Core.Text
+    instanceSnapshotName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInstanceSnapshot' with all optional fields omitted.
@@ -63,7 +64,7 @@ data GetInstanceSnapshot = GetInstanceSnapshot'
 -- 'instanceSnapshotName', 'getInstanceSnapshot_instanceSnapshotName' - The name of the snapshot for which you are requesting information.
 newGetInstanceSnapshot ::
   -- | 'instanceSnapshotName'
-  Core.Text ->
+  Prelude.Text ->
   GetInstanceSnapshot
 newGetInstanceSnapshot pInstanceSnapshotName_ =
   GetInstanceSnapshot'
@@ -72,7 +73,7 @@ newGetInstanceSnapshot pInstanceSnapshotName_ =
     }
 
 -- | The name of the snapshot for which you are requesting information.
-getInstanceSnapshot_instanceSnapshotName :: Lens.Lens' GetInstanceSnapshot Core.Text
+getInstanceSnapshot_instanceSnapshotName :: Lens.Lens' GetInstanceSnapshot Prelude.Text
 getInstanceSnapshot_instanceSnapshotName = Lens.lens (\GetInstanceSnapshot' {instanceSnapshotName} -> instanceSnapshotName) (\s@GetInstanceSnapshot' {} a -> s {instanceSnapshotName = a} :: GetInstanceSnapshot)
 
 instance Core.AWSRequest GetInstanceSnapshot where
@@ -84,32 +85,34 @@ instance Core.AWSRequest GetInstanceSnapshot where
     Response.receiveJSON
       ( \s h x ->
           GetInstanceSnapshotResponse'
-            Core.<$> (x Core..?> "instanceSnapshot")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "instanceSnapshot")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetInstanceSnapshot
+instance Prelude.Hashable GetInstanceSnapshot
 
-instance Core.NFData GetInstanceSnapshot
+instance Prelude.NFData GetInstanceSnapshot
 
 instance Core.ToHeaders GetInstanceSnapshot where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetInstanceSnapshot" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetInstanceSnapshot where
   toJSON GetInstanceSnapshot' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "instanceSnapshotName"
                   Core..= instanceSnapshotName
               )
@@ -117,20 +120,20 @@ instance Core.ToJSON GetInstanceSnapshot where
       )
 
 instance Core.ToPath GetInstanceSnapshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetInstanceSnapshot where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInstanceSnapshotResponse' smart constructor.
 data GetInstanceSnapshotResponse = GetInstanceSnapshotResponse'
   { -- | An array of key-value pairs containing information about the results of
     -- your get instance snapshot request.
-    instanceSnapshot :: Core.Maybe InstanceSnapshot,
+    instanceSnapshot :: Prelude.Maybe InstanceSnapshot,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInstanceSnapshotResponse' with all optional fields omitted.
@@ -146,22 +149,22 @@ data GetInstanceSnapshotResponse = GetInstanceSnapshotResponse'
 -- 'httpStatus', 'getInstanceSnapshotResponse_httpStatus' - The response's http status code.
 newGetInstanceSnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetInstanceSnapshotResponse
 newGetInstanceSnapshotResponse pHttpStatus_ =
   GetInstanceSnapshotResponse'
     { instanceSnapshot =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of key-value pairs containing information about the results of
 -- your get instance snapshot request.
-getInstanceSnapshotResponse_instanceSnapshot :: Lens.Lens' GetInstanceSnapshotResponse (Core.Maybe InstanceSnapshot)
+getInstanceSnapshotResponse_instanceSnapshot :: Lens.Lens' GetInstanceSnapshotResponse (Prelude.Maybe InstanceSnapshot)
 getInstanceSnapshotResponse_instanceSnapshot = Lens.lens (\GetInstanceSnapshotResponse' {instanceSnapshot} -> instanceSnapshot) (\s@GetInstanceSnapshotResponse' {} a -> s {instanceSnapshot = a} :: GetInstanceSnapshotResponse)
 
 -- | The response's http status code.
-getInstanceSnapshotResponse_httpStatus :: Lens.Lens' GetInstanceSnapshotResponse Core.Int
+getInstanceSnapshotResponse_httpStatus :: Lens.Lens' GetInstanceSnapshotResponse Prelude.Int
 getInstanceSnapshotResponse_httpStatus = Lens.lens (\GetInstanceSnapshotResponse' {httpStatus} -> httpStatus) (\s@GetInstanceSnapshotResponse' {} a -> s {httpStatus = a} :: GetInstanceSnapshotResponse)
 
-instance Core.NFData GetInstanceSnapshotResponse
+instance Prelude.NFData GetInstanceSnapshotResponse

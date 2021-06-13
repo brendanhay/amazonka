@@ -21,15 +21,16 @@ module Network.AWS.IoT.Types.AuditCheckConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Which audit checks are enabled and disabled for this account.
 --
 -- /See:/ 'newAuditCheckConfiguration' smart constructor.
 data AuditCheckConfiguration = AuditCheckConfiguration'
   { -- | True if this audit check is enabled for this account.
-    enabled :: Core.Maybe Core.Bool
+    enabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AuditCheckConfiguration' with all optional fields omitted.
@@ -43,10 +44,10 @@ data AuditCheckConfiguration = AuditCheckConfiguration'
 newAuditCheckConfiguration ::
   AuditCheckConfiguration
 newAuditCheckConfiguration =
-  AuditCheckConfiguration' {enabled = Core.Nothing}
+  AuditCheckConfiguration' {enabled = Prelude.Nothing}
 
 -- | True if this audit check is enabled for this account.
-auditCheckConfiguration_enabled :: Lens.Lens' AuditCheckConfiguration (Core.Maybe Core.Bool)
+auditCheckConfiguration_enabled :: Lens.Lens' AuditCheckConfiguration (Prelude.Maybe Prelude.Bool)
 auditCheckConfiguration_enabled = Lens.lens (\AuditCheckConfiguration' {enabled} -> enabled) (\s@AuditCheckConfiguration' {} a -> s {enabled = a} :: AuditCheckConfiguration)
 
 instance Core.FromJSON AuditCheckConfiguration where
@@ -55,16 +56,16 @@ instance Core.FromJSON AuditCheckConfiguration where
       "AuditCheckConfiguration"
       ( \x ->
           AuditCheckConfiguration'
-            Core.<$> (x Core..:? "enabled")
+            Prelude.<$> (x Core..:? "enabled")
       )
 
-instance Core.Hashable AuditCheckConfiguration
+instance Prelude.Hashable AuditCheckConfiguration
 
-instance Core.NFData AuditCheckConfiguration
+instance Prelude.NFData AuditCheckConfiguration
 
 instance Core.ToJSON AuditCheckConfiguration where
   toJSON AuditCheckConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [("enabled" Core..=) Core.<$> enabled]
+      ( Prelude.catMaybes
+          [("enabled" Core..=) Prelude.<$> enabled]
       )

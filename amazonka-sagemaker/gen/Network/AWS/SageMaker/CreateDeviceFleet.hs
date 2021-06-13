@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -49,17 +50,17 @@ import Network.AWS.SageMaker.Types
 data CreateDeviceFleet = CreateDeviceFleet'
   { -- | The Amazon Resource Name (ARN) that has access to AWS Internet of Things
     -- (IoT).
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | Creates tags for the specified fleet.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A description of the fleet.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the fleet that the device belongs to.
-    deviceFleetName :: Core.Text,
+    deviceFleetName :: Prelude.Text,
     -- | The output configuration for storing sample data collected by the fleet.
     outputConfig :: EdgeOutputConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDeviceFleet' with all optional fields omitted.
@@ -81,34 +82,34 @@ data CreateDeviceFleet = CreateDeviceFleet'
 -- 'outputConfig', 'createDeviceFleet_outputConfig' - The output configuration for storing sample data collected by the fleet.
 newCreateDeviceFleet ::
   -- | 'deviceFleetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'outputConfig'
   EdgeOutputConfig ->
   CreateDeviceFleet
 newCreateDeviceFleet pDeviceFleetName_ pOutputConfig_ =
   CreateDeviceFleet'
-    { roleArn = Core.Nothing,
-      tags = Core.Nothing,
-      description = Core.Nothing,
+    { roleArn = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       deviceFleetName = pDeviceFleetName_,
       outputConfig = pOutputConfig_
     }
 
 -- | The Amazon Resource Name (ARN) that has access to AWS Internet of Things
 -- (IoT).
-createDeviceFleet_roleArn :: Lens.Lens' CreateDeviceFleet (Core.Maybe Core.Text)
+createDeviceFleet_roleArn :: Lens.Lens' CreateDeviceFleet (Prelude.Maybe Prelude.Text)
 createDeviceFleet_roleArn = Lens.lens (\CreateDeviceFleet' {roleArn} -> roleArn) (\s@CreateDeviceFleet' {} a -> s {roleArn = a} :: CreateDeviceFleet)
 
 -- | Creates tags for the specified fleet.
-createDeviceFleet_tags :: Lens.Lens' CreateDeviceFleet (Core.Maybe [Tag])
-createDeviceFleet_tags = Lens.lens (\CreateDeviceFleet' {tags} -> tags) (\s@CreateDeviceFleet' {} a -> s {tags = a} :: CreateDeviceFleet) Core.. Lens.mapping Lens._Coerce
+createDeviceFleet_tags :: Lens.Lens' CreateDeviceFleet (Prelude.Maybe [Tag])
+createDeviceFleet_tags = Lens.lens (\CreateDeviceFleet' {tags} -> tags) (\s@CreateDeviceFleet' {} a -> s {tags = a} :: CreateDeviceFleet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A description of the fleet.
-createDeviceFleet_description :: Lens.Lens' CreateDeviceFleet (Core.Maybe Core.Text)
+createDeviceFleet_description :: Lens.Lens' CreateDeviceFleet (Prelude.Maybe Prelude.Text)
 createDeviceFleet_description = Lens.lens (\CreateDeviceFleet' {description} -> description) (\s@CreateDeviceFleet' {} a -> s {description = a} :: CreateDeviceFleet)
 
 -- | The name of the fleet that the device belongs to.
-createDeviceFleet_deviceFleetName :: Lens.Lens' CreateDeviceFleet Core.Text
+createDeviceFleet_deviceFleetName :: Lens.Lens' CreateDeviceFleet Prelude.Text
 createDeviceFleet_deviceFleetName = Lens.lens (\CreateDeviceFleet' {deviceFleetName} -> deviceFleetName) (\s@CreateDeviceFleet' {} a -> s {deviceFleetName = a} :: CreateDeviceFleet)
 
 -- | The output configuration for storing sample data collected by the fleet.
@@ -123,45 +124,49 @@ instance Core.AWSRequest CreateDeviceFleet where
   response =
     Response.receiveNull CreateDeviceFleetResponse'
 
-instance Core.Hashable CreateDeviceFleet
+instance Prelude.Hashable CreateDeviceFleet
 
-instance Core.NFData CreateDeviceFleet
+instance Prelude.NFData CreateDeviceFleet
 
 instance Core.ToHeaders CreateDeviceFleet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateDeviceFleet" :: Core.ByteString),
+              Core.=# ( "SageMaker.CreateDeviceFleet" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateDeviceFleet where
   toJSON CreateDeviceFleet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RoleArn" Core..=) Core.<$> roleArn,
-            ("Tags" Core..=) Core.<$> tags,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just
               ("DeviceFleetName" Core..= deviceFleetName),
-            Core.Just ("OutputConfig" Core..= outputConfig)
+            Prelude.Just ("OutputConfig" Core..= outputConfig)
           ]
       )
 
 instance Core.ToPath CreateDeviceFleet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateDeviceFleet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDeviceFleetResponse' smart constructor.
 data CreateDeviceFleetResponse = CreateDeviceFleetResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDeviceFleetResponse' with all optional fields omitted.
@@ -172,4 +177,4 @@ newCreateDeviceFleetResponse ::
 newCreateDeviceFleetResponse =
   CreateDeviceFleetResponse'
 
-instance Core.NFData CreateDeviceFleetResponse
+instance Prelude.NFData CreateDeviceFleetResponse

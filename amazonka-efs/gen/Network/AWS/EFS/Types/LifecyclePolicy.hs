@@ -22,6 +22,7 @@ module Network.AWS.EFS.Types.LifecyclePolicy where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types.TransitionToIARules
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a policy used by EFS lifecycle management to transition files
 -- to the Infrequent Access (IA) storage class.
@@ -32,9 +33,9 @@ data LifecyclePolicy = LifecyclePolicy'
     -- after which it transitions to the IA storage class. Metadata operations
     -- such as listing the contents of a directory don\'t count as file access
     -- events.
-    transitionToIA :: Core.Maybe TransitionToIARules
+    transitionToIA :: Prelude.Maybe TransitionToIARules
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LifecyclePolicy' with all optional fields omitted.
@@ -51,13 +52,13 @@ data LifecyclePolicy = LifecyclePolicy'
 newLifecyclePolicy ::
   LifecyclePolicy
 newLifecyclePolicy =
-  LifecyclePolicy' {transitionToIA = Core.Nothing}
+  LifecyclePolicy' {transitionToIA = Prelude.Nothing}
 
 -- | A value that describes the period of time that a file is not accessed,
 -- after which it transitions to the IA storage class. Metadata operations
 -- such as listing the contents of a directory don\'t count as file access
 -- events.
-lifecyclePolicy_transitionToIA :: Lens.Lens' LifecyclePolicy (Core.Maybe TransitionToIARules)
+lifecyclePolicy_transitionToIA :: Lens.Lens' LifecyclePolicy (Prelude.Maybe TransitionToIARules)
 lifecyclePolicy_transitionToIA = Lens.lens (\LifecyclePolicy' {transitionToIA} -> transitionToIA) (\s@LifecyclePolicy' {} a -> s {transitionToIA = a} :: LifecyclePolicy)
 
 instance Core.FromJSON LifecyclePolicy where
@@ -66,16 +67,18 @@ instance Core.FromJSON LifecyclePolicy where
       "LifecyclePolicy"
       ( \x ->
           LifecyclePolicy'
-            Core.<$> (x Core..:? "TransitionToIA")
+            Prelude.<$> (x Core..:? "TransitionToIA")
       )
 
-instance Core.Hashable LifecyclePolicy
+instance Prelude.Hashable LifecyclePolicy
 
-instance Core.NFData LifecyclePolicy
+instance Prelude.NFData LifecyclePolicy
 
 instance Core.ToJSON LifecyclePolicy where
   toJSON LifecyclePolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [("TransitionToIA" Core..=) Core.<$> transitionToIA]
+      ( Prelude.catMaybes
+          [ ("TransitionToIA" Core..=)
+              Prelude.<$> transitionToIA
+          ]
       )

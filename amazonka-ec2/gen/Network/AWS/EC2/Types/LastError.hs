@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.LastError where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The last error that occurred for a VPC endpoint.
 --
 -- /See:/ 'newLastError' smart constructor.
 data LastError = LastError'
   { -- | The error message for the VPC endpoint error.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The error code for the VPC endpoint error.
-    code :: Core.Maybe Core.Text
+    code :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LastError' with all optional fields omitted.
@@ -49,23 +50,24 @@ newLastError ::
   LastError
 newLastError =
   LastError'
-    { message = Core.Nothing,
-      code = Core.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The error message for the VPC endpoint error.
-lastError_message :: Lens.Lens' LastError (Core.Maybe Core.Text)
+lastError_message :: Lens.Lens' LastError (Prelude.Maybe Prelude.Text)
 lastError_message = Lens.lens (\LastError' {message} -> message) (\s@LastError' {} a -> s {message = a} :: LastError)
 
 -- | The error code for the VPC endpoint error.
-lastError_code :: Lens.Lens' LastError (Core.Maybe Core.Text)
+lastError_code :: Lens.Lens' LastError (Prelude.Maybe Prelude.Text)
 lastError_code = Lens.lens (\LastError' {code} -> code) (\s@LastError' {} a -> s {code = a} :: LastError)
 
 instance Core.FromXML LastError where
   parseXML x =
     LastError'
-      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
-instance Core.Hashable LastError
+instance Prelude.Hashable LastError
 
-instance Core.NFData LastError
+instance Prelude.NFData LastError

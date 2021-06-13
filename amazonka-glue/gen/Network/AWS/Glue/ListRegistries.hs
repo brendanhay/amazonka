@@ -49,18 +49,19 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListRegistries' smart constructor.
 data ListRegistries = ListRegistries'
   { -- | A continuation token, if this is a continuation call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of results required per page. If the value is not
     -- supplied, this will be defaulted to 25 per page.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRegistries' with all optional fields omitted.
@@ -78,37 +79,39 @@ newListRegistries ::
   ListRegistries
 newListRegistries =
   ListRegistries'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | A continuation token, if this is a continuation call.
-listRegistries_nextToken :: Lens.Lens' ListRegistries (Core.Maybe Core.Text)
+listRegistries_nextToken :: Lens.Lens' ListRegistries (Prelude.Maybe Prelude.Text)
 listRegistries_nextToken = Lens.lens (\ListRegistries' {nextToken} -> nextToken) (\s@ListRegistries' {} a -> s {nextToken = a} :: ListRegistries)
 
 -- | Maximum number of results required per page. If the value is not
 -- supplied, this will be defaulted to 25 per page.
-listRegistries_maxResults :: Lens.Lens' ListRegistries (Core.Maybe Core.Natural)
+listRegistries_maxResults :: Lens.Lens' ListRegistries (Prelude.Maybe Prelude.Natural)
 listRegistries_maxResults = Lens.lens (\ListRegistries' {maxResults} -> maxResults) (\s@ListRegistries' {} a -> s {maxResults = a} :: ListRegistries)
 
 instance Core.AWSPager ListRegistries where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listRegistriesResponse_nextToken Core.. Lens._Just
+            Lens.^? listRegistriesResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listRegistriesResponse_registries Core.. Lens._Just
+            Lens.^? listRegistriesResponse_registries
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listRegistries_nextToken
+          Prelude.& listRegistries_nextToken
           Lens..~ rs
-          Lens.^? listRegistriesResponse_nextToken Core.. Lens._Just
+          Lens.^? listRegistriesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRegistries where
   type
@@ -119,53 +122,55 @@ instance Core.AWSRequest ListRegistries where
     Response.receiveJSON
       ( \s h x ->
           ListRegistriesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Registries" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Registries" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListRegistries
+instance Prelude.Hashable ListRegistries
 
-instance Core.NFData ListRegistries
+instance Prelude.NFData ListRegistries
 
 instance Core.ToHeaders ListRegistries where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.ListRegistries" :: Core.ByteString),
+              Core.=# ("AWSGlue.ListRegistries" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListRegistries where
   toJSON ListRegistries' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath ListRegistries where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListRegistries where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRegistriesResponse' smart constructor.
 data ListRegistriesResponse = ListRegistriesResponse'
   { -- | A continuation token for paginating the returned list of tokens,
     -- returned if the current segment of the list is not the last.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of @RegistryDetailedListItem@ objects containing minimal
     -- details of each registry.
-    registries :: Core.Maybe [RegistryListItem],
+    registries :: Prelude.Maybe [RegistryListItem],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRegistriesResponse' with all optional fields omitted.
@@ -184,27 +189,28 @@ data ListRegistriesResponse = ListRegistriesResponse'
 -- 'httpStatus', 'listRegistriesResponse_httpStatus' - The response's http status code.
 newListRegistriesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListRegistriesResponse
 newListRegistriesResponse pHttpStatus_ =
   ListRegistriesResponse'
-    { nextToken = Core.Nothing,
-      registries = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      registries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A continuation token for paginating the returned list of tokens,
 -- returned if the current segment of the list is not the last.
-listRegistriesResponse_nextToken :: Lens.Lens' ListRegistriesResponse (Core.Maybe Core.Text)
+listRegistriesResponse_nextToken :: Lens.Lens' ListRegistriesResponse (Prelude.Maybe Prelude.Text)
 listRegistriesResponse_nextToken = Lens.lens (\ListRegistriesResponse' {nextToken} -> nextToken) (\s@ListRegistriesResponse' {} a -> s {nextToken = a} :: ListRegistriesResponse)
 
 -- | An array of @RegistryDetailedListItem@ objects containing minimal
 -- details of each registry.
-listRegistriesResponse_registries :: Lens.Lens' ListRegistriesResponse (Core.Maybe [RegistryListItem])
-listRegistriesResponse_registries = Lens.lens (\ListRegistriesResponse' {registries} -> registries) (\s@ListRegistriesResponse' {} a -> s {registries = a} :: ListRegistriesResponse) Core.. Lens.mapping Lens._Coerce
+listRegistriesResponse_registries :: Lens.Lens' ListRegistriesResponse (Prelude.Maybe [RegistryListItem])
+listRegistriesResponse_registries = Lens.lens (\ListRegistriesResponse' {registries} -> registries) (\s@ListRegistriesResponse' {} a -> s {registries = a} :: ListRegistriesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listRegistriesResponse_httpStatus :: Lens.Lens' ListRegistriesResponse Core.Int
+listRegistriesResponse_httpStatus :: Lens.Lens' ListRegistriesResponse Prelude.Int
 listRegistriesResponse_httpStatus = Lens.lens (\ListRegistriesResponse' {httpStatus} -> httpStatus) (\s@ListRegistriesResponse' {} a -> s {httpStatus = a} :: ListRegistriesResponse)
 
-instance Core.NFData ListRegistriesResponse
+instance Prelude.NFData ListRegistriesResponse

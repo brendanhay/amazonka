@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -51,11 +52,11 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newAuthorizeIpRules' smart constructor.
 data AuthorizeIpRules = AuthorizeIpRules'
   { -- | The identifier of the group.
-    groupId :: Core.Text,
+    groupId :: Prelude.Text,
     -- | The rules to add to the group.
     userRules :: [IpRuleItem]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AuthorizeIpRules' with all optional fields omitted.
@@ -70,21 +71,21 @@ data AuthorizeIpRules = AuthorizeIpRules'
 -- 'userRules', 'authorizeIpRules_userRules' - The rules to add to the group.
 newAuthorizeIpRules ::
   -- | 'groupId'
-  Core.Text ->
+  Prelude.Text ->
   AuthorizeIpRules
 newAuthorizeIpRules pGroupId_ =
   AuthorizeIpRules'
     { groupId = pGroupId_,
-      userRules = Core.mempty
+      userRules = Prelude.mempty
     }
 
 -- | The identifier of the group.
-authorizeIpRules_groupId :: Lens.Lens' AuthorizeIpRules Core.Text
+authorizeIpRules_groupId :: Lens.Lens' AuthorizeIpRules Prelude.Text
 authorizeIpRules_groupId = Lens.lens (\AuthorizeIpRules' {groupId} -> groupId) (\s@AuthorizeIpRules' {} a -> s {groupId = a} :: AuthorizeIpRules)
 
 -- | The rules to add to the group.
 authorizeIpRules_userRules :: Lens.Lens' AuthorizeIpRules [IpRuleItem]
-authorizeIpRules_userRules = Lens.lens (\AuthorizeIpRules' {userRules} -> userRules) (\s@AuthorizeIpRules' {} a -> s {userRules = a} :: AuthorizeIpRules) Core.. Lens._Coerce
+authorizeIpRules_userRules = Lens.lens (\AuthorizeIpRules' {userRules} -> userRules) (\s@AuthorizeIpRules' {} a -> s {userRules = a} :: AuthorizeIpRules) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AuthorizeIpRules where
   type
@@ -95,47 +96,49 @@ instance Core.AWSRequest AuthorizeIpRules where
     Response.receiveEmpty
       ( \s h x ->
           AuthorizeIpRulesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AuthorizeIpRules
+instance Prelude.Hashable AuthorizeIpRules
 
-instance Core.NFData AuthorizeIpRules
+instance Prelude.NFData AuthorizeIpRules
 
 instance Core.ToHeaders AuthorizeIpRules where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.AuthorizeIpRules" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AuthorizeIpRules where
   toJSON AuthorizeIpRules' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("GroupId" Core..= groupId),
-            Core.Just ("UserRules" Core..= userRules)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("GroupId" Core..= groupId),
+            Prelude.Just ("UserRules" Core..= userRules)
           ]
       )
 
 instance Core.ToPath AuthorizeIpRules where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AuthorizeIpRules where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAuthorizeIpRulesResponse' smart constructor.
 data AuthorizeIpRulesResponse = AuthorizeIpRulesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AuthorizeIpRulesResponse' with all optional fields omitted.
@@ -148,7 +151,7 @@ data AuthorizeIpRulesResponse = AuthorizeIpRulesResponse'
 -- 'httpStatus', 'authorizeIpRulesResponse_httpStatus' - The response's http status code.
 newAuthorizeIpRulesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AuthorizeIpRulesResponse
 newAuthorizeIpRulesResponse pHttpStatus_ =
   AuthorizeIpRulesResponse'
@@ -157,7 +160,7 @@ newAuthorizeIpRulesResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-authorizeIpRulesResponse_httpStatus :: Lens.Lens' AuthorizeIpRulesResponse Core.Int
+authorizeIpRulesResponse_httpStatus :: Lens.Lens' AuthorizeIpRulesResponse Prelude.Int
 authorizeIpRulesResponse_httpStatus = Lens.lens (\AuthorizeIpRulesResponse' {httpStatus} -> httpStatus) (\s@AuthorizeIpRulesResponse' {} a -> s {httpStatus = a} :: AuthorizeIpRulesResponse)
 
-instance Core.NFData AuthorizeIpRulesResponse
+instance Prelude.NFData AuthorizeIpRulesResponse

@@ -42,15 +42,16 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteLaunchConfiguration' smart constructor.
 data DeleteLaunchConfiguration = DeleteLaunchConfiguration'
   { -- | The name of the launch configuration.
-    launchConfigurationName :: Core.Text
+    launchConfigurationName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLaunchConfiguration' with all optional fields omitted.
@@ -63,7 +64,7 @@ data DeleteLaunchConfiguration = DeleteLaunchConfiguration'
 -- 'launchConfigurationName', 'deleteLaunchConfiguration_launchConfigurationName' - The name of the launch configuration.
 newDeleteLaunchConfiguration ::
   -- | 'launchConfigurationName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteLaunchConfiguration
 newDeleteLaunchConfiguration
   pLaunchConfigurationName_ =
@@ -73,7 +74,7 @@ newDeleteLaunchConfiguration
       }
 
 -- | The name of the launch configuration.
-deleteLaunchConfiguration_launchConfigurationName :: Lens.Lens' DeleteLaunchConfiguration Core.Text
+deleteLaunchConfiguration_launchConfigurationName :: Lens.Lens' DeleteLaunchConfiguration Prelude.Text
 deleteLaunchConfiguration_launchConfigurationName = Lens.lens (\DeleteLaunchConfiguration' {launchConfigurationName} -> launchConfigurationName) (\s@DeleteLaunchConfiguration' {} a -> s {launchConfigurationName = a} :: DeleteLaunchConfiguration)
 
 instance Core.AWSRequest DeleteLaunchConfiguration where
@@ -85,22 +86,23 @@ instance Core.AWSRequest DeleteLaunchConfiguration where
     Response.receiveNull
       DeleteLaunchConfigurationResponse'
 
-instance Core.Hashable DeleteLaunchConfiguration
+instance Prelude.Hashable DeleteLaunchConfiguration
 
-instance Core.NFData DeleteLaunchConfiguration
+instance Prelude.NFData DeleteLaunchConfiguration
 
 instance Core.ToHeaders DeleteLaunchConfiguration where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteLaunchConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteLaunchConfiguration where
   toQuery DeleteLaunchConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteLaunchConfiguration" :: Core.ByteString),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+          Core.=: ("DeleteLaunchConfiguration" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "LaunchConfigurationName"
           Core.=: launchConfigurationName
       ]
@@ -109,7 +111,7 @@ instance Core.ToQuery DeleteLaunchConfiguration where
 data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLaunchConfigurationResponse' with all optional fields omitted.
@@ -121,5 +123,5 @@ newDeleteLaunchConfigurationResponse =
   DeleteLaunchConfigurationResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteLaunchConfigurationResponse

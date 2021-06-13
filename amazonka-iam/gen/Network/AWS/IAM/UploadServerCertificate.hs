@@ -78,6 +78,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -92,7 +93,7 @@ data UploadServerCertificate = UploadServerCertificate'
     -- If any one of the tags is invalid or if you exceed the allowed maximum
     -- number of tags, then the entire request fails and the resource is not
     -- created.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The contents of the certificate chain. This is typically a concatenation
     -- of the PEM-encoded public key certificates of the chain.
     --
@@ -107,7 +108,7 @@ data UploadServerCertificate = UploadServerCertificate'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    certificateChain :: Core.Maybe Core.Text,
+    certificateChain :: Prelude.Maybe Prelude.Text,
     -- | The path for the server certificate. For more information about paths,
     -- see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
@@ -126,7 +127,7 @@ data UploadServerCertificate = UploadServerCertificate'
     -- Amazon CloudFront distributions, you must specify a path using the
     -- @path@ parameter. The path must begin with @\/cloudfront@ and must
     -- include a trailing slash (for example, @\/cloudfront\/test\/@).
-    path :: Core.Maybe Core.Text,
+    path :: Prelude.Maybe Prelude.Text,
     -- | The name for the server certificate. Do not include the path in this
     -- value. The name of the certificate cannot contain any spaces.
     --
@@ -134,7 +135,7 @@ data UploadServerCertificate = UploadServerCertificate'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    serverCertificateName :: Core.Text,
+    serverCertificateName :: Prelude.Text,
     -- | The contents of the public key certificate in PEM-encoded format.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
@@ -148,7 +149,7 @@ data UploadServerCertificate = UploadServerCertificate'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    certificateBody :: Core.Text,
+    certificateBody :: Prelude.Text,
     -- | The contents of the private key in PEM-encoded format.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
@@ -162,9 +163,9 @@ data UploadServerCertificate = UploadServerCertificate'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    privateKey :: Core.Sensitive Core.Text
+    privateKey :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UploadServerCertificate' with all optional fields omitted.
@@ -255,20 +256,20 @@ data UploadServerCertificate = UploadServerCertificate'
 --     carriage return (@\\u000D@)
 newUploadServerCertificate ::
   -- | 'serverCertificateName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'certificateBody'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'privateKey'
-  Core.Text ->
+  Prelude.Text ->
   UploadServerCertificate
 newUploadServerCertificate
   pServerCertificateName_
   pCertificateBody_
   pPrivateKey_ =
     UploadServerCertificate'
-      { tags = Core.Nothing,
-        certificateChain = Core.Nothing,
-        path = Core.Nothing,
+      { tags = Prelude.Nothing,
+        certificateChain = Prelude.Nothing,
+        path = Prelude.Nothing,
         serverCertificateName = pServerCertificateName_,
         certificateBody = pCertificateBody_,
         privateKey = Core._Sensitive Lens.# pPrivateKey_
@@ -283,8 +284,8 @@ newUploadServerCertificate
 -- If any one of the tags is invalid or if you exceed the allowed maximum
 -- number of tags, then the entire request fails and the resource is not
 -- created.
-uploadServerCertificate_tags :: Lens.Lens' UploadServerCertificate (Core.Maybe [Tag])
-uploadServerCertificate_tags = Lens.lens (\UploadServerCertificate' {tags} -> tags) (\s@UploadServerCertificate' {} a -> s {tags = a} :: UploadServerCertificate) Core.. Lens.mapping Lens._Coerce
+uploadServerCertificate_tags :: Lens.Lens' UploadServerCertificate (Prelude.Maybe [Tag])
+uploadServerCertificate_tags = Lens.lens (\UploadServerCertificate' {tags} -> tags) (\s@UploadServerCertificate' {} a -> s {tags = a} :: UploadServerCertificate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The contents of the certificate chain. This is typically a concatenation
 -- of the PEM-encoded public key certificates of the chain.
@@ -300,7 +301,7 @@ uploadServerCertificate_tags = Lens.lens (\UploadServerCertificate' {tags} -> ta
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-uploadServerCertificate_certificateChain :: Lens.Lens' UploadServerCertificate (Core.Maybe Core.Text)
+uploadServerCertificate_certificateChain :: Lens.Lens' UploadServerCertificate (Prelude.Maybe Prelude.Text)
 uploadServerCertificate_certificateChain = Lens.lens (\UploadServerCertificate' {certificateChain} -> certificateChain) (\s@UploadServerCertificate' {} a -> s {certificateChain = a} :: UploadServerCertificate)
 
 -- | The path for the server certificate. For more information about paths,
@@ -321,7 +322,7 @@ uploadServerCertificate_certificateChain = Lens.lens (\UploadServerCertificate' 
 -- Amazon CloudFront distributions, you must specify a path using the
 -- @path@ parameter. The path must begin with @\/cloudfront@ and must
 -- include a trailing slash (for example, @\/cloudfront\/test\/@).
-uploadServerCertificate_path :: Lens.Lens' UploadServerCertificate (Core.Maybe Core.Text)
+uploadServerCertificate_path :: Lens.Lens' UploadServerCertificate (Prelude.Maybe Prelude.Text)
 uploadServerCertificate_path = Lens.lens (\UploadServerCertificate' {path} -> path) (\s@UploadServerCertificate' {} a -> s {path = a} :: UploadServerCertificate)
 
 -- | The name for the server certificate. Do not include the path in this
@@ -331,7 +332,7 @@ uploadServerCertificate_path = Lens.lens (\UploadServerCertificate' {path} -> pa
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-uploadServerCertificate_serverCertificateName :: Lens.Lens' UploadServerCertificate Core.Text
+uploadServerCertificate_serverCertificateName :: Lens.Lens' UploadServerCertificate Prelude.Text
 uploadServerCertificate_serverCertificateName = Lens.lens (\UploadServerCertificate' {serverCertificateName} -> serverCertificateName) (\s@UploadServerCertificate' {} a -> s {serverCertificateName = a} :: UploadServerCertificate)
 
 -- | The contents of the public key certificate in PEM-encoded format.
@@ -347,7 +348,7 @@ uploadServerCertificate_serverCertificateName = Lens.lens (\UploadServerCertific
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-uploadServerCertificate_certificateBody :: Lens.Lens' UploadServerCertificate Core.Text
+uploadServerCertificate_certificateBody :: Lens.Lens' UploadServerCertificate Prelude.Text
 uploadServerCertificate_certificateBody = Lens.lens (\UploadServerCertificate' {certificateBody} -> certificateBody) (\s@UploadServerCertificate' {} a -> s {certificateBody = a} :: UploadServerCertificate)
 
 -- | The contents of the private key in PEM-encoded format.
@@ -363,8 +364,8 @@ uploadServerCertificate_certificateBody = Lens.lens (\UploadServerCertificate' {
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-uploadServerCertificate_privateKey :: Lens.Lens' UploadServerCertificate Core.Text
-uploadServerCertificate_privateKey = Lens.lens (\UploadServerCertificate' {privateKey} -> privateKey) (\s@UploadServerCertificate' {} a -> s {privateKey = a} :: UploadServerCertificate) Core.. Core._Sensitive
+uploadServerCertificate_privateKey :: Lens.Lens' UploadServerCertificate Prelude.Text
+uploadServerCertificate_privateKey = Lens.lens (\UploadServerCertificate' {privateKey} -> privateKey) (\s@UploadServerCertificate' {} a -> s {privateKey = a} :: UploadServerCertificate) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest UploadServerCertificate where
   type
@@ -376,32 +377,33 @@ instance Core.AWSRequest UploadServerCertificate where
       "UploadServerCertificateResult"
       ( \s h x ->
           UploadServerCertificateResponse'
-            Core.<$> (x Core..@? "ServerCertificateMetadata")
-            Core.<*> ( x Core..@? "Tags" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ServerCertificateMetadata")
+            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UploadServerCertificate
+instance Prelude.Hashable UploadServerCertificate
 
-instance Core.NFData UploadServerCertificate
+instance Prelude.NFData UploadServerCertificate
 
 instance Core.ToHeaders UploadServerCertificate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UploadServerCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UploadServerCertificate where
   toQuery UploadServerCertificate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UploadServerCertificate" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("UploadServerCertificate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "Tags"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> tags),
+            (Core.toQueryList "member" Prelude.<$> tags),
         "CertificateChain" Core.=: certificateChain,
         "Path" Core.=: path,
         "ServerCertificateName"
@@ -416,17 +418,17 @@ instance Core.ToQuery UploadServerCertificate where
 data UploadServerCertificateResponse = UploadServerCertificateResponse'
   { -- | The meta information of the uploaded server certificate without its
     -- certificate body, certificate chain, and private key.
-    serverCertificateMetadata :: Core.Maybe ServerCertificateMetadata,
+    serverCertificateMetadata :: Prelude.Maybe ServerCertificateMetadata,
     -- | A list of tags that are attached to the new IAM server certificate. The
     -- returned list of tags is sorted by tag key. For more information about
     -- tagging, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
     -- in the /IAM User Guide/.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UploadServerCertificateResponse' with all optional fields omitted.
@@ -448,19 +450,19 @@ data UploadServerCertificateResponse = UploadServerCertificateResponse'
 -- 'httpStatus', 'uploadServerCertificateResponse_httpStatus' - The response's http status code.
 newUploadServerCertificateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UploadServerCertificateResponse
 newUploadServerCertificateResponse pHttpStatus_ =
   UploadServerCertificateResponse'
     { serverCertificateMetadata =
-        Core.Nothing,
-      tags = Core.Nothing,
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The meta information of the uploaded server certificate without its
 -- certificate body, certificate chain, and private key.
-uploadServerCertificateResponse_serverCertificateMetadata :: Lens.Lens' UploadServerCertificateResponse (Core.Maybe ServerCertificateMetadata)
+uploadServerCertificateResponse_serverCertificateMetadata :: Lens.Lens' UploadServerCertificateResponse (Prelude.Maybe ServerCertificateMetadata)
 uploadServerCertificateResponse_serverCertificateMetadata = Lens.lens (\UploadServerCertificateResponse' {serverCertificateMetadata} -> serverCertificateMetadata) (\s@UploadServerCertificateResponse' {} a -> s {serverCertificateMetadata = a} :: UploadServerCertificateResponse)
 
 -- | A list of tags that are attached to the new IAM server certificate. The
@@ -468,11 +470,13 @@ uploadServerCertificateResponse_serverCertificateMetadata = Lens.lens (\UploadSe
 -- tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
-uploadServerCertificateResponse_tags :: Lens.Lens' UploadServerCertificateResponse (Core.Maybe [Tag])
-uploadServerCertificateResponse_tags = Lens.lens (\UploadServerCertificateResponse' {tags} -> tags) (\s@UploadServerCertificateResponse' {} a -> s {tags = a} :: UploadServerCertificateResponse) Core.. Lens.mapping Lens._Coerce
+uploadServerCertificateResponse_tags :: Lens.Lens' UploadServerCertificateResponse (Prelude.Maybe [Tag])
+uploadServerCertificateResponse_tags = Lens.lens (\UploadServerCertificateResponse' {tags} -> tags) (\s@UploadServerCertificateResponse' {} a -> s {tags = a} :: UploadServerCertificateResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-uploadServerCertificateResponse_httpStatus :: Lens.Lens' UploadServerCertificateResponse Core.Int
+uploadServerCertificateResponse_httpStatus :: Lens.Lens' UploadServerCertificateResponse Prelude.Int
 uploadServerCertificateResponse_httpStatus = Lens.lens (\UploadServerCertificateResponse' {httpStatus} -> httpStatus) (\s@UploadServerCertificateResponse' {} a -> s {httpStatus = a} :: UploadServerCertificateResponse)
 
-instance Core.NFData UploadServerCertificateResponse
+instance
+  Prelude.NFData
+    UploadServerCertificateResponse

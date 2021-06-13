@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.AutoMLCandidateStep where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.CandidateStepType
 
 -- | Information about the steps for a Candidate, and what step it is working
@@ -31,11 +32,11 @@ data AutoMLCandidateStep = AutoMLCandidateStep'
   { -- | Whether the Candidate is at the transform, training, or processing step.
     candidateStepType :: CandidateStepType,
     -- | The ARN for the Candidate\'s step.
-    candidateStepArn :: Core.Text,
+    candidateStepArn :: Prelude.Text,
     -- | The name for the Candidate\'s step.
-    candidateStepName :: Core.Text
+    candidateStepName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AutoMLCandidateStep' with all optional fields omitted.
@@ -54,9 +55,9 @@ newAutoMLCandidateStep ::
   -- | 'candidateStepType'
   CandidateStepType ->
   -- | 'candidateStepArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'candidateStepName'
-  Core.Text ->
+  Prelude.Text ->
   AutoMLCandidateStep
 newAutoMLCandidateStep
   pCandidateStepType_
@@ -74,11 +75,11 @@ autoMLCandidateStep_candidateStepType :: Lens.Lens' AutoMLCandidateStep Candidat
 autoMLCandidateStep_candidateStepType = Lens.lens (\AutoMLCandidateStep' {candidateStepType} -> candidateStepType) (\s@AutoMLCandidateStep' {} a -> s {candidateStepType = a} :: AutoMLCandidateStep)
 
 -- | The ARN for the Candidate\'s step.
-autoMLCandidateStep_candidateStepArn :: Lens.Lens' AutoMLCandidateStep Core.Text
+autoMLCandidateStep_candidateStepArn :: Lens.Lens' AutoMLCandidateStep Prelude.Text
 autoMLCandidateStep_candidateStepArn = Lens.lens (\AutoMLCandidateStep' {candidateStepArn} -> candidateStepArn) (\s@AutoMLCandidateStep' {} a -> s {candidateStepArn = a} :: AutoMLCandidateStep)
 
 -- | The name for the Candidate\'s step.
-autoMLCandidateStep_candidateStepName :: Lens.Lens' AutoMLCandidateStep Core.Text
+autoMLCandidateStep_candidateStepName :: Lens.Lens' AutoMLCandidateStep Prelude.Text
 autoMLCandidateStep_candidateStepName = Lens.lens (\AutoMLCandidateStep' {candidateStepName} -> candidateStepName) (\s@AutoMLCandidateStep' {} a -> s {candidateStepName = a} :: AutoMLCandidateStep)
 
 instance Core.FromJSON AutoMLCandidateStep where
@@ -87,11 +88,11 @@ instance Core.FromJSON AutoMLCandidateStep where
       "AutoMLCandidateStep"
       ( \x ->
           AutoMLCandidateStep'
-            Core.<$> (x Core..: "CandidateStepType")
-            Core.<*> (x Core..: "CandidateStepArn")
-            Core.<*> (x Core..: "CandidateStepName")
+            Prelude.<$> (x Core..: "CandidateStepType")
+            Prelude.<*> (x Core..: "CandidateStepArn")
+            Prelude.<*> (x Core..: "CandidateStepName")
       )
 
-instance Core.Hashable AutoMLCandidateStep
+instance Prelude.Hashable AutoMLCandidateStep
 
-instance Core.NFData AutoMLCandidateStep
+instance Prelude.NFData AutoMLCandidateStep

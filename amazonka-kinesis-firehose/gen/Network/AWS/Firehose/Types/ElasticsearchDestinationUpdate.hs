@@ -27,6 +27,7 @@ import Network.AWS.Firehose.Types.ElasticsearchRetryOptions
 import Network.AWS.Firehose.Types.ProcessingConfiguration
 import Network.AWS.Firehose.Types.S3DestinationUpdate
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an update for a destination in Amazon ES.
 --
@@ -42,25 +43,25 @@ data ElasticsearchDestinationUpdate = ElasticsearchDestinationUpdate'
     -- Elasticsearch with the old index name and type name. If you want to
     -- update your delivery stream with a new index name, provide an empty
     -- string for @TypeName@.
-    typeName :: Core.Maybe Core.Text,
+    typeName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis
     -- Data Firehose for calling the Amazon ES Configuration API and for
     -- indexing documents. For more information, see
     -- <https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Grant Kinesis Data Firehose Access to an Amazon S3 Destination>
     -- and
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-    roleARN :: Core.Maybe Core.Text,
+    roleARN :: Prelude.Maybe Prelude.Text,
     -- | The endpoint to use when communicating with the cluster. Specify either
     -- this @ClusterEndpoint@ or the @DomainARN@ field.
-    clusterEndpoint :: Core.Maybe Core.Text,
+    clusterEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The Elasticsearch index name.
-    indexName :: Core.Maybe Core.Text,
+    indexName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 destination.
-    s3Update :: Core.Maybe S3DestinationUpdate,
+    s3Update :: Prelude.Maybe S3DestinationUpdate,
     -- | The data processing configuration.
-    processingConfiguration :: Core.Maybe ProcessingConfiguration,
+    processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
     -- | The CloudWatch logging options for your delivery stream.
-    cloudWatchLoggingOptions :: Core.Maybe CloudWatchLoggingOptions,
+    cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
     -- | The ARN of the Amazon ES domain. The IAM role must have permissions
     -- for @DescribeElasticsearchDomain@, @DescribeElasticsearchDomains@, and
     -- @DescribeElasticsearchDomainConfig@ after assuming the IAM role
@@ -68,21 +69,21 @@ data ElasticsearchDestinationUpdate = ElasticsearchDestinationUpdate'
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
     --
     -- Specify either @ClusterEndpoint@ or @DomainARN@.
-    domainARN :: Core.Maybe Core.Text,
+    domainARN :: Prelude.Maybe Prelude.Text,
     -- | The Elasticsearch index rotation period. Index rotation appends a
     -- timestamp to @IndexName@ to facilitate the expiration of old data. For
     -- more information, see
     -- <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination>.
     -- Default value is @OneDay@.
-    indexRotationPeriod :: Core.Maybe ElasticsearchIndexRotationPeriod,
+    indexRotationPeriod :: Prelude.Maybe ElasticsearchIndexRotationPeriod,
     -- | The buffering options. If no value is specified,
     -- @ElasticsearchBufferingHints@ object default values are used.
-    bufferingHints :: Core.Maybe ElasticsearchBufferingHints,
+    bufferingHints :: Prelude.Maybe ElasticsearchBufferingHints,
     -- | The retry behavior in case Kinesis Data Firehose is unable to deliver
     -- documents to Amazon ES. The default value is 300 (5 minutes).
-    retryOptions :: Core.Maybe ElasticsearchRetryOptions
+    retryOptions :: Prelude.Maybe ElasticsearchRetryOptions
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ElasticsearchDestinationUpdate' with all optional fields omitted.
@@ -145,17 +146,17 @@ newElasticsearchDestinationUpdate ::
 newElasticsearchDestinationUpdate =
   ElasticsearchDestinationUpdate'
     { typeName =
-        Core.Nothing,
-      roleARN = Core.Nothing,
-      clusterEndpoint = Core.Nothing,
-      indexName = Core.Nothing,
-      s3Update = Core.Nothing,
-      processingConfiguration = Core.Nothing,
-      cloudWatchLoggingOptions = Core.Nothing,
-      domainARN = Core.Nothing,
-      indexRotationPeriod = Core.Nothing,
-      bufferingHints = Core.Nothing,
-      retryOptions = Core.Nothing
+        Prelude.Nothing,
+      roleARN = Prelude.Nothing,
+      clusterEndpoint = Prelude.Nothing,
+      indexName = Prelude.Nothing,
+      s3Update = Prelude.Nothing,
+      processingConfiguration = Prelude.Nothing,
+      cloudWatchLoggingOptions = Prelude.Nothing,
+      domainARN = Prelude.Nothing,
+      indexRotationPeriod = Prelude.Nothing,
+      bufferingHints = Prelude.Nothing,
+      retryOptions = Prelude.Nothing
     }
 
 -- | The Elasticsearch type name. For Elasticsearch 6.x, there can be only
@@ -168,7 +169,7 @@ newElasticsearchDestinationUpdate =
 -- Elasticsearch with the old index name and type name. If you want to
 -- update your delivery stream with a new index name, provide an empty
 -- string for @TypeName@.
-elasticsearchDestinationUpdate_typeName :: Lens.Lens' ElasticsearchDestinationUpdate (Core.Maybe Core.Text)
+elasticsearchDestinationUpdate_typeName :: Lens.Lens' ElasticsearchDestinationUpdate (Prelude.Maybe Prelude.Text)
 elasticsearchDestinationUpdate_typeName = Lens.lens (\ElasticsearchDestinationUpdate' {typeName} -> typeName) (\s@ElasticsearchDestinationUpdate' {} a -> s {typeName = a} :: ElasticsearchDestinationUpdate)
 
 -- | The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis
@@ -177,28 +178,28 @@ elasticsearchDestinationUpdate_typeName = Lens.lens (\ElasticsearchDestinationUp
 -- <https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Grant Kinesis Data Firehose Access to an Amazon S3 Destination>
 -- and
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-elasticsearchDestinationUpdate_roleARN :: Lens.Lens' ElasticsearchDestinationUpdate (Core.Maybe Core.Text)
+elasticsearchDestinationUpdate_roleARN :: Lens.Lens' ElasticsearchDestinationUpdate (Prelude.Maybe Prelude.Text)
 elasticsearchDestinationUpdate_roleARN = Lens.lens (\ElasticsearchDestinationUpdate' {roleARN} -> roleARN) (\s@ElasticsearchDestinationUpdate' {} a -> s {roleARN = a} :: ElasticsearchDestinationUpdate)
 
 -- | The endpoint to use when communicating with the cluster. Specify either
 -- this @ClusterEndpoint@ or the @DomainARN@ field.
-elasticsearchDestinationUpdate_clusterEndpoint :: Lens.Lens' ElasticsearchDestinationUpdate (Core.Maybe Core.Text)
+elasticsearchDestinationUpdate_clusterEndpoint :: Lens.Lens' ElasticsearchDestinationUpdate (Prelude.Maybe Prelude.Text)
 elasticsearchDestinationUpdate_clusterEndpoint = Lens.lens (\ElasticsearchDestinationUpdate' {clusterEndpoint} -> clusterEndpoint) (\s@ElasticsearchDestinationUpdate' {} a -> s {clusterEndpoint = a} :: ElasticsearchDestinationUpdate)
 
 -- | The Elasticsearch index name.
-elasticsearchDestinationUpdate_indexName :: Lens.Lens' ElasticsearchDestinationUpdate (Core.Maybe Core.Text)
+elasticsearchDestinationUpdate_indexName :: Lens.Lens' ElasticsearchDestinationUpdate (Prelude.Maybe Prelude.Text)
 elasticsearchDestinationUpdate_indexName = Lens.lens (\ElasticsearchDestinationUpdate' {indexName} -> indexName) (\s@ElasticsearchDestinationUpdate' {} a -> s {indexName = a} :: ElasticsearchDestinationUpdate)
 
 -- | The Amazon S3 destination.
-elasticsearchDestinationUpdate_s3Update :: Lens.Lens' ElasticsearchDestinationUpdate (Core.Maybe S3DestinationUpdate)
+elasticsearchDestinationUpdate_s3Update :: Lens.Lens' ElasticsearchDestinationUpdate (Prelude.Maybe S3DestinationUpdate)
 elasticsearchDestinationUpdate_s3Update = Lens.lens (\ElasticsearchDestinationUpdate' {s3Update} -> s3Update) (\s@ElasticsearchDestinationUpdate' {} a -> s {s3Update = a} :: ElasticsearchDestinationUpdate)
 
 -- | The data processing configuration.
-elasticsearchDestinationUpdate_processingConfiguration :: Lens.Lens' ElasticsearchDestinationUpdate (Core.Maybe ProcessingConfiguration)
+elasticsearchDestinationUpdate_processingConfiguration :: Lens.Lens' ElasticsearchDestinationUpdate (Prelude.Maybe ProcessingConfiguration)
 elasticsearchDestinationUpdate_processingConfiguration = Lens.lens (\ElasticsearchDestinationUpdate' {processingConfiguration} -> processingConfiguration) (\s@ElasticsearchDestinationUpdate' {} a -> s {processingConfiguration = a} :: ElasticsearchDestinationUpdate)
 
 -- | The CloudWatch logging options for your delivery stream.
-elasticsearchDestinationUpdate_cloudWatchLoggingOptions :: Lens.Lens' ElasticsearchDestinationUpdate (Core.Maybe CloudWatchLoggingOptions)
+elasticsearchDestinationUpdate_cloudWatchLoggingOptions :: Lens.Lens' ElasticsearchDestinationUpdate (Prelude.Maybe CloudWatchLoggingOptions)
 elasticsearchDestinationUpdate_cloudWatchLoggingOptions = Lens.lens (\ElasticsearchDestinationUpdate' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@ElasticsearchDestinationUpdate' {} a -> s {cloudWatchLoggingOptions = a} :: ElasticsearchDestinationUpdate)
 
 -- | The ARN of the Amazon ES domain. The IAM role must have permissions
@@ -208,7 +209,7 @@ elasticsearchDestinationUpdate_cloudWatchLoggingOptions = Lens.lens (\Elasticsea
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
 --
 -- Specify either @ClusterEndpoint@ or @DomainARN@.
-elasticsearchDestinationUpdate_domainARN :: Lens.Lens' ElasticsearchDestinationUpdate (Core.Maybe Core.Text)
+elasticsearchDestinationUpdate_domainARN :: Lens.Lens' ElasticsearchDestinationUpdate (Prelude.Maybe Prelude.Text)
 elasticsearchDestinationUpdate_domainARN = Lens.lens (\ElasticsearchDestinationUpdate' {domainARN} -> domainARN) (\s@ElasticsearchDestinationUpdate' {} a -> s {domainARN = a} :: ElasticsearchDestinationUpdate)
 
 -- | The Elasticsearch index rotation period. Index rotation appends a
@@ -216,40 +217,46 @@ elasticsearchDestinationUpdate_domainARN = Lens.lens (\ElasticsearchDestinationU
 -- more information, see
 -- <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination>.
 -- Default value is @OneDay@.
-elasticsearchDestinationUpdate_indexRotationPeriod :: Lens.Lens' ElasticsearchDestinationUpdate (Core.Maybe ElasticsearchIndexRotationPeriod)
+elasticsearchDestinationUpdate_indexRotationPeriod :: Lens.Lens' ElasticsearchDestinationUpdate (Prelude.Maybe ElasticsearchIndexRotationPeriod)
 elasticsearchDestinationUpdate_indexRotationPeriod = Lens.lens (\ElasticsearchDestinationUpdate' {indexRotationPeriod} -> indexRotationPeriod) (\s@ElasticsearchDestinationUpdate' {} a -> s {indexRotationPeriod = a} :: ElasticsearchDestinationUpdate)
 
 -- | The buffering options. If no value is specified,
 -- @ElasticsearchBufferingHints@ object default values are used.
-elasticsearchDestinationUpdate_bufferingHints :: Lens.Lens' ElasticsearchDestinationUpdate (Core.Maybe ElasticsearchBufferingHints)
+elasticsearchDestinationUpdate_bufferingHints :: Lens.Lens' ElasticsearchDestinationUpdate (Prelude.Maybe ElasticsearchBufferingHints)
 elasticsearchDestinationUpdate_bufferingHints = Lens.lens (\ElasticsearchDestinationUpdate' {bufferingHints} -> bufferingHints) (\s@ElasticsearchDestinationUpdate' {} a -> s {bufferingHints = a} :: ElasticsearchDestinationUpdate)
 
 -- | The retry behavior in case Kinesis Data Firehose is unable to deliver
 -- documents to Amazon ES. The default value is 300 (5 minutes).
-elasticsearchDestinationUpdate_retryOptions :: Lens.Lens' ElasticsearchDestinationUpdate (Core.Maybe ElasticsearchRetryOptions)
+elasticsearchDestinationUpdate_retryOptions :: Lens.Lens' ElasticsearchDestinationUpdate (Prelude.Maybe ElasticsearchRetryOptions)
 elasticsearchDestinationUpdate_retryOptions = Lens.lens (\ElasticsearchDestinationUpdate' {retryOptions} -> retryOptions) (\s@ElasticsearchDestinationUpdate' {} a -> s {retryOptions = a} :: ElasticsearchDestinationUpdate)
 
-instance Core.Hashable ElasticsearchDestinationUpdate
+instance
+  Prelude.Hashable
+    ElasticsearchDestinationUpdate
 
-instance Core.NFData ElasticsearchDestinationUpdate
+instance
+  Prelude.NFData
+    ElasticsearchDestinationUpdate
 
 instance Core.ToJSON ElasticsearchDestinationUpdate where
   toJSON ElasticsearchDestinationUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TypeName" Core..=) Core.<$> typeName,
-            ("RoleARN" Core..=) Core.<$> roleARN,
-            ("ClusterEndpoint" Core..=) Core.<$> clusterEndpoint,
-            ("IndexName" Core..=) Core.<$> indexName,
-            ("S3Update" Core..=) Core.<$> s3Update,
+      ( Prelude.catMaybes
+          [ ("TypeName" Core..=) Prelude.<$> typeName,
+            ("RoleARN" Core..=) Prelude.<$> roleARN,
+            ("ClusterEndpoint" Core..=)
+              Prelude.<$> clusterEndpoint,
+            ("IndexName" Core..=) Prelude.<$> indexName,
+            ("S3Update" Core..=) Prelude.<$> s3Update,
             ("ProcessingConfiguration" Core..=)
-              Core.<$> processingConfiguration,
+              Prelude.<$> processingConfiguration,
             ("CloudWatchLoggingOptions" Core..=)
-              Core.<$> cloudWatchLoggingOptions,
-            ("DomainARN" Core..=) Core.<$> domainARN,
+              Prelude.<$> cloudWatchLoggingOptions,
+            ("DomainARN" Core..=) Prelude.<$> domainARN,
             ("IndexRotationPeriod" Core..=)
-              Core.<$> indexRotationPeriod,
-            ("BufferingHints" Core..=) Core.<$> bufferingHints,
-            ("RetryOptions" Core..=) Core.<$> retryOptions
+              Prelude.<$> indexRotationPeriod,
+            ("BufferingHints" Core..=)
+              Prelude.<$> bufferingHints,
+            ("RetryOptions" Core..=) Prelude.<$> retryOptions
           ]
       )

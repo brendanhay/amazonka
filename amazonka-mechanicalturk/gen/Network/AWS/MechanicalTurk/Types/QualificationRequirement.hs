@@ -24,6 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types.Comparator
 import Network.AWS.MechanicalTurk.Types.HITAccessActions
 import Network.AWS.MechanicalTurk.Types.Locale
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The QualificationRequirement data structure describes a Qualification
 -- that a Worker must have before the Worker is allowed to accept a HIT. A
@@ -52,7 +53,7 @@ data QualificationRequirement = QualificationRequirement'
     -- see the HIT in their search result, but will not be able to Preview or
     -- Accept the HIT. ActionsGuarded should not be used in combination with
     -- the @RequiredToPreview@ field.
-    actionsGuarded :: Core.Maybe HITAccessActions,
+    actionsGuarded :: Prelude.Maybe HITAccessActions,
     -- | The locale value to compare against the Qualification\'s value. The
     -- local value must be a valid ISO 3166 country code or supports ISO 3166-2
     -- subdivisions. LocaleValue can only be used with a Worker_Locale
@@ -62,7 +63,7 @@ data QualificationRequirement = QualificationRequirement'
     -- When performing a set comparison by using the In or the NotIn
     -- comparator, you can use up to 30 LocaleValue elements in a
     -- QualificationRequirement data structure.
-    localeValues :: Core.Maybe [Locale],
+    localeValues :: Prelude.Maybe [Locale],
     -- | DEPRECATED: Use the @ActionsGuarded@ field instead. If RequiredToPreview
     -- is true, the question data for the HIT will not be shown when a Worker
     -- whose Qualifications do not meet this requirement tries to preview the
@@ -74,7 +75,7 @@ data QualificationRequirement = QualificationRequirement'
     -- HIT\'s question data, but will not be allowed to accept and complete the
     -- HIT. The default is false. This should not be used in combination with
     -- the @ActionsGuarded@ field.
-    requiredToPreview :: Core.Maybe Core.Bool,
+    requiredToPreview :: Prelude.Maybe Prelude.Bool,
     -- | The integer value to compare against the Qualification\'s value.
     -- IntegerValue must not be present if Comparator is Exists or
     -- DoesNotExist. IntegerValue can only be used if the Qualification type
@@ -82,9 +83,9 @@ data QualificationRequirement = QualificationRequirement'
     -- QualificationType ID. When performing a set comparison by using the In
     -- or the NotIn comparator, you can use up to 15 IntegerValue elements in a
     -- QualificationRequirement data structure.
-    integerValues :: Core.Maybe [Core.Int],
+    integerValues :: Prelude.Maybe [Prelude.Int],
     -- | The ID of the Qualification type for the requirement.
-    qualificationTypeId :: Core.Text,
+    qualificationTypeId :: Prelude.Text,
     -- | The kind of comparison to make against a Qualification\'s value. You can
     -- compare a Qualification\'s value to an IntegerValue to see if it is
     -- LessThan, LessThanOrEqualTo, GreaterThan, GreaterThanOrEqualTo, EqualTo,
@@ -96,7 +97,7 @@ data QualificationRequirement = QualificationRequirement'
     -- of its value.
     comparator :: Comparator
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QualificationRequirement' with all optional fields omitted.
@@ -169,7 +170,7 @@ data QualificationRequirement = QualificationRequirement'
 -- of its value.
 newQualificationRequirement ::
   -- | 'qualificationTypeId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'comparator'
   Comparator ->
   QualificationRequirement
@@ -178,10 +179,10 @@ newQualificationRequirement
   pComparator_ =
     QualificationRequirement'
       { actionsGuarded =
-          Core.Nothing,
-        localeValues = Core.Nothing,
-        requiredToPreview = Core.Nothing,
-        integerValues = Core.Nothing,
+          Prelude.Nothing,
+        localeValues = Prelude.Nothing,
+        requiredToPreview = Prelude.Nothing,
+        integerValues = Prelude.Nothing,
         qualificationTypeId = pQualificationTypeId_,
         comparator = pComparator_
       }
@@ -205,7 +206,7 @@ newQualificationRequirement
 -- see the HIT in their search result, but will not be able to Preview or
 -- Accept the HIT. ActionsGuarded should not be used in combination with
 -- the @RequiredToPreview@ field.
-qualificationRequirement_actionsGuarded :: Lens.Lens' QualificationRequirement (Core.Maybe HITAccessActions)
+qualificationRequirement_actionsGuarded :: Lens.Lens' QualificationRequirement (Prelude.Maybe HITAccessActions)
 qualificationRequirement_actionsGuarded = Lens.lens (\QualificationRequirement' {actionsGuarded} -> actionsGuarded) (\s@QualificationRequirement' {} a -> s {actionsGuarded = a} :: QualificationRequirement)
 
 -- | The locale value to compare against the Qualification\'s value. The
@@ -217,8 +218,8 @@ qualificationRequirement_actionsGuarded = Lens.lens (\QualificationRequirement' 
 -- When performing a set comparison by using the In or the NotIn
 -- comparator, you can use up to 30 LocaleValue elements in a
 -- QualificationRequirement data structure.
-qualificationRequirement_localeValues :: Lens.Lens' QualificationRequirement (Core.Maybe [Locale])
-qualificationRequirement_localeValues = Lens.lens (\QualificationRequirement' {localeValues} -> localeValues) (\s@QualificationRequirement' {} a -> s {localeValues = a} :: QualificationRequirement) Core.. Lens.mapping Lens._Coerce
+qualificationRequirement_localeValues :: Lens.Lens' QualificationRequirement (Prelude.Maybe [Locale])
+qualificationRequirement_localeValues = Lens.lens (\QualificationRequirement' {localeValues} -> localeValues) (\s@QualificationRequirement' {} a -> s {localeValues = a} :: QualificationRequirement) Prelude.. Lens.mapping Lens._Coerce
 
 -- | DEPRECATED: Use the @ActionsGuarded@ field instead. If RequiredToPreview
 -- is true, the question data for the HIT will not be shown when a Worker
@@ -231,7 +232,7 @@ qualificationRequirement_localeValues = Lens.lens (\QualificationRequirement' {l
 -- HIT\'s question data, but will not be allowed to accept and complete the
 -- HIT. The default is false. This should not be used in combination with
 -- the @ActionsGuarded@ field.
-qualificationRequirement_requiredToPreview :: Lens.Lens' QualificationRequirement (Core.Maybe Core.Bool)
+qualificationRequirement_requiredToPreview :: Lens.Lens' QualificationRequirement (Prelude.Maybe Prelude.Bool)
 qualificationRequirement_requiredToPreview = Lens.lens (\QualificationRequirement' {requiredToPreview} -> requiredToPreview) (\s@QualificationRequirement' {} a -> s {requiredToPreview = a} :: QualificationRequirement)
 
 -- | The integer value to compare against the Qualification\'s value.
@@ -241,11 +242,11 @@ qualificationRequirement_requiredToPreview = Lens.lens (\QualificationRequiremen
 -- QualificationType ID. When performing a set comparison by using the In
 -- or the NotIn comparator, you can use up to 15 IntegerValue elements in a
 -- QualificationRequirement data structure.
-qualificationRequirement_integerValues :: Lens.Lens' QualificationRequirement (Core.Maybe [Core.Int])
-qualificationRequirement_integerValues = Lens.lens (\QualificationRequirement' {integerValues} -> integerValues) (\s@QualificationRequirement' {} a -> s {integerValues = a} :: QualificationRequirement) Core.. Lens.mapping Lens._Coerce
+qualificationRequirement_integerValues :: Lens.Lens' QualificationRequirement (Prelude.Maybe [Prelude.Int])
+qualificationRequirement_integerValues = Lens.lens (\QualificationRequirement' {integerValues} -> integerValues) (\s@QualificationRequirement' {} a -> s {integerValues = a} :: QualificationRequirement) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the Qualification type for the requirement.
-qualificationRequirement_qualificationTypeId :: Lens.Lens' QualificationRequirement Core.Text
+qualificationRequirement_qualificationTypeId :: Lens.Lens' QualificationRequirement Prelude.Text
 qualificationRequirement_qualificationTypeId = Lens.lens (\QualificationRequirement' {qualificationTypeId} -> qualificationTypeId) (\s@QualificationRequirement' {} a -> s {qualificationTypeId = a} :: QualificationRequirement)
 
 -- | The kind of comparison to make against a Qualification\'s value. You can
@@ -266,29 +267,30 @@ instance Core.FromJSON QualificationRequirement where
       "QualificationRequirement"
       ( \x ->
           QualificationRequirement'
-            Core.<$> (x Core..:? "ActionsGuarded")
-            Core.<*> (x Core..:? "LocaleValues" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "RequiredToPreview")
-            Core.<*> (x Core..:? "IntegerValues" Core..!= Core.mempty)
-            Core.<*> (x Core..: "QualificationTypeId")
-            Core.<*> (x Core..: "Comparator")
+            Prelude.<$> (x Core..:? "ActionsGuarded")
+            Prelude.<*> (x Core..:? "LocaleValues" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "RequiredToPreview")
+            Prelude.<*> (x Core..:? "IntegerValues" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "QualificationTypeId")
+            Prelude.<*> (x Core..: "Comparator")
       )
 
-instance Core.Hashable QualificationRequirement
+instance Prelude.Hashable QualificationRequirement
 
-instance Core.NFData QualificationRequirement
+instance Prelude.NFData QualificationRequirement
 
 instance Core.ToJSON QualificationRequirement where
   toJSON QualificationRequirement' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ActionsGuarded" Core..=) Core.<$> actionsGuarded,
-            ("LocaleValues" Core..=) Core.<$> localeValues,
+      ( Prelude.catMaybes
+          [ ("ActionsGuarded" Core..=)
+              Prelude.<$> actionsGuarded,
+            ("LocaleValues" Core..=) Prelude.<$> localeValues,
             ("RequiredToPreview" Core..=)
-              Core.<$> requiredToPreview,
-            ("IntegerValues" Core..=) Core.<$> integerValues,
-            Core.Just
+              Prelude.<$> requiredToPreview,
+            ("IntegerValues" Core..=) Prelude.<$> integerValues,
+            Prelude.Just
               ("QualificationTypeId" Core..= qualificationTypeId),
-            Core.Just ("Comparator" Core..= comparator)
+            Prelude.Just ("Comparator" Core..= comparator)
           ]
       )

@@ -22,6 +22,7 @@ module Network.AWS.CostExplorer.Types.RightsizingRecommendationConfiguration whe
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.RecommendationTarget
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Enables you to customize recommendations across two attributes. You can
 -- choose to view recommendations for instances within the same instance
@@ -37,9 +38,9 @@ data RightsizingRecommendationConfiguration = RightsizingRecommendationConfigura
     recommendationTarget :: RecommendationTarget,
     -- | The option to consider RI or Savings Plans discount benefits in your
     -- savings calculation. The default value is @TRUE@.
-    benefitsConsidered :: Core.Bool
+    benefitsConsidered :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RightsizingRecommendationConfiguration' with all optional fields omitted.
@@ -59,7 +60,7 @@ newRightsizingRecommendationConfiguration ::
   -- | 'recommendationTarget'
   RecommendationTarget ->
   -- | 'benefitsConsidered'
-  Core.Bool ->
+  Prelude.Bool ->
   RightsizingRecommendationConfiguration
 newRightsizingRecommendationConfiguration
   pRecommendationTarget_
@@ -79,7 +80,7 @@ rightsizingRecommendationConfiguration_recommendationTarget = Lens.lens (\Rights
 
 -- | The option to consider RI or Savings Plans discount benefits in your
 -- savings calculation. The default value is @TRUE@.
-rightsizingRecommendationConfiguration_benefitsConsidered :: Lens.Lens' RightsizingRecommendationConfiguration Core.Bool
+rightsizingRecommendationConfiguration_benefitsConsidered :: Lens.Lens' RightsizingRecommendationConfiguration Prelude.Bool
 rightsizingRecommendationConfiguration_benefitsConsidered = Lens.lens (\RightsizingRecommendationConfiguration' {benefitsConsidered} -> benefitsConsidered) (\s@RightsizingRecommendationConfiguration' {} a -> s {benefitsConsidered = a} :: RightsizingRecommendationConfiguration)
 
 instance
@@ -91,16 +92,16 @@ instance
       "RightsizingRecommendationConfiguration"
       ( \x ->
           RightsizingRecommendationConfiguration'
-            Core.<$> (x Core..: "RecommendationTarget")
-            Core.<*> (x Core..: "BenefitsConsidered")
+            Prelude.<$> (x Core..: "RecommendationTarget")
+            Prelude.<*> (x Core..: "BenefitsConsidered")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     RightsizingRecommendationConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     RightsizingRecommendationConfiguration
 
 instance
@@ -109,12 +110,12 @@ instance
   where
   toJSON RightsizingRecommendationConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "RecommendationTarget"
                   Core..= recommendationTarget
               ),
-            Core.Just
+            Prelude.Just
               ("BenefitsConsidered" Core..= benefitsConsidered)
           ]
       )

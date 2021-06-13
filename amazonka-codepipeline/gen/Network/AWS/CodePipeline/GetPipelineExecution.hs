@@ -45,6 +45,7 @@ where
 import Network.AWS.CodePipeline.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,12 +54,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetPipelineExecution' smart constructor.
 data GetPipelineExecution = GetPipelineExecution'
   { -- | The name of the pipeline about which you want to get execution details.
-    pipelineName :: Core.Text,
+    pipelineName :: Prelude.Text,
     -- | The ID of the pipeline execution about which you want to get execution
     -- details.
-    pipelineExecutionId :: Core.Text
+    pipelineExecutionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPipelineExecution' with all optional fields omitted.
@@ -74,9 +75,9 @@ data GetPipelineExecution = GetPipelineExecution'
 -- details.
 newGetPipelineExecution ::
   -- | 'pipelineName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'pipelineExecutionId'
-  Core.Text ->
+  Prelude.Text ->
   GetPipelineExecution
 newGetPipelineExecution
   pPipelineName_
@@ -88,12 +89,12 @@ newGetPipelineExecution
       }
 
 -- | The name of the pipeline about which you want to get execution details.
-getPipelineExecution_pipelineName :: Lens.Lens' GetPipelineExecution Core.Text
+getPipelineExecution_pipelineName :: Lens.Lens' GetPipelineExecution Prelude.Text
 getPipelineExecution_pipelineName = Lens.lens (\GetPipelineExecution' {pipelineName} -> pipelineName) (\s@GetPipelineExecution' {} a -> s {pipelineName = a} :: GetPipelineExecution)
 
 -- | The ID of the pipeline execution about which you want to get execution
 -- details.
-getPipelineExecution_pipelineExecutionId :: Lens.Lens' GetPipelineExecution Core.Text
+getPipelineExecution_pipelineExecutionId :: Lens.Lens' GetPipelineExecution Prelude.Text
 getPipelineExecution_pipelineExecutionId = Lens.lens (\GetPipelineExecution' {pipelineExecutionId} -> pipelineExecutionId) (\s@GetPipelineExecution' {} a -> s {pipelineExecutionId = a} :: GetPipelineExecution)
 
 instance Core.AWSRequest GetPipelineExecution where
@@ -105,53 +106,55 @@ instance Core.AWSRequest GetPipelineExecution where
     Response.receiveJSON
       ( \s h x ->
           GetPipelineExecutionResponse'
-            Core.<$> (x Core..?> "pipelineExecution")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "pipelineExecution")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetPipelineExecution
+instance Prelude.Hashable GetPipelineExecution
 
-instance Core.NFData GetPipelineExecution
+instance Prelude.NFData GetPipelineExecution
 
 instance Core.ToHeaders GetPipelineExecution where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodePipeline_20150709.GetPipelineExecution" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetPipelineExecution where
   toJSON GetPipelineExecution' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("pipelineName" Core..= pipelineName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("pipelineName" Core..= pipelineName),
+            Prelude.Just
               ("pipelineExecutionId" Core..= pipelineExecutionId)
           ]
       )
 
 instance Core.ToPath GetPipelineExecution where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetPipelineExecution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetPipelineExecution@ action.
 --
 -- /See:/ 'newGetPipelineExecutionResponse' smart constructor.
 data GetPipelineExecutionResponse = GetPipelineExecutionResponse'
   { -- | Represents information about the execution of a pipeline.
-    pipelineExecution :: Core.Maybe PipelineExecution,
+    pipelineExecution :: Prelude.Maybe PipelineExecution,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPipelineExecutionResponse' with all optional fields omitted.
@@ -166,21 +169,21 @@ data GetPipelineExecutionResponse = GetPipelineExecutionResponse'
 -- 'httpStatus', 'getPipelineExecutionResponse_httpStatus' - The response's http status code.
 newGetPipelineExecutionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetPipelineExecutionResponse
 newGetPipelineExecutionResponse pHttpStatus_ =
   GetPipelineExecutionResponse'
     { pipelineExecution =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Represents information about the execution of a pipeline.
-getPipelineExecutionResponse_pipelineExecution :: Lens.Lens' GetPipelineExecutionResponse (Core.Maybe PipelineExecution)
+getPipelineExecutionResponse_pipelineExecution :: Lens.Lens' GetPipelineExecutionResponse (Prelude.Maybe PipelineExecution)
 getPipelineExecutionResponse_pipelineExecution = Lens.lens (\GetPipelineExecutionResponse' {pipelineExecution} -> pipelineExecution) (\s@GetPipelineExecutionResponse' {} a -> s {pipelineExecution = a} :: GetPipelineExecutionResponse)
 
 -- | The response's http status code.
-getPipelineExecutionResponse_httpStatus :: Lens.Lens' GetPipelineExecutionResponse Core.Int
+getPipelineExecutionResponse_httpStatus :: Lens.Lens' GetPipelineExecutionResponse Prelude.Int
 getPipelineExecutionResponse_httpStatus = Lens.lens (\GetPipelineExecutionResponse' {httpStatus} -> httpStatus) (\s@GetPipelineExecutionResponse' {} a -> s {httpStatus = a} :: GetPipelineExecutionResponse)
 
-instance Core.NFData GetPipelineExecutionResponse
+instance Prelude.NFData GetPipelineExecutionResponse

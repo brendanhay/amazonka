@@ -39,6 +39,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ data RemoveTagsFromOnPremisesInstances = RemoveTagsFromOnPremisesInstances'
   { -- | The tag key-value pairs to remove from the on-premises instances.
     tags :: [Tag],
     -- | The names of the on-premises instances from which to remove tags.
-    instanceNames :: [Core.Text]
+    instanceNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsFromOnPremisesInstances' with all optional fields omitted.
@@ -69,17 +70,17 @@ newRemoveTagsFromOnPremisesInstances ::
 newRemoveTagsFromOnPremisesInstances =
   RemoveTagsFromOnPremisesInstances'
     { tags =
-        Core.mempty,
-      instanceNames = Core.mempty
+        Prelude.mempty,
+      instanceNames = Prelude.mempty
     }
 
 -- | The tag key-value pairs to remove from the on-premises instances.
 removeTagsFromOnPremisesInstances_tags :: Lens.Lens' RemoveTagsFromOnPremisesInstances [Tag]
-removeTagsFromOnPremisesInstances_tags = Lens.lens (\RemoveTagsFromOnPremisesInstances' {tags} -> tags) (\s@RemoveTagsFromOnPremisesInstances' {} a -> s {tags = a} :: RemoveTagsFromOnPremisesInstances) Core.. Lens._Coerce
+removeTagsFromOnPremisesInstances_tags = Lens.lens (\RemoveTagsFromOnPremisesInstances' {tags} -> tags) (\s@RemoveTagsFromOnPremisesInstances' {} a -> s {tags = a} :: RemoveTagsFromOnPremisesInstances) Prelude.. Lens._Coerce
 
 -- | The names of the on-premises instances from which to remove tags.
-removeTagsFromOnPremisesInstances_instanceNames :: Lens.Lens' RemoveTagsFromOnPremisesInstances [Core.Text]
-removeTagsFromOnPremisesInstances_instanceNames = Lens.lens (\RemoveTagsFromOnPremisesInstances' {instanceNames} -> instanceNames) (\s@RemoveTagsFromOnPremisesInstances' {} a -> s {instanceNames = a} :: RemoveTagsFromOnPremisesInstances) Core.. Lens._Coerce
+removeTagsFromOnPremisesInstances_instanceNames :: Lens.Lens' RemoveTagsFromOnPremisesInstances [Prelude.Text]
+removeTagsFromOnPremisesInstances_instanceNames = Lens.lens (\RemoveTagsFromOnPremisesInstances' {instanceNames} -> instanceNames) (\s@RemoveTagsFromOnPremisesInstances' {} a -> s {instanceNames = a} :: RemoveTagsFromOnPremisesInstances) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -94,11 +95,11 @@ instance
       RemoveTagsFromOnPremisesInstancesResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     RemoveTagsFromOnPremisesInstances
 
 instance
-  Core.NFData
+  Prelude.NFData
     RemoveTagsFromOnPremisesInstances
 
 instance
@@ -106,14 +107,16 @@ instance
     RemoveTagsFromOnPremisesInstances
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.RemoveTagsFromOnPremisesInstances" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -123,9 +126,10 @@ instance
   where
   toJSON RemoveTagsFromOnPremisesInstances' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("tags" Core..= tags),
-            Core.Just ("instanceNames" Core..= instanceNames)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("tags" Core..= tags),
+            Prelude.Just
+              ("instanceNames" Core..= instanceNames)
           ]
       )
 
@@ -133,19 +137,19 @@ instance
   Core.ToPath
     RemoveTagsFromOnPremisesInstances
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     RemoveTagsFromOnPremisesInstances
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveTagsFromOnPremisesInstancesResponse' smart constructor.
 data RemoveTagsFromOnPremisesInstancesResponse = RemoveTagsFromOnPremisesInstancesResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsFromOnPremisesInstancesResponse' with all optional fields omitted.
@@ -157,5 +161,5 @@ newRemoveTagsFromOnPremisesInstancesResponse =
   RemoveTagsFromOnPremisesInstancesResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     RemoveTagsFromOnPremisesInstancesResponse

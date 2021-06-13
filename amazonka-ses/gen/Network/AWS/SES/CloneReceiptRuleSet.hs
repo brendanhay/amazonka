@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -67,11 +68,11 @@ data CloneReceiptRuleSet = CloneReceiptRuleSet'
     -- -   Start and end with a letter or number.
     --
     -- -   Contain less than 64 characters.
-    ruleSetName :: Core.Text,
+    ruleSetName :: Prelude.Text,
     -- | The name of the rule set to clone.
-    originalRuleSetName :: Core.Text
+    originalRuleSetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CloneReceiptRuleSet' with all optional fields omitted.
@@ -93,9 +94,9 @@ data CloneReceiptRuleSet = CloneReceiptRuleSet'
 -- 'originalRuleSetName', 'cloneReceiptRuleSet_originalRuleSetName' - The name of the rule set to clone.
 newCloneReceiptRuleSet ::
   -- | 'ruleSetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'originalRuleSetName'
-  Core.Text ->
+  Prelude.Text ->
   CloneReceiptRuleSet
 newCloneReceiptRuleSet
   pRuleSetName_
@@ -113,11 +114,11 @@ newCloneReceiptRuleSet
 -- -   Start and end with a letter or number.
 --
 -- -   Contain less than 64 characters.
-cloneReceiptRuleSet_ruleSetName :: Lens.Lens' CloneReceiptRuleSet Core.Text
+cloneReceiptRuleSet_ruleSetName :: Lens.Lens' CloneReceiptRuleSet Prelude.Text
 cloneReceiptRuleSet_ruleSetName = Lens.lens (\CloneReceiptRuleSet' {ruleSetName} -> ruleSetName) (\s@CloneReceiptRuleSet' {} a -> s {ruleSetName = a} :: CloneReceiptRuleSet)
 
 -- | The name of the rule set to clone.
-cloneReceiptRuleSet_originalRuleSetName :: Lens.Lens' CloneReceiptRuleSet Core.Text
+cloneReceiptRuleSet_originalRuleSetName :: Lens.Lens' CloneReceiptRuleSet Prelude.Text
 cloneReceiptRuleSet_originalRuleSetName = Lens.lens (\CloneReceiptRuleSet' {originalRuleSetName} -> originalRuleSetName) (\s@CloneReceiptRuleSet' {} a -> s {originalRuleSetName = a} :: CloneReceiptRuleSet)
 
 instance Core.AWSRequest CloneReceiptRuleSet where
@@ -130,25 +131,26 @@ instance Core.AWSRequest CloneReceiptRuleSet where
       "CloneReceiptRuleSetResult"
       ( \s h x ->
           CloneReceiptRuleSetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CloneReceiptRuleSet
+instance Prelude.Hashable CloneReceiptRuleSet
 
-instance Core.NFData CloneReceiptRuleSet
+instance Prelude.NFData CloneReceiptRuleSet
 
 instance Core.ToHeaders CloneReceiptRuleSet where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CloneReceiptRuleSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CloneReceiptRuleSet where
   toQuery CloneReceiptRuleSet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CloneReceiptRuleSet" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("CloneReceiptRuleSet" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "RuleSetName" Core.=: ruleSetName,
         "OriginalRuleSetName" Core.=: originalRuleSetName
       ]
@@ -158,9 +160,9 @@ instance Core.ToQuery CloneReceiptRuleSet where
 -- /See:/ 'newCloneReceiptRuleSetResponse' smart constructor.
 data CloneReceiptRuleSetResponse = CloneReceiptRuleSetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CloneReceiptRuleSetResponse' with all optional fields omitted.
@@ -173,7 +175,7 @@ data CloneReceiptRuleSetResponse = CloneReceiptRuleSetResponse'
 -- 'httpStatus', 'cloneReceiptRuleSetResponse_httpStatus' - The response's http status code.
 newCloneReceiptRuleSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CloneReceiptRuleSetResponse
 newCloneReceiptRuleSetResponse pHttpStatus_ =
   CloneReceiptRuleSetResponse'
@@ -182,7 +184,7 @@ newCloneReceiptRuleSetResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-cloneReceiptRuleSetResponse_httpStatus :: Lens.Lens' CloneReceiptRuleSetResponse Core.Int
+cloneReceiptRuleSetResponse_httpStatus :: Lens.Lens' CloneReceiptRuleSetResponse Prelude.Int
 cloneReceiptRuleSetResponse_httpStatus = Lens.lens (\CloneReceiptRuleSetResponse' {httpStatus} -> httpStatus) (\s@CloneReceiptRuleSetResponse' {} a -> s {httpStatus = a} :: CloneReceiptRuleSetResponse)
 
-instance Core.NFData CloneReceiptRuleSetResponse
+instance Prelude.NFData CloneReceiptRuleSetResponse

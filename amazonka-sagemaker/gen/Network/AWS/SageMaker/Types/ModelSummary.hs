@@ -21,19 +21,20 @@ module Network.AWS.SageMaker.Types.ModelSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides summary information about a model.
 --
 -- /See:/ 'newModelSummary' smart constructor.
 data ModelSummary = ModelSummary'
   { -- | The name of the model that you want a summary for.
-    modelName :: Core.Text,
+    modelName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the model.
-    modelArn :: Core.Text,
+    modelArn :: Prelude.Text,
     -- | A timestamp that indicates when the model was created.
     creationTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModelSummary' with all optional fields omitted.
@@ -50,11 +51,11 @@ data ModelSummary = ModelSummary'
 -- 'creationTime', 'modelSummary_creationTime' - A timestamp that indicates when the model was created.
 newModelSummary ::
   -- | 'modelName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'modelArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   ModelSummary
 newModelSummary pModelName_ pModelArn_ pCreationTime_ =
   ModelSummary'
@@ -64,16 +65,16 @@ newModelSummary pModelName_ pModelArn_ pCreationTime_ =
     }
 
 -- | The name of the model that you want a summary for.
-modelSummary_modelName :: Lens.Lens' ModelSummary Core.Text
+modelSummary_modelName :: Lens.Lens' ModelSummary Prelude.Text
 modelSummary_modelName = Lens.lens (\ModelSummary' {modelName} -> modelName) (\s@ModelSummary' {} a -> s {modelName = a} :: ModelSummary)
 
 -- | The Amazon Resource Name (ARN) of the model.
-modelSummary_modelArn :: Lens.Lens' ModelSummary Core.Text
+modelSummary_modelArn :: Lens.Lens' ModelSummary Prelude.Text
 modelSummary_modelArn = Lens.lens (\ModelSummary' {modelArn} -> modelArn) (\s@ModelSummary' {} a -> s {modelArn = a} :: ModelSummary)
 
 -- | A timestamp that indicates when the model was created.
-modelSummary_creationTime :: Lens.Lens' ModelSummary Core.UTCTime
-modelSummary_creationTime = Lens.lens (\ModelSummary' {creationTime} -> creationTime) (\s@ModelSummary' {} a -> s {creationTime = a} :: ModelSummary) Core.. Core._Time
+modelSummary_creationTime :: Lens.Lens' ModelSummary Prelude.UTCTime
+modelSummary_creationTime = Lens.lens (\ModelSummary' {creationTime} -> creationTime) (\s@ModelSummary' {} a -> s {creationTime = a} :: ModelSummary) Prelude.. Core._Time
 
 instance Core.FromJSON ModelSummary where
   parseJSON =
@@ -81,11 +82,11 @@ instance Core.FromJSON ModelSummary where
       "ModelSummary"
       ( \x ->
           ModelSummary'
-            Core.<$> (x Core..: "ModelName")
-            Core.<*> (x Core..: "ModelArn")
-            Core.<*> (x Core..: "CreationTime")
+            Prelude.<$> (x Core..: "ModelName")
+            Prelude.<*> (x Core..: "ModelArn")
+            Prelude.<*> (x Core..: "CreationTime")
       )
 
-instance Core.Hashable ModelSummary
+instance Prelude.Hashable ModelSummary
 
-instance Core.NFData ModelSummary
+instance Prelude.NFData ModelSummary

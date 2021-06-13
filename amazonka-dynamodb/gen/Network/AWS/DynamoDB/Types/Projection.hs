@@ -22,6 +22,7 @@ module Network.AWS.DynamoDB.Types.Projection where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.ProjectionType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents attributes that are copied (projected) from the table into an
 -- index. These are in addition to the primary key attributes and index key
@@ -36,7 +37,7 @@ data Projection = Projection'
     -- summed across all of the local secondary indexes, must not exceed 20. If
     -- you project the same attribute into two different indexes, this counts
     -- as two distinct attributes when determining the total.
-    nonKeyAttributes :: Core.Maybe (Core.NonEmpty Core.Text),
+    nonKeyAttributes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The set of attributes that are projected into the index:
     --
     -- -   @KEYS_ONLY@ - Only the index and primary keys are projected into the
@@ -47,9 +48,9 @@ data Projection = Projection'
     --     specify.
     --
     -- -   @ALL@ - All of the table attributes are projected into the index.
-    projectionType :: Core.Maybe ProjectionType
+    projectionType :: Prelude.Maybe ProjectionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Projection' with all optional fields omitted.
@@ -81,8 +82,8 @@ newProjection ::
   Projection
 newProjection =
   Projection'
-    { nonKeyAttributes = Core.Nothing,
-      projectionType = Core.Nothing
+    { nonKeyAttributes = Prelude.Nothing,
+      projectionType = Prelude.Nothing
     }
 
 -- | Represents the non-key attribute names which will be projected into the
@@ -92,8 +93,8 @@ newProjection =
 -- summed across all of the local secondary indexes, must not exceed 20. If
 -- you project the same attribute into two different indexes, this counts
 -- as two distinct attributes when determining the total.
-projection_nonKeyAttributes :: Lens.Lens' Projection (Core.Maybe (Core.NonEmpty Core.Text))
-projection_nonKeyAttributes = Lens.lens (\Projection' {nonKeyAttributes} -> nonKeyAttributes) (\s@Projection' {} a -> s {nonKeyAttributes = a} :: Projection) Core.. Lens.mapping Lens._Coerce
+projection_nonKeyAttributes :: Lens.Lens' Projection (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+projection_nonKeyAttributes = Lens.lens (\Projection' {nonKeyAttributes} -> nonKeyAttributes) (\s@Projection' {} a -> s {nonKeyAttributes = a} :: Projection) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The set of attributes that are projected into the index:
 --
@@ -105,7 +106,7 @@ projection_nonKeyAttributes = Lens.lens (\Projection' {nonKeyAttributes} -> nonK
 --     specify.
 --
 -- -   @ALL@ - All of the table attributes are projected into the index.
-projection_projectionType :: Lens.Lens' Projection (Core.Maybe ProjectionType)
+projection_projectionType :: Lens.Lens' Projection (Prelude.Maybe ProjectionType)
 projection_projectionType = Lens.lens (\Projection' {projectionType} -> projectionType) (\s@Projection' {} a -> s {projectionType = a} :: Projection)
 
 instance Core.FromJSON Projection where
@@ -114,20 +115,21 @@ instance Core.FromJSON Projection where
       "Projection"
       ( \x ->
           Projection'
-            Core.<$> (x Core..:? "NonKeyAttributes")
-            Core.<*> (x Core..:? "ProjectionType")
+            Prelude.<$> (x Core..:? "NonKeyAttributes")
+            Prelude.<*> (x Core..:? "ProjectionType")
       )
 
-instance Core.Hashable Projection
+instance Prelude.Hashable Projection
 
-instance Core.NFData Projection
+instance Prelude.NFData Projection
 
 instance Core.ToJSON Projection where
   toJSON Projection' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("NonKeyAttributes" Core..=)
-              Core.<$> nonKeyAttributes,
-            ("ProjectionType" Core..=) Core.<$> projectionType
+              Prelude.<$> nonKeyAttributes,
+            ("ProjectionType" Core..=)
+              Prelude.<$> projectionType
           ]
       )

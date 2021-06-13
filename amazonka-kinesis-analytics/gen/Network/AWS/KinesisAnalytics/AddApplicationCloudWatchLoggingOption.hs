@@ -51,21 +51,22 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAddApplicationCloudWatchLoggingOption' smart constructor.
 data AddApplicationCloudWatchLoggingOption = AddApplicationCloudWatchLoggingOption'
   { -- | The Kinesis Analytics application name.
-    applicationName :: Core.Text,
+    applicationName :: Prelude.Text,
     -- | The version ID of the Kinesis Analytics application.
-    currentApplicationVersionId :: Core.Natural,
+    currentApplicationVersionId :: Prelude.Natural,
     -- | Provides the CloudWatch log stream Amazon Resource Name (ARN) and the
     -- IAM role ARN. Note: To write application messages to CloudWatch, the IAM
     -- role that is used must have the @PutLogEvents@ policy action enabled.
     cloudWatchLoggingOption :: CloudWatchLoggingOption
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddApplicationCloudWatchLoggingOption' with all optional fields omitted.
@@ -84,9 +85,9 @@ data AddApplicationCloudWatchLoggingOption = AddApplicationCloudWatchLoggingOpti
 -- role that is used must have the @PutLogEvents@ policy action enabled.
 newAddApplicationCloudWatchLoggingOption ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'currentApplicationVersionId'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'cloudWatchLoggingOption'
   CloudWatchLoggingOption ->
   AddApplicationCloudWatchLoggingOption
@@ -104,11 +105,11 @@ newAddApplicationCloudWatchLoggingOption
       }
 
 -- | The Kinesis Analytics application name.
-addApplicationCloudWatchLoggingOption_applicationName :: Lens.Lens' AddApplicationCloudWatchLoggingOption Core.Text
+addApplicationCloudWatchLoggingOption_applicationName :: Lens.Lens' AddApplicationCloudWatchLoggingOption Prelude.Text
 addApplicationCloudWatchLoggingOption_applicationName = Lens.lens (\AddApplicationCloudWatchLoggingOption' {applicationName} -> applicationName) (\s@AddApplicationCloudWatchLoggingOption' {} a -> s {applicationName = a} :: AddApplicationCloudWatchLoggingOption)
 
 -- | The version ID of the Kinesis Analytics application.
-addApplicationCloudWatchLoggingOption_currentApplicationVersionId :: Lens.Lens' AddApplicationCloudWatchLoggingOption Core.Natural
+addApplicationCloudWatchLoggingOption_currentApplicationVersionId :: Lens.Lens' AddApplicationCloudWatchLoggingOption Prelude.Natural
 addApplicationCloudWatchLoggingOption_currentApplicationVersionId = Lens.lens (\AddApplicationCloudWatchLoggingOption' {currentApplicationVersionId} -> currentApplicationVersionId) (\s@AddApplicationCloudWatchLoggingOption' {} a -> s {currentApplicationVersionId = a} :: AddApplicationCloudWatchLoggingOption)
 
 -- | Provides the CloudWatch log stream Amazon Resource Name (ARN) and the
@@ -130,15 +131,15 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           AddApplicationCloudWatchLoggingOptionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AddApplicationCloudWatchLoggingOption
 
 instance
-  Core.NFData
+  Prelude.NFData
     AddApplicationCloudWatchLoggingOption
 
 instance
@@ -146,14 +147,16 @@ instance
     AddApplicationCloudWatchLoggingOption
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "KinesisAnalytics_20150814.AddApplicationCloudWatchLoggingOption" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -163,14 +166,14 @@ instance
   where
   toJSON AddApplicationCloudWatchLoggingOption' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ApplicationName" Core..= applicationName),
-            Core.Just
+            Prelude.Just
               ( "CurrentApplicationVersionId"
                   Core..= currentApplicationVersionId
               ),
-            Core.Just
+            Prelude.Just
               ( "CloudWatchLoggingOption"
                   Core..= cloudWatchLoggingOption
               )
@@ -181,20 +184,20 @@ instance
   Core.ToPath
     AddApplicationCloudWatchLoggingOption
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     AddApplicationCloudWatchLoggingOption
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddApplicationCloudWatchLoggingOptionResponse' smart constructor.
 data AddApplicationCloudWatchLoggingOptionResponse = AddApplicationCloudWatchLoggingOptionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddApplicationCloudWatchLoggingOptionResponse' with all optional fields omitted.
@@ -207,7 +210,7 @@ data AddApplicationCloudWatchLoggingOptionResponse = AddApplicationCloudWatchLog
 -- 'httpStatus', 'addApplicationCloudWatchLoggingOptionResponse_httpStatus' - The response's http status code.
 newAddApplicationCloudWatchLoggingOptionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddApplicationCloudWatchLoggingOptionResponse
 newAddApplicationCloudWatchLoggingOptionResponse
   pHttpStatus_ =
@@ -217,9 +220,9 @@ newAddApplicationCloudWatchLoggingOptionResponse
       }
 
 -- | The response's http status code.
-addApplicationCloudWatchLoggingOptionResponse_httpStatus :: Lens.Lens' AddApplicationCloudWatchLoggingOptionResponse Core.Int
+addApplicationCloudWatchLoggingOptionResponse_httpStatus :: Lens.Lens' AddApplicationCloudWatchLoggingOptionResponse Prelude.Int
 addApplicationCloudWatchLoggingOptionResponse_httpStatus = Lens.lens (\AddApplicationCloudWatchLoggingOptionResponse' {httpStatus} -> httpStatus) (\s@AddApplicationCloudWatchLoggingOptionResponse' {} a -> s {httpStatus = a} :: AddApplicationCloudWatchLoggingOptionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AddApplicationCloudWatchLoggingOptionResponse

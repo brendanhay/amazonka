@@ -21,6 +21,7 @@ module Network.AWS.Firehose.Types.CopyCommand where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a @COPY@ command for Amazon Redshift.
 --
@@ -49,14 +50,14 @@ data CopyCommand = CopyCommand'
     --
     -- For more examples, see
     -- <https://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html Amazon Redshift COPY command examples>.
-    copyOptions :: Core.Maybe Core.Text,
+    copyOptions :: Prelude.Maybe Prelude.Text,
     -- | A comma-separated list of column names.
-    dataTableColumns :: Core.Maybe Core.Text,
+    dataTableColumns :: Prelude.Maybe Prelude.Text,
     -- | The name of the target table. The table must already exist in the
     -- database.
-    dataTableName :: Core.Text
+    dataTableName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopyCommand' with all optional fields omitted.
@@ -96,12 +97,12 @@ data CopyCommand = CopyCommand'
 -- database.
 newCopyCommand ::
   -- | 'dataTableName'
-  Core.Text ->
+  Prelude.Text ->
   CopyCommand
 newCopyCommand pDataTableName_ =
   CopyCommand'
-    { copyOptions = Core.Nothing,
-      dataTableColumns = Core.Nothing,
+    { copyOptions = Prelude.Nothing,
+      dataTableColumns = Prelude.Nothing,
       dataTableName = pDataTableName_
     }
 
@@ -128,16 +129,16 @@ newCopyCommand pDataTableName_ =
 --
 -- For more examples, see
 -- <https://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html Amazon Redshift COPY command examples>.
-copyCommand_copyOptions :: Lens.Lens' CopyCommand (Core.Maybe Core.Text)
+copyCommand_copyOptions :: Lens.Lens' CopyCommand (Prelude.Maybe Prelude.Text)
 copyCommand_copyOptions = Lens.lens (\CopyCommand' {copyOptions} -> copyOptions) (\s@CopyCommand' {} a -> s {copyOptions = a} :: CopyCommand)
 
 -- | A comma-separated list of column names.
-copyCommand_dataTableColumns :: Lens.Lens' CopyCommand (Core.Maybe Core.Text)
+copyCommand_dataTableColumns :: Lens.Lens' CopyCommand (Prelude.Maybe Prelude.Text)
 copyCommand_dataTableColumns = Lens.lens (\CopyCommand' {dataTableColumns} -> dataTableColumns) (\s@CopyCommand' {} a -> s {dataTableColumns = a} :: CopyCommand)
 
 -- | The name of the target table. The table must already exist in the
 -- database.
-copyCommand_dataTableName :: Lens.Lens' CopyCommand Core.Text
+copyCommand_dataTableName :: Lens.Lens' CopyCommand Prelude.Text
 copyCommand_dataTableName = Lens.lens (\CopyCommand' {dataTableName} -> dataTableName) (\s@CopyCommand' {} a -> s {dataTableName = a} :: CopyCommand)
 
 instance Core.FromJSON CopyCommand where
@@ -146,22 +147,23 @@ instance Core.FromJSON CopyCommand where
       "CopyCommand"
       ( \x ->
           CopyCommand'
-            Core.<$> (x Core..:? "CopyOptions")
-            Core.<*> (x Core..:? "DataTableColumns")
-            Core.<*> (x Core..: "DataTableName")
+            Prelude.<$> (x Core..:? "CopyOptions")
+            Prelude.<*> (x Core..:? "DataTableColumns")
+            Prelude.<*> (x Core..: "DataTableName")
       )
 
-instance Core.Hashable CopyCommand
+instance Prelude.Hashable CopyCommand
 
-instance Core.NFData CopyCommand
+instance Prelude.NFData CopyCommand
 
 instance Core.ToJSON CopyCommand where
   toJSON CopyCommand' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CopyOptions" Core..=) Core.<$> copyOptions,
+      ( Prelude.catMaybes
+          [ ("CopyOptions" Core..=) Prelude.<$> copyOptions,
             ("DataTableColumns" Core..=)
-              Core.<$> dataTableColumns,
-            Core.Just ("DataTableName" Core..= dataTableName)
+              Prelude.<$> dataTableColumns,
+            Prelude.Just
+              ("DataTableName" Core..= dataTableName)
           ]
       )

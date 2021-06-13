@@ -21,6 +21,7 @@ module Network.AWS.WAFRegional.Types.WebACLSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
@@ -40,12 +41,12 @@ data WebACLSummary = WebACLSummary'
     -- UpdateWebACL), and delete a @WebACL@ from AWS WAF (see DeleteWebACL).
     --
     -- @WebACLId@ is returned by CreateWebACL and by ListWebACLs.
-    webACLId :: Core.Text,
+    webACLId :: Prelude.Text,
     -- | A friendly name or description of the WebACL. You can\'t change the name
     -- of a @WebACL@ after you create it.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WebACLSummary' with all optional fields omitted.
@@ -65,9 +66,9 @@ data WebACLSummary = WebACLSummary'
 -- of a @WebACL@ after you create it.
 newWebACLSummary ::
   -- | 'webACLId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   WebACLSummary
 newWebACLSummary pWebACLId_ pName_ =
   WebACLSummary'
@@ -80,12 +81,12 @@ newWebACLSummary pWebACLId_ pName_ =
 -- UpdateWebACL), and delete a @WebACL@ from AWS WAF (see DeleteWebACL).
 --
 -- @WebACLId@ is returned by CreateWebACL and by ListWebACLs.
-webACLSummary_webACLId :: Lens.Lens' WebACLSummary Core.Text
+webACLSummary_webACLId :: Lens.Lens' WebACLSummary Prelude.Text
 webACLSummary_webACLId = Lens.lens (\WebACLSummary' {webACLId} -> webACLId) (\s@WebACLSummary' {} a -> s {webACLId = a} :: WebACLSummary)
 
 -- | A friendly name or description of the WebACL. You can\'t change the name
 -- of a @WebACL@ after you create it.
-webACLSummary_name :: Lens.Lens' WebACLSummary Core.Text
+webACLSummary_name :: Lens.Lens' WebACLSummary Prelude.Text
 webACLSummary_name = Lens.lens (\WebACLSummary' {name} -> name) (\s@WebACLSummary' {} a -> s {name = a} :: WebACLSummary)
 
 instance Core.FromJSON WebACLSummary where
@@ -94,9 +95,10 @@ instance Core.FromJSON WebACLSummary where
       "WebACLSummary"
       ( \x ->
           WebACLSummary'
-            Core.<$> (x Core..: "WebACLId") Core.<*> (x Core..: "Name")
+            Prelude.<$> (x Core..: "WebACLId")
+            Prelude.<*> (x Core..: "Name")
       )
 
-instance Core.Hashable WebACLSummary
+instance Prelude.Hashable WebACLSummary
 
-instance Core.NFData WebACLSummary
+instance Prelude.NFData WebACLSummary

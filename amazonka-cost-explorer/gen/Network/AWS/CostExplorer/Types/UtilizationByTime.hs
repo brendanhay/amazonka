@@ -24,19 +24,20 @@ import Network.AWS.CostExplorer.Types.DateInterval
 import Network.AWS.CostExplorer.Types.ReservationAggregates
 import Network.AWS.CostExplorer.Types.ReservationUtilizationGroup
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The amount of utilization, in hours.
 --
 -- /See:/ 'newUtilizationByTime' smart constructor.
 data UtilizationByTime = UtilizationByTime'
   { -- | The groups that this utilization result uses.
-    groups :: Core.Maybe [ReservationUtilizationGroup],
+    groups :: Prelude.Maybe [ReservationUtilizationGroup],
     -- | The period of time that this utilization was used for.
-    timePeriod :: Core.Maybe DateInterval,
+    timePeriod :: Prelude.Maybe DateInterval,
     -- | The total number of reservation hours that were used.
-    total :: Core.Maybe ReservationAggregates
+    total :: Prelude.Maybe ReservationAggregates
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UtilizationByTime' with all optional fields omitted.
@@ -55,21 +56,21 @@ newUtilizationByTime ::
   UtilizationByTime
 newUtilizationByTime =
   UtilizationByTime'
-    { groups = Core.Nothing,
-      timePeriod = Core.Nothing,
-      total = Core.Nothing
+    { groups = Prelude.Nothing,
+      timePeriod = Prelude.Nothing,
+      total = Prelude.Nothing
     }
 
 -- | The groups that this utilization result uses.
-utilizationByTime_groups :: Lens.Lens' UtilizationByTime (Core.Maybe [ReservationUtilizationGroup])
-utilizationByTime_groups = Lens.lens (\UtilizationByTime' {groups} -> groups) (\s@UtilizationByTime' {} a -> s {groups = a} :: UtilizationByTime) Core.. Lens.mapping Lens._Coerce
+utilizationByTime_groups :: Lens.Lens' UtilizationByTime (Prelude.Maybe [ReservationUtilizationGroup])
+utilizationByTime_groups = Lens.lens (\UtilizationByTime' {groups} -> groups) (\s@UtilizationByTime' {} a -> s {groups = a} :: UtilizationByTime) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The period of time that this utilization was used for.
-utilizationByTime_timePeriod :: Lens.Lens' UtilizationByTime (Core.Maybe DateInterval)
+utilizationByTime_timePeriod :: Lens.Lens' UtilizationByTime (Prelude.Maybe DateInterval)
 utilizationByTime_timePeriod = Lens.lens (\UtilizationByTime' {timePeriod} -> timePeriod) (\s@UtilizationByTime' {} a -> s {timePeriod = a} :: UtilizationByTime)
 
 -- | The total number of reservation hours that were used.
-utilizationByTime_total :: Lens.Lens' UtilizationByTime (Core.Maybe ReservationAggregates)
+utilizationByTime_total :: Lens.Lens' UtilizationByTime (Prelude.Maybe ReservationAggregates)
 utilizationByTime_total = Lens.lens (\UtilizationByTime' {total} -> total) (\s@UtilizationByTime' {} a -> s {total = a} :: UtilizationByTime)
 
 instance Core.FromJSON UtilizationByTime where
@@ -78,11 +79,11 @@ instance Core.FromJSON UtilizationByTime where
       "UtilizationByTime"
       ( \x ->
           UtilizationByTime'
-            Core.<$> (x Core..:? "Groups" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "TimePeriod")
-            Core.<*> (x Core..:? "Total")
+            Prelude.<$> (x Core..:? "Groups" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "TimePeriod")
+            Prelude.<*> (x Core..:? "Total")
       )
 
-instance Core.Hashable UtilizationByTime
+instance Prelude.Hashable UtilizationByTime
 
-instance Core.NFData UtilizationByTime
+instance Prelude.NFData UtilizationByTime

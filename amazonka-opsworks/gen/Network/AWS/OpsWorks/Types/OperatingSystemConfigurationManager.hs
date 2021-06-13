@@ -21,6 +21,7 @@ module Network.AWS.OpsWorks.Types.OperatingSystemConfigurationManager where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A block that contains information about the configuration manager (Chef)
 -- and the versions of the configuration manager that are supported for an
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 data OperatingSystemConfigurationManager = OperatingSystemConfigurationManager'
   { -- | The versions of the configuration manager that are supported by an
     -- operating system.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | The name of the configuration manager, which is Chef.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OperatingSystemConfigurationManager' with all optional fields omitted.
@@ -53,17 +54,17 @@ newOperatingSystemConfigurationManager ::
 newOperatingSystemConfigurationManager =
   OperatingSystemConfigurationManager'
     { version =
-        Core.Nothing,
-      name = Core.Nothing
+        Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The versions of the configuration manager that are supported by an
 -- operating system.
-operatingSystemConfigurationManager_version :: Lens.Lens' OperatingSystemConfigurationManager (Core.Maybe Core.Text)
+operatingSystemConfigurationManager_version :: Lens.Lens' OperatingSystemConfigurationManager (Prelude.Maybe Prelude.Text)
 operatingSystemConfigurationManager_version = Lens.lens (\OperatingSystemConfigurationManager' {version} -> version) (\s@OperatingSystemConfigurationManager' {} a -> s {version = a} :: OperatingSystemConfigurationManager)
 
 -- | The name of the configuration manager, which is Chef.
-operatingSystemConfigurationManager_name :: Lens.Lens' OperatingSystemConfigurationManager (Core.Maybe Core.Text)
+operatingSystemConfigurationManager_name :: Lens.Lens' OperatingSystemConfigurationManager (Prelude.Maybe Prelude.Text)
 operatingSystemConfigurationManager_name = Lens.lens (\OperatingSystemConfigurationManager' {name} -> name) (\s@OperatingSystemConfigurationManager' {} a -> s {name = a} :: OperatingSystemConfigurationManager)
 
 instance
@@ -75,13 +76,14 @@ instance
       "OperatingSystemConfigurationManager"
       ( \x ->
           OperatingSystemConfigurationManager'
-            Core.<$> (x Core..:? "Version") Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Version")
+            Prelude.<*> (x Core..:? "Name")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     OperatingSystemConfigurationManager
 
 instance
-  Core.NFData
+  Prelude.NFData
     OperatingSystemConfigurationManager

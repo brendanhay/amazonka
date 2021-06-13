@@ -21,6 +21,7 @@ module Network.AWS.FMS.Types.SecurityGroupRuleDescription where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a set of permissions for a security group rule.
 --
@@ -29,20 +30,20 @@ data SecurityGroupRuleDescription = SecurityGroupRuleDescription'
   { -- | The start of the port range for the TCP and UDP protocols, or an
     -- ICMP\/ICMPv6 type number. A value of @-1@ indicates all ICMP\/ICMPv6
     -- types.
-    fromPort :: Core.Maybe Core.Natural,
+    fromPort :: Prelude.Maybe Prelude.Natural,
     -- | The IPv4 ranges for the security group rule.
-    iPV4Range :: Core.Maybe Core.Text,
+    iPV4Range :: Prelude.Maybe Prelude.Text,
     -- | The ID of the prefix list for the security group rule.
-    prefixListId :: Core.Maybe Core.Text,
+    prefixListId :: Prelude.Maybe Prelude.Text,
     -- | The IPv6 ranges for the security group rule.
-    iPV6Range :: Core.Maybe Core.Text,
+    iPV6Range :: Prelude.Maybe Prelude.Text,
     -- | The IP protocol name (@tcp@, @udp@, @icmp@, @icmpv6@) or number.
-    protocol :: Core.Maybe Core.Text,
+    protocol :: Prelude.Maybe Prelude.Text,
     -- | The end of the port range for the TCP and UDP protocols, or an
     -- ICMP\/ICMPv6 code. A value of @-1@ indicates all ICMP\/ICMPv6 codes.
-    toPort :: Core.Maybe Core.Natural
+    toPort :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SecurityGroupRuleDescription' with all optional fields omitted.
@@ -71,39 +72,39 @@ newSecurityGroupRuleDescription ::
 newSecurityGroupRuleDescription =
   SecurityGroupRuleDescription'
     { fromPort =
-        Core.Nothing,
-      iPV4Range = Core.Nothing,
-      prefixListId = Core.Nothing,
-      iPV6Range = Core.Nothing,
-      protocol = Core.Nothing,
-      toPort = Core.Nothing
+        Prelude.Nothing,
+      iPV4Range = Prelude.Nothing,
+      prefixListId = Prelude.Nothing,
+      iPV6Range = Prelude.Nothing,
+      protocol = Prelude.Nothing,
+      toPort = Prelude.Nothing
     }
 
 -- | The start of the port range for the TCP and UDP protocols, or an
 -- ICMP\/ICMPv6 type number. A value of @-1@ indicates all ICMP\/ICMPv6
 -- types.
-securityGroupRuleDescription_fromPort :: Lens.Lens' SecurityGroupRuleDescription (Core.Maybe Core.Natural)
+securityGroupRuleDescription_fromPort :: Lens.Lens' SecurityGroupRuleDescription (Prelude.Maybe Prelude.Natural)
 securityGroupRuleDescription_fromPort = Lens.lens (\SecurityGroupRuleDescription' {fromPort} -> fromPort) (\s@SecurityGroupRuleDescription' {} a -> s {fromPort = a} :: SecurityGroupRuleDescription)
 
 -- | The IPv4 ranges for the security group rule.
-securityGroupRuleDescription_iPV4Range :: Lens.Lens' SecurityGroupRuleDescription (Core.Maybe Core.Text)
+securityGroupRuleDescription_iPV4Range :: Lens.Lens' SecurityGroupRuleDescription (Prelude.Maybe Prelude.Text)
 securityGroupRuleDescription_iPV4Range = Lens.lens (\SecurityGroupRuleDescription' {iPV4Range} -> iPV4Range) (\s@SecurityGroupRuleDescription' {} a -> s {iPV4Range = a} :: SecurityGroupRuleDescription)
 
 -- | The ID of the prefix list for the security group rule.
-securityGroupRuleDescription_prefixListId :: Lens.Lens' SecurityGroupRuleDescription (Core.Maybe Core.Text)
+securityGroupRuleDescription_prefixListId :: Lens.Lens' SecurityGroupRuleDescription (Prelude.Maybe Prelude.Text)
 securityGroupRuleDescription_prefixListId = Lens.lens (\SecurityGroupRuleDescription' {prefixListId} -> prefixListId) (\s@SecurityGroupRuleDescription' {} a -> s {prefixListId = a} :: SecurityGroupRuleDescription)
 
 -- | The IPv6 ranges for the security group rule.
-securityGroupRuleDescription_iPV6Range :: Lens.Lens' SecurityGroupRuleDescription (Core.Maybe Core.Text)
+securityGroupRuleDescription_iPV6Range :: Lens.Lens' SecurityGroupRuleDescription (Prelude.Maybe Prelude.Text)
 securityGroupRuleDescription_iPV6Range = Lens.lens (\SecurityGroupRuleDescription' {iPV6Range} -> iPV6Range) (\s@SecurityGroupRuleDescription' {} a -> s {iPV6Range = a} :: SecurityGroupRuleDescription)
 
 -- | The IP protocol name (@tcp@, @udp@, @icmp@, @icmpv6@) or number.
-securityGroupRuleDescription_protocol :: Lens.Lens' SecurityGroupRuleDescription (Core.Maybe Core.Text)
+securityGroupRuleDescription_protocol :: Lens.Lens' SecurityGroupRuleDescription (Prelude.Maybe Prelude.Text)
 securityGroupRuleDescription_protocol = Lens.lens (\SecurityGroupRuleDescription' {protocol} -> protocol) (\s@SecurityGroupRuleDescription' {} a -> s {protocol = a} :: SecurityGroupRuleDescription)
 
 -- | The end of the port range for the TCP and UDP protocols, or an
 -- ICMP\/ICMPv6 code. A value of @-1@ indicates all ICMP\/ICMPv6 codes.
-securityGroupRuleDescription_toPort :: Lens.Lens' SecurityGroupRuleDescription (Core.Maybe Core.Natural)
+securityGroupRuleDescription_toPort :: Lens.Lens' SecurityGroupRuleDescription (Prelude.Maybe Prelude.Natural)
 securityGroupRuleDescription_toPort = Lens.lens (\SecurityGroupRuleDescription' {toPort} -> toPort) (\s@SecurityGroupRuleDescription' {} a -> s {toPort = a} :: SecurityGroupRuleDescription)
 
 instance Core.FromJSON SecurityGroupRuleDescription where
@@ -112,14 +113,16 @@ instance Core.FromJSON SecurityGroupRuleDescription where
       "SecurityGroupRuleDescription"
       ( \x ->
           SecurityGroupRuleDescription'
-            Core.<$> (x Core..:? "FromPort")
-            Core.<*> (x Core..:? "IPV4Range")
-            Core.<*> (x Core..:? "PrefixListId")
-            Core.<*> (x Core..:? "IPV6Range")
-            Core.<*> (x Core..:? "Protocol")
-            Core.<*> (x Core..:? "ToPort")
+            Prelude.<$> (x Core..:? "FromPort")
+            Prelude.<*> (x Core..:? "IPV4Range")
+            Prelude.<*> (x Core..:? "PrefixListId")
+            Prelude.<*> (x Core..:? "IPV6Range")
+            Prelude.<*> (x Core..:? "Protocol")
+            Prelude.<*> (x Core..:? "ToPort")
       )
 
-instance Core.Hashable SecurityGroupRuleDescription
+instance
+  Prelude.Hashable
+    SecurityGroupRuleDescription
 
-instance Core.NFData SecurityGroupRuleDescription
+instance Prelude.NFData SecurityGroupRuleDescription

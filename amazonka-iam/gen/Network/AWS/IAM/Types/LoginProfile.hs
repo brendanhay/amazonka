@@ -21,6 +21,7 @@ module Network.AWS.IAM.Types.LoginProfile where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the user name and password create date for a user.
 --
@@ -31,14 +32,14 @@ import qualified Network.AWS.Lens as Lens
 data LoginProfile = LoginProfile'
   { -- | Specifies whether the user is required to set a new password on next
     -- sign-in.
-    passwordResetRequired :: Core.Maybe Core.Bool,
+    passwordResetRequired :: Prelude.Maybe Prelude.Bool,
     -- | The name of the user, which can be used for signing in to the AWS
     -- Management Console.
-    userName :: Core.Text,
+    userName :: Prelude.Text,
     -- | The date when the password for the user was created.
     createDate :: Core.ISO8601
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LoginProfile' with all optional fields omitted.
@@ -57,38 +58,39 @@ data LoginProfile = LoginProfile'
 -- 'createDate', 'loginProfile_createDate' - The date when the password for the user was created.
 newLoginProfile ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'createDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   LoginProfile
 newLoginProfile pUserName_ pCreateDate_ =
   LoginProfile'
-    { passwordResetRequired = Core.Nothing,
+    { passwordResetRequired =
+        Prelude.Nothing,
       userName = pUserName_,
       createDate = Core._Time Lens.# pCreateDate_
     }
 
 -- | Specifies whether the user is required to set a new password on next
 -- sign-in.
-loginProfile_passwordResetRequired :: Lens.Lens' LoginProfile (Core.Maybe Core.Bool)
+loginProfile_passwordResetRequired :: Lens.Lens' LoginProfile (Prelude.Maybe Prelude.Bool)
 loginProfile_passwordResetRequired = Lens.lens (\LoginProfile' {passwordResetRequired} -> passwordResetRequired) (\s@LoginProfile' {} a -> s {passwordResetRequired = a} :: LoginProfile)
 
 -- | The name of the user, which can be used for signing in to the AWS
 -- Management Console.
-loginProfile_userName :: Lens.Lens' LoginProfile Core.Text
+loginProfile_userName :: Lens.Lens' LoginProfile Prelude.Text
 loginProfile_userName = Lens.lens (\LoginProfile' {userName} -> userName) (\s@LoginProfile' {} a -> s {userName = a} :: LoginProfile)
 
 -- | The date when the password for the user was created.
-loginProfile_createDate :: Lens.Lens' LoginProfile Core.UTCTime
-loginProfile_createDate = Lens.lens (\LoginProfile' {createDate} -> createDate) (\s@LoginProfile' {} a -> s {createDate = a} :: LoginProfile) Core.. Core._Time
+loginProfile_createDate :: Lens.Lens' LoginProfile Prelude.UTCTime
+loginProfile_createDate = Lens.lens (\LoginProfile' {createDate} -> createDate) (\s@LoginProfile' {} a -> s {createDate = a} :: LoginProfile) Prelude.. Core._Time
 
 instance Core.FromXML LoginProfile where
   parseXML x =
     LoginProfile'
-      Core.<$> (x Core..@? "PasswordResetRequired")
-      Core.<*> (x Core..@ "UserName")
-      Core.<*> (x Core..@ "CreateDate")
+      Prelude.<$> (x Core..@? "PasswordResetRequired")
+      Prelude.<*> (x Core..@ "UserName")
+      Prelude.<*> (x Core..@ "CreateDate")
 
-instance Core.Hashable LoginProfile
+instance Prelude.Hashable LoginProfile
 
-instance Core.NFData LoginProfile
+instance Prelude.NFData LoginProfile

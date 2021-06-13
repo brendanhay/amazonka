@@ -22,17 +22,18 @@ module Network.AWS.GuardDuty.Types.UsageAccountResult where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.Total
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on the total of usage based on account IDs.
 --
 -- /See:/ 'newUsageAccountResult' smart constructor.
 data UsageAccountResult = UsageAccountResult'
   { -- | The Account ID that generated usage.
-    accountId :: Core.Maybe Core.Text,
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | Represents the total of usage for the Account ID.
-    total :: Core.Maybe Total
+    total :: Prelude.Maybe Total
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UsageAccountResult' with all optional fields omitted.
@@ -49,16 +50,16 @@ newUsageAccountResult ::
   UsageAccountResult
 newUsageAccountResult =
   UsageAccountResult'
-    { accountId = Core.Nothing,
-      total = Core.Nothing
+    { accountId = Prelude.Nothing,
+      total = Prelude.Nothing
     }
 
 -- | The Account ID that generated usage.
-usageAccountResult_accountId :: Lens.Lens' UsageAccountResult (Core.Maybe Core.Text)
+usageAccountResult_accountId :: Lens.Lens' UsageAccountResult (Prelude.Maybe Prelude.Text)
 usageAccountResult_accountId = Lens.lens (\UsageAccountResult' {accountId} -> accountId) (\s@UsageAccountResult' {} a -> s {accountId = a} :: UsageAccountResult)
 
 -- | Represents the total of usage for the Account ID.
-usageAccountResult_total :: Lens.Lens' UsageAccountResult (Core.Maybe Total)
+usageAccountResult_total :: Lens.Lens' UsageAccountResult (Prelude.Maybe Total)
 usageAccountResult_total = Lens.lens (\UsageAccountResult' {total} -> total) (\s@UsageAccountResult' {} a -> s {total = a} :: UsageAccountResult)
 
 instance Core.FromJSON UsageAccountResult where
@@ -67,10 +68,10 @@ instance Core.FromJSON UsageAccountResult where
       "UsageAccountResult"
       ( \x ->
           UsageAccountResult'
-            Core.<$> (x Core..:? "accountId")
-            Core.<*> (x Core..:? "total")
+            Prelude.<$> (x Core..:? "accountId")
+            Prelude.<*> (x Core..:? "total")
       )
 
-instance Core.Hashable UsageAccountResult
+instance Prelude.Hashable UsageAccountResult
 
-instance Core.NFData UsageAccountResult
+instance Prelude.NFData UsageAccountResult

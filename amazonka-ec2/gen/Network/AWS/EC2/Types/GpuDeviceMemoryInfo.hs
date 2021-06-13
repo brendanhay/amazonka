@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.GpuDeviceMemoryInfo where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the memory available to the GPU accelerator.
 --
 -- /See:/ 'newGpuDeviceMemoryInfo' smart constructor.
 data GpuDeviceMemoryInfo = GpuDeviceMemoryInfo'
   { -- | The size of the memory available to the GPU accelerator, in MiB.
-    sizeInMiB :: Core.Maybe Core.Int
+    sizeInMiB :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GpuDeviceMemoryInfo' with all optional fields omitted.
@@ -44,17 +45,17 @@ data GpuDeviceMemoryInfo = GpuDeviceMemoryInfo'
 newGpuDeviceMemoryInfo ::
   GpuDeviceMemoryInfo
 newGpuDeviceMemoryInfo =
-  GpuDeviceMemoryInfo' {sizeInMiB = Core.Nothing}
+  GpuDeviceMemoryInfo' {sizeInMiB = Prelude.Nothing}
 
 -- | The size of the memory available to the GPU accelerator, in MiB.
-gpuDeviceMemoryInfo_sizeInMiB :: Lens.Lens' GpuDeviceMemoryInfo (Core.Maybe Core.Int)
+gpuDeviceMemoryInfo_sizeInMiB :: Lens.Lens' GpuDeviceMemoryInfo (Prelude.Maybe Prelude.Int)
 gpuDeviceMemoryInfo_sizeInMiB = Lens.lens (\GpuDeviceMemoryInfo' {sizeInMiB} -> sizeInMiB) (\s@GpuDeviceMemoryInfo' {} a -> s {sizeInMiB = a} :: GpuDeviceMemoryInfo)
 
 instance Core.FromXML GpuDeviceMemoryInfo where
   parseXML x =
     GpuDeviceMemoryInfo'
-      Core.<$> (x Core..@? "sizeInMiB")
+      Prelude.<$> (x Core..@? "sizeInMiB")
 
-instance Core.Hashable GpuDeviceMemoryInfo
+instance Prelude.Hashable GpuDeviceMemoryInfo
 
-instance Core.NFData GpuDeviceMemoryInfo
+instance Prelude.NFData GpuDeviceMemoryInfo

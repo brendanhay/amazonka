@@ -71,6 +71,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -82,16 +83,16 @@ data CreatePlatformApplication = CreatePlatformApplication'
   { -- | Application names must be made up of only uppercase and lowercase ASCII
     -- letters, numbers, underscores, hyphens, and periods, and must be between
     -- 1 and 256 characters long.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The following platforms are supported: ADM (Amazon Device Messaging),
     -- APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Firebase
     -- Cloud Messaging).
-    platform :: Core.Text,
+    platform :: Prelude.Text,
     -- | For a list of attributes, see
     -- <https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>
-    attributes :: Core.HashMap Core.Text Core.Text
+    attributes :: Prelude.HashMap Prelude.Text Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePlatformApplication' with all optional fields omitted.
@@ -113,33 +114,33 @@ data CreatePlatformApplication = CreatePlatformApplication'
 -- <https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>
 newCreatePlatformApplication ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'platform'
-  Core.Text ->
+  Prelude.Text ->
   CreatePlatformApplication
 newCreatePlatformApplication pName_ pPlatform_ =
   CreatePlatformApplication'
     { name = pName_,
       platform = pPlatform_,
-      attributes = Core.mempty
+      attributes = Prelude.mempty
     }
 
 -- | Application names must be made up of only uppercase and lowercase ASCII
 -- letters, numbers, underscores, hyphens, and periods, and must be between
 -- 1 and 256 characters long.
-createPlatformApplication_name :: Lens.Lens' CreatePlatformApplication Core.Text
+createPlatformApplication_name :: Lens.Lens' CreatePlatformApplication Prelude.Text
 createPlatformApplication_name = Lens.lens (\CreatePlatformApplication' {name} -> name) (\s@CreatePlatformApplication' {} a -> s {name = a} :: CreatePlatformApplication)
 
 -- | The following platforms are supported: ADM (Amazon Device Messaging),
 -- APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Firebase
 -- Cloud Messaging).
-createPlatformApplication_platform :: Lens.Lens' CreatePlatformApplication Core.Text
+createPlatformApplication_platform :: Lens.Lens' CreatePlatformApplication Prelude.Text
 createPlatformApplication_platform = Lens.lens (\CreatePlatformApplication' {platform} -> platform) (\s@CreatePlatformApplication' {} a -> s {platform = a} :: CreatePlatformApplication)
 
 -- | For a list of attributes, see
 -- <https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>
-createPlatformApplication_attributes :: Lens.Lens' CreatePlatformApplication (Core.HashMap Core.Text Core.Text)
-createPlatformApplication_attributes = Lens.lens (\CreatePlatformApplication' {attributes} -> attributes) (\s@CreatePlatformApplication' {} a -> s {attributes = a} :: CreatePlatformApplication) Core.. Lens._Coerce
+createPlatformApplication_attributes :: Lens.Lens' CreatePlatformApplication (Prelude.HashMap Prelude.Text Prelude.Text)
+createPlatformApplication_attributes = Lens.lens (\CreatePlatformApplication' {attributes} -> attributes) (\s@CreatePlatformApplication' {} a -> s {attributes = a} :: CreatePlatformApplication) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreatePlatformApplication where
   type
@@ -151,26 +152,27 @@ instance Core.AWSRequest CreatePlatformApplication where
       "CreatePlatformApplicationResult"
       ( \s h x ->
           CreatePlatformApplicationResponse'
-            Core.<$> (x Core..@? "PlatformApplicationArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "PlatformApplicationArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreatePlatformApplication
+instance Prelude.Hashable CreatePlatformApplication
 
-instance Core.NFData CreatePlatformApplication
+instance Prelude.NFData CreatePlatformApplication
 
 instance Core.ToHeaders CreatePlatformApplication where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreatePlatformApplication where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreatePlatformApplication where
   toQuery CreatePlatformApplication' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreatePlatformApplication" :: Core.ByteString),
-        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+          Core.=: ("CreatePlatformApplication" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
         "Name" Core.=: name,
         "Platform" Core.=: platform,
         "Attributes"
@@ -182,11 +184,11 @@ instance Core.ToQuery CreatePlatformApplication where
 -- /See:/ 'newCreatePlatformApplicationResponse' smart constructor.
 data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
   { -- | PlatformApplicationArn is returned.
-    platformApplicationArn :: Core.Maybe Core.Text,
+    platformApplicationArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePlatformApplicationResponse' with all optional fields omitted.
@@ -201,23 +203,23 @@ data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
 -- 'httpStatus', 'createPlatformApplicationResponse_httpStatus' - The response's http status code.
 newCreatePlatformApplicationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreatePlatformApplicationResponse
 newCreatePlatformApplicationResponse pHttpStatus_ =
   CreatePlatformApplicationResponse'
     { platformApplicationArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | PlatformApplicationArn is returned.
-createPlatformApplicationResponse_platformApplicationArn :: Lens.Lens' CreatePlatformApplicationResponse (Core.Maybe Core.Text)
+createPlatformApplicationResponse_platformApplicationArn :: Lens.Lens' CreatePlatformApplicationResponse (Prelude.Maybe Prelude.Text)
 createPlatformApplicationResponse_platformApplicationArn = Lens.lens (\CreatePlatformApplicationResponse' {platformApplicationArn} -> platformApplicationArn) (\s@CreatePlatformApplicationResponse' {} a -> s {platformApplicationArn = a} :: CreatePlatformApplicationResponse)
 
 -- | The response's http status code.
-createPlatformApplicationResponse_httpStatus :: Lens.Lens' CreatePlatformApplicationResponse Core.Int
+createPlatformApplicationResponse_httpStatus :: Lens.Lens' CreatePlatformApplicationResponse Prelude.Int
 createPlatformApplicationResponse_httpStatus = Lens.lens (\CreatePlatformApplicationResponse' {httpStatus} -> httpStatus) (\s@CreatePlatformApplicationResponse' {} a -> s {httpStatus = a} :: CreatePlatformApplicationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreatePlatformApplicationResponse

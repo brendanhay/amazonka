@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,7 +60,7 @@ data GetUsageForecast = GetUsageForecast'
     -- confidence level. The higher the confidence level, the more confident
     -- Cost Explorer is about the actual value falling in the prediction
     -- interval. Higher confidence levels result in wider prediction intervals.
-    predictionIntervalLevel :: Core.Maybe Core.Natural,
+    predictionIntervalLevel :: Prelude.Maybe Prelude.Natural,
     -- | The filters that you want to use to filter your forecast. The
     -- @GetUsageForecast@ API supports filtering by the following dimensions:
     --
@@ -108,7 +109,7 @@ data GetUsageForecast = GetUsageForecast'
     -- -   @RESERVATION_ID@
     --
     -- -   @SAVINGS_PLAN_ARN@
-    filter' :: Core.Maybe Expression,
+    filter' :: Prelude.Maybe Expression,
     -- | The start and end dates of the period that you want to retrieve usage
     -- forecast for. The start date is inclusive, but the end date is
     -- exclusive. For example, if @start@ is @2017-01-01@ and @end@ is
@@ -132,7 +133,7 @@ data GetUsageForecast = GetUsageForecast'
     -- granularities.
     granularity :: Granularity
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetUsageForecast' with all optional fields omitted.
@@ -232,8 +233,8 @@ newGetUsageForecast
   pGranularity_ =
     GetUsageForecast'
       { predictionIntervalLevel =
-          Core.Nothing,
-        filter' = Core.Nothing,
+          Prelude.Nothing,
+        filter' = Prelude.Nothing,
         timePeriod = pTimePeriod_,
         metric = pMetric_,
         granularity = pGranularity_
@@ -244,7 +245,7 @@ newGetUsageForecast
 -- confidence level. The higher the confidence level, the more confident
 -- Cost Explorer is about the actual value falling in the prediction
 -- interval. Higher confidence levels result in wider prediction intervals.
-getUsageForecast_predictionIntervalLevel :: Lens.Lens' GetUsageForecast (Core.Maybe Core.Natural)
+getUsageForecast_predictionIntervalLevel :: Lens.Lens' GetUsageForecast (Prelude.Maybe Prelude.Natural)
 getUsageForecast_predictionIntervalLevel = Lens.lens (\GetUsageForecast' {predictionIntervalLevel} -> predictionIntervalLevel) (\s@GetUsageForecast' {} a -> s {predictionIntervalLevel = a} :: GetUsageForecast)
 
 -- | The filters that you want to use to filter your forecast. The
@@ -295,7 +296,7 @@ getUsageForecast_predictionIntervalLevel = Lens.lens (\GetUsageForecast' {predic
 -- -   @RESERVATION_ID@
 --
 -- -   @SAVINGS_PLAN_ARN@
-getUsageForecast_filter :: Lens.Lens' GetUsageForecast (Core.Maybe Expression)
+getUsageForecast_filter :: Lens.Lens' GetUsageForecast (Prelude.Maybe Expression)
 getUsageForecast_filter = Lens.lens (\GetUsageForecast' {filter'} -> filter') (\s@GetUsageForecast' {} a -> s {filter' = a} :: GetUsageForecast)
 
 -- | The start and end dates of the period that you want to retrieve usage
@@ -335,60 +336,62 @@ instance Core.AWSRequest GetUsageForecast where
     Response.receiveJSON
       ( \s h x ->
           GetUsageForecastResponse'
-            Core.<$> ( x Core..?> "ForecastResultsByTime"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "Total")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "ForecastResultsByTime"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "Total")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetUsageForecast
+instance Prelude.Hashable GetUsageForecast
 
-instance Core.NFData GetUsageForecast
+instance Prelude.NFData GetUsageForecast
 
 instance Core.ToHeaders GetUsageForecast where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSInsightsIndexService.GetUsageForecast" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetUsageForecast where
   toJSON GetUsageForecast' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("PredictionIntervalLevel" Core..=)
-              Core.<$> predictionIntervalLevel,
-            ("Filter" Core..=) Core.<$> filter',
-            Core.Just ("TimePeriod" Core..= timePeriod),
-            Core.Just ("Metric" Core..= metric),
-            Core.Just ("Granularity" Core..= granularity)
+              Prelude.<$> predictionIntervalLevel,
+            ("Filter" Core..=) Prelude.<$> filter',
+            Prelude.Just ("TimePeriod" Core..= timePeriod),
+            Prelude.Just ("Metric" Core..= metric),
+            Prelude.Just ("Granularity" Core..= granularity)
           ]
       )
 
 instance Core.ToPath GetUsageForecast where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetUsageForecast where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetUsageForecastResponse' smart constructor.
 data GetUsageForecastResponse = GetUsageForecastResponse'
   { -- | The forecasts for your query, in order. For @DAILY@ forecasts, this is a
     -- list of days. For @MONTHLY@ forecasts, this is a list of months.
-    forecastResultsByTime :: Core.Maybe [ForecastResult],
+    forecastResultsByTime :: Prelude.Maybe [ForecastResult],
     -- | How much you\'re forecasted to use over the forecast period.
-    total :: Core.Maybe MetricValue,
+    total :: Prelude.Maybe MetricValue,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetUsageForecastResponse' with all optional fields omitted.
@@ -406,27 +409,27 @@ data GetUsageForecastResponse = GetUsageForecastResponse'
 -- 'httpStatus', 'getUsageForecastResponse_httpStatus' - The response's http status code.
 newGetUsageForecastResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetUsageForecastResponse
 newGetUsageForecastResponse pHttpStatus_ =
   GetUsageForecastResponse'
     { forecastResultsByTime =
-        Core.Nothing,
-      total = Core.Nothing,
+        Prelude.Nothing,
+      total = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The forecasts for your query, in order. For @DAILY@ forecasts, this is a
 -- list of days. For @MONTHLY@ forecasts, this is a list of months.
-getUsageForecastResponse_forecastResultsByTime :: Lens.Lens' GetUsageForecastResponse (Core.Maybe [ForecastResult])
-getUsageForecastResponse_forecastResultsByTime = Lens.lens (\GetUsageForecastResponse' {forecastResultsByTime} -> forecastResultsByTime) (\s@GetUsageForecastResponse' {} a -> s {forecastResultsByTime = a} :: GetUsageForecastResponse) Core.. Lens.mapping Lens._Coerce
+getUsageForecastResponse_forecastResultsByTime :: Lens.Lens' GetUsageForecastResponse (Prelude.Maybe [ForecastResult])
+getUsageForecastResponse_forecastResultsByTime = Lens.lens (\GetUsageForecastResponse' {forecastResultsByTime} -> forecastResultsByTime) (\s@GetUsageForecastResponse' {} a -> s {forecastResultsByTime = a} :: GetUsageForecastResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | How much you\'re forecasted to use over the forecast period.
-getUsageForecastResponse_total :: Lens.Lens' GetUsageForecastResponse (Core.Maybe MetricValue)
+getUsageForecastResponse_total :: Lens.Lens' GetUsageForecastResponse (Prelude.Maybe MetricValue)
 getUsageForecastResponse_total = Lens.lens (\GetUsageForecastResponse' {total} -> total) (\s@GetUsageForecastResponse' {} a -> s {total = a} :: GetUsageForecastResponse)
 
 -- | The response's http status code.
-getUsageForecastResponse_httpStatus :: Lens.Lens' GetUsageForecastResponse Core.Int
+getUsageForecastResponse_httpStatus :: Lens.Lens' GetUsageForecastResponse Prelude.Int
 getUsageForecastResponse_httpStatus = Lens.lens (\GetUsageForecastResponse' {httpStatus} -> httpStatus) (\s@GetUsageForecastResponse' {} a -> s {httpStatus = a} :: GetUsageForecastResponse)
 
-instance Core.NFData GetUsageForecastResponse
+instance Prelude.NFData GetUsageForecastResponse

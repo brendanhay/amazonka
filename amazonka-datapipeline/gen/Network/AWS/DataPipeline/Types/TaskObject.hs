@@ -22,6 +22,7 @@ module Network.AWS.DataPipeline.Types.TaskObject where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types.PipelineObject
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a pipeline task that is assigned to a task
 -- runner.
@@ -29,18 +30,18 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTaskObject' smart constructor.
 data TaskObject = TaskObject'
   { -- | The ID of the pipeline that provided the task.
-    pipelineId :: Core.Maybe Core.Text,
+    pipelineId :: Prelude.Maybe Prelude.Text,
     -- | Connection information for the location where the task runner will
     -- publish the output of the task.
-    objects :: Core.Maybe (Core.HashMap Core.Text PipelineObject),
+    objects :: Prelude.Maybe (Prelude.HashMap Prelude.Text PipelineObject),
     -- | An internal identifier for the task. This ID is passed to the
     -- SetTaskStatus and ReportTaskProgress actions.
-    taskId :: Core.Maybe Core.Text,
+    taskId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this
     -- value to track how many times a task is attempted.
-    attemptId :: Core.Maybe Core.Text
+    attemptId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TaskObject' with all optional fields omitted.
@@ -64,29 +65,29 @@ newTaskObject ::
   TaskObject
 newTaskObject =
   TaskObject'
-    { pipelineId = Core.Nothing,
-      objects = Core.Nothing,
-      taskId = Core.Nothing,
-      attemptId = Core.Nothing
+    { pipelineId = Prelude.Nothing,
+      objects = Prelude.Nothing,
+      taskId = Prelude.Nothing,
+      attemptId = Prelude.Nothing
     }
 
 -- | The ID of the pipeline that provided the task.
-taskObject_pipelineId :: Lens.Lens' TaskObject (Core.Maybe Core.Text)
+taskObject_pipelineId :: Lens.Lens' TaskObject (Prelude.Maybe Prelude.Text)
 taskObject_pipelineId = Lens.lens (\TaskObject' {pipelineId} -> pipelineId) (\s@TaskObject' {} a -> s {pipelineId = a} :: TaskObject)
 
 -- | Connection information for the location where the task runner will
 -- publish the output of the task.
-taskObject_objects :: Lens.Lens' TaskObject (Core.Maybe (Core.HashMap Core.Text PipelineObject))
-taskObject_objects = Lens.lens (\TaskObject' {objects} -> objects) (\s@TaskObject' {} a -> s {objects = a} :: TaskObject) Core.. Lens.mapping Lens._Coerce
+taskObject_objects :: Lens.Lens' TaskObject (Prelude.Maybe (Prelude.HashMap Prelude.Text PipelineObject))
+taskObject_objects = Lens.lens (\TaskObject' {objects} -> objects) (\s@TaskObject' {} a -> s {objects = a} :: TaskObject) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An internal identifier for the task. This ID is passed to the
 -- SetTaskStatus and ReportTaskProgress actions.
-taskObject_taskId :: Lens.Lens' TaskObject (Core.Maybe Core.Text)
+taskObject_taskId :: Lens.Lens' TaskObject (Prelude.Maybe Prelude.Text)
 taskObject_taskId = Lens.lens (\TaskObject' {taskId} -> taskId) (\s@TaskObject' {} a -> s {taskId = a} :: TaskObject)
 
 -- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this
 -- value to track how many times a task is attempted.
-taskObject_attemptId :: Lens.Lens' TaskObject (Core.Maybe Core.Text)
+taskObject_attemptId :: Lens.Lens' TaskObject (Prelude.Maybe Prelude.Text)
 taskObject_attemptId = Lens.lens (\TaskObject' {attemptId} -> attemptId) (\s@TaskObject' {} a -> s {attemptId = a} :: TaskObject)
 
 instance Core.FromJSON TaskObject where
@@ -95,12 +96,12 @@ instance Core.FromJSON TaskObject where
       "TaskObject"
       ( \x ->
           TaskObject'
-            Core.<$> (x Core..:? "pipelineId")
-            Core.<*> (x Core..:? "objects" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "taskId")
-            Core.<*> (x Core..:? "attemptId")
+            Prelude.<$> (x Core..:? "pipelineId")
+            Prelude.<*> (x Core..:? "objects" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "taskId")
+            Prelude.<*> (x Core..:? "attemptId")
       )
 
-instance Core.Hashable TaskObject
+instance Prelude.Hashable TaskObject
 
-instance Core.NFData TaskObject
+instance Prelude.NFData TaskObject

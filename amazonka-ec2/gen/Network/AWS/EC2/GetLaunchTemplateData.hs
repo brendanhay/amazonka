@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,11 +61,11 @@ data GetLaunchTemplateData = GetLaunchTemplateData'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetLaunchTemplateData' with all optional fields omitted.
@@ -82,11 +83,11 @@ data GetLaunchTemplateData = GetLaunchTemplateData'
 -- 'instanceId', 'getLaunchTemplateData_instanceId' - The ID of the instance.
 newGetLaunchTemplateData ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   GetLaunchTemplateData
 newGetLaunchTemplateData pInstanceId_ =
   GetLaunchTemplateData'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -94,11 +95,11 @@ newGetLaunchTemplateData pInstanceId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-getLaunchTemplateData_dryRun :: Lens.Lens' GetLaunchTemplateData (Core.Maybe Core.Bool)
+getLaunchTemplateData_dryRun :: Lens.Lens' GetLaunchTemplateData (Prelude.Maybe Prelude.Bool)
 getLaunchTemplateData_dryRun = Lens.lens (\GetLaunchTemplateData' {dryRun} -> dryRun) (\s@GetLaunchTemplateData' {} a -> s {dryRun = a} :: GetLaunchTemplateData)
 
 -- | The ID of the instance.
-getLaunchTemplateData_instanceId :: Lens.Lens' GetLaunchTemplateData Core.Text
+getLaunchTemplateData_instanceId :: Lens.Lens' GetLaunchTemplateData Prelude.Text
 getLaunchTemplateData_instanceId = Lens.lens (\GetLaunchTemplateData' {instanceId} -> instanceId) (\s@GetLaunchTemplateData' {} a -> s {instanceId = a} :: GetLaunchTemplateData)
 
 instance Core.AWSRequest GetLaunchTemplateData where
@@ -110,26 +111,27 @@ instance Core.AWSRequest GetLaunchTemplateData where
     Response.receiveXML
       ( \s h x ->
           GetLaunchTemplateDataResponse'
-            Core.<$> (x Core..@? "launchTemplateData")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "launchTemplateData")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetLaunchTemplateData
+instance Prelude.Hashable GetLaunchTemplateData
 
-instance Core.NFData GetLaunchTemplateData
+instance Prelude.NFData GetLaunchTemplateData
 
 instance Core.ToHeaders GetLaunchTemplateData where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetLaunchTemplateData where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetLaunchTemplateData where
   toQuery GetLaunchTemplateData' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetLaunchTemplateData" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("GetLaunchTemplateData" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "InstanceId" Core.=: instanceId
       ]
@@ -137,11 +139,11 @@ instance Core.ToQuery GetLaunchTemplateData where
 -- | /See:/ 'newGetLaunchTemplateDataResponse' smart constructor.
 data GetLaunchTemplateDataResponse = GetLaunchTemplateDataResponse'
   { -- | The instance data.
-    launchTemplateData :: Core.Maybe ResponseLaunchTemplateData,
+    launchTemplateData :: Prelude.Maybe ResponseLaunchTemplateData,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetLaunchTemplateDataResponse' with all optional fields omitted.
@@ -156,21 +158,21 @@ data GetLaunchTemplateDataResponse = GetLaunchTemplateDataResponse'
 -- 'httpStatus', 'getLaunchTemplateDataResponse_httpStatus' - The response's http status code.
 newGetLaunchTemplateDataResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetLaunchTemplateDataResponse
 newGetLaunchTemplateDataResponse pHttpStatus_ =
   GetLaunchTemplateDataResponse'
     { launchTemplateData =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The instance data.
-getLaunchTemplateDataResponse_launchTemplateData :: Lens.Lens' GetLaunchTemplateDataResponse (Core.Maybe ResponseLaunchTemplateData)
+getLaunchTemplateDataResponse_launchTemplateData :: Lens.Lens' GetLaunchTemplateDataResponse (Prelude.Maybe ResponseLaunchTemplateData)
 getLaunchTemplateDataResponse_launchTemplateData = Lens.lens (\GetLaunchTemplateDataResponse' {launchTemplateData} -> launchTemplateData) (\s@GetLaunchTemplateDataResponse' {} a -> s {launchTemplateData = a} :: GetLaunchTemplateDataResponse)
 
 -- | The response's http status code.
-getLaunchTemplateDataResponse_httpStatus :: Lens.Lens' GetLaunchTemplateDataResponse Core.Int
+getLaunchTemplateDataResponse_httpStatus :: Lens.Lens' GetLaunchTemplateDataResponse Prelude.Int
 getLaunchTemplateDataResponse_httpStatus = Lens.lens (\GetLaunchTemplateDataResponse' {httpStatus} -> httpStatus) (\s@GetLaunchTemplateDataResponse' {} a -> s {httpStatus = a} :: GetLaunchTemplateDataResponse)
 
-instance Core.NFData GetLaunchTemplateDataResponse
+instance Prelude.NFData GetLaunchTemplateDataResponse

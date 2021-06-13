@@ -24,6 +24,7 @@ import Network.AWS.CostExplorer.Types.CostCategoryValues
 import Network.AWS.CostExplorer.Types.DimensionValues
 import Network.AWS.CostExplorer.Types.TagValues
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use @Expression@ to filter by cost or by usage. There are two patterns:
 --
@@ -69,19 +70,19 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newExpression' smart constructor.
 data Expression = Expression'
   { -- | Return results that don\'t match a @Dimension@ object.
-    not :: Core.Maybe Expression,
+    not :: Prelude.Maybe Expression,
     -- | Return results that match either @Dimension@ object.
-    or :: Core.Maybe [Expression],
+    or :: Prelude.Maybe [Expression],
     -- | The filter based on @CostCategory@ values.
-    costCategories :: Core.Maybe CostCategoryValues,
+    costCategories :: Prelude.Maybe CostCategoryValues,
     -- | The specific @Tag@ to use for @Expression@.
-    tags :: Core.Maybe TagValues,
+    tags :: Prelude.Maybe TagValues,
     -- | Return results that match both @Dimension@ objects.
-    and :: Core.Maybe [Expression],
+    and :: Prelude.Maybe [Expression],
     -- | The specific @Dimension@ to use for @Expression@.
-    dimensions :: Core.Maybe DimensionValues
+    dimensions :: Prelude.Maybe DimensionValues
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Expression' with all optional fields omitted.
@@ -106,36 +107,36 @@ newExpression ::
   Expression
 newExpression =
   Expression'
-    { not = Core.Nothing,
-      or = Core.Nothing,
-      costCategories = Core.Nothing,
-      tags = Core.Nothing,
-      and = Core.Nothing,
-      dimensions = Core.Nothing
+    { not = Prelude.Nothing,
+      or = Prelude.Nothing,
+      costCategories = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      and = Prelude.Nothing,
+      dimensions = Prelude.Nothing
     }
 
 -- | Return results that don\'t match a @Dimension@ object.
-expression_not :: Lens.Lens' Expression (Core.Maybe Expression)
+expression_not :: Lens.Lens' Expression (Prelude.Maybe Expression)
 expression_not = Lens.lens (\Expression' {not} -> not) (\s@Expression' {} a -> s {not = a} :: Expression)
 
 -- | Return results that match either @Dimension@ object.
-expression_or :: Lens.Lens' Expression (Core.Maybe [Expression])
-expression_or = Lens.lens (\Expression' {or} -> or) (\s@Expression' {} a -> s {or = a} :: Expression) Core.. Lens.mapping Lens._Coerce
+expression_or :: Lens.Lens' Expression (Prelude.Maybe [Expression])
+expression_or = Lens.lens (\Expression' {or} -> or) (\s@Expression' {} a -> s {or = a} :: Expression) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The filter based on @CostCategory@ values.
-expression_costCategories :: Lens.Lens' Expression (Core.Maybe CostCategoryValues)
+expression_costCategories :: Lens.Lens' Expression (Prelude.Maybe CostCategoryValues)
 expression_costCategories = Lens.lens (\Expression' {costCategories} -> costCategories) (\s@Expression' {} a -> s {costCategories = a} :: Expression)
 
 -- | The specific @Tag@ to use for @Expression@.
-expression_tags :: Lens.Lens' Expression (Core.Maybe TagValues)
+expression_tags :: Lens.Lens' Expression (Prelude.Maybe TagValues)
 expression_tags = Lens.lens (\Expression' {tags} -> tags) (\s@Expression' {} a -> s {tags = a} :: Expression)
 
 -- | Return results that match both @Dimension@ objects.
-expression_and :: Lens.Lens' Expression (Core.Maybe [Expression])
-expression_and = Lens.lens (\Expression' {and} -> and) (\s@Expression' {} a -> s {and = a} :: Expression) Core.. Lens.mapping Lens._Coerce
+expression_and :: Lens.Lens' Expression (Prelude.Maybe [Expression])
+expression_and = Lens.lens (\Expression' {and} -> and) (\s@Expression' {} a -> s {and = a} :: Expression) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The specific @Dimension@ to use for @Expression@.
-expression_dimensions :: Lens.Lens' Expression (Core.Maybe DimensionValues)
+expression_dimensions :: Lens.Lens' Expression (Prelude.Maybe DimensionValues)
 expression_dimensions = Lens.lens (\Expression' {dimensions} -> dimensions) (\s@Expression' {} a -> s {dimensions = a} :: Expression)
 
 instance Core.FromJSON Expression where
@@ -144,27 +145,28 @@ instance Core.FromJSON Expression where
       "Expression"
       ( \x ->
           Expression'
-            Core.<$> (x Core..:? "Not")
-            Core.<*> (x Core..:? "Or" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "CostCategories")
-            Core.<*> (x Core..:? "Tags")
-            Core.<*> (x Core..:? "And" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Dimensions")
+            Prelude.<$> (x Core..:? "Not")
+            Prelude.<*> (x Core..:? "Or" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CostCategories")
+            Prelude.<*> (x Core..:? "Tags")
+            Prelude.<*> (x Core..:? "And" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Dimensions")
       )
 
-instance Core.Hashable Expression
+instance Prelude.Hashable Expression
 
-instance Core.NFData Expression
+instance Prelude.NFData Expression
 
 instance Core.ToJSON Expression where
   toJSON Expression' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Not" Core..=) Core.<$> not,
-            ("Or" Core..=) Core.<$> or,
-            ("CostCategories" Core..=) Core.<$> costCategories,
-            ("Tags" Core..=) Core.<$> tags,
-            ("And" Core..=) Core.<$> and,
-            ("Dimensions" Core..=) Core.<$> dimensions
+      ( Prelude.catMaybes
+          [ ("Not" Core..=) Prelude.<$> not,
+            ("Or" Core..=) Prelude.<$> or,
+            ("CostCategories" Core..=)
+              Prelude.<$> costCategories,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("And" Core..=) Prelude.<$> and,
+            ("Dimensions" Core..=) Prelude.<$> dimensions
           ]
       )

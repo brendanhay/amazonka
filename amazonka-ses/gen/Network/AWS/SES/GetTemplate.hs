@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -51,9 +52,9 @@ import Network.AWS.SES.Types
 -- | /See:/ 'newGetTemplate' smart constructor.
 data GetTemplate = GetTemplate'
   { -- | The name of the template you want to retrieve.
-    templateName :: Core.Text
+    templateName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTemplate' with all optional fields omitted.
@@ -66,13 +67,13 @@ data GetTemplate = GetTemplate'
 -- 'templateName', 'getTemplate_templateName' - The name of the template you want to retrieve.
 newGetTemplate ::
   -- | 'templateName'
-  Core.Text ->
+  Prelude.Text ->
   GetTemplate
 newGetTemplate pTemplateName_ =
   GetTemplate' {templateName = pTemplateName_}
 
 -- | The name of the template you want to retrieve.
-getTemplate_templateName :: Lens.Lens' GetTemplate Core.Text
+getTemplate_templateName :: Lens.Lens' GetTemplate Prelude.Text
 getTemplate_templateName = Lens.lens (\GetTemplate' {templateName} -> templateName) (\s@GetTemplate' {} a -> s {templateName = a} :: GetTemplate)
 
 instance Core.AWSRequest GetTemplate where
@@ -83,35 +84,37 @@ instance Core.AWSRequest GetTemplate where
       "GetTemplateResult"
       ( \s h x ->
           GetTemplateResponse'
-            Core.<$> (x Core..@? "Template")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Template")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetTemplate
+instance Prelude.Hashable GetTemplate
 
-instance Core.NFData GetTemplate
+instance Prelude.NFData GetTemplate
 
 instance Core.ToHeaders GetTemplate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetTemplate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetTemplate where
   toQuery GetTemplate' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("GetTemplate" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("GetTemplate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "TemplateName" Core.=: templateName
       ]
 
 -- | /See:/ 'newGetTemplateResponse' smart constructor.
 data GetTemplateResponse = GetTemplateResponse'
-  { template :: Core.Maybe Template,
+  { template :: Prelude.Maybe Template,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTemplateResponse' with all optional fields omitted.
@@ -126,20 +129,20 @@ data GetTemplateResponse = GetTemplateResponse'
 -- 'httpStatus', 'getTemplateResponse_httpStatus' - The response's http status code.
 newGetTemplateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetTemplateResponse
 newGetTemplateResponse pHttpStatus_ =
   GetTemplateResponse'
-    { template = Core.Nothing,
+    { template = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-getTemplateResponse_template :: Lens.Lens' GetTemplateResponse (Core.Maybe Template)
+getTemplateResponse_template :: Lens.Lens' GetTemplateResponse (Prelude.Maybe Template)
 getTemplateResponse_template = Lens.lens (\GetTemplateResponse' {template} -> template) (\s@GetTemplateResponse' {} a -> s {template = a} :: GetTemplateResponse)
 
 -- | The response's http status code.
-getTemplateResponse_httpStatus :: Lens.Lens' GetTemplateResponse Core.Int
+getTemplateResponse_httpStatus :: Lens.Lens' GetTemplateResponse Prelude.Int
 getTemplateResponse_httpStatus = Lens.lens (\GetTemplateResponse' {httpStatus} -> httpStatus) (\s@GetTemplateResponse' {} a -> s {httpStatus = a} :: GetTemplateResponse)
 
-instance Core.NFData GetTemplateResponse
+instance Prelude.NFData GetTemplateResponse

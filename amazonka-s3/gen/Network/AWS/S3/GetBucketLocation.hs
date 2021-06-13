@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -63,11 +64,11 @@ data GetBucketLocation = GetBucketLocation'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket for which to get the location.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBucketLocation' with all optional fields omitted.
@@ -89,14 +90,14 @@ newGetBucketLocation ::
 newGetBucketLocation pBucket_ =
   GetBucketLocation'
     { expectedBucketOwner =
-        Core.Nothing,
+        Prelude.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getBucketLocation_expectedBucketOwner :: Lens.Lens' GetBucketLocation (Core.Maybe Core.Text)
+getBucketLocation_expectedBucketOwner :: Lens.Lens' GetBucketLocation (Prelude.Maybe Prelude.Text)
 getBucketLocation_expectedBucketOwner = Lens.lens (\GetBucketLocation' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketLocation' {} a -> s {expectedBucketOwner = a} :: GetBucketLocation)
 
 -- | The name of the bucket for which to get the location.
@@ -112,39 +113,40 @@ instance Core.AWSRequest GetBucketLocation where
     Response.receiveXML
       ( \s h x ->
           GetBucketLocationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.parseXML x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.parseXML x)
       )
 
-instance Core.Hashable GetBucketLocation
+instance Prelude.Hashable GetBucketLocation
 
-instance Core.NFData GetBucketLocation
+instance Prelude.NFData GetBucketLocation
 
 instance Core.ToHeaders GetBucketLocation where
   toHeaders GetBucketLocation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath GetBucketLocation where
   toPath GetBucketLocation' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery GetBucketLocation where
-  toQuery = Core.const (Core.mconcat ["location"])
+  toQuery =
+    Prelude.const (Prelude.mconcat ["location"])
 
 -- | /See:/ 'newGetBucketLocationResponse' smart constructor.
 data GetBucketLocationResponse = GetBucketLocationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Specifies the Region where the bucket resides. For a list of all the
     -- Amazon S3 supported location constraints by Region, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Regions and Endpoints>.
     -- Buckets in Region @us-east-1@ have a LocationConstraint of @null@.
     locationConstraint :: LocationConstraint
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBucketLocationResponse' with all optional fields omitted.
@@ -162,7 +164,7 @@ data GetBucketLocationResponse = GetBucketLocationResponse'
 -- Buckets in Region @us-east-1@ have a LocationConstraint of @null@.
 newGetBucketLocationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'locationConstraint'
   LocationConstraint ->
   GetBucketLocationResponse
@@ -176,7 +178,7 @@ newGetBucketLocationResponse
       }
 
 -- | The response's http status code.
-getBucketLocationResponse_httpStatus :: Lens.Lens' GetBucketLocationResponse Core.Int
+getBucketLocationResponse_httpStatus :: Lens.Lens' GetBucketLocationResponse Prelude.Int
 getBucketLocationResponse_httpStatus = Lens.lens (\GetBucketLocationResponse' {httpStatus} -> httpStatus) (\s@GetBucketLocationResponse' {} a -> s {httpStatus = a} :: GetBucketLocationResponse)
 
 -- | Specifies the Region where the bucket resides. For a list of all the
@@ -186,4 +188,4 @@ getBucketLocationResponse_httpStatus = Lens.lens (\GetBucketLocationResponse' {h
 getBucketLocationResponse_locationConstraint :: Lens.Lens' GetBucketLocationResponse LocationConstraint
 getBucketLocationResponse_locationConstraint = Lens.lens (\GetBucketLocationResponse' {locationConstraint} -> locationConstraint) (\s@GetBucketLocationResponse' {} a -> s {locationConstraint = a} :: GetBucketLocationResponse)
 
-instance Core.NFData GetBucketLocationResponse
+instance Prelude.NFData GetBucketLocationResponse

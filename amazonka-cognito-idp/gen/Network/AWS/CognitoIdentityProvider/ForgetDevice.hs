@@ -39,6 +39,7 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,11 +48,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newForgetDevice' smart constructor.
 data ForgetDevice = ForgetDevice'
   { -- | The access token for the forgotten device request.
-    accessToken :: Core.Maybe (Core.Sensitive Core.Text),
+    accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The device key.
-    deviceKey :: Core.Text
+    deviceKey :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ForgetDevice' with all optional fields omitted.
@@ -66,20 +67,20 @@ data ForgetDevice = ForgetDevice'
 -- 'deviceKey', 'forgetDevice_deviceKey' - The device key.
 newForgetDevice ::
   -- | 'deviceKey'
-  Core.Text ->
+  Prelude.Text ->
   ForgetDevice
 newForgetDevice pDeviceKey_ =
   ForgetDevice'
-    { accessToken = Core.Nothing,
+    { accessToken = Prelude.Nothing,
       deviceKey = pDeviceKey_
     }
 
 -- | The access token for the forgotten device request.
-forgetDevice_accessToken :: Lens.Lens' ForgetDevice (Core.Maybe Core.Text)
-forgetDevice_accessToken = Lens.lens (\ForgetDevice' {accessToken} -> accessToken) (\s@ForgetDevice' {} a -> s {accessToken = a} :: ForgetDevice) Core.. Lens.mapping Core._Sensitive
+forgetDevice_accessToken :: Lens.Lens' ForgetDevice (Prelude.Maybe Prelude.Text)
+forgetDevice_accessToken = Lens.lens (\ForgetDevice' {accessToken} -> accessToken) (\s@ForgetDevice' {} a -> s {accessToken = a} :: ForgetDevice) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The device key.
-forgetDevice_deviceKey :: Lens.Lens' ForgetDevice Core.Text
+forgetDevice_deviceKey :: Lens.Lens' ForgetDevice Prelude.Text
 forgetDevice_deviceKey = Lens.lens (\ForgetDevice' {deviceKey} -> deviceKey) (\s@ForgetDevice' {} a -> s {deviceKey = a} :: ForgetDevice)
 
 instance Core.AWSRequest ForgetDevice where
@@ -87,43 +88,45 @@ instance Core.AWSRequest ForgetDevice where
   request = Request.postJSON defaultService
   response = Response.receiveNull ForgetDeviceResponse'
 
-instance Core.Hashable ForgetDevice
+instance Prelude.Hashable ForgetDevice
 
-instance Core.NFData ForgetDevice
+instance Prelude.NFData ForgetDevice
 
 instance Core.ToHeaders ForgetDevice where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.ForgetDevice" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ForgetDevice where
   toJSON ForgetDevice' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AccessToken" Core..=) Core.<$> accessToken,
-            Core.Just ("DeviceKey" Core..= deviceKey)
+      ( Prelude.catMaybes
+          [ ("AccessToken" Core..=) Prelude.<$> accessToken,
+            Prelude.Just ("DeviceKey" Core..= deviceKey)
           ]
       )
 
 instance Core.ToPath ForgetDevice where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ForgetDevice where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newForgetDeviceResponse' smart constructor.
 data ForgetDeviceResponse = ForgetDeviceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ForgetDeviceResponse' with all optional fields omitted.
@@ -133,4 +136,4 @@ newForgetDeviceResponse ::
   ForgetDeviceResponse
 newForgetDeviceResponse = ForgetDeviceResponse'
 
-instance Core.NFData ForgetDeviceResponse
+instance Prelude.NFData ForgetDeviceResponse

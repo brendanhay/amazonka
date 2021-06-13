@@ -23,24 +23,25 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types.HashKeyRange
 import Network.AWS.Kinesis.Types.SequenceNumberRange
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A uniquely identified group of data records in a Kinesis data stream.
 --
 -- /See:/ 'newShard' smart constructor.
 data Shard = Shard'
   { -- | The shard ID of the shard adjacent to the shard\'s parent.
-    adjacentParentShardId :: Core.Maybe Core.Text,
+    adjacentParentShardId :: Prelude.Maybe Prelude.Text,
     -- | The shard ID of the shard\'s parent.
-    parentShardId :: Core.Maybe Core.Text,
+    parentShardId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the shard within the stream.
-    shardId :: Core.Text,
+    shardId :: Prelude.Text,
     -- | The range of possible hash key values for the shard, which is a set of
     -- ordered contiguous positive integers.
     hashKeyRange :: HashKeyRange,
     -- | The range of possible sequence numbers for the shard.
     sequenceNumberRange :: SequenceNumberRange
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Shard' with all optional fields omitted.
@@ -62,7 +63,7 @@ data Shard = Shard'
 -- 'sequenceNumberRange', 'shard_sequenceNumberRange' - The range of possible sequence numbers for the shard.
 newShard ::
   -- | 'shardId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'hashKeyRange'
   HashKeyRange ->
   -- | 'sequenceNumberRange'
@@ -73,23 +74,23 @@ newShard
   pHashKeyRange_
   pSequenceNumberRange_ =
     Shard'
-      { adjacentParentShardId = Core.Nothing,
-        parentShardId = Core.Nothing,
+      { adjacentParentShardId = Prelude.Nothing,
+        parentShardId = Prelude.Nothing,
         shardId = pShardId_,
         hashKeyRange = pHashKeyRange_,
         sequenceNumberRange = pSequenceNumberRange_
       }
 
 -- | The shard ID of the shard adjacent to the shard\'s parent.
-shard_adjacentParentShardId :: Lens.Lens' Shard (Core.Maybe Core.Text)
+shard_adjacentParentShardId :: Lens.Lens' Shard (Prelude.Maybe Prelude.Text)
 shard_adjacentParentShardId = Lens.lens (\Shard' {adjacentParentShardId} -> adjacentParentShardId) (\s@Shard' {} a -> s {adjacentParentShardId = a} :: Shard)
 
 -- | The shard ID of the shard\'s parent.
-shard_parentShardId :: Lens.Lens' Shard (Core.Maybe Core.Text)
+shard_parentShardId :: Lens.Lens' Shard (Prelude.Maybe Prelude.Text)
 shard_parentShardId = Lens.lens (\Shard' {parentShardId} -> parentShardId) (\s@Shard' {} a -> s {parentShardId = a} :: Shard)
 
 -- | The unique identifier of the shard within the stream.
-shard_shardId :: Lens.Lens' Shard Core.Text
+shard_shardId :: Lens.Lens' Shard Prelude.Text
 shard_shardId = Lens.lens (\Shard' {shardId} -> shardId) (\s@Shard' {} a -> s {shardId = a} :: Shard)
 
 -- | The range of possible hash key values for the shard, which is a set of
@@ -107,13 +108,13 @@ instance Core.FromJSON Shard where
       "Shard"
       ( \x ->
           Shard'
-            Core.<$> (x Core..:? "AdjacentParentShardId")
-            Core.<*> (x Core..:? "ParentShardId")
-            Core.<*> (x Core..: "ShardId")
-            Core.<*> (x Core..: "HashKeyRange")
-            Core.<*> (x Core..: "SequenceNumberRange")
+            Prelude.<$> (x Core..:? "AdjacentParentShardId")
+            Prelude.<*> (x Core..:? "ParentShardId")
+            Prelude.<*> (x Core..: "ShardId")
+            Prelude.<*> (x Core..: "HashKeyRange")
+            Prelude.<*> (x Core..: "SequenceNumberRange")
       )
 
-instance Core.Hashable Shard
+instance Prelude.Hashable Shard
 
-instance Core.NFData Shard
+instance Prelude.NFData Shard

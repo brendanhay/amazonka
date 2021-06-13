@@ -21,6 +21,7 @@ module Network.AWS.ECR.Types.ImageScanningConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The image scanning configuration for a repository.
 --
@@ -31,9 +32,9 @@ data ImageScanningConfiguration = ImageScanningConfiguration'
     -- being pushed. If this parameter is not specified, it will default to
     -- @false@ and images will not be scanned unless a scan is manually started
     -- with the StartImageScan API.
-    scanOnPush :: Core.Maybe Core.Bool
+    scanOnPush :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImageScanningConfiguration' with all optional fields omitted.
@@ -53,7 +54,7 @@ newImageScanningConfiguration ::
 newImageScanningConfiguration =
   ImageScanningConfiguration'
     { scanOnPush =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The setting that determines whether images are scanned after being
@@ -61,7 +62,7 @@ newImageScanningConfiguration =
 -- being pushed. If this parameter is not specified, it will default to
 -- @false@ and images will not be scanned unless a scan is manually started
 -- with the StartImageScan API.
-imageScanningConfiguration_scanOnPush :: Lens.Lens' ImageScanningConfiguration (Core.Maybe Core.Bool)
+imageScanningConfiguration_scanOnPush :: Lens.Lens' ImageScanningConfiguration (Prelude.Maybe Prelude.Bool)
 imageScanningConfiguration_scanOnPush = Lens.lens (\ImageScanningConfiguration' {scanOnPush} -> scanOnPush) (\s@ImageScanningConfiguration' {} a -> s {scanOnPush = a} :: ImageScanningConfiguration)
 
 instance Core.FromJSON ImageScanningConfiguration where
@@ -70,16 +71,16 @@ instance Core.FromJSON ImageScanningConfiguration where
       "ImageScanningConfiguration"
       ( \x ->
           ImageScanningConfiguration'
-            Core.<$> (x Core..:? "scanOnPush")
+            Prelude.<$> (x Core..:? "scanOnPush")
       )
 
-instance Core.Hashable ImageScanningConfiguration
+instance Prelude.Hashable ImageScanningConfiguration
 
-instance Core.NFData ImageScanningConfiguration
+instance Prelude.NFData ImageScanningConfiguration
 
 instance Core.ToJSON ImageScanningConfiguration where
   toJSON ImageScanningConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [("scanOnPush" Core..=) Core.<$> scanOnPush]
+      ( Prelude.catMaybes
+          [("scanOnPush" Core..=) Prelude.<$> scanOnPush]
       )

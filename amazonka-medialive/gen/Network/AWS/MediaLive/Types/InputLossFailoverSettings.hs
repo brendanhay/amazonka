@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.InputLossFailoverSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | MediaLive will perform a failover if content is not detected in this
 -- input for the specified period.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data InputLossFailoverSettings = InputLossFailoverSettings'
   { -- | The amount of time (in milliseconds) that no input is detected. After
     -- that time, an input failover will occur.
-    inputLossThresholdMsec :: Core.Maybe Core.Natural
+    inputLossThresholdMsec :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputLossFailoverSettings' with all optional fields omitted.
@@ -48,12 +49,12 @@ newInputLossFailoverSettings ::
 newInputLossFailoverSettings =
   InputLossFailoverSettings'
     { inputLossThresholdMsec =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The amount of time (in milliseconds) that no input is detected. After
 -- that time, an input failover will occur.
-inputLossFailoverSettings_inputLossThresholdMsec :: Lens.Lens' InputLossFailoverSettings (Core.Maybe Core.Natural)
+inputLossFailoverSettings_inputLossThresholdMsec :: Lens.Lens' InputLossFailoverSettings (Prelude.Maybe Prelude.Natural)
 inputLossFailoverSettings_inputLossThresholdMsec = Lens.lens (\InputLossFailoverSettings' {inputLossThresholdMsec} -> inputLossThresholdMsec) (\s@InputLossFailoverSettings' {} a -> s {inputLossThresholdMsec = a} :: InputLossFailoverSettings)
 
 instance Core.FromJSON InputLossFailoverSettings where
@@ -62,18 +63,18 @@ instance Core.FromJSON InputLossFailoverSettings where
       "InputLossFailoverSettings"
       ( \x ->
           InputLossFailoverSettings'
-            Core.<$> (x Core..:? "inputLossThresholdMsec")
+            Prelude.<$> (x Core..:? "inputLossThresholdMsec")
       )
 
-instance Core.Hashable InputLossFailoverSettings
+instance Prelude.Hashable InputLossFailoverSettings
 
-instance Core.NFData InputLossFailoverSettings
+instance Prelude.NFData InputLossFailoverSettings
 
 instance Core.ToJSON InputLossFailoverSettings where
   toJSON InputLossFailoverSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("inputLossThresholdMsec" Core..=)
-              Core.<$> inputLossThresholdMsec
+              Prelude.<$> inputLossThresholdMsec
           ]
       )

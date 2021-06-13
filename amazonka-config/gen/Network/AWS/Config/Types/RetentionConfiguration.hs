@@ -21,6 +21,7 @@ module Network.AWS.Config.Types.RetentionConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object with the name of the retention configuration and the retention
 -- period in days. The object stores the configuration for data retention
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newRetentionConfiguration' smart constructor.
 data RetentionConfiguration = RetentionConfiguration'
   { -- | The name of the retention configuration object.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | Number of days AWS Config stores your historical information.
     --
     -- Currently, only applicable to the configuration item history.
-    retentionPeriodInDays :: Core.Natural
+    retentionPeriodInDays :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RetentionConfiguration' with all optional fields omitted.
@@ -52,9 +53,9 @@ data RetentionConfiguration = RetentionConfiguration'
 -- Currently, only applicable to the configuration item history.
 newRetentionConfiguration ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'retentionPeriodInDays'
-  Core.Natural ->
+  Prelude.Natural ->
   RetentionConfiguration
 newRetentionConfiguration
   pName_
@@ -65,13 +66,13 @@ newRetentionConfiguration
       }
 
 -- | The name of the retention configuration object.
-retentionConfiguration_name :: Lens.Lens' RetentionConfiguration Core.Text
+retentionConfiguration_name :: Lens.Lens' RetentionConfiguration Prelude.Text
 retentionConfiguration_name = Lens.lens (\RetentionConfiguration' {name} -> name) (\s@RetentionConfiguration' {} a -> s {name = a} :: RetentionConfiguration)
 
 -- | Number of days AWS Config stores your historical information.
 --
 -- Currently, only applicable to the configuration item history.
-retentionConfiguration_retentionPeriodInDays :: Lens.Lens' RetentionConfiguration Core.Natural
+retentionConfiguration_retentionPeriodInDays :: Lens.Lens' RetentionConfiguration Prelude.Natural
 retentionConfiguration_retentionPeriodInDays = Lens.lens (\RetentionConfiguration' {retentionPeriodInDays} -> retentionPeriodInDays) (\s@RetentionConfiguration' {} a -> s {retentionPeriodInDays = a} :: RetentionConfiguration)
 
 instance Core.FromJSON RetentionConfiguration where
@@ -80,10 +81,10 @@ instance Core.FromJSON RetentionConfiguration where
       "RetentionConfiguration"
       ( \x ->
           RetentionConfiguration'
-            Core.<$> (x Core..: "Name")
-            Core.<*> (x Core..: "RetentionPeriodInDays")
+            Prelude.<$> (x Core..: "Name")
+            Prelude.<*> (x Core..: "RetentionPeriodInDays")
       )
 
-instance Core.Hashable RetentionConfiguration
+instance Prelude.Hashable RetentionConfiguration
 
-instance Core.NFData RetentionConfiguration
+instance Prelude.NFData RetentionConfiguration

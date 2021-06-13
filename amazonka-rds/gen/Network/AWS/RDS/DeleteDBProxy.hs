@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -48,9 +49,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteDBProxy' smart constructor.
 data DeleteDBProxy = DeleteDBProxy'
   { -- | The name of the DB proxy to delete.
-    dbProxyName :: Core.Text
+    dbProxyName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDBProxy' with all optional fields omitted.
@@ -63,13 +64,13 @@ data DeleteDBProxy = DeleteDBProxy'
 -- 'dbProxyName', 'deleteDBProxy_dbProxyName' - The name of the DB proxy to delete.
 newDeleteDBProxy ::
   -- | 'dbProxyName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDBProxy
 newDeleteDBProxy pDBProxyName_ =
   DeleteDBProxy' {dbProxyName = pDBProxyName_}
 
 -- | The name of the DB proxy to delete.
-deleteDBProxy_dbProxyName :: Lens.Lens' DeleteDBProxy Core.Text
+deleteDBProxy_dbProxyName :: Lens.Lens' DeleteDBProxy Prelude.Text
 deleteDBProxy_dbProxyName = Lens.lens (\DeleteDBProxy' {dbProxyName} -> dbProxyName) (\s@DeleteDBProxy' {} a -> s {dbProxyName = a} :: DeleteDBProxy)
 
 instance Core.AWSRequest DeleteDBProxy where
@@ -82,26 +83,27 @@ instance Core.AWSRequest DeleteDBProxy where
       "DeleteDBProxyResult"
       ( \s h x ->
           DeleteDBProxyResponse'
-            Core.<$> (x Core..@? "DBProxy")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBProxy")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteDBProxy
+instance Prelude.Hashable DeleteDBProxy
 
-instance Core.NFData DeleteDBProxy
+instance Prelude.NFData DeleteDBProxy
 
 instance Core.ToHeaders DeleteDBProxy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteDBProxy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDBProxy where
   toQuery DeleteDBProxy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteDBProxy" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("DeleteDBProxy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBProxyName" Core.=: dbProxyName
       ]
 
@@ -109,11 +111,11 @@ instance Core.ToQuery DeleteDBProxy where
 data DeleteDBProxyResponse = DeleteDBProxyResponse'
   { -- | The data structure representing the details of the DB proxy that you
     -- delete.
-    dbProxy :: Core.Maybe DBProxy,
+    dbProxy :: Prelude.Maybe DBProxy,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDBProxyResponse' with all optional fields omitted.
@@ -129,21 +131,21 @@ data DeleteDBProxyResponse = DeleteDBProxyResponse'
 -- 'httpStatus', 'deleteDBProxyResponse_httpStatus' - The response's http status code.
 newDeleteDBProxyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteDBProxyResponse
 newDeleteDBProxyResponse pHttpStatus_ =
   DeleteDBProxyResponse'
-    { dbProxy = Core.Nothing,
+    { dbProxy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The data structure representing the details of the DB proxy that you
 -- delete.
-deleteDBProxyResponse_dbProxy :: Lens.Lens' DeleteDBProxyResponse (Core.Maybe DBProxy)
+deleteDBProxyResponse_dbProxy :: Lens.Lens' DeleteDBProxyResponse (Prelude.Maybe DBProxy)
 deleteDBProxyResponse_dbProxy = Lens.lens (\DeleteDBProxyResponse' {dbProxy} -> dbProxy) (\s@DeleteDBProxyResponse' {} a -> s {dbProxy = a} :: DeleteDBProxyResponse)
 
 -- | The response's http status code.
-deleteDBProxyResponse_httpStatus :: Lens.Lens' DeleteDBProxyResponse Core.Int
+deleteDBProxyResponse_httpStatus :: Lens.Lens' DeleteDBProxyResponse Prelude.Int
 deleteDBProxyResponse_httpStatus = Lens.lens (\DeleteDBProxyResponse' {httpStatus} -> httpStatus) (\s@DeleteDBProxyResponse' {} a -> s {httpStatus = a} :: DeleteDBProxyResponse)
 
-instance Core.NFData DeleteDBProxyResponse
+instance Prelude.NFData DeleteDBProxyResponse

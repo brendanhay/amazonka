@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.InventoryGroup where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.InventoryFilter
 
 -- | A user-defined set of one or more filters on which to aggregate
@@ -30,14 +31,14 @@ import Network.AWS.SSM.Types.InventoryFilter
 -- /See:/ 'newInventoryGroup' smart constructor.
 data InventoryGroup = InventoryGroup'
   { -- | The name of the group.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | Filters define the criteria for the group. The @matchingCount@ field
     -- displays the number of resources that match the criteria. The
     -- @notMatchingCount@ field displays the number of resources that don\'t
     -- match the criteria.
-    filters :: Core.NonEmpty InventoryFilter
+    filters :: Prelude.NonEmpty InventoryFilter
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InventoryGroup' with all optional fields omitted.
@@ -55,9 +56,9 @@ data InventoryGroup = InventoryGroup'
 -- match the criteria.
 newInventoryGroup ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'filters'
-  Core.NonEmpty InventoryFilter ->
+  Prelude.NonEmpty InventoryFilter ->
   InventoryGroup
 newInventoryGroup pName_ pFilters_ =
   InventoryGroup'
@@ -66,25 +67,25 @@ newInventoryGroup pName_ pFilters_ =
     }
 
 -- | The name of the group.
-inventoryGroup_name :: Lens.Lens' InventoryGroup Core.Text
+inventoryGroup_name :: Lens.Lens' InventoryGroup Prelude.Text
 inventoryGroup_name = Lens.lens (\InventoryGroup' {name} -> name) (\s@InventoryGroup' {} a -> s {name = a} :: InventoryGroup)
 
 -- | Filters define the criteria for the group. The @matchingCount@ field
 -- displays the number of resources that match the criteria. The
 -- @notMatchingCount@ field displays the number of resources that don\'t
 -- match the criteria.
-inventoryGroup_filters :: Lens.Lens' InventoryGroup (Core.NonEmpty InventoryFilter)
-inventoryGroup_filters = Lens.lens (\InventoryGroup' {filters} -> filters) (\s@InventoryGroup' {} a -> s {filters = a} :: InventoryGroup) Core.. Lens._Coerce
+inventoryGroup_filters :: Lens.Lens' InventoryGroup (Prelude.NonEmpty InventoryFilter)
+inventoryGroup_filters = Lens.lens (\InventoryGroup' {filters} -> filters) (\s@InventoryGroup' {} a -> s {filters = a} :: InventoryGroup) Prelude.. Lens._Coerce
 
-instance Core.Hashable InventoryGroup
+instance Prelude.Hashable InventoryGroup
 
-instance Core.NFData InventoryGroup
+instance Prelude.NFData InventoryGroup
 
 instance Core.ToJSON InventoryGroup where
   toJSON InventoryGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("Filters" Core..= filters)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Filters" Core..= filters)
           ]
       )

@@ -43,6 +43,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +53,9 @@ import qualified Network.AWS.Response as Response
 data GetDistributionConfig = GetDistributionConfig'
   { -- | The distribution\'s ID. If the ID is empty, an empty distribution
     -- configuration is returned.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDistributionConfig' with all optional fields omitted.
@@ -68,14 +69,14 @@ data GetDistributionConfig = GetDistributionConfig'
 -- configuration is returned.
 newGetDistributionConfig ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   GetDistributionConfig
 newGetDistributionConfig pId_ =
   GetDistributionConfig' {id = pId_}
 
 -- | The distribution\'s ID. If the ID is empty, an empty distribution
 -- configuration is returned.
-getDistributionConfig_id :: Lens.Lens' GetDistributionConfig Core.Text
+getDistributionConfig_id :: Lens.Lens' GetDistributionConfig Prelude.Text
 getDistributionConfig_id = Lens.lens (\GetDistributionConfig' {id} -> id) (\s@GetDistributionConfig' {} a -> s {id = a} :: GetDistributionConfig)
 
 instance Core.AWSRequest GetDistributionConfig where
@@ -87,41 +88,41 @@ instance Core.AWSRequest GetDistributionConfig where
     Response.receiveXML
       ( \s h x ->
           GetDistributionConfigResponse'
-            Core.<$> (h Core..#? "ETag")
-            Core.<*> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDistributionConfig
+instance Prelude.Hashable GetDistributionConfig
 
-instance Core.NFData GetDistributionConfig
+instance Prelude.NFData GetDistributionConfig
 
 instance Core.ToHeaders GetDistributionConfig where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetDistributionConfig where
   toPath GetDistributionConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-05-31/distribution/",
         Core.toBS id,
         "/config"
       ]
 
 instance Core.ToQuery GetDistributionConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'newGetDistributionConfigResponse' smart constructor.
 data GetDistributionConfigResponse = GetDistributionConfigResponse'
   { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The distribution\'s configuration information.
-    distributionConfig :: Core.Maybe DistributionConfig,
+    distributionConfig :: Prelude.Maybe DistributionConfig,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDistributionConfigResponse' with all optional fields omitted.
@@ -138,25 +139,26 @@ data GetDistributionConfigResponse = GetDistributionConfigResponse'
 -- 'httpStatus', 'getDistributionConfigResponse_httpStatus' - The response's http status code.
 newGetDistributionConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDistributionConfigResponse
 newGetDistributionConfigResponse pHttpStatus_ =
   GetDistributionConfigResponse'
-    { eTag = Core.Nothing,
-      distributionConfig = Core.Nothing,
+    { eTag =
+        Prelude.Nothing,
+      distributionConfig = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-getDistributionConfigResponse_eTag :: Lens.Lens' GetDistributionConfigResponse (Core.Maybe Core.Text)
+getDistributionConfigResponse_eTag :: Lens.Lens' GetDistributionConfigResponse (Prelude.Maybe Prelude.Text)
 getDistributionConfigResponse_eTag = Lens.lens (\GetDistributionConfigResponse' {eTag} -> eTag) (\s@GetDistributionConfigResponse' {} a -> s {eTag = a} :: GetDistributionConfigResponse)
 
 -- | The distribution\'s configuration information.
-getDistributionConfigResponse_distributionConfig :: Lens.Lens' GetDistributionConfigResponse (Core.Maybe DistributionConfig)
+getDistributionConfigResponse_distributionConfig :: Lens.Lens' GetDistributionConfigResponse (Prelude.Maybe DistributionConfig)
 getDistributionConfigResponse_distributionConfig = Lens.lens (\GetDistributionConfigResponse' {distributionConfig} -> distributionConfig) (\s@GetDistributionConfigResponse' {} a -> s {distributionConfig = a} :: GetDistributionConfigResponse)
 
 -- | The response's http status code.
-getDistributionConfigResponse_httpStatus :: Lens.Lens' GetDistributionConfigResponse Core.Int
+getDistributionConfigResponse_httpStatus :: Lens.Lens' GetDistributionConfigResponse Prelude.Int
 getDistributionConfigResponse_httpStatus = Lens.lens (\GetDistributionConfigResponse' {httpStatus} -> httpStatus) (\s@GetDistributionConfigResponse' {} a -> s {httpStatus = a} :: GetDistributionConfigResponse)
 
-instance Core.NFData GetDistributionConfigResponse
+instance Prelude.NFData GetDistributionConfigResponse

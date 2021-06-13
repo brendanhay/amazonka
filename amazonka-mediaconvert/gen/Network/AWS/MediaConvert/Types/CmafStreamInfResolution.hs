@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.CmafStreamInfResolution
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF
 -- tag of variant manifest.
@@ -35,15 +36,15 @@ newtype CmafStreamInfResolution = CmafStreamInfResolution'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,19 +72,19 @@ data CreatePolicy = CreatePolicy'
     -- If any one of the tags is invalid or if you exceed the allowed number of
     -- tags for a policy, then the entire request fails and the policy is not
     -- created.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The policy text content to add to the new policy. The text that you
     -- supply must adhere to the rules of the policy type you specify in the
     -- @Type@ parameter.
-    content :: Core.Text,
+    content :: Prelude.Text,
     -- | An optional description to assign to the policy.
-    description :: Core.Text,
+    description :: Prelude.Text,
     -- | The friendly name to assign to the policy.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
     -- validate this parameter is a string of any of the characters in the
     -- ASCII character range.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The type of policy to create. You can specify one of the following
     -- values:
     --
@@ -96,7 +97,7 @@ data CreatePolicy = CreatePolicy'
     -- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
     type' :: PolicyType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePolicy' with all optional fields omitted.
@@ -141,17 +142,17 @@ data CreatePolicy = CreatePolicy'
 -- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
 newCreatePolicy ::
   -- | 'content'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'description'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   PolicyType ->
   CreatePolicy
 newCreatePolicy pContent_ pDescription_ pName_ pType_ =
   CreatePolicy'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       content = pContent_,
       description = pDescription_,
       name = pName_,
@@ -168,17 +169,17 @@ newCreatePolicy pContent_ pDescription_ pName_ pType_ =
 -- If any one of the tags is invalid or if you exceed the allowed number of
 -- tags for a policy, then the entire request fails and the policy is not
 -- created.
-createPolicy_tags :: Lens.Lens' CreatePolicy (Core.Maybe [Tag])
-createPolicy_tags = Lens.lens (\CreatePolicy' {tags} -> tags) (\s@CreatePolicy' {} a -> s {tags = a} :: CreatePolicy) Core.. Lens.mapping Lens._Coerce
+createPolicy_tags :: Lens.Lens' CreatePolicy (Prelude.Maybe [Tag])
+createPolicy_tags = Lens.lens (\CreatePolicy' {tags} -> tags) (\s@CreatePolicy' {} a -> s {tags = a} :: CreatePolicy) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The policy text content to add to the new policy. The text that you
 -- supply must adhere to the rules of the policy type you specify in the
 -- @Type@ parameter.
-createPolicy_content :: Lens.Lens' CreatePolicy Core.Text
+createPolicy_content :: Lens.Lens' CreatePolicy Prelude.Text
 createPolicy_content = Lens.lens (\CreatePolicy' {content} -> content) (\s@CreatePolicy' {} a -> s {content = a} :: CreatePolicy)
 
 -- | An optional description to assign to the policy.
-createPolicy_description :: Lens.Lens' CreatePolicy Core.Text
+createPolicy_description :: Lens.Lens' CreatePolicy Prelude.Text
 createPolicy_description = Lens.lens (\CreatePolicy' {description} -> description) (\s@CreatePolicy' {} a -> s {description = a} :: CreatePolicy)
 
 -- | The friendly name to assign to the policy.
@@ -186,7 +187,7 @@ createPolicy_description = Lens.lens (\CreatePolicy' {description} -> descriptio
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
 -- validate this parameter is a string of any of the characters in the
 -- ASCII character range.
-createPolicy_name :: Lens.Lens' CreatePolicy Core.Text
+createPolicy_name :: Lens.Lens' CreatePolicy Prelude.Text
 createPolicy_name = Lens.lens (\CreatePolicy' {name} -> name) (\s@CreatePolicy' {} a -> s {name = a} :: CreatePolicy)
 
 -- | The type of policy to create. You can specify one of the following
@@ -209,53 +210,55 @@ instance Core.AWSRequest CreatePolicy where
     Response.receiveJSON
       ( \s h x ->
           CreatePolicyResponse'
-            Core.<$> (x Core..?> "Policy")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Policy")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreatePolicy
+instance Prelude.Hashable CreatePolicy
 
-instance Core.NFData CreatePolicy
+instance Prelude.NFData CreatePolicy
 
 instance Core.ToHeaders CreatePolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.CreatePolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreatePolicy where
   toJSON CreatePolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("Content" Core..= content),
-            Core.Just ("Description" Core..= description),
-            Core.Just ("Name" Core..= name),
-            Core.Just ("Type" Core..= type')
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("Content" Core..= content),
+            Prelude.Just ("Description" Core..= description),
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Type" Core..= type')
           ]
       )
 
 instance Core.ToPath CreatePolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreatePolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'
   { -- | A structure that contains details about the newly created policy.
-    policy :: Core.Maybe Policy,
+    policy :: Prelude.Maybe Policy,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePolicyResponse' with all optional fields omitted.
@@ -270,20 +273,20 @@ data CreatePolicyResponse = CreatePolicyResponse'
 -- 'httpStatus', 'createPolicyResponse_httpStatus' - The response's http status code.
 newCreatePolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreatePolicyResponse
 newCreatePolicyResponse pHttpStatus_ =
   CreatePolicyResponse'
-    { policy = Core.Nothing,
+    { policy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains details about the newly created policy.
-createPolicyResponse_policy :: Lens.Lens' CreatePolicyResponse (Core.Maybe Policy)
+createPolicyResponse_policy :: Lens.Lens' CreatePolicyResponse (Prelude.Maybe Policy)
 createPolicyResponse_policy = Lens.lens (\CreatePolicyResponse' {policy} -> policy) (\s@CreatePolicyResponse' {} a -> s {policy = a} :: CreatePolicyResponse)
 
 -- | The response's http status code.
-createPolicyResponse_httpStatus :: Lens.Lens' CreatePolicyResponse Core.Int
+createPolicyResponse_httpStatus :: Lens.Lens' CreatePolicyResponse Prelude.Int
 createPolicyResponse_httpStatus = Lens.lens (\CreatePolicyResponse' {httpStatus} -> httpStatus) (\s@CreatePolicyResponse' {} a -> s {httpStatus = a} :: CreatePolicyResponse)
 
-instance Core.NFData CreatePolicyResponse
+instance Prelude.NFData CreatePolicyResponse

@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.CompletedPart where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Details of the parts that were uploaded.
@@ -29,11 +30,11 @@ import Network.AWS.S3.Internal
 data CompletedPart = CompletedPart'
   { -- | Part number that identifies the part. This is a positive integer between
     -- 1 and 10,000.
-    partNumber :: Core.Int,
+    partNumber :: Prelude.Int,
     -- | Entity tag returned when the part was uploaded.
     eTag :: ETag
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CompletedPart' with all optional fields omitted.
@@ -49,7 +50,7 @@ data CompletedPart = CompletedPart'
 -- 'eTag', 'completedPart_eTag' - Entity tag returned when the part was uploaded.
 newCompletedPart ::
   -- | 'partNumber'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'eTag'
   ETag ->
   CompletedPart
@@ -61,20 +62,20 @@ newCompletedPart pPartNumber_ pETag_ =
 
 -- | Part number that identifies the part. This is a positive integer between
 -- 1 and 10,000.
-completedPart_partNumber :: Lens.Lens' CompletedPart Core.Int
+completedPart_partNumber :: Lens.Lens' CompletedPart Prelude.Int
 completedPart_partNumber = Lens.lens (\CompletedPart' {partNumber} -> partNumber) (\s@CompletedPart' {} a -> s {partNumber = a} :: CompletedPart)
 
 -- | Entity tag returned when the part was uploaded.
 completedPart_eTag :: Lens.Lens' CompletedPart ETag
 completedPart_eTag = Lens.lens (\CompletedPart' {eTag} -> eTag) (\s@CompletedPart' {} a -> s {eTag = a} :: CompletedPart)
 
-instance Core.Hashable CompletedPart
+instance Prelude.Hashable CompletedPart
 
-instance Core.NFData CompletedPart
+instance Prelude.NFData CompletedPart
 
 instance Core.ToXML CompletedPart where
   toXML CompletedPart' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "PartNumber" Core.@= partNumber,
         "ETag" Core.@= eTag
       ]

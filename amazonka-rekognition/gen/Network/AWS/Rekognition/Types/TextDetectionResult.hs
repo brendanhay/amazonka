@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.TextDetectionResult where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.TextDetection
 
 -- | Information about text detected in a video. Incudes the detected text,
@@ -30,12 +31,12 @@ import Network.AWS.Rekognition.Types.TextDetection
 -- /See:/ 'newTextDetectionResult' smart constructor.
 data TextDetectionResult = TextDetectionResult'
   { -- | Details about text detected in a video.
-    textDetection :: Core.Maybe TextDetection,
+    textDetection :: Prelude.Maybe TextDetection,
     -- | The time, in milliseconds from the start of the video, that the text was
     -- detected.
-    timestamp :: Core.Maybe Core.Integer
+    timestamp :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TextDetectionResult' with all optional fields omitted.
@@ -53,17 +54,18 @@ newTextDetectionResult ::
   TextDetectionResult
 newTextDetectionResult =
   TextDetectionResult'
-    { textDetection = Core.Nothing,
-      timestamp = Core.Nothing
+    { textDetection =
+        Prelude.Nothing,
+      timestamp = Prelude.Nothing
     }
 
 -- | Details about text detected in a video.
-textDetectionResult_textDetection :: Lens.Lens' TextDetectionResult (Core.Maybe TextDetection)
+textDetectionResult_textDetection :: Lens.Lens' TextDetectionResult (Prelude.Maybe TextDetection)
 textDetectionResult_textDetection = Lens.lens (\TextDetectionResult' {textDetection} -> textDetection) (\s@TextDetectionResult' {} a -> s {textDetection = a} :: TextDetectionResult)
 
 -- | The time, in milliseconds from the start of the video, that the text was
 -- detected.
-textDetectionResult_timestamp :: Lens.Lens' TextDetectionResult (Core.Maybe Core.Integer)
+textDetectionResult_timestamp :: Lens.Lens' TextDetectionResult (Prelude.Maybe Prelude.Integer)
 textDetectionResult_timestamp = Lens.lens (\TextDetectionResult' {timestamp} -> timestamp) (\s@TextDetectionResult' {} a -> s {timestamp = a} :: TextDetectionResult)
 
 instance Core.FromJSON TextDetectionResult where
@@ -72,10 +74,10 @@ instance Core.FromJSON TextDetectionResult where
       "TextDetectionResult"
       ( \x ->
           TextDetectionResult'
-            Core.<$> (x Core..:? "TextDetection")
-            Core.<*> (x Core..:? "Timestamp")
+            Prelude.<$> (x Core..:? "TextDetection")
+            Prelude.<*> (x Core..:? "Timestamp")
       )
 
-instance Core.Hashable TextDetectionResult
+instance Prelude.Hashable TextDetectionResult
 
-instance Core.NFData TextDetectionResult
+instance Prelude.NFData TextDetectionResult

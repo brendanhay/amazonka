@@ -23,6 +23,7 @@ import Network.AWS.CodeBuild.Types.EnvironmentImage
 import Network.AWS.CodeBuild.Types.LanguageType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A set of Docker images that are related by programming language and are
 -- managed by AWS CodeBuild.
@@ -31,11 +32,11 @@ import qualified Network.AWS.Lens as Lens
 data EnvironmentLanguage = EnvironmentLanguage'
   { -- | The list of Docker images that are related by the specified programming
     -- language.
-    images :: Core.Maybe [EnvironmentImage],
+    images :: Prelude.Maybe [EnvironmentImage],
     -- | The programming language for the Docker images.
-    language :: Core.Maybe LanguageType
+    language :: Prelude.Maybe LanguageType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnvironmentLanguage' with all optional fields omitted.
@@ -53,17 +54,17 @@ newEnvironmentLanguage ::
   EnvironmentLanguage
 newEnvironmentLanguage =
   EnvironmentLanguage'
-    { images = Core.Nothing,
-      language = Core.Nothing
+    { images = Prelude.Nothing,
+      language = Prelude.Nothing
     }
 
 -- | The list of Docker images that are related by the specified programming
 -- language.
-environmentLanguage_images :: Lens.Lens' EnvironmentLanguage (Core.Maybe [EnvironmentImage])
-environmentLanguage_images = Lens.lens (\EnvironmentLanguage' {images} -> images) (\s@EnvironmentLanguage' {} a -> s {images = a} :: EnvironmentLanguage) Core.. Lens.mapping Lens._Coerce
+environmentLanguage_images :: Lens.Lens' EnvironmentLanguage (Prelude.Maybe [EnvironmentImage])
+environmentLanguage_images = Lens.lens (\EnvironmentLanguage' {images} -> images) (\s@EnvironmentLanguage' {} a -> s {images = a} :: EnvironmentLanguage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The programming language for the Docker images.
-environmentLanguage_language :: Lens.Lens' EnvironmentLanguage (Core.Maybe LanguageType)
+environmentLanguage_language :: Lens.Lens' EnvironmentLanguage (Prelude.Maybe LanguageType)
 environmentLanguage_language = Lens.lens (\EnvironmentLanguage' {language} -> language) (\s@EnvironmentLanguage' {} a -> s {language = a} :: EnvironmentLanguage)
 
 instance Core.FromJSON EnvironmentLanguage where
@@ -72,10 +73,10 @@ instance Core.FromJSON EnvironmentLanguage where
       "EnvironmentLanguage"
       ( \x ->
           EnvironmentLanguage'
-            Core.<$> (x Core..:? "images" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "language")
+            Prelude.<$> (x Core..:? "images" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "language")
       )
 
-instance Core.Hashable EnvironmentLanguage
+instance Prelude.Hashable EnvironmentLanguage
 
-instance Core.NFData EnvironmentLanguage
+instance Prelude.NFData EnvironmentLanguage

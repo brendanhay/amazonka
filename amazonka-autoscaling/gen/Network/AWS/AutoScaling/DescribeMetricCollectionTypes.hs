@@ -44,6 +44,7 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,7 +52,7 @@ import qualified Network.AWS.Response as Response
 data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeMetricCollectionTypes' with all optional fields omitted.
@@ -75,45 +76,50 @@ instance
       "DescribeMetricCollectionTypesResult"
       ( \s h x ->
           DescribeMetricCollectionTypesResponse'
-            Core.<$> ( x Core..@? "Metrics" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> ( x Core..@? "Granularities" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Metrics" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> ( x Core..@? "Granularities" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeMetricCollectionTypes
+instance
+  Prelude.Hashable
+    DescribeMetricCollectionTypes
 
-instance Core.NFData DescribeMetricCollectionTypes
+instance Prelude.NFData DescribeMetricCollectionTypes
 
 instance Core.ToHeaders DescribeMetricCollectionTypes where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeMetricCollectionTypes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeMetricCollectionTypes where
   toQuery =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Action"
-              Core.=: ("DescribeMetricCollectionTypes" :: Core.ByteString),
-            "Version" Core.=: ("2011-01-01" :: Core.ByteString)
+              Core.=: ( "DescribeMetricCollectionTypes" ::
+                          Prelude.ByteString
+                      ),
+            "Version"
+              Core.=: ("2011-01-01" :: Prelude.ByteString)
           ]
       )
 
 -- | /See:/ 'newDescribeMetricCollectionTypesResponse' smart constructor.
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
   { -- | One or more metrics.
-    metrics :: Core.Maybe [MetricCollectionType],
+    metrics :: Prelude.Maybe [MetricCollectionType],
     -- | The granularities for the metrics.
-    granularities :: Core.Maybe [MetricGranularityType],
+    granularities :: Prelude.Maybe [MetricGranularityType],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeMetricCollectionTypesResponse' with all optional fields omitted.
@@ -130,28 +136,28 @@ data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesRespon
 -- 'httpStatus', 'describeMetricCollectionTypesResponse_httpStatus' - The response's http status code.
 newDescribeMetricCollectionTypesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeMetricCollectionTypesResponse
 newDescribeMetricCollectionTypesResponse pHttpStatus_ =
   DescribeMetricCollectionTypesResponse'
     { metrics =
-        Core.Nothing,
-      granularities = Core.Nothing,
+        Prelude.Nothing,
+      granularities = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | One or more metrics.
-describeMetricCollectionTypesResponse_metrics :: Lens.Lens' DescribeMetricCollectionTypesResponse (Core.Maybe [MetricCollectionType])
-describeMetricCollectionTypesResponse_metrics = Lens.lens (\DescribeMetricCollectionTypesResponse' {metrics} -> metrics) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {metrics = a} :: DescribeMetricCollectionTypesResponse) Core.. Lens.mapping Lens._Coerce
+describeMetricCollectionTypesResponse_metrics :: Lens.Lens' DescribeMetricCollectionTypesResponse (Prelude.Maybe [MetricCollectionType])
+describeMetricCollectionTypesResponse_metrics = Lens.lens (\DescribeMetricCollectionTypesResponse' {metrics} -> metrics) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {metrics = a} :: DescribeMetricCollectionTypesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The granularities for the metrics.
-describeMetricCollectionTypesResponse_granularities :: Lens.Lens' DescribeMetricCollectionTypesResponse (Core.Maybe [MetricGranularityType])
-describeMetricCollectionTypesResponse_granularities = Lens.lens (\DescribeMetricCollectionTypesResponse' {granularities} -> granularities) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {granularities = a} :: DescribeMetricCollectionTypesResponse) Core.. Lens.mapping Lens._Coerce
+describeMetricCollectionTypesResponse_granularities :: Lens.Lens' DescribeMetricCollectionTypesResponse (Prelude.Maybe [MetricGranularityType])
+describeMetricCollectionTypesResponse_granularities = Lens.lens (\DescribeMetricCollectionTypesResponse' {granularities} -> granularities) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {granularities = a} :: DescribeMetricCollectionTypesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeMetricCollectionTypesResponse_httpStatus :: Lens.Lens' DescribeMetricCollectionTypesResponse Core.Int
+describeMetricCollectionTypesResponse_httpStatus :: Lens.Lens' DescribeMetricCollectionTypesResponse Prelude.Int
 describeMetricCollectionTypesResponse_httpStatus = Lens.lens (\DescribeMetricCollectionTypesResponse' {httpStatus} -> httpStatus) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {httpStatus = a} :: DescribeMetricCollectionTypesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeMetricCollectionTypesResponse

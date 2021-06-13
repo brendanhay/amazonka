@@ -27,13 +27,14 @@ import Network.AWS.DeviceFarm.Types.ExecutionResult
 import Network.AWS.DeviceFarm.Types.ExecutionStatus
 import Network.AWS.DeviceFarm.Types.TestType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a device.
 --
 -- /See:/ 'newJob' smart constructor.
 data Job = Job'
   { -- | The job\'s result counters.
-    counters :: Core.Maybe Counters,
+    counters :: Prelude.Maybe Counters,
     -- | The job\'s status.
     --
     -- Allowed values include:
@@ -55,7 +56,7 @@ data Job = Job'
     -- -   COMPLETED
     --
     -- -   STOPPING
-    status :: Core.Maybe ExecutionStatus,
+    status :: Prelude.Maybe ExecutionStatus,
     -- | The job\'s result.
     --
     -- Allowed values include:
@@ -73,28 +74,28 @@ data Job = Job'
     -- -   ERRORED
     --
     -- -   STOPPED
-    result :: Core.Maybe ExecutionResult,
+    result :: Prelude.Maybe ExecutionResult,
     -- | The job\'s start time.
-    started :: Core.Maybe Core.POSIX,
+    started :: Prelude.Maybe Core.POSIX,
     -- | A message about the job\'s result.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The device (phone or tablet).
-    device :: Core.Maybe Device,
+    device :: Prelude.Maybe Device,
     -- | This value is set to true if video capture is enabled. Otherwise, it is
     -- set to false.
-    videoCapture :: Core.Maybe Core.Bool,
+    videoCapture :: Prelude.Maybe Prelude.Bool,
     -- | The job\'s ARN.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The endpoint for streaming device video.
-    videoEndpoint :: Core.Maybe Core.Text,
+    videoEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The job\'s name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the instance.
-    instanceArn :: Core.Maybe Core.Text,
+    instanceArn :: Prelude.Maybe Prelude.Text,
     -- | The job\'s stop time.
-    stopped :: Core.Maybe Core.POSIX,
+    stopped :: Prelude.Maybe Core.POSIX,
     -- | When the job was created.
-    created :: Core.Maybe Core.POSIX,
+    created :: Prelude.Maybe Core.POSIX,
     -- | The job\'s type.
     --
     -- Allowed values include the following:
@@ -136,11 +137,11 @@ data Job = Job'
     -- -   XCTEST
     --
     -- -   XCTEST_UI
-    type' :: Core.Maybe TestType,
+    type' :: Prelude.Maybe TestType,
     -- | Represents the total (metered or unmetered) minutes used by the job.
-    deviceMinutes :: Core.Maybe DeviceMinutes
+    deviceMinutes :: Prelude.Maybe DeviceMinutes
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Job' with all optional fields omitted.
@@ -260,25 +261,25 @@ newJob ::
   Job
 newJob =
   Job'
-    { counters = Core.Nothing,
-      status = Core.Nothing,
-      result = Core.Nothing,
-      started = Core.Nothing,
-      message = Core.Nothing,
-      device = Core.Nothing,
-      videoCapture = Core.Nothing,
-      arn = Core.Nothing,
-      videoEndpoint = Core.Nothing,
-      name = Core.Nothing,
-      instanceArn = Core.Nothing,
-      stopped = Core.Nothing,
-      created = Core.Nothing,
-      type' = Core.Nothing,
-      deviceMinutes = Core.Nothing
+    { counters = Prelude.Nothing,
+      status = Prelude.Nothing,
+      result = Prelude.Nothing,
+      started = Prelude.Nothing,
+      message = Prelude.Nothing,
+      device = Prelude.Nothing,
+      videoCapture = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      videoEndpoint = Prelude.Nothing,
+      name = Prelude.Nothing,
+      instanceArn = Prelude.Nothing,
+      stopped = Prelude.Nothing,
+      created = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      deviceMinutes = Prelude.Nothing
     }
 
 -- | The job\'s result counters.
-job_counters :: Lens.Lens' Job (Core.Maybe Counters)
+job_counters :: Lens.Lens' Job (Prelude.Maybe Counters)
 job_counters = Lens.lens (\Job' {counters} -> counters) (\s@Job' {} a -> s {counters = a} :: Job)
 
 -- | The job\'s status.
@@ -302,7 +303,7 @@ job_counters = Lens.lens (\Job' {counters} -> counters) (\s@Job' {} a -> s {coun
 -- -   COMPLETED
 --
 -- -   STOPPING
-job_status :: Lens.Lens' Job (Core.Maybe ExecutionStatus)
+job_status :: Lens.Lens' Job (Prelude.Maybe ExecutionStatus)
 job_status = Lens.lens (\Job' {status} -> status) (\s@Job' {} a -> s {status = a} :: Job)
 
 -- | The job\'s result.
@@ -322,49 +323,49 @@ job_status = Lens.lens (\Job' {status} -> status) (\s@Job' {} a -> s {status = a
 -- -   ERRORED
 --
 -- -   STOPPED
-job_result :: Lens.Lens' Job (Core.Maybe ExecutionResult)
+job_result :: Lens.Lens' Job (Prelude.Maybe ExecutionResult)
 job_result = Lens.lens (\Job' {result} -> result) (\s@Job' {} a -> s {result = a} :: Job)
 
 -- | The job\'s start time.
-job_started :: Lens.Lens' Job (Core.Maybe Core.UTCTime)
-job_started = Lens.lens (\Job' {started} -> started) (\s@Job' {} a -> s {started = a} :: Job) Core.. Lens.mapping Core._Time
+job_started :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
+job_started = Lens.lens (\Job' {started} -> started) (\s@Job' {} a -> s {started = a} :: Job) Prelude.. Lens.mapping Core._Time
 
 -- | A message about the job\'s result.
-job_message :: Lens.Lens' Job (Core.Maybe Core.Text)
+job_message :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_message = Lens.lens (\Job' {message} -> message) (\s@Job' {} a -> s {message = a} :: Job)
 
 -- | The device (phone or tablet).
-job_device :: Lens.Lens' Job (Core.Maybe Device)
+job_device :: Lens.Lens' Job (Prelude.Maybe Device)
 job_device = Lens.lens (\Job' {device} -> device) (\s@Job' {} a -> s {device = a} :: Job)
 
 -- | This value is set to true if video capture is enabled. Otherwise, it is
 -- set to false.
-job_videoCapture :: Lens.Lens' Job (Core.Maybe Core.Bool)
+job_videoCapture :: Lens.Lens' Job (Prelude.Maybe Prelude.Bool)
 job_videoCapture = Lens.lens (\Job' {videoCapture} -> videoCapture) (\s@Job' {} a -> s {videoCapture = a} :: Job)
 
 -- | The job\'s ARN.
-job_arn :: Lens.Lens' Job (Core.Maybe Core.Text)
+job_arn :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_arn = Lens.lens (\Job' {arn} -> arn) (\s@Job' {} a -> s {arn = a} :: Job)
 
 -- | The endpoint for streaming device video.
-job_videoEndpoint :: Lens.Lens' Job (Core.Maybe Core.Text)
+job_videoEndpoint :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_videoEndpoint = Lens.lens (\Job' {videoEndpoint} -> videoEndpoint) (\s@Job' {} a -> s {videoEndpoint = a} :: Job)
 
 -- | The job\'s name.
-job_name :: Lens.Lens' Job (Core.Maybe Core.Text)
+job_name :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_name = Lens.lens (\Job' {name} -> name) (\s@Job' {} a -> s {name = a} :: Job)
 
 -- | The ARN of the instance.
-job_instanceArn :: Lens.Lens' Job (Core.Maybe Core.Text)
+job_instanceArn :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_instanceArn = Lens.lens (\Job' {instanceArn} -> instanceArn) (\s@Job' {} a -> s {instanceArn = a} :: Job)
 
 -- | The job\'s stop time.
-job_stopped :: Lens.Lens' Job (Core.Maybe Core.UTCTime)
-job_stopped = Lens.lens (\Job' {stopped} -> stopped) (\s@Job' {} a -> s {stopped = a} :: Job) Core.. Lens.mapping Core._Time
+job_stopped :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
+job_stopped = Lens.lens (\Job' {stopped} -> stopped) (\s@Job' {} a -> s {stopped = a} :: Job) Prelude.. Lens.mapping Core._Time
 
 -- | When the job was created.
-job_created :: Lens.Lens' Job (Core.Maybe Core.UTCTime)
-job_created = Lens.lens (\Job' {created} -> created) (\s@Job' {} a -> s {created = a} :: Job) Core.. Lens.mapping Core._Time
+job_created :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
+job_created = Lens.lens (\Job' {created} -> created) (\s@Job' {} a -> s {created = a} :: Job) Prelude.. Lens.mapping Core._Time
 
 -- | The job\'s type.
 --
@@ -407,11 +408,11 @@ job_created = Lens.lens (\Job' {created} -> created) (\s@Job' {} a -> s {created
 -- -   XCTEST
 --
 -- -   XCTEST_UI
-job_type :: Lens.Lens' Job (Core.Maybe TestType)
+job_type :: Lens.Lens' Job (Prelude.Maybe TestType)
 job_type = Lens.lens (\Job' {type'} -> type') (\s@Job' {} a -> s {type' = a} :: Job)
 
 -- | Represents the total (metered or unmetered) minutes used by the job.
-job_deviceMinutes :: Lens.Lens' Job (Core.Maybe DeviceMinutes)
+job_deviceMinutes :: Lens.Lens' Job (Prelude.Maybe DeviceMinutes)
 job_deviceMinutes = Lens.lens (\Job' {deviceMinutes} -> deviceMinutes) (\s@Job' {} a -> s {deviceMinutes = a} :: Job)
 
 instance Core.FromJSON Job where
@@ -420,23 +421,23 @@ instance Core.FromJSON Job where
       "Job"
       ( \x ->
           Job'
-            Core.<$> (x Core..:? "counters")
-            Core.<*> (x Core..:? "status")
-            Core.<*> (x Core..:? "result")
-            Core.<*> (x Core..:? "started")
-            Core.<*> (x Core..:? "message")
-            Core.<*> (x Core..:? "device")
-            Core.<*> (x Core..:? "videoCapture")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "videoEndpoint")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "instanceArn")
-            Core.<*> (x Core..:? "stopped")
-            Core.<*> (x Core..:? "created")
-            Core.<*> (x Core..:? "type")
-            Core.<*> (x Core..:? "deviceMinutes")
+            Prelude.<$> (x Core..:? "counters")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "result")
+            Prelude.<*> (x Core..:? "started")
+            Prelude.<*> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "device")
+            Prelude.<*> (x Core..:? "videoCapture")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "videoEndpoint")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "instanceArn")
+            Prelude.<*> (x Core..:? "stopped")
+            Prelude.<*> (x Core..:? "created")
+            Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "deviceMinutes")
       )
 
-instance Core.Hashable Job
+instance Prelude.Hashable Job
 
-instance Core.NFData Job
+instance Prelude.NFData Job

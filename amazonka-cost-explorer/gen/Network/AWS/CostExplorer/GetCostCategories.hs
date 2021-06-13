@@ -55,6 +55,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,20 +68,20 @@ data GetCostCategories = GetCostCategories'
     -- 1000 results as the default value for this parameter.
     --
     -- For @GetCostCategories@, MaxResults has an upper limit of 1000.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The value that you want to search the filter values for.
     --
     -- If you do not specify a @CostCategoryName@, @SearchString@ will be used
     -- to filter Cost Category names that match the @SearchString@ pattern. If
     -- you do specifiy a @CostCategoryName@, @SearchString@ will be used to
     -- filter Cost Category values that match the @SearchString@ pattern.
-    searchString :: Core.Maybe Core.Text,
+    searchString :: Prelude.Maybe Prelude.Text,
     -- | If the number of objects that are still available for retrieval exceeds
     -- the limit, AWS returns a NextPageToken value in the response. To
     -- retrieve the next batch of objects, provide the NextPageToken from the
     -- prior call in your next request.
-    nextPageToken :: Core.Maybe Core.Text,
-    costCategoryName :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
+    costCategoryName :: Prelude.Maybe Prelude.Text,
     -- | The value by which you want to sort the data.
     --
     -- The key represents cost and usage metrics. The following values are
@@ -104,11 +105,11 @@ data GetCostCategories = GetCostCategories'
     --
     -- When using @SortBy@, @NextPageToken@ and @SearchString@ are not
     -- supported.
-    sortBy :: Core.Maybe [SortDefinition],
-    filter' :: Core.Maybe Expression,
+    sortBy :: Prelude.Maybe [SortDefinition],
+    filter' :: Prelude.Maybe Expression,
     timePeriod :: DateInterval
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCostCategories' with all optional fields omitted.
@@ -173,12 +174,12 @@ newGetCostCategories ::
   GetCostCategories
 newGetCostCategories pTimePeriod_ =
   GetCostCategories'
-    { maxResults = Core.Nothing,
-      searchString = Core.Nothing,
-      nextPageToken = Core.Nothing,
-      costCategoryName = Core.Nothing,
-      sortBy = Core.Nothing,
-      filter' = Core.Nothing,
+    { maxResults = Prelude.Nothing,
+      searchString = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
+      costCategoryName = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      filter' = Prelude.Nothing,
       timePeriod = pTimePeriod_
     }
 
@@ -189,7 +190,7 @@ newGetCostCategories pTimePeriod_ =
 -- 1000 results as the default value for this parameter.
 --
 -- For @GetCostCategories@, MaxResults has an upper limit of 1000.
-getCostCategories_maxResults :: Lens.Lens' GetCostCategories (Core.Maybe Core.Natural)
+getCostCategories_maxResults :: Lens.Lens' GetCostCategories (Prelude.Maybe Prelude.Natural)
 getCostCategories_maxResults = Lens.lens (\GetCostCategories' {maxResults} -> maxResults) (\s@GetCostCategories' {} a -> s {maxResults = a} :: GetCostCategories)
 
 -- | The value that you want to search the filter values for.
@@ -198,18 +199,18 @@ getCostCategories_maxResults = Lens.lens (\GetCostCategories' {maxResults} -> ma
 -- to filter Cost Category names that match the @SearchString@ pattern. If
 -- you do specifiy a @CostCategoryName@, @SearchString@ will be used to
 -- filter Cost Category values that match the @SearchString@ pattern.
-getCostCategories_searchString :: Lens.Lens' GetCostCategories (Core.Maybe Core.Text)
+getCostCategories_searchString :: Lens.Lens' GetCostCategories (Prelude.Maybe Prelude.Text)
 getCostCategories_searchString = Lens.lens (\GetCostCategories' {searchString} -> searchString) (\s@GetCostCategories' {} a -> s {searchString = a} :: GetCostCategories)
 
 -- | If the number of objects that are still available for retrieval exceeds
 -- the limit, AWS returns a NextPageToken value in the response. To
 -- retrieve the next batch of objects, provide the NextPageToken from the
 -- prior call in your next request.
-getCostCategories_nextPageToken :: Lens.Lens' GetCostCategories (Core.Maybe Core.Text)
+getCostCategories_nextPageToken :: Lens.Lens' GetCostCategories (Prelude.Maybe Prelude.Text)
 getCostCategories_nextPageToken = Lens.lens (\GetCostCategories' {nextPageToken} -> nextPageToken) (\s@GetCostCategories' {} a -> s {nextPageToken = a} :: GetCostCategories)
 
 -- | Undocumented member.
-getCostCategories_costCategoryName :: Lens.Lens' GetCostCategories (Core.Maybe Core.Text)
+getCostCategories_costCategoryName :: Lens.Lens' GetCostCategories (Prelude.Maybe Prelude.Text)
 getCostCategories_costCategoryName = Lens.lens (\GetCostCategories' {costCategoryName} -> costCategoryName) (\s@GetCostCategories' {} a -> s {costCategoryName = a} :: GetCostCategories)
 
 -- | The value by which you want to sort the data.
@@ -235,11 +236,11 @@ getCostCategories_costCategoryName = Lens.lens (\GetCostCategories' {costCategor
 --
 -- When using @SortBy@, @NextPageToken@ and @SearchString@ are not
 -- supported.
-getCostCategories_sortBy :: Lens.Lens' GetCostCategories (Core.Maybe [SortDefinition])
-getCostCategories_sortBy = Lens.lens (\GetCostCategories' {sortBy} -> sortBy) (\s@GetCostCategories' {} a -> s {sortBy = a} :: GetCostCategories) Core.. Lens.mapping Lens._Coerce
+getCostCategories_sortBy :: Lens.Lens' GetCostCategories (Prelude.Maybe [SortDefinition])
+getCostCategories_sortBy = Lens.lens (\GetCostCategories' {sortBy} -> sortBy) (\s@GetCostCategories' {} a -> s {sortBy = a} :: GetCostCategories) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getCostCategories_filter :: Lens.Lens' GetCostCategories (Core.Maybe Expression)
+getCostCategories_filter :: Lens.Lens' GetCostCategories (Prelude.Maybe Expression)
 getCostCategories_filter = Lens.lens (\GetCostCategories' {filter'} -> filter') (\s@GetCostCategories' {} a -> s {filter' = a} :: GetCostCategories)
 
 -- | Undocumented member.
@@ -255,53 +256,57 @@ instance Core.AWSRequest GetCostCategories where
     Response.receiveJSON
       ( \s h x ->
           GetCostCategoriesResponse'
-            Core.<$> ( x Core..?> "CostCategoryValues"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "NextPageToken")
-            Core.<*> (x Core..?> "CostCategoryNames" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "ReturnSize")
-            Core.<*> (x Core..:> "TotalSize")
+            Prelude.<$> ( x Core..?> "CostCategoryValues"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "NextPageToken")
+            Prelude.<*> ( x Core..?> "CostCategoryNames"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "ReturnSize")
+            Prelude.<*> (x Core..:> "TotalSize")
       )
 
-instance Core.Hashable GetCostCategories
+instance Prelude.Hashable GetCostCategories
 
-instance Core.NFData GetCostCategories
+instance Prelude.NFData GetCostCategories
 
 instance Core.ToHeaders GetCostCategories where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSInsightsIndexService.GetCostCategories" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetCostCategories where
   toJSON GetCostCategories' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("MaxResults" Core..=) Core.<$> maxResults,
-            ("SearchString" Core..=) Core.<$> searchString,
-            ("NextPageToken" Core..=) Core.<$> nextPageToken,
+      ( Prelude.catMaybes
+          [ ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SearchString" Core..=) Prelude.<$> searchString,
+            ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
             ("CostCategoryName" Core..=)
-              Core.<$> costCategoryName,
-            ("SortBy" Core..=) Core.<$> sortBy,
-            ("Filter" Core..=) Core.<$> filter',
-            Core.Just ("TimePeriod" Core..= timePeriod)
+              Prelude.<$> costCategoryName,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("Filter" Core..=) Prelude.<$> filter',
+            Prelude.Just ("TimePeriod" Core..= timePeriod)
           ]
       )
 
 instance Core.ToPath GetCostCategories where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetCostCategories where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCostCategoriesResponse' smart constructor.
 data GetCostCategoriesResponse = GetCostCategoriesResponse'
@@ -309,22 +314,22 @@ data GetCostCategoriesResponse = GetCostCategoriesResponse'
     --
     -- @CostCategoryValues@ are not returned if @CostCategoryName@ is not
     -- specified in the request.
-    costCategoryValues :: Core.Maybe [Core.Text],
+    costCategoryValues :: Prelude.Maybe [Prelude.Text],
     -- | If the number of objects that are still available for retrieval exceeds
     -- the limit, AWS returns a NextPageToken value in the response. To
     -- retrieve the next batch of objects, provide the marker from the prior
     -- call in your next request.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The names of the Cost Categories.
-    costCategoryNames :: Core.Maybe [Core.Text],
+    costCategoryNames :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The number of objects returned.
-    returnSize :: Core.Int,
+    returnSize :: Prelude.Int,
     -- | The total number of objects.
-    totalSize :: Core.Int
+    totalSize :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCostCategoriesResponse' with all optional fields omitted.
@@ -353,11 +358,11 @@ data GetCostCategoriesResponse = GetCostCategoriesResponse'
 -- 'totalSize', 'getCostCategoriesResponse_totalSize' - The total number of objects.
 newGetCostCategoriesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'returnSize'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'totalSize'
-  Core.Int ->
+  Prelude.Int ->
   GetCostCategoriesResponse
 newGetCostCategoriesResponse
   pHttpStatus_
@@ -365,9 +370,9 @@ newGetCostCategoriesResponse
   pTotalSize_ =
     GetCostCategoriesResponse'
       { costCategoryValues =
-          Core.Nothing,
-        nextPageToken = Core.Nothing,
-        costCategoryNames = Core.Nothing,
+          Prelude.Nothing,
+        nextPageToken = Prelude.Nothing,
+        costCategoryNames = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         returnSize = pReturnSize_,
         totalSize = pTotalSize_
@@ -377,30 +382,30 @@ newGetCostCategoriesResponse
 --
 -- @CostCategoryValues@ are not returned if @CostCategoryName@ is not
 -- specified in the request.
-getCostCategoriesResponse_costCategoryValues :: Lens.Lens' GetCostCategoriesResponse (Core.Maybe [Core.Text])
-getCostCategoriesResponse_costCategoryValues = Lens.lens (\GetCostCategoriesResponse' {costCategoryValues} -> costCategoryValues) (\s@GetCostCategoriesResponse' {} a -> s {costCategoryValues = a} :: GetCostCategoriesResponse) Core.. Lens.mapping Lens._Coerce
+getCostCategoriesResponse_costCategoryValues :: Lens.Lens' GetCostCategoriesResponse (Prelude.Maybe [Prelude.Text])
+getCostCategoriesResponse_costCategoryValues = Lens.lens (\GetCostCategoriesResponse' {costCategoryValues} -> costCategoryValues) (\s@GetCostCategoriesResponse' {} a -> s {costCategoryValues = a} :: GetCostCategoriesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If the number of objects that are still available for retrieval exceeds
 -- the limit, AWS returns a NextPageToken value in the response. To
 -- retrieve the next batch of objects, provide the marker from the prior
 -- call in your next request.
-getCostCategoriesResponse_nextPageToken :: Lens.Lens' GetCostCategoriesResponse (Core.Maybe Core.Text)
+getCostCategoriesResponse_nextPageToken :: Lens.Lens' GetCostCategoriesResponse (Prelude.Maybe Prelude.Text)
 getCostCategoriesResponse_nextPageToken = Lens.lens (\GetCostCategoriesResponse' {nextPageToken} -> nextPageToken) (\s@GetCostCategoriesResponse' {} a -> s {nextPageToken = a} :: GetCostCategoriesResponse)
 
 -- | The names of the Cost Categories.
-getCostCategoriesResponse_costCategoryNames :: Lens.Lens' GetCostCategoriesResponse (Core.Maybe [Core.Text])
-getCostCategoriesResponse_costCategoryNames = Lens.lens (\GetCostCategoriesResponse' {costCategoryNames} -> costCategoryNames) (\s@GetCostCategoriesResponse' {} a -> s {costCategoryNames = a} :: GetCostCategoriesResponse) Core.. Lens.mapping Lens._Coerce
+getCostCategoriesResponse_costCategoryNames :: Lens.Lens' GetCostCategoriesResponse (Prelude.Maybe [Prelude.Text])
+getCostCategoriesResponse_costCategoryNames = Lens.lens (\GetCostCategoriesResponse' {costCategoryNames} -> costCategoryNames) (\s@GetCostCategoriesResponse' {} a -> s {costCategoryNames = a} :: GetCostCategoriesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getCostCategoriesResponse_httpStatus :: Lens.Lens' GetCostCategoriesResponse Core.Int
+getCostCategoriesResponse_httpStatus :: Lens.Lens' GetCostCategoriesResponse Prelude.Int
 getCostCategoriesResponse_httpStatus = Lens.lens (\GetCostCategoriesResponse' {httpStatus} -> httpStatus) (\s@GetCostCategoriesResponse' {} a -> s {httpStatus = a} :: GetCostCategoriesResponse)
 
 -- | The number of objects returned.
-getCostCategoriesResponse_returnSize :: Lens.Lens' GetCostCategoriesResponse Core.Int
+getCostCategoriesResponse_returnSize :: Lens.Lens' GetCostCategoriesResponse Prelude.Int
 getCostCategoriesResponse_returnSize = Lens.lens (\GetCostCategoriesResponse' {returnSize} -> returnSize) (\s@GetCostCategoriesResponse' {} a -> s {returnSize = a} :: GetCostCategoriesResponse)
 
 -- | The total number of objects.
-getCostCategoriesResponse_totalSize :: Lens.Lens' GetCostCategoriesResponse Core.Int
+getCostCategoriesResponse_totalSize :: Lens.Lens' GetCostCategoriesResponse Prelude.Int
 getCostCategoriesResponse_totalSize = Lens.lens (\GetCostCategoriesResponse' {totalSize} -> totalSize) (\s@GetCostCategoriesResponse' {} a -> s {totalSize = a} :: GetCostCategoriesResponse)
 
-instance Core.NFData GetCostCategoriesResponse
+instance Prelude.NFData GetCostCategoriesResponse

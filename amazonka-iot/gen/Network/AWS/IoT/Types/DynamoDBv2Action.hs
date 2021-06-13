@@ -22,6 +22,7 @@ module Network.AWS.IoT.Types.DynamoDBv2Action where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.PutItemInput
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an action to write to a DynamoDB table.
 --
@@ -31,7 +32,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDynamoDBv2Action' smart constructor.
 data DynamoDBv2Action = DynamoDBv2Action'
   { -- | The ARN of the IAM role that grants access to the DynamoDB table.
-    roleArn :: Core.Text,
+    roleArn :: Prelude.Text,
     -- | Specifies the DynamoDB table to which the message data will be written.
     -- For example:
     --
@@ -41,7 +42,7 @@ data DynamoDBv2Action = DynamoDBv2Action'
     -- column in the DynamoDB database.
     putItem :: PutItemInput
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DynamoDBv2Action' with all optional fields omitted.
@@ -62,7 +63,7 @@ data DynamoDBv2Action = DynamoDBv2Action'
 -- column in the DynamoDB database.
 newDynamoDBv2Action ::
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'putItem'
   PutItemInput ->
   DynamoDBv2Action
@@ -73,7 +74,7 @@ newDynamoDBv2Action pRoleArn_ pPutItem_ =
     }
 
 -- | The ARN of the IAM role that grants access to the DynamoDB table.
-dynamoDBv2Action_roleArn :: Lens.Lens' DynamoDBv2Action Core.Text
+dynamoDBv2Action_roleArn :: Lens.Lens' DynamoDBv2Action Prelude.Text
 dynamoDBv2Action_roleArn = Lens.lens (\DynamoDBv2Action' {roleArn} -> roleArn) (\s@DynamoDBv2Action' {} a -> s {roleArn = a} :: DynamoDBv2Action)
 
 -- | Specifies the DynamoDB table to which the message data will be written.
@@ -92,18 +93,19 @@ instance Core.FromJSON DynamoDBv2Action where
       "DynamoDBv2Action"
       ( \x ->
           DynamoDBv2Action'
-            Core.<$> (x Core..: "roleArn") Core.<*> (x Core..: "putItem")
+            Prelude.<$> (x Core..: "roleArn")
+            Prelude.<*> (x Core..: "putItem")
       )
 
-instance Core.Hashable DynamoDBv2Action
+instance Prelude.Hashable DynamoDBv2Action
 
-instance Core.NFData DynamoDBv2Action
+instance Prelude.NFData DynamoDBv2Action
 
 instance Core.ToJSON DynamoDBv2Action where
   toJSON DynamoDBv2Action' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("roleArn" Core..= roleArn),
-            Core.Just ("putItem" Core..= putItem)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("roleArn" Core..= roleArn),
+            Prelude.Just ("putItem" Core..= putItem)
           ]
       )

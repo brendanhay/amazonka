@@ -21,6 +21,7 @@ module Network.AWS.WAFRegional.Types.ByteMatchSetUpdate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.ByteMatchTuple
 import Network.AWS.WAFRegional.Types.ChangeAction
 
@@ -48,7 +49,7 @@ data ByteMatchSetUpdate = ByteMatchSetUpdate'
     -- delete from the @ByteMatchSet@.
     byteMatchTuple :: ByteMatchTuple
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ByteMatchSetUpdate' with all optional fields omitted.
@@ -89,15 +90,16 @@ byteMatchSetUpdate_action = Lens.lens (\ByteMatchSetUpdate' {action} -> action) 
 byteMatchSetUpdate_byteMatchTuple :: Lens.Lens' ByteMatchSetUpdate ByteMatchTuple
 byteMatchSetUpdate_byteMatchTuple = Lens.lens (\ByteMatchSetUpdate' {byteMatchTuple} -> byteMatchTuple) (\s@ByteMatchSetUpdate' {} a -> s {byteMatchTuple = a} :: ByteMatchSetUpdate)
 
-instance Core.Hashable ByteMatchSetUpdate
+instance Prelude.Hashable ByteMatchSetUpdate
 
-instance Core.NFData ByteMatchSetUpdate
+instance Prelude.NFData ByteMatchSetUpdate
 
 instance Core.ToJSON ByteMatchSetUpdate where
   toJSON ByteMatchSetUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Action" Core..= action),
-            Core.Just ("ByteMatchTuple" Core..= byteMatchTuple)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Action" Core..= action),
+            Prelude.Just
+              ("ByteMatchTuple" Core..= byteMatchTuple)
           ]
       )

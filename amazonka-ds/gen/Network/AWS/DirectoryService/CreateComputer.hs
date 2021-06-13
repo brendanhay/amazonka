@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,19 +56,19 @@ import qualified Network.AWS.Response as Response
 data CreateComputer = CreateComputer'
   { -- | The fully-qualified distinguished name of the organizational unit to
     -- place the computer account in.
-    organizationalUnitDistinguishedName :: Core.Maybe Core.Text,
+    organizationalUnitDistinguishedName :: Prelude.Maybe Prelude.Text,
     -- | An array of Attribute objects that contain any LDAP attributes to apply
     -- to the computer account.
-    computerAttributes :: Core.Maybe [Attribute],
+    computerAttributes :: Prelude.Maybe [Attribute],
     -- | The identifier of the directory in which to create the computer account.
-    directoryId :: Core.Text,
+    directoryId :: Prelude.Text,
     -- | The name of the computer account.
-    computerName :: Core.Text,
+    computerName :: Prelude.Text,
     -- | A one-time password that is used to join the computer to the directory.
     -- You should generate a random, strong password to use for this parameter.
-    password :: Core.Sensitive Core.Text
+    password :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateComputer' with all optional fields omitted.
@@ -91,11 +92,11 @@ data CreateComputer = CreateComputer'
 -- You should generate a random, strong password to use for this parameter.
 newCreateComputer ::
   -- | 'directoryId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'computerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'password'
-  Core.Text ->
+  Prelude.Text ->
   CreateComputer
 newCreateComputer
   pDirectoryId_
@@ -103,8 +104,8 @@ newCreateComputer
   pPassword_ =
     CreateComputer'
       { organizationalUnitDistinguishedName =
-          Core.Nothing,
-        computerAttributes = Core.Nothing,
+          Prelude.Nothing,
+        computerAttributes = Prelude.Nothing,
         directoryId = pDirectoryId_,
         computerName = pComputerName_,
         password = Core._Sensitive Lens.# pPassword_
@@ -112,26 +113,26 @@ newCreateComputer
 
 -- | The fully-qualified distinguished name of the organizational unit to
 -- place the computer account in.
-createComputer_organizationalUnitDistinguishedName :: Lens.Lens' CreateComputer (Core.Maybe Core.Text)
+createComputer_organizationalUnitDistinguishedName :: Lens.Lens' CreateComputer (Prelude.Maybe Prelude.Text)
 createComputer_organizationalUnitDistinguishedName = Lens.lens (\CreateComputer' {organizationalUnitDistinguishedName} -> organizationalUnitDistinguishedName) (\s@CreateComputer' {} a -> s {organizationalUnitDistinguishedName = a} :: CreateComputer)
 
 -- | An array of Attribute objects that contain any LDAP attributes to apply
 -- to the computer account.
-createComputer_computerAttributes :: Lens.Lens' CreateComputer (Core.Maybe [Attribute])
-createComputer_computerAttributes = Lens.lens (\CreateComputer' {computerAttributes} -> computerAttributes) (\s@CreateComputer' {} a -> s {computerAttributes = a} :: CreateComputer) Core.. Lens.mapping Lens._Coerce
+createComputer_computerAttributes :: Lens.Lens' CreateComputer (Prelude.Maybe [Attribute])
+createComputer_computerAttributes = Lens.lens (\CreateComputer' {computerAttributes} -> computerAttributes) (\s@CreateComputer' {} a -> s {computerAttributes = a} :: CreateComputer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the directory in which to create the computer account.
-createComputer_directoryId :: Lens.Lens' CreateComputer Core.Text
+createComputer_directoryId :: Lens.Lens' CreateComputer Prelude.Text
 createComputer_directoryId = Lens.lens (\CreateComputer' {directoryId} -> directoryId) (\s@CreateComputer' {} a -> s {directoryId = a} :: CreateComputer)
 
 -- | The name of the computer account.
-createComputer_computerName :: Lens.Lens' CreateComputer Core.Text
+createComputer_computerName :: Lens.Lens' CreateComputer Prelude.Text
 createComputer_computerName = Lens.lens (\CreateComputer' {computerName} -> computerName) (\s@CreateComputer' {} a -> s {computerName = a} :: CreateComputer)
 
 -- | A one-time password that is used to join the computer to the directory.
 -- You should generate a random, strong password to use for this parameter.
-createComputer_password :: Lens.Lens' CreateComputer Core.Text
-createComputer_password = Lens.lens (\CreateComputer' {password} -> password) (\s@CreateComputer' {} a -> s {password = a} :: CreateComputer) Core.. Core._Sensitive
+createComputer_password :: Lens.Lens' CreateComputer Prelude.Text
+createComputer_password = Lens.lens (\CreateComputer' {password} -> password) (\s@CreateComputer' {} a -> s {password = a} :: CreateComputer) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest CreateComputer where
   type
@@ -142,57 +143,59 @@ instance Core.AWSRequest CreateComputer where
     Response.receiveJSON
       ( \s h x ->
           CreateComputerResponse'
-            Core.<$> (x Core..?> "Computer")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Computer")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateComputer
+instance Prelude.Hashable CreateComputer
 
-instance Core.NFData CreateComputer
+instance Prelude.NFData CreateComputer
 
 instance Core.ToHeaders CreateComputer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.CreateComputer" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateComputer where
   toJSON CreateComputer' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("OrganizationalUnitDistinguishedName" Core..=)
-              Core.<$> organizationalUnitDistinguishedName,
+              Prelude.<$> organizationalUnitDistinguishedName,
             ("ComputerAttributes" Core..=)
-              Core.<$> computerAttributes,
-            Core.Just ("DirectoryId" Core..= directoryId),
-            Core.Just ("ComputerName" Core..= computerName),
-            Core.Just ("Password" Core..= password)
+              Prelude.<$> computerAttributes,
+            Prelude.Just ("DirectoryId" Core..= directoryId),
+            Prelude.Just ("ComputerName" Core..= computerName),
+            Prelude.Just ("Password" Core..= password)
           ]
       )
 
 instance Core.ToPath CreateComputer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateComputer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results for the CreateComputer operation.
 --
 -- /See:/ 'newCreateComputerResponse' smart constructor.
 data CreateComputerResponse = CreateComputerResponse'
   { -- | A Computer object that represents the computer account.
-    computer :: Core.Maybe Computer,
+    computer :: Prelude.Maybe Computer,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateComputerResponse' with all optional fields omitted.
@@ -207,20 +210,20 @@ data CreateComputerResponse = CreateComputerResponse'
 -- 'httpStatus', 'createComputerResponse_httpStatus' - The response's http status code.
 newCreateComputerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateComputerResponse
 newCreateComputerResponse pHttpStatus_ =
   CreateComputerResponse'
-    { computer = Core.Nothing,
+    { computer = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A Computer object that represents the computer account.
-createComputerResponse_computer :: Lens.Lens' CreateComputerResponse (Core.Maybe Computer)
+createComputerResponse_computer :: Lens.Lens' CreateComputerResponse (Prelude.Maybe Computer)
 createComputerResponse_computer = Lens.lens (\CreateComputerResponse' {computer} -> computer) (\s@CreateComputerResponse' {} a -> s {computer = a} :: CreateComputerResponse)
 
 -- | The response's http status code.
-createComputerResponse_httpStatus :: Lens.Lens' CreateComputerResponse Core.Int
+createComputerResponse_httpStatus :: Lens.Lens' CreateComputerResponse Prelude.Int
 createComputerResponse_httpStatus = Lens.lens (\CreateComputerResponse' {httpStatus} -> httpStatus) (\s@CreateComputerResponse' {} a -> s {httpStatus = a} :: CreateComputerResponse)
 
-instance Core.NFData CreateComputerResponse
+instance Prelude.NFData CreateComputerResponse

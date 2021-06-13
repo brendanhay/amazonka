@@ -46,17 +46,18 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateBatchPrediction' smart constructor.
 data UpdateBatchPrediction = UpdateBatchPrediction'
   { -- | The ID assigned to the @BatchPrediction@ during creation.
-    batchPredictionId :: Core.Text,
+    batchPredictionId :: Prelude.Text,
     -- | A new user-supplied name or description of the @BatchPrediction@.
-    batchPredictionName :: Core.Text
+    batchPredictionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateBatchPrediction' with all optional fields omitted.
@@ -71,9 +72,9 @@ data UpdateBatchPrediction = UpdateBatchPrediction'
 -- 'batchPredictionName', 'updateBatchPrediction_batchPredictionName' - A new user-supplied name or description of the @BatchPrediction@.
 newUpdateBatchPrediction ::
   -- | 'batchPredictionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'batchPredictionName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateBatchPrediction
 newUpdateBatchPrediction
   pBatchPredictionId_
@@ -85,11 +86,11 @@ newUpdateBatchPrediction
       }
 
 -- | The ID assigned to the @BatchPrediction@ during creation.
-updateBatchPrediction_batchPredictionId :: Lens.Lens' UpdateBatchPrediction Core.Text
+updateBatchPrediction_batchPredictionId :: Lens.Lens' UpdateBatchPrediction Prelude.Text
 updateBatchPrediction_batchPredictionId = Lens.lens (\UpdateBatchPrediction' {batchPredictionId} -> batchPredictionId) (\s@UpdateBatchPrediction' {} a -> s {batchPredictionId = a} :: UpdateBatchPrediction)
 
 -- | A new user-supplied name or description of the @BatchPrediction@.
-updateBatchPrediction_batchPredictionName :: Lens.Lens' UpdateBatchPrediction Core.Text
+updateBatchPrediction_batchPredictionName :: Lens.Lens' UpdateBatchPrediction Prelude.Text
 updateBatchPrediction_batchPredictionName = Lens.lens (\UpdateBatchPrediction' {batchPredictionName} -> batchPredictionName) (\s@UpdateBatchPrediction' {} a -> s {batchPredictionName = a} :: UpdateBatchPrediction)
 
 instance Core.AWSRequest UpdateBatchPrediction where
@@ -101,43 +102,45 @@ instance Core.AWSRequest UpdateBatchPrediction where
     Response.receiveJSON
       ( \s h x ->
           UpdateBatchPredictionResponse'
-            Core.<$> (x Core..?> "BatchPredictionId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "BatchPredictionId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateBatchPrediction
+instance Prelude.Hashable UpdateBatchPrediction
 
-instance Core.NFData UpdateBatchPrediction
+instance Prelude.NFData UpdateBatchPrediction
 
 instance Core.ToHeaders UpdateBatchPrediction where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonML_20141212.UpdateBatchPrediction" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateBatchPrediction where
   toJSON UpdateBatchPrediction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("BatchPredictionId" Core..= batchPredictionId),
-            Core.Just
+            Prelude.Just
               ("BatchPredictionName" Core..= batchPredictionName)
           ]
       )
 
 instance Core.ToPath UpdateBatchPrediction where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateBatchPrediction where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an @UpdateBatchPrediction@ operation.
 --
@@ -149,11 +152,11 @@ data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
   { -- | The ID assigned to the @BatchPrediction@ during creation. This value
     -- should be identical to the value of the @BatchPredictionId@ in the
     -- request.
-    batchPredictionId :: Core.Maybe Core.Text,
+    batchPredictionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateBatchPredictionResponse' with all optional fields omitted.
@@ -170,23 +173,23 @@ data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
 -- 'httpStatus', 'updateBatchPredictionResponse_httpStatus' - The response's http status code.
 newUpdateBatchPredictionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateBatchPredictionResponse
 newUpdateBatchPredictionResponse pHttpStatus_ =
   UpdateBatchPredictionResponse'
     { batchPredictionId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID assigned to the @BatchPrediction@ during creation. This value
 -- should be identical to the value of the @BatchPredictionId@ in the
 -- request.
-updateBatchPredictionResponse_batchPredictionId :: Lens.Lens' UpdateBatchPredictionResponse (Core.Maybe Core.Text)
+updateBatchPredictionResponse_batchPredictionId :: Lens.Lens' UpdateBatchPredictionResponse (Prelude.Maybe Prelude.Text)
 updateBatchPredictionResponse_batchPredictionId = Lens.lens (\UpdateBatchPredictionResponse' {batchPredictionId} -> batchPredictionId) (\s@UpdateBatchPredictionResponse' {} a -> s {batchPredictionId = a} :: UpdateBatchPredictionResponse)
 
 -- | The response's http status code.
-updateBatchPredictionResponse_httpStatus :: Lens.Lens' UpdateBatchPredictionResponse Core.Int
+updateBatchPredictionResponse_httpStatus :: Lens.Lens' UpdateBatchPredictionResponse Prelude.Int
 updateBatchPredictionResponse_httpStatus = Lens.lens (\UpdateBatchPredictionResponse' {httpStatus} -> httpStatus) (\s@UpdateBatchPredictionResponse' {} a -> s {httpStatus = a} :: UpdateBatchPredictionResponse)
 
-instance Core.NFData UpdateBatchPredictionResponse
+instance Prelude.NFData UpdateBatchPredictionResponse

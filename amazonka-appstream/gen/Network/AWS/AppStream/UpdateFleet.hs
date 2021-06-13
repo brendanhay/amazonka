@@ -65,6 +65,7 @@ where
 import Network.AWS.AppStream.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -77,7 +78,7 @@ data UpdateFleet = UpdateFleet'
     -- instance is terminated and replaced by a new instance.
     --
     -- Specify a value between 600 and 360000.
-    maxUserDurationInSeconds :: Core.Maybe Core.Int,
+    maxUserDurationInSeconds :: Prelude.Maybe Prelude.Int,
     -- | The amount of time that a streaming session remains active after users
     -- disconnect. If users try to reconnect to the streaming session after a
     -- disconnection or network interruption within this time interval, they
@@ -85,9 +86,9 @@ data UpdateFleet = UpdateFleet'
     -- to a new session with a new streaming instance.
     --
     -- Specify a value between 60 and 360000.
-    disconnectTimeoutInSeconds :: Core.Maybe Core.Int,
+    disconnectTimeoutInSeconds :: Prelude.Maybe Prelude.Int,
     -- | The VPC configuration for the fleet.
-    vpcConfig :: Core.Maybe VpcConfig,
+    vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To
     -- assume a role, a fleet instance calls the AWS Security Token Service
     -- (STS) @AssumeRole@ API operation and passes the ARN of the role to use.
@@ -98,10 +99,10 @@ data UpdateFleet = UpdateFleet'
     -- For more information, see
     -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances>
     -- in the /Amazon AppStream 2.0 Administration Guide/.
-    iamRoleArn :: Core.Maybe Core.Text,
+    iamRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the directory and organizational unit (OU) to use to join
     -- the fleet to a Microsoft Active Directory domain.
-    domainJoinInfo :: Core.Maybe DomainJoinInfo,
+    domainJoinInfo :: Prelude.Maybe DomainJoinInfo,
     -- | The instance type to use when launching fleet instances. The following
     -- instance types are available:
     --
@@ -170,11 +171,11 @@ data UpdateFleet = UpdateFleet'
     -- -   stream.graphics-pro.8xlarge
     --
     -- -   stream.graphics-pro.16xlarge
-    instanceType :: Core.Maybe Core.Text,
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The desired capacity for the fleet.
-    computeCapacity :: Core.Maybe ComputeCapacity,
+    computeCapacity :: Prelude.Maybe ComputeCapacity,
     -- | Deletes the VPC association for the specified fleet.
-    deleteVpcConfig :: Core.Maybe Core.Bool,
+    deleteVpcConfig :: Prelude.Maybe Prelude.Bool,
     -- | The amount of time that users can be idle (inactive) before they are
     -- disconnected from their streaming session and the
     -- @DisconnectTimeoutInSeconds@ time interval begins. Users are notified
@@ -199,30 +200,30 @@ data UpdateFleet = UpdateFleet'
     -- is at the midpoint between two different minutes, the value is rounded
     -- up. For example, if you specify a value of 90, users are disconnected
     -- after 2 minutes of inactivity.
-    idleDisconnectTimeoutInSeconds :: Core.Maybe Core.Int,
+    idleDisconnectTimeoutInSeconds :: Prelude.Maybe Prelude.Int,
     -- | The name of the image used to create the fleet.
-    imageName :: Core.Maybe Core.Text,
+    imageName :: Prelude.Maybe Prelude.Text,
     -- | A unique name for the fleet.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The AppStream 2.0 view that is displayed to your users when they stream
     -- from the fleet. When @APP@ is specified, only the windows of
     -- applications opened by users display. When @DESKTOP@ is specified, the
     -- standard desktop that is provided by the operating system displays.
     --
     -- The default value is @APP@.
-    streamView :: Core.Maybe StreamView,
+    streamView :: Prelude.Maybe StreamView,
     -- | The description to display.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The fleet name to display.
-    displayName :: Core.Maybe Core.Text,
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | Enables or disables default internet access for the fleet.
-    enableDefaultInternetAccess :: Core.Maybe Core.Bool,
+    enableDefaultInternetAccess :: Prelude.Maybe Prelude.Bool,
     -- | The fleet attributes to delete.
-    attributesToDelete :: Core.Maybe [FleetAttribute],
+    attributesToDelete :: Prelude.Maybe [FleetAttribute],
     -- | The ARN of the public, private, or shared image to use.
-    imageArn :: Core.Maybe Core.Text
+    imageArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFleet' with all optional fields omitted.
@@ -387,23 +388,23 @@ newUpdateFleet ::
 newUpdateFleet =
   UpdateFleet'
     { maxUserDurationInSeconds =
-        Core.Nothing,
-      disconnectTimeoutInSeconds = Core.Nothing,
-      vpcConfig = Core.Nothing,
-      iamRoleArn = Core.Nothing,
-      domainJoinInfo = Core.Nothing,
-      instanceType = Core.Nothing,
-      computeCapacity = Core.Nothing,
-      deleteVpcConfig = Core.Nothing,
-      idleDisconnectTimeoutInSeconds = Core.Nothing,
-      imageName = Core.Nothing,
-      name = Core.Nothing,
-      streamView = Core.Nothing,
-      description = Core.Nothing,
-      displayName = Core.Nothing,
-      enableDefaultInternetAccess = Core.Nothing,
-      attributesToDelete = Core.Nothing,
-      imageArn = Core.Nothing
+        Prelude.Nothing,
+      disconnectTimeoutInSeconds = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
+      iamRoleArn = Prelude.Nothing,
+      domainJoinInfo = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      computeCapacity = Prelude.Nothing,
+      deleteVpcConfig = Prelude.Nothing,
+      idleDisconnectTimeoutInSeconds = Prelude.Nothing,
+      imageName = Prelude.Nothing,
+      name = Prelude.Nothing,
+      streamView = Prelude.Nothing,
+      description = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      enableDefaultInternetAccess = Prelude.Nothing,
+      attributesToDelete = Prelude.Nothing,
+      imageArn = Prelude.Nothing
     }
 
 -- | The maximum amount of time that a streaming session can remain active,
@@ -413,7 +414,7 @@ newUpdateFleet =
 -- instance is terminated and replaced by a new instance.
 --
 -- Specify a value between 600 and 360000.
-updateFleet_maxUserDurationInSeconds :: Lens.Lens' UpdateFleet (Core.Maybe Core.Int)
+updateFleet_maxUserDurationInSeconds :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Int)
 updateFleet_maxUserDurationInSeconds = Lens.lens (\UpdateFleet' {maxUserDurationInSeconds} -> maxUserDurationInSeconds) (\s@UpdateFleet' {} a -> s {maxUserDurationInSeconds = a} :: UpdateFleet)
 
 -- | The amount of time that a streaming session remains active after users
@@ -423,11 +424,11 @@ updateFleet_maxUserDurationInSeconds = Lens.lens (\UpdateFleet' {maxUserDuration
 -- to a new session with a new streaming instance.
 --
 -- Specify a value between 60 and 360000.
-updateFleet_disconnectTimeoutInSeconds :: Lens.Lens' UpdateFleet (Core.Maybe Core.Int)
+updateFleet_disconnectTimeoutInSeconds :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Int)
 updateFleet_disconnectTimeoutInSeconds = Lens.lens (\UpdateFleet' {disconnectTimeoutInSeconds} -> disconnectTimeoutInSeconds) (\s@UpdateFleet' {} a -> s {disconnectTimeoutInSeconds = a} :: UpdateFleet)
 
 -- | The VPC configuration for the fleet.
-updateFleet_vpcConfig :: Lens.Lens' UpdateFleet (Core.Maybe VpcConfig)
+updateFleet_vpcConfig :: Lens.Lens' UpdateFleet (Prelude.Maybe VpcConfig)
 updateFleet_vpcConfig = Lens.lens (\UpdateFleet' {vpcConfig} -> vpcConfig) (\s@UpdateFleet' {} a -> s {vpcConfig = a} :: UpdateFleet)
 
 -- | The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To
@@ -440,12 +441,12 @@ updateFleet_vpcConfig = Lens.lens (\UpdateFleet' {vpcConfig} -> vpcConfig) (\s@U
 -- For more information, see
 -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances>
 -- in the /Amazon AppStream 2.0 Administration Guide/.
-updateFleet_iamRoleArn :: Lens.Lens' UpdateFleet (Core.Maybe Core.Text)
+updateFleet_iamRoleArn :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Text)
 updateFleet_iamRoleArn = Lens.lens (\UpdateFleet' {iamRoleArn} -> iamRoleArn) (\s@UpdateFleet' {} a -> s {iamRoleArn = a} :: UpdateFleet)
 
 -- | The name of the directory and organizational unit (OU) to use to join
 -- the fleet to a Microsoft Active Directory domain.
-updateFleet_domainJoinInfo :: Lens.Lens' UpdateFleet (Core.Maybe DomainJoinInfo)
+updateFleet_domainJoinInfo :: Lens.Lens' UpdateFleet (Prelude.Maybe DomainJoinInfo)
 updateFleet_domainJoinInfo = Lens.lens (\UpdateFleet' {domainJoinInfo} -> domainJoinInfo) (\s@UpdateFleet' {} a -> s {domainJoinInfo = a} :: UpdateFleet)
 
 -- | The instance type to use when launching fleet instances. The following
@@ -516,15 +517,15 @@ updateFleet_domainJoinInfo = Lens.lens (\UpdateFleet' {domainJoinInfo} -> domain
 -- -   stream.graphics-pro.8xlarge
 --
 -- -   stream.graphics-pro.16xlarge
-updateFleet_instanceType :: Lens.Lens' UpdateFleet (Core.Maybe Core.Text)
+updateFleet_instanceType :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Text)
 updateFleet_instanceType = Lens.lens (\UpdateFleet' {instanceType} -> instanceType) (\s@UpdateFleet' {} a -> s {instanceType = a} :: UpdateFleet)
 
 -- | The desired capacity for the fleet.
-updateFleet_computeCapacity :: Lens.Lens' UpdateFleet (Core.Maybe ComputeCapacity)
+updateFleet_computeCapacity :: Lens.Lens' UpdateFleet (Prelude.Maybe ComputeCapacity)
 updateFleet_computeCapacity = Lens.lens (\UpdateFleet' {computeCapacity} -> computeCapacity) (\s@UpdateFleet' {} a -> s {computeCapacity = a} :: UpdateFleet)
 
 -- | Deletes the VPC association for the specified fleet.
-updateFleet_deleteVpcConfig :: Lens.Lens' UpdateFleet (Core.Maybe Core.Bool)
+updateFleet_deleteVpcConfig :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Bool)
 updateFleet_deleteVpcConfig = Lens.lens (\UpdateFleet' {deleteVpcConfig} -> deleteVpcConfig) (\s@UpdateFleet' {} a -> s {deleteVpcConfig = a} :: UpdateFleet)
 
 -- | The amount of time that users can be idle (inactive) before they are
@@ -551,15 +552,15 @@ updateFleet_deleteVpcConfig = Lens.lens (\UpdateFleet' {deleteVpcConfig} -> dele
 -- is at the midpoint between two different minutes, the value is rounded
 -- up. For example, if you specify a value of 90, users are disconnected
 -- after 2 minutes of inactivity.
-updateFleet_idleDisconnectTimeoutInSeconds :: Lens.Lens' UpdateFleet (Core.Maybe Core.Int)
+updateFleet_idleDisconnectTimeoutInSeconds :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Int)
 updateFleet_idleDisconnectTimeoutInSeconds = Lens.lens (\UpdateFleet' {idleDisconnectTimeoutInSeconds} -> idleDisconnectTimeoutInSeconds) (\s@UpdateFleet' {} a -> s {idleDisconnectTimeoutInSeconds = a} :: UpdateFleet)
 
 -- | The name of the image used to create the fleet.
-updateFleet_imageName :: Lens.Lens' UpdateFleet (Core.Maybe Core.Text)
+updateFleet_imageName :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Text)
 updateFleet_imageName = Lens.lens (\UpdateFleet' {imageName} -> imageName) (\s@UpdateFleet' {} a -> s {imageName = a} :: UpdateFleet)
 
 -- | A unique name for the fleet.
-updateFleet_name :: Lens.Lens' UpdateFleet (Core.Maybe Core.Text)
+updateFleet_name :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Text)
 updateFleet_name = Lens.lens (\UpdateFleet' {name} -> name) (\s@UpdateFleet' {} a -> s {name = a} :: UpdateFleet)
 
 -- | The AppStream 2.0 view that is displayed to your users when they stream
@@ -568,27 +569,27 @@ updateFleet_name = Lens.lens (\UpdateFleet' {name} -> name) (\s@UpdateFleet' {} 
 -- standard desktop that is provided by the operating system displays.
 --
 -- The default value is @APP@.
-updateFleet_streamView :: Lens.Lens' UpdateFleet (Core.Maybe StreamView)
+updateFleet_streamView :: Lens.Lens' UpdateFleet (Prelude.Maybe StreamView)
 updateFleet_streamView = Lens.lens (\UpdateFleet' {streamView} -> streamView) (\s@UpdateFleet' {} a -> s {streamView = a} :: UpdateFleet)
 
 -- | The description to display.
-updateFleet_description :: Lens.Lens' UpdateFleet (Core.Maybe Core.Text)
+updateFleet_description :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Text)
 updateFleet_description = Lens.lens (\UpdateFleet' {description} -> description) (\s@UpdateFleet' {} a -> s {description = a} :: UpdateFleet)
 
 -- | The fleet name to display.
-updateFleet_displayName :: Lens.Lens' UpdateFleet (Core.Maybe Core.Text)
+updateFleet_displayName :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Text)
 updateFleet_displayName = Lens.lens (\UpdateFleet' {displayName} -> displayName) (\s@UpdateFleet' {} a -> s {displayName = a} :: UpdateFleet)
 
 -- | Enables or disables default internet access for the fleet.
-updateFleet_enableDefaultInternetAccess :: Lens.Lens' UpdateFleet (Core.Maybe Core.Bool)
+updateFleet_enableDefaultInternetAccess :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Bool)
 updateFleet_enableDefaultInternetAccess = Lens.lens (\UpdateFleet' {enableDefaultInternetAccess} -> enableDefaultInternetAccess) (\s@UpdateFleet' {} a -> s {enableDefaultInternetAccess = a} :: UpdateFleet)
 
 -- | The fleet attributes to delete.
-updateFleet_attributesToDelete :: Lens.Lens' UpdateFleet (Core.Maybe [FleetAttribute])
-updateFleet_attributesToDelete = Lens.lens (\UpdateFleet' {attributesToDelete} -> attributesToDelete) (\s@UpdateFleet' {} a -> s {attributesToDelete = a} :: UpdateFleet) Core.. Lens.mapping Lens._Coerce
+updateFleet_attributesToDelete :: Lens.Lens' UpdateFleet (Prelude.Maybe [FleetAttribute])
+updateFleet_attributesToDelete = Lens.lens (\UpdateFleet' {attributesToDelete} -> attributesToDelete) (\s@UpdateFleet' {} a -> s {attributesToDelete = a} :: UpdateFleet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the public, private, or shared image to use.
-updateFleet_imageArn :: Lens.Lens' UpdateFleet (Core.Maybe Core.Text)
+updateFleet_imageArn :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Text)
 updateFleet_imageArn = Lens.lens (\UpdateFleet' {imageArn} -> imageArn) (\s@UpdateFleet' {} a -> s {imageArn = a} :: UpdateFleet)
 
 instance Core.AWSRequest UpdateFleet where
@@ -598,70 +599,75 @@ instance Core.AWSRequest UpdateFleet where
     Response.receiveJSON
       ( \s h x ->
           UpdateFleetResponse'
-            Core.<$> (x Core..?> "Fleet")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Fleet")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateFleet
+instance Prelude.Hashable UpdateFleet
 
-instance Core.NFData UpdateFleet
+instance Prelude.NFData UpdateFleet
 
 instance Core.ToHeaders UpdateFleet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "PhotonAdminProxyService.UpdateFleet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateFleet where
   toJSON UpdateFleet' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("MaxUserDurationInSeconds" Core..=)
-              Core.<$> maxUserDurationInSeconds,
+              Prelude.<$> maxUserDurationInSeconds,
             ("DisconnectTimeoutInSeconds" Core..=)
-              Core.<$> disconnectTimeoutInSeconds,
-            ("VpcConfig" Core..=) Core.<$> vpcConfig,
-            ("IamRoleArn" Core..=) Core.<$> iamRoleArn,
-            ("DomainJoinInfo" Core..=) Core.<$> domainJoinInfo,
-            ("InstanceType" Core..=) Core.<$> instanceType,
-            ("ComputeCapacity" Core..=) Core.<$> computeCapacity,
-            ("DeleteVpcConfig" Core..=) Core.<$> deleteVpcConfig,
+              Prelude.<$> disconnectTimeoutInSeconds,
+            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn,
+            ("DomainJoinInfo" Core..=)
+              Prelude.<$> domainJoinInfo,
+            ("InstanceType" Core..=) Prelude.<$> instanceType,
+            ("ComputeCapacity" Core..=)
+              Prelude.<$> computeCapacity,
+            ("DeleteVpcConfig" Core..=)
+              Prelude.<$> deleteVpcConfig,
             ("IdleDisconnectTimeoutInSeconds" Core..=)
-              Core.<$> idleDisconnectTimeoutInSeconds,
-            ("ImageName" Core..=) Core.<$> imageName,
-            ("Name" Core..=) Core.<$> name,
-            ("StreamView" Core..=) Core.<$> streamView,
-            ("Description" Core..=) Core.<$> description,
-            ("DisplayName" Core..=) Core.<$> displayName,
+              Prelude.<$> idleDisconnectTimeoutInSeconds,
+            ("ImageName" Core..=) Prelude.<$> imageName,
+            ("Name" Core..=) Prelude.<$> name,
+            ("StreamView" Core..=) Prelude.<$> streamView,
+            ("Description" Core..=) Prelude.<$> description,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
             ("EnableDefaultInternetAccess" Core..=)
-              Core.<$> enableDefaultInternetAccess,
+              Prelude.<$> enableDefaultInternetAccess,
             ("AttributesToDelete" Core..=)
-              Core.<$> attributesToDelete,
-            ("ImageArn" Core..=) Core.<$> imageArn
+              Prelude.<$> attributesToDelete,
+            ("ImageArn" Core..=) Prelude.<$> imageArn
           ]
       )
 
 instance Core.ToPath UpdateFleet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateFleet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFleetResponse' smart constructor.
 data UpdateFleetResponse = UpdateFleetResponse'
   { -- | Information about the fleet.
-    fleet :: Core.Maybe Fleet,
+    fleet :: Prelude.Maybe Fleet,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFleetResponse' with all optional fields omitted.
@@ -676,20 +682,20 @@ data UpdateFleetResponse = UpdateFleetResponse'
 -- 'httpStatus', 'updateFleetResponse_httpStatus' - The response's http status code.
 newUpdateFleetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateFleetResponse
 newUpdateFleetResponse pHttpStatus_ =
   UpdateFleetResponse'
-    { fleet = Core.Nothing,
+    { fleet = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the fleet.
-updateFleetResponse_fleet :: Lens.Lens' UpdateFleetResponse (Core.Maybe Fleet)
+updateFleetResponse_fleet :: Lens.Lens' UpdateFleetResponse (Prelude.Maybe Fleet)
 updateFleetResponse_fleet = Lens.lens (\UpdateFleetResponse' {fleet} -> fleet) (\s@UpdateFleetResponse' {} a -> s {fleet = a} :: UpdateFleetResponse)
 
 -- | The response's http status code.
-updateFleetResponse_httpStatus :: Lens.Lens' UpdateFleetResponse Core.Int
+updateFleetResponse_httpStatus :: Lens.Lens' UpdateFleetResponse Prelude.Int
 updateFleetResponse_httpStatus = Lens.lens (\UpdateFleetResponse' {httpStatus} -> httpStatus) (\s@UpdateFleetResponse' {} a -> s {httpStatus = a} :: UpdateFleetResponse)
 
-instance Core.NFData UpdateFleetResponse
+instance Prelude.NFData UpdateFleetResponse

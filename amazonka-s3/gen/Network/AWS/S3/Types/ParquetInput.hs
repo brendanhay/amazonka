@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.ParquetInput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Container for Parquet.
@@ -29,7 +30,7 @@ import Network.AWS.S3.Internal
 data ParquetInput = ParquetInput'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ParquetInput' with all optional fields omitted.
@@ -39,9 +40,9 @@ newParquetInput ::
   ParquetInput
 newParquetInput = ParquetInput'
 
-instance Core.Hashable ParquetInput
+instance Prelude.Hashable ParquetInput
 
-instance Core.NFData ParquetInput
+instance Prelude.NFData ParquetInput
 
 instance Core.ToXML ParquetInput where
-  toXML = Core.const Core.mempty
+  toXML = Prelude.const Prelude.mempty

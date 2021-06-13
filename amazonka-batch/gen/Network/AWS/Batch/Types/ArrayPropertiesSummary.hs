@@ -21,6 +21,7 @@ module Network.AWS.Batch.Types.ArrayPropertiesSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the array properties of a job.
 --
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 data ArrayPropertiesSummary = ArrayPropertiesSummary'
   { -- | The job index within the array that\'s associated with this job. This
     -- parameter is returned for children of array jobs.
-    index :: Core.Maybe Core.Int,
+    index :: Prelude.Maybe Prelude.Int,
     -- | The size of the array job. This parameter is returned for parent array
     -- jobs.
-    size :: Core.Maybe Core.Int
+    size :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ArrayPropertiesSummary' with all optional fields omitted.
@@ -52,18 +53,18 @@ newArrayPropertiesSummary ::
   ArrayPropertiesSummary
 newArrayPropertiesSummary =
   ArrayPropertiesSummary'
-    { index = Core.Nothing,
-      size = Core.Nothing
+    { index = Prelude.Nothing,
+      size = Prelude.Nothing
     }
 
 -- | The job index within the array that\'s associated with this job. This
 -- parameter is returned for children of array jobs.
-arrayPropertiesSummary_index :: Lens.Lens' ArrayPropertiesSummary (Core.Maybe Core.Int)
+arrayPropertiesSummary_index :: Lens.Lens' ArrayPropertiesSummary (Prelude.Maybe Prelude.Int)
 arrayPropertiesSummary_index = Lens.lens (\ArrayPropertiesSummary' {index} -> index) (\s@ArrayPropertiesSummary' {} a -> s {index = a} :: ArrayPropertiesSummary)
 
 -- | The size of the array job. This parameter is returned for parent array
 -- jobs.
-arrayPropertiesSummary_size :: Lens.Lens' ArrayPropertiesSummary (Core.Maybe Core.Int)
+arrayPropertiesSummary_size :: Lens.Lens' ArrayPropertiesSummary (Prelude.Maybe Prelude.Int)
 arrayPropertiesSummary_size = Lens.lens (\ArrayPropertiesSummary' {size} -> size) (\s@ArrayPropertiesSummary' {} a -> s {size = a} :: ArrayPropertiesSummary)
 
 instance Core.FromJSON ArrayPropertiesSummary where
@@ -72,9 +73,9 @@ instance Core.FromJSON ArrayPropertiesSummary where
       "ArrayPropertiesSummary"
       ( \x ->
           ArrayPropertiesSummary'
-            Core.<$> (x Core..:? "index") Core.<*> (x Core..:? "size")
+            Prelude.<$> (x Core..:? "index") Prelude.<*> (x Core..:? "size")
       )
 
-instance Core.Hashable ArrayPropertiesSummary
+instance Prelude.Hashable ArrayPropertiesSummary
 
-instance Core.NFData ArrayPropertiesSummary
+instance Prelude.NFData ArrayPropertiesSummary

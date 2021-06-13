@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -56,9 +57,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDescribeProject' smart constructor.
 data DescribeProject = DescribeProject'
   { -- | The name of the project to describe.
-    projectName :: Core.Text
+    projectName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeProject' with all optional fields omitted.
@@ -71,13 +72,13 @@ data DescribeProject = DescribeProject'
 -- 'projectName', 'describeProject_projectName' - The name of the project to describe.
 newDescribeProject ::
   -- | 'projectName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeProject
 newDescribeProject pProjectName_ =
   DescribeProject' {projectName = pProjectName_}
 
 -- | The name of the project to describe.
-describeProject_projectName :: Lens.Lens' DescribeProject Core.Text
+describeProject_projectName :: Lens.Lens' DescribeProject Prelude.Text
 describeProject_projectName = Lens.lens (\DescribeProject' {projectName} -> projectName) (\s@DescribeProject' {} a -> s {projectName = a} :: DescribeProject)
 
 instance Core.AWSRequest DescribeProject where
@@ -89,63 +90,65 @@ instance Core.AWSRequest DescribeProject where
     Response.receiveJSON
       ( \s h x ->
           DescribeProjectResponse'
-            Core.<$> ( x
-                         Core..?> "ServiceCatalogProvisionedProductDetails"
-                     )
-            Core.<*> (x Core..?> "ProjectDescription")
-            Core.<*> (x Core..?> "CreatedBy")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "ProjectArn")
-            Core.<*> (x Core..:> "ProjectName")
-            Core.<*> (x Core..:> "ProjectId")
-            Core.<*> (x Core..:> "ServiceCatalogProvisioningDetails")
-            Core.<*> (x Core..:> "ProjectStatus")
-            Core.<*> (x Core..:> "CreationTime")
+            Prelude.<$> ( x
+                            Core..?> "ServiceCatalogProvisionedProductDetails"
+                        )
+            Prelude.<*> (x Core..?> "ProjectDescription")
+            Prelude.<*> (x Core..?> "CreatedBy")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "ProjectArn")
+            Prelude.<*> (x Core..:> "ProjectName")
+            Prelude.<*> (x Core..:> "ProjectId")
+            Prelude.<*> (x Core..:> "ServiceCatalogProvisioningDetails")
+            Prelude.<*> (x Core..:> "ProjectStatus")
+            Prelude.<*> (x Core..:> "CreationTime")
       )
 
-instance Core.Hashable DescribeProject
+instance Prelude.Hashable DescribeProject
 
-instance Core.NFData DescribeProject
+instance Prelude.NFData DescribeProject
 
 instance Core.ToHeaders DescribeProject where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeProject" :: Core.ByteString),
+              Core.=# ("SageMaker.DescribeProject" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeProject where
   toJSON DescribeProject' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ProjectName" Core..= projectName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ProjectName" Core..= projectName)]
       )
 
 instance Core.ToPath DescribeProject where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeProject where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProjectResponse' smart constructor.
 data DescribeProjectResponse = DescribeProjectResponse'
   { -- | Information about a provisioned service catalog product.
-    serviceCatalogProvisionedProductDetails :: Core.Maybe ServiceCatalogProvisionedProductDetails,
+    serviceCatalogProvisionedProductDetails :: Prelude.Maybe ServiceCatalogProvisionedProductDetails,
     -- | The description of the project.
-    projectDescription :: Core.Maybe Core.Text,
-    createdBy :: Core.Maybe UserContext,
+    projectDescription :: Prelude.Maybe Prelude.Text,
+    createdBy :: Prelude.Maybe UserContext,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the project.
-    projectArn :: Core.Text,
+    projectArn :: Prelude.Text,
     -- | The name of the project.
-    projectName :: Core.Text,
+    projectName :: Prelude.Text,
     -- | The ID of the project.
-    projectId :: Core.Text,
+    projectId :: Prelude.Text,
     -- | Information used to provision a service catalog product. For
     -- information, see
     -- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is AWS Service Catalog>.
@@ -155,7 +158,7 @@ data DescribeProjectResponse = DescribeProjectResponse'
     -- | The time when the project was created.
     creationTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeProjectResponse' with all optional fields omitted.
@@ -188,19 +191,19 @@ data DescribeProjectResponse = DescribeProjectResponse'
 -- 'creationTime', 'describeProjectResponse_creationTime' - The time when the project was created.
 newDescribeProjectResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'projectArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'projectName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'projectId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'serviceCatalogProvisioningDetails'
   ServiceCatalogProvisioningDetails ->
   -- | 'projectStatus'
   ProjectStatus ->
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   DescribeProjectResponse
 newDescribeProjectResponse
   pHttpStatus_
@@ -212,9 +215,9 @@ newDescribeProjectResponse
   pCreationTime_ =
     DescribeProjectResponse'
       { serviceCatalogProvisionedProductDetails =
-          Core.Nothing,
-        projectDescription = Core.Nothing,
-        createdBy = Core.Nothing,
+          Prelude.Nothing,
+        projectDescription = Prelude.Nothing,
+        createdBy = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         projectArn = pProjectArn_,
         projectName = pProjectName_,
@@ -226,31 +229,31 @@ newDescribeProjectResponse
       }
 
 -- | Information about a provisioned service catalog product.
-describeProjectResponse_serviceCatalogProvisionedProductDetails :: Lens.Lens' DescribeProjectResponse (Core.Maybe ServiceCatalogProvisionedProductDetails)
+describeProjectResponse_serviceCatalogProvisionedProductDetails :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe ServiceCatalogProvisionedProductDetails)
 describeProjectResponse_serviceCatalogProvisionedProductDetails = Lens.lens (\DescribeProjectResponse' {serviceCatalogProvisionedProductDetails} -> serviceCatalogProvisionedProductDetails) (\s@DescribeProjectResponse' {} a -> s {serviceCatalogProvisionedProductDetails = a} :: DescribeProjectResponse)
 
 -- | The description of the project.
-describeProjectResponse_projectDescription :: Lens.Lens' DescribeProjectResponse (Core.Maybe Core.Text)
+describeProjectResponse_projectDescription :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
 describeProjectResponse_projectDescription = Lens.lens (\DescribeProjectResponse' {projectDescription} -> projectDescription) (\s@DescribeProjectResponse' {} a -> s {projectDescription = a} :: DescribeProjectResponse)
 
 -- | Undocumented member.
-describeProjectResponse_createdBy :: Lens.Lens' DescribeProjectResponse (Core.Maybe UserContext)
+describeProjectResponse_createdBy :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe UserContext)
 describeProjectResponse_createdBy = Lens.lens (\DescribeProjectResponse' {createdBy} -> createdBy) (\s@DescribeProjectResponse' {} a -> s {createdBy = a} :: DescribeProjectResponse)
 
 -- | The response's http status code.
-describeProjectResponse_httpStatus :: Lens.Lens' DescribeProjectResponse Core.Int
+describeProjectResponse_httpStatus :: Lens.Lens' DescribeProjectResponse Prelude.Int
 describeProjectResponse_httpStatus = Lens.lens (\DescribeProjectResponse' {httpStatus} -> httpStatus) (\s@DescribeProjectResponse' {} a -> s {httpStatus = a} :: DescribeProjectResponse)
 
 -- | The Amazon Resource Name (ARN) of the project.
-describeProjectResponse_projectArn :: Lens.Lens' DescribeProjectResponse Core.Text
+describeProjectResponse_projectArn :: Lens.Lens' DescribeProjectResponse Prelude.Text
 describeProjectResponse_projectArn = Lens.lens (\DescribeProjectResponse' {projectArn} -> projectArn) (\s@DescribeProjectResponse' {} a -> s {projectArn = a} :: DescribeProjectResponse)
 
 -- | The name of the project.
-describeProjectResponse_projectName :: Lens.Lens' DescribeProjectResponse Core.Text
+describeProjectResponse_projectName :: Lens.Lens' DescribeProjectResponse Prelude.Text
 describeProjectResponse_projectName = Lens.lens (\DescribeProjectResponse' {projectName} -> projectName) (\s@DescribeProjectResponse' {} a -> s {projectName = a} :: DescribeProjectResponse)
 
 -- | The ID of the project.
-describeProjectResponse_projectId :: Lens.Lens' DescribeProjectResponse Core.Text
+describeProjectResponse_projectId :: Lens.Lens' DescribeProjectResponse Prelude.Text
 describeProjectResponse_projectId = Lens.lens (\DescribeProjectResponse' {projectId} -> projectId) (\s@DescribeProjectResponse' {} a -> s {projectId = a} :: DescribeProjectResponse)
 
 -- | Information used to provision a service catalog product. For
@@ -264,7 +267,7 @@ describeProjectResponse_projectStatus :: Lens.Lens' DescribeProjectResponse Proj
 describeProjectResponse_projectStatus = Lens.lens (\DescribeProjectResponse' {projectStatus} -> projectStatus) (\s@DescribeProjectResponse' {} a -> s {projectStatus = a} :: DescribeProjectResponse)
 
 -- | The time when the project was created.
-describeProjectResponse_creationTime :: Lens.Lens' DescribeProjectResponse Core.UTCTime
-describeProjectResponse_creationTime = Lens.lens (\DescribeProjectResponse' {creationTime} -> creationTime) (\s@DescribeProjectResponse' {} a -> s {creationTime = a} :: DescribeProjectResponse) Core.. Core._Time
+describeProjectResponse_creationTime :: Lens.Lens' DescribeProjectResponse Prelude.UTCTime
+describeProjectResponse_creationTime = Lens.lens (\DescribeProjectResponse' {creationTime} -> creationTime) (\s@DescribeProjectResponse' {} a -> s {creationTime = a} :: DescribeProjectResponse) Prelude.. Core._Time
 
-instance Core.NFData DescribeProjectResponse
+instance Prelude.NFData DescribeProjectResponse

@@ -39,6 +39,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -46,9 +47,9 @@ import qualified Network.AWS.Response as Response
 data RegisterCrossAccountAccessRole = RegisterCrossAccountAccessRole'
   { -- | The ARN of the IAM role that grants Amazon Inspector access to AWS
     -- Services needed to perform security assessments.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterCrossAccountAccessRole' with all optional fields omitted.
@@ -62,7 +63,7 @@ data RegisterCrossAccountAccessRole = RegisterCrossAccountAccessRole'
 -- Services needed to perform security assessments.
 newRegisterCrossAccountAccessRole ::
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   RegisterCrossAccountAccessRole
 newRegisterCrossAccountAccessRole pRoleArn_ =
   RegisterCrossAccountAccessRole'
@@ -72,7 +73,7 @@ newRegisterCrossAccountAccessRole pRoleArn_ =
 
 -- | The ARN of the IAM role that grants Amazon Inspector access to AWS
 -- Services needed to perform security assessments.
-registerCrossAccountAccessRole_roleArn :: Lens.Lens' RegisterCrossAccountAccessRole Core.Text
+registerCrossAccountAccessRole_roleArn :: Lens.Lens' RegisterCrossAccountAccessRole Prelude.Text
 registerCrossAccountAccessRole_roleArn = Lens.lens (\RegisterCrossAccountAccessRole' {roleArn} -> roleArn) (\s@RegisterCrossAccountAccessRole' {} a -> s {roleArn = a} :: RegisterCrossAccountAccessRole)
 
 instance
@@ -87,44 +88,50 @@ instance
     Response.receiveNull
       RegisterCrossAccountAccessRoleResponse'
 
-instance Core.Hashable RegisterCrossAccountAccessRole
+instance
+  Prelude.Hashable
+    RegisterCrossAccountAccessRole
 
-instance Core.NFData RegisterCrossAccountAccessRole
+instance
+  Prelude.NFData
+    RegisterCrossAccountAccessRole
 
 instance
   Core.ToHeaders
     RegisterCrossAccountAccessRole
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "InspectorService.RegisterCrossAccountAccessRole" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RegisterCrossAccountAccessRole where
   toJSON RegisterCrossAccountAccessRole' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("roleArn" Core..= roleArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("roleArn" Core..= roleArn)]
       )
 
 instance Core.ToPath RegisterCrossAccountAccessRole where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RegisterCrossAccountAccessRole where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterCrossAccountAccessRoleResponse' smart constructor.
 data RegisterCrossAccountAccessRoleResponse = RegisterCrossAccountAccessRoleResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterCrossAccountAccessRoleResponse' with all optional fields omitted.
@@ -136,5 +143,5 @@ newRegisterCrossAccountAccessRoleResponse =
   RegisterCrossAccountAccessRoleResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     RegisterCrossAccountAccessRoleResponse

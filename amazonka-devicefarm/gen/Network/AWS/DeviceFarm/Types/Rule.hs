@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.DeviceAttribute
 import Network.AWS.DeviceFarm.Types.RuleOperator
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a condition for a device pool.
 --
@@ -31,7 +32,7 @@ data Rule = Rule'
   { -- | Specifies how Device Farm compares the rule\'s attribute to the value.
     -- For the operators that are supported by each attribute, see the
     -- attribute descriptions.
-    operator :: Core.Maybe RuleOperator,
+    operator :: Prelude.Maybe RuleOperator,
     -- | The rule\'s stringified attribute. For example, specify the value as
     -- @\"\\\"abc\\\"\"@.
     --
@@ -112,11 +113,11 @@ data Rule = Rule'
     --     Because remote debugging is
     --     <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>,
     --     this filter is ignored.
-    attribute :: Core.Maybe DeviceAttribute,
+    attribute :: Prelude.Maybe DeviceAttribute,
     -- | The rule\'s value.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Rule' with all optional fields omitted.
@@ -216,15 +217,15 @@ newRule ::
   Rule
 newRule =
   Rule'
-    { operator = Core.Nothing,
-      attribute = Core.Nothing,
-      value = Core.Nothing
+    { operator = Prelude.Nothing,
+      attribute = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | Specifies how Device Farm compares the rule\'s attribute to the value.
 -- For the operators that are supported by each attribute, see the
 -- attribute descriptions.
-rule_operator :: Lens.Lens' Rule (Core.Maybe RuleOperator)
+rule_operator :: Lens.Lens' Rule (Prelude.Maybe RuleOperator)
 rule_operator = Lens.lens (\Rule' {operator} -> operator) (\s@Rule' {} a -> s {operator = a} :: Rule)
 
 -- | The rule\'s stringified attribute. For example, specify the value as
@@ -307,11 +308,11 @@ rule_operator = Lens.lens (\Rule' {operator} -> operator) (\s@Rule' {} a -> s {o
 --     Because remote debugging is
 --     <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>,
 --     this filter is ignored.
-rule_attribute :: Lens.Lens' Rule (Core.Maybe DeviceAttribute)
+rule_attribute :: Lens.Lens' Rule (Prelude.Maybe DeviceAttribute)
 rule_attribute = Lens.lens (\Rule' {attribute} -> attribute) (\s@Rule' {} a -> s {attribute = a} :: Rule)
 
 -- | The rule\'s value.
-rule_value :: Lens.Lens' Rule (Core.Maybe Core.Text)
+rule_value :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
 rule_value = Lens.lens (\Rule' {value} -> value) (\s@Rule' {} a -> s {value = a} :: Rule)
 
 instance Core.FromJSON Rule where
@@ -320,21 +321,21 @@ instance Core.FromJSON Rule where
       "Rule"
       ( \x ->
           Rule'
-            Core.<$> (x Core..:? "operator")
-            Core.<*> (x Core..:? "attribute")
-            Core.<*> (x Core..:? "value")
+            Prelude.<$> (x Core..:? "operator")
+            Prelude.<*> (x Core..:? "attribute")
+            Prelude.<*> (x Core..:? "value")
       )
 
-instance Core.Hashable Rule
+instance Prelude.Hashable Rule
 
-instance Core.NFData Rule
+instance Prelude.NFData Rule
 
 instance Core.ToJSON Rule where
   toJSON Rule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("operator" Core..=) Core.<$> operator,
-            ("attribute" Core..=) Core.<$> attribute,
-            ("value" Core..=) Core.<$> value
+      ( Prelude.catMaybes
+          [ ("operator" Core..=) Prelude.<$> operator,
+            ("attribute" Core..=) Prelude.<$> attribute,
+            ("value" Core..=) Prelude.<$> value
           ]
       )

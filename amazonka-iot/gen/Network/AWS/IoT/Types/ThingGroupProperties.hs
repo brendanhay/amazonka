@@ -22,17 +22,18 @@ module Network.AWS.IoT.Types.ThingGroupProperties where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.AttributePayload
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Thing group properties.
 --
 -- /See:/ 'newThingGroupProperties' smart constructor.
 data ThingGroupProperties = ThingGroupProperties'
   { -- | The thing group description.
-    thingGroupDescription :: Core.Maybe Core.Text,
+    thingGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | The thing group attributes in JSON format.
-    attributePayload :: Core.Maybe AttributePayload
+    attributePayload :: Prelude.Maybe AttributePayload
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ThingGroupProperties' with all optional fields omitted.
@@ -50,16 +51,16 @@ newThingGroupProperties ::
 newThingGroupProperties =
   ThingGroupProperties'
     { thingGroupDescription =
-        Core.Nothing,
-      attributePayload = Core.Nothing
+        Prelude.Nothing,
+      attributePayload = Prelude.Nothing
     }
 
 -- | The thing group description.
-thingGroupProperties_thingGroupDescription :: Lens.Lens' ThingGroupProperties (Core.Maybe Core.Text)
+thingGroupProperties_thingGroupDescription :: Lens.Lens' ThingGroupProperties (Prelude.Maybe Prelude.Text)
 thingGroupProperties_thingGroupDescription = Lens.lens (\ThingGroupProperties' {thingGroupDescription} -> thingGroupDescription) (\s@ThingGroupProperties' {} a -> s {thingGroupDescription = a} :: ThingGroupProperties)
 
 -- | The thing group attributes in JSON format.
-thingGroupProperties_attributePayload :: Lens.Lens' ThingGroupProperties (Core.Maybe AttributePayload)
+thingGroupProperties_attributePayload :: Lens.Lens' ThingGroupProperties (Prelude.Maybe AttributePayload)
 thingGroupProperties_attributePayload = Lens.lens (\ThingGroupProperties' {attributePayload} -> attributePayload) (\s@ThingGroupProperties' {} a -> s {attributePayload = a} :: ThingGroupProperties)
 
 instance Core.FromJSON ThingGroupProperties where
@@ -68,21 +69,21 @@ instance Core.FromJSON ThingGroupProperties where
       "ThingGroupProperties"
       ( \x ->
           ThingGroupProperties'
-            Core.<$> (x Core..:? "thingGroupDescription")
-            Core.<*> (x Core..:? "attributePayload")
+            Prelude.<$> (x Core..:? "thingGroupDescription")
+            Prelude.<*> (x Core..:? "attributePayload")
       )
 
-instance Core.Hashable ThingGroupProperties
+instance Prelude.Hashable ThingGroupProperties
 
-instance Core.NFData ThingGroupProperties
+instance Prelude.NFData ThingGroupProperties
 
 instance Core.ToJSON ThingGroupProperties where
   toJSON ThingGroupProperties' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("thingGroupDescription" Core..=)
-              Core.<$> thingGroupDescription,
+              Prelude.<$> thingGroupDescription,
             ("attributePayload" Core..=)
-              Core.<$> attributePayload
+              Prelude.<$> attributePayload
           ]
       )

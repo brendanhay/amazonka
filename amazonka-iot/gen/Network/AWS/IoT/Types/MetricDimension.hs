@@ -22,6 +22,7 @@ module Network.AWS.IoT.Types.MetricDimension where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.DimensionValueOperator
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The dimension of a metric.
 --
@@ -33,11 +34,11 @@ data MetricDimension = MetricDimension'
     -- @NOT_IN@ operator, a message will be counted only if it doesn\'t match
     -- any of the topic filters. The operator is optional: if it\'s not
     -- provided (is @null@), it will be interpreted as @IN@.
-    operator :: Core.Maybe DimensionValueOperator,
+    operator :: Prelude.Maybe DimensionValueOperator,
     -- | A unique identifier for the dimension.
-    dimensionName :: Core.Text
+    dimensionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetricDimension' with all optional fields omitted.
@@ -57,11 +58,11 @@ data MetricDimension = MetricDimension'
 -- 'dimensionName', 'metricDimension_dimensionName' - A unique identifier for the dimension.
 newMetricDimension ::
   -- | 'dimensionName'
-  Core.Text ->
+  Prelude.Text ->
   MetricDimension
 newMetricDimension pDimensionName_ =
   MetricDimension'
-    { operator = Core.Nothing,
+    { operator = Prelude.Nothing,
       dimensionName = pDimensionName_
     }
 
@@ -71,11 +72,11 @@ newMetricDimension pDimensionName_ =
 -- @NOT_IN@ operator, a message will be counted only if it doesn\'t match
 -- any of the topic filters. The operator is optional: if it\'s not
 -- provided (is @null@), it will be interpreted as @IN@.
-metricDimension_operator :: Lens.Lens' MetricDimension (Core.Maybe DimensionValueOperator)
+metricDimension_operator :: Lens.Lens' MetricDimension (Prelude.Maybe DimensionValueOperator)
 metricDimension_operator = Lens.lens (\MetricDimension' {operator} -> operator) (\s@MetricDimension' {} a -> s {operator = a} :: MetricDimension)
 
 -- | A unique identifier for the dimension.
-metricDimension_dimensionName :: Lens.Lens' MetricDimension Core.Text
+metricDimension_dimensionName :: Lens.Lens' MetricDimension Prelude.Text
 metricDimension_dimensionName = Lens.lens (\MetricDimension' {dimensionName} -> dimensionName) (\s@MetricDimension' {} a -> s {dimensionName = a} :: MetricDimension)
 
 instance Core.FromJSON MetricDimension where
@@ -84,19 +85,20 @@ instance Core.FromJSON MetricDimension where
       "MetricDimension"
       ( \x ->
           MetricDimension'
-            Core.<$> (x Core..:? "operator")
-            Core.<*> (x Core..: "dimensionName")
+            Prelude.<$> (x Core..:? "operator")
+            Prelude.<*> (x Core..: "dimensionName")
       )
 
-instance Core.Hashable MetricDimension
+instance Prelude.Hashable MetricDimension
 
-instance Core.NFData MetricDimension
+instance Prelude.NFData MetricDimension
 
 instance Core.ToJSON MetricDimension where
   toJSON MetricDimension' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("operator" Core..=) Core.<$> operator,
-            Core.Just ("dimensionName" Core..= dimensionName)
+      ( Prelude.catMaybes
+          [ ("operator" Core..=) Prelude.<$> operator,
+            Prelude.Just
+              ("dimensionName" Core..= dimensionName)
           ]
       )

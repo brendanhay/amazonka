@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.H264UnregisteredSeiTimecode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Inserts timecode for each frame as 4 bytes of an unregistered SEI
 -- message.
@@ -35,15 +36,15 @@ newtype H264UnregisteredSeiTimecode = H264UnregisteredSeiTimecode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

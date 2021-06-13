@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,7 +50,7 @@ import qualified Network.AWS.Response as Response
 data DescribeAccountAttributes = DescribeAccountAttributes'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountAttributes' with all optional fields omitted.
@@ -70,27 +71,28 @@ instance Core.AWSRequest DescribeAccountAttributes where
       "DescribeAccountAttributesResult"
       ( \s h x ->
           DescribeAccountAttributesResponse'
-            Core.<$> (x Core..@? "ResourceQuotas")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ResourceQuotas")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeAccountAttributes
+instance Prelude.Hashable DescribeAccountAttributes
 
-instance Core.NFData DescribeAccountAttributes
+instance Prelude.NFData DescribeAccountAttributes
 
 instance Core.ToHeaders DescribeAccountAttributes where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeAccountAttributes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeAccountAttributes where
   toQuery =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Action"
-              Core.=: ("DescribeAccountAttributes" :: Core.ByteString),
-            "Version" Core.=: ("2010-12-01" :: Core.ByteString)
+              Core.=: ("DescribeAccountAttributes" :: Prelude.ByteString),
+            "Version"
+              Core.=: ("2010-12-01" :: Prelude.ByteString)
           ]
       )
 
@@ -98,11 +100,11 @@ instance Core.ToQuery DescribeAccountAttributes where
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
   { -- | The Elastic Beanstalk resource quotas associated with the calling AWS
     -- account.
-    resourceQuotas :: Core.Maybe ResourceQuotas,
+    resourceQuotas :: Prelude.Maybe ResourceQuotas,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountAttributesResponse' with all optional fields omitted.
@@ -118,24 +120,24 @@ data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
 -- 'httpStatus', 'describeAccountAttributesResponse_httpStatus' - The response's http status code.
 newDescribeAccountAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeAccountAttributesResponse
 newDescribeAccountAttributesResponse pHttpStatus_ =
   DescribeAccountAttributesResponse'
     { resourceQuotas =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Elastic Beanstalk resource quotas associated with the calling AWS
 -- account.
-describeAccountAttributesResponse_resourceQuotas :: Lens.Lens' DescribeAccountAttributesResponse (Core.Maybe ResourceQuotas)
+describeAccountAttributesResponse_resourceQuotas :: Lens.Lens' DescribeAccountAttributesResponse (Prelude.Maybe ResourceQuotas)
 describeAccountAttributesResponse_resourceQuotas = Lens.lens (\DescribeAccountAttributesResponse' {resourceQuotas} -> resourceQuotas) (\s@DescribeAccountAttributesResponse' {} a -> s {resourceQuotas = a} :: DescribeAccountAttributesResponse)
 
 -- | The response's http status code.
-describeAccountAttributesResponse_httpStatus :: Lens.Lens' DescribeAccountAttributesResponse Core.Int
+describeAccountAttributesResponse_httpStatus :: Lens.Lens' DescribeAccountAttributesResponse Prelude.Int
 describeAccountAttributesResponse_httpStatus = Lens.lens (\DescribeAccountAttributesResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountAttributesResponse' {} a -> s {httpStatus = a} :: DescribeAccountAttributesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeAccountAttributesResponse

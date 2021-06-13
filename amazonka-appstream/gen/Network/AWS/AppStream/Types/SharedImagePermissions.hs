@@ -22,6 +22,7 @@ module Network.AWS.AppStream.Types.SharedImagePermissions where
 import Network.AWS.AppStream.Types.ImagePermissions
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the permissions that are available to the specified AWS
 -- account for a shared image.
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 data SharedImagePermissions = SharedImagePermissions'
   { -- | The 12-digit identifier of the AWS account with which the image is
     -- shared.
-    sharedAccountId :: Core.Text,
+    sharedAccountId :: Prelude.Text,
     -- | Describes the permissions for a shared image.
     imagePermissions :: ImagePermissions
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SharedImagePermissions' with all optional fields omitted.
@@ -50,7 +51,7 @@ data SharedImagePermissions = SharedImagePermissions'
 -- 'imagePermissions', 'sharedImagePermissions_imagePermissions' - Describes the permissions for a shared image.
 newSharedImagePermissions ::
   -- | 'sharedAccountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'imagePermissions'
   ImagePermissions ->
   SharedImagePermissions
@@ -65,7 +66,7 @@ newSharedImagePermissions
 
 -- | The 12-digit identifier of the AWS account with which the image is
 -- shared.
-sharedImagePermissions_sharedAccountId :: Lens.Lens' SharedImagePermissions Core.Text
+sharedImagePermissions_sharedAccountId :: Lens.Lens' SharedImagePermissions Prelude.Text
 sharedImagePermissions_sharedAccountId = Lens.lens (\SharedImagePermissions' {sharedAccountId} -> sharedAccountId) (\s@SharedImagePermissions' {} a -> s {sharedAccountId = a} :: SharedImagePermissions)
 
 -- | Describes the permissions for a shared image.
@@ -78,10 +79,10 @@ instance Core.FromJSON SharedImagePermissions where
       "SharedImagePermissions"
       ( \x ->
           SharedImagePermissions'
-            Core.<$> (x Core..: "sharedAccountId")
-            Core.<*> (x Core..: "imagePermissions")
+            Prelude.<$> (x Core..: "sharedAccountId")
+            Prelude.<*> (x Core..: "imagePermissions")
       )
 
-instance Core.Hashable SharedImagePermissions
+instance Prelude.Hashable SharedImagePermissions
 
-instance Core.NFData SharedImagePermissions
+instance Prelude.NFData SharedImagePermissions

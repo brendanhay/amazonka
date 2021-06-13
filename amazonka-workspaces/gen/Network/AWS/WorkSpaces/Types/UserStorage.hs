@@ -21,15 +21,16 @@ module Network.AWS.WorkSpaces.Types.UserStorage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the user storage for a WorkSpace bundle.
 --
 -- /See:/ 'newUserStorage' smart constructor.
 data UserStorage = UserStorage'
   { -- | The size of the user storage.
-    capacity :: Core.Maybe Core.Text
+    capacity :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserStorage' with all optional fields omitted.
@@ -43,10 +44,10 @@ data UserStorage = UserStorage'
 newUserStorage ::
   UserStorage
 newUserStorage =
-  UserStorage' {capacity = Core.Nothing}
+  UserStorage' {capacity = Prelude.Nothing}
 
 -- | The size of the user storage.
-userStorage_capacity :: Lens.Lens' UserStorage (Core.Maybe Core.Text)
+userStorage_capacity :: Lens.Lens' UserStorage (Prelude.Maybe Prelude.Text)
 userStorage_capacity = Lens.lens (\UserStorage' {capacity} -> capacity) (\s@UserStorage' {} a -> s {capacity = a} :: UserStorage)
 
 instance Core.FromJSON UserStorage where
@@ -54,9 +55,9 @@ instance Core.FromJSON UserStorage where
     Core.withObject
       "UserStorage"
       ( \x ->
-          UserStorage' Core.<$> (x Core..:? "Capacity")
+          UserStorage' Prelude.<$> (x Core..:? "Capacity")
       )
 
-instance Core.Hashable UserStorage
+instance Prelude.Hashable UserStorage
 
-instance Core.NFData UserStorage
+instance Prelude.NFData UserStorage

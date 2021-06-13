@@ -39,17 +39,18 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteScheduledAction' smart constructor.
 data DeleteScheduledAction = DeleteScheduledAction'
   { -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Core.Text,
+    autoScalingGroupName :: Prelude.Text,
     -- | The name of the action to delete.
-    scheduledActionName :: Core.Text
+    scheduledActionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteScheduledAction' with all optional fields omitted.
@@ -64,9 +65,9 @@ data DeleteScheduledAction = DeleteScheduledAction'
 -- 'scheduledActionName', 'deleteScheduledAction_scheduledActionName' - The name of the action to delete.
 newDeleteScheduledAction ::
   -- | 'autoScalingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'scheduledActionName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteScheduledAction
 newDeleteScheduledAction
   pAutoScalingGroupName_
@@ -78,11 +79,11 @@ newDeleteScheduledAction
       }
 
 -- | The name of the Auto Scaling group.
-deleteScheduledAction_autoScalingGroupName :: Lens.Lens' DeleteScheduledAction Core.Text
+deleteScheduledAction_autoScalingGroupName :: Lens.Lens' DeleteScheduledAction Prelude.Text
 deleteScheduledAction_autoScalingGroupName = Lens.lens (\DeleteScheduledAction' {autoScalingGroupName} -> autoScalingGroupName) (\s@DeleteScheduledAction' {} a -> s {autoScalingGroupName = a} :: DeleteScheduledAction)
 
 -- | The name of the action to delete.
-deleteScheduledAction_scheduledActionName :: Lens.Lens' DeleteScheduledAction Core.Text
+deleteScheduledAction_scheduledActionName :: Lens.Lens' DeleteScheduledAction Prelude.Text
 deleteScheduledAction_scheduledActionName = Lens.lens (\DeleteScheduledAction' {scheduledActionName} -> scheduledActionName) (\s@DeleteScheduledAction' {} a -> s {scheduledActionName = a} :: DeleteScheduledAction)
 
 instance Core.AWSRequest DeleteScheduledAction where
@@ -93,22 +94,23 @@ instance Core.AWSRequest DeleteScheduledAction where
   response =
     Response.receiveNull DeleteScheduledActionResponse'
 
-instance Core.Hashable DeleteScheduledAction
+instance Prelude.Hashable DeleteScheduledAction
 
-instance Core.NFData DeleteScheduledAction
+instance Prelude.NFData DeleteScheduledAction
 
 instance Core.ToHeaders DeleteScheduledAction where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteScheduledAction where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteScheduledAction where
   toQuery DeleteScheduledAction' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteScheduledAction" :: Core.ByteString),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+          Core.=: ("DeleteScheduledAction" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "AutoScalingGroupName" Core.=: autoScalingGroupName,
         "ScheduledActionName" Core.=: scheduledActionName
       ]
@@ -117,7 +119,7 @@ instance Core.ToQuery DeleteScheduledAction where
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteScheduledActionResponse' with all optional fields omitted.
@@ -128,4 +130,4 @@ newDeleteScheduledActionResponse ::
 newDeleteScheduledActionResponse =
   DeleteScheduledActionResponse'
 
-instance Core.NFData DeleteScheduledActionResponse
+instance Prelude.NFData DeleteScheduledActionResponse

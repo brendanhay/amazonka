@@ -21,15 +21,16 @@ module Network.AWS.IoT.Types.JobExecutionStatusDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details of the job execution status.
 --
 -- /See:/ 'newJobExecutionStatusDetails' smart constructor.
 data JobExecutionStatusDetails = JobExecutionStatusDetails'
   { -- | The job execution status.
-    detailsMap :: Core.Maybe (Core.HashMap Core.Text Core.Text)
+    detailsMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobExecutionStatusDetails' with all optional fields omitted.
@@ -45,12 +46,12 @@ newJobExecutionStatusDetails ::
 newJobExecutionStatusDetails =
   JobExecutionStatusDetails'
     { detailsMap =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The job execution status.
-jobExecutionStatusDetails_detailsMap :: Lens.Lens' JobExecutionStatusDetails (Core.Maybe (Core.HashMap Core.Text Core.Text))
-jobExecutionStatusDetails_detailsMap = Lens.lens (\JobExecutionStatusDetails' {detailsMap} -> detailsMap) (\s@JobExecutionStatusDetails' {} a -> s {detailsMap = a} :: JobExecutionStatusDetails) Core.. Lens.mapping Lens._Coerce
+jobExecutionStatusDetails_detailsMap :: Lens.Lens' JobExecutionStatusDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+jobExecutionStatusDetails_detailsMap = Lens.lens (\JobExecutionStatusDetails' {detailsMap} -> detailsMap) (\s@JobExecutionStatusDetails' {} a -> s {detailsMap = a} :: JobExecutionStatusDetails) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON JobExecutionStatusDetails where
   parseJSON =
@@ -58,9 +59,9 @@ instance Core.FromJSON JobExecutionStatusDetails where
       "JobExecutionStatusDetails"
       ( \x ->
           JobExecutionStatusDetails'
-            Core.<$> (x Core..:? "detailsMap" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "detailsMap" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable JobExecutionStatusDetails
+instance Prelude.Hashable JobExecutionStatusDetails
 
-instance Core.NFData JobExecutionStatusDetails
+instance Prelude.NFData JobExecutionStatusDetails

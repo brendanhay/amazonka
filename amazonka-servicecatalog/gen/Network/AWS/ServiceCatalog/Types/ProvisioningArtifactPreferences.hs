@@ -21,6 +21,7 @@ module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The user-defined preferences that will be applied during product
 -- provisioning, unless overridden by @ProvisioningPreferences@ or
@@ -39,16 +40,16 @@ data ProvisioningArtifactPreferences = ProvisioningArtifactPreferences'
     -- @UpdateProvisioningPreferences$StackSetAccounts@.
     --
     -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-    stackSetAccounts :: Core.Maybe [Core.Text],
+    stackSetAccounts :: Prelude.Maybe [Prelude.Text],
     -- | One or more AWS Regions where stack instances are deployed from the
     -- stack set. These regions can be scoped in
     -- @ProvisioningPreferences$StackSetRegions@ and
     -- @UpdateProvisioningPreferences$StackSetRegions@.
     --
     -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-    stackSetRegions :: Core.Maybe [Core.Text]
+    stackSetRegions :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProvisioningArtifactPreferences' with all optional fields omitted.
@@ -76,8 +77,8 @@ newProvisioningArtifactPreferences ::
 newProvisioningArtifactPreferences =
   ProvisioningArtifactPreferences'
     { stackSetAccounts =
-        Core.Nothing,
-      stackSetRegions = Core.Nothing
+        Prelude.Nothing,
+      stackSetRegions = Prelude.Nothing
     }
 
 -- | One or more AWS accounts where stack instances are deployed from the
@@ -86,8 +87,8 @@ newProvisioningArtifactPreferences =
 -- @UpdateProvisioningPreferences$StackSetAccounts@.
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-provisioningArtifactPreferences_stackSetAccounts :: Lens.Lens' ProvisioningArtifactPreferences (Core.Maybe [Core.Text])
-provisioningArtifactPreferences_stackSetAccounts = Lens.lens (\ProvisioningArtifactPreferences' {stackSetAccounts} -> stackSetAccounts) (\s@ProvisioningArtifactPreferences' {} a -> s {stackSetAccounts = a} :: ProvisioningArtifactPreferences) Core.. Lens.mapping Lens._Coerce
+provisioningArtifactPreferences_stackSetAccounts :: Lens.Lens' ProvisioningArtifactPreferences (Prelude.Maybe [Prelude.Text])
+provisioningArtifactPreferences_stackSetAccounts = Lens.lens (\ProvisioningArtifactPreferences' {stackSetAccounts} -> stackSetAccounts) (\s@ProvisioningArtifactPreferences' {} a -> s {stackSetAccounts = a} :: ProvisioningArtifactPreferences) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more AWS Regions where stack instances are deployed from the
 -- stack set. These regions can be scoped in
@@ -95,8 +96,8 @@ provisioningArtifactPreferences_stackSetAccounts = Lens.lens (\ProvisioningArtif
 -- @UpdateProvisioningPreferences$StackSetRegions@.
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-provisioningArtifactPreferences_stackSetRegions :: Lens.Lens' ProvisioningArtifactPreferences (Core.Maybe [Core.Text])
-provisioningArtifactPreferences_stackSetRegions = Lens.lens (\ProvisioningArtifactPreferences' {stackSetRegions} -> stackSetRegions) (\s@ProvisioningArtifactPreferences' {} a -> s {stackSetRegions = a} :: ProvisioningArtifactPreferences) Core.. Lens.mapping Lens._Coerce
+provisioningArtifactPreferences_stackSetRegions :: Lens.Lens' ProvisioningArtifactPreferences (Prelude.Maybe [Prelude.Text])
+provisioningArtifactPreferences_stackSetRegions = Lens.lens (\ProvisioningArtifactPreferences' {stackSetRegions} -> stackSetRegions) (\s@ProvisioningArtifactPreferences' {} a -> s {stackSetRegions = a} :: ProvisioningArtifactPreferences) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromJSON
@@ -107,12 +108,18 @@ instance
       "ProvisioningArtifactPreferences"
       ( \x ->
           ProvisioningArtifactPreferences'
-            Core.<$> (x Core..:? "StackSetAccounts" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "StackSetRegions" Core..!= Core.mempty)
+            Prelude.<$> ( x Core..:? "StackSetAccounts"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "StackSetRegions"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ProvisioningArtifactPreferences
 
-instance Core.NFData ProvisioningArtifactPreferences
+instance
+  Prelude.NFData
+    ProvisioningArtifactPreferences

@@ -21,17 +21,18 @@ module Network.AWS.SSM.Types.OpsMetadataFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A filter to limit the number of OpsMetadata objects displayed.
 --
 -- /See:/ 'newOpsMetadataFilter' smart constructor.
 data OpsMetadataFilter = OpsMetadataFilter'
   { -- | A filter key.
-    key :: Core.Text,
+    key :: Prelude.Text,
     -- | A filter value.
-    values :: Core.NonEmpty Core.Text
+    values :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OpsMetadataFilter' with all optional fields omitted.
@@ -46,9 +47,9 @@ data OpsMetadataFilter = OpsMetadataFilter'
 -- 'values', 'opsMetadataFilter_values' - A filter value.
 newOpsMetadataFilter ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'values'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   OpsMetadataFilter
 newOpsMetadataFilter pKey_ pValues_ =
   OpsMetadataFilter'
@@ -57,22 +58,22 @@ newOpsMetadataFilter pKey_ pValues_ =
     }
 
 -- | A filter key.
-opsMetadataFilter_key :: Lens.Lens' OpsMetadataFilter Core.Text
+opsMetadataFilter_key :: Lens.Lens' OpsMetadataFilter Prelude.Text
 opsMetadataFilter_key = Lens.lens (\OpsMetadataFilter' {key} -> key) (\s@OpsMetadataFilter' {} a -> s {key = a} :: OpsMetadataFilter)
 
 -- | A filter value.
-opsMetadataFilter_values :: Lens.Lens' OpsMetadataFilter (Core.NonEmpty Core.Text)
-opsMetadataFilter_values = Lens.lens (\OpsMetadataFilter' {values} -> values) (\s@OpsMetadataFilter' {} a -> s {values = a} :: OpsMetadataFilter) Core.. Lens._Coerce
+opsMetadataFilter_values :: Lens.Lens' OpsMetadataFilter (Prelude.NonEmpty Prelude.Text)
+opsMetadataFilter_values = Lens.lens (\OpsMetadataFilter' {values} -> values) (\s@OpsMetadataFilter' {} a -> s {values = a} :: OpsMetadataFilter) Prelude.. Lens._Coerce
 
-instance Core.Hashable OpsMetadataFilter
+instance Prelude.Hashable OpsMetadataFilter
 
-instance Core.NFData OpsMetadataFilter
+instance Prelude.NFData OpsMetadataFilter
 
 instance Core.ToJSON OpsMetadataFilter where
   toJSON OpsMetadataFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Key" Core..= key),
-            Core.Just ("Values" Core..= values)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Values" Core..= values)
           ]
       )

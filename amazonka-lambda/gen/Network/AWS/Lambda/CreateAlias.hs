@@ -57,6 +57,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,9 +66,9 @@ data CreateAlias = CreateAlias'
   { -- | The
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration>
     -- of the alias.
-    routingConfig :: Core.Maybe AliasRoutingConfiguration,
+    routingConfig :: Prelude.Maybe AliasRoutingConfiguration,
     -- | A description of the alias.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -81,13 +82,13 @@ data CreateAlias = CreateAlias'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
-    functionName :: Core.Text,
+    functionName :: Prelude.Text,
     -- | The name of the alias.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The function version that the alias invokes.
-    functionVersion :: Core.Text
+    functionVersion :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAlias' with all optional fields omitted.
@@ -122,19 +123,19 @@ data CreateAlias = CreateAlias'
 -- 'functionVersion', 'createAlias_functionVersion' - The function version that the alias invokes.
 newCreateAlias ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'functionVersion'
-  Core.Text ->
+  Prelude.Text ->
   CreateAlias
 newCreateAlias
   pFunctionName_
   pName_
   pFunctionVersion_ =
     CreateAlias'
-      { routingConfig = Core.Nothing,
-        description = Core.Nothing,
+      { routingConfig = Prelude.Nothing,
+        description = Prelude.Nothing,
         functionName = pFunctionName_,
         name = pName_,
         functionVersion = pFunctionVersion_
@@ -143,11 +144,11 @@ newCreateAlias
 -- | The
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration>
 -- of the alias.
-createAlias_routingConfig :: Lens.Lens' CreateAlias (Core.Maybe AliasRoutingConfiguration)
+createAlias_routingConfig :: Lens.Lens' CreateAlias (Prelude.Maybe AliasRoutingConfiguration)
 createAlias_routingConfig = Lens.lens (\CreateAlias' {routingConfig} -> routingConfig) (\s@CreateAlias' {} a -> s {routingConfig = a} :: CreateAlias)
 
 -- | A description of the alias.
-createAlias_description :: Lens.Lens' CreateAlias (Core.Maybe Core.Text)
+createAlias_description :: Lens.Lens' CreateAlias (Prelude.Maybe Prelude.Text)
 createAlias_description = Lens.lens (\CreateAlias' {description} -> description) (\s@CreateAlias' {} a -> s {description = a} :: CreateAlias)
 
 -- | The name of the Lambda function.
@@ -163,15 +164,15 @@ createAlias_description = Lens.lens (\CreateAlias' {description} -> description)
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
-createAlias_functionName :: Lens.Lens' CreateAlias Core.Text
+createAlias_functionName :: Lens.Lens' CreateAlias Prelude.Text
 createAlias_functionName = Lens.lens (\CreateAlias' {functionName} -> functionName) (\s@CreateAlias' {} a -> s {functionName = a} :: CreateAlias)
 
 -- | The name of the alias.
-createAlias_name :: Lens.Lens' CreateAlias Core.Text
+createAlias_name :: Lens.Lens' CreateAlias Prelude.Text
 createAlias_name = Lens.lens (\CreateAlias' {name} -> name) (\s@CreateAlias' {} a -> s {name = a} :: CreateAlias)
 
 -- | The function version that the alias invokes.
-createAlias_functionVersion :: Lens.Lens' CreateAlias Core.Text
+createAlias_functionVersion :: Lens.Lens' CreateAlias Prelude.Text
 createAlias_functionVersion = Lens.lens (\CreateAlias' {functionVersion} -> functionVersion) (\s@CreateAlias' {} a -> s {functionVersion = a} :: CreateAlias)
 
 instance Core.AWSRequest CreateAlias where
@@ -181,32 +182,32 @@ instance Core.AWSRequest CreateAlias where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable CreateAlias
+instance Prelude.Hashable CreateAlias
 
-instance Core.NFData CreateAlias
+instance Prelude.NFData CreateAlias
 
 instance Core.ToHeaders CreateAlias where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CreateAlias where
   toJSON CreateAlias' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RoutingConfig" Core..=) Core.<$> routingConfig,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just ("Name" Core..= name),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("RoutingConfig" Core..=) Prelude.<$> routingConfig,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just
               ("FunctionVersion" Core..= functionVersion)
           ]
       )
 
 instance Core.ToPath CreateAlias where
   toPath CreateAlias' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-03-31/functions/",
         Core.toBS functionName,
         "/aliases"
       ]
 
 instance Core.ToQuery CreateAlias where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

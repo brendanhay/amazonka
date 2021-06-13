@@ -22,15 +22,16 @@ module Network.AWS.Budgets.Types.ActionThreshold where
 import Network.AWS.Budgets.Types.ThresholdType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The trigger threshold of the action.
 --
 -- /See:/ 'newActionThreshold' smart constructor.
 data ActionThreshold = ActionThreshold'
-  { actionThresholdValue :: Core.Double,
+  { actionThresholdValue :: Prelude.Double,
     actionThresholdType :: ThresholdType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActionThreshold' with all optional fields omitted.
@@ -45,7 +46,7 @@ data ActionThreshold = ActionThreshold'
 -- 'actionThresholdType', 'actionThreshold_actionThresholdType' - Undocumented member.
 newActionThreshold ::
   -- | 'actionThresholdValue'
-  Core.Double ->
+  Prelude.Double ->
   -- | 'actionThresholdType'
   ThresholdType ->
   ActionThreshold
@@ -59,7 +60,7 @@ newActionThreshold
       }
 
 -- | Undocumented member.
-actionThreshold_actionThresholdValue :: Lens.Lens' ActionThreshold Core.Double
+actionThreshold_actionThresholdValue :: Lens.Lens' ActionThreshold Prelude.Double
 actionThreshold_actionThresholdValue = Lens.lens (\ActionThreshold' {actionThresholdValue} -> actionThresholdValue) (\s@ActionThreshold' {} a -> s {actionThresholdValue = a} :: ActionThreshold)
 
 -- | Undocumented member.
@@ -72,23 +73,23 @@ instance Core.FromJSON ActionThreshold where
       "ActionThreshold"
       ( \x ->
           ActionThreshold'
-            Core.<$> (x Core..: "ActionThresholdValue")
-            Core.<*> (x Core..: "ActionThresholdType")
+            Prelude.<$> (x Core..: "ActionThresholdValue")
+            Prelude.<*> (x Core..: "ActionThresholdType")
       )
 
-instance Core.Hashable ActionThreshold
+instance Prelude.Hashable ActionThreshold
 
-instance Core.NFData ActionThreshold
+instance Prelude.NFData ActionThreshold
 
 instance Core.ToJSON ActionThreshold where
   toJSON ActionThreshold' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "ActionThresholdValue"
                   Core..= actionThresholdValue
               ),
-            Core.Just
+            Prelude.Just
               ("ActionThresholdType" Core..= actionThresholdType)
           ]
       )

@@ -22,6 +22,7 @@ module Network.AWS.IAM.Types.SimulatePolicyResponse where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.EvaluationResult
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the response to a successful SimulatePrincipalPolicy or
 -- SimulateCustomPolicy request.
@@ -35,15 +36,15 @@ data SimulatePolicyResponse = SimulatePolicyResponse'
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Core.Maybe Core.Bool,
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | The results of the simulation.
-    evaluationResults :: Core.Maybe [EvaluationResult],
+    evaluationResults :: Prelude.Maybe [EvaluationResult],
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SimulatePolicyResponse' with all optional fields omitted.
@@ -70,9 +71,10 @@ newSimulatePolicyResponse ::
   SimulatePolicyResponse
 newSimulatePolicyResponse =
   SimulatePolicyResponse'
-    { isTruncated = Core.Nothing,
-      evaluationResults = Core.Nothing,
-      marker = Core.Nothing
+    { isTruncated =
+        Prelude.Nothing,
+      evaluationResults = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -82,28 +84,29 @@ newSimulatePolicyResponse =
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
-simulatePolicyResponse_isTruncated :: Lens.Lens' SimulatePolicyResponse (Core.Maybe Core.Bool)
+simulatePolicyResponse_isTruncated :: Lens.Lens' SimulatePolicyResponse (Prelude.Maybe Prelude.Bool)
 simulatePolicyResponse_isTruncated = Lens.lens (\SimulatePolicyResponse' {isTruncated} -> isTruncated) (\s@SimulatePolicyResponse' {} a -> s {isTruncated = a} :: SimulatePolicyResponse)
 
 -- | The results of the simulation.
-simulatePolicyResponse_evaluationResults :: Lens.Lens' SimulatePolicyResponse (Core.Maybe [EvaluationResult])
-simulatePolicyResponse_evaluationResults = Lens.lens (\SimulatePolicyResponse' {evaluationResults} -> evaluationResults) (\s@SimulatePolicyResponse' {} a -> s {evaluationResults = a} :: SimulatePolicyResponse) Core.. Lens.mapping Lens._Coerce
+simulatePolicyResponse_evaluationResults :: Lens.Lens' SimulatePolicyResponse (Prelude.Maybe [EvaluationResult])
+simulatePolicyResponse_evaluationResults = Lens.lens (\SimulatePolicyResponse' {evaluationResults} -> evaluationResults) (\s@SimulatePolicyResponse' {} a -> s {evaluationResults = a} :: SimulatePolicyResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-simulatePolicyResponse_marker :: Lens.Lens' SimulatePolicyResponse (Core.Maybe Core.Text)
+simulatePolicyResponse_marker :: Lens.Lens' SimulatePolicyResponse (Prelude.Maybe Prelude.Text)
 simulatePolicyResponse_marker = Lens.lens (\SimulatePolicyResponse' {marker} -> marker) (\s@SimulatePolicyResponse' {} a -> s {marker = a} :: SimulatePolicyResponse)
 
 instance Core.FromXML SimulatePolicyResponse where
   parseXML x =
     SimulatePolicyResponse'
-      Core.<$> (x Core..@? "IsTruncated")
-      Core.<*> ( x Core..@? "EvaluationResults" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "Marker")
+      Prelude.<$> (x Core..@? "IsTruncated")
+      Prelude.<*> ( x Core..@? "EvaluationResults"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "Marker")
 
-instance Core.Hashable SimulatePolicyResponse
+instance Prelude.Hashable SimulatePolicyResponse
 
-instance Core.NFData SimulatePolicyResponse
+instance Prelude.NFData SimulatePolicyResponse

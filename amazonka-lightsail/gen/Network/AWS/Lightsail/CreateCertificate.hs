@@ -59,6 +59,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,18 +73,18 @@ data CreateCertificate = CreateCertificate'
     -- primary domain name).
     --
     -- Wildcard domain entries (e.g., @*.example.com@) are not supported.
-    subjectAlternativeNames :: Core.Maybe [Core.Text],
+    subjectAlternativeNames :: Prelude.Maybe [Prelude.Text],
     -- | The tag keys and optional values to add to the certificate during
     -- create.
     --
     -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name for the certificate.
-    certificateName :: Core.Text,
+    certificateName :: Prelude.Text,
     -- | The domain name (e.g., @example.com@) for the certificate.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCertificate' with all optional fields omitted.
@@ -112,15 +113,15 @@ data CreateCertificate = CreateCertificate'
 -- 'domainName', 'createCertificate_domainName' - The domain name (e.g., @example.com@) for the certificate.
 newCreateCertificate ::
   -- | 'certificateName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   CreateCertificate
 newCreateCertificate pCertificateName_ pDomainName_ =
   CreateCertificate'
     { subjectAlternativeNames =
-        Core.Nothing,
-      tags = Core.Nothing,
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       certificateName = pCertificateName_,
       domainName = pDomainName_
     }
@@ -133,22 +134,22 @@ newCreateCertificate pCertificateName_ pDomainName_ =
 -- primary domain name).
 --
 -- Wildcard domain entries (e.g., @*.example.com@) are not supported.
-createCertificate_subjectAlternativeNames :: Lens.Lens' CreateCertificate (Core.Maybe [Core.Text])
-createCertificate_subjectAlternativeNames = Lens.lens (\CreateCertificate' {subjectAlternativeNames} -> subjectAlternativeNames) (\s@CreateCertificate' {} a -> s {subjectAlternativeNames = a} :: CreateCertificate) Core.. Lens.mapping Lens._Coerce
+createCertificate_subjectAlternativeNames :: Lens.Lens' CreateCertificate (Prelude.Maybe [Prelude.Text])
+createCertificate_subjectAlternativeNames = Lens.lens (\CreateCertificate' {subjectAlternativeNames} -> subjectAlternativeNames) (\s@CreateCertificate' {} a -> s {subjectAlternativeNames = a} :: CreateCertificate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The tag keys and optional values to add to the certificate during
 -- create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
-createCertificate_tags :: Lens.Lens' CreateCertificate (Core.Maybe [Tag])
-createCertificate_tags = Lens.lens (\CreateCertificate' {tags} -> tags) (\s@CreateCertificate' {} a -> s {tags = a} :: CreateCertificate) Core.. Lens.mapping Lens._Coerce
+createCertificate_tags :: Lens.Lens' CreateCertificate (Prelude.Maybe [Tag])
+createCertificate_tags = Lens.lens (\CreateCertificate' {tags} -> tags) (\s@CreateCertificate' {} a -> s {tags = a} :: CreateCertificate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name for the certificate.
-createCertificate_certificateName :: Lens.Lens' CreateCertificate Core.Text
+createCertificate_certificateName :: Lens.Lens' CreateCertificate Prelude.Text
 createCertificate_certificateName = Lens.lens (\CreateCertificate' {certificateName} -> certificateName) (\s@CreateCertificate' {} a -> s {certificateName = a} :: CreateCertificate)
 
 -- | The domain name (e.g., @example.com@) for the certificate.
-createCertificate_domainName :: Lens.Lens' CreateCertificate Core.Text
+createCertificate_domainName :: Lens.Lens' CreateCertificate Prelude.Text
 createCertificate_domainName = Lens.lens (\CreateCertificate' {domainName} -> domainName) (\s@CreateCertificate' {} a -> s {domainName = a} :: CreateCertificate)
 
 instance Core.AWSRequest CreateCertificate where
@@ -160,59 +161,61 @@ instance Core.AWSRequest CreateCertificate where
     Response.receiveJSON
       ( \s h x ->
           CreateCertificateResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "certificate")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "certificate")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateCertificate
+instance Prelude.Hashable CreateCertificate
 
-instance Core.NFData CreateCertificate
+instance Prelude.NFData CreateCertificate
 
 instance Core.ToHeaders CreateCertificate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.CreateCertificate" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateCertificate where
   toJSON CreateCertificate' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("subjectAlternativeNames" Core..=)
-              Core.<$> subjectAlternativeNames,
-            ("tags" Core..=) Core.<$> tags,
-            Core.Just
+              Prelude.<$> subjectAlternativeNames,
+            ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just
               ("certificateName" Core..= certificateName),
-            Core.Just ("domainName" Core..= domainName)
+            Prelude.Just ("domainName" Core..= domainName)
           ]
       )
 
 instance Core.ToPath CreateCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateCertificate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCertificateResponse' smart constructor.
 data CreateCertificateResponse = CreateCertificateResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | An object that describes the certificate created.
-    certificate :: Core.Maybe CertificateSummary,
+    certificate :: Prelude.Maybe CertificateSummary,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCertificateResponse' with all optional fields omitted.
@@ -231,28 +234,28 @@ data CreateCertificateResponse = CreateCertificateResponse'
 -- 'httpStatus', 'createCertificateResponse_httpStatus' - The response's http status code.
 newCreateCertificateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateCertificateResponse
 newCreateCertificateResponse pHttpStatus_ =
   CreateCertificateResponse'
     { operations =
-        Core.Nothing,
-      certificate = Core.Nothing,
+        Prelude.Nothing,
+      certificate = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-createCertificateResponse_operations :: Lens.Lens' CreateCertificateResponse (Core.Maybe [Operation])
-createCertificateResponse_operations = Lens.lens (\CreateCertificateResponse' {operations} -> operations) (\s@CreateCertificateResponse' {} a -> s {operations = a} :: CreateCertificateResponse) Core.. Lens.mapping Lens._Coerce
+createCertificateResponse_operations :: Lens.Lens' CreateCertificateResponse (Prelude.Maybe [Operation])
+createCertificateResponse_operations = Lens.lens (\CreateCertificateResponse' {operations} -> operations) (\s@CreateCertificateResponse' {} a -> s {operations = a} :: CreateCertificateResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An object that describes the certificate created.
-createCertificateResponse_certificate :: Lens.Lens' CreateCertificateResponse (Core.Maybe CertificateSummary)
+createCertificateResponse_certificate :: Lens.Lens' CreateCertificateResponse (Prelude.Maybe CertificateSummary)
 createCertificateResponse_certificate = Lens.lens (\CreateCertificateResponse' {certificate} -> certificate) (\s@CreateCertificateResponse' {} a -> s {certificate = a} :: CreateCertificateResponse)
 
 -- | The response's http status code.
-createCertificateResponse_httpStatus :: Lens.Lens' CreateCertificateResponse Core.Int
+createCertificateResponse_httpStatus :: Lens.Lens' CreateCertificateResponse Prelude.Int
 createCertificateResponse_httpStatus = Lens.lens (\CreateCertificateResponse' {httpStatus} -> httpStatus) (\s@CreateCertificateResponse' {} a -> s {httpStatus = a} :: CreateCertificateResponse)
 
-instance Core.NFData CreateCertificateResponse
+instance Prelude.NFData CreateCertificateResponse

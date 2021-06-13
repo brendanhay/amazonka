@@ -22,6 +22,7 @@ module Network.AWS.ElasticBeanstalk.Types.EnvironmentResourcesDescription where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the AWS resources in use by this environment. This data is not
 -- live data.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEnvironmentResourcesDescription' smart constructor.
 data EnvironmentResourcesDescription = EnvironmentResourcesDescription'
   { -- | Describes the LoadBalancer.
-    loadBalancer :: Core.Maybe LoadBalancerDescription
+    loadBalancer :: Prelude.Maybe LoadBalancerDescription
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnvironmentResourcesDescription' with all optional fields omitted.
@@ -47,20 +48,22 @@ newEnvironmentResourcesDescription ::
 newEnvironmentResourcesDescription =
   EnvironmentResourcesDescription'
     { loadBalancer =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Describes the LoadBalancer.
-environmentResourcesDescription_loadBalancer :: Lens.Lens' EnvironmentResourcesDescription (Core.Maybe LoadBalancerDescription)
+environmentResourcesDescription_loadBalancer :: Lens.Lens' EnvironmentResourcesDescription (Prelude.Maybe LoadBalancerDescription)
 environmentResourcesDescription_loadBalancer = Lens.lens (\EnvironmentResourcesDescription' {loadBalancer} -> loadBalancer) (\s@EnvironmentResourcesDescription' {} a -> s {loadBalancer = a} :: EnvironmentResourcesDescription)
 
 instance Core.FromXML EnvironmentResourcesDescription where
   parseXML x =
     EnvironmentResourcesDescription'
-      Core.<$> (x Core..@? "LoadBalancer")
+      Prelude.<$> (x Core..@? "LoadBalancer")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     EnvironmentResourcesDescription
 
-instance Core.NFData EnvironmentResourcesDescription
+instance
+  Prelude.NFData
+    EnvironmentResourcesDescription

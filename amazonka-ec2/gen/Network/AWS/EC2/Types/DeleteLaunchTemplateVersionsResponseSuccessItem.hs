@@ -22,19 +22,20 @@ module Network.AWS.EC2.Types.DeleteLaunchTemplateVersionsResponseSuccessItem whe
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a launch template version that was successfully deleted.
 --
 -- /See:/ 'newDeleteLaunchTemplateVersionsResponseSuccessItem' smart constructor.
 data DeleteLaunchTemplateVersionsResponseSuccessItem = DeleteLaunchTemplateVersionsResponseSuccessItem'
   { -- | The ID of the launch template.
-    launchTemplateId :: Core.Maybe Core.Text,
+    launchTemplateId :: Prelude.Maybe Prelude.Text,
     -- | The name of the launch template.
-    launchTemplateName :: Core.Maybe Core.Text,
+    launchTemplateName :: Prelude.Maybe Prelude.Text,
     -- | The version number of the launch template.
-    versionNumber :: Core.Maybe Core.Integer
+    versionNumber :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLaunchTemplateVersionsResponseSuccessItem' with all optional fields omitted.
@@ -54,23 +55,23 @@ newDeleteLaunchTemplateVersionsResponseSuccessItem ::
 newDeleteLaunchTemplateVersionsResponseSuccessItem =
   DeleteLaunchTemplateVersionsResponseSuccessItem'
     { launchTemplateId =
-        Core.Nothing,
+        Prelude.Nothing,
       launchTemplateName =
-        Core.Nothing,
+        Prelude.Nothing,
       versionNumber =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The ID of the launch template.
-deleteLaunchTemplateVersionsResponseSuccessItem_launchTemplateId :: Lens.Lens' DeleteLaunchTemplateVersionsResponseSuccessItem (Core.Maybe Core.Text)
+deleteLaunchTemplateVersionsResponseSuccessItem_launchTemplateId :: Lens.Lens' DeleteLaunchTemplateVersionsResponseSuccessItem (Prelude.Maybe Prelude.Text)
 deleteLaunchTemplateVersionsResponseSuccessItem_launchTemplateId = Lens.lens (\DeleteLaunchTemplateVersionsResponseSuccessItem' {launchTemplateId} -> launchTemplateId) (\s@DeleteLaunchTemplateVersionsResponseSuccessItem' {} a -> s {launchTemplateId = a} :: DeleteLaunchTemplateVersionsResponseSuccessItem)
 
 -- | The name of the launch template.
-deleteLaunchTemplateVersionsResponseSuccessItem_launchTemplateName :: Lens.Lens' DeleteLaunchTemplateVersionsResponseSuccessItem (Core.Maybe Core.Text)
+deleteLaunchTemplateVersionsResponseSuccessItem_launchTemplateName :: Lens.Lens' DeleteLaunchTemplateVersionsResponseSuccessItem (Prelude.Maybe Prelude.Text)
 deleteLaunchTemplateVersionsResponseSuccessItem_launchTemplateName = Lens.lens (\DeleteLaunchTemplateVersionsResponseSuccessItem' {launchTemplateName} -> launchTemplateName) (\s@DeleteLaunchTemplateVersionsResponseSuccessItem' {} a -> s {launchTemplateName = a} :: DeleteLaunchTemplateVersionsResponseSuccessItem)
 
 -- | The version number of the launch template.
-deleteLaunchTemplateVersionsResponseSuccessItem_versionNumber :: Lens.Lens' DeleteLaunchTemplateVersionsResponseSuccessItem (Core.Maybe Core.Integer)
+deleteLaunchTemplateVersionsResponseSuccessItem_versionNumber :: Lens.Lens' DeleteLaunchTemplateVersionsResponseSuccessItem (Prelude.Maybe Prelude.Integer)
 deleteLaunchTemplateVersionsResponseSuccessItem_versionNumber = Lens.lens (\DeleteLaunchTemplateVersionsResponseSuccessItem' {versionNumber} -> versionNumber) (\s@DeleteLaunchTemplateVersionsResponseSuccessItem' {} a -> s {versionNumber = a} :: DeleteLaunchTemplateVersionsResponseSuccessItem)
 
 instance
@@ -79,14 +80,14 @@ instance
   where
   parseXML x =
     DeleteLaunchTemplateVersionsResponseSuccessItem'
-      Core.<$> (x Core..@? "launchTemplateId")
-        Core.<*> (x Core..@? "launchTemplateName")
-        Core.<*> (x Core..@? "versionNumber")
+      Prelude.<$> (x Core..@? "launchTemplateId")
+        Prelude.<*> (x Core..@? "launchTemplateName")
+        Prelude.<*> (x Core..@? "versionNumber")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteLaunchTemplateVersionsResponseSuccessItem
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteLaunchTemplateVersionsResponseSuccessItem

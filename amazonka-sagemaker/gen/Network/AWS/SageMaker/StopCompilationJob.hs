@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -53,9 +54,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStopCompilationJob' smart constructor.
 data StopCompilationJob = StopCompilationJob'
   { -- | The name of the model compilation job to stop.
-    compilationJobName :: Core.Text
+    compilationJobName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopCompilationJob' with all optional fields omitted.
@@ -68,7 +69,7 @@ data StopCompilationJob = StopCompilationJob'
 -- 'compilationJobName', 'stopCompilationJob_compilationJobName' - The name of the model compilation job to stop.
 newStopCompilationJob ::
   -- | 'compilationJobName'
-  Core.Text ->
+  Prelude.Text ->
   StopCompilationJob
 newStopCompilationJob pCompilationJobName_ =
   StopCompilationJob'
@@ -77,7 +78,7 @@ newStopCompilationJob pCompilationJobName_ =
     }
 
 -- | The name of the model compilation job to stop.
-stopCompilationJob_compilationJobName :: Lens.Lens' StopCompilationJob Core.Text
+stopCompilationJob_compilationJobName :: Lens.Lens' StopCompilationJob Prelude.Text
 stopCompilationJob_compilationJobName = Lens.lens (\StopCompilationJob' {compilationJobName} -> compilationJobName) (\s@StopCompilationJob' {} a -> s {compilationJobName = a} :: StopCompilationJob)
 
 instance Core.AWSRequest StopCompilationJob where
@@ -88,41 +89,45 @@ instance Core.AWSRequest StopCompilationJob where
   response =
     Response.receiveNull StopCompilationJobResponse'
 
-instance Core.Hashable StopCompilationJob
+instance Prelude.Hashable StopCompilationJob
 
-instance Core.NFData StopCompilationJob
+instance Prelude.NFData StopCompilationJob
 
 instance Core.ToHeaders StopCompilationJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.StopCompilationJob" :: Core.ByteString),
+              Core.=# ( "SageMaker.StopCompilationJob" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopCompilationJob where
   toJSON StopCompilationJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("CompilationJobName" Core..= compilationJobName)
           ]
       )
 
 instance Core.ToPath StopCompilationJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopCompilationJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopCompilationJobResponse' smart constructor.
 data StopCompilationJobResponse = StopCompilationJobResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopCompilationJobResponse' with all optional fields omitted.
@@ -133,4 +138,4 @@ newStopCompilationJobResponse ::
 newStopCompilationJobResponse =
   StopCompilationJobResponse'
 
-instance Core.NFData StopCompilationJobResponse
+instance Prelude.NFData StopCompilationJobResponse

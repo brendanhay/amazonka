@@ -21,21 +21,22 @@ module Network.AWS.SWF.Types.WorkflowExecutionCanceledEventAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @WorkflowExecutionCanceled@ event.
 --
 -- /See:/ 'newWorkflowExecutionCanceledEventAttributes' smart constructor.
 data WorkflowExecutionCanceledEventAttributes = WorkflowExecutionCanceledEventAttributes'
   { -- | The details of the cancellation.
-    details :: Core.Maybe Core.Text,
+    details :: Prelude.Maybe Prelude.Text,
     -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
     -- decision task that resulted in the @CancelWorkflowExecution@ decision
     -- for this cancellation request. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    decisionTaskCompletedEventId :: Core.Integer
+    decisionTaskCompletedEventId :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WorkflowExecutionCanceledEventAttributes' with all optional fields omitted.
@@ -54,19 +55,19 @@ data WorkflowExecutionCanceledEventAttributes = WorkflowExecutionCanceledEventAt
 -- this event.
 newWorkflowExecutionCanceledEventAttributes ::
   -- | 'decisionTaskCompletedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   WorkflowExecutionCanceledEventAttributes
 newWorkflowExecutionCanceledEventAttributes
   pDecisionTaskCompletedEventId_ =
     WorkflowExecutionCanceledEventAttributes'
       { details =
-          Core.Nothing,
+          Prelude.Nothing,
         decisionTaskCompletedEventId =
           pDecisionTaskCompletedEventId_
       }
 
 -- | The details of the cancellation.
-workflowExecutionCanceledEventAttributes_details :: Lens.Lens' WorkflowExecutionCanceledEventAttributes (Core.Maybe Core.Text)
+workflowExecutionCanceledEventAttributes_details :: Lens.Lens' WorkflowExecutionCanceledEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionCanceledEventAttributes_details = Lens.lens (\WorkflowExecutionCanceledEventAttributes' {details} -> details) (\s@WorkflowExecutionCanceledEventAttributes' {} a -> s {details = a} :: WorkflowExecutionCanceledEventAttributes)
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
@@ -74,7 +75,7 @@ workflowExecutionCanceledEventAttributes_details = Lens.lens (\WorkflowExecution
 -- for this cancellation request. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-workflowExecutionCanceledEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' WorkflowExecutionCanceledEventAttributes Core.Integer
+workflowExecutionCanceledEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' WorkflowExecutionCanceledEventAttributes Prelude.Integer
 workflowExecutionCanceledEventAttributes_decisionTaskCompletedEventId = Lens.lens (\WorkflowExecutionCanceledEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@WorkflowExecutionCanceledEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: WorkflowExecutionCanceledEventAttributes)
 
 instance
@@ -86,14 +87,14 @@ instance
       "WorkflowExecutionCanceledEventAttributes"
       ( \x ->
           WorkflowExecutionCanceledEventAttributes'
-            Core.<$> (x Core..:? "details")
-            Core.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Core..:? "details")
+            Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     WorkflowExecutionCanceledEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     WorkflowExecutionCanceledEventAttributes

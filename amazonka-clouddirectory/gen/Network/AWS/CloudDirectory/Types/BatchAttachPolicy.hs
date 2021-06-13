@@ -22,6 +22,7 @@ module Network.AWS.CloudDirectory.Types.BatchAttachPolicy where
 import Network.AWS.CloudDirectory.Types.ObjectReference
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Attaches a policy object to a regular object inside a BatchRead
 -- operation. For more information, see AttachPolicy and
@@ -35,7 +36,7 @@ data BatchAttachPolicy = BatchAttachPolicy'
     -- attached.
     objectReference :: ObjectReference
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchAttachPolicy' with all optional fields omitted.
@@ -73,17 +74,17 @@ batchAttachPolicy_policyReference = Lens.lens (\BatchAttachPolicy' {policyRefere
 batchAttachPolicy_objectReference :: Lens.Lens' BatchAttachPolicy ObjectReference
 batchAttachPolicy_objectReference = Lens.lens (\BatchAttachPolicy' {objectReference} -> objectReference) (\s@BatchAttachPolicy' {} a -> s {objectReference = a} :: BatchAttachPolicy)
 
-instance Core.Hashable BatchAttachPolicy
+instance Prelude.Hashable BatchAttachPolicy
 
-instance Core.NFData BatchAttachPolicy
+instance Prelude.NFData BatchAttachPolicy
 
 instance Core.ToJSON BatchAttachPolicy where
   toJSON BatchAttachPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("PolicyReference" Core..= policyReference),
-            Core.Just
+            Prelude.Just
               ("ObjectReference" Core..= objectReference)
           ]
       )

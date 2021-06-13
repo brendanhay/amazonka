@@ -23,15 +23,16 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.S3Storage
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the storage location for an instance store-backed AMI.
 --
 -- /See:/ 'newStorage' smart constructor.
 data Storage = Storage'
   { -- | An Amazon S3 storage location.
-    s3 :: Core.Maybe S3Storage
+    s3 :: Prelude.Maybe S3Storage
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Storage' with all optional fields omitted.
@@ -44,18 +45,19 @@ data Storage = Storage'
 -- 's3', 'storage_s3' - An Amazon S3 storage location.
 newStorage ::
   Storage
-newStorage = Storage' {s3 = Core.Nothing}
+newStorage = Storage' {s3 = Prelude.Nothing}
 
 -- | An Amazon S3 storage location.
-storage_s3 :: Lens.Lens' Storage (Core.Maybe S3Storage)
+storage_s3 :: Lens.Lens' Storage (Prelude.Maybe S3Storage)
 storage_s3 = Lens.lens (\Storage' {s3} -> s3) (\s@Storage' {} a -> s {s3 = a} :: Storage)
 
 instance Core.FromXML Storage where
-  parseXML x = Storage' Core.<$> (x Core..@? "S3")
+  parseXML x = Storage' Prelude.<$> (x Core..@? "S3")
 
-instance Core.Hashable Storage
+instance Prelude.Hashable Storage
 
-instance Core.NFData Storage
+instance Prelude.NFData Storage
 
 instance Core.ToQuery Storage where
-  toQuery Storage' {..} = Core.mconcat ["S3" Core.=: s3]
+  toQuery Storage' {..} =
+    Prelude.mconcat ["S3" Core.=: s3]

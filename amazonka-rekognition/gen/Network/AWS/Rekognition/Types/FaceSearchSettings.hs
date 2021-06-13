@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.FaceSearchSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Input face recognition parameters for an Amazon Rekognition stream
 -- processor. @FaceRecognitionSettings@ is a request parameter for
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newFaceSearchSettings' smart constructor.
 data FaceSearchSettings = FaceSearchSettings'
   { -- | The ID of a collection that contains faces that you want to search for.
-    collectionId :: Core.Maybe Core.Text,
+    collectionId :: Prelude.Maybe Prelude.Text,
     -- | Minimum face match confidence score that must be met to return a result
     -- for a recognized face. Default is 80. 0 is the lowest confidence. 100 is
     -- the highest confidence.
-    faceMatchThreshold :: Core.Maybe Core.Double
+    faceMatchThreshold :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FaceSearchSettings' with all optional fields omitted.
@@ -54,18 +55,18 @@ newFaceSearchSettings ::
   FaceSearchSettings
 newFaceSearchSettings =
   FaceSearchSettings'
-    { collectionId = Core.Nothing,
-      faceMatchThreshold = Core.Nothing
+    { collectionId = Prelude.Nothing,
+      faceMatchThreshold = Prelude.Nothing
     }
 
 -- | The ID of a collection that contains faces that you want to search for.
-faceSearchSettings_collectionId :: Lens.Lens' FaceSearchSettings (Core.Maybe Core.Text)
+faceSearchSettings_collectionId :: Lens.Lens' FaceSearchSettings (Prelude.Maybe Prelude.Text)
 faceSearchSettings_collectionId = Lens.lens (\FaceSearchSettings' {collectionId} -> collectionId) (\s@FaceSearchSettings' {} a -> s {collectionId = a} :: FaceSearchSettings)
 
 -- | Minimum face match confidence score that must be met to return a result
 -- for a recognized face. Default is 80. 0 is the lowest confidence. 100 is
 -- the highest confidence.
-faceSearchSettings_faceMatchThreshold :: Lens.Lens' FaceSearchSettings (Core.Maybe Core.Double)
+faceSearchSettings_faceMatchThreshold :: Lens.Lens' FaceSearchSettings (Prelude.Maybe Prelude.Double)
 faceSearchSettings_faceMatchThreshold = Lens.lens (\FaceSearchSettings' {faceMatchThreshold} -> faceMatchThreshold) (\s@FaceSearchSettings' {} a -> s {faceMatchThreshold = a} :: FaceSearchSettings)
 
 instance Core.FromJSON FaceSearchSettings where
@@ -74,20 +75,20 @@ instance Core.FromJSON FaceSearchSettings where
       "FaceSearchSettings"
       ( \x ->
           FaceSearchSettings'
-            Core.<$> (x Core..:? "CollectionId")
-            Core.<*> (x Core..:? "FaceMatchThreshold")
+            Prelude.<$> (x Core..:? "CollectionId")
+            Prelude.<*> (x Core..:? "FaceMatchThreshold")
       )
 
-instance Core.Hashable FaceSearchSettings
+instance Prelude.Hashable FaceSearchSettings
 
-instance Core.NFData FaceSearchSettings
+instance Prelude.NFData FaceSearchSettings
 
 instance Core.ToJSON FaceSearchSettings where
   toJSON FaceSearchSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CollectionId" Core..=) Core.<$> collectionId,
+      ( Prelude.catMaybes
+          [ ("CollectionId" Core..=) Prelude.<$> collectionId,
             ("FaceMatchThreshold" Core..=)
-              Core.<$> faceMatchThreshold
+              Prelude.<$> faceMatchThreshold
           ]
       )

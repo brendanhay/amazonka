@@ -22,6 +22,7 @@ import Network.AWS.OpsWorks.DescribeDeployments
 import Network.AWS.OpsWorks.DescribeInstances
 import Network.AWS.OpsWorks.Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceTerminated :: Core.Wait DescribeInstances
@@ -37,12 +38,12 @@ newInstanceTerminated =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ResourceNotFoundException"
@@ -53,12 +54,12 @@ newInstanceTerminated =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "online"
@@ -66,12 +67,12 @@ newInstanceTerminated =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "pending"
@@ -79,12 +80,12 @@ newInstanceTerminated =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "rebooting"
@@ -92,12 +93,12 @@ newInstanceTerminated =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "requested"
@@ -105,12 +106,12 @@ newInstanceTerminated =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "running_setup"
@@ -118,12 +119,12 @@ newInstanceTerminated =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "setup_failed"
@@ -131,12 +132,12 @@ newInstanceTerminated =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "start_failed"
@@ -144,12 +145,12 @@ newInstanceTerminated =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -168,12 +169,12 @@ newInstanceRegistered =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "setup_failed"
@@ -181,12 +182,12 @@ newInstanceRegistered =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "shutting_down"
@@ -194,12 +195,12 @@ newInstanceRegistered =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "stopped"
@@ -207,12 +208,12 @@ newInstanceRegistered =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "stopping"
@@ -220,12 +221,12 @@ newInstanceRegistered =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "terminating"
@@ -233,12 +234,12 @@ newInstanceRegistered =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "terminated"
@@ -246,12 +247,12 @@ newInstanceRegistered =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "stop_failed"
@@ -259,12 +260,12 @@ newInstanceRegistered =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -296,12 +297,12 @@ newInstanceOnline =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "setup_failed"
@@ -309,12 +310,12 @@ newInstanceOnline =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "shutting_down"
@@ -322,12 +323,12 @@ newInstanceOnline =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "start_failed"
@@ -335,12 +336,12 @@ newInstanceOnline =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "stopped"
@@ -348,12 +349,12 @@ newInstanceOnline =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "stopping"
@@ -361,12 +362,12 @@ newInstanceOnline =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "terminating"
@@ -374,12 +375,12 @@ newInstanceOnline =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "terminated"
@@ -387,12 +388,12 @@ newInstanceOnline =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "stop_failed"
@@ -400,12 +401,12 @@ newInstanceOnline =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -424,12 +425,12 @@ newInstanceStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "booting"
@@ -437,12 +438,12 @@ newInstanceStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "pending"
@@ -450,12 +451,12 @@ newInstanceStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "rebooting"
@@ -463,12 +464,12 @@ newInstanceStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "requested"
@@ -476,12 +477,12 @@ newInstanceStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "running_setup"
@@ -489,12 +490,12 @@ newInstanceStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "setup_failed"
@@ -502,12 +503,12 @@ newInstanceStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "start_failed"
@@ -515,12 +516,12 @@ newInstanceStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "stop_failed"
@@ -528,12 +529,12 @@ newInstanceStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_instances
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instance_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -552,12 +553,12 @@ newDeploymentSuccessful =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDeploymentsResponse_deployments
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. deployment_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. deployment_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -565,12 +566,12 @@ newDeploymentSuccessful =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDeploymentsResponse_deployments
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. deployment_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. deployment_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.ProgressEvent where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Progress
 
@@ -30,9 +31,9 @@ import Network.AWS.S3.Types.Progress
 -- /See:/ 'newProgressEvent' smart constructor.
 data ProgressEvent = ProgressEvent'
   { -- | The Progress event details.
-    details :: Core.Maybe Progress
+    details :: Prelude.Maybe Progress
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProgressEvent' with all optional fields omitted.
@@ -46,16 +47,16 @@ data ProgressEvent = ProgressEvent'
 newProgressEvent ::
   ProgressEvent
 newProgressEvent =
-  ProgressEvent' {details = Core.Nothing}
+  ProgressEvent' {details = Prelude.Nothing}
 
 -- | The Progress event details.
-progressEvent_details :: Lens.Lens' ProgressEvent (Core.Maybe Progress)
+progressEvent_details :: Lens.Lens' ProgressEvent (Prelude.Maybe Progress)
 progressEvent_details = Lens.lens (\ProgressEvent' {details} -> details) (\s@ProgressEvent' {} a -> s {details = a} :: ProgressEvent)
 
 instance Core.FromXML ProgressEvent where
   parseXML x =
-    ProgressEvent' Core.<$> (x Core..@? "Details")
+    ProgressEvent' Prelude.<$> (x Core..@? "Details")
 
-instance Core.Hashable ProgressEvent
+instance Prelude.Hashable ProgressEvent
 
-instance Core.NFData ProgressEvent
+instance Prelude.NFData ProgressEvent

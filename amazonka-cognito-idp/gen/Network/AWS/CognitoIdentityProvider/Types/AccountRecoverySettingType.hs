@@ -22,15 +22,16 @@ module Network.AWS.CognitoIdentityProvider.Types.AccountRecoverySettingType wher
 import Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The data type for @AccountRecoverySetting@.
 --
 -- /See:/ 'newAccountRecoverySettingType' smart constructor.
 data AccountRecoverySettingType = AccountRecoverySettingType'
   { -- | The list of @RecoveryOptionTypes@.
-    recoveryMechanisms :: Core.Maybe (Core.NonEmpty RecoveryOptionType)
+    recoveryMechanisms :: Prelude.Maybe (Prelude.NonEmpty RecoveryOptionType)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccountRecoverySettingType' with all optional fields omitted.
@@ -46,12 +47,12 @@ newAccountRecoverySettingType ::
 newAccountRecoverySettingType =
   AccountRecoverySettingType'
     { recoveryMechanisms =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The list of @RecoveryOptionTypes@.
-accountRecoverySettingType_recoveryMechanisms :: Lens.Lens' AccountRecoverySettingType (Core.Maybe (Core.NonEmpty RecoveryOptionType))
-accountRecoverySettingType_recoveryMechanisms = Lens.lens (\AccountRecoverySettingType' {recoveryMechanisms} -> recoveryMechanisms) (\s@AccountRecoverySettingType' {} a -> s {recoveryMechanisms = a} :: AccountRecoverySettingType) Core.. Lens.mapping Lens._Coerce
+accountRecoverySettingType_recoveryMechanisms :: Lens.Lens' AccountRecoverySettingType (Prelude.Maybe (Prelude.NonEmpty RecoveryOptionType))
+accountRecoverySettingType_recoveryMechanisms = Lens.lens (\AccountRecoverySettingType' {recoveryMechanisms} -> recoveryMechanisms) (\s@AccountRecoverySettingType' {} a -> s {recoveryMechanisms = a} :: AccountRecoverySettingType) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON AccountRecoverySettingType where
   parseJSON =
@@ -59,18 +60,18 @@ instance Core.FromJSON AccountRecoverySettingType where
       "AccountRecoverySettingType"
       ( \x ->
           AccountRecoverySettingType'
-            Core.<$> (x Core..:? "RecoveryMechanisms")
+            Prelude.<$> (x Core..:? "RecoveryMechanisms")
       )
 
-instance Core.Hashable AccountRecoverySettingType
+instance Prelude.Hashable AccountRecoverySettingType
 
-instance Core.NFData AccountRecoverySettingType
+instance Prelude.NFData AccountRecoverySettingType
 
 instance Core.ToJSON AccountRecoverySettingType where
   toJSON AccountRecoverySettingType' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("RecoveryMechanisms" Core..=)
-              Core.<$> recoveryMechanisms
+              Prelude.<$> recoveryMechanisms
           ]
       )

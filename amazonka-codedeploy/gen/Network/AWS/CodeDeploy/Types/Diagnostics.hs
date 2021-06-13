@@ -22,6 +22,7 @@ module Network.AWS.CodeDeploy.Types.Diagnostics where
 import Network.AWS.CodeDeploy.Types.LifecycleErrorCode
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Diagnostic information about executable scripts that are part of a
 -- deployment.
@@ -32,11 +33,11 @@ data Diagnostics = Diagnostics'
     --
     -- If available, AWS CodeDeploy returns up to the last 4 KB of the
     -- diagnostic log.
-    logTail :: Core.Maybe Core.Text,
+    logTail :: Prelude.Maybe Prelude.Text,
     -- | The message associated with the error.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The name of the script.
-    scriptName :: Core.Maybe Core.Text,
+    scriptName :: Prelude.Maybe Prelude.Text,
     -- | The associated error code:
     --
     -- -   Success: The specified script ran.
@@ -54,9 +55,9 @@ data Diagnostics = Diagnostics'
     --
     -- -   UnknownError: The specified script did not run for an unknown
     --     reason.
-    errorCode :: Core.Maybe LifecycleErrorCode
+    errorCode :: Prelude.Maybe LifecycleErrorCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Diagnostics' with all optional fields omitted.
@@ -96,25 +97,25 @@ newDiagnostics ::
   Diagnostics
 newDiagnostics =
   Diagnostics'
-    { logTail = Core.Nothing,
-      message = Core.Nothing,
-      scriptName = Core.Nothing,
-      errorCode = Core.Nothing
+    { logTail = Prelude.Nothing,
+      message = Prelude.Nothing,
+      scriptName = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
 
 -- | The last portion of the diagnostic log.
 --
 -- If available, AWS CodeDeploy returns up to the last 4 KB of the
 -- diagnostic log.
-diagnostics_logTail :: Lens.Lens' Diagnostics (Core.Maybe Core.Text)
+diagnostics_logTail :: Lens.Lens' Diagnostics (Prelude.Maybe Prelude.Text)
 diagnostics_logTail = Lens.lens (\Diagnostics' {logTail} -> logTail) (\s@Diagnostics' {} a -> s {logTail = a} :: Diagnostics)
 
 -- | The message associated with the error.
-diagnostics_message :: Lens.Lens' Diagnostics (Core.Maybe Core.Text)
+diagnostics_message :: Lens.Lens' Diagnostics (Prelude.Maybe Prelude.Text)
 diagnostics_message = Lens.lens (\Diagnostics' {message} -> message) (\s@Diagnostics' {} a -> s {message = a} :: Diagnostics)
 
 -- | The name of the script.
-diagnostics_scriptName :: Lens.Lens' Diagnostics (Core.Maybe Core.Text)
+diagnostics_scriptName :: Lens.Lens' Diagnostics (Prelude.Maybe Prelude.Text)
 diagnostics_scriptName = Lens.lens (\Diagnostics' {scriptName} -> scriptName) (\s@Diagnostics' {} a -> s {scriptName = a} :: Diagnostics)
 
 -- | The associated error code:
@@ -134,7 +135,7 @@ diagnostics_scriptName = Lens.lens (\Diagnostics' {scriptName} -> scriptName) (\
 --
 -- -   UnknownError: The specified script did not run for an unknown
 --     reason.
-diagnostics_errorCode :: Lens.Lens' Diagnostics (Core.Maybe LifecycleErrorCode)
+diagnostics_errorCode :: Lens.Lens' Diagnostics (Prelude.Maybe LifecycleErrorCode)
 diagnostics_errorCode = Lens.lens (\Diagnostics' {errorCode} -> errorCode) (\s@Diagnostics' {} a -> s {errorCode = a} :: Diagnostics)
 
 instance Core.FromJSON Diagnostics where
@@ -143,12 +144,12 @@ instance Core.FromJSON Diagnostics where
       "Diagnostics"
       ( \x ->
           Diagnostics'
-            Core.<$> (x Core..:? "logTail")
-            Core.<*> (x Core..:? "message")
-            Core.<*> (x Core..:? "scriptName")
-            Core.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Core..:? "logTail")
+            Prelude.<*> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "scriptName")
+            Prelude.<*> (x Core..:? "errorCode")
       )
 
-instance Core.Hashable Diagnostics
+instance Prelude.Hashable Diagnostics
 
-instance Core.NFData Diagnostics
+instance Prelude.NFData Diagnostics

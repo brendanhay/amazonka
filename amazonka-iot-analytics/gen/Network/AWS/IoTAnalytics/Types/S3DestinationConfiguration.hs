@@ -22,6 +22,7 @@ module Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.GlueConfiguration
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration information for delivery of dataset contents to Amazon
 -- Simple Storage Service (Amazon S3).
@@ -30,9 +31,9 @@ import qualified Network.AWS.Lens as Lens
 data S3DestinationConfiguration = S3DestinationConfiguration'
   { -- | Configuration information for coordination with AWS Glue, a fully
     -- managed extract, transform and load (ETL) service.
-    glueConfiguration :: Core.Maybe GlueConfiguration,
+    glueConfiguration :: Prelude.Maybe GlueConfiguration,
     -- | The name of the S3 bucket to which dataset contents are delivered.
-    bucket :: Core.Text,
+    bucket :: Prelude.Text,
     -- | The key of the dataset contents object in an S3 bucket. Each object has
     -- a key that is a unique identifier. Each object has exactly one key.
     --
@@ -54,12 +55,12 @@ data S3DestinationConfiguration = S3DestinationConfiguration'
     -- might get duplicate keys. For example, you might have two dataset
     -- contents with the same @scheduleTime@ but different @versionId@s. This
     -- means that one dataset content overwrites the other.
-    key :: Core.Text,
+    key :: Prelude.Text,
     -- | The ARN of the role that grants AWS IoT Analytics permission to interact
     -- with your Amazon S3 and AWS Glue resources.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3DestinationConfiguration' with all optional fields omitted.
@@ -100,11 +101,11 @@ data S3DestinationConfiguration = S3DestinationConfiguration'
 -- with your Amazon S3 and AWS Glue resources.
 newS3DestinationConfiguration ::
   -- | 'bucket'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   S3DestinationConfiguration
 newS3DestinationConfiguration
   pBucket_
@@ -112,7 +113,7 @@ newS3DestinationConfiguration
   pRoleArn_ =
     S3DestinationConfiguration'
       { glueConfiguration =
-          Core.Nothing,
+          Prelude.Nothing,
         bucket = pBucket_,
         key = pKey_,
         roleArn = pRoleArn_
@@ -120,11 +121,11 @@ newS3DestinationConfiguration
 
 -- | Configuration information for coordination with AWS Glue, a fully
 -- managed extract, transform and load (ETL) service.
-s3DestinationConfiguration_glueConfiguration :: Lens.Lens' S3DestinationConfiguration (Core.Maybe GlueConfiguration)
+s3DestinationConfiguration_glueConfiguration :: Lens.Lens' S3DestinationConfiguration (Prelude.Maybe GlueConfiguration)
 s3DestinationConfiguration_glueConfiguration = Lens.lens (\S3DestinationConfiguration' {glueConfiguration} -> glueConfiguration) (\s@S3DestinationConfiguration' {} a -> s {glueConfiguration = a} :: S3DestinationConfiguration)
 
 -- | The name of the S3 bucket to which dataset contents are delivered.
-s3DestinationConfiguration_bucket :: Lens.Lens' S3DestinationConfiguration Core.Text
+s3DestinationConfiguration_bucket :: Lens.Lens' S3DestinationConfiguration Prelude.Text
 s3DestinationConfiguration_bucket = Lens.lens (\S3DestinationConfiguration' {bucket} -> bucket) (\s@S3DestinationConfiguration' {} a -> s {bucket = a} :: S3DestinationConfiguration)
 
 -- | The key of the dataset contents object in an S3 bucket. Each object has
@@ -148,12 +149,12 @@ s3DestinationConfiguration_bucket = Lens.lens (\S3DestinationConfiguration' {buc
 -- might get duplicate keys. For example, you might have two dataset
 -- contents with the same @scheduleTime@ but different @versionId@s. This
 -- means that one dataset content overwrites the other.
-s3DestinationConfiguration_key :: Lens.Lens' S3DestinationConfiguration Core.Text
+s3DestinationConfiguration_key :: Lens.Lens' S3DestinationConfiguration Prelude.Text
 s3DestinationConfiguration_key = Lens.lens (\S3DestinationConfiguration' {key} -> key) (\s@S3DestinationConfiguration' {} a -> s {key = a} :: S3DestinationConfiguration)
 
 -- | The ARN of the role that grants AWS IoT Analytics permission to interact
 -- with your Amazon S3 and AWS Glue resources.
-s3DestinationConfiguration_roleArn :: Lens.Lens' S3DestinationConfiguration Core.Text
+s3DestinationConfiguration_roleArn :: Lens.Lens' S3DestinationConfiguration Prelude.Text
 s3DestinationConfiguration_roleArn = Lens.lens (\S3DestinationConfiguration' {roleArn} -> roleArn) (\s@S3DestinationConfiguration' {} a -> s {roleArn = a} :: S3DestinationConfiguration)
 
 instance Core.FromJSON S3DestinationConfiguration where
@@ -162,24 +163,24 @@ instance Core.FromJSON S3DestinationConfiguration where
       "S3DestinationConfiguration"
       ( \x ->
           S3DestinationConfiguration'
-            Core.<$> (x Core..:? "glueConfiguration")
-            Core.<*> (x Core..: "bucket")
-            Core.<*> (x Core..: "key")
-            Core.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Core..:? "glueConfiguration")
+            Prelude.<*> (x Core..: "bucket")
+            Prelude.<*> (x Core..: "key")
+            Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Core.Hashable S3DestinationConfiguration
+instance Prelude.Hashable S3DestinationConfiguration
 
-instance Core.NFData S3DestinationConfiguration
+instance Prelude.NFData S3DestinationConfiguration
 
 instance Core.ToJSON S3DestinationConfiguration where
   toJSON S3DestinationConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("glueConfiguration" Core..=)
-              Core.<$> glueConfiguration,
-            Core.Just ("bucket" Core..= bucket),
-            Core.Just ("key" Core..= key),
-            Core.Just ("roleArn" Core..= roleArn)
+              Prelude.<$> glueConfiguration,
+            Prelude.Just ("bucket" Core..= bucket),
+            Prelude.Just ("key" Core..= key),
+            Prelude.Just ("roleArn" Core..= roleArn)
           ]
       )

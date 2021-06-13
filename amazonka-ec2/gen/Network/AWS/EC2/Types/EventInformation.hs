@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.EventInformation where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an EC2 Fleet or Spot Fleet event.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data EventInformation = EventInformation'
   { -- | The ID of the instance. This information is available only for
     -- @instanceChange@ events.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The description of the event.
-    eventDescription :: Core.Maybe Core.Text,
+    eventDescription :: Prelude.Maybe Prelude.Text,
     -- | The event.
     --
     -- The following are the @error@ events:
@@ -100,9 +101,9 @@ data EventInformation = EventInformation'
     -- -   @fleetProgressHalted@ - The price in every launch specification is
     --     not valid. A launch specification might become valid if the Spot
     --     price changes.
-    eventSubType :: Core.Maybe Core.Text
+    eventSubType :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventInformation' with all optional fields omitted.
@@ -189,18 +190,18 @@ newEventInformation ::
   EventInformation
 newEventInformation =
   EventInformation'
-    { instanceId = Core.Nothing,
-      eventDescription = Core.Nothing,
-      eventSubType = Core.Nothing
+    { instanceId = Prelude.Nothing,
+      eventDescription = Prelude.Nothing,
+      eventSubType = Prelude.Nothing
     }
 
 -- | The ID of the instance. This information is available only for
 -- @instanceChange@ events.
-eventInformation_instanceId :: Lens.Lens' EventInformation (Core.Maybe Core.Text)
+eventInformation_instanceId :: Lens.Lens' EventInformation (Prelude.Maybe Prelude.Text)
 eventInformation_instanceId = Lens.lens (\EventInformation' {instanceId} -> instanceId) (\s@EventInformation' {} a -> s {instanceId = a} :: EventInformation)
 
 -- | The description of the event.
-eventInformation_eventDescription :: Lens.Lens' EventInformation (Core.Maybe Core.Text)
+eventInformation_eventDescription :: Lens.Lens' EventInformation (Prelude.Maybe Prelude.Text)
 eventInformation_eventDescription = Lens.lens (\EventInformation' {eventDescription} -> eventDescription) (\s@EventInformation' {} a -> s {eventDescription = a} :: EventInformation)
 
 -- | The event.
@@ -271,16 +272,16 @@ eventInformation_eventDescription = Lens.lens (\EventInformation' {eventDescript
 -- -   @fleetProgressHalted@ - The price in every launch specification is
 --     not valid. A launch specification might become valid if the Spot
 --     price changes.
-eventInformation_eventSubType :: Lens.Lens' EventInformation (Core.Maybe Core.Text)
+eventInformation_eventSubType :: Lens.Lens' EventInformation (Prelude.Maybe Prelude.Text)
 eventInformation_eventSubType = Lens.lens (\EventInformation' {eventSubType} -> eventSubType) (\s@EventInformation' {} a -> s {eventSubType = a} :: EventInformation)
 
 instance Core.FromXML EventInformation where
   parseXML x =
     EventInformation'
-      Core.<$> (x Core..@? "instanceId")
-      Core.<*> (x Core..@? "eventDescription")
-      Core.<*> (x Core..@? "eventSubType")
+      Prelude.<$> (x Core..@? "instanceId")
+      Prelude.<*> (x Core..@? "eventDescription")
+      Prelude.<*> (x Core..@? "eventSubType")
 
-instance Core.Hashable EventInformation
+instance Prelude.Hashable EventInformation
 
-instance Core.NFData EventInformation
+instance Prelude.NFData EventInformation

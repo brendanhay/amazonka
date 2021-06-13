@@ -43,19 +43,20 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteIntentVersion' smart constructor.
 data DeleteIntentVersion = DeleteIntentVersion'
   { -- | The name of the intent.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The version of the intent to delete. You cannot delete the @$LATEST@
     -- version of the intent. To delete the @$LATEST@ version, use the
     -- DeleteIntent operation.
-    version :: Core.Text
+    version :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteIntentVersion' with all optional fields omitted.
@@ -72,9 +73,9 @@ data DeleteIntentVersion = DeleteIntentVersion'
 -- DeleteIntent operation.
 newDeleteIntentVersion ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'version'
-  Core.Text ->
+  Prelude.Text ->
   DeleteIntentVersion
 newDeleteIntentVersion pName_ pVersion_ =
   DeleteIntentVersion'
@@ -83,13 +84,13 @@ newDeleteIntentVersion pName_ pVersion_ =
     }
 
 -- | The name of the intent.
-deleteIntentVersion_name :: Lens.Lens' DeleteIntentVersion Core.Text
+deleteIntentVersion_name :: Lens.Lens' DeleteIntentVersion Prelude.Text
 deleteIntentVersion_name = Lens.lens (\DeleteIntentVersion' {name} -> name) (\s@DeleteIntentVersion' {} a -> s {name = a} :: DeleteIntentVersion)
 
 -- | The version of the intent to delete. You cannot delete the @$LATEST@
 -- version of the intent. To delete the @$LATEST@ version, use the
 -- DeleteIntent operation.
-deleteIntentVersion_version :: Lens.Lens' DeleteIntentVersion Core.Text
+deleteIntentVersion_version :: Lens.Lens' DeleteIntentVersion Prelude.Text
 deleteIntentVersion_version = Lens.lens (\DeleteIntentVersion' {version} -> version) (\s@DeleteIntentVersion' {} a -> s {version = a} :: DeleteIntentVersion)
 
 instance Core.AWSRequest DeleteIntentVersion where
@@ -100,22 +101,24 @@ instance Core.AWSRequest DeleteIntentVersion where
   response =
     Response.receiveNull DeleteIntentVersionResponse'
 
-instance Core.Hashable DeleteIntentVersion
+instance Prelude.Hashable DeleteIntentVersion
 
-instance Core.NFData DeleteIntentVersion
+instance Prelude.NFData DeleteIntentVersion
 
 instance Core.ToHeaders DeleteIntentVersion where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteIntentVersion where
   toPath DeleteIntentVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/intents/",
         Core.toBS name,
         "/versions/",
@@ -123,13 +126,13 @@ instance Core.ToPath DeleteIntentVersion where
       ]
 
 instance Core.ToQuery DeleteIntentVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteIntentVersionResponse' smart constructor.
 data DeleteIntentVersionResponse = DeleteIntentVersionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteIntentVersionResponse' with all optional fields omitted.
@@ -140,4 +143,4 @@ newDeleteIntentVersionResponse ::
 newDeleteIntentVersionResponse =
   DeleteIntentVersionResponse'
 
-instance Core.NFData DeleteIntentVersionResponse
+instance Prelude.NFData DeleteIntentVersionResponse

@@ -41,6 +41,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data CancelInputDeviceTransfer = CancelInputDeviceTransfer'
   { -- | The unique ID of the input device to cancel. For example,
     -- hd-123456789abcdef.
-    inputDeviceId :: Core.Text
+    inputDeviceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelInputDeviceTransfer' with all optional fields omitted.
@@ -66,7 +67,7 @@ data CancelInputDeviceTransfer = CancelInputDeviceTransfer'
 -- hd-123456789abcdef.
 newCancelInputDeviceTransfer ::
   -- | 'inputDeviceId'
-  Core.Text ->
+  Prelude.Text ->
   CancelInputDeviceTransfer
 newCancelInputDeviceTransfer pInputDeviceId_ =
   CancelInputDeviceTransfer'
@@ -76,7 +77,7 @@ newCancelInputDeviceTransfer pInputDeviceId_ =
 
 -- | The unique ID of the input device to cancel. For example,
 -- hd-123456789abcdef.
-cancelInputDeviceTransfer_inputDeviceId :: Lens.Lens' CancelInputDeviceTransfer Core.Text
+cancelInputDeviceTransfer_inputDeviceId :: Lens.Lens' CancelInputDeviceTransfer Prelude.Text
 cancelInputDeviceTransfer_inputDeviceId = Lens.lens (\CancelInputDeviceTransfer' {inputDeviceId} -> inputDeviceId) (\s@CancelInputDeviceTransfer' {} a -> s {inputDeviceId = a} :: CancelInputDeviceTransfer)
 
 instance Core.AWSRequest CancelInputDeviceTransfer where
@@ -88,44 +89,46 @@ instance Core.AWSRequest CancelInputDeviceTransfer where
     Response.receiveEmpty
       ( \s h x ->
           CancelInputDeviceTransferResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CancelInputDeviceTransfer
+instance Prelude.Hashable CancelInputDeviceTransfer
 
-instance Core.NFData CancelInputDeviceTransfer
+instance Prelude.NFData CancelInputDeviceTransfer
 
 instance Core.ToHeaders CancelInputDeviceTransfer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CancelInputDeviceTransfer where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath CancelInputDeviceTransfer where
   toPath CancelInputDeviceTransfer' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/prod/inputDevices/",
         Core.toBS inputDeviceId,
         "/cancel"
       ]
 
 instance Core.ToQuery CancelInputDeviceTransfer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for CancelInputDeviceTransferResponse
 --
 -- /See:/ 'newCancelInputDeviceTransferResponse' smart constructor.
 data CancelInputDeviceTransferResponse = CancelInputDeviceTransferResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelInputDeviceTransferResponse' with all optional fields omitted.
@@ -138,7 +141,7 @@ data CancelInputDeviceTransferResponse = CancelInputDeviceTransferResponse'
 -- 'httpStatus', 'cancelInputDeviceTransferResponse_httpStatus' - The response's http status code.
 newCancelInputDeviceTransferResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CancelInputDeviceTransferResponse
 newCancelInputDeviceTransferResponse pHttpStatus_ =
   CancelInputDeviceTransferResponse'
@@ -147,9 +150,9 @@ newCancelInputDeviceTransferResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-cancelInputDeviceTransferResponse_httpStatus :: Lens.Lens' CancelInputDeviceTransferResponse Core.Int
+cancelInputDeviceTransferResponse_httpStatus :: Lens.Lens' CancelInputDeviceTransferResponse Prelude.Int
 cancelInputDeviceTransferResponse_httpStatus = Lens.lens (\CancelInputDeviceTransferResponse' {httpStatus} -> httpStatus) (\s@CancelInputDeviceTransferResponse' {} a -> s {httpStatus = a} :: CancelInputDeviceTransferResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CancelInputDeviceTransferResponse

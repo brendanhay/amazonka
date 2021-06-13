@@ -21,15 +21,16 @@ module Network.AWS.Lambda.Types.Environment where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A function\'s environment variable settings.
 --
 -- /See:/ 'newEnvironment' smart constructor.
 data Environment = Environment'
   { -- | Environment variable key-value pairs.
-    variables :: Core.Maybe (Core.Sensitive (Core.HashMap Core.Text (Core.Sensitive Core.Text)))
+    variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)))
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Environment' with all optional fields omitted.
@@ -43,19 +44,19 @@ data Environment = Environment'
 newEnvironment ::
   Environment
 newEnvironment =
-  Environment' {variables = Core.Nothing}
+  Environment' {variables = Prelude.Nothing}
 
 -- | Environment variable key-value pairs.
-environment_variables :: Lens.Lens' Environment (Core.Maybe (Core.HashMap Core.Text Core.Text))
-environment_variables = Lens.lens (\Environment' {variables} -> variables) (\s@Environment' {} a -> s {variables = a} :: Environment) Core.. Lens.mapping (Core._Sensitive Core.. Lens._Coerce)
+environment_variables :: Lens.Lens' Environment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+environment_variables = Lens.lens (\Environment' {variables} -> variables) (\s@Environment' {} a -> s {variables = a} :: Environment) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens._Coerce)
 
-instance Core.Hashable Environment
+instance Prelude.Hashable Environment
 
-instance Core.NFData Environment
+instance Prelude.NFData Environment
 
 instance Core.ToJSON Environment where
   toJSON Environment' {..} =
     Core.object
-      ( Core.catMaybes
-          [("Variables" Core..=) Core.<$> variables]
+      ( Prelude.catMaybes
+          [("Variables" Core..=) Prelude.<$> variables]
       )

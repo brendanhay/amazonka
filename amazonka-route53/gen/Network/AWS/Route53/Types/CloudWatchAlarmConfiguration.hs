@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.CloudWatchAlarmConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.ComparisonOperator
 import Network.AWS.Route53.Types.Dimension
@@ -36,31 +37,31 @@ data CloudWatchAlarmConfiguration = CloudWatchAlarmConfiguration'
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html Amazon CloudWatch Namespaces, Dimensions, and Metrics Reference>
     -- in the /Amazon CloudWatch User Guide/.
-    dimensions :: Core.Maybe [Dimension],
+    dimensions :: Prelude.Maybe [Dimension],
     -- | For the metric that the CloudWatch alarm is associated with, the number
     -- of periods that the metric is compared to the threshold.
-    evaluationPeriods :: Core.Natural,
+    evaluationPeriods :: Prelude.Natural,
     -- | For the metric that the CloudWatch alarm is associated with, the value
     -- the metric is compared with.
-    threshold :: Core.Double,
+    threshold :: Prelude.Double,
     -- | For the metric that the CloudWatch alarm is associated with, the
     -- arithmetic operation that is used for the comparison.
     comparisonOperator :: ComparisonOperator,
     -- | For the metric that the CloudWatch alarm is associated with, the
     -- duration of one evaluation period in seconds.
-    period :: Core.Natural,
+    period :: Prelude.Natural,
     -- | The name of the CloudWatch metric that the alarm is associated with.
-    metricName :: Core.Text,
+    metricName :: Prelude.Text,
     -- | The namespace of the metric that the alarm is associated with. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html Amazon CloudWatch Namespaces, Dimensions, and Metrics Reference>
     -- in the /Amazon CloudWatch User Guide/.
-    namespace :: Core.Text,
+    namespace :: Prelude.Text,
     -- | For the metric that the CloudWatch alarm is associated with, the
     -- statistic that is applied to the metric.
     statistic :: Statistic
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CloudWatchAlarmConfiguration' with all optional fields omitted.
@@ -99,17 +100,17 @@ data CloudWatchAlarmConfiguration = CloudWatchAlarmConfiguration'
 -- statistic that is applied to the metric.
 newCloudWatchAlarmConfiguration ::
   -- | 'evaluationPeriods'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'threshold'
-  Core.Double ->
+  Prelude.Double ->
   -- | 'comparisonOperator'
   ComparisonOperator ->
   -- | 'period'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'metricName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'namespace'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'statistic'
   Statistic ->
   CloudWatchAlarmConfiguration
@@ -123,7 +124,7 @@ newCloudWatchAlarmConfiguration
   pStatistic_ =
     CloudWatchAlarmConfiguration'
       { dimensions =
-          Core.Nothing,
+          Prelude.Nothing,
         evaluationPeriods = pEvaluationPeriods_,
         threshold = pThreshold_,
         comparisonOperator = pComparisonOperator_,
@@ -138,17 +139,17 @@ newCloudWatchAlarmConfiguration
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html Amazon CloudWatch Namespaces, Dimensions, and Metrics Reference>
 -- in the /Amazon CloudWatch User Guide/.
-cloudWatchAlarmConfiguration_dimensions :: Lens.Lens' CloudWatchAlarmConfiguration (Core.Maybe [Dimension])
-cloudWatchAlarmConfiguration_dimensions = Lens.lens (\CloudWatchAlarmConfiguration' {dimensions} -> dimensions) (\s@CloudWatchAlarmConfiguration' {} a -> s {dimensions = a} :: CloudWatchAlarmConfiguration) Core.. Lens.mapping Lens._Coerce
+cloudWatchAlarmConfiguration_dimensions :: Lens.Lens' CloudWatchAlarmConfiguration (Prelude.Maybe [Dimension])
+cloudWatchAlarmConfiguration_dimensions = Lens.lens (\CloudWatchAlarmConfiguration' {dimensions} -> dimensions) (\s@CloudWatchAlarmConfiguration' {} a -> s {dimensions = a} :: CloudWatchAlarmConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | For the metric that the CloudWatch alarm is associated with, the number
 -- of periods that the metric is compared to the threshold.
-cloudWatchAlarmConfiguration_evaluationPeriods :: Lens.Lens' CloudWatchAlarmConfiguration Core.Natural
+cloudWatchAlarmConfiguration_evaluationPeriods :: Lens.Lens' CloudWatchAlarmConfiguration Prelude.Natural
 cloudWatchAlarmConfiguration_evaluationPeriods = Lens.lens (\CloudWatchAlarmConfiguration' {evaluationPeriods} -> evaluationPeriods) (\s@CloudWatchAlarmConfiguration' {} a -> s {evaluationPeriods = a} :: CloudWatchAlarmConfiguration)
 
 -- | For the metric that the CloudWatch alarm is associated with, the value
 -- the metric is compared with.
-cloudWatchAlarmConfiguration_threshold :: Lens.Lens' CloudWatchAlarmConfiguration Core.Double
+cloudWatchAlarmConfiguration_threshold :: Lens.Lens' CloudWatchAlarmConfiguration Prelude.Double
 cloudWatchAlarmConfiguration_threshold = Lens.lens (\CloudWatchAlarmConfiguration' {threshold} -> threshold) (\s@CloudWatchAlarmConfiguration' {} a -> s {threshold = a} :: CloudWatchAlarmConfiguration)
 
 -- | For the metric that the CloudWatch alarm is associated with, the
@@ -158,18 +159,18 @@ cloudWatchAlarmConfiguration_comparisonOperator = Lens.lens (\CloudWatchAlarmCon
 
 -- | For the metric that the CloudWatch alarm is associated with, the
 -- duration of one evaluation period in seconds.
-cloudWatchAlarmConfiguration_period :: Lens.Lens' CloudWatchAlarmConfiguration Core.Natural
+cloudWatchAlarmConfiguration_period :: Lens.Lens' CloudWatchAlarmConfiguration Prelude.Natural
 cloudWatchAlarmConfiguration_period = Lens.lens (\CloudWatchAlarmConfiguration' {period} -> period) (\s@CloudWatchAlarmConfiguration' {} a -> s {period = a} :: CloudWatchAlarmConfiguration)
 
 -- | The name of the CloudWatch metric that the alarm is associated with.
-cloudWatchAlarmConfiguration_metricName :: Lens.Lens' CloudWatchAlarmConfiguration Core.Text
+cloudWatchAlarmConfiguration_metricName :: Lens.Lens' CloudWatchAlarmConfiguration Prelude.Text
 cloudWatchAlarmConfiguration_metricName = Lens.lens (\CloudWatchAlarmConfiguration' {metricName} -> metricName) (\s@CloudWatchAlarmConfiguration' {} a -> s {metricName = a} :: CloudWatchAlarmConfiguration)
 
 -- | The namespace of the metric that the alarm is associated with. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html Amazon CloudWatch Namespaces, Dimensions, and Metrics Reference>
 -- in the /Amazon CloudWatch User Guide/.
-cloudWatchAlarmConfiguration_namespace :: Lens.Lens' CloudWatchAlarmConfiguration Core.Text
+cloudWatchAlarmConfiguration_namespace :: Lens.Lens' CloudWatchAlarmConfiguration Prelude.Text
 cloudWatchAlarmConfiguration_namespace = Lens.lens (\CloudWatchAlarmConfiguration' {namespace} -> namespace) (\s@CloudWatchAlarmConfiguration' {} a -> s {namespace = a} :: CloudWatchAlarmConfiguration)
 
 -- | For the metric that the CloudWatch alarm is associated with, the
@@ -180,17 +181,19 @@ cloudWatchAlarmConfiguration_statistic = Lens.lens (\CloudWatchAlarmConfiguratio
 instance Core.FromXML CloudWatchAlarmConfiguration where
   parseXML x =
     CloudWatchAlarmConfiguration'
-      Core.<$> ( x Core..@? "Dimensions" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Dimension")
-               )
-      Core.<*> (x Core..@ "EvaluationPeriods")
-      Core.<*> (x Core..@ "Threshold")
-      Core.<*> (x Core..@ "ComparisonOperator")
-      Core.<*> (x Core..@ "Period")
-      Core.<*> (x Core..@ "MetricName")
-      Core.<*> (x Core..@ "Namespace")
-      Core.<*> (x Core..@ "Statistic")
+      Prelude.<$> ( x Core..@? "Dimensions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Dimension")
+                  )
+      Prelude.<*> (x Core..@ "EvaluationPeriods")
+      Prelude.<*> (x Core..@ "Threshold")
+      Prelude.<*> (x Core..@ "ComparisonOperator")
+      Prelude.<*> (x Core..@ "Period")
+      Prelude.<*> (x Core..@ "MetricName")
+      Prelude.<*> (x Core..@ "Namespace")
+      Prelude.<*> (x Core..@ "Statistic")
 
-instance Core.Hashable CloudWatchAlarmConfiguration
+instance
+  Prelude.Hashable
+    CloudWatchAlarmConfiguration
 
-instance Core.NFData CloudWatchAlarmConfiguration
+instance Prelude.NFData CloudWatchAlarmConfiguration

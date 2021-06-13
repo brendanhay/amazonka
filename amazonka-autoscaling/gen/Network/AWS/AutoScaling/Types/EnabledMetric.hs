@@ -21,13 +21,14 @@ module Network.AWS.AutoScaling.Types.EnabledMetric where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an enabled metric.
 --
 -- /See:/ 'newEnabledMetric' smart constructor.
 data EnabledMetric = EnabledMetric'
   { -- | The granularity of the metric. The only valid value is @1Minute@.
-    granularity :: Core.Maybe Core.Text,
+    granularity :: Prelude.Maybe Prelude.Text,
     -- | One of the following metrics:
     --
     -- -   @GroupMinSize@
@@ -55,9 +56,9 @@ data EnabledMetric = EnabledMetric'
     -- -   @GroupTerminatingCapacity@
     --
     -- -   @GroupTotalCapacity@
-    metric :: Core.Maybe Core.Text
+    metric :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnabledMetric' with all optional fields omitted.
@@ -100,12 +101,12 @@ newEnabledMetric ::
   EnabledMetric
 newEnabledMetric =
   EnabledMetric'
-    { granularity = Core.Nothing,
-      metric = Core.Nothing
+    { granularity = Prelude.Nothing,
+      metric = Prelude.Nothing
     }
 
 -- | The granularity of the metric. The only valid value is @1Minute@.
-enabledMetric_granularity :: Lens.Lens' EnabledMetric (Core.Maybe Core.Text)
+enabledMetric_granularity :: Lens.Lens' EnabledMetric (Prelude.Maybe Prelude.Text)
 enabledMetric_granularity = Lens.lens (\EnabledMetric' {granularity} -> granularity) (\s@EnabledMetric' {} a -> s {granularity = a} :: EnabledMetric)
 
 -- | One of the following metrics:
@@ -135,15 +136,15 @@ enabledMetric_granularity = Lens.lens (\EnabledMetric' {granularity} -> granular
 -- -   @GroupTerminatingCapacity@
 --
 -- -   @GroupTotalCapacity@
-enabledMetric_metric :: Lens.Lens' EnabledMetric (Core.Maybe Core.Text)
+enabledMetric_metric :: Lens.Lens' EnabledMetric (Prelude.Maybe Prelude.Text)
 enabledMetric_metric = Lens.lens (\EnabledMetric' {metric} -> metric) (\s@EnabledMetric' {} a -> s {metric = a} :: EnabledMetric)
 
 instance Core.FromXML EnabledMetric where
   parseXML x =
     EnabledMetric'
-      Core.<$> (x Core..@? "Granularity")
-      Core.<*> (x Core..@? "Metric")
+      Prelude.<$> (x Core..@? "Granularity")
+      Prelude.<*> (x Core..@? "Metric")
 
-instance Core.Hashable EnabledMetric
+instance Prelude.Hashable EnabledMetric
 
-instance Core.NFData EnabledMetric
+instance Prelude.NFData EnabledMetric

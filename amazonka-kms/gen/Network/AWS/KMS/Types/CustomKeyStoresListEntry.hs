@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types.ConnectionErrorCodeType
 import Network.AWS.KMS.Types.ConnectionStateType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about each custom key store in the custom key store
 -- list.
@@ -30,7 +31,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCustomKeyStoresListEntry' smart constructor.
 data CustomKeyStoresListEntry = CustomKeyStoresListEntry'
   { -- | The user-specified friendly name for the custom key store.
-    customKeyStoreName :: Core.Maybe Core.Text,
+    customKeyStoreName :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the custom key store is connected to its AWS CloudHSM
     -- cluster.
     --
@@ -48,19 +49,19 @@ data CustomKeyStoresListEntry = CustomKeyStoresListEntry'
     -- the cause of the failure. For help resolving a connection failure, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html Troubleshooting a Custom Key Store>
     -- in the /AWS Key Management Service Developer Guide/.
-    connectionState :: Core.Maybe ConnectionStateType,
+    connectionState :: Prelude.Maybe ConnectionStateType,
     -- | A unique identifier for the custom key store.
-    customKeyStoreId :: Core.Maybe Core.Text,
+    customKeyStoreId :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the AWS CloudHSM cluster that is associated with
     -- the custom key store.
-    cloudHsmClusterId :: Core.Maybe Core.Text,
+    cloudHsmClusterId :: Prelude.Maybe Prelude.Text,
     -- | The trust anchor certificate of the associated AWS CloudHSM cluster.
     -- When you
     -- <https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr initialize the cluster>,
     -- you create this certificate and save it in the @customerCA.crt@ file.
-    trustAnchorCertificate :: Core.Maybe Core.Text,
+    trustAnchorCertificate :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the custom key store was created.
-    creationDate :: Core.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Core.POSIX,
     -- | Describes the connection error. This field appears in the response only
     -- when the @ConnectionState@ is @FAILED@. For help resolving these errors,
     -- see
@@ -122,9 +123,9 @@ data CustomKeyStoresListEntry = CustomKeyStoresListEntry'
     --     key store to its AWS CloudHSM cluster, you must create a @kmsuser@
     --     CU account in the cluster, and then update the key store password
     --     value for the custom key store.
-    connectionErrorCode :: Core.Maybe ConnectionErrorCodeType
+    connectionErrorCode :: Prelude.Maybe ConnectionErrorCodeType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CustomKeyStoresListEntry' with all optional fields omitted.
@@ -232,17 +233,17 @@ newCustomKeyStoresListEntry ::
 newCustomKeyStoresListEntry =
   CustomKeyStoresListEntry'
     { customKeyStoreName =
-        Core.Nothing,
-      connectionState = Core.Nothing,
-      customKeyStoreId = Core.Nothing,
-      cloudHsmClusterId = Core.Nothing,
-      trustAnchorCertificate = Core.Nothing,
-      creationDate = Core.Nothing,
-      connectionErrorCode = Core.Nothing
+        Prelude.Nothing,
+      connectionState = Prelude.Nothing,
+      customKeyStoreId = Prelude.Nothing,
+      cloudHsmClusterId = Prelude.Nothing,
+      trustAnchorCertificate = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      connectionErrorCode = Prelude.Nothing
     }
 
 -- | The user-specified friendly name for the custom key store.
-customKeyStoresListEntry_customKeyStoreName :: Lens.Lens' CustomKeyStoresListEntry (Core.Maybe Core.Text)
+customKeyStoresListEntry_customKeyStoreName :: Lens.Lens' CustomKeyStoresListEntry (Prelude.Maybe Prelude.Text)
 customKeyStoresListEntry_customKeyStoreName = Lens.lens (\CustomKeyStoresListEntry' {customKeyStoreName} -> customKeyStoreName) (\s@CustomKeyStoresListEntry' {} a -> s {customKeyStoreName = a} :: CustomKeyStoresListEntry)
 
 -- | Indicates whether the custom key store is connected to its AWS CloudHSM
@@ -262,28 +263,28 @@ customKeyStoresListEntry_customKeyStoreName = Lens.lens (\CustomKeyStoresListEnt
 -- the cause of the failure. For help resolving a connection failure, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html Troubleshooting a Custom Key Store>
 -- in the /AWS Key Management Service Developer Guide/.
-customKeyStoresListEntry_connectionState :: Lens.Lens' CustomKeyStoresListEntry (Core.Maybe ConnectionStateType)
+customKeyStoresListEntry_connectionState :: Lens.Lens' CustomKeyStoresListEntry (Prelude.Maybe ConnectionStateType)
 customKeyStoresListEntry_connectionState = Lens.lens (\CustomKeyStoresListEntry' {connectionState} -> connectionState) (\s@CustomKeyStoresListEntry' {} a -> s {connectionState = a} :: CustomKeyStoresListEntry)
 
 -- | A unique identifier for the custom key store.
-customKeyStoresListEntry_customKeyStoreId :: Lens.Lens' CustomKeyStoresListEntry (Core.Maybe Core.Text)
+customKeyStoresListEntry_customKeyStoreId :: Lens.Lens' CustomKeyStoresListEntry (Prelude.Maybe Prelude.Text)
 customKeyStoresListEntry_customKeyStoreId = Lens.lens (\CustomKeyStoresListEntry' {customKeyStoreId} -> customKeyStoreId) (\s@CustomKeyStoresListEntry' {} a -> s {customKeyStoreId = a} :: CustomKeyStoresListEntry)
 
 -- | A unique identifier for the AWS CloudHSM cluster that is associated with
 -- the custom key store.
-customKeyStoresListEntry_cloudHsmClusterId :: Lens.Lens' CustomKeyStoresListEntry (Core.Maybe Core.Text)
+customKeyStoresListEntry_cloudHsmClusterId :: Lens.Lens' CustomKeyStoresListEntry (Prelude.Maybe Prelude.Text)
 customKeyStoresListEntry_cloudHsmClusterId = Lens.lens (\CustomKeyStoresListEntry' {cloudHsmClusterId} -> cloudHsmClusterId) (\s@CustomKeyStoresListEntry' {} a -> s {cloudHsmClusterId = a} :: CustomKeyStoresListEntry)
 
 -- | The trust anchor certificate of the associated AWS CloudHSM cluster.
 -- When you
 -- <https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr initialize the cluster>,
 -- you create this certificate and save it in the @customerCA.crt@ file.
-customKeyStoresListEntry_trustAnchorCertificate :: Lens.Lens' CustomKeyStoresListEntry (Core.Maybe Core.Text)
+customKeyStoresListEntry_trustAnchorCertificate :: Lens.Lens' CustomKeyStoresListEntry (Prelude.Maybe Prelude.Text)
 customKeyStoresListEntry_trustAnchorCertificate = Lens.lens (\CustomKeyStoresListEntry' {trustAnchorCertificate} -> trustAnchorCertificate) (\s@CustomKeyStoresListEntry' {} a -> s {trustAnchorCertificate = a} :: CustomKeyStoresListEntry)
 
 -- | The date and time when the custom key store was created.
-customKeyStoresListEntry_creationDate :: Lens.Lens' CustomKeyStoresListEntry (Core.Maybe Core.UTCTime)
-customKeyStoresListEntry_creationDate = Lens.lens (\CustomKeyStoresListEntry' {creationDate} -> creationDate) (\s@CustomKeyStoresListEntry' {} a -> s {creationDate = a} :: CustomKeyStoresListEntry) Core.. Lens.mapping Core._Time
+customKeyStoresListEntry_creationDate :: Lens.Lens' CustomKeyStoresListEntry (Prelude.Maybe Prelude.UTCTime)
+customKeyStoresListEntry_creationDate = Lens.lens (\CustomKeyStoresListEntry' {creationDate} -> creationDate) (\s@CustomKeyStoresListEntry' {} a -> s {creationDate = a} :: CustomKeyStoresListEntry) Prelude.. Lens.mapping Core._Time
 
 -- | Describes the connection error. This field appears in the response only
 -- when the @ConnectionState@ is @FAILED@. For help resolving these errors,
@@ -346,7 +347,7 @@ customKeyStoresListEntry_creationDate = Lens.lens (\CustomKeyStoresListEntry' {c
 --     key store to its AWS CloudHSM cluster, you must create a @kmsuser@
 --     CU account in the cluster, and then update the key store password
 --     value for the custom key store.
-customKeyStoresListEntry_connectionErrorCode :: Lens.Lens' CustomKeyStoresListEntry (Core.Maybe ConnectionErrorCodeType)
+customKeyStoresListEntry_connectionErrorCode :: Lens.Lens' CustomKeyStoresListEntry (Prelude.Maybe ConnectionErrorCodeType)
 customKeyStoresListEntry_connectionErrorCode = Lens.lens (\CustomKeyStoresListEntry' {connectionErrorCode} -> connectionErrorCode) (\s@CustomKeyStoresListEntry' {} a -> s {connectionErrorCode = a} :: CustomKeyStoresListEntry)
 
 instance Core.FromJSON CustomKeyStoresListEntry where
@@ -355,15 +356,15 @@ instance Core.FromJSON CustomKeyStoresListEntry where
       "CustomKeyStoresListEntry"
       ( \x ->
           CustomKeyStoresListEntry'
-            Core.<$> (x Core..:? "CustomKeyStoreName")
-            Core.<*> (x Core..:? "ConnectionState")
-            Core.<*> (x Core..:? "CustomKeyStoreId")
-            Core.<*> (x Core..:? "CloudHsmClusterId")
-            Core.<*> (x Core..:? "TrustAnchorCertificate")
-            Core.<*> (x Core..:? "CreationDate")
-            Core.<*> (x Core..:? "ConnectionErrorCode")
+            Prelude.<$> (x Core..:? "CustomKeyStoreName")
+            Prelude.<*> (x Core..:? "ConnectionState")
+            Prelude.<*> (x Core..:? "CustomKeyStoreId")
+            Prelude.<*> (x Core..:? "CloudHsmClusterId")
+            Prelude.<*> (x Core..:? "TrustAnchorCertificate")
+            Prelude.<*> (x Core..:? "CreationDate")
+            Prelude.<*> (x Core..:? "ConnectionErrorCode")
       )
 
-instance Core.Hashable CustomKeyStoresListEntry
+instance Prelude.Hashable CustomKeyStoresListEntry
 
-instance Core.NFData CustomKeyStoresListEntry
+instance Prelude.NFData CustomKeyStoresListEntry

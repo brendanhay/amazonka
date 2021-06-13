@@ -44,19 +44,20 @@ where
 import Network.AWS.AppSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetResolver' smart constructor.
 data GetResolver = GetResolver'
   { -- | The API ID.
-    apiId :: Core.Text,
+    apiId :: Prelude.Text,
     -- | The resolver type name.
-    typeName :: Core.Text,
+    typeName :: Prelude.Text,
     -- | The resolver field name.
-    fieldName :: Core.Text
+    fieldName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetResolver' with all optional fields omitted.
@@ -73,11 +74,11 @@ data GetResolver = GetResolver'
 -- 'fieldName', 'getResolver_fieldName' - The resolver field name.
 newGetResolver ::
   -- | 'apiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'typeName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'fieldName'
-  Core.Text ->
+  Prelude.Text ->
   GetResolver
 newGetResolver pApiId_ pTypeName_ pFieldName_ =
   GetResolver'
@@ -87,15 +88,15 @@ newGetResolver pApiId_ pTypeName_ pFieldName_ =
     }
 
 -- | The API ID.
-getResolver_apiId :: Lens.Lens' GetResolver Core.Text
+getResolver_apiId :: Lens.Lens' GetResolver Prelude.Text
 getResolver_apiId = Lens.lens (\GetResolver' {apiId} -> apiId) (\s@GetResolver' {} a -> s {apiId = a} :: GetResolver)
 
 -- | The resolver type name.
-getResolver_typeName :: Lens.Lens' GetResolver Core.Text
+getResolver_typeName :: Lens.Lens' GetResolver Prelude.Text
 getResolver_typeName = Lens.lens (\GetResolver' {typeName} -> typeName) (\s@GetResolver' {} a -> s {typeName = a} :: GetResolver)
 
 -- | The resolver field name.
-getResolver_fieldName :: Lens.Lens' GetResolver Core.Text
+getResolver_fieldName :: Lens.Lens' GetResolver Prelude.Text
 getResolver_fieldName = Lens.lens (\GetResolver' {fieldName} -> fieldName) (\s@GetResolver' {} a -> s {fieldName = a} :: GetResolver)
 
 instance Core.AWSRequest GetResolver where
@@ -105,26 +106,28 @@ instance Core.AWSRequest GetResolver where
     Response.receiveJSON
       ( \s h x ->
           GetResolverResponse'
-            Core.<$> (x Core..?> "resolver")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "resolver")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetResolver
+instance Prelude.Hashable GetResolver
 
-instance Core.NFData GetResolver
+instance Prelude.NFData GetResolver
 
 instance Core.ToHeaders GetResolver where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetResolver where
   toPath GetResolver' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apis/",
         Core.toBS apiId,
         "/types/",
@@ -134,16 +137,16 @@ instance Core.ToPath GetResolver where
       ]
 
 instance Core.ToQuery GetResolver where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResolverResponse' smart constructor.
 data GetResolverResponse = GetResolverResponse'
   { -- | The @Resolver@ object.
-    resolver :: Core.Maybe Resolver,
+    resolver :: Prelude.Maybe Resolver,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetResolverResponse' with all optional fields omitted.
@@ -158,20 +161,20 @@ data GetResolverResponse = GetResolverResponse'
 -- 'httpStatus', 'getResolverResponse_httpStatus' - The response's http status code.
 newGetResolverResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetResolverResponse
 newGetResolverResponse pHttpStatus_ =
   GetResolverResponse'
-    { resolver = Core.Nothing,
+    { resolver = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @Resolver@ object.
-getResolverResponse_resolver :: Lens.Lens' GetResolverResponse (Core.Maybe Resolver)
+getResolverResponse_resolver :: Lens.Lens' GetResolverResponse (Prelude.Maybe Resolver)
 getResolverResponse_resolver = Lens.lens (\GetResolverResponse' {resolver} -> resolver) (\s@GetResolverResponse' {} a -> s {resolver = a} :: GetResolverResponse)
 
 -- | The response's http status code.
-getResolverResponse_httpStatus :: Lens.Lens' GetResolverResponse Core.Int
+getResolverResponse_httpStatus :: Lens.Lens' GetResolverResponse Prelude.Int
 getResolverResponse_httpStatus = Lens.lens (\GetResolverResponse' {httpStatus} -> httpStatus) (\s@GetResolverResponse' {} a -> s {httpStatus = a} :: GetResolverResponse)
 
-instance Core.NFData GetResolverResponse
+instance Prelude.NFData GetResolverResponse

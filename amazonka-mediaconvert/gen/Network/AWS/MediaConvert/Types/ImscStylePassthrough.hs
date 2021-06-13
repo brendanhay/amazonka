@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.ImscStylePassthrough
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Keep this setting enabled to have MediaConvert use the font style and
 -- position information from the captions source in the output. This option
@@ -37,15 +38,15 @@ newtype ImscStylePassthrough = ImscStylePassthrough'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

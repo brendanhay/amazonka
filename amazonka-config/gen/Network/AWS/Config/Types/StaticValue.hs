@@ -21,15 +21,16 @@ module Network.AWS.Config.Types.StaticValue where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The static value of the resource.
 --
 -- /See:/ 'newStaticValue' smart constructor.
 data StaticValue = StaticValue'
   { -- | A list of values. For example, the ARN of the assumed role.
-    values :: [Core.Text]
+    values :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StaticValue' with all optional fields omitted.
@@ -42,11 +43,12 @@ data StaticValue = StaticValue'
 -- 'values', 'staticValue_values' - A list of values. For example, the ARN of the assumed role.
 newStaticValue ::
   StaticValue
-newStaticValue = StaticValue' {values = Core.mempty}
+newStaticValue =
+  StaticValue' {values = Prelude.mempty}
 
 -- | A list of values. For example, the ARN of the assumed role.
-staticValue_values :: Lens.Lens' StaticValue [Core.Text]
-staticValue_values = Lens.lens (\StaticValue' {values} -> values) (\s@StaticValue' {} a -> s {values = a} :: StaticValue) Core.. Lens._Coerce
+staticValue_values :: Lens.Lens' StaticValue [Prelude.Text]
+staticValue_values = Lens.lens (\StaticValue' {values} -> values) (\s@StaticValue' {} a -> s {values = a} :: StaticValue) Prelude.. Lens._Coerce
 
 instance Core.FromJSON StaticValue where
   parseJSON =
@@ -54,16 +56,16 @@ instance Core.FromJSON StaticValue where
       "StaticValue"
       ( \x ->
           StaticValue'
-            Core.<$> (x Core..:? "Values" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Values" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable StaticValue
+instance Prelude.Hashable StaticValue
 
-instance Core.NFData StaticValue
+instance Prelude.NFData StaticValue
 
 instance Core.ToJSON StaticValue where
   toJSON StaticValue' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Values" Core..= values)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Values" Core..= values)]
       )

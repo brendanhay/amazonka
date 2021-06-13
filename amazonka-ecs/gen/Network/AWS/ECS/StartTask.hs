@@ -59,6 +59,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,14 +68,14 @@ data StartTask = StartTask'
   { -- | The VPC subnet and security group configuration for tasks that receive
     -- their own elastic network interface by using the @awsvpc@ networking
     -- mode.
-    networkConfiguration :: Core.Maybe NetworkConfiguration,
+    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
     -- | The reference ID to use for the task.
-    referenceId :: Core.Maybe Core.Text,
+    referenceId :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to enable Amazon ECS managed tags for the task. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    enableECSManagedTags :: Core.Maybe Core.Bool,
+    enableECSManagedTags :: Prelude.Maybe Prelude.Bool,
     -- | An optional tag specified when a task is started. For example, if you
     -- automatically trigger a task to run a batch process job, you could apply
     -- a unique identifier for that job to your task with the @startedBy@
@@ -85,11 +86,11 @@ data StartTask = StartTask'
     --
     -- If a task is started by an Amazon ECS service, then the @startedBy@
     -- parameter contains the deployment ID of the service that starts it.
-    startedBy :: Core.Maybe Core.Text,
+    startedBy :: Prelude.Maybe Prelude.Text,
     -- | The name of the task group to associate with the task. The default value
     -- is the family name of the task definition (for example,
     -- family:my-family-name).
-    group' :: Core.Maybe Core.Text,
+    group' :: Prelude.Maybe Prelude.Text,
     -- | A list of container overrides in JSON format that specify the name of a
     -- container in the specified task definition and the overrides it should
     -- receive. You can override the default command for a container (that is
@@ -100,7 +101,7 @@ data StartTask = StartTask'
     --
     -- A total of 8192 characters are allowed for overrides. This limit
     -- includes the JSON formatting characters of the override structure.
-    overrides :: Core.Maybe TaskOverride,
+    overrides :: Prelude.Maybe TaskOverride,
     -- | The metadata that you apply to the task to help you categorize and
     -- organize them. Each tag consists of a key and an optional value, both of
     -- which you define.
@@ -129,25 +130,25 @@ data StartTask = StartTask'
     --     use. You cannot edit or delete tag keys or values with this prefix.
     --     Tags with this prefix do not count against your tags per resource
     --     limit.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The short name or full Amazon Resource Name (ARN) of the cluster on
     -- which to start your task. If you do not specify a cluster, the default
     -- cluster is assumed.
-    cluster :: Core.Maybe Core.Text,
+    cluster :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to propagate the tags from the task definition or the
     -- service to the task. If no value is specified, the tags are not
     -- propagated.
-    propagateTags :: Core.Maybe PropagateTags,
+    propagateTags :: Prelude.Maybe PropagateTags,
     -- | The container instance IDs or full ARN entries for the container
     -- instances on which you would like to place your task. You can specify up
     -- to 10 container instances.
-    containerInstances :: [Core.Text],
+    containerInstances :: [Prelude.Text],
     -- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
     -- definition to start. If a @revision@ is not specified, the latest
     -- @ACTIVE@ revision is used.
-    taskDefinition :: Core.Text
+    taskDefinition :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartTask' with all optional fields omitted.
@@ -240,38 +241,38 @@ data StartTask = StartTask'
 -- @ACTIVE@ revision is used.
 newStartTask ::
   -- | 'taskDefinition'
-  Core.Text ->
+  Prelude.Text ->
   StartTask
 newStartTask pTaskDefinition_ =
   StartTask'
-    { networkConfiguration = Core.Nothing,
-      referenceId = Core.Nothing,
-      enableECSManagedTags = Core.Nothing,
-      startedBy = Core.Nothing,
-      group' = Core.Nothing,
-      overrides = Core.Nothing,
-      tags = Core.Nothing,
-      cluster = Core.Nothing,
-      propagateTags = Core.Nothing,
-      containerInstances = Core.mempty,
+    { networkConfiguration = Prelude.Nothing,
+      referenceId = Prelude.Nothing,
+      enableECSManagedTags = Prelude.Nothing,
+      startedBy = Prelude.Nothing,
+      group' = Prelude.Nothing,
+      overrides = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      cluster = Prelude.Nothing,
+      propagateTags = Prelude.Nothing,
+      containerInstances = Prelude.mempty,
       taskDefinition = pTaskDefinition_
     }
 
 -- | The VPC subnet and security group configuration for tasks that receive
 -- their own elastic network interface by using the @awsvpc@ networking
 -- mode.
-startTask_networkConfiguration :: Lens.Lens' StartTask (Core.Maybe NetworkConfiguration)
+startTask_networkConfiguration :: Lens.Lens' StartTask (Prelude.Maybe NetworkConfiguration)
 startTask_networkConfiguration = Lens.lens (\StartTask' {networkConfiguration} -> networkConfiguration) (\s@StartTask' {} a -> s {networkConfiguration = a} :: StartTask)
 
 -- | The reference ID to use for the task.
-startTask_referenceId :: Lens.Lens' StartTask (Core.Maybe Core.Text)
+startTask_referenceId :: Lens.Lens' StartTask (Prelude.Maybe Prelude.Text)
 startTask_referenceId = Lens.lens (\StartTask' {referenceId} -> referenceId) (\s@StartTask' {} a -> s {referenceId = a} :: StartTask)
 
 -- | Specifies whether to enable Amazon ECS managed tags for the task. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-startTask_enableECSManagedTags :: Lens.Lens' StartTask (Core.Maybe Core.Bool)
+startTask_enableECSManagedTags :: Lens.Lens' StartTask (Prelude.Maybe Prelude.Bool)
 startTask_enableECSManagedTags = Lens.lens (\StartTask' {enableECSManagedTags} -> enableECSManagedTags) (\s@StartTask' {} a -> s {enableECSManagedTags = a} :: StartTask)
 
 -- | An optional tag specified when a task is started. For example, if you
@@ -284,13 +285,13 @@ startTask_enableECSManagedTags = Lens.lens (\StartTask' {enableECSManagedTags} -
 --
 -- If a task is started by an Amazon ECS service, then the @startedBy@
 -- parameter contains the deployment ID of the service that starts it.
-startTask_startedBy :: Lens.Lens' StartTask (Core.Maybe Core.Text)
+startTask_startedBy :: Lens.Lens' StartTask (Prelude.Maybe Prelude.Text)
 startTask_startedBy = Lens.lens (\StartTask' {startedBy} -> startedBy) (\s@StartTask' {} a -> s {startedBy = a} :: StartTask)
 
 -- | The name of the task group to associate with the task. The default value
 -- is the family name of the task definition (for example,
 -- family:my-family-name).
-startTask_group :: Lens.Lens' StartTask (Core.Maybe Core.Text)
+startTask_group :: Lens.Lens' StartTask (Prelude.Maybe Prelude.Text)
 startTask_group = Lens.lens (\StartTask' {group'} -> group') (\s@StartTask' {} a -> s {group' = a} :: StartTask)
 
 -- | A list of container overrides in JSON format that specify the name of a
@@ -303,7 +304,7 @@ startTask_group = Lens.lens (\StartTask' {group'} -> group') (\s@StartTask' {} a
 --
 -- A total of 8192 characters are allowed for overrides. This limit
 -- includes the JSON formatting characters of the override structure.
-startTask_overrides :: Lens.Lens' StartTask (Core.Maybe TaskOverride)
+startTask_overrides :: Lens.Lens' StartTask (Prelude.Maybe TaskOverride)
 startTask_overrides = Lens.lens (\StartTask' {overrides} -> overrides) (\s@StartTask' {} a -> s {overrides = a} :: StartTask)
 
 -- | The metadata that you apply to the task to help you categorize and
@@ -334,31 +335,31 @@ startTask_overrides = Lens.lens (\StartTask' {overrides} -> overrides) (\s@Start
 --     use. You cannot edit or delete tag keys or values with this prefix.
 --     Tags with this prefix do not count against your tags per resource
 --     limit.
-startTask_tags :: Lens.Lens' StartTask (Core.Maybe [Tag])
-startTask_tags = Lens.lens (\StartTask' {tags} -> tags) (\s@StartTask' {} a -> s {tags = a} :: StartTask) Core.. Lens.mapping Lens._Coerce
+startTask_tags :: Lens.Lens' StartTask (Prelude.Maybe [Tag])
+startTask_tags = Lens.lens (\StartTask' {tags} -> tags) (\s@StartTask' {} a -> s {tags = a} :: StartTask) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster on
 -- which to start your task. If you do not specify a cluster, the default
 -- cluster is assumed.
-startTask_cluster :: Lens.Lens' StartTask (Core.Maybe Core.Text)
+startTask_cluster :: Lens.Lens' StartTask (Prelude.Maybe Prelude.Text)
 startTask_cluster = Lens.lens (\StartTask' {cluster} -> cluster) (\s@StartTask' {} a -> s {cluster = a} :: StartTask)
 
 -- | Specifies whether to propagate the tags from the task definition or the
 -- service to the task. If no value is specified, the tags are not
 -- propagated.
-startTask_propagateTags :: Lens.Lens' StartTask (Core.Maybe PropagateTags)
+startTask_propagateTags :: Lens.Lens' StartTask (Prelude.Maybe PropagateTags)
 startTask_propagateTags = Lens.lens (\StartTask' {propagateTags} -> propagateTags) (\s@StartTask' {} a -> s {propagateTags = a} :: StartTask)
 
 -- | The container instance IDs or full ARN entries for the container
 -- instances on which you would like to place your task. You can specify up
 -- to 10 container instances.
-startTask_containerInstances :: Lens.Lens' StartTask [Core.Text]
-startTask_containerInstances = Lens.lens (\StartTask' {containerInstances} -> containerInstances) (\s@StartTask' {} a -> s {containerInstances = a} :: StartTask) Core.. Lens._Coerce
+startTask_containerInstances :: Lens.Lens' StartTask [Prelude.Text]
+startTask_containerInstances = Lens.lens (\StartTask' {containerInstances} -> containerInstances) (\s@StartTask' {} a -> s {containerInstances = a} :: StartTask) Prelude.. Lens._Coerce
 
 -- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
 -- definition to start. If a @revision@ is not specified, the latest
 -- @ACTIVE@ revision is used.
-startTask_taskDefinition :: Lens.Lens' StartTask Core.Text
+startTask_taskDefinition :: Lens.Lens' StartTask Prelude.Text
 startTask_taskDefinition = Lens.lens (\StartTask' {taskDefinition} -> taskDefinition) (\s@StartTask' {} a -> s {taskDefinition = a} :: StartTask)
 
 instance Core.AWSRequest StartTask where
@@ -368,66 +369,69 @@ instance Core.AWSRequest StartTask where
     Response.receiveJSON
       ( \s h x ->
           StartTaskResponse'
-            Core.<$> (x Core..?> "tasks" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "failures" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "tasks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartTask
+instance Prelude.Hashable StartTask
 
-instance Core.NFData StartTask
+instance Prelude.NFData StartTask
 
 instance Core.ToHeaders StartTask where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerServiceV20141113.StartTask" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartTask where
   toJSON StartTask' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("networkConfiguration" Core..=)
-              Core.<$> networkConfiguration,
-            ("referenceId" Core..=) Core.<$> referenceId,
+              Prelude.<$> networkConfiguration,
+            ("referenceId" Core..=) Prelude.<$> referenceId,
             ("enableECSManagedTags" Core..=)
-              Core.<$> enableECSManagedTags,
-            ("startedBy" Core..=) Core.<$> startedBy,
-            ("group" Core..=) Core.<$> group',
-            ("overrides" Core..=) Core.<$> overrides,
-            ("tags" Core..=) Core.<$> tags,
-            ("cluster" Core..=) Core.<$> cluster,
-            ("propagateTags" Core..=) Core.<$> propagateTags,
-            Core.Just
+              Prelude.<$> enableECSManagedTags,
+            ("startedBy" Core..=) Prelude.<$> startedBy,
+            ("group" Core..=) Prelude.<$> group',
+            ("overrides" Core..=) Prelude.<$> overrides,
+            ("tags" Core..=) Prelude.<$> tags,
+            ("cluster" Core..=) Prelude.<$> cluster,
+            ("propagateTags" Core..=) Prelude.<$> propagateTags,
+            Prelude.Just
               ("containerInstances" Core..= containerInstances),
-            Core.Just ("taskDefinition" Core..= taskDefinition)
+            Prelude.Just
+              ("taskDefinition" Core..= taskDefinition)
           ]
       )
 
 instance Core.ToPath StartTask where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartTask where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartTaskResponse' smart constructor.
 data StartTaskResponse = StartTaskResponse'
   { -- | A full description of the tasks that were started. Each task that was
     -- successfully placed on your container instances is described.
-    tasks :: Core.Maybe [Task],
+    tasks :: Prelude.Maybe [Task],
     -- | Any failures associated with the call.
-    failures :: Core.Maybe [Failure],
+    failures :: Prelude.Maybe [Failure],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartTaskResponse' with all optional fields omitted.
@@ -445,26 +449,26 @@ data StartTaskResponse = StartTaskResponse'
 -- 'httpStatus', 'startTaskResponse_httpStatus' - The response's http status code.
 newStartTaskResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartTaskResponse
 newStartTaskResponse pHttpStatus_ =
   StartTaskResponse'
-    { tasks = Core.Nothing,
-      failures = Core.Nothing,
+    { tasks = Prelude.Nothing,
+      failures = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A full description of the tasks that were started. Each task that was
 -- successfully placed on your container instances is described.
-startTaskResponse_tasks :: Lens.Lens' StartTaskResponse (Core.Maybe [Task])
-startTaskResponse_tasks = Lens.lens (\StartTaskResponse' {tasks} -> tasks) (\s@StartTaskResponse' {} a -> s {tasks = a} :: StartTaskResponse) Core.. Lens.mapping Lens._Coerce
+startTaskResponse_tasks :: Lens.Lens' StartTaskResponse (Prelude.Maybe [Task])
+startTaskResponse_tasks = Lens.lens (\StartTaskResponse' {tasks} -> tasks) (\s@StartTaskResponse' {} a -> s {tasks = a} :: StartTaskResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Any failures associated with the call.
-startTaskResponse_failures :: Lens.Lens' StartTaskResponse (Core.Maybe [Failure])
-startTaskResponse_failures = Lens.lens (\StartTaskResponse' {failures} -> failures) (\s@StartTaskResponse' {} a -> s {failures = a} :: StartTaskResponse) Core.. Lens.mapping Lens._Coerce
+startTaskResponse_failures :: Lens.Lens' StartTaskResponse (Prelude.Maybe [Failure])
+startTaskResponse_failures = Lens.lens (\StartTaskResponse' {failures} -> failures) (\s@StartTaskResponse' {} a -> s {failures = a} :: StartTaskResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-startTaskResponse_httpStatus :: Lens.Lens' StartTaskResponse Core.Int
+startTaskResponse_httpStatus :: Lens.Lens' StartTaskResponse Prelude.Int
 startTaskResponse_httpStatus = Lens.lens (\StartTaskResponse' {httpStatus} -> httpStatus) (\s@StartTaskResponse' {} a -> s {httpStatus = a} :: StartTaskResponse)
 
-instance Core.NFData StartTaskResponse
+instance Prelude.NFData StartTaskResponse

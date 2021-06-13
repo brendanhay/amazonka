@@ -53,15 +53,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetContainerServiceDeployments' smart constructor.
 data GetContainerServiceDeployments = GetContainerServiceDeployments'
   { -- | The name of the container service for which to return deployments.
-    serviceName :: Core.Text
+    serviceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetContainerServiceDeployments' with all optional fields omitted.
@@ -74,7 +75,7 @@ data GetContainerServiceDeployments = GetContainerServiceDeployments'
 -- 'serviceName', 'getContainerServiceDeployments_serviceName' - The name of the container service for which to return deployments.
 newGetContainerServiceDeployments ::
   -- | 'serviceName'
-  Core.Text ->
+  Prelude.Text ->
   GetContainerServiceDeployments
 newGetContainerServiceDeployments pServiceName_ =
   GetContainerServiceDeployments'
@@ -83,7 +84,7 @@ newGetContainerServiceDeployments pServiceName_ =
     }
 
 -- | The name of the container service for which to return deployments.
-getContainerServiceDeployments_serviceName :: Lens.Lens' GetContainerServiceDeployments Core.Text
+getContainerServiceDeployments_serviceName :: Lens.Lens' GetContainerServiceDeployments Prelude.Text
 getContainerServiceDeployments_serviceName = Lens.lens (\GetContainerServiceDeployments' {serviceName} -> serviceName) (\s@GetContainerServiceDeployments' {} a -> s {serviceName = a} :: GetContainerServiceDeployments)
 
 instance
@@ -98,51 +99,57 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetContainerServiceDeploymentsResponse'
-            Core.<$> (x Core..?> "deployments" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "deployments" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetContainerServiceDeployments
+instance
+  Prelude.Hashable
+    GetContainerServiceDeployments
 
-instance Core.NFData GetContainerServiceDeployments
+instance
+  Prelude.NFData
+    GetContainerServiceDeployments
 
 instance
   Core.ToHeaders
     GetContainerServiceDeployments
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetContainerServiceDeployments" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetContainerServiceDeployments where
   toJSON GetContainerServiceDeployments' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("serviceName" Core..= serviceName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("serviceName" Core..= serviceName)]
       )
 
 instance Core.ToPath GetContainerServiceDeployments where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetContainerServiceDeployments where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContainerServiceDeploymentsResponse' smart constructor.
 data GetContainerServiceDeploymentsResponse = GetContainerServiceDeploymentsResponse'
   { -- | An array of objects that describe deployments for a container service.
-    deployments :: Core.Maybe [ContainerServiceDeployment],
+    deployments :: Prelude.Maybe [ContainerServiceDeployment],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetContainerServiceDeploymentsResponse' with all optional fields omitted.
@@ -157,24 +164,24 @@ data GetContainerServiceDeploymentsResponse = GetContainerServiceDeploymentsResp
 -- 'httpStatus', 'getContainerServiceDeploymentsResponse_httpStatus' - The response's http status code.
 newGetContainerServiceDeploymentsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetContainerServiceDeploymentsResponse
 newGetContainerServiceDeploymentsResponse
   pHttpStatus_ =
     GetContainerServiceDeploymentsResponse'
       { deployments =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An array of objects that describe deployments for a container service.
-getContainerServiceDeploymentsResponse_deployments :: Lens.Lens' GetContainerServiceDeploymentsResponse (Core.Maybe [ContainerServiceDeployment])
-getContainerServiceDeploymentsResponse_deployments = Lens.lens (\GetContainerServiceDeploymentsResponse' {deployments} -> deployments) (\s@GetContainerServiceDeploymentsResponse' {} a -> s {deployments = a} :: GetContainerServiceDeploymentsResponse) Core.. Lens.mapping Lens._Coerce
+getContainerServiceDeploymentsResponse_deployments :: Lens.Lens' GetContainerServiceDeploymentsResponse (Prelude.Maybe [ContainerServiceDeployment])
+getContainerServiceDeploymentsResponse_deployments = Lens.lens (\GetContainerServiceDeploymentsResponse' {deployments} -> deployments) (\s@GetContainerServiceDeploymentsResponse' {} a -> s {deployments = a} :: GetContainerServiceDeploymentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getContainerServiceDeploymentsResponse_httpStatus :: Lens.Lens' GetContainerServiceDeploymentsResponse Core.Int
+getContainerServiceDeploymentsResponse_httpStatus :: Lens.Lens' GetContainerServiceDeploymentsResponse Prelude.Int
 getContainerServiceDeploymentsResponse_httpStatus = Lens.lens (\GetContainerServiceDeploymentsResponse' {httpStatus} -> httpStatus) (\s@GetContainerServiceDeploymentsResponse' {} a -> s {httpStatus = a} :: GetContainerServiceDeploymentsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetContainerServiceDeploymentsResponse

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.OnlineStoreSecurityConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The security configuration for @OnlineStore@.
 --
@@ -60,9 +61,9 @@ data OnlineStoreSecurityConfig = OnlineStoreSecurityConfig'
     -- permissions to the @KmsKeyId@:
     --
     -- -   @\"kms:Decrypt\"@
-    kmsKeyId :: Core.Maybe Core.Text
+    kmsKeyId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OnlineStoreSecurityConfig' with all optional fields omitted.
@@ -109,7 +110,10 @@ data OnlineStoreSecurityConfig = OnlineStoreSecurityConfig'
 newOnlineStoreSecurityConfig ::
   OnlineStoreSecurityConfig
 newOnlineStoreSecurityConfig =
-  OnlineStoreSecurityConfig' {kmsKeyId = Core.Nothing}
+  OnlineStoreSecurityConfig'
+    { kmsKeyId =
+        Prelude.Nothing
+    }
 
 -- | The ID of the AWS Key Management Service (AWS KMS) key that SageMaker
 -- Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon
@@ -145,7 +149,7 @@ newOnlineStoreSecurityConfig =
 -- permissions to the @KmsKeyId@:
 --
 -- -   @\"kms:Decrypt\"@
-onlineStoreSecurityConfig_kmsKeyId :: Lens.Lens' OnlineStoreSecurityConfig (Core.Maybe Core.Text)
+onlineStoreSecurityConfig_kmsKeyId :: Lens.Lens' OnlineStoreSecurityConfig (Prelude.Maybe Prelude.Text)
 onlineStoreSecurityConfig_kmsKeyId = Lens.lens (\OnlineStoreSecurityConfig' {kmsKeyId} -> kmsKeyId) (\s@OnlineStoreSecurityConfig' {} a -> s {kmsKeyId = a} :: OnlineStoreSecurityConfig)
 
 instance Core.FromJSON OnlineStoreSecurityConfig where
@@ -154,16 +158,16 @@ instance Core.FromJSON OnlineStoreSecurityConfig where
       "OnlineStoreSecurityConfig"
       ( \x ->
           OnlineStoreSecurityConfig'
-            Core.<$> (x Core..:? "KmsKeyId")
+            Prelude.<$> (x Core..:? "KmsKeyId")
       )
 
-instance Core.Hashable OnlineStoreSecurityConfig
+instance Prelude.Hashable OnlineStoreSecurityConfig
 
-instance Core.NFData OnlineStoreSecurityConfig
+instance Prelude.NFData OnlineStoreSecurityConfig
 
 instance Core.ToJSON OnlineStoreSecurityConfig where
   toJSON OnlineStoreSecurityConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [("KmsKeyId" Core..=) Core.<$> kmsKeyId]
+      ( Prelude.catMaybes
+          [("KmsKeyId" Core..=) Prelude.<$> kmsKeyId]
       )

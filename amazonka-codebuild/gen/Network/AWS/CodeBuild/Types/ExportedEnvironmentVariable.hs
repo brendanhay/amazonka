@@ -21,22 +21,23 @@ module Network.AWS.CodeBuild.Types.ExportedEnvironmentVariable where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an exported environment variable.
 --
 -- /See:/ 'newExportedEnvironmentVariable' smart constructor.
 data ExportedEnvironmentVariable = ExportedEnvironmentVariable'
   { -- | The name of this exported environment variable.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The value assigned to this exported environment variable.
     --
     -- During a build, the value of a variable is available starting with the
     -- @install@ phase. It can be updated between the start of the @install@
     -- phase and the end of the @post_build@ phase. After the @post_build@
     -- phase ends, the value of exported variables cannot change.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExportedEnvironmentVariable' with all optional fields omitted.
@@ -58,12 +59,13 @@ newExportedEnvironmentVariable ::
   ExportedEnvironmentVariable
 newExportedEnvironmentVariable =
   ExportedEnvironmentVariable'
-    { name = Core.Nothing,
-      value = Core.Nothing
+    { name =
+        Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The name of this exported environment variable.
-exportedEnvironmentVariable_name :: Lens.Lens' ExportedEnvironmentVariable (Core.Maybe Core.Text)
+exportedEnvironmentVariable_name :: Lens.Lens' ExportedEnvironmentVariable (Prelude.Maybe Prelude.Text)
 exportedEnvironmentVariable_name = Lens.lens (\ExportedEnvironmentVariable' {name} -> name) (\s@ExportedEnvironmentVariable' {} a -> s {name = a} :: ExportedEnvironmentVariable)
 
 -- | The value assigned to this exported environment variable.
@@ -72,7 +74,7 @@ exportedEnvironmentVariable_name = Lens.lens (\ExportedEnvironmentVariable' {nam
 -- @install@ phase. It can be updated between the start of the @install@
 -- phase and the end of the @post_build@ phase. After the @post_build@
 -- phase ends, the value of exported variables cannot change.
-exportedEnvironmentVariable_value :: Lens.Lens' ExportedEnvironmentVariable (Core.Maybe Core.Text)
+exportedEnvironmentVariable_value :: Lens.Lens' ExportedEnvironmentVariable (Prelude.Maybe Prelude.Text)
 exportedEnvironmentVariable_value = Lens.lens (\ExportedEnvironmentVariable' {value} -> value) (\s@ExportedEnvironmentVariable' {} a -> s {value = a} :: ExportedEnvironmentVariable)
 
 instance Core.FromJSON ExportedEnvironmentVariable where
@@ -81,9 +83,9 @@ instance Core.FromJSON ExportedEnvironmentVariable where
       "ExportedEnvironmentVariable"
       ( \x ->
           ExportedEnvironmentVariable'
-            Core.<$> (x Core..:? "name") Core.<*> (x Core..:? "value")
+            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "value")
       )
 
-instance Core.Hashable ExportedEnvironmentVariable
+instance Prelude.Hashable ExportedEnvironmentVariable
 
-instance Core.NFData ExportedEnvironmentVariable
+instance Prelude.NFData ExportedEnvironmentVariable

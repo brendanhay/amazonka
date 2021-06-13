@@ -45,6 +45,7 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -83,15 +84,15 @@ data GetUserAttributeVerificationCode = GetUserAttributeVerificationCode'
     --
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
-    clientMetadata :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The access token returned by the server response to get the user
     -- attribute verification code.
-    accessToken :: Core.Sensitive Core.Text,
+    accessToken :: Core.Sensitive Prelude.Text,
     -- | The attribute name returned by the server response to get the user
     -- attribute verification code.
-    attributeName :: Core.Text
+    attributeName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetUserAttributeVerificationCode' with all optional fields omitted.
@@ -140,16 +141,16 @@ data GetUserAttributeVerificationCode = GetUserAttributeVerificationCode'
 -- attribute verification code.
 newGetUserAttributeVerificationCode ::
   -- | 'accessToken'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'attributeName'
-  Core.Text ->
+  Prelude.Text ->
   GetUserAttributeVerificationCode
 newGetUserAttributeVerificationCode
   pAccessToken_
   pAttributeName_ =
     GetUserAttributeVerificationCode'
       { clientMetadata =
-          Core.Nothing,
+          Prelude.Nothing,
         accessToken =
           Core._Sensitive Lens.# pAccessToken_,
         attributeName = pAttributeName_
@@ -186,17 +187,17 @@ newGetUserAttributeVerificationCode
 --
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
-getUserAttributeVerificationCode_clientMetadata :: Lens.Lens' GetUserAttributeVerificationCode (Core.Maybe (Core.HashMap Core.Text Core.Text))
-getUserAttributeVerificationCode_clientMetadata = Lens.lens (\GetUserAttributeVerificationCode' {clientMetadata} -> clientMetadata) (\s@GetUserAttributeVerificationCode' {} a -> s {clientMetadata = a} :: GetUserAttributeVerificationCode) Core.. Lens.mapping Lens._Coerce
+getUserAttributeVerificationCode_clientMetadata :: Lens.Lens' GetUserAttributeVerificationCode (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getUserAttributeVerificationCode_clientMetadata = Lens.lens (\GetUserAttributeVerificationCode' {clientMetadata} -> clientMetadata) (\s@GetUserAttributeVerificationCode' {} a -> s {clientMetadata = a} :: GetUserAttributeVerificationCode) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The access token returned by the server response to get the user
 -- attribute verification code.
-getUserAttributeVerificationCode_accessToken :: Lens.Lens' GetUserAttributeVerificationCode Core.Text
-getUserAttributeVerificationCode_accessToken = Lens.lens (\GetUserAttributeVerificationCode' {accessToken} -> accessToken) (\s@GetUserAttributeVerificationCode' {} a -> s {accessToken = a} :: GetUserAttributeVerificationCode) Core.. Core._Sensitive
+getUserAttributeVerificationCode_accessToken :: Lens.Lens' GetUserAttributeVerificationCode Prelude.Text
+getUserAttributeVerificationCode_accessToken = Lens.lens (\GetUserAttributeVerificationCode' {accessToken} -> accessToken) (\s@GetUserAttributeVerificationCode' {} a -> s {accessToken = a} :: GetUserAttributeVerificationCode) Prelude.. Core._Sensitive
 
 -- | The attribute name returned by the server response to get the user
 -- attribute verification code.
-getUserAttributeVerificationCode_attributeName :: Lens.Lens' GetUserAttributeVerificationCode Core.Text
+getUserAttributeVerificationCode_attributeName :: Lens.Lens' GetUserAttributeVerificationCode Prelude.Text
 getUserAttributeVerificationCode_attributeName = Lens.lens (\GetUserAttributeVerificationCode' {attributeName} -> attributeName) (\s@GetUserAttributeVerificationCode' {} a -> s {attributeName = a} :: GetUserAttributeVerificationCode)
 
 instance
@@ -211,50 +212,56 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetUserAttributeVerificationCodeResponse'
-            Core.<$> (x Core..?> "CodeDeliveryDetails")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CodeDeliveryDetails")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetUserAttributeVerificationCode
 
-instance Core.NFData GetUserAttributeVerificationCode
+instance
+  Prelude.NFData
+    GetUserAttributeVerificationCode
 
 instance
   Core.ToHeaders
     GetUserAttributeVerificationCode
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetUserAttributeVerificationCode where
   toJSON GetUserAttributeVerificationCode' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ClientMetadata" Core..=) Core.<$> clientMetadata,
-            Core.Just ("AccessToken" Core..= accessToken),
-            Core.Just ("AttributeName" Core..= attributeName)
+      ( Prelude.catMaybes
+          [ ("ClientMetadata" Core..=)
+              Prelude.<$> clientMetadata,
+            Prelude.Just ("AccessToken" Core..= accessToken),
+            Prelude.Just
+              ("AttributeName" Core..= attributeName)
           ]
       )
 
 instance Core.ToPath GetUserAttributeVerificationCode where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     GetUserAttributeVerificationCode
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The verification code response returned by the server response to get
 -- the user attribute verification code.
@@ -263,11 +270,11 @@ instance
 data GetUserAttributeVerificationCodeResponse = GetUserAttributeVerificationCodeResponse'
   { -- | The code delivery details returned by the server in response to the
     -- request to get the user attribute verification code.
-    codeDeliveryDetails :: Core.Maybe CodeDeliveryDetailsType,
+    codeDeliveryDetails :: Prelude.Maybe CodeDeliveryDetailsType,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetUserAttributeVerificationCodeResponse' with all optional fields omitted.
@@ -283,25 +290,25 @@ data GetUserAttributeVerificationCodeResponse = GetUserAttributeVerificationCode
 -- 'httpStatus', 'getUserAttributeVerificationCodeResponse_httpStatus' - The response's http status code.
 newGetUserAttributeVerificationCodeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetUserAttributeVerificationCodeResponse
 newGetUserAttributeVerificationCodeResponse
   pHttpStatus_ =
     GetUserAttributeVerificationCodeResponse'
       { codeDeliveryDetails =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The code delivery details returned by the server in response to the
 -- request to get the user attribute verification code.
-getUserAttributeVerificationCodeResponse_codeDeliveryDetails :: Lens.Lens' GetUserAttributeVerificationCodeResponse (Core.Maybe CodeDeliveryDetailsType)
+getUserAttributeVerificationCodeResponse_codeDeliveryDetails :: Lens.Lens' GetUserAttributeVerificationCodeResponse (Prelude.Maybe CodeDeliveryDetailsType)
 getUserAttributeVerificationCodeResponse_codeDeliveryDetails = Lens.lens (\GetUserAttributeVerificationCodeResponse' {codeDeliveryDetails} -> codeDeliveryDetails) (\s@GetUserAttributeVerificationCodeResponse' {} a -> s {codeDeliveryDetails = a} :: GetUserAttributeVerificationCodeResponse)
 
 -- | The response's http status code.
-getUserAttributeVerificationCodeResponse_httpStatus :: Lens.Lens' GetUserAttributeVerificationCodeResponse Core.Int
+getUserAttributeVerificationCodeResponse_httpStatus :: Lens.Lens' GetUserAttributeVerificationCodeResponse Prelude.Int
 getUserAttributeVerificationCodeResponse_httpStatus = Lens.lens (\GetUserAttributeVerificationCodeResponse' {httpStatus} -> httpStatus) (\s@GetUserAttributeVerificationCodeResponse' {} a -> s {httpStatus = a} :: GetUserAttributeVerificationCodeResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetUserAttributeVerificationCodeResponse

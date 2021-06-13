@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.AssociationOverview where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the association.
 --
@@ -28,15 +29,15 @@ import qualified Network.AWS.Lens as Lens
 data AssociationOverview = AssociationOverview'
   { -- | The status of the association. Status can be: Pending, Success, or
     -- Failed.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | A detailed status of the association.
-    detailedStatus :: Core.Maybe Core.Text,
+    detailedStatus :: Prelude.Maybe Prelude.Text,
     -- | Returns the number of targets for the association status. For example,
     -- if you created an association with two instances, and one of them was
     -- successful, this would return the count of instances by status.
-    associationStatusAggregatedCount :: Core.Maybe (Core.HashMap Core.Text Core.Int)
+    associationStatusAggregatedCount :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociationOverview' with all optional fields omitted.
@@ -58,25 +59,25 @@ newAssociationOverview ::
   AssociationOverview
 newAssociationOverview =
   AssociationOverview'
-    { status = Core.Nothing,
-      detailedStatus = Core.Nothing,
-      associationStatusAggregatedCount = Core.Nothing
+    { status = Prelude.Nothing,
+      detailedStatus = Prelude.Nothing,
+      associationStatusAggregatedCount = Prelude.Nothing
     }
 
 -- | The status of the association. Status can be: Pending, Success, or
 -- Failed.
-associationOverview_status :: Lens.Lens' AssociationOverview (Core.Maybe Core.Text)
+associationOverview_status :: Lens.Lens' AssociationOverview (Prelude.Maybe Prelude.Text)
 associationOverview_status = Lens.lens (\AssociationOverview' {status} -> status) (\s@AssociationOverview' {} a -> s {status = a} :: AssociationOverview)
 
 -- | A detailed status of the association.
-associationOverview_detailedStatus :: Lens.Lens' AssociationOverview (Core.Maybe Core.Text)
+associationOverview_detailedStatus :: Lens.Lens' AssociationOverview (Prelude.Maybe Prelude.Text)
 associationOverview_detailedStatus = Lens.lens (\AssociationOverview' {detailedStatus} -> detailedStatus) (\s@AssociationOverview' {} a -> s {detailedStatus = a} :: AssociationOverview)
 
 -- | Returns the number of targets for the association status. For example,
 -- if you created an association with two instances, and one of them was
 -- successful, this would return the count of instances by status.
-associationOverview_associationStatusAggregatedCount :: Lens.Lens' AssociationOverview (Core.Maybe (Core.HashMap Core.Text Core.Int))
-associationOverview_associationStatusAggregatedCount = Lens.lens (\AssociationOverview' {associationStatusAggregatedCount} -> associationStatusAggregatedCount) (\s@AssociationOverview' {} a -> s {associationStatusAggregatedCount = a} :: AssociationOverview) Core.. Lens.mapping Lens._Coerce
+associationOverview_associationStatusAggregatedCount :: Lens.Lens' AssociationOverview (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int))
+associationOverview_associationStatusAggregatedCount = Lens.lens (\AssociationOverview' {associationStatusAggregatedCount} -> associationStatusAggregatedCount) (\s@AssociationOverview' {} a -> s {associationStatusAggregatedCount = a} :: AssociationOverview) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON AssociationOverview where
   parseJSON =
@@ -84,13 +85,13 @@ instance Core.FromJSON AssociationOverview where
       "AssociationOverview"
       ( \x ->
           AssociationOverview'
-            Core.<$> (x Core..:? "Status")
-            Core.<*> (x Core..:? "DetailedStatus")
-            Core.<*> ( x Core..:? "AssociationStatusAggregatedCount"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "DetailedStatus")
+            Prelude.<*> ( x Core..:? "AssociationStatusAggregatedCount"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable AssociationOverview
+instance Prelude.Hashable AssociationOverview
 
-instance Core.NFData AssociationOverview
+instance Prelude.NFData AssociationOverview

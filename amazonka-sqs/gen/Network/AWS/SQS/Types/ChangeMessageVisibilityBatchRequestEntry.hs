@@ -21,6 +21,7 @@ module Network.AWS.SQS.Types.ChangeMessageVisibilityBatchRequestEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Encloses a receipt handle and an entry id for each message in
 -- @ ChangeMessageVisibilityBatch.@
@@ -39,7 +40,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newChangeMessageVisibilityBatchRequestEntry' smart constructor.
 data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequestEntry'
   { -- | The new value (in seconds) for the message\'s visibility timeout.
-    visibilityTimeout :: Core.Maybe Core.Int,
+    visibilityTimeout :: Prelude.Maybe Prelude.Int,
     -- | An identifier for this particular receipt handle used to communicate the
     -- result.
     --
@@ -47,11 +48,11 @@ data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequ
     --
     -- This identifier can have up to 80 characters. The following characters
     -- are accepted: alphanumeric characters, hyphens(-), and underscores (_).
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | A receipt handle.
-    receiptHandle :: Core.Text
+    receiptHandle :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChangeMessageVisibilityBatchRequestEntry' with all optional fields omitted.
@@ -74,22 +75,22 @@ data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequ
 -- 'receiptHandle', 'changeMessageVisibilityBatchRequestEntry_receiptHandle' - A receipt handle.
 newChangeMessageVisibilityBatchRequestEntry ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'receiptHandle'
-  Core.Text ->
+  Prelude.Text ->
   ChangeMessageVisibilityBatchRequestEntry
 newChangeMessageVisibilityBatchRequestEntry
   pId_
   pReceiptHandle_ =
     ChangeMessageVisibilityBatchRequestEntry'
       { visibilityTimeout =
-          Core.Nothing,
+          Prelude.Nothing,
         id = pId_,
         receiptHandle = pReceiptHandle_
       }
 
 -- | The new value (in seconds) for the message\'s visibility timeout.
-changeMessageVisibilityBatchRequestEntry_visibilityTimeout :: Lens.Lens' ChangeMessageVisibilityBatchRequestEntry (Core.Maybe Core.Int)
+changeMessageVisibilityBatchRequestEntry_visibilityTimeout :: Lens.Lens' ChangeMessageVisibilityBatchRequestEntry (Prelude.Maybe Prelude.Int)
 changeMessageVisibilityBatchRequestEntry_visibilityTimeout = Lens.lens (\ChangeMessageVisibilityBatchRequestEntry' {visibilityTimeout} -> visibilityTimeout) (\s@ChangeMessageVisibilityBatchRequestEntry' {} a -> s {visibilityTimeout = a} :: ChangeMessageVisibilityBatchRequestEntry)
 
 -- | An identifier for this particular receipt handle used to communicate the
@@ -99,19 +100,19 @@ changeMessageVisibilityBatchRequestEntry_visibilityTimeout = Lens.lens (\ChangeM
 --
 -- This identifier can have up to 80 characters. The following characters
 -- are accepted: alphanumeric characters, hyphens(-), and underscores (_).
-changeMessageVisibilityBatchRequestEntry_id :: Lens.Lens' ChangeMessageVisibilityBatchRequestEntry Core.Text
+changeMessageVisibilityBatchRequestEntry_id :: Lens.Lens' ChangeMessageVisibilityBatchRequestEntry Prelude.Text
 changeMessageVisibilityBatchRequestEntry_id = Lens.lens (\ChangeMessageVisibilityBatchRequestEntry' {id} -> id) (\s@ChangeMessageVisibilityBatchRequestEntry' {} a -> s {id = a} :: ChangeMessageVisibilityBatchRequestEntry)
 
 -- | A receipt handle.
-changeMessageVisibilityBatchRequestEntry_receiptHandle :: Lens.Lens' ChangeMessageVisibilityBatchRequestEntry Core.Text
+changeMessageVisibilityBatchRequestEntry_receiptHandle :: Lens.Lens' ChangeMessageVisibilityBatchRequestEntry Prelude.Text
 changeMessageVisibilityBatchRequestEntry_receiptHandle = Lens.lens (\ChangeMessageVisibilityBatchRequestEntry' {receiptHandle} -> receiptHandle) (\s@ChangeMessageVisibilityBatchRequestEntry' {} a -> s {receiptHandle = a} :: ChangeMessageVisibilityBatchRequestEntry)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ChangeMessageVisibilityBatchRequestEntry
 
 instance
-  Core.NFData
+  Prelude.NFData
     ChangeMessageVisibilityBatchRequestEntry
 
 instance
@@ -119,7 +120,7 @@ instance
     ChangeMessageVisibilityBatchRequestEntry
   where
   toQuery ChangeMessageVisibilityBatchRequestEntry' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "VisibilityTimeout" Core.=: visibilityTimeout,
         "Id" Core.=: id,
         "ReceiptHandle" Core.=: receiptHandle

@@ -21,6 +21,7 @@ module Network.AWS.Support.Types.SupportService where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Support.Types.Category
 
 -- | Information about an AWS service returned by the DescribeServices
@@ -30,17 +31,17 @@ import Network.AWS.Support.Types.Category
 data SupportService = SupportService'
   { -- | The code for an AWS service returned by the DescribeServices response.
     -- The @name@ element contains the corresponding friendly name.
-    code :: Core.Maybe Core.Text,
+    code :: Prelude.Maybe Prelude.Text,
     -- | The friendly name for an AWS service. The @code@ element contains the
     -- corresponding code.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | A list of categories that describe the type of support issue a case
     -- describes. Categories consist of a category name and a category code.
     -- Category names and codes are passed to AWS Support when you call
     -- CreateCase.
-    categories :: Core.Maybe [Category]
+    categories :: Prelude.Maybe [Category]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SupportService' with all optional fields omitted.
@@ -64,27 +65,27 @@ newSupportService ::
   SupportService
 newSupportService =
   SupportService'
-    { code = Core.Nothing,
-      name = Core.Nothing,
-      categories = Core.Nothing
+    { code = Prelude.Nothing,
+      name = Prelude.Nothing,
+      categories = Prelude.Nothing
     }
 
 -- | The code for an AWS service returned by the DescribeServices response.
 -- The @name@ element contains the corresponding friendly name.
-supportService_code :: Lens.Lens' SupportService (Core.Maybe Core.Text)
+supportService_code :: Lens.Lens' SupportService (Prelude.Maybe Prelude.Text)
 supportService_code = Lens.lens (\SupportService' {code} -> code) (\s@SupportService' {} a -> s {code = a} :: SupportService)
 
 -- | The friendly name for an AWS service. The @code@ element contains the
 -- corresponding code.
-supportService_name :: Lens.Lens' SupportService (Core.Maybe Core.Text)
+supportService_name :: Lens.Lens' SupportService (Prelude.Maybe Prelude.Text)
 supportService_name = Lens.lens (\SupportService' {name} -> name) (\s@SupportService' {} a -> s {name = a} :: SupportService)
 
 -- | A list of categories that describe the type of support issue a case
 -- describes. Categories consist of a category name and a category code.
 -- Category names and codes are passed to AWS Support when you call
 -- CreateCase.
-supportService_categories :: Lens.Lens' SupportService (Core.Maybe [Category])
-supportService_categories = Lens.lens (\SupportService' {categories} -> categories) (\s@SupportService' {} a -> s {categories = a} :: SupportService) Core.. Lens.mapping Lens._Coerce
+supportService_categories :: Lens.Lens' SupportService (Prelude.Maybe [Category])
+supportService_categories = Lens.lens (\SupportService' {categories} -> categories) (\s@SupportService' {} a -> s {categories = a} :: SupportService) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON SupportService where
   parseJSON =
@@ -92,11 +93,11 @@ instance Core.FromJSON SupportService where
       "SupportService"
       ( \x ->
           SupportService'
-            Core.<$> (x Core..:? "code")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "categories" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "code")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "categories" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable SupportService
+instance Prelude.Hashable SupportService
 
-instance Core.NFData SupportService
+instance Prelude.NFData SupportService

@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.M2tsEbpAudioInterval
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When set to VIDEO_AND_FIXED_INTERVALS, audio EBP markers will be added
 -- to partitions 3 and 4. The interval between these additional markers
@@ -39,15 +40,15 @@ newtype M2tsEbpAudioInterval = M2tsEbpAudioInterval'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

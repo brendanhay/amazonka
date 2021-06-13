@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -69,7 +70,7 @@ data DeleteDBCluster = DeleteDBCluster'
     --
     -- You must specify a @FinalDBSnapshotIdentifier@ parameter if
     -- @SkipFinalSnapshot@ is disabled.
-    skipFinalSnapshot :: Core.Maybe Core.Bool,
+    skipFinalSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | The DB cluster snapshot identifier of the new DB cluster snapshot
     -- created when @SkipFinalSnapshot@ is disabled.
     --
@@ -84,16 +85,16 @@ data DeleteDBCluster = DeleteDBCluster'
     -- -   First character must be a letter
     --
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens
-    finalDBSnapshotIdentifier :: Core.Maybe Core.Text,
+    finalDBSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The DB cluster identifier for the DB cluster to be deleted. This
     -- parameter isn\'t case-sensitive.
     --
     -- Constraints:
     --
     -- -   Must match an existing DBClusterIdentifier.
-    dbClusterIdentifier :: Core.Text
+    dbClusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDBCluster' with all optional fields omitted.
@@ -136,12 +137,13 @@ data DeleteDBCluster = DeleteDBCluster'
 -- -   Must match an existing DBClusterIdentifier.
 newDeleteDBCluster ::
   -- | 'dbClusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDBCluster
 newDeleteDBCluster pDBClusterIdentifier_ =
   DeleteDBCluster'
-    { skipFinalSnapshot = Core.Nothing,
-      finalDBSnapshotIdentifier = Core.Nothing,
+    { skipFinalSnapshot =
+        Prelude.Nothing,
+      finalDBSnapshotIdentifier = Prelude.Nothing,
       dbClusterIdentifier = pDBClusterIdentifier_
     }
 
@@ -154,7 +156,7 @@ newDeleteDBCluster pDBClusterIdentifier_ =
 --
 -- You must specify a @FinalDBSnapshotIdentifier@ parameter if
 -- @SkipFinalSnapshot@ is disabled.
-deleteDBCluster_skipFinalSnapshot :: Lens.Lens' DeleteDBCluster (Core.Maybe Core.Bool)
+deleteDBCluster_skipFinalSnapshot :: Lens.Lens' DeleteDBCluster (Prelude.Maybe Prelude.Bool)
 deleteDBCluster_skipFinalSnapshot = Lens.lens (\DeleteDBCluster' {skipFinalSnapshot} -> skipFinalSnapshot) (\s@DeleteDBCluster' {} a -> s {skipFinalSnapshot = a} :: DeleteDBCluster)
 
 -- | The DB cluster snapshot identifier of the new DB cluster snapshot
@@ -171,7 +173,7 @@ deleteDBCluster_skipFinalSnapshot = Lens.lens (\DeleteDBCluster' {skipFinalSnaps
 -- -   First character must be a letter
 --
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
-deleteDBCluster_finalDBSnapshotIdentifier :: Lens.Lens' DeleteDBCluster (Core.Maybe Core.Text)
+deleteDBCluster_finalDBSnapshotIdentifier :: Lens.Lens' DeleteDBCluster (Prelude.Maybe Prelude.Text)
 deleteDBCluster_finalDBSnapshotIdentifier = Lens.lens (\DeleteDBCluster' {finalDBSnapshotIdentifier} -> finalDBSnapshotIdentifier) (\s@DeleteDBCluster' {} a -> s {finalDBSnapshotIdentifier = a} :: DeleteDBCluster)
 
 -- | The DB cluster identifier for the DB cluster to be deleted. This
@@ -180,7 +182,7 @@ deleteDBCluster_finalDBSnapshotIdentifier = Lens.lens (\DeleteDBCluster' {finalD
 -- Constraints:
 --
 -- -   Must match an existing DBClusterIdentifier.
-deleteDBCluster_dbClusterIdentifier :: Lens.Lens' DeleteDBCluster Core.Text
+deleteDBCluster_dbClusterIdentifier :: Lens.Lens' DeleteDBCluster Prelude.Text
 deleteDBCluster_dbClusterIdentifier = Lens.lens (\DeleteDBCluster' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@DeleteDBCluster' {} a -> s {dbClusterIdentifier = a} :: DeleteDBCluster)
 
 instance Core.AWSRequest DeleteDBCluster where
@@ -193,26 +195,27 @@ instance Core.AWSRequest DeleteDBCluster where
       "DeleteDBClusterResult"
       ( \s h x ->
           DeleteDBClusterResponse'
-            Core.<$> (x Core..@? "DBCluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBCluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteDBCluster
+instance Prelude.Hashable DeleteDBCluster
 
-instance Core.NFData DeleteDBCluster
+instance Prelude.NFData DeleteDBCluster
 
 instance Core.ToHeaders DeleteDBCluster where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteDBCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDBCluster where
   toQuery DeleteDBCluster' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteDBCluster" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("DeleteDBCluster" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "SkipFinalSnapshot" Core.=: skipFinalSnapshot,
         "FinalDBSnapshotIdentifier"
           Core.=: finalDBSnapshotIdentifier,
@@ -221,11 +224,11 @@ instance Core.ToQuery DeleteDBCluster where
 
 -- | /See:/ 'newDeleteDBClusterResponse' smart constructor.
 data DeleteDBClusterResponse = DeleteDBClusterResponse'
-  { dbCluster :: Core.Maybe DBCluster,
+  { dbCluster :: Prelude.Maybe DBCluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDBClusterResponse' with all optional fields omitted.
@@ -240,20 +243,21 @@ data DeleteDBClusterResponse = DeleteDBClusterResponse'
 -- 'httpStatus', 'deleteDBClusterResponse_httpStatus' - The response's http status code.
 newDeleteDBClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteDBClusterResponse
 newDeleteDBClusterResponse pHttpStatus_ =
   DeleteDBClusterResponse'
-    { dbCluster = Core.Nothing,
+    { dbCluster =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteDBClusterResponse_dbCluster :: Lens.Lens' DeleteDBClusterResponse (Core.Maybe DBCluster)
+deleteDBClusterResponse_dbCluster :: Lens.Lens' DeleteDBClusterResponse (Prelude.Maybe DBCluster)
 deleteDBClusterResponse_dbCluster = Lens.lens (\DeleteDBClusterResponse' {dbCluster} -> dbCluster) (\s@DeleteDBClusterResponse' {} a -> s {dbCluster = a} :: DeleteDBClusterResponse)
 
 -- | The response's http status code.
-deleteDBClusterResponse_httpStatus :: Lens.Lens' DeleteDBClusterResponse Core.Int
+deleteDBClusterResponse_httpStatus :: Lens.Lens' DeleteDBClusterResponse Prelude.Int
 deleteDBClusterResponse_httpStatus = Lens.lens (\DeleteDBClusterResponse' {httpStatus} -> httpStatus) (\s@DeleteDBClusterResponse' {} a -> s {httpStatus = a} :: DeleteDBClusterResponse)
 
-instance Core.NFData DeleteDBClusterResponse
+instance Prelude.NFData DeleteDBClusterResponse

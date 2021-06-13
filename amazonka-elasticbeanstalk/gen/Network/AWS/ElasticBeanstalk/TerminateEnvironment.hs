@@ -64,6 +64,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,13 +74,13 @@ import qualified Network.AWS.Response as Response
 data TerminateEnvironment = TerminateEnvironment'
   { -- | Terminates the target environment even if another environment in the
     -- same group is dependent on it.
-    forceTerminate :: Core.Maybe Core.Bool,
+    forceTerminate :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the environment to terminate.
     --
     -- Condition: You must specify either this or an EnvironmentName, or both.
     -- If you do not specify either, AWS Elastic Beanstalk returns
     -- @MissingRequiredParameter@ error.
-    environmentId :: Core.Maybe Core.Text,
+    environmentId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the associated AWS resources should shut down when the
     -- environment is terminated:
     --
@@ -96,15 +97,15 @@ data TerminateEnvironment = TerminateEnvironment'
     -- Default: @true@
     --
     -- Valid Values: @true@ | @false@
-    terminateResources :: Core.Maybe Core.Bool,
+    terminateResources :: Prelude.Maybe Prelude.Bool,
     -- | The name of the environment to terminate.
     --
     -- Condition: You must specify either this or an EnvironmentId, or both. If
     -- you do not specify either, AWS Elastic Beanstalk returns
     -- @MissingRequiredParameter@ error.
-    environmentName :: Core.Maybe Core.Text
+    environmentName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TerminateEnvironment' with all optional fields omitted.
@@ -150,15 +151,15 @@ newTerminateEnvironment ::
 newTerminateEnvironment =
   TerminateEnvironment'
     { forceTerminate =
-        Core.Nothing,
-      environmentId = Core.Nothing,
-      terminateResources = Core.Nothing,
-      environmentName = Core.Nothing
+        Prelude.Nothing,
+      environmentId = Prelude.Nothing,
+      terminateResources = Prelude.Nothing,
+      environmentName = Prelude.Nothing
     }
 
 -- | Terminates the target environment even if another environment in the
 -- same group is dependent on it.
-terminateEnvironment_forceTerminate :: Lens.Lens' TerminateEnvironment (Core.Maybe Core.Bool)
+terminateEnvironment_forceTerminate :: Lens.Lens' TerminateEnvironment (Prelude.Maybe Prelude.Bool)
 terminateEnvironment_forceTerminate = Lens.lens (\TerminateEnvironment' {forceTerminate} -> forceTerminate) (\s@TerminateEnvironment' {} a -> s {forceTerminate = a} :: TerminateEnvironment)
 
 -- | The ID of the environment to terminate.
@@ -166,7 +167,7 @@ terminateEnvironment_forceTerminate = Lens.lens (\TerminateEnvironment' {forceTe
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-terminateEnvironment_environmentId :: Lens.Lens' TerminateEnvironment (Core.Maybe Core.Text)
+terminateEnvironment_environmentId :: Lens.Lens' TerminateEnvironment (Prelude.Maybe Prelude.Text)
 terminateEnvironment_environmentId = Lens.lens (\TerminateEnvironment' {environmentId} -> environmentId) (\s@TerminateEnvironment' {} a -> s {environmentId = a} :: TerminateEnvironment)
 
 -- | Indicates whether the associated AWS resources should shut down when the
@@ -185,7 +186,7 @@ terminateEnvironment_environmentId = Lens.lens (\TerminateEnvironment' {environm
 -- Default: @true@
 --
 -- Valid Values: @true@ | @false@
-terminateEnvironment_terminateResources :: Lens.Lens' TerminateEnvironment (Core.Maybe Core.Bool)
+terminateEnvironment_terminateResources :: Lens.Lens' TerminateEnvironment (Prelude.Maybe Prelude.Bool)
 terminateEnvironment_terminateResources = Lens.lens (\TerminateEnvironment' {terminateResources} -> terminateResources) (\s@TerminateEnvironment' {} a -> s {terminateResources = a} :: TerminateEnvironment)
 
 -- | The name of the environment to terminate.
@@ -193,7 +194,7 @@ terminateEnvironment_terminateResources = Lens.lens (\TerminateEnvironment' {ter
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-terminateEnvironment_environmentName :: Lens.Lens' TerminateEnvironment (Core.Maybe Core.Text)
+terminateEnvironment_environmentName :: Lens.Lens' TerminateEnvironment (Prelude.Maybe Prelude.Text)
 terminateEnvironment_environmentName = Lens.lens (\TerminateEnvironment' {environmentName} -> environmentName) (\s@TerminateEnvironment' {} a -> s {environmentName = a} :: TerminateEnvironment)
 
 instance Core.AWSRequest TerminateEnvironment where
@@ -206,22 +207,23 @@ instance Core.AWSRequest TerminateEnvironment where
       "TerminateEnvironmentResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable TerminateEnvironment
+instance Prelude.Hashable TerminateEnvironment
 
-instance Core.NFData TerminateEnvironment
+instance Prelude.NFData TerminateEnvironment
 
 instance Core.ToHeaders TerminateEnvironment where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath TerminateEnvironment where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TerminateEnvironment where
   toQuery TerminateEnvironment' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("TerminateEnvironment" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("TerminateEnvironment" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "ForceTerminate" Core.=: forceTerminate,
         "EnvironmentId" Core.=: environmentId,
         "TerminateResources" Core.=: terminateResources,

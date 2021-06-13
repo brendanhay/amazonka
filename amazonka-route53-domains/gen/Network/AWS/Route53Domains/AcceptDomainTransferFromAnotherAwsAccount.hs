@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -66,13 +67,13 @@ data AcceptDomainTransferFromAnotherAwsAccount = AcceptDomainTransferFromAnother
     -- submitted a
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount>
     -- request.
-    domainName :: Core.Text,
+    domainName :: Prelude.Text,
     -- | The password that was returned by the
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount>
     -- request.
-    password :: Core.Text
+    password :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AcceptDomainTransferFromAnotherAwsAccount' with all optional fields omitted.
@@ -92,9 +93,9 @@ data AcceptDomainTransferFromAnotherAwsAccount = AcceptDomainTransferFromAnother
 -- request.
 newAcceptDomainTransferFromAnotherAwsAccount ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'password'
-  Core.Text ->
+  Prelude.Text ->
   AcceptDomainTransferFromAnotherAwsAccount
 newAcceptDomainTransferFromAnotherAwsAccount
   pDomainName_
@@ -109,13 +110,13 @@ newAcceptDomainTransferFromAnotherAwsAccount
 -- submitted a
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount>
 -- request.
-acceptDomainTransferFromAnotherAwsAccount_domainName :: Lens.Lens' AcceptDomainTransferFromAnotherAwsAccount Core.Text
+acceptDomainTransferFromAnotherAwsAccount_domainName :: Lens.Lens' AcceptDomainTransferFromAnotherAwsAccount Prelude.Text
 acceptDomainTransferFromAnotherAwsAccount_domainName = Lens.lens (\AcceptDomainTransferFromAnotherAwsAccount' {domainName} -> domainName) (\s@AcceptDomainTransferFromAnotherAwsAccount' {} a -> s {domainName = a} :: AcceptDomainTransferFromAnotherAwsAccount)
 
 -- | The password that was returned by the
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount>
 -- request.
-acceptDomainTransferFromAnotherAwsAccount_password :: Lens.Lens' AcceptDomainTransferFromAnotherAwsAccount Core.Text
+acceptDomainTransferFromAnotherAwsAccount_password :: Lens.Lens' AcceptDomainTransferFromAnotherAwsAccount Prelude.Text
 acceptDomainTransferFromAnotherAwsAccount_password = Lens.lens (\AcceptDomainTransferFromAnotherAwsAccount' {password} -> password) (\s@AcceptDomainTransferFromAnotherAwsAccount' {} a -> s {password = a} :: AcceptDomainTransferFromAnotherAwsAccount)
 
 instance
@@ -131,16 +132,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AcceptDomainTransferFromAnotherAwsAccountResponse'
-            Core.<$> (x Core..?> "OperationId")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "OperationId")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AcceptDomainTransferFromAnotherAwsAccount
 
 instance
-  Core.NFData
+  Prelude.NFData
     AcceptDomainTransferFromAnotherAwsAccount
 
 instance
@@ -148,14 +149,16 @@ instance
     AcceptDomainTransferFromAnotherAwsAccount
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53Domains_v20140515.AcceptDomainTransferFromAnotherAwsAccount" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -165,9 +168,9 @@ instance
   where
   toJSON AcceptDomainTransferFromAnotherAwsAccount' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DomainName" Core..= domainName),
-            Core.Just ("Password" Core..= password)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("DomainName" Core..= domainName),
+            Prelude.Just ("Password" Core..= password)
           ]
       )
 
@@ -175,13 +178,13 @@ instance
   Core.ToPath
     AcceptDomainTransferFromAnotherAwsAccount
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     AcceptDomainTransferFromAnotherAwsAccount
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The AcceptDomainTransferFromAnotherAwsAccount response includes the
 -- following element.
@@ -191,11 +194,11 @@ data AcceptDomainTransferFromAnotherAwsAccountResponse = AcceptDomainTransferFro
   { -- | Identifier for tracking the progress of the request. To query the
     -- operation status, use
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-    operationId :: Core.Maybe Core.Text,
+    operationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AcceptDomainTransferFromAnotherAwsAccountResponse' with all optional fields omitted.
@@ -212,13 +215,13 @@ data AcceptDomainTransferFromAnotherAwsAccountResponse = AcceptDomainTransferFro
 -- 'httpStatus', 'acceptDomainTransferFromAnotherAwsAccountResponse_httpStatus' - The response's http status code.
 newAcceptDomainTransferFromAnotherAwsAccountResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AcceptDomainTransferFromAnotherAwsAccountResponse
 newAcceptDomainTransferFromAnotherAwsAccountResponse
   pHttpStatus_ =
     AcceptDomainTransferFromAnotherAwsAccountResponse'
       { operationId =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
@@ -226,13 +229,13 @@ newAcceptDomainTransferFromAnotherAwsAccountResponse
 -- | Identifier for tracking the progress of the request. To query the
 -- operation status, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-acceptDomainTransferFromAnotherAwsAccountResponse_operationId :: Lens.Lens' AcceptDomainTransferFromAnotherAwsAccountResponse (Core.Maybe Core.Text)
+acceptDomainTransferFromAnotherAwsAccountResponse_operationId :: Lens.Lens' AcceptDomainTransferFromAnotherAwsAccountResponse (Prelude.Maybe Prelude.Text)
 acceptDomainTransferFromAnotherAwsAccountResponse_operationId = Lens.lens (\AcceptDomainTransferFromAnotherAwsAccountResponse' {operationId} -> operationId) (\s@AcceptDomainTransferFromAnotherAwsAccountResponse' {} a -> s {operationId = a} :: AcceptDomainTransferFromAnotherAwsAccountResponse)
 
 -- | The response's http status code.
-acceptDomainTransferFromAnotherAwsAccountResponse_httpStatus :: Lens.Lens' AcceptDomainTransferFromAnotherAwsAccountResponse Core.Int
+acceptDomainTransferFromAnotherAwsAccountResponse_httpStatus :: Lens.Lens' AcceptDomainTransferFromAnotherAwsAccountResponse Prelude.Int
 acceptDomainTransferFromAnotherAwsAccountResponse_httpStatus = Lens.lens (\AcceptDomainTransferFromAnotherAwsAccountResponse' {httpStatus} -> httpStatus) (\s@AcceptDomainTransferFromAnotherAwsAccountResponse' {} a -> s {httpStatus = a} :: AcceptDomainTransferFromAnotherAwsAccountResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AcceptDomainTransferFromAnotherAwsAccountResponse

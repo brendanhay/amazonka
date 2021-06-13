@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +53,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newRejectInboundCrossClusterSearchConnection' smart constructor.
 data RejectInboundCrossClusterSearchConnection = RejectInboundCrossClusterSearchConnection'
   { -- | The id of the inbound connection that you want to reject.
-    crossClusterSearchConnectionId :: Core.Text
+    crossClusterSearchConnectionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectInboundCrossClusterSearchConnection' with all optional fields omitted.
@@ -67,7 +68,7 @@ data RejectInboundCrossClusterSearchConnection = RejectInboundCrossClusterSearch
 -- 'crossClusterSearchConnectionId', 'rejectInboundCrossClusterSearchConnection_crossClusterSearchConnectionId' - The id of the inbound connection that you want to reject.
 newRejectInboundCrossClusterSearchConnection ::
   -- | 'crossClusterSearchConnectionId'
-  Core.Text ->
+  Prelude.Text ->
   RejectInboundCrossClusterSearchConnection
 newRejectInboundCrossClusterSearchConnection
   pCrossClusterSearchConnectionId_ =
@@ -77,7 +78,7 @@ newRejectInboundCrossClusterSearchConnection
       }
 
 -- | The id of the inbound connection that you want to reject.
-rejectInboundCrossClusterSearchConnection_crossClusterSearchConnectionId :: Lens.Lens' RejectInboundCrossClusterSearchConnection Core.Text
+rejectInboundCrossClusterSearchConnection_crossClusterSearchConnectionId :: Lens.Lens' RejectInboundCrossClusterSearchConnection Prelude.Text
 rejectInboundCrossClusterSearchConnection_crossClusterSearchConnectionId = Lens.lens (\RejectInboundCrossClusterSearchConnection' {crossClusterSearchConnectionId} -> crossClusterSearchConnectionId) (\s@RejectInboundCrossClusterSearchConnection' {} a -> s {crossClusterSearchConnectionId = a} :: RejectInboundCrossClusterSearchConnection)
 
 instance
@@ -93,36 +94,36 @@ instance
     Response.receiveJSON
       ( \s h x ->
           RejectInboundCrossClusterSearchConnectionResponse'
-            Core.<$> (x Core..?> "CrossClusterSearchConnection")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CrossClusterSearchConnection")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     RejectInboundCrossClusterSearchConnection
 
 instance
-  Core.NFData
+  Prelude.NFData
     RejectInboundCrossClusterSearchConnection
 
 instance
   Core.ToHeaders
     RejectInboundCrossClusterSearchConnection
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToJSON
     RejectInboundCrossClusterSearchConnection
   where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance
   Core.ToPath
     RejectInboundCrossClusterSearchConnection
   where
   toPath RejectInboundCrossClusterSearchConnection' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-01-01/es/ccs/inboundConnection/",
         Core.toBS crossClusterSearchConnectionId,
         "/reject"
@@ -132,7 +133,7 @@ instance
   Core.ToQuery
     RejectInboundCrossClusterSearchConnection
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a @RejectInboundCrossClusterSearchConnection@ operation.
 -- Contains details of rejected inbound connection.
@@ -141,11 +142,11 @@ instance
 data RejectInboundCrossClusterSearchConnectionResponse = RejectInboundCrossClusterSearchConnectionResponse'
   { -- | Specifies the @InboundCrossClusterSearchConnection@ of rejected inbound
     -- connection.
-    crossClusterSearchConnection :: Core.Maybe InboundCrossClusterSearchConnection,
+    crossClusterSearchConnection :: Prelude.Maybe InboundCrossClusterSearchConnection,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectInboundCrossClusterSearchConnectionResponse' with all optional fields omitted.
@@ -161,26 +162,26 @@ data RejectInboundCrossClusterSearchConnectionResponse = RejectInboundCrossClust
 -- 'httpStatus', 'rejectInboundCrossClusterSearchConnectionResponse_httpStatus' - The response's http status code.
 newRejectInboundCrossClusterSearchConnectionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RejectInboundCrossClusterSearchConnectionResponse
 newRejectInboundCrossClusterSearchConnectionResponse
   pHttpStatus_ =
     RejectInboundCrossClusterSearchConnectionResponse'
       { crossClusterSearchConnection =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | Specifies the @InboundCrossClusterSearchConnection@ of rejected inbound
 -- connection.
-rejectInboundCrossClusterSearchConnectionResponse_crossClusterSearchConnection :: Lens.Lens' RejectInboundCrossClusterSearchConnectionResponse (Core.Maybe InboundCrossClusterSearchConnection)
+rejectInboundCrossClusterSearchConnectionResponse_crossClusterSearchConnection :: Lens.Lens' RejectInboundCrossClusterSearchConnectionResponse (Prelude.Maybe InboundCrossClusterSearchConnection)
 rejectInboundCrossClusterSearchConnectionResponse_crossClusterSearchConnection = Lens.lens (\RejectInboundCrossClusterSearchConnectionResponse' {crossClusterSearchConnection} -> crossClusterSearchConnection) (\s@RejectInboundCrossClusterSearchConnectionResponse' {} a -> s {crossClusterSearchConnection = a} :: RejectInboundCrossClusterSearchConnectionResponse)
 
 -- | The response's http status code.
-rejectInboundCrossClusterSearchConnectionResponse_httpStatus :: Lens.Lens' RejectInboundCrossClusterSearchConnectionResponse Core.Int
+rejectInboundCrossClusterSearchConnectionResponse_httpStatus :: Lens.Lens' RejectInboundCrossClusterSearchConnectionResponse Prelude.Int
 rejectInboundCrossClusterSearchConnectionResponse_httpStatus = Lens.lens (\RejectInboundCrossClusterSearchConnectionResponse' {httpStatus} -> httpStatus) (\s@RejectInboundCrossClusterSearchConnectionResponse' {} a -> s {httpStatus = a} :: RejectInboundCrossClusterSearchConnectionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     RejectInboundCrossClusterSearchConnectionResponse

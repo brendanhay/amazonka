@@ -21,6 +21,7 @@ module Network.AWS.Lightsail.Types.ContainerImage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a container image that is registered to an Amazon Lightsail
 -- container service.
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newContainerImage' smart constructor.
 data ContainerImage = ContainerImage'
   { -- | The timestamp when the container image was created.
-    createdAt :: Core.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The name of the container image.
-    image :: Core.Maybe Core.Text,
+    image :: Prelude.Maybe Prelude.Text,
     -- | The digest of the container image.
-    digest :: Core.Maybe Core.Text
+    digest :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ContainerImage' with all optional fields omitted.
@@ -53,21 +54,21 @@ newContainerImage ::
   ContainerImage
 newContainerImage =
   ContainerImage'
-    { createdAt = Core.Nothing,
-      image = Core.Nothing,
-      digest = Core.Nothing
+    { createdAt = Prelude.Nothing,
+      image = Prelude.Nothing,
+      digest = Prelude.Nothing
     }
 
 -- | The timestamp when the container image was created.
-containerImage_createdAt :: Lens.Lens' ContainerImage (Core.Maybe Core.UTCTime)
-containerImage_createdAt = Lens.lens (\ContainerImage' {createdAt} -> createdAt) (\s@ContainerImage' {} a -> s {createdAt = a} :: ContainerImage) Core.. Lens.mapping Core._Time
+containerImage_createdAt :: Lens.Lens' ContainerImage (Prelude.Maybe Prelude.UTCTime)
+containerImage_createdAt = Lens.lens (\ContainerImage' {createdAt} -> createdAt) (\s@ContainerImage' {} a -> s {createdAt = a} :: ContainerImage) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the container image.
-containerImage_image :: Lens.Lens' ContainerImage (Core.Maybe Core.Text)
+containerImage_image :: Lens.Lens' ContainerImage (Prelude.Maybe Prelude.Text)
 containerImage_image = Lens.lens (\ContainerImage' {image} -> image) (\s@ContainerImage' {} a -> s {image = a} :: ContainerImage)
 
 -- | The digest of the container image.
-containerImage_digest :: Lens.Lens' ContainerImage (Core.Maybe Core.Text)
+containerImage_digest :: Lens.Lens' ContainerImage (Prelude.Maybe Prelude.Text)
 containerImage_digest = Lens.lens (\ContainerImage' {digest} -> digest) (\s@ContainerImage' {} a -> s {digest = a} :: ContainerImage)
 
 instance Core.FromJSON ContainerImage where
@@ -76,11 +77,11 @@ instance Core.FromJSON ContainerImage where
       "ContainerImage"
       ( \x ->
           ContainerImage'
-            Core.<$> (x Core..:? "createdAt")
-            Core.<*> (x Core..:? "image")
-            Core.<*> (x Core..:? "digest")
+            Prelude.<$> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "image")
+            Prelude.<*> (x Core..:? "digest")
       )
 
-instance Core.Hashable ContainerImage
+instance Prelude.Hashable ContainerImage
 
-instance Core.NFData ContainerImage
+instance Prelude.NFData ContainerImage

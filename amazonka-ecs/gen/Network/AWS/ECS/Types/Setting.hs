@@ -22,21 +22,22 @@ module Network.AWS.ECS.Types.Setting where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.SettingName
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The current account setting for a resource.
 --
 -- /See:/ 'newSetting' smart constructor.
 data Setting = Setting'
   { -- | The Amazon ECS resource name.
-    name :: Core.Maybe SettingName,
+    name :: Prelude.Maybe SettingName,
     -- | The ARN of the principal, which can be an IAM user, IAM role, or the
     -- root user. If this field is omitted, the authenticated user is assumed.
-    principalArn :: Core.Maybe Core.Text,
+    principalArn :: Prelude.Maybe Prelude.Text,
     -- | Whether the account setting is enabled or disabled for the specified
     -- resource.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Setting' with all optional fields omitted.
@@ -57,23 +58,23 @@ newSetting ::
   Setting
 newSetting =
   Setting'
-    { name = Core.Nothing,
-      principalArn = Core.Nothing,
-      value = Core.Nothing
+    { name = Prelude.Nothing,
+      principalArn = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The Amazon ECS resource name.
-setting_name :: Lens.Lens' Setting (Core.Maybe SettingName)
+setting_name :: Lens.Lens' Setting (Prelude.Maybe SettingName)
 setting_name = Lens.lens (\Setting' {name} -> name) (\s@Setting' {} a -> s {name = a} :: Setting)
 
 -- | The ARN of the principal, which can be an IAM user, IAM role, or the
 -- root user. If this field is omitted, the authenticated user is assumed.
-setting_principalArn :: Lens.Lens' Setting (Core.Maybe Core.Text)
+setting_principalArn :: Lens.Lens' Setting (Prelude.Maybe Prelude.Text)
 setting_principalArn = Lens.lens (\Setting' {principalArn} -> principalArn) (\s@Setting' {} a -> s {principalArn = a} :: Setting)
 
 -- | Whether the account setting is enabled or disabled for the specified
 -- resource.
-setting_value :: Lens.Lens' Setting (Core.Maybe Core.Text)
+setting_value :: Lens.Lens' Setting (Prelude.Maybe Prelude.Text)
 setting_value = Lens.lens (\Setting' {value} -> value) (\s@Setting' {} a -> s {value = a} :: Setting)
 
 instance Core.FromJSON Setting where
@@ -82,11 +83,11 @@ instance Core.FromJSON Setting where
       "Setting"
       ( \x ->
           Setting'
-            Core.<$> (x Core..:? "name")
-            Core.<*> (x Core..:? "principalArn")
-            Core.<*> (x Core..:? "value")
+            Prelude.<$> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "principalArn")
+            Prelude.<*> (x Core..:? "value")
       )
 
-instance Core.Hashable Setting
+instance Prelude.Hashable Setting
 
-instance Core.NFData Setting
+instance Prelude.NFData Setting

@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -63,23 +64,23 @@ data DescribeProjectVersions = DescribeProjectVersions'
     -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
     -- token in the response. You can use this pagination token to retrieve the
     -- next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of model version names that you want to describe. You can add up
     -- to 10 model version names to the list. If you don\'t specify a value,
     -- all model descriptions are returned. A version name is part of a model
     -- (ProjectVersion) ARN. For example, @my-model.2020-01-21T09.10.15@ is the
     -- version name in the following ARN.
     -- @arn:aws:rekognition:us-east-1:123456789012:project\/getting-started\/version\/my-model.2020-01-21T09.10.15\/1234567890123@.
-    versionNames :: Core.Maybe (Core.NonEmpty Core.Text),
+    versionNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The maximum number of results to return per paginated call. The largest
     -- value you can specify is 100. If you specify a value greater than 100, a
     -- ValidationException error occurs. The default value is 100.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the project that contains the models
     -- you want to describe.
-    projectArn :: Core.Text
+    projectArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeProjectVersions' with all optional fields omitted.
@@ -109,13 +110,14 @@ data DescribeProjectVersions = DescribeProjectVersions'
 -- you want to describe.
 newDescribeProjectVersions ::
   -- | 'projectArn'
-  Core.Text ->
+  Prelude.Text ->
   DescribeProjectVersions
 newDescribeProjectVersions pProjectArn_ =
   DescribeProjectVersions'
-    { nextToken = Core.Nothing,
-      versionNames = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      versionNames = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       projectArn = pProjectArn_
     }
 
@@ -123,7 +125,7 @@ newDescribeProjectVersions pProjectArn_ =
 -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
 -- token in the response. You can use this pagination token to retrieve the
 -- next set of results.
-describeProjectVersions_nextToken :: Lens.Lens' DescribeProjectVersions (Core.Maybe Core.Text)
+describeProjectVersions_nextToken :: Lens.Lens' DescribeProjectVersions (Prelude.Maybe Prelude.Text)
 describeProjectVersions_nextToken = Lens.lens (\DescribeProjectVersions' {nextToken} -> nextToken) (\s@DescribeProjectVersions' {} a -> s {nextToken = a} :: DescribeProjectVersions)
 
 -- | A list of model version names that you want to describe. You can add up
@@ -132,18 +134,18 @@ describeProjectVersions_nextToken = Lens.lens (\DescribeProjectVersions' {nextTo
 -- (ProjectVersion) ARN. For example, @my-model.2020-01-21T09.10.15@ is the
 -- version name in the following ARN.
 -- @arn:aws:rekognition:us-east-1:123456789012:project\/getting-started\/version\/my-model.2020-01-21T09.10.15\/1234567890123@.
-describeProjectVersions_versionNames :: Lens.Lens' DescribeProjectVersions (Core.Maybe (Core.NonEmpty Core.Text))
-describeProjectVersions_versionNames = Lens.lens (\DescribeProjectVersions' {versionNames} -> versionNames) (\s@DescribeProjectVersions' {} a -> s {versionNames = a} :: DescribeProjectVersions) Core.. Lens.mapping Lens._Coerce
+describeProjectVersions_versionNames :: Lens.Lens' DescribeProjectVersions (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeProjectVersions_versionNames = Lens.lens (\DescribeProjectVersions' {versionNames} -> versionNames) (\s@DescribeProjectVersions' {} a -> s {versionNames = a} :: DescribeProjectVersions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of results to return per paginated call. The largest
 -- value you can specify is 100. If you specify a value greater than 100, a
 -- ValidationException error occurs. The default value is 100.
-describeProjectVersions_maxResults :: Lens.Lens' DescribeProjectVersions (Core.Maybe Core.Natural)
+describeProjectVersions_maxResults :: Lens.Lens' DescribeProjectVersions (Prelude.Maybe Prelude.Natural)
 describeProjectVersions_maxResults = Lens.lens (\DescribeProjectVersions' {maxResults} -> maxResults) (\s@DescribeProjectVersions' {} a -> s {maxResults = a} :: DescribeProjectVersions)
 
 -- | The Amazon Resource Name (ARN) of the project that contains the models
 -- you want to describe.
-describeProjectVersions_projectArn :: Lens.Lens' DescribeProjectVersions Core.Text
+describeProjectVersions_projectArn :: Lens.Lens' DescribeProjectVersions Prelude.Text
 describeProjectVersions_projectArn = Lens.lens (\DescribeProjectVersions' {projectArn} -> projectArn) (\s@DescribeProjectVersions' {} a -> s {projectArn = a} :: DescribeProjectVersions)
 
 instance Core.AWSPager DescribeProjectVersions where
@@ -151,22 +153,22 @@ instance Core.AWSPager DescribeProjectVersions where
     | Core.stop
         ( rs
             Lens.^? describeProjectVersionsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeProjectVersionsResponse_projectVersionDescriptions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeProjectVersions_nextToken
+          Prelude.& describeProjectVersions_nextToken
           Lens..~ rs
           Lens.^? describeProjectVersionsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeProjectVersions where
   type
@@ -177,46 +179,48 @@ instance Core.AWSRequest DescribeProjectVersions where
     Response.receiveJSON
       ( \s h x ->
           DescribeProjectVersionsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "ProjectVersionDescriptions"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ProjectVersionDescriptions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeProjectVersions
+instance Prelude.Hashable DescribeProjectVersions
 
-instance Core.NFData DescribeProjectVersions
+instance Prelude.NFData DescribeProjectVersions
 
 instance Core.ToHeaders DescribeProjectVersions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "RekognitionService.DescribeProjectVersions" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeProjectVersions where
   toJSON DescribeProjectVersions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("VersionNames" Core..=) Core.<$> versionNames,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("ProjectArn" Core..= projectArn)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("VersionNames" Core..=) Prelude.<$> versionNames,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("ProjectArn" Core..= projectArn)
           ]
       )
 
 instance Core.ToPath DescribeProjectVersions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeProjectVersions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProjectVersionsResponse' smart constructor.
 data DescribeProjectVersionsResponse = DescribeProjectVersionsResponse'
@@ -224,14 +228,14 @@ data DescribeProjectVersionsResponse = DescribeProjectVersionsResponse'
     -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
     -- token in the response. You can use this pagination token to retrieve the
     -- next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of model descriptions. The list is sorted by the creation date
     -- and time of the model versions, latest to earliest.
-    projectVersionDescriptions :: Core.Maybe [ProjectVersionDescription],
+    projectVersionDescriptions :: Prelude.Maybe [ProjectVersionDescription],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeProjectVersionsResponse' with all optional fields omitted.
@@ -252,13 +256,14 @@ data DescribeProjectVersionsResponse = DescribeProjectVersionsResponse'
 -- 'httpStatus', 'describeProjectVersionsResponse_httpStatus' - The response's http status code.
 newDescribeProjectVersionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeProjectVersionsResponse
 newDescribeProjectVersionsResponse pHttpStatus_ =
   DescribeProjectVersionsResponse'
     { nextToken =
-        Core.Nothing,
-      projectVersionDescriptions = Core.Nothing,
+        Prelude.Nothing,
+      projectVersionDescriptions =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -266,16 +271,18 @@ newDescribeProjectVersionsResponse pHttpStatus_ =
 -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
 -- token in the response. You can use this pagination token to retrieve the
 -- next set of results.
-describeProjectVersionsResponse_nextToken :: Lens.Lens' DescribeProjectVersionsResponse (Core.Maybe Core.Text)
+describeProjectVersionsResponse_nextToken :: Lens.Lens' DescribeProjectVersionsResponse (Prelude.Maybe Prelude.Text)
 describeProjectVersionsResponse_nextToken = Lens.lens (\DescribeProjectVersionsResponse' {nextToken} -> nextToken) (\s@DescribeProjectVersionsResponse' {} a -> s {nextToken = a} :: DescribeProjectVersionsResponse)
 
 -- | A list of model descriptions. The list is sorted by the creation date
 -- and time of the model versions, latest to earliest.
-describeProjectVersionsResponse_projectVersionDescriptions :: Lens.Lens' DescribeProjectVersionsResponse (Core.Maybe [ProjectVersionDescription])
-describeProjectVersionsResponse_projectVersionDescriptions = Lens.lens (\DescribeProjectVersionsResponse' {projectVersionDescriptions} -> projectVersionDescriptions) (\s@DescribeProjectVersionsResponse' {} a -> s {projectVersionDescriptions = a} :: DescribeProjectVersionsResponse) Core.. Lens.mapping Lens._Coerce
+describeProjectVersionsResponse_projectVersionDescriptions :: Lens.Lens' DescribeProjectVersionsResponse (Prelude.Maybe [ProjectVersionDescription])
+describeProjectVersionsResponse_projectVersionDescriptions = Lens.lens (\DescribeProjectVersionsResponse' {projectVersionDescriptions} -> projectVersionDescriptions) (\s@DescribeProjectVersionsResponse' {} a -> s {projectVersionDescriptions = a} :: DescribeProjectVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeProjectVersionsResponse_httpStatus :: Lens.Lens' DescribeProjectVersionsResponse Core.Int
+describeProjectVersionsResponse_httpStatus :: Lens.Lens' DescribeProjectVersionsResponse Prelude.Int
 describeProjectVersionsResponse_httpStatus = Lens.lens (\DescribeProjectVersionsResponse' {httpStatus} -> httpStatus) (\s@DescribeProjectVersionsResponse' {} a -> s {httpStatus = a} :: DescribeProjectVersionsResponse)
 
-instance Core.NFData DescribeProjectVersionsResponse
+instance
+  Prelude.NFData
+    DescribeProjectVersionsResponse

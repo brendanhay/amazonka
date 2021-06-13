@@ -21,22 +21,23 @@ module Network.AWS.Config.Types.StoredQueryMetadata where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns details of a specific query.
 --
 -- /See:/ 'newStoredQueryMetadata' smart constructor.
 data StoredQueryMetadata = StoredQueryMetadata'
   { -- | A unique description for the query.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the query.
-    queryId :: Core.Text,
+    queryId :: Prelude.Text,
     -- | Amazon Resource Name (ARN) of the query. For example,
     -- arn:partition:service:region:account-id:resource-type\/resource-name\/resource-id.
-    queryArn :: Core.Text,
+    queryArn :: Prelude.Text,
     -- | The name of the query.
-    queryName :: Core.Text
+    queryName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StoredQueryMetadata' with all optional fields omitted.
@@ -56,38 +57,38 @@ data StoredQueryMetadata = StoredQueryMetadata'
 -- 'queryName', 'storedQueryMetadata_queryName' - The name of the query.
 newStoredQueryMetadata ::
   -- | 'queryId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'queryArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'queryName'
-  Core.Text ->
+  Prelude.Text ->
   StoredQueryMetadata
 newStoredQueryMetadata
   pQueryId_
   pQueryArn_
   pQueryName_ =
     StoredQueryMetadata'
-      { description = Core.Nothing,
+      { description = Prelude.Nothing,
         queryId = pQueryId_,
         queryArn = pQueryArn_,
         queryName = pQueryName_
       }
 
 -- | A unique description for the query.
-storedQueryMetadata_description :: Lens.Lens' StoredQueryMetadata (Core.Maybe Core.Text)
+storedQueryMetadata_description :: Lens.Lens' StoredQueryMetadata (Prelude.Maybe Prelude.Text)
 storedQueryMetadata_description = Lens.lens (\StoredQueryMetadata' {description} -> description) (\s@StoredQueryMetadata' {} a -> s {description = a} :: StoredQueryMetadata)
 
 -- | The ID of the query.
-storedQueryMetadata_queryId :: Lens.Lens' StoredQueryMetadata Core.Text
+storedQueryMetadata_queryId :: Lens.Lens' StoredQueryMetadata Prelude.Text
 storedQueryMetadata_queryId = Lens.lens (\StoredQueryMetadata' {queryId} -> queryId) (\s@StoredQueryMetadata' {} a -> s {queryId = a} :: StoredQueryMetadata)
 
 -- | Amazon Resource Name (ARN) of the query. For example,
 -- arn:partition:service:region:account-id:resource-type\/resource-name\/resource-id.
-storedQueryMetadata_queryArn :: Lens.Lens' StoredQueryMetadata Core.Text
+storedQueryMetadata_queryArn :: Lens.Lens' StoredQueryMetadata Prelude.Text
 storedQueryMetadata_queryArn = Lens.lens (\StoredQueryMetadata' {queryArn} -> queryArn) (\s@StoredQueryMetadata' {} a -> s {queryArn = a} :: StoredQueryMetadata)
 
 -- | The name of the query.
-storedQueryMetadata_queryName :: Lens.Lens' StoredQueryMetadata Core.Text
+storedQueryMetadata_queryName :: Lens.Lens' StoredQueryMetadata Prelude.Text
 storedQueryMetadata_queryName = Lens.lens (\StoredQueryMetadata' {queryName} -> queryName) (\s@StoredQueryMetadata' {} a -> s {queryName = a} :: StoredQueryMetadata)
 
 instance Core.FromJSON StoredQueryMetadata where
@@ -96,12 +97,12 @@ instance Core.FromJSON StoredQueryMetadata where
       "StoredQueryMetadata"
       ( \x ->
           StoredQueryMetadata'
-            Core.<$> (x Core..:? "Description")
-            Core.<*> (x Core..: "QueryId")
-            Core.<*> (x Core..: "QueryArn")
-            Core.<*> (x Core..: "QueryName")
+            Prelude.<$> (x Core..:? "Description")
+            Prelude.<*> (x Core..: "QueryId")
+            Prelude.<*> (x Core..: "QueryArn")
+            Prelude.<*> (x Core..: "QueryName")
       )
 
-instance Core.Hashable StoredQueryMetadata
+instance Prelude.Hashable StoredQueryMetadata
 
-instance Core.NFData StoredQueryMetadata
+instance Prelude.NFData StoredQueryMetadata

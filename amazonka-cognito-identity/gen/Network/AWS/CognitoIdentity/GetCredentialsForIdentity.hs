@@ -50,6 +50,7 @@ where
 import Network.AWS.CognitoIdentity.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,16 +70,16 @@ data GetCredentialsForIdentity = GetCredentialsForIdentity'
     -- maps, see the code examples in the
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/external-identity-providers.html External Identity Providers>
     -- section of the Amazon Cognito Developer Guide.
-    logins :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    logins :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the role to be assumed when multiple
     -- roles were received in the token from the identity provider. For
     -- example, a SAML-based identity provider. This parameter is optional for
     -- identity providers that do not support role customization.
-    customRoleArn :: Core.Maybe Core.Text,
+    customRoleArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier in the format REGION:GUID.
-    identityId :: Core.Text
+    identityId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCredentialsForIdentity' with all optional fields omitted.
@@ -109,12 +110,13 @@ data GetCredentialsForIdentity = GetCredentialsForIdentity'
 -- 'identityId', 'getCredentialsForIdentity_identityId' - A unique identifier in the format REGION:GUID.
 newGetCredentialsForIdentity ::
   -- | 'identityId'
-  Core.Text ->
+  Prelude.Text ->
   GetCredentialsForIdentity
 newGetCredentialsForIdentity pIdentityId_ =
   GetCredentialsForIdentity'
-    { logins = Core.Nothing,
-      customRoleArn = Core.Nothing,
+    { logins =
+        Prelude.Nothing,
+      customRoleArn = Prelude.Nothing,
       identityId = pIdentityId_
     }
 
@@ -130,18 +132,18 @@ newGetCredentialsForIdentity pIdentityId_ =
 -- maps, see the code examples in the
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/external-identity-providers.html External Identity Providers>
 -- section of the Amazon Cognito Developer Guide.
-getCredentialsForIdentity_logins :: Lens.Lens' GetCredentialsForIdentity (Core.Maybe (Core.HashMap Core.Text Core.Text))
-getCredentialsForIdentity_logins = Lens.lens (\GetCredentialsForIdentity' {logins} -> logins) (\s@GetCredentialsForIdentity' {} a -> s {logins = a} :: GetCredentialsForIdentity) Core.. Lens.mapping Lens._Coerce
+getCredentialsForIdentity_logins :: Lens.Lens' GetCredentialsForIdentity (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getCredentialsForIdentity_logins = Lens.lens (\GetCredentialsForIdentity' {logins} -> logins) (\s@GetCredentialsForIdentity' {} a -> s {logins = a} :: GetCredentialsForIdentity) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the role to be assumed when multiple
 -- roles were received in the token from the identity provider. For
 -- example, a SAML-based identity provider. This parameter is optional for
 -- identity providers that do not support role customization.
-getCredentialsForIdentity_customRoleArn :: Lens.Lens' GetCredentialsForIdentity (Core.Maybe Core.Text)
+getCredentialsForIdentity_customRoleArn :: Lens.Lens' GetCredentialsForIdentity (Prelude.Maybe Prelude.Text)
 getCredentialsForIdentity_customRoleArn = Lens.lens (\GetCredentialsForIdentity' {customRoleArn} -> customRoleArn) (\s@GetCredentialsForIdentity' {} a -> s {customRoleArn = a} :: GetCredentialsForIdentity)
 
 -- | A unique identifier in the format REGION:GUID.
-getCredentialsForIdentity_identityId :: Lens.Lens' GetCredentialsForIdentity Core.Text
+getCredentialsForIdentity_identityId :: Lens.Lens' GetCredentialsForIdentity Prelude.Text
 getCredentialsForIdentity_identityId = Lens.lens (\GetCredentialsForIdentity' {identityId} -> identityId) (\s@GetCredentialsForIdentity' {} a -> s {identityId = a} :: GetCredentialsForIdentity)
 
 instance Core.AWSRequest GetCredentialsForIdentity where
@@ -153,43 +155,45 @@ instance Core.AWSRequest GetCredentialsForIdentity where
     Response.receiveJSON
       ( \s h x ->
           GetCredentialsForIdentityResponse'
-            Core.<$> (x Core..?> "IdentityId")
-            Core.<*> (x Core..?> "Credentials")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "IdentityId")
+            Prelude.<*> (x Core..?> "Credentials")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetCredentialsForIdentity
+instance Prelude.Hashable GetCredentialsForIdentity
 
-instance Core.NFData GetCredentialsForIdentity
+instance Prelude.NFData GetCredentialsForIdentity
 
 instance Core.ToHeaders GetCredentialsForIdentity where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityService.GetCredentialsForIdentity" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetCredentialsForIdentity where
   toJSON GetCredentialsForIdentity' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Logins" Core..=) Core.<$> logins,
-            ("CustomRoleArn" Core..=) Core.<$> customRoleArn,
-            Core.Just ("IdentityId" Core..= identityId)
+      ( Prelude.catMaybes
+          [ ("Logins" Core..=) Prelude.<$> logins,
+            ("CustomRoleArn" Core..=) Prelude.<$> customRoleArn,
+            Prelude.Just ("IdentityId" Core..= identityId)
           ]
       )
 
 instance Core.ToPath GetCredentialsForIdentity where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetCredentialsForIdentity where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Returned in response to a successful @GetCredentialsForIdentity@
 -- operation.
@@ -197,13 +201,13 @@ instance Core.ToQuery GetCredentialsForIdentity where
 -- /See:/ 'newGetCredentialsForIdentityResponse' smart constructor.
 data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'
   { -- | A unique identifier in the format REGION:GUID.
-    identityId :: Core.Maybe Core.Text,
+    identityId :: Prelude.Maybe Prelude.Text,
     -- | Credentials for the provided identity ID.
-    credentials :: Core.Maybe Credentials,
+    credentials :: Prelude.Maybe Credentials,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCredentialsForIdentityResponse' with all optional fields omitted.
@@ -220,28 +224,28 @@ data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'
 -- 'httpStatus', 'getCredentialsForIdentityResponse_httpStatus' - The response's http status code.
 newGetCredentialsForIdentityResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetCredentialsForIdentityResponse
 newGetCredentialsForIdentityResponse pHttpStatus_ =
   GetCredentialsForIdentityResponse'
     { identityId =
-        Core.Nothing,
-      credentials = Core.Nothing,
+        Prelude.Nothing,
+      credentials = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique identifier in the format REGION:GUID.
-getCredentialsForIdentityResponse_identityId :: Lens.Lens' GetCredentialsForIdentityResponse (Core.Maybe Core.Text)
+getCredentialsForIdentityResponse_identityId :: Lens.Lens' GetCredentialsForIdentityResponse (Prelude.Maybe Prelude.Text)
 getCredentialsForIdentityResponse_identityId = Lens.lens (\GetCredentialsForIdentityResponse' {identityId} -> identityId) (\s@GetCredentialsForIdentityResponse' {} a -> s {identityId = a} :: GetCredentialsForIdentityResponse)
 
 -- | Credentials for the provided identity ID.
-getCredentialsForIdentityResponse_credentials :: Lens.Lens' GetCredentialsForIdentityResponse (Core.Maybe Credentials)
+getCredentialsForIdentityResponse_credentials :: Lens.Lens' GetCredentialsForIdentityResponse (Prelude.Maybe Credentials)
 getCredentialsForIdentityResponse_credentials = Lens.lens (\GetCredentialsForIdentityResponse' {credentials} -> credentials) (\s@GetCredentialsForIdentityResponse' {} a -> s {credentials = a} :: GetCredentialsForIdentityResponse)
 
 -- | The response's http status code.
-getCredentialsForIdentityResponse_httpStatus :: Lens.Lens' GetCredentialsForIdentityResponse Core.Int
+getCredentialsForIdentityResponse_httpStatus :: Lens.Lens' GetCredentialsForIdentityResponse Prelude.Int
 getCredentialsForIdentityResponse_httpStatus = Lens.lens (\GetCredentialsForIdentityResponse' {httpStatus} -> httpStatus) (\s@GetCredentialsForIdentityResponse' {} a -> s {httpStatus = a} :: GetCredentialsForIdentityResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetCredentialsForIdentityResponse

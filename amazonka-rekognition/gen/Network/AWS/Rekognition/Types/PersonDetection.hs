@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.PersonDetection where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.PersonDetail
 
 -- | Details and path tracking information for a single time a person\'s path
@@ -35,11 +36,11 @@ import Network.AWS.Rekognition.Types.PersonDetail
 data PersonDetection = PersonDetection'
   { -- | The time, in milliseconds from the start of the video, that the
     -- person\'s path was tracked.
-    timestamp :: Core.Maybe Core.Integer,
+    timestamp :: Prelude.Maybe Prelude.Integer,
     -- | Details about a person whose path was tracked in a video.
-    person :: Core.Maybe PersonDetail
+    person :: Prelude.Maybe PersonDetail
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PersonDetection' with all optional fields omitted.
@@ -57,17 +58,17 @@ newPersonDetection ::
   PersonDetection
 newPersonDetection =
   PersonDetection'
-    { timestamp = Core.Nothing,
-      person = Core.Nothing
+    { timestamp = Prelude.Nothing,
+      person = Prelude.Nothing
     }
 
 -- | The time, in milliseconds from the start of the video, that the
 -- person\'s path was tracked.
-personDetection_timestamp :: Lens.Lens' PersonDetection (Core.Maybe Core.Integer)
+personDetection_timestamp :: Lens.Lens' PersonDetection (Prelude.Maybe Prelude.Integer)
 personDetection_timestamp = Lens.lens (\PersonDetection' {timestamp} -> timestamp) (\s@PersonDetection' {} a -> s {timestamp = a} :: PersonDetection)
 
 -- | Details about a person whose path was tracked in a video.
-personDetection_person :: Lens.Lens' PersonDetection (Core.Maybe PersonDetail)
+personDetection_person :: Lens.Lens' PersonDetection (Prelude.Maybe PersonDetail)
 personDetection_person = Lens.lens (\PersonDetection' {person} -> person) (\s@PersonDetection' {} a -> s {person = a} :: PersonDetection)
 
 instance Core.FromJSON PersonDetection where
@@ -76,10 +77,10 @@ instance Core.FromJSON PersonDetection where
       "PersonDetection"
       ( \x ->
           PersonDetection'
-            Core.<$> (x Core..:? "Timestamp")
-            Core.<*> (x Core..:? "Person")
+            Prelude.<$> (x Core..:? "Timestamp")
+            Prelude.<*> (x Core..:? "Person")
       )
 
-instance Core.Hashable PersonDetection
+instance Prelude.Hashable PersonDetection
 
-instance Core.NFData PersonDetection
+instance Prelude.NFData PersonDetection

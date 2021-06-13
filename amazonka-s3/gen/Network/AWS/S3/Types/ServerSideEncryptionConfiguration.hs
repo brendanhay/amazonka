@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.ServerSideEncryptionConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ServerSideEncryptionRule
 
@@ -32,7 +33,7 @@ data ServerSideEncryptionConfiguration = ServerSideEncryptionConfiguration'
     -- configuration rule.
     rules :: [ServerSideEncryptionRule]
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServerSideEncryptionConfiguration' with all optional fields omitted.
@@ -49,13 +50,13 @@ newServerSideEncryptionConfiguration ::
 newServerSideEncryptionConfiguration =
   ServerSideEncryptionConfiguration'
     { rules =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | Container for information about a particular server-side encryption
 -- configuration rule.
 serverSideEncryptionConfiguration_rules :: Lens.Lens' ServerSideEncryptionConfiguration [ServerSideEncryptionRule]
-serverSideEncryptionConfiguration_rules = Lens.lens (\ServerSideEncryptionConfiguration' {rules} -> rules) (\s@ServerSideEncryptionConfiguration' {} a -> s {rules = a} :: ServerSideEncryptionConfiguration) Core.. Lens._Coerce
+serverSideEncryptionConfiguration_rules = Lens.lens (\ServerSideEncryptionConfiguration' {rules} -> rules) (\s@ServerSideEncryptionConfiguration' {} a -> s {rules = a} :: ServerSideEncryptionConfiguration) Prelude.. Lens._Coerce
 
 instance
   Core.FromXML
@@ -63,16 +64,16 @@ instance
   where
   parseXML x =
     ServerSideEncryptionConfiguration'
-      Core.<$> (Core.parseXMLList "Rule" x)
+      Prelude.<$> (Core.parseXMLList "Rule" x)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ServerSideEncryptionConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     ServerSideEncryptionConfiguration
 
 instance Core.ToXML ServerSideEncryptionConfiguration where
   toXML ServerSideEncryptionConfiguration' {..} =
-    Core.mconcat [Core.toXMLList "Rule" rules]
+    Prelude.mconcat [Core.toXMLList "Rule" rules]

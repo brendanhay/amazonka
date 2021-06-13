@@ -30,6 +30,7 @@ module Network.AWS.MediaConvert.Types.AacCodingMode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Mono (Audio Description), Mono, Stereo, or 5.1 channel layout. Valid
 -- values depend on rate control mode and profile. \"1.0 - Audio
@@ -41,15 +42,15 @@ newtype AacCodingMode = AacCodingMode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

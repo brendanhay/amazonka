@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ModelExplainabilityJobInput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.EndpointInput
 
 -- | Inputs for the model explainability job.
@@ -29,7 +30,7 @@ import Network.AWS.SageMaker.Types.EndpointInput
 data ModelExplainabilityJobInput = ModelExplainabilityJobInput'
   { endpointInput :: EndpointInput
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModelExplainabilityJobInput' with all optional fields omitted.
@@ -60,16 +61,18 @@ instance Core.FromJSON ModelExplainabilityJobInput where
       "ModelExplainabilityJobInput"
       ( \x ->
           ModelExplainabilityJobInput'
-            Core.<$> (x Core..: "EndpointInput")
+            Prelude.<$> (x Core..: "EndpointInput")
       )
 
-instance Core.Hashable ModelExplainabilityJobInput
+instance Prelude.Hashable ModelExplainabilityJobInput
 
-instance Core.NFData ModelExplainabilityJobInput
+instance Prelude.NFData ModelExplainabilityJobInput
 
 instance Core.ToJSON ModelExplainabilityJobInput where
   toJSON ModelExplainabilityJobInput' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("EndpointInput" Core..= endpointInput)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("EndpointInput" Core..= endpointInput)
+          ]
       )

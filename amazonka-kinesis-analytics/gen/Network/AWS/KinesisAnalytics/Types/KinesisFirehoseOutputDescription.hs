@@ -21,6 +21,7 @@ module Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutputDescription where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | For an application output, describes the Amazon Kinesis Firehose
 -- delivery stream configured as its destination.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data KinesisFirehoseOutputDescription = KinesisFirehoseOutputDescription'
   { -- | Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery
     -- stream.
-    resourceARN :: Core.Maybe Core.Text,
+    resourceARN :: Prelude.Maybe Prelude.Text,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
     -- the stream.
-    roleARN :: Core.Maybe Core.Text
+    roleARN :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KinesisFirehoseOutputDescription' with all optional fields omitted.
@@ -54,18 +55,18 @@ newKinesisFirehoseOutputDescription ::
 newKinesisFirehoseOutputDescription =
   KinesisFirehoseOutputDescription'
     { resourceARN =
-        Core.Nothing,
-      roleARN = Core.Nothing
+        Prelude.Nothing,
+      roleARN = Prelude.Nothing
     }
 
 -- | Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery
 -- stream.
-kinesisFirehoseOutputDescription_resourceARN :: Lens.Lens' KinesisFirehoseOutputDescription (Core.Maybe Core.Text)
+kinesisFirehoseOutputDescription_resourceARN :: Lens.Lens' KinesisFirehoseOutputDescription (Prelude.Maybe Prelude.Text)
 kinesisFirehoseOutputDescription_resourceARN = Lens.lens (\KinesisFirehoseOutputDescription' {resourceARN} -> resourceARN) (\s@KinesisFirehoseOutputDescription' {} a -> s {resourceARN = a} :: KinesisFirehoseOutputDescription)
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
 -- the stream.
-kinesisFirehoseOutputDescription_roleARN :: Lens.Lens' KinesisFirehoseOutputDescription (Core.Maybe Core.Text)
+kinesisFirehoseOutputDescription_roleARN :: Lens.Lens' KinesisFirehoseOutputDescription (Prelude.Maybe Prelude.Text)
 kinesisFirehoseOutputDescription_roleARN = Lens.lens (\KinesisFirehoseOutputDescription' {roleARN} -> roleARN) (\s@KinesisFirehoseOutputDescription' {} a -> s {roleARN = a} :: KinesisFirehoseOutputDescription)
 
 instance
@@ -77,12 +78,14 @@ instance
       "KinesisFirehoseOutputDescription"
       ( \x ->
           KinesisFirehoseOutputDescription'
-            Core.<$> (x Core..:? "ResourceARN")
-            Core.<*> (x Core..:? "RoleARN")
+            Prelude.<$> (x Core..:? "ResourceARN")
+            Prelude.<*> (x Core..:? "RoleARN")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     KinesisFirehoseOutputDescription
 
-instance Core.NFData KinesisFirehoseOutputDescription
+instance
+  Prelude.NFData
+    KinesisFirehoseOutputDescription

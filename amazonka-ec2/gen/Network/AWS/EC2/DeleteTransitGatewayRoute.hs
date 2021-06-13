@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,14 +55,14 @@ data DeleteTransitGatewayRoute = DeleteTransitGatewayRoute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the transit gateway route table.
-    transitGatewayRouteTableId :: Core.Text,
+    transitGatewayRouteTableId :: Prelude.Text,
     -- | The CIDR range for the route. This must match the CIDR for the route
     -- exactly.
-    destinationCidrBlock :: Core.Text
+    destinationCidrBlock :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTransitGatewayRoute' with all optional fields omitted.
@@ -82,15 +83,16 @@ data DeleteTransitGatewayRoute = DeleteTransitGatewayRoute'
 -- exactly.
 newDeleteTransitGatewayRoute ::
   -- | 'transitGatewayRouteTableId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'destinationCidrBlock'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTransitGatewayRoute
 newDeleteTransitGatewayRoute
   pTransitGatewayRouteTableId_
   pDestinationCidrBlock_ =
     DeleteTransitGatewayRoute'
-      { dryRun = Core.Nothing,
+      { dryRun =
+          Prelude.Nothing,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_,
         destinationCidrBlock = pDestinationCidrBlock_
@@ -100,16 +102,16 @@ newDeleteTransitGatewayRoute
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteTransitGatewayRoute_dryRun :: Lens.Lens' DeleteTransitGatewayRoute (Core.Maybe Core.Bool)
+deleteTransitGatewayRoute_dryRun :: Lens.Lens' DeleteTransitGatewayRoute (Prelude.Maybe Prelude.Bool)
 deleteTransitGatewayRoute_dryRun = Lens.lens (\DeleteTransitGatewayRoute' {dryRun} -> dryRun) (\s@DeleteTransitGatewayRoute' {} a -> s {dryRun = a} :: DeleteTransitGatewayRoute)
 
 -- | The ID of the transit gateway route table.
-deleteTransitGatewayRoute_transitGatewayRouteTableId :: Lens.Lens' DeleteTransitGatewayRoute Core.Text
+deleteTransitGatewayRoute_transitGatewayRouteTableId :: Lens.Lens' DeleteTransitGatewayRoute Prelude.Text
 deleteTransitGatewayRoute_transitGatewayRouteTableId = Lens.lens (\DeleteTransitGatewayRoute' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@DeleteTransitGatewayRoute' {} a -> s {transitGatewayRouteTableId = a} :: DeleteTransitGatewayRoute)
 
 -- | The CIDR range for the route. This must match the CIDR for the route
 -- exactly.
-deleteTransitGatewayRoute_destinationCidrBlock :: Lens.Lens' DeleteTransitGatewayRoute Core.Text
+deleteTransitGatewayRoute_destinationCidrBlock :: Lens.Lens' DeleteTransitGatewayRoute Prelude.Text
 deleteTransitGatewayRoute_destinationCidrBlock = Lens.lens (\DeleteTransitGatewayRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@DeleteTransitGatewayRoute' {} a -> s {destinationCidrBlock = a} :: DeleteTransitGatewayRoute)
 
 instance Core.AWSRequest DeleteTransitGatewayRoute where
@@ -121,26 +123,27 @@ instance Core.AWSRequest DeleteTransitGatewayRoute where
     Response.receiveXML
       ( \s h x ->
           DeleteTransitGatewayRouteResponse'
-            Core.<$> (x Core..@? "route")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "route")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteTransitGatewayRoute
+instance Prelude.Hashable DeleteTransitGatewayRoute
 
-instance Core.NFData DeleteTransitGatewayRoute
+instance Prelude.NFData DeleteTransitGatewayRoute
 
 instance Core.ToHeaders DeleteTransitGatewayRoute where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteTransitGatewayRoute where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteTransitGatewayRoute where
   toQuery DeleteTransitGatewayRoute' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteTransitGatewayRoute" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DeleteTransitGatewayRoute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "TransitGatewayRouteTableId"
           Core.=: transitGatewayRouteTableId,
@@ -150,11 +153,11 @@ instance Core.ToQuery DeleteTransitGatewayRoute where
 -- | /See:/ 'newDeleteTransitGatewayRouteResponse' smart constructor.
 data DeleteTransitGatewayRouteResponse = DeleteTransitGatewayRouteResponse'
   { -- | Information about the route.
-    route :: Core.Maybe TransitGatewayRoute,
+    route :: Prelude.Maybe TransitGatewayRoute,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTransitGatewayRouteResponse' with all optional fields omitted.
@@ -169,23 +172,23 @@ data DeleteTransitGatewayRouteResponse = DeleteTransitGatewayRouteResponse'
 -- 'httpStatus', 'deleteTransitGatewayRouteResponse_httpStatus' - The response's http status code.
 newDeleteTransitGatewayRouteResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteTransitGatewayRouteResponse
 newDeleteTransitGatewayRouteResponse pHttpStatus_ =
   DeleteTransitGatewayRouteResponse'
     { route =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the route.
-deleteTransitGatewayRouteResponse_route :: Lens.Lens' DeleteTransitGatewayRouteResponse (Core.Maybe TransitGatewayRoute)
+deleteTransitGatewayRouteResponse_route :: Lens.Lens' DeleteTransitGatewayRouteResponse (Prelude.Maybe TransitGatewayRoute)
 deleteTransitGatewayRouteResponse_route = Lens.lens (\DeleteTransitGatewayRouteResponse' {route} -> route) (\s@DeleteTransitGatewayRouteResponse' {} a -> s {route = a} :: DeleteTransitGatewayRouteResponse)
 
 -- | The response's http status code.
-deleteTransitGatewayRouteResponse_httpStatus :: Lens.Lens' DeleteTransitGatewayRouteResponse Core.Int
+deleteTransitGatewayRouteResponse_httpStatus :: Lens.Lens' DeleteTransitGatewayRouteResponse Prelude.Int
 deleteTransitGatewayRouteResponse_httpStatus = Lens.lens (\DeleteTransitGatewayRouteResponse' {httpStatus} -> httpStatus) (\s@DeleteTransitGatewayRouteResponse' {} a -> s {httpStatus = a} :: DeleteTransitGatewayRouteResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteTransitGatewayRouteResponse

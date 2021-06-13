@@ -46,13 +46,14 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutFunctionCodeSigningConfig' smart constructor.
 data PutFunctionCodeSigningConfig = PutFunctionCodeSigningConfig'
   { -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-    codeSigningConfigArn :: Core.Text,
+    codeSigningConfigArn :: Prelude.Text,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -66,9 +67,9 @@ data PutFunctionCodeSigningConfig = PutFunctionCodeSigningConfig'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
-    functionName :: Core.Text
+    functionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutFunctionCodeSigningConfig' with all optional fields omitted.
@@ -95,9 +96,9 @@ data PutFunctionCodeSigningConfig = PutFunctionCodeSigningConfig'
 -- the function name, it is limited to 64 characters in length.
 newPutFunctionCodeSigningConfig ::
   -- | 'codeSigningConfigArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   PutFunctionCodeSigningConfig
 newPutFunctionCodeSigningConfig
   pCodeSigningConfigArn_
@@ -109,7 +110,7 @@ newPutFunctionCodeSigningConfig
       }
 
 -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-putFunctionCodeSigningConfig_codeSigningConfigArn :: Lens.Lens' PutFunctionCodeSigningConfig Core.Text
+putFunctionCodeSigningConfig_codeSigningConfigArn :: Lens.Lens' PutFunctionCodeSigningConfig Prelude.Text
 putFunctionCodeSigningConfig_codeSigningConfigArn = Lens.lens (\PutFunctionCodeSigningConfig' {codeSigningConfigArn} -> codeSigningConfigArn) (\s@PutFunctionCodeSigningConfig' {} a -> s {codeSigningConfigArn = a} :: PutFunctionCodeSigningConfig)
 
 -- | The name of the Lambda function.
@@ -125,7 +126,7 @@ putFunctionCodeSigningConfig_codeSigningConfigArn = Lens.lens (\PutFunctionCodeS
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
-putFunctionCodeSigningConfig_functionName :: Lens.Lens' PutFunctionCodeSigningConfig Core.Text
+putFunctionCodeSigningConfig_functionName :: Lens.Lens' PutFunctionCodeSigningConfig Prelude.Text
 putFunctionCodeSigningConfig_functionName = Lens.lens (\PutFunctionCodeSigningConfig' {functionName} -> functionName) (\s@PutFunctionCodeSigningConfig' {} a -> s {functionName = a} :: PutFunctionCodeSigningConfig)
 
 instance Core.AWSRequest PutFunctionCodeSigningConfig where
@@ -137,23 +138,25 @@ instance Core.AWSRequest PutFunctionCodeSigningConfig where
     Response.receiveJSON
       ( \s h x ->
           PutFunctionCodeSigningConfigResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "CodeSigningConfigArn")
-            Core.<*> (x Core..:> "FunctionName")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "CodeSigningConfigArn")
+            Prelude.<*> (x Core..:> "FunctionName")
       )
 
-instance Core.Hashable PutFunctionCodeSigningConfig
+instance
+  Prelude.Hashable
+    PutFunctionCodeSigningConfig
 
-instance Core.NFData PutFunctionCodeSigningConfig
+instance Prelude.NFData PutFunctionCodeSigningConfig
 
 instance Core.ToHeaders PutFunctionCodeSigningConfig where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON PutFunctionCodeSigningConfig where
   toJSON PutFunctionCodeSigningConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "CodeSigningConfigArn"
                   Core..= codeSigningConfigArn
               )
@@ -162,21 +165,21 @@ instance Core.ToJSON PutFunctionCodeSigningConfig where
 
 instance Core.ToPath PutFunctionCodeSigningConfig where
   toPath PutFunctionCodeSigningConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-06-30/functions/",
         Core.toBS functionName,
         "/code-signing-config"
       ]
 
 instance Core.ToQuery PutFunctionCodeSigningConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutFunctionCodeSigningConfigResponse' smart constructor.
 data PutFunctionCodeSigningConfigResponse = PutFunctionCodeSigningConfigResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-    codeSigningConfigArn :: Core.Text,
+    codeSigningConfigArn :: Prelude.Text,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -190,9 +193,9 @@ data PutFunctionCodeSigningConfigResponse = PutFunctionCodeSigningConfigResponse
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
-    functionName :: Core.Text
+    functionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutFunctionCodeSigningConfigResponse' with all optional fields omitted.
@@ -221,11 +224,11 @@ data PutFunctionCodeSigningConfigResponse = PutFunctionCodeSigningConfigResponse
 -- the function name, it is limited to 64 characters in length.
 newPutFunctionCodeSigningConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'codeSigningConfigArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   PutFunctionCodeSigningConfigResponse
 newPutFunctionCodeSigningConfigResponse
   pHttpStatus_
@@ -240,11 +243,11 @@ newPutFunctionCodeSigningConfigResponse
       }
 
 -- | The response's http status code.
-putFunctionCodeSigningConfigResponse_httpStatus :: Lens.Lens' PutFunctionCodeSigningConfigResponse Core.Int
+putFunctionCodeSigningConfigResponse_httpStatus :: Lens.Lens' PutFunctionCodeSigningConfigResponse Prelude.Int
 putFunctionCodeSigningConfigResponse_httpStatus = Lens.lens (\PutFunctionCodeSigningConfigResponse' {httpStatus} -> httpStatus) (\s@PutFunctionCodeSigningConfigResponse' {} a -> s {httpStatus = a} :: PutFunctionCodeSigningConfigResponse)
 
 -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-putFunctionCodeSigningConfigResponse_codeSigningConfigArn :: Lens.Lens' PutFunctionCodeSigningConfigResponse Core.Text
+putFunctionCodeSigningConfigResponse_codeSigningConfigArn :: Lens.Lens' PutFunctionCodeSigningConfigResponse Prelude.Text
 putFunctionCodeSigningConfigResponse_codeSigningConfigArn = Lens.lens (\PutFunctionCodeSigningConfigResponse' {codeSigningConfigArn} -> codeSigningConfigArn) (\s@PutFunctionCodeSigningConfigResponse' {} a -> s {codeSigningConfigArn = a} :: PutFunctionCodeSigningConfigResponse)
 
 -- | The name of the Lambda function.
@@ -260,9 +263,9 @@ putFunctionCodeSigningConfigResponse_codeSigningConfigArn = Lens.lens (\PutFunct
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
-putFunctionCodeSigningConfigResponse_functionName :: Lens.Lens' PutFunctionCodeSigningConfigResponse Core.Text
+putFunctionCodeSigningConfigResponse_functionName :: Lens.Lens' PutFunctionCodeSigningConfigResponse Prelude.Text
 putFunctionCodeSigningConfigResponse_functionName = Lens.lens (\PutFunctionCodeSigningConfigResponse' {functionName} -> functionName) (\s@PutFunctionCodeSigningConfigResponse' {} a -> s {functionName = a} :: PutFunctionCodeSigningConfigResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutFunctionCodeSigningConfigResponse

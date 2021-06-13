@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,9 +73,9 @@ data GetContextKeysForCustomPolicy = GetContextKeysForCustomPolicy'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    policyInputList :: [Core.Text]
+    policyInputList :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetContextKeysForCustomPolicy' with all optional fields omitted.
@@ -104,7 +105,7 @@ newGetContextKeysForCustomPolicy ::
 newGetContextKeysForCustomPolicy =
   GetContextKeysForCustomPolicy'
     { policyInputList =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | A list of policies for which you want the list of context keys
@@ -122,8 +123,8 @@ newGetContextKeysForCustomPolicy =
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-getContextKeysForCustomPolicy_policyInputList :: Lens.Lens' GetContextKeysForCustomPolicy [Core.Text]
-getContextKeysForCustomPolicy_policyInputList = Lens.lens (\GetContextKeysForCustomPolicy' {policyInputList} -> policyInputList) (\s@GetContextKeysForCustomPolicy' {} a -> s {policyInputList = a} :: GetContextKeysForCustomPolicy) Core.. Lens._Coerce
+getContextKeysForCustomPolicy_policyInputList :: Lens.Lens' GetContextKeysForCustomPolicy [Prelude.Text]
+getContextKeysForCustomPolicy_policyInputList = Lens.lens (\GetContextKeysForCustomPolicy' {policyInputList} -> policyInputList) (\s@GetContextKeysForCustomPolicy' {} a -> s {policyInputList = a} :: GetContextKeysForCustomPolicy) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -138,22 +139,27 @@ instance
       "GetContextKeysForCustomPolicyResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable GetContextKeysForCustomPolicy
+instance
+  Prelude.Hashable
+    GetContextKeysForCustomPolicy
 
-instance Core.NFData GetContextKeysForCustomPolicy
+instance Prelude.NFData GetContextKeysForCustomPolicy
 
 instance Core.ToHeaders GetContextKeysForCustomPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetContextKeysForCustomPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetContextKeysForCustomPolicy where
   toQuery GetContextKeysForCustomPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetContextKeysForCustomPolicy" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ( "GetContextKeysForCustomPolicy" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "PolicyInputList"
           Core.=: Core.toQueryList "member" policyInputList
       ]

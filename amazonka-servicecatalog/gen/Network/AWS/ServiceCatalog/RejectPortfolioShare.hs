@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -61,7 +62,7 @@ data RejectPortfolioShare = RejectPortfolioShare'
     --
     -- For example,
     -- @aws servicecatalog reject-portfolio-share --portfolio-id \"port-2qwzkwxt3y5fk\" --portfolio-share-type AWS_ORGANIZATIONS@
-    portfolioShareType :: Core.Maybe PortfolioShareType,
+    portfolioShareType :: Prelude.Maybe PortfolioShareType,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -69,11 +70,11 @@ data RejectPortfolioShare = RejectPortfolioShare'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The portfolio identifier.
-    portfolioId :: Core.Text
+    portfolioId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectPortfolioShare' with all optional fields omitted.
@@ -108,13 +109,13 @@ data RejectPortfolioShare = RejectPortfolioShare'
 -- 'portfolioId', 'rejectPortfolioShare_portfolioId' - The portfolio identifier.
 newRejectPortfolioShare ::
   -- | 'portfolioId'
-  Core.Text ->
+  Prelude.Text ->
   RejectPortfolioShare
 newRejectPortfolioShare pPortfolioId_ =
   RejectPortfolioShare'
     { portfolioShareType =
-        Core.Nothing,
-      acceptLanguage = Core.Nothing,
+        Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
       portfolioId = pPortfolioId_
     }
 
@@ -131,7 +132,7 @@ newRejectPortfolioShare pPortfolioId_ =
 --
 -- For example,
 -- @aws servicecatalog reject-portfolio-share --portfolio-id \"port-2qwzkwxt3y5fk\" --portfolio-share-type AWS_ORGANIZATIONS@
-rejectPortfolioShare_portfolioShareType :: Lens.Lens' RejectPortfolioShare (Core.Maybe PortfolioShareType)
+rejectPortfolioShare_portfolioShareType :: Lens.Lens' RejectPortfolioShare (Prelude.Maybe PortfolioShareType)
 rejectPortfolioShare_portfolioShareType = Lens.lens (\RejectPortfolioShare' {portfolioShareType} -> portfolioShareType) (\s@RejectPortfolioShare' {} a -> s {portfolioShareType = a} :: RejectPortfolioShare)
 
 -- | The language code.
@@ -141,11 +142,11 @@ rejectPortfolioShare_portfolioShareType = Lens.lens (\RejectPortfolioShare' {por
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-rejectPortfolioShare_acceptLanguage :: Lens.Lens' RejectPortfolioShare (Core.Maybe Core.Text)
+rejectPortfolioShare_acceptLanguage :: Lens.Lens' RejectPortfolioShare (Prelude.Maybe Prelude.Text)
 rejectPortfolioShare_acceptLanguage = Lens.lens (\RejectPortfolioShare' {acceptLanguage} -> acceptLanguage) (\s@RejectPortfolioShare' {} a -> s {acceptLanguage = a} :: RejectPortfolioShare)
 
 -- | The portfolio identifier.
-rejectPortfolioShare_portfolioId :: Lens.Lens' RejectPortfolioShare Core.Text
+rejectPortfolioShare_portfolioId :: Lens.Lens' RejectPortfolioShare Prelude.Text
 rejectPortfolioShare_portfolioId = Lens.lens (\RejectPortfolioShare' {portfolioId} -> portfolioId) (\s@RejectPortfolioShare' {} a -> s {portfolioId = a} :: RejectPortfolioShare)
 
 instance Core.AWSRequest RejectPortfolioShare where
@@ -157,49 +158,52 @@ instance Core.AWSRequest RejectPortfolioShare where
     Response.receiveEmpty
       ( \s h x ->
           RejectPortfolioShareResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RejectPortfolioShare
+instance Prelude.Hashable RejectPortfolioShare
 
-instance Core.NFData RejectPortfolioShare
+instance Prelude.NFData RejectPortfolioShare
 
 instance Core.ToHeaders RejectPortfolioShare where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.RejectPortfolioShare" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RejectPortfolioShare where
   toJSON RejectPortfolioShare' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("PortfolioShareType" Core..=)
-              Core.<$> portfolioShareType,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just ("PortfolioId" Core..= portfolioId)
+              Prelude.<$> portfolioShareType,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("PortfolioId" Core..= portfolioId)
           ]
       )
 
 instance Core.ToPath RejectPortfolioShare where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RejectPortfolioShare where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRejectPortfolioShareResponse' smart constructor.
 data RejectPortfolioShareResponse = RejectPortfolioShareResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectPortfolioShareResponse' with all optional fields omitted.
@@ -212,7 +216,7 @@ data RejectPortfolioShareResponse = RejectPortfolioShareResponse'
 -- 'httpStatus', 'rejectPortfolioShareResponse_httpStatus' - The response's http status code.
 newRejectPortfolioShareResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RejectPortfolioShareResponse
 newRejectPortfolioShareResponse pHttpStatus_ =
   RejectPortfolioShareResponse'
@@ -221,7 +225,7 @@ newRejectPortfolioShareResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-rejectPortfolioShareResponse_httpStatus :: Lens.Lens' RejectPortfolioShareResponse Core.Int
+rejectPortfolioShareResponse_httpStatus :: Lens.Lens' RejectPortfolioShareResponse Prelude.Int
 rejectPortfolioShareResponse_httpStatus = Lens.lens (\RejectPortfolioShareResponse' {httpStatus} -> httpStatus) (\s@RejectPortfolioShareResponse' {} a -> s {httpStatus = a} :: RejectPortfolioShareResponse)
 
-instance Core.NFData RejectPortfolioShareResponse
+instance Prelude.NFData RejectPortfolioShareResponse

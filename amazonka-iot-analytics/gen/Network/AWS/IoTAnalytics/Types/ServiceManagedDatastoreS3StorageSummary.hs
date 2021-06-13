@@ -21,6 +21,7 @@ module Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3StorageSummary wh
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Used to store data store data in an S3 bucket managed by AWS IoT
 -- Analytics.
@@ -29,7 +30,7 @@ import qualified Network.AWS.Lens as Lens
 data ServiceManagedDatastoreS3StorageSummary = ServiceManagedDatastoreS3StorageSummary'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServiceManagedDatastoreS3StorageSummary' with all optional fields omitted.
@@ -48,13 +49,14 @@ instance
     Core.withObject
       "ServiceManagedDatastoreS3StorageSummary"
       ( \x ->
-          Core.pure ServiceManagedDatastoreS3StorageSummary'
+          Prelude.pure
+            ServiceManagedDatastoreS3StorageSummary'
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ServiceManagedDatastoreS3StorageSummary
 
 instance
-  Core.NFData
+  Prelude.NFData
     ServiceManagedDatastoreS3StorageSummary

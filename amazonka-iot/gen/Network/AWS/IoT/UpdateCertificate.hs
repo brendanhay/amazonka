@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,7 +58,7 @@ import qualified Network.AWS.Response as Response
 data UpdateCertificate = UpdateCertificate'
   { -- | The ID of the certificate. (The last part of the certificate ARN
     -- contains the certificate ID.)
-    certificateId :: Core.Text,
+    certificateId :: Prelude.Text,
     -- | The new status.
     --
     -- __Note:__ Setting the status to PENDING_TRANSFER or PENDING_ACTIVATION
@@ -69,7 +70,7 @@ data UpdateCertificate = UpdateCertificate'
     -- not be used.
     newStatus' :: CertificateStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateCertificate' with all optional fields omitted.
@@ -93,7 +94,7 @@ data UpdateCertificate = UpdateCertificate'
 -- not be used.
 newUpdateCertificate ::
   -- | 'certificateId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'newStatus''
   CertificateStatus ->
   UpdateCertificate
@@ -105,7 +106,7 @@ newUpdateCertificate pCertificateId_ pNewStatus_ =
 
 -- | The ID of the certificate. (The last part of the certificate ARN
 -- contains the certificate ID.)
-updateCertificate_certificateId :: Lens.Lens' UpdateCertificate Core.Text
+updateCertificate_certificateId :: Lens.Lens' UpdateCertificate Prelude.Text
 updateCertificate_certificateId = Lens.lens (\UpdateCertificate' {certificateId} -> certificateId) (\s@UpdateCertificate' {} a -> s {certificateId = a} :: UpdateCertificate)
 
 -- | The new status.
@@ -128,30 +129,30 @@ instance Core.AWSRequest UpdateCertificate where
   response =
     Response.receiveNull UpdateCertificateResponse'
 
-instance Core.Hashable UpdateCertificate
+instance Prelude.Hashable UpdateCertificate
 
-instance Core.NFData UpdateCertificate
+instance Prelude.NFData UpdateCertificate
 
 instance Core.ToHeaders UpdateCertificate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdateCertificate where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath UpdateCertificate where
   toPath UpdateCertificate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/certificates/", Core.toBS certificateId]
 
 instance Core.ToQuery UpdateCertificate where
   toQuery UpdateCertificate' {..} =
-    Core.mconcat ["newStatus" Core.=: newStatus']
+    Prelude.mconcat ["newStatus" Core.=: newStatus']
 
 -- | /See:/ 'newUpdateCertificateResponse' smart constructor.
 data UpdateCertificateResponse = UpdateCertificateResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateCertificateResponse' with all optional fields omitted.
@@ -162,4 +163,4 @@ newUpdateCertificateResponse ::
 newUpdateCertificateResponse =
   UpdateCertificateResponse'
 
-instance Core.NFData UpdateCertificateResponse
+instance Prelude.NFData UpdateCertificateResponse

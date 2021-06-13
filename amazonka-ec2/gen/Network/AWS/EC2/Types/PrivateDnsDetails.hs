@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.PrivateDnsDetails where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the Private DNS name for interface endpoints.
 --
 -- /See:/ 'newPrivateDnsDetails' smart constructor.
 data PrivateDnsDetails = PrivateDnsDetails'
   { -- | The private DNS name assigned to the VPC endpoint service.
-    privateDnsName :: Core.Maybe Core.Text
+    privateDnsName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PrivateDnsDetails' with all optional fields omitted.
@@ -44,17 +45,20 @@ data PrivateDnsDetails = PrivateDnsDetails'
 newPrivateDnsDetails ::
   PrivateDnsDetails
 newPrivateDnsDetails =
-  PrivateDnsDetails' {privateDnsName = Core.Nothing}
+  PrivateDnsDetails'
+    { privateDnsName =
+        Prelude.Nothing
+    }
 
 -- | The private DNS name assigned to the VPC endpoint service.
-privateDnsDetails_privateDnsName :: Lens.Lens' PrivateDnsDetails (Core.Maybe Core.Text)
+privateDnsDetails_privateDnsName :: Lens.Lens' PrivateDnsDetails (Prelude.Maybe Prelude.Text)
 privateDnsDetails_privateDnsName = Lens.lens (\PrivateDnsDetails' {privateDnsName} -> privateDnsName) (\s@PrivateDnsDetails' {} a -> s {privateDnsName = a} :: PrivateDnsDetails)
 
 instance Core.FromXML PrivateDnsDetails where
   parseXML x =
     PrivateDnsDetails'
-      Core.<$> (x Core..@? "privateDnsName")
+      Prelude.<$> (x Core..@? "privateDnsName")
 
-instance Core.Hashable PrivateDnsDetails
+instance Prelude.Hashable PrivateDnsDetails
 
-instance Core.NFData PrivateDnsDetails
+instance Prelude.NFData PrivateDnsDetails

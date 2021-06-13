@@ -22,6 +22,7 @@ module Network.AWS.ElastiCache.Types.CacheSubnetGroup where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.Subnet
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of one of the following operations:
 --
@@ -32,18 +33,18 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCacheSubnetGroup' smart constructor.
 data CacheSubnetGroup = CacheSubnetGroup'
   { -- | The ARN (Amazon Resource Name) of the cache subnet group.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the cache subnet group.
-    cacheSubnetGroupName :: Core.Maybe Core.Text,
+    cacheSubnetGroupName :: Prelude.Maybe Prelude.Text,
     -- | The description of the cache subnet group.
-    cacheSubnetGroupDescription :: Core.Maybe Core.Text,
+    cacheSubnetGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | A list of subnets associated with the cache subnet group.
-    subnets :: Core.Maybe [Subnet],
+    subnets :: Prelude.Maybe [Subnet],
     -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
     -- group.
-    vpcId :: Core.Maybe Core.Text
+    vpcId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CacheSubnetGroup' with all optional fields omitted.
@@ -67,45 +68,45 @@ newCacheSubnetGroup ::
   CacheSubnetGroup
 newCacheSubnetGroup =
   CacheSubnetGroup'
-    { arn = Core.Nothing,
-      cacheSubnetGroupName = Core.Nothing,
-      cacheSubnetGroupDescription = Core.Nothing,
-      subnets = Core.Nothing,
-      vpcId = Core.Nothing
+    { arn = Prelude.Nothing,
+      cacheSubnetGroupName = Prelude.Nothing,
+      cacheSubnetGroupDescription = Prelude.Nothing,
+      subnets = Prelude.Nothing,
+      vpcId = Prelude.Nothing
     }
 
 -- | The ARN (Amazon Resource Name) of the cache subnet group.
-cacheSubnetGroup_arn :: Lens.Lens' CacheSubnetGroup (Core.Maybe Core.Text)
+cacheSubnetGroup_arn :: Lens.Lens' CacheSubnetGroup (Prelude.Maybe Prelude.Text)
 cacheSubnetGroup_arn = Lens.lens (\CacheSubnetGroup' {arn} -> arn) (\s@CacheSubnetGroup' {} a -> s {arn = a} :: CacheSubnetGroup)
 
 -- | The name of the cache subnet group.
-cacheSubnetGroup_cacheSubnetGroupName :: Lens.Lens' CacheSubnetGroup (Core.Maybe Core.Text)
+cacheSubnetGroup_cacheSubnetGroupName :: Lens.Lens' CacheSubnetGroup (Prelude.Maybe Prelude.Text)
 cacheSubnetGroup_cacheSubnetGroupName = Lens.lens (\CacheSubnetGroup' {cacheSubnetGroupName} -> cacheSubnetGroupName) (\s@CacheSubnetGroup' {} a -> s {cacheSubnetGroupName = a} :: CacheSubnetGroup)
 
 -- | The description of the cache subnet group.
-cacheSubnetGroup_cacheSubnetGroupDescription :: Lens.Lens' CacheSubnetGroup (Core.Maybe Core.Text)
+cacheSubnetGroup_cacheSubnetGroupDescription :: Lens.Lens' CacheSubnetGroup (Prelude.Maybe Prelude.Text)
 cacheSubnetGroup_cacheSubnetGroupDescription = Lens.lens (\CacheSubnetGroup' {cacheSubnetGroupDescription} -> cacheSubnetGroupDescription) (\s@CacheSubnetGroup' {} a -> s {cacheSubnetGroupDescription = a} :: CacheSubnetGroup)
 
 -- | A list of subnets associated with the cache subnet group.
-cacheSubnetGroup_subnets :: Lens.Lens' CacheSubnetGroup (Core.Maybe [Subnet])
-cacheSubnetGroup_subnets = Lens.lens (\CacheSubnetGroup' {subnets} -> subnets) (\s@CacheSubnetGroup' {} a -> s {subnets = a} :: CacheSubnetGroup) Core.. Lens.mapping Lens._Coerce
+cacheSubnetGroup_subnets :: Lens.Lens' CacheSubnetGroup (Prelude.Maybe [Subnet])
+cacheSubnetGroup_subnets = Lens.lens (\CacheSubnetGroup' {subnets} -> subnets) (\s@CacheSubnetGroup' {} a -> s {subnets = a} :: CacheSubnetGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
 -- group.
-cacheSubnetGroup_vpcId :: Lens.Lens' CacheSubnetGroup (Core.Maybe Core.Text)
+cacheSubnetGroup_vpcId :: Lens.Lens' CacheSubnetGroup (Prelude.Maybe Prelude.Text)
 cacheSubnetGroup_vpcId = Lens.lens (\CacheSubnetGroup' {vpcId} -> vpcId) (\s@CacheSubnetGroup' {} a -> s {vpcId = a} :: CacheSubnetGroup)
 
 instance Core.FromXML CacheSubnetGroup where
   parseXML x =
     CacheSubnetGroup'
-      Core.<$> (x Core..@? "ARN")
-      Core.<*> (x Core..@? "CacheSubnetGroupName")
-      Core.<*> (x Core..@? "CacheSubnetGroupDescription")
-      Core.<*> ( x Core..@? "Subnets" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Subnet")
-               )
-      Core.<*> (x Core..@? "VpcId")
+      Prelude.<$> (x Core..@? "ARN")
+      Prelude.<*> (x Core..@? "CacheSubnetGroupName")
+      Prelude.<*> (x Core..@? "CacheSubnetGroupDescription")
+      Prelude.<*> ( x Core..@? "Subnets" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Subnet")
+                  )
+      Prelude.<*> (x Core..@? "VpcId")
 
-instance Core.Hashable CacheSubnetGroup
+instance Prelude.Hashable CacheSubnetGroup
 
-instance Core.NFData CacheSubnetGroup
+instance Prelude.NFData CacheSubnetGroup

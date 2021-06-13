@@ -45,6 +45,7 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,13 +53,13 @@ import qualified Network.AWS.Response as Response
 data DetectSentiment = DetectSentiment'
   { -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
     -- UTF-8 encoded characters.
-    text :: Core.Sensitive Core.Text,
+    text :: Core.Sensitive Prelude.Text,
     -- | The language of the input documents. You can specify any of the primary
     -- languages supported by Amazon Comprehend. All documents must be in the
     -- same language.
     languageCode :: LanguageCode
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetectSentiment' with all optional fields omitted.
@@ -76,7 +77,7 @@ data DetectSentiment = DetectSentiment'
 -- same language.
 newDetectSentiment ::
   -- | 'text'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'languageCode'
   LanguageCode ->
   DetectSentiment
@@ -89,8 +90,8 @@ newDetectSentiment pText_ pLanguageCode_ =
 
 -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
 -- UTF-8 encoded characters.
-detectSentiment_text :: Lens.Lens' DetectSentiment Core.Text
-detectSentiment_text = Lens.lens (\DetectSentiment' {text} -> text) (\s@DetectSentiment' {} a -> s {text = a} :: DetectSentiment) Core.. Core._Sensitive
+detectSentiment_text :: Lens.Lens' DetectSentiment Prelude.Text
+detectSentiment_text = Lens.lens (\DetectSentiment' {text} -> text) (\s@DetectSentiment' {} a -> s {text = a} :: DetectSentiment) Prelude.. Core._Sensitive
 
 -- | The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
@@ -107,55 +108,57 @@ instance Core.AWSRequest DetectSentiment where
     Response.receiveJSON
       ( \s h x ->
           DetectSentimentResponse'
-            Core.<$> (x Core..?> "SentimentScore")
-            Core.<*> (x Core..?> "Sentiment")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SentimentScore")
+            Prelude.<*> (x Core..?> "Sentiment")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DetectSentiment
+instance Prelude.Hashable DetectSentiment
 
-instance Core.NFData DetectSentiment
+instance Prelude.NFData DetectSentiment
 
 instance Core.ToHeaders DetectSentiment where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.DetectSentiment" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DetectSentiment where
   toJSON DetectSentiment' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Text" Core..= text),
-            Core.Just ("LanguageCode" Core..= languageCode)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Text" Core..= text),
+            Prelude.Just ("LanguageCode" Core..= languageCode)
           ]
       )
 
 instance Core.ToPath DetectSentiment where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetectSentiment where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectSentimentResponse' smart constructor.
 data DetectSentimentResponse = DetectSentimentResponse'
   { -- | An object that lists the sentiments, and their corresponding confidence
     -- levels.
-    sentimentScore :: Core.Maybe SentimentScore,
+    sentimentScore :: Prelude.Maybe SentimentScore,
     -- | The inferred sentiment that Amazon Comprehend has the highest level of
     -- confidence in.
-    sentiment :: Core.Maybe SentimentType,
+    sentiment :: Prelude.Maybe SentimentType,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetectSentimentResponse' with all optional fields omitted.
@@ -174,28 +177,28 @@ data DetectSentimentResponse = DetectSentimentResponse'
 -- 'httpStatus', 'detectSentimentResponse_httpStatus' - The response's http status code.
 newDetectSentimentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DetectSentimentResponse
 newDetectSentimentResponse pHttpStatus_ =
   DetectSentimentResponse'
     { sentimentScore =
-        Core.Nothing,
-      sentiment = Core.Nothing,
+        Prelude.Nothing,
+      sentiment = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that lists the sentiments, and their corresponding confidence
 -- levels.
-detectSentimentResponse_sentimentScore :: Lens.Lens' DetectSentimentResponse (Core.Maybe SentimentScore)
+detectSentimentResponse_sentimentScore :: Lens.Lens' DetectSentimentResponse (Prelude.Maybe SentimentScore)
 detectSentimentResponse_sentimentScore = Lens.lens (\DetectSentimentResponse' {sentimentScore} -> sentimentScore) (\s@DetectSentimentResponse' {} a -> s {sentimentScore = a} :: DetectSentimentResponse)
 
 -- | The inferred sentiment that Amazon Comprehend has the highest level of
 -- confidence in.
-detectSentimentResponse_sentiment :: Lens.Lens' DetectSentimentResponse (Core.Maybe SentimentType)
+detectSentimentResponse_sentiment :: Lens.Lens' DetectSentimentResponse (Prelude.Maybe SentimentType)
 detectSentimentResponse_sentiment = Lens.lens (\DetectSentimentResponse' {sentiment} -> sentiment) (\s@DetectSentimentResponse' {} a -> s {sentiment = a} :: DetectSentimentResponse)
 
 -- | The response's http status code.
-detectSentimentResponse_httpStatus :: Lens.Lens' DetectSentimentResponse Core.Int
+detectSentimentResponse_httpStatus :: Lens.Lens' DetectSentimentResponse Prelude.Int
 detectSentimentResponse_httpStatus = Lens.lens (\DetectSentimentResponse' {httpStatus} -> httpStatus) (\s@DetectSentimentResponse' {} a -> s {httpStatus = a} :: DetectSentimentResponse)
 
-instance Core.NFData DetectSentimentResponse
+instance Prelude.NFData DetectSentimentResponse

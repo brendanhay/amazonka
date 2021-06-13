@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.Phase2DHGroupNumbersRequestListValue where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2
 -- IKE negotiations.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPhase2DHGroupNumbersRequestListValue' smart constructor.
 data Phase2DHGroupNumbersRequestListValue = Phase2DHGroupNumbersRequestListValue'
   { -- | The Diffie-Hellmann group number.
-    value :: Core.Maybe Core.Int
+    value :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Phase2DHGroupNumbersRequestListValue' with all optional fields omitted.
@@ -47,19 +48,19 @@ newPhase2DHGroupNumbersRequestListValue ::
 newPhase2DHGroupNumbersRequestListValue =
   Phase2DHGroupNumbersRequestListValue'
     { value =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The Diffie-Hellmann group number.
-phase2DHGroupNumbersRequestListValue_value :: Lens.Lens' Phase2DHGroupNumbersRequestListValue (Core.Maybe Core.Int)
+phase2DHGroupNumbersRequestListValue_value :: Lens.Lens' Phase2DHGroupNumbersRequestListValue (Prelude.Maybe Prelude.Int)
 phase2DHGroupNumbersRequestListValue_value = Lens.lens (\Phase2DHGroupNumbersRequestListValue' {value} -> value) (\s@Phase2DHGroupNumbersRequestListValue' {} a -> s {value = a} :: Phase2DHGroupNumbersRequestListValue)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     Phase2DHGroupNumbersRequestListValue
 
 instance
-  Core.NFData
+  Prelude.NFData
     Phase2DHGroupNumbersRequestListValue
 
 instance
@@ -67,4 +68,4 @@ instance
     Phase2DHGroupNumbersRequestListValue
   where
   toQuery Phase2DHGroupNumbersRequestListValue' {..} =
-    Core.mconcat ["Value" Core.=: value]
+    Prelude.mconcat ["Value" Core.=: value]

@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -48,9 +49,9 @@ import Network.AWS.Route53AutoNaming.Types
 -- | /See:/ 'newGetService' smart constructor.
 data GetService = GetService'
   { -- | The ID of the service that you want to get settings for.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetService' with all optional fields omitted.
@@ -63,12 +64,12 @@ data GetService = GetService'
 -- 'id', 'getService_id' - The ID of the service that you want to get settings for.
 newGetService ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   GetService
 newGetService pId_ = GetService' {id = pId_}
 
 -- | The ID of the service that you want to get settings for.
-getService_id :: Lens.Lens' GetService Core.Text
+getService_id :: Lens.Lens' GetService Prelude.Text
 getService_id = Lens.lens (\GetService' {id} -> id) (\s@GetService' {} a -> s {id = a} :: GetService)
 
 instance Core.AWSRequest GetService where
@@ -78,46 +79,48 @@ instance Core.AWSRequest GetService where
     Response.receiveJSON
       ( \s h x ->
           GetServiceResponse'
-            Core.<$> (x Core..?> "Service")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Service")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetService
+instance Prelude.Hashable GetService
 
-instance Core.NFData GetService
+instance Prelude.NFData GetService
 
 instance Core.ToHeaders GetService where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53AutoNaming_v20170314.GetService" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetService where
   toJSON GetService' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Id" Core..= id)])
+      (Prelude.catMaybes [Prelude.Just ("Id" Core..= id)])
 
 instance Core.ToPath GetService where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetService where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetServiceResponse' smart constructor.
 data GetServiceResponse = GetServiceResponse'
   { -- | A complex type that contains information about the service.
-    service :: Core.Maybe ServiceInfo,
+    service :: Prelude.Maybe ServiceInfo,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetServiceResponse' with all optional fields omitted.
@@ -132,20 +135,20 @@ data GetServiceResponse = GetServiceResponse'
 -- 'httpStatus', 'getServiceResponse_httpStatus' - The response's http status code.
 newGetServiceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetServiceResponse
 newGetServiceResponse pHttpStatus_ =
   GetServiceResponse'
-    { service = Core.Nothing,
+    { service = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A complex type that contains information about the service.
-getServiceResponse_service :: Lens.Lens' GetServiceResponse (Core.Maybe ServiceInfo)
+getServiceResponse_service :: Lens.Lens' GetServiceResponse (Prelude.Maybe ServiceInfo)
 getServiceResponse_service = Lens.lens (\GetServiceResponse' {service} -> service) (\s@GetServiceResponse' {} a -> s {service = a} :: GetServiceResponse)
 
 -- | The response's http status code.
-getServiceResponse_httpStatus :: Lens.Lens' GetServiceResponse Core.Int
+getServiceResponse_httpStatus :: Lens.Lens' GetServiceResponse Prelude.Int
 getServiceResponse_httpStatus = Lens.lens (\GetServiceResponse' {httpStatus} -> httpStatus) (\s@GetServiceResponse' {} a -> s {httpStatus = a} :: GetServiceResponse)
 
-instance Core.NFData GetServiceResponse
+instance Prelude.NFData GetServiceResponse

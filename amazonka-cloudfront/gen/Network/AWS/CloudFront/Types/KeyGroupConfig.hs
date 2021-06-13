@@ -21,6 +21,7 @@ module Network.AWS.CloudFront.Types.KeyGroupConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A key group configuration.
 --
@@ -30,13 +31,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newKeyGroupConfig' smart constructor.
 data KeyGroupConfig = KeyGroupConfig'
   { -- | A comment to describe the key group.
-    comment :: Core.Maybe Core.Text,
+    comment :: Prelude.Maybe Prelude.Text,
     -- | A name to identify the key group.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | A list of the identifiers of the public keys in the key group.
-    items :: [Core.Text]
+    items :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KeyGroupConfig' with all optional fields omitted.
@@ -53,43 +54,43 @@ data KeyGroupConfig = KeyGroupConfig'
 -- 'items', 'keyGroupConfig_items' - A list of the identifiers of the public keys in the key group.
 newKeyGroupConfig ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   KeyGroupConfig
 newKeyGroupConfig pName_ =
   KeyGroupConfig'
-    { comment = Core.Nothing,
+    { comment = Prelude.Nothing,
       name = pName_,
-      items = Core.mempty
+      items = Prelude.mempty
     }
 
 -- | A comment to describe the key group.
-keyGroupConfig_comment :: Lens.Lens' KeyGroupConfig (Core.Maybe Core.Text)
+keyGroupConfig_comment :: Lens.Lens' KeyGroupConfig (Prelude.Maybe Prelude.Text)
 keyGroupConfig_comment = Lens.lens (\KeyGroupConfig' {comment} -> comment) (\s@KeyGroupConfig' {} a -> s {comment = a} :: KeyGroupConfig)
 
 -- | A name to identify the key group.
-keyGroupConfig_name :: Lens.Lens' KeyGroupConfig Core.Text
+keyGroupConfig_name :: Lens.Lens' KeyGroupConfig Prelude.Text
 keyGroupConfig_name = Lens.lens (\KeyGroupConfig' {name} -> name) (\s@KeyGroupConfig' {} a -> s {name = a} :: KeyGroupConfig)
 
 -- | A list of the identifiers of the public keys in the key group.
-keyGroupConfig_items :: Lens.Lens' KeyGroupConfig [Core.Text]
-keyGroupConfig_items = Lens.lens (\KeyGroupConfig' {items} -> items) (\s@KeyGroupConfig' {} a -> s {items = a} :: KeyGroupConfig) Core.. Lens._Coerce
+keyGroupConfig_items :: Lens.Lens' KeyGroupConfig [Prelude.Text]
+keyGroupConfig_items = Lens.lens (\KeyGroupConfig' {items} -> items) (\s@KeyGroupConfig' {} a -> s {items = a} :: KeyGroupConfig) Prelude.. Lens._Coerce
 
 instance Core.FromXML KeyGroupConfig where
   parseXML x =
     KeyGroupConfig'
-      Core.<$> (x Core..@? "Comment")
-      Core.<*> (x Core..@ "Name")
-      Core.<*> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.parseXMLList "PublicKey"
-               )
+      Prelude.<$> (x Core..@? "Comment")
+      Prelude.<*> (x Core..@ "Name")
+      Prelude.<*> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.parseXMLList "PublicKey"
+                  )
 
-instance Core.Hashable KeyGroupConfig
+instance Prelude.Hashable KeyGroupConfig
 
-instance Core.NFData KeyGroupConfig
+instance Prelude.NFData KeyGroupConfig
 
 instance Core.ToXML KeyGroupConfig where
   toXML KeyGroupConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Comment" Core.@= comment,
         "Name" Core.@= name,
         "Items" Core.@= Core.toXMLList "PublicKey" items

@@ -22,6 +22,7 @@ module Network.AWS.DynamoDB.Types.KeySchemaElement where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.KeyType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents /a single element/ of a key schema. A key schema specifies
 -- the attributes that make up the primary key of a table, or the key
@@ -40,7 +41,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newKeySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
   { -- | The name of a key attribute.
-    attributeName :: Core.Text,
+    attributeName :: Prelude.Text,
     -- | The role that this key attribute will assume:
     --
     -- -   @HASH@ - partition key
@@ -58,7 +59,7 @@ data KeySchemaElement = KeySchemaElement'
     -- sort key value.
     keyType :: KeyType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KeySchemaElement' with all optional fields omitted.
@@ -87,7 +88,7 @@ data KeySchemaElement = KeySchemaElement'
 -- sort key value.
 newKeySchemaElement ::
   -- | 'attributeName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'keyType'
   KeyType ->
   KeySchemaElement
@@ -98,7 +99,7 @@ newKeySchemaElement pAttributeName_ pKeyType_ =
     }
 
 -- | The name of a key attribute.
-keySchemaElement_attributeName :: Lens.Lens' KeySchemaElement Core.Text
+keySchemaElement_attributeName :: Lens.Lens' KeySchemaElement Prelude.Text
 keySchemaElement_attributeName = Lens.lens (\KeySchemaElement' {attributeName} -> attributeName) (\s@KeySchemaElement' {} a -> s {attributeName = a} :: KeySchemaElement)
 
 -- | The role that this key attribute will assume:
@@ -125,19 +126,20 @@ instance Core.FromJSON KeySchemaElement where
       "KeySchemaElement"
       ( \x ->
           KeySchemaElement'
-            Core.<$> (x Core..: "AttributeName")
-            Core.<*> (x Core..: "KeyType")
+            Prelude.<$> (x Core..: "AttributeName")
+            Prelude.<*> (x Core..: "KeyType")
       )
 
-instance Core.Hashable KeySchemaElement
+instance Prelude.Hashable KeySchemaElement
 
-instance Core.NFData KeySchemaElement
+instance Prelude.NFData KeySchemaElement
 
 instance Core.ToJSON KeySchemaElement where
   toJSON KeySchemaElement' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("AttributeName" Core..= attributeName),
-            Core.Just ("KeyType" Core..= keyType)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("AttributeName" Core..= attributeName),
+            Prelude.Just ("KeyType" Core..= keyType)
           ]
       )

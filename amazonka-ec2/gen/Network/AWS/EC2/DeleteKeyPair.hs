@@ -41,6 +41,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,13 +51,13 @@ data DeleteKeyPair = DeleteKeyPair'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the key pair.
-    keyPairId :: Core.Maybe Core.Text,
+    keyPairId :: Prelude.Maybe Prelude.Text,
     -- | The name of the key pair.
-    keyName :: Core.Maybe Core.Text
+    keyName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteKeyPair' with all optional fields omitted.
@@ -78,24 +79,24 @@ newDeleteKeyPair ::
   DeleteKeyPair
 newDeleteKeyPair =
   DeleteKeyPair'
-    { dryRun = Core.Nothing,
-      keyPairId = Core.Nothing,
-      keyName = Core.Nothing
+    { dryRun = Prelude.Nothing,
+      keyPairId = Prelude.Nothing,
+      keyName = Prelude.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteKeyPair_dryRun :: Lens.Lens' DeleteKeyPair (Core.Maybe Core.Bool)
+deleteKeyPair_dryRun :: Lens.Lens' DeleteKeyPair (Prelude.Maybe Prelude.Bool)
 deleteKeyPair_dryRun = Lens.lens (\DeleteKeyPair' {dryRun} -> dryRun) (\s@DeleteKeyPair' {} a -> s {dryRun = a} :: DeleteKeyPair)
 
 -- | The ID of the key pair.
-deleteKeyPair_keyPairId :: Lens.Lens' DeleteKeyPair (Core.Maybe Core.Text)
+deleteKeyPair_keyPairId :: Lens.Lens' DeleteKeyPair (Prelude.Maybe Prelude.Text)
 deleteKeyPair_keyPairId = Lens.lens (\DeleteKeyPair' {keyPairId} -> keyPairId) (\s@DeleteKeyPair' {} a -> s {keyPairId = a} :: DeleteKeyPair)
 
 -- | The name of the key pair.
-deleteKeyPair_keyName :: Lens.Lens' DeleteKeyPair (Core.Maybe Core.Text)
+deleteKeyPair_keyName :: Lens.Lens' DeleteKeyPair (Prelude.Maybe Prelude.Text)
 deleteKeyPair_keyName = Lens.lens (\DeleteKeyPair' {keyName} -> keyName) (\s@DeleteKeyPair' {} a -> s {keyName = a} :: DeleteKeyPair)
 
 instance Core.AWSRequest DeleteKeyPair where
@@ -106,22 +107,23 @@ instance Core.AWSRequest DeleteKeyPair where
   response =
     Response.receiveNull DeleteKeyPairResponse'
 
-instance Core.Hashable DeleteKeyPair
+instance Prelude.Hashable DeleteKeyPair
 
-instance Core.NFData DeleteKeyPair
+instance Prelude.NFData DeleteKeyPair
 
 instance Core.ToHeaders DeleteKeyPair where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteKeyPair where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteKeyPair where
   toQuery DeleteKeyPair' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteKeyPair" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DeleteKeyPair" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "KeyPairId" Core.=: keyPairId,
         "KeyName" Core.=: keyName
@@ -131,7 +133,7 @@ instance Core.ToQuery DeleteKeyPair where
 data DeleteKeyPairResponse = DeleteKeyPairResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteKeyPairResponse' with all optional fields omitted.
@@ -141,4 +143,4 @@ newDeleteKeyPairResponse ::
   DeleteKeyPairResponse
 newDeleteKeyPairResponse = DeleteKeyPairResponse'
 
-instance Core.NFData DeleteKeyPairResponse
+instance Prelude.NFData DeleteKeyPairResponse

@@ -21,6 +21,7 @@ module Network.AWS.DMS.Types.Filter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies the name and value of a filter object. This filter is used to
 -- limit the number and type of AWS DMS objects that are returned for a
@@ -31,12 +32,12 @@ import qualified Network.AWS.Lens as Lens
 data Filter = Filter'
   { -- | The name of the filter as specified for a @Describe*@ or similar
     -- operation.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The filter value, which can specify one or more values used to narrow
     -- the returned results.
-    values :: [Core.Text]
+    values :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Filter' with all optional fields omitted.
@@ -53,30 +54,30 @@ data Filter = Filter'
 -- the returned results.
 newFilter ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   Filter
 newFilter pName_ =
-  Filter' {name = pName_, values = Core.mempty}
+  Filter' {name = pName_, values = Prelude.mempty}
 
 -- | The name of the filter as specified for a @Describe*@ or similar
 -- operation.
-filter_name :: Lens.Lens' Filter Core.Text
+filter_name :: Lens.Lens' Filter Prelude.Text
 filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = a} :: Filter)
 
 -- | The filter value, which can specify one or more values used to narrow
 -- the returned results.
-filter_values :: Lens.Lens' Filter [Core.Text]
-filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Core.. Lens._Coerce
+filter_values :: Lens.Lens' Filter [Prelude.Text]
+filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens._Coerce
 
-instance Core.Hashable Filter
+instance Prelude.Hashable Filter
 
-instance Core.NFData Filter
+instance Prelude.NFData Filter
 
 instance Core.ToJSON Filter where
   toJSON Filter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("Values" Core..= values)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Values" Core..= values)
           ]
       )

@@ -48,19 +48,20 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListGateways' smart constructor.
 data ListGateways = ListGateways'
   { -- | The token used to paginate though multiple pages of gateway summaries.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of gateway summaries to return. The default is 50.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The gateway group ARN for which to list gateways.
-    gatewayGroupArn :: Core.Maybe Core.Text
+    gatewayGroupArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListGateways' with all optional fields omitted.
@@ -79,21 +80,21 @@ newListGateways ::
   ListGateways
 newListGateways =
   ListGateways'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      gatewayGroupArn = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      gatewayGroupArn = Prelude.Nothing
     }
 
 -- | The token used to paginate though multiple pages of gateway summaries.
-listGateways_nextToken :: Lens.Lens' ListGateways (Core.Maybe Core.Text)
+listGateways_nextToken :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Text)
 listGateways_nextToken = Lens.lens (\ListGateways' {nextToken} -> nextToken) (\s@ListGateways' {} a -> s {nextToken = a} :: ListGateways)
 
 -- | The maximum number of gateway summaries to return. The default is 50.
-listGateways_maxResults :: Lens.Lens' ListGateways (Core.Maybe Core.Natural)
+listGateways_maxResults :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Natural)
 listGateways_maxResults = Lens.lens (\ListGateways' {maxResults} -> maxResults) (\s@ListGateways' {} a -> s {maxResults = a} :: ListGateways)
 
 -- | The gateway group ARN for which to list gateways.
-listGateways_gatewayGroupArn :: Lens.Lens' ListGateways (Core.Maybe Core.Text)
+listGateways_gatewayGroupArn :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Text)
 listGateways_gatewayGroupArn = Lens.lens (\ListGateways' {gatewayGroupArn} -> gatewayGroupArn) (\s@ListGateways' {} a -> s {gatewayGroupArn = a} :: ListGateways)
 
 instance Core.AWSRequest ListGateways where
@@ -103,53 +104,57 @@ instance Core.AWSRequest ListGateways where
     Response.receiveJSON
       ( \s h x ->
           ListGatewaysResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Gateways" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Gateways" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListGateways
+instance Prelude.Hashable ListGateways
 
-instance Core.NFData ListGateways
+instance Prelude.NFData ListGateways
 
 instance Core.ToHeaders ListGateways where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AlexaForBusiness.ListGateways" :: Core.ByteString),
+              Core.=# ( "AlexaForBusiness.ListGateways" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListGateways where
   toJSON ListGateways' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("GatewayGroupArn" Core..=)
-              Core.<$> gatewayGroupArn
+              Prelude.<$> gatewayGroupArn
           ]
       )
 
 instance Core.ToPath ListGateways where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListGateways where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListGatewaysResponse' smart constructor.
 data ListGatewaysResponse = ListGatewaysResponse'
   { -- | The token used to paginate though multiple pages of gateway summaries.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The gateways in the list.
-    gateways :: Core.Maybe [GatewaySummary],
+    gateways :: Prelude.Maybe [GatewaySummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListGatewaysResponse' with all optional fields omitted.
@@ -166,25 +171,25 @@ data ListGatewaysResponse = ListGatewaysResponse'
 -- 'httpStatus', 'listGatewaysResponse_httpStatus' - The response's http status code.
 newListGatewaysResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListGatewaysResponse
 newListGatewaysResponse pHttpStatus_ =
   ListGatewaysResponse'
-    { nextToken = Core.Nothing,
-      gateways = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      gateways = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token used to paginate though multiple pages of gateway summaries.
-listGatewaysResponse_nextToken :: Lens.Lens' ListGatewaysResponse (Core.Maybe Core.Text)
+listGatewaysResponse_nextToken :: Lens.Lens' ListGatewaysResponse (Prelude.Maybe Prelude.Text)
 listGatewaysResponse_nextToken = Lens.lens (\ListGatewaysResponse' {nextToken} -> nextToken) (\s@ListGatewaysResponse' {} a -> s {nextToken = a} :: ListGatewaysResponse)
 
 -- | The gateways in the list.
-listGatewaysResponse_gateways :: Lens.Lens' ListGatewaysResponse (Core.Maybe [GatewaySummary])
-listGatewaysResponse_gateways = Lens.lens (\ListGatewaysResponse' {gateways} -> gateways) (\s@ListGatewaysResponse' {} a -> s {gateways = a} :: ListGatewaysResponse) Core.. Lens.mapping Lens._Coerce
+listGatewaysResponse_gateways :: Lens.Lens' ListGatewaysResponse (Prelude.Maybe [GatewaySummary])
+listGatewaysResponse_gateways = Lens.lens (\ListGatewaysResponse' {gateways} -> gateways) (\s@ListGatewaysResponse' {} a -> s {gateways = a} :: ListGatewaysResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listGatewaysResponse_httpStatus :: Lens.Lens' ListGatewaysResponse Core.Int
+listGatewaysResponse_httpStatus :: Lens.Lens' ListGatewaysResponse Prelude.Int
 listGatewaysResponse_httpStatus = Lens.lens (\ListGatewaysResponse' {httpStatus} -> httpStatus) (\s@ListGatewaysResponse' {} a -> s {httpStatus = a} :: ListGatewaysResponse)
 
-instance Core.NFData ListGatewaysResponse
+instance Prelude.NFData ListGatewaysResponse

@@ -21,21 +21,22 @@ module Network.AWS.Glue.Types.JdbcTarget where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a JDBC data store to crawl.
 --
 -- /See:/ 'newJdbcTarget' smart constructor.
 data JdbcTarget = JdbcTarget'
   { -- | The name of the connection to use to connect to the JDBC target.
-    connectionName :: Core.Maybe Core.Text,
+    connectionName :: Prelude.Maybe Prelude.Text,
     -- | A list of glob patterns used to exclude from the crawl. For more
     -- information, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler>.
-    exclusions :: Core.Maybe [Core.Text],
+    exclusions :: Prelude.Maybe [Prelude.Text],
     -- | The path of the JDBC target.
-    path :: Core.Maybe Core.Text
+    path :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JdbcTarget' with all optional fields omitted.
@@ -56,23 +57,23 @@ newJdbcTarget ::
   JdbcTarget
 newJdbcTarget =
   JdbcTarget'
-    { connectionName = Core.Nothing,
-      exclusions = Core.Nothing,
-      path = Core.Nothing
+    { connectionName = Prelude.Nothing,
+      exclusions = Prelude.Nothing,
+      path = Prelude.Nothing
     }
 
 -- | The name of the connection to use to connect to the JDBC target.
-jdbcTarget_connectionName :: Lens.Lens' JdbcTarget (Core.Maybe Core.Text)
+jdbcTarget_connectionName :: Lens.Lens' JdbcTarget (Prelude.Maybe Prelude.Text)
 jdbcTarget_connectionName = Lens.lens (\JdbcTarget' {connectionName} -> connectionName) (\s@JdbcTarget' {} a -> s {connectionName = a} :: JdbcTarget)
 
 -- | A list of glob patterns used to exclude from the crawl. For more
 -- information, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler>.
-jdbcTarget_exclusions :: Lens.Lens' JdbcTarget (Core.Maybe [Core.Text])
-jdbcTarget_exclusions = Lens.lens (\JdbcTarget' {exclusions} -> exclusions) (\s@JdbcTarget' {} a -> s {exclusions = a} :: JdbcTarget) Core.. Lens.mapping Lens._Coerce
+jdbcTarget_exclusions :: Lens.Lens' JdbcTarget (Prelude.Maybe [Prelude.Text])
+jdbcTarget_exclusions = Lens.lens (\JdbcTarget' {exclusions} -> exclusions) (\s@JdbcTarget' {} a -> s {exclusions = a} :: JdbcTarget) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The path of the JDBC target.
-jdbcTarget_path :: Lens.Lens' JdbcTarget (Core.Maybe Core.Text)
+jdbcTarget_path :: Lens.Lens' JdbcTarget (Prelude.Maybe Prelude.Text)
 jdbcTarget_path = Lens.lens (\JdbcTarget' {path} -> path) (\s@JdbcTarget' {} a -> s {path = a} :: JdbcTarget)
 
 instance Core.FromJSON JdbcTarget where
@@ -81,21 +82,22 @@ instance Core.FromJSON JdbcTarget where
       "JdbcTarget"
       ( \x ->
           JdbcTarget'
-            Core.<$> (x Core..:? "ConnectionName")
-            Core.<*> (x Core..:? "Exclusions" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Path")
+            Prelude.<$> (x Core..:? "ConnectionName")
+            Prelude.<*> (x Core..:? "Exclusions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Path")
       )
 
-instance Core.Hashable JdbcTarget
+instance Prelude.Hashable JdbcTarget
 
-instance Core.NFData JdbcTarget
+instance Prelude.NFData JdbcTarget
 
 instance Core.ToJSON JdbcTarget where
   toJSON JdbcTarget' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ConnectionName" Core..=) Core.<$> connectionName,
-            ("Exclusions" Core..=) Core.<$> exclusions,
-            ("Path" Core..=) Core.<$> path
+      ( Prelude.catMaybes
+          [ ("ConnectionName" Core..=)
+              Prelude.<$> connectionName,
+            ("Exclusions" Core..=) Prelude.<$> exclusions,
+            ("Path" Core..=) Prelude.<$> path
           ]
       )

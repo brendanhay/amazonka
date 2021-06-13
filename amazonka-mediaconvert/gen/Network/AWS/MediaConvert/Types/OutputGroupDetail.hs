@@ -22,15 +22,16 @@ module Network.AWS.MediaConvert.Types.OutputGroupDetail where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.OutputDetail
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about the output groups specified in the job settings.
 --
 -- /See:/ 'newOutputGroupDetail' smart constructor.
 data OutputGroupDetail = OutputGroupDetail'
   { -- | Details about the output
-    outputDetails :: Core.Maybe [OutputDetail]
+    outputDetails :: Prelude.Maybe [OutputDetail]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OutputGroupDetail' with all optional fields omitted.
@@ -44,11 +45,11 @@ data OutputGroupDetail = OutputGroupDetail'
 newOutputGroupDetail ::
   OutputGroupDetail
 newOutputGroupDetail =
-  OutputGroupDetail' {outputDetails = Core.Nothing}
+  OutputGroupDetail' {outputDetails = Prelude.Nothing}
 
 -- | Details about the output
-outputGroupDetail_outputDetails :: Lens.Lens' OutputGroupDetail (Core.Maybe [OutputDetail])
-outputGroupDetail_outputDetails = Lens.lens (\OutputGroupDetail' {outputDetails} -> outputDetails) (\s@OutputGroupDetail' {} a -> s {outputDetails = a} :: OutputGroupDetail) Core.. Lens.mapping Lens._Coerce
+outputGroupDetail_outputDetails :: Lens.Lens' OutputGroupDetail (Prelude.Maybe [OutputDetail])
+outputGroupDetail_outputDetails = Lens.lens (\OutputGroupDetail' {outputDetails} -> outputDetails) (\s@OutputGroupDetail' {} a -> s {outputDetails = a} :: OutputGroupDetail) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON OutputGroupDetail where
   parseJSON =
@@ -56,9 +57,9 @@ instance Core.FromJSON OutputGroupDetail where
       "OutputGroupDetail"
       ( \x ->
           OutputGroupDetail'
-            Core.<$> (x Core..:? "outputDetails" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "outputDetails" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable OutputGroupDetail
+instance Prelude.Hashable OutputGroupDetail
 
-instance Core.NFData OutputGroupDetail
+instance Prelude.NFData OutputGroupDetail

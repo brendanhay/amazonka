@@ -27,6 +27,7 @@ module Network.AWS.MediaLive.Types.Scte35NoRegionalBlackoutFlag
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Corresponds to the no_regional_blackout_flag parameter. A value of
 -- REGIONAL_BLACKOUT corresponds to 0 (false) in the SCTE-35 specification.
@@ -37,15 +38,15 @@ newtype Scte35NoRegionalBlackoutFlag = Scte35NoRegionalBlackoutFlag'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

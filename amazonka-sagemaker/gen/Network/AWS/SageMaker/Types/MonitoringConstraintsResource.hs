@@ -21,15 +21,16 @@ module Network.AWS.SageMaker.Types.MonitoringConstraintsResource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The constraints resource for a monitoring job.
 --
 -- /See:/ 'newMonitoringConstraintsResource' smart constructor.
 data MonitoringConstraintsResource = MonitoringConstraintsResource'
   { -- | The Amazon S3 URI for the constraints resource.
-    s3Uri :: Core.Maybe Core.Text
+    s3Uri :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MonitoringConstraintsResource' with all optional fields omitted.
@@ -45,11 +46,11 @@ newMonitoringConstraintsResource ::
 newMonitoringConstraintsResource =
   MonitoringConstraintsResource'
     { s3Uri =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The Amazon S3 URI for the constraints resource.
-monitoringConstraintsResource_s3Uri :: Lens.Lens' MonitoringConstraintsResource (Core.Maybe Core.Text)
+monitoringConstraintsResource_s3Uri :: Lens.Lens' MonitoringConstraintsResource (Prelude.Maybe Prelude.Text)
 monitoringConstraintsResource_s3Uri = Lens.lens (\MonitoringConstraintsResource' {s3Uri} -> s3Uri) (\s@MonitoringConstraintsResource' {} a -> s {s3Uri = a} :: MonitoringConstraintsResource)
 
 instance Core.FromJSON MonitoringConstraintsResource where
@@ -58,14 +59,18 @@ instance Core.FromJSON MonitoringConstraintsResource where
       "MonitoringConstraintsResource"
       ( \x ->
           MonitoringConstraintsResource'
-            Core.<$> (x Core..:? "S3Uri")
+            Prelude.<$> (x Core..:? "S3Uri")
       )
 
-instance Core.Hashable MonitoringConstraintsResource
+instance
+  Prelude.Hashable
+    MonitoringConstraintsResource
 
-instance Core.NFData MonitoringConstraintsResource
+instance Prelude.NFData MonitoringConstraintsResource
 
 instance Core.ToJSON MonitoringConstraintsResource where
   toJSON MonitoringConstraintsResource' {..} =
     Core.object
-      (Core.catMaybes [("S3Uri" Core..=) Core.<$> s3Uri])
+      ( Prelude.catMaybes
+          [("S3Uri" Core..=) Prelude.<$> s3Uri]
+      )

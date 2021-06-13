@@ -21,21 +21,22 @@ module Network.AWS.CognitoIdentity.Types.Credentials where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Credentials for the provided identity ID.
 --
 -- /See:/ 'newCredentials' smart constructor.
 data Credentials = Credentials'
   { -- | The date at which these credentials will expire.
-    expiration :: Core.Maybe Core.POSIX,
+    expiration :: Prelude.Maybe Core.POSIX,
     -- | The Secret Access Key portion of the credentials
-    secretKey :: Core.Maybe Core.Text,
+    secretKey :: Prelude.Maybe Prelude.Text,
     -- | The Access Key portion of the credentials.
-    accessKeyId :: Core.Maybe Core.Text,
+    accessKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Session Token portion of the credentials
-    sessionToken :: Core.Maybe Core.Text
+    sessionToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Credentials' with all optional fields omitted.
@@ -56,26 +57,26 @@ newCredentials ::
   Credentials
 newCredentials =
   Credentials'
-    { expiration = Core.Nothing,
-      secretKey = Core.Nothing,
-      accessKeyId = Core.Nothing,
-      sessionToken = Core.Nothing
+    { expiration = Prelude.Nothing,
+      secretKey = Prelude.Nothing,
+      accessKeyId = Prelude.Nothing,
+      sessionToken = Prelude.Nothing
     }
 
 -- | The date at which these credentials will expire.
-credentials_expiration :: Lens.Lens' Credentials (Core.Maybe Core.UTCTime)
-credentials_expiration = Lens.lens (\Credentials' {expiration} -> expiration) (\s@Credentials' {} a -> s {expiration = a} :: Credentials) Core.. Lens.mapping Core._Time
+credentials_expiration :: Lens.Lens' Credentials (Prelude.Maybe Prelude.UTCTime)
+credentials_expiration = Lens.lens (\Credentials' {expiration} -> expiration) (\s@Credentials' {} a -> s {expiration = a} :: Credentials) Prelude.. Lens.mapping Core._Time
 
 -- | The Secret Access Key portion of the credentials
-credentials_secretKey :: Lens.Lens' Credentials (Core.Maybe Core.Text)
+credentials_secretKey :: Lens.Lens' Credentials (Prelude.Maybe Prelude.Text)
 credentials_secretKey = Lens.lens (\Credentials' {secretKey} -> secretKey) (\s@Credentials' {} a -> s {secretKey = a} :: Credentials)
 
 -- | The Access Key portion of the credentials.
-credentials_accessKeyId :: Lens.Lens' Credentials (Core.Maybe Core.Text)
+credentials_accessKeyId :: Lens.Lens' Credentials (Prelude.Maybe Prelude.Text)
 credentials_accessKeyId = Lens.lens (\Credentials' {accessKeyId} -> accessKeyId) (\s@Credentials' {} a -> s {accessKeyId = a} :: Credentials)
 
 -- | The Session Token portion of the credentials
-credentials_sessionToken :: Lens.Lens' Credentials (Core.Maybe Core.Text)
+credentials_sessionToken :: Lens.Lens' Credentials (Prelude.Maybe Prelude.Text)
 credentials_sessionToken = Lens.lens (\Credentials' {sessionToken} -> sessionToken) (\s@Credentials' {} a -> s {sessionToken = a} :: Credentials)
 
 instance Core.FromJSON Credentials where
@@ -84,12 +85,12 @@ instance Core.FromJSON Credentials where
       "Credentials"
       ( \x ->
           Credentials'
-            Core.<$> (x Core..:? "Expiration")
-            Core.<*> (x Core..:? "SecretKey")
-            Core.<*> (x Core..:? "AccessKeyId")
-            Core.<*> (x Core..:? "SessionToken")
+            Prelude.<$> (x Core..:? "Expiration")
+            Prelude.<*> (x Core..:? "SecretKey")
+            Prelude.<*> (x Core..:? "AccessKeyId")
+            Prelude.<*> (x Core..:? "SessionToken")
       )
 
-instance Core.Hashable Credentials
+instance Prelude.Hashable Credentials
 
-instance Core.NFData Credentials
+instance Prelude.NFData Credentials

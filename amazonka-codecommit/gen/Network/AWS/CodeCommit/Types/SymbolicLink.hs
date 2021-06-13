@@ -22,23 +22,24 @@ module Network.AWS.CodeCommit.Types.SymbolicLink where
 import Network.AWS.CodeCommit.Types.FileModeTypeEnum
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about a symbolic link in a repository folder.
 --
 -- /See:/ 'newSymbolicLink' smart constructor.
 data SymbolicLink = SymbolicLink'
   { -- | The fully qualified path to the folder that contains the symbolic link.
-    absolutePath :: Core.Maybe Core.Text,
+    absolutePath :: Prelude.Maybe Prelude.Text,
     -- | The relative path of the symbolic link from the folder where the query
     -- originated.
-    relativePath :: Core.Maybe Core.Text,
+    relativePath :: Prelude.Maybe Prelude.Text,
     -- | The blob ID that contains the information about the symbolic link.
-    blobId :: Core.Maybe Core.Text,
+    blobId :: Prelude.Maybe Prelude.Text,
     -- | The file mode permissions of the blob that cotains information about the
     -- symbolic link.
-    fileMode :: Core.Maybe FileModeTypeEnum
+    fileMode :: Prelude.Maybe FileModeTypeEnum
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SymbolicLink' with all optional fields omitted.
@@ -61,28 +62,28 @@ newSymbolicLink ::
   SymbolicLink
 newSymbolicLink =
   SymbolicLink'
-    { absolutePath = Core.Nothing,
-      relativePath = Core.Nothing,
-      blobId = Core.Nothing,
-      fileMode = Core.Nothing
+    { absolutePath = Prelude.Nothing,
+      relativePath = Prelude.Nothing,
+      blobId = Prelude.Nothing,
+      fileMode = Prelude.Nothing
     }
 
 -- | The fully qualified path to the folder that contains the symbolic link.
-symbolicLink_absolutePath :: Lens.Lens' SymbolicLink (Core.Maybe Core.Text)
+symbolicLink_absolutePath :: Lens.Lens' SymbolicLink (Prelude.Maybe Prelude.Text)
 symbolicLink_absolutePath = Lens.lens (\SymbolicLink' {absolutePath} -> absolutePath) (\s@SymbolicLink' {} a -> s {absolutePath = a} :: SymbolicLink)
 
 -- | The relative path of the symbolic link from the folder where the query
 -- originated.
-symbolicLink_relativePath :: Lens.Lens' SymbolicLink (Core.Maybe Core.Text)
+symbolicLink_relativePath :: Lens.Lens' SymbolicLink (Prelude.Maybe Prelude.Text)
 symbolicLink_relativePath = Lens.lens (\SymbolicLink' {relativePath} -> relativePath) (\s@SymbolicLink' {} a -> s {relativePath = a} :: SymbolicLink)
 
 -- | The blob ID that contains the information about the symbolic link.
-symbolicLink_blobId :: Lens.Lens' SymbolicLink (Core.Maybe Core.Text)
+symbolicLink_blobId :: Lens.Lens' SymbolicLink (Prelude.Maybe Prelude.Text)
 symbolicLink_blobId = Lens.lens (\SymbolicLink' {blobId} -> blobId) (\s@SymbolicLink' {} a -> s {blobId = a} :: SymbolicLink)
 
 -- | The file mode permissions of the blob that cotains information about the
 -- symbolic link.
-symbolicLink_fileMode :: Lens.Lens' SymbolicLink (Core.Maybe FileModeTypeEnum)
+symbolicLink_fileMode :: Lens.Lens' SymbolicLink (Prelude.Maybe FileModeTypeEnum)
 symbolicLink_fileMode = Lens.lens (\SymbolicLink' {fileMode} -> fileMode) (\s@SymbolicLink' {} a -> s {fileMode = a} :: SymbolicLink)
 
 instance Core.FromJSON SymbolicLink where
@@ -91,12 +92,12 @@ instance Core.FromJSON SymbolicLink where
       "SymbolicLink"
       ( \x ->
           SymbolicLink'
-            Core.<$> (x Core..:? "absolutePath")
-            Core.<*> (x Core..:? "relativePath")
-            Core.<*> (x Core..:? "blobId")
-            Core.<*> (x Core..:? "fileMode")
+            Prelude.<$> (x Core..:? "absolutePath")
+            Prelude.<*> (x Core..:? "relativePath")
+            Prelude.<*> (x Core..:? "blobId")
+            Prelude.<*> (x Core..:? "fileMode")
       )
 
-instance Core.Hashable SymbolicLink
+instance Prelude.Hashable SymbolicLink
 
-instance Core.NFData SymbolicLink
+instance Prelude.NFData SymbolicLink

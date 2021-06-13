@@ -51,6 +51,7 @@ where
 import Network.AWS.CloudSearch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,10 +61,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateScalingParameters' smart constructor.
 data UpdateScalingParameters = UpdateScalingParameters'
-  { domainName :: Core.Text,
+  { domainName :: Prelude.Text,
     scalingParameters :: ScalingParameters
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateScalingParameters' with all optional fields omitted.
@@ -78,7 +79,7 @@ data UpdateScalingParameters = UpdateScalingParameters'
 -- 'scalingParameters', 'updateScalingParameters_scalingParameters' - Undocumented member.
 newUpdateScalingParameters ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'scalingParameters'
   ScalingParameters ->
   UpdateScalingParameters
@@ -91,7 +92,7 @@ newUpdateScalingParameters
       }
 
 -- | Undocumented member.
-updateScalingParameters_domainName :: Lens.Lens' UpdateScalingParameters Core.Text
+updateScalingParameters_domainName :: Lens.Lens' UpdateScalingParameters Prelude.Text
 updateScalingParameters_domainName = Lens.lens (\UpdateScalingParameters' {domainName} -> domainName) (\s@UpdateScalingParameters' {} a -> s {domainName = a} :: UpdateScalingParameters)
 
 -- | Undocumented member.
@@ -108,26 +109,27 @@ instance Core.AWSRequest UpdateScalingParameters where
       "UpdateScalingParametersResult"
       ( \s h x ->
           UpdateScalingParametersResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "ScalingParameters")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "ScalingParameters")
       )
 
-instance Core.Hashable UpdateScalingParameters
+instance Prelude.Hashable UpdateScalingParameters
 
-instance Core.NFData UpdateScalingParameters
+instance Prelude.NFData UpdateScalingParameters
 
 instance Core.ToHeaders UpdateScalingParameters where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateScalingParameters where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateScalingParameters where
   toQuery UpdateScalingParameters' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateScalingParameters" :: Core.ByteString),
-        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+          Core.=: ("UpdateScalingParameters" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
         "DomainName" Core.=: domainName,
         "ScalingParameters" Core.=: scalingParameters
       ]
@@ -138,10 +140,10 @@ instance Core.ToQuery UpdateScalingParameters where
 -- /See:/ 'newUpdateScalingParametersResponse' smart constructor.
 data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     scalingParameters :: ScalingParametersStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateScalingParametersResponse' with all optional fields omitted.
@@ -156,7 +158,7 @@ data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
 -- 'scalingParameters', 'updateScalingParametersResponse_scalingParameters' - Undocumented member.
 newUpdateScalingParametersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'scalingParameters'
   ScalingParametersStatus ->
   UpdateScalingParametersResponse
@@ -170,11 +172,13 @@ newUpdateScalingParametersResponse
       }
 
 -- | The response's http status code.
-updateScalingParametersResponse_httpStatus :: Lens.Lens' UpdateScalingParametersResponse Core.Int
+updateScalingParametersResponse_httpStatus :: Lens.Lens' UpdateScalingParametersResponse Prelude.Int
 updateScalingParametersResponse_httpStatus = Lens.lens (\UpdateScalingParametersResponse' {httpStatus} -> httpStatus) (\s@UpdateScalingParametersResponse' {} a -> s {httpStatus = a} :: UpdateScalingParametersResponse)
 
 -- | Undocumented member.
 updateScalingParametersResponse_scalingParameters :: Lens.Lens' UpdateScalingParametersResponse ScalingParametersStatus
 updateScalingParametersResponse_scalingParameters = Lens.lens (\UpdateScalingParametersResponse' {scalingParameters} -> scalingParameters) (\s@UpdateScalingParametersResponse' {} a -> s {scalingParameters = a} :: UpdateScalingParametersResponse)
 
-instance Core.NFData UpdateScalingParametersResponse
+instance
+  Prelude.NFData
+    UpdateScalingParametersResponse

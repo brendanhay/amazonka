@@ -58,6 +58,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,15 +67,15 @@ data UpdateCachePolicy = UpdateCachePolicy'
   { -- | The version of the cache policy that you are updating. The version is
     -- returned in the cache policy’s @ETag@ field in the response to
     -- @GetCachePolicyConfig@.
-    ifMatch :: Core.Maybe Core.Text,
+    ifMatch :: Prelude.Maybe Prelude.Text,
     -- | A cache policy configuration.
     cachePolicyConfig :: CachePolicyConfig,
     -- | The unique identifier for the cache policy that you are updating. The
     -- identifier is returned in a cache behavior’s @CachePolicyId@ field in
     -- the response to @GetDistributionConfig@.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateCachePolicy' with all optional fields omitted.
@@ -97,11 +98,11 @@ newUpdateCachePolicy ::
   -- | 'cachePolicyConfig'
   CachePolicyConfig ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   UpdateCachePolicy
 newUpdateCachePolicy pCachePolicyConfig_ pId_ =
   UpdateCachePolicy'
-    { ifMatch = Core.Nothing,
+    { ifMatch = Prelude.Nothing,
       cachePolicyConfig = pCachePolicyConfig_,
       id = pId_
     }
@@ -109,7 +110,7 @@ newUpdateCachePolicy pCachePolicyConfig_ pId_ =
 -- | The version of the cache policy that you are updating. The version is
 -- returned in the cache policy’s @ETag@ field in the response to
 -- @GetCachePolicyConfig@.
-updateCachePolicy_ifMatch :: Lens.Lens' UpdateCachePolicy (Core.Maybe Core.Text)
+updateCachePolicy_ifMatch :: Lens.Lens' UpdateCachePolicy (Prelude.Maybe Prelude.Text)
 updateCachePolicy_ifMatch = Lens.lens (\UpdateCachePolicy' {ifMatch} -> ifMatch) (\s@UpdateCachePolicy' {} a -> s {ifMatch = a} :: UpdateCachePolicy)
 
 -- | A cache policy configuration.
@@ -119,7 +120,7 @@ updateCachePolicy_cachePolicyConfig = Lens.lens (\UpdateCachePolicy' {cachePolic
 -- | The unique identifier for the cache policy that you are updating. The
 -- identifier is returned in a cache behavior’s @CachePolicyId@ field in
 -- the response to @GetDistributionConfig@.
-updateCachePolicy_id :: Lens.Lens' UpdateCachePolicy Core.Text
+updateCachePolicy_id :: Lens.Lens' UpdateCachePolicy Prelude.Text
 updateCachePolicy_id = Lens.lens (\UpdateCachePolicy' {id} -> id) (\s@UpdateCachePolicy' {} a -> s {id = a} :: UpdateCachePolicy)
 
 instance Core.AWSRequest UpdateCachePolicy where
@@ -131,14 +132,14 @@ instance Core.AWSRequest UpdateCachePolicy where
     Response.receiveXML
       ( \s h x ->
           UpdateCachePolicyResponse'
-            Core.<$> (h Core..#? "ETag")
-            Core.<*> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateCachePolicy
+instance Prelude.Hashable UpdateCachePolicy
 
-instance Core.NFData UpdateCachePolicy
+instance Prelude.NFData UpdateCachePolicy
 
 instance Core.ToElement UpdateCachePolicy where
   toElement UpdateCachePolicy' {..} =
@@ -148,26 +149,26 @@ instance Core.ToElement UpdateCachePolicy where
 
 instance Core.ToHeaders UpdateCachePolicy where
   toHeaders UpdateCachePolicy' {..} =
-    Core.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Core.=# ifMatch]
 
 instance Core.ToPath UpdateCachePolicy where
   toPath UpdateCachePolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2020-05-31/cache-policy/", Core.toBS id]
 
 instance Core.ToQuery UpdateCachePolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCachePolicyResponse' smart constructor.
 data UpdateCachePolicyResponse = UpdateCachePolicyResponse'
   { -- | The current version of the cache policy.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | A cache policy.
-    cachePolicy :: Core.Maybe CachePolicy,
+    cachePolicy :: Prelude.Maybe CachePolicy,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateCachePolicyResponse' with all optional fields omitted.
@@ -184,25 +185,25 @@ data UpdateCachePolicyResponse = UpdateCachePolicyResponse'
 -- 'httpStatus', 'updateCachePolicyResponse_httpStatus' - The response's http status code.
 newUpdateCachePolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateCachePolicyResponse
 newUpdateCachePolicyResponse pHttpStatus_ =
   UpdateCachePolicyResponse'
-    { eTag = Core.Nothing,
-      cachePolicy = Core.Nothing,
+    { eTag = Prelude.Nothing,
+      cachePolicy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current version of the cache policy.
-updateCachePolicyResponse_eTag :: Lens.Lens' UpdateCachePolicyResponse (Core.Maybe Core.Text)
+updateCachePolicyResponse_eTag :: Lens.Lens' UpdateCachePolicyResponse (Prelude.Maybe Prelude.Text)
 updateCachePolicyResponse_eTag = Lens.lens (\UpdateCachePolicyResponse' {eTag} -> eTag) (\s@UpdateCachePolicyResponse' {} a -> s {eTag = a} :: UpdateCachePolicyResponse)
 
 -- | A cache policy.
-updateCachePolicyResponse_cachePolicy :: Lens.Lens' UpdateCachePolicyResponse (Core.Maybe CachePolicy)
+updateCachePolicyResponse_cachePolicy :: Lens.Lens' UpdateCachePolicyResponse (Prelude.Maybe CachePolicy)
 updateCachePolicyResponse_cachePolicy = Lens.lens (\UpdateCachePolicyResponse' {cachePolicy} -> cachePolicy) (\s@UpdateCachePolicyResponse' {} a -> s {cachePolicy = a} :: UpdateCachePolicyResponse)
 
 -- | The response's http status code.
-updateCachePolicyResponse_httpStatus :: Lens.Lens' UpdateCachePolicyResponse Core.Int
+updateCachePolicyResponse_httpStatus :: Lens.Lens' UpdateCachePolicyResponse Prelude.Int
 updateCachePolicyResponse_httpStatus = Lens.lens (\UpdateCachePolicyResponse' {httpStatus} -> httpStatus) (\s@UpdateCachePolicyResponse' {} a -> s {httpStatus = a} :: UpdateCachePolicyResponse)
 
-instance Core.NFData UpdateCachePolicyResponse
+instance Prelude.NFData UpdateCachePolicyResponse

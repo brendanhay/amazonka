@@ -21,19 +21,20 @@ module Network.AWS.Glue.Types.CreateJsonClassifierRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a JSON classifier for @CreateClassifier@ to create.
 --
 -- /See:/ 'newCreateJsonClassifierRequest' smart constructor.
 data CreateJsonClassifierRequest = CreateJsonClassifierRequest'
   { -- | The name of the classifier.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | A @JsonPath@ string defining the JSON data for the classifier to
     -- classify. AWS Glue supports a subset of JsonPath, as described in
     -- <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers>.
-    jsonPath :: Core.Text
+    jsonPath :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateJsonClassifierRequest' with all optional fields omitted.
@@ -50,9 +51,9 @@ data CreateJsonClassifierRequest = CreateJsonClassifierRequest'
 -- <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers>.
 newCreateJsonClassifierRequest ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'jsonPath'
-  Core.Text ->
+  Prelude.Text ->
   CreateJsonClassifierRequest
 newCreateJsonClassifierRequest pName_ pJsonPath_ =
   CreateJsonClassifierRequest'
@@ -61,24 +62,24 @@ newCreateJsonClassifierRequest pName_ pJsonPath_ =
     }
 
 -- | The name of the classifier.
-createJsonClassifierRequest_name :: Lens.Lens' CreateJsonClassifierRequest Core.Text
+createJsonClassifierRequest_name :: Lens.Lens' CreateJsonClassifierRequest Prelude.Text
 createJsonClassifierRequest_name = Lens.lens (\CreateJsonClassifierRequest' {name} -> name) (\s@CreateJsonClassifierRequest' {} a -> s {name = a} :: CreateJsonClassifierRequest)
 
 -- | A @JsonPath@ string defining the JSON data for the classifier to
 -- classify. AWS Glue supports a subset of JsonPath, as described in
 -- <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers>.
-createJsonClassifierRequest_jsonPath :: Lens.Lens' CreateJsonClassifierRequest Core.Text
+createJsonClassifierRequest_jsonPath :: Lens.Lens' CreateJsonClassifierRequest Prelude.Text
 createJsonClassifierRequest_jsonPath = Lens.lens (\CreateJsonClassifierRequest' {jsonPath} -> jsonPath) (\s@CreateJsonClassifierRequest' {} a -> s {jsonPath = a} :: CreateJsonClassifierRequest)
 
-instance Core.Hashable CreateJsonClassifierRequest
+instance Prelude.Hashable CreateJsonClassifierRequest
 
-instance Core.NFData CreateJsonClassifierRequest
+instance Prelude.NFData CreateJsonClassifierRequest
 
 instance Core.ToJSON CreateJsonClassifierRequest where
   toJSON CreateJsonClassifierRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("JsonPath" Core..= jsonPath)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("JsonPath" Core..= jsonPath)
           ]
       )

@@ -45,6 +45,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,13 +55,13 @@ import qualified Network.AWS.Response as Response
 data UpdateStreamingDistribution = UpdateStreamingDistribution'
   { -- | The value of the @ETag@ header that you received when retrieving the
     -- streaming distribution\'s configuration. For example: @E2QWRUHAPOMQZL@.
-    ifMatch :: Core.Maybe Core.Text,
+    ifMatch :: Prelude.Maybe Prelude.Text,
     -- | The streaming distribution\'s configuration information.
     streamingDistributionConfig :: StreamingDistributionConfig,
     -- | The streaming distribution\'s id.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateStreamingDistribution' with all optional fields omitted.
@@ -80,14 +81,14 @@ newUpdateStreamingDistribution ::
   -- | 'streamingDistributionConfig'
   StreamingDistributionConfig ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   UpdateStreamingDistribution
 newUpdateStreamingDistribution
   pStreamingDistributionConfig_
   pId_ =
     UpdateStreamingDistribution'
       { ifMatch =
-          Core.Nothing,
+          Prelude.Nothing,
         streamingDistributionConfig =
           pStreamingDistributionConfig_,
         id = pId_
@@ -95,7 +96,7 @@ newUpdateStreamingDistribution
 
 -- | The value of the @ETag@ header that you received when retrieving the
 -- streaming distribution\'s configuration. For example: @E2QWRUHAPOMQZL@.
-updateStreamingDistribution_ifMatch :: Lens.Lens' UpdateStreamingDistribution (Core.Maybe Core.Text)
+updateStreamingDistribution_ifMatch :: Lens.Lens' UpdateStreamingDistribution (Prelude.Maybe Prelude.Text)
 updateStreamingDistribution_ifMatch = Lens.lens (\UpdateStreamingDistribution' {ifMatch} -> ifMatch) (\s@UpdateStreamingDistribution' {} a -> s {ifMatch = a} :: UpdateStreamingDistribution)
 
 -- | The streaming distribution\'s configuration information.
@@ -103,7 +104,7 @@ updateStreamingDistribution_streamingDistributionConfig :: Lens.Lens' UpdateStre
 updateStreamingDistribution_streamingDistributionConfig = Lens.lens (\UpdateStreamingDistribution' {streamingDistributionConfig} -> streamingDistributionConfig) (\s@UpdateStreamingDistribution' {} a -> s {streamingDistributionConfig = a} :: UpdateStreamingDistribution)
 
 -- | The streaming distribution\'s id.
-updateStreamingDistribution_id :: Lens.Lens' UpdateStreamingDistribution Core.Text
+updateStreamingDistribution_id :: Lens.Lens' UpdateStreamingDistribution Prelude.Text
 updateStreamingDistribution_id = Lens.lens (\UpdateStreamingDistribution' {id} -> id) (\s@UpdateStreamingDistribution' {} a -> s {id = a} :: UpdateStreamingDistribution)
 
 instance Core.AWSRequest UpdateStreamingDistribution where
@@ -115,14 +116,14 @@ instance Core.AWSRequest UpdateStreamingDistribution where
     Response.receiveXML
       ( \s h x ->
           UpdateStreamingDistributionResponse'
-            Core.<$> (h Core..#? "ETag")
-            Core.<*> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateStreamingDistribution
+instance Prelude.Hashable UpdateStreamingDistribution
 
-instance Core.NFData UpdateStreamingDistribution
+instance Prelude.NFData UpdateStreamingDistribution
 
 instance Core.ToElement UpdateStreamingDistribution where
   toElement UpdateStreamingDistribution' {..} =
@@ -132,31 +133,31 @@ instance Core.ToElement UpdateStreamingDistribution where
 
 instance Core.ToHeaders UpdateStreamingDistribution where
   toHeaders UpdateStreamingDistribution' {..} =
-    Core.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Core.=# ifMatch]
 
 instance Core.ToPath UpdateStreamingDistribution where
   toPath UpdateStreamingDistribution' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-05-31/streaming-distribution/",
         Core.toBS id,
         "/config"
       ]
 
 instance Core.ToQuery UpdateStreamingDistribution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'newUpdateStreamingDistributionResponse' smart constructor.
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
   { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The streaming distribution\'s information.
-    streamingDistribution :: Core.Maybe StreamingDistribution,
+    streamingDistribution :: Prelude.Maybe StreamingDistribution,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateStreamingDistributionResponse' with all optional fields omitted.
@@ -173,28 +174,29 @@ data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
 -- 'httpStatus', 'updateStreamingDistributionResponse_httpStatus' - The response's http status code.
 newUpdateStreamingDistributionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateStreamingDistributionResponse
 newUpdateStreamingDistributionResponse pHttpStatus_ =
   UpdateStreamingDistributionResponse'
     { eTag =
-        Core.Nothing,
-      streamingDistribution = Core.Nothing,
+        Prelude.Nothing,
+      streamingDistribution =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-updateStreamingDistributionResponse_eTag :: Lens.Lens' UpdateStreamingDistributionResponse (Core.Maybe Core.Text)
+updateStreamingDistributionResponse_eTag :: Lens.Lens' UpdateStreamingDistributionResponse (Prelude.Maybe Prelude.Text)
 updateStreamingDistributionResponse_eTag = Lens.lens (\UpdateStreamingDistributionResponse' {eTag} -> eTag) (\s@UpdateStreamingDistributionResponse' {} a -> s {eTag = a} :: UpdateStreamingDistributionResponse)
 
 -- | The streaming distribution\'s information.
-updateStreamingDistributionResponse_streamingDistribution :: Lens.Lens' UpdateStreamingDistributionResponse (Core.Maybe StreamingDistribution)
+updateStreamingDistributionResponse_streamingDistribution :: Lens.Lens' UpdateStreamingDistributionResponse (Prelude.Maybe StreamingDistribution)
 updateStreamingDistributionResponse_streamingDistribution = Lens.lens (\UpdateStreamingDistributionResponse' {streamingDistribution} -> streamingDistribution) (\s@UpdateStreamingDistributionResponse' {} a -> s {streamingDistribution = a} :: UpdateStreamingDistributionResponse)
 
 -- | The response's http status code.
-updateStreamingDistributionResponse_httpStatus :: Lens.Lens' UpdateStreamingDistributionResponse Core.Int
+updateStreamingDistributionResponse_httpStatus :: Lens.Lens' UpdateStreamingDistributionResponse Prelude.Int
 updateStreamingDistributionResponse_httpStatus = Lens.lens (\UpdateStreamingDistributionResponse' {httpStatus} -> httpStatus) (\s@UpdateStreamingDistributionResponse' {} a -> s {httpStatus = a} :: UpdateStreamingDistributionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateStreamingDistributionResponse

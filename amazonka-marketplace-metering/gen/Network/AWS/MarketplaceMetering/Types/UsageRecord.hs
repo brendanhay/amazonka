@@ -22,6 +22,7 @@ module Network.AWS.MarketplaceMetering.Types.UsageRecord where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MarketplaceMetering.Types.UsageAllocation
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A UsageRecord indicates a quantity of usage for a given product,
 -- customer, dimension and time.
@@ -33,10 +34,10 @@ import Network.AWS.MarketplaceMetering.Types.UsageAllocation
 data UsageRecord = UsageRecord'
   { -- | The set of UsageAllocations to submit. The sum of all UsageAllocation
     -- quantities must equal the Quantity of the UsageRecord.
-    usageAllocations :: Core.Maybe (Core.NonEmpty UsageAllocation),
+    usageAllocations :: Prelude.Maybe (Prelude.NonEmpty UsageAllocation),
     -- | The quantity of usage consumed by the customer for the given dimension
     -- and time. Defaults to @0@ if not specified.
-    quantity :: Core.Maybe Core.Natural,
+    quantity :: Prelude.Maybe Prelude.Natural,
     -- | Timestamp, in UTC, for which the usage is being reported.
     --
     -- Your application can meter usage for up to one hour in the past. Make
@@ -44,13 +45,13 @@ data UsageRecord = UsageRecord'
     timestamp :: Core.POSIX,
     -- | The CustomerIdentifier is obtained through the ResolveCustomer operation
     -- and represents an individual buyer in your application.
-    customerIdentifier :: Core.Text,
+    customerIdentifier :: Prelude.Text,
     -- | During the process of registering a product on AWS Marketplace, up to
     -- eight dimensions are specified. These represent different units of value
     -- in your application.
-    dimension :: Core.Text
+    dimension :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UsageRecord' with all optional fields omitted.
@@ -79,19 +80,19 @@ data UsageRecord = UsageRecord'
 -- in your application.
 newUsageRecord ::
   -- | 'timestamp'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'customerIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'dimension'
-  Core.Text ->
+  Prelude.Text ->
   UsageRecord
 newUsageRecord
   pTimestamp_
   pCustomerIdentifier_
   pDimension_ =
     UsageRecord'
-      { usageAllocations = Core.Nothing,
-        quantity = Core.Nothing,
+      { usageAllocations = Prelude.Nothing,
+        quantity = Prelude.Nothing,
         timestamp = Core._Time Lens.# pTimestamp_,
         customerIdentifier = pCustomerIdentifier_,
         dimension = pDimension_
@@ -99,30 +100,30 @@ newUsageRecord
 
 -- | The set of UsageAllocations to submit. The sum of all UsageAllocation
 -- quantities must equal the Quantity of the UsageRecord.
-usageRecord_usageAllocations :: Lens.Lens' UsageRecord (Core.Maybe (Core.NonEmpty UsageAllocation))
-usageRecord_usageAllocations = Lens.lens (\UsageRecord' {usageAllocations} -> usageAllocations) (\s@UsageRecord' {} a -> s {usageAllocations = a} :: UsageRecord) Core.. Lens.mapping Lens._Coerce
+usageRecord_usageAllocations :: Lens.Lens' UsageRecord (Prelude.Maybe (Prelude.NonEmpty UsageAllocation))
+usageRecord_usageAllocations = Lens.lens (\UsageRecord' {usageAllocations} -> usageAllocations) (\s@UsageRecord' {} a -> s {usageAllocations = a} :: UsageRecord) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The quantity of usage consumed by the customer for the given dimension
 -- and time. Defaults to @0@ if not specified.
-usageRecord_quantity :: Lens.Lens' UsageRecord (Core.Maybe Core.Natural)
+usageRecord_quantity :: Lens.Lens' UsageRecord (Prelude.Maybe Prelude.Natural)
 usageRecord_quantity = Lens.lens (\UsageRecord' {quantity} -> quantity) (\s@UsageRecord' {} a -> s {quantity = a} :: UsageRecord)
 
 -- | Timestamp, in UTC, for which the usage is being reported.
 --
 -- Your application can meter usage for up to one hour in the past. Make
 -- sure the timestamp value is not before the start of the software usage.
-usageRecord_timestamp :: Lens.Lens' UsageRecord Core.UTCTime
-usageRecord_timestamp = Lens.lens (\UsageRecord' {timestamp} -> timestamp) (\s@UsageRecord' {} a -> s {timestamp = a} :: UsageRecord) Core.. Core._Time
+usageRecord_timestamp :: Lens.Lens' UsageRecord Prelude.UTCTime
+usageRecord_timestamp = Lens.lens (\UsageRecord' {timestamp} -> timestamp) (\s@UsageRecord' {} a -> s {timestamp = a} :: UsageRecord) Prelude.. Core._Time
 
 -- | The CustomerIdentifier is obtained through the ResolveCustomer operation
 -- and represents an individual buyer in your application.
-usageRecord_customerIdentifier :: Lens.Lens' UsageRecord Core.Text
+usageRecord_customerIdentifier :: Lens.Lens' UsageRecord Prelude.Text
 usageRecord_customerIdentifier = Lens.lens (\UsageRecord' {customerIdentifier} -> customerIdentifier) (\s@UsageRecord' {} a -> s {customerIdentifier = a} :: UsageRecord)
 
 -- | During the process of registering a product on AWS Marketplace, up to
 -- eight dimensions are specified. These represent different units of value
 -- in your application.
-usageRecord_dimension :: Lens.Lens' UsageRecord Core.Text
+usageRecord_dimension :: Lens.Lens' UsageRecord Prelude.Text
 usageRecord_dimension = Lens.lens (\UsageRecord' {dimension} -> dimension) (\s@UsageRecord' {} a -> s {dimension = a} :: UsageRecord)
 
 instance Core.FromJSON UsageRecord where
@@ -131,27 +132,27 @@ instance Core.FromJSON UsageRecord where
       "UsageRecord"
       ( \x ->
           UsageRecord'
-            Core.<$> (x Core..:? "UsageAllocations")
-            Core.<*> (x Core..:? "Quantity")
-            Core.<*> (x Core..: "Timestamp")
-            Core.<*> (x Core..: "CustomerIdentifier")
-            Core.<*> (x Core..: "Dimension")
+            Prelude.<$> (x Core..:? "UsageAllocations")
+            Prelude.<*> (x Core..:? "Quantity")
+            Prelude.<*> (x Core..: "Timestamp")
+            Prelude.<*> (x Core..: "CustomerIdentifier")
+            Prelude.<*> (x Core..: "Dimension")
       )
 
-instance Core.Hashable UsageRecord
+instance Prelude.Hashable UsageRecord
 
-instance Core.NFData UsageRecord
+instance Prelude.NFData UsageRecord
 
 instance Core.ToJSON UsageRecord where
   toJSON UsageRecord' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("UsageAllocations" Core..=)
-              Core.<$> usageAllocations,
-            ("Quantity" Core..=) Core.<$> quantity,
-            Core.Just ("Timestamp" Core..= timestamp),
-            Core.Just
+              Prelude.<$> usageAllocations,
+            ("Quantity" Core..=) Prelude.<$> quantity,
+            Prelude.Just ("Timestamp" Core..= timestamp),
+            Prelude.Just
               ("CustomerIdentifier" Core..= customerIdentifier),
-            Core.Just ("Dimension" Core..= dimension)
+            Prelude.Just ("Dimension" Core..= dimension)
           ]
       )

@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types.MaxAgeRule
 import Network.AWS.ElasticBeanstalk.Types.MaxCountRule
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The application version lifecycle settings for an application. Defines
 -- the rules that Elastic Beanstalk applies to an application\'s versions
@@ -36,12 +37,12 @@ import qualified Network.AWS.Lens as Lens
 data ApplicationVersionLifecycleConfig = ApplicationVersionLifecycleConfig'
   { -- | Specify a max age rule to restrict the length of time that application
     -- versions are retained for an application.
-    maxAgeRule :: Core.Maybe MaxAgeRule,
+    maxAgeRule :: Prelude.Maybe MaxAgeRule,
     -- | Specify a max count rule to restrict the number of application versions
     -- that are retained for an application.
-    maxCountRule :: Core.Maybe MaxCountRule
+    maxCountRule :: Prelude.Maybe MaxCountRule
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApplicationVersionLifecycleConfig' with all optional fields omitted.
@@ -61,18 +62,18 @@ newApplicationVersionLifecycleConfig ::
 newApplicationVersionLifecycleConfig =
   ApplicationVersionLifecycleConfig'
     { maxAgeRule =
-        Core.Nothing,
-      maxCountRule = Core.Nothing
+        Prelude.Nothing,
+      maxCountRule = Prelude.Nothing
     }
 
 -- | Specify a max age rule to restrict the length of time that application
 -- versions are retained for an application.
-applicationVersionLifecycleConfig_maxAgeRule :: Lens.Lens' ApplicationVersionLifecycleConfig (Core.Maybe MaxAgeRule)
+applicationVersionLifecycleConfig_maxAgeRule :: Lens.Lens' ApplicationVersionLifecycleConfig (Prelude.Maybe MaxAgeRule)
 applicationVersionLifecycleConfig_maxAgeRule = Lens.lens (\ApplicationVersionLifecycleConfig' {maxAgeRule} -> maxAgeRule) (\s@ApplicationVersionLifecycleConfig' {} a -> s {maxAgeRule = a} :: ApplicationVersionLifecycleConfig)
 
 -- | Specify a max count rule to restrict the number of application versions
 -- that are retained for an application.
-applicationVersionLifecycleConfig_maxCountRule :: Lens.Lens' ApplicationVersionLifecycleConfig (Core.Maybe MaxCountRule)
+applicationVersionLifecycleConfig_maxCountRule :: Lens.Lens' ApplicationVersionLifecycleConfig (Prelude.Maybe MaxCountRule)
 applicationVersionLifecycleConfig_maxCountRule = Lens.lens (\ApplicationVersionLifecycleConfig' {maxCountRule} -> maxCountRule) (\s@ApplicationVersionLifecycleConfig' {} a -> s {maxCountRule = a} :: ApplicationVersionLifecycleConfig)
 
 instance
@@ -81,15 +82,15 @@ instance
   where
   parseXML x =
     ApplicationVersionLifecycleConfig'
-      Core.<$> (x Core..@? "MaxAgeRule")
-      Core.<*> (x Core..@? "MaxCountRule")
+      Prelude.<$> (x Core..@? "MaxAgeRule")
+      Prelude.<*> (x Core..@? "MaxCountRule")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ApplicationVersionLifecycleConfig
 
 instance
-  Core.NFData
+  Prelude.NFData
     ApplicationVersionLifecycleConfig
 
 instance
@@ -97,7 +98,7 @@ instance
     ApplicationVersionLifecycleConfig
   where
   toQuery ApplicationVersionLifecycleConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "MaxAgeRule" Core.=: maxAgeRule,
         "MaxCountRule" Core.=: maxCountRule
       ]

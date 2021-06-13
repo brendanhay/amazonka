@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ClientVpnRouteStatusCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the state of a Client VPN endpoint route.
 --
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 data ClientVpnRouteStatus = ClientVpnRouteStatus'
   { -- | A message about the status of the Client VPN endpoint route, if
     -- applicable.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The state of the Client VPN endpoint route.
-    code :: Core.Maybe ClientVpnRouteStatusCode
+    code :: Prelude.Maybe ClientVpnRouteStatusCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClientVpnRouteStatus' with all optional fields omitted.
@@ -52,24 +53,25 @@ newClientVpnRouteStatus ::
   ClientVpnRouteStatus
 newClientVpnRouteStatus =
   ClientVpnRouteStatus'
-    { message = Core.Nothing,
-      code = Core.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | A message about the status of the Client VPN endpoint route, if
 -- applicable.
-clientVpnRouteStatus_message :: Lens.Lens' ClientVpnRouteStatus (Core.Maybe Core.Text)
+clientVpnRouteStatus_message :: Lens.Lens' ClientVpnRouteStatus (Prelude.Maybe Prelude.Text)
 clientVpnRouteStatus_message = Lens.lens (\ClientVpnRouteStatus' {message} -> message) (\s@ClientVpnRouteStatus' {} a -> s {message = a} :: ClientVpnRouteStatus)
 
 -- | The state of the Client VPN endpoint route.
-clientVpnRouteStatus_code :: Lens.Lens' ClientVpnRouteStatus (Core.Maybe ClientVpnRouteStatusCode)
+clientVpnRouteStatus_code :: Lens.Lens' ClientVpnRouteStatus (Prelude.Maybe ClientVpnRouteStatusCode)
 clientVpnRouteStatus_code = Lens.lens (\ClientVpnRouteStatus' {code} -> code) (\s@ClientVpnRouteStatus' {} a -> s {code = a} :: ClientVpnRouteStatus)
 
 instance Core.FromXML ClientVpnRouteStatus where
   parseXML x =
     ClientVpnRouteStatus'
-      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
-instance Core.Hashable ClientVpnRouteStatus
+instance Prelude.Hashable ClientVpnRouteStatus
 
-instance Core.NFData ClientVpnRouteStatus
+instance Prelude.NFData ClientVpnRouteStatus

@@ -25,6 +25,7 @@ import Network.AWS.Batch.Types.CEType
 import Network.AWS.Batch.Types.ComputeResource
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an AWS Batch compute environment.
 --
@@ -32,13 +33,13 @@ import qualified Network.AWS.Lens as Lens
 data ComputeEnvironmentDetail = ComputeEnvironmentDetail'
   { -- | The current status of the compute environment (for example, @CREATING@
     -- or @VALID@).
-    status :: Core.Maybe CEStatus,
+    status :: Prelude.Maybe CEStatus,
     -- | The service role associated with the compute environment that allows AWS
     -- Batch to make calls to AWS API operations on your behalf. For more
     -- information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html AWS Batch service IAM role>
     -- in the /AWS Batch User Guide/.
-    serviceRole :: Core.Maybe Core.Text,
+    serviceRole :: Prelude.Maybe Prelude.Text,
     -- | The state of the compute environment. The valid values are @ENABLED@ or
     -- @DISABLED@.
     --
@@ -53,32 +54,32 @@ data ComputeEnvironmentDetail = ComputeEnvironmentDetail'
     -- @RUNNING@ state continue to progress normally. Managed compute
     -- environments in the @DISABLED@ state don\'t scale out. However, they
     -- scale in to @minvCpus@ value after instances become idle.
-    state :: Core.Maybe CEState,
+    state :: Prelude.Maybe CEState,
     -- | The compute resources defined for the compute environment. For more
     -- information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
     -- in the /AWS Batch User Guide/.
-    computeResources :: Core.Maybe ComputeResource,
+    computeResources :: Prelude.Maybe ComputeResource,
     -- | The tags applied to the compute environment.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A short, human-readable string to provide additional details about the
     -- current status of the compute environment.
-    statusReason :: Core.Maybe Core.Text,
+    statusReason :: Prelude.Maybe Prelude.Text,
     -- | The type of the compute environment: @MANAGED@ or @UNMANAGED@. For more
     -- information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
     -- in the /AWS Batch User Guide/.
-    type' :: Core.Maybe CEType,
+    type' :: Prelude.Maybe CEType,
     -- | The name of the compute environment. Up to 128 letters (uppercase and
     -- lowercase), numbers, hyphens, and underscores are allowed.
-    computeEnvironmentName :: Core.Text,
+    computeEnvironmentName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the compute environment.
-    computeEnvironmentArn :: Core.Text,
+    computeEnvironmentArn :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used
     -- by the compute environment.
-    ecsClusterArn :: Core.Text
+    ecsClusterArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ComputeEnvironmentDetail' with all optional fields omitted.
@@ -136,24 +137,24 @@ data ComputeEnvironmentDetail = ComputeEnvironmentDetail'
 -- by the compute environment.
 newComputeEnvironmentDetail ::
   -- | 'computeEnvironmentName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'computeEnvironmentArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'ecsClusterArn'
-  Core.Text ->
+  Prelude.Text ->
   ComputeEnvironmentDetail
 newComputeEnvironmentDetail
   pComputeEnvironmentName_
   pComputeEnvironmentArn_
   pEcsClusterArn_ =
     ComputeEnvironmentDetail'
-      { status = Core.Nothing,
-        serviceRole = Core.Nothing,
-        state = Core.Nothing,
-        computeResources = Core.Nothing,
-        tags = Core.Nothing,
-        statusReason = Core.Nothing,
-        type' = Core.Nothing,
+      { status = Prelude.Nothing,
+        serviceRole = Prelude.Nothing,
+        state = Prelude.Nothing,
+        computeResources = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        statusReason = Prelude.Nothing,
+        type' = Prelude.Nothing,
         computeEnvironmentName = pComputeEnvironmentName_,
         computeEnvironmentArn = pComputeEnvironmentArn_,
         ecsClusterArn = pEcsClusterArn_
@@ -161,7 +162,7 @@ newComputeEnvironmentDetail
 
 -- | The current status of the compute environment (for example, @CREATING@
 -- or @VALID@).
-computeEnvironmentDetail_status :: Lens.Lens' ComputeEnvironmentDetail (Core.Maybe CEStatus)
+computeEnvironmentDetail_status :: Lens.Lens' ComputeEnvironmentDetail (Prelude.Maybe CEStatus)
 computeEnvironmentDetail_status = Lens.lens (\ComputeEnvironmentDetail' {status} -> status) (\s@ComputeEnvironmentDetail' {} a -> s {status = a} :: ComputeEnvironmentDetail)
 
 -- | The service role associated with the compute environment that allows AWS
@@ -169,7 +170,7 @@ computeEnvironmentDetail_status = Lens.lens (\ComputeEnvironmentDetail' {status}
 -- information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html AWS Batch service IAM role>
 -- in the /AWS Batch User Guide/.
-computeEnvironmentDetail_serviceRole :: Lens.Lens' ComputeEnvironmentDetail (Core.Maybe Core.Text)
+computeEnvironmentDetail_serviceRole :: Lens.Lens' ComputeEnvironmentDetail (Prelude.Maybe Prelude.Text)
 computeEnvironmentDetail_serviceRole = Lens.lens (\ComputeEnvironmentDetail' {serviceRole} -> serviceRole) (\s@ComputeEnvironmentDetail' {} a -> s {serviceRole = a} :: ComputeEnvironmentDetail)
 
 -- | The state of the compute environment. The valid values are @ENABLED@ or
@@ -186,44 +187,44 @@ computeEnvironmentDetail_serviceRole = Lens.lens (\ComputeEnvironmentDetail' {se
 -- @RUNNING@ state continue to progress normally. Managed compute
 -- environments in the @DISABLED@ state don\'t scale out. However, they
 -- scale in to @minvCpus@ value after instances become idle.
-computeEnvironmentDetail_state :: Lens.Lens' ComputeEnvironmentDetail (Core.Maybe CEState)
+computeEnvironmentDetail_state :: Lens.Lens' ComputeEnvironmentDetail (Prelude.Maybe CEState)
 computeEnvironmentDetail_state = Lens.lens (\ComputeEnvironmentDetail' {state} -> state) (\s@ComputeEnvironmentDetail' {} a -> s {state = a} :: ComputeEnvironmentDetail)
 
 -- | The compute resources defined for the compute environment. For more
 -- information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
 -- in the /AWS Batch User Guide/.
-computeEnvironmentDetail_computeResources :: Lens.Lens' ComputeEnvironmentDetail (Core.Maybe ComputeResource)
+computeEnvironmentDetail_computeResources :: Lens.Lens' ComputeEnvironmentDetail (Prelude.Maybe ComputeResource)
 computeEnvironmentDetail_computeResources = Lens.lens (\ComputeEnvironmentDetail' {computeResources} -> computeResources) (\s@ComputeEnvironmentDetail' {} a -> s {computeResources = a} :: ComputeEnvironmentDetail)
 
 -- | The tags applied to the compute environment.
-computeEnvironmentDetail_tags :: Lens.Lens' ComputeEnvironmentDetail (Core.Maybe (Core.HashMap Core.Text Core.Text))
-computeEnvironmentDetail_tags = Lens.lens (\ComputeEnvironmentDetail' {tags} -> tags) (\s@ComputeEnvironmentDetail' {} a -> s {tags = a} :: ComputeEnvironmentDetail) Core.. Lens.mapping Lens._Coerce
+computeEnvironmentDetail_tags :: Lens.Lens' ComputeEnvironmentDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+computeEnvironmentDetail_tags = Lens.lens (\ComputeEnvironmentDetail' {tags} -> tags) (\s@ComputeEnvironmentDetail' {} a -> s {tags = a} :: ComputeEnvironmentDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A short, human-readable string to provide additional details about the
 -- current status of the compute environment.
-computeEnvironmentDetail_statusReason :: Lens.Lens' ComputeEnvironmentDetail (Core.Maybe Core.Text)
+computeEnvironmentDetail_statusReason :: Lens.Lens' ComputeEnvironmentDetail (Prelude.Maybe Prelude.Text)
 computeEnvironmentDetail_statusReason = Lens.lens (\ComputeEnvironmentDetail' {statusReason} -> statusReason) (\s@ComputeEnvironmentDetail' {} a -> s {statusReason = a} :: ComputeEnvironmentDetail)
 
 -- | The type of the compute environment: @MANAGED@ or @UNMANAGED@. For more
 -- information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
 -- in the /AWS Batch User Guide/.
-computeEnvironmentDetail_type :: Lens.Lens' ComputeEnvironmentDetail (Core.Maybe CEType)
+computeEnvironmentDetail_type :: Lens.Lens' ComputeEnvironmentDetail (Prelude.Maybe CEType)
 computeEnvironmentDetail_type = Lens.lens (\ComputeEnvironmentDetail' {type'} -> type') (\s@ComputeEnvironmentDetail' {} a -> s {type' = a} :: ComputeEnvironmentDetail)
 
 -- | The name of the compute environment. Up to 128 letters (uppercase and
 -- lowercase), numbers, hyphens, and underscores are allowed.
-computeEnvironmentDetail_computeEnvironmentName :: Lens.Lens' ComputeEnvironmentDetail Core.Text
+computeEnvironmentDetail_computeEnvironmentName :: Lens.Lens' ComputeEnvironmentDetail Prelude.Text
 computeEnvironmentDetail_computeEnvironmentName = Lens.lens (\ComputeEnvironmentDetail' {computeEnvironmentName} -> computeEnvironmentName) (\s@ComputeEnvironmentDetail' {} a -> s {computeEnvironmentName = a} :: ComputeEnvironmentDetail)
 
 -- | The Amazon Resource Name (ARN) of the compute environment.
-computeEnvironmentDetail_computeEnvironmentArn :: Lens.Lens' ComputeEnvironmentDetail Core.Text
+computeEnvironmentDetail_computeEnvironmentArn :: Lens.Lens' ComputeEnvironmentDetail Prelude.Text
 computeEnvironmentDetail_computeEnvironmentArn = Lens.lens (\ComputeEnvironmentDetail' {computeEnvironmentArn} -> computeEnvironmentArn) (\s@ComputeEnvironmentDetail' {} a -> s {computeEnvironmentArn = a} :: ComputeEnvironmentDetail)
 
 -- | The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used
 -- by the compute environment.
-computeEnvironmentDetail_ecsClusterArn :: Lens.Lens' ComputeEnvironmentDetail Core.Text
+computeEnvironmentDetail_ecsClusterArn :: Lens.Lens' ComputeEnvironmentDetail Prelude.Text
 computeEnvironmentDetail_ecsClusterArn = Lens.lens (\ComputeEnvironmentDetail' {ecsClusterArn} -> ecsClusterArn) (\s@ComputeEnvironmentDetail' {} a -> s {ecsClusterArn = a} :: ComputeEnvironmentDetail)
 
 instance Core.FromJSON ComputeEnvironmentDetail where
@@ -232,18 +233,18 @@ instance Core.FromJSON ComputeEnvironmentDetail where
       "ComputeEnvironmentDetail"
       ( \x ->
           ComputeEnvironmentDetail'
-            Core.<$> (x Core..:? "status")
-            Core.<*> (x Core..:? "serviceRole")
-            Core.<*> (x Core..:? "state")
-            Core.<*> (x Core..:? "computeResources")
-            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "statusReason")
-            Core.<*> (x Core..:? "type")
-            Core.<*> (x Core..: "computeEnvironmentName")
-            Core.<*> (x Core..: "computeEnvironmentArn")
-            Core.<*> (x Core..: "ecsClusterArn")
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "serviceRole")
+            Prelude.<*> (x Core..:? "state")
+            Prelude.<*> (x Core..:? "computeResources")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "statusReason")
+            Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..: "computeEnvironmentName")
+            Prelude.<*> (x Core..: "computeEnvironmentArn")
+            Prelude.<*> (x Core..: "ecsClusterArn")
       )
 
-instance Core.Hashable ComputeEnvironmentDetail
+instance Prelude.Hashable ComputeEnvironmentDetail
 
-instance Core.NFData ComputeEnvironmentDetail
+instance Prelude.NFData ComputeEnvironmentDetail

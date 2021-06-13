@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.HopDestination where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Optional. Configuration for a destination queue to which the job can hop
 -- once a customer-defined minimum wait time has passed.
@@ -31,19 +32,19 @@ data HopDestination = HopDestination'
     -- different relative priority for the job in the destination queue. If you
     -- don\'t specify, the relative priority will remain the same as in the
     -- previous queue.
-    priority :: Core.Maybe Core.Int,
+    priority :: Prelude.Maybe Prelude.Int,
     -- | Optional unless the job is submitted on the default queue. When you set
     -- up a job to use queue hopping, you can specify a destination queue. This
     -- queue cannot be the original queue to which the job is submitted. If the
     -- original queue isn\'t the default queue and you don\'t specify the
     -- destination queue, the job will move to the default queue.
-    queue :: Core.Maybe Core.Text,
+    queue :: Prelude.Maybe Prelude.Text,
     -- | Required for setting up a job to use queue hopping. Minimum wait time in
     -- minutes until the job can hop to the destination queue. Valid range is 1
     -- to 1440 minutes, inclusive.
-    waitMinutes :: Core.Maybe Core.Int
+    waitMinutes :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HopDestination' with all optional fields omitted.
@@ -71,16 +72,16 @@ newHopDestination ::
   HopDestination
 newHopDestination =
   HopDestination'
-    { priority = Core.Nothing,
-      queue = Core.Nothing,
-      waitMinutes = Core.Nothing
+    { priority = Prelude.Nothing,
+      queue = Prelude.Nothing,
+      waitMinutes = Prelude.Nothing
     }
 
 -- | Optional. When you set up a job to use queue hopping, you can specify a
 -- different relative priority for the job in the destination queue. If you
 -- don\'t specify, the relative priority will remain the same as in the
 -- previous queue.
-hopDestination_priority :: Lens.Lens' HopDestination (Core.Maybe Core.Int)
+hopDestination_priority :: Lens.Lens' HopDestination (Prelude.Maybe Prelude.Int)
 hopDestination_priority = Lens.lens (\HopDestination' {priority} -> priority) (\s@HopDestination' {} a -> s {priority = a} :: HopDestination)
 
 -- | Optional unless the job is submitted on the default queue. When you set
@@ -88,13 +89,13 @@ hopDestination_priority = Lens.lens (\HopDestination' {priority} -> priority) (\
 -- queue cannot be the original queue to which the job is submitted. If the
 -- original queue isn\'t the default queue and you don\'t specify the
 -- destination queue, the job will move to the default queue.
-hopDestination_queue :: Lens.Lens' HopDestination (Core.Maybe Core.Text)
+hopDestination_queue :: Lens.Lens' HopDestination (Prelude.Maybe Prelude.Text)
 hopDestination_queue = Lens.lens (\HopDestination' {queue} -> queue) (\s@HopDestination' {} a -> s {queue = a} :: HopDestination)
 
 -- | Required for setting up a job to use queue hopping. Minimum wait time in
 -- minutes until the job can hop to the destination queue. Valid range is 1
 -- to 1440 minutes, inclusive.
-hopDestination_waitMinutes :: Lens.Lens' HopDestination (Core.Maybe Core.Int)
+hopDestination_waitMinutes :: Lens.Lens' HopDestination (Prelude.Maybe Prelude.Int)
 hopDestination_waitMinutes = Lens.lens (\HopDestination' {waitMinutes} -> waitMinutes) (\s@HopDestination' {} a -> s {waitMinutes = a} :: HopDestination)
 
 instance Core.FromJSON HopDestination where
@@ -103,21 +104,21 @@ instance Core.FromJSON HopDestination where
       "HopDestination"
       ( \x ->
           HopDestination'
-            Core.<$> (x Core..:? "priority")
-            Core.<*> (x Core..:? "queue")
-            Core.<*> (x Core..:? "waitMinutes")
+            Prelude.<$> (x Core..:? "priority")
+            Prelude.<*> (x Core..:? "queue")
+            Prelude.<*> (x Core..:? "waitMinutes")
       )
 
-instance Core.Hashable HopDestination
+instance Prelude.Hashable HopDestination
 
-instance Core.NFData HopDestination
+instance Prelude.NFData HopDestination
 
 instance Core.ToJSON HopDestination where
   toJSON HopDestination' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("priority" Core..=) Core.<$> priority,
-            ("queue" Core..=) Core.<$> queue,
-            ("waitMinutes" Core..=) Core.<$> waitMinutes
+      ( Prelude.catMaybes
+          [ ("priority" Core..=) Prelude.<$> priority,
+            ("queue" Core..=) Prelude.<$> queue,
+            ("waitMinutes" Core..=) Prelude.<$> waitMinutes
           ]
       )

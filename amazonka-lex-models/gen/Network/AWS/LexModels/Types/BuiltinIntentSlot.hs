@@ -21,15 +21,16 @@ module Network.AWS.LexModels.Types.BuiltinIntentSlot where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about a slot used in a built-in intent.
 --
 -- /See:/ 'newBuiltinIntentSlot' smart constructor.
 data BuiltinIntentSlot = BuiltinIntentSlot'
   { -- | A list of the slots defined for the intent.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BuiltinIntentSlot' with all optional fields omitted.
@@ -43,10 +44,10 @@ data BuiltinIntentSlot = BuiltinIntentSlot'
 newBuiltinIntentSlot ::
   BuiltinIntentSlot
 newBuiltinIntentSlot =
-  BuiltinIntentSlot' {name = Core.Nothing}
+  BuiltinIntentSlot' {name = Prelude.Nothing}
 
 -- | A list of the slots defined for the intent.
-builtinIntentSlot_name :: Lens.Lens' BuiltinIntentSlot (Core.Maybe Core.Text)
+builtinIntentSlot_name :: Lens.Lens' BuiltinIntentSlot (Prelude.Maybe Prelude.Text)
 builtinIntentSlot_name = Lens.lens (\BuiltinIntentSlot' {name} -> name) (\s@BuiltinIntentSlot' {} a -> s {name = a} :: BuiltinIntentSlot)
 
 instance Core.FromJSON BuiltinIntentSlot where
@@ -54,9 +55,9 @@ instance Core.FromJSON BuiltinIntentSlot where
     Core.withObject
       "BuiltinIntentSlot"
       ( \x ->
-          BuiltinIntentSlot' Core.<$> (x Core..:? "name")
+          BuiltinIntentSlot' Prelude.<$> (x Core..:? "name")
       )
 
-instance Core.Hashable BuiltinIntentSlot
+instance Prelude.Hashable BuiltinIntentSlot
 
-instance Core.NFData BuiltinIntentSlot
+instance Prelude.NFData BuiltinIntentSlot

@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -55,9 +56,9 @@ import Network.AWS.ServiceCatalog.Types
 data DescribePortfolioShareStatus = DescribePortfolioShareStatus'
   { -- | The token for the portfolio share operation. This token is returned
     -- either by CreatePortfolioShare or by DeletePortfolioShare.
-    portfolioShareToken :: Core.Text
+    portfolioShareToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePortfolioShareStatus' with all optional fields omitted.
@@ -71,7 +72,7 @@ data DescribePortfolioShareStatus = DescribePortfolioShareStatus'
 -- either by CreatePortfolioShare or by DeletePortfolioShare.
 newDescribePortfolioShareStatus ::
   -- | 'portfolioShareToken'
-  Core.Text ->
+  Prelude.Text ->
   DescribePortfolioShareStatus
 newDescribePortfolioShareStatus pPortfolioShareToken_ =
   DescribePortfolioShareStatus'
@@ -81,7 +82,7 @@ newDescribePortfolioShareStatus pPortfolioShareToken_ =
 
 -- | The token for the portfolio share operation. This token is returned
 -- either by CreatePortfolioShare or by DeletePortfolioShare.
-describePortfolioShareStatus_portfolioShareToken :: Lens.Lens' DescribePortfolioShareStatus Core.Text
+describePortfolioShareStatus_portfolioShareToken :: Lens.Lens' DescribePortfolioShareStatus Prelude.Text
 describePortfolioShareStatus_portfolioShareToken = Lens.lens (\DescribePortfolioShareStatus' {portfolioShareToken} -> portfolioShareToken) (\s@DescribePortfolioShareStatus' {} a -> s {portfolioShareToken = a} :: DescribePortfolioShareStatus)
 
 instance Core.AWSRequest DescribePortfolioShareStatus where
@@ -93,64 +94,68 @@ instance Core.AWSRequest DescribePortfolioShareStatus where
     Response.receiveJSON
       ( \s h x ->
           DescribePortfolioShareStatusResponse'
-            Core.<$> (x Core..?> "ShareDetails")
-            Core.<*> (x Core..?> "Status")
-            Core.<*> (x Core..?> "PortfolioId")
-            Core.<*> (x Core..?> "PortfolioShareToken")
-            Core.<*> (x Core..?> "OrganizationNodeValue")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ShareDetails")
+            Prelude.<*> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "PortfolioId")
+            Prelude.<*> (x Core..?> "PortfolioShareToken")
+            Prelude.<*> (x Core..?> "OrganizationNodeValue")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribePortfolioShareStatus
+instance
+  Prelude.Hashable
+    DescribePortfolioShareStatus
 
-instance Core.NFData DescribePortfolioShareStatus
+instance Prelude.NFData DescribePortfolioShareStatus
 
 instance Core.ToHeaders DescribePortfolioShareStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.DescribePortfolioShareStatus" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribePortfolioShareStatus where
   toJSON DescribePortfolioShareStatus' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("PortfolioShareToken" Core..= portfolioShareToken)
           ]
       )
 
 instance Core.ToPath DescribePortfolioShareStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribePortfolioShareStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePortfolioShareStatusResponse' smart constructor.
 data DescribePortfolioShareStatusResponse = DescribePortfolioShareStatusResponse'
   { -- | Information about the portfolio share operation.
-    shareDetails :: Core.Maybe ShareDetails,
+    shareDetails :: Prelude.Maybe ShareDetails,
     -- | Status of the portfolio share operation.
-    status :: Core.Maybe ShareStatus,
+    status :: Prelude.Maybe ShareStatus,
     -- | The portfolio identifier.
-    portfolioId :: Core.Maybe Core.Text,
+    portfolioId :: Prelude.Maybe Prelude.Text,
     -- | The token for the portfolio share operation. For example,
     -- @share-6v24abcdefghi@.
-    portfolioShareToken :: Core.Maybe Core.Text,
+    portfolioShareToken :: Prelude.Maybe Prelude.Text,
     -- | Organization node identifier. It can be either account id,
     -- organizational unit id or organization id.
-    organizationNodeValue :: Core.Maybe Core.Text,
+    organizationNodeValue :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePortfolioShareStatusResponse' with all optional fields omitted.
@@ -175,45 +180,46 @@ data DescribePortfolioShareStatusResponse = DescribePortfolioShareStatusResponse
 -- 'httpStatus', 'describePortfolioShareStatusResponse_httpStatus' - The response's http status code.
 newDescribePortfolioShareStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribePortfolioShareStatusResponse
 newDescribePortfolioShareStatusResponse pHttpStatus_ =
   DescribePortfolioShareStatusResponse'
     { shareDetails =
-        Core.Nothing,
-      status = Core.Nothing,
-      portfolioId = Core.Nothing,
-      portfolioShareToken = Core.Nothing,
-      organizationNodeValue = Core.Nothing,
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      portfolioId = Prelude.Nothing,
+      portfolioShareToken = Prelude.Nothing,
+      organizationNodeValue =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the portfolio share operation.
-describePortfolioShareStatusResponse_shareDetails :: Lens.Lens' DescribePortfolioShareStatusResponse (Core.Maybe ShareDetails)
+describePortfolioShareStatusResponse_shareDetails :: Lens.Lens' DescribePortfolioShareStatusResponse (Prelude.Maybe ShareDetails)
 describePortfolioShareStatusResponse_shareDetails = Lens.lens (\DescribePortfolioShareStatusResponse' {shareDetails} -> shareDetails) (\s@DescribePortfolioShareStatusResponse' {} a -> s {shareDetails = a} :: DescribePortfolioShareStatusResponse)
 
 -- | Status of the portfolio share operation.
-describePortfolioShareStatusResponse_status :: Lens.Lens' DescribePortfolioShareStatusResponse (Core.Maybe ShareStatus)
+describePortfolioShareStatusResponse_status :: Lens.Lens' DescribePortfolioShareStatusResponse (Prelude.Maybe ShareStatus)
 describePortfolioShareStatusResponse_status = Lens.lens (\DescribePortfolioShareStatusResponse' {status} -> status) (\s@DescribePortfolioShareStatusResponse' {} a -> s {status = a} :: DescribePortfolioShareStatusResponse)
 
 -- | The portfolio identifier.
-describePortfolioShareStatusResponse_portfolioId :: Lens.Lens' DescribePortfolioShareStatusResponse (Core.Maybe Core.Text)
+describePortfolioShareStatusResponse_portfolioId :: Lens.Lens' DescribePortfolioShareStatusResponse (Prelude.Maybe Prelude.Text)
 describePortfolioShareStatusResponse_portfolioId = Lens.lens (\DescribePortfolioShareStatusResponse' {portfolioId} -> portfolioId) (\s@DescribePortfolioShareStatusResponse' {} a -> s {portfolioId = a} :: DescribePortfolioShareStatusResponse)
 
 -- | The token for the portfolio share operation. For example,
 -- @share-6v24abcdefghi@.
-describePortfolioShareStatusResponse_portfolioShareToken :: Lens.Lens' DescribePortfolioShareStatusResponse (Core.Maybe Core.Text)
+describePortfolioShareStatusResponse_portfolioShareToken :: Lens.Lens' DescribePortfolioShareStatusResponse (Prelude.Maybe Prelude.Text)
 describePortfolioShareStatusResponse_portfolioShareToken = Lens.lens (\DescribePortfolioShareStatusResponse' {portfolioShareToken} -> portfolioShareToken) (\s@DescribePortfolioShareStatusResponse' {} a -> s {portfolioShareToken = a} :: DescribePortfolioShareStatusResponse)
 
 -- | Organization node identifier. It can be either account id,
 -- organizational unit id or organization id.
-describePortfolioShareStatusResponse_organizationNodeValue :: Lens.Lens' DescribePortfolioShareStatusResponse (Core.Maybe Core.Text)
+describePortfolioShareStatusResponse_organizationNodeValue :: Lens.Lens' DescribePortfolioShareStatusResponse (Prelude.Maybe Prelude.Text)
 describePortfolioShareStatusResponse_organizationNodeValue = Lens.lens (\DescribePortfolioShareStatusResponse' {organizationNodeValue} -> organizationNodeValue) (\s@DescribePortfolioShareStatusResponse' {} a -> s {organizationNodeValue = a} :: DescribePortfolioShareStatusResponse)
 
 -- | The response's http status code.
-describePortfolioShareStatusResponse_httpStatus :: Lens.Lens' DescribePortfolioShareStatusResponse Core.Int
+describePortfolioShareStatusResponse_httpStatus :: Lens.Lens' DescribePortfolioShareStatusResponse Prelude.Int
 describePortfolioShareStatusResponse_httpStatus = Lens.lens (\DescribePortfolioShareStatusResponse' {httpStatus} -> httpStatus) (\s@DescribePortfolioShareStatusResponse' {} a -> s {httpStatus = a} :: DescribePortfolioShareStatusResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribePortfolioShareStatusResponse

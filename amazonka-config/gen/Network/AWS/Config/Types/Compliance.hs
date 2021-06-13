@@ -23,6 +23,7 @@ import Network.AWS.Config.Types.ComplianceContributorCount
 import Network.AWS.Config.Types.ComplianceType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether an AWS resource or AWS Config rule is compliant and
 -- provides the number of contributors that affect the compliance.
@@ -45,12 +46,12 @@ data Compliance = Compliance'
     -- For the @Compliance@ data type, AWS Config supports only @COMPLIANT@,
     -- @NON_COMPLIANT@, and @INSUFFICIENT_DATA@ values. AWS Config does not
     -- support the @NOT_APPLICABLE@ value for the @Compliance@ data type.
-    complianceType :: Core.Maybe ComplianceType,
+    complianceType :: Prelude.Maybe ComplianceType,
     -- | The number of AWS resources or AWS Config rules that cause a result of
     -- @NON_COMPLIANT@, up to a maximum number.
-    complianceContributorCount :: Core.Maybe ComplianceContributorCount
+    complianceContributorCount :: Prelude.Maybe ComplianceContributorCount
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Compliance' with all optional fields omitted.
@@ -83,8 +84,8 @@ newCompliance ::
   Compliance
 newCompliance =
   Compliance'
-    { complianceType = Core.Nothing,
-      complianceContributorCount = Core.Nothing
+    { complianceType = Prelude.Nothing,
+      complianceContributorCount = Prelude.Nothing
     }
 
 -- | Indicates whether an AWS resource or AWS Config rule is compliant.
@@ -103,12 +104,12 @@ newCompliance =
 -- For the @Compliance@ data type, AWS Config supports only @COMPLIANT@,
 -- @NON_COMPLIANT@, and @INSUFFICIENT_DATA@ values. AWS Config does not
 -- support the @NOT_APPLICABLE@ value for the @Compliance@ data type.
-compliance_complianceType :: Lens.Lens' Compliance (Core.Maybe ComplianceType)
+compliance_complianceType :: Lens.Lens' Compliance (Prelude.Maybe ComplianceType)
 compliance_complianceType = Lens.lens (\Compliance' {complianceType} -> complianceType) (\s@Compliance' {} a -> s {complianceType = a} :: Compliance)
 
 -- | The number of AWS resources or AWS Config rules that cause a result of
 -- @NON_COMPLIANT@, up to a maximum number.
-compliance_complianceContributorCount :: Lens.Lens' Compliance (Core.Maybe ComplianceContributorCount)
+compliance_complianceContributorCount :: Lens.Lens' Compliance (Prelude.Maybe ComplianceContributorCount)
 compliance_complianceContributorCount = Lens.lens (\Compliance' {complianceContributorCount} -> complianceContributorCount) (\s@Compliance' {} a -> s {complianceContributorCount = a} :: Compliance)
 
 instance Core.FromJSON Compliance where
@@ -117,10 +118,10 @@ instance Core.FromJSON Compliance where
       "Compliance"
       ( \x ->
           Compliance'
-            Core.<$> (x Core..:? "ComplianceType")
-            Core.<*> (x Core..:? "ComplianceContributorCount")
+            Prelude.<$> (x Core..:? "ComplianceType")
+            Prelude.<*> (x Core..:? "ComplianceContributorCount")
       )
 
-instance Core.Hashable Compliance
+instance Prelude.Hashable Compliance
 
-instance Core.NFData Compliance
+instance Prelude.NFData Compliance

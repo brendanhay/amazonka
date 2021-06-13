@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,11 +64,11 @@ data GetRelationalDatabaseParameters = GetRelationalDatabaseParameters'
     -- @GetRelationalDatabaseParameters@ request. If your results are
     -- paginated, the response will return a next page token that you can
     -- specify as the page token in a subsequent request.
-    pageToken :: Core.Maybe Core.Text,
+    pageToken :: Prelude.Maybe Prelude.Text,
     -- | The name of your database for which to get parameters.
-    relationalDatabaseName :: Core.Text
+    relationalDatabaseName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabaseParameters' with all optional fields omitted.
@@ -87,13 +88,13 @@ data GetRelationalDatabaseParameters = GetRelationalDatabaseParameters'
 -- 'relationalDatabaseName', 'getRelationalDatabaseParameters_relationalDatabaseName' - The name of your database for which to get parameters.
 newGetRelationalDatabaseParameters ::
   -- | 'relationalDatabaseName'
-  Core.Text ->
+  Prelude.Text ->
   GetRelationalDatabaseParameters
 newGetRelationalDatabaseParameters
   pRelationalDatabaseName_ =
     GetRelationalDatabaseParameters'
       { pageToken =
-          Core.Nothing,
+          Prelude.Nothing,
         relationalDatabaseName =
           pRelationalDatabaseName_
       }
@@ -104,11 +105,11 @@ newGetRelationalDatabaseParameters
 -- @GetRelationalDatabaseParameters@ request. If your results are
 -- paginated, the response will return a next page token that you can
 -- specify as the page token in a subsequent request.
-getRelationalDatabaseParameters_pageToken :: Lens.Lens' GetRelationalDatabaseParameters (Core.Maybe Core.Text)
+getRelationalDatabaseParameters_pageToken :: Lens.Lens' GetRelationalDatabaseParameters (Prelude.Maybe Prelude.Text)
 getRelationalDatabaseParameters_pageToken = Lens.lens (\GetRelationalDatabaseParameters' {pageToken} -> pageToken) (\s@GetRelationalDatabaseParameters' {} a -> s {pageToken = a} :: GetRelationalDatabaseParameters)
 
 -- | The name of your database for which to get parameters.
-getRelationalDatabaseParameters_relationalDatabaseName :: Lens.Lens' GetRelationalDatabaseParameters Core.Text
+getRelationalDatabaseParameters_relationalDatabaseName :: Lens.Lens' GetRelationalDatabaseParameters Prelude.Text
 getRelationalDatabaseParameters_relationalDatabaseName = Lens.lens (\GetRelationalDatabaseParameters' {relationalDatabaseName} -> relationalDatabaseName) (\s@GetRelationalDatabaseParameters' {} a -> s {relationalDatabaseName = a} :: GetRelationalDatabaseParameters)
 
 instance
@@ -119,22 +120,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? getRelationalDatabaseParametersResponse_nextPageToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getRelationalDatabaseParametersResponse_parameters
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getRelationalDatabaseParameters_pageToken
+          Prelude.& getRelationalDatabaseParameters_pageToken
           Lens..~ rs
           Lens.^? getRelationalDatabaseParametersResponse_nextPageToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -148,39 +149,43 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseParametersResponse'
-            Core.<$> (x Core..?> "nextPageToken")
-            Core.<*> (x Core..?> "parameters" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextPageToken")
+            Prelude.<*> (x Core..?> "parameters" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetRelationalDatabaseParameters
 
-instance Core.NFData GetRelationalDatabaseParameters
+instance
+  Prelude.NFData
+    GetRelationalDatabaseParameters
 
 instance
   Core.ToHeaders
     GetRelationalDatabaseParameters
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetRelationalDatabaseParameters" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetRelationalDatabaseParameters where
   toJSON GetRelationalDatabaseParameters' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("pageToken" Core..=) Core.<$> pageToken,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("pageToken" Core..=) Prelude.<$> pageToken,
+            Prelude.Just
               ( "relationalDatabaseName"
                   Core..= relationalDatabaseName
               )
@@ -188,10 +193,10 @@ instance Core.ToJSON GetRelationalDatabaseParameters where
       )
 
 instance Core.ToPath GetRelationalDatabaseParameters where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetRelationalDatabaseParameters where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRelationalDatabaseParametersResponse' smart constructor.
 data GetRelationalDatabaseParametersResponse = GetRelationalDatabaseParametersResponse'
@@ -203,14 +208,14 @@ data GetRelationalDatabaseParametersResponse = GetRelationalDatabaseParametersRe
     -- To get the next page of results, perform another
     -- @GetRelationalDatabaseParameters@ request and specify the next page
     -- token using the @pageToken@ parameter.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | An object describing the result of your get relational database
     -- parameters request.
-    parameters :: Core.Maybe [RelationalDatabaseParameter],
+    parameters :: Prelude.Maybe [RelationalDatabaseParameter],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabaseParametersResponse' with all optional fields omitted.
@@ -235,14 +240,14 @@ data GetRelationalDatabaseParametersResponse = GetRelationalDatabaseParametersRe
 -- 'httpStatus', 'getRelationalDatabaseParametersResponse_httpStatus' - The response's http status code.
 newGetRelationalDatabaseParametersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetRelationalDatabaseParametersResponse
 newGetRelationalDatabaseParametersResponse
   pHttpStatus_ =
     GetRelationalDatabaseParametersResponse'
       { nextPageToken =
-          Core.Nothing,
-        parameters = Core.Nothing,
+          Prelude.Nothing,
+        parameters = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -254,18 +259,18 @@ newGetRelationalDatabaseParametersResponse
 -- To get the next page of results, perform another
 -- @GetRelationalDatabaseParameters@ request and specify the next page
 -- token using the @pageToken@ parameter.
-getRelationalDatabaseParametersResponse_nextPageToken :: Lens.Lens' GetRelationalDatabaseParametersResponse (Core.Maybe Core.Text)
+getRelationalDatabaseParametersResponse_nextPageToken :: Lens.Lens' GetRelationalDatabaseParametersResponse (Prelude.Maybe Prelude.Text)
 getRelationalDatabaseParametersResponse_nextPageToken = Lens.lens (\GetRelationalDatabaseParametersResponse' {nextPageToken} -> nextPageToken) (\s@GetRelationalDatabaseParametersResponse' {} a -> s {nextPageToken = a} :: GetRelationalDatabaseParametersResponse)
 
 -- | An object describing the result of your get relational database
 -- parameters request.
-getRelationalDatabaseParametersResponse_parameters :: Lens.Lens' GetRelationalDatabaseParametersResponse (Core.Maybe [RelationalDatabaseParameter])
-getRelationalDatabaseParametersResponse_parameters = Lens.lens (\GetRelationalDatabaseParametersResponse' {parameters} -> parameters) (\s@GetRelationalDatabaseParametersResponse' {} a -> s {parameters = a} :: GetRelationalDatabaseParametersResponse) Core.. Lens.mapping Lens._Coerce
+getRelationalDatabaseParametersResponse_parameters :: Lens.Lens' GetRelationalDatabaseParametersResponse (Prelude.Maybe [RelationalDatabaseParameter])
+getRelationalDatabaseParametersResponse_parameters = Lens.lens (\GetRelationalDatabaseParametersResponse' {parameters} -> parameters) (\s@GetRelationalDatabaseParametersResponse' {} a -> s {parameters = a} :: GetRelationalDatabaseParametersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getRelationalDatabaseParametersResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseParametersResponse Core.Int
+getRelationalDatabaseParametersResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseParametersResponse Prelude.Int
 getRelationalDatabaseParametersResponse_httpStatus = Lens.lens (\GetRelationalDatabaseParametersResponse' {httpStatus} -> httpStatus) (\s@GetRelationalDatabaseParametersResponse' {} a -> s {httpStatus = a} :: GetRelationalDatabaseParametersResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetRelationalDatabaseParametersResponse

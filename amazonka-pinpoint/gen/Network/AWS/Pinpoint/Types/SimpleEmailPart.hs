@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.SimpleEmailPart where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the subject or body of an email message, represented as
 -- textual email data and the applicable character set.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSimpleEmailPart' smart constructor.
 data SimpleEmailPart = SimpleEmailPart'
   { -- | The textual data of the message content.
-    data' :: Core.Maybe Core.Text,
+    data' :: Prelude.Maybe Prelude.Text,
     -- | The applicable character set for the message content.
-    charset :: Core.Maybe Core.Text
+    charset :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SimpleEmailPart' with all optional fields omitted.
@@ -49,27 +50,27 @@ newSimpleEmailPart ::
   SimpleEmailPart
 newSimpleEmailPart =
   SimpleEmailPart'
-    { data' = Core.Nothing,
-      charset = Core.Nothing
+    { data' = Prelude.Nothing,
+      charset = Prelude.Nothing
     }
 
 -- | The textual data of the message content.
-simpleEmailPart_data :: Lens.Lens' SimpleEmailPart (Core.Maybe Core.Text)
+simpleEmailPart_data :: Lens.Lens' SimpleEmailPart (Prelude.Maybe Prelude.Text)
 simpleEmailPart_data = Lens.lens (\SimpleEmailPart' {data'} -> data') (\s@SimpleEmailPart' {} a -> s {data' = a} :: SimpleEmailPart)
 
 -- | The applicable character set for the message content.
-simpleEmailPart_charset :: Lens.Lens' SimpleEmailPart (Core.Maybe Core.Text)
+simpleEmailPart_charset :: Lens.Lens' SimpleEmailPart (Prelude.Maybe Prelude.Text)
 simpleEmailPart_charset = Lens.lens (\SimpleEmailPart' {charset} -> charset) (\s@SimpleEmailPart' {} a -> s {charset = a} :: SimpleEmailPart)
 
-instance Core.Hashable SimpleEmailPart
+instance Prelude.Hashable SimpleEmailPart
 
-instance Core.NFData SimpleEmailPart
+instance Prelude.NFData SimpleEmailPart
 
 instance Core.ToJSON SimpleEmailPart where
   toJSON SimpleEmailPart' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Data" Core..=) Core.<$> data',
-            ("Charset" Core..=) Core.<$> charset
+      ( Prelude.catMaybes
+          [ ("Data" Core..=) Prelude.<$> data',
+            ("Charset" Core..=) Prelude.<$> charset
           ]
       )

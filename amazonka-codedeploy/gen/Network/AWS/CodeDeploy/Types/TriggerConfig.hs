@@ -22,21 +22,22 @@ module Network.AWS.CodeDeploy.Types.TriggerConfig where
 import Network.AWS.CodeDeploy.Types.TriggerEventType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about notification triggers for the deployment group.
 --
 -- /See:/ 'newTriggerConfig' smart constructor.
 data TriggerConfig = TriggerConfig'
   { -- | The event type or types for which notifications are triggered.
-    triggerEvents :: Core.Maybe [TriggerEventType],
+    triggerEvents :: Prelude.Maybe [TriggerEventType],
     -- | The name of the notification trigger.
-    triggerName :: Core.Maybe Core.Text,
+    triggerName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
     -- topic through which notifications about deployment or instance events
     -- are sent.
-    triggerTargetArn :: Core.Maybe Core.Text
+    triggerTargetArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TriggerConfig' with all optional fields omitted.
@@ -57,23 +58,23 @@ newTriggerConfig ::
   TriggerConfig
 newTriggerConfig =
   TriggerConfig'
-    { triggerEvents = Core.Nothing,
-      triggerName = Core.Nothing,
-      triggerTargetArn = Core.Nothing
+    { triggerEvents = Prelude.Nothing,
+      triggerName = Prelude.Nothing,
+      triggerTargetArn = Prelude.Nothing
     }
 
 -- | The event type or types for which notifications are triggered.
-triggerConfig_triggerEvents :: Lens.Lens' TriggerConfig (Core.Maybe [TriggerEventType])
-triggerConfig_triggerEvents = Lens.lens (\TriggerConfig' {triggerEvents} -> triggerEvents) (\s@TriggerConfig' {} a -> s {triggerEvents = a} :: TriggerConfig) Core.. Lens.mapping Lens._Coerce
+triggerConfig_triggerEvents :: Lens.Lens' TriggerConfig (Prelude.Maybe [TriggerEventType])
+triggerConfig_triggerEvents = Lens.lens (\TriggerConfig' {triggerEvents} -> triggerEvents) (\s@TriggerConfig' {} a -> s {triggerEvents = a} :: TriggerConfig) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the notification trigger.
-triggerConfig_triggerName :: Lens.Lens' TriggerConfig (Core.Maybe Core.Text)
+triggerConfig_triggerName :: Lens.Lens' TriggerConfig (Prelude.Maybe Prelude.Text)
 triggerConfig_triggerName = Lens.lens (\TriggerConfig' {triggerName} -> triggerName) (\s@TriggerConfig' {} a -> s {triggerName = a} :: TriggerConfig)
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- topic through which notifications about deployment or instance events
 -- are sent.
-triggerConfig_triggerTargetArn :: Lens.Lens' TriggerConfig (Core.Maybe Core.Text)
+triggerConfig_triggerTargetArn :: Lens.Lens' TriggerConfig (Prelude.Maybe Prelude.Text)
 triggerConfig_triggerTargetArn = Lens.lens (\TriggerConfig' {triggerTargetArn} -> triggerTargetArn) (\s@TriggerConfig' {} a -> s {triggerTargetArn = a} :: TriggerConfig)
 
 instance Core.FromJSON TriggerConfig where
@@ -82,22 +83,22 @@ instance Core.FromJSON TriggerConfig where
       "TriggerConfig"
       ( \x ->
           TriggerConfig'
-            Core.<$> (x Core..:? "triggerEvents" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "triggerName")
-            Core.<*> (x Core..:? "triggerTargetArn")
+            Prelude.<$> (x Core..:? "triggerEvents" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "triggerName")
+            Prelude.<*> (x Core..:? "triggerTargetArn")
       )
 
-instance Core.Hashable TriggerConfig
+instance Prelude.Hashable TriggerConfig
 
-instance Core.NFData TriggerConfig
+instance Prelude.NFData TriggerConfig
 
 instance Core.ToJSON TriggerConfig where
   toJSON TriggerConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("triggerEvents" Core..=) Core.<$> triggerEvents,
-            ("triggerName" Core..=) Core.<$> triggerName,
+      ( Prelude.catMaybes
+          [ ("triggerEvents" Core..=) Prelude.<$> triggerEvents,
+            ("triggerName" Core..=) Prelude.<$> triggerName,
             ("triggerTargetArn" Core..=)
-              Core.<$> triggerTargetArn
+              Prelude.<$> triggerTargetArn
           ]
       )

@@ -66,6 +66,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -80,25 +81,25 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
     -- domains) or for our registrar associate, Gandi (for all other TLDs). If
     -- you specify @false@, WHOIS queries return the information that you
     -- entered for the admin contact.
-    adminPrivacy :: Core.Maybe Core.Bool,
+    adminPrivacy :: Prelude.Maybe Prelude.Bool,
     -- | Whether you want to conceal contact information from WHOIS queries. If
     -- you specify @true@, WHOIS (\"who is\") queries return contact
     -- information either for Amazon Registrar (for .com, .net, and .org
     -- domains) or for our registrar associate, Gandi (for all other TLDs). If
     -- you specify @false@, WHOIS queries return the information that you
     -- entered for the technical contact.
-    techPrivacy :: Core.Maybe Core.Bool,
+    techPrivacy :: Prelude.Maybe Prelude.Bool,
     -- | Whether you want to conceal contact information from WHOIS queries. If
     -- you specify @true@, WHOIS (\"who is\") queries return contact
     -- information either for Amazon Registrar (for .com, .net, and .org
     -- domains) or for our registrar associate, Gandi (for all other TLDs). If
     -- you specify @false@, WHOIS queries return the information that you
     -- entered for the registrant contact (domain owner).
-    registrantPrivacy :: Core.Maybe Core.Bool,
+    registrantPrivacy :: Prelude.Maybe Prelude.Bool,
     -- | The name of the domain that you want to update the privacy setting for.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDomainContactPrivacy' with all optional fields omitted.
@@ -132,14 +133,14 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
 -- 'domainName', 'updateDomainContactPrivacy_domainName' - The name of the domain that you want to update the privacy setting for.
 newUpdateDomainContactPrivacy ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateDomainContactPrivacy
 newUpdateDomainContactPrivacy pDomainName_ =
   UpdateDomainContactPrivacy'
     { adminPrivacy =
-        Core.Nothing,
-      techPrivacy = Core.Nothing,
-      registrantPrivacy = Core.Nothing,
+        Prelude.Nothing,
+      techPrivacy = Prelude.Nothing,
+      registrantPrivacy = Prelude.Nothing,
       domainName = pDomainName_
     }
 
@@ -149,7 +150,7 @@ newUpdateDomainContactPrivacy pDomainName_ =
 -- domains) or for our registrar associate, Gandi (for all other TLDs). If
 -- you specify @false@, WHOIS queries return the information that you
 -- entered for the admin contact.
-updateDomainContactPrivacy_adminPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Core.Maybe Core.Bool)
+updateDomainContactPrivacy_adminPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Prelude.Maybe Prelude.Bool)
 updateDomainContactPrivacy_adminPrivacy = Lens.lens (\UpdateDomainContactPrivacy' {adminPrivacy} -> adminPrivacy) (\s@UpdateDomainContactPrivacy' {} a -> s {adminPrivacy = a} :: UpdateDomainContactPrivacy)
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -158,7 +159,7 @@ updateDomainContactPrivacy_adminPrivacy = Lens.lens (\UpdateDomainContactPrivacy
 -- domains) or for our registrar associate, Gandi (for all other TLDs). If
 -- you specify @false@, WHOIS queries return the information that you
 -- entered for the technical contact.
-updateDomainContactPrivacy_techPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Core.Maybe Core.Bool)
+updateDomainContactPrivacy_techPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Prelude.Maybe Prelude.Bool)
 updateDomainContactPrivacy_techPrivacy = Lens.lens (\UpdateDomainContactPrivacy' {techPrivacy} -> techPrivacy) (\s@UpdateDomainContactPrivacy' {} a -> s {techPrivacy = a} :: UpdateDomainContactPrivacy)
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -167,11 +168,11 @@ updateDomainContactPrivacy_techPrivacy = Lens.lens (\UpdateDomainContactPrivacy'
 -- domains) or for our registrar associate, Gandi (for all other TLDs). If
 -- you specify @false@, WHOIS queries return the information that you
 -- entered for the registrant contact (domain owner).
-updateDomainContactPrivacy_registrantPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Core.Maybe Core.Bool)
+updateDomainContactPrivacy_registrantPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Prelude.Maybe Prelude.Bool)
 updateDomainContactPrivacy_registrantPrivacy = Lens.lens (\UpdateDomainContactPrivacy' {registrantPrivacy} -> registrantPrivacy) (\s@UpdateDomainContactPrivacy' {} a -> s {registrantPrivacy = a} :: UpdateDomainContactPrivacy)
 
 -- | The name of the domain that you want to update the privacy setting for.
-updateDomainContactPrivacy_domainName :: Lens.Lens' UpdateDomainContactPrivacy Core.Text
+updateDomainContactPrivacy_domainName :: Lens.Lens' UpdateDomainContactPrivacy Prelude.Text
 updateDomainContactPrivacy_domainName = Lens.lens (\UpdateDomainContactPrivacy' {domainName} -> domainName) (\s@UpdateDomainContactPrivacy' {} a -> s {domainName = a} :: UpdateDomainContactPrivacy)
 
 instance Core.AWSRequest UpdateDomainContactPrivacy where
@@ -183,56 +184,58 @@ instance Core.AWSRequest UpdateDomainContactPrivacy where
     Response.receiveJSON
       ( \s h x ->
           UpdateDomainContactPrivacyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "OperationId")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "OperationId")
       )
 
-instance Core.Hashable UpdateDomainContactPrivacy
+instance Prelude.Hashable UpdateDomainContactPrivacy
 
-instance Core.NFData UpdateDomainContactPrivacy
+instance Prelude.NFData UpdateDomainContactPrivacy
 
 instance Core.ToHeaders UpdateDomainContactPrivacy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53Domains_v20140515.UpdateDomainContactPrivacy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateDomainContactPrivacy where
   toJSON UpdateDomainContactPrivacy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AdminPrivacy" Core..=) Core.<$> adminPrivacy,
-            ("TechPrivacy" Core..=) Core.<$> techPrivacy,
+      ( Prelude.catMaybes
+          [ ("AdminPrivacy" Core..=) Prelude.<$> adminPrivacy,
+            ("TechPrivacy" Core..=) Prelude.<$> techPrivacy,
             ("RegistrantPrivacy" Core..=)
-              Core.<$> registrantPrivacy,
-            Core.Just ("DomainName" Core..= domainName)
+              Prelude.<$> registrantPrivacy,
+            Prelude.Just ("DomainName" Core..= domainName)
           ]
       )
 
 instance Core.ToPath UpdateDomainContactPrivacy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateDomainContactPrivacy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The UpdateDomainContactPrivacy response includes the following element.
 --
 -- /See:/ 'newUpdateDomainContactPrivacyResponse' smart constructor.
 data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Identifier for tracking the progress of the request. To use this ID to
     -- query the operation status, use GetOperationDetail.
-    operationId :: Core.Text
+    operationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDomainContactPrivacyResponse' with all optional fields omitted.
@@ -248,9 +251,9 @@ data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'
 -- query the operation status, use GetOperationDetail.
 newUpdateDomainContactPrivacyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'operationId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateDomainContactPrivacyResponse
 newUpdateDomainContactPrivacyResponse
   pHttpStatus_
@@ -262,14 +265,14 @@ newUpdateDomainContactPrivacyResponse
       }
 
 -- | The response's http status code.
-updateDomainContactPrivacyResponse_httpStatus :: Lens.Lens' UpdateDomainContactPrivacyResponse Core.Int
+updateDomainContactPrivacyResponse_httpStatus :: Lens.Lens' UpdateDomainContactPrivacyResponse Prelude.Int
 updateDomainContactPrivacyResponse_httpStatus = Lens.lens (\UpdateDomainContactPrivacyResponse' {httpStatus} -> httpStatus) (\s@UpdateDomainContactPrivacyResponse' {} a -> s {httpStatus = a} :: UpdateDomainContactPrivacyResponse)
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
-updateDomainContactPrivacyResponse_operationId :: Lens.Lens' UpdateDomainContactPrivacyResponse Core.Text
+updateDomainContactPrivacyResponse_operationId :: Lens.Lens' UpdateDomainContactPrivacyResponse Prelude.Text
 updateDomainContactPrivacyResponse_operationId = Lens.lens (\UpdateDomainContactPrivacyResponse' {operationId} -> operationId) (\s@UpdateDomainContactPrivacyResponse' {} a -> s {operationId = a} :: UpdateDomainContactPrivacyResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateDomainContactPrivacyResponse

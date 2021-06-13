@@ -51,20 +51,21 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSetInstanceProtection' smart constructor.
 data SetInstanceProtection = SetInstanceProtection'
   { -- | One or more instance IDs. You can specify up to 50 instances.
-    instanceIds :: [Core.Text],
+    instanceIds :: [Prelude.Text],
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Core.Text,
+    autoScalingGroupName :: Prelude.Text,
     -- | Indicates whether the instance is protected from termination by Amazon
     -- EC2 Auto Scaling when scaling in.
-    protectedFromScaleIn :: Core.Bool
+    protectedFromScaleIn :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetInstanceProtection' with all optional fields omitted.
@@ -82,30 +83,31 @@ data SetInstanceProtection = SetInstanceProtection'
 -- EC2 Auto Scaling when scaling in.
 newSetInstanceProtection ::
   -- | 'autoScalingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'protectedFromScaleIn'
-  Core.Bool ->
+  Prelude.Bool ->
   SetInstanceProtection
 newSetInstanceProtection
   pAutoScalingGroupName_
   pProtectedFromScaleIn_ =
     SetInstanceProtection'
-      { instanceIds = Core.mempty,
+      { instanceIds =
+          Prelude.mempty,
         autoScalingGroupName = pAutoScalingGroupName_,
         protectedFromScaleIn = pProtectedFromScaleIn_
       }
 
 -- | One or more instance IDs. You can specify up to 50 instances.
-setInstanceProtection_instanceIds :: Lens.Lens' SetInstanceProtection [Core.Text]
-setInstanceProtection_instanceIds = Lens.lens (\SetInstanceProtection' {instanceIds} -> instanceIds) (\s@SetInstanceProtection' {} a -> s {instanceIds = a} :: SetInstanceProtection) Core.. Lens._Coerce
+setInstanceProtection_instanceIds :: Lens.Lens' SetInstanceProtection [Prelude.Text]
+setInstanceProtection_instanceIds = Lens.lens (\SetInstanceProtection' {instanceIds} -> instanceIds) (\s@SetInstanceProtection' {} a -> s {instanceIds = a} :: SetInstanceProtection) Prelude.. Lens._Coerce
 
 -- | The name of the Auto Scaling group.
-setInstanceProtection_autoScalingGroupName :: Lens.Lens' SetInstanceProtection Core.Text
+setInstanceProtection_autoScalingGroupName :: Lens.Lens' SetInstanceProtection Prelude.Text
 setInstanceProtection_autoScalingGroupName = Lens.lens (\SetInstanceProtection' {autoScalingGroupName} -> autoScalingGroupName) (\s@SetInstanceProtection' {} a -> s {autoScalingGroupName = a} :: SetInstanceProtection)
 
 -- | Indicates whether the instance is protected from termination by Amazon
 -- EC2 Auto Scaling when scaling in.
-setInstanceProtection_protectedFromScaleIn :: Lens.Lens' SetInstanceProtection Core.Bool
+setInstanceProtection_protectedFromScaleIn :: Lens.Lens' SetInstanceProtection Prelude.Bool
 setInstanceProtection_protectedFromScaleIn = Lens.lens (\SetInstanceProtection' {protectedFromScaleIn} -> protectedFromScaleIn) (\s@SetInstanceProtection' {} a -> s {protectedFromScaleIn = a} :: SetInstanceProtection)
 
 instance Core.AWSRequest SetInstanceProtection where
@@ -118,25 +120,26 @@ instance Core.AWSRequest SetInstanceProtection where
       "SetInstanceProtectionResult"
       ( \s h x ->
           SetInstanceProtectionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SetInstanceProtection
+instance Prelude.Hashable SetInstanceProtection
 
-instance Core.NFData SetInstanceProtection
+instance Prelude.NFData SetInstanceProtection
 
 instance Core.ToHeaders SetInstanceProtection where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SetInstanceProtection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetInstanceProtection where
   toQuery SetInstanceProtection' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("SetInstanceProtection" :: Core.ByteString),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+          Core.=: ("SetInstanceProtection" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "InstanceIds"
           Core.=: Core.toQueryList "member" instanceIds,
         "AutoScalingGroupName" Core.=: autoScalingGroupName,
@@ -146,9 +149,9 @@ instance Core.ToQuery SetInstanceProtection where
 -- | /See:/ 'newSetInstanceProtectionResponse' smart constructor.
 data SetInstanceProtectionResponse = SetInstanceProtectionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetInstanceProtectionResponse' with all optional fields omitted.
@@ -161,7 +164,7 @@ data SetInstanceProtectionResponse = SetInstanceProtectionResponse'
 -- 'httpStatus', 'setInstanceProtectionResponse_httpStatus' - The response's http status code.
 newSetInstanceProtectionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SetInstanceProtectionResponse
 newSetInstanceProtectionResponse pHttpStatus_ =
   SetInstanceProtectionResponse'
@@ -170,7 +173,7 @@ newSetInstanceProtectionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-setInstanceProtectionResponse_httpStatus :: Lens.Lens' SetInstanceProtectionResponse Core.Int
+setInstanceProtectionResponse_httpStatus :: Lens.Lens' SetInstanceProtectionResponse Prelude.Int
 setInstanceProtectionResponse_httpStatus = Lens.lens (\SetInstanceProtectionResponse' {httpStatus} -> httpStatus) (\s@SetInstanceProtectionResponse' {} a -> s {httpStatus = a} :: SetInstanceProtectionResponse)
 
-instance Core.NFData SetInstanceProtectionResponse
+instance Prelude.NFData SetInstanceProtectionResponse

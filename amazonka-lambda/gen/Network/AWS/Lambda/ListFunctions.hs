@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,17 +63,17 @@ data ListFunctions = ListFunctions'
     -- example, @us-east-1@ filters the list of functions to only include
     -- Lambda\@Edge functions replicated from a master function in US East (N.
     -- Virginia). If specified, you must set @FunctionVersion@ to @ALL@.
-    masterRegion :: Core.Maybe Core.Text,
+    masterRegion :: Prelude.Maybe Prelude.Text,
     -- | Set to @ALL@ to include entries for all published versions of each
     -- function.
-    functionVersion :: Core.Maybe FunctionVersion,
+    functionVersion :: Prelude.Maybe FunctionVersion,
     -- | The maximum number of functions to return.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Specify the pagination token that\'s returned by a previous request to
     -- retrieve the next page of results.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListFunctions' with all optional fields omitted.
@@ -98,51 +99,52 @@ newListFunctions ::
   ListFunctions
 newListFunctions =
   ListFunctions'
-    { masterRegion = Core.Nothing,
-      functionVersion = Core.Nothing,
-      maxItems = Core.Nothing,
-      marker = Core.Nothing
+    { masterRegion = Prelude.Nothing,
+      functionVersion = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | For Lambda\@Edge functions, the AWS Region of the master function. For
 -- example, @us-east-1@ filters the list of functions to only include
 -- Lambda\@Edge functions replicated from a master function in US East (N.
 -- Virginia). If specified, you must set @FunctionVersion@ to @ALL@.
-listFunctions_masterRegion :: Lens.Lens' ListFunctions (Core.Maybe Core.Text)
+listFunctions_masterRegion :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Text)
 listFunctions_masterRegion = Lens.lens (\ListFunctions' {masterRegion} -> masterRegion) (\s@ListFunctions' {} a -> s {masterRegion = a} :: ListFunctions)
 
 -- | Set to @ALL@ to include entries for all published versions of each
 -- function.
-listFunctions_functionVersion :: Lens.Lens' ListFunctions (Core.Maybe FunctionVersion)
+listFunctions_functionVersion :: Lens.Lens' ListFunctions (Prelude.Maybe FunctionVersion)
 listFunctions_functionVersion = Lens.lens (\ListFunctions' {functionVersion} -> functionVersion) (\s@ListFunctions' {} a -> s {functionVersion = a} :: ListFunctions)
 
 -- | The maximum number of functions to return.
-listFunctions_maxItems :: Lens.Lens' ListFunctions (Core.Maybe Core.Natural)
+listFunctions_maxItems :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Natural)
 listFunctions_maxItems = Lens.lens (\ListFunctions' {maxItems} -> maxItems) (\s@ListFunctions' {} a -> s {maxItems = a} :: ListFunctions)
 
 -- | Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
-listFunctions_marker :: Lens.Lens' ListFunctions (Core.Maybe Core.Text)
+listFunctions_marker :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Text)
 listFunctions_marker = Lens.lens (\ListFunctions' {marker} -> marker) (\s@ListFunctions' {} a -> s {marker = a} :: ListFunctions)
 
 instance Core.AWSPager ListFunctions where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listFunctionsResponse_nextMarker Core.. Lens._Just
+            Lens.^? listFunctionsResponse_nextMarker
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listFunctionsResponse_functions Core.. Lens._Just
+            Lens.^? listFunctionsResponse_functions Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listFunctions_marker
+          Prelude.& listFunctions_marker
           Lens..~ rs
-          Lens.^? listFunctionsResponse_nextMarker Core.. Lens._Just
+          Lens.^? listFunctionsResponse_nextMarker Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFunctions where
   type
@@ -153,24 +155,24 @@ instance Core.AWSRequest ListFunctions where
     Response.receiveJSON
       ( \s h x ->
           ListFunctionsResponse'
-            Core.<$> (x Core..?> "Functions" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "NextMarker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Functions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListFunctions
+instance Prelude.Hashable ListFunctions
 
-instance Core.NFData ListFunctions
+instance Prelude.NFData ListFunctions
 
 instance Core.ToHeaders ListFunctions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListFunctions where
-  toPath = Core.const "/2015-03-31/functions/"
+  toPath = Prelude.const "/2015-03-31/functions/"
 
 instance Core.ToQuery ListFunctions where
   toQuery ListFunctions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "MasterRegion" Core.=: masterRegion,
         "FunctionVersion" Core.=: functionVersion,
         "MaxItems" Core.=: maxItems,
@@ -182,13 +184,13 @@ instance Core.ToQuery ListFunctions where
 -- /See:/ 'newListFunctionsResponse' smart constructor.
 data ListFunctionsResponse = ListFunctionsResponse'
   { -- | A list of Lambda functions.
-    functions :: Core.Maybe [FunctionConfiguration],
+    functions :: Prelude.Maybe [FunctionConfiguration],
     -- | The pagination token that\'s included if more results are available.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListFunctionsResponse' with all optional fields omitted.
@@ -205,25 +207,25 @@ data ListFunctionsResponse = ListFunctionsResponse'
 -- 'httpStatus', 'listFunctionsResponse_httpStatus' - The response's http status code.
 newListFunctionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListFunctionsResponse
 newListFunctionsResponse pHttpStatus_ =
   ListFunctionsResponse'
-    { functions = Core.Nothing,
-      nextMarker = Core.Nothing,
+    { functions = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of Lambda functions.
-listFunctionsResponse_functions :: Lens.Lens' ListFunctionsResponse (Core.Maybe [FunctionConfiguration])
-listFunctionsResponse_functions = Lens.lens (\ListFunctionsResponse' {functions} -> functions) (\s@ListFunctionsResponse' {} a -> s {functions = a} :: ListFunctionsResponse) Core.. Lens.mapping Lens._Coerce
+listFunctionsResponse_functions :: Lens.Lens' ListFunctionsResponse (Prelude.Maybe [FunctionConfiguration])
+listFunctionsResponse_functions = Lens.lens (\ListFunctionsResponse' {functions} -> functions) (\s@ListFunctionsResponse' {} a -> s {functions = a} :: ListFunctionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token that\'s included if more results are available.
-listFunctionsResponse_nextMarker :: Lens.Lens' ListFunctionsResponse (Core.Maybe Core.Text)
+listFunctionsResponse_nextMarker :: Lens.Lens' ListFunctionsResponse (Prelude.Maybe Prelude.Text)
 listFunctionsResponse_nextMarker = Lens.lens (\ListFunctionsResponse' {nextMarker} -> nextMarker) (\s@ListFunctionsResponse' {} a -> s {nextMarker = a} :: ListFunctionsResponse)
 
 -- | The response's http status code.
-listFunctionsResponse_httpStatus :: Lens.Lens' ListFunctionsResponse Core.Int
+listFunctionsResponse_httpStatus :: Lens.Lens' ListFunctionsResponse Prelude.Int
 listFunctionsResponse_httpStatus = Lens.lens (\ListFunctionsResponse' {httpStatus} -> httpStatus) (\s@ListFunctionsResponse' {} a -> s {httpStatus = a} :: ListFunctionsResponse)
 
-instance Core.NFData ListFunctionsResponse
+instance Prelude.NFData ListFunctionsResponse

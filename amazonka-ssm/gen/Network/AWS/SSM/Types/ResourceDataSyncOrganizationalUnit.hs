@@ -21,15 +21,16 @@ module Network.AWS.SSM.Types.ResourceDataSyncOrganizationalUnit where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The AWS Organizations organizational unit data source for the sync.
 --
 -- /See:/ 'newResourceDataSyncOrganizationalUnit' smart constructor.
 data ResourceDataSyncOrganizationalUnit = ResourceDataSyncOrganizationalUnit'
   { -- | The AWS Organization unit ID data source for the sync.
-    organizationalUnitId :: Core.Maybe Core.Text
+    organizationalUnitId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceDataSyncOrganizationalUnit' with all optional fields omitted.
@@ -45,11 +46,11 @@ newResourceDataSyncOrganizationalUnit ::
 newResourceDataSyncOrganizationalUnit =
   ResourceDataSyncOrganizationalUnit'
     { organizationalUnitId =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The AWS Organization unit ID data source for the sync.
-resourceDataSyncOrganizationalUnit_organizationalUnitId :: Lens.Lens' ResourceDataSyncOrganizationalUnit (Core.Maybe Core.Text)
+resourceDataSyncOrganizationalUnit_organizationalUnitId :: Lens.Lens' ResourceDataSyncOrganizationalUnit (Prelude.Maybe Prelude.Text)
 resourceDataSyncOrganizationalUnit_organizationalUnitId = Lens.lens (\ResourceDataSyncOrganizationalUnit' {organizationalUnitId} -> organizationalUnitId) (\s@ResourceDataSyncOrganizationalUnit' {} a -> s {organizationalUnitId = a} :: ResourceDataSyncOrganizationalUnit)
 
 instance
@@ -61,15 +62,15 @@ instance
       "ResourceDataSyncOrganizationalUnit"
       ( \x ->
           ResourceDataSyncOrganizationalUnit'
-            Core.<$> (x Core..:? "OrganizationalUnitId")
+            Prelude.<$> (x Core..:? "OrganizationalUnitId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ResourceDataSyncOrganizationalUnit
 
 instance
-  Core.NFData
+  Prelude.NFData
     ResourceDataSyncOrganizationalUnit
 
 instance
@@ -78,8 +79,8 @@ instance
   where
   toJSON ResourceDataSyncOrganizationalUnit' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("OrganizationalUnitId" Core..=)
-              Core.<$> organizationalUnitId
+              Prelude.<$> organizationalUnitId
           ]
       )

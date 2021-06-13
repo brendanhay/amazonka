@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.GeoLocationDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 
 -- | A complex type that contains the codes and full continent, country, and
@@ -29,11 +30,11 @@ import Network.AWS.Route53.Internal
 -- /See:/ 'newGeoLocationDetails' smart constructor.
 data GeoLocationDetails = GeoLocationDetails'
   { -- | The name of the country.
-    countryName :: Core.Maybe Core.Text,
+    countryName :: Prelude.Maybe Prelude.Text,
     -- | The full name of the continent.
-    continentName :: Core.Maybe Core.Text,
+    continentName :: Prelude.Maybe Prelude.Text,
     -- | The two-letter code for the continent.
-    continentCode :: Core.Maybe Core.Text,
+    continentCode :: Prelude.Maybe Prelude.Text,
     -- | The code for the subdivision, such as a particular state within the
     -- United States. For a list of US state abbreviations, see
     -- <https://pe.usps.com/text/pub28/28apb.htm Appendix B: Two–Letter State and Possession Abbreviations>
@@ -41,14 +42,14 @@ data GeoLocationDetails = GeoLocationDetails'
     -- subdivision codes, use the
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html ListGeoLocations>
     -- API.
-    subdivisionCode :: Core.Maybe Core.Text,
+    subdivisionCode :: Prelude.Maybe Prelude.Text,
     -- | The two-letter code for the country.
-    countryCode :: Core.Maybe Core.Text,
+    countryCode :: Prelude.Maybe Prelude.Text,
     -- | The full name of the subdivision. Route 53 currently supports only
     -- states in the United States.
-    subdivisionName :: Core.Maybe Core.Text
+    subdivisionName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GeoLocationDetails' with all optional fields omitted.
@@ -80,24 +81,24 @@ newGeoLocationDetails ::
   GeoLocationDetails
 newGeoLocationDetails =
   GeoLocationDetails'
-    { countryName = Core.Nothing,
-      continentName = Core.Nothing,
-      continentCode = Core.Nothing,
-      subdivisionCode = Core.Nothing,
-      countryCode = Core.Nothing,
-      subdivisionName = Core.Nothing
+    { countryName = Prelude.Nothing,
+      continentName = Prelude.Nothing,
+      continentCode = Prelude.Nothing,
+      subdivisionCode = Prelude.Nothing,
+      countryCode = Prelude.Nothing,
+      subdivisionName = Prelude.Nothing
     }
 
 -- | The name of the country.
-geoLocationDetails_countryName :: Lens.Lens' GeoLocationDetails (Core.Maybe Core.Text)
+geoLocationDetails_countryName :: Lens.Lens' GeoLocationDetails (Prelude.Maybe Prelude.Text)
 geoLocationDetails_countryName = Lens.lens (\GeoLocationDetails' {countryName} -> countryName) (\s@GeoLocationDetails' {} a -> s {countryName = a} :: GeoLocationDetails)
 
 -- | The full name of the continent.
-geoLocationDetails_continentName :: Lens.Lens' GeoLocationDetails (Core.Maybe Core.Text)
+geoLocationDetails_continentName :: Lens.Lens' GeoLocationDetails (Prelude.Maybe Prelude.Text)
 geoLocationDetails_continentName = Lens.lens (\GeoLocationDetails' {continentName} -> continentName) (\s@GeoLocationDetails' {} a -> s {continentName = a} :: GeoLocationDetails)
 
 -- | The two-letter code for the continent.
-geoLocationDetails_continentCode :: Lens.Lens' GeoLocationDetails (Core.Maybe Core.Text)
+geoLocationDetails_continentCode :: Lens.Lens' GeoLocationDetails (Prelude.Maybe Prelude.Text)
 geoLocationDetails_continentCode = Lens.lens (\GeoLocationDetails' {continentCode} -> continentCode) (\s@GeoLocationDetails' {} a -> s {continentCode = a} :: GeoLocationDetails)
 
 -- | The code for the subdivision, such as a particular state within the
@@ -107,28 +108,28 @@ geoLocationDetails_continentCode = Lens.lens (\GeoLocationDetails' {continentCod
 -- subdivision codes, use the
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html ListGeoLocations>
 -- API.
-geoLocationDetails_subdivisionCode :: Lens.Lens' GeoLocationDetails (Core.Maybe Core.Text)
+geoLocationDetails_subdivisionCode :: Lens.Lens' GeoLocationDetails (Prelude.Maybe Prelude.Text)
 geoLocationDetails_subdivisionCode = Lens.lens (\GeoLocationDetails' {subdivisionCode} -> subdivisionCode) (\s@GeoLocationDetails' {} a -> s {subdivisionCode = a} :: GeoLocationDetails)
 
 -- | The two-letter code for the country.
-geoLocationDetails_countryCode :: Lens.Lens' GeoLocationDetails (Core.Maybe Core.Text)
+geoLocationDetails_countryCode :: Lens.Lens' GeoLocationDetails (Prelude.Maybe Prelude.Text)
 geoLocationDetails_countryCode = Lens.lens (\GeoLocationDetails' {countryCode} -> countryCode) (\s@GeoLocationDetails' {} a -> s {countryCode = a} :: GeoLocationDetails)
 
 -- | The full name of the subdivision. Route 53 currently supports only
 -- states in the United States.
-geoLocationDetails_subdivisionName :: Lens.Lens' GeoLocationDetails (Core.Maybe Core.Text)
+geoLocationDetails_subdivisionName :: Lens.Lens' GeoLocationDetails (Prelude.Maybe Prelude.Text)
 geoLocationDetails_subdivisionName = Lens.lens (\GeoLocationDetails' {subdivisionName} -> subdivisionName) (\s@GeoLocationDetails' {} a -> s {subdivisionName = a} :: GeoLocationDetails)
 
 instance Core.FromXML GeoLocationDetails where
   parseXML x =
     GeoLocationDetails'
-      Core.<$> (x Core..@? "CountryName")
-      Core.<*> (x Core..@? "ContinentName")
-      Core.<*> (x Core..@? "ContinentCode")
-      Core.<*> (x Core..@? "SubdivisionCode")
-      Core.<*> (x Core..@? "CountryCode")
-      Core.<*> (x Core..@? "SubdivisionName")
+      Prelude.<$> (x Core..@? "CountryName")
+      Prelude.<*> (x Core..@? "ContinentName")
+      Prelude.<*> (x Core..@? "ContinentCode")
+      Prelude.<*> (x Core..@? "SubdivisionCode")
+      Prelude.<*> (x Core..@? "CountryCode")
+      Prelude.<*> (x Core..@? "SubdivisionName")
 
-instance Core.Hashable GeoLocationDetails
+instance Prelude.Hashable GeoLocationDetails
 
-instance Core.NFData GeoLocationDetails
+instance Prelude.NFData GeoLocationDetails

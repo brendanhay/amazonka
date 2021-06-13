@@ -43,15 +43,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteContainer' smart constructor.
 data DeleteContainer = DeleteContainer'
   { -- | The name of the container to delete.
-    containerName :: Core.Text
+    containerName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteContainer' with all optional fields omitted.
@@ -64,13 +65,13 @@ data DeleteContainer = DeleteContainer'
 -- 'containerName', 'deleteContainer_containerName' - The name of the container to delete.
 newDeleteContainer ::
   -- | 'containerName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteContainer
 newDeleteContainer pContainerName_ =
   DeleteContainer' {containerName = pContainerName_}
 
 -- | The name of the container to delete.
-deleteContainer_containerName :: Lens.Lens' DeleteContainer Core.Text
+deleteContainer_containerName :: Lens.Lens' DeleteContainer Prelude.Text
 deleteContainer_containerName = Lens.lens (\DeleteContainer' {containerName} -> containerName) (\s@DeleteContainer' {} a -> s {containerName = a} :: DeleteContainer)
 
 instance Core.AWSRequest DeleteContainer where
@@ -82,45 +83,49 @@ instance Core.AWSRequest DeleteContainer where
     Response.receiveEmpty
       ( \s h x ->
           DeleteContainerResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteContainer
+instance Prelude.Hashable DeleteContainer
 
-instance Core.NFData DeleteContainer
+instance Prelude.NFData DeleteContainer
 
 instance Core.ToHeaders DeleteContainer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MediaStore_20170901.DeleteContainer" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteContainer where
   toJSON DeleteContainer' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ContainerName" Core..= containerName)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ContainerName" Core..= containerName)
+          ]
       )
 
 instance Core.ToPath DeleteContainer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteContainer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteContainerResponse' smart constructor.
 data DeleteContainerResponse = DeleteContainerResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteContainerResponse' with all optional fields omitted.
@@ -133,13 +138,13 @@ data DeleteContainerResponse = DeleteContainerResponse'
 -- 'httpStatus', 'deleteContainerResponse_httpStatus' - The response's http status code.
 newDeleteContainerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteContainerResponse
 newDeleteContainerResponse pHttpStatus_ =
   DeleteContainerResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteContainerResponse_httpStatus :: Lens.Lens' DeleteContainerResponse Core.Int
+deleteContainerResponse_httpStatus :: Lens.Lens' DeleteContainerResponse Prelude.Int
 deleteContainerResponse_httpStatus = Lens.lens (\DeleteContainerResponse' {httpStatus} -> httpStatus) (\s@DeleteContainerResponse' {} a -> s {httpStatus = a} :: DeleteContainerResponse)
 
-instance Core.NFData DeleteContainerResponse
+instance Prelude.NFData DeleteContainerResponse

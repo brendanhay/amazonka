@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificParameter
 import Network.AWS.ElastiCache.Types.Parameter
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a @DescribeEngineDefaultParameters@ operation.
 --
@@ -30,20 +31,20 @@ import qualified Network.AWS.Lens as Lens
 data EngineDefaults = EngineDefaults'
   { -- | A list of parameters specific to a particular cache node type. Each
     -- element in the list contains detailed information about one parameter.
-    cacheNodeTypeSpecificParameters :: Core.Maybe [CacheNodeTypeSpecificParameter],
+    cacheNodeTypeSpecificParameters :: Prelude.Maybe [CacheNodeTypeSpecificParameter],
     -- | Specifies the name of the cache parameter group family to which the
     -- engine default parameters apply.
     --
     -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
     -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
     -- @redis6.x@ |
-    cacheParameterGroupFamily :: Core.Maybe Core.Text,
+    cacheParameterGroupFamily :: Prelude.Maybe Prelude.Text,
     -- | Contains a list of engine default parameters.
-    parameters :: Core.Maybe [Parameter],
+    parameters :: Prelude.Maybe [Parameter],
     -- | Provides an identifier to allow retrieval of paginated results.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EngineDefaults' with all optional fields omitted.
@@ -71,16 +72,16 @@ newEngineDefaults ::
 newEngineDefaults =
   EngineDefaults'
     { cacheNodeTypeSpecificParameters =
-        Core.Nothing,
-      cacheParameterGroupFamily = Core.Nothing,
-      parameters = Core.Nothing,
-      marker = Core.Nothing
+        Prelude.Nothing,
+      cacheParameterGroupFamily = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | A list of parameters specific to a particular cache node type. Each
 -- element in the list contains detailed information about one parameter.
-engineDefaults_cacheNodeTypeSpecificParameters :: Lens.Lens' EngineDefaults (Core.Maybe [CacheNodeTypeSpecificParameter])
-engineDefaults_cacheNodeTypeSpecificParameters = Lens.lens (\EngineDefaults' {cacheNodeTypeSpecificParameters} -> cacheNodeTypeSpecificParameters) (\s@EngineDefaults' {} a -> s {cacheNodeTypeSpecificParameters = a} :: EngineDefaults) Core.. Lens.mapping Lens._Coerce
+engineDefaults_cacheNodeTypeSpecificParameters :: Lens.Lens' EngineDefaults (Prelude.Maybe [CacheNodeTypeSpecificParameter])
+engineDefaults_cacheNodeTypeSpecificParameters = Lens.lens (\EngineDefaults' {cacheNodeTypeSpecificParameters} -> cacheNodeTypeSpecificParameters) (\s@EngineDefaults' {} a -> s {cacheNodeTypeSpecificParameters = a} :: EngineDefaults) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the name of the cache parameter group family to which the
 -- engine default parameters apply.
@@ -88,31 +89,31 @@ engineDefaults_cacheNodeTypeSpecificParameters = Lens.lens (\EngineDefaults' {ca
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
 -- @redis6.x@ |
-engineDefaults_cacheParameterGroupFamily :: Lens.Lens' EngineDefaults (Core.Maybe Core.Text)
+engineDefaults_cacheParameterGroupFamily :: Lens.Lens' EngineDefaults (Prelude.Maybe Prelude.Text)
 engineDefaults_cacheParameterGroupFamily = Lens.lens (\EngineDefaults' {cacheParameterGroupFamily} -> cacheParameterGroupFamily) (\s@EngineDefaults' {} a -> s {cacheParameterGroupFamily = a} :: EngineDefaults)
 
 -- | Contains a list of engine default parameters.
-engineDefaults_parameters :: Lens.Lens' EngineDefaults (Core.Maybe [Parameter])
-engineDefaults_parameters = Lens.lens (\EngineDefaults' {parameters} -> parameters) (\s@EngineDefaults' {} a -> s {parameters = a} :: EngineDefaults) Core.. Lens.mapping Lens._Coerce
+engineDefaults_parameters :: Lens.Lens' EngineDefaults (Prelude.Maybe [Parameter])
+engineDefaults_parameters = Lens.lens (\EngineDefaults' {parameters} -> parameters) (\s@EngineDefaults' {} a -> s {parameters = a} :: EngineDefaults) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Provides an identifier to allow retrieval of paginated results.
-engineDefaults_marker :: Lens.Lens' EngineDefaults (Core.Maybe Core.Text)
+engineDefaults_marker :: Lens.Lens' EngineDefaults (Prelude.Maybe Prelude.Text)
 engineDefaults_marker = Lens.lens (\EngineDefaults' {marker} -> marker) (\s@EngineDefaults' {} a -> s {marker = a} :: EngineDefaults)
 
 instance Core.FromXML EngineDefaults where
   parseXML x =
     EngineDefaults'
-      Core.<$> ( x Core..@? "CacheNodeTypeSpecificParameters"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may
-                     (Core.parseXMLList "CacheNodeTypeSpecificParameter")
-               )
-      Core.<*> (x Core..@? "CacheParameterGroupFamily")
-      Core.<*> ( x Core..@? "Parameters" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Parameter")
-               )
-      Core.<*> (x Core..@? "Marker")
+      Prelude.<$> ( x Core..@? "CacheNodeTypeSpecificParameters"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may
+                        (Core.parseXMLList "CacheNodeTypeSpecificParameter")
+                  )
+      Prelude.<*> (x Core..@? "CacheParameterGroupFamily")
+      Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Parameter")
+                  )
+      Prelude.<*> (x Core..@? "Marker")
 
-instance Core.Hashable EngineDefaults
+instance Prelude.Hashable EngineDefaults
 
-instance Core.NFData EngineDefaults
+instance Prelude.NFData EngineDefaults

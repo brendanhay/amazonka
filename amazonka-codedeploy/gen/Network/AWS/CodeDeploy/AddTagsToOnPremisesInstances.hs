@@ -39,6 +39,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +54,9 @@ data AddTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'
     -- Value-only tags are not allowed.
     tags :: [Tag],
     -- | The names of the on-premises instances to which to add tags.
-    instanceNames :: [Core.Text]
+    instanceNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTagsToOnPremisesInstances' with all optional fields omitted.
@@ -75,8 +76,9 @@ newAddTagsToOnPremisesInstances ::
   AddTagsToOnPremisesInstances
 newAddTagsToOnPremisesInstances =
   AddTagsToOnPremisesInstances'
-    { tags = Core.mempty,
-      instanceNames = Core.mempty
+    { tags =
+        Prelude.mempty,
+      instanceNames = Prelude.mempty
     }
 
 -- | The tag key-value pairs to add to the on-premises instances.
@@ -84,11 +86,11 @@ newAddTagsToOnPremisesInstances =
 -- Keys and values are both required. Keys cannot be null or empty strings.
 -- Value-only tags are not allowed.
 addTagsToOnPremisesInstances_tags :: Lens.Lens' AddTagsToOnPremisesInstances [Tag]
-addTagsToOnPremisesInstances_tags = Lens.lens (\AddTagsToOnPremisesInstances' {tags} -> tags) (\s@AddTagsToOnPremisesInstances' {} a -> s {tags = a} :: AddTagsToOnPremisesInstances) Core.. Lens._Coerce
+addTagsToOnPremisesInstances_tags = Lens.lens (\AddTagsToOnPremisesInstances' {tags} -> tags) (\s@AddTagsToOnPremisesInstances' {} a -> s {tags = a} :: AddTagsToOnPremisesInstances) Prelude.. Lens._Coerce
 
 -- | The names of the on-premises instances to which to add tags.
-addTagsToOnPremisesInstances_instanceNames :: Lens.Lens' AddTagsToOnPremisesInstances [Core.Text]
-addTagsToOnPremisesInstances_instanceNames = Lens.lens (\AddTagsToOnPremisesInstances' {instanceNames} -> instanceNames) (\s@AddTagsToOnPremisesInstances' {} a -> s {instanceNames = a} :: AddTagsToOnPremisesInstances) Core.. Lens._Coerce
+addTagsToOnPremisesInstances_instanceNames :: Lens.Lens' AddTagsToOnPremisesInstances [Prelude.Text]
+addTagsToOnPremisesInstances_instanceNames = Lens.lens (\AddTagsToOnPremisesInstances' {instanceNames} -> instanceNames) (\s@AddTagsToOnPremisesInstances' {} a -> s {instanceNames = a} :: AddTagsToOnPremisesInstances) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AddTagsToOnPremisesInstances where
   type
@@ -99,43 +101,48 @@ instance Core.AWSRequest AddTagsToOnPremisesInstances where
     Response.receiveNull
       AddTagsToOnPremisesInstancesResponse'
 
-instance Core.Hashable AddTagsToOnPremisesInstances
+instance
+  Prelude.Hashable
+    AddTagsToOnPremisesInstances
 
-instance Core.NFData AddTagsToOnPremisesInstances
+instance Prelude.NFData AddTagsToOnPremisesInstances
 
 instance Core.ToHeaders AddTagsToOnPremisesInstances where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.AddTagsToOnPremisesInstances" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AddTagsToOnPremisesInstances where
   toJSON AddTagsToOnPremisesInstances' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("tags" Core..= tags),
-            Core.Just ("instanceNames" Core..= instanceNames)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("tags" Core..= tags),
+            Prelude.Just
+              ("instanceNames" Core..= instanceNames)
           ]
       )
 
 instance Core.ToPath AddTagsToOnPremisesInstances where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddTagsToOnPremisesInstances where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddTagsToOnPremisesInstancesResponse' smart constructor.
 data AddTagsToOnPremisesInstancesResponse = AddTagsToOnPremisesInstancesResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTagsToOnPremisesInstancesResponse' with all optional fields omitted.
@@ -147,5 +154,5 @@ newAddTagsToOnPremisesInstancesResponse =
   AddTagsToOnPremisesInstancesResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     AddTagsToOnPremisesInstancesResponse

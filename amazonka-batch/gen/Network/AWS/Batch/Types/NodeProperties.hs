@@ -22,21 +22,22 @@ module Network.AWS.Batch.Types.NodeProperties where
 import Network.AWS.Batch.Types.NodeRangeProperty
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the node properties of a multi-node parallel job.
 --
 -- /See:/ 'newNodeProperties' smart constructor.
 data NodeProperties = NodeProperties'
   { -- | The number of nodes associated with a multi-node parallel job.
-    numNodes :: Core.Int,
+    numNodes :: Prelude.Int,
     -- | Specifies the node index for the main node of a multi-node parallel job.
     -- This node index value must be fewer than the number of nodes.
-    mainNode :: Core.Int,
+    mainNode :: Prelude.Int,
     -- | A list of node ranges and their properties associated with a multi-node
     -- parallel job.
     nodeRangeProperties :: [NodeRangeProperty]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NodeProperties' with all optional fields omitted.
@@ -55,30 +56,30 @@ data NodeProperties = NodeProperties'
 -- parallel job.
 newNodeProperties ::
   -- | 'numNodes'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'mainNode'
-  Core.Int ->
+  Prelude.Int ->
   NodeProperties
 newNodeProperties pNumNodes_ pMainNode_ =
   NodeProperties'
     { numNodes = pNumNodes_,
       mainNode = pMainNode_,
-      nodeRangeProperties = Core.mempty
+      nodeRangeProperties = Prelude.mempty
     }
 
 -- | The number of nodes associated with a multi-node parallel job.
-nodeProperties_numNodes :: Lens.Lens' NodeProperties Core.Int
+nodeProperties_numNodes :: Lens.Lens' NodeProperties Prelude.Int
 nodeProperties_numNodes = Lens.lens (\NodeProperties' {numNodes} -> numNodes) (\s@NodeProperties' {} a -> s {numNodes = a} :: NodeProperties)
 
 -- | Specifies the node index for the main node of a multi-node parallel job.
 -- This node index value must be fewer than the number of nodes.
-nodeProperties_mainNode :: Lens.Lens' NodeProperties Core.Int
+nodeProperties_mainNode :: Lens.Lens' NodeProperties Prelude.Int
 nodeProperties_mainNode = Lens.lens (\NodeProperties' {mainNode} -> mainNode) (\s@NodeProperties' {} a -> s {mainNode = a} :: NodeProperties)
 
 -- | A list of node ranges and their properties associated with a multi-node
 -- parallel job.
 nodeProperties_nodeRangeProperties :: Lens.Lens' NodeProperties [NodeRangeProperty]
-nodeProperties_nodeRangeProperties = Lens.lens (\NodeProperties' {nodeRangeProperties} -> nodeRangeProperties) (\s@NodeProperties' {} a -> s {nodeRangeProperties = a} :: NodeProperties) Core.. Lens._Coerce
+nodeProperties_nodeRangeProperties = Lens.lens (\NodeProperties' {nodeRangeProperties} -> nodeRangeProperties) (\s@NodeProperties' {} a -> s {nodeRangeProperties = a} :: NodeProperties) Prelude.. Lens._Coerce
 
 instance Core.FromJSON NodeProperties where
   parseJSON =
@@ -86,24 +87,24 @@ instance Core.FromJSON NodeProperties where
       "NodeProperties"
       ( \x ->
           NodeProperties'
-            Core.<$> (x Core..: "numNodes")
-            Core.<*> (x Core..: "mainNode")
-            Core.<*> ( x Core..:? "nodeRangeProperties"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..: "numNodes")
+            Prelude.<*> (x Core..: "mainNode")
+            Prelude.<*> ( x Core..:? "nodeRangeProperties"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable NodeProperties
+instance Prelude.Hashable NodeProperties
 
-instance Core.NFData NodeProperties
+instance Prelude.NFData NodeProperties
 
 instance Core.ToJSON NodeProperties where
   toJSON NodeProperties' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("numNodes" Core..= numNodes),
-            Core.Just ("mainNode" Core..= mainNode),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("numNodes" Core..= numNodes),
+            Prelude.Just ("mainNode" Core..= mainNode),
+            Prelude.Just
               ("nodeRangeProperties" Core..= nodeRangeProperties)
           ]
       )

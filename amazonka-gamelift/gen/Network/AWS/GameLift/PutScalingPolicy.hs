@@ -151,6 +151,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -159,23 +160,23 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newPutScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'
   { -- | Metric value used to trigger a scaling event.
-    threshold :: Core.Maybe Core.Double,
+    threshold :: Prelude.Maybe Prelude.Double,
     -- | The settings for a target-based scaling policy.
-    targetConfiguration :: Core.Maybe TargetConfiguration,
+    targetConfiguration :: Prelude.Maybe TargetConfiguration,
     -- | Comparison operator to use when measuring the metric against the
     -- threshold value.
-    comparisonOperator :: Core.Maybe ComparisonOperatorType,
+    comparisonOperator :: Prelude.Maybe ComparisonOperatorType,
     -- | The type of scaling policy to create. For a target-based policy, set the
     -- parameter /MetricName/ to \'PercentAvailableGameSessions\' and specify a
     -- /TargetConfiguration/. For a rule-based policy set the following
     -- parameters: /MetricName/, /ComparisonOperator/, /Threshold/,
     -- /EvaluationPeriods/, /ScalingAdjustmentType/, and /ScalingAdjustment/.
-    policyType :: Core.Maybe PolicyType,
+    policyType :: Prelude.Maybe PolicyType,
     -- | Amount of adjustment to make, based on the scaling adjustment type.
-    scalingAdjustment :: Core.Maybe Core.Int,
+    scalingAdjustment :: Prelude.Maybe Prelude.Int,
     -- | Length of time (in minutes) the metric must be at or beyond the
     -- threshold before a scaling event is triggered.
-    evaluationPeriods :: Core.Maybe Core.Natural,
+    evaluationPeriods :: Prelude.Maybe Prelude.Natural,
     -- | The type of adjustment to make to a fleet\'s instance count (see
     -- FleetCapacity):
     --
@@ -190,15 +191,15 @@ data PutScalingPolicy = PutScalingPolicy'
     --     instance count by the scaling adjustment, read as a percentage.
     --     Positive values scale up while negative values scale down; for
     --     example, a value of \"-10\" scales the fleet down by 10%.
-    scalingAdjustmentType :: Core.Maybe ScalingAdjustmentType,
+    scalingAdjustmentType :: Prelude.Maybe ScalingAdjustmentType,
     -- | A descriptive label that is associated with a scaling policy. Policy
     -- names do not need to be unique. A fleet can have only one scaling policy
     -- with the same name.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | A unique identifier for a fleet to apply this policy to. You can use
     -- either the fleet ID or ARN value. The fleet cannot be in any of the
     -- following statuses: ERROR or DELETING.
-    fleetId :: Core.Text,
+    fleetId :: Prelude.Text,
     -- | Name of the Amazon GameLift-defined metric that is used to trigger a
     -- scaling adjustment. For detailed descriptions of fleet metrics, see
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html Monitor Amazon GameLift with Amazon CloudWatch>.
@@ -240,7 +241,7 @@ data PutScalingPolicy = PutScalingPolicy'
     --     destination.
     metricName :: MetricName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutScalingPolicy' with all optional fields omitted.
@@ -332,37 +333,37 @@ data PutScalingPolicy = PutScalingPolicy'
 --     destination.
 newPutScalingPolicy ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'fleetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricName'
   MetricName ->
   PutScalingPolicy
 newPutScalingPolicy pName_ pFleetId_ pMetricName_ =
   PutScalingPolicy'
-    { threshold = Core.Nothing,
-      targetConfiguration = Core.Nothing,
-      comparisonOperator = Core.Nothing,
-      policyType = Core.Nothing,
-      scalingAdjustment = Core.Nothing,
-      evaluationPeriods = Core.Nothing,
-      scalingAdjustmentType = Core.Nothing,
+    { threshold = Prelude.Nothing,
+      targetConfiguration = Prelude.Nothing,
+      comparisonOperator = Prelude.Nothing,
+      policyType = Prelude.Nothing,
+      scalingAdjustment = Prelude.Nothing,
+      evaluationPeriods = Prelude.Nothing,
+      scalingAdjustmentType = Prelude.Nothing,
       name = pName_,
       fleetId = pFleetId_,
       metricName = pMetricName_
     }
 
 -- | Metric value used to trigger a scaling event.
-putScalingPolicy_threshold :: Lens.Lens' PutScalingPolicy (Core.Maybe Core.Double)
+putScalingPolicy_threshold :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Double)
 putScalingPolicy_threshold = Lens.lens (\PutScalingPolicy' {threshold} -> threshold) (\s@PutScalingPolicy' {} a -> s {threshold = a} :: PutScalingPolicy)
 
 -- | The settings for a target-based scaling policy.
-putScalingPolicy_targetConfiguration :: Lens.Lens' PutScalingPolicy (Core.Maybe TargetConfiguration)
+putScalingPolicy_targetConfiguration :: Lens.Lens' PutScalingPolicy (Prelude.Maybe TargetConfiguration)
 putScalingPolicy_targetConfiguration = Lens.lens (\PutScalingPolicy' {targetConfiguration} -> targetConfiguration) (\s@PutScalingPolicy' {} a -> s {targetConfiguration = a} :: PutScalingPolicy)
 
 -- | Comparison operator to use when measuring the metric against the
 -- threshold value.
-putScalingPolicy_comparisonOperator :: Lens.Lens' PutScalingPolicy (Core.Maybe ComparisonOperatorType)
+putScalingPolicy_comparisonOperator :: Lens.Lens' PutScalingPolicy (Prelude.Maybe ComparisonOperatorType)
 putScalingPolicy_comparisonOperator = Lens.lens (\PutScalingPolicy' {comparisonOperator} -> comparisonOperator) (\s@PutScalingPolicy' {} a -> s {comparisonOperator = a} :: PutScalingPolicy)
 
 -- | The type of scaling policy to create. For a target-based policy, set the
@@ -370,16 +371,16 @@ putScalingPolicy_comparisonOperator = Lens.lens (\PutScalingPolicy' {comparisonO
 -- /TargetConfiguration/. For a rule-based policy set the following
 -- parameters: /MetricName/, /ComparisonOperator/, /Threshold/,
 -- /EvaluationPeriods/, /ScalingAdjustmentType/, and /ScalingAdjustment/.
-putScalingPolicy_policyType :: Lens.Lens' PutScalingPolicy (Core.Maybe PolicyType)
+putScalingPolicy_policyType :: Lens.Lens' PutScalingPolicy (Prelude.Maybe PolicyType)
 putScalingPolicy_policyType = Lens.lens (\PutScalingPolicy' {policyType} -> policyType) (\s@PutScalingPolicy' {} a -> s {policyType = a} :: PutScalingPolicy)
 
 -- | Amount of adjustment to make, based on the scaling adjustment type.
-putScalingPolicy_scalingAdjustment :: Lens.Lens' PutScalingPolicy (Core.Maybe Core.Int)
+putScalingPolicy_scalingAdjustment :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Int)
 putScalingPolicy_scalingAdjustment = Lens.lens (\PutScalingPolicy' {scalingAdjustment} -> scalingAdjustment) (\s@PutScalingPolicy' {} a -> s {scalingAdjustment = a} :: PutScalingPolicy)
 
 -- | Length of time (in minutes) the metric must be at or beyond the
 -- threshold before a scaling event is triggered.
-putScalingPolicy_evaluationPeriods :: Lens.Lens' PutScalingPolicy (Core.Maybe Core.Natural)
+putScalingPolicy_evaluationPeriods :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Natural)
 putScalingPolicy_evaluationPeriods = Lens.lens (\PutScalingPolicy' {evaluationPeriods} -> evaluationPeriods) (\s@PutScalingPolicy' {} a -> s {evaluationPeriods = a} :: PutScalingPolicy)
 
 -- | The type of adjustment to make to a fleet\'s instance count (see
@@ -396,19 +397,19 @@ putScalingPolicy_evaluationPeriods = Lens.lens (\PutScalingPolicy' {evaluationPe
 --     instance count by the scaling adjustment, read as a percentage.
 --     Positive values scale up while negative values scale down; for
 --     example, a value of \"-10\" scales the fleet down by 10%.
-putScalingPolicy_scalingAdjustmentType :: Lens.Lens' PutScalingPolicy (Core.Maybe ScalingAdjustmentType)
+putScalingPolicy_scalingAdjustmentType :: Lens.Lens' PutScalingPolicy (Prelude.Maybe ScalingAdjustmentType)
 putScalingPolicy_scalingAdjustmentType = Lens.lens (\PutScalingPolicy' {scalingAdjustmentType} -> scalingAdjustmentType) (\s@PutScalingPolicy' {} a -> s {scalingAdjustmentType = a} :: PutScalingPolicy)
 
 -- | A descriptive label that is associated with a scaling policy. Policy
 -- names do not need to be unique. A fleet can have only one scaling policy
 -- with the same name.
-putScalingPolicy_name :: Lens.Lens' PutScalingPolicy Core.Text
+putScalingPolicy_name :: Lens.Lens' PutScalingPolicy Prelude.Text
 putScalingPolicy_name = Lens.lens (\PutScalingPolicy' {name} -> name) (\s@PutScalingPolicy' {} a -> s {name = a} :: PutScalingPolicy)
 
 -- | A unique identifier for a fleet to apply this policy to. You can use
 -- either the fleet ID or ARN value. The fleet cannot be in any of the
 -- following statuses: ERROR or DELETING.
-putScalingPolicy_fleetId :: Lens.Lens' PutScalingPolicy Core.Text
+putScalingPolicy_fleetId :: Lens.Lens' PutScalingPolicy Prelude.Text
 putScalingPolicy_fleetId = Lens.lens (\PutScalingPolicy' {fleetId} -> fleetId) (\s@PutScalingPolicy' {} a -> s {fleetId = a} :: PutScalingPolicy)
 
 -- | Name of the Amazon GameLift-defined metric that is used to trigger a
@@ -462,52 +463,54 @@ instance Core.AWSRequest PutScalingPolicy where
     Response.receiveJSON
       ( \s h x ->
           PutScalingPolicyResponse'
-            Core.<$> (x Core..?> "Name")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Name")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutScalingPolicy
+instance Prelude.Hashable PutScalingPolicy
 
-instance Core.NFData PutScalingPolicy
+instance Prelude.NFData PutScalingPolicy
 
 instance Core.ToHeaders PutScalingPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.PutScalingPolicy" :: Core.ByteString),
+              Core.=# ("GameLift.PutScalingPolicy" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutScalingPolicy where
   toJSON PutScalingPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Threshold" Core..=) Core.<$> threshold,
+      ( Prelude.catMaybes
+          [ ("Threshold" Core..=) Prelude.<$> threshold,
             ("TargetConfiguration" Core..=)
-              Core.<$> targetConfiguration,
+              Prelude.<$> targetConfiguration,
             ("ComparisonOperator" Core..=)
-              Core.<$> comparisonOperator,
-            ("PolicyType" Core..=) Core.<$> policyType,
+              Prelude.<$> comparisonOperator,
+            ("PolicyType" Core..=) Prelude.<$> policyType,
             ("ScalingAdjustment" Core..=)
-              Core.<$> scalingAdjustment,
+              Prelude.<$> scalingAdjustment,
             ("EvaluationPeriods" Core..=)
-              Core.<$> evaluationPeriods,
+              Prelude.<$> evaluationPeriods,
             ("ScalingAdjustmentType" Core..=)
-              Core.<$> scalingAdjustmentType,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("FleetId" Core..= fleetId),
-            Core.Just ("MetricName" Core..= metricName)
+              Prelude.<$> scalingAdjustmentType,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("FleetId" Core..= fleetId),
+            Prelude.Just ("MetricName" Core..= metricName)
           ]
       )
 
 instance Core.ToPath PutScalingPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutScalingPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -515,11 +518,11 @@ instance Core.ToQuery PutScalingPolicy where
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
   { -- | A descriptive label that is associated with a scaling policy. Policy
     -- names do not need to be unique.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutScalingPolicyResponse' with all optional fields omitted.
@@ -535,21 +538,21 @@ data PutScalingPolicyResponse = PutScalingPolicyResponse'
 -- 'httpStatus', 'putScalingPolicyResponse_httpStatus' - The response's http status code.
 newPutScalingPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutScalingPolicyResponse
 newPutScalingPolicyResponse pHttpStatus_ =
   PutScalingPolicyResponse'
-    { name = Core.Nothing,
+    { name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A descriptive label that is associated with a scaling policy. Policy
 -- names do not need to be unique.
-putScalingPolicyResponse_name :: Lens.Lens' PutScalingPolicyResponse (Core.Maybe Core.Text)
+putScalingPolicyResponse_name :: Lens.Lens' PutScalingPolicyResponse (Prelude.Maybe Prelude.Text)
 putScalingPolicyResponse_name = Lens.lens (\PutScalingPolicyResponse' {name} -> name) (\s@PutScalingPolicyResponse' {} a -> s {name = a} :: PutScalingPolicyResponse)
 
 -- | The response's http status code.
-putScalingPolicyResponse_httpStatus :: Lens.Lens' PutScalingPolicyResponse Core.Int
+putScalingPolicyResponse_httpStatus :: Lens.Lens' PutScalingPolicyResponse Prelude.Int
 putScalingPolicyResponse_httpStatus = Lens.lens (\PutScalingPolicyResponse' {httpStatus} -> httpStatus) (\s@PutScalingPolicyResponse' {} a -> s {httpStatus = a} :: PutScalingPolicyResponse)
 
-instance Core.NFData PutScalingPolicyResponse
+instance Prelude.NFData PutScalingPolicyResponse

@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility
 import Network.AWS.MediaConvert.Types.SpekeKeyProvider
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies DRM settings for DASH outputs.
 --
@@ -32,7 +33,7 @@ data DashIsoEncryptionSettings = DashIsoEncryptionSettings'
     -- settings when doing DRM encryption with a SPEKE-compliant key provider.
     -- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings
     -- instead.
-    spekeKeyProvider :: Core.Maybe SpekeKeyProvider,
+    spekeKeyProvider :: Prelude.Maybe SpekeKeyProvider,
     -- | This setting can improve the compatibility of your output with video
     -- players on obsolete devices. It applies only to DASH H.264 outputs with
     -- DRM encryption. Choose Unencrypted SEI (UNENCRYPTED_SEI) only to correct
@@ -40,9 +41,9 @@ data DashIsoEncryptionSettings = DashIsoEncryptionSettings'
     -- setting CENC v1 (CENC_V1). If you choose Unencrypted SEI, for that
     -- output, the service will exclude the access unit delimiter and will
     -- leave the SEI NAL units unencrypted.
-    playbackDeviceCompatibility :: Core.Maybe DashIsoPlaybackDeviceCompatibility
+    playbackDeviceCompatibility :: Prelude.Maybe DashIsoPlaybackDeviceCompatibility
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DashIsoEncryptionSettings' with all optional fields omitted.
@@ -69,15 +70,15 @@ newDashIsoEncryptionSettings ::
 newDashIsoEncryptionSettings =
   DashIsoEncryptionSettings'
     { spekeKeyProvider =
-        Core.Nothing,
-      playbackDeviceCompatibility = Core.Nothing
+        Prelude.Nothing,
+      playbackDeviceCompatibility = Prelude.Nothing
     }
 
 -- | If your output group type is HLS, DASH, or Microsoft Smooth, use these
 -- settings when doing DRM encryption with a SPEKE-compliant key provider.
 -- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings
 -- instead.
-dashIsoEncryptionSettings_spekeKeyProvider :: Lens.Lens' DashIsoEncryptionSettings (Core.Maybe SpekeKeyProvider)
+dashIsoEncryptionSettings_spekeKeyProvider :: Lens.Lens' DashIsoEncryptionSettings (Prelude.Maybe SpekeKeyProvider)
 dashIsoEncryptionSettings_spekeKeyProvider = Lens.lens (\DashIsoEncryptionSettings' {spekeKeyProvider} -> spekeKeyProvider) (\s@DashIsoEncryptionSettings' {} a -> s {spekeKeyProvider = a} :: DashIsoEncryptionSettings)
 
 -- | This setting can improve the compatibility of your output with video
@@ -87,7 +88,7 @@ dashIsoEncryptionSettings_spekeKeyProvider = Lens.lens (\DashIsoEncryptionSettin
 -- setting CENC v1 (CENC_V1). If you choose Unencrypted SEI, for that
 -- output, the service will exclude the access unit delimiter and will
 -- leave the SEI NAL units unencrypted.
-dashIsoEncryptionSettings_playbackDeviceCompatibility :: Lens.Lens' DashIsoEncryptionSettings (Core.Maybe DashIsoPlaybackDeviceCompatibility)
+dashIsoEncryptionSettings_playbackDeviceCompatibility :: Lens.Lens' DashIsoEncryptionSettings (Prelude.Maybe DashIsoPlaybackDeviceCompatibility)
 dashIsoEncryptionSettings_playbackDeviceCompatibility = Lens.lens (\DashIsoEncryptionSettings' {playbackDeviceCompatibility} -> playbackDeviceCompatibility) (\s@DashIsoEncryptionSettings' {} a -> s {playbackDeviceCompatibility = a} :: DashIsoEncryptionSettings)
 
 instance Core.FromJSON DashIsoEncryptionSettings where
@@ -96,21 +97,21 @@ instance Core.FromJSON DashIsoEncryptionSettings where
       "DashIsoEncryptionSettings"
       ( \x ->
           DashIsoEncryptionSettings'
-            Core.<$> (x Core..:? "spekeKeyProvider")
-            Core.<*> (x Core..:? "playbackDeviceCompatibility")
+            Prelude.<$> (x Core..:? "spekeKeyProvider")
+            Prelude.<*> (x Core..:? "playbackDeviceCompatibility")
       )
 
-instance Core.Hashable DashIsoEncryptionSettings
+instance Prelude.Hashable DashIsoEncryptionSettings
 
-instance Core.NFData DashIsoEncryptionSettings
+instance Prelude.NFData DashIsoEncryptionSettings
 
 instance Core.ToJSON DashIsoEncryptionSettings where
   toJSON DashIsoEncryptionSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("spekeKeyProvider" Core..=)
-              Core.<$> spekeKeyProvider,
+              Prelude.<$> spekeKeyProvider,
             ("playbackDeviceCompatibility" Core..=)
-              Core.<$> playbackDeviceCompatibility
+              Prelude.<$> playbackDeviceCompatibility
           ]
       )

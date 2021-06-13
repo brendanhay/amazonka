@@ -23,6 +23,7 @@ import Network.AWS.CloudWatchEvents.Types.LaunchType
 import Network.AWS.CloudWatchEvents.Types.NetworkConfiguration
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The custom parameters to be used when the target is an Amazon ECS task.
 --
@@ -36,7 +37,7 @@ data EcsParameters = EcsParameters'
     --
     -- If you specify @NetworkConfiguration@ when the target ECS task does not
     -- use the @awsvpc@ network mode, the task fails.
-    networkConfiguration :: Core.Maybe NetworkConfiguration,
+    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
     -- | Specifies the platform version for the task. Specify only the numeric
     -- portion of the platform version, such as @1.1.0@.
     --
@@ -44,7 +45,7 @@ data EcsParameters = EcsParameters'
     -- information about valid platform versions, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    platformVersion :: Core.Maybe Core.Text,
+    platformVersion :: Prelude.Maybe Prelude.Text,
     -- | Specifies the launch type on which your task is running. The launch type
     -- that you specify here must match one of the launch type
     -- (compatibilities) of the target task. The @FARGATE@ value is supported
@@ -52,18 +53,18 @@ data EcsParameters = EcsParameters'
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html AWS Fargate on Amazon ECS>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    launchType :: Core.Maybe LaunchType,
+    launchType :: Prelude.Maybe LaunchType,
     -- | Specifies an ECS task group for the task. The maximum length is 255
     -- characters.
-    group' :: Core.Maybe Core.Text,
+    group' :: Prelude.Maybe Prelude.Text,
     -- | The number of tasks to create based on @TaskDefinition@. The default is
     -- 1.
-    taskCount :: Core.Maybe Core.Natural,
+    taskCount :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the task definition to use if the event target is an Amazon
     -- ECS task.
-    taskDefinitionArn :: Core.Text
+    taskDefinitionArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EcsParameters' with all optional fields omitted.
@@ -108,15 +109,16 @@ data EcsParameters = EcsParameters'
 -- ECS task.
 newEcsParameters ::
   -- | 'taskDefinitionArn'
-  Core.Text ->
+  Prelude.Text ->
   EcsParameters
 newEcsParameters pTaskDefinitionArn_ =
   EcsParameters'
-    { networkConfiguration = Core.Nothing,
-      platformVersion = Core.Nothing,
-      launchType = Core.Nothing,
-      group' = Core.Nothing,
-      taskCount = Core.Nothing,
+    { networkConfiguration =
+        Prelude.Nothing,
+      platformVersion = Prelude.Nothing,
+      launchType = Prelude.Nothing,
+      group' = Prelude.Nothing,
+      taskCount = Prelude.Nothing,
       taskDefinitionArn = pTaskDefinitionArn_
     }
 
@@ -128,7 +130,7 @@ newEcsParameters pTaskDefinitionArn_ =
 --
 -- If you specify @NetworkConfiguration@ when the target ECS task does not
 -- use the @awsvpc@ network mode, the task fails.
-ecsParameters_networkConfiguration :: Lens.Lens' EcsParameters (Core.Maybe NetworkConfiguration)
+ecsParameters_networkConfiguration :: Lens.Lens' EcsParameters (Prelude.Maybe NetworkConfiguration)
 ecsParameters_networkConfiguration = Lens.lens (\EcsParameters' {networkConfiguration} -> networkConfiguration) (\s@EcsParameters' {} a -> s {networkConfiguration = a} :: EcsParameters)
 
 -- | Specifies the platform version for the task. Specify only the numeric
@@ -138,7 +140,7 @@ ecsParameters_networkConfiguration = Lens.lens (\EcsParameters' {networkConfigur
 -- information about valid platform versions, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-ecsParameters_platformVersion :: Lens.Lens' EcsParameters (Core.Maybe Core.Text)
+ecsParameters_platformVersion :: Lens.Lens' EcsParameters (Prelude.Maybe Prelude.Text)
 ecsParameters_platformVersion = Lens.lens (\EcsParameters' {platformVersion} -> platformVersion) (\s@EcsParameters' {} a -> s {platformVersion = a} :: EcsParameters)
 
 -- | Specifies the launch type on which your task is running. The launch type
@@ -148,22 +150,22 @@ ecsParameters_platformVersion = Lens.lens (\EcsParameters' {platformVersion} -> 
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html AWS Fargate on Amazon ECS>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-ecsParameters_launchType :: Lens.Lens' EcsParameters (Core.Maybe LaunchType)
+ecsParameters_launchType :: Lens.Lens' EcsParameters (Prelude.Maybe LaunchType)
 ecsParameters_launchType = Lens.lens (\EcsParameters' {launchType} -> launchType) (\s@EcsParameters' {} a -> s {launchType = a} :: EcsParameters)
 
 -- | Specifies an ECS task group for the task. The maximum length is 255
 -- characters.
-ecsParameters_group :: Lens.Lens' EcsParameters (Core.Maybe Core.Text)
+ecsParameters_group :: Lens.Lens' EcsParameters (Prelude.Maybe Prelude.Text)
 ecsParameters_group = Lens.lens (\EcsParameters' {group'} -> group') (\s@EcsParameters' {} a -> s {group' = a} :: EcsParameters)
 
 -- | The number of tasks to create based on @TaskDefinition@. The default is
 -- 1.
-ecsParameters_taskCount :: Lens.Lens' EcsParameters (Core.Maybe Core.Natural)
+ecsParameters_taskCount :: Lens.Lens' EcsParameters (Prelude.Maybe Prelude.Natural)
 ecsParameters_taskCount = Lens.lens (\EcsParameters' {taskCount} -> taskCount) (\s@EcsParameters' {} a -> s {taskCount = a} :: EcsParameters)
 
 -- | The ARN of the task definition to use if the event target is an Amazon
 -- ECS task.
-ecsParameters_taskDefinitionArn :: Lens.Lens' EcsParameters Core.Text
+ecsParameters_taskDefinitionArn :: Lens.Lens' EcsParameters Prelude.Text
 ecsParameters_taskDefinitionArn = Lens.lens (\EcsParameters' {taskDefinitionArn} -> taskDefinitionArn) (\s@EcsParameters' {} a -> s {taskDefinitionArn = a} :: EcsParameters)
 
 instance Core.FromJSON EcsParameters where
@@ -172,29 +174,30 @@ instance Core.FromJSON EcsParameters where
       "EcsParameters"
       ( \x ->
           EcsParameters'
-            Core.<$> (x Core..:? "NetworkConfiguration")
-            Core.<*> (x Core..:? "PlatformVersion")
-            Core.<*> (x Core..:? "LaunchType")
-            Core.<*> (x Core..:? "Group")
-            Core.<*> (x Core..:? "TaskCount")
-            Core.<*> (x Core..: "TaskDefinitionArn")
+            Prelude.<$> (x Core..:? "NetworkConfiguration")
+            Prelude.<*> (x Core..:? "PlatformVersion")
+            Prelude.<*> (x Core..:? "LaunchType")
+            Prelude.<*> (x Core..:? "Group")
+            Prelude.<*> (x Core..:? "TaskCount")
+            Prelude.<*> (x Core..: "TaskDefinitionArn")
       )
 
-instance Core.Hashable EcsParameters
+instance Prelude.Hashable EcsParameters
 
-instance Core.NFData EcsParameters
+instance Prelude.NFData EcsParameters
 
 instance Core.ToJSON EcsParameters where
   toJSON EcsParameters' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("NetworkConfiguration" Core..=)
-              Core.<$> networkConfiguration,
-            ("PlatformVersion" Core..=) Core.<$> platformVersion,
-            ("LaunchType" Core..=) Core.<$> launchType,
-            ("Group" Core..=) Core.<$> group',
-            ("TaskCount" Core..=) Core.<$> taskCount,
-            Core.Just
+              Prelude.<$> networkConfiguration,
+            ("PlatformVersion" Core..=)
+              Prelude.<$> platformVersion,
+            ("LaunchType" Core..=) Prelude.<$> launchType,
+            ("Group" Core..=) Prelude.<$> group',
+            ("TaskCount" Core..=) Prelude.<$> taskCount,
+            Prelude.Just
               ("TaskDefinitionArn" Core..= taskDefinitionArn)
           ]
       )

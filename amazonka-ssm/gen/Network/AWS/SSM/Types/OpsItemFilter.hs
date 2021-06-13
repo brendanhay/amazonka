@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.OpsItemFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.OpsItemFilterKey
 import Network.AWS.SSM.Types.OpsItemFilterOperator
 
@@ -31,11 +32,11 @@ data OpsItemFilter = OpsItemFilter'
   { -- | The name of the filter.
     key :: OpsItemFilterKey,
     -- | The filter value.
-    values :: [Core.Text],
+    values :: [Prelude.Text],
     -- | The operator used by the filter call.
     operator :: OpsItemFilterOperator
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OpsItemFilter' with all optional fields omitted.
@@ -59,7 +60,7 @@ newOpsItemFilter ::
 newOpsItemFilter pKey_ pOperator_ =
   OpsItemFilter'
     { key = pKey_,
-      values = Core.mempty,
+      values = Prelude.mempty,
       operator = pOperator_
     }
 
@@ -68,23 +69,23 @@ opsItemFilter_key :: Lens.Lens' OpsItemFilter OpsItemFilterKey
 opsItemFilter_key = Lens.lens (\OpsItemFilter' {key} -> key) (\s@OpsItemFilter' {} a -> s {key = a} :: OpsItemFilter)
 
 -- | The filter value.
-opsItemFilter_values :: Lens.Lens' OpsItemFilter [Core.Text]
-opsItemFilter_values = Lens.lens (\OpsItemFilter' {values} -> values) (\s@OpsItemFilter' {} a -> s {values = a} :: OpsItemFilter) Core.. Lens._Coerce
+opsItemFilter_values :: Lens.Lens' OpsItemFilter [Prelude.Text]
+opsItemFilter_values = Lens.lens (\OpsItemFilter' {values} -> values) (\s@OpsItemFilter' {} a -> s {values = a} :: OpsItemFilter) Prelude.. Lens._Coerce
 
 -- | The operator used by the filter call.
 opsItemFilter_operator :: Lens.Lens' OpsItemFilter OpsItemFilterOperator
 opsItemFilter_operator = Lens.lens (\OpsItemFilter' {operator} -> operator) (\s@OpsItemFilter' {} a -> s {operator = a} :: OpsItemFilter)
 
-instance Core.Hashable OpsItemFilter
+instance Prelude.Hashable OpsItemFilter
 
-instance Core.NFData OpsItemFilter
+instance Prelude.NFData OpsItemFilter
 
 instance Core.ToJSON OpsItemFilter where
   toJSON OpsItemFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Key" Core..= key),
-            Core.Just ("Values" Core..= values),
-            Core.Just ("Operator" Core..= operator)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Values" Core..= values),
+            Prelude.Just ("Operator" Core..= operator)
           ]
       )

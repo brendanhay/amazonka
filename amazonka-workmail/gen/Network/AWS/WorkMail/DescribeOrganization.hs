@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -57,9 +58,9 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newDescribeOrganization' smart constructor.
 data DescribeOrganization = DescribeOrganization'
   { -- | The identifier for the organization to be described.
-    organizationId :: Core.Text
+    organizationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeOrganization' with all optional fields omitted.
@@ -72,7 +73,7 @@ data DescribeOrganization = DescribeOrganization'
 -- 'organizationId', 'describeOrganization_organizationId' - The identifier for the organization to be described.
 newDescribeOrganization ::
   -- | 'organizationId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeOrganization
 newDescribeOrganization pOrganizationId_ =
   DescribeOrganization'
@@ -81,7 +82,7 @@ newDescribeOrganization pOrganizationId_ =
     }
 
 -- | The identifier for the organization to be described.
-describeOrganization_organizationId :: Lens.Lens' DescribeOrganization Core.Text
+describeOrganization_organizationId :: Lens.Lens' DescribeOrganization Prelude.Text
 describeOrganization_organizationId = Lens.lens (\DescribeOrganization' {organizationId} -> organizationId) (\s@DescribeOrganization' {} a -> s {organizationId = a} :: DescribeOrganization)
 
 instance Core.AWSRequest DescribeOrganization where
@@ -93,77 +94,79 @@ instance Core.AWSRequest DescribeOrganization where
     Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationResponse'
-            Core.<$> (x Core..?> "OrganizationId")
-            Core.<*> (x Core..?> "Alias")
-            Core.<*> (x Core..?> "ARN")
-            Core.<*> (x Core..?> "DefaultMailDomain")
-            Core.<*> (x Core..?> "State")
-            Core.<*> (x Core..?> "DirectoryId")
-            Core.<*> (x Core..?> "DirectoryType")
-            Core.<*> (x Core..?> "CompletedDate")
-            Core.<*> (x Core..?> "ErrorMessage")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "OrganizationId")
+            Prelude.<*> (x Core..?> "Alias")
+            Prelude.<*> (x Core..?> "ARN")
+            Prelude.<*> (x Core..?> "DefaultMailDomain")
+            Prelude.<*> (x Core..?> "State")
+            Prelude.<*> (x Core..?> "DirectoryId")
+            Prelude.<*> (x Core..?> "DirectoryType")
+            Prelude.<*> (x Core..?> "CompletedDate")
+            Prelude.<*> (x Core..?> "ErrorMessage")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeOrganization
+instance Prelude.Hashable DescribeOrganization
 
-instance Core.NFData DescribeOrganization
+instance Prelude.NFData DescribeOrganization
 
 instance Core.ToHeaders DescribeOrganization where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkMailService.DescribeOrganization" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeOrganization where
   toJSON DescribeOrganization' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("OrganizationId" Core..= organizationId)
           ]
       )
 
 instance Core.ToPath DescribeOrganization where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeOrganization where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeOrganizationResponse' smart constructor.
 data DescribeOrganizationResponse = DescribeOrganizationResponse'
   { -- | The identifier of an organization.
-    organizationId :: Core.Maybe Core.Text,
+    organizationId :: Prelude.Maybe Prelude.Text,
     -- | The alias for an organization.
-    alias :: Core.Maybe Core.Text,
+    alias :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the organization.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The default mail domain associated with the organization.
-    defaultMailDomain :: Core.Maybe Core.Text,
+    defaultMailDomain :: Prelude.Maybe Prelude.Text,
     -- | The state of an organization.
-    state :: Core.Maybe Core.Text,
+    state :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the directory associated with an Amazon WorkMail
     -- organization.
-    directoryId :: Core.Maybe Core.Text,
+    directoryId :: Prelude.Maybe Prelude.Text,
     -- | The type of directory associated with the WorkMail organization.
-    directoryType :: Core.Maybe Core.Text,
+    directoryType :: Prelude.Maybe Prelude.Text,
     -- | The date at which the organization became usable in the WorkMail
     -- context, in UNIX epoch time format.
-    completedDate :: Core.Maybe Core.POSIX,
+    completedDate :: Prelude.Maybe Core.POSIX,
     -- | (Optional) The error message indicating if unexpected behavior was
     -- encountered with regards to the organization.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeOrganizationResponse' with all optional fields omitted.
@@ -197,64 +200,64 @@ data DescribeOrganizationResponse = DescribeOrganizationResponse'
 -- 'httpStatus', 'describeOrganizationResponse_httpStatus' - The response's http status code.
 newDescribeOrganizationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeOrganizationResponse
 newDescribeOrganizationResponse pHttpStatus_ =
   DescribeOrganizationResponse'
     { organizationId =
-        Core.Nothing,
-      alias = Core.Nothing,
-      arn = Core.Nothing,
-      defaultMailDomain = Core.Nothing,
-      state = Core.Nothing,
-      directoryId = Core.Nothing,
-      directoryType = Core.Nothing,
-      completedDate = Core.Nothing,
-      errorMessage = Core.Nothing,
+        Prelude.Nothing,
+      alias = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      defaultMailDomain = Prelude.Nothing,
+      state = Prelude.Nothing,
+      directoryId = Prelude.Nothing,
+      directoryType = Prelude.Nothing,
+      completedDate = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier of an organization.
-describeOrganizationResponse_organizationId :: Lens.Lens' DescribeOrganizationResponse (Core.Maybe Core.Text)
+describeOrganizationResponse_organizationId :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationResponse_organizationId = Lens.lens (\DescribeOrganizationResponse' {organizationId} -> organizationId) (\s@DescribeOrganizationResponse' {} a -> s {organizationId = a} :: DescribeOrganizationResponse)
 
 -- | The alias for an organization.
-describeOrganizationResponse_alias :: Lens.Lens' DescribeOrganizationResponse (Core.Maybe Core.Text)
+describeOrganizationResponse_alias :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationResponse_alias = Lens.lens (\DescribeOrganizationResponse' {alias} -> alias) (\s@DescribeOrganizationResponse' {} a -> s {alias = a} :: DescribeOrganizationResponse)
 
 -- | The Amazon Resource Name (ARN) of the organization.
-describeOrganizationResponse_arn :: Lens.Lens' DescribeOrganizationResponse (Core.Maybe Core.Text)
+describeOrganizationResponse_arn :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationResponse_arn = Lens.lens (\DescribeOrganizationResponse' {arn} -> arn) (\s@DescribeOrganizationResponse' {} a -> s {arn = a} :: DescribeOrganizationResponse)
 
 -- | The default mail domain associated with the organization.
-describeOrganizationResponse_defaultMailDomain :: Lens.Lens' DescribeOrganizationResponse (Core.Maybe Core.Text)
+describeOrganizationResponse_defaultMailDomain :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationResponse_defaultMailDomain = Lens.lens (\DescribeOrganizationResponse' {defaultMailDomain} -> defaultMailDomain) (\s@DescribeOrganizationResponse' {} a -> s {defaultMailDomain = a} :: DescribeOrganizationResponse)
 
 -- | The state of an organization.
-describeOrganizationResponse_state :: Lens.Lens' DescribeOrganizationResponse (Core.Maybe Core.Text)
+describeOrganizationResponse_state :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationResponse_state = Lens.lens (\DescribeOrganizationResponse' {state} -> state) (\s@DescribeOrganizationResponse' {} a -> s {state = a} :: DescribeOrganizationResponse)
 
 -- | The identifier for the directory associated with an Amazon WorkMail
 -- organization.
-describeOrganizationResponse_directoryId :: Lens.Lens' DescribeOrganizationResponse (Core.Maybe Core.Text)
+describeOrganizationResponse_directoryId :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationResponse_directoryId = Lens.lens (\DescribeOrganizationResponse' {directoryId} -> directoryId) (\s@DescribeOrganizationResponse' {} a -> s {directoryId = a} :: DescribeOrganizationResponse)
 
 -- | The type of directory associated with the WorkMail organization.
-describeOrganizationResponse_directoryType :: Lens.Lens' DescribeOrganizationResponse (Core.Maybe Core.Text)
+describeOrganizationResponse_directoryType :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationResponse_directoryType = Lens.lens (\DescribeOrganizationResponse' {directoryType} -> directoryType) (\s@DescribeOrganizationResponse' {} a -> s {directoryType = a} :: DescribeOrganizationResponse)
 
 -- | The date at which the organization became usable in the WorkMail
 -- context, in UNIX epoch time format.
-describeOrganizationResponse_completedDate :: Lens.Lens' DescribeOrganizationResponse (Core.Maybe Core.UTCTime)
-describeOrganizationResponse_completedDate = Lens.lens (\DescribeOrganizationResponse' {completedDate} -> completedDate) (\s@DescribeOrganizationResponse' {} a -> s {completedDate = a} :: DescribeOrganizationResponse) Core.. Lens.mapping Core._Time
+describeOrganizationResponse_completedDate :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.UTCTime)
+describeOrganizationResponse_completedDate = Lens.lens (\DescribeOrganizationResponse' {completedDate} -> completedDate) (\s@DescribeOrganizationResponse' {} a -> s {completedDate = a} :: DescribeOrganizationResponse) Prelude.. Lens.mapping Core._Time
 
 -- | (Optional) The error message indicating if unexpected behavior was
 -- encountered with regards to the organization.
-describeOrganizationResponse_errorMessage :: Lens.Lens' DescribeOrganizationResponse (Core.Maybe Core.Text)
+describeOrganizationResponse_errorMessage :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationResponse_errorMessage = Lens.lens (\DescribeOrganizationResponse' {errorMessage} -> errorMessage) (\s@DescribeOrganizationResponse' {} a -> s {errorMessage = a} :: DescribeOrganizationResponse)
 
 -- | The response's http status code.
-describeOrganizationResponse_httpStatus :: Lens.Lens' DescribeOrganizationResponse Core.Int
+describeOrganizationResponse_httpStatus :: Lens.Lens' DescribeOrganizationResponse Prelude.Int
 describeOrganizationResponse_httpStatus = Lens.lens (\DescribeOrganizationResponse' {httpStatus} -> httpStatus) (\s@DescribeOrganizationResponse' {} a -> s {httpStatus = a} :: DescribeOrganizationResponse)
 
-instance Core.NFData DescribeOrganizationResponse
+instance Prelude.NFData DescribeOrganizationResponse

@@ -45,6 +45,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,20 +56,20 @@ import qualified Network.AWS.Response as Response
 data ListDistributionsByWebACLId = ListDistributionsByWebACLId'
   { -- | The maximum number of distributions that you want CloudFront to return
     -- in the response body. The maximum and default values are both 100.
-    maxItems :: Core.Maybe Core.Text,
+    maxItems :: Prelude.Maybe Prelude.Text,
     -- | Use @Marker@ and @MaxItems@ to control pagination of results. If you
     -- have more than @MaxItems@ distributions that satisfy the request, the
     -- response includes a @NextMarker@ element. To get the next page of
     -- results, submit another request. For the value of @Marker@, specify the
     -- value of @NextMarker@ from the last response. (For the first request,
     -- omit @Marker@.)
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The ID of the AWS WAF web ACL that you want to list the associated
     -- distributions. If you specify \"null\" for the ID, the request returns a
     -- list of the distributions that aren\'t associated with a web ACL.
-    webACLId :: Core.Text
+    webACLId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDistributionsByWebACLId' with all optional fields omitted.
@@ -93,19 +94,19 @@ data ListDistributionsByWebACLId = ListDistributionsByWebACLId'
 -- list of the distributions that aren\'t associated with a web ACL.
 newListDistributionsByWebACLId ::
   -- | 'webACLId'
-  Core.Text ->
+  Prelude.Text ->
   ListDistributionsByWebACLId
 newListDistributionsByWebACLId pWebACLId_ =
   ListDistributionsByWebACLId'
     { maxItems =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       webACLId = pWebACLId_
     }
 
 -- | The maximum number of distributions that you want CloudFront to return
 -- in the response body. The maximum and default values are both 100.
-listDistributionsByWebACLId_maxItems :: Lens.Lens' ListDistributionsByWebACLId (Core.Maybe Core.Text)
+listDistributionsByWebACLId_maxItems :: Lens.Lens' ListDistributionsByWebACLId (Prelude.Maybe Prelude.Text)
 listDistributionsByWebACLId_maxItems = Lens.lens (\ListDistributionsByWebACLId' {maxItems} -> maxItems) (\s@ListDistributionsByWebACLId' {} a -> s {maxItems = a} :: ListDistributionsByWebACLId)
 
 -- | Use @Marker@ and @MaxItems@ to control pagination of results. If you
@@ -114,13 +115,13 @@ listDistributionsByWebACLId_maxItems = Lens.lens (\ListDistributionsByWebACLId' 
 -- results, submit another request. For the value of @Marker@, specify the
 -- value of @NextMarker@ from the last response. (For the first request,
 -- omit @Marker@.)
-listDistributionsByWebACLId_marker :: Lens.Lens' ListDistributionsByWebACLId (Core.Maybe Core.Text)
+listDistributionsByWebACLId_marker :: Lens.Lens' ListDistributionsByWebACLId (Prelude.Maybe Prelude.Text)
 listDistributionsByWebACLId_marker = Lens.lens (\ListDistributionsByWebACLId' {marker} -> marker) (\s@ListDistributionsByWebACLId' {} a -> s {marker = a} :: ListDistributionsByWebACLId)
 
 -- | The ID of the AWS WAF web ACL that you want to list the associated
 -- distributions. If you specify \"null\" for the ID, the request returns a
 -- list of the distributions that aren\'t associated with a web ACL.
-listDistributionsByWebACLId_webACLId :: Lens.Lens' ListDistributionsByWebACLId Core.Text
+listDistributionsByWebACLId_webACLId :: Lens.Lens' ListDistributionsByWebACLId Prelude.Text
 listDistributionsByWebACLId_webACLId = Lens.lens (\ListDistributionsByWebACLId' {webACLId} -> webACLId) (\s@ListDistributionsByWebACLId' {} a -> s {webACLId = a} :: ListDistributionsByWebACLId)
 
 instance Core.AWSRequest ListDistributionsByWebACLId where
@@ -132,27 +133,27 @@ instance Core.AWSRequest ListDistributionsByWebACLId where
     Response.receiveXML
       ( \s h x ->
           ListDistributionsByWebACLIdResponse'
-            Core.<$> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListDistributionsByWebACLId
+instance Prelude.Hashable ListDistributionsByWebACLId
 
-instance Core.NFData ListDistributionsByWebACLId
+instance Prelude.NFData ListDistributionsByWebACLId
 
 instance Core.ToHeaders ListDistributionsByWebACLId where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListDistributionsByWebACLId where
   toPath ListDistributionsByWebACLId' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-05-31/distributionsByWebACLId/",
         Core.toBS webACLId
       ]
 
 instance Core.ToQuery ListDistributionsByWebACLId where
   toQuery ListDistributionsByWebACLId' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker
       ]
@@ -163,11 +164,11 @@ instance Core.ToQuery ListDistributionsByWebACLId where
 -- /See:/ 'newListDistributionsByWebACLIdResponse' smart constructor.
 data ListDistributionsByWebACLIdResponse = ListDistributionsByWebACLIdResponse'
   { -- | The @DistributionList@ type.
-    distributionList :: Core.Maybe DistributionList,
+    distributionList :: Prelude.Maybe DistributionList,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDistributionsByWebACLIdResponse' with all optional fields omitted.
@@ -182,23 +183,23 @@ data ListDistributionsByWebACLIdResponse = ListDistributionsByWebACLIdResponse'
 -- 'httpStatus', 'listDistributionsByWebACLIdResponse_httpStatus' - The response's http status code.
 newListDistributionsByWebACLIdResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListDistributionsByWebACLIdResponse
 newListDistributionsByWebACLIdResponse pHttpStatus_ =
   ListDistributionsByWebACLIdResponse'
     { distributionList =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @DistributionList@ type.
-listDistributionsByWebACLIdResponse_distributionList :: Lens.Lens' ListDistributionsByWebACLIdResponse (Core.Maybe DistributionList)
+listDistributionsByWebACLIdResponse_distributionList :: Lens.Lens' ListDistributionsByWebACLIdResponse (Prelude.Maybe DistributionList)
 listDistributionsByWebACLIdResponse_distributionList = Lens.lens (\ListDistributionsByWebACLIdResponse' {distributionList} -> distributionList) (\s@ListDistributionsByWebACLIdResponse' {} a -> s {distributionList = a} :: ListDistributionsByWebACLIdResponse)
 
 -- | The response's http status code.
-listDistributionsByWebACLIdResponse_httpStatus :: Lens.Lens' ListDistributionsByWebACLIdResponse Core.Int
+listDistributionsByWebACLIdResponse_httpStatus :: Lens.Lens' ListDistributionsByWebACLIdResponse Prelude.Int
 listDistributionsByWebACLIdResponse_httpStatus = Lens.lens (\ListDistributionsByWebACLIdResponse' {httpStatus} -> httpStatus) (\s@ListDistributionsByWebACLIdResponse' {} a -> s {httpStatus = a} :: ListDistributionsByWebACLIdResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListDistributionsByWebACLIdResponse

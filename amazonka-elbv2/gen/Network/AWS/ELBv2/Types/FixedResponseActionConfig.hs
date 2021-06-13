@@ -21,6 +21,7 @@ module Network.AWS.ELBv2.Types.FixedResponseActionConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an action that returns a custom HTTP response.
 --
@@ -30,13 +31,13 @@ data FixedResponseActionConfig = FixedResponseActionConfig'
     --
     -- Valid Values: text\/plain | text\/css | text\/html |
     -- application\/javascript | application\/json
-    contentType :: Core.Maybe Core.Text,
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | The message.
-    messageBody :: Core.Maybe Core.Text,
+    messageBody :: Prelude.Maybe Prelude.Text,
     -- | The HTTP response code (2XX, 4XX, or 5XX).
-    statusCode :: Core.Text
+    statusCode :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FixedResponseActionConfig' with all optional fields omitted.
@@ -56,13 +57,13 @@ data FixedResponseActionConfig = FixedResponseActionConfig'
 -- 'statusCode', 'fixedResponseActionConfig_statusCode' - The HTTP response code (2XX, 4XX, or 5XX).
 newFixedResponseActionConfig ::
   -- | 'statusCode'
-  Core.Text ->
+  Prelude.Text ->
   FixedResponseActionConfig
 newFixedResponseActionConfig pStatusCode_ =
   FixedResponseActionConfig'
     { contentType =
-        Core.Nothing,
-      messageBody = Core.Nothing,
+        Prelude.Nothing,
+      messageBody = Prelude.Nothing,
       statusCode = pStatusCode_
     }
 
@@ -70,31 +71,31 @@ newFixedResponseActionConfig pStatusCode_ =
 --
 -- Valid Values: text\/plain | text\/css | text\/html |
 -- application\/javascript | application\/json
-fixedResponseActionConfig_contentType :: Lens.Lens' FixedResponseActionConfig (Core.Maybe Core.Text)
+fixedResponseActionConfig_contentType :: Lens.Lens' FixedResponseActionConfig (Prelude.Maybe Prelude.Text)
 fixedResponseActionConfig_contentType = Lens.lens (\FixedResponseActionConfig' {contentType} -> contentType) (\s@FixedResponseActionConfig' {} a -> s {contentType = a} :: FixedResponseActionConfig)
 
 -- | The message.
-fixedResponseActionConfig_messageBody :: Lens.Lens' FixedResponseActionConfig (Core.Maybe Core.Text)
+fixedResponseActionConfig_messageBody :: Lens.Lens' FixedResponseActionConfig (Prelude.Maybe Prelude.Text)
 fixedResponseActionConfig_messageBody = Lens.lens (\FixedResponseActionConfig' {messageBody} -> messageBody) (\s@FixedResponseActionConfig' {} a -> s {messageBody = a} :: FixedResponseActionConfig)
 
 -- | The HTTP response code (2XX, 4XX, or 5XX).
-fixedResponseActionConfig_statusCode :: Lens.Lens' FixedResponseActionConfig Core.Text
+fixedResponseActionConfig_statusCode :: Lens.Lens' FixedResponseActionConfig Prelude.Text
 fixedResponseActionConfig_statusCode = Lens.lens (\FixedResponseActionConfig' {statusCode} -> statusCode) (\s@FixedResponseActionConfig' {} a -> s {statusCode = a} :: FixedResponseActionConfig)
 
 instance Core.FromXML FixedResponseActionConfig where
   parseXML x =
     FixedResponseActionConfig'
-      Core.<$> (x Core..@? "ContentType")
-      Core.<*> (x Core..@? "MessageBody")
-      Core.<*> (x Core..@ "StatusCode")
+      Prelude.<$> (x Core..@? "ContentType")
+      Prelude.<*> (x Core..@? "MessageBody")
+      Prelude.<*> (x Core..@ "StatusCode")
 
-instance Core.Hashable FixedResponseActionConfig
+instance Prelude.Hashable FixedResponseActionConfig
 
-instance Core.NFData FixedResponseActionConfig
+instance Prelude.NFData FixedResponseActionConfig
 
 instance Core.ToQuery FixedResponseActionConfig where
   toQuery FixedResponseActionConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "ContentType" Core.=: contentType,
         "MessageBody" Core.=: messageBody,
         "StatusCode" Core.=: statusCode

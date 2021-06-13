@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.PropertyNameQuery where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Part of the @SuggestionQuery@ type. Specifies a hint for retrieving
 -- property names that begin with the specified text.
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPropertyNameQuery' smart constructor.
 data PropertyNameQuery = PropertyNameQuery'
   { -- | Text that begins a property\'s name.
-    propertyNameHint :: Core.Text
+    propertyNameHint :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PropertyNameQuery' with all optional fields omitted.
@@ -43,7 +44,7 @@ data PropertyNameQuery = PropertyNameQuery'
 -- 'propertyNameHint', 'propertyNameQuery_propertyNameHint' - Text that begins a property\'s name.
 newPropertyNameQuery ::
   -- | 'propertyNameHint'
-  Core.Text ->
+  Prelude.Text ->
   PropertyNameQuery
 newPropertyNameQuery pPropertyNameHint_ =
   PropertyNameQuery'
@@ -52,18 +53,18 @@ newPropertyNameQuery pPropertyNameHint_ =
     }
 
 -- | Text that begins a property\'s name.
-propertyNameQuery_propertyNameHint :: Lens.Lens' PropertyNameQuery Core.Text
+propertyNameQuery_propertyNameHint :: Lens.Lens' PropertyNameQuery Prelude.Text
 propertyNameQuery_propertyNameHint = Lens.lens (\PropertyNameQuery' {propertyNameHint} -> propertyNameHint) (\s@PropertyNameQuery' {} a -> s {propertyNameHint = a} :: PropertyNameQuery)
 
-instance Core.Hashable PropertyNameQuery
+instance Prelude.Hashable PropertyNameQuery
 
-instance Core.NFData PropertyNameQuery
+instance Prelude.NFData PropertyNameQuery
 
 instance Core.ToJSON PropertyNameQuery where
   toJSON PropertyNameQuery' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("PropertyNameHint" Core..= propertyNameHint)
           ]
       )

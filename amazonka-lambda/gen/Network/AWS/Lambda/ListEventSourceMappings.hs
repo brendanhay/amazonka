@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,7 +66,7 @@ data ListEventSourceMappings = ListEventSourceMappings'
     --
     -- -   __Amazon Managed Streaming for Apache Kafka__ - The ARN of the
     --     cluster.
-    eventSourceArn :: Core.Maybe Core.Text,
+    eventSourceArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -82,13 +83,13 @@ data ListEventSourceMappings = ListEventSourceMappings'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it\'s limited to 64 characters in length.
-    functionName :: Core.Maybe Core.Text,
+    functionName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of event source mappings to return.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | A pagination token returned by a previous call.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListEventSourceMappings' with all optional fields omitted.
@@ -135,10 +136,10 @@ newListEventSourceMappings ::
 newListEventSourceMappings =
   ListEventSourceMappings'
     { eventSourceArn =
-        Core.Nothing,
-      functionName = Core.Nothing,
-      maxItems = Core.Nothing,
-      marker = Core.Nothing
+        Prelude.Nothing,
+      functionName = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the event source.
@@ -152,7 +153,7 @@ newListEventSourceMappings =
 --
 -- -   __Amazon Managed Streaming for Apache Kafka__ - The ARN of the
 --     cluster.
-listEventSourceMappings_eventSourceArn :: Lens.Lens' ListEventSourceMappings (Core.Maybe Core.Text)
+listEventSourceMappings_eventSourceArn :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Text)
 listEventSourceMappings_eventSourceArn = Lens.lens (\ListEventSourceMappings' {eventSourceArn} -> eventSourceArn) (\s@ListEventSourceMappings' {} a -> s {eventSourceArn = a} :: ListEventSourceMappings)
 
 -- | The name of the Lambda function.
@@ -171,15 +172,15 @@ listEventSourceMappings_eventSourceArn = Lens.lens (\ListEventSourceMappings' {e
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it\'s limited to 64 characters in length.
-listEventSourceMappings_functionName :: Lens.Lens' ListEventSourceMappings (Core.Maybe Core.Text)
+listEventSourceMappings_functionName :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Text)
 listEventSourceMappings_functionName = Lens.lens (\ListEventSourceMappings' {functionName} -> functionName) (\s@ListEventSourceMappings' {} a -> s {functionName = a} :: ListEventSourceMappings)
 
 -- | The maximum number of event source mappings to return.
-listEventSourceMappings_maxItems :: Lens.Lens' ListEventSourceMappings (Core.Maybe Core.Natural)
+listEventSourceMappings_maxItems :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Natural)
 listEventSourceMappings_maxItems = Lens.lens (\ListEventSourceMappings' {maxItems} -> maxItems) (\s@ListEventSourceMappings' {} a -> s {maxItems = a} :: ListEventSourceMappings)
 
 -- | A pagination token returned by a previous call.
-listEventSourceMappings_marker :: Lens.Lens' ListEventSourceMappings (Core.Maybe Core.Text)
+listEventSourceMappings_marker :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Text)
 listEventSourceMappings_marker = Lens.lens (\ListEventSourceMappings' {marker} -> marker) (\s@ListEventSourceMappings' {} a -> s {marker = a} :: ListEventSourceMappings)
 
 instance Core.AWSPager ListEventSourceMappings where
@@ -187,22 +188,22 @@ instance Core.AWSPager ListEventSourceMappings where
     | Core.stop
         ( rs
             Lens.^? listEventSourceMappingsResponse_nextMarker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listEventSourceMappingsResponse_eventSourceMappings
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listEventSourceMappings_marker
+          Prelude.& listEventSourceMappings_marker
           Lens..~ rs
           Lens.^? listEventSourceMappingsResponse_nextMarker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEventSourceMappings where
   type
@@ -213,27 +214,27 @@ instance Core.AWSRequest ListEventSourceMappings where
     Response.receiveJSON
       ( \s h x ->
           ListEventSourceMappingsResponse'
-            Core.<$> ( x Core..?> "EventSourceMappings"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "NextMarker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "EventSourceMappings"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListEventSourceMappings
+instance Prelude.Hashable ListEventSourceMappings
 
-instance Core.NFData ListEventSourceMappings
+instance Prelude.NFData ListEventSourceMappings
 
 instance Core.ToHeaders ListEventSourceMappings where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListEventSourceMappings where
   toPath =
-    Core.const "/2015-03-31/event-source-mappings/"
+    Prelude.const "/2015-03-31/event-source-mappings/"
 
 instance Core.ToQuery ListEventSourceMappings where
   toQuery ListEventSourceMappings' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "EventSourceArn" Core.=: eventSourceArn,
         "FunctionName" Core.=: functionName,
         "MaxItems" Core.=: maxItems,
@@ -243,14 +244,14 @@ instance Core.ToQuery ListEventSourceMappings where
 -- | /See:/ 'newListEventSourceMappingsResponse' smart constructor.
 data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'
   { -- | A list of event source mappings.
-    eventSourceMappings :: Core.Maybe [EventSourceMappingConfiguration],
+    eventSourceMappings :: Prelude.Maybe [EventSourceMappingConfiguration],
     -- | A pagination token that\'s returned when the response doesn\'t contain
     -- all event source mappings.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListEventSourceMappingsResponse' with all optional fields omitted.
@@ -268,27 +269,29 @@ data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'
 -- 'httpStatus', 'listEventSourceMappingsResponse_httpStatus' - The response's http status code.
 newListEventSourceMappingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListEventSourceMappingsResponse
 newListEventSourceMappingsResponse pHttpStatus_ =
   ListEventSourceMappingsResponse'
     { eventSourceMappings =
-        Core.Nothing,
-      nextMarker = Core.Nothing,
+        Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of event source mappings.
-listEventSourceMappingsResponse_eventSourceMappings :: Lens.Lens' ListEventSourceMappingsResponse (Core.Maybe [EventSourceMappingConfiguration])
-listEventSourceMappingsResponse_eventSourceMappings = Lens.lens (\ListEventSourceMappingsResponse' {eventSourceMappings} -> eventSourceMappings) (\s@ListEventSourceMappingsResponse' {} a -> s {eventSourceMappings = a} :: ListEventSourceMappingsResponse) Core.. Lens.mapping Lens._Coerce
+listEventSourceMappingsResponse_eventSourceMappings :: Lens.Lens' ListEventSourceMappingsResponse (Prelude.Maybe [EventSourceMappingConfiguration])
+listEventSourceMappingsResponse_eventSourceMappings = Lens.lens (\ListEventSourceMappingsResponse' {eventSourceMappings} -> eventSourceMappings) (\s@ListEventSourceMappingsResponse' {} a -> s {eventSourceMappings = a} :: ListEventSourceMappingsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A pagination token that\'s returned when the response doesn\'t contain
 -- all event source mappings.
-listEventSourceMappingsResponse_nextMarker :: Lens.Lens' ListEventSourceMappingsResponse (Core.Maybe Core.Text)
+listEventSourceMappingsResponse_nextMarker :: Lens.Lens' ListEventSourceMappingsResponse (Prelude.Maybe Prelude.Text)
 listEventSourceMappingsResponse_nextMarker = Lens.lens (\ListEventSourceMappingsResponse' {nextMarker} -> nextMarker) (\s@ListEventSourceMappingsResponse' {} a -> s {nextMarker = a} :: ListEventSourceMappingsResponse)
 
 -- | The response's http status code.
-listEventSourceMappingsResponse_httpStatus :: Lens.Lens' ListEventSourceMappingsResponse Core.Int
+listEventSourceMappingsResponse_httpStatus :: Lens.Lens' ListEventSourceMappingsResponse Prelude.Int
 listEventSourceMappingsResponse_httpStatus = Lens.lens (\ListEventSourceMappingsResponse' {httpStatus} -> httpStatus) (\s@ListEventSourceMappingsResponse' {} a -> s {httpStatus = a} :: ListEventSourceMappingsResponse)
 
-instance Core.NFData ListEventSourceMappingsResponse
+instance
+  Prelude.NFData
+    ListEventSourceMappingsResponse

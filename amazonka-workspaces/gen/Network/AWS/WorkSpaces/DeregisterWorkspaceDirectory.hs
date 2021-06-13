@@ -55,6 +55,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -64,9 +65,9 @@ data DeregisterWorkspaceDirectory = DeregisterWorkspaceDirectory'
   { -- | The identifier of the directory. If any WorkSpaces are registered to
     -- this directory, you must remove them before you deregister the
     -- directory, or you will receive an OperationNotSupportedException error.
-    directoryId :: Core.Text
+    directoryId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterWorkspaceDirectory' with all optional fields omitted.
@@ -81,7 +82,7 @@ data DeregisterWorkspaceDirectory = DeregisterWorkspaceDirectory'
 -- directory, or you will receive an OperationNotSupportedException error.
 newDeregisterWorkspaceDirectory ::
   -- | 'directoryId'
-  Core.Text ->
+  Prelude.Text ->
   DeregisterWorkspaceDirectory
 newDeregisterWorkspaceDirectory pDirectoryId_ =
   DeregisterWorkspaceDirectory'
@@ -92,7 +93,7 @@ newDeregisterWorkspaceDirectory pDirectoryId_ =
 -- | The identifier of the directory. If any WorkSpaces are registered to
 -- this directory, you must remove them before you deregister the
 -- directory, or you will receive an OperationNotSupportedException error.
-deregisterWorkspaceDirectory_directoryId :: Lens.Lens' DeregisterWorkspaceDirectory Core.Text
+deregisterWorkspaceDirectory_directoryId :: Lens.Lens' DeregisterWorkspaceDirectory Prelude.Text
 deregisterWorkspaceDirectory_directoryId = Lens.lens (\DeregisterWorkspaceDirectory' {directoryId} -> directoryId) (\s@DeregisterWorkspaceDirectory' {} a -> s {directoryId = a} :: DeregisterWorkspaceDirectory)
 
 instance Core.AWSRequest DeregisterWorkspaceDirectory where
@@ -104,45 +105,49 @@ instance Core.AWSRequest DeregisterWorkspaceDirectory where
     Response.receiveEmpty
       ( \s h x ->
           DeregisterWorkspaceDirectoryResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeregisterWorkspaceDirectory
+instance
+  Prelude.Hashable
+    DeregisterWorkspaceDirectory
 
-instance Core.NFData DeregisterWorkspaceDirectory
+instance Prelude.NFData DeregisterWorkspaceDirectory
 
 instance Core.ToHeaders DeregisterWorkspaceDirectory where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.DeregisterWorkspaceDirectory" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeregisterWorkspaceDirectory where
   toJSON DeregisterWorkspaceDirectory' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("DirectoryId" Core..= directoryId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("DirectoryId" Core..= directoryId)]
       )
 
 instance Core.ToPath DeregisterWorkspaceDirectory where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeregisterWorkspaceDirectory where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterWorkspaceDirectoryResponse' smart constructor.
 data DeregisterWorkspaceDirectoryResponse = DeregisterWorkspaceDirectoryResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterWorkspaceDirectoryResponse' with all optional fields omitted.
@@ -155,7 +160,7 @@ data DeregisterWorkspaceDirectoryResponse = DeregisterWorkspaceDirectoryResponse
 -- 'httpStatus', 'deregisterWorkspaceDirectoryResponse_httpStatus' - The response's http status code.
 newDeregisterWorkspaceDirectoryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeregisterWorkspaceDirectoryResponse
 newDeregisterWorkspaceDirectoryResponse pHttpStatus_ =
   DeregisterWorkspaceDirectoryResponse'
@@ -164,9 +169,9 @@ newDeregisterWorkspaceDirectoryResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deregisterWorkspaceDirectoryResponse_httpStatus :: Lens.Lens' DeregisterWorkspaceDirectoryResponse Core.Int
+deregisterWorkspaceDirectoryResponse_httpStatus :: Lens.Lens' DeregisterWorkspaceDirectoryResponse Prelude.Int
 deregisterWorkspaceDirectoryResponse_httpStatus = Lens.lens (\DeregisterWorkspaceDirectoryResponse' {httpStatus} -> httpStatus) (\s@DeregisterWorkspaceDirectoryResponse' {} a -> s {httpStatus = a} :: DeregisterWorkspaceDirectoryResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeregisterWorkspaceDirectoryResponse

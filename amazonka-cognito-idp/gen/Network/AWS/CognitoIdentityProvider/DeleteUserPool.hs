@@ -38,6 +38,7 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -46,9 +47,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteUserPool' smart constructor.
 data DeleteUserPool = DeleteUserPool'
   { -- | The user pool ID for the user pool you want to delete.
-    userPoolId :: Core.Text
+    userPoolId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserPool' with all optional fields omitted.
@@ -61,13 +62,13 @@ data DeleteUserPool = DeleteUserPool'
 -- 'userPoolId', 'deleteUserPool_userPoolId' - The user pool ID for the user pool you want to delete.
 newDeleteUserPool ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteUserPool
 newDeleteUserPool pUserPoolId_ =
   DeleteUserPool' {userPoolId = pUserPoolId_}
 
 -- | The user pool ID for the user pool you want to delete.
-deleteUserPool_userPoolId :: Lens.Lens' DeleteUserPool Core.Text
+deleteUserPool_userPoolId :: Lens.Lens' DeleteUserPool Prelude.Text
 deleteUserPool_userPoolId = Lens.lens (\DeleteUserPool' {userPoolId} -> userPoolId) (\s@DeleteUserPool' {} a -> s {userPoolId = a} :: DeleteUserPool)
 
 instance Core.AWSRequest DeleteUserPool where
@@ -78,41 +79,43 @@ instance Core.AWSRequest DeleteUserPool where
   response =
     Response.receiveNull DeleteUserPoolResponse'
 
-instance Core.Hashable DeleteUserPool
+instance Prelude.Hashable DeleteUserPool
 
-instance Core.NFData DeleteUserPool
+instance Prelude.NFData DeleteUserPool
 
 instance Core.ToHeaders DeleteUserPool where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.DeleteUserPool" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteUserPool where
   toJSON DeleteUserPool' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("UserPoolId" Core..= userPoolId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("UserPoolId" Core..= userPoolId)]
       )
 
 instance Core.ToPath DeleteUserPool where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteUserPool where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserPoolResponse' smart constructor.
 data DeleteUserPoolResponse = DeleteUserPoolResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserPoolResponse' with all optional fields omitted.
@@ -122,4 +125,4 @@ newDeleteUserPoolResponse ::
   DeleteUserPoolResponse
 newDeleteUserPoolResponse = DeleteUserPoolResponse'
 
-instance Core.NFData DeleteUserPoolResponse
+instance Prelude.NFData DeleteUserPoolResponse

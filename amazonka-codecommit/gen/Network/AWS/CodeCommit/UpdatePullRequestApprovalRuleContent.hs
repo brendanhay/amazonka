@@ -47,6 +47,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +55,11 @@ import qualified Network.AWS.Response as Response
 data UpdatePullRequestApprovalRuleContent = UpdatePullRequestApprovalRuleContent'
   { -- | The SHA-256 hash signature for the content of the approval rule. You can
     -- retrieve this information by using GetPullRequest.
-    existingRuleContentSha256 :: Core.Maybe Core.Text,
+    existingRuleContentSha256 :: Prelude.Maybe Prelude.Text,
     -- | The system-generated ID of the pull request.
-    pullRequestId :: Core.Text,
+    pullRequestId :: Prelude.Text,
     -- | The name of the approval rule you want to update.
-    approvalRuleName :: Core.Text,
+    approvalRuleName :: Prelude.Text,
     -- | The updated content for the approval rule.
     --
     -- When you update the content of the approval rule, you can specify
@@ -90,9 +91,9 @@ data UpdatePullRequestApprovalRuleContent = UpdatePullRequestApprovalRuleContent
     -- For more information about IAM ARNs, wildcards, and formats, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers>
     -- in the /IAM User Guide/.
-    newRuleContent' :: Core.Text
+    newRuleContent' :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePullRequestApprovalRuleContent' with all optional fields omitted.
@@ -142,11 +143,11 @@ data UpdatePullRequestApprovalRuleContent = UpdatePullRequestApprovalRuleContent
 -- in the /IAM User Guide/.
 newUpdatePullRequestApprovalRuleContent ::
   -- | 'pullRequestId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'approvalRuleName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'newRuleContent''
-  Core.Text ->
+  Prelude.Text ->
   UpdatePullRequestApprovalRuleContent
 newUpdatePullRequestApprovalRuleContent
   pPullRequestId_
@@ -154,7 +155,7 @@ newUpdatePullRequestApprovalRuleContent
   pNewRuleContent_ =
     UpdatePullRequestApprovalRuleContent'
       { existingRuleContentSha256 =
-          Core.Nothing,
+          Prelude.Nothing,
         pullRequestId = pPullRequestId_,
         approvalRuleName = pApprovalRuleName_,
         newRuleContent' = pNewRuleContent_
@@ -162,15 +163,15 @@ newUpdatePullRequestApprovalRuleContent
 
 -- | The SHA-256 hash signature for the content of the approval rule. You can
 -- retrieve this information by using GetPullRequest.
-updatePullRequestApprovalRuleContent_existingRuleContentSha256 :: Lens.Lens' UpdatePullRequestApprovalRuleContent (Core.Maybe Core.Text)
+updatePullRequestApprovalRuleContent_existingRuleContentSha256 :: Lens.Lens' UpdatePullRequestApprovalRuleContent (Prelude.Maybe Prelude.Text)
 updatePullRequestApprovalRuleContent_existingRuleContentSha256 = Lens.lens (\UpdatePullRequestApprovalRuleContent' {existingRuleContentSha256} -> existingRuleContentSha256) (\s@UpdatePullRequestApprovalRuleContent' {} a -> s {existingRuleContentSha256 = a} :: UpdatePullRequestApprovalRuleContent)
 
 -- | The system-generated ID of the pull request.
-updatePullRequestApprovalRuleContent_pullRequestId :: Lens.Lens' UpdatePullRequestApprovalRuleContent Core.Text
+updatePullRequestApprovalRuleContent_pullRequestId :: Lens.Lens' UpdatePullRequestApprovalRuleContent Prelude.Text
 updatePullRequestApprovalRuleContent_pullRequestId = Lens.lens (\UpdatePullRequestApprovalRuleContent' {pullRequestId} -> pullRequestId) (\s@UpdatePullRequestApprovalRuleContent' {} a -> s {pullRequestId = a} :: UpdatePullRequestApprovalRuleContent)
 
 -- | The name of the approval rule you want to update.
-updatePullRequestApprovalRuleContent_approvalRuleName :: Lens.Lens' UpdatePullRequestApprovalRuleContent Core.Text
+updatePullRequestApprovalRuleContent_approvalRuleName :: Lens.Lens' UpdatePullRequestApprovalRuleContent Prelude.Text
 updatePullRequestApprovalRuleContent_approvalRuleName = Lens.lens (\UpdatePullRequestApprovalRuleContent' {approvalRuleName} -> approvalRuleName) (\s@UpdatePullRequestApprovalRuleContent' {} a -> s {approvalRuleName = a} :: UpdatePullRequestApprovalRuleContent)
 
 -- | The updated content for the approval rule.
@@ -204,7 +205,7 @@ updatePullRequestApprovalRuleContent_approvalRuleName = Lens.lens (\UpdatePullRe
 -- For more information about IAM ARNs, wildcards, and formats, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers>
 -- in the /IAM User Guide/.
-updatePullRequestApprovalRuleContent_newRuleContent :: Lens.Lens' UpdatePullRequestApprovalRuleContent Core.Text
+updatePullRequestApprovalRuleContent_newRuleContent :: Lens.Lens' UpdatePullRequestApprovalRuleContent Prelude.Text
 updatePullRequestApprovalRuleContent_newRuleContent = Lens.lens (\UpdatePullRequestApprovalRuleContent' {newRuleContent'} -> newRuleContent') (\s@UpdatePullRequestApprovalRuleContent' {} a -> s {newRuleContent' = a} :: UpdatePullRequestApprovalRuleContent)
 
 instance
@@ -219,16 +220,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdatePullRequestApprovalRuleContentResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-              Core.<*> (x Core..:> "approvalRule")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> (x Core..:> "approvalRule")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdatePullRequestApprovalRuleContent
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdatePullRequestApprovalRuleContent
 
 instance
@@ -236,14 +237,16 @@ instance
     UpdatePullRequestApprovalRuleContent
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.UpdatePullRequestApprovalRuleContent" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -253,13 +256,13 @@ instance
   where
   toJSON UpdatePullRequestApprovalRuleContent' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("existingRuleContentSha256" Core..=)
-              Core.<$> existingRuleContentSha256,
-            Core.Just ("pullRequestId" Core..= pullRequestId),
-            Core.Just
+              Prelude.<$> existingRuleContentSha256,
+            Prelude.Just ("pullRequestId" Core..= pullRequestId),
+            Prelude.Just
               ("approvalRuleName" Core..= approvalRuleName),
-            Core.Just
+            Prelude.Just
               ("newRuleContent" Core..= newRuleContent')
           ]
       )
@@ -268,22 +271,22 @@ instance
   Core.ToPath
     UpdatePullRequestApprovalRuleContent
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     UpdatePullRequestApprovalRuleContent
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePullRequestApprovalRuleContentResponse' smart constructor.
 data UpdatePullRequestApprovalRuleContentResponse = UpdatePullRequestApprovalRuleContentResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Information about the updated approval rule.
     approvalRule :: ApprovalRule
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdatePullRequestApprovalRuleContentResponse' with all optional fields omitted.
@@ -298,7 +301,7 @@ data UpdatePullRequestApprovalRuleContentResponse = UpdatePullRequestApprovalRul
 -- 'approvalRule', 'updatePullRequestApprovalRuleContentResponse_approvalRule' - Information about the updated approval rule.
 newUpdatePullRequestApprovalRuleContentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'approvalRule'
   ApprovalRule ->
   UpdatePullRequestApprovalRuleContentResponse
@@ -312,7 +315,7 @@ newUpdatePullRequestApprovalRuleContentResponse
       }
 
 -- | The response's http status code.
-updatePullRequestApprovalRuleContentResponse_httpStatus :: Lens.Lens' UpdatePullRequestApprovalRuleContentResponse Core.Int
+updatePullRequestApprovalRuleContentResponse_httpStatus :: Lens.Lens' UpdatePullRequestApprovalRuleContentResponse Prelude.Int
 updatePullRequestApprovalRuleContentResponse_httpStatus = Lens.lens (\UpdatePullRequestApprovalRuleContentResponse' {httpStatus} -> httpStatus) (\s@UpdatePullRequestApprovalRuleContentResponse' {} a -> s {httpStatus = a} :: UpdatePullRequestApprovalRuleContentResponse)
 
 -- | Information about the updated approval rule.
@@ -320,5 +323,5 @@ updatePullRequestApprovalRuleContentResponse_approvalRule :: Lens.Lens' UpdatePu
 updatePullRequestApprovalRuleContentResponse_approvalRule = Lens.lens (\UpdatePullRequestApprovalRuleContentResponse' {approvalRule} -> approvalRule) (\s@UpdatePullRequestApprovalRuleContentResponse' {} a -> s {approvalRule = a} :: UpdatePullRequestApprovalRuleContentResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdatePullRequestApprovalRuleContentResponse

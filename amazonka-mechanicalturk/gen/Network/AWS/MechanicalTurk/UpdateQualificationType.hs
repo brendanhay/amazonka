@@ -84,6 +84,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -97,20 +98,20 @@ data UpdateQualificationType = UpdateQualificationType'
     -- retry-enabled Qualification type using DisposeQualificationType and then
     -- create a new Qualification type with retries disabled using
     -- CreateQualificationType.
-    retryDelayInSeconds :: Core.Maybe Core.Integer,
+    retryDelayInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | Specifies whether requests for the Qualification type are granted
     -- immediately, without prompting the Worker with a Qualification test.
     --
     -- Constraints: If the Test parameter is specified, this parameter cannot
     -- be true.
-    autoGranted :: Core.Maybe Core.Bool,
+    autoGranted :: Prelude.Maybe Prelude.Bool,
     -- | The new status of the Qualification type - Active | Inactive
-    qualificationTypeStatus :: Core.Maybe QualificationTypeStatus,
+    qualificationTypeStatus :: Prelude.Maybe QualificationTypeStatus,
     -- | The number of seconds the Worker has to complete the Qualification test,
     -- starting from the time the Worker requests the Qualification.
-    testDurationInSeconds :: Core.Maybe Core.Integer,
+    testDurationInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | The new description of the Qualification type.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The questions for the Qualification test a Worker must answer correctly
     -- to obtain a Qualification of this type. If this parameter is specified,
     -- @TestDurationInSeconds@ must also be specified.
@@ -121,17 +122,17 @@ data UpdateQualificationType = UpdateQualificationType'
     --
     -- Constraints: None. If not specified, the Worker may request the
     -- Qualification without answering any questions.
-    test :: Core.Maybe Core.Text,
+    test :: Prelude.Maybe Prelude.Text,
     -- | The answers to the Qualification test specified in the Test parameter,
     -- in the form of an AnswerKey data structure.
-    answerKey :: Core.Maybe Core.Text,
+    answerKey :: Prelude.Maybe Prelude.Text,
     -- | The Qualification value to use for automatically granted Qualifications.
     -- This parameter is used only if the AutoGranted parameter is true.
-    autoGrantedValue :: Core.Maybe Core.Int,
+    autoGrantedValue :: Prelude.Maybe Prelude.Int,
     -- | The ID of the Qualification type to update.
-    qualificationTypeId :: Core.Text
+    qualificationTypeId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateQualificationType' with all optional fields omitted.
@@ -183,19 +184,19 @@ data UpdateQualificationType = UpdateQualificationType'
 -- 'qualificationTypeId', 'updateQualificationType_qualificationTypeId' - The ID of the Qualification type to update.
 newUpdateQualificationType ::
   -- | 'qualificationTypeId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateQualificationType
 newUpdateQualificationType pQualificationTypeId_ =
   UpdateQualificationType'
     { retryDelayInSeconds =
-        Core.Nothing,
-      autoGranted = Core.Nothing,
-      qualificationTypeStatus = Core.Nothing,
-      testDurationInSeconds = Core.Nothing,
-      description = Core.Nothing,
-      test = Core.Nothing,
-      answerKey = Core.Nothing,
-      autoGrantedValue = Core.Nothing,
+        Prelude.Nothing,
+      autoGranted = Prelude.Nothing,
+      qualificationTypeStatus = Prelude.Nothing,
+      testDurationInSeconds = Prelude.Nothing,
+      description = Prelude.Nothing,
+      test = Prelude.Nothing,
+      answerKey = Prelude.Nothing,
+      autoGrantedValue = Prelude.Nothing,
       qualificationTypeId = pQualificationTypeId_
     }
 
@@ -207,7 +208,7 @@ newUpdateQualificationType pQualificationTypeId_ =
 -- retry-enabled Qualification type using DisposeQualificationType and then
 -- create a new Qualification type with retries disabled using
 -- CreateQualificationType.
-updateQualificationType_retryDelayInSeconds :: Lens.Lens' UpdateQualificationType (Core.Maybe Core.Integer)
+updateQualificationType_retryDelayInSeconds :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Integer)
 updateQualificationType_retryDelayInSeconds = Lens.lens (\UpdateQualificationType' {retryDelayInSeconds} -> retryDelayInSeconds) (\s@UpdateQualificationType' {} a -> s {retryDelayInSeconds = a} :: UpdateQualificationType)
 
 -- | Specifies whether requests for the Qualification type are granted
@@ -215,20 +216,20 @@ updateQualificationType_retryDelayInSeconds = Lens.lens (\UpdateQualificationTyp
 --
 -- Constraints: If the Test parameter is specified, this parameter cannot
 -- be true.
-updateQualificationType_autoGranted :: Lens.Lens' UpdateQualificationType (Core.Maybe Core.Bool)
+updateQualificationType_autoGranted :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Bool)
 updateQualificationType_autoGranted = Lens.lens (\UpdateQualificationType' {autoGranted} -> autoGranted) (\s@UpdateQualificationType' {} a -> s {autoGranted = a} :: UpdateQualificationType)
 
 -- | The new status of the Qualification type - Active | Inactive
-updateQualificationType_qualificationTypeStatus :: Lens.Lens' UpdateQualificationType (Core.Maybe QualificationTypeStatus)
+updateQualificationType_qualificationTypeStatus :: Lens.Lens' UpdateQualificationType (Prelude.Maybe QualificationTypeStatus)
 updateQualificationType_qualificationTypeStatus = Lens.lens (\UpdateQualificationType' {qualificationTypeStatus} -> qualificationTypeStatus) (\s@UpdateQualificationType' {} a -> s {qualificationTypeStatus = a} :: UpdateQualificationType)
 
 -- | The number of seconds the Worker has to complete the Qualification test,
 -- starting from the time the Worker requests the Qualification.
-updateQualificationType_testDurationInSeconds :: Lens.Lens' UpdateQualificationType (Core.Maybe Core.Integer)
+updateQualificationType_testDurationInSeconds :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Integer)
 updateQualificationType_testDurationInSeconds = Lens.lens (\UpdateQualificationType' {testDurationInSeconds} -> testDurationInSeconds) (\s@UpdateQualificationType' {} a -> s {testDurationInSeconds = a} :: UpdateQualificationType)
 
 -- | The new description of the Qualification type.
-updateQualificationType_description :: Lens.Lens' UpdateQualificationType (Core.Maybe Core.Text)
+updateQualificationType_description :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Text)
 updateQualificationType_description = Lens.lens (\UpdateQualificationType' {description} -> description) (\s@UpdateQualificationType' {} a -> s {description = a} :: UpdateQualificationType)
 
 -- | The questions for the Qualification test a Worker must answer correctly
@@ -241,21 +242,21 @@ updateQualificationType_description = Lens.lens (\UpdateQualificationType' {desc
 --
 -- Constraints: None. If not specified, the Worker may request the
 -- Qualification without answering any questions.
-updateQualificationType_test :: Lens.Lens' UpdateQualificationType (Core.Maybe Core.Text)
+updateQualificationType_test :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Text)
 updateQualificationType_test = Lens.lens (\UpdateQualificationType' {test} -> test) (\s@UpdateQualificationType' {} a -> s {test = a} :: UpdateQualificationType)
 
 -- | The answers to the Qualification test specified in the Test parameter,
 -- in the form of an AnswerKey data structure.
-updateQualificationType_answerKey :: Lens.Lens' UpdateQualificationType (Core.Maybe Core.Text)
+updateQualificationType_answerKey :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Text)
 updateQualificationType_answerKey = Lens.lens (\UpdateQualificationType' {answerKey} -> answerKey) (\s@UpdateQualificationType' {} a -> s {answerKey = a} :: UpdateQualificationType)
 
 -- | The Qualification value to use for automatically granted Qualifications.
 -- This parameter is used only if the AutoGranted parameter is true.
-updateQualificationType_autoGrantedValue :: Lens.Lens' UpdateQualificationType (Core.Maybe Core.Int)
+updateQualificationType_autoGrantedValue :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Int)
 updateQualificationType_autoGrantedValue = Lens.lens (\UpdateQualificationType' {autoGrantedValue} -> autoGrantedValue) (\s@UpdateQualificationType' {} a -> s {autoGrantedValue = a} :: UpdateQualificationType)
 
 -- | The ID of the Qualification type to update.
-updateQualificationType_qualificationTypeId :: Lens.Lens' UpdateQualificationType Core.Text
+updateQualificationType_qualificationTypeId :: Lens.Lens' UpdateQualificationType Prelude.Text
 updateQualificationType_qualificationTypeId = Lens.lens (\UpdateQualificationType' {qualificationTypeId} -> qualificationTypeId) (\s@UpdateQualificationType' {} a -> s {qualificationTypeId = a} :: UpdateQualificationType)
 
 instance Core.AWSRequest UpdateQualificationType where
@@ -267,62 +268,64 @@ instance Core.AWSRequest UpdateQualificationType where
     Response.receiveJSON
       ( \s h x ->
           UpdateQualificationTypeResponse'
-            Core.<$> (x Core..?> "QualificationType")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "QualificationType")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateQualificationType
+instance Prelude.Hashable UpdateQualificationType
 
-instance Core.NFData UpdateQualificationType
+instance Prelude.NFData UpdateQualificationType
 
 instance Core.ToHeaders UpdateQualificationType where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MTurkRequesterServiceV20170117.UpdateQualificationType" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateQualificationType where
   toJSON UpdateQualificationType' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("RetryDelayInSeconds" Core..=)
-              Core.<$> retryDelayInSeconds,
-            ("AutoGranted" Core..=) Core.<$> autoGranted,
+              Prelude.<$> retryDelayInSeconds,
+            ("AutoGranted" Core..=) Prelude.<$> autoGranted,
             ("QualificationTypeStatus" Core..=)
-              Core.<$> qualificationTypeStatus,
+              Prelude.<$> qualificationTypeStatus,
             ("TestDurationInSeconds" Core..=)
-              Core.<$> testDurationInSeconds,
-            ("Description" Core..=) Core.<$> description,
-            ("Test" Core..=) Core.<$> test,
-            ("AnswerKey" Core..=) Core.<$> answerKey,
+              Prelude.<$> testDurationInSeconds,
+            ("Description" Core..=) Prelude.<$> description,
+            ("Test" Core..=) Prelude.<$> test,
+            ("AnswerKey" Core..=) Prelude.<$> answerKey,
             ("AutoGrantedValue" Core..=)
-              Core.<$> autoGrantedValue,
-            Core.Just
+              Prelude.<$> autoGrantedValue,
+            Prelude.Just
               ("QualificationTypeId" Core..= qualificationTypeId)
           ]
       )
 
 instance Core.ToPath UpdateQualificationType where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateQualificationType where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateQualificationTypeResponse' smart constructor.
 data UpdateQualificationTypeResponse = UpdateQualificationTypeResponse'
   { -- | Contains a QualificationType data structure.
-    qualificationType :: Core.Maybe QualificationType,
+    qualificationType :: Prelude.Maybe QualificationType,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateQualificationTypeResponse' with all optional fields omitted.
@@ -337,21 +340,23 @@ data UpdateQualificationTypeResponse = UpdateQualificationTypeResponse'
 -- 'httpStatus', 'updateQualificationTypeResponse_httpStatus' - The response's http status code.
 newUpdateQualificationTypeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateQualificationTypeResponse
 newUpdateQualificationTypeResponse pHttpStatus_ =
   UpdateQualificationTypeResponse'
     { qualificationType =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains a QualificationType data structure.
-updateQualificationTypeResponse_qualificationType :: Lens.Lens' UpdateQualificationTypeResponse (Core.Maybe QualificationType)
+updateQualificationTypeResponse_qualificationType :: Lens.Lens' UpdateQualificationTypeResponse (Prelude.Maybe QualificationType)
 updateQualificationTypeResponse_qualificationType = Lens.lens (\UpdateQualificationTypeResponse' {qualificationType} -> qualificationType) (\s@UpdateQualificationTypeResponse' {} a -> s {qualificationType = a} :: UpdateQualificationTypeResponse)
 
 -- | The response's http status code.
-updateQualificationTypeResponse_httpStatus :: Lens.Lens' UpdateQualificationTypeResponse Core.Int
+updateQualificationTypeResponse_httpStatus :: Lens.Lens' UpdateQualificationTypeResponse Prelude.Int
 updateQualificationTypeResponse_httpStatus = Lens.lens (\UpdateQualificationTypeResponse' {httpStatus} -> httpStatus) (\s@UpdateQualificationTypeResponse' {} a -> s {httpStatus = a} :: UpdateQualificationTypeResponse)
 
-instance Core.NFData UpdateQualificationTypeResponse
+instance
+  Prelude.NFData
+    UpdateQualificationTypeResponse

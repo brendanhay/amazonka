@@ -40,6 +40,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +52,11 @@ data DeleteNetworkInterface = DeleteNetworkInterface'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the network interface.
-    networkInterfaceId :: Core.Text
+    networkInterfaceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteNetworkInterface' with all optional fields omitted.
@@ -73,11 +74,11 @@ data DeleteNetworkInterface = DeleteNetworkInterface'
 -- 'networkInterfaceId', 'deleteNetworkInterface_networkInterfaceId' - The ID of the network interface.
 newDeleteNetworkInterface ::
   -- | 'networkInterfaceId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteNetworkInterface
 newDeleteNetworkInterface pNetworkInterfaceId_ =
   DeleteNetworkInterface'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       networkInterfaceId = pNetworkInterfaceId_
     }
 
@@ -85,11 +86,11 @@ newDeleteNetworkInterface pNetworkInterfaceId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteNetworkInterface_dryRun :: Lens.Lens' DeleteNetworkInterface (Core.Maybe Core.Bool)
+deleteNetworkInterface_dryRun :: Lens.Lens' DeleteNetworkInterface (Prelude.Maybe Prelude.Bool)
 deleteNetworkInterface_dryRun = Lens.lens (\DeleteNetworkInterface' {dryRun} -> dryRun) (\s@DeleteNetworkInterface' {} a -> s {dryRun = a} :: DeleteNetworkInterface)
 
 -- | The ID of the network interface.
-deleteNetworkInterface_networkInterfaceId :: Lens.Lens' DeleteNetworkInterface Core.Text
+deleteNetworkInterface_networkInterfaceId :: Lens.Lens' DeleteNetworkInterface Prelude.Text
 deleteNetworkInterface_networkInterfaceId = Lens.lens (\DeleteNetworkInterface' {networkInterfaceId} -> networkInterfaceId) (\s@DeleteNetworkInterface' {} a -> s {networkInterfaceId = a} :: DeleteNetworkInterface)
 
 instance Core.AWSRequest DeleteNetworkInterface where
@@ -101,22 +102,23 @@ instance Core.AWSRequest DeleteNetworkInterface where
     Response.receiveNull
       DeleteNetworkInterfaceResponse'
 
-instance Core.Hashable DeleteNetworkInterface
+instance Prelude.Hashable DeleteNetworkInterface
 
-instance Core.NFData DeleteNetworkInterface
+instance Prelude.NFData DeleteNetworkInterface
 
 instance Core.ToHeaders DeleteNetworkInterface where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteNetworkInterface where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteNetworkInterface where
   toQuery DeleteNetworkInterface' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteNetworkInterface" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DeleteNetworkInterface" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "NetworkInterfaceId" Core.=: networkInterfaceId
       ]
@@ -125,7 +127,7 @@ instance Core.ToQuery DeleteNetworkInterface where
 data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteNetworkInterfaceResponse' with all optional fields omitted.
@@ -136,4 +138,6 @@ newDeleteNetworkInterfaceResponse ::
 newDeleteNetworkInterfaceResponse =
   DeleteNetworkInterfaceResponse'
 
-instance Core.NFData DeleteNetworkInterfaceResponse
+instance
+  Prelude.NFData
+    DeleteNetworkInterfaceResponse

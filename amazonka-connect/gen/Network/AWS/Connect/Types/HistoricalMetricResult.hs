@@ -23,17 +23,18 @@ import Network.AWS.Connect.Types.Dimensions
 import Network.AWS.Connect.Types.HistoricalMetricData
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the historical metrics retrieved.
 --
 -- /See:/ 'newHistoricalMetricResult' smart constructor.
 data HistoricalMetricResult = HistoricalMetricResult'
   { -- | The set of metrics.
-    collections :: Core.Maybe [HistoricalMetricData],
+    collections :: Prelude.Maybe [HistoricalMetricData],
     -- | The dimension for the metrics.
-    dimensions :: Core.Maybe Dimensions
+    dimensions :: Prelude.Maybe Dimensions
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HistoricalMetricResult' with all optional fields omitted.
@@ -50,16 +51,17 @@ newHistoricalMetricResult ::
   HistoricalMetricResult
 newHistoricalMetricResult =
   HistoricalMetricResult'
-    { collections = Core.Nothing,
-      dimensions = Core.Nothing
+    { collections =
+        Prelude.Nothing,
+      dimensions = Prelude.Nothing
     }
 
 -- | The set of metrics.
-historicalMetricResult_collections :: Lens.Lens' HistoricalMetricResult (Core.Maybe [HistoricalMetricData])
-historicalMetricResult_collections = Lens.lens (\HistoricalMetricResult' {collections} -> collections) (\s@HistoricalMetricResult' {} a -> s {collections = a} :: HistoricalMetricResult) Core.. Lens.mapping Lens._Coerce
+historicalMetricResult_collections :: Lens.Lens' HistoricalMetricResult (Prelude.Maybe [HistoricalMetricData])
+historicalMetricResult_collections = Lens.lens (\HistoricalMetricResult' {collections} -> collections) (\s@HistoricalMetricResult' {} a -> s {collections = a} :: HistoricalMetricResult) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The dimension for the metrics.
-historicalMetricResult_dimensions :: Lens.Lens' HistoricalMetricResult (Core.Maybe Dimensions)
+historicalMetricResult_dimensions :: Lens.Lens' HistoricalMetricResult (Prelude.Maybe Dimensions)
 historicalMetricResult_dimensions = Lens.lens (\HistoricalMetricResult' {dimensions} -> dimensions) (\s@HistoricalMetricResult' {} a -> s {dimensions = a} :: HistoricalMetricResult)
 
 instance Core.FromJSON HistoricalMetricResult where
@@ -68,10 +70,10 @@ instance Core.FromJSON HistoricalMetricResult where
       "HistoricalMetricResult"
       ( \x ->
           HistoricalMetricResult'
-            Core.<$> (x Core..:? "Collections" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Dimensions")
+            Prelude.<$> (x Core..:? "Collections" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Dimensions")
       )
 
-instance Core.Hashable HistoricalMetricResult
+instance Prelude.Hashable HistoricalMetricResult
 
-instance Core.NFData HistoricalMetricResult
+instance Prelude.NFData HistoricalMetricResult

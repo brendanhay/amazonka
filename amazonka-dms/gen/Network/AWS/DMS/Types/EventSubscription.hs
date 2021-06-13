@@ -21,6 +21,7 @@ module Network.AWS.DMS.Types.EventSubscription where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an event notification subscription created by the
 -- @CreateEventSubscription@ operation.
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
   { -- | The AWS DMS event notification subscription Id.
-    custSubscriptionId :: Core.Maybe Core.Text,
+    custSubscriptionId :: Prelude.Maybe Prelude.Text,
     -- | The status of the AWS DMS event notification subscription.
     --
     -- Constraints:
@@ -39,27 +40,27 @@ data EventSubscription = EventSubscription'
     -- The status \"no-permission\" indicates that AWS DMS no longer has
     -- permission to post to the SNS topic. The status \"topic-not-exist\"
     -- indicates that the topic was deleted after the subscription was created.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | A list of source Ids for the event subscription.
-    sourceIdsList :: Core.Maybe [Core.Text],
+    sourceIdsList :: Prelude.Maybe [Prelude.Text],
     -- | A lists of event categories.
-    eventCategoriesList :: Core.Maybe [Core.Text],
+    eventCategoriesList :: Prelude.Maybe [Prelude.Text],
     -- | Boolean value that indicates if the event subscription is enabled.
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The time the AWS DMS event notification subscription was created.
-    subscriptionCreationTime :: Core.Maybe Core.Text,
+    subscriptionCreationTime :: Prelude.Maybe Prelude.Text,
     -- | The AWS customer account associated with the AWS DMS event notification
     -- subscription.
-    customerAwsId :: Core.Maybe Core.Text,
+    customerAwsId :: Prelude.Maybe Prelude.Text,
     -- | The type of AWS DMS resource that generates events.
     --
     -- Valid values: replication-instance | replication-server | security-group
     -- | replication-task
-    sourceType :: Core.Maybe Core.Text,
+    sourceType :: Prelude.Maybe Prelude.Text,
     -- | The topic ARN of the AWS DMS event notification subscription.
-    snsTopicArn :: Core.Maybe Core.Text
+    snsTopicArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventSubscription' with all optional fields omitted.
@@ -104,19 +105,19 @@ newEventSubscription ::
 newEventSubscription =
   EventSubscription'
     { custSubscriptionId =
-        Core.Nothing,
-      status = Core.Nothing,
-      sourceIdsList = Core.Nothing,
-      eventCategoriesList = Core.Nothing,
-      enabled = Core.Nothing,
-      subscriptionCreationTime = Core.Nothing,
-      customerAwsId = Core.Nothing,
-      sourceType = Core.Nothing,
-      snsTopicArn = Core.Nothing
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      sourceIdsList = Prelude.Nothing,
+      eventCategoriesList = Prelude.Nothing,
+      enabled = Prelude.Nothing,
+      subscriptionCreationTime = Prelude.Nothing,
+      customerAwsId = Prelude.Nothing,
+      sourceType = Prelude.Nothing,
+      snsTopicArn = Prelude.Nothing
     }
 
 -- | The AWS DMS event notification subscription Id.
-eventSubscription_custSubscriptionId :: Lens.Lens' EventSubscription (Core.Maybe Core.Text)
+eventSubscription_custSubscriptionId :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_custSubscriptionId = Lens.lens (\EventSubscription' {custSubscriptionId} -> custSubscriptionId) (\s@EventSubscription' {} a -> s {custSubscriptionId = a} :: EventSubscription)
 
 -- | The status of the AWS DMS event notification subscription.
@@ -129,39 +130,39 @@ eventSubscription_custSubscriptionId = Lens.lens (\EventSubscription' {custSubsc
 -- The status \"no-permission\" indicates that AWS DMS no longer has
 -- permission to post to the SNS topic. The status \"topic-not-exist\"
 -- indicates that the topic was deleted after the subscription was created.
-eventSubscription_status :: Lens.Lens' EventSubscription (Core.Maybe Core.Text)
+eventSubscription_status :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_status = Lens.lens (\EventSubscription' {status} -> status) (\s@EventSubscription' {} a -> s {status = a} :: EventSubscription)
 
 -- | A list of source Ids for the event subscription.
-eventSubscription_sourceIdsList :: Lens.Lens' EventSubscription (Core.Maybe [Core.Text])
-eventSubscription_sourceIdsList = Lens.lens (\EventSubscription' {sourceIdsList} -> sourceIdsList) (\s@EventSubscription' {} a -> s {sourceIdsList = a} :: EventSubscription) Core.. Lens.mapping Lens._Coerce
+eventSubscription_sourceIdsList :: Lens.Lens' EventSubscription (Prelude.Maybe [Prelude.Text])
+eventSubscription_sourceIdsList = Lens.lens (\EventSubscription' {sourceIdsList} -> sourceIdsList) (\s@EventSubscription' {} a -> s {sourceIdsList = a} :: EventSubscription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A lists of event categories.
-eventSubscription_eventCategoriesList :: Lens.Lens' EventSubscription (Core.Maybe [Core.Text])
-eventSubscription_eventCategoriesList = Lens.lens (\EventSubscription' {eventCategoriesList} -> eventCategoriesList) (\s@EventSubscription' {} a -> s {eventCategoriesList = a} :: EventSubscription) Core.. Lens.mapping Lens._Coerce
+eventSubscription_eventCategoriesList :: Lens.Lens' EventSubscription (Prelude.Maybe [Prelude.Text])
+eventSubscription_eventCategoriesList = Lens.lens (\EventSubscription' {eventCategoriesList} -> eventCategoriesList) (\s@EventSubscription' {} a -> s {eventCategoriesList = a} :: EventSubscription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Boolean value that indicates if the event subscription is enabled.
-eventSubscription_enabled :: Lens.Lens' EventSubscription (Core.Maybe Core.Bool)
+eventSubscription_enabled :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Bool)
 eventSubscription_enabled = Lens.lens (\EventSubscription' {enabled} -> enabled) (\s@EventSubscription' {} a -> s {enabled = a} :: EventSubscription)
 
 -- | The time the AWS DMS event notification subscription was created.
-eventSubscription_subscriptionCreationTime :: Lens.Lens' EventSubscription (Core.Maybe Core.Text)
+eventSubscription_subscriptionCreationTime :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_subscriptionCreationTime = Lens.lens (\EventSubscription' {subscriptionCreationTime} -> subscriptionCreationTime) (\s@EventSubscription' {} a -> s {subscriptionCreationTime = a} :: EventSubscription)
 
 -- | The AWS customer account associated with the AWS DMS event notification
 -- subscription.
-eventSubscription_customerAwsId :: Lens.Lens' EventSubscription (Core.Maybe Core.Text)
+eventSubscription_customerAwsId :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_customerAwsId = Lens.lens (\EventSubscription' {customerAwsId} -> customerAwsId) (\s@EventSubscription' {} a -> s {customerAwsId = a} :: EventSubscription)
 
 -- | The type of AWS DMS resource that generates events.
 --
 -- Valid values: replication-instance | replication-server | security-group
 -- | replication-task
-eventSubscription_sourceType :: Lens.Lens' EventSubscription (Core.Maybe Core.Text)
+eventSubscription_sourceType :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_sourceType = Lens.lens (\EventSubscription' {sourceType} -> sourceType) (\s@EventSubscription' {} a -> s {sourceType = a} :: EventSubscription)
 
 -- | The topic ARN of the AWS DMS event notification subscription.
-eventSubscription_snsTopicArn :: Lens.Lens' EventSubscription (Core.Maybe Core.Text)
+eventSubscription_snsTopicArn :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_snsTopicArn = Lens.lens (\EventSubscription' {snsTopicArn} -> snsTopicArn) (\s@EventSubscription' {} a -> s {snsTopicArn = a} :: EventSubscription)
 
 instance Core.FromJSON EventSubscription where
@@ -170,19 +171,19 @@ instance Core.FromJSON EventSubscription where
       "EventSubscription"
       ( \x ->
           EventSubscription'
-            Core.<$> (x Core..:? "CustSubscriptionId")
-            Core.<*> (x Core..:? "Status")
-            Core.<*> (x Core..:? "SourceIdsList" Core..!= Core.mempty)
-            Core.<*> ( x Core..:? "EventCategoriesList"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "Enabled")
-            Core.<*> (x Core..:? "SubscriptionCreationTime")
-            Core.<*> (x Core..:? "CustomerAwsId")
-            Core.<*> (x Core..:? "SourceType")
-            Core.<*> (x Core..:? "SnsTopicArn")
+            Prelude.<$> (x Core..:? "CustSubscriptionId")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "SourceIdsList" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "EventCategoriesList"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "Enabled")
+            Prelude.<*> (x Core..:? "SubscriptionCreationTime")
+            Prelude.<*> (x Core..:? "CustomerAwsId")
+            Prelude.<*> (x Core..:? "SourceType")
+            Prelude.<*> (x Core..:? "SnsTopicArn")
       )
 
-instance Core.Hashable EventSubscription
+instance Prelude.Hashable EventSubscription
 
-instance Core.NFData EventSubscription
+instance Prelude.NFData EventSubscription

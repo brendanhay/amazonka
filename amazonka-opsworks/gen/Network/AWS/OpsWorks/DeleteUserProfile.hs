@@ -43,15 +43,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteUserProfile' smart constructor.
 data DeleteUserProfile = DeleteUserProfile'
   { -- | The user\'s IAM ARN. This can also be a federated user\'s ARN.
-    iamUserArn :: Core.Text
+    iamUserArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserProfile' with all optional fields omitted.
@@ -64,13 +65,13 @@ data DeleteUserProfile = DeleteUserProfile'
 -- 'iamUserArn', 'deleteUserProfile_iamUserArn' - The user\'s IAM ARN. This can also be a federated user\'s ARN.
 newDeleteUserProfile ::
   -- | 'iamUserArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteUserProfile
 newDeleteUserProfile pIamUserArn_ =
   DeleteUserProfile' {iamUserArn = pIamUserArn_}
 
 -- | The user\'s IAM ARN. This can also be a federated user\'s ARN.
-deleteUserProfile_iamUserArn :: Lens.Lens' DeleteUserProfile Core.Text
+deleteUserProfile_iamUserArn :: Lens.Lens' DeleteUserProfile Prelude.Text
 deleteUserProfile_iamUserArn = Lens.lens (\DeleteUserProfile' {iamUserArn} -> iamUserArn) (\s@DeleteUserProfile' {} a -> s {iamUserArn = a} :: DeleteUserProfile)
 
 instance Core.AWSRequest DeleteUserProfile where
@@ -81,41 +82,43 @@ instance Core.AWSRequest DeleteUserProfile where
   response =
     Response.receiveNull DeleteUserProfileResponse'
 
-instance Core.Hashable DeleteUserProfile
+instance Prelude.Hashable DeleteUserProfile
 
-instance Core.NFData DeleteUserProfile
+instance Prelude.NFData DeleteUserProfile
 
 instance Core.ToHeaders DeleteUserProfile where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.DeleteUserProfile" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteUserProfile where
   toJSON DeleteUserProfile' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("IamUserArn" Core..= iamUserArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("IamUserArn" Core..= iamUserArn)]
       )
 
 instance Core.ToPath DeleteUserProfile where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteUserProfile where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserProfileResponse' smart constructor.
 data DeleteUserProfileResponse = DeleteUserProfileResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserProfileResponse' with all optional fields omitted.
@@ -126,4 +129,4 @@ newDeleteUserProfileResponse ::
 newDeleteUserProfileResponse =
   DeleteUserProfileResponse'
 
-instance Core.NFData DeleteUserProfileResponse
+instance Prelude.NFData DeleteUserProfileResponse

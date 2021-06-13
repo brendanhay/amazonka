@@ -48,17 +48,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAddInstanceFleet' smart constructor.
 data AddInstanceFleet = AddInstanceFleet'
   { -- | The unique identifier of the cluster.
-    clusterId :: Core.Text,
+    clusterId :: Prelude.Text,
     -- | Specifies the configuration of the instance fleet.
     instanceFleet :: InstanceFleetConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddInstanceFleet' with all optional fields omitted.
@@ -73,7 +74,7 @@ data AddInstanceFleet = AddInstanceFleet'
 -- 'instanceFleet', 'addInstanceFleet_instanceFleet' - Specifies the configuration of the instance fleet.
 newAddInstanceFleet ::
   -- | 'clusterId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceFleet'
   InstanceFleetConfig ->
   AddInstanceFleet
@@ -84,7 +85,7 @@ newAddInstanceFleet pClusterId_ pInstanceFleet_ =
     }
 
 -- | The unique identifier of the cluster.
-addInstanceFleet_clusterId :: Lens.Lens' AddInstanceFleet Core.Text
+addInstanceFleet_clusterId :: Lens.Lens' AddInstanceFleet Prelude.Text
 addInstanceFleet_clusterId = Lens.lens (\AddInstanceFleet' {clusterId} -> clusterId) (\s@AddInstanceFleet' {} a -> s {clusterId = a} :: AddInstanceFleet)
 
 -- | Specifies the configuration of the instance fleet.
@@ -100,56 +101,59 @@ instance Core.AWSRequest AddInstanceFleet where
     Response.receiveJSON
       ( \s h x ->
           AddInstanceFleetResponse'
-            Core.<$> (x Core..?> "ClusterArn")
-            Core.<*> (x Core..?> "ClusterId")
-            Core.<*> (x Core..?> "InstanceFleetId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ClusterArn")
+            Prelude.<*> (x Core..?> "ClusterId")
+            Prelude.<*> (x Core..?> "InstanceFleetId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AddInstanceFleet
+instance Prelude.Hashable AddInstanceFleet
 
-instance Core.NFData AddInstanceFleet
+instance Prelude.NFData AddInstanceFleet
 
 instance Core.ToHeaders AddInstanceFleet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ElasticMapReduce.AddInstanceFleet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AddInstanceFleet where
   toJSON AddInstanceFleet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ClusterId" Core..= clusterId),
-            Core.Just ("InstanceFleet" Core..= instanceFleet)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ClusterId" Core..= clusterId),
+            Prelude.Just
+              ("InstanceFleet" Core..= instanceFleet)
           ]
       )
 
 instance Core.ToPath AddInstanceFleet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddInstanceFleet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAddInstanceFleetResponse' smart constructor.
 data AddInstanceFleetResponse = AddInstanceFleetResponse'
   { -- | The Amazon Resource Name of the cluster.
-    clusterArn :: Core.Maybe Core.Text,
+    clusterArn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the cluster.
-    clusterId :: Core.Maybe Core.Text,
+    clusterId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the instance fleet.
-    instanceFleetId :: Core.Maybe Core.Text,
+    instanceFleetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddInstanceFleetResponse' with all optional fields omitted.
@@ -168,31 +172,31 @@ data AddInstanceFleetResponse = AddInstanceFleetResponse'
 -- 'httpStatus', 'addInstanceFleetResponse_httpStatus' - The response's http status code.
 newAddInstanceFleetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddInstanceFleetResponse
 newAddInstanceFleetResponse pHttpStatus_ =
   AddInstanceFleetResponse'
     { clusterArn =
-        Core.Nothing,
-      clusterId = Core.Nothing,
-      instanceFleetId = Core.Nothing,
+        Prelude.Nothing,
+      clusterId = Prelude.Nothing,
+      instanceFleetId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name of the cluster.
-addInstanceFleetResponse_clusterArn :: Lens.Lens' AddInstanceFleetResponse (Core.Maybe Core.Text)
+addInstanceFleetResponse_clusterArn :: Lens.Lens' AddInstanceFleetResponse (Prelude.Maybe Prelude.Text)
 addInstanceFleetResponse_clusterArn = Lens.lens (\AddInstanceFleetResponse' {clusterArn} -> clusterArn) (\s@AddInstanceFleetResponse' {} a -> s {clusterArn = a} :: AddInstanceFleetResponse)
 
 -- | The unique identifier of the cluster.
-addInstanceFleetResponse_clusterId :: Lens.Lens' AddInstanceFleetResponse (Core.Maybe Core.Text)
+addInstanceFleetResponse_clusterId :: Lens.Lens' AddInstanceFleetResponse (Prelude.Maybe Prelude.Text)
 addInstanceFleetResponse_clusterId = Lens.lens (\AddInstanceFleetResponse' {clusterId} -> clusterId) (\s@AddInstanceFleetResponse' {} a -> s {clusterId = a} :: AddInstanceFleetResponse)
 
 -- | The unique identifier of the instance fleet.
-addInstanceFleetResponse_instanceFleetId :: Lens.Lens' AddInstanceFleetResponse (Core.Maybe Core.Text)
+addInstanceFleetResponse_instanceFleetId :: Lens.Lens' AddInstanceFleetResponse (Prelude.Maybe Prelude.Text)
 addInstanceFleetResponse_instanceFleetId = Lens.lens (\AddInstanceFleetResponse' {instanceFleetId} -> instanceFleetId) (\s@AddInstanceFleetResponse' {} a -> s {instanceFleetId = a} :: AddInstanceFleetResponse)
 
 -- | The response's http status code.
-addInstanceFleetResponse_httpStatus :: Lens.Lens' AddInstanceFleetResponse Core.Int
+addInstanceFleetResponse_httpStatus :: Lens.Lens' AddInstanceFleetResponse Prelude.Int
 addInstanceFleetResponse_httpStatus = Lens.lens (\AddInstanceFleetResponse' {httpStatus} -> httpStatus) (\s@AddInstanceFleetResponse' {} a -> s {httpStatus = a} :: AddInstanceFleetResponse)
 
-instance Core.NFData AddInstanceFleetResponse
+instance Prelude.NFData AddInstanceFleetResponse

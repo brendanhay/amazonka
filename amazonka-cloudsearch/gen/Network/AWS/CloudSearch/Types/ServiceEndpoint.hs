@@ -21,14 +21,15 @@ module Network.AWS.CloudSearch.Types.ServiceEndpoint where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The endpoint to which service requests can be submitted.
 --
 -- /See:/ 'newServiceEndpoint' smart constructor.
 data ServiceEndpoint = ServiceEndpoint'
-  { endpoint :: Core.Maybe Core.Text
+  { endpoint :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServiceEndpoint' with all optional fields omitted.
@@ -42,16 +43,17 @@ data ServiceEndpoint = ServiceEndpoint'
 newServiceEndpoint ::
   ServiceEndpoint
 newServiceEndpoint =
-  ServiceEndpoint' {endpoint = Core.Nothing}
+  ServiceEndpoint' {endpoint = Prelude.Nothing}
 
 -- | Undocumented member.
-serviceEndpoint_endpoint :: Lens.Lens' ServiceEndpoint (Core.Maybe Core.Text)
+serviceEndpoint_endpoint :: Lens.Lens' ServiceEndpoint (Prelude.Maybe Prelude.Text)
 serviceEndpoint_endpoint = Lens.lens (\ServiceEndpoint' {endpoint} -> endpoint) (\s@ServiceEndpoint' {} a -> s {endpoint = a} :: ServiceEndpoint)
 
 instance Core.FromXML ServiceEndpoint where
   parseXML x =
-    ServiceEndpoint' Core.<$> (x Core..@? "Endpoint")
+    ServiceEndpoint'
+      Prelude.<$> (x Core..@? "Endpoint")
 
-instance Core.Hashable ServiceEndpoint
+instance Prelude.Hashable ServiceEndpoint
 
-instance Core.NFData ServiceEndpoint
+instance Prelude.NFData ServiceEndpoint

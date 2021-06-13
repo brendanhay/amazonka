@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +55,11 @@ data GetLifecyclePolicy = GetLifecyclePolicy'
   { -- | The AWS account ID associated with the registry that contains the
     -- repository. If you do not specify a registry, the default registry is
     -- assumed.
-    registryId :: Core.Maybe Core.Text,
+    registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository.
-    repositoryName :: Core.Text
+    repositoryName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetLifecyclePolicy' with all optional fields omitted.
@@ -75,22 +76,22 @@ data GetLifecyclePolicy = GetLifecyclePolicy'
 -- 'repositoryName', 'getLifecyclePolicy_repositoryName' - The name of the repository.
 newGetLifecyclePolicy ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   GetLifecyclePolicy
 newGetLifecyclePolicy pRepositoryName_ =
   GetLifecyclePolicy'
-    { registryId = Core.Nothing,
+    { registryId = Prelude.Nothing,
       repositoryName = pRepositoryName_
     }
 
 -- | The AWS account ID associated with the registry that contains the
 -- repository. If you do not specify a registry, the default registry is
 -- assumed.
-getLifecyclePolicy_registryId :: Lens.Lens' GetLifecyclePolicy (Core.Maybe Core.Text)
+getLifecyclePolicy_registryId :: Lens.Lens' GetLifecyclePolicy (Prelude.Maybe Prelude.Text)
 getLifecyclePolicy_registryId = Lens.lens (\GetLifecyclePolicy' {registryId} -> registryId) (\s@GetLifecyclePolicy' {} a -> s {registryId = a} :: GetLifecyclePolicy)
 
 -- | The name of the repository.
-getLifecyclePolicy_repositoryName :: Lens.Lens' GetLifecyclePolicy Core.Text
+getLifecyclePolicy_repositoryName :: Lens.Lens' GetLifecyclePolicy Prelude.Text
 getLifecyclePolicy_repositoryName = Lens.lens (\GetLifecyclePolicy' {repositoryName} -> repositoryName) (\s@GetLifecyclePolicy' {} a -> s {repositoryName = a} :: GetLifecyclePolicy)
 
 instance Core.AWSRequest GetLifecyclePolicy where
@@ -102,59 +103,62 @@ instance Core.AWSRequest GetLifecyclePolicy where
     Response.receiveJSON
       ( \s h x ->
           GetLifecyclePolicyResponse'
-            Core.<$> (x Core..?> "registryId")
-            Core.<*> (x Core..?> "repositoryName")
-            Core.<*> (x Core..?> "lifecyclePolicyText")
-            Core.<*> (x Core..?> "lastEvaluatedAt")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "registryId")
+            Prelude.<*> (x Core..?> "repositoryName")
+            Prelude.<*> (x Core..?> "lifecyclePolicyText")
+            Prelude.<*> (x Core..?> "lastEvaluatedAt")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetLifecyclePolicy
+instance Prelude.Hashable GetLifecyclePolicy
 
-instance Core.NFData GetLifecyclePolicy
+instance Prelude.NFData GetLifecyclePolicy
 
 instance Core.ToHeaders GetLifecyclePolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetLifecyclePolicy where
   toJSON GetLifecyclePolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("registryId" Core..=) Core.<$> registryId,
-            Core.Just ("repositoryName" Core..= repositoryName)
+      ( Prelude.catMaybes
+          [ ("registryId" Core..=) Prelude.<$> registryId,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName)
           ]
       )
 
 instance Core.ToPath GetLifecyclePolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetLifecyclePolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLifecyclePolicyResponse' smart constructor.
 data GetLifecyclePolicyResponse = GetLifecyclePolicyResponse'
   { -- | The registry ID associated with the request.
-    registryId :: Core.Maybe Core.Text,
+    registryId :: Prelude.Maybe Prelude.Text,
     -- | The repository name associated with the request.
-    repositoryName :: Core.Maybe Core.Text,
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The JSON lifecycle policy text.
-    lifecyclePolicyText :: Core.Maybe Core.Text,
+    lifecyclePolicyText :: Prelude.Maybe Prelude.Text,
     -- | The time stamp of the last time that the lifecycle policy was run.
-    lastEvaluatedAt :: Core.Maybe Core.POSIX,
+    lastEvaluatedAt :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetLifecyclePolicyResponse' with all optional fields omitted.
@@ -175,36 +179,36 @@ data GetLifecyclePolicyResponse = GetLifecyclePolicyResponse'
 -- 'httpStatus', 'getLifecyclePolicyResponse_httpStatus' - The response's http status code.
 newGetLifecyclePolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetLifecyclePolicyResponse
 newGetLifecyclePolicyResponse pHttpStatus_ =
   GetLifecyclePolicyResponse'
     { registryId =
-        Core.Nothing,
-      repositoryName = Core.Nothing,
-      lifecyclePolicyText = Core.Nothing,
-      lastEvaluatedAt = Core.Nothing,
+        Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
+      lifecyclePolicyText = Prelude.Nothing,
+      lastEvaluatedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The registry ID associated with the request.
-getLifecyclePolicyResponse_registryId :: Lens.Lens' GetLifecyclePolicyResponse (Core.Maybe Core.Text)
+getLifecyclePolicyResponse_registryId :: Lens.Lens' GetLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
 getLifecyclePolicyResponse_registryId = Lens.lens (\GetLifecyclePolicyResponse' {registryId} -> registryId) (\s@GetLifecyclePolicyResponse' {} a -> s {registryId = a} :: GetLifecyclePolicyResponse)
 
 -- | The repository name associated with the request.
-getLifecyclePolicyResponse_repositoryName :: Lens.Lens' GetLifecyclePolicyResponse (Core.Maybe Core.Text)
+getLifecyclePolicyResponse_repositoryName :: Lens.Lens' GetLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
 getLifecyclePolicyResponse_repositoryName = Lens.lens (\GetLifecyclePolicyResponse' {repositoryName} -> repositoryName) (\s@GetLifecyclePolicyResponse' {} a -> s {repositoryName = a} :: GetLifecyclePolicyResponse)
 
 -- | The JSON lifecycle policy text.
-getLifecyclePolicyResponse_lifecyclePolicyText :: Lens.Lens' GetLifecyclePolicyResponse (Core.Maybe Core.Text)
+getLifecyclePolicyResponse_lifecyclePolicyText :: Lens.Lens' GetLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
 getLifecyclePolicyResponse_lifecyclePolicyText = Lens.lens (\GetLifecyclePolicyResponse' {lifecyclePolicyText} -> lifecyclePolicyText) (\s@GetLifecyclePolicyResponse' {} a -> s {lifecyclePolicyText = a} :: GetLifecyclePolicyResponse)
 
 -- | The time stamp of the last time that the lifecycle policy was run.
-getLifecyclePolicyResponse_lastEvaluatedAt :: Lens.Lens' GetLifecyclePolicyResponse (Core.Maybe Core.UTCTime)
-getLifecyclePolicyResponse_lastEvaluatedAt = Lens.lens (\GetLifecyclePolicyResponse' {lastEvaluatedAt} -> lastEvaluatedAt) (\s@GetLifecyclePolicyResponse' {} a -> s {lastEvaluatedAt = a} :: GetLifecyclePolicyResponse) Core.. Lens.mapping Core._Time
+getLifecyclePolicyResponse_lastEvaluatedAt :: Lens.Lens' GetLifecyclePolicyResponse (Prelude.Maybe Prelude.UTCTime)
+getLifecyclePolicyResponse_lastEvaluatedAt = Lens.lens (\GetLifecyclePolicyResponse' {lastEvaluatedAt} -> lastEvaluatedAt) (\s@GetLifecyclePolicyResponse' {} a -> s {lastEvaluatedAt = a} :: GetLifecyclePolicyResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-getLifecyclePolicyResponse_httpStatus :: Lens.Lens' GetLifecyclePolicyResponse Core.Int
+getLifecyclePolicyResponse_httpStatus :: Lens.Lens' GetLifecyclePolicyResponse Prelude.Int
 getLifecyclePolicyResponse_httpStatus = Lens.lens (\GetLifecyclePolicyResponse' {httpStatus} -> httpStatus) (\s@GetLifecyclePolicyResponse' {} a -> s {httpStatus = a} :: GetLifecyclePolicyResponse)
 
-instance Core.NFData GetLifecyclePolicyResponse
+instance Prelude.NFData GetLifecyclePolicyResponse

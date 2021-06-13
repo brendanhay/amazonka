@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.HumanLoopConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.HumanLoopDataAttributes
 
 -- | Sets up the flow definition the image will be sent to if one of the
@@ -30,17 +31,17 @@ import Network.AWS.Rekognition.Types.HumanLoopDataAttributes
 -- /See:/ 'newHumanLoopConfig' smart constructor.
 data HumanLoopConfig = HumanLoopConfig'
   { -- | Sets attributes of the input data.
-    dataAttributes :: Core.Maybe HumanLoopDataAttributes,
+    dataAttributes :: Prelude.Maybe HumanLoopDataAttributes,
     -- | The name of the human review used for this image. This should be kept
     -- unique within a region.
-    humanLoopName :: Core.Text,
+    humanLoopName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the flow definition. You can create a
     -- flow definition by using the Amazon Sagemaker
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateFlowDefinition.html CreateFlowDefinition>
     -- Operation.
-    flowDefinitionArn :: Core.Text
+    flowDefinitionArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HumanLoopConfig' with all optional fields omitted.
@@ -61,46 +62,47 @@ data HumanLoopConfig = HumanLoopConfig'
 -- Operation.
 newHumanLoopConfig ::
   -- | 'humanLoopName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'flowDefinitionArn'
-  Core.Text ->
+  Prelude.Text ->
   HumanLoopConfig
 newHumanLoopConfig
   pHumanLoopName_
   pFlowDefinitionArn_ =
     HumanLoopConfig'
-      { dataAttributes = Core.Nothing,
+      { dataAttributes = Prelude.Nothing,
         humanLoopName = pHumanLoopName_,
         flowDefinitionArn = pFlowDefinitionArn_
       }
 
 -- | Sets attributes of the input data.
-humanLoopConfig_dataAttributes :: Lens.Lens' HumanLoopConfig (Core.Maybe HumanLoopDataAttributes)
+humanLoopConfig_dataAttributes :: Lens.Lens' HumanLoopConfig (Prelude.Maybe HumanLoopDataAttributes)
 humanLoopConfig_dataAttributes = Lens.lens (\HumanLoopConfig' {dataAttributes} -> dataAttributes) (\s@HumanLoopConfig' {} a -> s {dataAttributes = a} :: HumanLoopConfig)
 
 -- | The name of the human review used for this image. This should be kept
 -- unique within a region.
-humanLoopConfig_humanLoopName :: Lens.Lens' HumanLoopConfig Core.Text
+humanLoopConfig_humanLoopName :: Lens.Lens' HumanLoopConfig Prelude.Text
 humanLoopConfig_humanLoopName = Lens.lens (\HumanLoopConfig' {humanLoopName} -> humanLoopName) (\s@HumanLoopConfig' {} a -> s {humanLoopName = a} :: HumanLoopConfig)
 
 -- | The Amazon Resource Name (ARN) of the flow definition. You can create a
 -- flow definition by using the Amazon Sagemaker
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateFlowDefinition.html CreateFlowDefinition>
 -- Operation.
-humanLoopConfig_flowDefinitionArn :: Lens.Lens' HumanLoopConfig Core.Text
+humanLoopConfig_flowDefinitionArn :: Lens.Lens' HumanLoopConfig Prelude.Text
 humanLoopConfig_flowDefinitionArn = Lens.lens (\HumanLoopConfig' {flowDefinitionArn} -> flowDefinitionArn) (\s@HumanLoopConfig' {} a -> s {flowDefinitionArn = a} :: HumanLoopConfig)
 
-instance Core.Hashable HumanLoopConfig
+instance Prelude.Hashable HumanLoopConfig
 
-instance Core.NFData HumanLoopConfig
+instance Prelude.NFData HumanLoopConfig
 
 instance Core.ToJSON HumanLoopConfig where
   toJSON HumanLoopConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DataAttributes" Core..=) Core.<$> dataAttributes,
-            Core.Just ("HumanLoopName" Core..= humanLoopName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("DataAttributes" Core..=)
+              Prelude.<$> dataAttributes,
+            Prelude.Just ("HumanLoopName" Core..= humanLoopName),
+            Prelude.Just
               ("FlowDefinitionArn" Core..= flowDefinitionArn)
           ]
       )

@@ -52,6 +52,7 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,13 +61,13 @@ data ListSecurityProfiles = ListSecurityProfiles'
   { -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListSecurityProfiles' with all optional fields omitted.
@@ -85,27 +86,27 @@ data ListSecurityProfiles = ListSecurityProfiles'
 -- 'instanceId', 'listSecurityProfiles_instanceId' - The identifier of the Amazon Connect instance.
 newListSecurityProfiles ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   ListSecurityProfiles
 newListSecurityProfiles pInstanceId_ =
   ListSecurityProfiles'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
-listSecurityProfiles_nextToken :: Lens.Lens' ListSecurityProfiles (Core.Maybe Core.Text)
+listSecurityProfiles_nextToken :: Lens.Lens' ListSecurityProfiles (Prelude.Maybe Prelude.Text)
 listSecurityProfiles_nextToken = Lens.lens (\ListSecurityProfiles' {nextToken} -> nextToken) (\s@ListSecurityProfiles' {} a -> s {nextToken = a} :: ListSecurityProfiles)
 
 -- | The maximum number of results to return per page.
-listSecurityProfiles_maxResults :: Lens.Lens' ListSecurityProfiles (Core.Maybe Core.Natural)
+listSecurityProfiles_maxResults :: Lens.Lens' ListSecurityProfiles (Prelude.Maybe Prelude.Natural)
 listSecurityProfiles_maxResults = Lens.lens (\ListSecurityProfiles' {maxResults} -> maxResults) (\s@ListSecurityProfiles' {} a -> s {maxResults = a} :: ListSecurityProfiles)
 
 -- | The identifier of the Amazon Connect instance.
-listSecurityProfiles_instanceId :: Lens.Lens' ListSecurityProfiles Core.Text
+listSecurityProfiles_instanceId :: Lens.Lens' ListSecurityProfiles Prelude.Text
 listSecurityProfiles_instanceId = Lens.lens (\ListSecurityProfiles' {instanceId} -> instanceId) (\s@ListSecurityProfiles' {} a -> s {instanceId = a} :: ListSecurityProfiles)
 
 instance Core.AWSPager ListSecurityProfiles where
@@ -113,22 +114,22 @@ instance Core.AWSPager ListSecurityProfiles where
     | Core.stop
         ( rs
             Lens.^? listSecurityProfilesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSecurityProfilesResponse_securityProfileSummaryList
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listSecurityProfiles_nextToken
+          Prelude.& listSecurityProfiles_nextToken
           Lens..~ rs
           Lens.^? listSecurityProfilesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSecurityProfiles where
   type
@@ -139,34 +140,36 @@ instance Core.AWSRequest ListSecurityProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListSecurityProfilesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "SecurityProfileSummaryList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "SecurityProfileSummaryList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListSecurityProfiles
+instance Prelude.Hashable ListSecurityProfiles
 
-instance Core.NFData ListSecurityProfiles
+instance Prelude.NFData ListSecurityProfiles
 
 instance Core.ToHeaders ListSecurityProfiles where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListSecurityProfiles where
   toPath ListSecurityProfiles' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/security-profiles-summary/", Core.toBS instanceId]
 
 instance Core.ToQuery ListSecurityProfiles where
   toQuery ListSecurityProfiles' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -175,13 +178,13 @@ instance Core.ToQuery ListSecurityProfiles where
 data ListSecurityProfilesResponse = ListSecurityProfilesResponse'
   { -- | If there are additional results, this is the token for the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the security profiles.
-    securityProfileSummaryList :: Core.Maybe [SecurityProfileSummary],
+    securityProfileSummaryList :: Prelude.Maybe [SecurityProfileSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListSecurityProfilesResponse' with all optional fields omitted.
@@ -199,27 +202,27 @@ data ListSecurityProfilesResponse = ListSecurityProfilesResponse'
 -- 'httpStatus', 'listSecurityProfilesResponse_httpStatus' - The response's http status code.
 newListSecurityProfilesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListSecurityProfilesResponse
 newListSecurityProfilesResponse pHttpStatus_ =
   ListSecurityProfilesResponse'
     { nextToken =
-        Core.Nothing,
-      securityProfileSummaryList = Core.Nothing,
+        Prelude.Nothing,
+      securityProfileSummaryList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
-listSecurityProfilesResponse_nextToken :: Lens.Lens' ListSecurityProfilesResponse (Core.Maybe Core.Text)
+listSecurityProfilesResponse_nextToken :: Lens.Lens' ListSecurityProfilesResponse (Prelude.Maybe Prelude.Text)
 listSecurityProfilesResponse_nextToken = Lens.lens (\ListSecurityProfilesResponse' {nextToken} -> nextToken) (\s@ListSecurityProfilesResponse' {} a -> s {nextToken = a} :: ListSecurityProfilesResponse)
 
 -- | Information about the security profiles.
-listSecurityProfilesResponse_securityProfileSummaryList :: Lens.Lens' ListSecurityProfilesResponse (Core.Maybe [SecurityProfileSummary])
-listSecurityProfilesResponse_securityProfileSummaryList = Lens.lens (\ListSecurityProfilesResponse' {securityProfileSummaryList} -> securityProfileSummaryList) (\s@ListSecurityProfilesResponse' {} a -> s {securityProfileSummaryList = a} :: ListSecurityProfilesResponse) Core.. Lens.mapping Lens._Coerce
+listSecurityProfilesResponse_securityProfileSummaryList :: Lens.Lens' ListSecurityProfilesResponse (Prelude.Maybe [SecurityProfileSummary])
+listSecurityProfilesResponse_securityProfileSummaryList = Lens.lens (\ListSecurityProfilesResponse' {securityProfileSummaryList} -> securityProfileSummaryList) (\s@ListSecurityProfilesResponse' {} a -> s {securityProfileSummaryList = a} :: ListSecurityProfilesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listSecurityProfilesResponse_httpStatus :: Lens.Lens' ListSecurityProfilesResponse Core.Int
+listSecurityProfilesResponse_httpStatus :: Lens.Lens' ListSecurityProfilesResponse Prelude.Int
 listSecurityProfilesResponse_httpStatus = Lens.lens (\ListSecurityProfilesResponse' {httpStatus} -> httpStatus) (\s@ListSecurityProfilesResponse' {} a -> s {httpStatus = a} :: ListSecurityProfilesResponse)
 
-instance Core.NFData ListSecurityProfilesResponse
+instance Prelude.NFData ListSecurityProfilesResponse

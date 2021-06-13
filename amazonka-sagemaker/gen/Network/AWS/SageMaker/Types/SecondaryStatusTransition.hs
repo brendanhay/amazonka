@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.SecondaryStatusTransition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.SecondaryStatus
 
 -- | An array element of
@@ -71,11 +72,11 @@ data SecondaryStatusTransition = SecondaryStatusTransition'
     -- -   @SecondaryStatus@ - Training
     --
     -- -   @StatusMessage@ - Downloading the training image
-    statusMessage :: Core.Maybe Core.Text,
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | A timestamp that shows when the training job transitioned out of this
     -- secondary status state into another secondary status state or when the
     -- training job has ended.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | Contains a secondary status information from a training job.
     --
     -- Status might be one of the following secondary statuses:
@@ -121,7 +122,7 @@ data SecondaryStatusTransition = SecondaryStatusTransition'
     -- secondary status state.
     startTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SecondaryStatusTransition' with all optional fields omitted.
@@ -219,13 +220,13 @@ newSecondaryStatusTransition ::
   -- | 'status'
   SecondaryStatus ->
   -- | 'startTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   SecondaryStatusTransition
 newSecondaryStatusTransition pStatus_ pStartTime_ =
   SecondaryStatusTransition'
     { statusMessage =
-        Core.Nothing,
-      endTime = Core.Nothing,
+        Prelude.Nothing,
+      endTime = Prelude.Nothing,
       status = pStatus_,
       startTime = Core._Time Lens.# pStartTime_
     }
@@ -266,14 +267,14 @@ newSecondaryStatusTransition pStatus_ pStartTime_ =
 -- -   @SecondaryStatus@ - Training
 --
 -- -   @StatusMessage@ - Downloading the training image
-secondaryStatusTransition_statusMessage :: Lens.Lens' SecondaryStatusTransition (Core.Maybe Core.Text)
+secondaryStatusTransition_statusMessage :: Lens.Lens' SecondaryStatusTransition (Prelude.Maybe Prelude.Text)
 secondaryStatusTransition_statusMessage = Lens.lens (\SecondaryStatusTransition' {statusMessage} -> statusMessage) (\s@SecondaryStatusTransition' {} a -> s {statusMessage = a} :: SecondaryStatusTransition)
 
 -- | A timestamp that shows when the training job transitioned out of this
 -- secondary status state into another secondary status state or when the
 -- training job has ended.
-secondaryStatusTransition_endTime :: Lens.Lens' SecondaryStatusTransition (Core.Maybe Core.UTCTime)
-secondaryStatusTransition_endTime = Lens.lens (\SecondaryStatusTransition' {endTime} -> endTime) (\s@SecondaryStatusTransition' {} a -> s {endTime = a} :: SecondaryStatusTransition) Core.. Lens.mapping Core._Time
+secondaryStatusTransition_endTime :: Lens.Lens' SecondaryStatusTransition (Prelude.Maybe Prelude.UTCTime)
+secondaryStatusTransition_endTime = Lens.lens (\SecondaryStatusTransition' {endTime} -> endTime) (\s@SecondaryStatusTransition' {} a -> s {endTime = a} :: SecondaryStatusTransition) Prelude.. Lens.mapping Core._Time
 
 -- | Contains a secondary status information from a training job.
 --
@@ -320,8 +321,8 @@ secondaryStatusTransition_status = Lens.lens (\SecondaryStatusTransition' {statu
 
 -- | A timestamp that shows when the training job transitioned to the current
 -- secondary status state.
-secondaryStatusTransition_startTime :: Lens.Lens' SecondaryStatusTransition Core.UTCTime
-secondaryStatusTransition_startTime = Lens.lens (\SecondaryStatusTransition' {startTime} -> startTime) (\s@SecondaryStatusTransition' {} a -> s {startTime = a} :: SecondaryStatusTransition) Core.. Core._Time
+secondaryStatusTransition_startTime :: Lens.Lens' SecondaryStatusTransition Prelude.UTCTime
+secondaryStatusTransition_startTime = Lens.lens (\SecondaryStatusTransition' {startTime} -> startTime) (\s@SecondaryStatusTransition' {} a -> s {startTime = a} :: SecondaryStatusTransition) Prelude.. Core._Time
 
 instance Core.FromJSON SecondaryStatusTransition where
   parseJSON =
@@ -329,12 +330,12 @@ instance Core.FromJSON SecondaryStatusTransition where
       "SecondaryStatusTransition"
       ( \x ->
           SecondaryStatusTransition'
-            Core.<$> (x Core..:? "StatusMessage")
-            Core.<*> (x Core..:? "EndTime")
-            Core.<*> (x Core..: "Status")
-            Core.<*> (x Core..: "StartTime")
+            Prelude.<$> (x Core..:? "StatusMessage")
+            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..: "Status")
+            Prelude.<*> (x Core..: "StartTime")
       )
 
-instance Core.Hashable SecondaryStatusTransition
+instance Prelude.Hashable SecondaryStatusTransition
 
-instance Core.NFData SecondaryStatusTransition
+instance Prelude.NFData SecondaryStatusTransition

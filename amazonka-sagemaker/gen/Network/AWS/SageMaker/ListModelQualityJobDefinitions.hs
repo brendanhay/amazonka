@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -58,32 +59,32 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newListModelQualityJobDefinitions' smart constructor.
 data ListModelQualityJobDefinitions = ListModelQualityJobDefinitions'
   { -- | The sort order for results. The default is @Descending@.
-    sortOrder :: Core.Maybe SortOrder,
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | If the result of the previous @ListModelQualityJobDefinitions@ request
     -- was truncated, the response includes a @NextToken@. To retrieve the next
     -- set of model quality monitoring job definitions, use the token in the
     -- next request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only model quality monitoring job definitions that
     -- are associated with the specified endpoint.
-    endpointName :: Core.Maybe Core.Text,
+    endpointName :: Prelude.Maybe Prelude.Text,
     -- | A string in the transform job name. This filter returns only model
     -- quality monitoring job definitions whose name contains the specified
     -- string.
-    nameContains :: Core.Maybe Core.Text,
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in a call to
     -- @ListModelQualityJobDefinitions@.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only model quality monitoring job definitions
     -- created before the specified time.
-    creationTimeBefore :: Core.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | The field to sort results by. The default is @CreationTime@.
-    sortBy :: Core.Maybe MonitoringJobDefinitionSortKey,
+    sortBy :: Prelude.Maybe MonitoringJobDefinitionSortKey,
     -- | A filter that returns only model quality monitoring job definitions
     -- created after the specified time.
-    creationTimeAfter :: Core.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListModelQualityJobDefinitions' with all optional fields omitted.
@@ -122,77 +123,77 @@ newListModelQualityJobDefinitions ::
 newListModelQualityJobDefinitions =
   ListModelQualityJobDefinitions'
     { sortOrder =
-        Core.Nothing,
-      nextToken = Core.Nothing,
-      endpointName = Core.Nothing,
-      nameContains = Core.Nothing,
-      maxResults = Core.Nothing,
-      creationTimeBefore = Core.Nothing,
-      sortBy = Core.Nothing,
-      creationTimeAfter = Core.Nothing
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      endpointName = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      creationTimeBefore = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing
     }
 
 -- | The sort order for results. The default is @Descending@.
-listModelQualityJobDefinitions_sortOrder :: Lens.Lens' ListModelQualityJobDefinitions (Core.Maybe SortOrder)
+listModelQualityJobDefinitions_sortOrder :: Lens.Lens' ListModelQualityJobDefinitions (Prelude.Maybe SortOrder)
 listModelQualityJobDefinitions_sortOrder = Lens.lens (\ListModelQualityJobDefinitions' {sortOrder} -> sortOrder) (\s@ListModelQualityJobDefinitions' {} a -> s {sortOrder = a} :: ListModelQualityJobDefinitions)
 
 -- | If the result of the previous @ListModelQualityJobDefinitions@ request
 -- was truncated, the response includes a @NextToken@. To retrieve the next
 -- set of model quality monitoring job definitions, use the token in the
 -- next request.
-listModelQualityJobDefinitions_nextToken :: Lens.Lens' ListModelQualityJobDefinitions (Core.Maybe Core.Text)
+listModelQualityJobDefinitions_nextToken :: Lens.Lens' ListModelQualityJobDefinitions (Prelude.Maybe Prelude.Text)
 listModelQualityJobDefinitions_nextToken = Lens.lens (\ListModelQualityJobDefinitions' {nextToken} -> nextToken) (\s@ListModelQualityJobDefinitions' {} a -> s {nextToken = a} :: ListModelQualityJobDefinitions)
 
 -- | A filter that returns only model quality monitoring job definitions that
 -- are associated with the specified endpoint.
-listModelQualityJobDefinitions_endpointName :: Lens.Lens' ListModelQualityJobDefinitions (Core.Maybe Core.Text)
+listModelQualityJobDefinitions_endpointName :: Lens.Lens' ListModelQualityJobDefinitions (Prelude.Maybe Prelude.Text)
 listModelQualityJobDefinitions_endpointName = Lens.lens (\ListModelQualityJobDefinitions' {endpointName} -> endpointName) (\s@ListModelQualityJobDefinitions' {} a -> s {endpointName = a} :: ListModelQualityJobDefinitions)
 
 -- | A string in the transform job name. This filter returns only model
 -- quality monitoring job definitions whose name contains the specified
 -- string.
-listModelQualityJobDefinitions_nameContains :: Lens.Lens' ListModelQualityJobDefinitions (Core.Maybe Core.Text)
+listModelQualityJobDefinitions_nameContains :: Lens.Lens' ListModelQualityJobDefinitions (Prelude.Maybe Prelude.Text)
 listModelQualityJobDefinitions_nameContains = Lens.lens (\ListModelQualityJobDefinitions' {nameContains} -> nameContains) (\s@ListModelQualityJobDefinitions' {} a -> s {nameContains = a} :: ListModelQualityJobDefinitions)
 
 -- | The maximum number of results to return in a call to
 -- @ListModelQualityJobDefinitions@.
-listModelQualityJobDefinitions_maxResults :: Lens.Lens' ListModelQualityJobDefinitions (Core.Maybe Core.Natural)
+listModelQualityJobDefinitions_maxResults :: Lens.Lens' ListModelQualityJobDefinitions (Prelude.Maybe Prelude.Natural)
 listModelQualityJobDefinitions_maxResults = Lens.lens (\ListModelQualityJobDefinitions' {maxResults} -> maxResults) (\s@ListModelQualityJobDefinitions' {} a -> s {maxResults = a} :: ListModelQualityJobDefinitions)
 
 -- | A filter that returns only model quality monitoring job definitions
 -- created before the specified time.
-listModelQualityJobDefinitions_creationTimeBefore :: Lens.Lens' ListModelQualityJobDefinitions (Core.Maybe Core.UTCTime)
-listModelQualityJobDefinitions_creationTimeBefore = Lens.lens (\ListModelQualityJobDefinitions' {creationTimeBefore} -> creationTimeBefore) (\s@ListModelQualityJobDefinitions' {} a -> s {creationTimeBefore = a} :: ListModelQualityJobDefinitions) Core.. Lens.mapping Core._Time
+listModelQualityJobDefinitions_creationTimeBefore :: Lens.Lens' ListModelQualityJobDefinitions (Prelude.Maybe Prelude.UTCTime)
+listModelQualityJobDefinitions_creationTimeBefore = Lens.lens (\ListModelQualityJobDefinitions' {creationTimeBefore} -> creationTimeBefore) (\s@ListModelQualityJobDefinitions' {} a -> s {creationTimeBefore = a} :: ListModelQualityJobDefinitions) Prelude.. Lens.mapping Core._Time
 
 -- | The field to sort results by. The default is @CreationTime@.
-listModelQualityJobDefinitions_sortBy :: Lens.Lens' ListModelQualityJobDefinitions (Core.Maybe MonitoringJobDefinitionSortKey)
+listModelQualityJobDefinitions_sortBy :: Lens.Lens' ListModelQualityJobDefinitions (Prelude.Maybe MonitoringJobDefinitionSortKey)
 listModelQualityJobDefinitions_sortBy = Lens.lens (\ListModelQualityJobDefinitions' {sortBy} -> sortBy) (\s@ListModelQualityJobDefinitions' {} a -> s {sortBy = a} :: ListModelQualityJobDefinitions)
 
 -- | A filter that returns only model quality monitoring job definitions
 -- created after the specified time.
-listModelQualityJobDefinitions_creationTimeAfter :: Lens.Lens' ListModelQualityJobDefinitions (Core.Maybe Core.UTCTime)
-listModelQualityJobDefinitions_creationTimeAfter = Lens.lens (\ListModelQualityJobDefinitions' {creationTimeAfter} -> creationTimeAfter) (\s@ListModelQualityJobDefinitions' {} a -> s {creationTimeAfter = a} :: ListModelQualityJobDefinitions) Core.. Lens.mapping Core._Time
+listModelQualityJobDefinitions_creationTimeAfter :: Lens.Lens' ListModelQualityJobDefinitions (Prelude.Maybe Prelude.UTCTime)
+listModelQualityJobDefinitions_creationTimeAfter = Lens.lens (\ListModelQualityJobDefinitions' {creationTimeAfter} -> creationTimeAfter) (\s@ListModelQualityJobDefinitions' {} a -> s {creationTimeAfter = a} :: ListModelQualityJobDefinitions) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListModelQualityJobDefinitions where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? listModelQualityJobDefinitionsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listModelQualityJobDefinitionsResponse_jobDefinitionSummaries
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listModelQualityJobDefinitions_nextToken
+          Prelude.& listModelQualityJobDefinitions_nextToken
           Lens..~ rs
           Lens.^? listModelQualityJobDefinitionsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -206,68 +207,74 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListModelQualityJobDefinitionsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..?> "JobDefinitionSummaries"
-                         Core..!@ Core.mempty
-                     )
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "JobDefinitionSummaries"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
-instance Core.Hashable ListModelQualityJobDefinitions
+instance
+  Prelude.Hashable
+    ListModelQualityJobDefinitions
 
-instance Core.NFData ListModelQualityJobDefinitions
+instance
+  Prelude.NFData
+    ListModelQualityJobDefinitions
 
 instance
   Core.ToHeaders
     ListModelQualityJobDefinitions
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.ListModelQualityJobDefinitions" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListModelQualityJobDefinitions where
   toJSON ListModelQualityJobDefinitions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SortOrder" Core..=) Core.<$> sortOrder,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("EndpointName" Core..=) Core.<$> endpointName,
-            ("NameContains" Core..=) Core.<$> nameContains,
-            ("MaxResults" Core..=) Core.<$> maxResults,
+      ( Prelude.catMaybes
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("EndpointName" Core..=) Prelude.<$> endpointName,
+            ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)
-              Core.<$> creationTimeBefore,
-            ("SortBy" Core..=) Core.<$> sortBy,
+              Prelude.<$> creationTimeBefore,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
             ("CreationTimeAfter" Core..=)
-              Core.<$> creationTimeAfter
+              Prelude.<$> creationTimeAfter
           ]
       )
 
 instance Core.ToPath ListModelQualityJobDefinitions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListModelQualityJobDefinitions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListModelQualityJobDefinitionsResponse' smart constructor.
 data ListModelQualityJobDefinitionsResponse = ListModelQualityJobDefinitionsResponse'
   { -- | If the response is truncated, Amazon SageMaker returns this token. To
     -- retrieve the next set of model quality monitoring job definitions, use
     -- it in the next request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of summaries of model quality monitoring job definitions.
     jobDefinitionSummaries :: [MonitoringJobDefinitionSummary]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListModelQualityJobDefinitionsResponse' with all optional fields omitted.
@@ -286,32 +293,32 @@ data ListModelQualityJobDefinitionsResponse = ListModelQualityJobDefinitionsResp
 -- 'jobDefinitionSummaries', 'listModelQualityJobDefinitionsResponse_jobDefinitionSummaries' - A list of summaries of model quality monitoring job definitions.
 newListModelQualityJobDefinitionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListModelQualityJobDefinitionsResponse
 newListModelQualityJobDefinitionsResponse
   pHttpStatus_ =
     ListModelQualityJobDefinitionsResponse'
       { nextToken =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_,
         jobDefinitionSummaries =
-          Core.mempty
+          Prelude.mempty
       }
 
 -- | If the response is truncated, Amazon SageMaker returns this token. To
 -- retrieve the next set of model quality monitoring job definitions, use
 -- it in the next request.
-listModelQualityJobDefinitionsResponse_nextToken :: Lens.Lens' ListModelQualityJobDefinitionsResponse (Core.Maybe Core.Text)
+listModelQualityJobDefinitionsResponse_nextToken :: Lens.Lens' ListModelQualityJobDefinitionsResponse (Prelude.Maybe Prelude.Text)
 listModelQualityJobDefinitionsResponse_nextToken = Lens.lens (\ListModelQualityJobDefinitionsResponse' {nextToken} -> nextToken) (\s@ListModelQualityJobDefinitionsResponse' {} a -> s {nextToken = a} :: ListModelQualityJobDefinitionsResponse)
 
 -- | The response's http status code.
-listModelQualityJobDefinitionsResponse_httpStatus :: Lens.Lens' ListModelQualityJobDefinitionsResponse Core.Int
+listModelQualityJobDefinitionsResponse_httpStatus :: Lens.Lens' ListModelQualityJobDefinitionsResponse Prelude.Int
 listModelQualityJobDefinitionsResponse_httpStatus = Lens.lens (\ListModelQualityJobDefinitionsResponse' {httpStatus} -> httpStatus) (\s@ListModelQualityJobDefinitionsResponse' {} a -> s {httpStatus = a} :: ListModelQualityJobDefinitionsResponse)
 
 -- | A list of summaries of model quality monitoring job definitions.
 listModelQualityJobDefinitionsResponse_jobDefinitionSummaries :: Lens.Lens' ListModelQualityJobDefinitionsResponse [MonitoringJobDefinitionSummary]
-listModelQualityJobDefinitionsResponse_jobDefinitionSummaries = Lens.lens (\ListModelQualityJobDefinitionsResponse' {jobDefinitionSummaries} -> jobDefinitionSummaries) (\s@ListModelQualityJobDefinitionsResponse' {} a -> s {jobDefinitionSummaries = a} :: ListModelQualityJobDefinitionsResponse) Core.. Lens._Coerce
+listModelQualityJobDefinitionsResponse_jobDefinitionSummaries = Lens.lens (\ListModelQualityJobDefinitionsResponse' {jobDefinitionSummaries} -> jobDefinitionSummaries) (\s@ListModelQualityJobDefinitionsResponse' {} a -> s {jobDefinitionSummaries = a} :: ListModelQualityJobDefinitionsResponse) Prelude.. Lens._Coerce
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListModelQualityJobDefinitionsResponse

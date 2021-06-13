@@ -22,6 +22,7 @@ module Network.AWS.LexModels.Types.Message where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.ContentType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The message object that provides the message text and its type.
 --
@@ -30,13 +31,13 @@ data Message = Message'
   { -- | Identifies the message group that the message belongs to. When a group
     -- is assigned to a message, Amazon Lex returns one message from each group
     -- in the response.
-    groupNumber :: Core.Maybe Core.Natural,
+    groupNumber :: Prelude.Maybe Prelude.Natural,
     -- | The content type of the message string.
     contentType :: ContentType,
     -- | The text of the message.
-    content :: Core.Text
+    content :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Message' with all optional fields omitted.
@@ -57,11 +58,11 @@ newMessage ::
   -- | 'contentType'
   ContentType ->
   -- | 'content'
-  Core.Text ->
+  Prelude.Text ->
   Message
 newMessage pContentType_ pContent_ =
   Message'
-    { groupNumber = Core.Nothing,
+    { groupNumber = Prelude.Nothing,
       contentType = pContentType_,
       content = pContent_
     }
@@ -69,7 +70,7 @@ newMessage pContentType_ pContent_ =
 -- | Identifies the message group that the message belongs to. When a group
 -- is assigned to a message, Amazon Lex returns one message from each group
 -- in the response.
-message_groupNumber :: Lens.Lens' Message (Core.Maybe Core.Natural)
+message_groupNumber :: Lens.Lens' Message (Prelude.Maybe Prelude.Natural)
 message_groupNumber = Lens.lens (\Message' {groupNumber} -> groupNumber) (\s@Message' {} a -> s {groupNumber = a} :: Message)
 
 -- | The content type of the message string.
@@ -77,7 +78,7 @@ message_contentType :: Lens.Lens' Message ContentType
 message_contentType = Lens.lens (\Message' {contentType} -> contentType) (\s@Message' {} a -> s {contentType = a} :: Message)
 
 -- | The text of the message.
-message_content :: Lens.Lens' Message Core.Text
+message_content :: Lens.Lens' Message Prelude.Text
 message_content = Lens.lens (\Message' {content} -> content) (\s@Message' {} a -> s {content = a} :: Message)
 
 instance Core.FromJSON Message where
@@ -86,21 +87,21 @@ instance Core.FromJSON Message where
       "Message"
       ( \x ->
           Message'
-            Core.<$> (x Core..:? "groupNumber")
-            Core.<*> (x Core..: "contentType")
-            Core.<*> (x Core..: "content")
+            Prelude.<$> (x Core..:? "groupNumber")
+            Prelude.<*> (x Core..: "contentType")
+            Prelude.<*> (x Core..: "content")
       )
 
-instance Core.Hashable Message
+instance Prelude.Hashable Message
 
-instance Core.NFData Message
+instance Prelude.NFData Message
 
 instance Core.ToJSON Message where
   toJSON Message' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("groupNumber" Core..=) Core.<$> groupNumber,
-            Core.Just ("contentType" Core..= contentType),
-            Core.Just ("content" Core..= content)
+      ( Prelude.catMaybes
+          [ ("groupNumber" Core..=) Prelude.<$> groupNumber,
+            Prelude.Just ("contentType" Core..= contentType),
+            Prelude.Just ("content" Core..= content)
           ]
       )

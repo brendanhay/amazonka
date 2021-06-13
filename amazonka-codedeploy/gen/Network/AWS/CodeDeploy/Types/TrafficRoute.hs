@@ -21,6 +21,7 @@ module Network.AWS.CodeDeploy.Types.TrafficRoute where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a listener. The listener contains the path used to
 -- route traffic that is received from the load balancer to a target group.
@@ -30,9 +31,9 @@ data TrafficRoute = TrafficRoute'
   { -- | The Amazon Resource Name (ARN) of one listener. The listener identifies
     -- the route between a target group and a load balancer. This is an array
     -- of strings with a maximum size of one.
-    listenerArns :: Core.Maybe [Core.Text]
+    listenerArns :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrafficRoute' with all optional fields omitted.
@@ -48,13 +49,13 @@ data TrafficRoute = TrafficRoute'
 newTrafficRoute ::
   TrafficRoute
 newTrafficRoute =
-  TrafficRoute' {listenerArns = Core.Nothing}
+  TrafficRoute' {listenerArns = Prelude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of one listener. The listener identifies
 -- the route between a target group and a load balancer. This is an array
 -- of strings with a maximum size of one.
-trafficRoute_listenerArns :: Lens.Lens' TrafficRoute (Core.Maybe [Core.Text])
-trafficRoute_listenerArns = Lens.lens (\TrafficRoute' {listenerArns} -> listenerArns) (\s@TrafficRoute' {} a -> s {listenerArns = a} :: TrafficRoute) Core.. Lens.mapping Lens._Coerce
+trafficRoute_listenerArns :: Lens.Lens' TrafficRoute (Prelude.Maybe [Prelude.Text])
+trafficRoute_listenerArns = Lens.lens (\TrafficRoute' {listenerArns} -> listenerArns) (\s@TrafficRoute' {} a -> s {listenerArns = a} :: TrafficRoute) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON TrafficRoute where
   parseJSON =
@@ -62,16 +63,16 @@ instance Core.FromJSON TrafficRoute where
       "TrafficRoute"
       ( \x ->
           TrafficRoute'
-            Core.<$> (x Core..:? "listenerArns" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "listenerArns" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable TrafficRoute
+instance Prelude.Hashable TrafficRoute
 
-instance Core.NFData TrafficRoute
+instance Prelude.NFData TrafficRoute
 
 instance Core.ToJSON TrafficRoute where
   toJSON TrafficRoute' {..} =
     Core.object
-      ( Core.catMaybes
-          [("listenerArns" Core..=) Core.<$> listenerArns]
+      ( Prelude.catMaybes
+          [("listenerArns" Core..=) Prelude.<$> listenerArns]
       )

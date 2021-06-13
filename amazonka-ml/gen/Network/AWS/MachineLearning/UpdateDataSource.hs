@@ -46,18 +46,19 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDataSource' smart constructor.
 data UpdateDataSource = UpdateDataSource'
   { -- | The ID assigned to the @DataSource@ during creation.
-    dataSourceId :: Core.Text,
+    dataSourceId :: Prelude.Text,
     -- | A new user-supplied name or description of the @DataSource@ that will
     -- replace the current description.
-    dataSourceName :: Core.Text
+    dataSourceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDataSource' with all optional fields omitted.
@@ -73,9 +74,9 @@ data UpdateDataSource = UpdateDataSource'
 -- replace the current description.
 newUpdateDataSource ::
   -- | 'dataSourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'dataSourceName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateDataSource
 newUpdateDataSource pDataSourceId_ pDataSourceName_ =
   UpdateDataSource'
@@ -84,12 +85,12 @@ newUpdateDataSource pDataSourceId_ pDataSourceName_ =
     }
 
 -- | The ID assigned to the @DataSource@ during creation.
-updateDataSource_dataSourceId :: Lens.Lens' UpdateDataSource Core.Text
+updateDataSource_dataSourceId :: Lens.Lens' UpdateDataSource Prelude.Text
 updateDataSource_dataSourceId = Lens.lens (\UpdateDataSource' {dataSourceId} -> dataSourceId) (\s@UpdateDataSource' {} a -> s {dataSourceId = a} :: UpdateDataSource)
 
 -- | A new user-supplied name or description of the @DataSource@ that will
 -- replace the current description.
-updateDataSource_dataSourceName :: Lens.Lens' UpdateDataSource Core.Text
+updateDataSource_dataSourceName :: Lens.Lens' UpdateDataSource Prelude.Text
 updateDataSource_dataSourceName = Lens.lens (\UpdateDataSource' {dataSourceName} -> dataSourceName) (\s@UpdateDataSource' {} a -> s {dataSourceName = a} :: UpdateDataSource)
 
 instance Core.AWSRequest UpdateDataSource where
@@ -101,41 +102,44 @@ instance Core.AWSRequest UpdateDataSource where
     Response.receiveJSON
       ( \s h x ->
           UpdateDataSourceResponse'
-            Core.<$> (x Core..?> "DataSourceId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DataSourceId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateDataSource
+instance Prelude.Hashable UpdateDataSource
 
-instance Core.NFData UpdateDataSource
+instance Prelude.NFData UpdateDataSource
 
 instance Core.ToHeaders UpdateDataSource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonML_20141212.UpdateDataSource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateDataSource where
   toJSON UpdateDataSource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DataSourceId" Core..= dataSourceId),
-            Core.Just ("DataSourceName" Core..= dataSourceName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("DataSourceId" Core..= dataSourceId),
+            Prelude.Just
+              ("DataSourceName" Core..= dataSourceName)
           ]
       )
 
 instance Core.ToPath UpdateDataSource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateDataSource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an @UpdateDataSource@ operation.
 --
@@ -146,11 +150,11 @@ instance Core.ToQuery UpdateDataSource where
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
   { -- | The ID assigned to the @DataSource@ during creation. This value should
     -- be identical to the value of the @DataSourceID@ in the request.
-    dataSourceId :: Core.Maybe Core.Text,
+    dataSourceId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDataSourceResponse' with all optional fields omitted.
@@ -166,22 +170,22 @@ data UpdateDataSourceResponse = UpdateDataSourceResponse'
 -- 'httpStatus', 'updateDataSourceResponse_httpStatus' - The response's http status code.
 newUpdateDataSourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateDataSourceResponse
 newUpdateDataSourceResponse pHttpStatus_ =
   UpdateDataSourceResponse'
     { dataSourceId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID assigned to the @DataSource@ during creation. This value should
 -- be identical to the value of the @DataSourceID@ in the request.
-updateDataSourceResponse_dataSourceId :: Lens.Lens' UpdateDataSourceResponse (Core.Maybe Core.Text)
+updateDataSourceResponse_dataSourceId :: Lens.Lens' UpdateDataSourceResponse (Prelude.Maybe Prelude.Text)
 updateDataSourceResponse_dataSourceId = Lens.lens (\UpdateDataSourceResponse' {dataSourceId} -> dataSourceId) (\s@UpdateDataSourceResponse' {} a -> s {dataSourceId = a} :: UpdateDataSourceResponse)
 
 -- | The response's http status code.
-updateDataSourceResponse_httpStatus :: Lens.Lens' UpdateDataSourceResponse Core.Int
+updateDataSourceResponse_httpStatus :: Lens.Lens' UpdateDataSourceResponse Prelude.Int
 updateDataSourceResponse_httpStatus = Lens.lens (\UpdateDataSourceResponse' {httpStatus} -> httpStatus) (\s@UpdateDataSourceResponse' {} a -> s {httpStatus = a} :: UpdateDataSourceResponse)
 
-instance Core.NFData UpdateDataSourceResponse
+instance Prelude.NFData UpdateDataSourceResponse

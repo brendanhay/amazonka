@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.AvailabilityZone
 import Network.AWS.Lightsail.Types.RegionName
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the AWS Region.
 --
@@ -30,21 +31,21 @@ import Network.AWS.Lightsail.Types.RegionName
 data RegionInfo = RegionInfo'
   { -- | The Availability Zones. Follows the format @us-east-2a@
     -- (case-sensitive).
-    availabilityZones :: Core.Maybe [AvailabilityZone],
+    availabilityZones :: Prelude.Maybe [AvailabilityZone],
     -- | The continent code (e.g., @NA@, meaning North America).
-    continentCode :: Core.Maybe Core.Text,
+    continentCode :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zones for databases. Follows the format @us-east-2a@
     -- (case-sensitive).
-    relationalDatabaseAvailabilityZones :: Core.Maybe [AvailabilityZone],
+    relationalDatabaseAvailabilityZones :: Prelude.Maybe [AvailabilityZone],
     -- | The region name (e.g., @us-east-2@).
-    name :: Core.Maybe RegionName,
+    name :: Prelude.Maybe RegionName,
     -- | The description of the AWS Region (e.g.,
     -- @This region is recommended to serve users in the eastern United States and eastern Canada@).
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The display name (e.g., @Ohio@).
-    displayName :: Core.Maybe Core.Text
+    displayName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegionInfo' with all optional fields omitted.
@@ -72,39 +73,40 @@ newRegionInfo ::
   RegionInfo
 newRegionInfo =
   RegionInfo'
-    { availabilityZones = Core.Nothing,
-      continentCode = Core.Nothing,
-      relationalDatabaseAvailabilityZones = Core.Nothing,
-      name = Core.Nothing,
-      description = Core.Nothing,
-      displayName = Core.Nothing
+    { availabilityZones = Prelude.Nothing,
+      continentCode = Prelude.Nothing,
+      relationalDatabaseAvailabilityZones =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
+      description = Prelude.Nothing,
+      displayName = Prelude.Nothing
     }
 
 -- | The Availability Zones. Follows the format @us-east-2a@
 -- (case-sensitive).
-regionInfo_availabilityZones :: Lens.Lens' RegionInfo (Core.Maybe [AvailabilityZone])
-regionInfo_availabilityZones = Lens.lens (\RegionInfo' {availabilityZones} -> availabilityZones) (\s@RegionInfo' {} a -> s {availabilityZones = a} :: RegionInfo) Core.. Lens.mapping Lens._Coerce
+regionInfo_availabilityZones :: Lens.Lens' RegionInfo (Prelude.Maybe [AvailabilityZone])
+regionInfo_availabilityZones = Lens.lens (\RegionInfo' {availabilityZones} -> availabilityZones) (\s@RegionInfo' {} a -> s {availabilityZones = a} :: RegionInfo) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The continent code (e.g., @NA@, meaning North America).
-regionInfo_continentCode :: Lens.Lens' RegionInfo (Core.Maybe Core.Text)
+regionInfo_continentCode :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
 regionInfo_continentCode = Lens.lens (\RegionInfo' {continentCode} -> continentCode) (\s@RegionInfo' {} a -> s {continentCode = a} :: RegionInfo)
 
 -- | The Availability Zones for databases. Follows the format @us-east-2a@
 -- (case-sensitive).
-regionInfo_relationalDatabaseAvailabilityZones :: Lens.Lens' RegionInfo (Core.Maybe [AvailabilityZone])
-regionInfo_relationalDatabaseAvailabilityZones = Lens.lens (\RegionInfo' {relationalDatabaseAvailabilityZones} -> relationalDatabaseAvailabilityZones) (\s@RegionInfo' {} a -> s {relationalDatabaseAvailabilityZones = a} :: RegionInfo) Core.. Lens.mapping Lens._Coerce
+regionInfo_relationalDatabaseAvailabilityZones :: Lens.Lens' RegionInfo (Prelude.Maybe [AvailabilityZone])
+regionInfo_relationalDatabaseAvailabilityZones = Lens.lens (\RegionInfo' {relationalDatabaseAvailabilityZones} -> relationalDatabaseAvailabilityZones) (\s@RegionInfo' {} a -> s {relationalDatabaseAvailabilityZones = a} :: RegionInfo) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The region name (e.g., @us-east-2@).
-regionInfo_name :: Lens.Lens' RegionInfo (Core.Maybe RegionName)
+regionInfo_name :: Lens.Lens' RegionInfo (Prelude.Maybe RegionName)
 regionInfo_name = Lens.lens (\RegionInfo' {name} -> name) (\s@RegionInfo' {} a -> s {name = a} :: RegionInfo)
 
 -- | The description of the AWS Region (e.g.,
 -- @This region is recommended to serve users in the eastern United States and eastern Canada@).
-regionInfo_description :: Lens.Lens' RegionInfo (Core.Maybe Core.Text)
+regionInfo_description :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
 regionInfo_description = Lens.lens (\RegionInfo' {description} -> description) (\s@RegionInfo' {} a -> s {description = a} :: RegionInfo)
 
 -- | The display name (e.g., @Ohio@).
-regionInfo_displayName :: Lens.Lens' RegionInfo (Core.Maybe Core.Text)
+regionInfo_displayName :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
 regionInfo_displayName = Lens.lens (\RegionInfo' {displayName} -> displayName) (\s@RegionInfo' {} a -> s {displayName = a} :: RegionInfo)
 
 instance Core.FromJSON RegionInfo where
@@ -113,16 +115,18 @@ instance Core.FromJSON RegionInfo where
       "RegionInfo"
       ( \x ->
           RegionInfo'
-            Core.<$> (x Core..:? "availabilityZones" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "continentCode")
-            Core.<*> ( x Core..:? "relationalDatabaseAvailabilityZones"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "description")
-            Core.<*> (x Core..:? "displayName")
+            Prelude.<$> ( x Core..:? "availabilityZones"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "continentCode")
+            Prelude.<*> ( x Core..:? "relationalDatabaseAvailabilityZones"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "displayName")
       )
 
-instance Core.Hashable RegionInfo
+instance Prelude.Hashable RegionInfo
 
-instance Core.NFData RegionInfo
+instance Prelude.NFData RegionInfo

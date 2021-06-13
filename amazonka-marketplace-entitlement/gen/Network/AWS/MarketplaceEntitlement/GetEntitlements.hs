@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MarketplaceEntitlement.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,22 +61,22 @@ import qualified Network.AWS.Response as Response
 data GetEntitlements = GetEntitlements'
   { -- | For paginated calls to GetEntitlements, pass the NextToken from the
     -- previous GetEntitlementsResult.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to retrieve from the GetEntitlements
     -- operation. For pagination, use the NextToken field in subsequent calls
     -- to GetEntitlements.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Filter is used to return entitlements for a specific customer or for a
     -- specific dimension. Filters are described as keys mapped to a lists of
     -- values. Filtered requests are /unioned/ for each value in the value
     -- list, and then /intersected/ for each filter key.
-    filter' :: Core.Maybe (Core.HashMap GetEntitlementFilterName (Core.NonEmpty Core.Text)),
+    filter' :: Prelude.Maybe (Prelude.HashMap GetEntitlementFilterName (Prelude.NonEmpty Prelude.Text)),
     -- | Product code is used to uniquely identify a product in AWS Marketplace.
     -- The product code will be provided by AWS Marketplace when the product
     -- listing is created.
-    productCode :: Core.Text
+    productCode :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetEntitlements' with all optional fields omitted.
@@ -102,59 +103,61 @@ data GetEntitlements = GetEntitlements'
 -- listing is created.
 newGetEntitlements ::
   -- | 'productCode'
-  Core.Text ->
+  Prelude.Text ->
   GetEntitlements
 newGetEntitlements pProductCode_ =
   GetEntitlements'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      filter' = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filter' = Prelude.Nothing,
       productCode = pProductCode_
     }
 
 -- | For paginated calls to GetEntitlements, pass the NextToken from the
 -- previous GetEntitlementsResult.
-getEntitlements_nextToken :: Lens.Lens' GetEntitlements (Core.Maybe Core.Text)
+getEntitlements_nextToken :: Lens.Lens' GetEntitlements (Prelude.Maybe Prelude.Text)
 getEntitlements_nextToken = Lens.lens (\GetEntitlements' {nextToken} -> nextToken) (\s@GetEntitlements' {} a -> s {nextToken = a} :: GetEntitlements)
 
 -- | The maximum number of items to retrieve from the GetEntitlements
 -- operation. For pagination, use the NextToken field in subsequent calls
 -- to GetEntitlements.
-getEntitlements_maxResults :: Lens.Lens' GetEntitlements (Core.Maybe Core.Int)
+getEntitlements_maxResults :: Lens.Lens' GetEntitlements (Prelude.Maybe Prelude.Int)
 getEntitlements_maxResults = Lens.lens (\GetEntitlements' {maxResults} -> maxResults) (\s@GetEntitlements' {} a -> s {maxResults = a} :: GetEntitlements)
 
 -- | Filter is used to return entitlements for a specific customer or for a
 -- specific dimension. Filters are described as keys mapped to a lists of
 -- values. Filtered requests are /unioned/ for each value in the value
 -- list, and then /intersected/ for each filter key.
-getEntitlements_filter :: Lens.Lens' GetEntitlements (Core.Maybe (Core.HashMap GetEntitlementFilterName (Core.NonEmpty Core.Text)))
-getEntitlements_filter = Lens.lens (\GetEntitlements' {filter'} -> filter') (\s@GetEntitlements' {} a -> s {filter' = a} :: GetEntitlements) Core.. Lens.mapping Lens._Coerce
+getEntitlements_filter :: Lens.Lens' GetEntitlements (Prelude.Maybe (Prelude.HashMap GetEntitlementFilterName (Prelude.NonEmpty Prelude.Text)))
+getEntitlements_filter = Lens.lens (\GetEntitlements' {filter'} -> filter') (\s@GetEntitlements' {} a -> s {filter' = a} :: GetEntitlements) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Product code is used to uniquely identify a product in AWS Marketplace.
 -- The product code will be provided by AWS Marketplace when the product
 -- listing is created.
-getEntitlements_productCode :: Lens.Lens' GetEntitlements Core.Text
+getEntitlements_productCode :: Lens.Lens' GetEntitlements Prelude.Text
 getEntitlements_productCode = Lens.lens (\GetEntitlements' {productCode} -> productCode) (\s@GetEntitlements' {} a -> s {productCode = a} :: GetEntitlements)
 
 instance Core.AWSPager GetEntitlements where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getEntitlementsResponse_nextToken Core.. Lens._Just
+            Lens.^? getEntitlementsResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getEntitlementsResponse_entitlements
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getEntitlements_nextToken
+          Prelude.& getEntitlements_nextToken
           Lens..~ rs
-          Lens.^? getEntitlementsResponse_nextToken Core.. Lens._Just
+          Lens.^? getEntitlementsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetEntitlements where
   type
@@ -165,44 +168,46 @@ instance Core.AWSRequest GetEntitlements where
     Response.receiveJSON
       ( \s h x ->
           GetEntitlementsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Entitlements" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Entitlements" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetEntitlements
+instance Prelude.Hashable GetEntitlements
 
-instance Core.NFData GetEntitlements
+instance Prelude.NFData GetEntitlements
 
 instance Core.ToHeaders GetEntitlements where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSMPEntitlementService.GetEntitlements" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetEntitlements where
   toJSON GetEntitlements' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Filter" Core..=) Core.<$> filter',
-            Core.Just ("ProductCode" Core..= productCode)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Filter" Core..=) Prelude.<$> filter',
+            Prelude.Just ("ProductCode" Core..= productCode)
           ]
       )
 
 instance Core.ToPath GetEntitlements where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetEntitlements where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The GetEntitlementsRequest contains results from the GetEntitlements
 -- operation.
@@ -212,15 +217,15 @@ data GetEntitlementsResponse = GetEntitlementsResponse'
   { -- | For paginated results, use NextToken in subsequent calls to
     -- GetEntitlements. If the result contains an empty set of entitlements,
     -- NextToken might still be present and should be used.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The set of entitlements found through the GetEntitlements operation. If
     -- the result contains an empty set of entitlements, NextToken might still
     -- be present and should be used.
-    entitlements :: Core.Maybe [Entitlement],
+    entitlements :: Prelude.Maybe [Entitlement],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetEntitlementsResponse' with all optional fields omitted.
@@ -241,29 +246,30 @@ data GetEntitlementsResponse = GetEntitlementsResponse'
 -- 'httpStatus', 'getEntitlementsResponse_httpStatus' - The response's http status code.
 newGetEntitlementsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetEntitlementsResponse
 newGetEntitlementsResponse pHttpStatus_ =
   GetEntitlementsResponse'
-    { nextToken = Core.Nothing,
-      entitlements = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      entitlements = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | For paginated results, use NextToken in subsequent calls to
 -- GetEntitlements. If the result contains an empty set of entitlements,
 -- NextToken might still be present and should be used.
-getEntitlementsResponse_nextToken :: Lens.Lens' GetEntitlementsResponse (Core.Maybe Core.Text)
+getEntitlementsResponse_nextToken :: Lens.Lens' GetEntitlementsResponse (Prelude.Maybe Prelude.Text)
 getEntitlementsResponse_nextToken = Lens.lens (\GetEntitlementsResponse' {nextToken} -> nextToken) (\s@GetEntitlementsResponse' {} a -> s {nextToken = a} :: GetEntitlementsResponse)
 
 -- | The set of entitlements found through the GetEntitlements operation. If
 -- the result contains an empty set of entitlements, NextToken might still
 -- be present and should be used.
-getEntitlementsResponse_entitlements :: Lens.Lens' GetEntitlementsResponse (Core.Maybe [Entitlement])
-getEntitlementsResponse_entitlements = Lens.lens (\GetEntitlementsResponse' {entitlements} -> entitlements) (\s@GetEntitlementsResponse' {} a -> s {entitlements = a} :: GetEntitlementsResponse) Core.. Lens.mapping Lens._Coerce
+getEntitlementsResponse_entitlements :: Lens.Lens' GetEntitlementsResponse (Prelude.Maybe [Entitlement])
+getEntitlementsResponse_entitlements = Lens.lens (\GetEntitlementsResponse' {entitlements} -> entitlements) (\s@GetEntitlementsResponse' {} a -> s {entitlements = a} :: GetEntitlementsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getEntitlementsResponse_httpStatus :: Lens.Lens' GetEntitlementsResponse Core.Int
+getEntitlementsResponse_httpStatus :: Lens.Lens' GetEntitlementsResponse Prelude.Int
 getEntitlementsResponse_httpStatus = Lens.lens (\GetEntitlementsResponse' {httpStatus} -> httpStatus) (\s@GetEntitlementsResponse' {} a -> s {httpStatus = a} :: GetEntitlementsResponse)
 
-instance Core.NFData GetEntitlementsResponse
+instance Prelude.NFData GetEntitlementsResponse

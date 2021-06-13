@@ -47,6 +47,7 @@ where
 import Network.AWS.Batch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +57,9 @@ import qualified Network.AWS.Response as Response
 data DeleteJobQueue = DeleteJobQueue'
   { -- | The short name or full Amazon Resource Name (ARN) of the queue to
     -- delete.
-    jobQueue :: Core.Text
+    jobQueue :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteJobQueue' with all optional fields omitted.
@@ -72,14 +73,14 @@ data DeleteJobQueue = DeleteJobQueue'
 -- delete.
 newDeleteJobQueue ::
   -- | 'jobQueue'
-  Core.Text ->
+  Prelude.Text ->
   DeleteJobQueue
 newDeleteJobQueue pJobQueue_ =
   DeleteJobQueue' {jobQueue = pJobQueue_}
 
 -- | The short name or full Amazon Resource Name (ARN) of the queue to
 -- delete.
-deleteJobQueue_jobQueue :: Lens.Lens' DeleteJobQueue Core.Text
+deleteJobQueue_jobQueue :: Lens.Lens' DeleteJobQueue Prelude.Text
 deleteJobQueue_jobQueue = Lens.lens (\DeleteJobQueue' {jobQueue} -> jobQueue) (\s@DeleteJobQueue' {} a -> s {jobQueue = a} :: DeleteJobQueue)
 
 instance Core.AWSRequest DeleteJobQueue where
@@ -91,41 +92,43 @@ instance Core.AWSRequest DeleteJobQueue where
     Response.receiveEmpty
       ( \s h x ->
           DeleteJobQueueResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteJobQueue
+instance Prelude.Hashable DeleteJobQueue
 
-instance Core.NFData DeleteJobQueue
+instance Prelude.NFData DeleteJobQueue
 
 instance Core.ToHeaders DeleteJobQueue where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteJobQueue where
   toJSON DeleteJobQueue' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("jobQueue" Core..= jobQueue)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("jobQueue" Core..= jobQueue)]
       )
 
 instance Core.ToPath DeleteJobQueue where
-  toPath = Core.const "/v1/deletejobqueue"
+  toPath = Prelude.const "/v1/deletejobqueue"
 
 instance Core.ToQuery DeleteJobQueue where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteJobQueueResponse' smart constructor.
 data DeleteJobQueueResponse = DeleteJobQueueResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteJobQueueResponse' with all optional fields omitted.
@@ -138,13 +141,13 @@ data DeleteJobQueueResponse = DeleteJobQueueResponse'
 -- 'httpStatus', 'deleteJobQueueResponse_httpStatus' - The response's http status code.
 newDeleteJobQueueResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteJobQueueResponse
 newDeleteJobQueueResponse pHttpStatus_ =
   DeleteJobQueueResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteJobQueueResponse_httpStatus :: Lens.Lens' DeleteJobQueueResponse Core.Int
+deleteJobQueueResponse_httpStatus :: Lens.Lens' DeleteJobQueueResponse Prelude.Int
 deleteJobQueueResponse_httpStatus = Lens.lens (\DeleteJobQueueResponse' {httpStatus} -> httpStatus) (\s@DeleteJobQueueResponse' {} a -> s {httpStatus = a} :: DeleteJobQueueResponse)
 
-instance Core.NFData DeleteJobQueueResponse
+instance Prelude.NFData DeleteJobQueueResponse

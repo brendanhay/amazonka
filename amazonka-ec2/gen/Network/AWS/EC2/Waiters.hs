@@ -38,6 +38,7 @@ import Network.AWS.EC2.GetPasswordData
 import Network.AWS.EC2.Lens
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceTerminated :: Core.Wait DescribeInstances
@@ -53,16 +54,16 @@ newInstanceTerminated =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. Lens.folding
+                Prelude.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Core.. Lens._Just)
+                      (reservation_instances Prelude.. Lens._Just)
                   )
-                Core.. instance_state
-                Core.. instanceState_name
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_state
+                Prelude.. instanceState_name
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "pending"
@@ -70,16 +71,16 @@ newInstanceTerminated =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. Lens.folding
+                Prelude.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Core.. Lens._Just)
+                      (reservation_instances Prelude.. Lens._Just)
                   )
-                Core.. instance_state
-                Core.. instanceState_name
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_state
+                Prelude.. instanceState_name
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "stopping"
@@ -87,16 +88,16 @@ newInstanceTerminated =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. Lens.folding
+                Prelude.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Core.. Lens._Just)
+                      (reservation_instances Prelude.. Lens._Just)
                   )
-                Core.. instance_state
-                Core.. instanceState_name
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_state
+                Prelude.. instanceState_name
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -116,14 +117,14 @@ newVpcPeeringConnectionDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeVpcPeeringConnectionsResponse_vpcPeeringConnections
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. vpcPeeringConnection_status
-                Core.. Lens._Just
-                Core.. vpcPeeringConnectionStateReason_code
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. vpcPeeringConnection_status
+                Prelude.. Lens._Just
+                Prelude.. vpcPeeringConnectionStateReason_code
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "InvalidVpcPeeringConnectionID.NotFound"
@@ -145,11 +146,11 @@ newExportTaskCompleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeExportTasksResponse_exportTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. exportTask_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. exportTask_state
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -168,11 +169,11 @@ newSnapshotCompleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeSnapshotsResponse_snapshots
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. snapshot_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. snapshot_state
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -192,14 +193,14 @@ newSpotInstanceRequestFulfilled =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeSpotInstanceRequestsResponse_spotInstanceRequests
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. spotInstanceRequest_status
-                Core.. Lens._Just
-                Core.. spotInstanceStatus_code
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. spotInstanceRequest_status
+                Prelude.. Lens._Just
+                Prelude.. spotInstanceStatus_code
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "request-canceled-and-instance-running"
@@ -207,14 +208,14 @@ newSpotInstanceRequestFulfilled =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeSpotInstanceRequestsResponse_spotInstanceRequests
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. spotInstanceRequest_status
-                Core.. Lens._Just
-                Core.. spotInstanceStatus_code
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. spotInstanceRequest_status
+                Prelude.. Lens._Just
+                Prelude.. spotInstanceStatus_code
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "schedule-expired"
@@ -222,14 +223,14 @@ newSpotInstanceRequestFulfilled =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeSpotInstanceRequestsResponse_spotInstanceRequests
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. spotInstanceRequest_status
-                Core.. Lens._Just
-                Core.. spotInstanceStatus_code
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. spotInstanceRequest_status
+                Prelude.. Lens._Just
+                Prelude.. spotInstanceStatus_code
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "canceled-before-fulfillment"
@@ -237,14 +238,14 @@ newSpotInstanceRequestFulfilled =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeSpotInstanceRequestsResponse_spotInstanceRequests
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. spotInstanceRequest_status
-                Core.. Lens._Just
-                Core.. spotInstanceStatus_code
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. spotInstanceRequest_status
+                Prelude.. Lens._Just
+                Prelude.. spotInstanceStatus_code
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "bad-parameters"
@@ -252,14 +253,14 @@ newSpotInstanceRequestFulfilled =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeSpotInstanceRequestsResponse_spotInstanceRequests
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. spotInstanceRequest_status
-                Core.. Lens._Just
-                Core.. spotInstanceStatus_code
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. spotInstanceRequest_status
+                Prelude.. Lens._Just
+                Prelude.. spotInstanceStatus_code
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "system-error"
@@ -267,14 +268,14 @@ newSpotInstanceRequestFulfilled =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeSpotInstanceRequestsResponse_spotInstanceRequests
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. spotInstanceRequest_status
-                Core.. Lens._Just
-                Core.. spotInstanceStatus_code
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. spotInstanceRequest_status
+                Prelude.. Lens._Just
+                Prelude.. spotInstanceStatus_code
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "InvalidSpotInstanceRequestID.NotFound"
@@ -295,20 +296,24 @@ newVolumeAvailable =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeVolumesResponse_volumes Core.. Lens._Just)
+                    ( describeVolumesResponse_volumes
+                        Prelude.. Lens._Just
+                    )
                 )
-                Core.. volume_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. volume_state
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleted"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeVolumesResponse_volumes Core.. Lens._Just)
+                    ( describeVolumesResponse_volumes
+                        Prelude.. Lens._Just
+                    )
                 )
-                Core.. volume_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. volume_state
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -326,20 +331,20 @@ newImageAvailable =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeImagesResponse_images Core.. Lens._Just)
+                    (describeImagesResponse_images Prelude.. Lens._Just)
                 )
-                Core.. image_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. image_state
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deregistered"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeImagesResponse_images Core.. Lens._Just)
+                    (describeImagesResponse_images Prelude.. Lens._Just)
                 )
-                Core.. image_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. image_state
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -375,16 +380,16 @@ newInstanceRunning =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. Lens.folding
+                Prelude.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Core.. Lens._Just)
+                      (reservation_instances Prelude.. Lens._Just)
                   )
-                Core.. instance_state
-                Core.. instanceState_name
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_state
+                Prelude.. instanceState_name
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "shutting-down"
@@ -392,16 +397,16 @@ newInstanceRunning =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. Lens.folding
+                Prelude.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Core.. Lens._Just)
+                      (reservation_instances Prelude.. Lens._Just)
                   )
-                Core.. instance_state
-                Core.. instanceState_name
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_state
+                Prelude.. instanceState_name
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "terminated"
@@ -409,16 +414,16 @@ newInstanceRunning =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. Lens.folding
+                Prelude.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Core.. Lens._Just)
+                      (reservation_instances Prelude.. Lens._Just)
                   )
-                Core.. instance_state
-                Core.. instanceState_name
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_state
+                Prelude.. instanceState_name
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "stopping"
@@ -426,16 +431,16 @@ newInstanceRunning =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. Lens.folding
+                Prelude.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Core.. Lens._Just)
+                      (reservation_instances Prelude.. Lens._Just)
                   )
-                Core.. instance_state
-                Core.. instanceState_name
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_state
+                Prelude.. instanceState_name
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "InvalidInstanceID.NotFound"
@@ -457,11 +462,11 @@ newKeyPairExists =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeKeyPairsResponse_keyPairs
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. keyPairInfo_keyName
-                Core.. Lens._Just
+                Prelude.. keyPairInfo_keyName
+                Prelude.. Lens._Just
             ),
           Core.matchError
             "InvalidKeyPair.NotFound"
@@ -483,11 +488,11 @@ newExportTaskCancelled =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeExportTasksResponse_exportTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. exportTask_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. exportTask_state
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -507,11 +512,11 @@ newVpnConnectionAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeVpnConnectionsResponse_vpnConnections
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. vpnConnection_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. vpnConnection_state
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -519,11 +524,11 @@ newVpnConnectionAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeVpnConnectionsResponse_vpnConnections
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. vpnConnection_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. vpnConnection_state
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -531,11 +536,11 @@ newVpnConnectionAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeVpnConnectionsResponse_vpnConnections
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. vpnConnection_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. vpnConnection_state
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -553,7 +558,9 @@ newImageExists =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeImagesResponse_images Core.. Lens._Just)
+                    ( describeImagesResponse_images
+                        Prelude.. Lens._Just
+                    )
                 )
             ),
           Core.matchError
@@ -575,10 +582,10 @@ newVpcAvailable =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeVpcsResponse_vpcs Core.. Lens._Just)
+                    (describeVpcsResponse_vpcs Prelude.. Lens._Just)
                 )
-                Core.. vpc_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. vpc_state
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -596,20 +603,24 @@ newVolumeInUse =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeVolumesResponse_volumes Core.. Lens._Just)
+                    ( describeVolumesResponse_volumes
+                        Prelude.. Lens._Just
+                    )
                 )
-                Core.. volume_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. volume_state
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleted"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeVolumesResponse_volumes Core.. Lens._Just)
+                    ( describeVolumesResponse_volumes
+                        Prelude.. Lens._Just
+                    )
                 )
-                Core.. volume_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. volume_state
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -659,13 +670,13 @@ newInstanceStatusOk =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstanceStatusResponse_instanceStatuses
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instanceStatus_instanceStatus
-                Core.. Lens._Just
-                Core.. instanceStatusSummary_status
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instanceStatus_instanceStatus
+                Prelude.. Lens._Just
+                Prelude.. instanceStatusSummary_status
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "InvalidInstanceID.NotFound"
@@ -687,10 +698,10 @@ newSecurityGroupExists =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeSecurityGroupsResponse_securityGroups
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. securityGroup_groupId
+                Prelude.. securityGroup_groupId
             ),
           Core.matchError
             "InvalidGroupNotFound"
@@ -713,12 +724,12 @@ newConversionTaskCancelled =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeConversionTasksResponse_conversionTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. conversionTask_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. conversionTask_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -737,11 +748,11 @@ newVpnConnectionDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeVpnConnectionsResponse_vpnConnections
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. vpnConnection_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. vpnConnection_state
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "pending"
@@ -749,11 +760,11 @@ newVpnConnectionDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeVpnConnectionsResponse_vpnConnections
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. vpnConnection_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. vpnConnection_state
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -772,16 +783,16 @@ newInstanceStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. Lens.folding
+                Prelude.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Core.. Lens._Just)
+                      (reservation_instances Prelude.. Lens._Just)
                   )
-                Core.. instance_state
-                Core.. instanceState_name
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_state
+                Prelude.. instanceState_name
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "pending"
@@ -789,16 +800,16 @@ newInstanceStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. Lens.folding
+                Prelude.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Core.. Lens._Just)
+                      (reservation_instances Prelude.. Lens._Just)
                   )
-                Core.. instance_state
-                Core.. instanceState_name
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_state
+                Prelude.. instanceState_name
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "terminated"
@@ -806,16 +817,16 @@ newInstanceStopped =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. Lens.folding
+                Prelude.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Core.. Lens._Just)
+                      (reservation_instances Prelude.. Lens._Just)
                   )
-                Core.. instance_state
-                Core.. instanceState_name
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instance_state
+                Prelude.. instanceState_name
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -835,12 +846,12 @@ newConversionTaskCompleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeConversionTasksResponse_conversionTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. conversionTask_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. conversionTask_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "cancelled"
@@ -848,12 +859,12 @@ newConversionTaskCompleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeConversionTasksResponse_conversionTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. conversionTask_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. conversionTask_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "cancelling"
@@ -861,12 +872,12 @@ newConversionTaskCompleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeConversionTasksResponse_conversionTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. conversionTask_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. conversionTask_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -885,11 +896,11 @@ newBundleTaskComplete =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeBundleTasksResponse_bundleTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. bundleTask_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. bundleTask_state
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -897,11 +908,11 @@ newBundleTaskComplete =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeBundleTasksResponse_bundleTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. bundleTask_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. bundleTask_state
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -920,12 +931,12 @@ newConversionTaskDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeConversionTasksResponse_conversionTasks
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. conversionTask_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. conversionTask_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -943,10 +954,12 @@ newVolumeDeleted =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeVolumesResponse_volumes Core.. Lens._Just)
+                    ( describeVolumesResponse_volumes
+                        Prelude.. Lens._Just
+                    )
                 )
-                Core.. volume_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. volume_state
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "InvalidVolume.NotFound"
@@ -969,11 +982,11 @@ newCustomerGatewayAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCustomerGatewaysResponse_customerGateways
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. customerGateway_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. customerGateway_state
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -981,11 +994,11 @@ newCustomerGatewayAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCustomerGatewaysResponse_customerGateways
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. customerGateway_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. customerGateway_state
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -993,11 +1006,11 @@ newCustomerGatewayAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCustomerGatewaysResponse_customerGateways
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. customerGateway_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. customerGateway_state
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -1031,13 +1044,13 @@ newSystemStatusOk =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstanceStatusResponse_instanceStatuses
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. instanceStatus_systemStatus
-                Core.. Lens._Just
-                Core.. instanceStatusSummary_status
-                Core.. Lens.to Core.toTextCI
+                Prelude.. instanceStatus_systemStatus
+                Prelude.. Lens._Just
+                Prelude.. instanceStatusSummary_status
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -1057,12 +1070,12 @@ newNetworkInterfaceAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeNetworkInterfacesResponse_networkInterfaces
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. networkInterface_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. networkInterface_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "InvalidNetworkInterfaceID.NotFound"
@@ -1084,12 +1097,12 @@ newNatGatewayAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeNatGatewaysResponse_natGateways
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. natGateway_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. natGateway_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -1097,12 +1110,12 @@ newNatGatewayAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeNatGatewaysResponse_natGateways
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. natGateway_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. natGateway_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -1110,12 +1123,12 @@ newNatGatewayAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeNatGatewaysResponse_natGateways
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. natGateway_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. natGateway_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -1123,12 +1136,12 @@ newNatGatewayAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeNatGatewaysResponse_natGateways
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. natGateway_state
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. natGateway_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "NatGatewayNotFound"
@@ -1149,10 +1162,12 @@ newSubnetAvailable =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeSubnetsResponse_subnets Core.. Lens._Just)
+                    ( describeSubnetsResponse_subnets
+                        Prelude.. Lens._Just
+                    )
                 )
-                Core.. subnet_state
-                Core.. Lens.to Core.toTextCI
+                Prelude.. subnet_state
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

@@ -23,24 +23,25 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.Tenancy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes Spot Instance placement.
 --
 -- /See:/ 'newSpotPlacement' smart constructor.
 data SpotPlacement = SpotPlacement'
   { -- | The name of the placement group.
-    groupName :: Core.Maybe Core.Text,
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The tenancy of the instance (if the instance is running in a VPC). An
     -- instance with a tenancy of @dedicated@ runs on single-tenant hardware.
     -- The @host@ tenancy is not supported for Spot Instances.
-    tenancy :: Core.Maybe Tenancy,
+    tenancy :: Prelude.Maybe Tenancy,
     -- | The Availability Zone.
     --
     -- [Spot Fleet only] To specify multiple Availability Zones, separate them
     -- using commas; for example, \"us-west-2a, us-west-2b\".
-    availabilityZone :: Core.Maybe Core.Text
+    availabilityZone :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SpotPlacement' with all optional fields omitted.
@@ -64,42 +65,42 @@ newSpotPlacement ::
   SpotPlacement
 newSpotPlacement =
   SpotPlacement'
-    { groupName = Core.Nothing,
-      tenancy = Core.Nothing,
-      availabilityZone = Core.Nothing
+    { groupName = Prelude.Nothing,
+      tenancy = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing
     }
 
 -- | The name of the placement group.
-spotPlacement_groupName :: Lens.Lens' SpotPlacement (Core.Maybe Core.Text)
+spotPlacement_groupName :: Lens.Lens' SpotPlacement (Prelude.Maybe Prelude.Text)
 spotPlacement_groupName = Lens.lens (\SpotPlacement' {groupName} -> groupName) (\s@SpotPlacement' {} a -> s {groupName = a} :: SpotPlacement)
 
 -- | The tenancy of the instance (if the instance is running in a VPC). An
 -- instance with a tenancy of @dedicated@ runs on single-tenant hardware.
 -- The @host@ tenancy is not supported for Spot Instances.
-spotPlacement_tenancy :: Lens.Lens' SpotPlacement (Core.Maybe Tenancy)
+spotPlacement_tenancy :: Lens.Lens' SpotPlacement (Prelude.Maybe Tenancy)
 spotPlacement_tenancy = Lens.lens (\SpotPlacement' {tenancy} -> tenancy) (\s@SpotPlacement' {} a -> s {tenancy = a} :: SpotPlacement)
 
 -- | The Availability Zone.
 --
 -- [Spot Fleet only] To specify multiple Availability Zones, separate them
 -- using commas; for example, \"us-west-2a, us-west-2b\".
-spotPlacement_availabilityZone :: Lens.Lens' SpotPlacement (Core.Maybe Core.Text)
+spotPlacement_availabilityZone :: Lens.Lens' SpotPlacement (Prelude.Maybe Prelude.Text)
 spotPlacement_availabilityZone = Lens.lens (\SpotPlacement' {availabilityZone} -> availabilityZone) (\s@SpotPlacement' {} a -> s {availabilityZone = a} :: SpotPlacement)
 
 instance Core.FromXML SpotPlacement where
   parseXML x =
     SpotPlacement'
-      Core.<$> (x Core..@? "groupName")
-      Core.<*> (x Core..@? "tenancy")
-      Core.<*> (x Core..@? "availabilityZone")
+      Prelude.<$> (x Core..@? "groupName")
+      Prelude.<*> (x Core..@? "tenancy")
+      Prelude.<*> (x Core..@? "availabilityZone")
 
-instance Core.Hashable SpotPlacement
+instance Prelude.Hashable SpotPlacement
 
-instance Core.NFData SpotPlacement
+instance Prelude.NFData SpotPlacement
 
 instance Core.ToQuery SpotPlacement where
   toQuery SpotPlacement' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "GroupName" Core.=: groupName,
         "Tenancy" Core.=: tenancy,
         "AvailabilityZone" Core.=: availabilityZone

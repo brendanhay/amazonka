@@ -21,6 +21,7 @@ module Network.AWS.Translate.Types.AppliedTerminology where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Translate.Types.Term
 
 -- | The custom terminology applied to the input text by Amazon Translate for
@@ -35,12 +36,12 @@ data AppliedTerminology = AppliedTerminology'
     -- by Amazon Translate for the translated text response. A maximum of 250
     -- terms will be returned, and the specific terms applied will be the first
     -- 250 terms in the source text.
-    terms :: Core.Maybe [Term],
+    terms :: Prelude.Maybe [Term],
     -- | The name of the custom terminology applied to the input text by Amazon
     -- Translate for the translated text response.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AppliedTerminology' with all optional fields omitted.
@@ -61,20 +62,20 @@ newAppliedTerminology ::
   AppliedTerminology
 newAppliedTerminology =
   AppliedTerminology'
-    { terms = Core.Nothing,
-      name = Core.Nothing
+    { terms = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The specific terms of the custom terminology applied to the input text
 -- by Amazon Translate for the translated text response. A maximum of 250
 -- terms will be returned, and the specific terms applied will be the first
 -- 250 terms in the source text.
-appliedTerminology_terms :: Lens.Lens' AppliedTerminology (Core.Maybe [Term])
-appliedTerminology_terms = Lens.lens (\AppliedTerminology' {terms} -> terms) (\s@AppliedTerminology' {} a -> s {terms = a} :: AppliedTerminology) Core.. Lens.mapping Lens._Coerce
+appliedTerminology_terms :: Lens.Lens' AppliedTerminology (Prelude.Maybe [Term])
+appliedTerminology_terms = Lens.lens (\AppliedTerminology' {terms} -> terms) (\s@AppliedTerminology' {} a -> s {terms = a} :: AppliedTerminology) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the custom terminology applied to the input text by Amazon
 -- Translate for the translated text response.
-appliedTerminology_name :: Lens.Lens' AppliedTerminology (Core.Maybe Core.Text)
+appliedTerminology_name :: Lens.Lens' AppliedTerminology (Prelude.Maybe Prelude.Text)
 appliedTerminology_name = Lens.lens (\AppliedTerminology' {name} -> name) (\s@AppliedTerminology' {} a -> s {name = a} :: AppliedTerminology)
 
 instance Core.FromJSON AppliedTerminology where
@@ -83,10 +84,10 @@ instance Core.FromJSON AppliedTerminology where
       "AppliedTerminology"
       ( \x ->
           AppliedTerminology'
-            Core.<$> (x Core..:? "Terms" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Terms" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable AppliedTerminology
+instance Prelude.Hashable AppliedTerminology
 
-instance Core.NFData AppliedTerminology
+instance Prelude.NFData AppliedTerminology

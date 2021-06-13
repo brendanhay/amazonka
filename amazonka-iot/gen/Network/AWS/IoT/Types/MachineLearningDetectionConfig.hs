@@ -22,6 +22,7 @@ module Network.AWS.IoT.Types.MachineLearningDetectionConfig where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.ConfidenceLevel
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration of an ML Detect Security Profile.
 --
@@ -31,7 +32,7 @@ data MachineLearningDetectionConfig = MachineLearningDetectionConfig'
     -- @Medium@, or @High@.
     confidenceLevel :: ConfidenceLevel
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MachineLearningDetectionConfig' with all optional fields omitted.
@@ -64,18 +65,22 @@ instance Core.FromJSON MachineLearningDetectionConfig where
       "MachineLearningDetectionConfig"
       ( \x ->
           MachineLearningDetectionConfig'
-            Core.<$> (x Core..: "confidenceLevel")
+            Prelude.<$> (x Core..: "confidenceLevel")
       )
 
-instance Core.Hashable MachineLearningDetectionConfig
+instance
+  Prelude.Hashable
+    MachineLearningDetectionConfig
 
-instance Core.NFData MachineLearningDetectionConfig
+instance
+  Prelude.NFData
+    MachineLearningDetectionConfig
 
 instance Core.ToJSON MachineLearningDetectionConfig where
   toJSON MachineLearningDetectionConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("confidenceLevel" Core..= confidenceLevel)
           ]
       )

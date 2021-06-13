@@ -72,6 +72,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroupsTagging.Types
 import qualified Network.AWS.Response as Response
@@ -116,15 +117,15 @@ data GetResources = GetResources'
     --     -   @GetResources({filter1,filter2,filter3})@ returns resources
     --         tagged with
     --         @(key1=value1) and (key2=value2 or key2=value3 or key2=value4) and (key3, any or no value)@
-    tagFilters :: Core.Maybe [TagFilter],
+    tagFilters :: Prelude.Maybe [TagFilter],
     -- | Specifies whether to include details regarding the compliance with the
     -- effective tag policy. Set this to @true@ to determine whether resources
     -- are compliant with the tag policy and to get details.
-    includeComplianceDetails :: Core.Maybe Core.Bool,
+    includeComplianceDetails :: Prelude.Maybe Prelude.Bool,
     -- | Specifies a @PaginationToken@ response value from a previous request to
     -- indicate that you want the next page of results. Leave this parameter
     -- empty in your initial request.
-    paginationToken :: Core.Maybe Core.Text,
+    paginationToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the resource types that you want included in the response. The
     -- format of each resource type is @service[:resourceType]@. For example,
     -- specifying a resource type of @ec2@ returns all Amazon EC2 resources
@@ -141,14 +142,14 @@ data GetResources = GetResources'
     -- You can specify multiple resource types by using an array. The array can
     -- include up to 100 items. Note that the length constraint requirement
     -- applies to each resource type filter.
-    resourceTypeFilters :: Core.Maybe [Core.Text],
+    resourceTypeFilters :: Prelude.Maybe [Prelude.Text],
     -- | Specifies whether to exclude resources that are compliant with the tag
     -- policy. Set this to @true@ if you are interested in retrieving
     -- information on noncompliant resources only.
     --
     -- You can use this parameter only if the @IncludeComplianceDetails@
     -- parameter is also set to @true@.
-    excludeCompliantResources :: Core.Maybe Core.Bool,
+    excludeCompliantResources :: Prelude.Maybe Prelude.Bool,
     -- | Specifies a list of ARNs of resources for which you want to retrieve tag
     -- data. You can\'t specify both this parameter and any of the pagination
     -- parameters (@ResourcesPerPage@, @TagsPerPage@, @PaginationToken@) in the
@@ -162,13 +163,13 @@ data GetResources = GetResources'
     -- information, see
     -- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
     -- in the /AWS General Reference/.
-    resourceARNList :: Core.Maybe (Core.NonEmpty Core.Text),
+    resourceARNList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Specifies the maximum number of results to be returned in each page. A
     -- query can return fewer than this maximum, even if there are more results
     -- still to return. You should always check the @PaginationToken@ response
     -- value to see if there are more results. You can specify a minimum of 1
     -- and a maximum value of 100.
-    resourcesPerPage :: Core.Maybe Core.Int,
+    resourcesPerPage :: Prelude.Maybe Prelude.Int,
     -- | AWS recommends using @ResourcesPerPage@ instead of this parameter.
     --
     -- A limit that restricts the number of tags (key and value pairs) returned
@@ -188,9 +189,9 @@ data GetResources = GetResources'
     --
     -- You can set @TagsPerPage@ to a minimum of 100 items up to a maximum of
     -- 500 items.
-    tagsPerPage :: Core.Maybe Core.Int
+    tagsPerPage :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetResources' with all optional fields omitted.
@@ -314,14 +315,14 @@ newGetResources ::
   GetResources
 newGetResources =
   GetResources'
-    { tagFilters = Core.Nothing,
-      includeComplianceDetails = Core.Nothing,
-      paginationToken = Core.Nothing,
-      resourceTypeFilters = Core.Nothing,
-      excludeCompliantResources = Core.Nothing,
-      resourceARNList = Core.Nothing,
-      resourcesPerPage = Core.Nothing,
-      tagsPerPage = Core.Nothing
+    { tagFilters = Prelude.Nothing,
+      includeComplianceDetails = Prelude.Nothing,
+      paginationToken = Prelude.Nothing,
+      resourceTypeFilters = Prelude.Nothing,
+      excludeCompliantResources = Prelude.Nothing,
+      resourceARNList = Prelude.Nothing,
+      resourcesPerPage = Prelude.Nothing,
+      tagsPerPage = Prelude.Nothing
     }
 
 -- | Specifies a list of TagFilters (keys and values) to restrict the output
@@ -362,19 +363,19 @@ newGetResources =
 --     -   @GetResources({filter1,filter2,filter3})@ returns resources
 --         tagged with
 --         @(key1=value1) and (key2=value2 or key2=value3 or key2=value4) and (key3, any or no value)@
-getResources_tagFilters :: Lens.Lens' GetResources (Core.Maybe [TagFilter])
-getResources_tagFilters = Lens.lens (\GetResources' {tagFilters} -> tagFilters) (\s@GetResources' {} a -> s {tagFilters = a} :: GetResources) Core.. Lens.mapping Lens._Coerce
+getResources_tagFilters :: Lens.Lens' GetResources (Prelude.Maybe [TagFilter])
+getResources_tagFilters = Lens.lens (\GetResources' {tagFilters} -> tagFilters) (\s@GetResources' {} a -> s {tagFilters = a} :: GetResources) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether to include details regarding the compliance with the
 -- effective tag policy. Set this to @true@ to determine whether resources
 -- are compliant with the tag policy and to get details.
-getResources_includeComplianceDetails :: Lens.Lens' GetResources (Core.Maybe Core.Bool)
+getResources_includeComplianceDetails :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Bool)
 getResources_includeComplianceDetails = Lens.lens (\GetResources' {includeComplianceDetails} -> includeComplianceDetails) (\s@GetResources' {} a -> s {includeComplianceDetails = a} :: GetResources)
 
 -- | Specifies a @PaginationToken@ response value from a previous request to
 -- indicate that you want the next page of results. Leave this parameter
 -- empty in your initial request.
-getResources_paginationToken :: Lens.Lens' GetResources (Core.Maybe Core.Text)
+getResources_paginationToken :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Text)
 getResources_paginationToken = Lens.lens (\GetResources' {paginationToken} -> paginationToken) (\s@GetResources' {} a -> s {paginationToken = a} :: GetResources)
 
 -- | Specifies the resource types that you want included in the response. The
@@ -393,8 +394,8 @@ getResources_paginationToken = Lens.lens (\GetResources' {paginationToken} -> pa
 -- You can specify multiple resource types by using an array. The array can
 -- include up to 100 items. Note that the length constraint requirement
 -- applies to each resource type filter.
-getResources_resourceTypeFilters :: Lens.Lens' GetResources (Core.Maybe [Core.Text])
-getResources_resourceTypeFilters = Lens.lens (\GetResources' {resourceTypeFilters} -> resourceTypeFilters) (\s@GetResources' {} a -> s {resourceTypeFilters = a} :: GetResources) Core.. Lens.mapping Lens._Coerce
+getResources_resourceTypeFilters :: Lens.Lens' GetResources (Prelude.Maybe [Prelude.Text])
+getResources_resourceTypeFilters = Lens.lens (\GetResources' {resourceTypeFilters} -> resourceTypeFilters) (\s@GetResources' {} a -> s {resourceTypeFilters = a} :: GetResources) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether to exclude resources that are compliant with the tag
 -- policy. Set this to @true@ if you are interested in retrieving
@@ -402,7 +403,7 @@ getResources_resourceTypeFilters = Lens.lens (\GetResources' {resourceTypeFilter
 --
 -- You can use this parameter only if the @IncludeComplianceDetails@
 -- parameter is also set to @true@.
-getResources_excludeCompliantResources :: Lens.Lens' GetResources (Core.Maybe Core.Bool)
+getResources_excludeCompliantResources :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Bool)
 getResources_excludeCompliantResources = Lens.lens (\GetResources' {excludeCompliantResources} -> excludeCompliantResources) (\s@GetResources' {} a -> s {excludeCompliantResources = a} :: GetResources)
 
 -- | Specifies a list of ARNs of resources for which you want to retrieve tag
@@ -418,15 +419,15 @@ getResources_excludeCompliantResources = Lens.lens (\GetResources' {excludeCompl
 -- information, see
 -- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
 -- in the /AWS General Reference/.
-getResources_resourceARNList :: Lens.Lens' GetResources (Core.Maybe (Core.NonEmpty Core.Text))
-getResources_resourceARNList = Lens.lens (\GetResources' {resourceARNList} -> resourceARNList) (\s@GetResources' {} a -> s {resourceARNList = a} :: GetResources) Core.. Lens.mapping Lens._Coerce
+getResources_resourceARNList :: Lens.Lens' GetResources (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getResources_resourceARNList = Lens.lens (\GetResources' {resourceARNList} -> resourceARNList) (\s@GetResources' {} a -> s {resourceARNList = a} :: GetResources) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the maximum number of results to be returned in each page. A
 -- query can return fewer than this maximum, even if there are more results
 -- still to return. You should always check the @PaginationToken@ response
 -- value to see if there are more results. You can specify a minimum of 1
 -- and a maximum value of 100.
-getResources_resourcesPerPage :: Lens.Lens' GetResources (Core.Maybe Core.Int)
+getResources_resourcesPerPage :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Int)
 getResources_resourcesPerPage = Lens.lens (\GetResources' {resourcesPerPage} -> resourcesPerPage) (\s@GetResources' {} a -> s {resourcesPerPage = a} :: GetResources)
 
 -- | AWS recommends using @ResourcesPerPage@ instead of this parameter.
@@ -448,7 +449,7 @@ getResources_resourcesPerPage = Lens.lens (\GetResources' {resourcesPerPage} -> 
 --
 -- You can set @TagsPerPage@ to a minimum of 100 items up to a maximum of
 -- 500 items.
-getResources_tagsPerPage :: Lens.Lens' GetResources (Core.Maybe Core.Int)
+getResources_tagsPerPage :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Int)
 getResources_tagsPerPage = Lens.lens (\GetResources' {tagsPerPage} -> tagsPerPage) (\s@GetResources' {} a -> s {tagsPerPage = a} :: GetResources)
 
 instance Core.AWSPager GetResources where
@@ -456,22 +457,22 @@ instance Core.AWSPager GetResources where
     | Core.stop
         ( rs
             Lens.^? getResourcesResponse_paginationToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getResourcesResponse_resourceTagMappingList
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getResources_paginationToken
+          Prelude.& getResources_paginationToken
           Lens..~ rs
           Lens.^? getResourcesResponse_paginationToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetResources where
   type AWSResponse GetResources = GetResourcesResponse
@@ -480,69 +481,73 @@ instance Core.AWSRequest GetResources where
     Response.receiveJSON
       ( \s h x ->
           GetResourcesResponse'
-            Core.<$> ( x Core..?> "ResourceTagMappingList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "PaginationToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "ResourceTagMappingList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "PaginationToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetResources
+instance Prelude.Hashable GetResources
 
-instance Core.NFData GetResources
+instance Prelude.NFData GetResources
 
 instance Core.ToHeaders GetResources where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ResourceGroupsTaggingAPI_20170126.GetResources" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetResources where
   toJSON GetResources' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TagFilters" Core..=) Core.<$> tagFilters,
+      ( Prelude.catMaybes
+          [ ("TagFilters" Core..=) Prelude.<$> tagFilters,
             ("IncludeComplianceDetails" Core..=)
-              Core.<$> includeComplianceDetails,
-            ("PaginationToken" Core..=) Core.<$> paginationToken,
+              Prelude.<$> includeComplianceDetails,
+            ("PaginationToken" Core..=)
+              Prelude.<$> paginationToken,
             ("ResourceTypeFilters" Core..=)
-              Core.<$> resourceTypeFilters,
+              Prelude.<$> resourceTypeFilters,
             ("ExcludeCompliantResources" Core..=)
-              Core.<$> excludeCompliantResources,
-            ("ResourceARNList" Core..=) Core.<$> resourceARNList,
+              Prelude.<$> excludeCompliantResources,
+            ("ResourceARNList" Core..=)
+              Prelude.<$> resourceARNList,
             ("ResourcesPerPage" Core..=)
-              Core.<$> resourcesPerPage,
-            ("TagsPerPage" Core..=) Core.<$> tagsPerPage
+              Prelude.<$> resourcesPerPage,
+            ("TagsPerPage" Core..=) Prelude.<$> tagsPerPage
           ]
       )
 
 instance Core.ToPath GetResources where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetResources where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResourcesResponse' smart constructor.
 data GetResourcesResponse = GetResourcesResponse'
   { -- | A list of resource ARNs and the tags (keys and values) associated with
     -- those ARNs.
-    resourceTagMappingList :: Core.Maybe [ResourceTagMapping],
+    resourceTagMappingList :: Prelude.Maybe [ResourceTagMapping],
     -- | A string that indicates that there is more data available than this
     -- response contains. To receive the next part of the response, specify
     -- this response value as the @PaginationToken@ value in the request for
     -- the next page.
-    paginationToken :: Core.Maybe Core.Text,
+    paginationToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetResourcesResponse' with all optional fields omitted.
@@ -563,30 +568,30 @@ data GetResourcesResponse = GetResourcesResponse'
 -- 'httpStatus', 'getResourcesResponse_httpStatus' - The response's http status code.
 newGetResourcesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetResourcesResponse
 newGetResourcesResponse pHttpStatus_ =
   GetResourcesResponse'
     { resourceTagMappingList =
-        Core.Nothing,
-      paginationToken = Core.Nothing,
+        Prelude.Nothing,
+      paginationToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of resource ARNs and the tags (keys and values) associated with
 -- those ARNs.
-getResourcesResponse_resourceTagMappingList :: Lens.Lens' GetResourcesResponse (Core.Maybe [ResourceTagMapping])
-getResourcesResponse_resourceTagMappingList = Lens.lens (\GetResourcesResponse' {resourceTagMappingList} -> resourceTagMappingList) (\s@GetResourcesResponse' {} a -> s {resourceTagMappingList = a} :: GetResourcesResponse) Core.. Lens.mapping Lens._Coerce
+getResourcesResponse_resourceTagMappingList :: Lens.Lens' GetResourcesResponse (Prelude.Maybe [ResourceTagMapping])
+getResourcesResponse_resourceTagMappingList = Lens.lens (\GetResourcesResponse' {resourceTagMappingList} -> resourceTagMappingList) (\s@GetResourcesResponse' {} a -> s {resourceTagMappingList = a} :: GetResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A string that indicates that there is more data available than this
 -- response contains. To receive the next part of the response, specify
 -- this response value as the @PaginationToken@ value in the request for
 -- the next page.
-getResourcesResponse_paginationToken :: Lens.Lens' GetResourcesResponse (Core.Maybe Core.Text)
+getResourcesResponse_paginationToken :: Lens.Lens' GetResourcesResponse (Prelude.Maybe Prelude.Text)
 getResourcesResponse_paginationToken = Lens.lens (\GetResourcesResponse' {paginationToken} -> paginationToken) (\s@GetResourcesResponse' {} a -> s {paginationToken = a} :: GetResourcesResponse)
 
 -- | The response's http status code.
-getResourcesResponse_httpStatus :: Lens.Lens' GetResourcesResponse Core.Int
+getResourcesResponse_httpStatus :: Lens.Lens' GetResourcesResponse Prelude.Int
 getResourcesResponse_httpStatus = Lens.lens (\GetResourcesResponse' {httpStatus} -> httpStatus) (\s@GetResourcesResponse' {} a -> s {httpStatus = a} :: GetResourcesResponse)
 
-instance Core.NFData GetResourcesResponse
+instance Prelude.NFData GetResourcesResponse

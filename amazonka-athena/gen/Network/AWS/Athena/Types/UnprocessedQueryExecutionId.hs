@@ -21,21 +21,22 @@ module Network.AWS.Athena.Types.UnprocessedQueryExecutionId where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a query execution that failed to process.
 --
 -- /See:/ 'newUnprocessedQueryExecutionId' smart constructor.
 data UnprocessedQueryExecutionId = UnprocessedQueryExecutionId'
   { -- | The unique identifier of the query execution.
-    queryExecutionId :: Core.Maybe Core.Text,
+    queryExecutionId :: Prelude.Maybe Prelude.Text,
     -- | The error message returned when the query execution failed to process,
     -- if applicable.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error code returned when the query execution failed to process, if
     -- applicable.
-    errorCode :: Core.Maybe Core.Text
+    errorCode :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnprocessedQueryExecutionId' with all optional fields omitted.
@@ -57,23 +58,23 @@ newUnprocessedQueryExecutionId ::
 newUnprocessedQueryExecutionId =
   UnprocessedQueryExecutionId'
     { queryExecutionId =
-        Core.Nothing,
-      errorMessage = Core.Nothing,
-      errorCode = Core.Nothing
+        Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
 
 -- | The unique identifier of the query execution.
-unprocessedQueryExecutionId_queryExecutionId :: Lens.Lens' UnprocessedQueryExecutionId (Core.Maybe Core.Text)
+unprocessedQueryExecutionId_queryExecutionId :: Lens.Lens' UnprocessedQueryExecutionId (Prelude.Maybe Prelude.Text)
 unprocessedQueryExecutionId_queryExecutionId = Lens.lens (\UnprocessedQueryExecutionId' {queryExecutionId} -> queryExecutionId) (\s@UnprocessedQueryExecutionId' {} a -> s {queryExecutionId = a} :: UnprocessedQueryExecutionId)
 
 -- | The error message returned when the query execution failed to process,
 -- if applicable.
-unprocessedQueryExecutionId_errorMessage :: Lens.Lens' UnprocessedQueryExecutionId (Core.Maybe Core.Text)
+unprocessedQueryExecutionId_errorMessage :: Lens.Lens' UnprocessedQueryExecutionId (Prelude.Maybe Prelude.Text)
 unprocessedQueryExecutionId_errorMessage = Lens.lens (\UnprocessedQueryExecutionId' {errorMessage} -> errorMessage) (\s@UnprocessedQueryExecutionId' {} a -> s {errorMessage = a} :: UnprocessedQueryExecutionId)
 
 -- | The error code returned when the query execution failed to process, if
 -- applicable.
-unprocessedQueryExecutionId_errorCode :: Lens.Lens' UnprocessedQueryExecutionId (Core.Maybe Core.Text)
+unprocessedQueryExecutionId_errorCode :: Lens.Lens' UnprocessedQueryExecutionId (Prelude.Maybe Prelude.Text)
 unprocessedQueryExecutionId_errorCode = Lens.lens (\UnprocessedQueryExecutionId' {errorCode} -> errorCode) (\s@UnprocessedQueryExecutionId' {} a -> s {errorCode = a} :: UnprocessedQueryExecutionId)
 
 instance Core.FromJSON UnprocessedQueryExecutionId where
@@ -82,11 +83,11 @@ instance Core.FromJSON UnprocessedQueryExecutionId where
       "UnprocessedQueryExecutionId"
       ( \x ->
           UnprocessedQueryExecutionId'
-            Core.<$> (x Core..:? "QueryExecutionId")
-            Core.<*> (x Core..:? "ErrorMessage")
-            Core.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Core..:? "QueryExecutionId")
+            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
-instance Core.Hashable UnprocessedQueryExecutionId
+instance Prelude.Hashable UnprocessedQueryExecutionId
 
-instance Core.NFData UnprocessedQueryExecutionId
+instance Prelude.NFData UnprocessedQueryExecutionId

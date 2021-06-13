@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +53,9 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetUpgradeStatus' smart constructor.
 data GetUpgradeStatus = GetUpgradeStatus'
-  { domainName :: Core.Text
+  { domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetUpgradeStatus' with all optional fields omitted.
@@ -67,13 +68,13 @@ data GetUpgradeStatus = GetUpgradeStatus'
 -- 'domainName', 'getUpgradeStatus_domainName' - Undocumented member.
 newGetUpgradeStatus ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   GetUpgradeStatus
 newGetUpgradeStatus pDomainName_ =
   GetUpgradeStatus' {domainName = pDomainName_}
 
 -- | Undocumented member.
-getUpgradeStatus_domainName :: Lens.Lens' GetUpgradeStatus Core.Text
+getUpgradeStatus_domainName :: Lens.Lens' GetUpgradeStatus Prelude.Text
 getUpgradeStatus_domainName = Lens.lens (\GetUpgradeStatus' {domainName} -> domainName) (\s@GetUpgradeStatus' {} a -> s {domainName = a} :: GetUpgradeStatus)
 
 instance Core.AWSRequest GetUpgradeStatus where
@@ -85,43 +86,43 @@ instance Core.AWSRequest GetUpgradeStatus where
     Response.receiveJSON
       ( \s h x ->
           GetUpgradeStatusResponse'
-            Core.<$> (x Core..?> "UpgradeName")
-            Core.<*> (x Core..?> "UpgradeStep")
-            Core.<*> (x Core..?> "StepStatus")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "UpgradeName")
+            Prelude.<*> (x Core..?> "UpgradeStep")
+            Prelude.<*> (x Core..?> "StepStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetUpgradeStatus
+instance Prelude.Hashable GetUpgradeStatus
 
-instance Core.NFData GetUpgradeStatus
+instance Prelude.NFData GetUpgradeStatus
 
 instance Core.ToHeaders GetUpgradeStatus where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetUpgradeStatus where
   toPath GetUpgradeStatus' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-01-01/es/upgradeDomain/",
         Core.toBS domainName,
         "/status"
       ]
 
 instance Core.ToQuery GetUpgradeStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Container for response returned by @ GetUpgradeStatus @ operation.
 --
 -- /See:/ 'newGetUpgradeStatusResponse' smart constructor.
 data GetUpgradeStatusResponse = GetUpgradeStatusResponse'
   { -- | A string that describes the update briefly
-    upgradeName :: Core.Maybe Core.Text,
+    upgradeName :: Prelude.Maybe Prelude.Text,
     -- | Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check
     -- does through:
     --
     -- -   PreUpgradeCheck
     -- -   Snapshot
     -- -   Upgrade
-    upgradeStep :: Core.Maybe UpgradeStep,
+    upgradeStep :: Prelude.Maybe UpgradeStep,
     -- | One of 4 statuses that a step can go through returned as part of the
     -- @ GetUpgradeStatusResponse @ object. The status can take one of the
     -- following values:
@@ -130,11 +131,11 @@ data GetUpgradeStatusResponse = GetUpgradeStatusResponse'
     -- -   Succeeded
     -- -   Succeeded with Issues
     -- -   Failed
-    stepStatus :: Core.Maybe UpgradeStatus,
+    stepStatus :: Prelude.Maybe UpgradeStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetUpgradeStatusResponse' with all optional fields omitted.
@@ -165,19 +166,19 @@ data GetUpgradeStatusResponse = GetUpgradeStatusResponse'
 -- 'httpStatus', 'getUpgradeStatusResponse_httpStatus' - The response's http status code.
 newGetUpgradeStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetUpgradeStatusResponse
 newGetUpgradeStatusResponse pHttpStatus_ =
   GetUpgradeStatusResponse'
     { upgradeName =
-        Core.Nothing,
-      upgradeStep = Core.Nothing,
-      stepStatus = Core.Nothing,
+        Prelude.Nothing,
+      upgradeStep = Prelude.Nothing,
+      stepStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A string that describes the update briefly
-getUpgradeStatusResponse_upgradeName :: Lens.Lens' GetUpgradeStatusResponse (Core.Maybe Core.Text)
+getUpgradeStatusResponse_upgradeName :: Lens.Lens' GetUpgradeStatusResponse (Prelude.Maybe Prelude.Text)
 getUpgradeStatusResponse_upgradeName = Lens.lens (\GetUpgradeStatusResponse' {upgradeName} -> upgradeName) (\s@GetUpgradeStatusResponse' {} a -> s {upgradeName = a} :: GetUpgradeStatusResponse)
 
 -- | Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check
@@ -186,7 +187,7 @@ getUpgradeStatusResponse_upgradeName = Lens.lens (\GetUpgradeStatusResponse' {up
 -- -   PreUpgradeCheck
 -- -   Snapshot
 -- -   Upgrade
-getUpgradeStatusResponse_upgradeStep :: Lens.Lens' GetUpgradeStatusResponse (Core.Maybe UpgradeStep)
+getUpgradeStatusResponse_upgradeStep :: Lens.Lens' GetUpgradeStatusResponse (Prelude.Maybe UpgradeStep)
 getUpgradeStatusResponse_upgradeStep = Lens.lens (\GetUpgradeStatusResponse' {upgradeStep} -> upgradeStep) (\s@GetUpgradeStatusResponse' {} a -> s {upgradeStep = a} :: GetUpgradeStatusResponse)
 
 -- | One of 4 statuses that a step can go through returned as part of the
@@ -197,11 +198,11 @@ getUpgradeStatusResponse_upgradeStep = Lens.lens (\GetUpgradeStatusResponse' {up
 -- -   Succeeded
 -- -   Succeeded with Issues
 -- -   Failed
-getUpgradeStatusResponse_stepStatus :: Lens.Lens' GetUpgradeStatusResponse (Core.Maybe UpgradeStatus)
+getUpgradeStatusResponse_stepStatus :: Lens.Lens' GetUpgradeStatusResponse (Prelude.Maybe UpgradeStatus)
 getUpgradeStatusResponse_stepStatus = Lens.lens (\GetUpgradeStatusResponse' {stepStatus} -> stepStatus) (\s@GetUpgradeStatusResponse' {} a -> s {stepStatus = a} :: GetUpgradeStatusResponse)
 
 -- | The response's http status code.
-getUpgradeStatusResponse_httpStatus :: Lens.Lens' GetUpgradeStatusResponse Core.Int
+getUpgradeStatusResponse_httpStatus :: Lens.Lens' GetUpgradeStatusResponse Prelude.Int
 getUpgradeStatusResponse_httpStatus = Lens.lens (\GetUpgradeStatusResponse' {httpStatus} -> httpStatus) (\s@GetUpgradeStatusResponse' {} a -> s {httpStatus = a} :: GetUpgradeStatusResponse)
 
-instance Core.NFData GetUpgradeStatusResponse
+instance Prelude.NFData GetUpgradeStatusResponse

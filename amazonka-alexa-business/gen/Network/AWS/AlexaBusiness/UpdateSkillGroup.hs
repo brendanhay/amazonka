@@ -43,19 +43,20 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateSkillGroup' smart constructor.
 data UpdateSkillGroup = UpdateSkillGroup'
   { -- | The updated name for the skill group.
-    skillGroupName :: Core.Maybe Core.Text,
+    skillGroupName :: Prelude.Maybe Prelude.Text,
     -- | The updated description for the skill group.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the skill group to update.
-    skillGroupArn :: Core.Maybe Core.Text
+    skillGroupArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSkillGroup' with all optional fields omitted.
@@ -74,21 +75,21 @@ newUpdateSkillGroup ::
   UpdateSkillGroup
 newUpdateSkillGroup =
   UpdateSkillGroup'
-    { skillGroupName = Core.Nothing,
-      description = Core.Nothing,
-      skillGroupArn = Core.Nothing
+    { skillGroupName = Prelude.Nothing,
+      description = Prelude.Nothing,
+      skillGroupArn = Prelude.Nothing
     }
 
 -- | The updated name for the skill group.
-updateSkillGroup_skillGroupName :: Lens.Lens' UpdateSkillGroup (Core.Maybe Core.Text)
+updateSkillGroup_skillGroupName :: Lens.Lens' UpdateSkillGroup (Prelude.Maybe Prelude.Text)
 updateSkillGroup_skillGroupName = Lens.lens (\UpdateSkillGroup' {skillGroupName} -> skillGroupName) (\s@UpdateSkillGroup' {} a -> s {skillGroupName = a} :: UpdateSkillGroup)
 
 -- | The updated description for the skill group.
-updateSkillGroup_description :: Lens.Lens' UpdateSkillGroup (Core.Maybe Core.Text)
+updateSkillGroup_description :: Lens.Lens' UpdateSkillGroup (Prelude.Maybe Prelude.Text)
 updateSkillGroup_description = Lens.lens (\UpdateSkillGroup' {description} -> description) (\s@UpdateSkillGroup' {} a -> s {description = a} :: UpdateSkillGroup)
 
 -- | The ARN of the skill group to update.
-updateSkillGroup_skillGroupArn :: Lens.Lens' UpdateSkillGroup (Core.Maybe Core.Text)
+updateSkillGroup_skillGroupArn :: Lens.Lens' UpdateSkillGroup (Prelude.Maybe Prelude.Text)
 updateSkillGroup_skillGroupArn = Lens.lens (\UpdateSkillGroup' {skillGroupArn} -> skillGroupArn) (\s@UpdateSkillGroup' {} a -> s {skillGroupArn = a} :: UpdateSkillGroup)
 
 instance Core.AWSRequest UpdateSkillGroup where
@@ -100,48 +101,51 @@ instance Core.AWSRequest UpdateSkillGroup where
     Response.receiveEmpty
       ( \s h x ->
           UpdateSkillGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateSkillGroup
+instance Prelude.Hashable UpdateSkillGroup
 
-instance Core.NFData UpdateSkillGroup
+instance Prelude.NFData UpdateSkillGroup
 
 instance Core.ToHeaders UpdateSkillGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.UpdateSkillGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateSkillGroup where
   toJSON UpdateSkillGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SkillGroupName" Core..=) Core.<$> skillGroupName,
-            ("Description" Core..=) Core.<$> description,
-            ("SkillGroupArn" Core..=) Core.<$> skillGroupArn
+      ( Prelude.catMaybes
+          [ ("SkillGroupName" Core..=)
+              Prelude.<$> skillGroupName,
+            ("Description" Core..=) Prelude.<$> description,
+            ("SkillGroupArn" Core..=) Prelude.<$> skillGroupArn
           ]
       )
 
 instance Core.ToPath UpdateSkillGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateSkillGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSkillGroupResponse' smart constructor.
 data UpdateSkillGroupResponse = UpdateSkillGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSkillGroupResponse' with all optional fields omitted.
@@ -154,7 +158,7 @@ data UpdateSkillGroupResponse = UpdateSkillGroupResponse'
 -- 'httpStatus', 'updateSkillGroupResponse_httpStatus' - The response's http status code.
 newUpdateSkillGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateSkillGroupResponse
 newUpdateSkillGroupResponse pHttpStatus_ =
   UpdateSkillGroupResponse'
@@ -163,7 +167,7 @@ newUpdateSkillGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateSkillGroupResponse_httpStatus :: Lens.Lens' UpdateSkillGroupResponse Core.Int
+updateSkillGroupResponse_httpStatus :: Lens.Lens' UpdateSkillGroupResponse Prelude.Int
 updateSkillGroupResponse_httpStatus = Lens.lens (\UpdateSkillGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateSkillGroupResponse' {} a -> s {httpStatus = a} :: UpdateSkillGroupResponse)
 
-instance Core.NFData UpdateSkillGroupResponse
+instance Prelude.NFData UpdateSkillGroupResponse

@@ -22,6 +22,7 @@ module Network.AWS.ECS.Types.Attachment where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.KeyValuePair
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing a container instance or task attachment.
 --
@@ -29,17 +30,17 @@ import qualified Network.AWS.Lens as Lens
 data Attachment = Attachment'
   { -- | The status of the attachment. Valid values are @PRECREATED@, @CREATED@,
     -- @ATTACHING@, @ATTACHED@, @DETACHING@, @DETACHED@, and @DELETED@.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the attachment.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | Details of the attachment. For elastic network interfaces, this includes
     -- the network interface ID, the MAC address, the subnet ID, and the
     -- private IPv4 address.
-    details :: Core.Maybe [KeyValuePair],
+    details :: Prelude.Maybe [KeyValuePair],
     -- | The type of the attachment, such as @ElasticNetworkInterface@.
-    type' :: Core.Maybe Core.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Attachment' with all optional fields omitted.
@@ -63,29 +64,29 @@ newAttachment ::
   Attachment
 newAttachment =
   Attachment'
-    { status = Core.Nothing,
-      id = Core.Nothing,
-      details = Core.Nothing,
-      type' = Core.Nothing
+    { status = Prelude.Nothing,
+      id = Prelude.Nothing,
+      details = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The status of the attachment. Valid values are @PRECREATED@, @CREATED@,
 -- @ATTACHING@, @ATTACHED@, @DETACHING@, @DETACHED@, and @DELETED@.
-attachment_status :: Lens.Lens' Attachment (Core.Maybe Core.Text)
+attachment_status :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
 attachment_status = Lens.lens (\Attachment' {status} -> status) (\s@Attachment' {} a -> s {status = a} :: Attachment)
 
 -- | The unique identifier for the attachment.
-attachment_id :: Lens.Lens' Attachment (Core.Maybe Core.Text)
+attachment_id :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
 attachment_id = Lens.lens (\Attachment' {id} -> id) (\s@Attachment' {} a -> s {id = a} :: Attachment)
 
 -- | Details of the attachment. For elastic network interfaces, this includes
 -- the network interface ID, the MAC address, the subnet ID, and the
 -- private IPv4 address.
-attachment_details :: Lens.Lens' Attachment (Core.Maybe [KeyValuePair])
-attachment_details = Lens.lens (\Attachment' {details} -> details) (\s@Attachment' {} a -> s {details = a} :: Attachment) Core.. Lens.mapping Lens._Coerce
+attachment_details :: Lens.Lens' Attachment (Prelude.Maybe [KeyValuePair])
+attachment_details = Lens.lens (\Attachment' {details} -> details) (\s@Attachment' {} a -> s {details = a} :: Attachment) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of the attachment, such as @ElasticNetworkInterface@.
-attachment_type :: Lens.Lens' Attachment (Core.Maybe Core.Text)
+attachment_type :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
 attachment_type = Lens.lens (\Attachment' {type'} -> type') (\s@Attachment' {} a -> s {type' = a} :: Attachment)
 
 instance Core.FromJSON Attachment where
@@ -94,12 +95,12 @@ instance Core.FromJSON Attachment where
       "Attachment"
       ( \x ->
           Attachment'
-            Core.<$> (x Core..:? "status")
-            Core.<*> (x Core..:? "id")
-            Core.<*> (x Core..:? "details" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "details" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "type")
       )
 
-instance Core.Hashable Attachment
+instance Prelude.Hashable Attachment
 
-instance Core.NFData Attachment
+instance Prelude.NFData Attachment

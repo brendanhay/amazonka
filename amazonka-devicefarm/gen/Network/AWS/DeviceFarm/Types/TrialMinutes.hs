@@ -21,6 +21,7 @@ module Network.AWS.DeviceFarm.Types.TrialMinutes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about free trial device minutes for an AWS
 -- account.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTrialMinutes' smart constructor.
 data TrialMinutes = TrialMinutes'
   { -- | The total number of free trial minutes that the account started with.
-    total :: Core.Maybe Core.Double,
+    total :: Prelude.Maybe Prelude.Double,
     -- | The number of free trial minutes remaining in the account.
-    remaining :: Core.Maybe Core.Double
+    remaining :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrialMinutes' with all optional fields omitted.
@@ -49,16 +50,16 @@ newTrialMinutes ::
   TrialMinutes
 newTrialMinutes =
   TrialMinutes'
-    { total = Core.Nothing,
-      remaining = Core.Nothing
+    { total = Prelude.Nothing,
+      remaining = Prelude.Nothing
     }
 
 -- | The total number of free trial minutes that the account started with.
-trialMinutes_total :: Lens.Lens' TrialMinutes (Core.Maybe Core.Double)
+trialMinutes_total :: Lens.Lens' TrialMinutes (Prelude.Maybe Prelude.Double)
 trialMinutes_total = Lens.lens (\TrialMinutes' {total} -> total) (\s@TrialMinutes' {} a -> s {total = a} :: TrialMinutes)
 
 -- | The number of free trial minutes remaining in the account.
-trialMinutes_remaining :: Lens.Lens' TrialMinutes (Core.Maybe Core.Double)
+trialMinutes_remaining :: Lens.Lens' TrialMinutes (Prelude.Maybe Prelude.Double)
 trialMinutes_remaining = Lens.lens (\TrialMinutes' {remaining} -> remaining) (\s@TrialMinutes' {} a -> s {remaining = a} :: TrialMinutes)
 
 instance Core.FromJSON TrialMinutes where
@@ -67,10 +68,10 @@ instance Core.FromJSON TrialMinutes where
       "TrialMinutes"
       ( \x ->
           TrialMinutes'
-            Core.<$> (x Core..:? "total")
-            Core.<*> (x Core..:? "remaining")
+            Prelude.<$> (x Core..:? "total")
+            Prelude.<*> (x Core..:? "remaining")
       )
 
-instance Core.Hashable TrialMinutes
+instance Prelude.Hashable TrialMinutes
 
-instance Core.NFData TrialMinutes
+instance Prelude.NFData TrialMinutes

@@ -51,6 +51,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,7 +67,7 @@ data GetTemplate = GetTemplate'
     -- If the template doesn\'t include transforms, @Original@ and @Processed@
     -- return the same template. By default, AWS CloudFormation specifies
     -- @Original@.
-    templateStage :: Core.Maybe TemplateStage,
+    templateStage :: Prelude.Maybe TemplateStage,
     -- | The name or the unique stack ID that is associated with the stack, which
     -- are not always interchangeable:
     --
@@ -76,13 +77,13 @@ data GetTemplate = GetTemplate'
     -- -   Deleted stacks: You must specify the unique stack ID.
     --
     -- Default: There is no default value.
-    stackName :: Core.Maybe Core.Text,
+    stackName :: Prelude.Maybe Prelude.Text,
     -- | The name or Amazon Resource Name (ARN) of a change set for which AWS
     -- CloudFormation returns the associated template. If you specify a name,
     -- you must also specify the @StackName@.
-    changeSetName :: Core.Maybe Core.Text
+    changeSetName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTemplate' with all optional fields omitted.
@@ -118,9 +119,9 @@ newGetTemplate ::
   GetTemplate
 newGetTemplate =
   GetTemplate'
-    { templateStage = Core.Nothing,
-      stackName = Core.Nothing,
-      changeSetName = Core.Nothing
+    { templateStage = Prelude.Nothing,
+      stackName = Prelude.Nothing,
+      changeSetName = Prelude.Nothing
     }
 
 -- | For templates that include transforms, the stage of the template that
@@ -131,7 +132,7 @@ newGetTemplate =
 -- If the template doesn\'t include transforms, @Original@ and @Processed@
 -- return the same template. By default, AWS CloudFormation specifies
 -- @Original@.
-getTemplate_templateStage :: Lens.Lens' GetTemplate (Core.Maybe TemplateStage)
+getTemplate_templateStage :: Lens.Lens' GetTemplate (Prelude.Maybe TemplateStage)
 getTemplate_templateStage = Lens.lens (\GetTemplate' {templateStage} -> templateStage) (\s@GetTemplate' {} a -> s {templateStage = a} :: GetTemplate)
 
 -- | The name or the unique stack ID that is associated with the stack, which
@@ -143,13 +144,13 @@ getTemplate_templateStage = Lens.lens (\GetTemplate' {templateStage} -> template
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
-getTemplate_stackName :: Lens.Lens' GetTemplate (Core.Maybe Core.Text)
+getTemplate_stackName :: Lens.Lens' GetTemplate (Prelude.Maybe Prelude.Text)
 getTemplate_stackName = Lens.lens (\GetTemplate' {stackName} -> stackName) (\s@GetTemplate' {} a -> s {stackName = a} :: GetTemplate)
 
 -- | The name or Amazon Resource Name (ARN) of a change set for which AWS
 -- CloudFormation returns the associated template. If you specify a name,
 -- you must also specify the @StackName@.
-getTemplate_changeSetName :: Lens.Lens' GetTemplate (Core.Maybe Core.Text)
+getTemplate_changeSetName :: Lens.Lens' GetTemplate (Prelude.Maybe Prelude.Text)
 getTemplate_changeSetName = Lens.lens (\GetTemplate' {changeSetName} -> changeSetName) (\s@GetTemplate' {} a -> s {changeSetName = a} :: GetTemplate)
 
 instance Core.AWSRequest GetTemplate where
@@ -160,28 +161,30 @@ instance Core.AWSRequest GetTemplate where
       "GetTemplateResult"
       ( \s h x ->
           GetTemplateResponse'
-            Core.<$> ( x Core..@? "StagesAvailable" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (x Core..@? "TemplateBody")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "StagesAvailable" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "TemplateBody")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetTemplate
+instance Prelude.Hashable GetTemplate
 
-instance Core.NFData GetTemplate
+instance Prelude.NFData GetTemplate
 
 instance Core.ToHeaders GetTemplate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetTemplate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetTemplate where
   toQuery GetTemplate' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("GetTemplate" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("GetTemplate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "TemplateStage" Core.=: templateStage,
         "StackName" Core.=: stackName,
         "ChangeSetName" Core.=: changeSetName
@@ -196,18 +199,18 @@ data GetTemplateResponse = GetTemplateResponse'
     -- sets, the @Original@ template is always available. After AWS
     -- CloudFormation finishes creating the change set, the @Processed@
     -- template becomes available.
-    stagesAvailable :: Core.Maybe [TemplateStage],
+    stagesAvailable :: Prelude.Maybe [TemplateStage],
     -- | Structure containing the template body. (For more information, go to
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
     -- in the AWS CloudFormation User Guide.)
     --
     -- AWS CloudFormation returns the same template that was used when the
     -- stack was created.
-    templateBody :: Core.Maybe Core.Text,
+    templateBody :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTemplateResponse' with all optional fields omitted.
@@ -233,13 +236,13 @@ data GetTemplateResponse = GetTemplateResponse'
 -- 'httpStatus', 'getTemplateResponse_httpStatus' - The response's http status code.
 newGetTemplateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetTemplateResponse
 newGetTemplateResponse pHttpStatus_ =
   GetTemplateResponse'
     { stagesAvailable =
-        Core.Nothing,
-      templateBody = Core.Nothing,
+        Prelude.Nothing,
+      templateBody = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -248,8 +251,8 @@ newGetTemplateResponse pHttpStatus_ =
 -- sets, the @Original@ template is always available. After AWS
 -- CloudFormation finishes creating the change set, the @Processed@
 -- template becomes available.
-getTemplateResponse_stagesAvailable :: Lens.Lens' GetTemplateResponse (Core.Maybe [TemplateStage])
-getTemplateResponse_stagesAvailable = Lens.lens (\GetTemplateResponse' {stagesAvailable} -> stagesAvailable) (\s@GetTemplateResponse' {} a -> s {stagesAvailable = a} :: GetTemplateResponse) Core.. Lens.mapping Lens._Coerce
+getTemplateResponse_stagesAvailable :: Lens.Lens' GetTemplateResponse (Prelude.Maybe [TemplateStage])
+getTemplateResponse_stagesAvailable = Lens.lens (\GetTemplateResponse' {stagesAvailable} -> stagesAvailable) (\s@GetTemplateResponse' {} a -> s {stagesAvailable = a} :: GetTemplateResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Structure containing the template body. (For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
@@ -257,11 +260,11 @@ getTemplateResponse_stagesAvailable = Lens.lens (\GetTemplateResponse' {stagesAv
 --
 -- AWS CloudFormation returns the same template that was used when the
 -- stack was created.
-getTemplateResponse_templateBody :: Lens.Lens' GetTemplateResponse (Core.Maybe Core.Text)
+getTemplateResponse_templateBody :: Lens.Lens' GetTemplateResponse (Prelude.Maybe Prelude.Text)
 getTemplateResponse_templateBody = Lens.lens (\GetTemplateResponse' {templateBody} -> templateBody) (\s@GetTemplateResponse' {} a -> s {templateBody = a} :: GetTemplateResponse)
 
 -- | The response's http status code.
-getTemplateResponse_httpStatus :: Lens.Lens' GetTemplateResponse Core.Int
+getTemplateResponse_httpStatus :: Lens.Lens' GetTemplateResponse Prelude.Int
 getTemplateResponse_httpStatus = Lens.lens (\GetTemplateResponse' {httpStatus} -> httpStatus) (\s@GetTemplateResponse' {} a -> s {httpStatus = a} :: GetTemplateResponse)
 
-instance Core.NFData GetTemplateResponse
+instance Prelude.NFData GetTemplateResponse

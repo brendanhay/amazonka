@@ -22,6 +22,7 @@ module Network.AWS.CodeDeploy.Types.DeploymentReadyOption where
 import Network.AWS.CodeDeploy.Types.DeploymentReadyAction
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about how traffic is rerouted to instances in a replacement
 -- environment in a blue\/green deployment.
@@ -31,7 +32,7 @@ data DeploymentReadyOption = DeploymentReadyOption'
   { -- | The number of minutes to wait before the status of a blue\/green
     -- deployment is changed to Stopped if rerouting is not started manually.
     -- Applies only to the @STOP_DEPLOYMENT@ option for @actionOnTimeout@.
-    waitTimeInMinutes :: Core.Maybe Core.Int,
+    waitTimeInMinutes :: Prelude.Maybe Prelude.Int,
     -- | Information about when to reroute traffic from an original environment
     -- to a replacement environment in a blue\/green deployment.
     --
@@ -43,9 +44,9 @@ data DeploymentReadyOption = DeploymentReadyOption'
     --     unless traffic rerouting is started using ContinueDeployment. If
     --     traffic rerouting is not started before the end of the specified
     --     wait period, the deployment status is changed to Stopped.
-    actionOnTimeout :: Core.Maybe DeploymentReadyAction
+    actionOnTimeout :: Prelude.Maybe DeploymentReadyAction
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeploymentReadyOption' with all optional fields omitted.
@@ -75,14 +76,14 @@ newDeploymentReadyOption ::
 newDeploymentReadyOption =
   DeploymentReadyOption'
     { waitTimeInMinutes =
-        Core.Nothing,
-      actionOnTimeout = Core.Nothing
+        Prelude.Nothing,
+      actionOnTimeout = Prelude.Nothing
     }
 
 -- | The number of minutes to wait before the status of a blue\/green
 -- deployment is changed to Stopped if rerouting is not started manually.
 -- Applies only to the @STOP_DEPLOYMENT@ option for @actionOnTimeout@.
-deploymentReadyOption_waitTimeInMinutes :: Lens.Lens' DeploymentReadyOption (Core.Maybe Core.Int)
+deploymentReadyOption_waitTimeInMinutes :: Lens.Lens' DeploymentReadyOption (Prelude.Maybe Prelude.Int)
 deploymentReadyOption_waitTimeInMinutes = Lens.lens (\DeploymentReadyOption' {waitTimeInMinutes} -> waitTimeInMinutes) (\s@DeploymentReadyOption' {} a -> s {waitTimeInMinutes = a} :: DeploymentReadyOption)
 
 -- | Information about when to reroute traffic from an original environment
@@ -96,7 +97,7 @@ deploymentReadyOption_waitTimeInMinutes = Lens.lens (\DeploymentReadyOption' {wa
 --     unless traffic rerouting is started using ContinueDeployment. If
 --     traffic rerouting is not started before the end of the specified
 --     wait period, the deployment status is changed to Stopped.
-deploymentReadyOption_actionOnTimeout :: Lens.Lens' DeploymentReadyOption (Core.Maybe DeploymentReadyAction)
+deploymentReadyOption_actionOnTimeout :: Lens.Lens' DeploymentReadyOption (Prelude.Maybe DeploymentReadyAction)
 deploymentReadyOption_actionOnTimeout = Lens.lens (\DeploymentReadyOption' {actionOnTimeout} -> actionOnTimeout) (\s@DeploymentReadyOption' {} a -> s {actionOnTimeout = a} :: DeploymentReadyOption)
 
 instance Core.FromJSON DeploymentReadyOption where
@@ -105,21 +106,21 @@ instance Core.FromJSON DeploymentReadyOption where
       "DeploymentReadyOption"
       ( \x ->
           DeploymentReadyOption'
-            Core.<$> (x Core..:? "waitTimeInMinutes")
-            Core.<*> (x Core..:? "actionOnTimeout")
+            Prelude.<$> (x Core..:? "waitTimeInMinutes")
+            Prelude.<*> (x Core..:? "actionOnTimeout")
       )
 
-instance Core.Hashable DeploymentReadyOption
+instance Prelude.Hashable DeploymentReadyOption
 
-instance Core.NFData DeploymentReadyOption
+instance Prelude.NFData DeploymentReadyOption
 
 instance Core.ToJSON DeploymentReadyOption where
   toJSON DeploymentReadyOption' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("waitTimeInMinutes" Core..=)
-              Core.<$> waitTimeInMinutes,
+              Prelude.<$> waitTimeInMinutes,
             ("actionOnTimeout" Core..=)
-              Core.<$> actionOnTimeout
+              Prelude.<$> actionOnTimeout
           ]
       )

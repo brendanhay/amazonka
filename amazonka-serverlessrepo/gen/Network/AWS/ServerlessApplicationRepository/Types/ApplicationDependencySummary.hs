@@ -21,17 +21,18 @@ module Network.AWS.ServerlessApplicationRepository.Types.ApplicationDependencySu
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A nested application summary.
 --
 -- /See:/ 'newApplicationDependencySummary' smart constructor.
 data ApplicationDependencySummary = ApplicationDependencySummary'
   { -- | The Amazon Resource Name (ARN) of the nested application.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     -- | The semantic version of the nested application.
-    semanticVersion :: Core.Text
+    semanticVersion :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApplicationDependencySummary' with all optional fields omitted.
@@ -46,9 +47,9 @@ data ApplicationDependencySummary = ApplicationDependencySummary'
 -- 'semanticVersion', 'applicationDependencySummary_semanticVersion' - The semantic version of the nested application.
 newApplicationDependencySummary ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'semanticVersion'
-  Core.Text ->
+  Prelude.Text ->
   ApplicationDependencySummary
 newApplicationDependencySummary
   pApplicationId_
@@ -60,11 +61,11 @@ newApplicationDependencySummary
       }
 
 -- | The Amazon Resource Name (ARN) of the nested application.
-applicationDependencySummary_applicationId :: Lens.Lens' ApplicationDependencySummary Core.Text
+applicationDependencySummary_applicationId :: Lens.Lens' ApplicationDependencySummary Prelude.Text
 applicationDependencySummary_applicationId = Lens.lens (\ApplicationDependencySummary' {applicationId} -> applicationId) (\s@ApplicationDependencySummary' {} a -> s {applicationId = a} :: ApplicationDependencySummary)
 
 -- | The semantic version of the nested application.
-applicationDependencySummary_semanticVersion :: Lens.Lens' ApplicationDependencySummary Core.Text
+applicationDependencySummary_semanticVersion :: Lens.Lens' ApplicationDependencySummary Prelude.Text
 applicationDependencySummary_semanticVersion = Lens.lens (\ApplicationDependencySummary' {semanticVersion} -> semanticVersion) (\s@ApplicationDependencySummary' {} a -> s {semanticVersion = a} :: ApplicationDependencySummary)
 
 instance Core.FromJSON ApplicationDependencySummary where
@@ -73,10 +74,12 @@ instance Core.FromJSON ApplicationDependencySummary where
       "ApplicationDependencySummary"
       ( \x ->
           ApplicationDependencySummary'
-            Core.<$> (x Core..: "applicationId")
-            Core.<*> (x Core..: "semanticVersion")
+            Prelude.<$> (x Core..: "applicationId")
+            Prelude.<*> (x Core..: "semanticVersion")
       )
 
-instance Core.Hashable ApplicationDependencySummary
+instance
+  Prelude.Hashable
+    ApplicationDependencySummary
 
-instance Core.NFData ApplicationDependencySummary
+instance Prelude.NFData ApplicationDependencySummary

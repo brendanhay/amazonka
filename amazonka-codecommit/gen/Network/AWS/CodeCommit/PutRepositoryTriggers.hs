@@ -44,6 +44,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +54,11 @@ import qualified Network.AWS.Response as Response
 data PutRepositoryTriggers = PutRepositoryTriggers'
   { -- | The name of the repository where you want to create or update the
     -- trigger.
-    repositoryName :: Core.Text,
+    repositoryName :: Prelude.Text,
     -- | The JSON block of configuration information for each trigger.
     triggers :: [RepositoryTrigger]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRepositoryTriggers' with all optional fields omitted.
@@ -73,23 +74,23 @@ data PutRepositoryTriggers = PutRepositoryTriggers'
 -- 'triggers', 'putRepositoryTriggers_triggers' - The JSON block of configuration information for each trigger.
 newPutRepositoryTriggers ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   PutRepositoryTriggers
 newPutRepositoryTriggers pRepositoryName_ =
   PutRepositoryTriggers'
     { repositoryName =
         pRepositoryName_,
-      triggers = Core.mempty
+      triggers = Prelude.mempty
     }
 
 -- | The name of the repository where you want to create or update the
 -- trigger.
-putRepositoryTriggers_repositoryName :: Lens.Lens' PutRepositoryTriggers Core.Text
+putRepositoryTriggers_repositoryName :: Lens.Lens' PutRepositoryTriggers Prelude.Text
 putRepositoryTriggers_repositoryName = Lens.lens (\PutRepositoryTriggers' {repositoryName} -> repositoryName) (\s@PutRepositoryTriggers' {} a -> s {repositoryName = a} :: PutRepositoryTriggers)
 
 -- | The JSON block of configuration information for each trigger.
 putRepositoryTriggers_triggers :: Lens.Lens' PutRepositoryTriggers [RepositoryTrigger]
-putRepositoryTriggers_triggers = Lens.lens (\PutRepositoryTriggers' {triggers} -> triggers) (\s@PutRepositoryTriggers' {} a -> s {triggers = a} :: PutRepositoryTriggers) Core.. Lens._Coerce
+putRepositoryTriggers_triggers = Lens.lens (\PutRepositoryTriggers' {triggers} -> triggers) (\s@PutRepositoryTriggers' {} a -> s {triggers = a} :: PutRepositoryTriggers) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest PutRepositoryTriggers where
   type
@@ -100,52 +101,55 @@ instance Core.AWSRequest PutRepositoryTriggers where
     Response.receiveJSON
       ( \s h x ->
           PutRepositoryTriggersResponse'
-            Core.<$> (x Core..?> "configurationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "configurationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutRepositoryTriggers
+instance Prelude.Hashable PutRepositoryTriggers
 
-instance Core.NFData PutRepositoryTriggers
+instance Prelude.NFData PutRepositoryTriggers
 
 instance Core.ToHeaders PutRepositoryTriggers where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.PutRepositoryTriggers" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutRepositoryTriggers where
   toJSON PutRepositoryTriggers' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("repositoryName" Core..= repositoryName),
-            Core.Just ("triggers" Core..= triggers)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("repositoryName" Core..= repositoryName),
+            Prelude.Just ("triggers" Core..= triggers)
           ]
       )
 
 instance Core.ToPath PutRepositoryTriggers where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutRepositoryTriggers where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a put repository triggers operation.
 --
 -- /See:/ 'newPutRepositoryTriggersResponse' smart constructor.
 data PutRepositoryTriggersResponse = PutRepositoryTriggersResponse'
   { -- | The system-generated unique ID for the create or update operation.
-    configurationId :: Core.Maybe Core.Text,
+    configurationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRepositoryTriggersResponse' with all optional fields omitted.
@@ -160,21 +164,21 @@ data PutRepositoryTriggersResponse = PutRepositoryTriggersResponse'
 -- 'httpStatus', 'putRepositoryTriggersResponse_httpStatus' - The response's http status code.
 newPutRepositoryTriggersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutRepositoryTriggersResponse
 newPutRepositoryTriggersResponse pHttpStatus_ =
   PutRepositoryTriggersResponse'
     { configurationId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The system-generated unique ID for the create or update operation.
-putRepositoryTriggersResponse_configurationId :: Lens.Lens' PutRepositoryTriggersResponse (Core.Maybe Core.Text)
+putRepositoryTriggersResponse_configurationId :: Lens.Lens' PutRepositoryTriggersResponse (Prelude.Maybe Prelude.Text)
 putRepositoryTriggersResponse_configurationId = Lens.lens (\PutRepositoryTriggersResponse' {configurationId} -> configurationId) (\s@PutRepositoryTriggersResponse' {} a -> s {configurationId = a} :: PutRepositoryTriggersResponse)
 
 -- | The response's http status code.
-putRepositoryTriggersResponse_httpStatus :: Lens.Lens' PutRepositoryTriggersResponse Core.Int
+putRepositoryTriggersResponse_httpStatus :: Lens.Lens' PutRepositoryTriggersResponse Prelude.Int
 putRepositoryTriggersResponse_httpStatus = Lens.lens (\PutRepositoryTriggersResponse' {httpStatus} -> httpStatus) (\s@PutRepositoryTriggersResponse' {} a -> s {httpStatus = a} :: PutRepositoryTriggersResponse)
 
-instance Core.NFData PutRepositoryTriggersResponse
+instance Prelude.NFData PutRepositoryTriggersResponse

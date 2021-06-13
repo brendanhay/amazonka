@@ -21,6 +21,7 @@ module Network.AWS.WAFRegional.Types.SqlInjectionMatchSetSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
@@ -45,11 +46,11 @@ data SqlInjectionMatchSetSummary = SqlInjectionMatchSetSummary'
     --
     -- @SqlInjectionMatchSetId@ is returned by CreateSqlInjectionMatchSet and
     -- by ListSqlInjectionMatchSets.
-    sqlInjectionMatchSetId :: Core.Text,
+    sqlInjectionMatchSetId :: Prelude.Text,
     -- | The name of the @SqlInjectionMatchSet@, if any, specified by @Id@.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SqlInjectionMatchSetSummary' with all optional fields omitted.
@@ -73,9 +74,9 @@ data SqlInjectionMatchSetSummary = SqlInjectionMatchSetSummary'
 -- 'name', 'sqlInjectionMatchSetSummary_name' - The name of the @SqlInjectionMatchSet@, if any, specified by @Id@.
 newSqlInjectionMatchSetSummary ::
   -- | 'sqlInjectionMatchSetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   SqlInjectionMatchSetSummary
 newSqlInjectionMatchSetSummary
   pSqlInjectionMatchSetId_
@@ -96,11 +97,11 @@ newSqlInjectionMatchSetSummary
 --
 -- @SqlInjectionMatchSetId@ is returned by CreateSqlInjectionMatchSet and
 -- by ListSqlInjectionMatchSets.
-sqlInjectionMatchSetSummary_sqlInjectionMatchSetId :: Lens.Lens' SqlInjectionMatchSetSummary Core.Text
+sqlInjectionMatchSetSummary_sqlInjectionMatchSetId :: Lens.Lens' SqlInjectionMatchSetSummary Prelude.Text
 sqlInjectionMatchSetSummary_sqlInjectionMatchSetId = Lens.lens (\SqlInjectionMatchSetSummary' {sqlInjectionMatchSetId} -> sqlInjectionMatchSetId) (\s@SqlInjectionMatchSetSummary' {} a -> s {sqlInjectionMatchSetId = a} :: SqlInjectionMatchSetSummary)
 
 -- | The name of the @SqlInjectionMatchSet@, if any, specified by @Id@.
-sqlInjectionMatchSetSummary_name :: Lens.Lens' SqlInjectionMatchSetSummary Core.Text
+sqlInjectionMatchSetSummary_name :: Lens.Lens' SqlInjectionMatchSetSummary Prelude.Text
 sqlInjectionMatchSetSummary_name = Lens.lens (\SqlInjectionMatchSetSummary' {name} -> name) (\s@SqlInjectionMatchSetSummary' {} a -> s {name = a} :: SqlInjectionMatchSetSummary)
 
 instance Core.FromJSON SqlInjectionMatchSetSummary where
@@ -109,10 +110,10 @@ instance Core.FromJSON SqlInjectionMatchSetSummary where
       "SqlInjectionMatchSetSummary"
       ( \x ->
           SqlInjectionMatchSetSummary'
-            Core.<$> (x Core..: "SqlInjectionMatchSetId")
-            Core.<*> (x Core..: "Name")
+            Prelude.<$> (x Core..: "SqlInjectionMatchSetId")
+            Prelude.<*> (x Core..: "Name")
       )
 
-instance Core.Hashable SqlInjectionMatchSetSummary
+instance Prelude.Hashable SqlInjectionMatchSetSummary
 
-instance Core.NFData SqlInjectionMatchSetSummary
+instance Prelude.NFData SqlInjectionMatchSetSummary

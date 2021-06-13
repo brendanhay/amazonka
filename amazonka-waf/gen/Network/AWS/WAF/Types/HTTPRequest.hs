@@ -21,6 +21,7 @@ module Network.AWS.WAF.Types.HTTPRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.HTTPHeader
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -41,14 +42,14 @@ import Network.AWS.WAF.Types.HTTPHeader
 data HTTPRequest = HTTPRequest'
   { -- | A complex type that contains two values for each header in the sampled
     -- web request: the name of the header and the value of the header.
-    headers :: Core.Maybe [HTTPHeader],
+    headers :: Prelude.Maybe [HTTPHeader],
     -- | The part of a web request that identifies the resource, for example,
     -- @\/images\/daily-ad.jpg@.
-    uri :: Core.Maybe Core.Text,
+    uri :: Prelude.Maybe Prelude.Text,
     -- | The HTTP method specified in the sampled web request. CloudFront
     -- supports the following methods: @DELETE@, @GET@, @HEAD@, @OPTIONS@,
     -- @PATCH@, @POST@, and @PUT@.
-    method :: Core.Maybe Core.Text,
+    method :: Prelude.Maybe Prelude.Text,
     -- | The IP address that the request originated from. If the @WebACL@ is
     -- associated with a CloudFront distribution, this is the value of one of
     -- the following fields in CloudFront access logs:
@@ -58,16 +59,16 @@ data HTTPRequest = HTTPRequest'
     --
     -- -   @x-forwarded-for@, if the viewer did use an HTTP proxy or a load
     --     balancer to send the request
-    clientIP :: Core.Maybe Core.Text,
+    clientIP :: Prelude.Maybe Prelude.Text,
     -- | The two-letter country code for the country that the request originated
     -- from. For a current list of country codes, see the Wikipedia entry
     -- <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO 3166-1 alpha-2>.
-    country :: Core.Maybe Core.Text,
+    country :: Prelude.Maybe Prelude.Text,
     -- | The HTTP version specified in the sampled web request, for example,
     -- @HTTP\/1.1@.
-    hTTPVersion :: Core.Maybe Core.Text
+    hTTPVersion :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HTTPRequest' with all optional fields omitted.
@@ -107,28 +108,28 @@ newHTTPRequest ::
   HTTPRequest
 newHTTPRequest =
   HTTPRequest'
-    { headers = Core.Nothing,
-      uri = Core.Nothing,
-      method = Core.Nothing,
-      clientIP = Core.Nothing,
-      country = Core.Nothing,
-      hTTPVersion = Core.Nothing
+    { headers = Prelude.Nothing,
+      uri = Prelude.Nothing,
+      method = Prelude.Nothing,
+      clientIP = Prelude.Nothing,
+      country = Prelude.Nothing,
+      hTTPVersion = Prelude.Nothing
     }
 
 -- | A complex type that contains two values for each header in the sampled
 -- web request: the name of the header and the value of the header.
-hTTPRequest_headers :: Lens.Lens' HTTPRequest (Core.Maybe [HTTPHeader])
-hTTPRequest_headers = Lens.lens (\HTTPRequest' {headers} -> headers) (\s@HTTPRequest' {} a -> s {headers = a} :: HTTPRequest) Core.. Lens.mapping Lens._Coerce
+hTTPRequest_headers :: Lens.Lens' HTTPRequest (Prelude.Maybe [HTTPHeader])
+hTTPRequest_headers = Lens.lens (\HTTPRequest' {headers} -> headers) (\s@HTTPRequest' {} a -> s {headers = a} :: HTTPRequest) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The part of a web request that identifies the resource, for example,
 -- @\/images\/daily-ad.jpg@.
-hTTPRequest_uri :: Lens.Lens' HTTPRequest (Core.Maybe Core.Text)
+hTTPRequest_uri :: Lens.Lens' HTTPRequest (Prelude.Maybe Prelude.Text)
 hTTPRequest_uri = Lens.lens (\HTTPRequest' {uri} -> uri) (\s@HTTPRequest' {} a -> s {uri = a} :: HTTPRequest)
 
 -- | The HTTP method specified in the sampled web request. CloudFront
 -- supports the following methods: @DELETE@, @GET@, @HEAD@, @OPTIONS@,
 -- @PATCH@, @POST@, and @PUT@.
-hTTPRequest_method :: Lens.Lens' HTTPRequest (Core.Maybe Core.Text)
+hTTPRequest_method :: Lens.Lens' HTTPRequest (Prelude.Maybe Prelude.Text)
 hTTPRequest_method = Lens.lens (\HTTPRequest' {method} -> method) (\s@HTTPRequest' {} a -> s {method = a} :: HTTPRequest)
 
 -- | The IP address that the request originated from. If the @WebACL@ is
@@ -140,18 +141,18 @@ hTTPRequest_method = Lens.lens (\HTTPRequest' {method} -> method) (\s@HTTPReques
 --
 -- -   @x-forwarded-for@, if the viewer did use an HTTP proxy or a load
 --     balancer to send the request
-hTTPRequest_clientIP :: Lens.Lens' HTTPRequest (Core.Maybe Core.Text)
+hTTPRequest_clientIP :: Lens.Lens' HTTPRequest (Prelude.Maybe Prelude.Text)
 hTTPRequest_clientIP = Lens.lens (\HTTPRequest' {clientIP} -> clientIP) (\s@HTTPRequest' {} a -> s {clientIP = a} :: HTTPRequest)
 
 -- | The two-letter country code for the country that the request originated
 -- from. For a current list of country codes, see the Wikipedia entry
 -- <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO 3166-1 alpha-2>.
-hTTPRequest_country :: Lens.Lens' HTTPRequest (Core.Maybe Core.Text)
+hTTPRequest_country :: Lens.Lens' HTTPRequest (Prelude.Maybe Prelude.Text)
 hTTPRequest_country = Lens.lens (\HTTPRequest' {country} -> country) (\s@HTTPRequest' {} a -> s {country = a} :: HTTPRequest)
 
 -- | The HTTP version specified in the sampled web request, for example,
 -- @HTTP\/1.1@.
-hTTPRequest_hTTPVersion :: Lens.Lens' HTTPRequest (Core.Maybe Core.Text)
+hTTPRequest_hTTPVersion :: Lens.Lens' HTTPRequest (Prelude.Maybe Prelude.Text)
 hTTPRequest_hTTPVersion = Lens.lens (\HTTPRequest' {hTTPVersion} -> hTTPVersion) (\s@HTTPRequest' {} a -> s {hTTPVersion = a} :: HTTPRequest)
 
 instance Core.FromJSON HTTPRequest where
@@ -160,14 +161,14 @@ instance Core.FromJSON HTTPRequest where
       "HTTPRequest"
       ( \x ->
           HTTPRequest'
-            Core.<$> (x Core..:? "Headers" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "URI")
-            Core.<*> (x Core..:? "Method")
-            Core.<*> (x Core..:? "ClientIP")
-            Core.<*> (x Core..:? "Country")
-            Core.<*> (x Core..:? "HTTPVersion")
+            Prelude.<$> (x Core..:? "Headers" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "URI")
+            Prelude.<*> (x Core..:? "Method")
+            Prelude.<*> (x Core..:? "ClientIP")
+            Prelude.<*> (x Core..:? "Country")
+            Prelude.<*> (x Core..:? "HTTPVersion")
       )
 
-instance Core.Hashable HTTPRequest
+instance Prelude.Hashable HTTPRequest
 
-instance Core.NFData HTTPRequest
+instance Prelude.NFData HTTPRequest

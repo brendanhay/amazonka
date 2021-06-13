@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.DeleteFleetErrorCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an EC2 Fleet error.
 --
 -- /See:/ 'newDeleteFleetError' smart constructor.
 data DeleteFleetError = DeleteFleetError'
   { -- | The description for the error code.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The error code.
-    code :: Core.Maybe DeleteFleetErrorCode
+    code :: Prelude.Maybe DeleteFleetErrorCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFleetError' with all optional fields omitted.
@@ -50,23 +51,24 @@ newDeleteFleetError ::
   DeleteFleetError
 newDeleteFleetError =
   DeleteFleetError'
-    { message = Core.Nothing,
-      code = Core.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The description for the error code.
-deleteFleetError_message :: Lens.Lens' DeleteFleetError (Core.Maybe Core.Text)
+deleteFleetError_message :: Lens.Lens' DeleteFleetError (Prelude.Maybe Prelude.Text)
 deleteFleetError_message = Lens.lens (\DeleteFleetError' {message} -> message) (\s@DeleteFleetError' {} a -> s {message = a} :: DeleteFleetError)
 
 -- | The error code.
-deleteFleetError_code :: Lens.Lens' DeleteFleetError (Core.Maybe DeleteFleetErrorCode)
+deleteFleetError_code :: Lens.Lens' DeleteFleetError (Prelude.Maybe DeleteFleetErrorCode)
 deleteFleetError_code = Lens.lens (\DeleteFleetError' {code} -> code) (\s@DeleteFleetError' {} a -> s {code = a} :: DeleteFleetError)
 
 instance Core.FromXML DeleteFleetError where
   parseXML x =
     DeleteFleetError'
-      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
-instance Core.Hashable DeleteFleetError
+instance Prelude.Hashable DeleteFleetError
 
-instance Core.NFData DeleteFleetError
+instance Prelude.NFData DeleteFleetError

@@ -60,6 +60,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,16 +71,16 @@ data DescribeHostReservationOfferings = DescribeHostReservationOfferings'
     -- three-year terms. The number of seconds specified must be the number of
     -- seconds in a year (365x24x60x60) times one of the supported durations (1
     -- or 3). For example, specify 31536000 for one year.
-    minDuration :: Core.Maybe Core.Int,
+    minDuration :: Prelude.Maybe Prelude.Int,
     -- | The token to use to retrieve the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results can be seen by sending another request with
     -- the returned @nextToken@ value. This value can be between 5 and 500. If
     -- @maxResults@ is given a larger value than 500, you receive an error.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the reservation offering.
-    offeringId :: Core.Maybe Core.Text,
+    offeringId :: Prelude.Maybe Prelude.Text,
     -- | The filters.
     --
     -- -   @instance-family@ - The instance family of the offering (for
@@ -87,15 +88,15 @@ data DescribeHostReservationOfferings = DescribeHostReservationOfferings'
     --
     -- -   @payment-option@ - The payment option (@NoUpfront@ |
     --     @PartialUpfront@ | @AllUpfront@).
-    filter' :: Core.Maybe [Filter],
+    filter' :: Prelude.Maybe [Filter],
     -- | This is the maximum duration of the reservation to purchase, specified
     -- in seconds. Reservations are available in one-year and three-year terms.
     -- The number of seconds specified must be the number of seconds in a year
     -- (365x24x60x60) times one of the supported durations (1 or 3). For
     -- example, specify 94608000 for three years.
-    maxDuration :: Core.Maybe Core.Int
+    maxDuration :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeHostReservationOfferings' with all optional fields omitted.
@@ -138,12 +139,12 @@ newDescribeHostReservationOfferings ::
 newDescribeHostReservationOfferings =
   DescribeHostReservationOfferings'
     { minDuration =
-        Core.Nothing,
-      nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      offeringId = Core.Nothing,
-      filter' = Core.Nothing,
-      maxDuration = Core.Nothing
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      offeringId = Prelude.Nothing,
+      filter' = Prelude.Nothing,
+      maxDuration = Prelude.Nothing
     }
 
 -- | This is the minimum duration of the reservation you\'d like to purchase,
@@ -151,22 +152,22 @@ newDescribeHostReservationOfferings =
 -- three-year terms. The number of seconds specified must be the number of
 -- seconds in a year (365x24x60x60) times one of the supported durations (1
 -- or 3). For example, specify 31536000 for one year.
-describeHostReservationOfferings_minDuration :: Lens.Lens' DescribeHostReservationOfferings (Core.Maybe Core.Int)
+describeHostReservationOfferings_minDuration :: Lens.Lens' DescribeHostReservationOfferings (Prelude.Maybe Prelude.Int)
 describeHostReservationOfferings_minDuration = Lens.lens (\DescribeHostReservationOfferings' {minDuration} -> minDuration) (\s@DescribeHostReservationOfferings' {} a -> s {minDuration = a} :: DescribeHostReservationOfferings)
 
 -- | The token to use to retrieve the next page of results.
-describeHostReservationOfferings_nextToken :: Lens.Lens' DescribeHostReservationOfferings (Core.Maybe Core.Text)
+describeHostReservationOfferings_nextToken :: Lens.Lens' DescribeHostReservationOfferings (Prelude.Maybe Prelude.Text)
 describeHostReservationOfferings_nextToken = Lens.lens (\DescribeHostReservationOfferings' {nextToken} -> nextToken) (\s@DescribeHostReservationOfferings' {} a -> s {nextToken = a} :: DescribeHostReservationOfferings)
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the returned @nextToken@ value. This value can be between 5 and 500. If
 -- @maxResults@ is given a larger value than 500, you receive an error.
-describeHostReservationOfferings_maxResults :: Lens.Lens' DescribeHostReservationOfferings (Core.Maybe Core.Natural)
+describeHostReservationOfferings_maxResults :: Lens.Lens' DescribeHostReservationOfferings (Prelude.Maybe Prelude.Natural)
 describeHostReservationOfferings_maxResults = Lens.lens (\DescribeHostReservationOfferings' {maxResults} -> maxResults) (\s@DescribeHostReservationOfferings' {} a -> s {maxResults = a} :: DescribeHostReservationOfferings)
 
 -- | The ID of the reservation offering.
-describeHostReservationOfferings_offeringId :: Lens.Lens' DescribeHostReservationOfferings (Core.Maybe Core.Text)
+describeHostReservationOfferings_offeringId :: Lens.Lens' DescribeHostReservationOfferings (Prelude.Maybe Prelude.Text)
 describeHostReservationOfferings_offeringId = Lens.lens (\DescribeHostReservationOfferings' {offeringId} -> offeringId) (\s@DescribeHostReservationOfferings' {} a -> s {offeringId = a} :: DescribeHostReservationOfferings)
 
 -- | The filters.
@@ -176,15 +177,15 @@ describeHostReservationOfferings_offeringId = Lens.lens (\DescribeHostReservatio
 --
 -- -   @payment-option@ - The payment option (@NoUpfront@ |
 --     @PartialUpfront@ | @AllUpfront@).
-describeHostReservationOfferings_filter :: Lens.Lens' DescribeHostReservationOfferings (Core.Maybe [Filter])
-describeHostReservationOfferings_filter = Lens.lens (\DescribeHostReservationOfferings' {filter'} -> filter') (\s@DescribeHostReservationOfferings' {} a -> s {filter' = a} :: DescribeHostReservationOfferings) Core.. Lens.mapping Lens._Coerce
+describeHostReservationOfferings_filter :: Lens.Lens' DescribeHostReservationOfferings (Prelude.Maybe [Filter])
+describeHostReservationOfferings_filter = Lens.lens (\DescribeHostReservationOfferings' {filter'} -> filter') (\s@DescribeHostReservationOfferings' {} a -> s {filter' = a} :: DescribeHostReservationOfferings) Prelude.. Lens.mapping Lens._Coerce
 
 -- | This is the maximum duration of the reservation to purchase, specified
 -- in seconds. Reservations are available in one-year and three-year terms.
 -- The number of seconds specified must be the number of seconds in a year
 -- (365x24x60x60) times one of the supported durations (1 or 3). For
 -- example, specify 94608000 for three years.
-describeHostReservationOfferings_maxDuration :: Lens.Lens' DescribeHostReservationOfferings (Core.Maybe Core.Int)
+describeHostReservationOfferings_maxDuration :: Lens.Lens' DescribeHostReservationOfferings (Prelude.Maybe Prelude.Int)
 describeHostReservationOfferings_maxDuration = Lens.lens (\DescribeHostReservationOfferings' {maxDuration} -> maxDuration) (\s@DescribeHostReservationOfferings' {} a -> s {maxDuration = a} :: DescribeHostReservationOfferings)
 
 instance
@@ -195,22 +196,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeHostReservationOfferingsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeHostReservationOfferingsResponse_offeringSet
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeHostReservationOfferings_nextToken
+          Prelude.& describeHostReservationOfferings_nextToken
           Lens..~ rs
           Lens.^? describeHostReservationOfferingsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -224,45 +225,48 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeHostReservationOfferingsResponse'
-            Core.<$> (x Core..@? "nextToken")
-            Core.<*> ( x Core..@? "offeringSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "offeringSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeHostReservationOfferings
 
-instance Core.NFData DescribeHostReservationOfferings
+instance
+  Prelude.NFData
+    DescribeHostReservationOfferings
 
 instance
   Core.ToHeaders
     DescribeHostReservationOfferings
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeHostReservationOfferings where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeHostReservationOfferings
   where
   toQuery DescribeHostReservationOfferings' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DescribeHostReservationOfferings" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "MinDuration" Core.=: minDuration,
         "NextToken" Core.=: nextToken,
         "MaxResults" Core.=: maxResults,
         "OfferingId" Core.=: offeringId,
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filter'),
+          (Core.toQueryList "Filter" Prelude.<$> filter'),
         "MaxDuration" Core.=: maxDuration
       ]
 
@@ -270,13 +274,13 @@ instance
 data DescribeHostReservationOfferingsResponse = DescribeHostReservationOfferingsResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the offerings.
-    offeringSet :: Core.Maybe [HostOffering],
+    offeringSet :: Prelude.Maybe [HostOffering],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeHostReservationOfferingsResponse' with all optional fields omitted.
@@ -294,30 +298,30 @@ data DescribeHostReservationOfferingsResponse = DescribeHostReservationOfferings
 -- 'httpStatus', 'describeHostReservationOfferingsResponse_httpStatus' - The response's http status code.
 newDescribeHostReservationOfferingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeHostReservationOfferingsResponse
 newDescribeHostReservationOfferingsResponse
   pHttpStatus_ =
     DescribeHostReservationOfferingsResponse'
       { nextToken =
-          Core.Nothing,
-        offeringSet = Core.Nothing,
+          Prelude.Nothing,
+        offeringSet = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeHostReservationOfferingsResponse_nextToken :: Lens.Lens' DescribeHostReservationOfferingsResponse (Core.Maybe Core.Text)
+describeHostReservationOfferingsResponse_nextToken :: Lens.Lens' DescribeHostReservationOfferingsResponse (Prelude.Maybe Prelude.Text)
 describeHostReservationOfferingsResponse_nextToken = Lens.lens (\DescribeHostReservationOfferingsResponse' {nextToken} -> nextToken) (\s@DescribeHostReservationOfferingsResponse' {} a -> s {nextToken = a} :: DescribeHostReservationOfferingsResponse)
 
 -- | Information about the offerings.
-describeHostReservationOfferingsResponse_offeringSet :: Lens.Lens' DescribeHostReservationOfferingsResponse (Core.Maybe [HostOffering])
-describeHostReservationOfferingsResponse_offeringSet = Lens.lens (\DescribeHostReservationOfferingsResponse' {offeringSet} -> offeringSet) (\s@DescribeHostReservationOfferingsResponse' {} a -> s {offeringSet = a} :: DescribeHostReservationOfferingsResponse) Core.. Lens.mapping Lens._Coerce
+describeHostReservationOfferingsResponse_offeringSet :: Lens.Lens' DescribeHostReservationOfferingsResponse (Prelude.Maybe [HostOffering])
+describeHostReservationOfferingsResponse_offeringSet = Lens.lens (\DescribeHostReservationOfferingsResponse' {offeringSet} -> offeringSet) (\s@DescribeHostReservationOfferingsResponse' {} a -> s {offeringSet = a} :: DescribeHostReservationOfferingsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeHostReservationOfferingsResponse_httpStatus :: Lens.Lens' DescribeHostReservationOfferingsResponse Core.Int
+describeHostReservationOfferingsResponse_httpStatus :: Lens.Lens' DescribeHostReservationOfferingsResponse Prelude.Int
 describeHostReservationOfferingsResponse_httpStatus = Lens.lens (\DescribeHostReservationOfferingsResponse' {httpStatus} -> httpStatus) (\s@DescribeHostReservationOfferingsResponse' {} a -> s {httpStatus = a} :: DescribeHostReservationOfferingsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeHostReservationOfferingsResponse

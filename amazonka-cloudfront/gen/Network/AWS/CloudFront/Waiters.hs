@@ -22,6 +22,7 @@ import Network.AWS.CloudFront.Lens
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.CloudFront.GetInvalidation' every 20 seconds until a successful state is reached. An error is returned after 30 failed checks.
 newInvalidationCompleted :: Core.Wait GetInvalidation
@@ -35,9 +36,9 @@ newInvalidationCompleted =
             "Completed"
             Core.AcceptSuccess
             ( getInvalidationResponse_invalidation
-                Core.. Lens._Just
-                Core.. invalidation_status
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. invalidation_status
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -54,9 +55,9 @@ newDistributionDeployed =
             "Deployed"
             Core.AcceptSuccess
             ( getDistributionResponse_distribution
-                Core.. Lens._Just
-                Core.. distribution_status
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. distribution_status
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -74,9 +75,9 @@ newStreamingDistributionDeployed =
             "Deployed"
             Core.AcceptSuccess
             ( getStreamingDistributionResponse_streamingDistribution
-                Core.. Lens._Just
-                Core.. streamingDistribution_status
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. streamingDistribution_status
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

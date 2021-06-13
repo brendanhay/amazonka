@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newStartStreamProcessor' smart constructor.
 data StartStreamProcessor = StartStreamProcessor'
   { -- | The name of the stream processor to start processing.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartStreamProcessor' with all optional fields omitted.
@@ -65,13 +66,13 @@ data StartStreamProcessor = StartStreamProcessor'
 -- 'name', 'startStreamProcessor_name' - The name of the stream processor to start processing.
 newStartStreamProcessor ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   StartStreamProcessor
 newStartStreamProcessor pName_ =
   StartStreamProcessor' {name = pName_}
 
 -- | The name of the stream processor to start processing.
-startStreamProcessor_name :: Lens.Lens' StartStreamProcessor Core.Text
+startStreamProcessor_name :: Lens.Lens' StartStreamProcessor Prelude.Text
 startStreamProcessor_name = Lens.lens (\StartStreamProcessor' {name} -> name) (\s@StartStreamProcessor' {} a -> s {name = a} :: StartStreamProcessor)
 
 instance Core.AWSRequest StartStreamProcessor where
@@ -83,43 +84,47 @@ instance Core.AWSRequest StartStreamProcessor where
     Response.receiveEmpty
       ( \s h x ->
           StartStreamProcessorResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartStreamProcessor
+instance Prelude.Hashable StartStreamProcessor
 
-instance Core.NFData StartStreamProcessor
+instance Prelude.NFData StartStreamProcessor
 
 instance Core.ToHeaders StartStreamProcessor where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "RekognitionService.StartStreamProcessor" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartStreamProcessor where
   toJSON StartStreamProcessor' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath StartStreamProcessor where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartStreamProcessor where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartStreamProcessorResponse' smart constructor.
 data StartStreamProcessorResponse = StartStreamProcessorResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartStreamProcessorResponse' with all optional fields omitted.
@@ -132,7 +137,7 @@ data StartStreamProcessorResponse = StartStreamProcessorResponse'
 -- 'httpStatus', 'startStreamProcessorResponse_httpStatus' - The response's http status code.
 newStartStreamProcessorResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartStreamProcessorResponse
 newStartStreamProcessorResponse pHttpStatus_ =
   StartStreamProcessorResponse'
@@ -141,7 +146,7 @@ newStartStreamProcessorResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-startStreamProcessorResponse_httpStatus :: Lens.Lens' StartStreamProcessorResponse Core.Int
+startStreamProcessorResponse_httpStatus :: Lens.Lens' StartStreamProcessorResponse Prelude.Int
 startStreamProcessorResponse_httpStatus = Lens.lens (\StartStreamProcessorResponse' {httpStatus} -> httpStatus) (\s@StartStreamProcessorResponse' {} a -> s {httpStatus = a} :: StartStreamProcessorResponse)
 
-instance Core.NFData StartStreamProcessorResponse
+instance Prelude.NFData StartStreamProcessorResponse

@@ -21,17 +21,18 @@ module Network.AWS.ApplicationAutoScaling.Types.Alarm where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a CloudWatch alarm associated with a scaling policy.
 --
 -- /See:/ 'newAlarm' smart constructor.
 data Alarm = Alarm'
   { -- | The name of the alarm.
-    alarmName :: Core.Text,
+    alarmName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the alarm.
-    alarmARN :: Core.Text
+    alarmARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Alarm' with all optional fields omitted.
@@ -46,9 +47,9 @@ data Alarm = Alarm'
 -- 'alarmARN', 'alarm_alarmARN' - The Amazon Resource Name (ARN) of the alarm.
 newAlarm ::
   -- | 'alarmName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'alarmARN'
-  Core.Text ->
+  Prelude.Text ->
   Alarm
 newAlarm pAlarmName_ pAlarmARN_ =
   Alarm'
@@ -57,11 +58,11 @@ newAlarm pAlarmName_ pAlarmARN_ =
     }
 
 -- | The name of the alarm.
-alarm_alarmName :: Lens.Lens' Alarm Core.Text
+alarm_alarmName :: Lens.Lens' Alarm Prelude.Text
 alarm_alarmName = Lens.lens (\Alarm' {alarmName} -> alarmName) (\s@Alarm' {} a -> s {alarmName = a} :: Alarm)
 
 -- | The Amazon Resource Name (ARN) of the alarm.
-alarm_alarmARN :: Lens.Lens' Alarm Core.Text
+alarm_alarmARN :: Lens.Lens' Alarm Prelude.Text
 alarm_alarmARN = Lens.lens (\Alarm' {alarmARN} -> alarmARN) (\s@Alarm' {} a -> s {alarmARN = a} :: Alarm)
 
 instance Core.FromJSON Alarm where
@@ -70,10 +71,10 @@ instance Core.FromJSON Alarm where
       "Alarm"
       ( \x ->
           Alarm'
-            Core.<$> (x Core..: "AlarmName")
-            Core.<*> (x Core..: "AlarmARN")
+            Prelude.<$> (x Core..: "AlarmName")
+            Prelude.<*> (x Core..: "AlarmARN")
       )
 
-instance Core.Hashable Alarm
+instance Prelude.Hashable Alarm
 
-instance Core.NFData Alarm
+instance Prelude.NFData Alarm

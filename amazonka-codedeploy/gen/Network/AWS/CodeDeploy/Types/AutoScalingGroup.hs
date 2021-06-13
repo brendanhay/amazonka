@@ -21,17 +21,18 @@ module Network.AWS.CodeDeploy.Types.AutoScalingGroup where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an Auto Scaling group.
 --
 -- /See:/ 'newAutoScalingGroup' smart constructor.
 data AutoScalingGroup = AutoScalingGroup'
   { -- | An Auto Scaling lifecycle event hook name.
-    hook :: Core.Maybe Core.Text,
+    hook :: Prelude.Maybe Prelude.Text,
     -- | The Auto Scaling group name.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AutoScalingGroup' with all optional fields omitted.
@@ -48,16 +49,16 @@ newAutoScalingGroup ::
   AutoScalingGroup
 newAutoScalingGroup =
   AutoScalingGroup'
-    { hook = Core.Nothing,
-      name = Core.Nothing
+    { hook = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | An Auto Scaling lifecycle event hook name.
-autoScalingGroup_hook :: Lens.Lens' AutoScalingGroup (Core.Maybe Core.Text)
+autoScalingGroup_hook :: Lens.Lens' AutoScalingGroup (Prelude.Maybe Prelude.Text)
 autoScalingGroup_hook = Lens.lens (\AutoScalingGroup' {hook} -> hook) (\s@AutoScalingGroup' {} a -> s {hook = a} :: AutoScalingGroup)
 
 -- | The Auto Scaling group name.
-autoScalingGroup_name :: Lens.Lens' AutoScalingGroup (Core.Maybe Core.Text)
+autoScalingGroup_name :: Lens.Lens' AutoScalingGroup (Prelude.Maybe Prelude.Text)
 autoScalingGroup_name = Lens.lens (\AutoScalingGroup' {name} -> name) (\s@AutoScalingGroup' {} a -> s {name = a} :: AutoScalingGroup)
 
 instance Core.FromJSON AutoScalingGroup where
@@ -66,9 +67,9 @@ instance Core.FromJSON AutoScalingGroup where
       "AutoScalingGroup"
       ( \x ->
           AutoScalingGroup'
-            Core.<$> (x Core..:? "hook") Core.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "hook") Prelude.<*> (x Core..:? "name")
       )
 
-instance Core.Hashable AutoScalingGroup
+instance Prelude.Hashable AutoScalingGroup
 
-instance Core.NFData AutoScalingGroup
+instance Prelude.NFData AutoScalingGroup

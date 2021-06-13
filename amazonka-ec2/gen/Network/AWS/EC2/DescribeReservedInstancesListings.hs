@@ -67,6 +67,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,9 +76,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeReservedInstancesListings' smart constructor.
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
   { -- | One or more Reserved Instance IDs.
-    reservedInstancesId :: Core.Maybe Core.Text,
+    reservedInstancesId :: Prelude.Maybe Prelude.Text,
     -- | One or more Reserved Instance listing IDs.
-    reservedInstancesListingId :: Core.Maybe Core.Text,
+    reservedInstancesListingId :: Prelude.Maybe Prelude.Text,
     -- | One or more filters.
     --
     -- -   @reserved-instances-id@ - The ID of the Reserved Instances.
@@ -89,9 +90,9 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
     --     @active@ | @cancelled@ | @closed@).
     --
     -- -   @status-message@ - The reason for the status.
-    filters :: Core.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeReservedInstancesListings' with all optional fields omitted.
@@ -121,18 +122,18 @@ newDescribeReservedInstancesListings ::
 newDescribeReservedInstancesListings =
   DescribeReservedInstancesListings'
     { reservedInstancesId =
-        Core.Nothing,
+        Prelude.Nothing,
       reservedInstancesListingId =
-        Core.Nothing,
-      filters = Core.Nothing
+        Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | One or more Reserved Instance IDs.
-describeReservedInstancesListings_reservedInstancesId :: Lens.Lens' DescribeReservedInstancesListings (Core.Maybe Core.Text)
+describeReservedInstancesListings_reservedInstancesId :: Lens.Lens' DescribeReservedInstancesListings (Prelude.Maybe Prelude.Text)
 describeReservedInstancesListings_reservedInstancesId = Lens.lens (\DescribeReservedInstancesListings' {reservedInstancesId} -> reservedInstancesId) (\s@DescribeReservedInstancesListings' {} a -> s {reservedInstancesId = a} :: DescribeReservedInstancesListings)
 
 -- | One or more Reserved Instance listing IDs.
-describeReservedInstancesListings_reservedInstancesListingId :: Lens.Lens' DescribeReservedInstancesListings (Core.Maybe Core.Text)
+describeReservedInstancesListings_reservedInstancesListingId :: Lens.Lens' DescribeReservedInstancesListings (Prelude.Maybe Prelude.Text)
 describeReservedInstancesListings_reservedInstancesListingId = Lens.lens (\DescribeReservedInstancesListings' {reservedInstancesListingId} -> reservedInstancesListingId) (\s@DescribeReservedInstancesListings' {} a -> s {reservedInstancesListingId = a} :: DescribeReservedInstancesListings)
 
 -- | One or more filters.
@@ -146,8 +147,8 @@ describeReservedInstancesListings_reservedInstancesListingId = Lens.lens (\Descr
 --     @active@ | @cancelled@ | @closed@).
 --
 -- -   @status-message@ - The reason for the status.
-describeReservedInstancesListings_filters :: Lens.Lens' DescribeReservedInstancesListings (Core.Maybe [Filter])
-describeReservedInstancesListings_filters = Lens.lens (\DescribeReservedInstancesListings' {filters} -> filters) (\s@DescribeReservedInstancesListings' {} a -> s {filters = a} :: DescribeReservedInstancesListings) Core.. Lens.mapping Lens._Coerce
+describeReservedInstancesListings_filters :: Lens.Lens' DescribeReservedInstancesListings (Prelude.Maybe [Filter])
+describeReservedInstancesListings_filters = Lens.lens (\DescribeReservedInstancesListings' {filters} -> filters) (\s@DescribeReservedInstancesListings' {} a -> s {filters = a} :: DescribeReservedInstancesListings) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -161,49 +162,50 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeReservedInstancesListingsResponse'
-            Core.<$> ( x Core..@? "reservedInstancesListingsSet"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "reservedInstancesListingsSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeReservedInstancesListings
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeReservedInstancesListings
 
 instance
   Core.ToHeaders
     DescribeReservedInstancesListings
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     DescribeReservedInstancesListings
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeReservedInstancesListings
   where
   toQuery DescribeReservedInstancesListings' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DescribeReservedInstancesListings" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "ReservedInstancesId" Core.=: reservedInstancesId,
         "ReservedInstancesListingId"
           Core.=: reservedInstancesListingId,
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters)
       ]
 
 -- | Contains the output of DescribeReservedInstancesListings.
@@ -211,11 +213,11 @@ instance
 -- /See:/ 'newDescribeReservedInstancesListingsResponse' smart constructor.
 data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'
   { -- | Information about the Reserved Instance listing.
-    reservedInstancesListings :: Core.Maybe [ReservedInstancesListing],
+    reservedInstancesListings :: Prelude.Maybe [ReservedInstancesListing],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeReservedInstancesListingsResponse' with all optional fields omitted.
@@ -230,24 +232,24 @@ data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListin
 -- 'httpStatus', 'describeReservedInstancesListingsResponse_httpStatus' - The response's http status code.
 newDescribeReservedInstancesListingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeReservedInstancesListingsResponse
 newDescribeReservedInstancesListingsResponse
   pHttpStatus_ =
     DescribeReservedInstancesListingsResponse'
       { reservedInstancesListings =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the Reserved Instance listing.
-describeReservedInstancesListingsResponse_reservedInstancesListings :: Lens.Lens' DescribeReservedInstancesListingsResponse (Core.Maybe [ReservedInstancesListing])
-describeReservedInstancesListingsResponse_reservedInstancesListings = Lens.lens (\DescribeReservedInstancesListingsResponse' {reservedInstancesListings} -> reservedInstancesListings) (\s@DescribeReservedInstancesListingsResponse' {} a -> s {reservedInstancesListings = a} :: DescribeReservedInstancesListingsResponse) Core.. Lens.mapping Lens._Coerce
+describeReservedInstancesListingsResponse_reservedInstancesListings :: Lens.Lens' DescribeReservedInstancesListingsResponse (Prelude.Maybe [ReservedInstancesListing])
+describeReservedInstancesListingsResponse_reservedInstancesListings = Lens.lens (\DescribeReservedInstancesListingsResponse' {reservedInstancesListings} -> reservedInstancesListings) (\s@DescribeReservedInstancesListingsResponse' {} a -> s {reservedInstancesListings = a} :: DescribeReservedInstancesListingsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeReservedInstancesListingsResponse_httpStatus :: Lens.Lens' DescribeReservedInstancesListingsResponse Core.Int
+describeReservedInstancesListingsResponse_httpStatus :: Lens.Lens' DescribeReservedInstancesListingsResponse Prelude.Int
 describeReservedInstancesListingsResponse_httpStatus = Lens.lens (\DescribeReservedInstancesListingsResponse' {httpStatus} -> httpStatus) (\s@DescribeReservedInstancesListingsResponse' {} a -> s {httpStatus = a} :: DescribeReservedInstancesListingsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeReservedInstancesListingsResponse

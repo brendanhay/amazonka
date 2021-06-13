@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify the details for each additional Microsoft Smooth Streaming
 -- manifest that you want the service to generate for this output group.
@@ -34,12 +35,12 @@ data MsSmoothAdditionalManifest = MsSmoothAdditionalManifest'
     -- manifest for your Microsoft Smooth group is film-name.ismv. If you enter
     -- \"-no-premium\" for this setting, then the file name the service
     -- generates for this top-level manifest is film-name-no-premium.ismv.
-    manifestNameModifier :: Core.Maybe Core.Text,
+    manifestNameModifier :: Prelude.Maybe Prelude.Text,
     -- | Specify the outputs that you want this additional top-level manifest to
     -- reference.
-    selectedOutputs :: Core.Maybe [Core.Text]
+    selectedOutputs :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MsSmoothAdditionalManifest' with all optional fields omitted.
@@ -63,8 +64,8 @@ newMsSmoothAdditionalManifest ::
 newMsSmoothAdditionalManifest =
   MsSmoothAdditionalManifest'
     { manifestNameModifier =
-        Core.Nothing,
-      selectedOutputs = Core.Nothing
+        Prelude.Nothing,
+      selectedOutputs = Prelude.Nothing
     }
 
 -- | Specify a name modifier that the service adds to the name of this
@@ -73,13 +74,13 @@ newMsSmoothAdditionalManifest =
 -- manifest for your Microsoft Smooth group is film-name.ismv. If you enter
 -- \"-no-premium\" for this setting, then the file name the service
 -- generates for this top-level manifest is film-name-no-premium.ismv.
-msSmoothAdditionalManifest_manifestNameModifier :: Lens.Lens' MsSmoothAdditionalManifest (Core.Maybe Core.Text)
+msSmoothAdditionalManifest_manifestNameModifier :: Lens.Lens' MsSmoothAdditionalManifest (Prelude.Maybe Prelude.Text)
 msSmoothAdditionalManifest_manifestNameModifier = Lens.lens (\MsSmoothAdditionalManifest' {manifestNameModifier} -> manifestNameModifier) (\s@MsSmoothAdditionalManifest' {} a -> s {manifestNameModifier = a} :: MsSmoothAdditionalManifest)
 
 -- | Specify the outputs that you want this additional top-level manifest to
 -- reference.
-msSmoothAdditionalManifest_selectedOutputs :: Lens.Lens' MsSmoothAdditionalManifest (Core.Maybe [Core.Text])
-msSmoothAdditionalManifest_selectedOutputs = Lens.lens (\MsSmoothAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@MsSmoothAdditionalManifest' {} a -> s {selectedOutputs = a} :: MsSmoothAdditionalManifest) Core.. Lens.mapping Lens._Coerce
+msSmoothAdditionalManifest_selectedOutputs :: Lens.Lens' MsSmoothAdditionalManifest (Prelude.Maybe [Prelude.Text])
+msSmoothAdditionalManifest_selectedOutputs = Lens.lens (\MsSmoothAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@MsSmoothAdditionalManifest' {} a -> s {selectedOutputs = a} :: MsSmoothAdditionalManifest) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON MsSmoothAdditionalManifest where
   parseJSON =
@@ -87,21 +88,23 @@ instance Core.FromJSON MsSmoothAdditionalManifest where
       "MsSmoothAdditionalManifest"
       ( \x ->
           MsSmoothAdditionalManifest'
-            Core.<$> (x Core..:? "manifestNameModifier")
-            Core.<*> (x Core..:? "selectedOutputs" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "manifestNameModifier")
+            Prelude.<*> ( x Core..:? "selectedOutputs"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable MsSmoothAdditionalManifest
+instance Prelude.Hashable MsSmoothAdditionalManifest
 
-instance Core.NFData MsSmoothAdditionalManifest
+instance Prelude.NFData MsSmoothAdditionalManifest
 
 instance Core.ToJSON MsSmoothAdditionalManifest where
   toJSON MsSmoothAdditionalManifest' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("manifestNameModifier" Core..=)
-              Core.<$> manifestNameModifier,
+              Prelude.<$> manifestNameModifier,
             ("selectedOutputs" Core..=)
-              Core.<$> selectedOutputs
+              Prelude.<$> selectedOutputs
           ]
       )

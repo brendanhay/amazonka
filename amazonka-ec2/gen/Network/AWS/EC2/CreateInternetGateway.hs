@@ -47,20 +47,21 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateInternetGateway' smart constructor.
 data CreateInternetGateway = CreateInternetGateway'
   { -- | The tags to assign to the internet gateway.
-    tagSpecifications :: Core.Maybe [TagSpecification],
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateInternetGateway' with all optional fields omitted.
@@ -81,19 +82,19 @@ newCreateInternetGateway ::
 newCreateInternetGateway =
   CreateInternetGateway'
     { tagSpecifications =
-        Core.Nothing,
-      dryRun = Core.Nothing
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing
     }
 
 -- | The tags to assign to the internet gateway.
-createInternetGateway_tagSpecifications :: Lens.Lens' CreateInternetGateway (Core.Maybe [TagSpecification])
-createInternetGateway_tagSpecifications = Lens.lens (\CreateInternetGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateInternetGateway' {} a -> s {tagSpecifications = a} :: CreateInternetGateway) Core.. Lens.mapping Lens._Coerce
+createInternetGateway_tagSpecifications :: Lens.Lens' CreateInternetGateway (Prelude.Maybe [TagSpecification])
+createInternetGateway_tagSpecifications = Lens.lens (\CreateInternetGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateInternetGateway' {} a -> s {tagSpecifications = a} :: CreateInternetGateway) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createInternetGateway_dryRun :: Lens.Lens' CreateInternetGateway (Core.Maybe Core.Bool)
+createInternetGateway_dryRun :: Lens.Lens' CreateInternetGateway (Prelude.Maybe Prelude.Bool)
 createInternetGateway_dryRun = Lens.lens (\CreateInternetGateway' {dryRun} -> dryRun) (\s@CreateInternetGateway' {} a -> s {dryRun = a} :: CreateInternetGateway)
 
 instance Core.AWSRequest CreateInternetGateway where
@@ -105,29 +106,30 @@ instance Core.AWSRequest CreateInternetGateway where
     Response.receiveXML
       ( \s h x ->
           CreateInternetGatewayResponse'
-            Core.<$> (x Core..@? "internetGateway")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "internetGateway")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateInternetGateway
+instance Prelude.Hashable CreateInternetGateway
 
-instance Core.NFData CreateInternetGateway
+instance Prelude.NFData CreateInternetGateway
 
 instance Core.ToHeaders CreateInternetGateway where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateInternetGateway where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateInternetGateway where
   toQuery CreateInternetGateway' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateInternetGateway" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("CreateInternetGateway" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
-              Core.<$> tagSpecifications
+              Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun
       ]
@@ -135,11 +137,11 @@ instance Core.ToQuery CreateInternetGateway where
 -- | /See:/ 'newCreateInternetGatewayResponse' smart constructor.
 data CreateInternetGatewayResponse = CreateInternetGatewayResponse'
   { -- | Information about the internet gateway.
-    internetGateway :: Core.Maybe InternetGateway,
+    internetGateway :: Prelude.Maybe InternetGateway,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateInternetGatewayResponse' with all optional fields omitted.
@@ -154,21 +156,21 @@ data CreateInternetGatewayResponse = CreateInternetGatewayResponse'
 -- 'httpStatus', 'createInternetGatewayResponse_httpStatus' - The response's http status code.
 newCreateInternetGatewayResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateInternetGatewayResponse
 newCreateInternetGatewayResponse pHttpStatus_ =
   CreateInternetGatewayResponse'
     { internetGateway =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the internet gateway.
-createInternetGatewayResponse_internetGateway :: Lens.Lens' CreateInternetGatewayResponse (Core.Maybe InternetGateway)
+createInternetGatewayResponse_internetGateway :: Lens.Lens' CreateInternetGatewayResponse (Prelude.Maybe InternetGateway)
 createInternetGatewayResponse_internetGateway = Lens.lens (\CreateInternetGatewayResponse' {internetGateway} -> internetGateway) (\s@CreateInternetGatewayResponse' {} a -> s {internetGateway = a} :: CreateInternetGatewayResponse)
 
 -- | The response's http status code.
-createInternetGatewayResponse_httpStatus :: Lens.Lens' CreateInternetGatewayResponse Core.Int
+createInternetGatewayResponse_httpStatus :: Lens.Lens' CreateInternetGatewayResponse Prelude.Int
 createInternetGatewayResponse_httpStatus = Lens.lens (\CreateInternetGatewayResponse' {httpStatus} -> httpStatus) (\s@CreateInternetGatewayResponse' {} a -> s {httpStatus = a} :: CreateInternetGatewayResponse)
 
-instance Core.NFData CreateInternetGatewayResponse
+instance Prelude.NFData CreateInternetGatewayResponse

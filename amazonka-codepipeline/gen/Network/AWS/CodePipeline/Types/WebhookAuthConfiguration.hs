@@ -21,6 +21,7 @@ module Network.AWS.CodePipeline.Types.WebhookAuthConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The authentication applied to incoming webhook trigger requests.
 --
@@ -29,12 +30,12 @@ data WebhookAuthConfiguration = WebhookAuthConfiguration'
   { -- | The property used to configure acceptance of webhooks in an IP address
     -- range. For IP, only the @AllowedIPRange@ property must be set. This
     -- property must be set to a valid CIDR range.
-    allowedIPRange :: Core.Maybe Core.Text,
+    allowedIPRange :: Prelude.Maybe Prelude.Text,
     -- | The property used to configure GitHub authentication. For GITHUB_HMAC,
     -- only the @SecretToken@ property must be set.
-    secretToken :: Core.Maybe Core.Text
+    secretToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WebhookAuthConfiguration' with all optional fields omitted.
@@ -55,19 +56,19 @@ newWebhookAuthConfiguration ::
 newWebhookAuthConfiguration =
   WebhookAuthConfiguration'
     { allowedIPRange =
-        Core.Nothing,
-      secretToken = Core.Nothing
+        Prelude.Nothing,
+      secretToken = Prelude.Nothing
     }
 
 -- | The property used to configure acceptance of webhooks in an IP address
 -- range. For IP, only the @AllowedIPRange@ property must be set. This
 -- property must be set to a valid CIDR range.
-webhookAuthConfiguration_allowedIPRange :: Lens.Lens' WebhookAuthConfiguration (Core.Maybe Core.Text)
+webhookAuthConfiguration_allowedIPRange :: Lens.Lens' WebhookAuthConfiguration (Prelude.Maybe Prelude.Text)
 webhookAuthConfiguration_allowedIPRange = Lens.lens (\WebhookAuthConfiguration' {allowedIPRange} -> allowedIPRange) (\s@WebhookAuthConfiguration' {} a -> s {allowedIPRange = a} :: WebhookAuthConfiguration)
 
 -- | The property used to configure GitHub authentication. For GITHUB_HMAC,
 -- only the @SecretToken@ property must be set.
-webhookAuthConfiguration_secretToken :: Lens.Lens' WebhookAuthConfiguration (Core.Maybe Core.Text)
+webhookAuthConfiguration_secretToken :: Lens.Lens' WebhookAuthConfiguration (Prelude.Maybe Prelude.Text)
 webhookAuthConfiguration_secretToken = Lens.lens (\WebhookAuthConfiguration' {secretToken} -> secretToken) (\s@WebhookAuthConfiguration' {} a -> s {secretToken = a} :: WebhookAuthConfiguration)
 
 instance Core.FromJSON WebhookAuthConfiguration where
@@ -76,19 +77,20 @@ instance Core.FromJSON WebhookAuthConfiguration where
       "WebhookAuthConfiguration"
       ( \x ->
           WebhookAuthConfiguration'
-            Core.<$> (x Core..:? "AllowedIPRange")
-            Core.<*> (x Core..:? "SecretToken")
+            Prelude.<$> (x Core..:? "AllowedIPRange")
+            Prelude.<*> (x Core..:? "SecretToken")
       )
 
-instance Core.Hashable WebhookAuthConfiguration
+instance Prelude.Hashable WebhookAuthConfiguration
 
-instance Core.NFData WebhookAuthConfiguration
+instance Prelude.NFData WebhookAuthConfiguration
 
 instance Core.ToJSON WebhookAuthConfiguration where
   toJSON WebhookAuthConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AllowedIPRange" Core..=) Core.<$> allowedIPRange,
-            ("SecretToken" Core..=) Core.<$> secretToken
+      ( Prelude.catMaybes
+          [ ("AllowedIPRange" Core..=)
+              Prelude.<$> allowedIPRange,
+            ("SecretToken" Core..=) Prelude.<$> secretToken
           ]
       )

@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -50,9 +51,9 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newTerminateSession' smart constructor.
 data TerminateSession = TerminateSession'
   { -- | The ID of the session to terminate.
-    sessionId :: Core.Text
+    sessionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TerminateSession' with all optional fields omitted.
@@ -65,13 +66,13 @@ data TerminateSession = TerminateSession'
 -- 'sessionId', 'terminateSession_sessionId' - The ID of the session to terminate.
 newTerminateSession ::
   -- | 'sessionId'
-  Core.Text ->
+  Prelude.Text ->
   TerminateSession
 newTerminateSession pSessionId_ =
   TerminateSession' {sessionId = pSessionId_}
 
 -- | The ID of the session to terminate.
-terminateSession_sessionId :: Lens.Lens' TerminateSession Core.Text
+terminateSession_sessionId :: Lens.Lens' TerminateSession Prelude.Text
 terminateSession_sessionId = Lens.lens (\TerminateSession' {sessionId} -> sessionId) (\s@TerminateSession' {} a -> s {sessionId = a} :: TerminateSession)
 
 instance Core.AWSRequest TerminateSession where
@@ -83,46 +84,48 @@ instance Core.AWSRequest TerminateSession where
     Response.receiveJSON
       ( \s h x ->
           TerminateSessionResponse'
-            Core.<$> (x Core..?> "SessionId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SessionId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable TerminateSession
+instance Prelude.Hashable TerminateSession
 
-instance Core.NFData TerminateSession
+instance Prelude.NFData TerminateSession
 
 instance Core.ToHeaders TerminateSession where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.TerminateSession" :: Core.ByteString),
+              Core.=# ("AmazonSSM.TerminateSession" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON TerminateSession where
   toJSON TerminateSession' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("SessionId" Core..= sessionId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("SessionId" Core..= sessionId)]
       )
 
 instance Core.ToPath TerminateSession where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TerminateSession where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTerminateSessionResponse' smart constructor.
 data TerminateSessionResponse = TerminateSessionResponse'
   { -- | The ID of the session that has been terminated.
-    sessionId :: Core.Maybe Core.Text,
+    sessionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TerminateSessionResponse' with all optional fields omitted.
@@ -137,20 +140,21 @@ data TerminateSessionResponse = TerminateSessionResponse'
 -- 'httpStatus', 'terminateSessionResponse_httpStatus' - The response's http status code.
 newTerminateSessionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   TerminateSessionResponse
 newTerminateSessionResponse pHttpStatus_ =
   TerminateSessionResponse'
-    { sessionId = Core.Nothing,
+    { sessionId =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the session that has been terminated.
-terminateSessionResponse_sessionId :: Lens.Lens' TerminateSessionResponse (Core.Maybe Core.Text)
+terminateSessionResponse_sessionId :: Lens.Lens' TerminateSessionResponse (Prelude.Maybe Prelude.Text)
 terminateSessionResponse_sessionId = Lens.lens (\TerminateSessionResponse' {sessionId} -> sessionId) (\s@TerminateSessionResponse' {} a -> s {sessionId = a} :: TerminateSessionResponse)
 
 -- | The response's http status code.
-terminateSessionResponse_httpStatus :: Lens.Lens' TerminateSessionResponse Core.Int
+terminateSessionResponse_httpStatus :: Lens.Lens' TerminateSessionResponse Prelude.Int
 terminateSessionResponse_httpStatus = Lens.lens (\TerminateSessionResponse' {httpStatus} -> httpStatus) (\s@TerminateSessionResponse' {} a -> s {httpStatus = a} :: TerminateSessionResponse)
 
-instance Core.NFData TerminateSessionResponse
+instance Prelude.NFData TerminateSessionResponse

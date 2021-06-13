@@ -21,6 +21,7 @@ module Network.AWS.CloudDirectory.Types.SchemaFacet where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A facet.
 --
@@ -30,11 +31,11 @@ data SchemaFacet = SchemaFacet'
     -- See arns and
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html In-Place Schema Upgrade>
     -- for a description of when to provide minor versions.
-    schemaArn :: Core.Maybe Core.Text,
+    schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the facet.
-    facetName :: Core.Maybe Core.Text
+    facetName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SchemaFacet' with all optional fields omitted.
@@ -54,19 +55,19 @@ newSchemaFacet ::
   SchemaFacet
 newSchemaFacet =
   SchemaFacet'
-    { schemaArn = Core.Nothing,
-      facetName = Core.Nothing
+    { schemaArn = Prelude.Nothing,
+      facetName = Prelude.Nothing
     }
 
 -- | The ARN of the schema that contains the facet with no minor component.
 -- See arns and
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html In-Place Schema Upgrade>
 -- for a description of when to provide minor versions.
-schemaFacet_schemaArn :: Lens.Lens' SchemaFacet (Core.Maybe Core.Text)
+schemaFacet_schemaArn :: Lens.Lens' SchemaFacet (Prelude.Maybe Prelude.Text)
 schemaFacet_schemaArn = Lens.lens (\SchemaFacet' {schemaArn} -> schemaArn) (\s@SchemaFacet' {} a -> s {schemaArn = a} :: SchemaFacet)
 
 -- | The name of the facet.
-schemaFacet_facetName :: Lens.Lens' SchemaFacet (Core.Maybe Core.Text)
+schemaFacet_facetName :: Lens.Lens' SchemaFacet (Prelude.Maybe Prelude.Text)
 schemaFacet_facetName = Lens.lens (\SchemaFacet' {facetName} -> facetName) (\s@SchemaFacet' {} a -> s {facetName = a} :: SchemaFacet)
 
 instance Core.FromJSON SchemaFacet where
@@ -75,19 +76,19 @@ instance Core.FromJSON SchemaFacet where
       "SchemaFacet"
       ( \x ->
           SchemaFacet'
-            Core.<$> (x Core..:? "SchemaArn")
-            Core.<*> (x Core..:? "FacetName")
+            Prelude.<$> (x Core..:? "SchemaArn")
+            Prelude.<*> (x Core..:? "FacetName")
       )
 
-instance Core.Hashable SchemaFacet
+instance Prelude.Hashable SchemaFacet
 
-instance Core.NFData SchemaFacet
+instance Prelude.NFData SchemaFacet
 
 instance Core.ToJSON SchemaFacet where
   toJSON SchemaFacet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SchemaArn" Core..=) Core.<$> schemaArn,
-            ("FacetName" Core..=) Core.<$> facetName
+      ( Prelude.catMaybes
+          [ ("SchemaArn" Core..=) Prelude.<$> schemaArn,
+            ("FacetName" Core..=) Prelude.<$> facetName
           ]
       )

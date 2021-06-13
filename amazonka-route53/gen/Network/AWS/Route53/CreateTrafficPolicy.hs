@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -57,15 +58,15 @@ import Network.AWS.Route53.Types
 data CreateTrafficPolicy = CreateTrafficPolicy'
   { -- | (Optional) Any comments that you want to include about the traffic
     -- policy.
-    comment :: Core.Maybe Core.Text,
+    comment :: Prelude.Maybe Prelude.Text,
     -- | The name of the traffic policy.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The definition of this traffic policy in JSON format. For more
     -- information, see
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format>.
-    document :: Core.Text
+    document :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTrafficPolicy' with all optional fields omitted.
@@ -85,30 +86,30 @@ data CreateTrafficPolicy = CreateTrafficPolicy'
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format>.
 newCreateTrafficPolicy ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'document'
-  Core.Text ->
+  Prelude.Text ->
   CreateTrafficPolicy
 newCreateTrafficPolicy pName_ pDocument_ =
   CreateTrafficPolicy'
-    { comment = Core.Nothing,
+    { comment = Prelude.Nothing,
       name = pName_,
       document = pDocument_
     }
 
 -- | (Optional) Any comments that you want to include about the traffic
 -- policy.
-createTrafficPolicy_comment :: Lens.Lens' CreateTrafficPolicy (Core.Maybe Core.Text)
+createTrafficPolicy_comment :: Lens.Lens' CreateTrafficPolicy (Prelude.Maybe Prelude.Text)
 createTrafficPolicy_comment = Lens.lens (\CreateTrafficPolicy' {comment} -> comment) (\s@CreateTrafficPolicy' {} a -> s {comment = a} :: CreateTrafficPolicy)
 
 -- | The name of the traffic policy.
-createTrafficPolicy_name :: Lens.Lens' CreateTrafficPolicy Core.Text
+createTrafficPolicy_name :: Lens.Lens' CreateTrafficPolicy Prelude.Text
 createTrafficPolicy_name = Lens.lens (\CreateTrafficPolicy' {name} -> name) (\s@CreateTrafficPolicy' {} a -> s {name = a} :: CreateTrafficPolicy)
 
 -- | The definition of this traffic policy in JSON format. For more
 -- information, see
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format>.
-createTrafficPolicy_document :: Lens.Lens' CreateTrafficPolicy Core.Text
+createTrafficPolicy_document :: Lens.Lens' CreateTrafficPolicy Prelude.Text
 createTrafficPolicy_document = Lens.lens (\CreateTrafficPolicy' {document} -> document) (\s@CreateTrafficPolicy' {} a -> s {document = a} :: CreateTrafficPolicy)
 
 instance Core.AWSRequest CreateTrafficPolicy where
@@ -120,14 +121,14 @@ instance Core.AWSRequest CreateTrafficPolicy where
     Response.receiveXML
       ( \s h x ->
           CreateTrafficPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "TrafficPolicy")
-            Core.<*> (h Core..# "Location")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "TrafficPolicy")
+            Prelude.<*> (h Core..# "Location")
       )
 
-instance Core.Hashable CreateTrafficPolicy
+instance Prelude.Hashable CreateTrafficPolicy
 
-instance Core.NFData CreateTrafficPolicy
+instance Prelude.NFData CreateTrafficPolicy
 
 instance Core.ToElement CreateTrafficPolicy where
   toElement =
@@ -135,17 +136,17 @@ instance Core.ToElement CreateTrafficPolicy where
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateTrafficPolicyRequest"
 
 instance Core.ToHeaders CreateTrafficPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateTrafficPolicy where
-  toPath = Core.const "/2013-04-01/trafficpolicy"
+  toPath = Prelude.const "/2013-04-01/trafficpolicy"
 
 instance Core.ToQuery CreateTrafficPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 instance Core.ToXML CreateTrafficPolicy where
   toXML CreateTrafficPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Comment" Core.@= comment,
         "Name" Core.@= name,
         "Document" Core.@= document
@@ -157,13 +158,13 @@ instance Core.ToXML CreateTrafficPolicy where
 -- /See:/ 'newCreateTrafficPolicyResponse' smart constructor.
 data CreateTrafficPolicyResponse = CreateTrafficPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A complex type that contains settings for the new traffic policy.
     trafficPolicy :: TrafficPolicy,
     -- | A unique URL that represents a new traffic policy.
-    location :: Core.Text
+    location :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTrafficPolicyResponse' with all optional fields omitted.
@@ -180,11 +181,11 @@ data CreateTrafficPolicyResponse = CreateTrafficPolicyResponse'
 -- 'location', 'createTrafficPolicyResponse_location' - A unique URL that represents a new traffic policy.
 newCreateTrafficPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'trafficPolicy'
   TrafficPolicy ->
   -- | 'location'
-  Core.Text ->
+  Prelude.Text ->
   CreateTrafficPolicyResponse
 newCreateTrafficPolicyResponse
   pHttpStatus_
@@ -198,7 +199,7 @@ newCreateTrafficPolicyResponse
       }
 
 -- | The response's http status code.
-createTrafficPolicyResponse_httpStatus :: Lens.Lens' CreateTrafficPolicyResponse Core.Int
+createTrafficPolicyResponse_httpStatus :: Lens.Lens' CreateTrafficPolicyResponse Prelude.Int
 createTrafficPolicyResponse_httpStatus = Lens.lens (\CreateTrafficPolicyResponse' {httpStatus} -> httpStatus) (\s@CreateTrafficPolicyResponse' {} a -> s {httpStatus = a} :: CreateTrafficPolicyResponse)
 
 -- | A complex type that contains settings for the new traffic policy.
@@ -206,7 +207,7 @@ createTrafficPolicyResponse_trafficPolicy :: Lens.Lens' CreateTrafficPolicyRespo
 createTrafficPolicyResponse_trafficPolicy = Lens.lens (\CreateTrafficPolicyResponse' {trafficPolicy} -> trafficPolicy) (\s@CreateTrafficPolicyResponse' {} a -> s {trafficPolicy = a} :: CreateTrafficPolicyResponse)
 
 -- | A unique URL that represents a new traffic policy.
-createTrafficPolicyResponse_location :: Lens.Lens' CreateTrafficPolicyResponse Core.Text
+createTrafficPolicyResponse_location :: Lens.Lens' CreateTrafficPolicyResponse Prelude.Text
 createTrafficPolicyResponse_location = Lens.lens (\CreateTrafficPolicyResponse' {location} -> location) (\s@CreateTrafficPolicyResponse' {} a -> s {location = a} :: CreateTrafficPolicyResponse)
 
-instance Core.NFData CreateTrafficPolicyResponse
+instance Prelude.NFData CreateTrafficPolicyResponse

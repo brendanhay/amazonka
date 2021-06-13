@@ -44,6 +44,7 @@ where
 import Network.AWS.CloudWatch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,15 +52,15 @@ import qualified Network.AWS.Response as Response
 data DeleteAnomalyDetector = DeleteAnomalyDetector'
   { -- | The metric dimensions associated with the anomaly detection model to
     -- delete.
-    dimensions :: Core.Maybe [Dimension],
+    dimensions :: Prelude.Maybe [Dimension],
     -- | The namespace associated with the anomaly detection model to delete.
-    namespace :: Core.Text,
+    namespace :: Prelude.Text,
     -- | The metric name associated with the anomaly detection model to delete.
-    metricName :: Core.Text,
+    metricName :: Prelude.Text,
     -- | The statistic associated with the anomaly detection model to delete.
-    stat :: Core.Text
+    stat :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAnomalyDetector' with all optional fields omitted.
@@ -79,18 +80,19 @@ data DeleteAnomalyDetector = DeleteAnomalyDetector'
 -- 'stat', 'deleteAnomalyDetector_stat' - The statistic associated with the anomaly detection model to delete.
 newDeleteAnomalyDetector ::
   -- | 'namespace'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'stat'
-  Core.Text ->
+  Prelude.Text ->
   DeleteAnomalyDetector
 newDeleteAnomalyDetector
   pNamespace_
   pMetricName_
   pStat_ =
     DeleteAnomalyDetector'
-      { dimensions = Core.Nothing,
+      { dimensions =
+          Prelude.Nothing,
         namespace = pNamespace_,
         metricName = pMetricName_,
         stat = pStat_
@@ -98,19 +100,19 @@ newDeleteAnomalyDetector
 
 -- | The metric dimensions associated with the anomaly detection model to
 -- delete.
-deleteAnomalyDetector_dimensions :: Lens.Lens' DeleteAnomalyDetector (Core.Maybe [Dimension])
-deleteAnomalyDetector_dimensions = Lens.lens (\DeleteAnomalyDetector' {dimensions} -> dimensions) (\s@DeleteAnomalyDetector' {} a -> s {dimensions = a} :: DeleteAnomalyDetector) Core.. Lens.mapping Lens._Coerce
+deleteAnomalyDetector_dimensions :: Lens.Lens' DeleteAnomalyDetector (Prelude.Maybe [Dimension])
+deleteAnomalyDetector_dimensions = Lens.lens (\DeleteAnomalyDetector' {dimensions} -> dimensions) (\s@DeleteAnomalyDetector' {} a -> s {dimensions = a} :: DeleteAnomalyDetector) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The namespace associated with the anomaly detection model to delete.
-deleteAnomalyDetector_namespace :: Lens.Lens' DeleteAnomalyDetector Core.Text
+deleteAnomalyDetector_namespace :: Lens.Lens' DeleteAnomalyDetector Prelude.Text
 deleteAnomalyDetector_namespace = Lens.lens (\DeleteAnomalyDetector' {namespace} -> namespace) (\s@DeleteAnomalyDetector' {} a -> s {namespace = a} :: DeleteAnomalyDetector)
 
 -- | The metric name associated with the anomaly detection model to delete.
-deleteAnomalyDetector_metricName :: Lens.Lens' DeleteAnomalyDetector Core.Text
+deleteAnomalyDetector_metricName :: Lens.Lens' DeleteAnomalyDetector Prelude.Text
 deleteAnomalyDetector_metricName = Lens.lens (\DeleteAnomalyDetector' {metricName} -> metricName) (\s@DeleteAnomalyDetector' {} a -> s {metricName = a} :: DeleteAnomalyDetector)
 
 -- | The statistic associated with the anomaly detection model to delete.
-deleteAnomalyDetector_stat :: Lens.Lens' DeleteAnomalyDetector Core.Text
+deleteAnomalyDetector_stat :: Lens.Lens' DeleteAnomalyDetector Prelude.Text
 deleteAnomalyDetector_stat = Lens.lens (\DeleteAnomalyDetector' {stat} -> stat) (\s@DeleteAnomalyDetector' {} a -> s {stat = a} :: DeleteAnomalyDetector)
 
 instance Core.AWSRequest DeleteAnomalyDetector where
@@ -123,28 +125,29 @@ instance Core.AWSRequest DeleteAnomalyDetector where
       "DeleteAnomalyDetectorResult"
       ( \s h x ->
           DeleteAnomalyDetectorResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteAnomalyDetector
+instance Prelude.Hashable DeleteAnomalyDetector
 
-instance Core.NFData DeleteAnomalyDetector
+instance Prelude.NFData DeleteAnomalyDetector
 
 instance Core.ToHeaders DeleteAnomalyDetector where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteAnomalyDetector where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteAnomalyDetector where
   toQuery DeleteAnomalyDetector' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteAnomalyDetector" :: Core.ByteString),
-        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
+          Core.=: ("DeleteAnomalyDetector" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
         "Dimensions"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> dimensions),
+            (Core.toQueryList "member" Prelude.<$> dimensions),
         "Namespace" Core.=: namespace,
         "MetricName" Core.=: metricName,
         "Stat" Core.=: stat
@@ -153,9 +156,9 @@ instance Core.ToQuery DeleteAnomalyDetector where
 -- | /See:/ 'newDeleteAnomalyDetectorResponse' smart constructor.
 data DeleteAnomalyDetectorResponse = DeleteAnomalyDetectorResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAnomalyDetectorResponse' with all optional fields omitted.
@@ -168,7 +171,7 @@ data DeleteAnomalyDetectorResponse = DeleteAnomalyDetectorResponse'
 -- 'httpStatus', 'deleteAnomalyDetectorResponse_httpStatus' - The response's http status code.
 newDeleteAnomalyDetectorResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteAnomalyDetectorResponse
 newDeleteAnomalyDetectorResponse pHttpStatus_ =
   DeleteAnomalyDetectorResponse'
@@ -177,7 +180,7 @@ newDeleteAnomalyDetectorResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteAnomalyDetectorResponse_httpStatus :: Lens.Lens' DeleteAnomalyDetectorResponse Core.Int
+deleteAnomalyDetectorResponse_httpStatus :: Lens.Lens' DeleteAnomalyDetectorResponse Prelude.Int
 deleteAnomalyDetectorResponse_httpStatus = Lens.lens (\DeleteAnomalyDetectorResponse' {httpStatus} -> httpStatus) (\s@DeleteAnomalyDetectorResponse' {} a -> s {httpStatus = a} :: DeleteAnomalyDetectorResponse)
 
-instance Core.NFData DeleteAnomalyDetectorResponse
+instance Prelude.NFData DeleteAnomalyDetectorResponse

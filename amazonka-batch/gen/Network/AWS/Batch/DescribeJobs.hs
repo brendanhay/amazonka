@@ -42,6 +42,7 @@ where
 import Network.AWS.Batch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeJobs' smart constructor.
 data DescribeJobs = DescribeJobs'
   { -- | A list of up to 100 job IDs.
-    jobs :: [Core.Text]
+    jobs :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeJobs' with all optional fields omitted.
@@ -65,11 +66,12 @@ data DescribeJobs = DescribeJobs'
 -- 'jobs', 'describeJobs_jobs' - A list of up to 100 job IDs.
 newDescribeJobs ::
   DescribeJobs
-newDescribeJobs = DescribeJobs' {jobs = Core.mempty}
+newDescribeJobs =
+  DescribeJobs' {jobs = Prelude.mempty}
 
 -- | A list of up to 100 job IDs.
-describeJobs_jobs :: Lens.Lens' DescribeJobs [Core.Text]
-describeJobs_jobs = Lens.lens (\DescribeJobs' {jobs} -> jobs) (\s@DescribeJobs' {} a -> s {jobs = a} :: DescribeJobs) Core.. Lens._Coerce
+describeJobs_jobs :: Lens.Lens' DescribeJobs [Prelude.Text]
+describeJobs_jobs = Lens.lens (\DescribeJobs' {jobs} -> jobs) (\s@DescribeJobs' {} a -> s {jobs = a} :: DescribeJobs) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DescribeJobs where
   type AWSResponse DescribeJobs = DescribeJobsResponse
@@ -78,42 +80,46 @@ instance Core.AWSRequest DescribeJobs where
     Response.receiveJSON
       ( \s h x ->
           DescribeJobsResponse'
-            Core.<$> (x Core..?> "jobs" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "jobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeJobs
+instance Prelude.Hashable DescribeJobs
 
-instance Core.NFData DescribeJobs
+instance Prelude.NFData DescribeJobs
 
 instance Core.ToHeaders DescribeJobs where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeJobs where
   toJSON DescribeJobs' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("jobs" Core..= jobs)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("jobs" Core..= jobs)]
+      )
 
 instance Core.ToPath DescribeJobs where
-  toPath = Core.const "/v1/describejobs"
+  toPath = Prelude.const "/v1/describejobs"
 
 instance Core.ToQuery DescribeJobs where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeJobsResponse' smart constructor.
 data DescribeJobsResponse = DescribeJobsResponse'
   { -- | The list of jobs.
-    jobs :: Core.Maybe [JobDetail],
+    jobs :: Prelude.Maybe [JobDetail],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeJobsResponse' with all optional fields omitted.
@@ -128,20 +134,20 @@ data DescribeJobsResponse = DescribeJobsResponse'
 -- 'httpStatus', 'describeJobsResponse_httpStatus' - The response's http status code.
 newDescribeJobsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeJobsResponse
 newDescribeJobsResponse pHttpStatus_ =
   DescribeJobsResponse'
-    { jobs = Core.Nothing,
+    { jobs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of jobs.
-describeJobsResponse_jobs :: Lens.Lens' DescribeJobsResponse (Core.Maybe [JobDetail])
-describeJobsResponse_jobs = Lens.lens (\DescribeJobsResponse' {jobs} -> jobs) (\s@DescribeJobsResponse' {} a -> s {jobs = a} :: DescribeJobsResponse) Core.. Lens.mapping Lens._Coerce
+describeJobsResponse_jobs :: Lens.Lens' DescribeJobsResponse (Prelude.Maybe [JobDetail])
+describeJobsResponse_jobs = Lens.lens (\DescribeJobsResponse' {jobs} -> jobs) (\s@DescribeJobsResponse' {} a -> s {jobs = a} :: DescribeJobsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeJobsResponse_httpStatus :: Lens.Lens' DescribeJobsResponse Core.Int
+describeJobsResponse_httpStatus :: Lens.Lens' DescribeJobsResponse Prelude.Int
 describeJobsResponse_httpStatus = Lens.lens (\DescribeJobsResponse' {httpStatus} -> httpStatus) (\s@DescribeJobsResponse' {} a -> s {httpStatus = a} :: DescribeJobsResponse)
 
-instance Core.NFData DescribeJobsResponse
+instance Prelude.NFData DescribeJobsResponse

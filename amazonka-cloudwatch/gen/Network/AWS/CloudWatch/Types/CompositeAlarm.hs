@@ -22,46 +22,47 @@ module Network.AWS.CloudWatch.Types.CompositeAlarm where
 import Network.AWS.CloudWatch.Types.StateValue
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The details about a composite alarm.
 --
 -- /See:/ 'newCompositeAlarm' smart constructor.
 data CompositeAlarm = CompositeAlarm'
   { -- | The Amazon Resource Name (ARN) of the alarm.
-    alarmArn :: Core.Maybe Core.Text,
+    alarmArn :: Prelude.Maybe Prelude.Text,
     -- | The actions to execute when this alarm transitions to the ALARM state
     -- from any other state. Each action is specified as an Amazon Resource
     -- Name (ARN).
-    alarmActions :: Core.Maybe [Core.Text],
+    alarmActions :: Prelude.Maybe [Prelude.Text],
     -- | An explanation for the alarm state, in text format.
-    stateReason :: Core.Maybe Core.Text,
+    stateReason :: Prelude.Maybe Prelude.Text,
     -- | An explanation for the alarm state, in JSON format.
-    stateReasonData :: Core.Maybe Core.Text,
+    stateReasonData :: Prelude.Maybe Prelude.Text,
     -- | The actions to execute when this alarm transitions to the
     -- INSUFFICIENT_DATA state from any other state. Each action is specified
     -- as an Amazon Resource Name (ARN).
-    insufficientDataActions :: Core.Maybe [Core.Text],
+    insufficientDataActions :: Prelude.Maybe [Prelude.Text],
     -- | The rule that this alarm uses to evaluate its alarm state.
-    alarmRule :: Core.Maybe Core.Text,
+    alarmRule :: Prelude.Maybe Prelude.Text,
     -- | The time stamp of the last update to the alarm state.
-    stateUpdatedTimestamp :: Core.Maybe Core.ISO8601,
+    stateUpdatedTimestamp :: Prelude.Maybe Core.ISO8601,
     -- | The state value for the alarm.
-    stateValue :: Core.Maybe StateValue,
+    stateValue :: Prelude.Maybe StateValue,
     -- | The name of the alarm.
-    alarmName :: Core.Maybe Core.Text,
+    alarmName :: Prelude.Maybe Prelude.Text,
     -- | The actions to execute when this alarm transitions to the OK state from
     -- any other state. Each action is specified as an Amazon Resource Name
     -- (ARN).
-    oKActions :: Core.Maybe [Core.Text],
+    oKActions :: Prelude.Maybe [Prelude.Text],
     -- | Indicates whether actions should be executed during any changes to the
     -- alarm state.
-    actionsEnabled :: Core.Maybe Core.Bool,
+    actionsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The time stamp of the last update to the alarm configuration.
-    alarmConfigurationUpdatedTimestamp :: Core.Maybe Core.ISO8601,
+    alarmConfigurationUpdatedTimestamp :: Prelude.Maybe Core.ISO8601,
     -- | The description of the alarm.
-    alarmDescription :: Core.Maybe Core.Text
+    alarmDescription :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CompositeAlarm' with all optional fields omitted.
@@ -107,104 +108,104 @@ newCompositeAlarm ::
   CompositeAlarm
 newCompositeAlarm =
   CompositeAlarm'
-    { alarmArn = Core.Nothing,
-      alarmActions = Core.Nothing,
-      stateReason = Core.Nothing,
-      stateReasonData = Core.Nothing,
-      insufficientDataActions = Core.Nothing,
-      alarmRule = Core.Nothing,
-      stateUpdatedTimestamp = Core.Nothing,
-      stateValue = Core.Nothing,
-      alarmName = Core.Nothing,
-      oKActions = Core.Nothing,
-      actionsEnabled = Core.Nothing,
-      alarmConfigurationUpdatedTimestamp = Core.Nothing,
-      alarmDescription = Core.Nothing
+    { alarmArn = Prelude.Nothing,
+      alarmActions = Prelude.Nothing,
+      stateReason = Prelude.Nothing,
+      stateReasonData = Prelude.Nothing,
+      insufficientDataActions = Prelude.Nothing,
+      alarmRule = Prelude.Nothing,
+      stateUpdatedTimestamp = Prelude.Nothing,
+      stateValue = Prelude.Nothing,
+      alarmName = Prelude.Nothing,
+      oKActions = Prelude.Nothing,
+      actionsEnabled = Prelude.Nothing,
+      alarmConfigurationUpdatedTimestamp = Prelude.Nothing,
+      alarmDescription = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the alarm.
-compositeAlarm_alarmArn :: Lens.Lens' CompositeAlarm (Core.Maybe Core.Text)
+compositeAlarm_alarmArn :: Lens.Lens' CompositeAlarm (Prelude.Maybe Prelude.Text)
 compositeAlarm_alarmArn = Lens.lens (\CompositeAlarm' {alarmArn} -> alarmArn) (\s@CompositeAlarm' {} a -> s {alarmArn = a} :: CompositeAlarm)
 
 -- | The actions to execute when this alarm transitions to the ALARM state
 -- from any other state. Each action is specified as an Amazon Resource
 -- Name (ARN).
-compositeAlarm_alarmActions :: Lens.Lens' CompositeAlarm (Core.Maybe [Core.Text])
-compositeAlarm_alarmActions = Lens.lens (\CompositeAlarm' {alarmActions} -> alarmActions) (\s@CompositeAlarm' {} a -> s {alarmActions = a} :: CompositeAlarm) Core.. Lens.mapping Lens._Coerce
+compositeAlarm_alarmActions :: Lens.Lens' CompositeAlarm (Prelude.Maybe [Prelude.Text])
+compositeAlarm_alarmActions = Lens.lens (\CompositeAlarm' {alarmActions} -> alarmActions) (\s@CompositeAlarm' {} a -> s {alarmActions = a} :: CompositeAlarm) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An explanation for the alarm state, in text format.
-compositeAlarm_stateReason :: Lens.Lens' CompositeAlarm (Core.Maybe Core.Text)
+compositeAlarm_stateReason :: Lens.Lens' CompositeAlarm (Prelude.Maybe Prelude.Text)
 compositeAlarm_stateReason = Lens.lens (\CompositeAlarm' {stateReason} -> stateReason) (\s@CompositeAlarm' {} a -> s {stateReason = a} :: CompositeAlarm)
 
 -- | An explanation for the alarm state, in JSON format.
-compositeAlarm_stateReasonData :: Lens.Lens' CompositeAlarm (Core.Maybe Core.Text)
+compositeAlarm_stateReasonData :: Lens.Lens' CompositeAlarm (Prelude.Maybe Prelude.Text)
 compositeAlarm_stateReasonData = Lens.lens (\CompositeAlarm' {stateReasonData} -> stateReasonData) (\s@CompositeAlarm' {} a -> s {stateReasonData = a} :: CompositeAlarm)
 
 -- | The actions to execute when this alarm transitions to the
 -- INSUFFICIENT_DATA state from any other state. Each action is specified
 -- as an Amazon Resource Name (ARN).
-compositeAlarm_insufficientDataActions :: Lens.Lens' CompositeAlarm (Core.Maybe [Core.Text])
-compositeAlarm_insufficientDataActions = Lens.lens (\CompositeAlarm' {insufficientDataActions} -> insufficientDataActions) (\s@CompositeAlarm' {} a -> s {insufficientDataActions = a} :: CompositeAlarm) Core.. Lens.mapping Lens._Coerce
+compositeAlarm_insufficientDataActions :: Lens.Lens' CompositeAlarm (Prelude.Maybe [Prelude.Text])
+compositeAlarm_insufficientDataActions = Lens.lens (\CompositeAlarm' {insufficientDataActions} -> insufficientDataActions) (\s@CompositeAlarm' {} a -> s {insufficientDataActions = a} :: CompositeAlarm) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The rule that this alarm uses to evaluate its alarm state.
-compositeAlarm_alarmRule :: Lens.Lens' CompositeAlarm (Core.Maybe Core.Text)
+compositeAlarm_alarmRule :: Lens.Lens' CompositeAlarm (Prelude.Maybe Prelude.Text)
 compositeAlarm_alarmRule = Lens.lens (\CompositeAlarm' {alarmRule} -> alarmRule) (\s@CompositeAlarm' {} a -> s {alarmRule = a} :: CompositeAlarm)
 
 -- | The time stamp of the last update to the alarm state.
-compositeAlarm_stateUpdatedTimestamp :: Lens.Lens' CompositeAlarm (Core.Maybe Core.UTCTime)
-compositeAlarm_stateUpdatedTimestamp = Lens.lens (\CompositeAlarm' {stateUpdatedTimestamp} -> stateUpdatedTimestamp) (\s@CompositeAlarm' {} a -> s {stateUpdatedTimestamp = a} :: CompositeAlarm) Core.. Lens.mapping Core._Time
+compositeAlarm_stateUpdatedTimestamp :: Lens.Lens' CompositeAlarm (Prelude.Maybe Prelude.UTCTime)
+compositeAlarm_stateUpdatedTimestamp = Lens.lens (\CompositeAlarm' {stateUpdatedTimestamp} -> stateUpdatedTimestamp) (\s@CompositeAlarm' {} a -> s {stateUpdatedTimestamp = a} :: CompositeAlarm) Prelude.. Lens.mapping Core._Time
 
 -- | The state value for the alarm.
-compositeAlarm_stateValue :: Lens.Lens' CompositeAlarm (Core.Maybe StateValue)
+compositeAlarm_stateValue :: Lens.Lens' CompositeAlarm (Prelude.Maybe StateValue)
 compositeAlarm_stateValue = Lens.lens (\CompositeAlarm' {stateValue} -> stateValue) (\s@CompositeAlarm' {} a -> s {stateValue = a} :: CompositeAlarm)
 
 -- | The name of the alarm.
-compositeAlarm_alarmName :: Lens.Lens' CompositeAlarm (Core.Maybe Core.Text)
+compositeAlarm_alarmName :: Lens.Lens' CompositeAlarm (Prelude.Maybe Prelude.Text)
 compositeAlarm_alarmName = Lens.lens (\CompositeAlarm' {alarmName} -> alarmName) (\s@CompositeAlarm' {} a -> s {alarmName = a} :: CompositeAlarm)
 
 -- | The actions to execute when this alarm transitions to the OK state from
 -- any other state. Each action is specified as an Amazon Resource Name
 -- (ARN).
-compositeAlarm_oKActions :: Lens.Lens' CompositeAlarm (Core.Maybe [Core.Text])
-compositeAlarm_oKActions = Lens.lens (\CompositeAlarm' {oKActions} -> oKActions) (\s@CompositeAlarm' {} a -> s {oKActions = a} :: CompositeAlarm) Core.. Lens.mapping Lens._Coerce
+compositeAlarm_oKActions :: Lens.Lens' CompositeAlarm (Prelude.Maybe [Prelude.Text])
+compositeAlarm_oKActions = Lens.lens (\CompositeAlarm' {oKActions} -> oKActions) (\s@CompositeAlarm' {} a -> s {oKActions = a} :: CompositeAlarm) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether actions should be executed during any changes to the
 -- alarm state.
-compositeAlarm_actionsEnabled :: Lens.Lens' CompositeAlarm (Core.Maybe Core.Bool)
+compositeAlarm_actionsEnabled :: Lens.Lens' CompositeAlarm (Prelude.Maybe Prelude.Bool)
 compositeAlarm_actionsEnabled = Lens.lens (\CompositeAlarm' {actionsEnabled} -> actionsEnabled) (\s@CompositeAlarm' {} a -> s {actionsEnabled = a} :: CompositeAlarm)
 
 -- | The time stamp of the last update to the alarm configuration.
-compositeAlarm_alarmConfigurationUpdatedTimestamp :: Lens.Lens' CompositeAlarm (Core.Maybe Core.UTCTime)
-compositeAlarm_alarmConfigurationUpdatedTimestamp = Lens.lens (\CompositeAlarm' {alarmConfigurationUpdatedTimestamp} -> alarmConfigurationUpdatedTimestamp) (\s@CompositeAlarm' {} a -> s {alarmConfigurationUpdatedTimestamp = a} :: CompositeAlarm) Core.. Lens.mapping Core._Time
+compositeAlarm_alarmConfigurationUpdatedTimestamp :: Lens.Lens' CompositeAlarm (Prelude.Maybe Prelude.UTCTime)
+compositeAlarm_alarmConfigurationUpdatedTimestamp = Lens.lens (\CompositeAlarm' {alarmConfigurationUpdatedTimestamp} -> alarmConfigurationUpdatedTimestamp) (\s@CompositeAlarm' {} a -> s {alarmConfigurationUpdatedTimestamp = a} :: CompositeAlarm) Prelude.. Lens.mapping Core._Time
 
 -- | The description of the alarm.
-compositeAlarm_alarmDescription :: Lens.Lens' CompositeAlarm (Core.Maybe Core.Text)
+compositeAlarm_alarmDescription :: Lens.Lens' CompositeAlarm (Prelude.Maybe Prelude.Text)
 compositeAlarm_alarmDescription = Lens.lens (\CompositeAlarm' {alarmDescription} -> alarmDescription) (\s@CompositeAlarm' {} a -> s {alarmDescription = a} :: CompositeAlarm)
 
 instance Core.FromXML CompositeAlarm where
   parseXML x =
     CompositeAlarm'
-      Core.<$> (x Core..@? "AlarmArn")
-      Core.<*> ( x Core..@? "AlarmActions" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "StateReason")
-      Core.<*> (x Core..@? "StateReasonData")
-      Core.<*> ( x Core..@? "InsufficientDataActions"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "AlarmRule")
-      Core.<*> (x Core..@? "StateUpdatedTimestamp")
-      Core.<*> (x Core..@? "StateValue")
-      Core.<*> (x Core..@? "AlarmName")
-      Core.<*> ( x Core..@? "OKActions" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "ActionsEnabled")
-      Core.<*> (x Core..@? "AlarmConfigurationUpdatedTimestamp")
-      Core.<*> (x Core..@? "AlarmDescription")
+      Prelude.<$> (x Core..@? "AlarmArn")
+      Prelude.<*> ( x Core..@? "AlarmActions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "StateReason")
+      Prelude.<*> (x Core..@? "StateReasonData")
+      Prelude.<*> ( x Core..@? "InsufficientDataActions"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "AlarmRule")
+      Prelude.<*> (x Core..@? "StateUpdatedTimestamp")
+      Prelude.<*> (x Core..@? "StateValue")
+      Prelude.<*> (x Core..@? "AlarmName")
+      Prelude.<*> ( x Core..@? "OKActions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "ActionsEnabled")
+      Prelude.<*> (x Core..@? "AlarmConfigurationUpdatedTimestamp")
+      Prelude.<*> (x Core..@? "AlarmDescription")
 
-instance Core.Hashable CompositeAlarm
+instance Prelude.Hashable CompositeAlarm
 
-instance Core.NFData CompositeAlarm
+instance Prelude.NFData CompositeAlarm

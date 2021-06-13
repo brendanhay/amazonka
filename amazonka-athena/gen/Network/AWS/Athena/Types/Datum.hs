@@ -21,15 +21,16 @@ module Network.AWS.Athena.Types.Datum where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A piece of data (a field in the table).
 --
 -- /See:/ 'newDatum' smart constructor.
 data Datum = Datum'
   { -- | The value of the datum.
-    varCharValue :: Core.Maybe Core.Text
+    varCharValue :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Datum' with all optional fields omitted.
@@ -42,18 +43,20 @@ data Datum = Datum'
 -- 'varCharValue', 'datum_varCharValue' - The value of the datum.
 newDatum ::
   Datum
-newDatum = Datum' {varCharValue = Core.Nothing}
+newDatum = Datum' {varCharValue = Prelude.Nothing}
 
 -- | The value of the datum.
-datum_varCharValue :: Lens.Lens' Datum (Core.Maybe Core.Text)
+datum_varCharValue :: Lens.Lens' Datum (Prelude.Maybe Prelude.Text)
 datum_varCharValue = Lens.lens (\Datum' {varCharValue} -> varCharValue) (\s@Datum' {} a -> s {varCharValue = a} :: Datum)
 
 instance Core.FromJSON Datum where
   parseJSON =
     Core.withObject
       "Datum"
-      (\x -> Datum' Core.<$> (x Core..:? "VarCharValue"))
+      ( \x ->
+          Datum' Prelude.<$> (x Core..:? "VarCharValue")
+      )
 
-instance Core.Hashable Datum
+instance Prelude.Hashable Datum
 
-instance Core.NFData Datum
+instance Prelude.NFData Datum

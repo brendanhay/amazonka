@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.RoutingRule where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Condition
 import Network.AWS.S3.Types.Redirect
@@ -37,13 +38,13 @@ data RoutingRule = RoutingRule'
     -- the @\/docs@ folder, redirect to the @\/documents@ folder. 2. If request
     -- results in HTTP error 4xx, redirect request to another host where you
     -- might process the error.
-    condition :: Core.Maybe Condition,
+    condition :: Prelude.Maybe Condition,
     -- | Container for redirect information. You can redirect requests to another
     -- host, to another page, or with another protocol. In the event of an
     -- error, you can specify a different error code to return.
     redirect :: Redirect
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RoutingRule' with all optional fields omitted.
@@ -68,7 +69,7 @@ newRoutingRule ::
   RoutingRule
 newRoutingRule pRedirect_ =
   RoutingRule'
-    { condition = Core.Nothing,
+    { condition = Prelude.Nothing,
       redirect = pRedirect_
     }
 
@@ -77,7 +78,7 @@ newRoutingRule pRedirect_ =
 -- the @\/docs@ folder, redirect to the @\/documents@ folder. 2. If request
 -- results in HTTP error 4xx, redirect request to another host where you
 -- might process the error.
-routingRule_condition :: Lens.Lens' RoutingRule (Core.Maybe Condition)
+routingRule_condition :: Lens.Lens' RoutingRule (Prelude.Maybe Condition)
 routingRule_condition = Lens.lens (\RoutingRule' {condition} -> condition) (\s@RoutingRule' {} a -> s {condition = a} :: RoutingRule)
 
 -- | Container for redirect information. You can redirect requests to another
@@ -89,16 +90,16 @@ routingRule_redirect = Lens.lens (\RoutingRule' {redirect} -> redirect) (\s@Rout
 instance Core.FromXML RoutingRule where
   parseXML x =
     RoutingRule'
-      Core.<$> (x Core..@? "Condition")
-      Core.<*> (x Core..@ "Redirect")
+      Prelude.<$> (x Core..@? "Condition")
+      Prelude.<*> (x Core..@ "Redirect")
 
-instance Core.Hashable RoutingRule
+instance Prelude.Hashable RoutingRule
 
-instance Core.NFData RoutingRule
+instance Prelude.NFData RoutingRule
 
 instance Core.ToXML RoutingRule where
   toXML RoutingRule' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Condition" Core.@= condition,
         "Redirect" Core.@= redirect
       ]

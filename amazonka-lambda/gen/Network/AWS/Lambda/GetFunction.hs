@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,7 +57,7 @@ import qualified Network.AWS.Response as Response
 data GetFunction = GetFunction'
   { -- | Specify a version or alias to get details about a published version of
     -- the function.
-    qualifier :: Core.Maybe Core.Text,
+    qualifier :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function, version, or alias.
     --
     -- __Name formats__
@@ -72,9 +73,9 @@ data GetFunction = GetFunction'
     -- You can append a version number or alias to any of the formats. The
     -- length constraint applies only to the full ARN. If you specify only the
     -- function name, it is limited to 64 characters in length.
-    functionName :: Core.Text
+    functionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetFunction' with all optional fields omitted.
@@ -104,17 +105,17 @@ data GetFunction = GetFunction'
 -- function name, it is limited to 64 characters in length.
 newGetFunction ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   GetFunction
 newGetFunction pFunctionName_ =
   GetFunction'
-    { qualifier = Core.Nothing,
+    { qualifier = Prelude.Nothing,
       functionName = pFunctionName_
     }
 
 -- | Specify a version or alias to get details about a published version of
 -- the function.
-getFunction_qualifier :: Lens.Lens' GetFunction (Core.Maybe Core.Text)
+getFunction_qualifier :: Lens.Lens' GetFunction (Prelude.Maybe Prelude.Text)
 getFunction_qualifier = Lens.lens (\GetFunction' {qualifier} -> qualifier) (\s@GetFunction' {} a -> s {qualifier = a} :: GetFunction)
 
 -- | The name of the Lambda function, version, or alias.
@@ -132,7 +133,7 @@ getFunction_qualifier = Lens.lens (\GetFunction' {qualifier} -> qualifier) (\s@G
 -- You can append a version number or alias to any of the formats. The
 -- length constraint applies only to the full ARN. If you specify only the
 -- function name, it is limited to 64 characters in length.
-getFunction_functionName :: Lens.Lens' GetFunction Core.Text
+getFunction_functionName :: Lens.Lens' GetFunction Prelude.Text
 getFunction_functionName = Lens.lens (\GetFunction' {functionName} -> functionName) (\s@GetFunction' {} a -> s {functionName = a} :: GetFunction)
 
 instance Core.AWSRequest GetFunction where
@@ -142,45 +143,45 @@ instance Core.AWSRequest GetFunction where
     Response.receiveJSON
       ( \s h x ->
           GetFunctionResponse'
-            Core.<$> (x Core..?> "Configuration")
-            Core.<*> (x Core..?> "Code")
-            Core.<*> (x Core..?> "Tags" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Concurrency")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Configuration")
+            Prelude.<*> (x Core..?> "Code")
+            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Concurrency")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetFunction
+instance Prelude.Hashable GetFunction
 
-instance Core.NFData GetFunction
+instance Prelude.NFData GetFunction
 
 instance Core.ToHeaders GetFunction where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetFunction where
   toPath GetFunction' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2015-03-31/functions/", Core.toBS functionName]
 
 instance Core.ToQuery GetFunction where
   toQuery GetFunction' {..} =
-    Core.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Core.=: qualifier]
 
 -- | /See:/ 'newGetFunctionResponse' smart constructor.
 data GetFunctionResponse = GetFunctionResponse'
   { -- | The configuration of the function or version.
-    configuration :: Core.Maybe FunctionConfiguration,
+    configuration :: Prelude.Maybe FunctionConfiguration,
     -- | The deployment package of the function or version.
-    code :: Core.Maybe FunctionCodeLocation,
+    code :: Prelude.Maybe FunctionCodeLocation,
     -- | The function\'s
     -- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags>.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The function\'s
     -- <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html reserved concurrency>.
-    concurrency :: Core.Maybe Concurrency,
+    concurrency :: Prelude.Maybe Concurrency,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetFunctionResponse' with all optional fields omitted.
@@ -203,37 +204,38 @@ data GetFunctionResponse = GetFunctionResponse'
 -- 'httpStatus', 'getFunctionResponse_httpStatus' - The response's http status code.
 newGetFunctionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetFunctionResponse
 newGetFunctionResponse pHttpStatus_ =
   GetFunctionResponse'
-    { configuration = Core.Nothing,
-      code = Core.Nothing,
-      tags = Core.Nothing,
-      concurrency = Core.Nothing,
+    { configuration =
+        Prelude.Nothing,
+      code = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      concurrency = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The configuration of the function or version.
-getFunctionResponse_configuration :: Lens.Lens' GetFunctionResponse (Core.Maybe FunctionConfiguration)
+getFunctionResponse_configuration :: Lens.Lens' GetFunctionResponse (Prelude.Maybe FunctionConfiguration)
 getFunctionResponse_configuration = Lens.lens (\GetFunctionResponse' {configuration} -> configuration) (\s@GetFunctionResponse' {} a -> s {configuration = a} :: GetFunctionResponse)
 
 -- | The deployment package of the function or version.
-getFunctionResponse_code :: Lens.Lens' GetFunctionResponse (Core.Maybe FunctionCodeLocation)
+getFunctionResponse_code :: Lens.Lens' GetFunctionResponse (Prelude.Maybe FunctionCodeLocation)
 getFunctionResponse_code = Lens.lens (\GetFunctionResponse' {code} -> code) (\s@GetFunctionResponse' {} a -> s {code = a} :: GetFunctionResponse)
 
 -- | The function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags>.
-getFunctionResponse_tags :: Lens.Lens' GetFunctionResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-getFunctionResponse_tags = Lens.lens (\GetFunctionResponse' {tags} -> tags) (\s@GetFunctionResponse' {} a -> s {tags = a} :: GetFunctionResponse) Core.. Lens.mapping Lens._Coerce
+getFunctionResponse_tags :: Lens.Lens' GetFunctionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getFunctionResponse_tags = Lens.lens (\GetFunctionResponse' {tags} -> tags) (\s@GetFunctionResponse' {} a -> s {tags = a} :: GetFunctionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html reserved concurrency>.
-getFunctionResponse_concurrency :: Lens.Lens' GetFunctionResponse (Core.Maybe Concurrency)
+getFunctionResponse_concurrency :: Lens.Lens' GetFunctionResponse (Prelude.Maybe Concurrency)
 getFunctionResponse_concurrency = Lens.lens (\GetFunctionResponse' {concurrency} -> concurrency) (\s@GetFunctionResponse' {} a -> s {concurrency = a} :: GetFunctionResponse)
 
 -- | The response's http status code.
-getFunctionResponse_httpStatus :: Lens.Lens' GetFunctionResponse Core.Int
+getFunctionResponse_httpStatus :: Lens.Lens' GetFunctionResponse Prelude.Int
 getFunctionResponse_httpStatus = Lens.lens (\GetFunctionResponse' {httpStatus} -> httpStatus) (\s@GetFunctionResponse' {} a -> s {httpStatus = a} :: GetFunctionResponse)
 
-instance Core.NFData GetFunctionResponse
+instance Prelude.NFData GetFunctionResponse

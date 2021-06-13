@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.TimecodeConfig where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.TimecodeConfigSource
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Timecode Config
 --
@@ -31,7 +32,7 @@ data TimecodeConfig = TimecodeConfig'
     -- the input timecode. Discrepancies below this threshold are permitted to
     -- avoid unnecessary discontinuities in the output timecode. No timecode
     -- sync when this is not specified.
-    syncThreshold :: Core.Maybe Core.Natural,
+    syncThreshold :: Prelude.Maybe Prelude.Natural,
     -- | Identifies the source for the timecode that will be associated with the
     -- events outputs. -Embedded (embedded): Initialize the output timecode
     -- with timecode from the the source. If no embedded timecode is detected
@@ -41,7 +42,7 @@ data TimecodeConfig = TimecodeConfig'
     -- 00:00:00:00.
     source :: TimecodeConfigSource
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TimecodeConfig' with all optional fields omitted.
@@ -69,7 +70,7 @@ newTimecodeConfig ::
   TimecodeConfig
 newTimecodeConfig pSource_ =
   TimecodeConfig'
-    { syncThreshold = Core.Nothing,
+    { syncThreshold = Prelude.Nothing,
       source = pSource_
     }
 
@@ -77,7 +78,7 @@ newTimecodeConfig pSource_ =
 -- the input timecode. Discrepancies below this threshold are permitted to
 -- avoid unnecessary discontinuities in the output timecode. No timecode
 -- sync when this is not specified.
-timecodeConfig_syncThreshold :: Lens.Lens' TimecodeConfig (Core.Maybe Core.Natural)
+timecodeConfig_syncThreshold :: Lens.Lens' TimecodeConfig (Prelude.Maybe Prelude.Natural)
 timecodeConfig_syncThreshold = Lens.lens (\TimecodeConfig' {syncThreshold} -> syncThreshold) (\s@TimecodeConfig' {} a -> s {syncThreshold = a} :: TimecodeConfig)
 
 -- | Identifies the source for the timecode that will be associated with the
@@ -96,19 +97,19 @@ instance Core.FromJSON TimecodeConfig where
       "TimecodeConfig"
       ( \x ->
           TimecodeConfig'
-            Core.<$> (x Core..:? "syncThreshold")
-            Core.<*> (x Core..: "source")
+            Prelude.<$> (x Core..:? "syncThreshold")
+            Prelude.<*> (x Core..: "source")
       )
 
-instance Core.Hashable TimecodeConfig
+instance Prelude.Hashable TimecodeConfig
 
-instance Core.NFData TimecodeConfig
+instance Prelude.NFData TimecodeConfig
 
 instance Core.ToJSON TimecodeConfig where
   toJSON TimecodeConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("syncThreshold" Core..=) Core.<$> syncThreshold,
-            Core.Just ("source" Core..= source)
+      ( Prelude.catMaybes
+          [ ("syncThreshold" Core..=) Prelude.<$> syncThreshold,
+            Prelude.Just ("source" Core..= source)
           ]
       )

@@ -23,23 +23,24 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a customer-owned address pool.
 --
 -- /See:/ 'newCoipPool' smart constructor.
 data CoipPool = CoipPool'
   { -- | The ID of the address pool.
-    poolId :: Core.Maybe Core.Text,
+    poolId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the address pool.
-    poolArn :: Core.Maybe Core.Text,
+    poolArn :: Prelude.Maybe Prelude.Text,
     -- | The address ranges of the address pool.
-    poolCidrs :: Core.Maybe [Core.Text],
+    poolCidrs :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the local gateway route table.
-    localGatewayRouteTableId :: Core.Maybe Core.Text,
+    localGatewayRouteTableId :: Prelude.Maybe Prelude.Text,
     -- | The tags.
-    tags :: Core.Maybe [Tag]
+    tags :: Prelude.Maybe [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CoipPool' with all optional fields omitted.
@@ -62,46 +63,46 @@ newCoipPool ::
   CoipPool
 newCoipPool =
   CoipPool'
-    { poolId = Core.Nothing,
-      poolArn = Core.Nothing,
-      poolCidrs = Core.Nothing,
-      localGatewayRouteTableId = Core.Nothing,
-      tags = Core.Nothing
+    { poolId = Prelude.Nothing,
+      poolArn = Prelude.Nothing,
+      poolCidrs = Prelude.Nothing,
+      localGatewayRouteTableId = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | The ID of the address pool.
-coipPool_poolId :: Lens.Lens' CoipPool (Core.Maybe Core.Text)
+coipPool_poolId :: Lens.Lens' CoipPool (Prelude.Maybe Prelude.Text)
 coipPool_poolId = Lens.lens (\CoipPool' {poolId} -> poolId) (\s@CoipPool' {} a -> s {poolId = a} :: CoipPool)
 
 -- | The ARN of the address pool.
-coipPool_poolArn :: Lens.Lens' CoipPool (Core.Maybe Core.Text)
+coipPool_poolArn :: Lens.Lens' CoipPool (Prelude.Maybe Prelude.Text)
 coipPool_poolArn = Lens.lens (\CoipPool' {poolArn} -> poolArn) (\s@CoipPool' {} a -> s {poolArn = a} :: CoipPool)
 
 -- | The address ranges of the address pool.
-coipPool_poolCidrs :: Lens.Lens' CoipPool (Core.Maybe [Core.Text])
-coipPool_poolCidrs = Lens.lens (\CoipPool' {poolCidrs} -> poolCidrs) (\s@CoipPool' {} a -> s {poolCidrs = a} :: CoipPool) Core.. Lens.mapping Lens._Coerce
+coipPool_poolCidrs :: Lens.Lens' CoipPool (Prelude.Maybe [Prelude.Text])
+coipPool_poolCidrs = Lens.lens (\CoipPool' {poolCidrs} -> poolCidrs) (\s@CoipPool' {} a -> s {poolCidrs = a} :: CoipPool) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the local gateway route table.
-coipPool_localGatewayRouteTableId :: Lens.Lens' CoipPool (Core.Maybe Core.Text)
+coipPool_localGatewayRouteTableId :: Lens.Lens' CoipPool (Prelude.Maybe Prelude.Text)
 coipPool_localGatewayRouteTableId = Lens.lens (\CoipPool' {localGatewayRouteTableId} -> localGatewayRouteTableId) (\s@CoipPool' {} a -> s {localGatewayRouteTableId = a} :: CoipPool)
 
 -- | The tags.
-coipPool_tags :: Lens.Lens' CoipPool (Core.Maybe [Tag])
-coipPool_tags = Lens.lens (\CoipPool' {tags} -> tags) (\s@CoipPool' {} a -> s {tags = a} :: CoipPool) Core.. Lens.mapping Lens._Coerce
+coipPool_tags :: Lens.Lens' CoipPool (Prelude.Maybe [Tag])
+coipPool_tags = Lens.lens (\CoipPool' {tags} -> tags) (\s@CoipPool' {} a -> s {tags = a} :: CoipPool) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML CoipPool where
   parseXML x =
     CoipPool'
-      Core.<$> (x Core..@? "poolId")
-      Core.<*> (x Core..@? "poolArn")
-      Core.<*> ( x Core..@? "poolCidrSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "localGatewayRouteTableId")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
+      Prelude.<$> (x Core..@? "poolId")
+      Prelude.<*> (x Core..@? "poolArn")
+      Prelude.<*> ( x Core..@? "poolCidrSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "localGatewayRouteTableId")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
 
-instance Core.Hashable CoipPool
+instance Prelude.Hashable CoipPool
 
-instance Core.NFData CoipPool
+instance Prelude.NFData CoipPool

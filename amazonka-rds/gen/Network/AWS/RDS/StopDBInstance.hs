@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -60,11 +61,11 @@ import qualified Network.AWS.Response as Response
 data StopDBInstance = StopDBInstance'
   { -- | The user-supplied instance identifier of the DB Snapshot created
     -- immediately before the DB instance is stopped.
-    dbSnapshotIdentifier :: Core.Maybe Core.Text,
+    dbSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The user-supplied instance identifier.
-    dbInstanceIdentifier :: Core.Text
+    dbInstanceIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopDBInstance' with all optional fields omitted.
@@ -80,22 +81,22 @@ data StopDBInstance = StopDBInstance'
 -- 'dbInstanceIdentifier', 'stopDBInstance_dbInstanceIdentifier' - The user-supplied instance identifier.
 newStopDBInstance ::
   -- | 'dbInstanceIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   StopDBInstance
 newStopDBInstance pDBInstanceIdentifier_ =
   StopDBInstance'
     { dbSnapshotIdentifier =
-        Core.Nothing,
+        Prelude.Nothing,
       dbInstanceIdentifier = pDBInstanceIdentifier_
     }
 
 -- | The user-supplied instance identifier of the DB Snapshot created
 -- immediately before the DB instance is stopped.
-stopDBInstance_dbSnapshotIdentifier :: Lens.Lens' StopDBInstance (Core.Maybe Core.Text)
+stopDBInstance_dbSnapshotIdentifier :: Lens.Lens' StopDBInstance (Prelude.Maybe Prelude.Text)
 stopDBInstance_dbSnapshotIdentifier = Lens.lens (\StopDBInstance' {dbSnapshotIdentifier} -> dbSnapshotIdentifier) (\s@StopDBInstance' {} a -> s {dbSnapshotIdentifier = a} :: StopDBInstance)
 
 -- | The user-supplied instance identifier.
-stopDBInstance_dbInstanceIdentifier :: Lens.Lens' StopDBInstance Core.Text
+stopDBInstance_dbInstanceIdentifier :: Lens.Lens' StopDBInstance Prelude.Text
 stopDBInstance_dbInstanceIdentifier = Lens.lens (\StopDBInstance' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@StopDBInstance' {} a -> s {dbInstanceIdentifier = a} :: StopDBInstance)
 
 instance Core.AWSRequest StopDBInstance where
@@ -108,37 +109,38 @@ instance Core.AWSRequest StopDBInstance where
       "StopDBInstanceResult"
       ( \s h x ->
           StopDBInstanceResponse'
-            Core.<$> (x Core..@? "DBInstance")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopDBInstance
+instance Prelude.Hashable StopDBInstance
 
-instance Core.NFData StopDBInstance
+instance Prelude.NFData StopDBInstance
 
 instance Core.ToHeaders StopDBInstance where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath StopDBInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopDBInstance where
   toQuery StopDBInstance' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("StopDBInstance" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("StopDBInstance" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier,
         "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
       ]
 
 -- | /See:/ 'newStopDBInstanceResponse' smart constructor.
 data StopDBInstanceResponse = StopDBInstanceResponse'
-  { dbInstance :: Core.Maybe DBInstance,
+  { dbInstance :: Prelude.Maybe DBInstance,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopDBInstanceResponse' with all optional fields omitted.
@@ -153,20 +155,21 @@ data StopDBInstanceResponse = StopDBInstanceResponse'
 -- 'httpStatus', 'stopDBInstanceResponse_httpStatus' - The response's http status code.
 newStopDBInstanceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopDBInstanceResponse
 newStopDBInstanceResponse pHttpStatus_ =
   StopDBInstanceResponse'
-    { dbInstance = Core.Nothing,
+    { dbInstance =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-stopDBInstanceResponse_dbInstance :: Lens.Lens' StopDBInstanceResponse (Core.Maybe DBInstance)
+stopDBInstanceResponse_dbInstance :: Lens.Lens' StopDBInstanceResponse (Prelude.Maybe DBInstance)
 stopDBInstanceResponse_dbInstance = Lens.lens (\StopDBInstanceResponse' {dbInstance} -> dbInstance) (\s@StopDBInstanceResponse' {} a -> s {dbInstance = a} :: StopDBInstanceResponse)
 
 -- | The response's http status code.
-stopDBInstanceResponse_httpStatus :: Lens.Lens' StopDBInstanceResponse Core.Int
+stopDBInstanceResponse_httpStatus :: Lens.Lens' StopDBInstanceResponse Prelude.Int
 stopDBInstanceResponse_httpStatus = Lens.lens (\StopDBInstanceResponse' {httpStatus} -> httpStatus) (\s@StopDBInstanceResponse' {} a -> s {httpStatus = a} :: StopDBInstanceResponse)
 
-instance Core.NFData StopDBInstanceResponse
+instance Prelude.NFData StopDBInstanceResponse

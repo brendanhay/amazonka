@@ -29,6 +29,7 @@ import Network.AWS.Lightsail.Types.IpAddressType
 import Network.AWS.Lightsail.Types.ResourceLocation
 import Network.AWS.Lightsail.Types.ResourceType
 import Network.AWS.Lightsail.Types.Tag
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an instance (a virtual private server).
 --
@@ -38,59 +39,59 @@ data Instance = Instance'
     --
     -- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4
     -- and IPv6.
-    ipAddressType :: Core.Maybe IpAddressType,
+    ipAddressType :: Prelude.Maybe IpAddressType,
     -- | The IPv6 addresses of the instance.
-    ipv6Addresses :: Core.Maybe [Core.Text],
+    ipv6Addresses :: Prelude.Maybe [Prelude.Text],
     -- | The bundle for the instance (e.g., @micro_1_0@).
-    bundleId :: Core.Maybe Core.Text,
+    bundleId :: Prelude.Maybe Prelude.Text,
     -- | The size of the vCPU and the amount of RAM for the instance.
-    hardware :: Core.Maybe InstanceHardware,
+    hardware :: Prelude.Maybe InstanceHardware,
     -- | An array of objects representing the add-ons enabled on the instance.
-    addOns :: Core.Maybe [AddOn],
+    addOns :: Prelude.Maybe [AddOn],
     -- | The friendly name of the blueprint (e.g., @Amazon Linux@).
-    blueprintName :: Core.Maybe Core.Text,
+    blueprintName :: Prelude.Maybe Prelude.Text,
     -- | The name of the SSH key being used to connect to the instance (e.g.,
     -- @LightsailDefaultKeyPair@).
-    sshKeyName :: Core.Maybe Core.Text,
+    sshKeyName :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the instance was created (e.g., @1479734909.17@) in
     -- Unix time format.
-    createdAt :: Core.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the instance (e.g.,
     -- @arn:aws:lightsail:us-east-2:123456789101:Instance\/244ad76f-8aad-4741-809f-12345EXAMPLE@).
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The blueprint ID (e.g., @os_amlinux_2016_03@).
-    blueprintId :: Core.Maybe Core.Text,
+    blueprintId :: Prelude.Maybe Prelude.Text,
     -- | The type of resource (usually @Instance@).
-    resourceType :: Core.Maybe ResourceType,
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The support code. Include this code in your email to support when you
     -- have questions about an instance or another resource in Lightsail. This
     -- code enables our support team to look up your Lightsail information more
     -- easily.
-    supportCode :: Core.Maybe Core.Text,
+    supportCode :: Prelude.Maybe Prelude.Text,
     -- | The status code and the state (e.g., @running@) for the instance.
-    state :: Core.Maybe InstanceState,
+    state :: Prelude.Maybe InstanceState,
     -- | The name the user gave the instance (e.g., @Amazon_Linux-1GB-Ohio-1@).
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The tag keys and optional values for the resource. For more information
     -- about tags in Lightsail, see the
     -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | Information about the public ports and monthly data transfer rates for
     -- the instance.
-    networking :: Core.Maybe InstanceNetworking,
+    networking :: Prelude.Maybe InstanceNetworking,
     -- | The user name for connecting to the instance (e.g., @ec2-user@).
-    username :: Core.Maybe Core.Text,
+    username :: Prelude.Maybe Prelude.Text,
     -- | The public IP address of the instance.
-    publicIpAddress :: Core.Maybe Core.Text,
+    publicIpAddress :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value indicating whether this instance has a static IP
     -- assigned to it.
-    isStaticIp :: Core.Maybe Core.Bool,
+    isStaticIp :: Prelude.Maybe Prelude.Bool,
     -- | The region name and Availability Zone where the instance is located.
-    location :: Core.Maybe ResourceLocation,
+    location :: Prelude.Maybe ResourceLocation,
     -- | The private IP address of the instance.
-    privateIpAddress :: Core.Maybe Core.Text
+    privateIpAddress :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Instance' with all optional fields omitted.
@@ -158,124 +159,124 @@ newInstance ::
   Instance
 newInstance =
   Instance'
-    { ipAddressType = Core.Nothing,
-      ipv6Addresses = Core.Nothing,
-      bundleId = Core.Nothing,
-      hardware = Core.Nothing,
-      addOns = Core.Nothing,
-      blueprintName = Core.Nothing,
-      sshKeyName = Core.Nothing,
-      createdAt = Core.Nothing,
-      arn = Core.Nothing,
-      blueprintId = Core.Nothing,
-      resourceType = Core.Nothing,
-      supportCode = Core.Nothing,
-      state = Core.Nothing,
-      name = Core.Nothing,
-      tags = Core.Nothing,
-      networking = Core.Nothing,
-      username = Core.Nothing,
-      publicIpAddress = Core.Nothing,
-      isStaticIp = Core.Nothing,
-      location = Core.Nothing,
-      privateIpAddress = Core.Nothing
+    { ipAddressType = Prelude.Nothing,
+      ipv6Addresses = Prelude.Nothing,
+      bundleId = Prelude.Nothing,
+      hardware = Prelude.Nothing,
+      addOns = Prelude.Nothing,
+      blueprintName = Prelude.Nothing,
+      sshKeyName = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      blueprintId = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      supportCode = Prelude.Nothing,
+      state = Prelude.Nothing,
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      networking = Prelude.Nothing,
+      username = Prelude.Nothing,
+      publicIpAddress = Prelude.Nothing,
+      isStaticIp = Prelude.Nothing,
+      location = Prelude.Nothing,
+      privateIpAddress = Prelude.Nothing
     }
 
 -- | The IP address type of the instance.
 --
 -- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4
 -- and IPv6.
-instance_ipAddressType :: Lens.Lens' Instance (Core.Maybe IpAddressType)
+instance_ipAddressType :: Lens.Lens' Instance (Prelude.Maybe IpAddressType)
 instance_ipAddressType = Lens.lens (\Instance' {ipAddressType} -> ipAddressType) (\s@Instance' {} a -> s {ipAddressType = a} :: Instance)
 
 -- | The IPv6 addresses of the instance.
-instance_ipv6Addresses :: Lens.Lens' Instance (Core.Maybe [Core.Text])
-instance_ipv6Addresses = Lens.lens (\Instance' {ipv6Addresses} -> ipv6Addresses) (\s@Instance' {} a -> s {ipv6Addresses = a} :: Instance) Core.. Lens.mapping Lens._Coerce
+instance_ipv6Addresses :: Lens.Lens' Instance (Prelude.Maybe [Prelude.Text])
+instance_ipv6Addresses = Lens.lens (\Instance' {ipv6Addresses} -> ipv6Addresses) (\s@Instance' {} a -> s {ipv6Addresses = a} :: Instance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The bundle for the instance (e.g., @micro_1_0@).
-instance_bundleId :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_bundleId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_bundleId = Lens.lens (\Instance' {bundleId} -> bundleId) (\s@Instance' {} a -> s {bundleId = a} :: Instance)
 
 -- | The size of the vCPU and the amount of RAM for the instance.
-instance_hardware :: Lens.Lens' Instance (Core.Maybe InstanceHardware)
+instance_hardware :: Lens.Lens' Instance (Prelude.Maybe InstanceHardware)
 instance_hardware = Lens.lens (\Instance' {hardware} -> hardware) (\s@Instance' {} a -> s {hardware = a} :: Instance)
 
 -- | An array of objects representing the add-ons enabled on the instance.
-instance_addOns :: Lens.Lens' Instance (Core.Maybe [AddOn])
-instance_addOns = Lens.lens (\Instance' {addOns} -> addOns) (\s@Instance' {} a -> s {addOns = a} :: Instance) Core.. Lens.mapping Lens._Coerce
+instance_addOns :: Lens.Lens' Instance (Prelude.Maybe [AddOn])
+instance_addOns = Lens.lens (\Instance' {addOns} -> addOns) (\s@Instance' {} a -> s {addOns = a} :: Instance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The friendly name of the blueprint (e.g., @Amazon Linux@).
-instance_blueprintName :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_blueprintName :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_blueprintName = Lens.lens (\Instance' {blueprintName} -> blueprintName) (\s@Instance' {} a -> s {blueprintName = a} :: Instance)
 
 -- | The name of the SSH key being used to connect to the instance (e.g.,
 -- @LightsailDefaultKeyPair@).
-instance_sshKeyName :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_sshKeyName :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_sshKeyName = Lens.lens (\Instance' {sshKeyName} -> sshKeyName) (\s@Instance' {} a -> s {sshKeyName = a} :: Instance)
 
 -- | The timestamp when the instance was created (e.g., @1479734909.17@) in
 -- Unix time format.
-instance_createdAt :: Lens.Lens' Instance (Core.Maybe Core.UTCTime)
-instance_createdAt = Lens.lens (\Instance' {createdAt} -> createdAt) (\s@Instance' {} a -> s {createdAt = a} :: Instance) Core.. Lens.mapping Core._Time
+instance_createdAt :: Lens.Lens' Instance (Prelude.Maybe Prelude.UTCTime)
+instance_createdAt = Lens.lens (\Instance' {createdAt} -> createdAt) (\s@Instance' {} a -> s {createdAt = a} :: Instance) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the instance (e.g.,
 -- @arn:aws:lightsail:us-east-2:123456789101:Instance\/244ad76f-8aad-4741-809f-12345EXAMPLE@).
-instance_arn :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_arn :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_arn = Lens.lens (\Instance' {arn} -> arn) (\s@Instance' {} a -> s {arn = a} :: Instance)
 
 -- | The blueprint ID (e.g., @os_amlinux_2016_03@).
-instance_blueprintId :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_blueprintId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_blueprintId = Lens.lens (\Instance' {blueprintId} -> blueprintId) (\s@Instance' {} a -> s {blueprintId = a} :: Instance)
 
 -- | The type of resource (usually @Instance@).
-instance_resourceType :: Lens.Lens' Instance (Core.Maybe ResourceType)
+instance_resourceType :: Lens.Lens' Instance (Prelude.Maybe ResourceType)
 instance_resourceType = Lens.lens (\Instance' {resourceType} -> resourceType) (\s@Instance' {} a -> s {resourceType = a} :: Instance)
 
 -- | The support code. Include this code in your email to support when you
 -- have questions about an instance or another resource in Lightsail. This
 -- code enables our support team to look up your Lightsail information more
 -- easily.
-instance_supportCode :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_supportCode :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_supportCode = Lens.lens (\Instance' {supportCode} -> supportCode) (\s@Instance' {} a -> s {supportCode = a} :: Instance)
 
 -- | The status code and the state (e.g., @running@) for the instance.
-instance_state :: Lens.Lens' Instance (Core.Maybe InstanceState)
+instance_state :: Lens.Lens' Instance (Prelude.Maybe InstanceState)
 instance_state = Lens.lens (\Instance' {state} -> state) (\s@Instance' {} a -> s {state = a} :: Instance)
 
 -- | The name the user gave the instance (e.g., @Amazon_Linux-1GB-Ohio-1@).
-instance_name :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_name :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_name = Lens.lens (\Instance' {name} -> name) (\s@Instance' {} a -> s {name = a} :: Instance)
 
 -- | The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
 -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-instance_tags :: Lens.Lens' Instance (Core.Maybe [Tag])
-instance_tags = Lens.lens (\Instance' {tags} -> tags) (\s@Instance' {} a -> s {tags = a} :: Instance) Core.. Lens.mapping Lens._Coerce
+instance_tags :: Lens.Lens' Instance (Prelude.Maybe [Tag])
+instance_tags = Lens.lens (\Instance' {tags} -> tags) (\s@Instance' {} a -> s {tags = a} :: Instance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the public ports and monthly data transfer rates for
 -- the instance.
-instance_networking :: Lens.Lens' Instance (Core.Maybe InstanceNetworking)
+instance_networking :: Lens.Lens' Instance (Prelude.Maybe InstanceNetworking)
 instance_networking = Lens.lens (\Instance' {networking} -> networking) (\s@Instance' {} a -> s {networking = a} :: Instance)
 
 -- | The user name for connecting to the instance (e.g., @ec2-user@).
-instance_username :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_username :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_username = Lens.lens (\Instance' {username} -> username) (\s@Instance' {} a -> s {username = a} :: Instance)
 
 -- | The public IP address of the instance.
-instance_publicIpAddress :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_publicIpAddress :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_publicIpAddress = Lens.lens (\Instance' {publicIpAddress} -> publicIpAddress) (\s@Instance' {} a -> s {publicIpAddress = a} :: Instance)
 
 -- | A Boolean value indicating whether this instance has a static IP
 -- assigned to it.
-instance_isStaticIp :: Lens.Lens' Instance (Core.Maybe Core.Bool)
+instance_isStaticIp :: Lens.Lens' Instance (Prelude.Maybe Prelude.Bool)
 instance_isStaticIp = Lens.lens (\Instance' {isStaticIp} -> isStaticIp) (\s@Instance' {} a -> s {isStaticIp = a} :: Instance)
 
 -- | The region name and Availability Zone where the instance is located.
-instance_location :: Lens.Lens' Instance (Core.Maybe ResourceLocation)
+instance_location :: Lens.Lens' Instance (Prelude.Maybe ResourceLocation)
 instance_location = Lens.lens (\Instance' {location} -> location) (\s@Instance' {} a -> s {location = a} :: Instance)
 
 -- | The private IP address of the instance.
-instance_privateIpAddress :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_privateIpAddress :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_privateIpAddress = Lens.lens (\Instance' {privateIpAddress} -> privateIpAddress) (\s@Instance' {} a -> s {privateIpAddress = a} :: Instance)
 
 instance Core.FromJSON Instance where
@@ -284,29 +285,29 @@ instance Core.FromJSON Instance where
       "Instance"
       ( \x ->
           Instance'
-            Core.<$> (x Core..:? "ipAddressType")
-            Core.<*> (x Core..:? "ipv6Addresses" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "bundleId")
-            Core.<*> (x Core..:? "hardware")
-            Core.<*> (x Core..:? "addOns" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "blueprintName")
-            Core.<*> (x Core..:? "sshKeyName")
-            Core.<*> (x Core..:? "createdAt")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "blueprintId")
-            Core.<*> (x Core..:? "resourceType")
-            Core.<*> (x Core..:? "supportCode")
-            Core.<*> (x Core..:? "state")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "networking")
-            Core.<*> (x Core..:? "username")
-            Core.<*> (x Core..:? "publicIpAddress")
-            Core.<*> (x Core..:? "isStaticIp")
-            Core.<*> (x Core..:? "location")
-            Core.<*> (x Core..:? "privateIpAddress")
+            Prelude.<$> (x Core..:? "ipAddressType")
+            Prelude.<*> (x Core..:? "ipv6Addresses" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "bundleId")
+            Prelude.<*> (x Core..:? "hardware")
+            Prelude.<*> (x Core..:? "addOns" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "blueprintName")
+            Prelude.<*> (x Core..:? "sshKeyName")
+            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "blueprintId")
+            Prelude.<*> (x Core..:? "resourceType")
+            Prelude.<*> (x Core..:? "supportCode")
+            Prelude.<*> (x Core..:? "state")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "networking")
+            Prelude.<*> (x Core..:? "username")
+            Prelude.<*> (x Core..:? "publicIpAddress")
+            Prelude.<*> (x Core..:? "isStaticIp")
+            Prelude.<*> (x Core..:? "location")
+            Prelude.<*> (x Core..:? "privateIpAddress")
       )
 
-instance Core.Hashable Instance
+instance Prelude.Hashable Instance
 
-instance Core.NFData Instance
+instance Prelude.NFData Instance

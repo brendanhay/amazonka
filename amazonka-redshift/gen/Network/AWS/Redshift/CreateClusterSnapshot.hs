@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -63,9 +64,9 @@ data CreateClusterSnapshot = CreateClusterSnapshot'
     -- The value must be either -1 or an integer between 1 and 3,653.
     --
     -- The default value is -1.
-    manualSnapshotRetentionPeriod :: Core.Maybe Core.Int,
+    manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | A list of tag instances.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A unique identifier for the snapshot that you are requesting. This
     -- identifier must be unique for all snapshots within the AWS account.
     --
@@ -80,11 +81,11 @@ data CreateClusterSnapshot = CreateClusterSnapshot'
     -- -   Cannot end with a hyphen or contain two consecutive hyphens
     --
     -- Example: @my-snapshot-id@
-    snapshotIdentifier :: Core.Text,
+    snapshotIdentifier :: Prelude.Text,
     -- | The cluster identifier for which you want a snapshot.
-    clusterIdentifier :: Core.Text
+    clusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateClusterSnapshot' with all optional fields omitted.
@@ -121,17 +122,17 @@ data CreateClusterSnapshot = CreateClusterSnapshot'
 -- 'clusterIdentifier', 'createClusterSnapshot_clusterIdentifier' - The cluster identifier for which you want a snapshot.
 newCreateClusterSnapshot ::
   -- | 'snapshotIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'clusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   CreateClusterSnapshot
 newCreateClusterSnapshot
   pSnapshotIdentifier_
   pClusterIdentifier_ =
     CreateClusterSnapshot'
       { manualSnapshotRetentionPeriod =
-          Core.Nothing,
-        tags = Core.Nothing,
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         snapshotIdentifier = pSnapshotIdentifier_,
         clusterIdentifier = pClusterIdentifier_
       }
@@ -142,12 +143,12 @@ newCreateClusterSnapshot
 -- The value must be either -1 or an integer between 1 and 3,653.
 --
 -- The default value is -1.
-createClusterSnapshot_manualSnapshotRetentionPeriod :: Lens.Lens' CreateClusterSnapshot (Core.Maybe Core.Int)
+createClusterSnapshot_manualSnapshotRetentionPeriod :: Lens.Lens' CreateClusterSnapshot (Prelude.Maybe Prelude.Int)
 createClusterSnapshot_manualSnapshotRetentionPeriod = Lens.lens (\CreateClusterSnapshot' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@CreateClusterSnapshot' {} a -> s {manualSnapshotRetentionPeriod = a} :: CreateClusterSnapshot)
 
 -- | A list of tag instances.
-createClusterSnapshot_tags :: Lens.Lens' CreateClusterSnapshot (Core.Maybe [Tag])
-createClusterSnapshot_tags = Lens.lens (\CreateClusterSnapshot' {tags} -> tags) (\s@CreateClusterSnapshot' {} a -> s {tags = a} :: CreateClusterSnapshot) Core.. Lens.mapping Lens._Coerce
+createClusterSnapshot_tags :: Lens.Lens' CreateClusterSnapshot (Prelude.Maybe [Tag])
+createClusterSnapshot_tags = Lens.lens (\CreateClusterSnapshot' {tags} -> tags) (\s@CreateClusterSnapshot' {} a -> s {tags = a} :: CreateClusterSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier for the snapshot that you are requesting. This
 -- identifier must be unique for all snapshots within the AWS account.
@@ -163,11 +164,11 @@ createClusterSnapshot_tags = Lens.lens (\CreateClusterSnapshot' {tags} -> tags) 
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-snapshot-id@
-createClusterSnapshot_snapshotIdentifier :: Lens.Lens' CreateClusterSnapshot Core.Text
+createClusterSnapshot_snapshotIdentifier :: Lens.Lens' CreateClusterSnapshot Prelude.Text
 createClusterSnapshot_snapshotIdentifier = Lens.lens (\CreateClusterSnapshot' {snapshotIdentifier} -> snapshotIdentifier) (\s@CreateClusterSnapshot' {} a -> s {snapshotIdentifier = a} :: CreateClusterSnapshot)
 
 -- | The cluster identifier for which you want a snapshot.
-createClusterSnapshot_clusterIdentifier :: Lens.Lens' CreateClusterSnapshot Core.Text
+createClusterSnapshot_clusterIdentifier :: Lens.Lens' CreateClusterSnapshot Prelude.Text
 createClusterSnapshot_clusterIdentifier = Lens.lens (\CreateClusterSnapshot' {clusterIdentifier} -> clusterIdentifier) (\s@CreateClusterSnapshot' {} a -> s {clusterIdentifier = a} :: CreateClusterSnapshot)
 
 instance Core.AWSRequest CreateClusterSnapshot where
@@ -180,41 +181,43 @@ instance Core.AWSRequest CreateClusterSnapshot where
       "CreateClusterSnapshotResult"
       ( \s h x ->
           CreateClusterSnapshotResponse'
-            Core.<$> (x Core..@? "Snapshot")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Snapshot")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateClusterSnapshot
+instance Prelude.Hashable CreateClusterSnapshot
 
-instance Core.NFData CreateClusterSnapshot
+instance Prelude.NFData CreateClusterSnapshot
 
 instance Core.ToHeaders CreateClusterSnapshot where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateClusterSnapshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateClusterSnapshot where
   toQuery CreateClusterSnapshot' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateClusterSnapshot" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("CreateClusterSnapshot" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ManualSnapshotRetentionPeriod"
           Core.=: manualSnapshotRetentionPeriod,
         "Tags"
-          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "SnapshotIdentifier" Core.=: snapshotIdentifier,
         "ClusterIdentifier" Core.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newCreateClusterSnapshotResponse' smart constructor.
 data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse'
-  { snapshot :: Core.Maybe Snapshot,
+  { snapshot :: Prelude.Maybe Snapshot,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateClusterSnapshotResponse' with all optional fields omitted.
@@ -229,21 +232,21 @@ data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse'
 -- 'httpStatus', 'createClusterSnapshotResponse_httpStatus' - The response's http status code.
 newCreateClusterSnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateClusterSnapshotResponse
 newCreateClusterSnapshotResponse pHttpStatus_ =
   CreateClusterSnapshotResponse'
     { snapshot =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createClusterSnapshotResponse_snapshot :: Lens.Lens' CreateClusterSnapshotResponse (Core.Maybe Snapshot)
+createClusterSnapshotResponse_snapshot :: Lens.Lens' CreateClusterSnapshotResponse (Prelude.Maybe Snapshot)
 createClusterSnapshotResponse_snapshot = Lens.lens (\CreateClusterSnapshotResponse' {snapshot} -> snapshot) (\s@CreateClusterSnapshotResponse' {} a -> s {snapshot = a} :: CreateClusterSnapshotResponse)
 
 -- | The response's http status code.
-createClusterSnapshotResponse_httpStatus :: Lens.Lens' CreateClusterSnapshotResponse Core.Int
+createClusterSnapshotResponse_httpStatus :: Lens.Lens' CreateClusterSnapshotResponse Prelude.Int
 createClusterSnapshotResponse_httpStatus = Lens.lens (\CreateClusterSnapshotResponse' {httpStatus} -> httpStatus) (\s@CreateClusterSnapshotResponse' {} a -> s {httpStatus = a} :: CreateClusterSnapshotResponse)
 
-instance Core.NFData CreateClusterSnapshotResponse
+instance Prelude.NFData CreateClusterSnapshotResponse

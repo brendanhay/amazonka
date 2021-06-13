@@ -41,15 +41,16 @@ where
 import Network.AWS.CodeBuild.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteReport' smart constructor.
 data DeleteReport = DeleteReport'
   { -- | The ARN of the report to delete.
-    arn :: Core.Text
+    arn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteReport' with all optional fields omitted.
@@ -62,12 +63,12 @@ data DeleteReport = DeleteReport'
 -- 'arn', 'deleteReport_arn' - The ARN of the report to delete.
 newDeleteReport ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteReport
 newDeleteReport pArn_ = DeleteReport' {arn = pArn_}
 
 -- | The ARN of the report to delete.
-deleteReport_arn :: Lens.Lens' DeleteReport Core.Text
+deleteReport_arn :: Lens.Lens' DeleteReport Prelude.Text
 deleteReport_arn = Lens.lens (\DeleteReport' {arn} -> arn) (\s@DeleteReport' {} a -> s {arn = a} :: DeleteReport)
 
 instance Core.AWSRequest DeleteReport where
@@ -77,43 +78,47 @@ instance Core.AWSRequest DeleteReport where
     Response.receiveEmpty
       ( \s h x ->
           DeleteReportResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteReport
+instance Prelude.Hashable DeleteReport
 
-instance Core.NFData DeleteReport
+instance Prelude.NFData DeleteReport
 
 instance Core.ToHeaders DeleteReport where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeBuild_20161006.DeleteReport" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteReport where
   toJSON DeleteReport' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("arn" Core..= arn)]
+      )
 
 instance Core.ToPath DeleteReport where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteReport where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteReportResponse' smart constructor.
 data DeleteReportResponse = DeleteReportResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteReportResponse' with all optional fields omitted.
@@ -126,13 +131,13 @@ data DeleteReportResponse = DeleteReportResponse'
 -- 'httpStatus', 'deleteReportResponse_httpStatus' - The response's http status code.
 newDeleteReportResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteReportResponse
 newDeleteReportResponse pHttpStatus_ =
   DeleteReportResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteReportResponse_httpStatus :: Lens.Lens' DeleteReportResponse Core.Int
+deleteReportResponse_httpStatus :: Lens.Lens' DeleteReportResponse Prelude.Int
 deleteReportResponse_httpStatus = Lens.lens (\DeleteReportResponse' {httpStatus} -> httpStatus) (\s@DeleteReportResponse' {} a -> s {httpStatus = a} :: DeleteReportResponse)
 
-instance Core.NFData DeleteReportResponse
+instance Prelude.NFData DeleteReportResponse

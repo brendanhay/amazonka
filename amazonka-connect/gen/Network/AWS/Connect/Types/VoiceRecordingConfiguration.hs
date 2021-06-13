@@ -22,15 +22,16 @@ module Network.AWS.Connect.Types.VoiceRecordingConfiguration where
 import Network.AWS.Connect.Types.VoiceRecordingTrack
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the recording configuration settings.
 --
 -- /See:/ 'newVoiceRecordingConfiguration' smart constructor.
 data VoiceRecordingConfiguration = VoiceRecordingConfiguration'
   { -- | Identifies which track is being recorded.
-    voiceRecordingTrack :: Core.Maybe VoiceRecordingTrack
+    voiceRecordingTrack :: Prelude.Maybe VoiceRecordingTrack
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VoiceRecordingConfiguration' with all optional fields omitted.
@@ -46,22 +47,22 @@ newVoiceRecordingConfiguration ::
 newVoiceRecordingConfiguration =
   VoiceRecordingConfiguration'
     { voiceRecordingTrack =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Identifies which track is being recorded.
-voiceRecordingConfiguration_voiceRecordingTrack :: Lens.Lens' VoiceRecordingConfiguration (Core.Maybe VoiceRecordingTrack)
+voiceRecordingConfiguration_voiceRecordingTrack :: Lens.Lens' VoiceRecordingConfiguration (Prelude.Maybe VoiceRecordingTrack)
 voiceRecordingConfiguration_voiceRecordingTrack = Lens.lens (\VoiceRecordingConfiguration' {voiceRecordingTrack} -> voiceRecordingTrack) (\s@VoiceRecordingConfiguration' {} a -> s {voiceRecordingTrack = a} :: VoiceRecordingConfiguration)
 
-instance Core.Hashable VoiceRecordingConfiguration
+instance Prelude.Hashable VoiceRecordingConfiguration
 
-instance Core.NFData VoiceRecordingConfiguration
+instance Prelude.NFData VoiceRecordingConfiguration
 
 instance Core.ToJSON VoiceRecordingConfiguration where
   toJSON VoiceRecordingConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("VoiceRecordingTrack" Core..=)
-              Core.<$> voiceRecordingTrack
+              Prelude.<$> voiceRecordingTrack
           ]
       )

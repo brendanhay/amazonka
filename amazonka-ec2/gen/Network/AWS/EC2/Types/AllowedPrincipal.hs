@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.PrincipalType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a principal.
 --
 -- /See:/ 'newAllowedPrincipal' smart constructor.
 data AllowedPrincipal = AllowedPrincipal'
   { -- | The Amazon Resource Name (ARN) of the principal.
-    principal :: Core.Maybe Core.Text,
+    principal :: Prelude.Maybe Prelude.Text,
     -- | The type of principal.
-    principalType :: Core.Maybe PrincipalType
+    principalType :: Prelude.Maybe PrincipalType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AllowedPrincipal' with all optional fields omitted.
@@ -50,24 +51,24 @@ newAllowedPrincipal ::
   AllowedPrincipal
 newAllowedPrincipal =
   AllowedPrincipal'
-    { principal = Core.Nothing,
-      principalType = Core.Nothing
+    { principal = Prelude.Nothing,
+      principalType = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the principal.
-allowedPrincipal_principal :: Lens.Lens' AllowedPrincipal (Core.Maybe Core.Text)
+allowedPrincipal_principal :: Lens.Lens' AllowedPrincipal (Prelude.Maybe Prelude.Text)
 allowedPrincipal_principal = Lens.lens (\AllowedPrincipal' {principal} -> principal) (\s@AllowedPrincipal' {} a -> s {principal = a} :: AllowedPrincipal)
 
 -- | The type of principal.
-allowedPrincipal_principalType :: Lens.Lens' AllowedPrincipal (Core.Maybe PrincipalType)
+allowedPrincipal_principalType :: Lens.Lens' AllowedPrincipal (Prelude.Maybe PrincipalType)
 allowedPrincipal_principalType = Lens.lens (\AllowedPrincipal' {principalType} -> principalType) (\s@AllowedPrincipal' {} a -> s {principalType = a} :: AllowedPrincipal)
 
 instance Core.FromXML AllowedPrincipal where
   parseXML x =
     AllowedPrincipal'
-      Core.<$> (x Core..@? "principal")
-      Core.<*> (x Core..@? "principalType")
+      Prelude.<$> (x Core..@? "principal")
+      Prelude.<*> (x Core..@? "principalType")
 
-instance Core.Hashable AllowedPrincipal
+instance Prelude.Hashable AllowedPrincipal
 
-instance Core.NFData AllowedPrincipal
+instance Prelude.NFData AllowedPrincipal

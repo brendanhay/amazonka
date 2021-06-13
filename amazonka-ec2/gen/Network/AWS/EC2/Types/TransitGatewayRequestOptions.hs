@@ -28,6 +28,7 @@ import Network.AWS.EC2.Types.DnsSupportValue
 import Network.AWS.EC2.Types.MulticastSupportValue
 import Network.AWS.EC2.Types.VpnEcmpSupportValue
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the options for a transit gateway.
 --
@@ -35,30 +36,30 @@ import qualified Network.AWS.Lens as Lens
 data TransitGatewayRequestOptions = TransitGatewayRequestOptions'
   { -- | Enable or disable Equal Cost Multipath Protocol support. Enabled by
     -- default.
-    vpnEcmpSupport :: Core.Maybe VpnEcmpSupportValue,
+    vpnEcmpSupport :: Prelude.Maybe VpnEcmpSupportValue,
     -- | Enable or disable DNS support. Enabled by default.
-    dnsSupport :: Core.Maybe DnsSupportValue,
+    dnsSupport :: Prelude.Maybe DnsSupportValue,
     -- | Enable or disable automatic acceptance of attachment requests. Disabled
     -- by default.
-    autoAcceptSharedAttachments :: Core.Maybe AutoAcceptSharedAttachmentsValue,
+    autoAcceptSharedAttachments :: Prelude.Maybe AutoAcceptSharedAttachmentsValue,
     -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP
     -- session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to
     -- 4294967294 for 32-bit ASNs. The default is @64512@.
-    amazonSideAsn :: Core.Maybe Core.Integer,
+    amazonSideAsn :: Prelude.Maybe Prelude.Integer,
     -- | One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a
     -- size \/24 CIDR block or larger for IPv4, or a size \/64 CIDR block or
     -- larger for IPv6.
-    transitGatewayCidrBlocks :: Core.Maybe [Core.Text],
+    transitGatewayCidrBlocks :: Prelude.Maybe [Prelude.Text],
     -- | Indicates whether multicast is enabled on the transit gateway
-    multicastSupport :: Core.Maybe MulticastSupportValue,
+    multicastSupport :: Prelude.Maybe MulticastSupportValue,
     -- | Enable or disable automatic association with the default association
     -- route table. Enabled by default.
-    defaultRouteTableAssociation :: Core.Maybe DefaultRouteTableAssociationValue,
+    defaultRouteTableAssociation :: Prelude.Maybe DefaultRouteTableAssociationValue,
     -- | Enable or disable automatic propagation of routes to the default
     -- propagation route table. Enabled by default.
-    defaultRouteTablePropagation :: Core.Maybe DefaultRouteTablePropagationValue
+    defaultRouteTablePropagation :: Prelude.Maybe DefaultRouteTablePropagationValue
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayRequestOptions' with all optional fields omitted.
@@ -96,63 +97,67 @@ newTransitGatewayRequestOptions ::
 newTransitGatewayRequestOptions =
   TransitGatewayRequestOptions'
     { vpnEcmpSupport =
-        Core.Nothing,
-      dnsSupport = Core.Nothing,
-      autoAcceptSharedAttachments = Core.Nothing,
-      amazonSideAsn = Core.Nothing,
-      transitGatewayCidrBlocks = Core.Nothing,
-      multicastSupport = Core.Nothing,
-      defaultRouteTableAssociation = Core.Nothing,
-      defaultRouteTablePropagation = Core.Nothing
+        Prelude.Nothing,
+      dnsSupport = Prelude.Nothing,
+      autoAcceptSharedAttachments = Prelude.Nothing,
+      amazonSideAsn = Prelude.Nothing,
+      transitGatewayCidrBlocks = Prelude.Nothing,
+      multicastSupport = Prelude.Nothing,
+      defaultRouteTableAssociation =
+        Prelude.Nothing,
+      defaultRouteTablePropagation =
+        Prelude.Nothing
     }
 
 -- | Enable or disable Equal Cost Multipath Protocol support. Enabled by
 -- default.
-transitGatewayRequestOptions_vpnEcmpSupport :: Lens.Lens' TransitGatewayRequestOptions (Core.Maybe VpnEcmpSupportValue)
+transitGatewayRequestOptions_vpnEcmpSupport :: Lens.Lens' TransitGatewayRequestOptions (Prelude.Maybe VpnEcmpSupportValue)
 transitGatewayRequestOptions_vpnEcmpSupport = Lens.lens (\TransitGatewayRequestOptions' {vpnEcmpSupport} -> vpnEcmpSupport) (\s@TransitGatewayRequestOptions' {} a -> s {vpnEcmpSupport = a} :: TransitGatewayRequestOptions)
 
 -- | Enable or disable DNS support. Enabled by default.
-transitGatewayRequestOptions_dnsSupport :: Lens.Lens' TransitGatewayRequestOptions (Core.Maybe DnsSupportValue)
+transitGatewayRequestOptions_dnsSupport :: Lens.Lens' TransitGatewayRequestOptions (Prelude.Maybe DnsSupportValue)
 transitGatewayRequestOptions_dnsSupport = Lens.lens (\TransitGatewayRequestOptions' {dnsSupport} -> dnsSupport) (\s@TransitGatewayRequestOptions' {} a -> s {dnsSupport = a} :: TransitGatewayRequestOptions)
 
 -- | Enable or disable automatic acceptance of attachment requests. Disabled
 -- by default.
-transitGatewayRequestOptions_autoAcceptSharedAttachments :: Lens.Lens' TransitGatewayRequestOptions (Core.Maybe AutoAcceptSharedAttachmentsValue)
+transitGatewayRequestOptions_autoAcceptSharedAttachments :: Lens.Lens' TransitGatewayRequestOptions (Prelude.Maybe AutoAcceptSharedAttachmentsValue)
 transitGatewayRequestOptions_autoAcceptSharedAttachments = Lens.lens (\TransitGatewayRequestOptions' {autoAcceptSharedAttachments} -> autoAcceptSharedAttachments) (\s@TransitGatewayRequestOptions' {} a -> s {autoAcceptSharedAttachments = a} :: TransitGatewayRequestOptions)
 
 -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP
 -- session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to
 -- 4294967294 for 32-bit ASNs. The default is @64512@.
-transitGatewayRequestOptions_amazonSideAsn :: Lens.Lens' TransitGatewayRequestOptions (Core.Maybe Core.Integer)
+transitGatewayRequestOptions_amazonSideAsn :: Lens.Lens' TransitGatewayRequestOptions (Prelude.Maybe Prelude.Integer)
 transitGatewayRequestOptions_amazonSideAsn = Lens.lens (\TransitGatewayRequestOptions' {amazonSideAsn} -> amazonSideAsn) (\s@TransitGatewayRequestOptions' {} a -> s {amazonSideAsn = a} :: TransitGatewayRequestOptions)
 
 -- | One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a
 -- size \/24 CIDR block or larger for IPv4, or a size \/64 CIDR block or
 -- larger for IPv6.
-transitGatewayRequestOptions_transitGatewayCidrBlocks :: Lens.Lens' TransitGatewayRequestOptions (Core.Maybe [Core.Text])
-transitGatewayRequestOptions_transitGatewayCidrBlocks = Lens.lens (\TransitGatewayRequestOptions' {transitGatewayCidrBlocks} -> transitGatewayCidrBlocks) (\s@TransitGatewayRequestOptions' {} a -> s {transitGatewayCidrBlocks = a} :: TransitGatewayRequestOptions) Core.. Lens.mapping Lens._Coerce
+transitGatewayRequestOptions_transitGatewayCidrBlocks :: Lens.Lens' TransitGatewayRequestOptions (Prelude.Maybe [Prelude.Text])
+transitGatewayRequestOptions_transitGatewayCidrBlocks = Lens.lens (\TransitGatewayRequestOptions' {transitGatewayCidrBlocks} -> transitGatewayCidrBlocks) (\s@TransitGatewayRequestOptions' {} a -> s {transitGatewayCidrBlocks = a} :: TransitGatewayRequestOptions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether multicast is enabled on the transit gateway
-transitGatewayRequestOptions_multicastSupport :: Lens.Lens' TransitGatewayRequestOptions (Core.Maybe MulticastSupportValue)
+transitGatewayRequestOptions_multicastSupport :: Lens.Lens' TransitGatewayRequestOptions (Prelude.Maybe MulticastSupportValue)
 transitGatewayRequestOptions_multicastSupport = Lens.lens (\TransitGatewayRequestOptions' {multicastSupport} -> multicastSupport) (\s@TransitGatewayRequestOptions' {} a -> s {multicastSupport = a} :: TransitGatewayRequestOptions)
 
 -- | Enable or disable automatic association with the default association
 -- route table. Enabled by default.
-transitGatewayRequestOptions_defaultRouteTableAssociation :: Lens.Lens' TransitGatewayRequestOptions (Core.Maybe DefaultRouteTableAssociationValue)
+transitGatewayRequestOptions_defaultRouteTableAssociation :: Lens.Lens' TransitGatewayRequestOptions (Prelude.Maybe DefaultRouteTableAssociationValue)
 transitGatewayRequestOptions_defaultRouteTableAssociation = Lens.lens (\TransitGatewayRequestOptions' {defaultRouteTableAssociation} -> defaultRouteTableAssociation) (\s@TransitGatewayRequestOptions' {} a -> s {defaultRouteTableAssociation = a} :: TransitGatewayRequestOptions)
 
 -- | Enable or disable automatic propagation of routes to the default
 -- propagation route table. Enabled by default.
-transitGatewayRequestOptions_defaultRouteTablePropagation :: Lens.Lens' TransitGatewayRequestOptions (Core.Maybe DefaultRouteTablePropagationValue)
+transitGatewayRequestOptions_defaultRouteTablePropagation :: Lens.Lens' TransitGatewayRequestOptions (Prelude.Maybe DefaultRouteTablePropagationValue)
 transitGatewayRequestOptions_defaultRouteTablePropagation = Lens.lens (\TransitGatewayRequestOptions' {defaultRouteTablePropagation} -> defaultRouteTablePropagation) (\s@TransitGatewayRequestOptions' {} a -> s {defaultRouteTablePropagation = a} :: TransitGatewayRequestOptions)
 
-instance Core.Hashable TransitGatewayRequestOptions
+instance
+  Prelude.Hashable
+    TransitGatewayRequestOptions
 
-instance Core.NFData TransitGatewayRequestOptions
+instance Prelude.NFData TransitGatewayRequestOptions
 
 instance Core.ToQuery TransitGatewayRequestOptions where
   toQuery TransitGatewayRequestOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "VpnEcmpSupport" Core.=: vpnEcmpSupport,
         "DnsSupport" Core.=: dnsSupport,
         "AutoAcceptSharedAttachments"
@@ -160,7 +165,7 @@ instance Core.ToQuery TransitGatewayRequestOptions where
         "AmazonSideAsn" Core.=: amazonSideAsn,
         Core.toQuery
           ( Core.toQueryList "TransitGatewayCidrBlocks"
-              Core.<$> transitGatewayCidrBlocks
+              Prelude.<$> transitGatewayCidrBlocks
           ),
         "MulticastSupport" Core.=: multicastSupport,
         "DefaultRouteTableAssociation"

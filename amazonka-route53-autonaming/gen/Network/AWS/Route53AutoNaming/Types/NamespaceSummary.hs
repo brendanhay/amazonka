@@ -21,6 +21,7 @@ module Network.AWS.Route53AutoNaming.Types.NamespaceSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53AutoNaming.Types.NamespaceProperties
 import Network.AWS.Route53AutoNaming.Types.NamespaceType
 
@@ -29,25 +30,25 @@ import Network.AWS.Route53AutoNaming.Types.NamespaceType
 -- /See:/ 'newNamespaceSummary' smart constructor.
 data NamespaceSummary = NamespaceSummary'
   { -- | The date and time that the namespace was created.
-    createDate :: Core.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the
     -- namespace when you create it.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the namespace.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the namespace. When you create a namespace, AWS Cloud Map
     -- automatically creates a Route 53 hosted zone that has the same name as
     -- the namespace.
-    name :: Core.Maybe Core.Text,
-    properties :: Core.Maybe NamespaceProperties,
+    name :: Prelude.Maybe Prelude.Text,
+    properties :: Prelude.Maybe NamespaceProperties,
     -- | The number of services that were created using the namespace.
-    serviceCount :: Core.Maybe Core.Int,
+    serviceCount :: Prelude.Maybe Prelude.Int,
     -- | A description for the namespace.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The type of the namespace, either public or private.
-    type' :: Core.Maybe NamespaceType
+    type' :: Prelude.Maybe NamespaceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NamespaceSummary' with all optional fields omitted.
@@ -79,49 +80,49 @@ newNamespaceSummary ::
   NamespaceSummary
 newNamespaceSummary =
   NamespaceSummary'
-    { createDate = Core.Nothing,
-      arn = Core.Nothing,
-      id = Core.Nothing,
-      name = Core.Nothing,
-      properties = Core.Nothing,
-      serviceCount = Core.Nothing,
-      description = Core.Nothing,
-      type' = Core.Nothing
+    { createDate = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
+      properties = Prelude.Nothing,
+      serviceCount = Prelude.Nothing,
+      description = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The date and time that the namespace was created.
-namespaceSummary_createDate :: Lens.Lens' NamespaceSummary (Core.Maybe Core.UTCTime)
-namespaceSummary_createDate = Lens.lens (\NamespaceSummary' {createDate} -> createDate) (\s@NamespaceSummary' {} a -> s {createDate = a} :: NamespaceSummary) Core.. Lens.mapping Core._Time
+namespaceSummary_createDate :: Lens.Lens' NamespaceSummary (Prelude.Maybe Prelude.UTCTime)
+namespaceSummary_createDate = Lens.lens (\NamespaceSummary' {createDate} -> createDate) (\s@NamespaceSummary' {} a -> s {createDate = a} :: NamespaceSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the
 -- namespace when you create it.
-namespaceSummary_arn :: Lens.Lens' NamespaceSummary (Core.Maybe Core.Text)
+namespaceSummary_arn :: Lens.Lens' NamespaceSummary (Prelude.Maybe Prelude.Text)
 namespaceSummary_arn = Lens.lens (\NamespaceSummary' {arn} -> arn) (\s@NamespaceSummary' {} a -> s {arn = a} :: NamespaceSummary)
 
 -- | The ID of the namespace.
-namespaceSummary_id :: Lens.Lens' NamespaceSummary (Core.Maybe Core.Text)
+namespaceSummary_id :: Lens.Lens' NamespaceSummary (Prelude.Maybe Prelude.Text)
 namespaceSummary_id = Lens.lens (\NamespaceSummary' {id} -> id) (\s@NamespaceSummary' {} a -> s {id = a} :: NamespaceSummary)
 
 -- | The name of the namespace. When you create a namespace, AWS Cloud Map
 -- automatically creates a Route 53 hosted zone that has the same name as
 -- the namespace.
-namespaceSummary_name :: Lens.Lens' NamespaceSummary (Core.Maybe Core.Text)
+namespaceSummary_name :: Lens.Lens' NamespaceSummary (Prelude.Maybe Prelude.Text)
 namespaceSummary_name = Lens.lens (\NamespaceSummary' {name} -> name) (\s@NamespaceSummary' {} a -> s {name = a} :: NamespaceSummary)
 
 -- | Undocumented member.
-namespaceSummary_properties :: Lens.Lens' NamespaceSummary (Core.Maybe NamespaceProperties)
+namespaceSummary_properties :: Lens.Lens' NamespaceSummary (Prelude.Maybe NamespaceProperties)
 namespaceSummary_properties = Lens.lens (\NamespaceSummary' {properties} -> properties) (\s@NamespaceSummary' {} a -> s {properties = a} :: NamespaceSummary)
 
 -- | The number of services that were created using the namespace.
-namespaceSummary_serviceCount :: Lens.Lens' NamespaceSummary (Core.Maybe Core.Int)
+namespaceSummary_serviceCount :: Lens.Lens' NamespaceSummary (Prelude.Maybe Prelude.Int)
 namespaceSummary_serviceCount = Lens.lens (\NamespaceSummary' {serviceCount} -> serviceCount) (\s@NamespaceSummary' {} a -> s {serviceCount = a} :: NamespaceSummary)
 
 -- | A description for the namespace.
-namespaceSummary_description :: Lens.Lens' NamespaceSummary (Core.Maybe Core.Text)
+namespaceSummary_description :: Lens.Lens' NamespaceSummary (Prelude.Maybe Prelude.Text)
 namespaceSummary_description = Lens.lens (\NamespaceSummary' {description} -> description) (\s@NamespaceSummary' {} a -> s {description = a} :: NamespaceSummary)
 
 -- | The type of the namespace, either public or private.
-namespaceSummary_type :: Lens.Lens' NamespaceSummary (Core.Maybe NamespaceType)
+namespaceSummary_type :: Lens.Lens' NamespaceSummary (Prelude.Maybe NamespaceType)
 namespaceSummary_type = Lens.lens (\NamespaceSummary' {type'} -> type') (\s@NamespaceSummary' {} a -> s {type' = a} :: NamespaceSummary)
 
 instance Core.FromJSON NamespaceSummary where
@@ -130,16 +131,16 @@ instance Core.FromJSON NamespaceSummary where
       "NamespaceSummary"
       ( \x ->
           NamespaceSummary'
-            Core.<$> (x Core..:? "CreateDate")
-            Core.<*> (x Core..:? "Arn")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "Properties")
-            Core.<*> (x Core..:? "ServiceCount")
-            Core.<*> (x Core..:? "Description")
-            Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "CreateDate")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Properties")
+            Prelude.<*> (x Core..:? "ServiceCount")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable NamespaceSummary
+instance Prelude.Hashable NamespaceSummary
 
-instance Core.NFData NamespaceSummary
+instance Prelude.NFData NamespaceSummary

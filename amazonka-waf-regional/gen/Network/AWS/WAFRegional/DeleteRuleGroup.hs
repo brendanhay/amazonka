@@ -67,6 +67,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -75,11 +76,11 @@ import Network.AWS.WAFRegional.Types
 data DeleteRuleGroup = DeleteRuleGroup'
   { -- | The @RuleGroupId@ of the RuleGroup that you want to delete.
     -- @RuleGroupId@ is returned by CreateRuleGroup and by ListRuleGroups.
-    ruleGroupId :: Core.Text,
+    ruleGroupId :: Prelude.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text
+    changeToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRuleGroup' with all optional fields omitted.
@@ -95,9 +96,9 @@ data DeleteRuleGroup = DeleteRuleGroup'
 -- 'changeToken', 'deleteRuleGroup_changeToken' - The value returned by the most recent call to GetChangeToken.
 newDeleteRuleGroup ::
   -- | 'ruleGroupId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRuleGroup
 newDeleteRuleGroup pRuleGroupId_ pChangeToken_ =
   DeleteRuleGroup'
@@ -107,11 +108,11 @@ newDeleteRuleGroup pRuleGroupId_ pChangeToken_ =
 
 -- | The @RuleGroupId@ of the RuleGroup that you want to delete.
 -- @RuleGroupId@ is returned by CreateRuleGroup and by ListRuleGroups.
-deleteRuleGroup_ruleGroupId :: Lens.Lens' DeleteRuleGroup Core.Text
+deleteRuleGroup_ruleGroupId :: Lens.Lens' DeleteRuleGroup Prelude.Text
 deleteRuleGroup_ruleGroupId = Lens.lens (\DeleteRuleGroup' {ruleGroupId} -> ruleGroupId) (\s@DeleteRuleGroup' {} a -> s {ruleGroupId = a} :: DeleteRuleGroup)
 
 -- | The value returned by the most recent call to GetChangeToken.
-deleteRuleGroup_changeToken :: Lens.Lens' DeleteRuleGroup Core.Text
+deleteRuleGroup_changeToken :: Lens.Lens' DeleteRuleGroup Prelude.Text
 deleteRuleGroup_changeToken = Lens.lens (\DeleteRuleGroup' {changeToken} -> changeToken) (\s@DeleteRuleGroup' {} a -> s {changeToken = a} :: DeleteRuleGroup)
 
 instance Core.AWSRequest DeleteRuleGroup where
@@ -123,52 +124,54 @@ instance Core.AWSRequest DeleteRuleGroup where
     Response.receiveJSON
       ( \s h x ->
           DeleteRuleGroupResponse'
-            Core.<$> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteRuleGroup
+instance Prelude.Hashable DeleteRuleGroup
 
-instance Core.NFData DeleteRuleGroup
+instance Prelude.NFData DeleteRuleGroup
 
 instance Core.ToHeaders DeleteRuleGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.DeleteRuleGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteRuleGroup where
   toJSON DeleteRuleGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("RuleGroupId" Core..= ruleGroupId),
-            Core.Just ("ChangeToken" Core..= changeToken)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("RuleGroupId" Core..= ruleGroupId),
+            Prelude.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
 instance Core.ToPath DeleteRuleGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteRuleGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRuleGroupResponse' smart constructor.
 data DeleteRuleGroupResponse = DeleteRuleGroupResponse'
   { -- | The @ChangeToken@ that you used to submit the @DeleteRuleGroup@ request.
     -- You can also use this value to query the status of the request. For more
     -- information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRuleGroupResponse' with all optional fields omitted.
@@ -185,23 +188,23 @@ data DeleteRuleGroupResponse = DeleteRuleGroupResponse'
 -- 'httpStatus', 'deleteRuleGroupResponse_httpStatus' - The response's http status code.
 newDeleteRuleGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteRuleGroupResponse
 newDeleteRuleGroupResponse pHttpStatus_ =
   DeleteRuleGroupResponse'
     { changeToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @DeleteRuleGroup@ request.
 -- You can also use this value to query the status of the request. For more
 -- information, see GetChangeTokenStatus.
-deleteRuleGroupResponse_changeToken :: Lens.Lens' DeleteRuleGroupResponse (Core.Maybe Core.Text)
+deleteRuleGroupResponse_changeToken :: Lens.Lens' DeleteRuleGroupResponse (Prelude.Maybe Prelude.Text)
 deleteRuleGroupResponse_changeToken = Lens.lens (\DeleteRuleGroupResponse' {changeToken} -> changeToken) (\s@DeleteRuleGroupResponse' {} a -> s {changeToken = a} :: DeleteRuleGroupResponse)
 
 -- | The response's http status code.
-deleteRuleGroupResponse_httpStatus :: Lens.Lens' DeleteRuleGroupResponse Core.Int
+deleteRuleGroupResponse_httpStatus :: Lens.Lens' DeleteRuleGroupResponse Prelude.Int
 deleteRuleGroupResponse_httpStatus = Lens.lens (\DeleteRuleGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteRuleGroupResponse' {} a -> s {httpStatus = a} :: DeleteRuleGroupResponse)
 
-instance Core.NFData DeleteRuleGroupResponse
+instance Prelude.NFData DeleteRuleGroupResponse

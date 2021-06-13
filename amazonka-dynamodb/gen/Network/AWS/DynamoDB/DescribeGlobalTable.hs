@@ -50,15 +50,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeGlobalTable' smart constructor.
 data DescribeGlobalTable = DescribeGlobalTable'
   { -- | The name of the global table.
-    globalTableName :: Core.Text
+    globalTableName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeGlobalTable' with all optional fields omitted.
@@ -71,7 +72,7 @@ data DescribeGlobalTable = DescribeGlobalTable'
 -- 'globalTableName', 'describeGlobalTable_globalTableName' - The name of the global table.
 newDescribeGlobalTable ::
   -- | 'globalTableName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeGlobalTable
 newDescribeGlobalTable pGlobalTableName_ =
   DescribeGlobalTable'
@@ -80,7 +81,7 @@ newDescribeGlobalTable pGlobalTableName_ =
     }
 
 -- | The name of the global table.
-describeGlobalTable_globalTableName :: Lens.Lens' DescribeGlobalTable Core.Text
+describeGlobalTable_globalTableName :: Lens.Lens' DescribeGlobalTable Prelude.Text
 describeGlobalTable_globalTableName = Lens.lens (\DescribeGlobalTable' {globalTableName} -> globalTableName) (\s@DescribeGlobalTable' {} a -> s {globalTableName = a} :: DescribeGlobalTable)
 
 instance Core.AWSRequest DescribeGlobalTable where
@@ -92,50 +93,52 @@ instance Core.AWSRequest DescribeGlobalTable where
     Response.receiveJSON
       ( \s h x ->
           DescribeGlobalTableResponse'
-            Core.<$> (x Core..?> "GlobalTableDescription")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GlobalTableDescription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeGlobalTable
+instance Prelude.Hashable DescribeGlobalTable
 
-instance Core.NFData DescribeGlobalTable
+instance Prelude.NFData DescribeGlobalTable
 
 instance Core.ToHeaders DescribeGlobalTable where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DynamoDB_20120810.DescribeGlobalTable" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeGlobalTable where
   toJSON DescribeGlobalTable' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("GlobalTableName" Core..= globalTableName)
           ]
       )
 
 instance Core.ToPath DescribeGlobalTable where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeGlobalTable where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeGlobalTableResponse' smart constructor.
 data DescribeGlobalTableResponse = DescribeGlobalTableResponse'
   { -- | Contains the details of the global table.
-    globalTableDescription :: Core.Maybe GlobalTableDescription,
+    globalTableDescription :: Prelude.Maybe GlobalTableDescription,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeGlobalTableResponse' with all optional fields omitted.
@@ -150,21 +153,21 @@ data DescribeGlobalTableResponse = DescribeGlobalTableResponse'
 -- 'httpStatus', 'describeGlobalTableResponse_httpStatus' - The response's http status code.
 newDescribeGlobalTableResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeGlobalTableResponse
 newDescribeGlobalTableResponse pHttpStatus_ =
   DescribeGlobalTableResponse'
     { globalTableDescription =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains the details of the global table.
-describeGlobalTableResponse_globalTableDescription :: Lens.Lens' DescribeGlobalTableResponse (Core.Maybe GlobalTableDescription)
+describeGlobalTableResponse_globalTableDescription :: Lens.Lens' DescribeGlobalTableResponse (Prelude.Maybe GlobalTableDescription)
 describeGlobalTableResponse_globalTableDescription = Lens.lens (\DescribeGlobalTableResponse' {globalTableDescription} -> globalTableDescription) (\s@DescribeGlobalTableResponse' {} a -> s {globalTableDescription = a} :: DescribeGlobalTableResponse)
 
 -- | The response's http status code.
-describeGlobalTableResponse_httpStatus :: Lens.Lens' DescribeGlobalTableResponse Core.Int
+describeGlobalTableResponse_httpStatus :: Lens.Lens' DescribeGlobalTableResponse Prelude.Int
 describeGlobalTableResponse_httpStatus = Lens.lens (\DescribeGlobalTableResponse' {httpStatus} -> httpStatus) (\s@DescribeGlobalTableResponse' {} a -> s {httpStatus = a} :: DescribeGlobalTableResponse)
 
-instance Core.NFData DescribeGlobalTableResponse
+instance Prelude.NFData DescribeGlobalTableResponse

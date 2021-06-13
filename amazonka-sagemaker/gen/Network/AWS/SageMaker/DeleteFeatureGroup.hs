@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -51,9 +52,9 @@ import Network.AWS.SageMaker.Types
 data DeleteFeatureGroup = DeleteFeatureGroup'
   { -- | The name of the @FeatureGroup@ you want to delete. The name must be
     -- unique within an AWS Region in an AWS account.
-    featureGroupName :: Core.Text
+    featureGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFeatureGroup' with all optional fields omitted.
@@ -67,7 +68,7 @@ data DeleteFeatureGroup = DeleteFeatureGroup'
 -- unique within an AWS Region in an AWS account.
 newDeleteFeatureGroup ::
   -- | 'featureGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteFeatureGroup
 newDeleteFeatureGroup pFeatureGroupName_ =
   DeleteFeatureGroup'
@@ -77,7 +78,7 @@ newDeleteFeatureGroup pFeatureGroupName_ =
 
 -- | The name of the @FeatureGroup@ you want to delete. The name must be
 -- unique within an AWS Region in an AWS account.
-deleteFeatureGroup_featureGroupName :: Lens.Lens' DeleteFeatureGroup Core.Text
+deleteFeatureGroup_featureGroupName :: Lens.Lens' DeleteFeatureGroup Prelude.Text
 deleteFeatureGroup_featureGroupName = Lens.lens (\DeleteFeatureGroup' {featureGroupName} -> featureGroupName) (\s@DeleteFeatureGroup' {} a -> s {featureGroupName = a} :: DeleteFeatureGroup)
 
 instance Core.AWSRequest DeleteFeatureGroup where
@@ -88,41 +89,45 @@ instance Core.AWSRequest DeleteFeatureGroup where
   response =
     Response.receiveNull DeleteFeatureGroupResponse'
 
-instance Core.Hashable DeleteFeatureGroup
+instance Prelude.Hashable DeleteFeatureGroup
 
-instance Core.NFData DeleteFeatureGroup
+instance Prelude.NFData DeleteFeatureGroup
 
 instance Core.ToHeaders DeleteFeatureGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteFeatureGroup" :: Core.ByteString),
+              Core.=# ( "SageMaker.DeleteFeatureGroup" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteFeatureGroup where
   toJSON DeleteFeatureGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("FeatureGroupName" Core..= featureGroupName)
           ]
       )
 
 instance Core.ToPath DeleteFeatureGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteFeatureGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFeatureGroupResponse' smart constructor.
 data DeleteFeatureGroupResponse = DeleteFeatureGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFeatureGroupResponse' with all optional fields omitted.
@@ -133,4 +138,4 @@ newDeleteFeatureGroupResponse ::
 newDeleteFeatureGroupResponse =
   DeleteFeatureGroupResponse'
 
-instance Core.NFData DeleteFeatureGroupResponse
+instance Prelude.NFData DeleteFeatureGroupResponse

@@ -21,15 +21,16 @@ module Network.AWS.Snowball.Types.WirelessConnection where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configures the wireless connection on an AWS Snowcone device.
 --
 -- /See:/ 'newWirelessConnection' smart constructor.
 data WirelessConnection = WirelessConnection'
   { -- | Enables the Wi-Fi adapter on an AWS Snowcone device.
-    isWifiEnabled :: Core.Maybe Core.Bool
+    isWifiEnabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WirelessConnection' with all optional fields omitted.
@@ -43,10 +44,13 @@ data WirelessConnection = WirelessConnection'
 newWirelessConnection ::
   WirelessConnection
 newWirelessConnection =
-  WirelessConnection' {isWifiEnabled = Core.Nothing}
+  WirelessConnection'
+    { isWifiEnabled =
+        Prelude.Nothing
+    }
 
 -- | Enables the Wi-Fi adapter on an AWS Snowcone device.
-wirelessConnection_isWifiEnabled :: Lens.Lens' WirelessConnection (Core.Maybe Core.Bool)
+wirelessConnection_isWifiEnabled :: Lens.Lens' WirelessConnection (Prelude.Maybe Prelude.Bool)
 wirelessConnection_isWifiEnabled = Lens.lens (\WirelessConnection' {isWifiEnabled} -> isWifiEnabled) (\s@WirelessConnection' {} a -> s {isWifiEnabled = a} :: WirelessConnection)
 
 instance Core.FromJSON WirelessConnection where
@@ -55,16 +59,18 @@ instance Core.FromJSON WirelessConnection where
       "WirelessConnection"
       ( \x ->
           WirelessConnection'
-            Core.<$> (x Core..:? "IsWifiEnabled")
+            Prelude.<$> (x Core..:? "IsWifiEnabled")
       )
 
-instance Core.Hashable WirelessConnection
+instance Prelude.Hashable WirelessConnection
 
-instance Core.NFData WirelessConnection
+instance Prelude.NFData WirelessConnection
 
 instance Core.ToJSON WirelessConnection where
   toJSON WirelessConnection' {..} =
     Core.object
-      ( Core.catMaybes
-          [("IsWifiEnabled" Core..=) Core.<$> isWifiEnabled]
+      ( Prelude.catMaybes
+          [ ("IsWifiEnabled" Core..=)
+              Prelude.<$> isWifiEnabled
+          ]
       )

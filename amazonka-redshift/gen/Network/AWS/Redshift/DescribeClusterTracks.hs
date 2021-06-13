@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -53,18 +54,18 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDescribeClusterTracks' smart constructor.
 data DescribeClusterTracks = DescribeClusterTracks'
   { -- | The name of the maintenance track.
-    maintenanceTrackName :: Core.Maybe Core.Text,
+    maintenanceTrackName :: Prelude.Maybe Prelude.Text,
     -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a @DescribeClusterTracks@
     -- request exceed the value specified in @MaxRecords@, Amazon Redshift
     -- returns a value in the @Marker@ field of the response. You can retrieve
     -- the next set of response records by providing the returned marker value
     -- in the @Marker@ parameter and retrying the request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | An integer value for the maximum number of maintenance tracks to return.
-    maxRecords :: Core.Maybe Core.Int
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeClusterTracks' with all optional fields omitted.
@@ -89,13 +90,13 @@ newDescribeClusterTracks ::
 newDescribeClusterTracks =
   DescribeClusterTracks'
     { maintenanceTrackName =
-        Core.Nothing,
-      marker = Core.Nothing,
-      maxRecords = Core.Nothing
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | The name of the maintenance track.
-describeClusterTracks_maintenanceTrackName :: Lens.Lens' DescribeClusterTracks (Core.Maybe Core.Text)
+describeClusterTracks_maintenanceTrackName :: Lens.Lens' DescribeClusterTracks (Prelude.Maybe Prelude.Text)
 describeClusterTracks_maintenanceTrackName = Lens.lens (\DescribeClusterTracks' {maintenanceTrackName} -> maintenanceTrackName) (\s@DescribeClusterTracks' {} a -> s {maintenanceTrackName = a} :: DescribeClusterTracks)
 
 -- | An optional parameter that specifies the starting point to return a set
@@ -104,11 +105,11 @@ describeClusterTracks_maintenanceTrackName = Lens.lens (\DescribeClusterTracks' 
 -- returns a value in the @Marker@ field of the response. You can retrieve
 -- the next set of response records by providing the returned marker value
 -- in the @Marker@ parameter and retrying the request.
-describeClusterTracks_marker :: Lens.Lens' DescribeClusterTracks (Core.Maybe Core.Text)
+describeClusterTracks_marker :: Lens.Lens' DescribeClusterTracks (Prelude.Maybe Prelude.Text)
 describeClusterTracks_marker = Lens.lens (\DescribeClusterTracks' {marker} -> marker) (\s@DescribeClusterTracks' {} a -> s {marker = a} :: DescribeClusterTracks)
 
 -- | An integer value for the maximum number of maintenance tracks to return.
-describeClusterTracks_maxRecords :: Lens.Lens' DescribeClusterTracks (Core.Maybe Core.Int)
+describeClusterTracks_maxRecords :: Lens.Lens' DescribeClusterTracks (Prelude.Maybe Prelude.Int)
 describeClusterTracks_maxRecords = Lens.lens (\DescribeClusterTracks' {maxRecords} -> maxRecords) (\s@DescribeClusterTracks' {} a -> s {maxRecords = a} :: DescribeClusterTracks)
 
 instance Core.AWSPager DescribeClusterTracks where
@@ -116,22 +117,22 @@ instance Core.AWSPager DescribeClusterTracks where
     | Core.stop
         ( rs
             Lens.^? describeClusterTracksResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeClusterTracksResponse_maintenanceTracks
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeClusterTracks_marker
+          Prelude.& describeClusterTracks_marker
           Lens..~ rs
           Lens.^? describeClusterTracksResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClusterTracks where
   type
@@ -143,29 +144,31 @@ instance Core.AWSRequest DescribeClusterTracks where
       "DescribeClusterTracksResult"
       ( \s h x ->
           DescribeClusterTracksResponse'
-            Core.<$> ( x Core..@? "MaintenanceTracks" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "MaintenanceTrack")
-                     )
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "MaintenanceTracks"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "MaintenanceTrack")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeClusterTracks
+instance Prelude.Hashable DescribeClusterTracks
 
-instance Core.NFData DescribeClusterTracks
+instance Prelude.NFData DescribeClusterTracks
 
 instance Core.ToHeaders DescribeClusterTracks where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeClusterTracks where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeClusterTracks where
   toQuery DescribeClusterTracks' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeClusterTracks" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("DescribeClusterTracks" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "MaintenanceTrackName" Core.=: maintenanceTrackName,
         "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords
@@ -175,15 +178,15 @@ instance Core.ToQuery DescribeClusterTracks where
 data DescribeClusterTracksResponse = DescribeClusterTracksResponse'
   { -- | A list of maintenance tracks output by the @DescribeClusterTracks@
     -- operation.
-    maintenanceTracks :: Core.Maybe [MaintenanceTrack],
+    maintenanceTracks :: Prelude.Maybe [MaintenanceTrack],
     -- | The starting point to return a set of response tracklist records. You
     -- can retrieve the next set of response records by providing the returned
     -- marker value in the @Marker@ parameter and retrying the request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeClusterTracksResponse' with all optional fields omitted.
@@ -203,29 +206,29 @@ data DescribeClusterTracksResponse = DescribeClusterTracksResponse'
 -- 'httpStatus', 'describeClusterTracksResponse_httpStatus' - The response's http status code.
 newDescribeClusterTracksResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeClusterTracksResponse
 newDescribeClusterTracksResponse pHttpStatus_ =
   DescribeClusterTracksResponse'
     { maintenanceTracks =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of maintenance tracks output by the @DescribeClusterTracks@
 -- operation.
-describeClusterTracksResponse_maintenanceTracks :: Lens.Lens' DescribeClusterTracksResponse (Core.Maybe [MaintenanceTrack])
-describeClusterTracksResponse_maintenanceTracks = Lens.lens (\DescribeClusterTracksResponse' {maintenanceTracks} -> maintenanceTracks) (\s@DescribeClusterTracksResponse' {} a -> s {maintenanceTracks = a} :: DescribeClusterTracksResponse) Core.. Lens.mapping Lens._Coerce
+describeClusterTracksResponse_maintenanceTracks :: Lens.Lens' DescribeClusterTracksResponse (Prelude.Maybe [MaintenanceTrack])
+describeClusterTracksResponse_maintenanceTracks = Lens.lens (\DescribeClusterTracksResponse' {maintenanceTracks} -> maintenanceTracks) (\s@DescribeClusterTracksResponse' {} a -> s {maintenanceTracks = a} :: DescribeClusterTracksResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The starting point to return a set of response tracklist records. You
 -- can retrieve the next set of response records by providing the returned
 -- marker value in the @Marker@ parameter and retrying the request.
-describeClusterTracksResponse_marker :: Lens.Lens' DescribeClusterTracksResponse (Core.Maybe Core.Text)
+describeClusterTracksResponse_marker :: Lens.Lens' DescribeClusterTracksResponse (Prelude.Maybe Prelude.Text)
 describeClusterTracksResponse_marker = Lens.lens (\DescribeClusterTracksResponse' {marker} -> marker) (\s@DescribeClusterTracksResponse' {} a -> s {marker = a} :: DescribeClusterTracksResponse)
 
 -- | The response's http status code.
-describeClusterTracksResponse_httpStatus :: Lens.Lens' DescribeClusterTracksResponse Core.Int
+describeClusterTracksResponse_httpStatus :: Lens.Lens' DescribeClusterTracksResponse Prelude.Int
 describeClusterTracksResponse_httpStatus = Lens.lens (\DescribeClusterTracksResponse' {httpStatus} -> httpStatus) (\s@DescribeClusterTracksResponse' {} a -> s {httpStatus = a} :: DescribeClusterTracksResponse)
 
-instance Core.NFData DescribeClusterTracksResponse
+instance Prelude.NFData DescribeClusterTracksResponse

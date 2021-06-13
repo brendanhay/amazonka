@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,12 +60,12 @@ data StartImageScan = StartImageScan'
   { -- | The AWS account ID associated with the registry that contains the
     -- repository in which to start an image scan request. If you do not
     -- specify a registry, the default registry is assumed.
-    registryId :: Core.Maybe Core.Text,
+    registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository that contains the images to scan.
-    repositoryName :: Core.Text,
+    repositoryName :: Prelude.Text,
     imageId :: ImageIdentifier
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartImageScan' with all optional fields omitted.
@@ -83,13 +84,13 @@ data StartImageScan = StartImageScan'
 -- 'imageId', 'startImageScan_imageId' - Undocumented member.
 newStartImageScan ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'imageId'
   ImageIdentifier ->
   StartImageScan
 newStartImageScan pRepositoryName_ pImageId_ =
   StartImageScan'
-    { registryId = Core.Nothing,
+    { registryId = Prelude.Nothing,
       repositoryName = pRepositoryName_,
       imageId = pImageId_
     }
@@ -97,11 +98,11 @@ newStartImageScan pRepositoryName_ pImageId_ =
 -- | The AWS account ID associated with the registry that contains the
 -- repository in which to start an image scan request. If you do not
 -- specify a registry, the default registry is assumed.
-startImageScan_registryId :: Lens.Lens' StartImageScan (Core.Maybe Core.Text)
+startImageScan_registryId :: Lens.Lens' StartImageScan (Prelude.Maybe Prelude.Text)
 startImageScan_registryId = Lens.lens (\StartImageScan' {registryId} -> registryId) (\s@StartImageScan' {} a -> s {registryId = a} :: StartImageScan)
 
 -- | The name of the repository that contains the images to scan.
-startImageScan_repositoryName :: Lens.Lens' StartImageScan Core.Text
+startImageScan_repositoryName :: Lens.Lens' StartImageScan Prelude.Text
 startImageScan_repositoryName = Lens.lens (\StartImageScan' {repositoryName} -> repositoryName) (\s@StartImageScan' {} a -> s {repositoryName = a} :: StartImageScan)
 
 -- | Undocumented member.
@@ -117,59 +118,62 @@ instance Core.AWSRequest StartImageScan where
     Response.receiveJSON
       ( \s h x ->
           StartImageScanResponse'
-            Core.<$> (x Core..?> "imageScanStatus")
-            Core.<*> (x Core..?> "registryId")
-            Core.<*> (x Core..?> "repositoryName")
-            Core.<*> (x Core..?> "imageId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "imageScanStatus")
+            Prelude.<*> (x Core..?> "registryId")
+            Prelude.<*> (x Core..?> "repositoryName")
+            Prelude.<*> (x Core..?> "imageId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartImageScan
+instance Prelude.Hashable StartImageScan
 
-instance Core.NFData StartImageScan
+instance Prelude.NFData StartImageScan
 
 instance Core.ToHeaders StartImageScan where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerRegistry_V20150921.StartImageScan" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartImageScan where
   toJSON StartImageScan' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("registryId" Core..=) Core.<$> registryId,
-            Core.Just ("repositoryName" Core..= repositoryName),
-            Core.Just ("imageId" Core..= imageId)
+      ( Prelude.catMaybes
+          [ ("registryId" Core..=) Prelude.<$> registryId,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName),
+            Prelude.Just ("imageId" Core..= imageId)
           ]
       )
 
 instance Core.ToPath StartImageScan where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartImageScan where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartImageScanResponse' smart constructor.
 data StartImageScanResponse = StartImageScanResponse'
   { -- | The current state of the scan.
-    imageScanStatus :: Core.Maybe ImageScanStatus,
+    imageScanStatus :: Prelude.Maybe ImageScanStatus,
     -- | The registry ID associated with the request.
-    registryId :: Core.Maybe Core.Text,
+    registryId :: Prelude.Maybe Prelude.Text,
     -- | The repository name associated with the request.
-    repositoryName :: Core.Maybe Core.Text,
-    imageId :: Core.Maybe ImageIdentifier,
+    repositoryName :: Prelude.Maybe Prelude.Text,
+    imageId :: Prelude.Maybe ImageIdentifier,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartImageScanResponse' with all optional fields omitted.
@@ -190,36 +194,36 @@ data StartImageScanResponse = StartImageScanResponse'
 -- 'httpStatus', 'startImageScanResponse_httpStatus' - The response's http status code.
 newStartImageScanResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartImageScanResponse
 newStartImageScanResponse pHttpStatus_ =
   StartImageScanResponse'
     { imageScanStatus =
-        Core.Nothing,
-      registryId = Core.Nothing,
-      repositoryName = Core.Nothing,
-      imageId = Core.Nothing,
+        Prelude.Nothing,
+      registryId = Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
+      imageId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current state of the scan.
-startImageScanResponse_imageScanStatus :: Lens.Lens' StartImageScanResponse (Core.Maybe ImageScanStatus)
+startImageScanResponse_imageScanStatus :: Lens.Lens' StartImageScanResponse (Prelude.Maybe ImageScanStatus)
 startImageScanResponse_imageScanStatus = Lens.lens (\StartImageScanResponse' {imageScanStatus} -> imageScanStatus) (\s@StartImageScanResponse' {} a -> s {imageScanStatus = a} :: StartImageScanResponse)
 
 -- | The registry ID associated with the request.
-startImageScanResponse_registryId :: Lens.Lens' StartImageScanResponse (Core.Maybe Core.Text)
+startImageScanResponse_registryId :: Lens.Lens' StartImageScanResponse (Prelude.Maybe Prelude.Text)
 startImageScanResponse_registryId = Lens.lens (\StartImageScanResponse' {registryId} -> registryId) (\s@StartImageScanResponse' {} a -> s {registryId = a} :: StartImageScanResponse)
 
 -- | The repository name associated with the request.
-startImageScanResponse_repositoryName :: Lens.Lens' StartImageScanResponse (Core.Maybe Core.Text)
+startImageScanResponse_repositoryName :: Lens.Lens' StartImageScanResponse (Prelude.Maybe Prelude.Text)
 startImageScanResponse_repositoryName = Lens.lens (\StartImageScanResponse' {repositoryName} -> repositoryName) (\s@StartImageScanResponse' {} a -> s {repositoryName = a} :: StartImageScanResponse)
 
 -- | Undocumented member.
-startImageScanResponse_imageId :: Lens.Lens' StartImageScanResponse (Core.Maybe ImageIdentifier)
+startImageScanResponse_imageId :: Lens.Lens' StartImageScanResponse (Prelude.Maybe ImageIdentifier)
 startImageScanResponse_imageId = Lens.lens (\StartImageScanResponse' {imageId} -> imageId) (\s@StartImageScanResponse' {} a -> s {imageId = a} :: StartImageScanResponse)
 
 -- | The response's http status code.
-startImageScanResponse_httpStatus :: Lens.Lens' StartImageScanResponse Core.Int
+startImageScanResponse_httpStatus :: Lens.Lens' StartImageScanResponse Prelude.Int
 startImageScanResponse_httpStatus = Lens.lens (\StartImageScanResponse' {httpStatus} -> httpStatus) (\s@StartImageScanResponse' {} a -> s {httpStatus = a} :: StartImageScanResponse)
 
-instance Core.NFData StartImageScanResponse
+instance Prelude.NFData StartImageScanResponse

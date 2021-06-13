@@ -43,6 +43,7 @@ where
 import Network.AWS.CloudWatch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +52,9 @@ data DisableInsightRules = DisableInsightRules'
   { -- | An array of the rule names to disable. If you need to find out the names
     -- of your rules, use
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules>.
-    ruleNames :: [Core.Text]
+    ruleNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableInsightRules' with all optional fields omitted.
@@ -69,13 +70,13 @@ data DisableInsightRules = DisableInsightRules'
 newDisableInsightRules ::
   DisableInsightRules
 newDisableInsightRules =
-  DisableInsightRules' {ruleNames = Core.mempty}
+  DisableInsightRules' {ruleNames = Prelude.mempty}
 
 -- | An array of the rule names to disable. If you need to find out the names
 -- of your rules, use
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules>.
-disableInsightRules_ruleNames :: Lens.Lens' DisableInsightRules [Core.Text]
-disableInsightRules_ruleNames = Lens.lens (\DisableInsightRules' {ruleNames} -> ruleNames) (\s@DisableInsightRules' {} a -> s {ruleNames = a} :: DisableInsightRules) Core.. Lens._Coerce
+disableInsightRules_ruleNames :: Lens.Lens' DisableInsightRules [Prelude.Text]
+disableInsightRules_ruleNames = Lens.lens (\DisableInsightRules' {ruleNames} -> ruleNames) (\s@DisableInsightRules' {} a -> s {ruleNames = a} :: DisableInsightRules) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DisableInsightRules where
   type
@@ -87,28 +88,29 @@ instance Core.AWSRequest DisableInsightRules where
       "DisableInsightRulesResult"
       ( \s h x ->
           DisableInsightRulesResponse'
-            Core.<$> ( x Core..@? "Failures" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Failures" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisableInsightRules
+instance Prelude.Hashable DisableInsightRules
 
-instance Core.NFData DisableInsightRules
+instance Prelude.NFData DisableInsightRules
 
 instance Core.ToHeaders DisableInsightRules where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DisableInsightRules where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisableInsightRules where
   toQuery DisableInsightRules' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DisableInsightRules" :: Core.ByteString),
-        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
+          Core.=: ("DisableInsightRules" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
         "RuleNames"
           Core.=: Core.toQueryList "member" ruleNames
       ]
@@ -117,11 +119,11 @@ instance Core.ToQuery DisableInsightRules where
 data DisableInsightRulesResponse = DisableInsightRulesResponse'
   { -- | An array listing the rules that could not be disabled. You cannot
     -- disable built-in rules.
-    failures :: Core.Maybe [PartialFailure],
+    failures :: Prelude.Maybe [PartialFailure],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableInsightRulesResponse' with all optional fields omitted.
@@ -137,22 +139,22 @@ data DisableInsightRulesResponse = DisableInsightRulesResponse'
 -- 'httpStatus', 'disableInsightRulesResponse_httpStatus' - The response's http status code.
 newDisableInsightRulesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisableInsightRulesResponse
 newDisableInsightRulesResponse pHttpStatus_ =
   DisableInsightRulesResponse'
     { failures =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array listing the rules that could not be disabled. You cannot
 -- disable built-in rules.
-disableInsightRulesResponse_failures :: Lens.Lens' DisableInsightRulesResponse (Core.Maybe [PartialFailure])
-disableInsightRulesResponse_failures = Lens.lens (\DisableInsightRulesResponse' {failures} -> failures) (\s@DisableInsightRulesResponse' {} a -> s {failures = a} :: DisableInsightRulesResponse) Core.. Lens.mapping Lens._Coerce
+disableInsightRulesResponse_failures :: Lens.Lens' DisableInsightRulesResponse (Prelude.Maybe [PartialFailure])
+disableInsightRulesResponse_failures = Lens.lens (\DisableInsightRulesResponse' {failures} -> failures) (\s@DisableInsightRulesResponse' {} a -> s {failures = a} :: DisableInsightRulesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-disableInsightRulesResponse_httpStatus :: Lens.Lens' DisableInsightRulesResponse Core.Int
+disableInsightRulesResponse_httpStatus :: Lens.Lens' DisableInsightRulesResponse Prelude.Int
 disableInsightRulesResponse_httpStatus = Lens.lens (\DisableInsightRulesResponse' {httpStatus} -> httpStatus) (\s@DisableInsightRulesResponse' {} a -> s {httpStatus = a} :: DisableInsightRulesResponse)
 
-instance Core.NFData DisableInsightRulesResponse
+instance Prelude.NFData DisableInsightRulesResponse

@@ -24,23 +24,24 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CarrierGatewayState
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a carrier gateway.
 --
 -- /See:/ 'newCarrierGateway' smart constructor.
 data CarrierGateway = CarrierGateway'
   { -- | The AWS account ID of the owner of the carrier gateway.
-    ownerId :: Core.Maybe Core.Text,
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The state of the carrier gateway.
-    state :: Core.Maybe CarrierGatewayState,
+    state :: Prelude.Maybe CarrierGatewayState,
     -- | The tags assigned to the carrier gateway.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the carrier gateway.
-    carrierGatewayId :: Core.Maybe Core.Text,
+    carrierGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC associated with the carrier gateway.
-    vpcId :: Core.Maybe Core.Text
+    vpcId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CarrierGateway' with all optional fields omitted.
@@ -63,44 +64,44 @@ newCarrierGateway ::
   CarrierGateway
 newCarrierGateway =
   CarrierGateway'
-    { ownerId = Core.Nothing,
-      state = Core.Nothing,
-      tags = Core.Nothing,
-      carrierGatewayId = Core.Nothing,
-      vpcId = Core.Nothing
+    { ownerId = Prelude.Nothing,
+      state = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      carrierGatewayId = Prelude.Nothing,
+      vpcId = Prelude.Nothing
     }
 
 -- | The AWS account ID of the owner of the carrier gateway.
-carrierGateway_ownerId :: Lens.Lens' CarrierGateway (Core.Maybe Core.Text)
+carrierGateway_ownerId :: Lens.Lens' CarrierGateway (Prelude.Maybe Prelude.Text)
 carrierGateway_ownerId = Lens.lens (\CarrierGateway' {ownerId} -> ownerId) (\s@CarrierGateway' {} a -> s {ownerId = a} :: CarrierGateway)
 
 -- | The state of the carrier gateway.
-carrierGateway_state :: Lens.Lens' CarrierGateway (Core.Maybe CarrierGatewayState)
+carrierGateway_state :: Lens.Lens' CarrierGateway (Prelude.Maybe CarrierGatewayState)
 carrierGateway_state = Lens.lens (\CarrierGateway' {state} -> state) (\s@CarrierGateway' {} a -> s {state = a} :: CarrierGateway)
 
 -- | The tags assigned to the carrier gateway.
-carrierGateway_tags :: Lens.Lens' CarrierGateway (Core.Maybe [Tag])
-carrierGateway_tags = Lens.lens (\CarrierGateway' {tags} -> tags) (\s@CarrierGateway' {} a -> s {tags = a} :: CarrierGateway) Core.. Lens.mapping Lens._Coerce
+carrierGateway_tags :: Lens.Lens' CarrierGateway (Prelude.Maybe [Tag])
+carrierGateway_tags = Lens.lens (\CarrierGateway' {tags} -> tags) (\s@CarrierGateway' {} a -> s {tags = a} :: CarrierGateway) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the carrier gateway.
-carrierGateway_carrierGatewayId :: Lens.Lens' CarrierGateway (Core.Maybe Core.Text)
+carrierGateway_carrierGatewayId :: Lens.Lens' CarrierGateway (Prelude.Maybe Prelude.Text)
 carrierGateway_carrierGatewayId = Lens.lens (\CarrierGateway' {carrierGatewayId} -> carrierGatewayId) (\s@CarrierGateway' {} a -> s {carrierGatewayId = a} :: CarrierGateway)
 
 -- | The ID of the VPC associated with the carrier gateway.
-carrierGateway_vpcId :: Lens.Lens' CarrierGateway (Core.Maybe Core.Text)
+carrierGateway_vpcId :: Lens.Lens' CarrierGateway (Prelude.Maybe Prelude.Text)
 carrierGateway_vpcId = Lens.lens (\CarrierGateway' {vpcId} -> vpcId) (\s@CarrierGateway' {} a -> s {vpcId = a} :: CarrierGateway)
 
 instance Core.FromXML CarrierGateway where
   parseXML x =
     CarrierGateway'
-      Core.<$> (x Core..@? "ownerId")
-      Core.<*> (x Core..@? "state")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "carrierGatewayId")
-      Core.<*> (x Core..@? "vpcId")
+      Prelude.<$> (x Core..@? "ownerId")
+      Prelude.<*> (x Core..@? "state")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "carrierGatewayId")
+      Prelude.<*> (x Core..@? "vpcId")
 
-instance Core.Hashable CarrierGateway
+instance Prelude.Hashable CarrierGateway
 
-instance Core.NFData CarrierGateway
+instance Prelude.NFData CarrierGateway

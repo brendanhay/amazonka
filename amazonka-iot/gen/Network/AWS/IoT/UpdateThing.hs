@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,26 +57,26 @@ data UpdateThing = UpdateThing'
     -- of the record in the registry does not match the expected version
     -- specified in the request, the @UpdateThing@ request is rejected with a
     -- @VersionConflictException@.
-    expectedVersion :: Core.Maybe Core.Integer,
+    expectedVersion :: Prelude.Maybe Prelude.Integer,
     -- | The name of the thing type.
-    thingTypeName :: Core.Maybe Core.Text,
+    thingTypeName :: Prelude.Maybe Prelude.Text,
     -- | Remove a thing type association. If __true__, the association is
     -- removed.
-    removeThingType :: Core.Maybe Core.Bool,
+    removeThingType :: Prelude.Maybe Prelude.Bool,
     -- | A list of thing attributes, a JSON string containing name-value pairs.
     -- For example:
     --
     -- @{\\\"attributes\\\":{\\\"name1\\\":\\\"value2\\\"}}@
     --
     -- This data is used to add new attributes or update existing attributes.
-    attributePayload :: Core.Maybe AttributePayload,
+    attributePayload :: Prelude.Maybe AttributePayload,
     -- | The name of the thing to update.
     --
     -- You can\'t change a thing\'s name. To change a thing\'s name, you must
     -- create a new thing, give it the new name, and then delete the old thing.
-    thingName :: Core.Text
+    thingName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateThing' with all optional fields omitted.
@@ -108,14 +109,14 @@ data UpdateThing = UpdateThing'
 -- create a new thing, give it the new name, and then delete the old thing.
 newUpdateThing ::
   -- | 'thingName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateThing
 newUpdateThing pThingName_ =
   UpdateThing'
-    { expectedVersion = Core.Nothing,
-      thingTypeName = Core.Nothing,
-      removeThingType = Core.Nothing,
-      attributePayload = Core.Nothing,
+    { expectedVersion = Prelude.Nothing,
+      thingTypeName = Prelude.Nothing,
+      removeThingType = Prelude.Nothing,
+      attributePayload = Prelude.Nothing,
       thingName = pThingName_
     }
 
@@ -123,16 +124,16 @@ newUpdateThing pThingName_ =
 -- of the record in the registry does not match the expected version
 -- specified in the request, the @UpdateThing@ request is rejected with a
 -- @VersionConflictException@.
-updateThing_expectedVersion :: Lens.Lens' UpdateThing (Core.Maybe Core.Integer)
+updateThing_expectedVersion :: Lens.Lens' UpdateThing (Prelude.Maybe Prelude.Integer)
 updateThing_expectedVersion = Lens.lens (\UpdateThing' {expectedVersion} -> expectedVersion) (\s@UpdateThing' {} a -> s {expectedVersion = a} :: UpdateThing)
 
 -- | The name of the thing type.
-updateThing_thingTypeName :: Lens.Lens' UpdateThing (Core.Maybe Core.Text)
+updateThing_thingTypeName :: Lens.Lens' UpdateThing (Prelude.Maybe Prelude.Text)
 updateThing_thingTypeName = Lens.lens (\UpdateThing' {thingTypeName} -> thingTypeName) (\s@UpdateThing' {} a -> s {thingTypeName = a} :: UpdateThing)
 
 -- | Remove a thing type association. If __true__, the association is
 -- removed.
-updateThing_removeThingType :: Lens.Lens' UpdateThing (Core.Maybe Core.Bool)
+updateThing_removeThingType :: Lens.Lens' UpdateThing (Prelude.Maybe Prelude.Bool)
 updateThing_removeThingType = Lens.lens (\UpdateThing' {removeThingType} -> removeThingType) (\s@UpdateThing' {} a -> s {removeThingType = a} :: UpdateThing)
 
 -- | A list of thing attributes, a JSON string containing name-value pairs.
@@ -141,14 +142,14 @@ updateThing_removeThingType = Lens.lens (\UpdateThing' {removeThingType} -> remo
 -- @{\\\"attributes\\\":{\\\"name1\\\":\\\"value2\\\"}}@
 --
 -- This data is used to add new attributes or update existing attributes.
-updateThing_attributePayload :: Lens.Lens' UpdateThing (Core.Maybe AttributePayload)
+updateThing_attributePayload :: Lens.Lens' UpdateThing (Prelude.Maybe AttributePayload)
 updateThing_attributePayload = Lens.lens (\UpdateThing' {attributePayload} -> attributePayload) (\s@UpdateThing' {} a -> s {attributePayload = a} :: UpdateThing)
 
 -- | The name of the thing to update.
 --
 -- You can\'t change a thing\'s name. To change a thing\'s name, you must
 -- create a new thing, give it the new name, and then delete the old thing.
-updateThing_thingName :: Lens.Lens' UpdateThing Core.Text
+updateThing_thingName :: Lens.Lens' UpdateThing Prelude.Text
 updateThing_thingName = Lens.lens (\UpdateThing' {thingName} -> thingName) (\s@UpdateThing' {} a -> s {thingName = a} :: UpdateThing)
 
 instance Core.AWSRequest UpdateThing where
@@ -158,44 +159,45 @@ instance Core.AWSRequest UpdateThing where
     Response.receiveEmpty
       ( \s h x ->
           UpdateThingResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateThing
+instance Prelude.Hashable UpdateThing
 
-instance Core.NFData UpdateThing
+instance Prelude.NFData UpdateThing
 
 instance Core.ToHeaders UpdateThing where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdateThing where
   toJSON UpdateThing' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("expectedVersion" Core..=)
-              Core.<$> expectedVersion,
-            ("thingTypeName" Core..=) Core.<$> thingTypeName,
-            ("removeThingType" Core..=) Core.<$> removeThingType,
+              Prelude.<$> expectedVersion,
+            ("thingTypeName" Core..=) Prelude.<$> thingTypeName,
+            ("removeThingType" Core..=)
+              Prelude.<$> removeThingType,
             ("attributePayload" Core..=)
-              Core.<$> attributePayload
+              Prelude.<$> attributePayload
           ]
       )
 
 instance Core.ToPath UpdateThing where
   toPath UpdateThing' {..} =
-    Core.mconcat ["/things/", Core.toBS thingName]
+    Prelude.mconcat ["/things/", Core.toBS thingName]
 
 instance Core.ToQuery UpdateThing where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the UpdateThing operation.
 --
 -- /See:/ 'newUpdateThingResponse' smart constructor.
 data UpdateThingResponse = UpdateThingResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateThingResponse' with all optional fields omitted.
@@ -208,13 +210,13 @@ data UpdateThingResponse = UpdateThingResponse'
 -- 'httpStatus', 'updateThingResponse_httpStatus' - The response's http status code.
 newUpdateThingResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateThingResponse
 newUpdateThingResponse pHttpStatus_ =
   UpdateThingResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateThingResponse_httpStatus :: Lens.Lens' UpdateThingResponse Core.Int
+updateThingResponse_httpStatus :: Lens.Lens' UpdateThingResponse Prelude.Int
 updateThingResponse_httpStatus = Lens.lens (\UpdateThingResponse' {httpStatus} -> httpStatus) (\s@UpdateThingResponse' {} a -> s {httpStatus = a} :: UpdateThingResponse)
 
-instance Core.NFData UpdateThingResponse
+instance Prelude.NFData UpdateThingResponse

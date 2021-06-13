@@ -21,15 +21,16 @@ module Network.AWS.StepFunctions.Types.MapStateStartedEventDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about a Map state that was started.
 --
 -- /See:/ 'newMapStateStartedEventDetails' smart constructor.
 data MapStateStartedEventDetails = MapStateStartedEventDetails'
   { -- | The size of the array for Map state iterations.
-    length :: Core.Maybe Core.Natural
+    length :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MapStateStartedEventDetails' with all optional fields omitted.
@@ -43,10 +44,13 @@ data MapStateStartedEventDetails = MapStateStartedEventDetails'
 newMapStateStartedEventDetails ::
   MapStateStartedEventDetails
 newMapStateStartedEventDetails =
-  MapStateStartedEventDetails' {length = Core.Nothing}
+  MapStateStartedEventDetails'
+    { length =
+        Prelude.Nothing
+    }
 
 -- | The size of the array for Map state iterations.
-mapStateStartedEventDetails_length :: Lens.Lens' MapStateStartedEventDetails (Core.Maybe Core.Natural)
+mapStateStartedEventDetails_length :: Lens.Lens' MapStateStartedEventDetails (Prelude.Maybe Prelude.Natural)
 mapStateStartedEventDetails_length = Lens.lens (\MapStateStartedEventDetails' {length} -> length) (\s@MapStateStartedEventDetails' {} a -> s {length = a} :: MapStateStartedEventDetails)
 
 instance Core.FromJSON MapStateStartedEventDetails where
@@ -55,9 +59,9 @@ instance Core.FromJSON MapStateStartedEventDetails where
       "MapStateStartedEventDetails"
       ( \x ->
           MapStateStartedEventDetails'
-            Core.<$> (x Core..:? "length")
+            Prelude.<$> (x Core..:? "length")
       )
 
-instance Core.Hashable MapStateStartedEventDetails
+instance Prelude.Hashable MapStateStartedEventDetails
 
-instance Core.NFData MapStateStartedEventDetails
+instance Prelude.NFData MapStateStartedEventDetails

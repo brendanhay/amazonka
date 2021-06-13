@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types.ImageConfig
 import Network.AWS.Lambda.Types.ImageConfigError
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Response to GetFunctionConfiguration request.
 --
 -- /See:/ 'newImageConfigResponse' smart constructor.
 data ImageConfigResponse = ImageConfigResponse'
   { -- | Configuration values that override the container image Dockerfile.
-    imageConfig :: Core.Maybe ImageConfig,
+    imageConfig :: Prelude.Maybe ImageConfig,
     -- | Error response to GetFunctionConfiguration.
-    error :: Core.Maybe ImageConfigError
+    error :: Prelude.Maybe ImageConfigError
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImageConfigResponse' with all optional fields omitted.
@@ -50,16 +51,16 @@ newImageConfigResponse ::
   ImageConfigResponse
 newImageConfigResponse =
   ImageConfigResponse'
-    { imageConfig = Core.Nothing,
-      error = Core.Nothing
+    { imageConfig = Prelude.Nothing,
+      error = Prelude.Nothing
     }
 
 -- | Configuration values that override the container image Dockerfile.
-imageConfigResponse_imageConfig :: Lens.Lens' ImageConfigResponse (Core.Maybe ImageConfig)
+imageConfigResponse_imageConfig :: Lens.Lens' ImageConfigResponse (Prelude.Maybe ImageConfig)
 imageConfigResponse_imageConfig = Lens.lens (\ImageConfigResponse' {imageConfig} -> imageConfig) (\s@ImageConfigResponse' {} a -> s {imageConfig = a} :: ImageConfigResponse)
 
 -- | Error response to GetFunctionConfiguration.
-imageConfigResponse_error :: Lens.Lens' ImageConfigResponse (Core.Maybe ImageConfigError)
+imageConfigResponse_error :: Lens.Lens' ImageConfigResponse (Prelude.Maybe ImageConfigError)
 imageConfigResponse_error = Lens.lens (\ImageConfigResponse' {error} -> error) (\s@ImageConfigResponse' {} a -> s {error = a} :: ImageConfigResponse)
 
 instance Core.FromJSON ImageConfigResponse where
@@ -68,10 +69,10 @@ instance Core.FromJSON ImageConfigResponse where
       "ImageConfigResponse"
       ( \x ->
           ImageConfigResponse'
-            Core.<$> (x Core..:? "ImageConfig")
-            Core.<*> (x Core..:? "Error")
+            Prelude.<$> (x Core..:? "ImageConfig")
+            Prelude.<*> (x Core..:? "Error")
       )
 
-instance Core.Hashable ImageConfigResponse
+instance Prelude.Hashable ImageConfigResponse
 
-instance Core.NFData ImageConfigResponse
+instance Prelude.NFData ImageConfigResponse

@@ -44,6 +44,7 @@ where
 import Network.AWS.CloudTrail.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +55,9 @@ data DeleteTrail = DeleteTrail'
   { -- | Specifies the name or the CloudTrail ARN of the trail to be deleted. The
     -- format of a trail ARN is:
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTrail' with all optional fields omitted.
@@ -71,14 +72,14 @@ data DeleteTrail = DeleteTrail'
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 newDeleteTrail ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTrail
 newDeleteTrail pName_ = DeleteTrail' {name = pName_}
 
 -- | Specifies the name or the CloudTrail ARN of the trail to be deleted. The
 -- format of a trail ARN is:
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-deleteTrail_name :: Lens.Lens' DeleteTrail Core.Text
+deleteTrail_name :: Lens.Lens' DeleteTrail Prelude.Text
 deleteTrail_name = Lens.lens (\DeleteTrail' {name} -> name) (\s@DeleteTrail' {} a -> s {name = a} :: DeleteTrail)
 
 instance Core.AWSRequest DeleteTrail where
@@ -88,36 +89,40 @@ instance Core.AWSRequest DeleteTrail where
     Response.receiveEmpty
       ( \s h x ->
           DeleteTrailResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteTrail
+instance Prelude.Hashable DeleteTrail
 
-instance Core.NFData DeleteTrail
+instance Prelude.NFData DeleteTrail
 
 instance Core.ToHeaders DeleteTrail where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DeleteTrail" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteTrail where
   toJSON DeleteTrail' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath DeleteTrail where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteTrail where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Returns the objects or data listed below if successful. Otherwise,
 -- returns an error.
@@ -125,9 +130,9 @@ instance Core.ToQuery DeleteTrail where
 -- /See:/ 'newDeleteTrailResponse' smart constructor.
 data DeleteTrailResponse = DeleteTrailResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTrailResponse' with all optional fields omitted.
@@ -140,13 +145,13 @@ data DeleteTrailResponse = DeleteTrailResponse'
 -- 'httpStatus', 'deleteTrailResponse_httpStatus' - The response's http status code.
 newDeleteTrailResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteTrailResponse
 newDeleteTrailResponse pHttpStatus_ =
   DeleteTrailResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteTrailResponse_httpStatus :: Lens.Lens' DeleteTrailResponse Core.Int
+deleteTrailResponse_httpStatus :: Lens.Lens' DeleteTrailResponse Prelude.Int
 deleteTrailResponse_httpStatus = Lens.lens (\DeleteTrailResponse' {httpStatus} -> httpStatus) (\s@DeleteTrailResponse' {} a -> s {httpStatus = a} :: DeleteTrailResponse)
 
-instance Core.NFData DeleteTrailResponse
+instance Prelude.NFData DeleteTrailResponse

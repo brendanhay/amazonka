@@ -130,6 +130,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -147,10 +148,10 @@ data CreateSecret = CreateSecret'
     --
     -- This parameter is not available using the Secrets Manager console. It
     -- can be accessed only by using the AWS CLI or one of the AWS SDKs.
-    secretBinary :: Core.Maybe (Core.Sensitive Core.Base64),
+    secretBinary :: Prelude.Maybe (Core.Sensitive Core.Base64),
     -- | (Optional) If set, the replication overwrites a secret with the same
     -- name in the destination region.
-    forceOverwriteReplicaSecret :: Core.Maybe Core.Bool,
+    forceOverwriteReplicaSecret :: Prelude.Maybe Prelude.Bool,
     -- | (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer
     -- master key (CMK) to be used to encrypt the @SecretString@ or
     -- @SecretBinary@ values in the versions stored in this secret.
@@ -169,7 +170,7 @@ data CreateSecret = CreateSecret'
     -- call this operation using credentials from the same account that owns
     -- the secret. If the secret resides in a different account, then you must
     -- create a custom CMK and specify the ARN in this field.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | (Optional) Specifies a list of user-defined tags that are attached to
     -- the secret. Each tag is a \"Key\" and \"Value\" pair of strings. This
     -- operation only appends tags to the existing list of tags. To remove
@@ -216,9 +217,9 @@ data CreateSecret = CreateSecret'
     --     allowed characters. Generally allowed characters: letters, spaces,
     --     and numbers representable in UTF-8, plus the following special
     --     characters: + - = . _ : \/ \@.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | (Optional) Specifies a user-provided description of the secret.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | (Optional) Specifies text data that you want to encrypt and store in
     -- this new version of the secret.
     --
@@ -243,7 +244,7 @@ data CreateSecret = CreateSecret'
     -- If your command-line tool or SDK requires quotation marks around the
     -- parameter, you should use single quotes to avoid confusion with the
     -- double quotes required in the JSON text.
-    secretString :: Core.Maybe (Core.Sensitive Core.Text),
+    secretString :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | (Optional) If you include @SecretString@ or @SecretBinary@, then an
     -- initial version is created as part of the secret, and this parameter
     -- specifies a unique identifier for the new version.
@@ -276,11 +277,11 @@ data CreateSecret = CreateSecret'
     --     version.
     --
     -- This value becomes the @VersionId@ of the new version.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | (Optional) Add a list of regions to replicate secrets. Secrets Manager
     -- replicates the KMSKeyID objects to the list of regions specified in the
     -- parameter.
-    addReplicaRegions :: Core.Maybe (Core.NonEmpty ReplicaRegionType),
+    addReplicaRegions :: Prelude.Maybe (Prelude.NonEmpty ReplicaRegionType),
     -- | Specifies the friendly name of the new secret.
     --
     -- The secret name must be ASCII letters, digits, or the following
@@ -290,9 +291,9 @@ data CreateSecret = CreateSecret'
     -- you do so, you risk confusion and unexpected results when searching for
     -- a secret by partial ARN. Secrets Manager automatically adds a hyphen and
     -- six random characters at the end of the ARN.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSecret' with all optional fields omitted.
@@ -462,18 +463,18 @@ data CreateSecret = CreateSecret'
 -- six random characters at the end of the ARN.
 newCreateSecret ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateSecret
 newCreateSecret pName_ =
   CreateSecret'
-    { secretBinary = Core.Nothing,
-      forceOverwriteReplicaSecret = Core.Nothing,
-      kmsKeyId = Core.Nothing,
-      tags = Core.Nothing,
-      description = Core.Nothing,
-      secretString = Core.Nothing,
-      clientRequestToken = Core.Nothing,
-      addReplicaRegions = Core.Nothing,
+    { secretBinary = Prelude.Nothing,
+      forceOverwriteReplicaSecret = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
+      secretString = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      addReplicaRegions = Prelude.Nothing,
       name = pName_
     }
 
@@ -492,12 +493,12 @@ newCreateSecret pName_ =
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-createSecret_secretBinary :: Lens.Lens' CreateSecret (Core.Maybe Core.ByteString)
-createSecret_secretBinary = Lens.lens (\CreateSecret' {secretBinary} -> secretBinary) (\s@CreateSecret' {} a -> s {secretBinary = a} :: CreateSecret) Core.. Lens.mapping (Core._Sensitive Core.. Core._Base64)
+createSecret_secretBinary :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.ByteString)
+createSecret_secretBinary = Lens.lens (\CreateSecret' {secretBinary} -> secretBinary) (\s@CreateSecret' {} a -> s {secretBinary = a} :: CreateSecret) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
 
 -- | (Optional) If set, the replication overwrites a secret with the same
 -- name in the destination region.
-createSecret_forceOverwriteReplicaSecret :: Lens.Lens' CreateSecret (Core.Maybe Core.Bool)
+createSecret_forceOverwriteReplicaSecret :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Bool)
 createSecret_forceOverwriteReplicaSecret = Lens.lens (\CreateSecret' {forceOverwriteReplicaSecret} -> forceOverwriteReplicaSecret) (\s@CreateSecret' {} a -> s {forceOverwriteReplicaSecret = a} :: CreateSecret)
 
 -- | (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer
@@ -518,7 +519,7 @@ createSecret_forceOverwriteReplicaSecret = Lens.lens (\CreateSecret' {forceOverw
 -- call this operation using credentials from the same account that owns
 -- the secret. If the secret resides in a different account, then you must
 -- create a custom CMK and specify the ARN in this field.
-createSecret_kmsKeyId :: Lens.Lens' CreateSecret (Core.Maybe Core.Text)
+createSecret_kmsKeyId :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Text)
 createSecret_kmsKeyId = Lens.lens (\CreateSecret' {kmsKeyId} -> kmsKeyId) (\s@CreateSecret' {} a -> s {kmsKeyId = a} :: CreateSecret)
 
 -- | (Optional) Specifies a list of user-defined tags that are attached to
@@ -567,11 +568,11 @@ createSecret_kmsKeyId = Lens.lens (\CreateSecret' {kmsKeyId} -> kmsKeyId) (\s@Cr
 --     allowed characters. Generally allowed characters: letters, spaces,
 --     and numbers representable in UTF-8, plus the following special
 --     characters: + - = . _ : \/ \@.
-createSecret_tags :: Lens.Lens' CreateSecret (Core.Maybe [Tag])
-createSecret_tags = Lens.lens (\CreateSecret' {tags} -> tags) (\s@CreateSecret' {} a -> s {tags = a} :: CreateSecret) Core.. Lens.mapping Lens._Coerce
+createSecret_tags :: Lens.Lens' CreateSecret (Prelude.Maybe [Tag])
+createSecret_tags = Lens.lens (\CreateSecret' {tags} -> tags) (\s@CreateSecret' {} a -> s {tags = a} :: CreateSecret) Prelude.. Lens.mapping Lens._Coerce
 
 -- | (Optional) Specifies a user-provided description of the secret.
-createSecret_description :: Lens.Lens' CreateSecret (Core.Maybe Core.Text)
+createSecret_description :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Text)
 createSecret_description = Lens.lens (\CreateSecret' {description} -> description) (\s@CreateSecret' {} a -> s {description = a} :: CreateSecret)
 
 -- | (Optional) Specifies text data that you want to encrypt and store in
@@ -598,8 +599,8 @@ createSecret_description = Lens.lens (\CreateSecret' {description} -> descriptio
 -- If your command-line tool or SDK requires quotation marks around the
 -- parameter, you should use single quotes to avoid confusion with the
 -- double quotes required in the JSON text.
-createSecret_secretString :: Lens.Lens' CreateSecret (Core.Maybe Core.Text)
-createSecret_secretString = Lens.lens (\CreateSecret' {secretString} -> secretString) (\s@CreateSecret' {} a -> s {secretString = a} :: CreateSecret) Core.. Lens.mapping Core._Sensitive
+createSecret_secretString :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Text)
+createSecret_secretString = Lens.lens (\CreateSecret' {secretString} -> secretString) (\s@CreateSecret' {} a -> s {secretString = a} :: CreateSecret) Prelude.. Lens.mapping Core._Sensitive
 
 -- | (Optional) If you include @SecretString@ or @SecretBinary@, then an
 -- initial version is created as part of the secret, and this parameter
@@ -633,14 +634,14 @@ createSecret_secretString = Lens.lens (\CreateSecret' {secretString} -> secretSt
 --     version.
 --
 -- This value becomes the @VersionId@ of the new version.
-createSecret_clientRequestToken :: Lens.Lens' CreateSecret (Core.Maybe Core.Text)
+createSecret_clientRequestToken :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Text)
 createSecret_clientRequestToken = Lens.lens (\CreateSecret' {clientRequestToken} -> clientRequestToken) (\s@CreateSecret' {} a -> s {clientRequestToken = a} :: CreateSecret)
 
 -- | (Optional) Add a list of regions to replicate secrets. Secrets Manager
 -- replicates the KMSKeyID objects to the list of regions specified in the
 -- parameter.
-createSecret_addReplicaRegions :: Lens.Lens' CreateSecret (Core.Maybe (Core.NonEmpty ReplicaRegionType))
-createSecret_addReplicaRegions = Lens.lens (\CreateSecret' {addReplicaRegions} -> addReplicaRegions) (\s@CreateSecret' {} a -> s {addReplicaRegions = a} :: CreateSecret) Core.. Lens.mapping Lens._Coerce
+createSecret_addReplicaRegions :: Lens.Lens' CreateSecret (Prelude.Maybe (Prelude.NonEmpty ReplicaRegionType))
+createSecret_addReplicaRegions = Lens.lens (\CreateSecret' {addReplicaRegions} -> addReplicaRegions) (\s@CreateSecret' {} a -> s {addReplicaRegions = a} :: CreateSecret) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the friendly name of the new secret.
 --
@@ -651,7 +652,7 @@ createSecret_addReplicaRegions = Lens.lens (\CreateSecret' {addReplicaRegions} -
 -- you do so, you risk confusion and unexpected results when searching for
 -- a secret by partial ARN. Secrets Manager automatically adds a hyphen and
 -- six random characters at the end of the ARN.
-createSecret_name :: Lens.Lens' CreateSecret Core.Text
+createSecret_name :: Lens.Lens' CreateSecret Prelude.Text
 createSecret_name = Lens.lens (\CreateSecret' {name} -> name) (\s@CreateSecret' {} a -> s {name = a} :: CreateSecret)
 
 instance Core.AWSRequest CreateSecret where
@@ -661,58 +662,64 @@ instance Core.AWSRequest CreateSecret where
     Response.receiveJSON
       ( \s h x ->
           CreateSecretResponse'
-            Core.<$> (x Core..?> "ReplicationStatus" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "ARN")
-            Core.<*> (x Core..?> "VersionId")
-            Core.<*> (x Core..?> "Name")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "ReplicationStatus"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "ARN")
+            Prelude.<*> (x Core..?> "VersionId")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateSecret
+instance Prelude.Hashable CreateSecret
 
-instance Core.NFData CreateSecret
+instance Prelude.NFData CreateSecret
 
 instance Core.ToHeaders CreateSecret where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("secretsmanager.CreateSecret" :: Core.ByteString),
+              Core.=# ( "secretsmanager.CreateSecret" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateSecret where
   toJSON CreateSecret' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SecretBinary" Core..=) Core.<$> secretBinary,
+      ( Prelude.catMaybes
+          [ ("SecretBinary" Core..=) Prelude.<$> secretBinary,
             ("ForceOverwriteReplicaSecret" Core..=)
-              Core.<$> forceOverwriteReplicaSecret,
-            ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
-            ("Tags" Core..=) Core.<$> tags,
-            ("Description" Core..=) Core.<$> description,
-            ("SecretString" Core..=) Core.<$> secretString,
+              Prelude.<$> forceOverwriteReplicaSecret,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            ("SecretString" Core..=) Prelude.<$> secretString,
             ("ClientRequestToken" Core..=)
-              Core.<$> clientRequestToken,
+              Prelude.<$> clientRequestToken,
             ("AddReplicaRegions" Core..=)
-              Core.<$> addReplicaRegions,
-            Core.Just ("Name" Core..= name)
+              Prelude.<$> addReplicaRegions,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath CreateSecret where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateSecret where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSecretResponse' smart constructor.
 data CreateSecretResponse = CreateSecretResponse'
   { -- | Describes a list of replication status objects as @InProgress@, @Failed@
     -- or @InSync@.
-    replicationStatus :: Core.Maybe [ReplicationStatusType],
+    replicationStatus :: Prelude.Maybe [ReplicationStatusType],
     -- | The Amazon Resource Name (ARN) of the secret that you just created.
     --
     -- Secrets Manager automatically adds several random characters to the name
@@ -722,16 +729,16 @@ data CreateSecretResponse = CreateSecretResponse'
     -- previously deleted, then users with access to the old secret /don\'t/
     -- automatically get access to the new secret because the ARNs are
     -- different.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier associated with the version of the secret you just
     -- created.
-    versionId :: Core.Maybe Core.Text,
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the secret that you just created.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSecretResponse' with all optional fields omitted.
@@ -762,22 +769,22 @@ data CreateSecretResponse = CreateSecretResponse'
 -- 'httpStatus', 'createSecretResponse_httpStatus' - The response's http status code.
 newCreateSecretResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateSecretResponse
 newCreateSecretResponse pHttpStatus_ =
   CreateSecretResponse'
     { replicationStatus =
-        Core.Nothing,
-      arn = Core.Nothing,
-      versionId = Core.Nothing,
-      name = Core.Nothing,
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Describes a list of replication status objects as @InProgress@, @Failed@
 -- or @InSync@.
-createSecretResponse_replicationStatus :: Lens.Lens' CreateSecretResponse (Core.Maybe [ReplicationStatusType])
-createSecretResponse_replicationStatus = Lens.lens (\CreateSecretResponse' {replicationStatus} -> replicationStatus) (\s@CreateSecretResponse' {} a -> s {replicationStatus = a} :: CreateSecretResponse) Core.. Lens.mapping Lens._Coerce
+createSecretResponse_replicationStatus :: Lens.Lens' CreateSecretResponse (Prelude.Maybe [ReplicationStatusType])
+createSecretResponse_replicationStatus = Lens.lens (\CreateSecretResponse' {replicationStatus} -> replicationStatus) (\s@CreateSecretResponse' {} a -> s {replicationStatus = a} :: CreateSecretResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the secret that you just created.
 --
@@ -788,20 +795,20 @@ createSecretResponse_replicationStatus = Lens.lens (\CreateSecretResponse' {repl
 -- previously deleted, then users with access to the old secret /don\'t/
 -- automatically get access to the new secret because the ARNs are
 -- different.
-createSecretResponse_arn :: Lens.Lens' CreateSecretResponse (Core.Maybe Core.Text)
+createSecretResponse_arn :: Lens.Lens' CreateSecretResponse (Prelude.Maybe Prelude.Text)
 createSecretResponse_arn = Lens.lens (\CreateSecretResponse' {arn} -> arn) (\s@CreateSecretResponse' {} a -> s {arn = a} :: CreateSecretResponse)
 
 -- | The unique identifier associated with the version of the secret you just
 -- created.
-createSecretResponse_versionId :: Lens.Lens' CreateSecretResponse (Core.Maybe Core.Text)
+createSecretResponse_versionId :: Lens.Lens' CreateSecretResponse (Prelude.Maybe Prelude.Text)
 createSecretResponse_versionId = Lens.lens (\CreateSecretResponse' {versionId} -> versionId) (\s@CreateSecretResponse' {} a -> s {versionId = a} :: CreateSecretResponse)
 
 -- | The friendly name of the secret that you just created.
-createSecretResponse_name :: Lens.Lens' CreateSecretResponse (Core.Maybe Core.Text)
+createSecretResponse_name :: Lens.Lens' CreateSecretResponse (Prelude.Maybe Prelude.Text)
 createSecretResponse_name = Lens.lens (\CreateSecretResponse' {name} -> name) (\s@CreateSecretResponse' {} a -> s {name = a} :: CreateSecretResponse)
 
 -- | The response's http status code.
-createSecretResponse_httpStatus :: Lens.Lens' CreateSecretResponse Core.Int
+createSecretResponse_httpStatus :: Lens.Lens' CreateSecretResponse Prelude.Int
 createSecretResponse_httpStatus = Lens.lens (\CreateSecretResponse' {httpStatus} -> httpStatus) (\s@CreateSecretResponse' {} a -> s {httpStatus = a} :: CreateSecretResponse)
 
-instance Core.NFData CreateSecretResponse
+instance Prelude.NFData CreateSecretResponse

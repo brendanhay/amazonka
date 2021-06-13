@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.EmbeddedPlusScte20DestinationSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Embedded Plus Scte20 Destination Settings
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data EmbeddedPlusScte20DestinationSettings = EmbeddedPlusScte20DestinationSettings'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EmbeddedPlusScte20DestinationSettings' with all optional fields omitted.
@@ -47,19 +48,19 @@ instance
     Core.withObject
       "EmbeddedPlusScte20DestinationSettings"
       ( \x ->
-          Core.pure EmbeddedPlusScte20DestinationSettings'
+          Prelude.pure EmbeddedPlusScte20DestinationSettings'
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     EmbeddedPlusScte20DestinationSettings
 
 instance
-  Core.NFData
+  Prelude.NFData
     EmbeddedPlusScte20DestinationSettings
 
 instance
   Core.ToJSON
     EmbeddedPlusScte20DestinationSettings
   where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)

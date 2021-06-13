@@ -22,6 +22,7 @@ module Network.AWS.CloudDirectory.Types.BatchDeleteObject where
 import Network.AWS.CloudDirectory.Types.ObjectReference
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a DeleteObject operation.
 --
@@ -30,7 +31,7 @@ data BatchDeleteObject = BatchDeleteObject'
   { -- | The reference that identifies the object.
     objectReference :: ObjectReference
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteObject' with all optional fields omitted.
@@ -55,15 +56,15 @@ newBatchDeleteObject pObjectReference_ =
 batchDeleteObject_objectReference :: Lens.Lens' BatchDeleteObject ObjectReference
 batchDeleteObject_objectReference = Lens.lens (\BatchDeleteObject' {objectReference} -> objectReference) (\s@BatchDeleteObject' {} a -> s {objectReference = a} :: BatchDeleteObject)
 
-instance Core.Hashable BatchDeleteObject
+instance Prelude.Hashable BatchDeleteObject
 
-instance Core.NFData BatchDeleteObject
+instance Prelude.NFData BatchDeleteObject
 
 instance Core.ToJSON BatchDeleteObject where
   toJSON BatchDeleteObject' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ObjectReference" Core..= objectReference)
           ]
       )

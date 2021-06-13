@@ -21,15 +21,16 @@ module Network.AWS.MediaLive.Types.ChannelEgressEndpoint where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Placeholder documentation for ChannelEgressEndpoint
 --
 -- /See:/ 'newChannelEgressEndpoint' smart constructor.
 data ChannelEgressEndpoint = ChannelEgressEndpoint'
   { -- | Public IP of where a channel\'s output comes from
-    sourceIp :: Core.Maybe Core.Text
+    sourceIp :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChannelEgressEndpoint' with all optional fields omitted.
@@ -43,10 +44,10 @@ data ChannelEgressEndpoint = ChannelEgressEndpoint'
 newChannelEgressEndpoint ::
   ChannelEgressEndpoint
 newChannelEgressEndpoint =
-  ChannelEgressEndpoint' {sourceIp = Core.Nothing}
+  ChannelEgressEndpoint' {sourceIp = Prelude.Nothing}
 
 -- | Public IP of where a channel\'s output comes from
-channelEgressEndpoint_sourceIp :: Lens.Lens' ChannelEgressEndpoint (Core.Maybe Core.Text)
+channelEgressEndpoint_sourceIp :: Lens.Lens' ChannelEgressEndpoint (Prelude.Maybe Prelude.Text)
 channelEgressEndpoint_sourceIp = Lens.lens (\ChannelEgressEndpoint' {sourceIp} -> sourceIp) (\s@ChannelEgressEndpoint' {} a -> s {sourceIp = a} :: ChannelEgressEndpoint)
 
 instance Core.FromJSON ChannelEgressEndpoint where
@@ -55,9 +56,9 @@ instance Core.FromJSON ChannelEgressEndpoint where
       "ChannelEgressEndpoint"
       ( \x ->
           ChannelEgressEndpoint'
-            Core.<$> (x Core..:? "sourceIp")
+            Prelude.<$> (x Core..:? "sourceIp")
       )
 
-instance Core.Hashable ChannelEgressEndpoint
+instance Prelude.Hashable ChannelEgressEndpoint
 
-instance Core.NFData ChannelEgressEndpoint
+instance Prelude.NFData ChannelEgressEndpoint

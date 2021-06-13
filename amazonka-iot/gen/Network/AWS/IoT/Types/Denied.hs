@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.ExplicitDeny
 import Network.AWS.IoT.Types.ImplicitDeny
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information that denied the authorization.
 --
@@ -31,11 +32,11 @@ data Denied = Denied'
   { -- | Information that implicitly denies the authorization. When a policy
     -- doesn\'t explicitly deny or allow an action on a resource it is
     -- considered an implicit deny.
-    implicitDeny :: Core.Maybe ImplicitDeny,
+    implicitDeny :: Prelude.Maybe ImplicitDeny,
     -- | Information that explicitly denies the authorization.
-    explicitDeny :: Core.Maybe ExplicitDeny
+    explicitDeny :: Prelude.Maybe ExplicitDeny
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Denied' with all optional fields omitted.
@@ -54,18 +55,18 @@ newDenied ::
   Denied
 newDenied =
   Denied'
-    { implicitDeny = Core.Nothing,
-      explicitDeny = Core.Nothing
+    { implicitDeny = Prelude.Nothing,
+      explicitDeny = Prelude.Nothing
     }
 
 -- | Information that implicitly denies the authorization. When a policy
 -- doesn\'t explicitly deny or allow an action on a resource it is
 -- considered an implicit deny.
-denied_implicitDeny :: Lens.Lens' Denied (Core.Maybe ImplicitDeny)
+denied_implicitDeny :: Lens.Lens' Denied (Prelude.Maybe ImplicitDeny)
 denied_implicitDeny = Lens.lens (\Denied' {implicitDeny} -> implicitDeny) (\s@Denied' {} a -> s {implicitDeny = a} :: Denied)
 
 -- | Information that explicitly denies the authorization.
-denied_explicitDeny :: Lens.Lens' Denied (Core.Maybe ExplicitDeny)
+denied_explicitDeny :: Lens.Lens' Denied (Prelude.Maybe ExplicitDeny)
 denied_explicitDeny = Lens.lens (\Denied' {explicitDeny} -> explicitDeny) (\s@Denied' {} a -> s {explicitDeny = a} :: Denied)
 
 instance Core.FromJSON Denied where
@@ -74,10 +75,10 @@ instance Core.FromJSON Denied where
       "Denied"
       ( \x ->
           Denied'
-            Core.<$> (x Core..:? "implicitDeny")
-            Core.<*> (x Core..:? "explicitDeny")
+            Prelude.<$> (x Core..:? "implicitDeny")
+            Prelude.<*> (x Core..:? "explicitDeny")
       )
 
-instance Core.Hashable Denied
+instance Prelude.Hashable Denied
 
-instance Core.NFData Denied
+instance Prelude.NFData Denied

@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ import qualified Network.AWS.Response as Response
 data AssociatePackage = AssociatePackage'
   { -- | Internal ID of the package that you want to associate with a domain. Use
     -- @DescribePackages@ to find this value.
-    packageID :: Core.Text,
+    packageID :: Prelude.Text,
     -- | Name of the domain that you want to associate the package with.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociatePackage' with all optional fields omitted.
@@ -72,9 +73,9 @@ data AssociatePackage = AssociatePackage'
 -- 'domainName', 'associatePackage_domainName' - Name of the domain that you want to associate the package with.
 newAssociatePackage ::
   -- | 'packageID'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   AssociatePackage
 newAssociatePackage pPackageID_ pDomainName_ =
   AssociatePackage'
@@ -84,11 +85,11 @@ newAssociatePackage pPackageID_ pDomainName_ =
 
 -- | Internal ID of the package that you want to associate with a domain. Use
 -- @DescribePackages@ to find this value.
-associatePackage_packageID :: Lens.Lens' AssociatePackage Core.Text
+associatePackage_packageID :: Lens.Lens' AssociatePackage Prelude.Text
 associatePackage_packageID = Lens.lens (\AssociatePackage' {packageID} -> packageID) (\s@AssociatePackage' {} a -> s {packageID = a} :: AssociatePackage)
 
 -- | Name of the domain that you want to associate the package with.
-associatePackage_domainName :: Lens.Lens' AssociatePackage Core.Text
+associatePackage_domainName :: Lens.Lens' AssociatePackage Prelude.Text
 associatePackage_domainName = Lens.lens (\AssociatePackage' {domainName} -> domainName) (\s@AssociatePackage' {} a -> s {domainName = a} :: AssociatePackage)
 
 instance Core.AWSRequest AssociatePackage where
@@ -100,23 +101,23 @@ instance Core.AWSRequest AssociatePackage where
     Response.receiveJSON
       ( \s h x ->
           AssociatePackageResponse'
-            Core.<$> (x Core..?> "DomainPackageDetails")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DomainPackageDetails")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AssociatePackage
+instance Prelude.Hashable AssociatePackage
 
-instance Core.NFData AssociatePackage
+instance Prelude.NFData AssociatePackage
 
 instance Core.ToHeaders AssociatePackage where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON AssociatePackage where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath AssociatePackage where
   toPath AssociatePackage' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-01-01/packages/associate/",
         Core.toBS packageID,
         "/",
@@ -124,18 +125,18 @@ instance Core.ToPath AssociatePackage where
       ]
 
 instance Core.ToQuery AssociatePackage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Container for response returned by @ AssociatePackage @ operation.
 --
 -- /See:/ 'newAssociatePackageResponse' smart constructor.
 data AssociatePackageResponse = AssociatePackageResponse'
   { -- | @DomainPackageDetails@
-    domainPackageDetails :: Core.Maybe DomainPackageDetails,
+    domainPackageDetails :: Prelude.Maybe DomainPackageDetails,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociatePackageResponse' with all optional fields omitted.
@@ -150,21 +151,21 @@ data AssociatePackageResponse = AssociatePackageResponse'
 -- 'httpStatus', 'associatePackageResponse_httpStatus' - The response's http status code.
 newAssociatePackageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssociatePackageResponse
 newAssociatePackageResponse pHttpStatus_ =
   AssociatePackageResponse'
     { domainPackageDetails =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | @DomainPackageDetails@
-associatePackageResponse_domainPackageDetails :: Lens.Lens' AssociatePackageResponse (Core.Maybe DomainPackageDetails)
+associatePackageResponse_domainPackageDetails :: Lens.Lens' AssociatePackageResponse (Prelude.Maybe DomainPackageDetails)
 associatePackageResponse_domainPackageDetails = Lens.lens (\AssociatePackageResponse' {domainPackageDetails} -> domainPackageDetails) (\s@AssociatePackageResponse' {} a -> s {domainPackageDetails = a} :: AssociatePackageResponse)
 
 -- | The response's http status code.
-associatePackageResponse_httpStatus :: Lens.Lens' AssociatePackageResponse Core.Int
+associatePackageResponse_httpStatus :: Lens.Lens' AssociatePackageResponse Prelude.Int
 associatePackageResponse_httpStatus = Lens.lens (\AssociatePackageResponse' {httpStatus} -> httpStatus) (\s@AssociatePackageResponse' {} a -> s {httpStatus = a} :: AssociatePackageResponse)
 
-instance Core.NFData AssociatePackageResponse
+instance Prelude.NFData AssociatePackageResponse

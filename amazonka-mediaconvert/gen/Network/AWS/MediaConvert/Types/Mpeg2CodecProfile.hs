@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.Mpeg2CodecProfile
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use Profile (Mpeg2CodecProfile) to set the MPEG-2 profile for the video
 -- output.
@@ -35,15 +36,15 @@ newtype Mpeg2CodecProfile = Mpeg2CodecProfile'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

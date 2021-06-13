@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -57,9 +58,9 @@ import qualified Network.AWS.Response as Response
 data DeleteProjectVersion = DeleteProjectVersion'
   { -- | The Amazon Resource Name (ARN) of the model version that you want to
     -- delete.
-    projectVersionArn :: Core.Text
+    projectVersionArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteProjectVersion' with all optional fields omitted.
@@ -73,7 +74,7 @@ data DeleteProjectVersion = DeleteProjectVersion'
 -- delete.
 newDeleteProjectVersion ::
   -- | 'projectVersionArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteProjectVersion
 newDeleteProjectVersion pProjectVersionArn_ =
   DeleteProjectVersion'
@@ -83,7 +84,7 @@ newDeleteProjectVersion pProjectVersionArn_ =
 
 -- | The Amazon Resource Name (ARN) of the model version that you want to
 -- delete.
-deleteProjectVersion_projectVersionArn :: Lens.Lens' DeleteProjectVersion Core.Text
+deleteProjectVersion_projectVersionArn :: Lens.Lens' DeleteProjectVersion Prelude.Text
 deleteProjectVersion_projectVersionArn = Lens.lens (\DeleteProjectVersion' {projectVersionArn} -> projectVersionArn) (\s@DeleteProjectVersion' {} a -> s {projectVersionArn = a} :: DeleteProjectVersion)
 
 instance Core.AWSRequest DeleteProjectVersion where
@@ -95,50 +96,52 @@ instance Core.AWSRequest DeleteProjectVersion where
     Response.receiveJSON
       ( \s h x ->
           DeleteProjectVersionResponse'
-            Core.<$> (x Core..?> "Status")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Status")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteProjectVersion
+instance Prelude.Hashable DeleteProjectVersion
 
-instance Core.NFData DeleteProjectVersion
+instance Prelude.NFData DeleteProjectVersion
 
 instance Core.ToHeaders DeleteProjectVersion where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "RekognitionService.DeleteProjectVersion" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteProjectVersion where
   toJSON DeleteProjectVersion' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ProjectVersionArn" Core..= projectVersionArn)
           ]
       )
 
 instance Core.ToPath DeleteProjectVersion where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteProjectVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProjectVersionResponse' smart constructor.
 data DeleteProjectVersionResponse = DeleteProjectVersionResponse'
   { -- | The status of the deletion operation.
-    status :: Core.Maybe ProjectVersionStatus,
+    status :: Prelude.Maybe ProjectVersionStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteProjectVersionResponse' with all optional fields omitted.
@@ -153,21 +156,21 @@ data DeleteProjectVersionResponse = DeleteProjectVersionResponse'
 -- 'httpStatus', 'deleteProjectVersionResponse_httpStatus' - The response's http status code.
 newDeleteProjectVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteProjectVersionResponse
 newDeleteProjectVersionResponse pHttpStatus_ =
   DeleteProjectVersionResponse'
     { status =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the deletion operation.
-deleteProjectVersionResponse_status :: Lens.Lens' DeleteProjectVersionResponse (Core.Maybe ProjectVersionStatus)
+deleteProjectVersionResponse_status :: Lens.Lens' DeleteProjectVersionResponse (Prelude.Maybe ProjectVersionStatus)
 deleteProjectVersionResponse_status = Lens.lens (\DeleteProjectVersionResponse' {status} -> status) (\s@DeleteProjectVersionResponse' {} a -> s {status = a} :: DeleteProjectVersionResponse)
 
 -- | The response's http status code.
-deleteProjectVersionResponse_httpStatus :: Lens.Lens' DeleteProjectVersionResponse Core.Int
+deleteProjectVersionResponse_httpStatus :: Lens.Lens' DeleteProjectVersionResponse Prelude.Int
 deleteProjectVersionResponse_httpStatus = Lens.lens (\DeleteProjectVersionResponse' {httpStatus} -> httpStatus) (\s@DeleteProjectVersionResponse' {} a -> s {httpStatus = a} :: DeleteProjectVersionResponse)
 
-instance Core.NFData DeleteProjectVersionResponse
+instance Prelude.NFData DeleteProjectVersionResponse

@@ -46,6 +46,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +55,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteConfigRule' smart constructor.
 data DeleteConfigRule = DeleteConfigRule'
   { -- | The name of the AWS Config rule that you want to delete.
-    configRuleName :: Core.Text
+    configRuleName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConfigRule' with all optional fields omitted.
@@ -69,7 +70,7 @@ data DeleteConfigRule = DeleteConfigRule'
 -- 'configRuleName', 'deleteConfigRule_configRuleName' - The name of the AWS Config rule that you want to delete.
 newDeleteConfigRule ::
   -- | 'configRuleName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteConfigRule
 newDeleteConfigRule pConfigRuleName_ =
   DeleteConfigRule'
@@ -78,7 +79,7 @@ newDeleteConfigRule pConfigRuleName_ =
     }
 
 -- | The name of the AWS Config rule that you want to delete.
-deleteConfigRule_configRuleName :: Lens.Lens' DeleteConfigRule Core.Text
+deleteConfigRule_configRuleName :: Lens.Lens' DeleteConfigRule Prelude.Text
 deleteConfigRule_configRuleName = Lens.lens (\DeleteConfigRule' {configRuleName} -> configRuleName) (\s@DeleteConfigRule' {} a -> s {configRuleName = a} :: DeleteConfigRule)
 
 instance Core.AWSRequest DeleteConfigRule where
@@ -89,43 +90,45 @@ instance Core.AWSRequest DeleteConfigRule where
   response =
     Response.receiveNull DeleteConfigRuleResponse'
 
-instance Core.Hashable DeleteConfigRule
+instance Prelude.Hashable DeleteConfigRule
 
-instance Core.NFData DeleteConfigRule
+instance Prelude.NFData DeleteConfigRule
 
 instance Core.ToHeaders DeleteConfigRule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.DeleteConfigRule" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteConfigRule where
   toJSON DeleteConfigRule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ConfigRuleName" Core..= configRuleName)
           ]
       )
 
 instance Core.ToPath DeleteConfigRule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteConfigRule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteConfigRuleResponse' smart constructor.
 data DeleteConfigRuleResponse = DeleteConfigRuleResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConfigRuleResponse' with all optional fields omitted.
@@ -136,4 +139,4 @@ newDeleteConfigRuleResponse ::
 newDeleteConfigRuleResponse =
   DeleteConfigRuleResponse'
 
-instance Core.NFData DeleteConfigRuleResponse
+instance Prelude.NFData DeleteConfigRuleResponse

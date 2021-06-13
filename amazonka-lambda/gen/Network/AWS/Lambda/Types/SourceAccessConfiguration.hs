@@ -22,6 +22,7 @@ module Network.AWS.Lambda.Types.SourceAccessConfiguration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types.SourceAccessType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | You can specify the authentication protocol, or the VPC components to
 -- secure access to your event source.
@@ -30,7 +31,7 @@ import qualified Network.AWS.Lens as Lens
 data SourceAccessConfiguration = SourceAccessConfiguration'
   { -- | The value for your chosen configuration in @Type@. For example:
     -- @\"URI\": \"arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName\"@.
-    uri :: Core.Maybe Core.Text,
+    uri :: Prelude.Maybe Prelude.Text,
     -- | The type of authentication protocol or the VPC components for your event
     -- source. For example: @\"Type\":\"SASL_SCRAM_512_AUTH\"@.
     --
@@ -51,9 +52,9 @@ data SourceAccessConfiguration = SourceAccessConfiguration'
     -- -   @SASL_SCRAM_512_AUTH@ - The Secrets Manager ARN of your secret key
     --     used for SASL SCRAM-512 authentication of your Self-Managed Apache
     --     Kafka brokers.
-    type' :: Core.Maybe SourceAccessType
+    type' :: Prelude.Maybe SourceAccessType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SourceAccessConfiguration' with all optional fields omitted.
@@ -90,13 +91,13 @@ newSourceAccessConfiguration ::
   SourceAccessConfiguration
 newSourceAccessConfiguration =
   SourceAccessConfiguration'
-    { uri = Core.Nothing,
-      type' = Core.Nothing
+    { uri = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The value for your chosen configuration in @Type@. For example:
 -- @\"URI\": \"arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName\"@.
-sourceAccessConfiguration_uri :: Lens.Lens' SourceAccessConfiguration (Core.Maybe Core.Text)
+sourceAccessConfiguration_uri :: Lens.Lens' SourceAccessConfiguration (Prelude.Maybe Prelude.Text)
 sourceAccessConfiguration_uri = Lens.lens (\SourceAccessConfiguration' {uri} -> uri) (\s@SourceAccessConfiguration' {} a -> s {uri = a} :: SourceAccessConfiguration)
 
 -- | The type of authentication protocol or the VPC components for your event
@@ -119,7 +120,7 @@ sourceAccessConfiguration_uri = Lens.lens (\SourceAccessConfiguration' {uri} -> 
 -- -   @SASL_SCRAM_512_AUTH@ - The Secrets Manager ARN of your secret key
 --     used for SASL SCRAM-512 authentication of your Self-Managed Apache
 --     Kafka brokers.
-sourceAccessConfiguration_type :: Lens.Lens' SourceAccessConfiguration (Core.Maybe SourceAccessType)
+sourceAccessConfiguration_type :: Lens.Lens' SourceAccessConfiguration (Prelude.Maybe SourceAccessType)
 sourceAccessConfiguration_type = Lens.lens (\SourceAccessConfiguration' {type'} -> type') (\s@SourceAccessConfiguration' {} a -> s {type' = a} :: SourceAccessConfiguration)
 
 instance Core.FromJSON SourceAccessConfiguration where
@@ -128,18 +129,18 @@ instance Core.FromJSON SourceAccessConfiguration where
       "SourceAccessConfiguration"
       ( \x ->
           SourceAccessConfiguration'
-            Core.<$> (x Core..:? "URI") Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "URI") Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable SourceAccessConfiguration
+instance Prelude.Hashable SourceAccessConfiguration
 
-instance Core.NFData SourceAccessConfiguration
+instance Prelude.NFData SourceAccessConfiguration
 
 instance Core.ToJSON SourceAccessConfiguration where
   toJSON SourceAccessConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("URI" Core..=) Core.<$> uri,
-            ("Type" Core..=) Core.<$> type'
+      ( Prelude.catMaybes
+          [ ("URI" Core..=) Prelude.<$> uri,
+            ("Type" Core..=) Prelude.<$> type'
           ]
       )

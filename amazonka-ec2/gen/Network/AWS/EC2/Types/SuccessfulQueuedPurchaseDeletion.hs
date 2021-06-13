@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.SuccessfulQueuedPurchaseDeletion where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Reserved Instance whose queued purchase was successfully
 -- deleted.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSuccessfulQueuedPurchaseDeletion' smart constructor.
 data SuccessfulQueuedPurchaseDeletion = SuccessfulQueuedPurchaseDeletion'
   { -- | The ID of the Reserved Instance.
-    reservedInstancesId :: Core.Maybe Core.Text
+    reservedInstancesId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SuccessfulQueuedPurchaseDeletion' with all optional fields omitted.
@@ -47,11 +48,11 @@ newSuccessfulQueuedPurchaseDeletion ::
 newSuccessfulQueuedPurchaseDeletion =
   SuccessfulQueuedPurchaseDeletion'
     { reservedInstancesId =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The ID of the Reserved Instance.
-successfulQueuedPurchaseDeletion_reservedInstancesId :: Lens.Lens' SuccessfulQueuedPurchaseDeletion (Core.Maybe Core.Text)
+successfulQueuedPurchaseDeletion_reservedInstancesId :: Lens.Lens' SuccessfulQueuedPurchaseDeletion (Prelude.Maybe Prelude.Text)
 successfulQueuedPurchaseDeletion_reservedInstancesId = Lens.lens (\SuccessfulQueuedPurchaseDeletion' {reservedInstancesId} -> reservedInstancesId) (\s@SuccessfulQueuedPurchaseDeletion' {} a -> s {reservedInstancesId = a} :: SuccessfulQueuedPurchaseDeletion)
 
 instance
@@ -60,10 +61,12 @@ instance
   where
   parseXML x =
     SuccessfulQueuedPurchaseDeletion'
-      Core.<$> (x Core..@? "reservedInstancesId")
+      Prelude.<$> (x Core..@? "reservedInstancesId")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     SuccessfulQueuedPurchaseDeletion
 
-instance Core.NFData SuccessfulQueuedPurchaseDeletion
+instance
+  Prelude.NFData
+    SuccessfulQueuedPurchaseDeletion

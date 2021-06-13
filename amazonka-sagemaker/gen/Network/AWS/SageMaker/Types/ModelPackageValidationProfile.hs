@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ModelPackageValidationProfile where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.TransformJobDefinition
 
 -- | Contains data, such as the inputs and targeted instance types that are
@@ -32,12 +33,12 @@ import Network.AWS.SageMaker.Types.TransformJobDefinition
 -- /See:/ 'newModelPackageValidationProfile' smart constructor.
 data ModelPackageValidationProfile = ModelPackageValidationProfile'
   { -- | The name of the profile for the model package.
-    profileName :: Core.Text,
+    profileName :: Prelude.Text,
     -- | The @TransformJobDefinition@ object that describes the transform job
     -- used for the validation of the model package.
     transformJobDefinition :: TransformJobDefinition
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModelPackageValidationProfile' with all optional fields omitted.
@@ -53,7 +54,7 @@ data ModelPackageValidationProfile = ModelPackageValidationProfile'
 -- used for the validation of the model package.
 newModelPackageValidationProfile ::
   -- | 'profileName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'transformJobDefinition'
   TransformJobDefinition ->
   ModelPackageValidationProfile
@@ -68,7 +69,7 @@ newModelPackageValidationProfile
       }
 
 -- | The name of the profile for the model package.
-modelPackageValidationProfile_profileName :: Lens.Lens' ModelPackageValidationProfile Core.Text
+modelPackageValidationProfile_profileName :: Lens.Lens' ModelPackageValidationProfile Prelude.Text
 modelPackageValidationProfile_profileName = Lens.lens (\ModelPackageValidationProfile' {profileName} -> profileName) (\s@ModelPackageValidationProfile' {} a -> s {profileName = a} :: ModelPackageValidationProfile)
 
 -- | The @TransformJobDefinition@ object that describes the transform job
@@ -82,20 +83,22 @@ instance Core.FromJSON ModelPackageValidationProfile where
       "ModelPackageValidationProfile"
       ( \x ->
           ModelPackageValidationProfile'
-            Core.<$> (x Core..: "ProfileName")
-            Core.<*> (x Core..: "TransformJobDefinition")
+            Prelude.<$> (x Core..: "ProfileName")
+            Prelude.<*> (x Core..: "TransformJobDefinition")
       )
 
-instance Core.Hashable ModelPackageValidationProfile
+instance
+  Prelude.Hashable
+    ModelPackageValidationProfile
 
-instance Core.NFData ModelPackageValidationProfile
+instance Prelude.NFData ModelPackageValidationProfile
 
 instance Core.ToJSON ModelPackageValidationProfile where
   toJSON ModelPackageValidationProfile' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ProfileName" Core..= profileName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ProfileName" Core..= profileName),
+            Prelude.Just
               ( "TransformJobDefinition"
                   Core..= transformJobDefinition
               )

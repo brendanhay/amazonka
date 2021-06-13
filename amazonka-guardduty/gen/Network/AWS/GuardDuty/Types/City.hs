@@ -21,15 +21,16 @@ module Network.AWS.GuardDuty.Types.City where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the city associated with the IP address.
 --
 -- /See:/ 'newCity' smart constructor.
 data City = City'
   { -- | The city name of the remote IP address.
-    cityName :: Core.Maybe Core.Text
+    cityName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'City' with all optional fields omitted.
@@ -42,18 +43,18 @@ data City = City'
 -- 'cityName', 'city_cityName' - The city name of the remote IP address.
 newCity ::
   City
-newCity = City' {cityName = Core.Nothing}
+newCity = City' {cityName = Prelude.Nothing}
 
 -- | The city name of the remote IP address.
-city_cityName :: Lens.Lens' City (Core.Maybe Core.Text)
+city_cityName :: Lens.Lens' City (Prelude.Maybe Prelude.Text)
 city_cityName = Lens.lens (\City' {cityName} -> cityName) (\s@City' {} a -> s {cityName = a} :: City)
 
 instance Core.FromJSON City where
   parseJSON =
     Core.withObject
       "City"
-      (\x -> City' Core.<$> (x Core..:? "cityName"))
+      (\x -> City' Prelude.<$> (x Core..:? "cityName"))
 
-instance Core.Hashable City
+instance Prelude.Hashable City
 
-instance Core.NFData City
+instance Prelude.NFData City

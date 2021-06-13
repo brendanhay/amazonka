@@ -65,6 +65,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,14 +77,14 @@ data PutRolePolicy = PutRolePolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    roleName :: Core.Text,
+    roleName :: Prelude.Text,
     -- | The name of the policy document.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    policyName :: Core.Text,
+    policyName :: Prelude.Text,
     -- | The policy document.
     --
     -- You must provide policies in JSON format in IAM. However, for AWS
@@ -102,9 +103,9 @@ data PutRolePolicy = PutRolePolicy'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    policyDocument :: Core.Text
+    policyDocument :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRolePolicy' with all optional fields omitted.
@@ -148,11 +149,11 @@ data PutRolePolicy = PutRolePolicy'
 --     carriage return (@\\u000D@)
 newPutRolePolicy ::
   -- | 'roleName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyDocument'
-  Core.Text ->
+  Prelude.Text ->
   PutRolePolicy
 newPutRolePolicy
   pRoleName_
@@ -170,7 +171,7 @@ newPutRolePolicy
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-putRolePolicy_roleName :: Lens.Lens' PutRolePolicy Core.Text
+putRolePolicy_roleName :: Lens.Lens' PutRolePolicy Prelude.Text
 putRolePolicy_roleName = Lens.lens (\PutRolePolicy' {roleName} -> roleName) (\s@PutRolePolicy' {} a -> s {roleName = a} :: PutRolePolicy)
 
 -- | The name of the policy document.
@@ -179,7 +180,7 @@ putRolePolicy_roleName = Lens.lens (\PutRolePolicy' {roleName} -> roleName) (\s@
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-putRolePolicy_policyName :: Lens.Lens' PutRolePolicy Core.Text
+putRolePolicy_policyName :: Lens.Lens' PutRolePolicy Prelude.Text
 putRolePolicy_policyName = Lens.lens (\PutRolePolicy' {policyName} -> policyName) (\s@PutRolePolicy' {} a -> s {policyName = a} :: PutRolePolicy)
 
 -- | The policy document.
@@ -200,7 +201,7 @@ putRolePolicy_policyName = Lens.lens (\PutRolePolicy' {policyName} -> policyName
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-putRolePolicy_policyDocument :: Lens.Lens' PutRolePolicy Core.Text
+putRolePolicy_policyDocument :: Lens.Lens' PutRolePolicy Prelude.Text
 putRolePolicy_policyDocument = Lens.lens (\PutRolePolicy' {policyDocument} -> policyDocument) (\s@PutRolePolicy' {} a -> s {policyDocument = a} :: PutRolePolicy)
 
 instance Core.AWSRequest PutRolePolicy where
@@ -211,22 +212,23 @@ instance Core.AWSRequest PutRolePolicy where
   response =
     Response.receiveNull PutRolePolicyResponse'
 
-instance Core.Hashable PutRolePolicy
+instance Prelude.Hashable PutRolePolicy
 
-instance Core.NFData PutRolePolicy
+instance Prelude.NFData PutRolePolicy
 
 instance Core.ToHeaders PutRolePolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath PutRolePolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutRolePolicy where
   toQuery PutRolePolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("PutRolePolicy" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("PutRolePolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "RoleName" Core.=: roleName,
         "PolicyName" Core.=: policyName,
         "PolicyDocument" Core.=: policyDocument
@@ -236,7 +238,7 @@ instance Core.ToQuery PutRolePolicy where
 data PutRolePolicyResponse = PutRolePolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRolePolicyResponse' with all optional fields omitted.
@@ -246,4 +248,4 @@ newPutRolePolicyResponse ::
   PutRolePolicyResponse
 newPutRolePolicyResponse = PutRolePolicyResponse'
 
-instance Core.NFData PutRolePolicyResponse
+instance Prelude.NFData PutRolePolicyResponse

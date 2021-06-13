@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.DBInstanceAutomatedBackupsReplication where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Automated backups of a DB instance replicated to another AWS Region.
 -- They consist of system backups, transaction logs, and database instance
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDBInstanceAutomatedBackupsReplication' smart constructor.
 data DBInstanceAutomatedBackupsReplication = DBInstanceAutomatedBackupsReplication'
   { -- | The Amazon Resource Name (ARN) of the replicated automated backups.
-    dbInstanceAutomatedBackupsArn :: Core.Maybe Core.Text
+    dbInstanceAutomatedBackupsArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DBInstanceAutomatedBackupsReplication' with all optional fields omitted.
@@ -47,11 +48,11 @@ newDBInstanceAutomatedBackupsReplication ::
 newDBInstanceAutomatedBackupsReplication =
   DBInstanceAutomatedBackupsReplication'
     { dbInstanceAutomatedBackupsArn =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the replicated automated backups.
-dbInstanceAutomatedBackupsReplication_dbInstanceAutomatedBackupsArn :: Lens.Lens' DBInstanceAutomatedBackupsReplication (Core.Maybe Core.Text)
+dbInstanceAutomatedBackupsReplication_dbInstanceAutomatedBackupsArn :: Lens.Lens' DBInstanceAutomatedBackupsReplication (Prelude.Maybe Prelude.Text)
 dbInstanceAutomatedBackupsReplication_dbInstanceAutomatedBackupsArn = Lens.lens (\DBInstanceAutomatedBackupsReplication' {dbInstanceAutomatedBackupsArn} -> dbInstanceAutomatedBackupsArn) (\s@DBInstanceAutomatedBackupsReplication' {} a -> s {dbInstanceAutomatedBackupsArn = a} :: DBInstanceAutomatedBackupsReplication)
 
 instance
@@ -60,12 +61,12 @@ instance
   where
   parseXML x =
     DBInstanceAutomatedBackupsReplication'
-      Core.<$> (x Core..@? "DBInstanceAutomatedBackupsArn")
+      Prelude.<$> (x Core..@? "DBInstanceAutomatedBackupsArn")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DBInstanceAutomatedBackupsReplication
 
 instance
-  Core.NFData
+  Prelude.NFData
     DBInstanceAutomatedBackupsReplication

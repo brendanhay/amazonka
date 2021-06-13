@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.OwnershipControlsRule where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ObjectOwnership
 
@@ -30,7 +31,7 @@ import Network.AWS.S3.Types.ObjectOwnership
 data OwnershipControlsRule = OwnershipControlsRule'
   { objectOwnership :: ObjectOwnership
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OwnershipControlsRule' with all optional fields omitted.
@@ -58,13 +59,13 @@ ownershipControlsRule_objectOwnership = Lens.lens (\OwnershipControlsRule' {obje
 instance Core.FromXML OwnershipControlsRule where
   parseXML x =
     OwnershipControlsRule'
-      Core.<$> (x Core..@ "ObjectOwnership")
+      Prelude.<$> (x Core..@ "ObjectOwnership")
 
-instance Core.Hashable OwnershipControlsRule
+instance Prelude.Hashable OwnershipControlsRule
 
-instance Core.NFData OwnershipControlsRule
+instance Prelude.NFData OwnershipControlsRule
 
 instance Core.ToXML OwnershipControlsRule where
   toXML OwnershipControlsRule' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["ObjectOwnership" Core.@= objectOwnership]

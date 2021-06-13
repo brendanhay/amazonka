@@ -21,6 +21,7 @@ module Network.AWS.Snowball.Types.EventTriggerDefinition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The container for the EventTriggerDefinition$EventResourceARN.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data EventTriggerDefinition = EventTriggerDefinition'
   { -- | The Amazon Resource Name (ARN) for any local Amazon S3 resource that is
     -- an AWS Lambda function\'s event trigger associated with this job.
-    eventResourceARN :: Core.Maybe Core.Text
+    eventResourceARN :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventTriggerDefinition' with all optional fields omitted.
@@ -47,12 +48,12 @@ newEventTriggerDefinition ::
 newEventTriggerDefinition =
   EventTriggerDefinition'
     { eventResourceARN =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for any local Amazon S3 resource that is
 -- an AWS Lambda function\'s event trigger associated with this job.
-eventTriggerDefinition_eventResourceARN :: Lens.Lens' EventTriggerDefinition (Core.Maybe Core.Text)
+eventTriggerDefinition_eventResourceARN :: Lens.Lens' EventTriggerDefinition (Prelude.Maybe Prelude.Text)
 eventTriggerDefinition_eventResourceARN = Lens.lens (\EventTriggerDefinition' {eventResourceARN} -> eventResourceARN) (\s@EventTriggerDefinition' {} a -> s {eventResourceARN = a} :: EventTriggerDefinition)
 
 instance Core.FromJSON EventTriggerDefinition where
@@ -61,18 +62,18 @@ instance Core.FromJSON EventTriggerDefinition where
       "EventTriggerDefinition"
       ( \x ->
           EventTriggerDefinition'
-            Core.<$> (x Core..:? "EventResourceARN")
+            Prelude.<$> (x Core..:? "EventResourceARN")
       )
 
-instance Core.Hashable EventTriggerDefinition
+instance Prelude.Hashable EventTriggerDefinition
 
-instance Core.NFData EventTriggerDefinition
+instance Prelude.NFData EventTriggerDefinition
 
 instance Core.ToJSON EventTriggerDefinition where
   toJSON EventTriggerDefinition' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("EventResourceARN" Core..=)
-              Core.<$> eventResourceARN
+              Prelude.<$> eventResourceARN
           ]
       )

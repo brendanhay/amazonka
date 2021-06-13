@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,14 +62,14 @@ data GetDataEndpoint = GetDataEndpoint'
   { -- | The Amazon Resource Name (ARN) of the stream that you want to get the
     -- endpoint for. You must specify either this parameter or a @StreamName@
     -- in the request.
-    streamARN :: Core.Maybe Core.Text,
+    streamARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the stream that you want to get the endpoint for. You must
     -- specify either this parameter or a @StreamARN@ in the request.
-    streamName :: Core.Maybe Core.Text,
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | The name of the API action for which to get an endpoint.
     aPIName :: APIName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDataEndpoint' with all optional fields omitted.
@@ -92,20 +93,20 @@ newGetDataEndpoint ::
   GetDataEndpoint
 newGetDataEndpoint pAPIName_ =
   GetDataEndpoint'
-    { streamARN = Core.Nothing,
-      streamName = Core.Nothing,
+    { streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing,
       aPIName = pAPIName_
     }
 
 -- | The Amazon Resource Name (ARN) of the stream that you want to get the
 -- endpoint for. You must specify either this parameter or a @StreamName@
 -- in the request.
-getDataEndpoint_streamARN :: Lens.Lens' GetDataEndpoint (Core.Maybe Core.Text)
+getDataEndpoint_streamARN :: Lens.Lens' GetDataEndpoint (Prelude.Maybe Prelude.Text)
 getDataEndpoint_streamARN = Lens.lens (\GetDataEndpoint' {streamARN} -> streamARN) (\s@GetDataEndpoint' {} a -> s {streamARN = a} :: GetDataEndpoint)
 
 -- | The name of the stream that you want to get the endpoint for. You must
 -- specify either this parameter or a @StreamARN@ in the request.
-getDataEndpoint_streamName :: Lens.Lens' GetDataEndpoint (Core.Maybe Core.Text)
+getDataEndpoint_streamName :: Lens.Lens' GetDataEndpoint (Prelude.Maybe Prelude.Text)
 getDataEndpoint_streamName = Lens.lens (\GetDataEndpoint' {streamName} -> streamName) (\s@GetDataEndpoint' {} a -> s {streamName = a} :: GetDataEndpoint)
 
 -- | The name of the API action for which to get an endpoint.
@@ -121,42 +122,42 @@ instance Core.AWSRequest GetDataEndpoint where
     Response.receiveJSON
       ( \s h x ->
           GetDataEndpointResponse'
-            Core.<$> (x Core..?> "DataEndpoint")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DataEndpoint")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDataEndpoint
+instance Prelude.Hashable GetDataEndpoint
 
-instance Core.NFData GetDataEndpoint
+instance Prelude.NFData GetDataEndpoint
 
 instance Core.ToHeaders GetDataEndpoint where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON GetDataEndpoint where
   toJSON GetDataEndpoint' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("StreamARN" Core..=) Core.<$> streamARN,
-            ("StreamName" Core..=) Core.<$> streamName,
-            Core.Just ("APIName" Core..= aPIName)
+      ( Prelude.catMaybes
+          [ ("StreamARN" Core..=) Prelude.<$> streamARN,
+            ("StreamName" Core..=) Prelude.<$> streamName,
+            Prelude.Just ("APIName" Core..= aPIName)
           ]
       )
 
 instance Core.ToPath GetDataEndpoint where
-  toPath = Core.const "/getDataEndpoint"
+  toPath = Prelude.const "/getDataEndpoint"
 
 instance Core.ToQuery GetDataEndpoint where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDataEndpointResponse' smart constructor.
 data GetDataEndpointResponse = GetDataEndpointResponse'
   { -- | The endpoint value. To read data from the stream or to write data to it,
     -- specify this endpoint in your application.
-    dataEndpoint :: Core.Maybe Core.Text,
+    dataEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDataEndpointResponse' with all optional fields omitted.
@@ -172,22 +173,22 @@ data GetDataEndpointResponse = GetDataEndpointResponse'
 -- 'httpStatus', 'getDataEndpointResponse_httpStatus' - The response's http status code.
 newGetDataEndpointResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDataEndpointResponse
 newGetDataEndpointResponse pHttpStatus_ =
   GetDataEndpointResponse'
     { dataEndpoint =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The endpoint value. To read data from the stream or to write data to it,
 -- specify this endpoint in your application.
-getDataEndpointResponse_dataEndpoint :: Lens.Lens' GetDataEndpointResponse (Core.Maybe Core.Text)
+getDataEndpointResponse_dataEndpoint :: Lens.Lens' GetDataEndpointResponse (Prelude.Maybe Prelude.Text)
 getDataEndpointResponse_dataEndpoint = Lens.lens (\GetDataEndpointResponse' {dataEndpoint} -> dataEndpoint) (\s@GetDataEndpointResponse' {} a -> s {dataEndpoint = a} :: GetDataEndpointResponse)
 
 -- | The response's http status code.
-getDataEndpointResponse_httpStatus :: Lens.Lens' GetDataEndpointResponse Core.Int
+getDataEndpointResponse_httpStatus :: Lens.Lens' GetDataEndpointResponse Prelude.Int
 getDataEndpointResponse_httpStatus = Lens.lens (\GetDataEndpointResponse' {httpStatus} -> httpStatus) (\s@GetDataEndpointResponse' {} a -> s {httpStatus = a} :: GetDataEndpointResponse)
 
-instance Core.NFData GetDataEndpointResponse
+instance Prelude.NFData GetDataEndpointResponse

@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.ResourceRecord where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 
 -- | Information specific to the resource record.
@@ -40,9 +41,9 @@ data ResourceRecord = ResourceRecord'
     -- and @SOA@.
     --
     -- If you\'re creating an alias resource record set, omit @Value@.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceRecord' with all optional fields omitted.
@@ -65,7 +66,7 @@ data ResourceRecord = ResourceRecord'
 -- If you\'re creating an alias resource record set, omit @Value@.
 newResourceRecord ::
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   ResourceRecord
 newResourceRecord pValue_ =
   ResourceRecord' {value = pValue_}
@@ -81,17 +82,17 @@ newResourceRecord pValue_ =
 -- and @SOA@.
 --
 -- If you\'re creating an alias resource record set, omit @Value@.
-resourceRecord_value :: Lens.Lens' ResourceRecord Core.Text
+resourceRecord_value :: Lens.Lens' ResourceRecord Prelude.Text
 resourceRecord_value = Lens.lens (\ResourceRecord' {value} -> value) (\s@ResourceRecord' {} a -> s {value = a} :: ResourceRecord)
 
 instance Core.FromXML ResourceRecord where
   parseXML x =
-    ResourceRecord' Core.<$> (x Core..@ "Value")
+    ResourceRecord' Prelude.<$> (x Core..@ "Value")
 
-instance Core.Hashable ResourceRecord
+instance Prelude.Hashable ResourceRecord
 
-instance Core.NFData ResourceRecord
+instance Prelude.NFData ResourceRecord
 
 instance Core.ToXML ResourceRecord where
   toXML ResourceRecord' {..} =
-    Core.mconcat ["Value" Core.@= value]
+    Prelude.mconcat ["Value" Core.@= value]

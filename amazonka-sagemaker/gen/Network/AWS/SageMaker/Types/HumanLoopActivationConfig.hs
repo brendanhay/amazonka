@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.HumanLoopActivationConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig
 
 -- | Provides information about how and under what conditions SageMaker
@@ -33,7 +34,7 @@ data HumanLoopActivationConfig = HumanLoopActivationConfig'
     -- a human loop.
     humanLoopActivationConditionsConfig :: HumanLoopActivationConditionsConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HumanLoopActivationConfig' with all optional fields omitted.
@@ -67,18 +68,18 @@ instance Core.FromJSON HumanLoopActivationConfig where
       "HumanLoopActivationConfig"
       ( \x ->
           HumanLoopActivationConfig'
-            Core.<$> (x Core..: "HumanLoopActivationConditionsConfig")
+            Prelude.<$> (x Core..: "HumanLoopActivationConditionsConfig")
       )
 
-instance Core.Hashable HumanLoopActivationConfig
+instance Prelude.Hashable HumanLoopActivationConfig
 
-instance Core.NFData HumanLoopActivationConfig
+instance Prelude.NFData HumanLoopActivationConfig
 
 instance Core.ToJSON HumanLoopActivationConfig where
   toJSON HumanLoopActivationConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "HumanLoopActivationConditionsConfig"
                   Core..= humanLoopActivationConditionsConfig
               )

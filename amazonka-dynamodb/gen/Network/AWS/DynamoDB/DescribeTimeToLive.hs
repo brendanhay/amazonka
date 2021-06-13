@@ -43,15 +43,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTimeToLive' smart constructor.
 data DescribeTimeToLive = DescribeTimeToLive'
   { -- | The name of the table to be described.
-    tableName :: Core.Text
+    tableName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTimeToLive' with all optional fields omitted.
@@ -64,13 +65,13 @@ data DescribeTimeToLive = DescribeTimeToLive'
 -- 'tableName', 'describeTimeToLive_tableName' - The name of the table to be described.
 newDescribeTimeToLive ::
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeTimeToLive
 newDescribeTimeToLive pTableName_ =
   DescribeTimeToLive' {tableName = pTableName_}
 
 -- | The name of the table to be described.
-describeTimeToLive_tableName :: Lens.Lens' DescribeTimeToLive Core.Text
+describeTimeToLive_tableName :: Lens.Lens' DescribeTimeToLive Prelude.Text
 describeTimeToLive_tableName = Lens.lens (\DescribeTimeToLive' {tableName} -> tableName) (\s@DescribeTimeToLive' {} a -> s {tableName = a} :: DescribeTimeToLive)
 
 instance Core.AWSRequest DescribeTimeToLive where
@@ -82,47 +83,49 @@ instance Core.AWSRequest DescribeTimeToLive where
     Response.receiveJSON
       ( \s h x ->
           DescribeTimeToLiveResponse'
-            Core.<$> (x Core..?> "TimeToLiveDescription")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TimeToLiveDescription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeTimeToLive
+instance Prelude.Hashable DescribeTimeToLive
 
-instance Core.NFData DescribeTimeToLive
+instance Prelude.NFData DescribeTimeToLive
 
 instance Core.ToHeaders DescribeTimeToLive where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DynamoDB_20120810.DescribeTimeToLive" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeTimeToLive where
   toJSON DescribeTimeToLive' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("TableName" Core..= tableName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("TableName" Core..= tableName)]
       )
 
 instance Core.ToPath DescribeTimeToLive where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeTimeToLive where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTimeToLiveResponse' smart constructor.
 data DescribeTimeToLiveResponse = DescribeTimeToLiveResponse'
-  { timeToLiveDescription :: Core.Maybe TimeToLiveDescription,
+  { timeToLiveDescription :: Prelude.Maybe TimeToLiveDescription,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTimeToLiveResponse' with all optional fields omitted.
@@ -137,21 +140,21 @@ data DescribeTimeToLiveResponse = DescribeTimeToLiveResponse'
 -- 'httpStatus', 'describeTimeToLiveResponse_httpStatus' - The response's http status code.
 newDescribeTimeToLiveResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeTimeToLiveResponse
 newDescribeTimeToLiveResponse pHttpStatus_ =
   DescribeTimeToLiveResponse'
     { timeToLiveDescription =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- |
-describeTimeToLiveResponse_timeToLiveDescription :: Lens.Lens' DescribeTimeToLiveResponse (Core.Maybe TimeToLiveDescription)
+describeTimeToLiveResponse_timeToLiveDescription :: Lens.Lens' DescribeTimeToLiveResponse (Prelude.Maybe TimeToLiveDescription)
 describeTimeToLiveResponse_timeToLiveDescription = Lens.lens (\DescribeTimeToLiveResponse' {timeToLiveDescription} -> timeToLiveDescription) (\s@DescribeTimeToLiveResponse' {} a -> s {timeToLiveDescription = a} :: DescribeTimeToLiveResponse)
 
 -- | The response's http status code.
-describeTimeToLiveResponse_httpStatus :: Lens.Lens' DescribeTimeToLiveResponse Core.Int
+describeTimeToLiveResponse_httpStatus :: Lens.Lens' DescribeTimeToLiveResponse Prelude.Int
 describeTimeToLiveResponse_httpStatus = Lens.lens (\DescribeTimeToLiveResponse' {httpStatus} -> httpStatus) (\s@DescribeTimeToLiveResponse' {} a -> s {httpStatus = a} :: DescribeTimeToLiveResponse)
 
-instance Core.NFData DescribeTimeToLiveResponse
+instance Prelude.NFData DescribeTimeToLiveResponse

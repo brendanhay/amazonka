@@ -21,6 +21,7 @@ module Network.AWS.CostExplorer.Types.CoverageNormalizedUnits where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The amount of instance usage, in normalized units. Normalized units
 -- enable you to see your EC2 usage for multiple sizes of instances in a
@@ -40,16 +41,16 @@ import qualified Network.AWS.Lens as Lens
 data CoverageNormalizedUnits = CoverageNormalizedUnits'
   { -- | The number of normalized units that are covered by On-Demand Instances
     -- instead of a reservation.
-    onDemandNormalizedUnits :: Core.Maybe Core.Text,
+    onDemandNormalizedUnits :: Prelude.Maybe Prelude.Text,
     -- | The percentage of your used instance normalized units that a reservation
     -- covers.
-    coverageNormalizedUnitsPercentage :: Core.Maybe Core.Text,
+    coverageNormalizedUnitsPercentage :: Prelude.Maybe Prelude.Text,
     -- | The total number of normalized units that you used.
-    totalRunningNormalizedUnits :: Core.Maybe Core.Text,
+    totalRunningNormalizedUnits :: Prelude.Maybe Prelude.Text,
     -- | The number of normalized units that a reservation covers.
-    reservedNormalizedUnits :: Core.Maybe Core.Text
+    reservedNormalizedUnits :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CoverageNormalizedUnits' with all optional fields omitted.
@@ -73,28 +74,29 @@ newCoverageNormalizedUnits ::
 newCoverageNormalizedUnits =
   CoverageNormalizedUnits'
     { onDemandNormalizedUnits =
-        Core.Nothing,
-      coverageNormalizedUnitsPercentage = Core.Nothing,
-      totalRunningNormalizedUnits = Core.Nothing,
-      reservedNormalizedUnits = Core.Nothing
+        Prelude.Nothing,
+      coverageNormalizedUnitsPercentage =
+        Prelude.Nothing,
+      totalRunningNormalizedUnits = Prelude.Nothing,
+      reservedNormalizedUnits = Prelude.Nothing
     }
 
 -- | The number of normalized units that are covered by On-Demand Instances
 -- instead of a reservation.
-coverageNormalizedUnits_onDemandNormalizedUnits :: Lens.Lens' CoverageNormalizedUnits (Core.Maybe Core.Text)
+coverageNormalizedUnits_onDemandNormalizedUnits :: Lens.Lens' CoverageNormalizedUnits (Prelude.Maybe Prelude.Text)
 coverageNormalizedUnits_onDemandNormalizedUnits = Lens.lens (\CoverageNormalizedUnits' {onDemandNormalizedUnits} -> onDemandNormalizedUnits) (\s@CoverageNormalizedUnits' {} a -> s {onDemandNormalizedUnits = a} :: CoverageNormalizedUnits)
 
 -- | The percentage of your used instance normalized units that a reservation
 -- covers.
-coverageNormalizedUnits_coverageNormalizedUnitsPercentage :: Lens.Lens' CoverageNormalizedUnits (Core.Maybe Core.Text)
+coverageNormalizedUnits_coverageNormalizedUnitsPercentage :: Lens.Lens' CoverageNormalizedUnits (Prelude.Maybe Prelude.Text)
 coverageNormalizedUnits_coverageNormalizedUnitsPercentage = Lens.lens (\CoverageNormalizedUnits' {coverageNormalizedUnitsPercentage} -> coverageNormalizedUnitsPercentage) (\s@CoverageNormalizedUnits' {} a -> s {coverageNormalizedUnitsPercentage = a} :: CoverageNormalizedUnits)
 
 -- | The total number of normalized units that you used.
-coverageNormalizedUnits_totalRunningNormalizedUnits :: Lens.Lens' CoverageNormalizedUnits (Core.Maybe Core.Text)
+coverageNormalizedUnits_totalRunningNormalizedUnits :: Lens.Lens' CoverageNormalizedUnits (Prelude.Maybe Prelude.Text)
 coverageNormalizedUnits_totalRunningNormalizedUnits = Lens.lens (\CoverageNormalizedUnits' {totalRunningNormalizedUnits} -> totalRunningNormalizedUnits) (\s@CoverageNormalizedUnits' {} a -> s {totalRunningNormalizedUnits = a} :: CoverageNormalizedUnits)
 
 -- | The number of normalized units that a reservation covers.
-coverageNormalizedUnits_reservedNormalizedUnits :: Lens.Lens' CoverageNormalizedUnits (Core.Maybe Core.Text)
+coverageNormalizedUnits_reservedNormalizedUnits :: Lens.Lens' CoverageNormalizedUnits (Prelude.Maybe Prelude.Text)
 coverageNormalizedUnits_reservedNormalizedUnits = Lens.lens (\CoverageNormalizedUnits' {reservedNormalizedUnits} -> reservedNormalizedUnits) (\s@CoverageNormalizedUnits' {} a -> s {reservedNormalizedUnits = a} :: CoverageNormalizedUnits)
 
 instance Core.FromJSON CoverageNormalizedUnits where
@@ -103,12 +105,12 @@ instance Core.FromJSON CoverageNormalizedUnits where
       "CoverageNormalizedUnits"
       ( \x ->
           CoverageNormalizedUnits'
-            Core.<$> (x Core..:? "OnDemandNormalizedUnits")
-            Core.<*> (x Core..:? "CoverageNormalizedUnitsPercentage")
-            Core.<*> (x Core..:? "TotalRunningNormalizedUnits")
-            Core.<*> (x Core..:? "ReservedNormalizedUnits")
+            Prelude.<$> (x Core..:? "OnDemandNormalizedUnits")
+            Prelude.<*> (x Core..:? "CoverageNormalizedUnitsPercentage")
+            Prelude.<*> (x Core..:? "TotalRunningNormalizedUnits")
+            Prelude.<*> (x Core..:? "ReservedNormalizedUnits")
       )
 
-instance Core.Hashable CoverageNormalizedUnits
+instance Prelude.Hashable CoverageNormalizedUnits
 
-instance Core.NFData CoverageNormalizedUnits
+instance Prelude.NFData CoverageNormalizedUnits

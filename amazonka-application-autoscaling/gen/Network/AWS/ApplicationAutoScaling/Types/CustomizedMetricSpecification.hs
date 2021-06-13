@@ -23,6 +23,7 @@ import Network.AWS.ApplicationAutoScaling.Types.MetricDimension
 import Network.AWS.ApplicationAutoScaling.Types.MetricStatistic
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a CloudWatch metric of your choosing for a target tracking
 -- scaling policy to use with Application Auto Scaling.
@@ -52,20 +53,20 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCustomizedMetricSpecification' smart constructor.
 data CustomizedMetricSpecification = CustomizedMetricSpecification'
   { -- | The unit of the metric.
-    unit :: Core.Maybe Core.Text,
+    unit :: Prelude.Maybe Prelude.Text,
     -- | The dimensions of the metric.
     --
     -- Conditional: If you published your metric with dimensions, you must
     -- specify the same dimensions in your scaling policy.
-    dimensions :: Core.Maybe [MetricDimension],
+    dimensions :: Prelude.Maybe [MetricDimension],
     -- | The name of the metric.
-    metricName :: Core.Text,
+    metricName :: Prelude.Text,
     -- | The namespace of the metric.
-    namespace :: Core.Text,
+    namespace :: Prelude.Text,
     -- | The statistic of the metric.
     statistic :: MetricStatistic
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CustomizedMetricSpecification' with all optional fields omitted.
@@ -89,9 +90,9 @@ data CustomizedMetricSpecification = CustomizedMetricSpecification'
 -- 'statistic', 'customizedMetricSpecification_statistic' - The statistic of the metric.
 newCustomizedMetricSpecification ::
   -- | 'metricName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'namespace'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'statistic'
   MetricStatistic ->
   CustomizedMetricSpecification
@@ -100,30 +101,31 @@ newCustomizedMetricSpecification
   pNamespace_
   pStatistic_ =
     CustomizedMetricSpecification'
-      { unit = Core.Nothing,
-        dimensions = Core.Nothing,
+      { unit =
+          Prelude.Nothing,
+        dimensions = Prelude.Nothing,
         metricName = pMetricName_,
         namespace = pNamespace_,
         statistic = pStatistic_
       }
 
 -- | The unit of the metric.
-customizedMetricSpecification_unit :: Lens.Lens' CustomizedMetricSpecification (Core.Maybe Core.Text)
+customizedMetricSpecification_unit :: Lens.Lens' CustomizedMetricSpecification (Prelude.Maybe Prelude.Text)
 customizedMetricSpecification_unit = Lens.lens (\CustomizedMetricSpecification' {unit} -> unit) (\s@CustomizedMetricSpecification' {} a -> s {unit = a} :: CustomizedMetricSpecification)
 
 -- | The dimensions of the metric.
 --
 -- Conditional: If you published your metric with dimensions, you must
 -- specify the same dimensions in your scaling policy.
-customizedMetricSpecification_dimensions :: Lens.Lens' CustomizedMetricSpecification (Core.Maybe [MetricDimension])
-customizedMetricSpecification_dimensions = Lens.lens (\CustomizedMetricSpecification' {dimensions} -> dimensions) (\s@CustomizedMetricSpecification' {} a -> s {dimensions = a} :: CustomizedMetricSpecification) Core.. Lens.mapping Lens._Coerce
+customizedMetricSpecification_dimensions :: Lens.Lens' CustomizedMetricSpecification (Prelude.Maybe [MetricDimension])
+customizedMetricSpecification_dimensions = Lens.lens (\CustomizedMetricSpecification' {dimensions} -> dimensions) (\s@CustomizedMetricSpecification' {} a -> s {dimensions = a} :: CustomizedMetricSpecification) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the metric.
-customizedMetricSpecification_metricName :: Lens.Lens' CustomizedMetricSpecification Core.Text
+customizedMetricSpecification_metricName :: Lens.Lens' CustomizedMetricSpecification Prelude.Text
 customizedMetricSpecification_metricName = Lens.lens (\CustomizedMetricSpecification' {metricName} -> metricName) (\s@CustomizedMetricSpecification' {} a -> s {metricName = a} :: CustomizedMetricSpecification)
 
 -- | The namespace of the metric.
-customizedMetricSpecification_namespace :: Lens.Lens' CustomizedMetricSpecification Core.Text
+customizedMetricSpecification_namespace :: Lens.Lens' CustomizedMetricSpecification Prelude.Text
 customizedMetricSpecification_namespace = Lens.lens (\CustomizedMetricSpecification' {namespace} -> namespace) (\s@CustomizedMetricSpecification' {} a -> s {namespace = a} :: CustomizedMetricSpecification)
 
 -- | The statistic of the metric.
@@ -136,25 +138,27 @@ instance Core.FromJSON CustomizedMetricSpecification where
       "CustomizedMetricSpecification"
       ( \x ->
           CustomizedMetricSpecification'
-            Core.<$> (x Core..:? "Unit")
-            Core.<*> (x Core..:? "Dimensions" Core..!= Core.mempty)
-            Core.<*> (x Core..: "MetricName")
-            Core.<*> (x Core..: "Namespace")
-            Core.<*> (x Core..: "Statistic")
+            Prelude.<$> (x Core..:? "Unit")
+            Prelude.<*> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "MetricName")
+            Prelude.<*> (x Core..: "Namespace")
+            Prelude.<*> (x Core..: "Statistic")
       )
 
-instance Core.Hashable CustomizedMetricSpecification
+instance
+  Prelude.Hashable
+    CustomizedMetricSpecification
 
-instance Core.NFData CustomizedMetricSpecification
+instance Prelude.NFData CustomizedMetricSpecification
 
 instance Core.ToJSON CustomizedMetricSpecification where
   toJSON CustomizedMetricSpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Unit" Core..=) Core.<$> unit,
-            ("Dimensions" Core..=) Core.<$> dimensions,
-            Core.Just ("MetricName" Core..= metricName),
-            Core.Just ("Namespace" Core..= namespace),
-            Core.Just ("Statistic" Core..= statistic)
+      ( Prelude.catMaybes
+          [ ("Unit" Core..=) Prelude.<$> unit,
+            ("Dimensions" Core..=) Prelude.<$> dimensions,
+            Prelude.Just ("MetricName" Core..= metricName),
+            Prelude.Just ("Namespace" Core..= namespace),
+            Prelude.Just ("Statistic" Core..= statistic)
           ]
       )

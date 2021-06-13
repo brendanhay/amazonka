@@ -21,6 +21,7 @@ module Network.AWS.CodeBuild.Types.CodeCoverage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains code coverage report information.
 --
@@ -33,27 +34,27 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCodeCoverage' smart constructor.
 data CodeCoverage = CodeCoverage'
   { -- | The number of conditional branches that are not covered by your tests.
-    branchesMissed :: Core.Maybe Core.Natural,
+    branchesMissed :: Prelude.Maybe Prelude.Natural,
     -- | The number of lines that are covered by your tests.
-    linesCovered :: Core.Maybe Core.Natural,
+    linesCovered :: Prelude.Maybe Prelude.Natural,
     -- | The number of conditional branches that are covered by your tests.
-    branchesCovered :: Core.Maybe Core.Natural,
+    branchesCovered :: Prelude.Maybe Prelude.Natural,
     -- | The path of the test report file.
-    filePath :: Core.Maybe Core.Text,
+    filePath :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the report.
-    reportARN :: Core.Maybe Core.Text,
+    reportARN :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the code coverage report.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the tests were run.
-    expired :: Core.Maybe Core.POSIX,
+    expired :: Prelude.Maybe Core.POSIX,
     -- | The percentage of lines that are covered by your tests.
-    lineCoveragePercentage :: Core.Maybe Core.Double,
+    lineCoveragePercentage :: Prelude.Maybe Prelude.Double,
     -- | The number of lines that are not covered by your tests.
-    linesMissed :: Core.Maybe Core.Natural,
+    linesMissed :: Prelude.Maybe Prelude.Natural,
     -- | The percentage of branches that are covered by your tests.
-    branchCoveragePercentage :: Core.Maybe Core.Double
+    branchCoveragePercentage :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CodeCoverage' with all optional fields omitted.
@@ -86,56 +87,56 @@ newCodeCoverage ::
   CodeCoverage
 newCodeCoverage =
   CodeCoverage'
-    { branchesMissed = Core.Nothing,
-      linesCovered = Core.Nothing,
-      branchesCovered = Core.Nothing,
-      filePath = Core.Nothing,
-      reportARN = Core.Nothing,
-      id = Core.Nothing,
-      expired = Core.Nothing,
-      lineCoveragePercentage = Core.Nothing,
-      linesMissed = Core.Nothing,
-      branchCoveragePercentage = Core.Nothing
+    { branchesMissed = Prelude.Nothing,
+      linesCovered = Prelude.Nothing,
+      branchesCovered = Prelude.Nothing,
+      filePath = Prelude.Nothing,
+      reportARN = Prelude.Nothing,
+      id = Prelude.Nothing,
+      expired = Prelude.Nothing,
+      lineCoveragePercentage = Prelude.Nothing,
+      linesMissed = Prelude.Nothing,
+      branchCoveragePercentage = Prelude.Nothing
     }
 
 -- | The number of conditional branches that are not covered by your tests.
-codeCoverage_branchesMissed :: Lens.Lens' CodeCoverage (Core.Maybe Core.Natural)
+codeCoverage_branchesMissed :: Lens.Lens' CodeCoverage (Prelude.Maybe Prelude.Natural)
 codeCoverage_branchesMissed = Lens.lens (\CodeCoverage' {branchesMissed} -> branchesMissed) (\s@CodeCoverage' {} a -> s {branchesMissed = a} :: CodeCoverage)
 
 -- | The number of lines that are covered by your tests.
-codeCoverage_linesCovered :: Lens.Lens' CodeCoverage (Core.Maybe Core.Natural)
+codeCoverage_linesCovered :: Lens.Lens' CodeCoverage (Prelude.Maybe Prelude.Natural)
 codeCoverage_linesCovered = Lens.lens (\CodeCoverage' {linesCovered} -> linesCovered) (\s@CodeCoverage' {} a -> s {linesCovered = a} :: CodeCoverage)
 
 -- | The number of conditional branches that are covered by your tests.
-codeCoverage_branchesCovered :: Lens.Lens' CodeCoverage (Core.Maybe Core.Natural)
+codeCoverage_branchesCovered :: Lens.Lens' CodeCoverage (Prelude.Maybe Prelude.Natural)
 codeCoverage_branchesCovered = Lens.lens (\CodeCoverage' {branchesCovered} -> branchesCovered) (\s@CodeCoverage' {} a -> s {branchesCovered = a} :: CodeCoverage)
 
 -- | The path of the test report file.
-codeCoverage_filePath :: Lens.Lens' CodeCoverage (Core.Maybe Core.Text)
+codeCoverage_filePath :: Lens.Lens' CodeCoverage (Prelude.Maybe Prelude.Text)
 codeCoverage_filePath = Lens.lens (\CodeCoverage' {filePath} -> filePath) (\s@CodeCoverage' {} a -> s {filePath = a} :: CodeCoverage)
 
 -- | The ARN of the report.
-codeCoverage_reportARN :: Lens.Lens' CodeCoverage (Core.Maybe Core.Text)
+codeCoverage_reportARN :: Lens.Lens' CodeCoverage (Prelude.Maybe Prelude.Text)
 codeCoverage_reportARN = Lens.lens (\CodeCoverage' {reportARN} -> reportARN) (\s@CodeCoverage' {} a -> s {reportARN = a} :: CodeCoverage)
 
 -- | The identifier of the code coverage report.
-codeCoverage_id :: Lens.Lens' CodeCoverage (Core.Maybe Core.Text)
+codeCoverage_id :: Lens.Lens' CodeCoverage (Prelude.Maybe Prelude.Text)
 codeCoverage_id = Lens.lens (\CodeCoverage' {id} -> id) (\s@CodeCoverage' {} a -> s {id = a} :: CodeCoverage)
 
 -- | The date and time that the tests were run.
-codeCoverage_expired :: Lens.Lens' CodeCoverage (Core.Maybe Core.UTCTime)
-codeCoverage_expired = Lens.lens (\CodeCoverage' {expired} -> expired) (\s@CodeCoverage' {} a -> s {expired = a} :: CodeCoverage) Core.. Lens.mapping Core._Time
+codeCoverage_expired :: Lens.Lens' CodeCoverage (Prelude.Maybe Prelude.UTCTime)
+codeCoverage_expired = Lens.lens (\CodeCoverage' {expired} -> expired) (\s@CodeCoverage' {} a -> s {expired = a} :: CodeCoverage) Prelude.. Lens.mapping Core._Time
 
 -- | The percentage of lines that are covered by your tests.
-codeCoverage_lineCoveragePercentage :: Lens.Lens' CodeCoverage (Core.Maybe Core.Double)
+codeCoverage_lineCoveragePercentage :: Lens.Lens' CodeCoverage (Prelude.Maybe Prelude.Double)
 codeCoverage_lineCoveragePercentage = Lens.lens (\CodeCoverage' {lineCoveragePercentage} -> lineCoveragePercentage) (\s@CodeCoverage' {} a -> s {lineCoveragePercentage = a} :: CodeCoverage)
 
 -- | The number of lines that are not covered by your tests.
-codeCoverage_linesMissed :: Lens.Lens' CodeCoverage (Core.Maybe Core.Natural)
+codeCoverage_linesMissed :: Lens.Lens' CodeCoverage (Prelude.Maybe Prelude.Natural)
 codeCoverage_linesMissed = Lens.lens (\CodeCoverage' {linesMissed} -> linesMissed) (\s@CodeCoverage' {} a -> s {linesMissed = a} :: CodeCoverage)
 
 -- | The percentage of branches that are covered by your tests.
-codeCoverage_branchCoveragePercentage :: Lens.Lens' CodeCoverage (Core.Maybe Core.Double)
+codeCoverage_branchCoveragePercentage :: Lens.Lens' CodeCoverage (Prelude.Maybe Prelude.Double)
 codeCoverage_branchCoveragePercentage = Lens.lens (\CodeCoverage' {branchCoveragePercentage} -> branchCoveragePercentage) (\s@CodeCoverage' {} a -> s {branchCoveragePercentage = a} :: CodeCoverage)
 
 instance Core.FromJSON CodeCoverage where
@@ -144,18 +145,18 @@ instance Core.FromJSON CodeCoverage where
       "CodeCoverage"
       ( \x ->
           CodeCoverage'
-            Core.<$> (x Core..:? "branchesMissed")
-            Core.<*> (x Core..:? "linesCovered")
-            Core.<*> (x Core..:? "branchesCovered")
-            Core.<*> (x Core..:? "filePath")
-            Core.<*> (x Core..:? "reportARN")
-            Core.<*> (x Core..:? "id")
-            Core.<*> (x Core..:? "expired")
-            Core.<*> (x Core..:? "lineCoveragePercentage")
-            Core.<*> (x Core..:? "linesMissed")
-            Core.<*> (x Core..:? "branchCoveragePercentage")
+            Prelude.<$> (x Core..:? "branchesMissed")
+            Prelude.<*> (x Core..:? "linesCovered")
+            Prelude.<*> (x Core..:? "branchesCovered")
+            Prelude.<*> (x Core..:? "filePath")
+            Prelude.<*> (x Core..:? "reportARN")
+            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "expired")
+            Prelude.<*> (x Core..:? "lineCoveragePercentage")
+            Prelude.<*> (x Core..:? "linesMissed")
+            Prelude.<*> (x Core..:? "branchCoveragePercentage")
       )
 
-instance Core.Hashable CodeCoverage
+instance Prelude.Hashable CodeCoverage
 
-instance Core.NFData CodeCoverage
+instance Prelude.NFData CodeCoverage

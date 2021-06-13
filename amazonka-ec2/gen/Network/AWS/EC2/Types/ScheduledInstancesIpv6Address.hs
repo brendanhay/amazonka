@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.ScheduledInstancesIpv6Address where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an IPv6 address.
 --
 -- /See:/ 'newScheduledInstancesIpv6Address' smart constructor.
 data ScheduledInstancesIpv6Address = ScheduledInstancesIpv6Address'
   { -- | The IPv6 address.
-    ipv6Address :: Core.Maybe Core.Text
+    ipv6Address :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScheduledInstancesIpv6Address' with all optional fields omitted.
@@ -46,17 +47,19 @@ newScheduledInstancesIpv6Address ::
 newScheduledInstancesIpv6Address =
   ScheduledInstancesIpv6Address'
     { ipv6Address =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The IPv6 address.
-scheduledInstancesIpv6Address_ipv6Address :: Lens.Lens' ScheduledInstancesIpv6Address (Core.Maybe Core.Text)
+scheduledInstancesIpv6Address_ipv6Address :: Lens.Lens' ScheduledInstancesIpv6Address (Prelude.Maybe Prelude.Text)
 scheduledInstancesIpv6Address_ipv6Address = Lens.lens (\ScheduledInstancesIpv6Address' {ipv6Address} -> ipv6Address) (\s@ScheduledInstancesIpv6Address' {} a -> s {ipv6Address = a} :: ScheduledInstancesIpv6Address)
 
-instance Core.Hashable ScheduledInstancesIpv6Address
+instance
+  Prelude.Hashable
+    ScheduledInstancesIpv6Address
 
-instance Core.NFData ScheduledInstancesIpv6Address
+instance Prelude.NFData ScheduledInstancesIpv6Address
 
 instance Core.ToQuery ScheduledInstancesIpv6Address where
   toQuery ScheduledInstancesIpv6Address' {..} =
-    Core.mconcat ["Ipv6Address" Core.=: ipv6Address]
+    Prelude.mconcat ["Ipv6Address" Core.=: ipv6Address]

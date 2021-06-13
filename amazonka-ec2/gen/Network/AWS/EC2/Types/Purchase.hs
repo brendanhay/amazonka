@@ -24,6 +24,7 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CurrencyCodeValues
 import Network.AWS.EC2.Types.PaymentOption
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the result of the purchase.
 --
@@ -31,24 +32,24 @@ import qualified Network.AWS.Lens as Lens
 data Purchase = Purchase'
   { -- | The instance family on the Dedicated Host that the reservation can be
     -- associated with.
-    instanceFamily :: Core.Maybe Core.Text,
+    instanceFamily :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the Dedicated Hosts associated with the reservation.
-    hostIdSet :: Core.Maybe [Core.Text],
+    hostIdSet :: Prelude.Maybe [Prelude.Text],
     -- | The upfront price of the reservation.
-    upfrontPrice :: Core.Maybe Core.Text,
+    upfrontPrice :: Prelude.Maybe Prelude.Text,
     -- | The payment option for the reservation.
-    paymentOption :: Core.Maybe PaymentOption,
+    paymentOption :: Prelude.Maybe PaymentOption,
     -- | The duration of the reservation\'s term in seconds.
-    duration :: Core.Maybe Core.Int,
+    duration :: Prelude.Maybe Prelude.Int,
     -- | The ID of the reservation.
-    hostReservationId :: Core.Maybe Core.Text,
+    hostReservationId :: Prelude.Maybe Prelude.Text,
     -- | The currency in which the @UpfrontPrice@ and @HourlyPrice@ amounts are
     -- specified. At this time, the only supported currency is @USD@.
-    currencyCode :: Core.Maybe CurrencyCodeValues,
+    currencyCode :: Prelude.Maybe CurrencyCodeValues,
     -- | The hourly price of the reservation per hour.
-    hourlyPrice :: Core.Maybe Core.Text
+    hourlyPrice :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Purchase' with all optional fields omitted.
@@ -79,64 +80,64 @@ newPurchase ::
   Purchase
 newPurchase =
   Purchase'
-    { instanceFamily = Core.Nothing,
-      hostIdSet = Core.Nothing,
-      upfrontPrice = Core.Nothing,
-      paymentOption = Core.Nothing,
-      duration = Core.Nothing,
-      hostReservationId = Core.Nothing,
-      currencyCode = Core.Nothing,
-      hourlyPrice = Core.Nothing
+    { instanceFamily = Prelude.Nothing,
+      hostIdSet = Prelude.Nothing,
+      upfrontPrice = Prelude.Nothing,
+      paymentOption = Prelude.Nothing,
+      duration = Prelude.Nothing,
+      hostReservationId = Prelude.Nothing,
+      currencyCode = Prelude.Nothing,
+      hourlyPrice = Prelude.Nothing
     }
 
 -- | The instance family on the Dedicated Host that the reservation can be
 -- associated with.
-purchase_instanceFamily :: Lens.Lens' Purchase (Core.Maybe Core.Text)
+purchase_instanceFamily :: Lens.Lens' Purchase (Prelude.Maybe Prelude.Text)
 purchase_instanceFamily = Lens.lens (\Purchase' {instanceFamily} -> instanceFamily) (\s@Purchase' {} a -> s {instanceFamily = a} :: Purchase)
 
 -- | The IDs of the Dedicated Hosts associated with the reservation.
-purchase_hostIdSet :: Lens.Lens' Purchase (Core.Maybe [Core.Text])
-purchase_hostIdSet = Lens.lens (\Purchase' {hostIdSet} -> hostIdSet) (\s@Purchase' {} a -> s {hostIdSet = a} :: Purchase) Core.. Lens.mapping Lens._Coerce
+purchase_hostIdSet :: Lens.Lens' Purchase (Prelude.Maybe [Prelude.Text])
+purchase_hostIdSet = Lens.lens (\Purchase' {hostIdSet} -> hostIdSet) (\s@Purchase' {} a -> s {hostIdSet = a} :: Purchase) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The upfront price of the reservation.
-purchase_upfrontPrice :: Lens.Lens' Purchase (Core.Maybe Core.Text)
+purchase_upfrontPrice :: Lens.Lens' Purchase (Prelude.Maybe Prelude.Text)
 purchase_upfrontPrice = Lens.lens (\Purchase' {upfrontPrice} -> upfrontPrice) (\s@Purchase' {} a -> s {upfrontPrice = a} :: Purchase)
 
 -- | The payment option for the reservation.
-purchase_paymentOption :: Lens.Lens' Purchase (Core.Maybe PaymentOption)
+purchase_paymentOption :: Lens.Lens' Purchase (Prelude.Maybe PaymentOption)
 purchase_paymentOption = Lens.lens (\Purchase' {paymentOption} -> paymentOption) (\s@Purchase' {} a -> s {paymentOption = a} :: Purchase)
 
 -- | The duration of the reservation\'s term in seconds.
-purchase_duration :: Lens.Lens' Purchase (Core.Maybe Core.Int)
+purchase_duration :: Lens.Lens' Purchase (Prelude.Maybe Prelude.Int)
 purchase_duration = Lens.lens (\Purchase' {duration} -> duration) (\s@Purchase' {} a -> s {duration = a} :: Purchase)
 
 -- | The ID of the reservation.
-purchase_hostReservationId :: Lens.Lens' Purchase (Core.Maybe Core.Text)
+purchase_hostReservationId :: Lens.Lens' Purchase (Prelude.Maybe Prelude.Text)
 purchase_hostReservationId = Lens.lens (\Purchase' {hostReservationId} -> hostReservationId) (\s@Purchase' {} a -> s {hostReservationId = a} :: Purchase)
 
 -- | The currency in which the @UpfrontPrice@ and @HourlyPrice@ amounts are
 -- specified. At this time, the only supported currency is @USD@.
-purchase_currencyCode :: Lens.Lens' Purchase (Core.Maybe CurrencyCodeValues)
+purchase_currencyCode :: Lens.Lens' Purchase (Prelude.Maybe CurrencyCodeValues)
 purchase_currencyCode = Lens.lens (\Purchase' {currencyCode} -> currencyCode) (\s@Purchase' {} a -> s {currencyCode = a} :: Purchase)
 
 -- | The hourly price of the reservation per hour.
-purchase_hourlyPrice :: Lens.Lens' Purchase (Core.Maybe Core.Text)
+purchase_hourlyPrice :: Lens.Lens' Purchase (Prelude.Maybe Prelude.Text)
 purchase_hourlyPrice = Lens.lens (\Purchase' {hourlyPrice} -> hourlyPrice) (\s@Purchase' {} a -> s {hourlyPrice = a} :: Purchase)
 
 instance Core.FromXML Purchase where
   parseXML x =
     Purchase'
-      Core.<$> (x Core..@? "instanceFamily")
-      Core.<*> ( x Core..@? "hostIdSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "upfrontPrice")
-      Core.<*> (x Core..@? "paymentOption")
-      Core.<*> (x Core..@? "duration")
-      Core.<*> (x Core..@? "hostReservationId")
-      Core.<*> (x Core..@? "currencyCode")
-      Core.<*> (x Core..@? "hourlyPrice")
+      Prelude.<$> (x Core..@? "instanceFamily")
+      Prelude.<*> ( x Core..@? "hostIdSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "upfrontPrice")
+      Prelude.<*> (x Core..@? "paymentOption")
+      Prelude.<*> (x Core..@? "duration")
+      Prelude.<*> (x Core..@? "hostReservationId")
+      Prelude.<*> (x Core..@? "currencyCode")
+      Prelude.<*> (x Core..@? "hourlyPrice")
 
-instance Core.Hashable Purchase
+instance Prelude.Hashable Purchase
 
-instance Core.NFData Purchase
+instance Prelude.NFData Purchase

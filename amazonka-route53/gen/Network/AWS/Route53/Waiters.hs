@@ -17,6 +17,7 @@ module Network.AWS.Route53.Waiters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.GetChange
 import Network.AWS.Route53.Lens
 import Network.AWS.Route53.Types
@@ -34,8 +35,8 @@ newResourceRecordSetsChanged =
             "INSYNC"
             Core.AcceptSuccess
             ( getChangeResponse_changeInfo
-                Core.. changeInfo_status
-                Core.. Lens.to Core.toTextCI
+                Prelude.. changeInfo_status
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

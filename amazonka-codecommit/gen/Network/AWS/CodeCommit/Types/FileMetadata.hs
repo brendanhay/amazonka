@@ -22,6 +22,7 @@ module Network.AWS.CodeCommit.Types.FileMetadata where
 import Network.AWS.CodeCommit.Types.FileModeTypeEnum
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A file to be added, updated, or deleted as part of a commit.
 --
@@ -29,14 +30,14 @@ import qualified Network.AWS.Lens as Lens
 data FileMetadata = FileMetadata'
   { -- | The full path to the file to be added or updated, including the name of
     -- the file.
-    absolutePath :: Core.Maybe Core.Text,
+    absolutePath :: Prelude.Maybe Prelude.Text,
     -- | The blob ID that contains the file information.
-    blobId :: Core.Maybe Core.Text,
+    blobId :: Prelude.Maybe Prelude.Text,
     -- | The extrapolated file mode permissions for the file. Valid values
     -- include EXECUTABLE and NORMAL.
-    fileMode :: Core.Maybe FileModeTypeEnum
+    fileMode :: Prelude.Maybe FileModeTypeEnum
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FileMetadata' with all optional fields omitted.
@@ -57,23 +58,23 @@ newFileMetadata ::
   FileMetadata
 newFileMetadata =
   FileMetadata'
-    { absolutePath = Core.Nothing,
-      blobId = Core.Nothing,
-      fileMode = Core.Nothing
+    { absolutePath = Prelude.Nothing,
+      blobId = Prelude.Nothing,
+      fileMode = Prelude.Nothing
     }
 
 -- | The full path to the file to be added or updated, including the name of
 -- the file.
-fileMetadata_absolutePath :: Lens.Lens' FileMetadata (Core.Maybe Core.Text)
+fileMetadata_absolutePath :: Lens.Lens' FileMetadata (Prelude.Maybe Prelude.Text)
 fileMetadata_absolutePath = Lens.lens (\FileMetadata' {absolutePath} -> absolutePath) (\s@FileMetadata' {} a -> s {absolutePath = a} :: FileMetadata)
 
 -- | The blob ID that contains the file information.
-fileMetadata_blobId :: Lens.Lens' FileMetadata (Core.Maybe Core.Text)
+fileMetadata_blobId :: Lens.Lens' FileMetadata (Prelude.Maybe Prelude.Text)
 fileMetadata_blobId = Lens.lens (\FileMetadata' {blobId} -> blobId) (\s@FileMetadata' {} a -> s {blobId = a} :: FileMetadata)
 
 -- | The extrapolated file mode permissions for the file. Valid values
 -- include EXECUTABLE and NORMAL.
-fileMetadata_fileMode :: Lens.Lens' FileMetadata (Core.Maybe FileModeTypeEnum)
+fileMetadata_fileMode :: Lens.Lens' FileMetadata (Prelude.Maybe FileModeTypeEnum)
 fileMetadata_fileMode = Lens.lens (\FileMetadata' {fileMode} -> fileMode) (\s@FileMetadata' {} a -> s {fileMode = a} :: FileMetadata)
 
 instance Core.FromJSON FileMetadata where
@@ -82,11 +83,11 @@ instance Core.FromJSON FileMetadata where
       "FileMetadata"
       ( \x ->
           FileMetadata'
-            Core.<$> (x Core..:? "absolutePath")
-            Core.<*> (x Core..:? "blobId")
-            Core.<*> (x Core..:? "fileMode")
+            Prelude.<$> (x Core..:? "absolutePath")
+            Prelude.<*> (x Core..:? "blobId")
+            Prelude.<*> (x Core..:? "fileMode")
       )
 
-instance Core.Hashable FileMetadata
+instance Prelude.Hashable FileMetadata
 
-instance Core.NFData FileMetadata
+instance Prelude.NFData FileMetadata

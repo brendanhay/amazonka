@@ -48,15 +48,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteMLTransform' smart constructor.
 data DeleteMLTransform = DeleteMLTransform'
   { -- | The unique identifier of the transform to delete.
-    transformId :: Core.Text
+    transformId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMLTransform' with all optional fields omitted.
@@ -69,13 +70,13 @@ data DeleteMLTransform = DeleteMLTransform'
 -- 'transformId', 'deleteMLTransform_transformId' - The unique identifier of the transform to delete.
 newDeleteMLTransform ::
   -- | 'transformId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteMLTransform
 newDeleteMLTransform pTransformId_ =
   DeleteMLTransform' {transformId = pTransformId_}
 
 -- | The unique identifier of the transform to delete.
-deleteMLTransform_transformId :: Lens.Lens' DeleteMLTransform Core.Text
+deleteMLTransform_transformId :: Lens.Lens' DeleteMLTransform Prelude.Text
 deleteMLTransform_transformId = Lens.lens (\DeleteMLTransform' {transformId} -> transformId) (\s@DeleteMLTransform' {} a -> s {transformId = a} :: DeleteMLTransform)
 
 instance Core.AWSRequest DeleteMLTransform where
@@ -87,46 +88,48 @@ instance Core.AWSRequest DeleteMLTransform where
     Response.receiveJSON
       ( \s h x ->
           DeleteMLTransformResponse'
-            Core.<$> (x Core..?> "TransformId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TransformId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteMLTransform
+instance Prelude.Hashable DeleteMLTransform
 
-instance Core.NFData DeleteMLTransform
+instance Prelude.NFData DeleteMLTransform
 
 instance Core.ToHeaders DeleteMLTransform where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.DeleteMLTransform" :: Core.ByteString),
+              Core.=# ("AWSGlue.DeleteMLTransform" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteMLTransform where
   toJSON DeleteMLTransform' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("TransformId" Core..= transformId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("TransformId" Core..= transformId)]
       )
 
 instance Core.ToPath DeleteMLTransform where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteMLTransform where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMLTransformResponse' smart constructor.
 data DeleteMLTransformResponse = DeleteMLTransformResponse'
   { -- | The unique identifier of the transform that was deleted.
-    transformId :: Core.Maybe Core.Text,
+    transformId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMLTransformResponse' with all optional fields omitted.
@@ -141,21 +144,21 @@ data DeleteMLTransformResponse = DeleteMLTransformResponse'
 -- 'httpStatus', 'deleteMLTransformResponse_httpStatus' - The response's http status code.
 newDeleteMLTransformResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteMLTransformResponse
 newDeleteMLTransformResponse pHttpStatus_ =
   DeleteMLTransformResponse'
     { transformId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique identifier of the transform that was deleted.
-deleteMLTransformResponse_transformId :: Lens.Lens' DeleteMLTransformResponse (Core.Maybe Core.Text)
+deleteMLTransformResponse_transformId :: Lens.Lens' DeleteMLTransformResponse (Prelude.Maybe Prelude.Text)
 deleteMLTransformResponse_transformId = Lens.lens (\DeleteMLTransformResponse' {transformId} -> transformId) (\s@DeleteMLTransformResponse' {} a -> s {transformId = a} :: DeleteMLTransformResponse)
 
 -- | The response's http status code.
-deleteMLTransformResponse_httpStatus :: Lens.Lens' DeleteMLTransformResponse Core.Int
+deleteMLTransformResponse_httpStatus :: Lens.Lens' DeleteMLTransformResponse Prelude.Int
 deleteMLTransformResponse_httpStatus = Lens.lens (\DeleteMLTransformResponse' {httpStatus} -> httpStatus) (\s@DeleteMLTransformResponse' {} a -> s {httpStatus = a} :: DeleteMLTransformResponse)
 
-instance Core.NFData DeleteMLTransformResponse
+instance Prelude.NFData DeleteMLTransformResponse

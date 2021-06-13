@@ -21,15 +21,16 @@ module Network.AWS.CodePipeline.Types.StageContext where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about a stage to a job worker.
 --
 -- /See:/ 'newStageContext' smart constructor.
 data StageContext = StageContext'
   { -- | The name of the stage.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StageContext' with all optional fields omitted.
@@ -42,18 +43,21 @@ data StageContext = StageContext'
 -- 'name', 'stageContext_name' - The name of the stage.
 newStageContext ::
   StageContext
-newStageContext = StageContext' {name = Core.Nothing}
+newStageContext =
+  StageContext' {name = Prelude.Nothing}
 
 -- | The name of the stage.
-stageContext_name :: Lens.Lens' StageContext (Core.Maybe Core.Text)
+stageContext_name :: Lens.Lens' StageContext (Prelude.Maybe Prelude.Text)
 stageContext_name = Lens.lens (\StageContext' {name} -> name) (\s@StageContext' {} a -> s {name = a} :: StageContext)
 
 instance Core.FromJSON StageContext where
   parseJSON =
     Core.withObject
       "StageContext"
-      (\x -> StageContext' Core.<$> (x Core..:? "name"))
+      ( \x ->
+          StageContext' Prelude.<$> (x Core..:? "name")
+      )
 
-instance Core.Hashable StageContext
+instance Prelude.Hashable StageContext
 
-instance Core.NFData StageContext
+instance Prelude.NFData StageContext

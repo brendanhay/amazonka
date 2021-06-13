@@ -52,15 +52,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteServer' smart constructor.
 data DeleteServer = DeleteServer'
   { -- | The ID of the server to delete.
-    serverName :: Core.Text
+    serverName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteServer' with all optional fields omitted.
@@ -73,13 +74,13 @@ data DeleteServer = DeleteServer'
 -- 'serverName', 'deleteServer_serverName' - The ID of the server to delete.
 newDeleteServer ::
   -- | 'serverName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteServer
 newDeleteServer pServerName_ =
   DeleteServer' {serverName = pServerName_}
 
 -- | The ID of the server to delete.
-deleteServer_serverName :: Lens.Lens' DeleteServer Core.Text
+deleteServer_serverName :: Lens.Lens' DeleteServer Prelude.Text
 deleteServer_serverName = Lens.lens (\DeleteServer' {serverName} -> serverName) (\s@DeleteServer' {} a -> s {serverName = a} :: DeleteServer)
 
 instance Core.AWSRequest DeleteServer where
@@ -89,45 +90,47 @@ instance Core.AWSRequest DeleteServer where
     Response.receiveEmpty
       ( \s h x ->
           DeleteServerResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteServer
+instance Prelude.Hashable DeleteServer
 
-instance Core.NFData DeleteServer
+instance Prelude.NFData DeleteServer
 
 instance Core.ToHeaders DeleteServer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorksCM_V2016_11_01.DeleteServer" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteServer where
   toJSON DeleteServer' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ServerName" Core..= serverName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ServerName" Core..= serverName)]
       )
 
 instance Core.ToPath DeleteServer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteServer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteServerResponse' smart constructor.
 data DeleteServerResponse = DeleteServerResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteServerResponse' with all optional fields omitted.
@@ -140,13 +143,13 @@ data DeleteServerResponse = DeleteServerResponse'
 -- 'httpStatus', 'deleteServerResponse_httpStatus' - The response's http status code.
 newDeleteServerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteServerResponse
 newDeleteServerResponse pHttpStatus_ =
   DeleteServerResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteServerResponse_httpStatus :: Lens.Lens' DeleteServerResponse Core.Int
+deleteServerResponse_httpStatus :: Lens.Lens' DeleteServerResponse Prelude.Int
 deleteServerResponse_httpStatus = Lens.lens (\DeleteServerResponse' {httpStatus} -> httpStatus) (\s@DeleteServerResponse' {} a -> s {httpStatus = a} :: DeleteServerResponse)
 
-instance Core.NFData DeleteServerResponse
+instance Prelude.NFData DeleteServerResponse

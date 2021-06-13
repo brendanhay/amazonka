@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Mobile.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +57,11 @@ data ListBundles = ListBundles'
   { -- | Pagination token. Set to null to start listing bundles from start. If
     -- non-null pagination token is returned in a result, then pass its value
     -- in here in another request to list more bundles.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of records to list in a single response.
-    maxResults :: Core.Maybe Core.Int
+    maxResults :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListBundles' with all optional fields omitted.
@@ -79,38 +80,38 @@ newListBundles ::
   ListBundles
 newListBundles =
   ListBundles'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | Pagination token. Set to null to start listing bundles from start. If
 -- non-null pagination token is returned in a result, then pass its value
 -- in here in another request to list more bundles.
-listBundles_nextToken :: Lens.Lens' ListBundles (Core.Maybe Core.Text)
+listBundles_nextToken :: Lens.Lens' ListBundles (Prelude.Maybe Prelude.Text)
 listBundles_nextToken = Lens.lens (\ListBundles' {nextToken} -> nextToken) (\s@ListBundles' {} a -> s {nextToken = a} :: ListBundles)
 
 -- | Maximum number of records to list in a single response.
-listBundles_maxResults :: Lens.Lens' ListBundles (Core.Maybe Core.Int)
+listBundles_maxResults :: Lens.Lens' ListBundles (Prelude.Maybe Prelude.Int)
 listBundles_maxResults = Lens.lens (\ListBundles' {maxResults} -> maxResults) (\s@ListBundles' {} a -> s {maxResults = a} :: ListBundles)
 
 instance Core.AWSPager ListBundles where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listBundlesResponse_nextToken Core.. Lens._Just
+            Lens.^? listBundlesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listBundlesResponse_bundleList Core.. Lens._Just
+            Lens.^? listBundlesResponse_bundleList Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listBundles_nextToken
+          Prelude.& listBundles_nextToken
           Lens..~ rs
-          Lens.^? listBundlesResponse_nextToken Core.. Lens._Just
+          Lens.^? listBundlesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBundles where
   type AWSResponse ListBundles = ListBundlesResponse
@@ -119,30 +120,32 @@ instance Core.AWSRequest ListBundles where
     Response.receiveJSON
       ( \s h x ->
           ListBundlesResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "bundleList" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "bundleList" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListBundles
+instance Prelude.Hashable ListBundles
 
-instance Core.NFData ListBundles
+instance Prelude.NFData ListBundles
 
 instance Core.ToHeaders ListBundles where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListBundles where
-  toPath = Core.const "/bundles"
+  toPath = Prelude.const "/bundles"
 
 instance Core.ToQuery ListBundles where
   toQuery ListBundles' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -153,13 +156,13 @@ instance Core.ToQuery ListBundles where
 data ListBundlesResponse = ListBundlesResponse'
   { -- | Pagination token. If non-null pagination token is returned in a result,
     -- then pass its value in another request to fetch more entries.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of bundles.
-    bundleList :: Core.Maybe [BundleDetails],
+    bundleList :: Prelude.Maybe [BundleDetails],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListBundlesResponse' with all optional fields omitted.
@@ -177,26 +180,26 @@ data ListBundlesResponse = ListBundlesResponse'
 -- 'httpStatus', 'listBundlesResponse_httpStatus' - The response's http status code.
 newListBundlesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListBundlesResponse
 newListBundlesResponse pHttpStatus_ =
   ListBundlesResponse'
-    { nextToken = Core.Nothing,
-      bundleList = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      bundleList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Pagination token. If non-null pagination token is returned in a result,
 -- then pass its value in another request to fetch more entries.
-listBundlesResponse_nextToken :: Lens.Lens' ListBundlesResponse (Core.Maybe Core.Text)
+listBundlesResponse_nextToken :: Lens.Lens' ListBundlesResponse (Prelude.Maybe Prelude.Text)
 listBundlesResponse_nextToken = Lens.lens (\ListBundlesResponse' {nextToken} -> nextToken) (\s@ListBundlesResponse' {} a -> s {nextToken = a} :: ListBundlesResponse)
 
 -- | A list of bundles.
-listBundlesResponse_bundleList :: Lens.Lens' ListBundlesResponse (Core.Maybe [BundleDetails])
-listBundlesResponse_bundleList = Lens.lens (\ListBundlesResponse' {bundleList} -> bundleList) (\s@ListBundlesResponse' {} a -> s {bundleList = a} :: ListBundlesResponse) Core.. Lens.mapping Lens._Coerce
+listBundlesResponse_bundleList :: Lens.Lens' ListBundlesResponse (Prelude.Maybe [BundleDetails])
+listBundlesResponse_bundleList = Lens.lens (\ListBundlesResponse' {bundleList} -> bundleList) (\s@ListBundlesResponse' {} a -> s {bundleList = a} :: ListBundlesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listBundlesResponse_httpStatus :: Lens.Lens' ListBundlesResponse Core.Int
+listBundlesResponse_httpStatus :: Lens.Lens' ListBundlesResponse Prelude.Int
 listBundlesResponse_httpStatus = Lens.lens (\ListBundlesResponse' {httpStatus} -> httpStatus) (\s@ListBundlesResponse' {} a -> s {httpStatus = a} :: ListBundlesResponse)
 
-instance Core.NFData ListBundlesResponse
+instance Prelude.NFData ListBundlesResponse

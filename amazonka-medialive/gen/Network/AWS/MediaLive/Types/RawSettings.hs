@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.RawSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Raw Settings
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data RawSettings = RawSettings'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RawSettings' with all optional fields omitted.
@@ -42,11 +43,11 @@ instance Core.FromJSON RawSettings where
   parseJSON =
     Core.withObject
       "RawSettings"
-      (\x -> Core.pure RawSettings')
+      (\x -> Prelude.pure RawSettings')
 
-instance Core.Hashable RawSettings
+instance Prelude.Hashable RawSettings
 
-instance Core.NFData RawSettings
+instance Prelude.NFData RawSettings
 
 instance Core.ToJSON RawSettings where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)

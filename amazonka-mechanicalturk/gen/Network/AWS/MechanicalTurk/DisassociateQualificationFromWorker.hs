@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,13 +55,13 @@ import qualified Network.AWS.Response as Response
 data DisassociateQualificationFromWorker = DisassociateQualificationFromWorker'
   { -- | A text message that explains why the Qualification was revoked. The user
     -- who had the Qualification sees this message.
-    reason :: Core.Maybe Core.Text,
+    reason :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Worker who possesses the Qualification to be revoked.
-    workerId :: Core.Text,
+    workerId :: Prelude.Text,
     -- | The ID of the Qualification type of the Qualification to be revoked.
-    qualificationTypeId :: Core.Text
+    qualificationTypeId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateQualificationFromWorker' with all optional fields omitted.
@@ -78,16 +79,16 @@ data DisassociateQualificationFromWorker = DisassociateQualificationFromWorker'
 -- 'qualificationTypeId', 'disassociateQualificationFromWorker_qualificationTypeId' - The ID of the Qualification type of the Qualification to be revoked.
 newDisassociateQualificationFromWorker ::
   -- | 'workerId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'qualificationTypeId'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateQualificationFromWorker
 newDisassociateQualificationFromWorker
   pWorkerId_
   pQualificationTypeId_ =
     DisassociateQualificationFromWorker'
       { reason =
-          Core.Nothing,
+          Prelude.Nothing,
         workerId = pWorkerId_,
         qualificationTypeId =
           pQualificationTypeId_
@@ -95,15 +96,15 @@ newDisassociateQualificationFromWorker
 
 -- | A text message that explains why the Qualification was revoked. The user
 -- who had the Qualification sees this message.
-disassociateQualificationFromWorker_reason :: Lens.Lens' DisassociateQualificationFromWorker (Core.Maybe Core.Text)
+disassociateQualificationFromWorker_reason :: Lens.Lens' DisassociateQualificationFromWorker (Prelude.Maybe Prelude.Text)
 disassociateQualificationFromWorker_reason = Lens.lens (\DisassociateQualificationFromWorker' {reason} -> reason) (\s@DisassociateQualificationFromWorker' {} a -> s {reason = a} :: DisassociateQualificationFromWorker)
 
 -- | The ID of the Worker who possesses the Qualification to be revoked.
-disassociateQualificationFromWorker_workerId :: Lens.Lens' DisassociateQualificationFromWorker Core.Text
+disassociateQualificationFromWorker_workerId :: Lens.Lens' DisassociateQualificationFromWorker Prelude.Text
 disassociateQualificationFromWorker_workerId = Lens.lens (\DisassociateQualificationFromWorker' {workerId} -> workerId) (\s@DisassociateQualificationFromWorker' {} a -> s {workerId = a} :: DisassociateQualificationFromWorker)
 
 -- | The ID of the Qualification type of the Qualification to be revoked.
-disassociateQualificationFromWorker_qualificationTypeId :: Lens.Lens' DisassociateQualificationFromWorker Core.Text
+disassociateQualificationFromWorker_qualificationTypeId :: Lens.Lens' DisassociateQualificationFromWorker Prelude.Text
 disassociateQualificationFromWorker_qualificationTypeId = Lens.lens (\DisassociateQualificationFromWorker' {qualificationTypeId} -> qualificationTypeId) (\s@DisassociateQualificationFromWorker' {} a -> s {qualificationTypeId = a} :: DisassociateQualificationFromWorker)
 
 instance
@@ -118,15 +119,15 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           DisassociateQualificationFromWorkerResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DisassociateQualificationFromWorker
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateQualificationFromWorker
 
 instance
@@ -134,14 +135,16 @@ instance
     DisassociateQualificationFromWorker
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -151,10 +154,10 @@ instance
   where
   toJSON DisassociateQualificationFromWorker' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Reason" Core..=) Core.<$> reason,
-            Core.Just ("WorkerId" Core..= workerId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Reason" Core..=) Prelude.<$> reason,
+            Prelude.Just ("WorkerId" Core..= workerId),
+            Prelude.Just
               ("QualificationTypeId" Core..= qualificationTypeId)
           ]
       )
@@ -163,20 +166,20 @@ instance
   Core.ToPath
     DisassociateQualificationFromWorker
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DisassociateQualificationFromWorker
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateQualificationFromWorkerResponse' smart constructor.
 data DisassociateQualificationFromWorkerResponse = DisassociateQualificationFromWorkerResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateQualificationFromWorkerResponse' with all optional fields omitted.
@@ -189,7 +192,7 @@ data DisassociateQualificationFromWorkerResponse = DisassociateQualificationFrom
 -- 'httpStatus', 'disassociateQualificationFromWorkerResponse_httpStatus' - The response's http status code.
 newDisassociateQualificationFromWorkerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateQualificationFromWorkerResponse
 newDisassociateQualificationFromWorkerResponse
   pHttpStatus_ =
@@ -199,9 +202,9 @@ newDisassociateQualificationFromWorkerResponse
       }
 
 -- | The response's http status code.
-disassociateQualificationFromWorkerResponse_httpStatus :: Lens.Lens' DisassociateQualificationFromWorkerResponse Core.Int
+disassociateQualificationFromWorkerResponse_httpStatus :: Lens.Lens' DisassociateQualificationFromWorkerResponse Prelude.Int
 disassociateQualificationFromWorkerResponse_httpStatus = Lens.lens (\DisassociateQualificationFromWorkerResponse' {httpStatus} -> httpStatus) (\s@DisassociateQualificationFromWorkerResponse' {} a -> s {httpStatus = a} :: DisassociateQualificationFromWorkerResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateQualificationFromWorkerResponse

@@ -45,15 +45,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteCluster' smart constructor.
 data DeleteCluster = DeleteCluster'
   { -- | The name of the cluster to be deleted.
-    clusterName :: Core.Text
+    clusterName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCluster' with all optional fields omitted.
@@ -66,13 +67,13 @@ data DeleteCluster = DeleteCluster'
 -- 'clusterName', 'deleteCluster_clusterName' - The name of the cluster to be deleted.
 newDeleteCluster ::
   -- | 'clusterName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteCluster
 newDeleteCluster pClusterName_ =
   DeleteCluster' {clusterName = pClusterName_}
 
 -- | The name of the cluster to be deleted.
-deleteCluster_clusterName :: Lens.Lens' DeleteCluster Core.Text
+deleteCluster_clusterName :: Lens.Lens' DeleteCluster Prelude.Text
 deleteCluster_clusterName = Lens.lens (\DeleteCluster' {clusterName} -> clusterName) (\s@DeleteCluster' {} a -> s {clusterName = a} :: DeleteCluster)
 
 instance Core.AWSRequest DeleteCluster where
@@ -84,46 +85,48 @@ instance Core.AWSRequest DeleteCluster where
     Response.receiveJSON
       ( \s h x ->
           DeleteClusterResponse'
-            Core.<$> (x Core..?> "Cluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Cluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteCluster
+instance Prelude.Hashable DeleteCluster
 
-instance Core.NFData DeleteCluster
+instance Prelude.NFData DeleteCluster
 
 instance Core.ToHeaders DeleteCluster where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonDAXV3.DeleteCluster" :: Core.ByteString),
+              Core.=# ("AmazonDAXV3.DeleteCluster" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteCluster where
   toJSON DeleteCluster' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ClusterName" Core..= clusterName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ClusterName" Core..= clusterName)]
       )
 
 instance Core.ToPath DeleteCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteCluster where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteClusterResponse' smart constructor.
 data DeleteClusterResponse = DeleteClusterResponse'
   { -- | A description of the DAX cluster that is being deleted.
-    cluster :: Core.Maybe Cluster,
+    cluster :: Prelude.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteClusterResponse' with all optional fields omitted.
@@ -138,20 +141,20 @@ data DeleteClusterResponse = DeleteClusterResponse'
 -- 'httpStatus', 'deleteClusterResponse_httpStatus' - The response's http status code.
 newDeleteClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteClusterResponse
 newDeleteClusterResponse pHttpStatus_ =
   DeleteClusterResponse'
-    { cluster = Core.Nothing,
+    { cluster = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A description of the DAX cluster that is being deleted.
-deleteClusterResponse_cluster :: Lens.Lens' DeleteClusterResponse (Core.Maybe Cluster)
+deleteClusterResponse_cluster :: Lens.Lens' DeleteClusterResponse (Prelude.Maybe Cluster)
 deleteClusterResponse_cluster = Lens.lens (\DeleteClusterResponse' {cluster} -> cluster) (\s@DeleteClusterResponse' {} a -> s {cluster = a} :: DeleteClusterResponse)
 
 -- | The response's http status code.
-deleteClusterResponse_httpStatus :: Lens.Lens' DeleteClusterResponse Core.Int
+deleteClusterResponse_httpStatus :: Lens.Lens' DeleteClusterResponse Prelude.Int
 deleteClusterResponse_httpStatus = Lens.lens (\DeleteClusterResponse' {httpStatus} -> httpStatus) (\s@DeleteClusterResponse' {} a -> s {httpStatus = a} :: DeleteClusterResponse)
 
-instance Core.NFData DeleteClusterResponse
+instance Prelude.NFData DeleteClusterResponse

@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -61,14 +62,14 @@ import qualified Network.AWS.Response as Response
 data StartProjectVersion = StartProjectVersion'
   { -- | The Amazon Resource Name(ARN) of the model version that you want to
     -- start.
-    projectVersionArn :: Core.Text,
+    projectVersionArn :: Prelude.Text,
     -- | The minimum number of inference units to use. A single inference unit
     -- represents 1 hour of processing and can support up to 5 Transaction Pers
     -- Second (TPS). Use a higher number to increase the TPS throughput of your
     -- model. You are charged for the number of inference units that you use.
-    minInferenceUnits :: Core.Natural
+    minInferenceUnits :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartProjectVersion' with all optional fields omitted.
@@ -87,9 +88,9 @@ data StartProjectVersion = StartProjectVersion'
 -- model. You are charged for the number of inference units that you use.
 newStartProjectVersion ::
   -- | 'projectVersionArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'minInferenceUnits'
-  Core.Natural ->
+  Prelude.Natural ->
   StartProjectVersion
 newStartProjectVersion
   pProjectVersionArn_
@@ -102,14 +103,14 @@ newStartProjectVersion
 
 -- | The Amazon Resource Name(ARN) of the model version that you want to
 -- start.
-startProjectVersion_projectVersionArn :: Lens.Lens' StartProjectVersion Core.Text
+startProjectVersion_projectVersionArn :: Lens.Lens' StartProjectVersion Prelude.Text
 startProjectVersion_projectVersionArn = Lens.lens (\StartProjectVersion' {projectVersionArn} -> projectVersionArn) (\s@StartProjectVersion' {} a -> s {projectVersionArn = a} :: StartProjectVersion)
 
 -- | The minimum number of inference units to use. A single inference unit
 -- represents 1 hour of processing and can support up to 5 Transaction Pers
 -- Second (TPS). Use a higher number to increase the TPS throughput of your
 -- model. You are charged for the number of inference units that you use.
-startProjectVersion_minInferenceUnits :: Lens.Lens' StartProjectVersion Core.Natural
+startProjectVersion_minInferenceUnits :: Lens.Lens' StartProjectVersion Prelude.Natural
 startProjectVersion_minInferenceUnits = Lens.lens (\StartProjectVersion' {minInferenceUnits} -> minInferenceUnits) (\s@StartProjectVersion' {} a -> s {minInferenceUnits = a} :: StartProjectVersion)
 
 instance Core.AWSRequest StartProjectVersion where
@@ -121,52 +122,54 @@ instance Core.AWSRequest StartProjectVersion where
     Response.receiveJSON
       ( \s h x ->
           StartProjectVersionResponse'
-            Core.<$> (x Core..?> "Status")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Status")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartProjectVersion
+instance Prelude.Hashable StartProjectVersion
 
-instance Core.NFData StartProjectVersion
+instance Prelude.NFData StartProjectVersion
 
 instance Core.ToHeaders StartProjectVersion where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "RekognitionService.StartProjectVersion" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartProjectVersion where
   toJSON StartProjectVersion' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ProjectVersionArn" Core..= projectVersionArn),
-            Core.Just
+            Prelude.Just
               ("MinInferenceUnits" Core..= minInferenceUnits)
           ]
       )
 
 instance Core.ToPath StartProjectVersion where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartProjectVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartProjectVersionResponse' smart constructor.
 data StartProjectVersionResponse = StartProjectVersionResponse'
   { -- | The current running status of the model.
-    status :: Core.Maybe ProjectVersionStatus,
+    status :: Prelude.Maybe ProjectVersionStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartProjectVersionResponse' with all optional fields omitted.
@@ -181,20 +184,21 @@ data StartProjectVersionResponse = StartProjectVersionResponse'
 -- 'httpStatus', 'startProjectVersionResponse_httpStatus' - The response's http status code.
 newStartProjectVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartProjectVersionResponse
 newStartProjectVersionResponse pHttpStatus_ =
   StartProjectVersionResponse'
-    { status = Core.Nothing,
+    { status =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current running status of the model.
-startProjectVersionResponse_status :: Lens.Lens' StartProjectVersionResponse (Core.Maybe ProjectVersionStatus)
+startProjectVersionResponse_status :: Lens.Lens' StartProjectVersionResponse (Prelude.Maybe ProjectVersionStatus)
 startProjectVersionResponse_status = Lens.lens (\StartProjectVersionResponse' {status} -> status) (\s@StartProjectVersionResponse' {} a -> s {status = a} :: StartProjectVersionResponse)
 
 -- | The response's http status code.
-startProjectVersionResponse_httpStatus :: Lens.Lens' StartProjectVersionResponse Core.Int
+startProjectVersionResponse_httpStatus :: Lens.Lens' StartProjectVersionResponse Prelude.Int
 startProjectVersionResponse_httpStatus = Lens.lens (\StartProjectVersionResponse' {httpStatus} -> httpStatus) (\s@StartProjectVersionResponse' {} a -> s {httpStatus = a} :: StartProjectVersionResponse)
 
-instance Core.NFData StartProjectVersionResponse
+instance Prelude.NFData StartProjectVersionResponse

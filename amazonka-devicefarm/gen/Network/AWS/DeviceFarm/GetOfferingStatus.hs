@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,9 +64,9 @@ data GetOfferingStatus = GetOfferingStatus'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Core.Maybe Core.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetOfferingStatus' with all optional fields omitted.
@@ -81,12 +82,12 @@ data GetOfferingStatus = GetOfferingStatus'
 newGetOfferingStatus ::
   GetOfferingStatus
 newGetOfferingStatus =
-  GetOfferingStatus' {nextToken = Core.Nothing}
+  GetOfferingStatus' {nextToken = Prelude.Nothing}
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-getOfferingStatus_nextToken :: Lens.Lens' GetOfferingStatus (Core.Maybe Core.Text)
+getOfferingStatus_nextToken :: Lens.Lens' GetOfferingStatus (Prelude.Maybe Prelude.Text)
 getOfferingStatus_nextToken = Lens.lens (\GetOfferingStatus' {nextToken} -> nextToken) (\s@GetOfferingStatus' {} a -> s {nextToken = a} :: GetOfferingStatus)
 
 instance Core.AWSPager GetOfferingStatus where
@@ -94,26 +95,28 @@ instance Core.AWSPager GetOfferingStatus where
     | Core.stop
         ( rs
             Lens.^? getOfferingStatusResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getOfferingStatusResponse_current Core.. Lens._Just
+            Lens.^? getOfferingStatusResponse_current
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getOfferingStatusResponse_nextPeriod
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getOfferingStatus_nextToken
+          Prelude.& getOfferingStatus_nextToken
           Lens..~ rs
-          Lens.^? getOfferingStatusResponse_nextToken Core.. Lens._Just
+          Lens.^? getOfferingStatusResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetOfferingStatus where
   type
@@ -124,41 +127,43 @@ instance Core.AWSRequest GetOfferingStatus where
     Response.receiveJSON
       ( \s h x ->
           GetOfferingStatusResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "nextPeriod" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "current" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "nextPeriod" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "current" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetOfferingStatus
+instance Prelude.Hashable GetOfferingStatus
 
-instance Core.NFData GetOfferingStatus
+instance Prelude.NFData GetOfferingStatus
 
 instance Core.ToHeaders GetOfferingStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DeviceFarm_20150623.GetOfferingStatus" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetOfferingStatus where
   toJSON GetOfferingStatus' {..} =
     Core.object
-      ( Core.catMaybes
-          [("nextToken" Core..=) Core.<$> nextToken]
+      ( Prelude.catMaybes
+          [("nextToken" Core..=) Prelude.<$> nextToken]
       )
 
 instance Core.ToPath GetOfferingStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetOfferingStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Returns the status result for a device offering.
 --
@@ -167,15 +172,15 @@ data GetOfferingStatusResponse = GetOfferingStatusResponse'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | When specified, gets the offering status for the next period.
-    nextPeriod :: Core.Maybe (Core.HashMap Core.Text OfferingStatus),
+    nextPeriod :: Prelude.Maybe (Prelude.HashMap Prelude.Text OfferingStatus),
     -- | When specified, gets the offering status for the current period.
-    current :: Core.Maybe (Core.HashMap Core.Text OfferingStatus),
+    current :: Prelude.Maybe (Prelude.HashMap Prelude.Text OfferingStatus),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetOfferingStatusResponse' with all optional fields omitted.
@@ -196,33 +201,33 @@ data GetOfferingStatusResponse = GetOfferingStatusResponse'
 -- 'httpStatus', 'getOfferingStatusResponse_httpStatus' - The response's http status code.
 newGetOfferingStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetOfferingStatusResponse
 newGetOfferingStatusResponse pHttpStatus_ =
   GetOfferingStatusResponse'
     { nextToken =
-        Core.Nothing,
-      nextPeriod = Core.Nothing,
-      current = Core.Nothing,
+        Prelude.Nothing,
+      nextPeriod = Prelude.Nothing,
+      current = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-getOfferingStatusResponse_nextToken :: Lens.Lens' GetOfferingStatusResponse (Core.Maybe Core.Text)
+getOfferingStatusResponse_nextToken :: Lens.Lens' GetOfferingStatusResponse (Prelude.Maybe Prelude.Text)
 getOfferingStatusResponse_nextToken = Lens.lens (\GetOfferingStatusResponse' {nextToken} -> nextToken) (\s@GetOfferingStatusResponse' {} a -> s {nextToken = a} :: GetOfferingStatusResponse)
 
 -- | When specified, gets the offering status for the next period.
-getOfferingStatusResponse_nextPeriod :: Lens.Lens' GetOfferingStatusResponse (Core.Maybe (Core.HashMap Core.Text OfferingStatus))
-getOfferingStatusResponse_nextPeriod = Lens.lens (\GetOfferingStatusResponse' {nextPeriod} -> nextPeriod) (\s@GetOfferingStatusResponse' {} a -> s {nextPeriod = a} :: GetOfferingStatusResponse) Core.. Lens.mapping Lens._Coerce
+getOfferingStatusResponse_nextPeriod :: Lens.Lens' GetOfferingStatusResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text OfferingStatus))
+getOfferingStatusResponse_nextPeriod = Lens.lens (\GetOfferingStatusResponse' {nextPeriod} -> nextPeriod) (\s@GetOfferingStatusResponse' {} a -> s {nextPeriod = a} :: GetOfferingStatusResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | When specified, gets the offering status for the current period.
-getOfferingStatusResponse_current :: Lens.Lens' GetOfferingStatusResponse (Core.Maybe (Core.HashMap Core.Text OfferingStatus))
-getOfferingStatusResponse_current = Lens.lens (\GetOfferingStatusResponse' {current} -> current) (\s@GetOfferingStatusResponse' {} a -> s {current = a} :: GetOfferingStatusResponse) Core.. Lens.mapping Lens._Coerce
+getOfferingStatusResponse_current :: Lens.Lens' GetOfferingStatusResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text OfferingStatus))
+getOfferingStatusResponse_current = Lens.lens (\GetOfferingStatusResponse' {current} -> current) (\s@GetOfferingStatusResponse' {} a -> s {current = a} :: GetOfferingStatusResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getOfferingStatusResponse_httpStatus :: Lens.Lens' GetOfferingStatusResponse Core.Int
+getOfferingStatusResponse_httpStatus :: Lens.Lens' GetOfferingStatusResponse Prelude.Int
 getOfferingStatusResponse_httpStatus = Lens.lens (\GetOfferingStatusResponse' {httpStatus} -> httpStatus) (\s@GetOfferingStatusResponse' {} a -> s {httpStatus = a} :: GetOfferingStatusResponse)
 
-instance Core.NFData GetOfferingStatusResponse
+instance Prelude.NFData GetOfferingStatusResponse

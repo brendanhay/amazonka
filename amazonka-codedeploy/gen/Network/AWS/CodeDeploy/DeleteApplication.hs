@@ -38,6 +38,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,9 +48,9 @@ import qualified Network.AWS.Response as Response
 data DeleteApplication = DeleteApplication'
   { -- | The name of an AWS CodeDeploy application associated with the IAM user
     -- or AWS account.
-    applicationName :: Core.Text
+    applicationName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteApplication' with all optional fields omitted.
@@ -63,7 +64,7 @@ data DeleteApplication = DeleteApplication'
 -- or AWS account.
 newDeleteApplication ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteApplication
 newDeleteApplication pApplicationName_ =
   DeleteApplication'
@@ -73,7 +74,7 @@ newDeleteApplication pApplicationName_ =
 
 -- | The name of an AWS CodeDeploy application associated with the IAM user
 -- or AWS account.
-deleteApplication_applicationName :: Lens.Lens' DeleteApplication Core.Text
+deleteApplication_applicationName :: Lens.Lens' DeleteApplication Prelude.Text
 deleteApplication_applicationName = Lens.lens (\DeleteApplication' {applicationName} -> applicationName) (\s@DeleteApplication' {} a -> s {applicationName = a} :: DeleteApplication)
 
 instance Core.AWSRequest DeleteApplication where
@@ -84,43 +85,45 @@ instance Core.AWSRequest DeleteApplication where
   response =
     Response.receiveNull DeleteApplicationResponse'
 
-instance Core.Hashable DeleteApplication
+instance Prelude.Hashable DeleteApplication
 
-instance Core.NFData DeleteApplication
+instance Prelude.NFData DeleteApplication
 
 instance Core.ToHeaders DeleteApplication where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.DeleteApplication" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteApplication where
   toJSON DeleteApplication' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("applicationName" Core..= applicationName)
           ]
       )
 
 instance Core.ToPath DeleteApplication where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteApplication where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteApplicationResponse' smart constructor.
 data DeleteApplicationResponse = DeleteApplicationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteApplicationResponse' with all optional fields omitted.
@@ -131,4 +134,4 @@ newDeleteApplicationResponse ::
 newDeleteApplicationResponse =
   DeleteApplicationResponse'
 
-instance Core.NFData DeleteApplicationResponse
+instance Prelude.NFData DeleteApplicationResponse

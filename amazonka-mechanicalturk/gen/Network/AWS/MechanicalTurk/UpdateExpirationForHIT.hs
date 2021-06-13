@@ -44,17 +44,18 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateExpirationForHIT' smart constructor.
 data UpdateExpirationForHIT = UpdateExpirationForHIT'
   { -- | The HIT to update.
-    hITId :: Core.Text,
+    hITId :: Prelude.Text,
     -- | The date and time at which you want the HIT to expire
     expireAt :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateExpirationForHIT' with all optional fields omitted.
@@ -69,9 +70,9 @@ data UpdateExpirationForHIT = UpdateExpirationForHIT'
 -- 'expireAt', 'updateExpirationForHIT_expireAt' - The date and time at which you want the HIT to expire
 newUpdateExpirationForHIT ::
   -- | 'hITId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'expireAt'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   UpdateExpirationForHIT
 newUpdateExpirationForHIT pHITId_ pExpireAt_ =
   UpdateExpirationForHIT'
@@ -80,12 +81,12 @@ newUpdateExpirationForHIT pHITId_ pExpireAt_ =
     }
 
 -- | The HIT to update.
-updateExpirationForHIT_hITId :: Lens.Lens' UpdateExpirationForHIT Core.Text
+updateExpirationForHIT_hITId :: Lens.Lens' UpdateExpirationForHIT Prelude.Text
 updateExpirationForHIT_hITId = Lens.lens (\UpdateExpirationForHIT' {hITId} -> hITId) (\s@UpdateExpirationForHIT' {} a -> s {hITId = a} :: UpdateExpirationForHIT)
 
 -- | The date and time at which you want the HIT to expire
-updateExpirationForHIT_expireAt :: Lens.Lens' UpdateExpirationForHIT Core.UTCTime
-updateExpirationForHIT_expireAt = Lens.lens (\UpdateExpirationForHIT' {expireAt} -> expireAt) (\s@UpdateExpirationForHIT' {} a -> s {expireAt = a} :: UpdateExpirationForHIT) Core.. Core._Time
+updateExpirationForHIT_expireAt :: Lens.Lens' UpdateExpirationForHIT Prelude.UTCTime
+updateExpirationForHIT_expireAt = Lens.lens (\UpdateExpirationForHIT' {expireAt} -> expireAt) (\s@UpdateExpirationForHIT' {} a -> s {expireAt = a} :: UpdateExpirationForHIT) Prelude.. Core._Time
 
 instance Core.AWSRequest UpdateExpirationForHIT where
   type
@@ -96,47 +97,49 @@ instance Core.AWSRequest UpdateExpirationForHIT where
     Response.receiveEmpty
       ( \s h x ->
           UpdateExpirationForHITResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateExpirationForHIT
+instance Prelude.Hashable UpdateExpirationForHIT
 
-instance Core.NFData UpdateExpirationForHIT
+instance Prelude.NFData UpdateExpirationForHIT
 
 instance Core.ToHeaders UpdateExpirationForHIT where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MTurkRequesterServiceV20170117.UpdateExpirationForHIT" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateExpirationForHIT where
   toJSON UpdateExpirationForHIT' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("HITId" Core..= hITId),
-            Core.Just ("ExpireAt" Core..= expireAt)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("HITId" Core..= hITId),
+            Prelude.Just ("ExpireAt" Core..= expireAt)
           ]
       )
 
 instance Core.ToPath UpdateExpirationForHIT where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateExpirationForHIT where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateExpirationForHITResponse' smart constructor.
 data UpdateExpirationForHITResponse = UpdateExpirationForHITResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateExpirationForHITResponse' with all optional fields omitted.
@@ -149,7 +152,7 @@ data UpdateExpirationForHITResponse = UpdateExpirationForHITResponse'
 -- 'httpStatus', 'updateExpirationForHITResponse_httpStatus' - The response's http status code.
 newUpdateExpirationForHITResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateExpirationForHITResponse
 newUpdateExpirationForHITResponse pHttpStatus_ =
   UpdateExpirationForHITResponse'
@@ -158,7 +161,9 @@ newUpdateExpirationForHITResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateExpirationForHITResponse_httpStatus :: Lens.Lens' UpdateExpirationForHITResponse Core.Int
+updateExpirationForHITResponse_httpStatus :: Lens.Lens' UpdateExpirationForHITResponse Prelude.Int
 updateExpirationForHITResponse_httpStatus = Lens.lens (\UpdateExpirationForHITResponse' {httpStatus} -> httpStatus) (\s@UpdateExpirationForHITResponse' {} a -> s {httpStatus = a} :: UpdateExpirationForHITResponse)
 
-instance Core.NFData UpdateExpirationForHITResponse
+instance
+  Prelude.NFData
+    UpdateExpirationForHITResponse

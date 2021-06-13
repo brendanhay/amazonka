@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -60,9 +61,9 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newDescribeBandwidthRateLimit' smart constructor.
 data DescribeBandwidthRateLimit = DescribeBandwidthRateLimit'
-  { gatewayARN :: Core.Text
+  { gatewayARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeBandwidthRateLimit' with all optional fields omitted.
@@ -75,7 +76,7 @@ data DescribeBandwidthRateLimit = DescribeBandwidthRateLimit'
 -- 'gatewayARN', 'describeBandwidthRateLimit_gatewayARN' - Undocumented member.
 newDescribeBandwidthRateLimit ::
   -- | 'gatewayARN'
-  Core.Text ->
+  Prelude.Text ->
   DescribeBandwidthRateLimit
 newDescribeBandwidthRateLimit pGatewayARN_ =
   DescribeBandwidthRateLimit'
@@ -84,7 +85,7 @@ newDescribeBandwidthRateLimit pGatewayARN_ =
     }
 
 -- | Undocumented member.
-describeBandwidthRateLimit_gatewayARN :: Lens.Lens' DescribeBandwidthRateLimit Core.Text
+describeBandwidthRateLimit_gatewayARN :: Lens.Lens' DescribeBandwidthRateLimit Prelude.Text
 describeBandwidthRateLimit_gatewayARN = Lens.lens (\DescribeBandwidthRateLimit' {gatewayARN} -> gatewayARN) (\s@DescribeBandwidthRateLimit' {} a -> s {gatewayARN = a} :: DescribeBandwidthRateLimit)
 
 instance Core.AWSRequest DescribeBandwidthRateLimit where
@@ -96,41 +97,43 @@ instance Core.AWSRequest DescribeBandwidthRateLimit where
     Response.receiveJSON
       ( \s h x ->
           DescribeBandwidthRateLimitResponse'
-            Core.<$> (x Core..?> "AverageUploadRateLimitInBitsPerSec")
-            Core.<*> (x Core..?> "AverageDownloadRateLimitInBitsPerSec")
-            Core.<*> (x Core..?> "GatewayARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AverageUploadRateLimitInBitsPerSec")
+            Prelude.<*> (x Core..?> "AverageDownloadRateLimitInBitsPerSec")
+            Prelude.<*> (x Core..?> "GatewayARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeBandwidthRateLimit
+instance Prelude.Hashable DescribeBandwidthRateLimit
 
-instance Core.NFData DescribeBandwidthRateLimit
+instance Prelude.NFData DescribeBandwidthRateLimit
 
 instance Core.ToHeaders DescribeBandwidthRateLimit where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.DescribeBandwidthRateLimit" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeBandwidthRateLimit where
   toJSON DescribeBandwidthRateLimit' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("GatewayARN" Core..= gatewayARN)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
       )
 
 instance Core.ToPath DescribeBandwidthRateLimit where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeBandwidthRateLimit where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the following fields:
 --
@@ -138,15 +141,15 @@ instance Core.ToQuery DescribeBandwidthRateLimit where
 data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
   { -- | The average upload bandwidth rate limit in bits per second. This field
     -- does not appear in the response if the upload rate limit is not set.
-    averageUploadRateLimitInBitsPerSec :: Core.Maybe Core.Natural,
+    averageUploadRateLimitInBitsPerSec :: Prelude.Maybe Prelude.Natural,
     -- | The average download bandwidth rate limit in bits per second. This field
     -- does not appear in the response if the download rate limit is not set.
-    averageDownloadRateLimitInBitsPerSec :: Core.Maybe Core.Natural,
-    gatewayARN :: Core.Maybe Core.Text,
+    averageDownloadRateLimitInBitsPerSec :: Prelude.Maybe Prelude.Natural,
+    gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeBandwidthRateLimitResponse' with all optional fields omitted.
@@ -167,36 +170,36 @@ data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
 -- 'httpStatus', 'describeBandwidthRateLimitResponse_httpStatus' - The response's http status code.
 newDescribeBandwidthRateLimitResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeBandwidthRateLimitResponse
 newDescribeBandwidthRateLimitResponse pHttpStatus_ =
   DescribeBandwidthRateLimitResponse'
     { averageUploadRateLimitInBitsPerSec =
-        Core.Nothing,
+        Prelude.Nothing,
       averageDownloadRateLimitInBitsPerSec =
-        Core.Nothing,
-      gatewayARN = Core.Nothing,
+        Prelude.Nothing,
+      gatewayARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The average upload bandwidth rate limit in bits per second. This field
 -- does not appear in the response if the upload rate limit is not set.
-describeBandwidthRateLimitResponse_averageUploadRateLimitInBitsPerSec :: Lens.Lens' DescribeBandwidthRateLimitResponse (Core.Maybe Core.Natural)
+describeBandwidthRateLimitResponse_averageUploadRateLimitInBitsPerSec :: Lens.Lens' DescribeBandwidthRateLimitResponse (Prelude.Maybe Prelude.Natural)
 describeBandwidthRateLimitResponse_averageUploadRateLimitInBitsPerSec = Lens.lens (\DescribeBandwidthRateLimitResponse' {averageUploadRateLimitInBitsPerSec} -> averageUploadRateLimitInBitsPerSec) (\s@DescribeBandwidthRateLimitResponse' {} a -> s {averageUploadRateLimitInBitsPerSec = a} :: DescribeBandwidthRateLimitResponse)
 
 -- | The average download bandwidth rate limit in bits per second. This field
 -- does not appear in the response if the download rate limit is not set.
-describeBandwidthRateLimitResponse_averageDownloadRateLimitInBitsPerSec :: Lens.Lens' DescribeBandwidthRateLimitResponse (Core.Maybe Core.Natural)
+describeBandwidthRateLimitResponse_averageDownloadRateLimitInBitsPerSec :: Lens.Lens' DescribeBandwidthRateLimitResponse (Prelude.Maybe Prelude.Natural)
 describeBandwidthRateLimitResponse_averageDownloadRateLimitInBitsPerSec = Lens.lens (\DescribeBandwidthRateLimitResponse' {averageDownloadRateLimitInBitsPerSec} -> averageDownloadRateLimitInBitsPerSec) (\s@DescribeBandwidthRateLimitResponse' {} a -> s {averageDownloadRateLimitInBitsPerSec = a} :: DescribeBandwidthRateLimitResponse)
 
 -- | Undocumented member.
-describeBandwidthRateLimitResponse_gatewayARN :: Lens.Lens' DescribeBandwidthRateLimitResponse (Core.Maybe Core.Text)
+describeBandwidthRateLimitResponse_gatewayARN :: Lens.Lens' DescribeBandwidthRateLimitResponse (Prelude.Maybe Prelude.Text)
 describeBandwidthRateLimitResponse_gatewayARN = Lens.lens (\DescribeBandwidthRateLimitResponse' {gatewayARN} -> gatewayARN) (\s@DescribeBandwidthRateLimitResponse' {} a -> s {gatewayARN = a} :: DescribeBandwidthRateLimitResponse)
 
 -- | The response's http status code.
-describeBandwidthRateLimitResponse_httpStatus :: Lens.Lens' DescribeBandwidthRateLimitResponse Core.Int
+describeBandwidthRateLimitResponse_httpStatus :: Lens.Lens' DescribeBandwidthRateLimitResponse Prelude.Int
 describeBandwidthRateLimitResponse_httpStatus = Lens.lens (\DescribeBandwidthRateLimitResponse' {httpStatus} -> httpStatus) (\s@DescribeBandwidthRateLimitResponse' {} a -> s {httpStatus = a} :: DescribeBandwidthRateLimitResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeBandwidthRateLimitResponse

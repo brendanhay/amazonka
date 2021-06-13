@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.DashAdditionalManifest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify the details for each additional DASH manifest that you want the
 -- service to generate for this output group. Each manifest can reference a
@@ -34,12 +35,12 @@ data DashAdditionalManifest = DashAdditionalManifest'
     -- manifest for your DASH group is film-name.mpd. If you enter
     -- \"-no-premium\" for this setting, then the file name the service
     -- generates for this top-level manifest is film-name-no-premium.mpd.
-    manifestNameModifier :: Core.Maybe Core.Text,
+    manifestNameModifier :: Prelude.Maybe Prelude.Text,
     -- | Specify the outputs that you want this additional top-level manifest to
     -- reference.
-    selectedOutputs :: Core.Maybe [Core.Text]
+    selectedOutputs :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DashAdditionalManifest' with all optional fields omitted.
@@ -63,8 +64,8 @@ newDashAdditionalManifest ::
 newDashAdditionalManifest =
   DashAdditionalManifest'
     { manifestNameModifier =
-        Core.Nothing,
-      selectedOutputs = Core.Nothing
+        Prelude.Nothing,
+      selectedOutputs = Prelude.Nothing
     }
 
 -- | Specify a name modifier that the service adds to the name of this
@@ -73,13 +74,13 @@ newDashAdditionalManifest =
 -- manifest for your DASH group is film-name.mpd. If you enter
 -- \"-no-premium\" for this setting, then the file name the service
 -- generates for this top-level manifest is film-name-no-premium.mpd.
-dashAdditionalManifest_manifestNameModifier :: Lens.Lens' DashAdditionalManifest (Core.Maybe Core.Text)
+dashAdditionalManifest_manifestNameModifier :: Lens.Lens' DashAdditionalManifest (Prelude.Maybe Prelude.Text)
 dashAdditionalManifest_manifestNameModifier = Lens.lens (\DashAdditionalManifest' {manifestNameModifier} -> manifestNameModifier) (\s@DashAdditionalManifest' {} a -> s {manifestNameModifier = a} :: DashAdditionalManifest)
 
 -- | Specify the outputs that you want this additional top-level manifest to
 -- reference.
-dashAdditionalManifest_selectedOutputs :: Lens.Lens' DashAdditionalManifest (Core.Maybe [Core.Text])
-dashAdditionalManifest_selectedOutputs = Lens.lens (\DashAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@DashAdditionalManifest' {} a -> s {selectedOutputs = a} :: DashAdditionalManifest) Core.. Lens.mapping Lens._Coerce
+dashAdditionalManifest_selectedOutputs :: Lens.Lens' DashAdditionalManifest (Prelude.Maybe [Prelude.Text])
+dashAdditionalManifest_selectedOutputs = Lens.lens (\DashAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@DashAdditionalManifest' {} a -> s {selectedOutputs = a} :: DashAdditionalManifest) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON DashAdditionalManifest where
   parseJSON =
@@ -87,21 +88,23 @@ instance Core.FromJSON DashAdditionalManifest where
       "DashAdditionalManifest"
       ( \x ->
           DashAdditionalManifest'
-            Core.<$> (x Core..:? "manifestNameModifier")
-            Core.<*> (x Core..:? "selectedOutputs" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "manifestNameModifier")
+            Prelude.<*> ( x Core..:? "selectedOutputs"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable DashAdditionalManifest
+instance Prelude.Hashable DashAdditionalManifest
 
-instance Core.NFData DashAdditionalManifest
+instance Prelude.NFData DashAdditionalManifest
 
 instance Core.ToJSON DashAdditionalManifest where
   toJSON DashAdditionalManifest' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("manifestNameModifier" Core..=)
-              Core.<$> manifestNameModifier,
+              Prelude.<$> manifestNameModifier,
             ("selectedOutputs" Core..=)
-              Core.<$> selectedOutputs
+              Prelude.<$> selectedOutputs
           ]
       )

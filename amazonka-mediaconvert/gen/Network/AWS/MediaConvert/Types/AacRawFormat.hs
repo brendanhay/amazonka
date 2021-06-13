@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.AacRawFormat
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Enables LATM\/LOAS AAC output. Note that if you use LATM\/LOAS AAC in an
 -- output, you must choose \"No container\" for the output container.
@@ -35,15 +36,15 @@ newtype AacRawFormat = AacRawFormat'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ParameterRange where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.CategoricalParameterRangeSpecification
 import Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification
 import Network.AWS.SageMaker.Types.IntegerParameterRangeSpecification
@@ -32,15 +33,15 @@ import Network.AWS.SageMaker.Types.IntegerParameterRangeSpecification
 data ParameterRange = ParameterRange'
   { -- | A @ContinuousParameterRangeSpecification@ object that defines the
     -- possible values for a continuous hyperparameter.
-    continuousParameterRangeSpecification :: Core.Maybe ContinuousParameterRangeSpecification,
+    continuousParameterRangeSpecification :: Prelude.Maybe ContinuousParameterRangeSpecification,
     -- | A @IntegerParameterRangeSpecification@ object that defines the possible
     -- values for an integer hyperparameter.
-    integerParameterRangeSpecification :: Core.Maybe IntegerParameterRangeSpecification,
+    integerParameterRangeSpecification :: Prelude.Maybe IntegerParameterRangeSpecification,
     -- | A @CategoricalParameterRangeSpecification@ object that defines the
     -- possible values for a categorical hyperparameter.
-    categoricalParameterRangeSpecification :: Core.Maybe CategoricalParameterRangeSpecification
+    categoricalParameterRangeSpecification :: Prelude.Maybe CategoricalParameterRangeSpecification
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ParameterRange' with all optional fields omitted.
@@ -63,25 +64,25 @@ newParameterRange ::
 newParameterRange =
   ParameterRange'
     { continuousParameterRangeSpecification =
-        Core.Nothing,
-      integerParameterRangeSpecification = Core.Nothing,
+        Prelude.Nothing,
+      integerParameterRangeSpecification = Prelude.Nothing,
       categoricalParameterRangeSpecification =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | A @ContinuousParameterRangeSpecification@ object that defines the
 -- possible values for a continuous hyperparameter.
-parameterRange_continuousParameterRangeSpecification :: Lens.Lens' ParameterRange (Core.Maybe ContinuousParameterRangeSpecification)
+parameterRange_continuousParameterRangeSpecification :: Lens.Lens' ParameterRange (Prelude.Maybe ContinuousParameterRangeSpecification)
 parameterRange_continuousParameterRangeSpecification = Lens.lens (\ParameterRange' {continuousParameterRangeSpecification} -> continuousParameterRangeSpecification) (\s@ParameterRange' {} a -> s {continuousParameterRangeSpecification = a} :: ParameterRange)
 
 -- | A @IntegerParameterRangeSpecification@ object that defines the possible
 -- values for an integer hyperparameter.
-parameterRange_integerParameterRangeSpecification :: Lens.Lens' ParameterRange (Core.Maybe IntegerParameterRangeSpecification)
+parameterRange_integerParameterRangeSpecification :: Lens.Lens' ParameterRange (Prelude.Maybe IntegerParameterRangeSpecification)
 parameterRange_integerParameterRangeSpecification = Lens.lens (\ParameterRange' {integerParameterRangeSpecification} -> integerParameterRangeSpecification) (\s@ParameterRange' {} a -> s {integerParameterRangeSpecification = a} :: ParameterRange)
 
 -- | A @CategoricalParameterRangeSpecification@ object that defines the
 -- possible values for a categorical hyperparameter.
-parameterRange_categoricalParameterRangeSpecification :: Lens.Lens' ParameterRange (Core.Maybe CategoricalParameterRangeSpecification)
+parameterRange_categoricalParameterRangeSpecification :: Lens.Lens' ParameterRange (Prelude.Maybe CategoricalParameterRangeSpecification)
 parameterRange_categoricalParameterRangeSpecification = Lens.lens (\ParameterRange' {categoricalParameterRangeSpecification} -> categoricalParameterRangeSpecification) (\s@ParameterRange' {} a -> s {categoricalParameterRangeSpecification = a} :: ParameterRange)
 
 instance Core.FromJSON ParameterRange where
@@ -90,26 +91,26 @@ instance Core.FromJSON ParameterRange where
       "ParameterRange"
       ( \x ->
           ParameterRange'
-            Core.<$> (x Core..:? "ContinuousParameterRangeSpecification")
-            Core.<*> (x Core..:? "IntegerParameterRangeSpecification")
-            Core.<*> ( x
-                         Core..:? "CategoricalParameterRangeSpecification"
-                     )
+            Prelude.<$> (x Core..:? "ContinuousParameterRangeSpecification")
+            Prelude.<*> (x Core..:? "IntegerParameterRangeSpecification")
+            Prelude.<*> ( x
+                            Core..:? "CategoricalParameterRangeSpecification"
+                        )
       )
 
-instance Core.Hashable ParameterRange
+instance Prelude.Hashable ParameterRange
 
-instance Core.NFData ParameterRange
+instance Prelude.NFData ParameterRange
 
 instance Core.ToJSON ParameterRange where
   toJSON ParameterRange' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ContinuousParameterRangeSpecification" Core..=)
-              Core.<$> continuousParameterRangeSpecification,
+              Prelude.<$> continuousParameterRangeSpecification,
             ("IntegerParameterRangeSpecification" Core..=)
-              Core.<$> integerParameterRangeSpecification,
+              Prelude.<$> integerParameterRangeSpecification,
             ("CategoricalParameterRangeSpecification" Core..=)
-              Core.<$> categoricalParameterRangeSpecification
+              Prelude.<$> categoricalParameterRangeSpecification
           ]
       )

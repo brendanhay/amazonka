@@ -46,21 +46,22 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutSkillAuthorization' smart constructor.
 data PutSkillAuthorization = PutSkillAuthorization'
   { -- | The room that the skill is authorized for.
-    roomArn :: Core.Maybe Core.Text,
+    roomArn :: Prelude.Maybe Prelude.Text,
     -- | The authorization result specific to OAUTH code grant output. \"Code”
     -- must be populated in the AuthorizationResult map to establish the
     -- authorization.
-    authorizationResult :: Core.Sensitive (Core.HashMap Core.Text Core.Text),
+    authorizationResult :: Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The unique identifier of a skill.
-    skillId :: Core.Text
+    skillId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutSkillAuthorization' with all optional fields omitted.
@@ -79,27 +80,27 @@ data PutSkillAuthorization = PutSkillAuthorization'
 -- 'skillId', 'putSkillAuthorization_skillId' - The unique identifier of a skill.
 newPutSkillAuthorization ::
   -- | 'skillId'
-  Core.Text ->
+  Prelude.Text ->
   PutSkillAuthorization
 newPutSkillAuthorization pSkillId_ =
   PutSkillAuthorization'
-    { roomArn = Core.Nothing,
-      authorizationResult = Core.mempty,
+    { roomArn = Prelude.Nothing,
+      authorizationResult = Prelude.mempty,
       skillId = pSkillId_
     }
 
 -- | The room that the skill is authorized for.
-putSkillAuthorization_roomArn :: Lens.Lens' PutSkillAuthorization (Core.Maybe Core.Text)
+putSkillAuthorization_roomArn :: Lens.Lens' PutSkillAuthorization (Prelude.Maybe Prelude.Text)
 putSkillAuthorization_roomArn = Lens.lens (\PutSkillAuthorization' {roomArn} -> roomArn) (\s@PutSkillAuthorization' {} a -> s {roomArn = a} :: PutSkillAuthorization)
 
 -- | The authorization result specific to OAUTH code grant output. \"Code”
 -- must be populated in the AuthorizationResult map to establish the
 -- authorization.
-putSkillAuthorization_authorizationResult :: Lens.Lens' PutSkillAuthorization (Core.HashMap Core.Text Core.Text)
-putSkillAuthorization_authorizationResult = Lens.lens (\PutSkillAuthorization' {authorizationResult} -> authorizationResult) (\s@PutSkillAuthorization' {} a -> s {authorizationResult = a} :: PutSkillAuthorization) Core.. Core._Sensitive Core.. Lens._Coerce
+putSkillAuthorization_authorizationResult :: Lens.Lens' PutSkillAuthorization (Prelude.HashMap Prelude.Text Prelude.Text)
+putSkillAuthorization_authorizationResult = Lens.lens (\PutSkillAuthorization' {authorizationResult} -> authorizationResult) (\s@PutSkillAuthorization' {} a -> s {authorizationResult = a} :: PutSkillAuthorization) Prelude.. Core._Sensitive Prelude.. Lens._Coerce
 
 -- | The unique identifier of a skill.
-putSkillAuthorization_skillId :: Lens.Lens' PutSkillAuthorization Core.Text
+putSkillAuthorization_skillId :: Lens.Lens' PutSkillAuthorization Prelude.Text
 putSkillAuthorization_skillId = Lens.lens (\PutSkillAuthorization' {skillId} -> skillId) (\s@PutSkillAuthorization' {} a -> s {skillId = a} :: PutSkillAuthorization)
 
 instance Core.AWSRequest PutSkillAuthorization where
@@ -111,49 +112,51 @@ instance Core.AWSRequest PutSkillAuthorization where
     Response.receiveEmpty
       ( \s h x ->
           PutSkillAuthorizationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutSkillAuthorization
+instance Prelude.Hashable PutSkillAuthorization
 
-instance Core.NFData PutSkillAuthorization
+instance Prelude.NFData PutSkillAuthorization
 
 instance Core.ToHeaders PutSkillAuthorization where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.PutSkillAuthorization" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutSkillAuthorization where
   toJSON PutSkillAuthorization' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RoomArn" Core..=) Core.<$> roomArn,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("RoomArn" Core..=) Prelude.<$> roomArn,
+            Prelude.Just
               ("AuthorizationResult" Core..= authorizationResult),
-            Core.Just ("SkillId" Core..= skillId)
+            Prelude.Just ("SkillId" Core..= skillId)
           ]
       )
 
 instance Core.ToPath PutSkillAuthorization where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutSkillAuthorization where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutSkillAuthorizationResponse' smart constructor.
 data PutSkillAuthorizationResponse = PutSkillAuthorizationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutSkillAuthorizationResponse' with all optional fields omitted.
@@ -166,7 +169,7 @@ data PutSkillAuthorizationResponse = PutSkillAuthorizationResponse'
 -- 'httpStatus', 'putSkillAuthorizationResponse_httpStatus' - The response's http status code.
 newPutSkillAuthorizationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutSkillAuthorizationResponse
 newPutSkillAuthorizationResponse pHttpStatus_ =
   PutSkillAuthorizationResponse'
@@ -175,7 +178,7 @@ newPutSkillAuthorizationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putSkillAuthorizationResponse_httpStatus :: Lens.Lens' PutSkillAuthorizationResponse Core.Int
+putSkillAuthorizationResponse_httpStatus :: Lens.Lens' PutSkillAuthorizationResponse Prelude.Int
 putSkillAuthorizationResponse_httpStatus = Lens.lens (\PutSkillAuthorizationResponse' {httpStatus} -> httpStatus) (\s@PutSkillAuthorizationResponse' {} a -> s {httpStatus = a} :: PutSkillAuthorizationResponse)
 
-instance Core.NFData PutSkillAuthorizationResponse
+instance Prelude.NFData PutSkillAuthorizationResponse

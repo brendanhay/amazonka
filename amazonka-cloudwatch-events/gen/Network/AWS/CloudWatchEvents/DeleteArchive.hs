@@ -41,15 +41,16 @@ where
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteArchive' smart constructor.
 data DeleteArchive = DeleteArchive'
   { -- | The name of the archive to delete.
-    archiveName :: Core.Text
+    archiveName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteArchive' with all optional fields omitted.
@@ -62,13 +63,13 @@ data DeleteArchive = DeleteArchive'
 -- 'archiveName', 'deleteArchive_archiveName' - The name of the archive to delete.
 newDeleteArchive ::
   -- | 'archiveName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteArchive
 newDeleteArchive pArchiveName_ =
   DeleteArchive' {archiveName = pArchiveName_}
 
 -- | The name of the archive to delete.
-deleteArchive_archiveName :: Lens.Lens' DeleteArchive Core.Text
+deleteArchive_archiveName :: Lens.Lens' DeleteArchive Prelude.Text
 deleteArchive_archiveName = Lens.lens (\DeleteArchive' {archiveName} -> archiveName) (\s@DeleteArchive' {} a -> s {archiveName = a} :: DeleteArchive)
 
 instance Core.AWSRequest DeleteArchive where
@@ -80,43 +81,45 @@ instance Core.AWSRequest DeleteArchive where
     Response.receiveEmpty
       ( \s h x ->
           DeleteArchiveResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteArchive
+instance Prelude.Hashable DeleteArchive
 
-instance Core.NFData DeleteArchive
+instance Prelude.NFData DeleteArchive
 
 instance Core.ToHeaders DeleteArchive where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.DeleteArchive" :: Core.ByteString),
+              Core.=# ("AWSEvents.DeleteArchive" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteArchive where
   toJSON DeleteArchive' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ArchiveName" Core..= archiveName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ArchiveName" Core..= archiveName)]
       )
 
 instance Core.ToPath DeleteArchive where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteArchive where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteArchiveResponse' smart constructor.
 data DeleteArchiveResponse = DeleteArchiveResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteArchiveResponse' with all optional fields omitted.
@@ -129,13 +132,13 @@ data DeleteArchiveResponse = DeleteArchiveResponse'
 -- 'httpStatus', 'deleteArchiveResponse_httpStatus' - The response's http status code.
 newDeleteArchiveResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteArchiveResponse
 newDeleteArchiveResponse pHttpStatus_ =
   DeleteArchiveResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteArchiveResponse_httpStatus :: Lens.Lens' DeleteArchiveResponse Core.Int
+deleteArchiveResponse_httpStatus :: Lens.Lens' DeleteArchiveResponse Prelude.Int
 deleteArchiveResponse_httpStatus = Lens.lens (\DeleteArchiveResponse' {httpStatus} -> httpStatus) (\s@DeleteArchiveResponse' {} a -> s {httpStatus = a} :: DeleteArchiveResponse)
 
-instance Core.NFData DeleteArchiveResponse
+instance Prelude.NFData DeleteArchiveResponse

@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.TimestreamDimension
 import Network.AWS.IoT.Types.TimestreamTimestamp
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Timestream rule action writes attributes (measures) from an MQTT
 -- message into an Amazon Timestream table. For more information, see the
@@ -40,19 +41,19 @@ data TimestreamAction = TimestreamAction'
     --
     -- If omitted, the topic rule action assigns the timestamp, in
     -- milliseconds, at the time it processed the rule.
-    timestamp :: Core.Maybe TimestreamTimestamp,
+    timestamp :: Prelude.Maybe TimestreamTimestamp,
     -- | The ARN of the role that grants permission to write to the Amazon
     -- Timestream database table.
-    roleArn :: Core.Text,
+    roleArn :: Prelude.Text,
     -- | The name of an Amazon Timestream database.
-    databaseName :: Core.Text,
+    databaseName :: Prelude.Text,
     -- | The name of the database table into which to write the measure records.
-    tableName :: Core.Text,
+    tableName :: Prelude.Text,
     -- | Metadata attributes of the time series that are written in each measure
     -- record.
-    dimensions :: Core.NonEmpty TimestreamDimension
+    dimensions :: Prelude.NonEmpty TimestreamDimension
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TimestreamAction' with all optional fields omitted.
@@ -83,13 +84,13 @@ data TimestreamAction = TimestreamAction'
 -- record.
 newTimestreamAction ::
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'dimensions'
-  Core.NonEmpty TimestreamDimension ->
+  Prelude.NonEmpty TimestreamDimension ->
   TimestreamAction
 newTimestreamAction
   pRoleArn_
@@ -97,7 +98,7 @@ newTimestreamAction
   pTableName_
   pDimensions_ =
     TimestreamAction'
-      { timestamp = Core.Nothing,
+      { timestamp = Prelude.Nothing,
         roleArn = pRoleArn_,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
@@ -113,26 +114,26 @@ newTimestreamAction
 --
 -- If omitted, the topic rule action assigns the timestamp, in
 -- milliseconds, at the time it processed the rule.
-timestreamAction_timestamp :: Lens.Lens' TimestreamAction (Core.Maybe TimestreamTimestamp)
+timestreamAction_timestamp :: Lens.Lens' TimestreamAction (Prelude.Maybe TimestreamTimestamp)
 timestreamAction_timestamp = Lens.lens (\TimestreamAction' {timestamp} -> timestamp) (\s@TimestreamAction' {} a -> s {timestamp = a} :: TimestreamAction)
 
 -- | The ARN of the role that grants permission to write to the Amazon
 -- Timestream database table.
-timestreamAction_roleArn :: Lens.Lens' TimestreamAction Core.Text
+timestreamAction_roleArn :: Lens.Lens' TimestreamAction Prelude.Text
 timestreamAction_roleArn = Lens.lens (\TimestreamAction' {roleArn} -> roleArn) (\s@TimestreamAction' {} a -> s {roleArn = a} :: TimestreamAction)
 
 -- | The name of an Amazon Timestream database.
-timestreamAction_databaseName :: Lens.Lens' TimestreamAction Core.Text
+timestreamAction_databaseName :: Lens.Lens' TimestreamAction Prelude.Text
 timestreamAction_databaseName = Lens.lens (\TimestreamAction' {databaseName} -> databaseName) (\s@TimestreamAction' {} a -> s {databaseName = a} :: TimestreamAction)
 
 -- | The name of the database table into which to write the measure records.
-timestreamAction_tableName :: Lens.Lens' TimestreamAction Core.Text
+timestreamAction_tableName :: Lens.Lens' TimestreamAction Prelude.Text
 timestreamAction_tableName = Lens.lens (\TimestreamAction' {tableName} -> tableName) (\s@TimestreamAction' {} a -> s {tableName = a} :: TimestreamAction)
 
 -- | Metadata attributes of the time series that are written in each measure
 -- record.
-timestreamAction_dimensions :: Lens.Lens' TimestreamAction (Core.NonEmpty TimestreamDimension)
-timestreamAction_dimensions = Lens.lens (\TimestreamAction' {dimensions} -> dimensions) (\s@TimestreamAction' {} a -> s {dimensions = a} :: TimestreamAction) Core.. Lens._Coerce
+timestreamAction_dimensions :: Lens.Lens' TimestreamAction (Prelude.NonEmpty TimestreamDimension)
+timestreamAction_dimensions = Lens.lens (\TimestreamAction' {dimensions} -> dimensions) (\s@TimestreamAction' {} a -> s {dimensions = a} :: TimestreamAction) Prelude.. Lens._Coerce
 
 instance Core.FromJSON TimestreamAction where
   parseJSON =
@@ -140,25 +141,25 @@ instance Core.FromJSON TimestreamAction where
       "TimestreamAction"
       ( \x ->
           TimestreamAction'
-            Core.<$> (x Core..:? "timestamp")
-            Core.<*> (x Core..: "roleArn")
-            Core.<*> (x Core..: "databaseName")
-            Core.<*> (x Core..: "tableName")
-            Core.<*> (x Core..: "dimensions")
+            Prelude.<$> (x Core..:? "timestamp")
+            Prelude.<*> (x Core..: "roleArn")
+            Prelude.<*> (x Core..: "databaseName")
+            Prelude.<*> (x Core..: "tableName")
+            Prelude.<*> (x Core..: "dimensions")
       )
 
-instance Core.Hashable TimestreamAction
+instance Prelude.Hashable TimestreamAction
 
-instance Core.NFData TimestreamAction
+instance Prelude.NFData TimestreamAction
 
 instance Core.ToJSON TimestreamAction where
   toJSON TimestreamAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("timestamp" Core..=) Core.<$> timestamp,
-            Core.Just ("roleArn" Core..= roleArn),
-            Core.Just ("databaseName" Core..= databaseName),
-            Core.Just ("tableName" Core..= tableName),
-            Core.Just ("dimensions" Core..= dimensions)
+      ( Prelude.catMaybes
+          [ ("timestamp" Core..=) Prelude.<$> timestamp,
+            Prelude.Just ("roleArn" Core..= roleArn),
+            Prelude.Just ("databaseName" Core..= databaseName),
+            Prelude.Just ("tableName" Core..= tableName),
+            Prelude.Just ("dimensions" Core..= dimensions)
           ]
       )

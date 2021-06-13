@@ -81,6 +81,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -122,21 +123,21 @@ data CreateEndpointConfig = CreateEndpointConfig'
     --
     -- For more information about local instance storage encryption, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | An array of key-value pairs. You can use tags to categorize your AWS
     -- resources in different ways, for example, by purpose, owner, or
     -- environment. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
-    tags :: Core.Maybe [Tag],
-    dataCaptureConfig :: Core.Maybe DataCaptureConfig,
+    tags :: Prelude.Maybe [Tag],
+    dataCaptureConfig :: Prelude.Maybe DataCaptureConfig,
     -- | The name of the endpoint configuration. You specify this name in a
     -- CreateEndpoint request.
-    endpointConfigName :: Core.Text,
+    endpointConfigName :: Prelude.Text,
     -- | An list of @ProductionVariant@ objects, one for each model that you want
     -- to host at this endpoint.
-    productionVariants :: Core.NonEmpty ProductionVariant
+    productionVariants :: Prelude.NonEmpty ProductionVariant
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateEndpointConfig' with all optional fields omitted.
@@ -196,17 +197,17 @@ data CreateEndpointConfig = CreateEndpointConfig'
 -- to host at this endpoint.
 newCreateEndpointConfig ::
   -- | 'endpointConfigName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'productionVariants'
-  Core.NonEmpty ProductionVariant ->
+  Prelude.NonEmpty ProductionVariant ->
   CreateEndpointConfig
 newCreateEndpointConfig
   pEndpointConfigName_
   pProductionVariants_ =
     CreateEndpointConfig'
-      { kmsKeyId = Core.Nothing,
-        tags = Core.Nothing,
-        dataCaptureConfig = Core.Nothing,
+      { kmsKeyId = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        dataCaptureConfig = Prelude.Nothing,
         endpointConfigName = pEndpointConfigName_,
         productionVariants =
           Lens._Coerce Lens.# pProductionVariants_
@@ -247,29 +248,29 @@ newCreateEndpointConfig
 --
 -- For more information about local instance storage encryption, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
-createEndpointConfig_kmsKeyId :: Lens.Lens' CreateEndpointConfig (Core.Maybe Core.Text)
+createEndpointConfig_kmsKeyId :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe Prelude.Text)
 createEndpointConfig_kmsKeyId = Lens.lens (\CreateEndpointConfig' {kmsKeyId} -> kmsKeyId) (\s@CreateEndpointConfig' {} a -> s {kmsKeyId = a} :: CreateEndpointConfig)
 
 -- | An array of key-value pairs. You can use tags to categorize your AWS
 -- resources in different ways, for example, by purpose, owner, or
 -- environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
-createEndpointConfig_tags :: Lens.Lens' CreateEndpointConfig (Core.Maybe [Tag])
-createEndpointConfig_tags = Lens.lens (\CreateEndpointConfig' {tags} -> tags) (\s@CreateEndpointConfig' {} a -> s {tags = a} :: CreateEndpointConfig) Core.. Lens.mapping Lens._Coerce
+createEndpointConfig_tags :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe [Tag])
+createEndpointConfig_tags = Lens.lens (\CreateEndpointConfig' {tags} -> tags) (\s@CreateEndpointConfig' {} a -> s {tags = a} :: CreateEndpointConfig) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-createEndpointConfig_dataCaptureConfig :: Lens.Lens' CreateEndpointConfig (Core.Maybe DataCaptureConfig)
+createEndpointConfig_dataCaptureConfig :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe DataCaptureConfig)
 createEndpointConfig_dataCaptureConfig = Lens.lens (\CreateEndpointConfig' {dataCaptureConfig} -> dataCaptureConfig) (\s@CreateEndpointConfig' {} a -> s {dataCaptureConfig = a} :: CreateEndpointConfig)
 
 -- | The name of the endpoint configuration. You specify this name in a
 -- CreateEndpoint request.
-createEndpointConfig_endpointConfigName :: Lens.Lens' CreateEndpointConfig Core.Text
+createEndpointConfig_endpointConfigName :: Lens.Lens' CreateEndpointConfig Prelude.Text
 createEndpointConfig_endpointConfigName = Lens.lens (\CreateEndpointConfig' {endpointConfigName} -> endpointConfigName) (\s@CreateEndpointConfig' {} a -> s {endpointConfigName = a} :: CreateEndpointConfig)
 
 -- | An list of @ProductionVariant@ objects, one for each model that you want
 -- to host at this endpoint.
-createEndpointConfig_productionVariants :: Lens.Lens' CreateEndpointConfig (Core.NonEmpty ProductionVariant)
-createEndpointConfig_productionVariants = Lens.lens (\CreateEndpointConfig' {productionVariants} -> productionVariants) (\s@CreateEndpointConfig' {} a -> s {productionVariants = a} :: CreateEndpointConfig) Core.. Lens._Coerce
+createEndpointConfig_productionVariants :: Lens.Lens' CreateEndpointConfig (Prelude.NonEmpty ProductionVariant)
+createEndpointConfig_productionVariants = Lens.lens (\CreateEndpointConfig' {productionVariants} -> productionVariants) (\s@CreateEndpointConfig' {} a -> s {productionVariants = a} :: CreateEndpointConfig) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateEndpointConfig where
   type
@@ -280,56 +281,58 @@ instance Core.AWSRequest CreateEndpointConfig where
     Response.receiveJSON
       ( \s h x ->
           CreateEndpointConfigResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "EndpointConfigArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "EndpointConfigArn")
       )
 
-instance Core.Hashable CreateEndpointConfig
+instance Prelude.Hashable CreateEndpointConfig
 
-instance Core.NFData CreateEndpointConfig
+instance Prelude.NFData CreateEndpointConfig
 
 instance Core.ToHeaders CreateEndpointConfig where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.CreateEndpointConfig" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateEndpointConfig where
   toJSON CreateEndpointConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
-            ("Tags" Core..=) Core.<$> tags,
+      ( Prelude.catMaybes
+          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("DataCaptureConfig" Core..=)
-              Core.<$> dataCaptureConfig,
-            Core.Just
+              Prelude.<$> dataCaptureConfig,
+            Prelude.Just
               ("EndpointConfigName" Core..= endpointConfigName),
-            Core.Just
+            Prelude.Just
               ("ProductionVariants" Core..= productionVariants)
           ]
       )
 
 instance Core.ToPath CreateEndpointConfig where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateEndpointConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEndpointConfigResponse' smart constructor.
 data CreateEndpointConfigResponse = CreateEndpointConfigResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the endpoint configuration.
-    endpointConfigArn :: Core.Text
+    endpointConfigArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateEndpointConfigResponse' with all optional fields omitted.
@@ -344,9 +347,9 @@ data CreateEndpointConfigResponse = CreateEndpointConfigResponse'
 -- 'endpointConfigArn', 'createEndpointConfigResponse_endpointConfigArn' - The Amazon Resource Name (ARN) of the endpoint configuration.
 newCreateEndpointConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'endpointConfigArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateEndpointConfigResponse
 newCreateEndpointConfigResponse
   pHttpStatus_
@@ -358,11 +361,11 @@ newCreateEndpointConfigResponse
       }
 
 -- | The response's http status code.
-createEndpointConfigResponse_httpStatus :: Lens.Lens' CreateEndpointConfigResponse Core.Int
+createEndpointConfigResponse_httpStatus :: Lens.Lens' CreateEndpointConfigResponse Prelude.Int
 createEndpointConfigResponse_httpStatus = Lens.lens (\CreateEndpointConfigResponse' {httpStatus} -> httpStatus) (\s@CreateEndpointConfigResponse' {} a -> s {httpStatus = a} :: CreateEndpointConfigResponse)
 
 -- | The Amazon Resource Name (ARN) of the endpoint configuration.
-createEndpointConfigResponse_endpointConfigArn :: Lens.Lens' CreateEndpointConfigResponse Core.Text
+createEndpointConfigResponse_endpointConfigArn :: Lens.Lens' CreateEndpointConfigResponse Prelude.Text
 createEndpointConfigResponse_endpointConfigArn = Lens.lens (\CreateEndpointConfigResponse' {endpointConfigArn} -> endpointConfigArn) (\s@CreateEndpointConfigResponse' {} a -> s {endpointConfigArn = a} :: CreateEndpointConfigResponse)
 
-instance Core.NFData CreateEndpointConfigResponse
+instance Prelude.NFData CreateEndpointConfigResponse

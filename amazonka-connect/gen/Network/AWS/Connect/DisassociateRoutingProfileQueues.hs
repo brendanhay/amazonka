@@ -40,19 +40,20 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateRoutingProfileQueues' smart constructor.
 data DisassociateRoutingProfileQueues = DisassociateRoutingProfileQueues'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The identifier of the routing profile.
-    routingProfileId :: Core.Text,
+    routingProfileId :: Prelude.Text,
     -- | The queues to disassociate from this routing profile.
     queueReferences :: [RoutingProfileQueueReference]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateRoutingProfileQueues' with all optional fields omitted.
@@ -69,9 +70,9 @@ data DisassociateRoutingProfileQueues = DisassociateRoutingProfileQueues'
 -- 'queueReferences', 'disassociateRoutingProfileQueues_queueReferences' - The queues to disassociate from this routing profile.
 newDisassociateRoutingProfileQueues ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'routingProfileId'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateRoutingProfileQueues
 newDisassociateRoutingProfileQueues
   pInstanceId_
@@ -80,20 +81,20 @@ newDisassociateRoutingProfileQueues
       { instanceId =
           pInstanceId_,
         routingProfileId = pRoutingProfileId_,
-        queueReferences = Core.mempty
+        queueReferences = Prelude.mempty
       }
 
 -- | The identifier of the Amazon Connect instance.
-disassociateRoutingProfileQueues_instanceId :: Lens.Lens' DisassociateRoutingProfileQueues Core.Text
+disassociateRoutingProfileQueues_instanceId :: Lens.Lens' DisassociateRoutingProfileQueues Prelude.Text
 disassociateRoutingProfileQueues_instanceId = Lens.lens (\DisassociateRoutingProfileQueues' {instanceId} -> instanceId) (\s@DisassociateRoutingProfileQueues' {} a -> s {instanceId = a} :: DisassociateRoutingProfileQueues)
 
 -- | The identifier of the routing profile.
-disassociateRoutingProfileQueues_routingProfileId :: Lens.Lens' DisassociateRoutingProfileQueues Core.Text
+disassociateRoutingProfileQueues_routingProfileId :: Lens.Lens' DisassociateRoutingProfileQueues Prelude.Text
 disassociateRoutingProfileQueues_routingProfileId = Lens.lens (\DisassociateRoutingProfileQueues' {routingProfileId} -> routingProfileId) (\s@DisassociateRoutingProfileQueues' {} a -> s {routingProfileId = a} :: DisassociateRoutingProfileQueues)
 
 -- | The queues to disassociate from this routing profile.
 disassociateRoutingProfileQueues_queueReferences :: Lens.Lens' DisassociateRoutingProfileQueues [RoutingProfileQueueReference]
-disassociateRoutingProfileQueues_queueReferences = Lens.lens (\DisassociateRoutingProfileQueues' {queueReferences} -> queueReferences) (\s@DisassociateRoutingProfileQueues' {} a -> s {queueReferences = a} :: DisassociateRoutingProfileQueues) Core.. Lens._Coerce
+disassociateRoutingProfileQueues_queueReferences = Lens.lens (\DisassociateRoutingProfileQueues' {queueReferences} -> queueReferences) (\s@DisassociateRoutingProfileQueues' {} a -> s {queueReferences = a} :: DisassociateRoutingProfileQueues) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -108,35 +109,39 @@ instance
       DisassociateRoutingProfileQueuesResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DisassociateRoutingProfileQueues
 
-instance Core.NFData DisassociateRoutingProfileQueues
+instance
+  Prelude.NFData
+    DisassociateRoutingProfileQueues
 
 instance
   Core.ToHeaders
     DisassociateRoutingProfileQueues
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisassociateRoutingProfileQueues where
   toJSON DisassociateRoutingProfileQueues' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("QueueReferences" Core..= queueReferences)
           ]
       )
 
 instance Core.ToPath DisassociateRoutingProfileQueues where
   toPath DisassociateRoutingProfileQueues' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/routing-profiles/",
         Core.toBS instanceId,
         "/",
@@ -148,13 +153,13 @@ instance
   Core.ToQuery
     DisassociateRoutingProfileQueues
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateRoutingProfileQueuesResponse' smart constructor.
 data DisassociateRoutingProfileQueuesResponse = DisassociateRoutingProfileQueuesResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateRoutingProfileQueuesResponse' with all optional fields omitted.
@@ -166,5 +171,5 @@ newDisassociateRoutingProfileQueuesResponse =
   DisassociateRoutingProfileQueuesResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateRoutingProfileQueuesResponse

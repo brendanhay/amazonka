@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.DBSecurityGroup where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types.EC2SecurityGroup
 import Network.AWS.RDS.Types.IPRange
 
@@ -32,21 +33,21 @@ import Network.AWS.RDS.Types.IPRange
 -- /See:/ 'newDBSecurityGroup' smart constructor.
 data DBSecurityGroup = DBSecurityGroup'
   { -- | Provides the AWS ID of the owner of a specific DB security group.
-    ownerId :: Core.Maybe Core.Text,
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the DB security group.
-    dbSecurityGroupName :: Core.Maybe Core.Text,
+    dbSecurityGroupName :: Prelude.Maybe Prelude.Text,
     -- | Contains a list of @IPRange@ elements.
-    iPRanges :: Core.Maybe [IPRange],
+    iPRanges :: Prelude.Maybe [IPRange],
     -- | Provides the description of the DB security group.
-    dbSecurityGroupDescription :: Core.Maybe Core.Text,
+    dbSecurityGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | Contains a list of @EC2SecurityGroup@ elements.
-    eC2SecurityGroups :: Core.Maybe [EC2SecurityGroup],
+    eC2SecurityGroups :: Prelude.Maybe [EC2SecurityGroup],
     -- | Provides the VpcId of the DB security group.
-    vpcId :: Core.Maybe Core.Text,
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the DB security group.
-    dbSecurityGroupArn :: Core.Maybe Core.Text
+    dbSecurityGroupArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DBSecurityGroup' with all optional fields omitted.
@@ -73,58 +74,59 @@ newDBSecurityGroup ::
   DBSecurityGroup
 newDBSecurityGroup =
   DBSecurityGroup'
-    { ownerId = Core.Nothing,
-      dbSecurityGroupName = Core.Nothing,
-      iPRanges = Core.Nothing,
-      dbSecurityGroupDescription = Core.Nothing,
-      eC2SecurityGroups = Core.Nothing,
-      vpcId = Core.Nothing,
-      dbSecurityGroupArn = Core.Nothing
+    { ownerId = Prelude.Nothing,
+      dbSecurityGroupName = Prelude.Nothing,
+      iPRanges = Prelude.Nothing,
+      dbSecurityGroupDescription = Prelude.Nothing,
+      eC2SecurityGroups = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      dbSecurityGroupArn = Prelude.Nothing
     }
 
 -- | Provides the AWS ID of the owner of a specific DB security group.
-dbSecurityGroup_ownerId :: Lens.Lens' DBSecurityGroup (Core.Maybe Core.Text)
+dbSecurityGroup_ownerId :: Lens.Lens' DBSecurityGroup (Prelude.Maybe Prelude.Text)
 dbSecurityGroup_ownerId = Lens.lens (\DBSecurityGroup' {ownerId} -> ownerId) (\s@DBSecurityGroup' {} a -> s {ownerId = a} :: DBSecurityGroup)
 
 -- | Specifies the name of the DB security group.
-dbSecurityGroup_dbSecurityGroupName :: Lens.Lens' DBSecurityGroup (Core.Maybe Core.Text)
+dbSecurityGroup_dbSecurityGroupName :: Lens.Lens' DBSecurityGroup (Prelude.Maybe Prelude.Text)
 dbSecurityGroup_dbSecurityGroupName = Lens.lens (\DBSecurityGroup' {dbSecurityGroupName} -> dbSecurityGroupName) (\s@DBSecurityGroup' {} a -> s {dbSecurityGroupName = a} :: DBSecurityGroup)
 
 -- | Contains a list of @IPRange@ elements.
-dbSecurityGroup_iPRanges :: Lens.Lens' DBSecurityGroup (Core.Maybe [IPRange])
-dbSecurityGroup_iPRanges = Lens.lens (\DBSecurityGroup' {iPRanges} -> iPRanges) (\s@DBSecurityGroup' {} a -> s {iPRanges = a} :: DBSecurityGroup) Core.. Lens.mapping Lens._Coerce
+dbSecurityGroup_iPRanges :: Lens.Lens' DBSecurityGroup (Prelude.Maybe [IPRange])
+dbSecurityGroup_iPRanges = Lens.lens (\DBSecurityGroup' {iPRanges} -> iPRanges) (\s@DBSecurityGroup' {} a -> s {iPRanges = a} :: DBSecurityGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Provides the description of the DB security group.
-dbSecurityGroup_dbSecurityGroupDescription :: Lens.Lens' DBSecurityGroup (Core.Maybe Core.Text)
+dbSecurityGroup_dbSecurityGroupDescription :: Lens.Lens' DBSecurityGroup (Prelude.Maybe Prelude.Text)
 dbSecurityGroup_dbSecurityGroupDescription = Lens.lens (\DBSecurityGroup' {dbSecurityGroupDescription} -> dbSecurityGroupDescription) (\s@DBSecurityGroup' {} a -> s {dbSecurityGroupDescription = a} :: DBSecurityGroup)
 
 -- | Contains a list of @EC2SecurityGroup@ elements.
-dbSecurityGroup_eC2SecurityGroups :: Lens.Lens' DBSecurityGroup (Core.Maybe [EC2SecurityGroup])
-dbSecurityGroup_eC2SecurityGroups = Lens.lens (\DBSecurityGroup' {eC2SecurityGroups} -> eC2SecurityGroups) (\s@DBSecurityGroup' {} a -> s {eC2SecurityGroups = a} :: DBSecurityGroup) Core.. Lens.mapping Lens._Coerce
+dbSecurityGroup_eC2SecurityGroups :: Lens.Lens' DBSecurityGroup (Prelude.Maybe [EC2SecurityGroup])
+dbSecurityGroup_eC2SecurityGroups = Lens.lens (\DBSecurityGroup' {eC2SecurityGroups} -> eC2SecurityGroups) (\s@DBSecurityGroup' {} a -> s {eC2SecurityGroups = a} :: DBSecurityGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Provides the VpcId of the DB security group.
-dbSecurityGroup_vpcId :: Lens.Lens' DBSecurityGroup (Core.Maybe Core.Text)
+dbSecurityGroup_vpcId :: Lens.Lens' DBSecurityGroup (Prelude.Maybe Prelude.Text)
 dbSecurityGroup_vpcId = Lens.lens (\DBSecurityGroup' {vpcId} -> vpcId) (\s@DBSecurityGroup' {} a -> s {vpcId = a} :: DBSecurityGroup)
 
 -- | The Amazon Resource Name (ARN) for the DB security group.
-dbSecurityGroup_dbSecurityGroupArn :: Lens.Lens' DBSecurityGroup (Core.Maybe Core.Text)
+dbSecurityGroup_dbSecurityGroupArn :: Lens.Lens' DBSecurityGroup (Prelude.Maybe Prelude.Text)
 dbSecurityGroup_dbSecurityGroupArn = Lens.lens (\DBSecurityGroup' {dbSecurityGroupArn} -> dbSecurityGroupArn) (\s@DBSecurityGroup' {} a -> s {dbSecurityGroupArn = a} :: DBSecurityGroup)
 
 instance Core.FromXML DBSecurityGroup where
   parseXML x =
     DBSecurityGroup'
-      Core.<$> (x Core..@? "OwnerId")
-      Core.<*> (x Core..@? "DBSecurityGroupName")
-      Core.<*> ( x Core..@? "IPRanges" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "IPRange")
-               )
-      Core.<*> (x Core..@? "DBSecurityGroupDescription")
-      Core.<*> ( x Core..@? "EC2SecurityGroups" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "EC2SecurityGroup")
-               )
-      Core.<*> (x Core..@? "VpcId")
-      Core.<*> (x Core..@? "DBSecurityGroupArn")
+      Prelude.<$> (x Core..@? "OwnerId")
+      Prelude.<*> (x Core..@? "DBSecurityGroupName")
+      Prelude.<*> ( x Core..@? "IPRanges" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "IPRange")
+                  )
+      Prelude.<*> (x Core..@? "DBSecurityGroupDescription")
+      Prelude.<*> ( x Core..@? "EC2SecurityGroups"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "EC2SecurityGroup")
+                  )
+      Prelude.<*> (x Core..@? "VpcId")
+      Prelude.<*> (x Core..@? "DBSecurityGroupArn")
 
-instance Core.Hashable DBSecurityGroup
+instance Prelude.Hashable DBSecurityGroup
 
-instance Core.NFData DBSecurityGroup
+instance Prelude.NFData DBSecurityGroup

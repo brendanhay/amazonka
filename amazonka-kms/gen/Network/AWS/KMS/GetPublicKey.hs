@@ -104,6 +104,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -114,7 +115,7 @@ data GetPublicKey = GetPublicKey'
     -- For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
     -- in the /AWS Key Management Service Developer Guide/.
-    grantTokens :: Core.Maybe [Core.Text],
+    grantTokens :: Prelude.Maybe [Prelude.Text],
     -- | Identifies the asymmetric CMK that includes the public key.
     --
     -- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias
@@ -135,9 +136,9 @@ data GetPublicKey = GetPublicKey'
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
     -- get the alias name and alias ARN, use ListAliases.
-    keyId :: Core.Text
+    keyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPublicKey' with all optional fields omitted.
@@ -175,11 +176,11 @@ data GetPublicKey = GetPublicKey'
 -- get the alias name and alias ARN, use ListAliases.
 newGetPublicKey ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   GetPublicKey
 newGetPublicKey pKeyId_ =
   GetPublicKey'
-    { grantTokens = Core.Nothing,
+    { grantTokens = Prelude.Nothing,
       keyId = pKeyId_
     }
 
@@ -188,8 +189,8 @@ newGetPublicKey pKeyId_ =
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
 -- in the /AWS Key Management Service Developer Guide/.
-getPublicKey_grantTokens :: Lens.Lens' GetPublicKey (Core.Maybe [Core.Text])
-getPublicKey_grantTokens = Lens.lens (\GetPublicKey' {grantTokens} -> grantTokens) (\s@GetPublicKey' {} a -> s {grantTokens = a} :: GetPublicKey) Core.. Lens.mapping Lens._Coerce
+getPublicKey_grantTokens :: Lens.Lens' GetPublicKey (Prelude.Maybe [Prelude.Text])
+getPublicKey_grantTokens = Lens.lens (\GetPublicKey' {grantTokens} -> grantTokens) (\s@GetPublicKey' {} a -> s {grantTokens = a} :: GetPublicKey) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Identifies the asymmetric CMK that includes the public key.
 --
@@ -211,7 +212,7 @@ getPublicKey_grantTokens = Lens.lens (\GetPublicKey' {grantTokens} -> grantToken
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
 -- get the alias name and alias ARN, use ListAliases.
-getPublicKey_keyId :: Lens.Lens' GetPublicKey Core.Text
+getPublicKey_keyId :: Lens.Lens' GetPublicKey Prelude.Text
 getPublicKey_keyId = Lens.lens (\GetPublicKey' {keyId} -> keyId) (\s@GetPublicKey' {} a -> s {keyId = a} :: GetPublicKey)
 
 instance Core.AWSRequest GetPublicKey where
@@ -221,46 +222,50 @@ instance Core.AWSRequest GetPublicKey where
     Response.receiveJSON
       ( \s h x ->
           GetPublicKeyResponse'
-            Core.<$> (x Core..?> "SigningAlgorithms" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "PublicKey")
-            Core.<*> ( x Core..?> "EncryptionAlgorithms"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "KeyUsage")
-            Core.<*> (x Core..?> "KeyId")
-            Core.<*> (x Core..?> "CustomerMasterKeySpec")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "SigningAlgorithms"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "PublicKey")
+            Prelude.<*> ( x Core..?> "EncryptionAlgorithms"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "KeyUsage")
+            Prelude.<*> (x Core..?> "KeyId")
+            Prelude.<*> (x Core..?> "CustomerMasterKeySpec")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetPublicKey
+instance Prelude.Hashable GetPublicKey
 
-instance Core.NFData GetPublicKey
+instance Prelude.NFData GetPublicKey
 
 instance Core.ToHeaders GetPublicKey where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.GetPublicKey" :: Core.ByteString),
+              Core.=# ("TrentService.GetPublicKey" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetPublicKey where
   toJSON GetPublicKey' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("GrantTokens" Core..=) Core.<$> grantTokens,
-            Core.Just ("KeyId" Core..= keyId)
+      ( Prelude.catMaybes
+          [ ("GrantTokens" Core..=) Prelude.<$> grantTokens,
+            Prelude.Just ("KeyId" Core..= keyId)
           ]
       )
 
 instance Core.ToPath GetPublicKey where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetPublicKey where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPublicKeyResponse' smart constructor.
 data GetPublicKeyResponse = GetPublicKeyResponse'
@@ -268,7 +273,7 @@ data GetPublicKeyResponse = GetPublicKeyResponse'
     --
     -- This field appears in the response only when the @KeyUsage@ of the
     -- public key is @SIGN_VERIFY@.
-    signingAlgorithms :: Core.Maybe [SigningAlgorithmSpec],
+    signingAlgorithms :: Prelude.Maybe [SigningAlgorithmSpec],
     -- | The exported public key.
     --
     -- The value is a DER-encoded X.509 public key, also known as
@@ -276,7 +281,7 @@ data GetPublicKeyResponse = GetPublicKeyResponse'
     -- <https://tools.ietf.org/html/rfc5280 RFC 5280>. When you use the HTTP
     -- API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not
     -- Base64-encoded.
-    publicKey :: Core.Maybe Core.Base64,
+    publicKey :: Prelude.Maybe Core.Base64,
     -- | The encryption algorithms that AWS KMS supports for this key.
     --
     -- This information is critical. If a public key encrypts data outside of
@@ -285,24 +290,24 @@ data GetPublicKeyResponse = GetPublicKeyResponse'
     --
     -- This field appears in the response only when the @KeyUsage@ of the
     -- public key is @ENCRYPT_DECRYPT@.
-    encryptionAlgorithms :: Core.Maybe [EncryptionAlgorithmSpec],
+    encryptionAlgorithms :: Prelude.Maybe [EncryptionAlgorithmSpec],
     -- | The permitted use of the public key. Valid values are @ENCRYPT_DECRYPT@
     -- or @SIGN_VERIFY@.
     --
     -- This information is critical. If a public key with @SIGN_VERIFY@ key
     -- usage encrypts data outside of AWS KMS, the ciphertext cannot be
     -- decrypted.
-    keyUsage :: Core.Maybe KeyUsageType,
+    keyUsage :: Prelude.Maybe KeyUsageType,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the asymmetric CMK from which the public key was downloaded.
-    keyId :: Core.Maybe Core.Text,
+    keyId :: Prelude.Maybe Prelude.Text,
     -- | The type of the of the public key that was downloaded.
-    customerMasterKeySpec :: Core.Maybe CustomerMasterKeySpec,
+    customerMasterKeySpec :: Prelude.Maybe CustomerMasterKeySpec,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPublicKeyResponse' with all optional fields omitted.
@@ -354,17 +359,17 @@ data GetPublicKeyResponse = GetPublicKeyResponse'
 -- 'httpStatus', 'getPublicKeyResponse_httpStatus' - The response's http status code.
 newGetPublicKeyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetPublicKeyResponse
 newGetPublicKeyResponse pHttpStatus_ =
   GetPublicKeyResponse'
     { signingAlgorithms =
-        Core.Nothing,
-      publicKey = Core.Nothing,
-      encryptionAlgorithms = Core.Nothing,
-      keyUsage = Core.Nothing,
-      keyId = Core.Nothing,
-      customerMasterKeySpec = Core.Nothing,
+        Prelude.Nothing,
+      publicKey = Prelude.Nothing,
+      encryptionAlgorithms = Prelude.Nothing,
+      keyUsage = Prelude.Nothing,
+      keyId = Prelude.Nothing,
+      customerMasterKeySpec = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -372,8 +377,8 @@ newGetPublicKeyResponse pHttpStatus_ =
 --
 -- This field appears in the response only when the @KeyUsage@ of the
 -- public key is @SIGN_VERIFY@.
-getPublicKeyResponse_signingAlgorithms :: Lens.Lens' GetPublicKeyResponse (Core.Maybe [SigningAlgorithmSpec])
-getPublicKeyResponse_signingAlgorithms = Lens.lens (\GetPublicKeyResponse' {signingAlgorithms} -> signingAlgorithms) (\s@GetPublicKeyResponse' {} a -> s {signingAlgorithms = a} :: GetPublicKeyResponse) Core.. Lens.mapping Lens._Coerce
+getPublicKeyResponse_signingAlgorithms :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe [SigningAlgorithmSpec])
+getPublicKeyResponse_signingAlgorithms = Lens.lens (\GetPublicKeyResponse' {signingAlgorithms} -> signingAlgorithms) (\s@GetPublicKeyResponse' {} a -> s {signingAlgorithms = a} :: GetPublicKeyResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The exported public key.
 --
@@ -386,8 +391,8 @@ getPublicKeyResponse_signingAlgorithms = Lens.lens (\GetPublicKeyResponse' {sign
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-getPublicKeyResponse_publicKey :: Lens.Lens' GetPublicKeyResponse (Core.Maybe Core.ByteString)
-getPublicKeyResponse_publicKey = Lens.lens (\GetPublicKeyResponse' {publicKey} -> publicKey) (\s@GetPublicKeyResponse' {} a -> s {publicKey = a} :: GetPublicKeyResponse) Core.. Lens.mapping Core._Base64
+getPublicKeyResponse_publicKey :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe Prelude.ByteString)
+getPublicKeyResponse_publicKey = Lens.lens (\GetPublicKeyResponse' {publicKey} -> publicKey) (\s@GetPublicKeyResponse' {} a -> s {publicKey = a} :: GetPublicKeyResponse) Prelude.. Lens.mapping Core._Base64
 
 -- | The encryption algorithms that AWS KMS supports for this key.
 --
@@ -397,8 +402,8 @@ getPublicKeyResponse_publicKey = Lens.lens (\GetPublicKeyResponse' {publicKey} -
 --
 -- This field appears in the response only when the @KeyUsage@ of the
 -- public key is @ENCRYPT_DECRYPT@.
-getPublicKeyResponse_encryptionAlgorithms :: Lens.Lens' GetPublicKeyResponse (Core.Maybe [EncryptionAlgorithmSpec])
-getPublicKeyResponse_encryptionAlgorithms = Lens.lens (\GetPublicKeyResponse' {encryptionAlgorithms} -> encryptionAlgorithms) (\s@GetPublicKeyResponse' {} a -> s {encryptionAlgorithms = a} :: GetPublicKeyResponse) Core.. Lens.mapping Lens._Coerce
+getPublicKeyResponse_encryptionAlgorithms :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe [EncryptionAlgorithmSpec])
+getPublicKeyResponse_encryptionAlgorithms = Lens.lens (\GetPublicKeyResponse' {encryptionAlgorithms} -> encryptionAlgorithms) (\s@GetPublicKeyResponse' {} a -> s {encryptionAlgorithms = a} :: GetPublicKeyResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The permitted use of the public key. Valid values are @ENCRYPT_DECRYPT@
 -- or @SIGN_VERIFY@.
@@ -406,21 +411,21 @@ getPublicKeyResponse_encryptionAlgorithms = Lens.lens (\GetPublicKeyResponse' {e
 -- This information is critical. If a public key with @SIGN_VERIFY@ key
 -- usage encrypts data outside of AWS KMS, the ciphertext cannot be
 -- decrypted.
-getPublicKeyResponse_keyUsage :: Lens.Lens' GetPublicKeyResponse (Core.Maybe KeyUsageType)
+getPublicKeyResponse_keyUsage :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe KeyUsageType)
 getPublicKeyResponse_keyUsage = Lens.lens (\GetPublicKeyResponse' {keyUsage} -> keyUsage) (\s@GetPublicKeyResponse' {} a -> s {keyUsage = a} :: GetPublicKeyResponse)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
 -- of the asymmetric CMK from which the public key was downloaded.
-getPublicKeyResponse_keyId :: Lens.Lens' GetPublicKeyResponse (Core.Maybe Core.Text)
+getPublicKeyResponse_keyId :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe Prelude.Text)
 getPublicKeyResponse_keyId = Lens.lens (\GetPublicKeyResponse' {keyId} -> keyId) (\s@GetPublicKeyResponse' {} a -> s {keyId = a} :: GetPublicKeyResponse)
 
 -- | The type of the of the public key that was downloaded.
-getPublicKeyResponse_customerMasterKeySpec :: Lens.Lens' GetPublicKeyResponse (Core.Maybe CustomerMasterKeySpec)
+getPublicKeyResponse_customerMasterKeySpec :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe CustomerMasterKeySpec)
 getPublicKeyResponse_customerMasterKeySpec = Lens.lens (\GetPublicKeyResponse' {customerMasterKeySpec} -> customerMasterKeySpec) (\s@GetPublicKeyResponse' {} a -> s {customerMasterKeySpec = a} :: GetPublicKeyResponse)
 
 -- | The response's http status code.
-getPublicKeyResponse_httpStatus :: Lens.Lens' GetPublicKeyResponse Core.Int
+getPublicKeyResponse_httpStatus :: Lens.Lens' GetPublicKeyResponse Prelude.Int
 getPublicKeyResponse_httpStatus = Lens.lens (\GetPublicKeyResponse' {httpStatus} -> httpStatus) (\s@GetPublicKeyResponse' {} a -> s {httpStatus = a} :: GetPublicKeyResponse)
 
-instance Core.NFData GetPublicKeyResponse
+instance Prelude.NFData GetPublicKeyResponse

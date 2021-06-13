@@ -59,6 +59,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MarketplaceAnalytics.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,10 +74,10 @@ data StartSupportDataExport = StartSupportDataExport'
     -- \"s3:\/\/mybucket\/myprefix\/mydatasets\/outputfile\". If the prefix
     -- directory structure does not exist, it will be created. If no prefix is
     -- provided, the data set will be published to the S3 bucket root.
-    destinationS3Prefix :: Core.Maybe Core.Text,
+    destinationS3Prefix :: Prelude.Maybe Prelude.Text,
     -- | (Optional) Key-value pairs which will be returned, unmodified, in the
     -- Amazon SNS notification message and the data set metadata file.
-    customerDefinedValues :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    customerDefinedValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies the data set type to be written to the output csv file. The
     -- data set types customer_support_contacts_data and
     -- test_customer_support_contacts_data both result in a csv file containing
@@ -98,14 +99,14 @@ data StartSupportDataExport = StartSupportDataExport'
     fromDate :: Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the Role with an attached permissions
     -- policy to interact with the provided AWS services.
-    roleNameArn :: Core.Text,
+    roleNameArn :: Prelude.Text,
     -- | The name (friendly name, not ARN) of the destination S3 bucket.
-    destinationS3BucketName :: Core.Text,
+    destinationS3BucketName :: Prelude.Text,
     -- | Amazon Resource Name (ARN) for the SNS Topic that will be notified when
     -- the data set has been published or if an error has occurred.
-    snsTopicArn :: Core.Text
+    snsTopicArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartSupportDataExport' with all optional fields omitted.
@@ -156,13 +157,13 @@ newStartSupportDataExport ::
   -- | 'dataSetType'
   SupportDataSetType ->
   -- | 'fromDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'roleNameArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'destinationS3BucketName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'snsTopicArn'
-  Core.Text ->
+  Prelude.Text ->
   StartSupportDataExport
 newStartSupportDataExport
   pDataSetType_
@@ -172,8 +173,8 @@ newStartSupportDataExport
   pSnsTopicArn_ =
     StartSupportDataExport'
       { destinationS3Prefix =
-          Core.Nothing,
-        customerDefinedValues = Core.Nothing,
+          Prelude.Nothing,
+        customerDefinedValues = Prelude.Nothing,
         dataSetType = pDataSetType_,
         fromDate = Core._Time Lens.# pFromDate_,
         roleNameArn = pRoleNameArn_,
@@ -188,13 +189,13 @@ newStartSupportDataExport
 -- \"s3:\/\/mybucket\/myprefix\/mydatasets\/outputfile\". If the prefix
 -- directory structure does not exist, it will be created. If no prefix is
 -- provided, the data set will be published to the S3 bucket root.
-startSupportDataExport_destinationS3Prefix :: Lens.Lens' StartSupportDataExport (Core.Maybe Core.Text)
+startSupportDataExport_destinationS3Prefix :: Lens.Lens' StartSupportDataExport (Prelude.Maybe Prelude.Text)
 startSupportDataExport_destinationS3Prefix = Lens.lens (\StartSupportDataExport' {destinationS3Prefix} -> destinationS3Prefix) (\s@StartSupportDataExport' {} a -> s {destinationS3Prefix = a} :: StartSupportDataExport)
 
 -- | (Optional) Key-value pairs which will be returned, unmodified, in the
 -- Amazon SNS notification message and the data set metadata file.
-startSupportDataExport_customerDefinedValues :: Lens.Lens' StartSupportDataExport (Core.Maybe (Core.HashMap Core.Text Core.Text))
-startSupportDataExport_customerDefinedValues = Lens.lens (\StartSupportDataExport' {customerDefinedValues} -> customerDefinedValues) (\s@StartSupportDataExport' {} a -> s {customerDefinedValues = a} :: StartSupportDataExport) Core.. Lens.mapping Lens._Coerce
+startSupportDataExport_customerDefinedValues :: Lens.Lens' StartSupportDataExport (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+startSupportDataExport_customerDefinedValues = Lens.lens (\StartSupportDataExport' {customerDefinedValues} -> customerDefinedValues) (\s@StartSupportDataExport' {} a -> s {customerDefinedValues = a} :: StartSupportDataExport) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the data set type to be written to the output csv file. The
 -- data set types customer_support_contacts_data and
@@ -216,21 +217,21 @@ startSupportDataExport_dataSetType = Lens.lens (\StartSupportDataExport' {dataSe
 
 -- | The start date from which to retrieve the data set in UTC. This
 -- parameter only affects the customer_support_contacts_data data set type.
-startSupportDataExport_fromDate :: Lens.Lens' StartSupportDataExport Core.UTCTime
-startSupportDataExport_fromDate = Lens.lens (\StartSupportDataExport' {fromDate} -> fromDate) (\s@StartSupportDataExport' {} a -> s {fromDate = a} :: StartSupportDataExport) Core.. Core._Time
+startSupportDataExport_fromDate :: Lens.Lens' StartSupportDataExport Prelude.UTCTime
+startSupportDataExport_fromDate = Lens.lens (\StartSupportDataExport' {fromDate} -> fromDate) (\s@StartSupportDataExport' {} a -> s {fromDate = a} :: StartSupportDataExport) Prelude.. Core._Time
 
 -- | The Amazon Resource Name (ARN) of the Role with an attached permissions
 -- policy to interact with the provided AWS services.
-startSupportDataExport_roleNameArn :: Lens.Lens' StartSupportDataExport Core.Text
+startSupportDataExport_roleNameArn :: Lens.Lens' StartSupportDataExport Prelude.Text
 startSupportDataExport_roleNameArn = Lens.lens (\StartSupportDataExport' {roleNameArn} -> roleNameArn) (\s@StartSupportDataExport' {} a -> s {roleNameArn = a} :: StartSupportDataExport)
 
 -- | The name (friendly name, not ARN) of the destination S3 bucket.
-startSupportDataExport_destinationS3BucketName :: Lens.Lens' StartSupportDataExport Core.Text
+startSupportDataExport_destinationS3BucketName :: Lens.Lens' StartSupportDataExport Prelude.Text
 startSupportDataExport_destinationS3BucketName = Lens.lens (\StartSupportDataExport' {destinationS3BucketName} -> destinationS3BucketName) (\s@StartSupportDataExport' {} a -> s {destinationS3BucketName = a} :: StartSupportDataExport)
 
 -- | Amazon Resource Name (ARN) for the SNS Topic that will be notified when
 -- the data set has been published or if an error has occurred.
-startSupportDataExport_snsTopicArn :: Lens.Lens' StartSupportDataExport Core.Text
+startSupportDataExport_snsTopicArn :: Lens.Lens' StartSupportDataExport Prelude.Text
 startSupportDataExport_snsTopicArn = Lens.lens (\StartSupportDataExport' {snsTopicArn} -> snsTopicArn) (\s@StartSupportDataExport' {} a -> s {snsTopicArn = a} :: StartSupportDataExport)
 
 instance Core.AWSRequest StartSupportDataExport where
@@ -242,51 +243,53 @@ instance Core.AWSRequest StartSupportDataExport where
     Response.receiveJSON
       ( \s h x ->
           StartSupportDataExportResponse'
-            Core.<$> (x Core..?> "dataSetRequestId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "dataSetRequestId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartSupportDataExport
+instance Prelude.Hashable StartSupportDataExport
 
-instance Core.NFData StartSupportDataExport
+instance Prelude.NFData StartSupportDataExport
 
 instance Core.ToHeaders StartSupportDataExport where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MarketplaceCommerceAnalytics20150701.StartSupportDataExport" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartSupportDataExport where
   toJSON StartSupportDataExport' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("destinationS3Prefix" Core..=)
-              Core.<$> destinationS3Prefix,
+              Prelude.<$> destinationS3Prefix,
             ("customerDefinedValues" Core..=)
-              Core.<$> customerDefinedValues,
-            Core.Just ("dataSetType" Core..= dataSetType),
-            Core.Just ("fromDate" Core..= fromDate),
-            Core.Just ("roleNameArn" Core..= roleNameArn),
-            Core.Just
+              Prelude.<$> customerDefinedValues,
+            Prelude.Just ("dataSetType" Core..= dataSetType),
+            Prelude.Just ("fromDate" Core..= fromDate),
+            Prelude.Just ("roleNameArn" Core..= roleNameArn),
+            Prelude.Just
               ( "destinationS3BucketName"
                   Core..= destinationS3BucketName
               ),
-            Core.Just ("snsTopicArn" Core..= snsTopicArn)
+            Prelude.Just ("snsTopicArn" Core..= snsTopicArn)
           ]
       )
 
 instance Core.ToPath StartSupportDataExport where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartSupportDataExport where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Container for the result of the StartSupportDataExport operation.
 --
@@ -295,11 +298,11 @@ data StartSupportDataExportResponse = StartSupportDataExportResponse'
   { -- | A unique identifier representing a specific request to the
     -- StartSupportDataExport operation. This identifier can be used to
     -- correlate a request with notifications from the SNS topic.
-    dataSetRequestId :: Core.Maybe Core.Text,
+    dataSetRequestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartSupportDataExportResponse' with all optional fields omitted.
@@ -316,23 +319,25 @@ data StartSupportDataExportResponse = StartSupportDataExportResponse'
 -- 'httpStatus', 'startSupportDataExportResponse_httpStatus' - The response's http status code.
 newStartSupportDataExportResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartSupportDataExportResponse
 newStartSupportDataExportResponse pHttpStatus_ =
   StartSupportDataExportResponse'
     { dataSetRequestId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique identifier representing a specific request to the
 -- StartSupportDataExport operation. This identifier can be used to
 -- correlate a request with notifications from the SNS topic.
-startSupportDataExportResponse_dataSetRequestId :: Lens.Lens' StartSupportDataExportResponse (Core.Maybe Core.Text)
+startSupportDataExportResponse_dataSetRequestId :: Lens.Lens' StartSupportDataExportResponse (Prelude.Maybe Prelude.Text)
 startSupportDataExportResponse_dataSetRequestId = Lens.lens (\StartSupportDataExportResponse' {dataSetRequestId} -> dataSetRequestId) (\s@StartSupportDataExportResponse' {} a -> s {dataSetRequestId = a} :: StartSupportDataExportResponse)
 
 -- | The response's http status code.
-startSupportDataExportResponse_httpStatus :: Lens.Lens' StartSupportDataExportResponse Core.Int
+startSupportDataExportResponse_httpStatus :: Lens.Lens' StartSupportDataExportResponse Prelude.Int
 startSupportDataExportResponse_httpStatus = Lens.lens (\StartSupportDataExportResponse' {httpStatus} -> httpStatus) (\s@StartSupportDataExportResponse' {} a -> s {httpStatus = a} :: StartSupportDataExportResponse)
 
-instance Core.NFData StartSupportDataExportResponse
+instance
+  Prelude.NFData
+    StartSupportDataExportResponse

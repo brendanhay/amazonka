@@ -22,19 +22,20 @@ module Network.AWS.EC2.Types.PtrUpdateStatus where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The status of an updated pointer (PTR) record for an Elastic IP address.
 --
 -- /See:/ 'newPtrUpdateStatus' smart constructor.
 data PtrUpdateStatus = PtrUpdateStatus'
   { -- | The status of the PTR record update.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | The reason for the PTR record update.
-    reason :: Core.Maybe Core.Text,
+    reason :: Prelude.Maybe Prelude.Text,
     -- | The value for the PTR record update.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PtrUpdateStatus' with all optional fields omitted.
@@ -53,30 +54,30 @@ newPtrUpdateStatus ::
   PtrUpdateStatus
 newPtrUpdateStatus =
   PtrUpdateStatus'
-    { status = Core.Nothing,
-      reason = Core.Nothing,
-      value = Core.Nothing
+    { status = Prelude.Nothing,
+      reason = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The status of the PTR record update.
-ptrUpdateStatus_status :: Lens.Lens' PtrUpdateStatus (Core.Maybe Core.Text)
+ptrUpdateStatus_status :: Lens.Lens' PtrUpdateStatus (Prelude.Maybe Prelude.Text)
 ptrUpdateStatus_status = Lens.lens (\PtrUpdateStatus' {status} -> status) (\s@PtrUpdateStatus' {} a -> s {status = a} :: PtrUpdateStatus)
 
 -- | The reason for the PTR record update.
-ptrUpdateStatus_reason :: Lens.Lens' PtrUpdateStatus (Core.Maybe Core.Text)
+ptrUpdateStatus_reason :: Lens.Lens' PtrUpdateStatus (Prelude.Maybe Prelude.Text)
 ptrUpdateStatus_reason = Lens.lens (\PtrUpdateStatus' {reason} -> reason) (\s@PtrUpdateStatus' {} a -> s {reason = a} :: PtrUpdateStatus)
 
 -- | The value for the PTR record update.
-ptrUpdateStatus_value :: Lens.Lens' PtrUpdateStatus (Core.Maybe Core.Text)
+ptrUpdateStatus_value :: Lens.Lens' PtrUpdateStatus (Prelude.Maybe Prelude.Text)
 ptrUpdateStatus_value = Lens.lens (\PtrUpdateStatus' {value} -> value) (\s@PtrUpdateStatus' {} a -> s {value = a} :: PtrUpdateStatus)
 
 instance Core.FromXML PtrUpdateStatus where
   parseXML x =
     PtrUpdateStatus'
-      Core.<$> (x Core..@? "status")
-      Core.<*> (x Core..@? "reason")
-      Core.<*> (x Core..@? "value")
+      Prelude.<$> (x Core..@? "status")
+      Prelude.<*> (x Core..@? "reason")
+      Prelude.<*> (x Core..@? "value")
 
-instance Core.Hashable PtrUpdateStatus
+instance Prelude.Hashable PtrUpdateStatus
 
-instance Core.NFData PtrUpdateStatus
+instance Prelude.NFData PtrUpdateStatus

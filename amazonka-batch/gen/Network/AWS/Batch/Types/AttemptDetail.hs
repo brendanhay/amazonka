@@ -22,26 +22,27 @@ module Network.AWS.Batch.Types.AttemptDetail where
 import Network.AWS.Batch.Types.AttemptContainerDetail
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing a job attempt.
 --
 -- /See:/ 'newAttemptDetail' smart constructor.
 data AttemptDetail = AttemptDetail'
   { -- | Details about the container in this job attempt.
-    container :: Core.Maybe AttemptContainerDetail,
+    container :: Prelude.Maybe AttemptContainerDetail,
     -- | The Unix timestamp (in milliseconds) for when the attempt was started
     -- (when the attempt transitioned from the @STARTING@ state to the
     -- @RUNNING@ state).
-    startedAt :: Core.Maybe Core.Integer,
+    startedAt :: Prelude.Maybe Prelude.Integer,
     -- | The Unix timestamp (in milliseconds) for when the attempt was stopped
     -- (when the attempt transitioned from the @RUNNING@ state to a terminal
     -- state, such as @SUCCEEDED@ or @FAILED@).
-    stoppedAt :: Core.Maybe Core.Integer,
+    stoppedAt :: Prelude.Maybe Prelude.Integer,
     -- | A short, human-readable string to provide additional details about the
     -- current status of the job attempt.
-    statusReason :: Core.Maybe Core.Text
+    statusReason :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttemptDetail' with all optional fields omitted.
@@ -67,31 +68,31 @@ newAttemptDetail ::
   AttemptDetail
 newAttemptDetail =
   AttemptDetail'
-    { container = Core.Nothing,
-      startedAt = Core.Nothing,
-      stoppedAt = Core.Nothing,
-      statusReason = Core.Nothing
+    { container = Prelude.Nothing,
+      startedAt = Prelude.Nothing,
+      stoppedAt = Prelude.Nothing,
+      statusReason = Prelude.Nothing
     }
 
 -- | Details about the container in this job attempt.
-attemptDetail_container :: Lens.Lens' AttemptDetail (Core.Maybe AttemptContainerDetail)
+attemptDetail_container :: Lens.Lens' AttemptDetail (Prelude.Maybe AttemptContainerDetail)
 attemptDetail_container = Lens.lens (\AttemptDetail' {container} -> container) (\s@AttemptDetail' {} a -> s {container = a} :: AttemptDetail)
 
 -- | The Unix timestamp (in milliseconds) for when the attempt was started
 -- (when the attempt transitioned from the @STARTING@ state to the
 -- @RUNNING@ state).
-attemptDetail_startedAt :: Lens.Lens' AttemptDetail (Core.Maybe Core.Integer)
+attemptDetail_startedAt :: Lens.Lens' AttemptDetail (Prelude.Maybe Prelude.Integer)
 attemptDetail_startedAt = Lens.lens (\AttemptDetail' {startedAt} -> startedAt) (\s@AttemptDetail' {} a -> s {startedAt = a} :: AttemptDetail)
 
 -- | The Unix timestamp (in milliseconds) for when the attempt was stopped
 -- (when the attempt transitioned from the @RUNNING@ state to a terminal
 -- state, such as @SUCCEEDED@ or @FAILED@).
-attemptDetail_stoppedAt :: Lens.Lens' AttemptDetail (Core.Maybe Core.Integer)
+attemptDetail_stoppedAt :: Lens.Lens' AttemptDetail (Prelude.Maybe Prelude.Integer)
 attemptDetail_stoppedAt = Lens.lens (\AttemptDetail' {stoppedAt} -> stoppedAt) (\s@AttemptDetail' {} a -> s {stoppedAt = a} :: AttemptDetail)
 
 -- | A short, human-readable string to provide additional details about the
 -- current status of the job attempt.
-attemptDetail_statusReason :: Lens.Lens' AttemptDetail (Core.Maybe Core.Text)
+attemptDetail_statusReason :: Lens.Lens' AttemptDetail (Prelude.Maybe Prelude.Text)
 attemptDetail_statusReason = Lens.lens (\AttemptDetail' {statusReason} -> statusReason) (\s@AttemptDetail' {} a -> s {statusReason = a} :: AttemptDetail)
 
 instance Core.FromJSON AttemptDetail where
@@ -100,12 +101,12 @@ instance Core.FromJSON AttemptDetail where
       "AttemptDetail"
       ( \x ->
           AttemptDetail'
-            Core.<$> (x Core..:? "container")
-            Core.<*> (x Core..:? "startedAt")
-            Core.<*> (x Core..:? "stoppedAt")
-            Core.<*> (x Core..:? "statusReason")
+            Prelude.<$> (x Core..:? "container")
+            Prelude.<*> (x Core..:? "startedAt")
+            Prelude.<*> (x Core..:? "stoppedAt")
+            Prelude.<*> (x Core..:? "statusReason")
       )
 
-instance Core.Hashable AttemptDetail
+instance Prelude.Hashable AttemptDetail
 
-instance Core.NFData AttemptDetail
+instance Prelude.NFData AttemptDetail

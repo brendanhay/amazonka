@@ -22,6 +22,7 @@ module Network.AWS.CloudDirectory.Types.BatchGetLinkAttributes where
 import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Retrieves attributes that are associated with a typed link inside a
 -- BatchRead operation. For more information, see GetLinkAttributes and
@@ -32,9 +33,9 @@ data BatchGetLinkAttributes = BatchGetLinkAttributes'
   { -- | Allows a typed link specifier to be accepted as input.
     typedLinkSpecifier :: TypedLinkSpecifier,
     -- | A list of attribute names whose values will be retrieved.
-    attributeNames :: [Core.Text]
+    attributeNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetLinkAttributes' with all optional fields omitted.
@@ -55,7 +56,7 @@ newBatchGetLinkAttributes pTypedLinkSpecifier_ =
   BatchGetLinkAttributes'
     { typedLinkSpecifier =
         pTypedLinkSpecifier_,
-      attributeNames = Core.mempty
+      attributeNames = Prelude.mempty
     }
 
 -- | Allows a typed link specifier to be accepted as input.
@@ -63,19 +64,20 @@ batchGetLinkAttributes_typedLinkSpecifier :: Lens.Lens' BatchGetLinkAttributes T
 batchGetLinkAttributes_typedLinkSpecifier = Lens.lens (\BatchGetLinkAttributes' {typedLinkSpecifier} -> typedLinkSpecifier) (\s@BatchGetLinkAttributes' {} a -> s {typedLinkSpecifier = a} :: BatchGetLinkAttributes)
 
 -- | A list of attribute names whose values will be retrieved.
-batchGetLinkAttributes_attributeNames :: Lens.Lens' BatchGetLinkAttributes [Core.Text]
-batchGetLinkAttributes_attributeNames = Lens.lens (\BatchGetLinkAttributes' {attributeNames} -> attributeNames) (\s@BatchGetLinkAttributes' {} a -> s {attributeNames = a} :: BatchGetLinkAttributes) Core.. Lens._Coerce
+batchGetLinkAttributes_attributeNames :: Lens.Lens' BatchGetLinkAttributes [Prelude.Text]
+batchGetLinkAttributes_attributeNames = Lens.lens (\BatchGetLinkAttributes' {attributeNames} -> attributeNames) (\s@BatchGetLinkAttributes' {} a -> s {attributeNames = a} :: BatchGetLinkAttributes) Prelude.. Lens._Coerce
 
-instance Core.Hashable BatchGetLinkAttributes
+instance Prelude.Hashable BatchGetLinkAttributes
 
-instance Core.NFData BatchGetLinkAttributes
+instance Prelude.NFData BatchGetLinkAttributes
 
 instance Core.ToJSON BatchGetLinkAttributes where
   toJSON BatchGetLinkAttributes' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("TypedLinkSpecifier" Core..= typedLinkSpecifier),
-            Core.Just ("AttributeNames" Core..= attributeNames)
+            Prelude.Just
+              ("AttributeNames" Core..= attributeNames)
           ]
       )

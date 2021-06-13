@@ -39,6 +39,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -49,11 +50,11 @@ import qualified Network.AWS.Response as Response
 data DeleteTags = DeleteTags'
   { -- | The Amazon Resource Name (ARN) from which you want to remove the tag or
     -- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
-    resourceName :: Core.Text,
+    resourceName :: Prelude.Text,
     -- | The tag key that you want to delete.
-    tagKeys :: [Core.Text]
+    tagKeys :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTags' with all optional fields omitted.
@@ -69,43 +70,45 @@ data DeleteTags = DeleteTags'
 -- 'tagKeys', 'deleteTags_tagKeys' - The tag key that you want to delete.
 newDeleteTags ::
   -- | 'resourceName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTags
 newDeleteTags pResourceName_ =
   DeleteTags'
     { resourceName = pResourceName_,
-      tagKeys = Core.mempty
+      tagKeys = Prelude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) from which you want to remove the tag or
 -- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
-deleteTags_resourceName :: Lens.Lens' DeleteTags Core.Text
+deleteTags_resourceName :: Lens.Lens' DeleteTags Prelude.Text
 deleteTags_resourceName = Lens.lens (\DeleteTags' {resourceName} -> resourceName) (\s@DeleteTags' {} a -> s {resourceName = a} :: DeleteTags)
 
 -- | The tag key that you want to delete.
-deleteTags_tagKeys :: Lens.Lens' DeleteTags [Core.Text]
-deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Core.. Lens._Coerce
+deleteTags_tagKeys :: Lens.Lens' DeleteTags [Prelude.Text]
+deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DeleteTags where
   type AWSResponse DeleteTags = DeleteTagsResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteTagsResponse'
 
-instance Core.Hashable DeleteTags
+instance Prelude.Hashable DeleteTags
 
-instance Core.NFData DeleteTags
+instance Prelude.NFData DeleteTags
 
 instance Core.ToHeaders DeleteTags where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteTags where
   toQuery DeleteTags' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("DeleteTags" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteTags" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ResourceName" Core.=: resourceName,
         "TagKeys" Core.=: Core.toQueryList "TagKey" tagKeys
       ]
@@ -114,7 +117,7 @@ instance Core.ToQuery DeleteTags where
 data DeleteTagsResponse = DeleteTagsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTagsResponse' with all optional fields omitted.
@@ -124,4 +127,4 @@ newDeleteTagsResponse ::
   DeleteTagsResponse
 newDeleteTagsResponse = DeleteTagsResponse'
 
-instance Core.NFData DeleteTagsResponse
+instance Prelude.NFData DeleteTagsResponse

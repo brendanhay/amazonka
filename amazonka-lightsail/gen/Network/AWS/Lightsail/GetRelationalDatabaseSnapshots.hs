@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +58,9 @@ data GetRelationalDatabaseSnapshots = GetRelationalDatabaseSnapshots'
     -- request. If your results are paginated, the response will return a next
     -- page token that you can specify as the page token in a subsequent
     -- request.
-    pageToken :: Core.Maybe Core.Text
+    pageToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabaseSnapshots' with all optional fields omitted.
@@ -80,7 +81,7 @@ newGetRelationalDatabaseSnapshots ::
 newGetRelationalDatabaseSnapshots =
   GetRelationalDatabaseSnapshots'
     { pageToken =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The token to advance to the next page of results from your request.
@@ -89,7 +90,7 @@ newGetRelationalDatabaseSnapshots =
 -- request. If your results are paginated, the response will return a next
 -- page token that you can specify as the page token in a subsequent
 -- request.
-getRelationalDatabaseSnapshots_pageToken :: Lens.Lens' GetRelationalDatabaseSnapshots (Core.Maybe Core.Text)
+getRelationalDatabaseSnapshots_pageToken :: Lens.Lens' GetRelationalDatabaseSnapshots (Prelude.Maybe Prelude.Text)
 getRelationalDatabaseSnapshots_pageToken = Lens.lens (\GetRelationalDatabaseSnapshots' {pageToken} -> pageToken) (\s@GetRelationalDatabaseSnapshots' {} a -> s {pageToken = a} :: GetRelationalDatabaseSnapshots)
 
 instance Core.AWSPager GetRelationalDatabaseSnapshots where
@@ -97,22 +98,22 @@ instance Core.AWSPager GetRelationalDatabaseSnapshots where
     | Core.stop
         ( rs
             Lens.^? getRelationalDatabaseSnapshotsResponse_nextPageToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getRelationalDatabaseSnapshotsResponse_relationalDatabaseSnapshots
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getRelationalDatabaseSnapshots_pageToken
+          Prelude.& getRelationalDatabaseSnapshots_pageToken
           Lens..~ rs
           Lens.^? getRelationalDatabaseSnapshotsResponse_nextPageToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -126,51 +127,57 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseSnapshotsResponse'
-            Core.<$> ( x Core..?> "relationalDatabaseSnapshots"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "nextPageToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "relationalDatabaseSnapshots"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "nextPageToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetRelationalDatabaseSnapshots
+instance
+  Prelude.Hashable
+    GetRelationalDatabaseSnapshots
 
-instance Core.NFData GetRelationalDatabaseSnapshots
+instance
+  Prelude.NFData
+    GetRelationalDatabaseSnapshots
 
 instance
   Core.ToHeaders
     GetRelationalDatabaseSnapshots
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetRelationalDatabaseSnapshots" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetRelationalDatabaseSnapshots where
   toJSON GetRelationalDatabaseSnapshots' {..} =
     Core.object
-      ( Core.catMaybes
-          [("pageToken" Core..=) Core.<$> pageToken]
+      ( Prelude.catMaybes
+          [("pageToken" Core..=) Prelude.<$> pageToken]
       )
 
 instance Core.ToPath GetRelationalDatabaseSnapshots where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetRelationalDatabaseSnapshots where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRelationalDatabaseSnapshotsResponse' smart constructor.
 data GetRelationalDatabaseSnapshotsResponse = GetRelationalDatabaseSnapshotsResponse'
   { -- | An object describing the result of your get relational database
     -- snapshots request.
-    relationalDatabaseSnapshots :: Core.Maybe [RelationalDatabaseSnapshot],
+    relationalDatabaseSnapshots :: Prelude.Maybe [RelationalDatabaseSnapshot],
     -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
@@ -179,11 +186,11 @@ data GetRelationalDatabaseSnapshotsResponse = GetRelationalDatabaseSnapshotsResp
     -- To get the next page of results, perform another
     -- @GetRelationalDatabaseSnapshots@ request and specify the next page token
     -- using the @pageToken@ parameter.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabaseSnapshotsResponse' with all optional fields omitted.
@@ -208,21 +215,21 @@ data GetRelationalDatabaseSnapshotsResponse = GetRelationalDatabaseSnapshotsResp
 -- 'httpStatus', 'getRelationalDatabaseSnapshotsResponse_httpStatus' - The response's http status code.
 newGetRelationalDatabaseSnapshotsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetRelationalDatabaseSnapshotsResponse
 newGetRelationalDatabaseSnapshotsResponse
   pHttpStatus_ =
     GetRelationalDatabaseSnapshotsResponse'
       { relationalDatabaseSnapshots =
-          Core.Nothing,
-        nextPageToken = Core.Nothing,
+          Prelude.Nothing,
+        nextPageToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An object describing the result of your get relational database
 -- snapshots request.
-getRelationalDatabaseSnapshotsResponse_relationalDatabaseSnapshots :: Lens.Lens' GetRelationalDatabaseSnapshotsResponse (Core.Maybe [RelationalDatabaseSnapshot])
-getRelationalDatabaseSnapshotsResponse_relationalDatabaseSnapshots = Lens.lens (\GetRelationalDatabaseSnapshotsResponse' {relationalDatabaseSnapshots} -> relationalDatabaseSnapshots) (\s@GetRelationalDatabaseSnapshotsResponse' {} a -> s {relationalDatabaseSnapshots = a} :: GetRelationalDatabaseSnapshotsResponse) Core.. Lens.mapping Lens._Coerce
+getRelationalDatabaseSnapshotsResponse_relationalDatabaseSnapshots :: Lens.Lens' GetRelationalDatabaseSnapshotsResponse (Prelude.Maybe [RelationalDatabaseSnapshot])
+getRelationalDatabaseSnapshotsResponse_relationalDatabaseSnapshots = Lens.lens (\GetRelationalDatabaseSnapshotsResponse' {relationalDatabaseSnapshots} -> relationalDatabaseSnapshots) (\s@GetRelationalDatabaseSnapshotsResponse' {} a -> s {relationalDatabaseSnapshots = a} :: GetRelationalDatabaseSnapshotsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -232,13 +239,13 @@ getRelationalDatabaseSnapshotsResponse_relationalDatabaseSnapshots = Lens.lens (
 -- To get the next page of results, perform another
 -- @GetRelationalDatabaseSnapshots@ request and specify the next page token
 -- using the @pageToken@ parameter.
-getRelationalDatabaseSnapshotsResponse_nextPageToken :: Lens.Lens' GetRelationalDatabaseSnapshotsResponse (Core.Maybe Core.Text)
+getRelationalDatabaseSnapshotsResponse_nextPageToken :: Lens.Lens' GetRelationalDatabaseSnapshotsResponse (Prelude.Maybe Prelude.Text)
 getRelationalDatabaseSnapshotsResponse_nextPageToken = Lens.lens (\GetRelationalDatabaseSnapshotsResponse' {nextPageToken} -> nextPageToken) (\s@GetRelationalDatabaseSnapshotsResponse' {} a -> s {nextPageToken = a} :: GetRelationalDatabaseSnapshotsResponse)
 
 -- | The response's http status code.
-getRelationalDatabaseSnapshotsResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseSnapshotsResponse Core.Int
+getRelationalDatabaseSnapshotsResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseSnapshotsResponse Prelude.Int
 getRelationalDatabaseSnapshotsResponse_httpStatus = Lens.lens (\GetRelationalDatabaseSnapshotsResponse' {httpStatus} -> httpStatus) (\s@GetRelationalDatabaseSnapshotsResponse' {} a -> s {httpStatus = a} :: GetRelationalDatabaseSnapshotsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetRelationalDatabaseSnapshotsResponse

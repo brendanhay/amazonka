@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.FileGroupSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.DestinationSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Required when you set (Type) under (OutputGroups)>(OutputGroupSettings)
 -- to FILE_GROUP_SETTINGS.
@@ -33,12 +34,12 @@ data FileGroupSettings = FileGroupSettings'
     -- not specify the base filename in the URI, the service will use the
     -- filename of the input file. If your job has multiple inputs, the service
     -- uses the filename of the first input file.
-    destination :: Core.Maybe Core.Text,
+    destination :: Prelude.Maybe Prelude.Text,
     -- | Settings associated with the destination. Will vary based on the type of
     -- destination
-    destinationSettings :: Core.Maybe DestinationSettings
+    destinationSettings :: Prelude.Maybe DestinationSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FileGroupSettings' with all optional fields omitted.
@@ -60,8 +61,8 @@ newFileGroupSettings ::
   FileGroupSettings
 newFileGroupSettings =
   FileGroupSettings'
-    { destination = Core.Nothing,
-      destinationSettings = Core.Nothing
+    { destination = Prelude.Nothing,
+      destinationSettings = Prelude.Nothing
     }
 
 -- | Use Destination (Destination) to specify the S3 output location and the
@@ -69,12 +70,12 @@ newFileGroupSettings =
 -- not specify the base filename in the URI, the service will use the
 -- filename of the input file. If your job has multiple inputs, the service
 -- uses the filename of the first input file.
-fileGroupSettings_destination :: Lens.Lens' FileGroupSettings (Core.Maybe Core.Text)
+fileGroupSettings_destination :: Lens.Lens' FileGroupSettings (Prelude.Maybe Prelude.Text)
 fileGroupSettings_destination = Lens.lens (\FileGroupSettings' {destination} -> destination) (\s@FileGroupSettings' {} a -> s {destination = a} :: FileGroupSettings)
 
 -- | Settings associated with the destination. Will vary based on the type of
 -- destination
-fileGroupSettings_destinationSettings :: Lens.Lens' FileGroupSettings (Core.Maybe DestinationSettings)
+fileGroupSettings_destinationSettings :: Lens.Lens' FileGroupSettings (Prelude.Maybe DestinationSettings)
 fileGroupSettings_destinationSettings = Lens.lens (\FileGroupSettings' {destinationSettings} -> destinationSettings) (\s@FileGroupSettings' {} a -> s {destinationSettings = a} :: FileGroupSettings)
 
 instance Core.FromJSON FileGroupSettings where
@@ -83,20 +84,20 @@ instance Core.FromJSON FileGroupSettings where
       "FileGroupSettings"
       ( \x ->
           FileGroupSettings'
-            Core.<$> (x Core..:? "destination")
-            Core.<*> (x Core..:? "destinationSettings")
+            Prelude.<$> (x Core..:? "destination")
+            Prelude.<*> (x Core..:? "destinationSettings")
       )
 
-instance Core.Hashable FileGroupSettings
+instance Prelude.Hashable FileGroupSettings
 
-instance Core.NFData FileGroupSettings
+instance Prelude.NFData FileGroupSettings
 
 instance Core.ToJSON FileGroupSettings where
   toJSON FileGroupSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("destination" Core..=) Core.<$> destination,
+      ( Prelude.catMaybes
+          [ ("destination" Core..=) Prelude.<$> destination,
             ("destinationSettings" Core..=)
-              Core.<$> destinationSettings
+              Prelude.<$> destinationSettings
           ]
       )

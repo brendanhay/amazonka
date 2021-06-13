@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.FailoverCondition where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.FailoverConditionSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Failover Condition settings. There can be multiple failover conditions
 -- inside AutomaticInputFailoverSettings.
@@ -29,9 +30,9 @@ import Network.AWS.MediaLive.Types.FailoverConditionSettings
 -- /See:/ 'newFailoverCondition' smart constructor.
 data FailoverCondition = FailoverCondition'
   { -- | Failover condition type-specific settings.
-    failoverConditionSettings :: Core.Maybe FailoverConditionSettings
+    failoverConditionSettings :: Prelude.Maybe FailoverConditionSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FailoverCondition' with all optional fields omitted.
@@ -47,11 +48,11 @@ newFailoverCondition ::
 newFailoverCondition =
   FailoverCondition'
     { failoverConditionSettings =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Failover condition type-specific settings.
-failoverCondition_failoverConditionSettings :: Lens.Lens' FailoverCondition (Core.Maybe FailoverConditionSettings)
+failoverCondition_failoverConditionSettings :: Lens.Lens' FailoverCondition (Prelude.Maybe FailoverConditionSettings)
 failoverCondition_failoverConditionSettings = Lens.lens (\FailoverCondition' {failoverConditionSettings} -> failoverConditionSettings) (\s@FailoverCondition' {} a -> s {failoverConditionSettings = a} :: FailoverCondition)
 
 instance Core.FromJSON FailoverCondition where
@@ -60,18 +61,18 @@ instance Core.FromJSON FailoverCondition where
       "FailoverCondition"
       ( \x ->
           FailoverCondition'
-            Core.<$> (x Core..:? "failoverConditionSettings")
+            Prelude.<$> (x Core..:? "failoverConditionSettings")
       )
 
-instance Core.Hashable FailoverCondition
+instance Prelude.Hashable FailoverCondition
 
-instance Core.NFData FailoverCondition
+instance Prelude.NFData FailoverCondition
 
 instance Core.ToJSON FailoverCondition where
   toJSON FailoverCondition' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("failoverConditionSettings" Core..=)
-              Core.<$> failoverConditionSettings
+              Prelude.<$> failoverConditionSettings
           ]
       )

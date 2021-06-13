@@ -21,15 +21,16 @@ module Network.AWS.IoT.Types.BillingGroupMetadata where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Additional information about the billing group.
 --
 -- /See:/ 'newBillingGroupMetadata' smart constructor.
 data BillingGroupMetadata = BillingGroupMetadata'
   { -- | The date the billing group was created.
-    creationDate :: Core.Maybe Core.POSIX
+    creationDate :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BillingGroupMetadata' with all optional fields omitted.
@@ -43,11 +44,14 @@ data BillingGroupMetadata = BillingGroupMetadata'
 newBillingGroupMetadata ::
   BillingGroupMetadata
 newBillingGroupMetadata =
-  BillingGroupMetadata' {creationDate = Core.Nothing}
+  BillingGroupMetadata'
+    { creationDate =
+        Prelude.Nothing
+    }
 
 -- | The date the billing group was created.
-billingGroupMetadata_creationDate :: Lens.Lens' BillingGroupMetadata (Core.Maybe Core.UTCTime)
-billingGroupMetadata_creationDate = Lens.lens (\BillingGroupMetadata' {creationDate} -> creationDate) (\s@BillingGroupMetadata' {} a -> s {creationDate = a} :: BillingGroupMetadata) Core.. Lens.mapping Core._Time
+billingGroupMetadata_creationDate :: Lens.Lens' BillingGroupMetadata (Prelude.Maybe Prelude.UTCTime)
+billingGroupMetadata_creationDate = Lens.lens (\BillingGroupMetadata' {creationDate} -> creationDate) (\s@BillingGroupMetadata' {} a -> s {creationDate = a} :: BillingGroupMetadata) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON BillingGroupMetadata where
   parseJSON =
@@ -55,9 +59,9 @@ instance Core.FromJSON BillingGroupMetadata where
       "BillingGroupMetadata"
       ( \x ->
           BillingGroupMetadata'
-            Core.<$> (x Core..:? "creationDate")
+            Prelude.<$> (x Core..:? "creationDate")
       )
 
-instance Core.Hashable BillingGroupMetadata
+instance Prelude.Hashable BillingGroupMetadata
 
-instance Core.NFData BillingGroupMetadata
+instance Prelude.NFData BillingGroupMetadata

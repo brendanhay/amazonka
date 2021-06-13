@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,9 +62,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeMountTargetSecurityGroups' smart constructor.
 data DescribeMountTargetSecurityGroups = DescribeMountTargetSecurityGroups'
   { -- | The ID of the mount target whose security groups you want to retrieve.
-    mountTargetId :: Core.Text
+    mountTargetId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeMountTargetSecurityGroups' with all optional fields omitted.
@@ -76,7 +77,7 @@ data DescribeMountTargetSecurityGroups = DescribeMountTargetSecurityGroups'
 -- 'mountTargetId', 'describeMountTargetSecurityGroups_mountTargetId' - The ID of the mount target whose security groups you want to retrieve.
 newDescribeMountTargetSecurityGroups ::
   -- | 'mountTargetId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeMountTargetSecurityGroups
 newDescribeMountTargetSecurityGroups pMountTargetId_ =
   DescribeMountTargetSecurityGroups'
@@ -85,7 +86,7 @@ newDescribeMountTargetSecurityGroups pMountTargetId_ =
     }
 
 -- | The ID of the mount target whose security groups you want to retrieve.
-describeMountTargetSecurityGroups_mountTargetId :: Lens.Lens' DescribeMountTargetSecurityGroups Core.Text
+describeMountTargetSecurityGroups_mountTargetId :: Lens.Lens' DescribeMountTargetSecurityGroups Prelude.Text
 describeMountTargetSecurityGroups_mountTargetId = Lens.lens (\DescribeMountTargetSecurityGroups' {mountTargetId} -> mountTargetId) (\s@DescribeMountTargetSecurityGroups' {} a -> s {mountTargetId = a} :: DescribeMountTargetSecurityGroups)
 
 instance
@@ -100,30 +101,32 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeMountTargetSecurityGroupsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "SecurityGroups" Core..!@ Core.mempty)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> ( x Core..?> "SecurityGroups"
+                              Core..!@ Prelude.mempty
+                          )
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeMountTargetSecurityGroups
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeMountTargetSecurityGroups
 
 instance
   Core.ToHeaders
     DescribeMountTargetSecurityGroups
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     DescribeMountTargetSecurityGroups
   where
   toPath DescribeMountTargetSecurityGroups' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-02-01/mount-targets/",
         Core.toBS mountTargetId,
         "/security-groups"
@@ -133,16 +136,16 @@ instance
   Core.ToQuery
     DescribeMountTargetSecurityGroups
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeMountTargetSecurityGroupsResponse' smart constructor.
 data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | An array of security groups.
-    securityGroups :: [Core.Text]
+    securityGroups :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeMountTargetSecurityGroupsResponse' with all optional fields omitted.
@@ -157,24 +160,24 @@ data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGrou
 -- 'securityGroups', 'describeMountTargetSecurityGroupsResponse_securityGroups' - An array of security groups.
 newDescribeMountTargetSecurityGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeMountTargetSecurityGroupsResponse
 newDescribeMountTargetSecurityGroupsResponse
   pHttpStatus_ =
     DescribeMountTargetSecurityGroupsResponse'
       { httpStatus =
           pHttpStatus_,
-        securityGroups = Core.mempty
+        securityGroups = Prelude.mempty
       }
 
 -- | The response's http status code.
-describeMountTargetSecurityGroupsResponse_httpStatus :: Lens.Lens' DescribeMountTargetSecurityGroupsResponse Core.Int
+describeMountTargetSecurityGroupsResponse_httpStatus :: Lens.Lens' DescribeMountTargetSecurityGroupsResponse Prelude.Int
 describeMountTargetSecurityGroupsResponse_httpStatus = Lens.lens (\DescribeMountTargetSecurityGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeMountTargetSecurityGroupsResponse' {} a -> s {httpStatus = a} :: DescribeMountTargetSecurityGroupsResponse)
 
 -- | An array of security groups.
-describeMountTargetSecurityGroupsResponse_securityGroups :: Lens.Lens' DescribeMountTargetSecurityGroupsResponse [Core.Text]
-describeMountTargetSecurityGroupsResponse_securityGroups = Lens.lens (\DescribeMountTargetSecurityGroupsResponse' {securityGroups} -> securityGroups) (\s@DescribeMountTargetSecurityGroupsResponse' {} a -> s {securityGroups = a} :: DescribeMountTargetSecurityGroupsResponse) Core.. Lens._Coerce
+describeMountTargetSecurityGroupsResponse_securityGroups :: Lens.Lens' DescribeMountTargetSecurityGroupsResponse [Prelude.Text]
+describeMountTargetSecurityGroupsResponse_securityGroups = Lens.lens (\DescribeMountTargetSecurityGroupsResponse' {securityGroups} -> securityGroups) (\s@DescribeMountTargetSecurityGroupsResponse' {} a -> s {securityGroups = a} :: DescribeMountTargetSecurityGroupsResponse) Prelude.. Lens._Coerce
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeMountTargetSecurityGroupsResponse

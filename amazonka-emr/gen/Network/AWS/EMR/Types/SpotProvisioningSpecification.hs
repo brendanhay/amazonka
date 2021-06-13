@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.SpotProvisioningAllocationStrategy
 import Network.AWS.EMR.Types.SpotProvisioningTimeoutAction
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The launch specification for Spot Instances in the instance fleet, which
 -- determines the defined duration, provisioning timeout behavior, and
@@ -42,17 +43,17 @@ data SpotProvisioningSpecification = SpotProvisioningSpecification'
     -- ID. At the end of the duration, Amazon EC2 marks the Spot Instance for
     -- termination and provides a Spot Instance termination notice, which gives
     -- the instance a two-minute warning before it terminates.
-    blockDurationMinutes :: Core.Maybe Core.Natural,
+    blockDurationMinutes :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the strategy to use in launching Spot Instance fleets.
     -- Currently, the only option is capacity-optimized (the default), which
     -- launches instances from Spot Instance pools with optimal capacity for
     -- the number of instances that are launching.
-    allocationStrategy :: Core.Maybe SpotProvisioningAllocationStrategy,
+    allocationStrategy :: Prelude.Maybe SpotProvisioningAllocationStrategy,
     -- | The spot provisioning timeout period in minutes. If Spot Instances are
     -- not provisioned within this time period, the @TimeOutAction@ is taken.
     -- Minimum value is 5 and maximum value is 1440. The timeout applies only
     -- during initial provisioning, when the cluster is first created.
-    timeoutDurationMinutes :: Core.Natural,
+    timeoutDurationMinutes :: Prelude.Natural,
     -- | The action to take when @TargetSpotCapacity@ has not been fulfilled when
     -- the @TimeoutDurationMinutes@ has expired; that is, when all Spot
     -- Instances could not be provisioned within the Spot provisioning timeout.
@@ -62,7 +63,7 @@ data SpotProvisioningSpecification = SpotProvisioningSpecification'
     -- capacity.
     timeoutAction :: SpotProvisioningTimeoutAction
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SpotProvisioningSpecification' with all optional fields omitted.
@@ -100,7 +101,7 @@ data SpotProvisioningSpecification = SpotProvisioningSpecification'
 -- capacity.
 newSpotProvisioningSpecification ::
   -- | 'timeoutDurationMinutes'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'timeoutAction'
   SpotProvisioningTimeoutAction ->
   SpotProvisioningSpecification
@@ -109,8 +110,8 @@ newSpotProvisioningSpecification
   pTimeoutAction_ =
     SpotProvisioningSpecification'
       { blockDurationMinutes =
-          Core.Nothing,
-        allocationStrategy = Core.Nothing,
+          Prelude.Nothing,
+        allocationStrategy = Prelude.Nothing,
         timeoutDurationMinutes =
           pTimeoutDurationMinutes_,
         timeoutAction = pTimeoutAction_
@@ -124,21 +125,21 @@ newSpotProvisioningSpecification
 -- ID. At the end of the duration, Amazon EC2 marks the Spot Instance for
 -- termination and provides a Spot Instance termination notice, which gives
 -- the instance a two-minute warning before it terminates.
-spotProvisioningSpecification_blockDurationMinutes :: Lens.Lens' SpotProvisioningSpecification (Core.Maybe Core.Natural)
+spotProvisioningSpecification_blockDurationMinutes :: Lens.Lens' SpotProvisioningSpecification (Prelude.Maybe Prelude.Natural)
 spotProvisioningSpecification_blockDurationMinutes = Lens.lens (\SpotProvisioningSpecification' {blockDurationMinutes} -> blockDurationMinutes) (\s@SpotProvisioningSpecification' {} a -> s {blockDurationMinutes = a} :: SpotProvisioningSpecification)
 
 -- | Specifies the strategy to use in launching Spot Instance fleets.
 -- Currently, the only option is capacity-optimized (the default), which
 -- launches instances from Spot Instance pools with optimal capacity for
 -- the number of instances that are launching.
-spotProvisioningSpecification_allocationStrategy :: Lens.Lens' SpotProvisioningSpecification (Core.Maybe SpotProvisioningAllocationStrategy)
+spotProvisioningSpecification_allocationStrategy :: Lens.Lens' SpotProvisioningSpecification (Prelude.Maybe SpotProvisioningAllocationStrategy)
 spotProvisioningSpecification_allocationStrategy = Lens.lens (\SpotProvisioningSpecification' {allocationStrategy} -> allocationStrategy) (\s@SpotProvisioningSpecification' {} a -> s {allocationStrategy = a} :: SpotProvisioningSpecification)
 
 -- | The spot provisioning timeout period in minutes. If Spot Instances are
 -- not provisioned within this time period, the @TimeOutAction@ is taken.
 -- Minimum value is 5 and maximum value is 1440. The timeout applies only
 -- during initial provisioning, when the cluster is first created.
-spotProvisioningSpecification_timeoutDurationMinutes :: Lens.Lens' SpotProvisioningSpecification Core.Natural
+spotProvisioningSpecification_timeoutDurationMinutes :: Lens.Lens' SpotProvisioningSpecification Prelude.Natural
 spotProvisioningSpecification_timeoutDurationMinutes = Lens.lens (\SpotProvisioningSpecification' {timeoutDurationMinutes} -> timeoutDurationMinutes) (\s@SpotProvisioningSpecification' {} a -> s {timeoutDurationMinutes = a} :: SpotProvisioningSpecification)
 
 -- | The action to take when @TargetSpotCapacity@ has not been fulfilled when
@@ -157,28 +158,31 @@ instance Core.FromJSON SpotProvisioningSpecification where
       "SpotProvisioningSpecification"
       ( \x ->
           SpotProvisioningSpecification'
-            Core.<$> (x Core..:? "BlockDurationMinutes")
-            Core.<*> (x Core..:? "AllocationStrategy")
-            Core.<*> (x Core..: "TimeoutDurationMinutes")
-            Core.<*> (x Core..: "TimeoutAction")
+            Prelude.<$> (x Core..:? "BlockDurationMinutes")
+            Prelude.<*> (x Core..:? "AllocationStrategy")
+            Prelude.<*> (x Core..: "TimeoutDurationMinutes")
+            Prelude.<*> (x Core..: "TimeoutAction")
       )
 
-instance Core.Hashable SpotProvisioningSpecification
+instance
+  Prelude.Hashable
+    SpotProvisioningSpecification
 
-instance Core.NFData SpotProvisioningSpecification
+instance Prelude.NFData SpotProvisioningSpecification
 
 instance Core.ToJSON SpotProvisioningSpecification where
   toJSON SpotProvisioningSpecification' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("BlockDurationMinutes" Core..=)
-              Core.<$> blockDurationMinutes,
+              Prelude.<$> blockDurationMinutes,
             ("AllocationStrategy" Core..=)
-              Core.<$> allocationStrategy,
-            Core.Just
+              Prelude.<$> allocationStrategy,
+            Prelude.Just
               ( "TimeoutDurationMinutes"
                   Core..= timeoutDurationMinutes
               ),
-            Core.Just ("TimeoutAction" Core..= timeoutAction)
+            Prelude.Just
+              ("TimeoutAction" Core..= timeoutAction)
           ]
       )

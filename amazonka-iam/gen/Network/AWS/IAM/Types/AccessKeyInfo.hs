@@ -22,6 +22,7 @@ module Network.AWS.IAM.Types.AccessKeyInfo where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.StatusType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an AWS access key.
 --
@@ -36,18 +37,18 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAccessKeyInfo' smart constructor.
 data AccessKeyInfo = AccessKeyInfo'
   { -- | The date when the access key was created.
-    createDate :: Core.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Core.ISO8601,
     -- | The name of the IAM user that the access key is associated with.
-    userName :: Core.Text,
+    userName :: Prelude.Text,
     -- | The ID for this access key.
     accessKeyId :: Core.AccessKey,
     -- | The status of the access key. @Active@ means that the key is valid for
     -- API calls, while @Inactive@ means it is not.
     status :: StatusType,
     -- | The secret key used to sign requests.
-    secretAccessKey :: Core.Sensitive Core.Text
+    secretAccessKey :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccessKeyInfo' with all optional fields omitted.
@@ -69,13 +70,13 @@ data AccessKeyInfo = AccessKeyInfo'
 -- 'secretAccessKey', 'accessKeyInfo_secretAccessKey' - The secret key used to sign requests.
 newAccessKeyInfo ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'accessKeyId'
   Core.AccessKey ->
   -- | 'status'
   StatusType ->
   -- | 'secretAccessKey'
-  Core.Text ->
+  Prelude.Text ->
   AccessKeyInfo
 newAccessKeyInfo
   pUserName_
@@ -83,7 +84,7 @@ newAccessKeyInfo
   pStatus_
   pSecretAccessKey_ =
     AccessKeyInfo'
-      { createDate = Core.Nothing,
+      { createDate = Prelude.Nothing,
         userName = pUserName_,
         accessKeyId = pAccessKeyId_,
         status = pStatus_,
@@ -92,11 +93,11 @@ newAccessKeyInfo
       }
 
 -- | The date when the access key was created.
-accessKeyInfo_createDate :: Lens.Lens' AccessKeyInfo (Core.Maybe Core.UTCTime)
-accessKeyInfo_createDate = Lens.lens (\AccessKeyInfo' {createDate} -> createDate) (\s@AccessKeyInfo' {} a -> s {createDate = a} :: AccessKeyInfo) Core.. Lens.mapping Core._Time
+accessKeyInfo_createDate :: Lens.Lens' AccessKeyInfo (Prelude.Maybe Prelude.UTCTime)
+accessKeyInfo_createDate = Lens.lens (\AccessKeyInfo' {createDate} -> createDate) (\s@AccessKeyInfo' {} a -> s {createDate = a} :: AccessKeyInfo) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the IAM user that the access key is associated with.
-accessKeyInfo_userName :: Lens.Lens' AccessKeyInfo Core.Text
+accessKeyInfo_userName :: Lens.Lens' AccessKeyInfo Prelude.Text
 accessKeyInfo_userName = Lens.lens (\AccessKeyInfo' {userName} -> userName) (\s@AccessKeyInfo' {} a -> s {userName = a} :: AccessKeyInfo)
 
 -- | The ID for this access key.
@@ -109,18 +110,18 @@ accessKeyInfo_status :: Lens.Lens' AccessKeyInfo StatusType
 accessKeyInfo_status = Lens.lens (\AccessKeyInfo' {status} -> status) (\s@AccessKeyInfo' {} a -> s {status = a} :: AccessKeyInfo)
 
 -- | The secret key used to sign requests.
-accessKeyInfo_secretAccessKey :: Lens.Lens' AccessKeyInfo Core.Text
-accessKeyInfo_secretAccessKey = Lens.lens (\AccessKeyInfo' {secretAccessKey} -> secretAccessKey) (\s@AccessKeyInfo' {} a -> s {secretAccessKey = a} :: AccessKeyInfo) Core.. Core._Sensitive
+accessKeyInfo_secretAccessKey :: Lens.Lens' AccessKeyInfo Prelude.Text
+accessKeyInfo_secretAccessKey = Lens.lens (\AccessKeyInfo' {secretAccessKey} -> secretAccessKey) (\s@AccessKeyInfo' {} a -> s {secretAccessKey = a} :: AccessKeyInfo) Prelude.. Core._Sensitive
 
 instance Core.FromXML AccessKeyInfo where
   parseXML x =
     AccessKeyInfo'
-      Core.<$> (x Core..@? "CreateDate")
-      Core.<*> (x Core..@ "UserName")
-      Core.<*> (x Core..@ "AccessKeyId")
-      Core.<*> (x Core..@ "Status")
-      Core.<*> (x Core..@ "SecretAccessKey")
+      Prelude.<$> (x Core..@? "CreateDate")
+      Prelude.<*> (x Core..@ "UserName")
+      Prelude.<*> (x Core..@ "AccessKeyId")
+      Prelude.<*> (x Core..@ "Status")
+      Prelude.<*> (x Core..@ "SecretAccessKey")
 
-instance Core.Hashable AccessKeyInfo
+instance Prelude.Hashable AccessKeyInfo
 
-instance Core.NFData AccessKeyInfo
+instance Prelude.NFData AccessKeyInfo

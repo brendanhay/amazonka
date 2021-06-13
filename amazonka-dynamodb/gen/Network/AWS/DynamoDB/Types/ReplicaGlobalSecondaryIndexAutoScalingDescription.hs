@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription
 import Network.AWS.DynamoDB.Types.IndexStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the auto scaling configuration for a replica global secondary
 -- index.
@@ -30,9 +31,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newReplicaGlobalSecondaryIndexAutoScalingDescription' smart constructor.
 data ReplicaGlobalSecondaryIndexAutoScalingDescription = ReplicaGlobalSecondaryIndexAutoScalingDescription'
   { -- | The name of the global secondary index.
-    indexName :: Core.Maybe Core.Text,
-    provisionedReadCapacityAutoScalingSettings :: Core.Maybe AutoScalingSettingsDescription,
-    provisionedWriteCapacityAutoScalingSettings :: Core.Maybe AutoScalingSettingsDescription,
+    indexName :: Prelude.Maybe Prelude.Text,
+    provisionedReadCapacityAutoScalingSettings :: Prelude.Maybe AutoScalingSettingsDescription,
+    provisionedWriteCapacityAutoScalingSettings :: Prelude.Maybe AutoScalingSettingsDescription,
     -- | The current state of the replica global secondary index:
     --
     -- -   @CREATING@ - The index is being created.
@@ -42,9 +43,9 @@ data ReplicaGlobalSecondaryIndexAutoScalingDescription = ReplicaGlobalSecondaryI
     -- -   @DELETING@ - The index is being deleted.
     --
     -- -   @ACTIVE@ - The index is ready for use.
-    indexStatus :: Core.Maybe IndexStatus
+    indexStatus :: Prelude.Maybe IndexStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicaGlobalSecondaryIndexAutoScalingDescription' with all optional fields omitted.
@@ -74,25 +75,25 @@ newReplicaGlobalSecondaryIndexAutoScalingDescription ::
 newReplicaGlobalSecondaryIndexAutoScalingDescription =
   ReplicaGlobalSecondaryIndexAutoScalingDescription'
     { indexName =
-        Core.Nothing,
+        Prelude.Nothing,
       provisionedReadCapacityAutoScalingSettings =
-        Core.Nothing,
+        Prelude.Nothing,
       provisionedWriteCapacityAutoScalingSettings =
-        Core.Nothing,
+        Prelude.Nothing,
       indexStatus =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The name of the global secondary index.
-replicaGlobalSecondaryIndexAutoScalingDescription_indexName :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingDescription (Core.Maybe Core.Text)
+replicaGlobalSecondaryIndexAutoScalingDescription_indexName :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingDescription (Prelude.Maybe Prelude.Text)
 replicaGlobalSecondaryIndexAutoScalingDescription_indexName = Lens.lens (\ReplicaGlobalSecondaryIndexAutoScalingDescription' {indexName} -> indexName) (\s@ReplicaGlobalSecondaryIndexAutoScalingDescription' {} a -> s {indexName = a} :: ReplicaGlobalSecondaryIndexAutoScalingDescription)
 
 -- | Undocumented member.
-replicaGlobalSecondaryIndexAutoScalingDescription_provisionedReadCapacityAutoScalingSettings :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingDescription (Core.Maybe AutoScalingSettingsDescription)
+replicaGlobalSecondaryIndexAutoScalingDescription_provisionedReadCapacityAutoScalingSettings :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingDescription (Prelude.Maybe AutoScalingSettingsDescription)
 replicaGlobalSecondaryIndexAutoScalingDescription_provisionedReadCapacityAutoScalingSettings = Lens.lens (\ReplicaGlobalSecondaryIndexAutoScalingDescription' {provisionedReadCapacityAutoScalingSettings} -> provisionedReadCapacityAutoScalingSettings) (\s@ReplicaGlobalSecondaryIndexAutoScalingDescription' {} a -> s {provisionedReadCapacityAutoScalingSettings = a} :: ReplicaGlobalSecondaryIndexAutoScalingDescription)
 
 -- | Undocumented member.
-replicaGlobalSecondaryIndexAutoScalingDescription_provisionedWriteCapacityAutoScalingSettings :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingDescription (Core.Maybe AutoScalingSettingsDescription)
+replicaGlobalSecondaryIndexAutoScalingDescription_provisionedWriteCapacityAutoScalingSettings :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingDescription (Prelude.Maybe AutoScalingSettingsDescription)
 replicaGlobalSecondaryIndexAutoScalingDescription_provisionedWriteCapacityAutoScalingSettings = Lens.lens (\ReplicaGlobalSecondaryIndexAutoScalingDescription' {provisionedWriteCapacityAutoScalingSettings} -> provisionedWriteCapacityAutoScalingSettings) (\s@ReplicaGlobalSecondaryIndexAutoScalingDescription' {} a -> s {provisionedWriteCapacityAutoScalingSettings = a} :: ReplicaGlobalSecondaryIndexAutoScalingDescription)
 
 -- | The current state of the replica global secondary index:
@@ -104,7 +105,7 @@ replicaGlobalSecondaryIndexAutoScalingDescription_provisionedWriteCapacityAutoSc
 -- -   @DELETING@ - The index is being deleted.
 --
 -- -   @ACTIVE@ - The index is ready for use.
-replicaGlobalSecondaryIndexAutoScalingDescription_indexStatus :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingDescription (Core.Maybe IndexStatus)
+replicaGlobalSecondaryIndexAutoScalingDescription_indexStatus :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingDescription (Prelude.Maybe IndexStatus)
 replicaGlobalSecondaryIndexAutoScalingDescription_indexStatus = Lens.lens (\ReplicaGlobalSecondaryIndexAutoScalingDescription' {indexStatus} -> indexStatus) (\s@ReplicaGlobalSecondaryIndexAutoScalingDescription' {} a -> s {indexStatus = a} :: ReplicaGlobalSecondaryIndexAutoScalingDescription)
 
 instance
@@ -116,20 +117,20 @@ instance
       "ReplicaGlobalSecondaryIndexAutoScalingDescription"
       ( \x ->
           ReplicaGlobalSecondaryIndexAutoScalingDescription'
-            Core.<$> (x Core..:? "IndexName")
-              Core.<*> ( x
-                           Core..:? "ProvisionedReadCapacityAutoScalingSettings"
-                       )
-              Core.<*> ( x
-                           Core..:? "ProvisionedWriteCapacityAutoScalingSettings"
-                       )
-              Core.<*> (x Core..:? "IndexStatus")
+            Prelude.<$> (x Core..:? "IndexName")
+              Prelude.<*> ( x
+                              Core..:? "ProvisionedReadCapacityAutoScalingSettings"
+                          )
+              Prelude.<*> ( x
+                              Core..:? "ProvisionedWriteCapacityAutoScalingSettings"
+                          )
+              Prelude.<*> (x Core..:? "IndexStatus")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ReplicaGlobalSecondaryIndexAutoScalingDescription
 
 instance
-  Core.NFData
+  Prelude.NFData
     ReplicaGlobalSecondaryIndexAutoScalingDescription

@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,15 +60,15 @@ data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    policyArn :: Core.Text,
+    policyArn :: Prelude.Text,
     -- | The version of the policy to set as the default (operative) version.
     --
     -- For more information about managed policy versions, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for managed policies>
     -- in the /IAM User Guide/.
-    versionId :: Core.Text
+    versionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetDefaultPolicyVersion' with all optional fields omitted.
@@ -91,9 +92,9 @@ data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
 -- in the /IAM User Guide/.
 newSetDefaultPolicyVersion ::
   -- | 'policyArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'versionId'
-  Core.Text ->
+  Prelude.Text ->
   SetDefaultPolicyVersion
 newSetDefaultPolicyVersion pPolicyArn_ pVersionId_ =
   SetDefaultPolicyVersion'
@@ -107,7 +108,7 @@ newSetDefaultPolicyVersion pPolicyArn_ pVersionId_ =
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-setDefaultPolicyVersion_policyArn :: Lens.Lens' SetDefaultPolicyVersion Core.Text
+setDefaultPolicyVersion_policyArn :: Lens.Lens' SetDefaultPolicyVersion Prelude.Text
 setDefaultPolicyVersion_policyArn = Lens.lens (\SetDefaultPolicyVersion' {policyArn} -> policyArn) (\s@SetDefaultPolicyVersion' {} a -> s {policyArn = a} :: SetDefaultPolicyVersion)
 
 -- | The version of the policy to set as the default (operative) version.
@@ -115,7 +116,7 @@ setDefaultPolicyVersion_policyArn = Lens.lens (\SetDefaultPolicyVersion' {policy
 -- For more information about managed policy versions, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for managed policies>
 -- in the /IAM User Guide/.
-setDefaultPolicyVersion_versionId :: Lens.Lens' SetDefaultPolicyVersion Core.Text
+setDefaultPolicyVersion_versionId :: Lens.Lens' SetDefaultPolicyVersion Prelude.Text
 setDefaultPolicyVersion_versionId = Lens.lens (\SetDefaultPolicyVersion' {versionId} -> versionId) (\s@SetDefaultPolicyVersion' {} a -> s {versionId = a} :: SetDefaultPolicyVersion)
 
 instance Core.AWSRequest SetDefaultPolicyVersion where
@@ -127,22 +128,23 @@ instance Core.AWSRequest SetDefaultPolicyVersion where
     Response.receiveNull
       SetDefaultPolicyVersionResponse'
 
-instance Core.Hashable SetDefaultPolicyVersion
+instance Prelude.Hashable SetDefaultPolicyVersion
 
-instance Core.NFData SetDefaultPolicyVersion
+instance Prelude.NFData SetDefaultPolicyVersion
 
 instance Core.ToHeaders SetDefaultPolicyVersion where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SetDefaultPolicyVersion where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetDefaultPolicyVersion where
   toQuery SetDefaultPolicyVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("SetDefaultPolicyVersion" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("SetDefaultPolicyVersion" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "PolicyArn" Core.=: policyArn,
         "VersionId" Core.=: versionId
       ]
@@ -151,7 +153,7 @@ instance Core.ToQuery SetDefaultPolicyVersion where
 data SetDefaultPolicyVersionResponse = SetDefaultPolicyVersionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetDefaultPolicyVersionResponse' with all optional fields omitted.
@@ -162,4 +164,6 @@ newSetDefaultPolicyVersionResponse ::
 newSetDefaultPolicyVersionResponse =
   SetDefaultPolicyVersionResponse'
 
-instance Core.NFData SetDefaultPolicyVersionResponse
+instance
+  Prelude.NFData
+    SetDefaultPolicyVersionResponse

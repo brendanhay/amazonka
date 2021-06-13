@@ -44,6 +44,7 @@ where
 import Network.AWS.CodeBuild.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,12 +55,12 @@ data PutResourcePolicy = PutResourcePolicy'
     -- and
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share Sharing a Report Group>
     -- in the /AWS CodeBuild User Guide/.
-    policy :: Core.Text,
+    policy :: Prelude.Text,
     -- | The ARN of the @Project@ or @ReportGroup@ resource you want to associate
     -- with a resource policy.
-    resourceArn :: Core.Text
+    resourceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutResourcePolicy' with all optional fields omitted.
@@ -79,9 +80,9 @@ data PutResourcePolicy = PutResourcePolicy'
 -- with a resource policy.
 newPutResourcePolicy ::
   -- | 'policy'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   PutResourcePolicy
 newPutResourcePolicy pPolicy_ pResourceArn_ =
   PutResourcePolicy'
@@ -94,12 +95,12 @@ newPutResourcePolicy pPolicy_ pResourceArn_ =
 -- and
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share Sharing a Report Group>
 -- in the /AWS CodeBuild User Guide/.
-putResourcePolicy_policy :: Lens.Lens' PutResourcePolicy Core.Text
+putResourcePolicy_policy :: Lens.Lens' PutResourcePolicy Prelude.Text
 putResourcePolicy_policy = Lens.lens (\PutResourcePolicy' {policy} -> policy) (\s@PutResourcePolicy' {} a -> s {policy = a} :: PutResourcePolicy)
 
 -- | The ARN of the @Project@ or @ReportGroup@ resource you want to associate
 -- with a resource policy.
-putResourcePolicy_resourceArn :: Lens.Lens' PutResourcePolicy Core.Text
+putResourcePolicy_resourceArn :: Lens.Lens' PutResourcePolicy Prelude.Text
 putResourcePolicy_resourceArn = Lens.lens (\PutResourcePolicy' {resourceArn} -> resourceArn) (\s@PutResourcePolicy' {} a -> s {resourceArn = a} :: PutResourcePolicy)
 
 instance Core.AWSRequest PutResourcePolicy where
@@ -111,51 +112,53 @@ instance Core.AWSRequest PutResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           PutResourcePolicyResponse'
-            Core.<$> (x Core..?> "resourceArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "resourceArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutResourcePolicy
+instance Prelude.Hashable PutResourcePolicy
 
-instance Core.NFData PutResourcePolicy
+instance Prelude.NFData PutResourcePolicy
 
 instance Core.ToHeaders PutResourcePolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeBuild_20161006.PutResourcePolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutResourcePolicy where
   toJSON PutResourcePolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("policy" Core..= policy),
-            Core.Just ("resourceArn" Core..= resourceArn)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("policy" Core..= policy),
+            Prelude.Just ("resourceArn" Core..= resourceArn)
           ]
       )
 
 instance Core.ToPath PutResourcePolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutResourcePolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutResourcePolicyResponse' smart constructor.
 data PutResourcePolicyResponse = PutResourcePolicyResponse'
   { -- | The ARN of the @Project@ or @ReportGroup@ resource that is associated
     -- with a resource policy.
-    resourceArn :: Core.Maybe Core.Text,
+    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutResourcePolicyResponse' with all optional fields omitted.
@@ -171,22 +174,22 @@ data PutResourcePolicyResponse = PutResourcePolicyResponse'
 -- 'httpStatus', 'putResourcePolicyResponse_httpStatus' - The response's http status code.
 newPutResourcePolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutResourcePolicyResponse
 newPutResourcePolicyResponse pHttpStatus_ =
   PutResourcePolicyResponse'
     { resourceArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the @Project@ or @ReportGroup@ resource that is associated
 -- with a resource policy.
-putResourcePolicyResponse_resourceArn :: Lens.Lens' PutResourcePolicyResponse (Core.Maybe Core.Text)
+putResourcePolicyResponse_resourceArn :: Lens.Lens' PutResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 putResourcePolicyResponse_resourceArn = Lens.lens (\PutResourcePolicyResponse' {resourceArn} -> resourceArn) (\s@PutResourcePolicyResponse' {} a -> s {resourceArn = a} :: PutResourcePolicyResponse)
 
 -- | The response's http status code.
-putResourcePolicyResponse_httpStatus :: Lens.Lens' PutResourcePolicyResponse Core.Int
+putResourcePolicyResponse_httpStatus :: Lens.Lens' PutResourcePolicyResponse Prelude.Int
 putResourcePolicyResponse_httpStatus = Lens.lens (\PutResourcePolicyResponse' {httpStatus} -> httpStatus) (\s@PutResourcePolicyResponse' {} a -> s {httpStatus = a} :: PutResourcePolicyResponse)
 
-instance Core.NFData PutResourcePolicyResponse
+instance Prelude.NFData PutResourcePolicyResponse

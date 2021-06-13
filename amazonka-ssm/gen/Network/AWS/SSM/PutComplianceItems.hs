@@ -90,6 +90,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -107,20 +108,20 @@ data PutComplianceItems = PutComplianceItems'
     -- @COMPLETE@ mode.
     --
     -- This attribute is only valid for association compliance.
-    uploadType :: Core.Maybe ComplianceUploadType,
+    uploadType :: Prelude.Maybe ComplianceUploadType,
     -- | MD5 or SHA-256 content hash. The content hash is used to determine if
     -- existing information should be overwritten or ignored. If the content
     -- hashes match, the request to put compliance information is ignored.
-    itemContentHash :: Core.Maybe Core.Text,
+    itemContentHash :: Prelude.Maybe Prelude.Text,
     -- | Specify an ID for this resource. For a managed instance, this is the
     -- instance ID.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | Specify the type of resource. @ManagedInstance@ is currently the only
     -- supported resource type.
-    resourceType :: Core.Text,
+    resourceType :: Prelude.Text,
     -- | Specify the compliance type. For example, specify Association (for a
     -- State Manager association), Patch, or Custom:@string@.
-    complianceType :: Core.Text,
+    complianceType :: Prelude.Text,
     -- | A summary of the call execution that includes an execution ID, the type
     -- of execution (for example, @Command@), and the date\/time of the
     -- execution using a datetime object that is saved in the following format:
@@ -131,7 +132,7 @@ data PutComplianceItems = PutComplianceItems'
     -- the PatchSeverity, Classification, and so on.
     items :: [ComplianceItemEntry]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutComplianceItems' with all optional fields omitted.
@@ -176,11 +177,11 @@ data PutComplianceItems = PutComplianceItems'
 -- the PatchSeverity, Classification, and so on.
 newPutComplianceItems ::
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceType'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'complianceType'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'executionSummary'
   ComplianceExecutionSummary ->
   PutComplianceItems
@@ -190,13 +191,13 @@ newPutComplianceItems
   pComplianceType_
   pExecutionSummary_ =
     PutComplianceItems'
-      { uploadType = Core.Nothing,
-        itemContentHash = Core.Nothing,
+      { uploadType = Prelude.Nothing,
+        itemContentHash = Prelude.Nothing,
         resourceId = pResourceId_,
         resourceType = pResourceType_,
         complianceType = pComplianceType_,
         executionSummary = pExecutionSummary_,
-        items = Core.mempty
+        items = Prelude.mempty
       }
 
 -- | The mode for uploading compliance items. You can specify @COMPLETE@ or
@@ -210,28 +211,28 @@ newPutComplianceItems
 -- @COMPLETE@ mode.
 --
 -- This attribute is only valid for association compliance.
-putComplianceItems_uploadType :: Lens.Lens' PutComplianceItems (Core.Maybe ComplianceUploadType)
+putComplianceItems_uploadType :: Lens.Lens' PutComplianceItems (Prelude.Maybe ComplianceUploadType)
 putComplianceItems_uploadType = Lens.lens (\PutComplianceItems' {uploadType} -> uploadType) (\s@PutComplianceItems' {} a -> s {uploadType = a} :: PutComplianceItems)
 
 -- | MD5 or SHA-256 content hash. The content hash is used to determine if
 -- existing information should be overwritten or ignored. If the content
 -- hashes match, the request to put compliance information is ignored.
-putComplianceItems_itemContentHash :: Lens.Lens' PutComplianceItems (Core.Maybe Core.Text)
+putComplianceItems_itemContentHash :: Lens.Lens' PutComplianceItems (Prelude.Maybe Prelude.Text)
 putComplianceItems_itemContentHash = Lens.lens (\PutComplianceItems' {itemContentHash} -> itemContentHash) (\s@PutComplianceItems' {} a -> s {itemContentHash = a} :: PutComplianceItems)
 
 -- | Specify an ID for this resource. For a managed instance, this is the
 -- instance ID.
-putComplianceItems_resourceId :: Lens.Lens' PutComplianceItems Core.Text
+putComplianceItems_resourceId :: Lens.Lens' PutComplianceItems Prelude.Text
 putComplianceItems_resourceId = Lens.lens (\PutComplianceItems' {resourceId} -> resourceId) (\s@PutComplianceItems' {} a -> s {resourceId = a} :: PutComplianceItems)
 
 -- | Specify the type of resource. @ManagedInstance@ is currently the only
 -- supported resource type.
-putComplianceItems_resourceType :: Lens.Lens' PutComplianceItems Core.Text
+putComplianceItems_resourceType :: Lens.Lens' PutComplianceItems Prelude.Text
 putComplianceItems_resourceType = Lens.lens (\PutComplianceItems' {resourceType} -> resourceType) (\s@PutComplianceItems' {} a -> s {resourceType = a} :: PutComplianceItems)
 
 -- | Specify the compliance type. For example, specify Association (for a
 -- State Manager association), Patch, or Custom:@string@.
-putComplianceItems_complianceType :: Lens.Lens' PutComplianceItems Core.Text
+putComplianceItems_complianceType :: Lens.Lens' PutComplianceItems Prelude.Text
 putComplianceItems_complianceType = Lens.lens (\PutComplianceItems' {complianceType} -> complianceType) (\s@PutComplianceItems' {} a -> s {complianceType = a} :: PutComplianceItems)
 
 -- | A summary of the call execution that includes an execution ID, the type
@@ -245,7 +246,7 @@ putComplianceItems_executionSummary = Lens.lens (\PutComplianceItems' {execution
 -- example, for a patch compliance type, @Items@ includes information about
 -- the PatchSeverity, Classification, and so on.
 putComplianceItems_items :: Lens.Lens' PutComplianceItems [ComplianceItemEntry]
-putComplianceItems_items = Lens.lens (\PutComplianceItems' {items} -> items) (\s@PutComplianceItems' {} a -> s {items = a} :: PutComplianceItems) Core.. Lens._Coerce
+putComplianceItems_items = Lens.lens (\PutComplianceItems' {items} -> items) (\s@PutComplianceItems' {} a -> s {items = a} :: PutComplianceItems) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest PutComplianceItems where
   type
@@ -256,51 +257,57 @@ instance Core.AWSRequest PutComplianceItems where
     Response.receiveEmpty
       ( \s h x ->
           PutComplianceItemsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutComplianceItems
+instance Prelude.Hashable PutComplianceItems
 
-instance Core.NFData PutComplianceItems
+instance Prelude.NFData PutComplianceItems
 
 instance Core.ToHeaders PutComplianceItems where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.PutComplianceItems" :: Core.ByteString),
+              Core.=# ( "AmazonSSM.PutComplianceItems" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutComplianceItems where
   toJSON PutComplianceItems' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("UploadType" Core..=) Core.<$> uploadType,
-            ("ItemContentHash" Core..=) Core.<$> itemContentHash,
-            Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just ("ResourceType" Core..= resourceType),
-            Core.Just ("ComplianceType" Core..= complianceType),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("UploadType" Core..=) Prelude.<$> uploadType,
+            ("ItemContentHash" Core..=)
+              Prelude.<$> itemContentHash,
+            Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just ("ResourceType" Core..= resourceType),
+            Prelude.Just
+              ("ComplianceType" Core..= complianceType),
+            Prelude.Just
               ("ExecutionSummary" Core..= executionSummary),
-            Core.Just ("Items" Core..= items)
+            Prelude.Just ("Items" Core..= items)
           ]
       )
 
 instance Core.ToPath PutComplianceItems where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutComplianceItems where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutComplianceItemsResponse' smart constructor.
 data PutComplianceItemsResponse = PutComplianceItemsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutComplianceItemsResponse' with all optional fields omitted.
@@ -313,7 +320,7 @@ data PutComplianceItemsResponse = PutComplianceItemsResponse'
 -- 'httpStatus', 'putComplianceItemsResponse_httpStatus' - The response's http status code.
 newPutComplianceItemsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutComplianceItemsResponse
 newPutComplianceItemsResponse pHttpStatus_ =
   PutComplianceItemsResponse'
@@ -322,7 +329,7 @@ newPutComplianceItemsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putComplianceItemsResponse_httpStatus :: Lens.Lens' PutComplianceItemsResponse Core.Int
+putComplianceItemsResponse_httpStatus :: Lens.Lens' PutComplianceItemsResponse Prelude.Int
 putComplianceItemsResponse_httpStatus = Lens.lens (\PutComplianceItemsResponse' {httpStatus} -> httpStatus) (\s@PutComplianceItemsResponse' {} a -> s {httpStatus = a} :: PutComplianceItemsResponse)
 
-instance Core.NFData PutComplianceItemsResponse
+instance Prelude.NFData PutComplianceItemsResponse

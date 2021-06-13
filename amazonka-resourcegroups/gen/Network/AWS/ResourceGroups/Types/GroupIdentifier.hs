@@ -21,17 +21,18 @@ module Network.AWS.ResourceGroups.Types.GroupIdentifier where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The unique identifiers for a resource group.
 --
 -- /See:/ 'newGroupIdentifier' smart constructor.
 data GroupIdentifier = GroupIdentifier'
   { -- | The name of the resource group.
-    groupName :: Core.Maybe Core.Text,
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the resource group.
-    groupArn :: Core.Maybe Core.Text
+    groupArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GroupIdentifier' with all optional fields omitted.
@@ -48,16 +49,16 @@ newGroupIdentifier ::
   GroupIdentifier
 newGroupIdentifier =
   GroupIdentifier'
-    { groupName = Core.Nothing,
-      groupArn = Core.Nothing
+    { groupName = Prelude.Nothing,
+      groupArn = Prelude.Nothing
     }
 
 -- | The name of the resource group.
-groupIdentifier_groupName :: Lens.Lens' GroupIdentifier (Core.Maybe Core.Text)
+groupIdentifier_groupName :: Lens.Lens' GroupIdentifier (Prelude.Maybe Prelude.Text)
 groupIdentifier_groupName = Lens.lens (\GroupIdentifier' {groupName} -> groupName) (\s@GroupIdentifier' {} a -> s {groupName = a} :: GroupIdentifier)
 
 -- | The ARN of the resource group.
-groupIdentifier_groupArn :: Lens.Lens' GroupIdentifier (Core.Maybe Core.Text)
+groupIdentifier_groupArn :: Lens.Lens' GroupIdentifier (Prelude.Maybe Prelude.Text)
 groupIdentifier_groupArn = Lens.lens (\GroupIdentifier' {groupArn} -> groupArn) (\s@GroupIdentifier' {} a -> s {groupArn = a} :: GroupIdentifier)
 
 instance Core.FromJSON GroupIdentifier where
@@ -66,10 +67,10 @@ instance Core.FromJSON GroupIdentifier where
       "GroupIdentifier"
       ( \x ->
           GroupIdentifier'
-            Core.<$> (x Core..:? "GroupName")
-            Core.<*> (x Core..:? "GroupArn")
+            Prelude.<$> (x Core..:? "GroupName")
+            Prelude.<*> (x Core..:? "GroupArn")
       )
 
-instance Core.Hashable GroupIdentifier
+instance Prelude.Hashable GroupIdentifier
 
-instance Core.NFData GroupIdentifier
+instance Prelude.NFData GroupIdentifier

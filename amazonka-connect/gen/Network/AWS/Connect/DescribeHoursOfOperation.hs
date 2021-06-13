@@ -46,17 +46,18 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeHoursOfOperation' smart constructor.
 data DescribeHoursOfOperation = DescribeHoursOfOperation'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The identifier for the hours of operation.
-    hoursOfOperationId :: Core.Text
+    hoursOfOperationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeHoursOfOperation' with all optional fields omitted.
@@ -71,9 +72,9 @@ data DescribeHoursOfOperation = DescribeHoursOfOperation'
 -- 'hoursOfOperationId', 'describeHoursOfOperation_hoursOfOperationId' - The identifier for the hours of operation.
 newDescribeHoursOfOperation ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'hoursOfOperationId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeHoursOfOperation
 newDescribeHoursOfOperation
   pInstanceId_
@@ -85,11 +86,11 @@ newDescribeHoursOfOperation
       }
 
 -- | The identifier of the Amazon Connect instance.
-describeHoursOfOperation_instanceId :: Lens.Lens' DescribeHoursOfOperation Core.Text
+describeHoursOfOperation_instanceId :: Lens.Lens' DescribeHoursOfOperation Prelude.Text
 describeHoursOfOperation_instanceId = Lens.lens (\DescribeHoursOfOperation' {instanceId} -> instanceId) (\s@DescribeHoursOfOperation' {} a -> s {instanceId = a} :: DescribeHoursOfOperation)
 
 -- | The identifier for the hours of operation.
-describeHoursOfOperation_hoursOfOperationId :: Lens.Lens' DescribeHoursOfOperation Core.Text
+describeHoursOfOperation_hoursOfOperationId :: Lens.Lens' DescribeHoursOfOperation Prelude.Text
 describeHoursOfOperation_hoursOfOperationId = Lens.lens (\DescribeHoursOfOperation' {hoursOfOperationId} -> hoursOfOperationId) (\s@DescribeHoursOfOperation' {} a -> s {hoursOfOperationId = a} :: DescribeHoursOfOperation)
 
 instance Core.AWSRequest DescribeHoursOfOperation where
@@ -101,26 +102,28 @@ instance Core.AWSRequest DescribeHoursOfOperation where
     Response.receiveJSON
       ( \s h x ->
           DescribeHoursOfOperationResponse'
-            Core.<$> (x Core..?> "HoursOfOperation")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "HoursOfOperation")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeHoursOfOperation
+instance Prelude.Hashable DescribeHoursOfOperation
 
-instance Core.NFData DescribeHoursOfOperation
+instance Prelude.NFData DescribeHoursOfOperation
 
 instance Core.ToHeaders DescribeHoursOfOperation where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeHoursOfOperation where
   toPath DescribeHoursOfOperation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/hours-of-operations/",
         Core.toBS instanceId,
         "/",
@@ -128,16 +131,16 @@ instance Core.ToPath DescribeHoursOfOperation where
       ]
 
 instance Core.ToQuery DescribeHoursOfOperation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeHoursOfOperationResponse' smart constructor.
 data DescribeHoursOfOperationResponse = DescribeHoursOfOperationResponse'
   { -- | The hours of operation.
-    hoursOfOperation :: Core.Maybe HoursOfOperation,
+    hoursOfOperation :: Prelude.Maybe HoursOfOperation,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeHoursOfOperationResponse' with all optional fields omitted.
@@ -152,21 +155,23 @@ data DescribeHoursOfOperationResponse = DescribeHoursOfOperationResponse'
 -- 'httpStatus', 'describeHoursOfOperationResponse_httpStatus' - The response's http status code.
 newDescribeHoursOfOperationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeHoursOfOperationResponse
 newDescribeHoursOfOperationResponse pHttpStatus_ =
   DescribeHoursOfOperationResponse'
     { hoursOfOperation =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The hours of operation.
-describeHoursOfOperationResponse_hoursOfOperation :: Lens.Lens' DescribeHoursOfOperationResponse (Core.Maybe HoursOfOperation)
+describeHoursOfOperationResponse_hoursOfOperation :: Lens.Lens' DescribeHoursOfOperationResponse (Prelude.Maybe HoursOfOperation)
 describeHoursOfOperationResponse_hoursOfOperation = Lens.lens (\DescribeHoursOfOperationResponse' {hoursOfOperation} -> hoursOfOperation) (\s@DescribeHoursOfOperationResponse' {} a -> s {hoursOfOperation = a} :: DescribeHoursOfOperationResponse)
 
 -- | The response's http status code.
-describeHoursOfOperationResponse_httpStatus :: Lens.Lens' DescribeHoursOfOperationResponse Core.Int
+describeHoursOfOperationResponse_httpStatus :: Lens.Lens' DescribeHoursOfOperationResponse Prelude.Int
 describeHoursOfOperationResponse_httpStatus = Lens.lens (\DescribeHoursOfOperationResponse' {httpStatus} -> httpStatus) (\s@DescribeHoursOfOperationResponse' {} a -> s {httpStatus = a} :: DescribeHoursOfOperationResponse)
 
-instance Core.NFData DescribeHoursOfOperationResponse
+instance
+  Prelude.NFData
+    DescribeHoursOfOperationResponse

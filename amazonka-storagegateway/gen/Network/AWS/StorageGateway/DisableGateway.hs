@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -56,9 +57,9 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newDisableGateway' smart constructor.
 data DisableGateway = DisableGateway'
-  { gatewayARN :: Core.Text
+  { gatewayARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableGateway' with all optional fields omitted.
@@ -71,13 +72,13 @@ data DisableGateway = DisableGateway'
 -- 'gatewayARN', 'disableGateway_gatewayARN' - Undocumented member.
 newDisableGateway ::
   -- | 'gatewayARN'
-  Core.Text ->
+  Prelude.Text ->
   DisableGateway
 newDisableGateway pGatewayARN_ =
   DisableGateway' {gatewayARN = pGatewayARN_}
 
 -- | Undocumented member.
-disableGateway_gatewayARN :: Lens.Lens' DisableGateway Core.Text
+disableGateway_gatewayARN :: Lens.Lens' DisableGateway Prelude.Text
 disableGateway_gatewayARN = Lens.lens (\DisableGateway' {gatewayARN} -> gatewayARN) (\s@DisableGateway' {} a -> s {gatewayARN = a} :: DisableGateway)
 
 instance Core.AWSRequest DisableGateway where
@@ -89,50 +90,52 @@ instance Core.AWSRequest DisableGateway where
     Response.receiveJSON
       ( \s h x ->
           DisableGatewayResponse'
-            Core.<$> (x Core..?> "GatewayARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisableGateway
+instance Prelude.Hashable DisableGateway
 
-instance Core.NFData DisableGateway
+instance Prelude.NFData DisableGateway
 
 instance Core.ToHeaders DisableGateway where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.DisableGateway" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisableGateway where
   toJSON DisableGateway' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("GatewayARN" Core..= gatewayARN)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
       )
 
 instance Core.ToPath DisableGateway where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisableGateway where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | DisableGatewayOutput
 --
 -- /See:/ 'newDisableGatewayResponse' smart constructor.
 data DisableGatewayResponse = DisableGatewayResponse'
   { -- | The unique Amazon Resource Name (ARN) of the disabled gateway.
-    gatewayARN :: Core.Maybe Core.Text,
+    gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableGatewayResponse' with all optional fields omitted.
@@ -147,20 +150,21 @@ data DisableGatewayResponse = DisableGatewayResponse'
 -- 'httpStatus', 'disableGatewayResponse_httpStatus' - The response's http status code.
 newDisableGatewayResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisableGatewayResponse
 newDisableGatewayResponse pHttpStatus_ =
   DisableGatewayResponse'
-    { gatewayARN = Core.Nothing,
+    { gatewayARN =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique Amazon Resource Name (ARN) of the disabled gateway.
-disableGatewayResponse_gatewayARN :: Lens.Lens' DisableGatewayResponse (Core.Maybe Core.Text)
+disableGatewayResponse_gatewayARN :: Lens.Lens' DisableGatewayResponse (Prelude.Maybe Prelude.Text)
 disableGatewayResponse_gatewayARN = Lens.lens (\DisableGatewayResponse' {gatewayARN} -> gatewayARN) (\s@DisableGatewayResponse' {} a -> s {gatewayARN = a} :: DisableGatewayResponse)
 
 -- | The response's http status code.
-disableGatewayResponse_httpStatus :: Lens.Lens' DisableGatewayResponse Core.Int
+disableGatewayResponse_httpStatus :: Lens.Lens' DisableGatewayResponse Prelude.Int
 disableGatewayResponse_httpStatus = Lens.lens (\DisableGatewayResponse' {httpStatus} -> httpStatus) (\s@DisableGatewayResponse' {} a -> s {httpStatus = a} :: DisableGatewayResponse)
 
-instance Core.NFData DisableGatewayResponse
+instance Prelude.NFData DisableGatewayResponse

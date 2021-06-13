@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -49,11 +50,11 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newAssociateIpGroups' smart constructor.
 data AssociateIpGroups = AssociateIpGroups'
   { -- | The identifier of the directory.
-    directoryId :: Core.Text,
+    directoryId :: Prelude.Text,
     -- | The identifiers of one or more IP access control groups.
-    groupIds :: [Core.Text]
+    groupIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateIpGroups' with all optional fields omitted.
@@ -68,21 +69,21 @@ data AssociateIpGroups = AssociateIpGroups'
 -- 'groupIds', 'associateIpGroups_groupIds' - The identifiers of one or more IP access control groups.
 newAssociateIpGroups ::
   -- | 'directoryId'
-  Core.Text ->
+  Prelude.Text ->
   AssociateIpGroups
 newAssociateIpGroups pDirectoryId_ =
   AssociateIpGroups'
     { directoryId = pDirectoryId_,
-      groupIds = Core.mempty
+      groupIds = Prelude.mempty
     }
 
 -- | The identifier of the directory.
-associateIpGroups_directoryId :: Lens.Lens' AssociateIpGroups Core.Text
+associateIpGroups_directoryId :: Lens.Lens' AssociateIpGroups Prelude.Text
 associateIpGroups_directoryId = Lens.lens (\AssociateIpGroups' {directoryId} -> directoryId) (\s@AssociateIpGroups' {} a -> s {directoryId = a} :: AssociateIpGroups)
 
 -- | The identifiers of one or more IP access control groups.
-associateIpGroups_groupIds :: Lens.Lens' AssociateIpGroups [Core.Text]
-associateIpGroups_groupIds = Lens.lens (\AssociateIpGroups' {groupIds} -> groupIds) (\s@AssociateIpGroups' {} a -> s {groupIds = a} :: AssociateIpGroups) Core.. Lens._Coerce
+associateIpGroups_groupIds :: Lens.Lens' AssociateIpGroups [Prelude.Text]
+associateIpGroups_groupIds = Lens.lens (\AssociateIpGroups' {groupIds} -> groupIds) (\s@AssociateIpGroups' {} a -> s {groupIds = a} :: AssociateIpGroups) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AssociateIpGroups where
   type
@@ -93,47 +94,49 @@ instance Core.AWSRequest AssociateIpGroups where
     Response.receiveEmpty
       ( \s h x ->
           AssociateIpGroupsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AssociateIpGroups
+instance Prelude.Hashable AssociateIpGroups
 
-instance Core.NFData AssociateIpGroups
+instance Prelude.NFData AssociateIpGroups
 
 instance Core.ToHeaders AssociateIpGroups where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.AssociateIpGroups" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateIpGroups where
   toJSON AssociateIpGroups' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DirectoryId" Core..= directoryId),
-            Core.Just ("GroupIds" Core..= groupIds)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("DirectoryId" Core..= directoryId),
+            Prelude.Just ("GroupIds" Core..= groupIds)
           ]
       )
 
 instance Core.ToPath AssociateIpGroups where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AssociateIpGroups where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateIpGroupsResponse' smart constructor.
 data AssociateIpGroupsResponse = AssociateIpGroupsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateIpGroupsResponse' with all optional fields omitted.
@@ -146,7 +149,7 @@ data AssociateIpGroupsResponse = AssociateIpGroupsResponse'
 -- 'httpStatus', 'associateIpGroupsResponse_httpStatus' - The response's http status code.
 newAssociateIpGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssociateIpGroupsResponse
 newAssociateIpGroupsResponse pHttpStatus_ =
   AssociateIpGroupsResponse'
@@ -155,7 +158,7 @@ newAssociateIpGroupsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-associateIpGroupsResponse_httpStatus :: Lens.Lens' AssociateIpGroupsResponse Core.Int
+associateIpGroupsResponse_httpStatus :: Lens.Lens' AssociateIpGroupsResponse Prelude.Int
 associateIpGroupsResponse_httpStatus = Lens.lens (\AssociateIpGroupsResponse' {httpStatus} -> httpStatus) (\s@AssociateIpGroupsResponse' {} a -> s {httpStatus = a} :: AssociateIpGroupsResponse)
 
-instance Core.NFData AssociateIpGroupsResponse
+instance Prelude.NFData AssociateIpGroupsResponse

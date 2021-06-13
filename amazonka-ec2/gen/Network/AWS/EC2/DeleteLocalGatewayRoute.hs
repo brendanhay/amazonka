@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,14 +55,14 @@ data DeleteLocalGatewayRoute = DeleteLocalGatewayRoute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The CIDR range for the route. This must match the CIDR for the route
     -- exactly.
-    destinationCidrBlock :: Core.Text,
+    destinationCidrBlock :: Prelude.Text,
     -- | The ID of the local gateway route table.
-    localGatewayRouteTableId :: Core.Text
+    localGatewayRouteTableId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLocalGatewayRoute' with all optional fields omitted.
@@ -82,15 +83,15 @@ data DeleteLocalGatewayRoute = DeleteLocalGatewayRoute'
 -- 'localGatewayRouteTableId', 'deleteLocalGatewayRoute_localGatewayRouteTableId' - The ID of the local gateway route table.
 newDeleteLocalGatewayRoute ::
   -- | 'destinationCidrBlock'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'localGatewayRouteTableId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteLocalGatewayRoute
 newDeleteLocalGatewayRoute
   pDestinationCidrBlock_
   pLocalGatewayRouteTableId_ =
     DeleteLocalGatewayRoute'
-      { dryRun = Core.Nothing,
+      { dryRun = Prelude.Nothing,
         destinationCidrBlock = pDestinationCidrBlock_,
         localGatewayRouteTableId =
           pLocalGatewayRouteTableId_
@@ -100,16 +101,16 @@ newDeleteLocalGatewayRoute
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteLocalGatewayRoute_dryRun :: Lens.Lens' DeleteLocalGatewayRoute (Core.Maybe Core.Bool)
+deleteLocalGatewayRoute_dryRun :: Lens.Lens' DeleteLocalGatewayRoute (Prelude.Maybe Prelude.Bool)
 deleteLocalGatewayRoute_dryRun = Lens.lens (\DeleteLocalGatewayRoute' {dryRun} -> dryRun) (\s@DeleteLocalGatewayRoute' {} a -> s {dryRun = a} :: DeleteLocalGatewayRoute)
 
 -- | The CIDR range for the route. This must match the CIDR for the route
 -- exactly.
-deleteLocalGatewayRoute_destinationCidrBlock :: Lens.Lens' DeleteLocalGatewayRoute Core.Text
+deleteLocalGatewayRoute_destinationCidrBlock :: Lens.Lens' DeleteLocalGatewayRoute Prelude.Text
 deleteLocalGatewayRoute_destinationCidrBlock = Lens.lens (\DeleteLocalGatewayRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@DeleteLocalGatewayRoute' {} a -> s {destinationCidrBlock = a} :: DeleteLocalGatewayRoute)
 
 -- | The ID of the local gateway route table.
-deleteLocalGatewayRoute_localGatewayRouteTableId :: Lens.Lens' DeleteLocalGatewayRoute Core.Text
+deleteLocalGatewayRoute_localGatewayRouteTableId :: Lens.Lens' DeleteLocalGatewayRoute Prelude.Text
 deleteLocalGatewayRoute_localGatewayRouteTableId = Lens.lens (\DeleteLocalGatewayRoute' {localGatewayRouteTableId} -> localGatewayRouteTableId) (\s@DeleteLocalGatewayRoute' {} a -> s {localGatewayRouteTableId = a} :: DeleteLocalGatewayRoute)
 
 instance Core.AWSRequest DeleteLocalGatewayRoute where
@@ -121,26 +122,27 @@ instance Core.AWSRequest DeleteLocalGatewayRoute where
     Response.receiveXML
       ( \s h x ->
           DeleteLocalGatewayRouteResponse'
-            Core.<$> (x Core..@? "route")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "route")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteLocalGatewayRoute
+instance Prelude.Hashable DeleteLocalGatewayRoute
 
-instance Core.NFData DeleteLocalGatewayRoute
+instance Prelude.NFData DeleteLocalGatewayRoute
 
 instance Core.ToHeaders DeleteLocalGatewayRoute where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteLocalGatewayRoute where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteLocalGatewayRoute where
   toQuery DeleteLocalGatewayRoute' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteLocalGatewayRoute" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DeleteLocalGatewayRoute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "DestinationCidrBlock" Core.=: destinationCidrBlock,
         "LocalGatewayRouteTableId"
@@ -150,11 +152,11 @@ instance Core.ToQuery DeleteLocalGatewayRoute where
 -- | /See:/ 'newDeleteLocalGatewayRouteResponse' smart constructor.
 data DeleteLocalGatewayRouteResponse = DeleteLocalGatewayRouteResponse'
   { -- | Information about the route.
-    route :: Core.Maybe LocalGatewayRoute,
+    route :: Prelude.Maybe LocalGatewayRoute,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLocalGatewayRouteResponse' with all optional fields omitted.
@@ -169,21 +171,23 @@ data DeleteLocalGatewayRouteResponse = DeleteLocalGatewayRouteResponse'
 -- 'httpStatus', 'deleteLocalGatewayRouteResponse_httpStatus' - The response's http status code.
 newDeleteLocalGatewayRouteResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteLocalGatewayRouteResponse
 newDeleteLocalGatewayRouteResponse pHttpStatus_ =
   DeleteLocalGatewayRouteResponse'
     { route =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the route.
-deleteLocalGatewayRouteResponse_route :: Lens.Lens' DeleteLocalGatewayRouteResponse (Core.Maybe LocalGatewayRoute)
+deleteLocalGatewayRouteResponse_route :: Lens.Lens' DeleteLocalGatewayRouteResponse (Prelude.Maybe LocalGatewayRoute)
 deleteLocalGatewayRouteResponse_route = Lens.lens (\DeleteLocalGatewayRouteResponse' {route} -> route) (\s@DeleteLocalGatewayRouteResponse' {} a -> s {route = a} :: DeleteLocalGatewayRouteResponse)
 
 -- | The response's http status code.
-deleteLocalGatewayRouteResponse_httpStatus :: Lens.Lens' DeleteLocalGatewayRouteResponse Core.Int
+deleteLocalGatewayRouteResponse_httpStatus :: Lens.Lens' DeleteLocalGatewayRouteResponse Prelude.Int
 deleteLocalGatewayRouteResponse_httpStatus = Lens.lens (\DeleteLocalGatewayRouteResponse' {httpStatus} -> httpStatus) (\s@DeleteLocalGatewayRouteResponse' {} a -> s {httpStatus = a} :: DeleteLocalGatewayRouteResponse)
 
-instance Core.NFData DeleteLocalGatewayRouteResponse
+instance
+  Prelude.NFData
+    DeleteLocalGatewayRouteResponse

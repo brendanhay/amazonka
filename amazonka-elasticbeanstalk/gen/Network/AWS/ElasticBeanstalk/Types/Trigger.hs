@@ -21,15 +21,16 @@ module Network.AWS.ElasticBeanstalk.Types.Trigger where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a trigger.
 --
 -- /See:/ 'newTrigger' smart constructor.
 data Trigger = Trigger'
   { -- | The name of the trigger.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Trigger' with all optional fields omitted.
@@ -42,15 +43,15 @@ data Trigger = Trigger'
 -- 'name', 'trigger_name' - The name of the trigger.
 newTrigger ::
   Trigger
-newTrigger = Trigger' {name = Core.Nothing}
+newTrigger = Trigger' {name = Prelude.Nothing}
 
 -- | The name of the trigger.
-trigger_name :: Lens.Lens' Trigger (Core.Maybe Core.Text)
+trigger_name :: Lens.Lens' Trigger (Prelude.Maybe Prelude.Text)
 trigger_name = Lens.lens (\Trigger' {name} -> name) (\s@Trigger' {} a -> s {name = a} :: Trigger)
 
 instance Core.FromXML Trigger where
-  parseXML x = Trigger' Core.<$> (x Core..@? "Name")
+  parseXML x = Trigger' Prelude.<$> (x Core..@? "Name")
 
-instance Core.Hashable Trigger
+instance Prelude.Hashable Trigger
 
-instance Core.NFData Trigger
+instance Prelude.NFData Trigger

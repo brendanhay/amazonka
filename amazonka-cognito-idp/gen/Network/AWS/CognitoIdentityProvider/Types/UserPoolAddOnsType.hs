@@ -22,6 +22,7 @@ module Network.AWS.CognitoIdentityProvider.Types.UserPoolAddOnsType where
 import Network.AWS.CognitoIdentityProvider.Types.AdvancedSecurityModeType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The user pool add-ons type.
 --
@@ -30,7 +31,7 @@ data UserPoolAddOnsType = UserPoolAddOnsType'
   { -- | The advanced security mode.
     advancedSecurityMode :: AdvancedSecurityModeType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserPoolAddOnsType' with all optional fields omitted.
@@ -61,18 +62,18 @@ instance Core.FromJSON UserPoolAddOnsType where
       "UserPoolAddOnsType"
       ( \x ->
           UserPoolAddOnsType'
-            Core.<$> (x Core..: "AdvancedSecurityMode")
+            Prelude.<$> (x Core..: "AdvancedSecurityMode")
       )
 
-instance Core.Hashable UserPoolAddOnsType
+instance Prelude.Hashable UserPoolAddOnsType
 
-instance Core.NFData UserPoolAddOnsType
+instance Prelude.NFData UserPoolAddOnsType
 
 instance Core.ToJSON UserPoolAddOnsType where
   toJSON UserPoolAddOnsType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "AdvancedSecurityMode"
                   Core..= advancedSecurityMode
               )

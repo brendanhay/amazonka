@@ -38,6 +38,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ data DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSpotDatafeedSubscription' with all optional fields omitted.
@@ -70,14 +71,14 @@ newDeleteSpotDatafeedSubscription ::
 newDeleteSpotDatafeedSubscription =
   DeleteSpotDatafeedSubscription'
     { dryRun =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteSpotDatafeedSubscription_dryRun :: Lens.Lens' DeleteSpotDatafeedSubscription (Core.Maybe Core.Bool)
+deleteSpotDatafeedSubscription_dryRun :: Lens.Lens' DeleteSpotDatafeedSubscription (Prelude.Maybe Prelude.Bool)
 deleteSpotDatafeedSubscription_dryRun = Lens.lens (\DeleteSpotDatafeedSubscription' {dryRun} -> dryRun) (\s@DeleteSpotDatafeedSubscription' {} a -> s {dryRun = a} :: DeleteSpotDatafeedSubscription)
 
 instance
@@ -92,27 +93,32 @@ instance
     Response.receiveNull
       DeleteSpotDatafeedSubscriptionResponse'
 
-instance Core.Hashable DeleteSpotDatafeedSubscription
+instance
+  Prelude.Hashable
+    DeleteSpotDatafeedSubscription
 
-instance Core.NFData DeleteSpotDatafeedSubscription
+instance
+  Prelude.NFData
+    DeleteSpotDatafeedSubscription
 
 instance
   Core.ToHeaders
     DeleteSpotDatafeedSubscription
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteSpotDatafeedSubscription where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteSpotDatafeedSubscription where
   toQuery DeleteSpotDatafeedSubscription' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DeleteSpotDatafeedSubscription" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun
       ]
 
@@ -120,7 +126,7 @@ instance Core.ToQuery DeleteSpotDatafeedSubscription where
 data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSpotDatafeedSubscriptionResponse' with all optional fields omitted.
@@ -132,5 +138,5 @@ newDeleteSpotDatafeedSubscriptionResponse =
   DeleteSpotDatafeedSubscriptionResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteSpotDatafeedSubscriptionResponse

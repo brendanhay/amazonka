@@ -22,6 +22,7 @@ module Network.AWS.Glacier.Types.CSVOutput where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types.QuoteFields
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the comma-separated value (CSV) file that the
 -- job results are stored in.
@@ -29,21 +30,21 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCSVOutput' smart constructor.
 data CSVOutput = CSVOutput'
   { -- | A value used to separate individual records from each other.
-    recordDelimiter :: Core.Maybe Core.Text,
+    recordDelimiter :: Prelude.Maybe Prelude.Text,
     -- | A value used as an escape character where the field delimiter is part of
     -- the value.
-    quoteCharacter :: Core.Maybe Core.Text,
+    quoteCharacter :: Prelude.Maybe Prelude.Text,
     -- | A value used to separate individual fields from each other within a
     -- record.
-    fieldDelimiter :: Core.Maybe Core.Text,
+    fieldDelimiter :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether all output fields should be contained
     -- within quotation marks.
-    quoteFields :: Core.Maybe QuoteFields,
+    quoteFields :: Prelude.Maybe QuoteFields,
     -- | A single character used for escaping the quotation-mark character inside
     -- an already escaped value.
-    quoteEscapeCharacter :: Core.Maybe Core.Text
+    quoteEscapeCharacter :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CSVOutput' with all optional fields omitted.
@@ -70,35 +71,35 @@ newCSVOutput ::
   CSVOutput
 newCSVOutput =
   CSVOutput'
-    { recordDelimiter = Core.Nothing,
-      quoteCharacter = Core.Nothing,
-      fieldDelimiter = Core.Nothing,
-      quoteFields = Core.Nothing,
-      quoteEscapeCharacter = Core.Nothing
+    { recordDelimiter = Prelude.Nothing,
+      quoteCharacter = Prelude.Nothing,
+      fieldDelimiter = Prelude.Nothing,
+      quoteFields = Prelude.Nothing,
+      quoteEscapeCharacter = Prelude.Nothing
     }
 
 -- | A value used to separate individual records from each other.
-cSVOutput_recordDelimiter :: Lens.Lens' CSVOutput (Core.Maybe Core.Text)
+cSVOutput_recordDelimiter :: Lens.Lens' CSVOutput (Prelude.Maybe Prelude.Text)
 cSVOutput_recordDelimiter = Lens.lens (\CSVOutput' {recordDelimiter} -> recordDelimiter) (\s@CSVOutput' {} a -> s {recordDelimiter = a} :: CSVOutput)
 
 -- | A value used as an escape character where the field delimiter is part of
 -- the value.
-cSVOutput_quoteCharacter :: Lens.Lens' CSVOutput (Core.Maybe Core.Text)
+cSVOutput_quoteCharacter :: Lens.Lens' CSVOutput (Prelude.Maybe Prelude.Text)
 cSVOutput_quoteCharacter = Lens.lens (\CSVOutput' {quoteCharacter} -> quoteCharacter) (\s@CSVOutput' {} a -> s {quoteCharacter = a} :: CSVOutput)
 
 -- | A value used to separate individual fields from each other within a
 -- record.
-cSVOutput_fieldDelimiter :: Lens.Lens' CSVOutput (Core.Maybe Core.Text)
+cSVOutput_fieldDelimiter :: Lens.Lens' CSVOutput (Prelude.Maybe Prelude.Text)
 cSVOutput_fieldDelimiter = Lens.lens (\CSVOutput' {fieldDelimiter} -> fieldDelimiter) (\s@CSVOutput' {} a -> s {fieldDelimiter = a} :: CSVOutput)
 
 -- | A value that indicates whether all output fields should be contained
 -- within quotation marks.
-cSVOutput_quoteFields :: Lens.Lens' CSVOutput (Core.Maybe QuoteFields)
+cSVOutput_quoteFields :: Lens.Lens' CSVOutput (Prelude.Maybe QuoteFields)
 cSVOutput_quoteFields = Lens.lens (\CSVOutput' {quoteFields} -> quoteFields) (\s@CSVOutput' {} a -> s {quoteFields = a} :: CSVOutput)
 
 -- | A single character used for escaping the quotation-mark character inside
 -- an already escaped value.
-cSVOutput_quoteEscapeCharacter :: Lens.Lens' CSVOutput (Core.Maybe Core.Text)
+cSVOutput_quoteEscapeCharacter :: Lens.Lens' CSVOutput (Prelude.Maybe Prelude.Text)
 cSVOutput_quoteEscapeCharacter = Lens.lens (\CSVOutput' {quoteEscapeCharacter} -> quoteEscapeCharacter) (\s@CSVOutput' {} a -> s {quoteEscapeCharacter = a} :: CSVOutput)
 
 instance Core.FromJSON CSVOutput where
@@ -107,27 +108,29 @@ instance Core.FromJSON CSVOutput where
       "CSVOutput"
       ( \x ->
           CSVOutput'
-            Core.<$> (x Core..:? "RecordDelimiter")
-            Core.<*> (x Core..:? "QuoteCharacter")
-            Core.<*> (x Core..:? "FieldDelimiter")
-            Core.<*> (x Core..:? "QuoteFields")
-            Core.<*> (x Core..:? "QuoteEscapeCharacter")
+            Prelude.<$> (x Core..:? "RecordDelimiter")
+            Prelude.<*> (x Core..:? "QuoteCharacter")
+            Prelude.<*> (x Core..:? "FieldDelimiter")
+            Prelude.<*> (x Core..:? "QuoteFields")
+            Prelude.<*> (x Core..:? "QuoteEscapeCharacter")
       )
 
-instance Core.Hashable CSVOutput
+instance Prelude.Hashable CSVOutput
 
-instance Core.NFData CSVOutput
+instance Prelude.NFData CSVOutput
 
 instance Core.ToJSON CSVOutput where
   toJSON CSVOutput' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("RecordDelimiter" Core..=)
-              Core.<$> recordDelimiter,
-            ("QuoteCharacter" Core..=) Core.<$> quoteCharacter,
-            ("FieldDelimiter" Core..=) Core.<$> fieldDelimiter,
-            ("QuoteFields" Core..=) Core.<$> quoteFields,
+              Prelude.<$> recordDelimiter,
+            ("QuoteCharacter" Core..=)
+              Prelude.<$> quoteCharacter,
+            ("FieldDelimiter" Core..=)
+              Prelude.<$> fieldDelimiter,
+            ("QuoteFields" Core..=) Prelude.<$> quoteFields,
             ("QuoteEscapeCharacter" Core..=)
-              Core.<$> quoteEscapeCharacter
+              Prelude.<$> quoteEscapeCharacter
           ]
       )

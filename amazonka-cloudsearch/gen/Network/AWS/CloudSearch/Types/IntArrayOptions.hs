@@ -21,6 +21,7 @@ module Network.AWS.CloudSearch.Types.IntArrayOptions where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Options for a field that contains an array of 64-bit signed integers.
 -- Present if @IndexFieldType@ specifies the field is of type @int-array@.
@@ -29,18 +30,18 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newIntArrayOptions' smart constructor.
 data IntArrayOptions = IntArrayOptions'
   { -- | A list of source fields to map to the field.
-    sourceFields :: Core.Maybe Core.Text,
+    sourceFields :: Prelude.Maybe Prelude.Text,
     -- | Whether facet information can be returned for the field.
-    facetEnabled :: Core.Maybe Core.Bool,
+    facetEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the contents of the field can be returned in the search results.
-    returnEnabled :: Core.Maybe Core.Bool,
+    returnEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the contents of the field are searchable.
-    searchEnabled :: Core.Maybe Core.Bool,
+    searchEnabled :: Prelude.Maybe Prelude.Bool,
     -- | A value to use for the field if the field isn\'t specified for a
     -- document.
-    defaultValue :: Core.Maybe Core.Integer
+    defaultValue :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IntArrayOptions' with all optional fields omitted.
@@ -64,50 +65,50 @@ newIntArrayOptions ::
   IntArrayOptions
 newIntArrayOptions =
   IntArrayOptions'
-    { sourceFields = Core.Nothing,
-      facetEnabled = Core.Nothing,
-      returnEnabled = Core.Nothing,
-      searchEnabled = Core.Nothing,
-      defaultValue = Core.Nothing
+    { sourceFields = Prelude.Nothing,
+      facetEnabled = Prelude.Nothing,
+      returnEnabled = Prelude.Nothing,
+      searchEnabled = Prelude.Nothing,
+      defaultValue = Prelude.Nothing
     }
 
 -- | A list of source fields to map to the field.
-intArrayOptions_sourceFields :: Lens.Lens' IntArrayOptions (Core.Maybe Core.Text)
+intArrayOptions_sourceFields :: Lens.Lens' IntArrayOptions (Prelude.Maybe Prelude.Text)
 intArrayOptions_sourceFields = Lens.lens (\IntArrayOptions' {sourceFields} -> sourceFields) (\s@IntArrayOptions' {} a -> s {sourceFields = a} :: IntArrayOptions)
 
 -- | Whether facet information can be returned for the field.
-intArrayOptions_facetEnabled :: Lens.Lens' IntArrayOptions (Core.Maybe Core.Bool)
+intArrayOptions_facetEnabled :: Lens.Lens' IntArrayOptions (Prelude.Maybe Prelude.Bool)
 intArrayOptions_facetEnabled = Lens.lens (\IntArrayOptions' {facetEnabled} -> facetEnabled) (\s@IntArrayOptions' {} a -> s {facetEnabled = a} :: IntArrayOptions)
 
 -- | Whether the contents of the field can be returned in the search results.
-intArrayOptions_returnEnabled :: Lens.Lens' IntArrayOptions (Core.Maybe Core.Bool)
+intArrayOptions_returnEnabled :: Lens.Lens' IntArrayOptions (Prelude.Maybe Prelude.Bool)
 intArrayOptions_returnEnabled = Lens.lens (\IntArrayOptions' {returnEnabled} -> returnEnabled) (\s@IntArrayOptions' {} a -> s {returnEnabled = a} :: IntArrayOptions)
 
 -- | Whether the contents of the field are searchable.
-intArrayOptions_searchEnabled :: Lens.Lens' IntArrayOptions (Core.Maybe Core.Bool)
+intArrayOptions_searchEnabled :: Lens.Lens' IntArrayOptions (Prelude.Maybe Prelude.Bool)
 intArrayOptions_searchEnabled = Lens.lens (\IntArrayOptions' {searchEnabled} -> searchEnabled) (\s@IntArrayOptions' {} a -> s {searchEnabled = a} :: IntArrayOptions)
 
 -- | A value to use for the field if the field isn\'t specified for a
 -- document.
-intArrayOptions_defaultValue :: Lens.Lens' IntArrayOptions (Core.Maybe Core.Integer)
+intArrayOptions_defaultValue :: Lens.Lens' IntArrayOptions (Prelude.Maybe Prelude.Integer)
 intArrayOptions_defaultValue = Lens.lens (\IntArrayOptions' {defaultValue} -> defaultValue) (\s@IntArrayOptions' {} a -> s {defaultValue = a} :: IntArrayOptions)
 
 instance Core.FromXML IntArrayOptions where
   parseXML x =
     IntArrayOptions'
-      Core.<$> (x Core..@? "SourceFields")
-      Core.<*> (x Core..@? "FacetEnabled")
-      Core.<*> (x Core..@? "ReturnEnabled")
-      Core.<*> (x Core..@? "SearchEnabled")
-      Core.<*> (x Core..@? "DefaultValue")
+      Prelude.<$> (x Core..@? "SourceFields")
+      Prelude.<*> (x Core..@? "FacetEnabled")
+      Prelude.<*> (x Core..@? "ReturnEnabled")
+      Prelude.<*> (x Core..@? "SearchEnabled")
+      Prelude.<*> (x Core..@? "DefaultValue")
 
-instance Core.Hashable IntArrayOptions
+instance Prelude.Hashable IntArrayOptions
 
-instance Core.NFData IntArrayOptions
+instance Prelude.NFData IntArrayOptions
 
 instance Core.ToQuery IntArrayOptions where
   toQuery IntArrayOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "SourceFields" Core.=: sourceFields,
         "FacetEnabled" Core.=: facetEnabled,
         "ReturnEnabled" Core.=: returnEnabled,

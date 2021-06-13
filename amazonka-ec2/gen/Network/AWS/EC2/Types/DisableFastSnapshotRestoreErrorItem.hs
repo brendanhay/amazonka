@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.DisableFastSnapshotRestoreStateErrorItem
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the errors that occurred when disabling fast
 -- snapshot restores.
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDisableFastSnapshotRestoreErrorItem' smart constructor.
 data DisableFastSnapshotRestoreErrorItem = DisableFastSnapshotRestoreErrorItem'
   { -- | The errors.
-    fastSnapshotRestoreStateErrors :: Core.Maybe [DisableFastSnapshotRestoreStateErrorItem],
+    fastSnapshotRestoreStateErrors :: Prelude.Maybe [DisableFastSnapshotRestoreStateErrorItem],
     -- | The ID of the snapshot.
-    snapshotId :: Core.Maybe Core.Text
+    snapshotId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableFastSnapshotRestoreErrorItem' with all optional fields omitted.
@@ -52,16 +53,16 @@ newDisableFastSnapshotRestoreErrorItem ::
 newDisableFastSnapshotRestoreErrorItem =
   DisableFastSnapshotRestoreErrorItem'
     { fastSnapshotRestoreStateErrors =
-        Core.Nothing,
-      snapshotId = Core.Nothing
+        Prelude.Nothing,
+      snapshotId = Prelude.Nothing
     }
 
 -- | The errors.
-disableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors :: Lens.Lens' DisableFastSnapshotRestoreErrorItem (Core.Maybe [DisableFastSnapshotRestoreStateErrorItem])
-disableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors = Lens.lens (\DisableFastSnapshotRestoreErrorItem' {fastSnapshotRestoreStateErrors} -> fastSnapshotRestoreStateErrors) (\s@DisableFastSnapshotRestoreErrorItem' {} a -> s {fastSnapshotRestoreStateErrors = a} :: DisableFastSnapshotRestoreErrorItem) Core.. Lens.mapping Lens._Coerce
+disableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors :: Lens.Lens' DisableFastSnapshotRestoreErrorItem (Prelude.Maybe [DisableFastSnapshotRestoreStateErrorItem])
+disableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors = Lens.lens (\DisableFastSnapshotRestoreErrorItem' {fastSnapshotRestoreStateErrors} -> fastSnapshotRestoreStateErrors) (\s@DisableFastSnapshotRestoreErrorItem' {} a -> s {fastSnapshotRestoreStateErrors = a} :: DisableFastSnapshotRestoreErrorItem) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the snapshot.
-disableFastSnapshotRestoreErrorItem_snapshotId :: Lens.Lens' DisableFastSnapshotRestoreErrorItem (Core.Maybe Core.Text)
+disableFastSnapshotRestoreErrorItem_snapshotId :: Lens.Lens' DisableFastSnapshotRestoreErrorItem (Prelude.Maybe Prelude.Text)
 disableFastSnapshotRestoreErrorItem_snapshotId = Lens.lens (\DisableFastSnapshotRestoreErrorItem' {snapshotId} -> snapshotId) (\s@DisableFastSnapshotRestoreErrorItem' {} a -> s {snapshotId = a} :: DisableFastSnapshotRestoreErrorItem)
 
 instance
@@ -70,16 +71,16 @@ instance
   where
   parseXML x =
     DisableFastSnapshotRestoreErrorItem'
-      Core.<$> ( x Core..@? "fastSnapshotRestoreStateErrorSet"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "snapshotId")
+      Prelude.<$> ( x Core..@? "fastSnapshotRestoreStateErrorSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "snapshotId")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DisableFastSnapshotRestoreErrorItem
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisableFastSnapshotRestoreErrorItem

@@ -21,6 +21,7 @@ module Network.AWS.WAF.Types.WafOverrideAction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.WafOverrideActionType
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -40,7 +41,7 @@ data WafOverrideAction = WafOverrideAction'
     -- @RuleGroup@ . If set to @NONE@, the rule\'s action will take place.
     type' :: WafOverrideActionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WafOverrideAction' with all optional fields omitted.
@@ -69,14 +70,16 @@ instance Core.FromJSON WafOverrideAction where
     Core.withObject
       "WafOverrideAction"
       ( \x ->
-          WafOverrideAction' Core.<$> (x Core..: "Type")
+          WafOverrideAction' Prelude.<$> (x Core..: "Type")
       )
 
-instance Core.Hashable WafOverrideAction
+instance Prelude.Hashable WafOverrideAction
 
-instance Core.NFData WafOverrideAction
+instance Prelude.NFData WafOverrideAction
 
 instance Core.ToJSON WafOverrideAction where
   toJSON WafOverrideAction' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Type" Core..= type')])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Type" Core..= type')]
+      )

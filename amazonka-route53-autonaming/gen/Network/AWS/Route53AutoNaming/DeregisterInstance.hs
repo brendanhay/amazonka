@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -50,13 +51,13 @@ import Network.AWS.Route53AutoNaming.Types
 -- | /See:/ 'newDeregisterInstance' smart constructor.
 data DeregisterInstance = DeregisterInstance'
   { -- | The ID of the service that the instance is associated with.
-    serviceId :: Core.Text,
+    serviceId :: Prelude.Text,
     -- | The value that you specified for @Id@ in the
     -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>
     -- request.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterInstance' with all optional fields omitted.
@@ -73,9 +74,9 @@ data DeregisterInstance = DeregisterInstance'
 -- request.
 newDeregisterInstance ::
   -- | 'serviceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   DeregisterInstance
 newDeregisterInstance pServiceId_ pInstanceId_ =
   DeregisterInstance'
@@ -84,13 +85,13 @@ newDeregisterInstance pServiceId_ pInstanceId_ =
     }
 
 -- | The ID of the service that the instance is associated with.
-deregisterInstance_serviceId :: Lens.Lens' DeregisterInstance Core.Text
+deregisterInstance_serviceId :: Lens.Lens' DeregisterInstance Prelude.Text
 deregisterInstance_serviceId = Lens.lens (\DeregisterInstance' {serviceId} -> serviceId) (\s@DeregisterInstance' {} a -> s {serviceId = a} :: DeregisterInstance)
 
 -- | The value that you specified for @Id@ in the
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>
 -- request.
-deregisterInstance_instanceId :: Lens.Lens' DeregisterInstance Core.Text
+deregisterInstance_instanceId :: Lens.Lens' DeregisterInstance Prelude.Text
 deregisterInstance_instanceId = Lens.lens (\DeregisterInstance' {instanceId} -> instanceId) (\s@DeregisterInstance' {} a -> s {instanceId = a} :: DeregisterInstance)
 
 instance Core.AWSRequest DeregisterInstance where
@@ -102,52 +103,54 @@ instance Core.AWSRequest DeregisterInstance where
     Response.receiveJSON
       ( \s h x ->
           DeregisterInstanceResponse'
-            Core.<$> (x Core..?> "OperationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "OperationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeregisterInstance
+instance Prelude.Hashable DeregisterInstance
 
-instance Core.NFData DeregisterInstance
+instance Prelude.NFData DeregisterInstance
 
 instance Core.ToHeaders DeregisterInstance where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53AutoNaming_v20170314.DeregisterInstance" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeregisterInstance where
   toJSON DeregisterInstance' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ServiceId" Core..= serviceId),
-            Core.Just ("InstanceId" Core..= instanceId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ServiceId" Core..= serviceId),
+            Prelude.Just ("InstanceId" Core..= instanceId)
           ]
       )
 
 instance Core.ToPath DeregisterInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeregisterInstance where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterInstanceResponse' smart constructor.
 data DeregisterInstanceResponse = DeregisterInstanceResponse'
   { -- | A value that you can use to determine whether the request completed
     -- successfully. For more information, see
     -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-    operationId :: Core.Maybe Core.Text,
+    operationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterInstanceResponse' with all optional fields omitted.
@@ -164,23 +167,23 @@ data DeregisterInstanceResponse = DeregisterInstanceResponse'
 -- 'httpStatus', 'deregisterInstanceResponse_httpStatus' - The response's http status code.
 newDeregisterInstanceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeregisterInstanceResponse
 newDeregisterInstanceResponse pHttpStatus_ =
   DeregisterInstanceResponse'
     { operationId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A value that you can use to determine whether the request completed
 -- successfully. For more information, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-deregisterInstanceResponse_operationId :: Lens.Lens' DeregisterInstanceResponse (Core.Maybe Core.Text)
+deregisterInstanceResponse_operationId :: Lens.Lens' DeregisterInstanceResponse (Prelude.Maybe Prelude.Text)
 deregisterInstanceResponse_operationId = Lens.lens (\DeregisterInstanceResponse' {operationId} -> operationId) (\s@DeregisterInstanceResponse' {} a -> s {operationId = a} :: DeregisterInstanceResponse)
 
 -- | The response's http status code.
-deregisterInstanceResponse_httpStatus :: Lens.Lens' DeregisterInstanceResponse Core.Int
+deregisterInstanceResponse_httpStatus :: Lens.Lens' DeregisterInstanceResponse Prelude.Int
 deregisterInstanceResponse_httpStatus = Lens.lens (\DeregisterInstanceResponse' {httpStatus} -> httpStatus) (\s@DeregisterInstanceResponse' {} a -> s {httpStatus = a} :: DeregisterInstanceResponse)
 
-instance Core.NFData DeregisterInstanceResponse
+instance Prelude.NFData DeregisterInstanceResponse

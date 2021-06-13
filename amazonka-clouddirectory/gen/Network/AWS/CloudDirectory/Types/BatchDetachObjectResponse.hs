@@ -21,15 +21,16 @@ module Network.AWS.CloudDirectory.Types.BatchDetachObjectResponse where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a DetachObject response operation.
 --
 -- /See:/ 'newBatchDetachObjectResponse' smart constructor.
 data BatchDetachObjectResponse = BatchDetachObjectResponse'
   { -- | The @ObjectIdentifier@ of the detached object.
-    detachedObjectIdentifier :: Core.Maybe Core.Text
+    detachedObjectIdentifier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDetachObjectResponse' with all optional fields omitted.
@@ -45,11 +46,11 @@ newBatchDetachObjectResponse ::
 newBatchDetachObjectResponse =
   BatchDetachObjectResponse'
     { detachedObjectIdentifier =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The @ObjectIdentifier@ of the detached object.
-batchDetachObjectResponse_detachedObjectIdentifier :: Lens.Lens' BatchDetachObjectResponse (Core.Maybe Core.Text)
+batchDetachObjectResponse_detachedObjectIdentifier :: Lens.Lens' BatchDetachObjectResponse (Prelude.Maybe Prelude.Text)
 batchDetachObjectResponse_detachedObjectIdentifier = Lens.lens (\BatchDetachObjectResponse' {detachedObjectIdentifier} -> detachedObjectIdentifier) (\s@BatchDetachObjectResponse' {} a -> s {detachedObjectIdentifier = a} :: BatchDetachObjectResponse)
 
 instance Core.FromJSON BatchDetachObjectResponse where
@@ -58,9 +59,9 @@ instance Core.FromJSON BatchDetachObjectResponse where
       "BatchDetachObjectResponse"
       ( \x ->
           BatchDetachObjectResponse'
-            Core.<$> (x Core..:? "detachedObjectIdentifier")
+            Prelude.<$> (x Core..:? "detachedObjectIdentifier")
       )
 
-instance Core.Hashable BatchDetachObjectResponse
+instance Prelude.Hashable BatchDetachObjectResponse
 
-instance Core.NFData BatchDetachObjectResponse
+instance Prelude.NFData BatchDetachObjectResponse

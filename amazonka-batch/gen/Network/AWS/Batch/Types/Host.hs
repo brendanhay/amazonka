@@ -21,6 +21,7 @@ module Network.AWS.Batch.Types.Host where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Determine whether your data volume persists on the host container
 -- instance and where it is stored. If this parameter is empty, then the
@@ -41,9 +42,9 @@ data Host = Host'
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources
     -- and shouldn\'t be provided.
-    sourcePath :: Core.Maybe Core.Text
+    sourcePath :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Host' with all optional fields omitted.
@@ -66,7 +67,7 @@ data Host = Host'
 -- and shouldn\'t be provided.
 newHost ::
   Host
-newHost = Host' {sourcePath = Core.Nothing}
+newHost = Host' {sourcePath = Prelude.Nothing}
 
 -- | The path on the host container instance that\'s presented to the
 -- container. If this parameter is empty, then the Docker daemon has
@@ -79,22 +80,22 @@ newHost = Host' {sourcePath = Core.Nothing}
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources
 -- and shouldn\'t be provided.
-host_sourcePath :: Lens.Lens' Host (Core.Maybe Core.Text)
+host_sourcePath :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_sourcePath = Lens.lens (\Host' {sourcePath} -> sourcePath) (\s@Host' {} a -> s {sourcePath = a} :: Host)
 
 instance Core.FromJSON Host where
   parseJSON =
     Core.withObject
       "Host"
-      (\x -> Host' Core.<$> (x Core..:? "sourcePath"))
+      (\x -> Host' Prelude.<$> (x Core..:? "sourcePath"))
 
-instance Core.Hashable Host
+instance Prelude.Hashable Host
 
-instance Core.NFData Host
+instance Prelude.NFData Host
 
 instance Core.ToJSON Host where
   toJSON Host' {..} =
     Core.object
-      ( Core.catMaybes
-          [("sourcePath" Core..=) Core.<$> sourcePath]
+      ( Prelude.catMaybes
+          [("sourcePath" Core..=) Prelude.<$> sourcePath]
       )

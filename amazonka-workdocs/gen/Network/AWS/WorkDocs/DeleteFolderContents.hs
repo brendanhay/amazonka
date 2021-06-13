@@ -38,6 +38,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -46,11 +47,11 @@ import Network.AWS.WorkDocs.Types
 data DeleteFolderContents = DeleteFolderContents'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ID of the folder.
-    folderId :: Core.Text
+    folderId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFolderContents' with all optional fields omitted.
@@ -66,22 +67,22 @@ data DeleteFolderContents = DeleteFolderContents'
 -- 'folderId', 'deleteFolderContents_folderId' - The ID of the folder.
 newDeleteFolderContents ::
   -- | 'folderId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteFolderContents
 newDeleteFolderContents pFolderId_ =
   DeleteFolderContents'
     { authenticationToken =
-        Core.Nothing,
+        Prelude.Nothing,
       folderId = pFolderId_
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-deleteFolderContents_authenticationToken :: Lens.Lens' DeleteFolderContents (Core.Maybe Core.Text)
-deleteFolderContents_authenticationToken = Lens.lens (\DeleteFolderContents' {authenticationToken} -> authenticationToken) (\s@DeleteFolderContents' {} a -> s {authenticationToken = a} :: DeleteFolderContents) Core.. Lens.mapping Core._Sensitive
+deleteFolderContents_authenticationToken :: Lens.Lens' DeleteFolderContents (Prelude.Maybe Prelude.Text)
+deleteFolderContents_authenticationToken = Lens.lens (\DeleteFolderContents' {authenticationToken} -> authenticationToken) (\s@DeleteFolderContents' {} a -> s {authenticationToken = a} :: DeleteFolderContents) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the folder.
-deleteFolderContents_folderId :: Lens.Lens' DeleteFolderContents Core.Text
+deleteFolderContents_folderId :: Lens.Lens' DeleteFolderContents Prelude.Text
 deleteFolderContents_folderId = Lens.lens (\DeleteFolderContents' {folderId} -> folderId) (\s@DeleteFolderContents' {} a -> s {folderId = a} :: DeleteFolderContents)
 
 instance Core.AWSRequest DeleteFolderContents where
@@ -92,31 +93,31 @@ instance Core.AWSRequest DeleteFolderContents where
   response =
     Response.receiveNull DeleteFolderContentsResponse'
 
-instance Core.Hashable DeleteFolderContents
+instance Prelude.Hashable DeleteFolderContents
 
-instance Core.NFData DeleteFolderContents
+instance Prelude.NFData DeleteFolderContents
 
 instance Core.ToHeaders DeleteFolderContents where
   toHeaders DeleteFolderContents' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance Core.ToPath DeleteFolderContents where
   toPath DeleteFolderContents' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/api/v1/folders/", Core.toBS folderId, "/contents"]
 
 instance Core.ToQuery DeleteFolderContents where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFolderContentsResponse' smart constructor.
 data DeleteFolderContentsResponse = DeleteFolderContentsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFolderContentsResponse' with all optional fields omitted.
@@ -127,4 +128,4 @@ newDeleteFolderContentsResponse ::
 newDeleteFolderContentsResponse =
   DeleteFolderContentsResponse'
 
-instance Core.NFData DeleteFolderContentsResponse
+instance Prelude.NFData DeleteFolderContentsResponse

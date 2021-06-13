@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Pricing.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -62,20 +63,20 @@ import qualified Network.AWS.Response as Response
 data DescribeServices = DescribeServices'
   { -- | The pagination token that indicates the next set of results that you
     -- want to retrieve.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results that you want returned in the response.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The code for the service whose information you want to retrieve, such as
     -- @AmazonEC2@. You can use the @ServiceCode@ to filter the results in a
     -- @GetProducts@ call. To retrieve a list of all services, leave this
     -- blank.
-    serviceCode :: Core.Maybe Core.Text,
+    serviceCode :: Prelude.Maybe Prelude.Text,
     -- | The format version that you want the response to be in.
     --
     -- Valid values are: @aws_v1@
-    formatVersion :: Core.Maybe Core.Text
+    formatVersion :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeServices' with all optional fields omitted.
@@ -102,52 +103,55 @@ newDescribeServices ::
   DescribeServices
 newDescribeServices =
   DescribeServices'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      serviceCode = Core.Nothing,
-      formatVersion = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      serviceCode = Prelude.Nothing,
+      formatVersion = Prelude.Nothing
     }
 
 -- | The pagination token that indicates the next set of results that you
 -- want to retrieve.
-describeServices_nextToken :: Lens.Lens' DescribeServices (Core.Maybe Core.Text)
+describeServices_nextToken :: Lens.Lens' DescribeServices (Prelude.Maybe Prelude.Text)
 describeServices_nextToken = Lens.lens (\DescribeServices' {nextToken} -> nextToken) (\s@DescribeServices' {} a -> s {nextToken = a} :: DescribeServices)
 
 -- | The maximum number of results that you want returned in the response.
-describeServices_maxResults :: Lens.Lens' DescribeServices (Core.Maybe Core.Natural)
+describeServices_maxResults :: Lens.Lens' DescribeServices (Prelude.Maybe Prelude.Natural)
 describeServices_maxResults = Lens.lens (\DescribeServices' {maxResults} -> maxResults) (\s@DescribeServices' {} a -> s {maxResults = a} :: DescribeServices)
 
 -- | The code for the service whose information you want to retrieve, such as
 -- @AmazonEC2@. You can use the @ServiceCode@ to filter the results in a
 -- @GetProducts@ call. To retrieve a list of all services, leave this
 -- blank.
-describeServices_serviceCode :: Lens.Lens' DescribeServices (Core.Maybe Core.Text)
+describeServices_serviceCode :: Lens.Lens' DescribeServices (Prelude.Maybe Prelude.Text)
 describeServices_serviceCode = Lens.lens (\DescribeServices' {serviceCode} -> serviceCode) (\s@DescribeServices' {} a -> s {serviceCode = a} :: DescribeServices)
 
 -- | The format version that you want the response to be in.
 --
 -- Valid values are: @aws_v1@
-describeServices_formatVersion :: Lens.Lens' DescribeServices (Core.Maybe Core.Text)
+describeServices_formatVersion :: Lens.Lens' DescribeServices (Prelude.Maybe Prelude.Text)
 describeServices_formatVersion = Lens.lens (\DescribeServices' {formatVersion} -> formatVersion) (\s@DescribeServices' {} a -> s {formatVersion = a} :: DescribeServices)
 
 instance Core.AWSPager DescribeServices where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeServicesResponse_nextToken Core.. Lens._Just
+            Lens.^? describeServicesResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeServicesResponse_services Core.. Lens._Just
+            Lens.^? describeServicesResponse_services
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeServices_nextToken
+          Prelude.& describeServices_nextToken
           Lens..~ rs
-          Lens.^? describeServicesResponse_nextToken Core.. Lens._Just
+          Lens.^? describeServicesResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeServices where
   type
@@ -158,58 +162,60 @@ instance Core.AWSRequest DescribeServices where
     Response.receiveJSON
       ( \s h x ->
           DescribeServicesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Services" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "FormatVersion")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Services" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "FormatVersion")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeServices
+instance Prelude.Hashable DescribeServices
 
-instance Core.NFData DescribeServices
+instance Prelude.NFData DescribeServices
 
 instance Core.ToHeaders DescribeServices where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSPriceListService.DescribeServices" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeServices where
   toJSON DescribeServices' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("ServiceCode" Core..=) Core.<$> serviceCode,
-            ("FormatVersion" Core..=) Core.<$> formatVersion
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("ServiceCode" Core..=) Prelude.<$> serviceCode,
+            ("FormatVersion" Core..=) Prelude.<$> formatVersion
           ]
       )
 
 instance Core.ToPath DescribeServices where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeServices where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
   { -- | The pagination token for the next set of retreivable results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The service metadata for the service or services in the response.
-    services :: Core.Maybe [PricingService],
+    services :: Prelude.Maybe [PricingService],
     -- | The format version of the response. For example, @aws_v1@.
-    formatVersion :: Core.Maybe Core.Text,
+    formatVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeServicesResponse' with all optional fields omitted.
@@ -228,30 +234,31 @@ data DescribeServicesResponse = DescribeServicesResponse'
 -- 'httpStatus', 'describeServicesResponse_httpStatus' - The response's http status code.
 newDescribeServicesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeServicesResponse
 newDescribeServicesResponse pHttpStatus_ =
   DescribeServicesResponse'
-    { nextToken = Core.Nothing,
-      services = Core.Nothing,
-      formatVersion = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      services = Prelude.Nothing,
+      formatVersion = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The pagination token for the next set of retreivable results.
-describeServicesResponse_nextToken :: Lens.Lens' DescribeServicesResponse (Core.Maybe Core.Text)
+describeServicesResponse_nextToken :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe Prelude.Text)
 describeServicesResponse_nextToken = Lens.lens (\DescribeServicesResponse' {nextToken} -> nextToken) (\s@DescribeServicesResponse' {} a -> s {nextToken = a} :: DescribeServicesResponse)
 
 -- | The service metadata for the service or services in the response.
-describeServicesResponse_services :: Lens.Lens' DescribeServicesResponse (Core.Maybe [PricingService])
-describeServicesResponse_services = Lens.lens (\DescribeServicesResponse' {services} -> services) (\s@DescribeServicesResponse' {} a -> s {services = a} :: DescribeServicesResponse) Core.. Lens.mapping Lens._Coerce
+describeServicesResponse_services :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe [PricingService])
+describeServicesResponse_services = Lens.lens (\DescribeServicesResponse' {services} -> services) (\s@DescribeServicesResponse' {} a -> s {services = a} :: DescribeServicesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The format version of the response. For example, @aws_v1@.
-describeServicesResponse_formatVersion :: Lens.Lens' DescribeServicesResponse (Core.Maybe Core.Text)
+describeServicesResponse_formatVersion :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe Prelude.Text)
 describeServicesResponse_formatVersion = Lens.lens (\DescribeServicesResponse' {formatVersion} -> formatVersion) (\s@DescribeServicesResponse' {} a -> s {formatVersion = a} :: DescribeServicesResponse)
 
 -- | The response's http status code.
-describeServicesResponse_httpStatus :: Lens.Lens' DescribeServicesResponse Core.Int
+describeServicesResponse_httpStatus :: Lens.Lens' DescribeServicesResponse Prelude.Int
 describeServicesResponse_httpStatus = Lens.lens (\DescribeServicesResponse' {httpStatus} -> httpStatus) (\s@DescribeServicesResponse' {} a -> s {httpStatus = a} :: DescribeServicesResponse)
 
-instance Core.NFData DescribeServicesResponse
+instance Prelude.NFData DescribeServicesResponse

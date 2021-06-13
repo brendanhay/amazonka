@@ -42,19 +42,20 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAdminAddUserToGroup' smart constructor.
 data AdminAddUserToGroup = AdminAddUserToGroup'
   { -- | The user pool ID for the user pool.
-    userPoolId :: Core.Text,
+    userPoolId :: Prelude.Text,
     -- | The username for the user.
-    username :: Core.Sensitive Core.Text,
+    username :: Core.Sensitive Prelude.Text,
     -- | The group name.
-    groupName :: Core.Text
+    groupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminAddUserToGroup' with all optional fields omitted.
@@ -71,11 +72,11 @@ data AdminAddUserToGroup = AdminAddUserToGroup'
 -- 'groupName', 'adminAddUserToGroup_groupName' - The group name.
 newAdminAddUserToGroup ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'username'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'groupName'
-  Core.Text ->
+  Prelude.Text ->
   AdminAddUserToGroup
 newAdminAddUserToGroup
   pUserPoolId_
@@ -88,15 +89,15 @@ newAdminAddUserToGroup
       }
 
 -- | The user pool ID for the user pool.
-adminAddUserToGroup_userPoolId :: Lens.Lens' AdminAddUserToGroup Core.Text
+adminAddUserToGroup_userPoolId :: Lens.Lens' AdminAddUserToGroup Prelude.Text
 adminAddUserToGroup_userPoolId = Lens.lens (\AdminAddUserToGroup' {userPoolId} -> userPoolId) (\s@AdminAddUserToGroup' {} a -> s {userPoolId = a} :: AdminAddUserToGroup)
 
 -- | The username for the user.
-adminAddUserToGroup_username :: Lens.Lens' AdminAddUserToGroup Core.Text
-adminAddUserToGroup_username = Lens.lens (\AdminAddUserToGroup' {username} -> username) (\s@AdminAddUserToGroup' {} a -> s {username = a} :: AdminAddUserToGroup) Core.. Core._Sensitive
+adminAddUserToGroup_username :: Lens.Lens' AdminAddUserToGroup Prelude.Text
+adminAddUserToGroup_username = Lens.lens (\AdminAddUserToGroup' {username} -> username) (\s@AdminAddUserToGroup' {} a -> s {username = a} :: AdminAddUserToGroup) Prelude.. Core._Sensitive
 
 -- | The group name.
-adminAddUserToGroup_groupName :: Lens.Lens' AdminAddUserToGroup Core.Text
+adminAddUserToGroup_groupName :: Lens.Lens' AdminAddUserToGroup Prelude.Text
 adminAddUserToGroup_groupName = Lens.lens (\AdminAddUserToGroup' {groupName} -> groupName) (\s@AdminAddUserToGroup' {} a -> s {groupName = a} :: AdminAddUserToGroup)
 
 instance Core.AWSRequest AdminAddUserToGroup where
@@ -107,44 +108,46 @@ instance Core.AWSRequest AdminAddUserToGroup where
   response =
     Response.receiveNull AdminAddUserToGroupResponse'
 
-instance Core.Hashable AdminAddUserToGroup
+instance Prelude.Hashable AdminAddUserToGroup
 
-instance Core.NFData AdminAddUserToGroup
+instance Prelude.NFData AdminAddUserToGroup
 
 instance Core.ToHeaders AdminAddUserToGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.AdminAddUserToGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AdminAddUserToGroup where
   toJSON AdminAddUserToGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("UserPoolId" Core..= userPoolId),
-            Core.Just ("Username" Core..= username),
-            Core.Just ("GroupName" Core..= groupName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("Username" Core..= username),
+            Prelude.Just ("GroupName" Core..= groupName)
           ]
       )
 
 instance Core.ToPath AdminAddUserToGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AdminAddUserToGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAdminAddUserToGroupResponse' smart constructor.
 data AdminAddUserToGroupResponse = AdminAddUserToGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminAddUserToGroupResponse' with all optional fields omitted.
@@ -155,4 +158,4 @@ newAdminAddUserToGroupResponse ::
 newAdminAddUserToGroupResponse =
   AdminAddUserToGroupResponse'
 
-instance Core.NFData AdminAddUserToGroupResponse
+instance Prelude.NFData AdminAddUserToGroupResponse

@@ -51,24 +51,25 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateInstanceExportTask' smart constructor.
 data CreateInstanceExportTask = CreateInstanceExportTask'
   { -- | The tags to apply to the export instance task during creation.
-    tagSpecifications :: Core.Maybe [TagSpecification],
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | A description for the conversion task or the resource being exported.
     -- The maximum length is 255 characters.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The format and location for an export instance task.
     exportToS3Task :: ExportToS3TaskSpecification,
     -- | The ID of the instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The target virtualization environment.
     targetEnvironment :: ExportEnvironment
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateInstanceExportTask' with all optional fields omitted.
@@ -92,7 +93,7 @@ newCreateInstanceExportTask ::
   -- | 'exportToS3Task'
   ExportToS3TaskSpecification ->
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targetEnvironment'
   ExportEnvironment ->
   CreateInstanceExportTask
@@ -102,20 +103,20 @@ newCreateInstanceExportTask
   pTargetEnvironment_ =
     CreateInstanceExportTask'
       { tagSpecifications =
-          Core.Nothing,
-        description = Core.Nothing,
+          Prelude.Nothing,
+        description = Prelude.Nothing,
         exportToS3Task = pExportToS3Task_,
         instanceId = pInstanceId_,
         targetEnvironment = pTargetEnvironment_
       }
 
 -- | The tags to apply to the export instance task during creation.
-createInstanceExportTask_tagSpecifications :: Lens.Lens' CreateInstanceExportTask (Core.Maybe [TagSpecification])
-createInstanceExportTask_tagSpecifications = Lens.lens (\CreateInstanceExportTask' {tagSpecifications} -> tagSpecifications) (\s@CreateInstanceExportTask' {} a -> s {tagSpecifications = a} :: CreateInstanceExportTask) Core.. Lens.mapping Lens._Coerce
+createInstanceExportTask_tagSpecifications :: Lens.Lens' CreateInstanceExportTask (Prelude.Maybe [TagSpecification])
+createInstanceExportTask_tagSpecifications = Lens.lens (\CreateInstanceExportTask' {tagSpecifications} -> tagSpecifications) (\s@CreateInstanceExportTask' {} a -> s {tagSpecifications = a} :: CreateInstanceExportTask) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A description for the conversion task or the resource being exported.
 -- The maximum length is 255 characters.
-createInstanceExportTask_description :: Lens.Lens' CreateInstanceExportTask (Core.Maybe Core.Text)
+createInstanceExportTask_description :: Lens.Lens' CreateInstanceExportTask (Prelude.Maybe Prelude.Text)
 createInstanceExportTask_description = Lens.lens (\CreateInstanceExportTask' {description} -> description) (\s@CreateInstanceExportTask' {} a -> s {description = a} :: CreateInstanceExportTask)
 
 -- | The format and location for an export instance task.
@@ -123,7 +124,7 @@ createInstanceExportTask_exportToS3Task :: Lens.Lens' CreateInstanceExportTask E
 createInstanceExportTask_exportToS3Task = Lens.lens (\CreateInstanceExportTask' {exportToS3Task} -> exportToS3Task) (\s@CreateInstanceExportTask' {} a -> s {exportToS3Task = a} :: CreateInstanceExportTask)
 
 -- | The ID of the instance.
-createInstanceExportTask_instanceId :: Lens.Lens' CreateInstanceExportTask Core.Text
+createInstanceExportTask_instanceId :: Lens.Lens' CreateInstanceExportTask Prelude.Text
 createInstanceExportTask_instanceId = Lens.lens (\CreateInstanceExportTask' {instanceId} -> instanceId) (\s@CreateInstanceExportTask' {} a -> s {instanceId = a} :: CreateInstanceExportTask)
 
 -- | The target virtualization environment.
@@ -139,29 +140,30 @@ instance Core.AWSRequest CreateInstanceExportTask where
     Response.receiveXML
       ( \s h x ->
           CreateInstanceExportTaskResponse'
-            Core.<$> (x Core..@? "exportTask")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "exportTask")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateInstanceExportTask
+instance Prelude.Hashable CreateInstanceExportTask
 
-instance Core.NFData CreateInstanceExportTask
+instance Prelude.NFData CreateInstanceExportTask
 
 instance Core.ToHeaders CreateInstanceExportTask where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateInstanceExportTask where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateInstanceExportTask where
   toQuery CreateInstanceExportTask' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateInstanceExportTask" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("CreateInstanceExportTask" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
-              Core.<$> tagSpecifications
+              Prelude.<$> tagSpecifications
           ),
         "Description" Core.=: description,
         "ExportToS3" Core.=: exportToS3Task,
@@ -172,11 +174,11 @@ instance Core.ToQuery CreateInstanceExportTask where
 -- | /See:/ 'newCreateInstanceExportTaskResponse' smart constructor.
 data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
   { -- | Information about the export instance task.
-    exportTask :: Core.Maybe ExportTask,
+    exportTask :: Prelude.Maybe ExportTask,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateInstanceExportTaskResponse' with all optional fields omitted.
@@ -191,21 +193,23 @@ data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
 -- 'httpStatus', 'createInstanceExportTaskResponse_httpStatus' - The response's http status code.
 newCreateInstanceExportTaskResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateInstanceExportTaskResponse
 newCreateInstanceExportTaskResponse pHttpStatus_ =
   CreateInstanceExportTaskResponse'
     { exportTask =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the export instance task.
-createInstanceExportTaskResponse_exportTask :: Lens.Lens' CreateInstanceExportTaskResponse (Core.Maybe ExportTask)
+createInstanceExportTaskResponse_exportTask :: Lens.Lens' CreateInstanceExportTaskResponse (Prelude.Maybe ExportTask)
 createInstanceExportTaskResponse_exportTask = Lens.lens (\CreateInstanceExportTaskResponse' {exportTask} -> exportTask) (\s@CreateInstanceExportTaskResponse' {} a -> s {exportTask = a} :: CreateInstanceExportTaskResponse)
 
 -- | The response's http status code.
-createInstanceExportTaskResponse_httpStatus :: Lens.Lens' CreateInstanceExportTaskResponse Core.Int
+createInstanceExportTaskResponse_httpStatus :: Lens.Lens' CreateInstanceExportTaskResponse Prelude.Int
 createInstanceExportTaskResponse_httpStatus = Lens.lens (\CreateInstanceExportTaskResponse' {httpStatus} -> httpStatus) (\s@CreateInstanceExportTaskResponse' {} a -> s {httpStatus = a} :: CreateInstanceExportTaskResponse)
 
-instance Core.NFData CreateInstanceExportTaskResponse
+instance
+  Prelude.NFData
+    CreateInstanceExportTaskResponse

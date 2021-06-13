@@ -21,6 +21,7 @@ module Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorUpdate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an update to the
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html InputLambdaProcessor>
@@ -36,12 +37,12 @@ data InputLambdaProcessorUpdate = InputLambdaProcessorUpdate'
     -- include the Lambda function version in the Lambda function ARN. For more
     -- information about Lambda ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda Example ARNs: AWS Lambda>
-    resourceARNUpdate :: Core.Maybe Core.Text,
+    resourceARNUpdate :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the new IAM role that is used to access the AWS Lambda
     -- function.
-    roleARNUpdate :: Core.Maybe Core.Text
+    roleARNUpdate :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputLambdaProcessorUpdate' with all optional fields omitted.
@@ -67,8 +68,8 @@ newInputLambdaProcessorUpdate ::
 newInputLambdaProcessorUpdate =
   InputLambdaProcessorUpdate'
     { resourceARNUpdate =
-        Core.Nothing,
-      roleARNUpdate = Core.Nothing
+        Prelude.Nothing,
+      roleARNUpdate = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the new
@@ -79,24 +80,24 @@ newInputLambdaProcessorUpdate =
 -- include the Lambda function version in the Lambda function ARN. For more
 -- information about Lambda ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda Example ARNs: AWS Lambda>
-inputLambdaProcessorUpdate_resourceARNUpdate :: Lens.Lens' InputLambdaProcessorUpdate (Core.Maybe Core.Text)
+inputLambdaProcessorUpdate_resourceARNUpdate :: Lens.Lens' InputLambdaProcessorUpdate (Prelude.Maybe Prelude.Text)
 inputLambdaProcessorUpdate_resourceARNUpdate = Lens.lens (\InputLambdaProcessorUpdate' {resourceARNUpdate} -> resourceARNUpdate) (\s@InputLambdaProcessorUpdate' {} a -> s {resourceARNUpdate = a} :: InputLambdaProcessorUpdate)
 
 -- | The ARN of the new IAM role that is used to access the AWS Lambda
 -- function.
-inputLambdaProcessorUpdate_roleARNUpdate :: Lens.Lens' InputLambdaProcessorUpdate (Core.Maybe Core.Text)
+inputLambdaProcessorUpdate_roleARNUpdate :: Lens.Lens' InputLambdaProcessorUpdate (Prelude.Maybe Prelude.Text)
 inputLambdaProcessorUpdate_roleARNUpdate = Lens.lens (\InputLambdaProcessorUpdate' {roleARNUpdate} -> roleARNUpdate) (\s@InputLambdaProcessorUpdate' {} a -> s {roleARNUpdate = a} :: InputLambdaProcessorUpdate)
 
-instance Core.Hashable InputLambdaProcessorUpdate
+instance Prelude.Hashable InputLambdaProcessorUpdate
 
-instance Core.NFData InputLambdaProcessorUpdate
+instance Prelude.NFData InputLambdaProcessorUpdate
 
 instance Core.ToJSON InputLambdaProcessorUpdate where
   toJSON InputLambdaProcessorUpdate' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ResourceARNUpdate" Core..=)
-              Core.<$> resourceARNUpdate,
-            ("RoleARNUpdate" Core..=) Core.<$> roleARNUpdate
+              Prelude.<$> resourceARNUpdate,
+            ("RoleARNUpdate" Core..=) Prelude.<$> roleARNUpdate
           ]
       )

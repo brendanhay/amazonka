@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.IamInstanceProfile where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an IAM instance profile.
 --
 -- /See:/ 'newIamInstanceProfile' smart constructor.
 data IamInstanceProfile = IamInstanceProfile'
   { -- | The Amazon Resource Name (ARN) of the instance profile.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the instance profile.
-    id :: Core.Maybe Core.Text
+    id :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IamInstanceProfile' with all optional fields omitted.
@@ -49,23 +50,23 @@ newIamInstanceProfile ::
   IamInstanceProfile
 newIamInstanceProfile =
   IamInstanceProfile'
-    { arn = Core.Nothing,
-      id = Core.Nothing
+    { arn = Prelude.Nothing,
+      id = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the instance profile.
-iamInstanceProfile_arn :: Lens.Lens' IamInstanceProfile (Core.Maybe Core.Text)
+iamInstanceProfile_arn :: Lens.Lens' IamInstanceProfile (Prelude.Maybe Prelude.Text)
 iamInstanceProfile_arn = Lens.lens (\IamInstanceProfile' {arn} -> arn) (\s@IamInstanceProfile' {} a -> s {arn = a} :: IamInstanceProfile)
 
 -- | The ID of the instance profile.
-iamInstanceProfile_id :: Lens.Lens' IamInstanceProfile (Core.Maybe Core.Text)
+iamInstanceProfile_id :: Lens.Lens' IamInstanceProfile (Prelude.Maybe Prelude.Text)
 iamInstanceProfile_id = Lens.lens (\IamInstanceProfile' {id} -> id) (\s@IamInstanceProfile' {} a -> s {id = a} :: IamInstanceProfile)
 
 instance Core.FromXML IamInstanceProfile where
   parseXML x =
     IamInstanceProfile'
-      Core.<$> (x Core..@? "arn") Core.<*> (x Core..@? "id")
+      Prelude.<$> (x Core..@? "arn") Prelude.<*> (x Core..@? "id")
 
-instance Core.Hashable IamInstanceProfile
+instance Prelude.Hashable IamInstanceProfile
 
-instance Core.NFData IamInstanceProfile
+instance Prelude.NFData IamInstanceProfile

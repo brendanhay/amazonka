@@ -42,6 +42,7 @@ where
 import Network.AWS.CloudTrail.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,14 +51,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newRemoveTags' smart constructor.
 data RemoveTags = RemoveTags'
   { -- | Specifies a list of tags to be removed.
-    tagsList :: Core.Maybe [Tag],
+    tagsList :: Prelude.Maybe [Tag],
     -- | Specifies the ARN of the trail from which tags should be removed. The
     -- format of a trail ARN is:
     --
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-    resourceId :: Core.Text
+    resourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveTags' with all optional fields omitted.
@@ -75,23 +76,23 @@ data RemoveTags = RemoveTags'
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 newRemoveTags ::
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   RemoveTags
 newRemoveTags pResourceId_ =
   RemoveTags'
-    { tagsList = Core.Nothing,
+    { tagsList = Prelude.Nothing,
       resourceId = pResourceId_
     }
 
 -- | Specifies a list of tags to be removed.
-removeTags_tagsList :: Lens.Lens' RemoveTags (Core.Maybe [Tag])
-removeTags_tagsList = Lens.lens (\RemoveTags' {tagsList} -> tagsList) (\s@RemoveTags' {} a -> s {tagsList = a} :: RemoveTags) Core.. Lens.mapping Lens._Coerce
+removeTags_tagsList :: Lens.Lens' RemoveTags (Prelude.Maybe [Tag])
+removeTags_tagsList = Lens.lens (\RemoveTags' {tagsList} -> tagsList) (\s@RemoveTags' {} a -> s {tagsList = a} :: RemoveTags) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the ARN of the trail from which tags should be removed. The
 -- format of a trail ARN is:
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-removeTags_resourceId :: Lens.Lens' RemoveTags Core.Text
+removeTags_resourceId :: Lens.Lens' RemoveTags Prelude.Text
 removeTags_resourceId = Lens.lens (\RemoveTags' {resourceId} -> resourceId) (\s@RemoveTags' {} a -> s {resourceId = a} :: RemoveTags)
 
 instance Core.AWSRequest RemoveTags where
@@ -101,40 +102,42 @@ instance Core.AWSRequest RemoveTags where
     Response.receiveEmpty
       ( \s h x ->
           RemoveTagsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RemoveTags
+instance Prelude.Hashable RemoveTags
 
-instance Core.NFData RemoveTags
+instance Prelude.NFData RemoveTags
 
 instance Core.ToHeaders RemoveTags where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.RemoveTags" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RemoveTags where
   toJSON RemoveTags' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TagsList" Core..=) Core.<$> tagsList,
-            Core.Just ("ResourceId" Core..= resourceId)
+      ( Prelude.catMaybes
+          [ ("TagsList" Core..=) Prelude.<$> tagsList,
+            Prelude.Just ("ResourceId" Core..= resourceId)
           ]
       )
 
 instance Core.ToPath RemoveTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RemoveTags where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Returns the objects or data listed below if successful. Otherwise,
 -- returns an error.
@@ -142,9 +145,9 @@ instance Core.ToQuery RemoveTags where
 -- /See:/ 'newRemoveTagsResponse' smart constructor.
 data RemoveTagsResponse = RemoveTagsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsResponse' with all optional fields omitted.
@@ -157,13 +160,13 @@ data RemoveTagsResponse = RemoveTagsResponse'
 -- 'httpStatus', 'removeTagsResponse_httpStatus' - The response's http status code.
 newRemoveTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RemoveTagsResponse
 newRemoveTagsResponse pHttpStatus_ =
   RemoveTagsResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-removeTagsResponse_httpStatus :: Lens.Lens' RemoveTagsResponse Core.Int
+removeTagsResponse_httpStatus :: Lens.Lens' RemoveTagsResponse Prelude.Int
 removeTagsResponse_httpStatus = Lens.lens (\RemoveTagsResponse' {httpStatus} -> httpStatus) (\s@RemoveTagsResponse' {} a -> s {httpStatus = a} :: RemoveTagsResponse)
 
-instance Core.NFData RemoveTagsResponse
+instance Prelude.NFData RemoveTagsResponse

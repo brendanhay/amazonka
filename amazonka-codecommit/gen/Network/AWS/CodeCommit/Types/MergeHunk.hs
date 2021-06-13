@@ -22,6 +22,7 @@ module Network.AWS.CodeCommit.Types.MergeHunk where
 import Network.AWS.CodeCommit.Types.MergeHunkDetail
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about merge hunks in a merge or pull request operation.
 --
@@ -29,21 +30,21 @@ import qualified Network.AWS.Lens as Lens
 data MergeHunk = MergeHunk'
   { -- | Information about the merge hunk in the source of a merge or pull
     -- request.
-    source :: Core.Maybe MergeHunkDetail,
+    source :: Prelude.Maybe MergeHunkDetail,
     -- | A Boolean value indicating whether a combination of hunks contains a
     -- conflict. Conflicts occur when the same file or the same lines in a file
     -- were modified in both the source and destination of a merge or pull
     -- request. Valid values include true, false, and null. True when the hunk
     -- represents a conflict and one or more files contains a line conflict.
     -- File mode conflicts in a merge do not set this to true.
-    isConflict :: Core.Maybe Core.Bool,
+    isConflict :: Prelude.Maybe Prelude.Bool,
     -- | Information about the merge hunk in the destination of a merge or pull
     -- request.
-    destination :: Core.Maybe MergeHunkDetail,
+    destination :: Prelude.Maybe MergeHunkDetail,
     -- | Information about the merge hunk in the base of a merge or pull request.
-    base :: Core.Maybe MergeHunkDetail
+    base :: Prelude.Maybe MergeHunkDetail
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MergeHunk' with all optional fields omitted.
@@ -71,15 +72,15 @@ newMergeHunk ::
   MergeHunk
 newMergeHunk =
   MergeHunk'
-    { source = Core.Nothing,
-      isConflict = Core.Nothing,
-      destination = Core.Nothing,
-      base = Core.Nothing
+    { source = Prelude.Nothing,
+      isConflict = Prelude.Nothing,
+      destination = Prelude.Nothing,
+      base = Prelude.Nothing
     }
 
 -- | Information about the merge hunk in the source of a merge or pull
 -- request.
-mergeHunk_source :: Lens.Lens' MergeHunk (Core.Maybe MergeHunkDetail)
+mergeHunk_source :: Lens.Lens' MergeHunk (Prelude.Maybe MergeHunkDetail)
 mergeHunk_source = Lens.lens (\MergeHunk' {source} -> source) (\s@MergeHunk' {} a -> s {source = a} :: MergeHunk)
 
 -- | A Boolean value indicating whether a combination of hunks contains a
@@ -88,16 +89,16 @@ mergeHunk_source = Lens.lens (\MergeHunk' {source} -> source) (\s@MergeHunk' {} 
 -- request. Valid values include true, false, and null. True when the hunk
 -- represents a conflict and one or more files contains a line conflict.
 -- File mode conflicts in a merge do not set this to true.
-mergeHunk_isConflict :: Lens.Lens' MergeHunk (Core.Maybe Core.Bool)
+mergeHunk_isConflict :: Lens.Lens' MergeHunk (Prelude.Maybe Prelude.Bool)
 mergeHunk_isConflict = Lens.lens (\MergeHunk' {isConflict} -> isConflict) (\s@MergeHunk' {} a -> s {isConflict = a} :: MergeHunk)
 
 -- | Information about the merge hunk in the destination of a merge or pull
 -- request.
-mergeHunk_destination :: Lens.Lens' MergeHunk (Core.Maybe MergeHunkDetail)
+mergeHunk_destination :: Lens.Lens' MergeHunk (Prelude.Maybe MergeHunkDetail)
 mergeHunk_destination = Lens.lens (\MergeHunk' {destination} -> destination) (\s@MergeHunk' {} a -> s {destination = a} :: MergeHunk)
 
 -- | Information about the merge hunk in the base of a merge or pull request.
-mergeHunk_base :: Lens.Lens' MergeHunk (Core.Maybe MergeHunkDetail)
+mergeHunk_base :: Lens.Lens' MergeHunk (Prelude.Maybe MergeHunkDetail)
 mergeHunk_base = Lens.lens (\MergeHunk' {base} -> base) (\s@MergeHunk' {} a -> s {base = a} :: MergeHunk)
 
 instance Core.FromJSON MergeHunk where
@@ -106,12 +107,12 @@ instance Core.FromJSON MergeHunk where
       "MergeHunk"
       ( \x ->
           MergeHunk'
-            Core.<$> (x Core..:? "source")
-            Core.<*> (x Core..:? "isConflict")
-            Core.<*> (x Core..:? "destination")
-            Core.<*> (x Core..:? "base")
+            Prelude.<$> (x Core..:? "source")
+            Prelude.<*> (x Core..:? "isConflict")
+            Prelude.<*> (x Core..:? "destination")
+            Prelude.<*> (x Core..:? "base")
       )
 
-instance Core.Hashable MergeHunk
+instance Prelude.Hashable MergeHunk
 
-instance Core.NFData MergeHunk
+instance Prelude.NFData MergeHunk

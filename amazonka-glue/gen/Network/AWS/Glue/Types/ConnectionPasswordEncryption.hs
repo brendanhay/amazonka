@@ -21,6 +21,7 @@ module Network.AWS.Glue.Types.ConnectionPasswordEncryption where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The data structure used by the Data Catalog to encrypt the password as
 -- part of @CreateConnection@ or @UpdateConnection@ and store it in the
@@ -48,14 +49,14 @@ data ConnectionPasswordEncryption = ConnectionPasswordEncryption'
     --
     -- You can set the decrypt permission to enable or restrict access on the
     -- password key according to your security requirements.
-    awsKmsKeyId :: Core.Maybe Core.Text,
+    awsKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | When the @ReturnConnectionPasswordEncrypted@ flag is set to \"true\",
     -- passwords remain encrypted in the responses of @GetConnection@ and
     -- @GetConnections@. This encryption takes effect independently from
     -- catalog encryption.
-    returnConnectionPasswordEncrypted :: Core.Bool
+    returnConnectionPasswordEncrypted :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConnectionPasswordEncryption' with all optional fields omitted.
@@ -81,13 +82,13 @@ data ConnectionPasswordEncryption = ConnectionPasswordEncryption'
 -- catalog encryption.
 newConnectionPasswordEncryption ::
   -- | 'returnConnectionPasswordEncrypted'
-  Core.Bool ->
+  Prelude.Bool ->
   ConnectionPasswordEncryption
 newConnectionPasswordEncryption
   pReturnConnectionPasswordEncrypted_ =
     ConnectionPasswordEncryption'
       { awsKmsKeyId =
-          Core.Nothing,
+          Prelude.Nothing,
         returnConnectionPasswordEncrypted =
           pReturnConnectionPasswordEncrypted_
       }
@@ -101,14 +102,14 @@ newConnectionPasswordEncryption
 --
 -- You can set the decrypt permission to enable or restrict access on the
 -- password key according to your security requirements.
-connectionPasswordEncryption_awsKmsKeyId :: Lens.Lens' ConnectionPasswordEncryption (Core.Maybe Core.Text)
+connectionPasswordEncryption_awsKmsKeyId :: Lens.Lens' ConnectionPasswordEncryption (Prelude.Maybe Prelude.Text)
 connectionPasswordEncryption_awsKmsKeyId = Lens.lens (\ConnectionPasswordEncryption' {awsKmsKeyId} -> awsKmsKeyId) (\s@ConnectionPasswordEncryption' {} a -> s {awsKmsKeyId = a} :: ConnectionPasswordEncryption)
 
 -- | When the @ReturnConnectionPasswordEncrypted@ flag is set to \"true\",
 -- passwords remain encrypted in the responses of @GetConnection@ and
 -- @GetConnections@. This encryption takes effect independently from
 -- catalog encryption.
-connectionPasswordEncryption_returnConnectionPasswordEncrypted :: Lens.Lens' ConnectionPasswordEncryption Core.Bool
+connectionPasswordEncryption_returnConnectionPasswordEncrypted :: Lens.Lens' ConnectionPasswordEncryption Prelude.Bool
 connectionPasswordEncryption_returnConnectionPasswordEncrypted = Lens.lens (\ConnectionPasswordEncryption' {returnConnectionPasswordEncrypted} -> returnConnectionPasswordEncrypted) (\s@ConnectionPasswordEncryption' {} a -> s {returnConnectionPasswordEncrypted = a} :: ConnectionPasswordEncryption)
 
 instance Core.FromJSON ConnectionPasswordEncryption where
@@ -117,20 +118,22 @@ instance Core.FromJSON ConnectionPasswordEncryption where
       "ConnectionPasswordEncryption"
       ( \x ->
           ConnectionPasswordEncryption'
-            Core.<$> (x Core..:? "AwsKmsKeyId")
-            Core.<*> (x Core..: "ReturnConnectionPasswordEncrypted")
+            Prelude.<$> (x Core..:? "AwsKmsKeyId")
+            Prelude.<*> (x Core..: "ReturnConnectionPasswordEncrypted")
       )
 
-instance Core.Hashable ConnectionPasswordEncryption
+instance
+  Prelude.Hashable
+    ConnectionPasswordEncryption
 
-instance Core.NFData ConnectionPasswordEncryption
+instance Prelude.NFData ConnectionPasswordEncryption
 
 instance Core.ToJSON ConnectionPasswordEncryption where
   toJSON ConnectionPasswordEncryption' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AwsKmsKeyId" Core..=) Core.<$> awsKmsKeyId,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("AwsKmsKeyId" Core..=) Prelude.<$> awsKmsKeyId,
+            Prelude.Just
               ( "ReturnConnectionPasswordEncrypted"
                   Core..= returnConnectionPasswordEncrypted
               )

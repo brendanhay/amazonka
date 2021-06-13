@@ -48,6 +48,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,13 +56,13 @@ import qualified Network.AWS.Response as Response
 data DeleteRemediationExceptions = DeleteRemediationExceptions'
   { -- | The name of the AWS Config rule for which you want to delete remediation
     -- exception configuration.
-    configRuleName :: Core.Text,
+    configRuleName :: Prelude.Text,
     -- | An exception list of resource exception keys to be processed with the
     -- current request. AWS Config adds exception for each resource key. For
     -- example, AWS Config adds 3 exceptions for 3 resource keys.
-    resourceKeys :: Core.NonEmpty RemediationExceptionResourceKey
+    resourceKeys :: Prelude.NonEmpty RemediationExceptionResourceKey
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRemediationExceptions' with all optional fields omitted.
@@ -79,9 +80,9 @@ data DeleteRemediationExceptions = DeleteRemediationExceptions'
 -- example, AWS Config adds 3 exceptions for 3 resource keys.
 newDeleteRemediationExceptions ::
   -- | 'configRuleName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceKeys'
-  Core.NonEmpty RemediationExceptionResourceKey ->
+  Prelude.NonEmpty RemediationExceptionResourceKey ->
   DeleteRemediationExceptions
 newDeleteRemediationExceptions
   pConfigRuleName_
@@ -95,14 +96,14 @@ newDeleteRemediationExceptions
 
 -- | The name of the AWS Config rule for which you want to delete remediation
 -- exception configuration.
-deleteRemediationExceptions_configRuleName :: Lens.Lens' DeleteRemediationExceptions Core.Text
+deleteRemediationExceptions_configRuleName :: Lens.Lens' DeleteRemediationExceptions Prelude.Text
 deleteRemediationExceptions_configRuleName = Lens.lens (\DeleteRemediationExceptions' {configRuleName} -> configRuleName) (\s@DeleteRemediationExceptions' {} a -> s {configRuleName = a} :: DeleteRemediationExceptions)
 
 -- | An exception list of resource exception keys to be processed with the
 -- current request. AWS Config adds exception for each resource key. For
 -- example, AWS Config adds 3 exceptions for 3 resource keys.
-deleteRemediationExceptions_resourceKeys :: Lens.Lens' DeleteRemediationExceptions (Core.NonEmpty RemediationExceptionResourceKey)
-deleteRemediationExceptions_resourceKeys = Lens.lens (\DeleteRemediationExceptions' {resourceKeys} -> resourceKeys) (\s@DeleteRemediationExceptions' {} a -> s {resourceKeys = a} :: DeleteRemediationExceptions) Core.. Lens._Coerce
+deleteRemediationExceptions_resourceKeys :: Lens.Lens' DeleteRemediationExceptions (Prelude.NonEmpty RemediationExceptionResourceKey)
+deleteRemediationExceptions_resourceKeys = Lens.lens (\DeleteRemediationExceptions' {resourceKeys} -> resourceKeys) (\s@DeleteRemediationExceptions' {} a -> s {resourceKeys = a} :: DeleteRemediationExceptions) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DeleteRemediationExceptions where
   type
@@ -113,52 +114,55 @@ instance Core.AWSRequest DeleteRemediationExceptions where
     Response.receiveJSON
       ( \s h x ->
           DeleteRemediationExceptionsResponse'
-            Core.<$> (x Core..?> "FailedBatches" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "FailedBatches" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteRemediationExceptions
+instance Prelude.Hashable DeleteRemediationExceptions
 
-instance Core.NFData DeleteRemediationExceptions
+instance Prelude.NFData DeleteRemediationExceptions
 
 instance Core.ToHeaders DeleteRemediationExceptions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.DeleteRemediationExceptions" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteRemediationExceptions where
   toJSON DeleteRemediationExceptions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ConfigRuleName" Core..= configRuleName),
-            Core.Just ("ResourceKeys" Core..= resourceKeys)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ConfigRuleName" Core..= configRuleName),
+            Prelude.Just ("ResourceKeys" Core..= resourceKeys)
           ]
       )
 
 instance Core.ToPath DeleteRemediationExceptions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteRemediationExceptions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRemediationExceptionsResponse' smart constructor.
 data DeleteRemediationExceptionsResponse = DeleteRemediationExceptionsResponse'
   { -- | Returns a list of failed delete remediation exceptions batch objects.
     -- Each object in the batch consists of a list of failed items and failure
     -- messages.
-    failedBatches :: Core.Maybe [FailedDeleteRemediationExceptionsBatch],
+    failedBatches :: Prelude.Maybe [FailedDeleteRemediationExceptionsBatch],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRemediationExceptionsResponse' with all optional fields omitted.
@@ -175,25 +179,25 @@ data DeleteRemediationExceptionsResponse = DeleteRemediationExceptionsResponse'
 -- 'httpStatus', 'deleteRemediationExceptionsResponse_httpStatus' - The response's http status code.
 newDeleteRemediationExceptionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteRemediationExceptionsResponse
 newDeleteRemediationExceptionsResponse pHttpStatus_ =
   DeleteRemediationExceptionsResponse'
     { failedBatches =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns a list of failed delete remediation exceptions batch objects.
 -- Each object in the batch consists of a list of failed items and failure
 -- messages.
-deleteRemediationExceptionsResponse_failedBatches :: Lens.Lens' DeleteRemediationExceptionsResponse (Core.Maybe [FailedDeleteRemediationExceptionsBatch])
-deleteRemediationExceptionsResponse_failedBatches = Lens.lens (\DeleteRemediationExceptionsResponse' {failedBatches} -> failedBatches) (\s@DeleteRemediationExceptionsResponse' {} a -> s {failedBatches = a} :: DeleteRemediationExceptionsResponse) Core.. Lens.mapping Lens._Coerce
+deleteRemediationExceptionsResponse_failedBatches :: Lens.Lens' DeleteRemediationExceptionsResponse (Prelude.Maybe [FailedDeleteRemediationExceptionsBatch])
+deleteRemediationExceptionsResponse_failedBatches = Lens.lens (\DeleteRemediationExceptionsResponse' {failedBatches} -> failedBatches) (\s@DeleteRemediationExceptionsResponse' {} a -> s {failedBatches = a} :: DeleteRemediationExceptionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteRemediationExceptionsResponse_httpStatus :: Lens.Lens' DeleteRemediationExceptionsResponse Core.Int
+deleteRemediationExceptionsResponse_httpStatus :: Lens.Lens' DeleteRemediationExceptionsResponse Prelude.Int
 deleteRemediationExceptionsResponse_httpStatus = Lens.lens (\DeleteRemediationExceptionsResponse' {httpStatus} -> httpStatus) (\s@DeleteRemediationExceptionsResponse' {} a -> s {httpStatus = a} :: DeleteRemediationExceptionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteRemediationExceptionsResponse

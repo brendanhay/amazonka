@@ -44,6 +44,7 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +52,11 @@ import qualified Network.AWS.Response as Response
 data DetectPiiEntities = DetectPiiEntities'
   { -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
     -- UTF-8 encoded characters.
-    text :: Core.Text,
+    text :: Prelude.Text,
     -- | The language of the input documents.
     languageCode :: LanguageCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetectPiiEntities' with all optional fields omitted.
@@ -71,7 +72,7 @@ data DetectPiiEntities = DetectPiiEntities'
 -- 'languageCode', 'detectPiiEntities_languageCode' - The language of the input documents.
 newDetectPiiEntities ::
   -- | 'text'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'languageCode'
   LanguageCode ->
   DetectPiiEntities
@@ -83,7 +84,7 @@ newDetectPiiEntities pText_ pLanguageCode_ =
 
 -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
 -- UTF-8 encoded characters.
-detectPiiEntities_text :: Lens.Lens' DetectPiiEntities Core.Text
+detectPiiEntities_text :: Lens.Lens' DetectPiiEntities Prelude.Text
 detectPiiEntities_text = Lens.lens (\DetectPiiEntities' {text} -> text) (\s@DetectPiiEntities' {} a -> s {text = a} :: DetectPiiEntities)
 
 -- | The language of the input documents.
@@ -99,41 +100,43 @@ instance Core.AWSRequest DetectPiiEntities where
     Response.receiveJSON
       ( \s h x ->
           DetectPiiEntitiesResponse'
-            Core.<$> (x Core..?> "Entities" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Entities" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DetectPiiEntities
+instance Prelude.Hashable DetectPiiEntities
 
-instance Core.NFData DetectPiiEntities
+instance Prelude.NFData DetectPiiEntities
 
 instance Core.ToHeaders DetectPiiEntities where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.DetectPiiEntities" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DetectPiiEntities where
   toJSON DetectPiiEntities' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Text" Core..= text),
-            Core.Just ("LanguageCode" Core..= languageCode)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Text" Core..= text),
+            Prelude.Just ("LanguageCode" Core..= languageCode)
           ]
       )
 
 instance Core.ToPath DetectPiiEntities where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetectPiiEntities where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectPiiEntitiesResponse' smart constructor.
 data DetectPiiEntitiesResponse = DetectPiiEntitiesResponse'
@@ -141,11 +144,11 @@ data DetectPiiEntitiesResponse = DetectPiiEntitiesResponse'
     -- entity, the response provides the entity type, where the entity text
     -- begins and ends, and the level of confidence that Amazon Comprehend has
     -- in the detection.
-    entities :: Core.Maybe [PiiEntity],
+    entities :: Prelude.Maybe [PiiEntity],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetectPiiEntitiesResponse' with all optional fields omitted.
@@ -163,11 +166,12 @@ data DetectPiiEntitiesResponse = DetectPiiEntitiesResponse'
 -- 'httpStatus', 'detectPiiEntitiesResponse_httpStatus' - The response's http status code.
 newDetectPiiEntitiesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DetectPiiEntitiesResponse
 newDetectPiiEntitiesResponse pHttpStatus_ =
   DetectPiiEntitiesResponse'
-    { entities = Core.Nothing,
+    { entities =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -175,11 +179,11 @@ newDetectPiiEntitiesResponse pHttpStatus_ =
 -- entity, the response provides the entity type, where the entity text
 -- begins and ends, and the level of confidence that Amazon Comprehend has
 -- in the detection.
-detectPiiEntitiesResponse_entities :: Lens.Lens' DetectPiiEntitiesResponse (Core.Maybe [PiiEntity])
-detectPiiEntitiesResponse_entities = Lens.lens (\DetectPiiEntitiesResponse' {entities} -> entities) (\s@DetectPiiEntitiesResponse' {} a -> s {entities = a} :: DetectPiiEntitiesResponse) Core.. Lens.mapping Lens._Coerce
+detectPiiEntitiesResponse_entities :: Lens.Lens' DetectPiiEntitiesResponse (Prelude.Maybe [PiiEntity])
+detectPiiEntitiesResponse_entities = Lens.lens (\DetectPiiEntitiesResponse' {entities} -> entities) (\s@DetectPiiEntitiesResponse' {} a -> s {entities = a} :: DetectPiiEntitiesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-detectPiiEntitiesResponse_httpStatus :: Lens.Lens' DetectPiiEntitiesResponse Core.Int
+detectPiiEntitiesResponse_httpStatus :: Lens.Lens' DetectPiiEntitiesResponse Prelude.Int
 detectPiiEntitiesResponse_httpStatus = Lens.lens (\DetectPiiEntitiesResponse' {httpStatus} -> httpStatus) (\s@DetectPiiEntitiesResponse' {} a -> s {httpStatus = a} :: DetectPiiEntitiesResponse)
 
-instance Core.NFData DetectPiiEntitiesResponse
+instance Prelude.NFData DetectPiiEntitiesResponse

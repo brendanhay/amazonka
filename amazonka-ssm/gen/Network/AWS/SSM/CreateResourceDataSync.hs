@@ -70,6 +70,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -84,17 +85,17 @@ data CreateResourceDataSync = CreateResourceDataSync'
     -- Organizations for Explorer. If you specify @SyncFromSource@, you must
     -- provide a value for @SyncSource@. The default value is
     -- @SyncToDestination@.
-    syncType :: Core.Maybe Core.Text,
+    syncType :: Prelude.Maybe Prelude.Text,
     -- | Amazon S3 configuration details for the sync. This parameter is required
     -- if the @SyncType@ value is SyncToDestination.
-    s3Destination :: Core.Maybe ResourceDataSyncS3Destination,
+    s3Destination :: Prelude.Maybe ResourceDataSyncS3Destination,
     -- | Specify information about the data sources to synchronize. This
     -- parameter is required if the @SyncType@ value is SyncFromSource.
-    syncSource :: Core.Maybe ResourceDataSyncSource,
+    syncSource :: Prelude.Maybe ResourceDataSyncSource,
     -- | A name for the configuration.
-    syncName :: Core.Text
+    syncName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateResourceDataSync' with all optional fields omitted.
@@ -122,13 +123,13 @@ data CreateResourceDataSync = CreateResourceDataSync'
 -- 'syncName', 'createResourceDataSync_syncName' - A name for the configuration.
 newCreateResourceDataSync ::
   -- | 'syncName'
-  Core.Text ->
+  Prelude.Text ->
   CreateResourceDataSync
 newCreateResourceDataSync pSyncName_ =
   CreateResourceDataSync'
-    { syncType = Core.Nothing,
-      s3Destination = Core.Nothing,
-      syncSource = Core.Nothing,
+    { syncType = Prelude.Nothing,
+      s3Destination = Prelude.Nothing,
+      syncSource = Prelude.Nothing,
       syncName = pSyncName_
     }
 
@@ -140,21 +141,21 @@ newCreateResourceDataSync pSyncName_ =
 -- Organizations for Explorer. If you specify @SyncFromSource@, you must
 -- provide a value for @SyncSource@. The default value is
 -- @SyncToDestination@.
-createResourceDataSync_syncType :: Lens.Lens' CreateResourceDataSync (Core.Maybe Core.Text)
+createResourceDataSync_syncType :: Lens.Lens' CreateResourceDataSync (Prelude.Maybe Prelude.Text)
 createResourceDataSync_syncType = Lens.lens (\CreateResourceDataSync' {syncType} -> syncType) (\s@CreateResourceDataSync' {} a -> s {syncType = a} :: CreateResourceDataSync)
 
 -- | Amazon S3 configuration details for the sync. This parameter is required
 -- if the @SyncType@ value is SyncToDestination.
-createResourceDataSync_s3Destination :: Lens.Lens' CreateResourceDataSync (Core.Maybe ResourceDataSyncS3Destination)
+createResourceDataSync_s3Destination :: Lens.Lens' CreateResourceDataSync (Prelude.Maybe ResourceDataSyncS3Destination)
 createResourceDataSync_s3Destination = Lens.lens (\CreateResourceDataSync' {s3Destination} -> s3Destination) (\s@CreateResourceDataSync' {} a -> s {s3Destination = a} :: CreateResourceDataSync)
 
 -- | Specify information about the data sources to synchronize. This
 -- parameter is required if the @SyncType@ value is SyncFromSource.
-createResourceDataSync_syncSource :: Lens.Lens' CreateResourceDataSync (Core.Maybe ResourceDataSyncSource)
+createResourceDataSync_syncSource :: Lens.Lens' CreateResourceDataSync (Prelude.Maybe ResourceDataSyncSource)
 createResourceDataSync_syncSource = Lens.lens (\CreateResourceDataSync' {syncSource} -> syncSource) (\s@CreateResourceDataSync' {} a -> s {syncSource = a} :: CreateResourceDataSync)
 
 -- | A name for the configuration.
-createResourceDataSync_syncName :: Lens.Lens' CreateResourceDataSync Core.Text
+createResourceDataSync_syncName :: Lens.Lens' CreateResourceDataSync Prelude.Text
 createResourceDataSync_syncName = Lens.lens (\CreateResourceDataSync' {syncName} -> syncName) (\s@CreateResourceDataSync' {} a -> s {syncName = a} :: CreateResourceDataSync)
 
 instance Core.AWSRequest CreateResourceDataSync where
@@ -166,49 +167,51 @@ instance Core.AWSRequest CreateResourceDataSync where
     Response.receiveEmpty
       ( \s h x ->
           CreateResourceDataSyncResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateResourceDataSync
+instance Prelude.Hashable CreateResourceDataSync
 
-instance Core.NFData CreateResourceDataSync
+instance Prelude.NFData CreateResourceDataSync
 
 instance Core.ToHeaders CreateResourceDataSync where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonSSM.CreateResourceDataSync" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateResourceDataSync where
   toJSON CreateResourceDataSync' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SyncType" Core..=) Core.<$> syncType,
-            ("S3Destination" Core..=) Core.<$> s3Destination,
-            ("SyncSource" Core..=) Core.<$> syncSource,
-            Core.Just ("SyncName" Core..= syncName)
+      ( Prelude.catMaybes
+          [ ("SyncType" Core..=) Prelude.<$> syncType,
+            ("S3Destination" Core..=) Prelude.<$> s3Destination,
+            ("SyncSource" Core..=) Prelude.<$> syncSource,
+            Prelude.Just ("SyncName" Core..= syncName)
           ]
       )
 
 instance Core.ToPath CreateResourceDataSync where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateResourceDataSync where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateResourceDataSyncResponse' smart constructor.
 data CreateResourceDataSyncResponse = CreateResourceDataSyncResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateResourceDataSyncResponse' with all optional fields omitted.
@@ -221,7 +224,7 @@ data CreateResourceDataSyncResponse = CreateResourceDataSyncResponse'
 -- 'httpStatus', 'createResourceDataSyncResponse_httpStatus' - The response's http status code.
 newCreateResourceDataSyncResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateResourceDataSyncResponse
 newCreateResourceDataSyncResponse pHttpStatus_ =
   CreateResourceDataSyncResponse'
@@ -230,7 +233,9 @@ newCreateResourceDataSyncResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createResourceDataSyncResponse_httpStatus :: Lens.Lens' CreateResourceDataSyncResponse Core.Int
+createResourceDataSyncResponse_httpStatus :: Lens.Lens' CreateResourceDataSyncResponse Prelude.Int
 createResourceDataSyncResponse_httpStatus = Lens.lens (\CreateResourceDataSyncResponse' {httpStatus} -> httpStatus) (\s@CreateResourceDataSyncResponse' {} a -> s {httpStatus = a} :: CreateResourceDataSyncResponse)
 
-instance Core.NFData CreateResourceDataSyncResponse
+instance
+  Prelude.NFData
+    CreateResourceDataSyncResponse

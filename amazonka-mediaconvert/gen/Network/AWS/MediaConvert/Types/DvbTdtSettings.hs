@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.DvbTdtSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Inserts DVB Time and Date Table (TDT) at the specified table repetition
 -- interval.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data DvbTdtSettings = DvbTdtSettings'
   { -- | The number of milliseconds between instances of this table in the output
     -- transport stream.
-    tdtInterval :: Core.Maybe Core.Natural
+    tdtInterval :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DvbTdtSettings' with all optional fields omitted.
@@ -46,11 +47,11 @@ data DvbTdtSettings = DvbTdtSettings'
 newDvbTdtSettings ::
   DvbTdtSettings
 newDvbTdtSettings =
-  DvbTdtSettings' {tdtInterval = Core.Nothing}
+  DvbTdtSettings' {tdtInterval = Prelude.Nothing}
 
 -- | The number of milliseconds between instances of this table in the output
 -- transport stream.
-dvbTdtSettings_tdtInterval :: Lens.Lens' DvbTdtSettings (Core.Maybe Core.Natural)
+dvbTdtSettings_tdtInterval :: Lens.Lens' DvbTdtSettings (Prelude.Maybe Prelude.Natural)
 dvbTdtSettings_tdtInterval = Lens.lens (\DvbTdtSettings' {tdtInterval} -> tdtInterval) (\s@DvbTdtSettings' {} a -> s {tdtInterval = a} :: DvbTdtSettings)
 
 instance Core.FromJSON DvbTdtSettings where
@@ -58,16 +59,17 @@ instance Core.FromJSON DvbTdtSettings where
     Core.withObject
       "DvbTdtSettings"
       ( \x ->
-          DvbTdtSettings' Core.<$> (x Core..:? "tdtInterval")
+          DvbTdtSettings'
+            Prelude.<$> (x Core..:? "tdtInterval")
       )
 
-instance Core.Hashable DvbTdtSettings
+instance Prelude.Hashable DvbTdtSettings
 
-instance Core.NFData DvbTdtSettings
+instance Prelude.NFData DvbTdtSettings
 
 instance Core.ToJSON DvbTdtSettings where
   toJSON DvbTdtSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [("tdtInterval" Core..=) Core.<$> tdtInterval]
+      ( Prelude.catMaybes
+          [("tdtInterval" Core..=) Prelude.<$> tdtInterval]
       )

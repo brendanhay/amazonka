@@ -45,6 +45,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,7 +54,7 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateDeploymentConfig' smart constructor.
 data CreateDeploymentConfig = CreateDeploymentConfig'
   { -- | The configuration that specifies how the deployment traffic is routed.
-    trafficRoutingConfig :: Core.Maybe TrafficRoutingConfig,
+    trafficRoutingConfig :: Prelude.Maybe TrafficRoutingConfig,
     -- | The minimum number of healthy instances that should be available at any
     -- time during the deployment. There are two parameters expected in the
     -- input: type and value.
@@ -73,14 +74,14 @@ data CreateDeploymentConfig = CreateDeploymentConfig'
     --
     -- For example, to set a minimum of 95% healthy instance, specify a type of
     -- FLEET_PERCENT and a value of 95.
-    minimumHealthyHosts :: Core.Maybe MinimumHealthyHosts,
+    minimumHealthyHosts :: Prelude.Maybe MinimumHealthyHosts,
     -- | The destination platform type for the deployment (@Lambda@, @Server@, or
     -- @ECS@).
-    computePlatform :: Core.Maybe ComputePlatform,
+    computePlatform :: Prelude.Maybe ComputePlatform,
     -- | The name of the deployment configuration to create.
-    deploymentConfigName :: Core.Text
+    deploymentConfigName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDeploymentConfig' with all optional fields omitted.
@@ -118,19 +119,19 @@ data CreateDeploymentConfig = CreateDeploymentConfig'
 -- 'deploymentConfigName', 'createDeploymentConfig_deploymentConfigName' - The name of the deployment configuration to create.
 newCreateDeploymentConfig ::
   -- | 'deploymentConfigName'
-  Core.Text ->
+  Prelude.Text ->
   CreateDeploymentConfig
 newCreateDeploymentConfig pDeploymentConfigName_ =
   CreateDeploymentConfig'
     { trafficRoutingConfig =
-        Core.Nothing,
-      minimumHealthyHosts = Core.Nothing,
-      computePlatform = Core.Nothing,
+        Prelude.Nothing,
+      minimumHealthyHosts = Prelude.Nothing,
+      computePlatform = Prelude.Nothing,
       deploymentConfigName = pDeploymentConfigName_
     }
 
 -- | The configuration that specifies how the deployment traffic is routed.
-createDeploymentConfig_trafficRoutingConfig :: Lens.Lens' CreateDeploymentConfig (Core.Maybe TrafficRoutingConfig)
+createDeploymentConfig_trafficRoutingConfig :: Lens.Lens' CreateDeploymentConfig (Prelude.Maybe TrafficRoutingConfig)
 createDeploymentConfig_trafficRoutingConfig = Lens.lens (\CreateDeploymentConfig' {trafficRoutingConfig} -> trafficRoutingConfig) (\s@CreateDeploymentConfig' {} a -> s {trafficRoutingConfig = a} :: CreateDeploymentConfig)
 
 -- | The minimum number of healthy instances that should be available at any
@@ -152,16 +153,16 @@ createDeploymentConfig_trafficRoutingConfig = Lens.lens (\CreateDeploymentConfig
 --
 -- For example, to set a minimum of 95% healthy instance, specify a type of
 -- FLEET_PERCENT and a value of 95.
-createDeploymentConfig_minimumHealthyHosts :: Lens.Lens' CreateDeploymentConfig (Core.Maybe MinimumHealthyHosts)
+createDeploymentConfig_minimumHealthyHosts :: Lens.Lens' CreateDeploymentConfig (Prelude.Maybe MinimumHealthyHosts)
 createDeploymentConfig_minimumHealthyHosts = Lens.lens (\CreateDeploymentConfig' {minimumHealthyHosts} -> minimumHealthyHosts) (\s@CreateDeploymentConfig' {} a -> s {minimumHealthyHosts = a} :: CreateDeploymentConfig)
 
 -- | The destination platform type for the deployment (@Lambda@, @Server@, or
 -- @ECS@).
-createDeploymentConfig_computePlatform :: Lens.Lens' CreateDeploymentConfig (Core.Maybe ComputePlatform)
+createDeploymentConfig_computePlatform :: Lens.Lens' CreateDeploymentConfig (Prelude.Maybe ComputePlatform)
 createDeploymentConfig_computePlatform = Lens.lens (\CreateDeploymentConfig' {computePlatform} -> computePlatform) (\s@CreateDeploymentConfig' {} a -> s {computePlatform = a} :: CreateDeploymentConfig)
 
 -- | The name of the deployment configuration to create.
-createDeploymentConfig_deploymentConfigName :: Lens.Lens' CreateDeploymentConfig Core.Text
+createDeploymentConfig_deploymentConfigName :: Lens.Lens' CreateDeploymentConfig Prelude.Text
 createDeploymentConfig_deploymentConfigName = Lens.lens (\CreateDeploymentConfig' {deploymentConfigName} -> deploymentConfigName) (\s@CreateDeploymentConfig' {} a -> s {deploymentConfigName = a} :: CreateDeploymentConfig)
 
 instance Core.AWSRequest CreateDeploymentConfig where
@@ -173,37 +174,40 @@ instance Core.AWSRequest CreateDeploymentConfig where
     Response.receiveJSON
       ( \s h x ->
           CreateDeploymentConfigResponse'
-            Core.<$> (x Core..?> "deploymentConfigId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "deploymentConfigId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateDeploymentConfig
+instance Prelude.Hashable CreateDeploymentConfig
 
-instance Core.NFData CreateDeploymentConfig
+instance Prelude.NFData CreateDeploymentConfig
 
 instance Core.ToHeaders CreateDeploymentConfig where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.CreateDeploymentConfig" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateDeploymentConfig where
   toJSON CreateDeploymentConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("trafficRoutingConfig" Core..=)
-              Core.<$> trafficRoutingConfig,
+              Prelude.<$> trafficRoutingConfig,
             ("minimumHealthyHosts" Core..=)
-              Core.<$> minimumHealthyHosts,
-            ("computePlatform" Core..=) Core.<$> computePlatform,
-            Core.Just
+              Prelude.<$> minimumHealthyHosts,
+            ("computePlatform" Core..=)
+              Prelude.<$> computePlatform,
+            Prelude.Just
               ( "deploymentConfigName"
                   Core..= deploymentConfigName
               )
@@ -211,21 +215,21 @@ instance Core.ToJSON CreateDeploymentConfig where
       )
 
 instance Core.ToPath CreateDeploymentConfig where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateDeploymentConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @CreateDeploymentConfig@ operation.
 --
 -- /See:/ 'newCreateDeploymentConfigResponse' smart constructor.
 data CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'
   { -- | A unique deployment configuration ID.
-    deploymentConfigId :: Core.Maybe Core.Text,
+    deploymentConfigId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDeploymentConfigResponse' with all optional fields omitted.
@@ -240,21 +244,23 @@ data CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'
 -- 'httpStatus', 'createDeploymentConfigResponse_httpStatus' - The response's http status code.
 newCreateDeploymentConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateDeploymentConfigResponse
 newCreateDeploymentConfigResponse pHttpStatus_ =
   CreateDeploymentConfigResponse'
     { deploymentConfigId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique deployment configuration ID.
-createDeploymentConfigResponse_deploymentConfigId :: Lens.Lens' CreateDeploymentConfigResponse (Core.Maybe Core.Text)
+createDeploymentConfigResponse_deploymentConfigId :: Lens.Lens' CreateDeploymentConfigResponse (Prelude.Maybe Prelude.Text)
 createDeploymentConfigResponse_deploymentConfigId = Lens.lens (\CreateDeploymentConfigResponse' {deploymentConfigId} -> deploymentConfigId) (\s@CreateDeploymentConfigResponse' {} a -> s {deploymentConfigId = a} :: CreateDeploymentConfigResponse)
 
 -- | The response's http status code.
-createDeploymentConfigResponse_httpStatus :: Lens.Lens' CreateDeploymentConfigResponse Core.Int
+createDeploymentConfigResponse_httpStatus :: Lens.Lens' CreateDeploymentConfigResponse Prelude.Int
 createDeploymentConfigResponse_httpStatus = Lens.lens (\CreateDeploymentConfigResponse' {httpStatus} -> httpStatus) (\s@CreateDeploymentConfigResponse' {} a -> s {httpStatus = a} :: CreateDeploymentConfigResponse)
 
-instance Core.NFData CreateDeploymentConfigResponse
+instance
+  Prelude.NFData
+    CreateDeploymentConfigResponse

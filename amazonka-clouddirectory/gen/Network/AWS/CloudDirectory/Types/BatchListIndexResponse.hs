@@ -22,17 +22,18 @@ module Network.AWS.CloudDirectory.Types.BatchListIndexResponse where
 import Network.AWS.CloudDirectory.Types.IndexAttachment
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a ListIndex response operation.
 --
 -- /See:/ 'newBatchListIndexResponse' smart constructor.
 data BatchListIndexResponse = BatchListIndexResponse'
   { -- | The pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The objects and indexed values attached to the index.
-    indexAttachments :: Core.Maybe [IndexAttachment]
+    indexAttachments :: Prelude.Maybe [IndexAttachment]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchListIndexResponse' with all optional fields omitted.
@@ -49,17 +50,18 @@ newBatchListIndexResponse ::
   BatchListIndexResponse
 newBatchListIndexResponse =
   BatchListIndexResponse'
-    { nextToken = Core.Nothing,
-      indexAttachments = Core.Nothing
+    { nextToken =
+        Prelude.Nothing,
+      indexAttachments = Prelude.Nothing
     }
 
 -- | The pagination token.
-batchListIndexResponse_nextToken :: Lens.Lens' BatchListIndexResponse (Core.Maybe Core.Text)
+batchListIndexResponse_nextToken :: Lens.Lens' BatchListIndexResponse (Prelude.Maybe Prelude.Text)
 batchListIndexResponse_nextToken = Lens.lens (\BatchListIndexResponse' {nextToken} -> nextToken) (\s@BatchListIndexResponse' {} a -> s {nextToken = a} :: BatchListIndexResponse)
 
 -- | The objects and indexed values attached to the index.
-batchListIndexResponse_indexAttachments :: Lens.Lens' BatchListIndexResponse (Core.Maybe [IndexAttachment])
-batchListIndexResponse_indexAttachments = Lens.lens (\BatchListIndexResponse' {indexAttachments} -> indexAttachments) (\s@BatchListIndexResponse' {} a -> s {indexAttachments = a} :: BatchListIndexResponse) Core.. Lens.mapping Lens._Coerce
+batchListIndexResponse_indexAttachments :: Lens.Lens' BatchListIndexResponse (Prelude.Maybe [IndexAttachment])
+batchListIndexResponse_indexAttachments = Lens.lens (\BatchListIndexResponse' {indexAttachments} -> indexAttachments) (\s@BatchListIndexResponse' {} a -> s {indexAttachments = a} :: BatchListIndexResponse) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON BatchListIndexResponse where
   parseJSON =
@@ -67,10 +69,12 @@ instance Core.FromJSON BatchListIndexResponse where
       "BatchListIndexResponse"
       ( \x ->
           BatchListIndexResponse'
-            Core.<$> (x Core..:? "NextToken")
-            Core.<*> (x Core..:? "IndexAttachments" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "NextToken")
+            Prelude.<*> ( x Core..:? "IndexAttachments"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable BatchListIndexResponse
+instance Prelude.Hashable BatchListIndexResponse
 
-instance Core.NFData BatchListIndexResponse
+instance Prelude.NFData BatchListIndexResponse

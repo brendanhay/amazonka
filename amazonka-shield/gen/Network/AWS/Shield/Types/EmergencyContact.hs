@@ -21,6 +21,7 @@ module Network.AWS.Shield.Types.EmergencyContact where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contact information that the DRT can use to contact you if you have
 -- proactive engagement enabled, for escalations to the DRT and to initiate
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEmergencyContact' smart constructor.
 data EmergencyContact = EmergencyContact'
   { -- | The phone number for the contact.
-    phoneNumber :: Core.Maybe Core.Text,
+    phoneNumber :: Prelude.Maybe Prelude.Text,
     -- | Additional notes regarding the contact.
-    contactNotes :: Core.Maybe Core.Text,
+    contactNotes :: Prelude.Maybe Prelude.Text,
     -- | The email address for the contact.
-    emailAddress :: Core.Text
+    emailAddress :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EmergencyContact' with all optional fields omitted.
@@ -52,25 +53,25 @@ data EmergencyContact = EmergencyContact'
 -- 'emailAddress', 'emergencyContact_emailAddress' - The email address for the contact.
 newEmergencyContact ::
   -- | 'emailAddress'
-  Core.Text ->
+  Prelude.Text ->
   EmergencyContact
 newEmergencyContact pEmailAddress_ =
   EmergencyContact'
-    { phoneNumber = Core.Nothing,
-      contactNotes = Core.Nothing,
+    { phoneNumber = Prelude.Nothing,
+      contactNotes = Prelude.Nothing,
       emailAddress = pEmailAddress_
     }
 
 -- | The phone number for the contact.
-emergencyContact_phoneNumber :: Lens.Lens' EmergencyContact (Core.Maybe Core.Text)
+emergencyContact_phoneNumber :: Lens.Lens' EmergencyContact (Prelude.Maybe Prelude.Text)
 emergencyContact_phoneNumber = Lens.lens (\EmergencyContact' {phoneNumber} -> phoneNumber) (\s@EmergencyContact' {} a -> s {phoneNumber = a} :: EmergencyContact)
 
 -- | Additional notes regarding the contact.
-emergencyContact_contactNotes :: Lens.Lens' EmergencyContact (Core.Maybe Core.Text)
+emergencyContact_contactNotes :: Lens.Lens' EmergencyContact (Prelude.Maybe Prelude.Text)
 emergencyContact_contactNotes = Lens.lens (\EmergencyContact' {contactNotes} -> contactNotes) (\s@EmergencyContact' {} a -> s {contactNotes = a} :: EmergencyContact)
 
 -- | The email address for the contact.
-emergencyContact_emailAddress :: Lens.Lens' EmergencyContact Core.Text
+emergencyContact_emailAddress :: Lens.Lens' EmergencyContact Prelude.Text
 emergencyContact_emailAddress = Lens.lens (\EmergencyContact' {emailAddress} -> emailAddress) (\s@EmergencyContact' {} a -> s {emailAddress = a} :: EmergencyContact)
 
 instance Core.FromJSON EmergencyContact where
@@ -79,21 +80,21 @@ instance Core.FromJSON EmergencyContact where
       "EmergencyContact"
       ( \x ->
           EmergencyContact'
-            Core.<$> (x Core..:? "PhoneNumber")
-            Core.<*> (x Core..:? "ContactNotes")
-            Core.<*> (x Core..: "EmailAddress")
+            Prelude.<$> (x Core..:? "PhoneNumber")
+            Prelude.<*> (x Core..:? "ContactNotes")
+            Prelude.<*> (x Core..: "EmailAddress")
       )
 
-instance Core.Hashable EmergencyContact
+instance Prelude.Hashable EmergencyContact
 
-instance Core.NFData EmergencyContact
+instance Prelude.NFData EmergencyContact
 
 instance Core.ToJSON EmergencyContact where
   toJSON EmergencyContact' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("PhoneNumber" Core..=) Core.<$> phoneNumber,
-            ("ContactNotes" Core..=) Core.<$> contactNotes,
-            Core.Just ("EmailAddress" Core..= emailAddress)
+      ( Prelude.catMaybes
+          [ ("PhoneNumber" Core..=) Prelude.<$> phoneNumber,
+            ("ContactNotes" Core..=) Prelude.<$> contactNotes,
+            Prelude.Just ("EmailAddress" Core..= emailAddress)
           ]
       )

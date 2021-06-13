@@ -22,6 +22,7 @@ module Network.AWS.Lightsail.Types.InstanceSnapshotInfo where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.DiskInfo
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an instance snapshot.
 --
@@ -29,14 +30,14 @@ import Network.AWS.Lightsail.Types.DiskInfo
 data InstanceSnapshotInfo = InstanceSnapshotInfo'
   { -- | A list of objects describing the disks that were attached to the source
     -- instance.
-    fromDiskInfo :: Core.Maybe [DiskInfo],
+    fromDiskInfo :: Prelude.Maybe [DiskInfo],
     -- | The bundle ID from which the source instance was created (e.g.,
     -- @micro_1_0@).
-    fromBundleId :: Core.Maybe Core.Text,
+    fromBundleId :: Prelude.Maybe Prelude.Text,
     -- | The blueprint ID from which the source instance (e.g., @os_debian_8_3@).
-    fromBlueprintId :: Core.Maybe Core.Text
+    fromBlueprintId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceSnapshotInfo' with all optional fields omitted.
@@ -57,23 +58,24 @@ newInstanceSnapshotInfo ::
   InstanceSnapshotInfo
 newInstanceSnapshotInfo =
   InstanceSnapshotInfo'
-    { fromDiskInfo = Core.Nothing,
-      fromBundleId = Core.Nothing,
-      fromBlueprintId = Core.Nothing
+    { fromDiskInfo =
+        Prelude.Nothing,
+      fromBundleId = Prelude.Nothing,
+      fromBlueprintId = Prelude.Nothing
     }
 
 -- | A list of objects describing the disks that were attached to the source
 -- instance.
-instanceSnapshotInfo_fromDiskInfo :: Lens.Lens' InstanceSnapshotInfo (Core.Maybe [DiskInfo])
-instanceSnapshotInfo_fromDiskInfo = Lens.lens (\InstanceSnapshotInfo' {fromDiskInfo} -> fromDiskInfo) (\s@InstanceSnapshotInfo' {} a -> s {fromDiskInfo = a} :: InstanceSnapshotInfo) Core.. Lens.mapping Lens._Coerce
+instanceSnapshotInfo_fromDiskInfo :: Lens.Lens' InstanceSnapshotInfo (Prelude.Maybe [DiskInfo])
+instanceSnapshotInfo_fromDiskInfo = Lens.lens (\InstanceSnapshotInfo' {fromDiskInfo} -> fromDiskInfo) (\s@InstanceSnapshotInfo' {} a -> s {fromDiskInfo = a} :: InstanceSnapshotInfo) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The bundle ID from which the source instance was created (e.g.,
 -- @micro_1_0@).
-instanceSnapshotInfo_fromBundleId :: Lens.Lens' InstanceSnapshotInfo (Core.Maybe Core.Text)
+instanceSnapshotInfo_fromBundleId :: Lens.Lens' InstanceSnapshotInfo (Prelude.Maybe Prelude.Text)
 instanceSnapshotInfo_fromBundleId = Lens.lens (\InstanceSnapshotInfo' {fromBundleId} -> fromBundleId) (\s@InstanceSnapshotInfo' {} a -> s {fromBundleId = a} :: InstanceSnapshotInfo)
 
 -- | The blueprint ID from which the source instance (e.g., @os_debian_8_3@).
-instanceSnapshotInfo_fromBlueprintId :: Lens.Lens' InstanceSnapshotInfo (Core.Maybe Core.Text)
+instanceSnapshotInfo_fromBlueprintId :: Lens.Lens' InstanceSnapshotInfo (Prelude.Maybe Prelude.Text)
 instanceSnapshotInfo_fromBlueprintId = Lens.lens (\InstanceSnapshotInfo' {fromBlueprintId} -> fromBlueprintId) (\s@InstanceSnapshotInfo' {} a -> s {fromBlueprintId = a} :: InstanceSnapshotInfo)
 
 instance Core.FromJSON InstanceSnapshotInfo where
@@ -82,11 +84,11 @@ instance Core.FromJSON InstanceSnapshotInfo where
       "InstanceSnapshotInfo"
       ( \x ->
           InstanceSnapshotInfo'
-            Core.<$> (x Core..:? "fromDiskInfo" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "fromBundleId")
-            Core.<*> (x Core..:? "fromBlueprintId")
+            Prelude.<$> (x Core..:? "fromDiskInfo" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "fromBundleId")
+            Prelude.<*> (x Core..:? "fromBlueprintId")
       )
 
-instance Core.Hashable InstanceSnapshotInfo
+instance Prelude.Hashable InstanceSnapshotInfo
 
-instance Core.NFData InstanceSnapshotInfo
+instance Prelude.NFData InstanceSnapshotInfo

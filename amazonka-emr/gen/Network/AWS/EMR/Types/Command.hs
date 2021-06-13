@@ -21,19 +21,20 @@ module Network.AWS.EMR.Types.Command where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An entity describing an executable that runs on a cluster.
 --
 -- /See:/ 'newCommand' smart constructor.
 data Command = Command'
   { -- | Arguments for Amazon EMR to pass to the command for execution.
-    args :: Core.Maybe [Core.Text],
+    args :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon S3 location of the command script.
-    scriptPath :: Core.Maybe Core.Text,
+    scriptPath :: Prelude.Maybe Prelude.Text,
     -- | The name of the command.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Command' with all optional fields omitted.
@@ -52,21 +53,21 @@ newCommand ::
   Command
 newCommand =
   Command'
-    { args = Core.Nothing,
-      scriptPath = Core.Nothing,
-      name = Core.Nothing
+    { args = Prelude.Nothing,
+      scriptPath = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | Arguments for Amazon EMR to pass to the command for execution.
-command_args :: Lens.Lens' Command (Core.Maybe [Core.Text])
-command_args = Lens.lens (\Command' {args} -> args) (\s@Command' {} a -> s {args = a} :: Command) Core.. Lens.mapping Lens._Coerce
+command_args :: Lens.Lens' Command (Prelude.Maybe [Prelude.Text])
+command_args = Lens.lens (\Command' {args} -> args) (\s@Command' {} a -> s {args = a} :: Command) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon S3 location of the command script.
-command_scriptPath :: Lens.Lens' Command (Core.Maybe Core.Text)
+command_scriptPath :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
 command_scriptPath = Lens.lens (\Command' {scriptPath} -> scriptPath) (\s@Command' {} a -> s {scriptPath = a} :: Command)
 
 -- | The name of the command.
-command_name :: Lens.Lens' Command (Core.Maybe Core.Text)
+command_name :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
 command_name = Lens.lens (\Command' {name} -> name) (\s@Command' {} a -> s {name = a} :: Command)
 
 instance Core.FromJSON Command where
@@ -75,11 +76,11 @@ instance Core.FromJSON Command where
       "Command"
       ( \x ->
           Command'
-            Core.<$> (x Core..:? "Args" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "ScriptPath")
-            Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Args" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ScriptPath")
+            Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable Command
+instance Prelude.Hashable Command
 
-instance Core.NFData Command
+instance Prelude.NFData Command

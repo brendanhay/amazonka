@@ -21,17 +21,18 @@ module Network.AWS.SageMaker.Types.CategoricalParameterRange where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of categorical hyperparameters to tune.
 --
 -- /See:/ 'newCategoricalParameterRange' smart constructor.
 data CategoricalParameterRange = CategoricalParameterRange'
   { -- | The name of the categorical hyperparameter to tune.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | A list of the categories for the hyperparameter.
-    values :: Core.NonEmpty Core.Text
+    values :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CategoricalParameterRange' with all optional fields omitted.
@@ -46,9 +47,9 @@ data CategoricalParameterRange = CategoricalParameterRange'
 -- 'values', 'categoricalParameterRange_values' - A list of the categories for the hyperparameter.
 newCategoricalParameterRange ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'values'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   CategoricalParameterRange
 newCategoricalParameterRange pName_ pValues_ =
   CategoricalParameterRange'
@@ -57,12 +58,12 @@ newCategoricalParameterRange pName_ pValues_ =
     }
 
 -- | The name of the categorical hyperparameter to tune.
-categoricalParameterRange_name :: Lens.Lens' CategoricalParameterRange Core.Text
+categoricalParameterRange_name :: Lens.Lens' CategoricalParameterRange Prelude.Text
 categoricalParameterRange_name = Lens.lens (\CategoricalParameterRange' {name} -> name) (\s@CategoricalParameterRange' {} a -> s {name = a} :: CategoricalParameterRange)
 
 -- | A list of the categories for the hyperparameter.
-categoricalParameterRange_values :: Lens.Lens' CategoricalParameterRange (Core.NonEmpty Core.Text)
-categoricalParameterRange_values = Lens.lens (\CategoricalParameterRange' {values} -> values) (\s@CategoricalParameterRange' {} a -> s {values = a} :: CategoricalParameterRange) Core.. Lens._Coerce
+categoricalParameterRange_values :: Lens.Lens' CategoricalParameterRange (Prelude.NonEmpty Prelude.Text)
+categoricalParameterRange_values = Lens.lens (\CategoricalParameterRange' {values} -> values) (\s@CategoricalParameterRange' {} a -> s {values = a} :: CategoricalParameterRange) Prelude.. Lens._Coerce
 
 instance Core.FromJSON CategoricalParameterRange where
   parseJSON =
@@ -70,18 +71,18 @@ instance Core.FromJSON CategoricalParameterRange where
       "CategoricalParameterRange"
       ( \x ->
           CategoricalParameterRange'
-            Core.<$> (x Core..: "Name") Core.<*> (x Core..: "Values")
+            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Values")
       )
 
-instance Core.Hashable CategoricalParameterRange
+instance Prelude.Hashable CategoricalParameterRange
 
-instance Core.NFData CategoricalParameterRange
+instance Prelude.NFData CategoricalParameterRange
 
 instance Core.ToJSON CategoricalParameterRange where
   toJSON CategoricalParameterRange' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("Values" Core..= values)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Values" Core..= values)
           ]
       )

@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -66,14 +67,14 @@ data ListRuleGroups = ListRuleGroups'
     -- second and subsequent @ListRuleGroups@ requests, specify the value of
     -- @NextMarker@ from the previous response to get information about another
     -- batch of @RuleGroups@.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | Specifies the number of @RuleGroups@ that you want AWS WAF to return for
     -- this request. If you have more @RuleGroups@ than the number that you
     -- specify for @Limit@, the response includes a @NextMarker@ value that you
     -- can use to get another batch of @RuleGroups@.
-    limit :: Core.Maybe Core.Natural
+    limit :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRuleGroups' with all optional fields omitted.
@@ -98,8 +99,8 @@ newListRuleGroups ::
   ListRuleGroups
 newListRuleGroups =
   ListRuleGroups'
-    { nextMarker = Core.Nothing,
-      limit = Core.Nothing
+    { nextMarker = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more @RuleGroups@ than
@@ -108,34 +109,37 @@ newListRuleGroups =
 -- second and subsequent @ListRuleGroups@ requests, specify the value of
 -- @NextMarker@ from the previous response to get information about another
 -- batch of @RuleGroups@.
-listRuleGroups_nextMarker :: Lens.Lens' ListRuleGroups (Core.Maybe Core.Text)
+listRuleGroups_nextMarker :: Lens.Lens' ListRuleGroups (Prelude.Maybe Prelude.Text)
 listRuleGroups_nextMarker = Lens.lens (\ListRuleGroups' {nextMarker} -> nextMarker) (\s@ListRuleGroups' {} a -> s {nextMarker = a} :: ListRuleGroups)
 
 -- | Specifies the number of @RuleGroups@ that you want AWS WAF to return for
 -- this request. If you have more @RuleGroups@ than the number that you
 -- specify for @Limit@, the response includes a @NextMarker@ value that you
 -- can use to get another batch of @RuleGroups@.
-listRuleGroups_limit :: Lens.Lens' ListRuleGroups (Core.Maybe Core.Natural)
+listRuleGroups_limit :: Lens.Lens' ListRuleGroups (Prelude.Maybe Prelude.Natural)
 listRuleGroups_limit = Lens.lens (\ListRuleGroups' {limit} -> limit) (\s@ListRuleGroups' {} a -> s {limit = a} :: ListRuleGroups)
 
 instance Core.AWSPager ListRuleGroups where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listRuleGroupsResponse_nextMarker Core.. Lens._Just
+            Lens.^? listRuleGroupsResponse_nextMarker
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listRuleGroupsResponse_ruleGroups Core.. Lens._Just
+            Lens.^? listRuleGroupsResponse_ruleGroups
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listRuleGroups_nextMarker
+          Prelude.& listRuleGroups_nextMarker
           Lens..~ rs
-          Lens.^? listRuleGroupsResponse_nextMarker Core.. Lens._Just
+          Lens.^? listRuleGroupsResponse_nextMarker
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRuleGroups where
   type
@@ -146,42 +150,44 @@ instance Core.AWSRequest ListRuleGroups where
     Response.receiveJSON
       ( \s h x ->
           ListRuleGroupsResponse'
-            Core.<$> (x Core..?> "NextMarker")
-            Core.<*> (x Core..?> "RuleGroups" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextMarker")
+            Prelude.<*> (x Core..?> "RuleGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListRuleGroups
+instance Prelude.Hashable ListRuleGroups
 
-instance Core.NFData ListRuleGroups
+instance Prelude.NFData ListRuleGroups
 
 instance Core.ToHeaders ListRuleGroups where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_20150824.ListRuleGroups" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListRuleGroups where
   toJSON ListRuleGroups' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextMarker" Core..=) Core.<$> nextMarker,
-            ("Limit" Core..=) Core.<$> limit
+      ( Prelude.catMaybes
+          [ ("NextMarker" Core..=) Prelude.<$> nextMarker,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
 instance Core.ToPath ListRuleGroups where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListRuleGroups where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRuleGroupsResponse' smart constructor.
 data ListRuleGroupsResponse = ListRuleGroupsResponse'
@@ -190,13 +196,13 @@ data ListRuleGroupsResponse = ListRuleGroupsResponse'
     -- list more @RuleGroups@, submit another @ListRuleGroups@ request, and
     -- specify the @NextMarker@ value from the response in the @NextMarker@
     -- value in the next request.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | An array of RuleGroup objects.
-    ruleGroups :: Core.Maybe [RuleGroupSummary],
+    ruleGroups :: Prelude.Maybe [RuleGroupSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRuleGroupsResponse' with all optional fields omitted.
@@ -217,12 +223,13 @@ data ListRuleGroupsResponse = ListRuleGroupsResponse'
 -- 'httpStatus', 'listRuleGroupsResponse_httpStatus' - The response's http status code.
 newListRuleGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListRuleGroupsResponse
 newListRuleGroupsResponse pHttpStatus_ =
   ListRuleGroupsResponse'
-    { nextMarker = Core.Nothing,
-      ruleGroups = Core.Nothing,
+    { nextMarker =
+        Prelude.Nothing,
+      ruleGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -231,15 +238,15 @@ newListRuleGroupsResponse pHttpStatus_ =
 -- list more @RuleGroups@, submit another @ListRuleGroups@ request, and
 -- specify the @NextMarker@ value from the response in the @NextMarker@
 -- value in the next request.
-listRuleGroupsResponse_nextMarker :: Lens.Lens' ListRuleGroupsResponse (Core.Maybe Core.Text)
+listRuleGroupsResponse_nextMarker :: Lens.Lens' ListRuleGroupsResponse (Prelude.Maybe Prelude.Text)
 listRuleGroupsResponse_nextMarker = Lens.lens (\ListRuleGroupsResponse' {nextMarker} -> nextMarker) (\s@ListRuleGroupsResponse' {} a -> s {nextMarker = a} :: ListRuleGroupsResponse)
 
 -- | An array of RuleGroup objects.
-listRuleGroupsResponse_ruleGroups :: Lens.Lens' ListRuleGroupsResponse (Core.Maybe [RuleGroupSummary])
-listRuleGroupsResponse_ruleGroups = Lens.lens (\ListRuleGroupsResponse' {ruleGroups} -> ruleGroups) (\s@ListRuleGroupsResponse' {} a -> s {ruleGroups = a} :: ListRuleGroupsResponse) Core.. Lens.mapping Lens._Coerce
+listRuleGroupsResponse_ruleGroups :: Lens.Lens' ListRuleGroupsResponse (Prelude.Maybe [RuleGroupSummary])
+listRuleGroupsResponse_ruleGroups = Lens.lens (\ListRuleGroupsResponse' {ruleGroups} -> ruleGroups) (\s@ListRuleGroupsResponse' {} a -> s {ruleGroups = a} :: ListRuleGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listRuleGroupsResponse_httpStatus :: Lens.Lens' ListRuleGroupsResponse Core.Int
+listRuleGroupsResponse_httpStatus :: Lens.Lens' ListRuleGroupsResponse Prelude.Int
 listRuleGroupsResponse_httpStatus = Lens.lens (\ListRuleGroupsResponse' {httpStatus} -> httpStatus) (\s@ListRuleGroupsResponse' {} a -> s {httpStatus = a} :: ListRuleGroupsResponse)
 
-instance Core.NFData ListRuleGroupsResponse
+instance Prelude.NFData ListRuleGroupsResponse

@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteApplications' smart constructor.
 data DeleteApplications = DeleteApplications'
   { -- | Configuration ID of an application to be deleted.
-    configurationIds :: [Core.Text]
+    configurationIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteApplications' with all optional fields omitted.
@@ -64,11 +65,14 @@ data DeleteApplications = DeleteApplications'
 newDeleteApplications ::
   DeleteApplications
 newDeleteApplications =
-  DeleteApplications' {configurationIds = Core.mempty}
+  DeleteApplications'
+    { configurationIds =
+        Prelude.mempty
+    }
 
 -- | Configuration ID of an application to be deleted.
-deleteApplications_configurationIds :: Lens.Lens' DeleteApplications [Core.Text]
-deleteApplications_configurationIds = Lens.lens (\DeleteApplications' {configurationIds} -> configurationIds) (\s@DeleteApplications' {} a -> s {configurationIds = a} :: DeleteApplications) Core.. Lens._Coerce
+deleteApplications_configurationIds :: Lens.Lens' DeleteApplications [Prelude.Text]
+deleteApplications_configurationIds = Lens.lens (\DeleteApplications' {configurationIds} -> configurationIds) (\s@DeleteApplications' {} a -> s {configurationIds = a} :: DeleteApplications) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DeleteApplications where
   type
@@ -79,47 +83,49 @@ instance Core.AWSRequest DeleteApplications where
     Response.receiveEmpty
       ( \s h x ->
           DeleteApplicationsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteApplications
+instance Prelude.Hashable DeleteApplications
 
-instance Core.NFData DeleteApplications
+instance Prelude.NFData DeleteApplications
 
 instance Core.ToHeaders DeleteApplications where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSPoseidonService_V2015_11_01.DeleteApplications" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteApplications where
   toJSON DeleteApplications' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("configurationIds" Core..= configurationIds)
           ]
       )
 
 instance Core.ToPath DeleteApplications where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteApplications where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteApplicationsResponse' smart constructor.
 data DeleteApplicationsResponse = DeleteApplicationsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteApplicationsResponse' with all optional fields omitted.
@@ -132,7 +138,7 @@ data DeleteApplicationsResponse = DeleteApplicationsResponse'
 -- 'httpStatus', 'deleteApplicationsResponse_httpStatus' - The response's http status code.
 newDeleteApplicationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteApplicationsResponse
 newDeleteApplicationsResponse pHttpStatus_ =
   DeleteApplicationsResponse'
@@ -141,7 +147,7 @@ newDeleteApplicationsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteApplicationsResponse_httpStatus :: Lens.Lens' DeleteApplicationsResponse Core.Int
+deleteApplicationsResponse_httpStatus :: Lens.Lens' DeleteApplicationsResponse Prelude.Int
 deleteApplicationsResponse_httpStatus = Lens.lens (\DeleteApplicationsResponse' {httpStatus} -> httpStatus) (\s@DeleteApplicationsResponse' {} a -> s {httpStatus = a} :: DeleteApplicationsResponse)
 
-instance Core.NFData DeleteApplicationsResponse
+instance Prelude.NFData DeleteApplicationsResponse

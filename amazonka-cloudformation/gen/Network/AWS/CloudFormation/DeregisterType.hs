@@ -60,6 +60,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,21 +69,21 @@ data DeregisterType = DeregisterType'
   { -- | The name of the extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    typeName :: Core.Maybe Core.Text,
+    typeName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of a specific version of the extension. The version ID is the
     -- value at the end of the Amazon Resource Name (ARN) assigned to the
     -- extension version when it is registered.
-    versionId :: Core.Maybe Core.Text,
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The kind of extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    type' :: Core.Maybe RegistryType
+    type' :: Prelude.Maybe RegistryType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterType' with all optional fields omitted.
@@ -111,34 +112,34 @@ newDeregisterType ::
   DeregisterType
 newDeregisterType =
   DeregisterType'
-    { typeName = Core.Nothing,
-      arn = Core.Nothing,
-      versionId = Core.Nothing,
-      type' = Core.Nothing
+    { typeName = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The name of the extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-deregisterType_typeName :: Lens.Lens' DeregisterType (Core.Maybe Core.Text)
+deregisterType_typeName :: Lens.Lens' DeregisterType (Prelude.Maybe Prelude.Text)
 deregisterType_typeName = Lens.lens (\DeregisterType' {typeName} -> typeName) (\s@DeregisterType' {} a -> s {typeName = a} :: DeregisterType)
 
 -- | The Amazon Resource Name (ARN) of the extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-deregisterType_arn :: Lens.Lens' DeregisterType (Core.Maybe Core.Text)
+deregisterType_arn :: Lens.Lens' DeregisterType (Prelude.Maybe Prelude.Text)
 deregisterType_arn = Lens.lens (\DeregisterType' {arn} -> arn) (\s@DeregisterType' {} a -> s {arn = a} :: DeregisterType)
 
 -- | The ID of a specific version of the extension. The version ID is the
 -- value at the end of the Amazon Resource Name (ARN) assigned to the
 -- extension version when it is registered.
-deregisterType_versionId :: Lens.Lens' DeregisterType (Core.Maybe Core.Text)
+deregisterType_versionId :: Lens.Lens' DeregisterType (Prelude.Maybe Prelude.Text)
 deregisterType_versionId = Lens.lens (\DeregisterType' {versionId} -> versionId) (\s@DeregisterType' {} a -> s {versionId = a} :: DeregisterType)
 
 -- | The kind of extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-deregisterType_type :: Lens.Lens' DeregisterType (Core.Maybe RegistryType)
+deregisterType_type :: Lens.Lens' DeregisterType (Prelude.Maybe RegistryType)
 deregisterType_type = Lens.lens (\DeregisterType' {type'} -> type') (\s@DeregisterType' {} a -> s {type' = a} :: DeregisterType)
 
 instance Core.AWSRequest DeregisterType where
@@ -151,25 +152,26 @@ instance Core.AWSRequest DeregisterType where
       "DeregisterTypeResult"
       ( \s h x ->
           DeregisterTypeResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeregisterType
+instance Prelude.Hashable DeregisterType
 
-instance Core.NFData DeregisterType
+instance Prelude.NFData DeregisterType
 
 instance Core.ToHeaders DeregisterType where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeregisterType where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeregisterType where
   toQuery DeregisterType' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeregisterType" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("DeregisterType" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "TypeName" Core.=: typeName,
         "Arn" Core.=: arn,
         "VersionId" Core.=: versionId,
@@ -179,9 +181,9 @@ instance Core.ToQuery DeregisterType where
 -- | /See:/ 'newDeregisterTypeResponse' smart constructor.
 data DeregisterTypeResponse = DeregisterTypeResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterTypeResponse' with all optional fields omitted.
@@ -194,13 +196,13 @@ data DeregisterTypeResponse = DeregisterTypeResponse'
 -- 'httpStatus', 'deregisterTypeResponse_httpStatus' - The response's http status code.
 newDeregisterTypeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeregisterTypeResponse
 newDeregisterTypeResponse pHttpStatus_ =
   DeregisterTypeResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deregisterTypeResponse_httpStatus :: Lens.Lens' DeregisterTypeResponse Core.Int
+deregisterTypeResponse_httpStatus :: Lens.Lens' DeregisterTypeResponse Prelude.Int
 deregisterTypeResponse_httpStatus = Lens.lens (\DeregisterTypeResponse' {httpStatus} -> httpStatus) (\s@DeregisterTypeResponse' {} a -> s {httpStatus = a} :: DeregisterTypeResponse)
 
-instance Core.NFData DeregisterTypeResponse
+instance Prelude.NFData DeregisterTypeResponse

@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import Network.AWS.ELB.Types.PolicyAttributeTypeDescription
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a policy type.
 --
@@ -30,13 +31,13 @@ import qualified Network.AWS.Lens as Lens
 data PolicyTypeDescription = PolicyTypeDescription'
   { -- | The description of the policy attributes associated with the policies
     -- defined by Elastic Load Balancing.
-    policyAttributeTypeDescriptions :: Core.Maybe [PolicyAttributeTypeDescription],
+    policyAttributeTypeDescriptions :: Prelude.Maybe [PolicyAttributeTypeDescription],
     -- | The name of the policy type.
-    policyTypeName :: Core.Maybe Core.Text,
+    policyTypeName :: Prelude.Maybe Prelude.Text,
     -- | A description of the policy type.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PolicyTypeDescription' with all optional fields omitted.
@@ -57,34 +58,34 @@ newPolicyTypeDescription ::
 newPolicyTypeDescription =
   PolicyTypeDescription'
     { policyAttributeTypeDescriptions =
-        Core.Nothing,
-      policyTypeName = Core.Nothing,
-      description = Core.Nothing
+        Prelude.Nothing,
+      policyTypeName = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The description of the policy attributes associated with the policies
 -- defined by Elastic Load Balancing.
-policyTypeDescription_policyAttributeTypeDescriptions :: Lens.Lens' PolicyTypeDescription (Core.Maybe [PolicyAttributeTypeDescription])
-policyTypeDescription_policyAttributeTypeDescriptions = Lens.lens (\PolicyTypeDescription' {policyAttributeTypeDescriptions} -> policyAttributeTypeDescriptions) (\s@PolicyTypeDescription' {} a -> s {policyAttributeTypeDescriptions = a} :: PolicyTypeDescription) Core.. Lens.mapping Lens._Coerce
+policyTypeDescription_policyAttributeTypeDescriptions :: Lens.Lens' PolicyTypeDescription (Prelude.Maybe [PolicyAttributeTypeDescription])
+policyTypeDescription_policyAttributeTypeDescriptions = Lens.lens (\PolicyTypeDescription' {policyAttributeTypeDescriptions} -> policyAttributeTypeDescriptions) (\s@PolicyTypeDescription' {} a -> s {policyAttributeTypeDescriptions = a} :: PolicyTypeDescription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the policy type.
-policyTypeDescription_policyTypeName :: Lens.Lens' PolicyTypeDescription (Core.Maybe Core.Text)
+policyTypeDescription_policyTypeName :: Lens.Lens' PolicyTypeDescription (Prelude.Maybe Prelude.Text)
 policyTypeDescription_policyTypeName = Lens.lens (\PolicyTypeDescription' {policyTypeName} -> policyTypeName) (\s@PolicyTypeDescription' {} a -> s {policyTypeName = a} :: PolicyTypeDescription)
 
 -- | A description of the policy type.
-policyTypeDescription_description :: Lens.Lens' PolicyTypeDescription (Core.Maybe Core.Text)
+policyTypeDescription_description :: Lens.Lens' PolicyTypeDescription (Prelude.Maybe Prelude.Text)
 policyTypeDescription_description = Lens.lens (\PolicyTypeDescription' {description} -> description) (\s@PolicyTypeDescription' {} a -> s {description = a} :: PolicyTypeDescription)
 
 instance Core.FromXML PolicyTypeDescription where
   parseXML x =
     PolicyTypeDescription'
-      Core.<$> ( x Core..@? "PolicyAttributeTypeDescriptions"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "PolicyTypeName")
-      Core.<*> (x Core..@? "Description")
+      Prelude.<$> ( x Core..@? "PolicyAttributeTypeDescriptions"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "PolicyTypeName")
+      Prelude.<*> (x Core..@? "Description")
 
-instance Core.Hashable PolicyTypeDescription
+instance Prelude.Hashable PolicyTypeDescription
 
-instance Core.NFData PolicyTypeDescription
+instance Prelude.NFData PolicyTypeDescription

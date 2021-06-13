@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data GetColumnStatisticsForTable = GetColumnStatisticsForTable'
   { -- | The ID of the Data Catalog where the partitions in question reside. If
     -- none is supplied, the AWS account ID is used by default.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database where the partitions reside.
-    databaseName :: Core.Text,
+    databaseName :: Prelude.Text,
     -- | The name of the partitions\' table.
-    tableName :: Core.Text,
+    tableName :: Prelude.Text,
     -- | A list of the column names.
-    columnNames :: [Core.Text]
+    columnNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetColumnStatisticsForTable' with all optional fields omitted.
@@ -84,37 +85,37 @@ data GetColumnStatisticsForTable = GetColumnStatisticsForTable'
 -- 'columnNames', 'getColumnStatisticsForTable_columnNames' - A list of the column names.
 newGetColumnStatisticsForTable ::
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   GetColumnStatisticsForTable
 newGetColumnStatisticsForTable
   pDatabaseName_
   pTableName_ =
     GetColumnStatisticsForTable'
       { catalogId =
-          Core.Nothing,
+          Prelude.Nothing,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
-        columnNames = Core.mempty
+        columnNames = Prelude.mempty
       }
 
 -- | The ID of the Data Catalog where the partitions in question reside. If
 -- none is supplied, the AWS account ID is used by default.
-getColumnStatisticsForTable_catalogId :: Lens.Lens' GetColumnStatisticsForTable (Core.Maybe Core.Text)
+getColumnStatisticsForTable_catalogId :: Lens.Lens' GetColumnStatisticsForTable (Prelude.Maybe Prelude.Text)
 getColumnStatisticsForTable_catalogId = Lens.lens (\GetColumnStatisticsForTable' {catalogId} -> catalogId) (\s@GetColumnStatisticsForTable' {} a -> s {catalogId = a} :: GetColumnStatisticsForTable)
 
 -- | The name of the catalog database where the partitions reside.
-getColumnStatisticsForTable_databaseName :: Lens.Lens' GetColumnStatisticsForTable Core.Text
+getColumnStatisticsForTable_databaseName :: Lens.Lens' GetColumnStatisticsForTable Prelude.Text
 getColumnStatisticsForTable_databaseName = Lens.lens (\GetColumnStatisticsForTable' {databaseName} -> databaseName) (\s@GetColumnStatisticsForTable' {} a -> s {databaseName = a} :: GetColumnStatisticsForTable)
 
 -- | The name of the partitions\' table.
-getColumnStatisticsForTable_tableName :: Lens.Lens' GetColumnStatisticsForTable Core.Text
+getColumnStatisticsForTable_tableName :: Lens.Lens' GetColumnStatisticsForTable Prelude.Text
 getColumnStatisticsForTable_tableName = Lens.lens (\GetColumnStatisticsForTable' {tableName} -> tableName) (\s@GetColumnStatisticsForTable' {} a -> s {tableName = a} :: GetColumnStatisticsForTable)
 
 -- | A list of the column names.
-getColumnStatisticsForTable_columnNames :: Lens.Lens' GetColumnStatisticsForTable [Core.Text]
-getColumnStatisticsForTable_columnNames = Lens.lens (\GetColumnStatisticsForTable' {columnNames} -> columnNames) (\s@GetColumnStatisticsForTable' {} a -> s {columnNames = a} :: GetColumnStatisticsForTable) Core.. Lens._Coerce
+getColumnStatisticsForTable_columnNames :: Lens.Lens' GetColumnStatisticsForTable [Prelude.Text]
+getColumnStatisticsForTable_columnNames = Lens.lens (\GetColumnStatisticsForTable' {columnNames} -> columnNames) (\s@GetColumnStatisticsForTable' {} a -> s {columnNames = a} :: GetColumnStatisticsForTable) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest GetColumnStatisticsForTable where
   type
@@ -125,57 +126,59 @@ instance Core.AWSRequest GetColumnStatisticsForTable where
     Response.receiveJSON
       ( \s h x ->
           GetColumnStatisticsForTableResponse'
-            Core.<$> ( x Core..?> "ColumnStatisticsList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "Errors" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "ColumnStatisticsList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetColumnStatisticsForTable
+instance Prelude.Hashable GetColumnStatisticsForTable
 
-instance Core.NFData GetColumnStatisticsForTable
+instance Prelude.NFData GetColumnStatisticsForTable
 
 instance Core.ToHeaders GetColumnStatisticsForTable where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSGlue.GetColumnStatisticsForTable" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetColumnStatisticsForTable where
   toJSON GetColumnStatisticsForTable' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CatalogId" Core..=) Core.<$> catalogId,
-            Core.Just ("DatabaseName" Core..= databaseName),
-            Core.Just ("TableName" Core..= tableName),
-            Core.Just ("ColumnNames" Core..= columnNames)
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Core..= databaseName),
+            Prelude.Just ("TableName" Core..= tableName),
+            Prelude.Just ("ColumnNames" Core..= columnNames)
           ]
       )
 
 instance Core.ToPath GetColumnStatisticsForTable where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetColumnStatisticsForTable where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetColumnStatisticsForTableResponse' smart constructor.
 data GetColumnStatisticsForTableResponse = GetColumnStatisticsForTableResponse'
   { -- | List of ColumnStatistics that failed to be retrieved.
-    columnStatisticsList :: Core.Maybe [ColumnStatistics],
+    columnStatisticsList :: Prelude.Maybe [ColumnStatistics],
     -- | List of ColumnStatistics that failed to be retrieved.
-    errors :: Core.Maybe [ColumnError],
+    errors :: Prelude.Maybe [ColumnError],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetColumnStatisticsForTableResponse' with all optional fields omitted.
@@ -192,28 +195,28 @@ data GetColumnStatisticsForTableResponse = GetColumnStatisticsForTableResponse'
 -- 'httpStatus', 'getColumnStatisticsForTableResponse_httpStatus' - The response's http status code.
 newGetColumnStatisticsForTableResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetColumnStatisticsForTableResponse
 newGetColumnStatisticsForTableResponse pHttpStatus_ =
   GetColumnStatisticsForTableResponse'
     { columnStatisticsList =
-        Core.Nothing,
-      errors = Core.Nothing,
+        Prelude.Nothing,
+      errors = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | List of ColumnStatistics that failed to be retrieved.
-getColumnStatisticsForTableResponse_columnStatisticsList :: Lens.Lens' GetColumnStatisticsForTableResponse (Core.Maybe [ColumnStatistics])
-getColumnStatisticsForTableResponse_columnStatisticsList = Lens.lens (\GetColumnStatisticsForTableResponse' {columnStatisticsList} -> columnStatisticsList) (\s@GetColumnStatisticsForTableResponse' {} a -> s {columnStatisticsList = a} :: GetColumnStatisticsForTableResponse) Core.. Lens.mapping Lens._Coerce
+getColumnStatisticsForTableResponse_columnStatisticsList :: Lens.Lens' GetColumnStatisticsForTableResponse (Prelude.Maybe [ColumnStatistics])
+getColumnStatisticsForTableResponse_columnStatisticsList = Lens.lens (\GetColumnStatisticsForTableResponse' {columnStatisticsList} -> columnStatisticsList) (\s@GetColumnStatisticsForTableResponse' {} a -> s {columnStatisticsList = a} :: GetColumnStatisticsForTableResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | List of ColumnStatistics that failed to be retrieved.
-getColumnStatisticsForTableResponse_errors :: Lens.Lens' GetColumnStatisticsForTableResponse (Core.Maybe [ColumnError])
-getColumnStatisticsForTableResponse_errors = Lens.lens (\GetColumnStatisticsForTableResponse' {errors} -> errors) (\s@GetColumnStatisticsForTableResponse' {} a -> s {errors = a} :: GetColumnStatisticsForTableResponse) Core.. Lens.mapping Lens._Coerce
+getColumnStatisticsForTableResponse_errors :: Lens.Lens' GetColumnStatisticsForTableResponse (Prelude.Maybe [ColumnError])
+getColumnStatisticsForTableResponse_errors = Lens.lens (\GetColumnStatisticsForTableResponse' {errors} -> errors) (\s@GetColumnStatisticsForTableResponse' {} a -> s {errors = a} :: GetColumnStatisticsForTableResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getColumnStatisticsForTableResponse_httpStatus :: Lens.Lens' GetColumnStatisticsForTableResponse Core.Int
+getColumnStatisticsForTableResponse_httpStatus :: Lens.Lens' GetColumnStatisticsForTableResponse Prelude.Int
 getColumnStatisticsForTableResponse_httpStatus = Lens.lens (\GetColumnStatisticsForTableResponse' {httpStatus} -> httpStatus) (\s@GetColumnStatisticsForTableResponse' {} a -> s {httpStatus = a} :: GetColumnStatisticsForTableResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetColumnStatisticsForTableResponse

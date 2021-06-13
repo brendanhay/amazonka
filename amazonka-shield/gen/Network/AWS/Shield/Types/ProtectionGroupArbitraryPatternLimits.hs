@@ -21,6 +21,7 @@ module Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Limits settings on protection groups with arbitrary pattern type.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data ProtectionGroupArbitraryPatternLimits = ProtectionGroupArbitraryPatternLimits'
   { -- | The maximum number of resources you can specify for a single arbitrary
     -- pattern in a protection group.
-    maxMembers :: Core.Integer
+    maxMembers :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProtectionGroupArbitraryPatternLimits' with all optional fields omitted.
@@ -44,7 +45,7 @@ data ProtectionGroupArbitraryPatternLimits = ProtectionGroupArbitraryPatternLimi
 -- pattern in a protection group.
 newProtectionGroupArbitraryPatternLimits ::
   -- | 'maxMembers'
-  Core.Integer ->
+  Prelude.Integer ->
   ProtectionGroupArbitraryPatternLimits
 newProtectionGroupArbitraryPatternLimits pMaxMembers_ =
   ProtectionGroupArbitraryPatternLimits'
@@ -54,7 +55,7 @@ newProtectionGroupArbitraryPatternLimits pMaxMembers_ =
 
 -- | The maximum number of resources you can specify for a single arbitrary
 -- pattern in a protection group.
-protectionGroupArbitraryPatternLimits_maxMembers :: Lens.Lens' ProtectionGroupArbitraryPatternLimits Core.Integer
+protectionGroupArbitraryPatternLimits_maxMembers :: Lens.Lens' ProtectionGroupArbitraryPatternLimits Prelude.Integer
 protectionGroupArbitraryPatternLimits_maxMembers = Lens.lens (\ProtectionGroupArbitraryPatternLimits' {maxMembers} -> maxMembers) (\s@ProtectionGroupArbitraryPatternLimits' {} a -> s {maxMembers = a} :: ProtectionGroupArbitraryPatternLimits)
 
 instance
@@ -66,13 +67,13 @@ instance
       "ProtectionGroupArbitraryPatternLimits"
       ( \x ->
           ProtectionGroupArbitraryPatternLimits'
-            Core.<$> (x Core..: "MaxMembers")
+            Prelude.<$> (x Core..: "MaxMembers")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ProtectionGroupArbitraryPatternLimits
 
 instance
-  Core.NFData
+  Prelude.NFData
     ProtectionGroupArbitraryPatternLimits

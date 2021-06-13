@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.InstancePatchStateFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.InstancePatchStateOperatorType
 
 -- | Defines a filter used in DescribeInstancePatchStatesForPatchGroup used
@@ -31,14 +32,14 @@ data InstancePatchStateFilter = InstancePatchStateFilter'
   { -- | The key for the filter. Supported values are FailedCount,
     -- InstalledCount, InstalledOtherCount, MissingCount and
     -- NotApplicableCount.
-    key :: Core.Text,
+    key :: Prelude.Text,
     -- | The value for the filter, must be an integer greater than or equal to 0.
-    values :: Core.NonEmpty Core.Text,
+    values :: Prelude.NonEmpty Prelude.Text,
     -- | The type of comparison that should be performed for the value: Equal,
     -- NotEqual, LessThan or GreaterThan.
     type' :: InstancePatchStateOperatorType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstancePatchStateFilter' with all optional fields omitted.
@@ -58,9 +59,9 @@ data InstancePatchStateFilter = InstancePatchStateFilter'
 -- NotEqual, LessThan or GreaterThan.
 newInstancePatchStateFilter ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'values'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   -- | 'type''
   InstancePatchStateOperatorType ->
   InstancePatchStateFilter
@@ -74,28 +75,28 @@ newInstancePatchStateFilter pKey_ pValues_ pType_ =
 -- | The key for the filter. Supported values are FailedCount,
 -- InstalledCount, InstalledOtherCount, MissingCount and
 -- NotApplicableCount.
-instancePatchStateFilter_key :: Lens.Lens' InstancePatchStateFilter Core.Text
+instancePatchStateFilter_key :: Lens.Lens' InstancePatchStateFilter Prelude.Text
 instancePatchStateFilter_key = Lens.lens (\InstancePatchStateFilter' {key} -> key) (\s@InstancePatchStateFilter' {} a -> s {key = a} :: InstancePatchStateFilter)
 
 -- | The value for the filter, must be an integer greater than or equal to 0.
-instancePatchStateFilter_values :: Lens.Lens' InstancePatchStateFilter (Core.NonEmpty Core.Text)
-instancePatchStateFilter_values = Lens.lens (\InstancePatchStateFilter' {values} -> values) (\s@InstancePatchStateFilter' {} a -> s {values = a} :: InstancePatchStateFilter) Core.. Lens._Coerce
+instancePatchStateFilter_values :: Lens.Lens' InstancePatchStateFilter (Prelude.NonEmpty Prelude.Text)
+instancePatchStateFilter_values = Lens.lens (\InstancePatchStateFilter' {values} -> values) (\s@InstancePatchStateFilter' {} a -> s {values = a} :: InstancePatchStateFilter) Prelude.. Lens._Coerce
 
 -- | The type of comparison that should be performed for the value: Equal,
 -- NotEqual, LessThan or GreaterThan.
 instancePatchStateFilter_type :: Lens.Lens' InstancePatchStateFilter InstancePatchStateOperatorType
 instancePatchStateFilter_type = Lens.lens (\InstancePatchStateFilter' {type'} -> type') (\s@InstancePatchStateFilter' {} a -> s {type' = a} :: InstancePatchStateFilter)
 
-instance Core.Hashable InstancePatchStateFilter
+instance Prelude.Hashable InstancePatchStateFilter
 
-instance Core.NFData InstancePatchStateFilter
+instance Prelude.NFData InstancePatchStateFilter
 
 instance Core.ToJSON InstancePatchStateFilter where
   toJSON InstancePatchStateFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Key" Core..= key),
-            Core.Just ("Values" Core..= values),
-            Core.Just ("Type" Core..= type')
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Values" Core..= values),
+            Prelude.Just ("Type" Core..= type')
           ]
       )

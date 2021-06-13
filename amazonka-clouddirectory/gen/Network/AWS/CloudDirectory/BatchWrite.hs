@@ -44,6 +44,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +52,11 @@ import qualified Network.AWS.Response as Response
 data BatchWrite = BatchWrite'
   { -- | The Amazon Resource Name (ARN) that is associated with the Directory.
     -- For more information, see arns.
-    directoryArn :: Core.Text,
+    directoryArn :: Prelude.Text,
     -- | A list of operations that are part of the batch.
     operations :: [BatchWriteOperation]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchWrite' with all optional fields omitted.
@@ -71,22 +72,22 @@ data BatchWrite = BatchWrite'
 -- 'operations', 'batchWrite_operations' - A list of operations that are part of the batch.
 newBatchWrite ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   BatchWrite
 newBatchWrite pDirectoryArn_ =
   BatchWrite'
     { directoryArn = pDirectoryArn_,
-      operations = Core.mempty
+      operations = Prelude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory.
 -- For more information, see arns.
-batchWrite_directoryArn :: Lens.Lens' BatchWrite Core.Text
+batchWrite_directoryArn :: Lens.Lens' BatchWrite Prelude.Text
 batchWrite_directoryArn = Lens.lens (\BatchWrite' {directoryArn} -> directoryArn) (\s@BatchWrite' {} a -> s {directoryArn = a} :: BatchWrite)
 
 -- | A list of operations that are part of the batch.
 batchWrite_operations :: Lens.Lens' BatchWrite [BatchWriteOperation]
-batchWrite_operations = Lens.lens (\BatchWrite' {operations} -> operations) (\s@BatchWrite' {} a -> s {operations = a} :: BatchWrite) Core.. Lens._Coerce
+batchWrite_operations = Lens.lens (\BatchWrite' {operations} -> operations) (\s@BatchWrite' {} a -> s {operations = a} :: BatchWrite) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchWrite where
   type AWSResponse BatchWrite = BatchWriteResponse
@@ -95,42 +96,42 @@ instance Core.AWSRequest BatchWrite where
     Response.receiveJSON
       ( \s h x ->
           BatchWriteResponse'
-            Core.<$> (x Core..?> "Responses" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Responses" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchWrite
+instance Prelude.Hashable BatchWrite
 
-instance Core.NFData BatchWrite
+instance Prelude.NFData BatchWrite
 
 instance Core.ToHeaders BatchWrite where
   toHeaders BatchWrite' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# directoryArn]
 
 instance Core.ToJSON BatchWrite where
   toJSON BatchWrite' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Operations" Core..= operations)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Operations" Core..= operations)]
       )
 
 instance Core.ToPath BatchWrite where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/batchwrite"
 
 instance Core.ToQuery BatchWrite where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchWriteResponse' smart constructor.
 data BatchWriteResponse = BatchWriteResponse'
   { -- | A list of all the responses for each batch write.
-    responses :: Core.Maybe [BatchWriteOperationResponse],
+    responses :: Prelude.Maybe [BatchWriteOperationResponse],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchWriteResponse' with all optional fields omitted.
@@ -145,20 +146,20 @@ data BatchWriteResponse = BatchWriteResponse'
 -- 'httpStatus', 'batchWriteResponse_httpStatus' - The response's http status code.
 newBatchWriteResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchWriteResponse
 newBatchWriteResponse pHttpStatus_ =
   BatchWriteResponse'
-    { responses = Core.Nothing,
+    { responses = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of all the responses for each batch write.
-batchWriteResponse_responses :: Lens.Lens' BatchWriteResponse (Core.Maybe [BatchWriteOperationResponse])
-batchWriteResponse_responses = Lens.lens (\BatchWriteResponse' {responses} -> responses) (\s@BatchWriteResponse' {} a -> s {responses = a} :: BatchWriteResponse) Core.. Lens.mapping Lens._Coerce
+batchWriteResponse_responses :: Lens.Lens' BatchWriteResponse (Prelude.Maybe [BatchWriteOperationResponse])
+batchWriteResponse_responses = Lens.lens (\BatchWriteResponse' {responses} -> responses) (\s@BatchWriteResponse' {} a -> s {responses = a} :: BatchWriteResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchWriteResponse_httpStatus :: Lens.Lens' BatchWriteResponse Core.Int
+batchWriteResponse_httpStatus :: Lens.Lens' BatchWriteResponse Prelude.Int
 batchWriteResponse_httpStatus = Lens.lens (\BatchWriteResponse' {httpStatus} -> httpStatus) (\s@BatchWriteResponse' {} a -> s {httpStatus = a} :: BatchWriteResponse)
 
-instance Core.NFData BatchWriteResponse
+instance Prelude.NFData BatchWriteResponse

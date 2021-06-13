@@ -21,6 +21,7 @@ module Network.AWS.Greengrass.Types.BulkDeploymentMetrics where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Relevant metrics on input records processed during bulk deployment.
 --
@@ -28,20 +29,20 @@ import qualified Network.AWS.Lens as Lens
 data BulkDeploymentMetrics = BulkDeploymentMetrics'
   { -- | The total number of group records from the input file that have been
     -- processed so far, or attempted.
-    recordsProcessed :: Core.Maybe Core.Int,
+    recordsProcessed :: Prelude.Maybe Prelude.Int,
     -- | The total number of deployment attempts that returned a retryable error.
     -- For example, a retry is triggered if the attempt to deploy a group
     -- returns a throttling error. \'\'StartBulkDeployment\'\' retries a group
     -- deployment up to five times.
-    retryAttempts :: Core.Maybe Core.Int,
+    retryAttempts :: Prelude.Maybe Prelude.Int,
     -- | The total number of records that returned a non-retryable error. For
     -- example, this can occur if a group record from the input file uses an
     -- invalid format or specifies a nonexistent group version, or if the
     -- execution role doesn\'t grant permission to deploy a group or group
     -- version.
-    invalidInputRecords :: Core.Maybe Core.Int
+    invalidInputRecords :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BulkDeploymentMetrics' with all optional fields omitted.
@@ -69,21 +70,21 @@ newBulkDeploymentMetrics ::
 newBulkDeploymentMetrics =
   BulkDeploymentMetrics'
     { recordsProcessed =
-        Core.Nothing,
-      retryAttempts = Core.Nothing,
-      invalidInputRecords = Core.Nothing
+        Prelude.Nothing,
+      retryAttempts = Prelude.Nothing,
+      invalidInputRecords = Prelude.Nothing
     }
 
 -- | The total number of group records from the input file that have been
 -- processed so far, or attempted.
-bulkDeploymentMetrics_recordsProcessed :: Lens.Lens' BulkDeploymentMetrics (Core.Maybe Core.Int)
+bulkDeploymentMetrics_recordsProcessed :: Lens.Lens' BulkDeploymentMetrics (Prelude.Maybe Prelude.Int)
 bulkDeploymentMetrics_recordsProcessed = Lens.lens (\BulkDeploymentMetrics' {recordsProcessed} -> recordsProcessed) (\s@BulkDeploymentMetrics' {} a -> s {recordsProcessed = a} :: BulkDeploymentMetrics)
 
 -- | The total number of deployment attempts that returned a retryable error.
 -- For example, a retry is triggered if the attempt to deploy a group
 -- returns a throttling error. \'\'StartBulkDeployment\'\' retries a group
 -- deployment up to five times.
-bulkDeploymentMetrics_retryAttempts :: Lens.Lens' BulkDeploymentMetrics (Core.Maybe Core.Int)
+bulkDeploymentMetrics_retryAttempts :: Lens.Lens' BulkDeploymentMetrics (Prelude.Maybe Prelude.Int)
 bulkDeploymentMetrics_retryAttempts = Lens.lens (\BulkDeploymentMetrics' {retryAttempts} -> retryAttempts) (\s@BulkDeploymentMetrics' {} a -> s {retryAttempts = a} :: BulkDeploymentMetrics)
 
 -- | The total number of records that returned a non-retryable error. For
@@ -91,7 +92,7 @@ bulkDeploymentMetrics_retryAttempts = Lens.lens (\BulkDeploymentMetrics' {retryA
 -- invalid format or specifies a nonexistent group version, or if the
 -- execution role doesn\'t grant permission to deploy a group or group
 -- version.
-bulkDeploymentMetrics_invalidInputRecords :: Lens.Lens' BulkDeploymentMetrics (Core.Maybe Core.Int)
+bulkDeploymentMetrics_invalidInputRecords :: Lens.Lens' BulkDeploymentMetrics (Prelude.Maybe Prelude.Int)
 bulkDeploymentMetrics_invalidInputRecords = Lens.lens (\BulkDeploymentMetrics' {invalidInputRecords} -> invalidInputRecords) (\s@BulkDeploymentMetrics' {} a -> s {invalidInputRecords = a} :: BulkDeploymentMetrics)
 
 instance Core.FromJSON BulkDeploymentMetrics where
@@ -100,11 +101,11 @@ instance Core.FromJSON BulkDeploymentMetrics where
       "BulkDeploymentMetrics"
       ( \x ->
           BulkDeploymentMetrics'
-            Core.<$> (x Core..:? "RecordsProcessed")
-            Core.<*> (x Core..:? "RetryAttempts")
-            Core.<*> (x Core..:? "InvalidInputRecords")
+            Prelude.<$> (x Core..:? "RecordsProcessed")
+            Prelude.<*> (x Core..:? "RetryAttempts")
+            Prelude.<*> (x Core..:? "InvalidInputRecords")
       )
 
-instance Core.Hashable BulkDeploymentMetrics
+instance Prelude.Hashable BulkDeploymentMetrics
 
-instance Core.NFData BulkDeploymentMetrics
+instance Prelude.NFData BulkDeploymentMetrics

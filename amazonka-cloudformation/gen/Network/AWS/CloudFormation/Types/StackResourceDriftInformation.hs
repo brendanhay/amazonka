@@ -22,6 +22,7 @@ module Network.AWS.CloudFormation.Types.StackResourceDriftInformation where
 import Network.AWS.CloudFormation.Types.StackResourceDriftStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about whether the resource\'s actual configuration
 -- differs, or has /drifted/, from its expected configuration.
@@ -30,7 +31,7 @@ import qualified Network.AWS.Lens as Lens
 data StackResourceDriftInformation = StackResourceDriftInformation'
   { -- | When AWS CloudFormation last checked if the resource had drifted from
     -- its expected configuration.
-    lastCheckTimestamp :: Core.Maybe Core.ISO8601,
+    lastCheckTimestamp :: Prelude.Maybe Core.ISO8601,
     -- | Status of the resource\'s actual configuration compared to its expected
     -- configuration
     --
@@ -50,7 +51,7 @@ data StackResourceDriftInformation = StackResourceDriftInformation'
     --     expected configuration.
     stackResourceDriftStatus :: StackResourceDriftStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StackResourceDriftInformation' with all optional fields omitted.
@@ -88,15 +89,15 @@ newStackResourceDriftInformation
   pStackResourceDriftStatus_ =
     StackResourceDriftInformation'
       { lastCheckTimestamp =
-          Core.Nothing,
+          Prelude.Nothing,
         stackResourceDriftStatus =
           pStackResourceDriftStatus_
       }
 
 -- | When AWS CloudFormation last checked if the resource had drifted from
 -- its expected configuration.
-stackResourceDriftInformation_lastCheckTimestamp :: Lens.Lens' StackResourceDriftInformation (Core.Maybe Core.UTCTime)
-stackResourceDriftInformation_lastCheckTimestamp = Lens.lens (\StackResourceDriftInformation' {lastCheckTimestamp} -> lastCheckTimestamp) (\s@StackResourceDriftInformation' {} a -> s {lastCheckTimestamp = a} :: StackResourceDriftInformation) Core.. Lens.mapping Core._Time
+stackResourceDriftInformation_lastCheckTimestamp :: Lens.Lens' StackResourceDriftInformation (Prelude.Maybe Prelude.UTCTime)
+stackResourceDriftInformation_lastCheckTimestamp = Lens.lens (\StackResourceDriftInformation' {lastCheckTimestamp} -> lastCheckTimestamp) (\s@StackResourceDriftInformation' {} a -> s {lastCheckTimestamp = a} :: StackResourceDriftInformation) Prelude.. Lens.mapping Core._Time
 
 -- | Status of the resource\'s actual configuration compared to its expected
 -- configuration
@@ -121,9 +122,11 @@ stackResourceDriftInformation_stackResourceDriftStatus = Lens.lens (\StackResour
 instance Core.FromXML StackResourceDriftInformation where
   parseXML x =
     StackResourceDriftInformation'
-      Core.<$> (x Core..@? "LastCheckTimestamp")
-      Core.<*> (x Core..@ "StackResourceDriftStatus")
+      Prelude.<$> (x Core..@? "LastCheckTimestamp")
+      Prelude.<*> (x Core..@ "StackResourceDriftStatus")
 
-instance Core.Hashable StackResourceDriftInformation
+instance
+  Prelude.Hashable
+    StackResourceDriftInformation
 
-instance Core.NFData StackResourceDriftInformation
+instance Prelude.NFData StackResourceDriftInformation

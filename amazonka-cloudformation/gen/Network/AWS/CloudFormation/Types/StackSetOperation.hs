@@ -26,6 +26,7 @@ import Network.AWS.CloudFormation.Types.StackSetOperationPreferences
 import Network.AWS.CloudFormation.Types.StackSetOperationStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The structure that contains information about a stack set operation.
 --
@@ -37,7 +38,7 @@ data StackSetOperation = StackSetOperation'
     -- needs to perform preparatory work for the operation, such as dispatching
     -- the work to the requested Regions, before actually creating the first
     -- stacks.
-    creationTimestamp :: Core.Maybe Core.ISO8601,
+    creationTimestamp :: Prelude.Maybe Core.ISO8601,
     -- | The status of the operation.
     --
     -- -   @FAILED@: The operation exceeded the specified failure tolerance.
@@ -65,26 +66,26 @@ data StackSetOperation = StackSetOperation'
     -- -   @SUCCEEDED@: The operation completed creating or updating all the
     --     specified stacks without exceeding the failure tolerance for the
     --     operation.
-    status :: Core.Maybe StackSetOperationStatus,
+    status :: Prelude.Maybe StackSetOperationStatus,
     -- | The name of the IAM execution role used to create or update the stack
     -- set.
     --
     -- Use customized execution roles to control which stack resources users
     -- and groups can include in their stack sets.
-    executionRoleName :: Core.Maybe Core.Text,
+    executionRoleName :: Prelude.Maybe Prelude.Text,
     -- | The time at which the stack set operation ended, across all accounts and
     -- Regions specified. Note that this doesn\'t necessarily mean that the
     -- stack set operation was successful, or even attempted, in each account
     -- or Region.
-    endTimestamp :: Core.Maybe Core.ISO8601,
+    endTimestamp :: Prelude.Maybe Core.ISO8601,
     -- | [Service-managed permissions] The AWS Organizations accounts affected by
     -- the stack operation.
-    deploymentTargets :: Core.Maybe DeploymentTargets,
+    deploymentTargets :: Prelude.Maybe DeploymentTargets,
     -- | The unique ID of a stack set operation.
-    operationId :: Core.Maybe Core.Text,
+    operationId :: Prelude.Maybe Prelude.Text,
     -- | The preferences for how AWS CloudFormation performs this stack set
     -- operation.
-    operationPreferences :: Core.Maybe StackSetOperationPreferences,
+    operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
     -- | The Amazon Resource Number (ARN) of the IAM role used to perform this
     -- stack set operation.
     --
@@ -93,7 +94,7 @@ data StackSetOperation = StackSetOperation'
     -- more information, see
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Define Permissions for Multiple Administrators>
     -- in the /AWS CloudFormation User Guide/.
-    administrationRoleARN :: Core.Maybe Core.Text,
+    administrationRoleARN :: Prelude.Maybe Prelude.Text,
     -- | Detailed information about the drift status of the stack set. This
     -- includes information about drift operations currently being performed on
     -- the stack set.
@@ -104,22 +105,22 @@ data StackSetOperation = StackSetOperation'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html Detecting Unmanaged Changes in Stack Sets>
     -- in the AWS CloudFormation User Guide.
-    stackSetDriftDetectionDetails :: Core.Maybe StackSetDriftDetectionDetails,
+    stackSetDriftDetectionDetails :: Prelude.Maybe StackSetDriftDetectionDetails,
     -- | The ID of the stack set.
-    stackSetId :: Core.Maybe Core.Text,
+    stackSetId :: Prelude.Maybe Prelude.Text,
     -- | The type of stack set operation: @CREATE@, @UPDATE@, or @DELETE@. Create
     -- and delete operations affect only the specified stack set instances that
     -- are associated with the specified stack set. Update operations affect
     -- both the stack set itself, as well as /all/ associated stack set
     -- instances.
-    action :: Core.Maybe StackSetOperationAction,
+    action :: Prelude.Maybe StackSetOperationAction,
     -- | For stack set operations of action type @DELETE@, specifies whether to
     -- remove the stack instances from the specified stack set, but doesn\'t
     -- delete the stacks. You can\'t reassociate a retained stack, or add an
     -- existing, saved stack to a new stack set.
-    retainStacks :: Core.Maybe Core.Bool
+    retainStacks :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StackSetOperation' with all optional fields omitted.
@@ -220,18 +221,18 @@ newStackSetOperation ::
 newStackSetOperation =
   StackSetOperation'
     { creationTimestamp =
-        Core.Nothing,
-      status = Core.Nothing,
-      executionRoleName = Core.Nothing,
-      endTimestamp = Core.Nothing,
-      deploymentTargets = Core.Nothing,
-      operationId = Core.Nothing,
-      operationPreferences = Core.Nothing,
-      administrationRoleARN = Core.Nothing,
-      stackSetDriftDetectionDetails = Core.Nothing,
-      stackSetId = Core.Nothing,
-      action = Core.Nothing,
-      retainStacks = Core.Nothing
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      executionRoleName = Prelude.Nothing,
+      endTimestamp = Prelude.Nothing,
+      deploymentTargets = Prelude.Nothing,
+      operationId = Prelude.Nothing,
+      operationPreferences = Prelude.Nothing,
+      administrationRoleARN = Prelude.Nothing,
+      stackSetDriftDetectionDetails = Prelude.Nothing,
+      stackSetId = Prelude.Nothing,
+      action = Prelude.Nothing,
+      retainStacks = Prelude.Nothing
     }
 
 -- | The time at which the operation was initiated. Note that the creation
@@ -240,8 +241,8 @@ newStackSetOperation =
 -- needs to perform preparatory work for the operation, such as dispatching
 -- the work to the requested Regions, before actually creating the first
 -- stacks.
-stackSetOperation_creationTimestamp :: Lens.Lens' StackSetOperation (Core.Maybe Core.UTCTime)
-stackSetOperation_creationTimestamp = Lens.lens (\StackSetOperation' {creationTimestamp} -> creationTimestamp) (\s@StackSetOperation' {} a -> s {creationTimestamp = a} :: StackSetOperation) Core.. Lens.mapping Core._Time
+stackSetOperation_creationTimestamp :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.UTCTime)
+stackSetOperation_creationTimestamp = Lens.lens (\StackSetOperation' {creationTimestamp} -> creationTimestamp) (\s@StackSetOperation' {} a -> s {creationTimestamp = a} :: StackSetOperation) Prelude.. Lens.mapping Core._Time
 
 -- | The status of the operation.
 --
@@ -270,7 +271,7 @@ stackSetOperation_creationTimestamp = Lens.lens (\StackSetOperation' {creationTi
 -- -   @SUCCEEDED@: The operation completed creating or updating all the
 --     specified stacks without exceeding the failure tolerance for the
 --     operation.
-stackSetOperation_status :: Lens.Lens' StackSetOperation (Core.Maybe StackSetOperationStatus)
+stackSetOperation_status :: Lens.Lens' StackSetOperation (Prelude.Maybe StackSetOperationStatus)
 stackSetOperation_status = Lens.lens (\StackSetOperation' {status} -> status) (\s@StackSetOperation' {} a -> s {status = a} :: StackSetOperation)
 
 -- | The name of the IAM execution role used to create or update the stack
@@ -278,28 +279,28 @@ stackSetOperation_status = Lens.lens (\StackSetOperation' {status} -> status) (\
 --
 -- Use customized execution roles to control which stack resources users
 -- and groups can include in their stack sets.
-stackSetOperation_executionRoleName :: Lens.Lens' StackSetOperation (Core.Maybe Core.Text)
+stackSetOperation_executionRoleName :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.Text)
 stackSetOperation_executionRoleName = Lens.lens (\StackSetOperation' {executionRoleName} -> executionRoleName) (\s@StackSetOperation' {} a -> s {executionRoleName = a} :: StackSetOperation)
 
 -- | The time at which the stack set operation ended, across all accounts and
 -- Regions specified. Note that this doesn\'t necessarily mean that the
 -- stack set operation was successful, or even attempted, in each account
 -- or Region.
-stackSetOperation_endTimestamp :: Lens.Lens' StackSetOperation (Core.Maybe Core.UTCTime)
-stackSetOperation_endTimestamp = Lens.lens (\StackSetOperation' {endTimestamp} -> endTimestamp) (\s@StackSetOperation' {} a -> s {endTimestamp = a} :: StackSetOperation) Core.. Lens.mapping Core._Time
+stackSetOperation_endTimestamp :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.UTCTime)
+stackSetOperation_endTimestamp = Lens.lens (\StackSetOperation' {endTimestamp} -> endTimestamp) (\s@StackSetOperation' {} a -> s {endTimestamp = a} :: StackSetOperation) Prelude.. Lens.mapping Core._Time
 
 -- | [Service-managed permissions] The AWS Organizations accounts affected by
 -- the stack operation.
-stackSetOperation_deploymentTargets :: Lens.Lens' StackSetOperation (Core.Maybe DeploymentTargets)
+stackSetOperation_deploymentTargets :: Lens.Lens' StackSetOperation (Prelude.Maybe DeploymentTargets)
 stackSetOperation_deploymentTargets = Lens.lens (\StackSetOperation' {deploymentTargets} -> deploymentTargets) (\s@StackSetOperation' {} a -> s {deploymentTargets = a} :: StackSetOperation)
 
 -- | The unique ID of a stack set operation.
-stackSetOperation_operationId :: Lens.Lens' StackSetOperation (Core.Maybe Core.Text)
+stackSetOperation_operationId :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.Text)
 stackSetOperation_operationId = Lens.lens (\StackSetOperation' {operationId} -> operationId) (\s@StackSetOperation' {} a -> s {operationId = a} :: StackSetOperation)
 
 -- | The preferences for how AWS CloudFormation performs this stack set
 -- operation.
-stackSetOperation_operationPreferences :: Lens.Lens' StackSetOperation (Core.Maybe StackSetOperationPreferences)
+stackSetOperation_operationPreferences :: Lens.Lens' StackSetOperation (Prelude.Maybe StackSetOperationPreferences)
 stackSetOperation_operationPreferences = Lens.lens (\StackSetOperation' {operationPreferences} -> operationPreferences) (\s@StackSetOperation' {} a -> s {operationPreferences = a} :: StackSetOperation)
 
 -- | The Amazon Resource Number (ARN) of the IAM role used to perform this
@@ -310,7 +311,7 @@ stackSetOperation_operationPreferences = Lens.lens (\StackSetOperation' {operati
 -- more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Define Permissions for Multiple Administrators>
 -- in the /AWS CloudFormation User Guide/.
-stackSetOperation_administrationRoleARN :: Lens.Lens' StackSetOperation (Core.Maybe Core.Text)
+stackSetOperation_administrationRoleARN :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.Text)
 stackSetOperation_administrationRoleARN = Lens.lens (\StackSetOperation' {administrationRoleARN} -> administrationRoleARN) (\s@StackSetOperation' {} a -> s {administrationRoleARN = a} :: StackSetOperation)
 
 -- | Detailed information about the drift status of the stack set. This
@@ -323,11 +324,11 @@ stackSetOperation_administrationRoleARN = Lens.lens (\StackSetOperation' {admini
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html Detecting Unmanaged Changes in Stack Sets>
 -- in the AWS CloudFormation User Guide.
-stackSetOperation_stackSetDriftDetectionDetails :: Lens.Lens' StackSetOperation (Core.Maybe StackSetDriftDetectionDetails)
+stackSetOperation_stackSetDriftDetectionDetails :: Lens.Lens' StackSetOperation (Prelude.Maybe StackSetDriftDetectionDetails)
 stackSetOperation_stackSetDriftDetectionDetails = Lens.lens (\StackSetOperation' {stackSetDriftDetectionDetails} -> stackSetDriftDetectionDetails) (\s@StackSetOperation' {} a -> s {stackSetDriftDetectionDetails = a} :: StackSetOperation)
 
 -- | The ID of the stack set.
-stackSetOperation_stackSetId :: Lens.Lens' StackSetOperation (Core.Maybe Core.Text)
+stackSetOperation_stackSetId :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.Text)
 stackSetOperation_stackSetId = Lens.lens (\StackSetOperation' {stackSetId} -> stackSetId) (\s@StackSetOperation' {} a -> s {stackSetId = a} :: StackSetOperation)
 
 -- | The type of stack set operation: @CREATE@, @UPDATE@, or @DELETE@. Create
@@ -335,32 +336,32 @@ stackSetOperation_stackSetId = Lens.lens (\StackSetOperation' {stackSetId} -> st
 -- are associated with the specified stack set. Update operations affect
 -- both the stack set itself, as well as /all/ associated stack set
 -- instances.
-stackSetOperation_action :: Lens.Lens' StackSetOperation (Core.Maybe StackSetOperationAction)
+stackSetOperation_action :: Lens.Lens' StackSetOperation (Prelude.Maybe StackSetOperationAction)
 stackSetOperation_action = Lens.lens (\StackSetOperation' {action} -> action) (\s@StackSetOperation' {} a -> s {action = a} :: StackSetOperation)
 
 -- | For stack set operations of action type @DELETE@, specifies whether to
 -- remove the stack instances from the specified stack set, but doesn\'t
 -- delete the stacks. You can\'t reassociate a retained stack, or add an
 -- existing, saved stack to a new stack set.
-stackSetOperation_retainStacks :: Lens.Lens' StackSetOperation (Core.Maybe Core.Bool)
+stackSetOperation_retainStacks :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.Bool)
 stackSetOperation_retainStacks = Lens.lens (\StackSetOperation' {retainStacks} -> retainStacks) (\s@StackSetOperation' {} a -> s {retainStacks = a} :: StackSetOperation)
 
 instance Core.FromXML StackSetOperation where
   parseXML x =
     StackSetOperation'
-      Core.<$> (x Core..@? "CreationTimestamp")
-      Core.<*> (x Core..@? "Status")
-      Core.<*> (x Core..@? "ExecutionRoleName")
-      Core.<*> (x Core..@? "EndTimestamp")
-      Core.<*> (x Core..@? "DeploymentTargets")
-      Core.<*> (x Core..@? "OperationId")
-      Core.<*> (x Core..@? "OperationPreferences")
-      Core.<*> (x Core..@? "AdministrationRoleARN")
-      Core.<*> (x Core..@? "StackSetDriftDetectionDetails")
-      Core.<*> (x Core..@? "StackSetId")
-      Core.<*> (x Core..@? "Action")
-      Core.<*> (x Core..@? "RetainStacks")
+      Prelude.<$> (x Core..@? "CreationTimestamp")
+      Prelude.<*> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "ExecutionRoleName")
+      Prelude.<*> (x Core..@? "EndTimestamp")
+      Prelude.<*> (x Core..@? "DeploymentTargets")
+      Prelude.<*> (x Core..@? "OperationId")
+      Prelude.<*> (x Core..@? "OperationPreferences")
+      Prelude.<*> (x Core..@? "AdministrationRoleARN")
+      Prelude.<*> (x Core..@? "StackSetDriftDetectionDetails")
+      Prelude.<*> (x Core..@? "StackSetId")
+      Prelude.<*> (x Core..@? "Action")
+      Prelude.<*> (x Core..@? "RetainStacks")
 
-instance Core.Hashable StackSetOperation
+instance Prelude.Hashable StackSetOperation
 
-instance Core.NFData StackSetOperation
+instance Prelude.NFData StackSetOperation

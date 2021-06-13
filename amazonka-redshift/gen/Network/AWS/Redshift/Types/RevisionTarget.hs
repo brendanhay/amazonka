@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.RevisionTarget where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | Describes a @RevisionTarget@.
@@ -29,14 +30,14 @@ import Network.AWS.Redshift.Internal
 data RevisionTarget = RevisionTarget'
   { -- | A string that describes the changes and features that will be applied to
     -- the cluster when it is updated to the corresponding ClusterDbRevision.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | A unique string that identifies the version to update the cluster to.
     -- You can use this value in ModifyClusterDbRevision.
-    databaseRevision :: Core.Maybe Core.Text,
+    databaseRevision :: Prelude.Maybe Prelude.Text,
     -- | The date on which the database revision was released.
-    databaseRevisionReleaseDate :: Core.Maybe Core.ISO8601
+    databaseRevisionReleaseDate :: Prelude.Maybe Core.ISO8601
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RevisionTarget' with all optional fields omitted.
@@ -57,32 +58,32 @@ newRevisionTarget ::
   RevisionTarget
 newRevisionTarget =
   RevisionTarget'
-    { description = Core.Nothing,
-      databaseRevision = Core.Nothing,
-      databaseRevisionReleaseDate = Core.Nothing
+    { description = Prelude.Nothing,
+      databaseRevision = Prelude.Nothing,
+      databaseRevisionReleaseDate = Prelude.Nothing
     }
 
 -- | A string that describes the changes and features that will be applied to
 -- the cluster when it is updated to the corresponding ClusterDbRevision.
-revisionTarget_description :: Lens.Lens' RevisionTarget (Core.Maybe Core.Text)
+revisionTarget_description :: Lens.Lens' RevisionTarget (Prelude.Maybe Prelude.Text)
 revisionTarget_description = Lens.lens (\RevisionTarget' {description} -> description) (\s@RevisionTarget' {} a -> s {description = a} :: RevisionTarget)
 
 -- | A unique string that identifies the version to update the cluster to.
 -- You can use this value in ModifyClusterDbRevision.
-revisionTarget_databaseRevision :: Lens.Lens' RevisionTarget (Core.Maybe Core.Text)
+revisionTarget_databaseRevision :: Lens.Lens' RevisionTarget (Prelude.Maybe Prelude.Text)
 revisionTarget_databaseRevision = Lens.lens (\RevisionTarget' {databaseRevision} -> databaseRevision) (\s@RevisionTarget' {} a -> s {databaseRevision = a} :: RevisionTarget)
 
 -- | The date on which the database revision was released.
-revisionTarget_databaseRevisionReleaseDate :: Lens.Lens' RevisionTarget (Core.Maybe Core.UTCTime)
-revisionTarget_databaseRevisionReleaseDate = Lens.lens (\RevisionTarget' {databaseRevisionReleaseDate} -> databaseRevisionReleaseDate) (\s@RevisionTarget' {} a -> s {databaseRevisionReleaseDate = a} :: RevisionTarget) Core.. Lens.mapping Core._Time
+revisionTarget_databaseRevisionReleaseDate :: Lens.Lens' RevisionTarget (Prelude.Maybe Prelude.UTCTime)
+revisionTarget_databaseRevisionReleaseDate = Lens.lens (\RevisionTarget' {databaseRevisionReleaseDate} -> databaseRevisionReleaseDate) (\s@RevisionTarget' {} a -> s {databaseRevisionReleaseDate = a} :: RevisionTarget) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromXML RevisionTarget where
   parseXML x =
     RevisionTarget'
-      Core.<$> (x Core..@? "Description")
-      Core.<*> (x Core..@? "DatabaseRevision")
-      Core.<*> (x Core..@? "DatabaseRevisionReleaseDate")
+      Prelude.<$> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "DatabaseRevision")
+      Prelude.<*> (x Core..@? "DatabaseRevisionReleaseDate")
 
-instance Core.Hashable RevisionTarget
+instance Prelude.Hashable RevisionTarget
 
-instance Core.NFData RevisionTarget
+instance Prelude.NFData RevisionTarget

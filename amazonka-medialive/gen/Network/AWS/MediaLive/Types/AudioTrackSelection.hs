@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.AudioTrackSelection where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AudioTrack
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Audio Track Selection
 --
@@ -30,7 +31,7 @@ data AudioTrackSelection = AudioTrackSelection'
   { -- | Selects one or more unique audio tracks from within a source.
     tracks :: [AudioTrack]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AudioTrackSelection' with all optional fields omitted.
@@ -44,11 +45,11 @@ data AudioTrackSelection = AudioTrackSelection'
 newAudioTrackSelection ::
   AudioTrackSelection
 newAudioTrackSelection =
-  AudioTrackSelection' {tracks = Core.mempty}
+  AudioTrackSelection' {tracks = Prelude.mempty}
 
 -- | Selects one or more unique audio tracks from within a source.
 audioTrackSelection_tracks :: Lens.Lens' AudioTrackSelection [AudioTrack]
-audioTrackSelection_tracks = Lens.lens (\AudioTrackSelection' {tracks} -> tracks) (\s@AudioTrackSelection' {} a -> s {tracks = a} :: AudioTrackSelection) Core.. Lens._Coerce
+audioTrackSelection_tracks = Lens.lens (\AudioTrackSelection' {tracks} -> tracks) (\s@AudioTrackSelection' {} a -> s {tracks = a} :: AudioTrackSelection) Prelude.. Lens._Coerce
 
 instance Core.FromJSON AudioTrackSelection where
   parseJSON =
@@ -56,16 +57,16 @@ instance Core.FromJSON AudioTrackSelection where
       "AudioTrackSelection"
       ( \x ->
           AudioTrackSelection'
-            Core.<$> (x Core..:? "tracks" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "tracks" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable AudioTrackSelection
+instance Prelude.Hashable AudioTrackSelection
 
-instance Core.NFData AudioTrackSelection
+instance Prelude.NFData AudioTrackSelection
 
 instance Core.ToJSON AudioTrackSelection where
   toJSON AudioTrackSelection' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("tracks" Core..= tracks)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("tracks" Core..= tracks)]
       )

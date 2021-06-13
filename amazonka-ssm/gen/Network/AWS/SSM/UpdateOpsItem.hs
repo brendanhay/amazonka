@@ -63,6 +63,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -73,17 +74,17 @@ data UpdateOpsItem = UpdateOpsItem'
     -- For more information, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html#OpsCenter-working-with-OpsItems-editing-details Editing OpsItem details>
     -- in the /AWS Systems Manager User Guide/.
-    status :: Core.Maybe OpsItemStatus,
+    status :: Prelude.Maybe OpsItemStatus,
     -- | The time specified in a change request for a runbook workflow to end.
     -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-    plannedEndTime :: Core.Maybe Core.POSIX,
+    plannedEndTime :: Prelude.Maybe Core.POSIX,
     -- | Specify a new severity for an OpsItem.
-    severity :: Core.Maybe Core.Text,
+    severity :: Prelude.Maybe Prelude.Text,
     -- | The time a runbook workflow started. Currently reported only for the
     -- OpsItem type @\/aws\/changerequest@.
-    actualStartTime :: Core.Maybe Core.POSIX,
+    actualStartTime :: Prelude.Maybe Core.POSIX,
     -- | Specify a new category for an OpsItem.
-    category :: Core.Maybe Core.Text,
+    category :: Prelude.Maybe Prelude.Text,
     -- | Add new keys or edit existing key-value pairs of the OperationalData map
     -- in the OpsItem object.
     --
@@ -109,36 +110,36 @@ data UpdateOpsItem = UpdateOpsItem'
     -- view AWS CLI example commands that use these keys, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually>
     -- in the /AWS Systems Manager User Guide/.
-    operationalData :: Core.Maybe (Core.HashMap Core.Text OpsItemDataValue),
+    operationalData :: Prelude.Maybe (Prelude.HashMap Prelude.Text OpsItemDataValue),
     -- | A short heading that describes the nature of the OpsItem and the
     -- impacted resource.
-    title :: Core.Maybe Core.Text,
+    title :: Prelude.Maybe Prelude.Text,
     -- | The importance of this OpsItem in relation to other OpsItems in the
     -- system.
-    priority :: Core.Maybe Core.Natural,
+    priority :: Prelude.Maybe Prelude.Natural,
     -- | The time a runbook workflow ended. Currently reported only for the
     -- OpsItem type @\/aws\/changerequest@.
-    actualEndTime :: Core.Maybe Core.POSIX,
+    actualEndTime :: Prelude.Maybe Core.POSIX,
     -- | The time specified in a change request for a runbook workflow to start.
     -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-    plannedStartTime :: Core.Maybe Core.POSIX,
+    plannedStartTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
     -- sent when this OpsItem is edited or changed.
-    notifications :: Core.Maybe [OpsItemNotification],
+    notifications :: Prelude.Maybe [OpsItemNotification],
     -- | Update the information about the OpsItem. Provide enough information so
     -- that users reading this OpsItem for the first time understand the issue.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | One or more OpsItems that share something in common with the current
     -- OpsItems. For example, related OpsItems can include OpsItems with
     -- similar error messages, impacted resources, or statuses for the impacted
     -- resource.
-    relatedOpsItems :: Core.Maybe [RelatedOpsItem],
+    relatedOpsItems :: Prelude.Maybe [RelatedOpsItem],
     -- | Keys that you want to remove from the OperationalData map.
-    operationalDataToDelete :: Core.Maybe [Core.Text],
+    operationalDataToDelete :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the OpsItem.
-    opsItemId :: Core.Text
+    opsItemId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateOpsItem' with all optional fields omitted.
@@ -217,24 +218,24 @@ data UpdateOpsItem = UpdateOpsItem'
 -- 'opsItemId', 'updateOpsItem_opsItemId' - The ID of the OpsItem.
 newUpdateOpsItem ::
   -- | 'opsItemId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateOpsItem
 newUpdateOpsItem pOpsItemId_ =
   UpdateOpsItem'
-    { status = Core.Nothing,
-      plannedEndTime = Core.Nothing,
-      severity = Core.Nothing,
-      actualStartTime = Core.Nothing,
-      category = Core.Nothing,
-      operationalData = Core.Nothing,
-      title = Core.Nothing,
-      priority = Core.Nothing,
-      actualEndTime = Core.Nothing,
-      plannedStartTime = Core.Nothing,
-      notifications = Core.Nothing,
-      description = Core.Nothing,
-      relatedOpsItems = Core.Nothing,
-      operationalDataToDelete = Core.Nothing,
+    { status = Prelude.Nothing,
+      plannedEndTime = Prelude.Nothing,
+      severity = Prelude.Nothing,
+      actualStartTime = Prelude.Nothing,
+      category = Prelude.Nothing,
+      operationalData = Prelude.Nothing,
+      title = Prelude.Nothing,
+      priority = Prelude.Nothing,
+      actualEndTime = Prelude.Nothing,
+      plannedStartTime = Prelude.Nothing,
+      notifications = Prelude.Nothing,
+      description = Prelude.Nothing,
+      relatedOpsItems = Prelude.Nothing,
+      operationalDataToDelete = Prelude.Nothing,
       opsItemId = pOpsItemId_
     }
 
@@ -242,25 +243,25 @@ newUpdateOpsItem pOpsItemId_ =
 -- For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html#OpsCenter-working-with-OpsItems-editing-details Editing OpsItem details>
 -- in the /AWS Systems Manager User Guide/.
-updateOpsItem_status :: Lens.Lens' UpdateOpsItem (Core.Maybe OpsItemStatus)
+updateOpsItem_status :: Lens.Lens' UpdateOpsItem (Prelude.Maybe OpsItemStatus)
 updateOpsItem_status = Lens.lens (\UpdateOpsItem' {status} -> status) (\s@UpdateOpsItem' {} a -> s {status = a} :: UpdateOpsItem)
 
 -- | The time specified in a change request for a runbook workflow to end.
 -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-updateOpsItem_plannedEndTime :: Lens.Lens' UpdateOpsItem (Core.Maybe Core.UTCTime)
-updateOpsItem_plannedEndTime = Lens.lens (\UpdateOpsItem' {plannedEndTime} -> plannedEndTime) (\s@UpdateOpsItem' {} a -> s {plannedEndTime = a} :: UpdateOpsItem) Core.. Lens.mapping Core._Time
+updateOpsItem_plannedEndTime :: Lens.Lens' UpdateOpsItem (Prelude.Maybe Prelude.UTCTime)
+updateOpsItem_plannedEndTime = Lens.lens (\UpdateOpsItem' {plannedEndTime} -> plannedEndTime) (\s@UpdateOpsItem' {} a -> s {plannedEndTime = a} :: UpdateOpsItem) Prelude.. Lens.mapping Core._Time
 
 -- | Specify a new severity for an OpsItem.
-updateOpsItem_severity :: Lens.Lens' UpdateOpsItem (Core.Maybe Core.Text)
+updateOpsItem_severity :: Lens.Lens' UpdateOpsItem (Prelude.Maybe Prelude.Text)
 updateOpsItem_severity = Lens.lens (\UpdateOpsItem' {severity} -> severity) (\s@UpdateOpsItem' {} a -> s {severity = a} :: UpdateOpsItem)
 
 -- | The time a runbook workflow started. Currently reported only for the
 -- OpsItem type @\/aws\/changerequest@.
-updateOpsItem_actualStartTime :: Lens.Lens' UpdateOpsItem (Core.Maybe Core.UTCTime)
-updateOpsItem_actualStartTime = Lens.lens (\UpdateOpsItem' {actualStartTime} -> actualStartTime) (\s@UpdateOpsItem' {} a -> s {actualStartTime = a} :: UpdateOpsItem) Core.. Lens.mapping Core._Time
+updateOpsItem_actualStartTime :: Lens.Lens' UpdateOpsItem (Prelude.Maybe Prelude.UTCTime)
+updateOpsItem_actualStartTime = Lens.lens (\UpdateOpsItem' {actualStartTime} -> actualStartTime) (\s@UpdateOpsItem' {} a -> s {actualStartTime = a} :: UpdateOpsItem) Prelude.. Lens.mapping Core._Time
 
 -- | Specify a new category for an OpsItem.
-updateOpsItem_category :: Lens.Lens' UpdateOpsItem (Core.Maybe Core.Text)
+updateOpsItem_category :: Lens.Lens' UpdateOpsItem (Prelude.Maybe Prelude.Text)
 updateOpsItem_category = Lens.lens (\UpdateOpsItem' {category} -> category) (\s@UpdateOpsItem' {} a -> s {category = a} :: UpdateOpsItem)
 
 -- | Add new keys or edit existing key-value pairs of the OperationalData map
@@ -288,52 +289,52 @@ updateOpsItem_category = Lens.lens (\UpdateOpsItem' {category} -> category) (\s@
 -- view AWS CLI example commands that use these keys, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually>
 -- in the /AWS Systems Manager User Guide/.
-updateOpsItem_operationalData :: Lens.Lens' UpdateOpsItem (Core.Maybe (Core.HashMap Core.Text OpsItemDataValue))
-updateOpsItem_operationalData = Lens.lens (\UpdateOpsItem' {operationalData} -> operationalData) (\s@UpdateOpsItem' {} a -> s {operationalData = a} :: UpdateOpsItem) Core.. Lens.mapping Lens._Coerce
+updateOpsItem_operationalData :: Lens.Lens' UpdateOpsItem (Prelude.Maybe (Prelude.HashMap Prelude.Text OpsItemDataValue))
+updateOpsItem_operationalData = Lens.lens (\UpdateOpsItem' {operationalData} -> operationalData) (\s@UpdateOpsItem' {} a -> s {operationalData = a} :: UpdateOpsItem) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A short heading that describes the nature of the OpsItem and the
 -- impacted resource.
-updateOpsItem_title :: Lens.Lens' UpdateOpsItem (Core.Maybe Core.Text)
+updateOpsItem_title :: Lens.Lens' UpdateOpsItem (Prelude.Maybe Prelude.Text)
 updateOpsItem_title = Lens.lens (\UpdateOpsItem' {title} -> title) (\s@UpdateOpsItem' {} a -> s {title = a} :: UpdateOpsItem)
 
 -- | The importance of this OpsItem in relation to other OpsItems in the
 -- system.
-updateOpsItem_priority :: Lens.Lens' UpdateOpsItem (Core.Maybe Core.Natural)
+updateOpsItem_priority :: Lens.Lens' UpdateOpsItem (Prelude.Maybe Prelude.Natural)
 updateOpsItem_priority = Lens.lens (\UpdateOpsItem' {priority} -> priority) (\s@UpdateOpsItem' {} a -> s {priority = a} :: UpdateOpsItem)
 
 -- | The time a runbook workflow ended. Currently reported only for the
 -- OpsItem type @\/aws\/changerequest@.
-updateOpsItem_actualEndTime :: Lens.Lens' UpdateOpsItem (Core.Maybe Core.UTCTime)
-updateOpsItem_actualEndTime = Lens.lens (\UpdateOpsItem' {actualEndTime} -> actualEndTime) (\s@UpdateOpsItem' {} a -> s {actualEndTime = a} :: UpdateOpsItem) Core.. Lens.mapping Core._Time
+updateOpsItem_actualEndTime :: Lens.Lens' UpdateOpsItem (Prelude.Maybe Prelude.UTCTime)
+updateOpsItem_actualEndTime = Lens.lens (\UpdateOpsItem' {actualEndTime} -> actualEndTime) (\s@UpdateOpsItem' {} a -> s {actualEndTime = a} :: UpdateOpsItem) Prelude.. Lens.mapping Core._Time
 
 -- | The time specified in a change request for a runbook workflow to start.
 -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-updateOpsItem_plannedStartTime :: Lens.Lens' UpdateOpsItem (Core.Maybe Core.UTCTime)
-updateOpsItem_plannedStartTime = Lens.lens (\UpdateOpsItem' {plannedStartTime} -> plannedStartTime) (\s@UpdateOpsItem' {} a -> s {plannedStartTime = a} :: UpdateOpsItem) Core.. Lens.mapping Core._Time
+updateOpsItem_plannedStartTime :: Lens.Lens' UpdateOpsItem (Prelude.Maybe Prelude.UTCTime)
+updateOpsItem_plannedStartTime = Lens.lens (\UpdateOpsItem' {plannedStartTime} -> plannedStartTime) (\s@UpdateOpsItem' {} a -> s {plannedStartTime = a} :: UpdateOpsItem) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
 -- sent when this OpsItem is edited or changed.
-updateOpsItem_notifications :: Lens.Lens' UpdateOpsItem (Core.Maybe [OpsItemNotification])
-updateOpsItem_notifications = Lens.lens (\UpdateOpsItem' {notifications} -> notifications) (\s@UpdateOpsItem' {} a -> s {notifications = a} :: UpdateOpsItem) Core.. Lens.mapping Lens._Coerce
+updateOpsItem_notifications :: Lens.Lens' UpdateOpsItem (Prelude.Maybe [OpsItemNotification])
+updateOpsItem_notifications = Lens.lens (\UpdateOpsItem' {notifications} -> notifications) (\s@UpdateOpsItem' {} a -> s {notifications = a} :: UpdateOpsItem) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Update the information about the OpsItem. Provide enough information so
 -- that users reading this OpsItem for the first time understand the issue.
-updateOpsItem_description :: Lens.Lens' UpdateOpsItem (Core.Maybe Core.Text)
+updateOpsItem_description :: Lens.Lens' UpdateOpsItem (Prelude.Maybe Prelude.Text)
 updateOpsItem_description = Lens.lens (\UpdateOpsItem' {description} -> description) (\s@UpdateOpsItem' {} a -> s {description = a} :: UpdateOpsItem)
 
 -- | One or more OpsItems that share something in common with the current
 -- OpsItems. For example, related OpsItems can include OpsItems with
 -- similar error messages, impacted resources, or statuses for the impacted
 -- resource.
-updateOpsItem_relatedOpsItems :: Lens.Lens' UpdateOpsItem (Core.Maybe [RelatedOpsItem])
-updateOpsItem_relatedOpsItems = Lens.lens (\UpdateOpsItem' {relatedOpsItems} -> relatedOpsItems) (\s@UpdateOpsItem' {} a -> s {relatedOpsItems = a} :: UpdateOpsItem) Core.. Lens.mapping Lens._Coerce
+updateOpsItem_relatedOpsItems :: Lens.Lens' UpdateOpsItem (Prelude.Maybe [RelatedOpsItem])
+updateOpsItem_relatedOpsItems = Lens.lens (\UpdateOpsItem' {relatedOpsItems} -> relatedOpsItems) (\s@UpdateOpsItem' {} a -> s {relatedOpsItems = a} :: UpdateOpsItem) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Keys that you want to remove from the OperationalData map.
-updateOpsItem_operationalDataToDelete :: Lens.Lens' UpdateOpsItem (Core.Maybe [Core.Text])
-updateOpsItem_operationalDataToDelete = Lens.lens (\UpdateOpsItem' {operationalDataToDelete} -> operationalDataToDelete) (\s@UpdateOpsItem' {} a -> s {operationalDataToDelete = a} :: UpdateOpsItem) Core.. Lens.mapping Lens._Coerce
+updateOpsItem_operationalDataToDelete :: Lens.Lens' UpdateOpsItem (Prelude.Maybe [Prelude.Text])
+updateOpsItem_operationalDataToDelete = Lens.lens (\UpdateOpsItem' {operationalDataToDelete} -> operationalDataToDelete) (\s@UpdateOpsItem' {} a -> s {operationalDataToDelete = a} :: UpdateOpsItem) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the OpsItem.
-updateOpsItem_opsItemId :: Lens.Lens' UpdateOpsItem Core.Text
+updateOpsItem_opsItemId :: Lens.Lens' UpdateOpsItem Prelude.Text
 updateOpsItem_opsItemId = Lens.lens (\UpdateOpsItem' {opsItemId} -> opsItemId) (\s@UpdateOpsItem' {} a -> s {opsItemId = a} :: UpdateOpsItem)
 
 instance Core.AWSRequest UpdateOpsItem where
@@ -345,60 +346,66 @@ instance Core.AWSRequest UpdateOpsItem where
     Response.receiveEmpty
       ( \s h x ->
           UpdateOpsItemResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateOpsItem
+instance Prelude.Hashable UpdateOpsItem
 
-instance Core.NFData UpdateOpsItem
+instance Prelude.NFData UpdateOpsItem
 
 instance Core.ToHeaders UpdateOpsItem where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.UpdateOpsItem" :: Core.ByteString),
+              Core.=# ("AmazonSSM.UpdateOpsItem" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateOpsItem where
   toJSON UpdateOpsItem' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Status" Core..=) Core.<$> status,
-            ("PlannedEndTime" Core..=) Core.<$> plannedEndTime,
-            ("Severity" Core..=) Core.<$> severity,
-            ("ActualStartTime" Core..=) Core.<$> actualStartTime,
-            ("Category" Core..=) Core.<$> category,
-            ("OperationalData" Core..=) Core.<$> operationalData,
-            ("Title" Core..=) Core.<$> title,
-            ("Priority" Core..=) Core.<$> priority,
-            ("ActualEndTime" Core..=) Core.<$> actualEndTime,
+      ( Prelude.catMaybes
+          [ ("Status" Core..=) Prelude.<$> status,
+            ("PlannedEndTime" Core..=)
+              Prelude.<$> plannedEndTime,
+            ("Severity" Core..=) Prelude.<$> severity,
+            ("ActualStartTime" Core..=)
+              Prelude.<$> actualStartTime,
+            ("Category" Core..=) Prelude.<$> category,
+            ("OperationalData" Core..=)
+              Prelude.<$> operationalData,
+            ("Title" Core..=) Prelude.<$> title,
+            ("Priority" Core..=) Prelude.<$> priority,
+            ("ActualEndTime" Core..=) Prelude.<$> actualEndTime,
             ("PlannedStartTime" Core..=)
-              Core.<$> plannedStartTime,
-            ("Notifications" Core..=) Core.<$> notifications,
-            ("Description" Core..=) Core.<$> description,
-            ("RelatedOpsItems" Core..=) Core.<$> relatedOpsItems,
+              Prelude.<$> plannedStartTime,
+            ("Notifications" Core..=) Prelude.<$> notifications,
+            ("Description" Core..=) Prelude.<$> description,
+            ("RelatedOpsItems" Core..=)
+              Prelude.<$> relatedOpsItems,
             ("OperationalDataToDelete" Core..=)
-              Core.<$> operationalDataToDelete,
-            Core.Just ("OpsItemId" Core..= opsItemId)
+              Prelude.<$> operationalDataToDelete,
+            Prelude.Just ("OpsItemId" Core..= opsItemId)
           ]
       )
 
 instance Core.ToPath UpdateOpsItem where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateOpsItem where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateOpsItemResponse' smart constructor.
 data UpdateOpsItemResponse = UpdateOpsItemResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateOpsItemResponse' with all optional fields omitted.
@@ -411,13 +418,13 @@ data UpdateOpsItemResponse = UpdateOpsItemResponse'
 -- 'httpStatus', 'updateOpsItemResponse_httpStatus' - The response's http status code.
 newUpdateOpsItemResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateOpsItemResponse
 newUpdateOpsItemResponse pHttpStatus_ =
   UpdateOpsItemResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateOpsItemResponse_httpStatus :: Lens.Lens' UpdateOpsItemResponse Core.Int
+updateOpsItemResponse_httpStatus :: Lens.Lens' UpdateOpsItemResponse Prelude.Int
 updateOpsItemResponse_httpStatus = Lens.lens (\UpdateOpsItemResponse' {httpStatus} -> httpStatus) (\s@UpdateOpsItemResponse' {} a -> s {httpStatus = a} :: UpdateOpsItemResponse)
 
-instance Core.NFData UpdateOpsItemResponse
+instance Prelude.NFData UpdateOpsItemResponse

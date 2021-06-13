@@ -48,23 +48,24 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListHarvestJobs' smart constructor.
 data ListHarvestJobs = ListHarvestJobs'
   { -- | A token used to resume pagination from the end of a previous request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The upper bound on the number of records to return.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | When specified, the request will return only HarvestJobs in the given
     -- status.
-    includeStatus :: Core.Maybe Core.Text,
+    includeStatus :: Prelude.Maybe Prelude.Text,
     -- | When specified, the request will return only HarvestJobs associated with
     -- the given Channel ID.
-    includeChannelId :: Core.Maybe Core.Text
+    includeChannelId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListHarvestJobs' with all optional fields omitted.
@@ -87,49 +88,51 @@ newListHarvestJobs ::
   ListHarvestJobs
 newListHarvestJobs =
   ListHarvestJobs'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      includeStatus = Core.Nothing,
-      includeChannelId = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      includeStatus = Prelude.Nothing,
+      includeChannelId = Prelude.Nothing
     }
 
 -- | A token used to resume pagination from the end of a previous request.
-listHarvestJobs_nextToken :: Lens.Lens' ListHarvestJobs (Core.Maybe Core.Text)
+listHarvestJobs_nextToken :: Lens.Lens' ListHarvestJobs (Prelude.Maybe Prelude.Text)
 listHarvestJobs_nextToken = Lens.lens (\ListHarvestJobs' {nextToken} -> nextToken) (\s@ListHarvestJobs' {} a -> s {nextToken = a} :: ListHarvestJobs)
 
 -- | The upper bound on the number of records to return.
-listHarvestJobs_maxResults :: Lens.Lens' ListHarvestJobs (Core.Maybe Core.Natural)
+listHarvestJobs_maxResults :: Lens.Lens' ListHarvestJobs (Prelude.Maybe Prelude.Natural)
 listHarvestJobs_maxResults = Lens.lens (\ListHarvestJobs' {maxResults} -> maxResults) (\s@ListHarvestJobs' {} a -> s {maxResults = a} :: ListHarvestJobs)
 
 -- | When specified, the request will return only HarvestJobs in the given
 -- status.
-listHarvestJobs_includeStatus :: Lens.Lens' ListHarvestJobs (Core.Maybe Core.Text)
+listHarvestJobs_includeStatus :: Lens.Lens' ListHarvestJobs (Prelude.Maybe Prelude.Text)
 listHarvestJobs_includeStatus = Lens.lens (\ListHarvestJobs' {includeStatus} -> includeStatus) (\s@ListHarvestJobs' {} a -> s {includeStatus = a} :: ListHarvestJobs)
 
 -- | When specified, the request will return only HarvestJobs associated with
 -- the given Channel ID.
-listHarvestJobs_includeChannelId :: Lens.Lens' ListHarvestJobs (Core.Maybe Core.Text)
+listHarvestJobs_includeChannelId :: Lens.Lens' ListHarvestJobs (Prelude.Maybe Prelude.Text)
 listHarvestJobs_includeChannelId = Lens.lens (\ListHarvestJobs' {includeChannelId} -> includeChannelId) (\s@ListHarvestJobs' {} a -> s {includeChannelId = a} :: ListHarvestJobs)
 
 instance Core.AWSPager ListHarvestJobs where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listHarvestJobsResponse_nextToken Core.. Lens._Just
+            Lens.^? listHarvestJobsResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listHarvestJobsResponse_harvestJobs
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listHarvestJobs_nextToken
+          Prelude.& listHarvestJobs_nextToken
           Lens..~ rs
-          Lens.^? listHarvestJobsResponse_nextToken Core.. Lens._Just
+          Lens.^? listHarvestJobsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHarvestJobs where
   type
@@ -140,30 +143,32 @@ instance Core.AWSRequest ListHarvestJobs where
     Response.receiveJSON
       ( \s h x ->
           ListHarvestJobsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "harvestJobs" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "harvestJobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListHarvestJobs
+instance Prelude.Hashable ListHarvestJobs
 
-instance Core.NFData ListHarvestJobs
+instance Prelude.NFData ListHarvestJobs
 
 instance Core.ToHeaders ListHarvestJobs where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListHarvestJobs where
-  toPath = Core.const "/harvest_jobs"
+  toPath = Prelude.const "/harvest_jobs"
 
 instance Core.ToQuery ListHarvestJobs where
   toQuery ListHarvestJobs' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults,
         "includeStatus" Core.=: includeStatus,
@@ -174,13 +179,13 @@ instance Core.ToQuery ListHarvestJobs where
 data ListHarvestJobsResponse = ListHarvestJobsResponse'
   { -- | A token that can be used to resume pagination from the end of the
     -- collection.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of HarvestJob records.
-    harvestJobs :: Core.Maybe [HarvestJob],
+    harvestJobs :: Prelude.Maybe [HarvestJob],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListHarvestJobsResponse' with all optional fields omitted.
@@ -198,26 +203,27 @@ data ListHarvestJobsResponse = ListHarvestJobsResponse'
 -- 'httpStatus', 'listHarvestJobsResponse_httpStatus' - The response's http status code.
 newListHarvestJobsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListHarvestJobsResponse
 newListHarvestJobsResponse pHttpStatus_ =
   ListHarvestJobsResponse'
-    { nextToken = Core.Nothing,
-      harvestJobs = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      harvestJobs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token that can be used to resume pagination from the end of the
 -- collection.
-listHarvestJobsResponse_nextToken :: Lens.Lens' ListHarvestJobsResponse (Core.Maybe Core.Text)
+listHarvestJobsResponse_nextToken :: Lens.Lens' ListHarvestJobsResponse (Prelude.Maybe Prelude.Text)
 listHarvestJobsResponse_nextToken = Lens.lens (\ListHarvestJobsResponse' {nextToken} -> nextToken) (\s@ListHarvestJobsResponse' {} a -> s {nextToken = a} :: ListHarvestJobsResponse)
 
 -- | A list of HarvestJob records.
-listHarvestJobsResponse_harvestJobs :: Lens.Lens' ListHarvestJobsResponse (Core.Maybe [HarvestJob])
-listHarvestJobsResponse_harvestJobs = Lens.lens (\ListHarvestJobsResponse' {harvestJobs} -> harvestJobs) (\s@ListHarvestJobsResponse' {} a -> s {harvestJobs = a} :: ListHarvestJobsResponse) Core.. Lens.mapping Lens._Coerce
+listHarvestJobsResponse_harvestJobs :: Lens.Lens' ListHarvestJobsResponse (Prelude.Maybe [HarvestJob])
+listHarvestJobsResponse_harvestJobs = Lens.lens (\ListHarvestJobsResponse' {harvestJobs} -> harvestJobs) (\s@ListHarvestJobsResponse' {} a -> s {harvestJobs = a} :: ListHarvestJobsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listHarvestJobsResponse_httpStatus :: Lens.Lens' ListHarvestJobsResponse Core.Int
+listHarvestJobsResponse_httpStatus :: Lens.Lens' ListHarvestJobsResponse Prelude.Int
 listHarvestJobsResponse_httpStatus = Lens.lens (\ListHarvestJobsResponse' {httpStatus} -> httpStatus) (\s@ListHarvestJobsResponse' {} a -> s {httpStatus = a} :: ListHarvestJobsResponse)
 
-instance Core.NFData ListHarvestJobsResponse
+instance Prelude.NFData ListHarvestJobsResponse

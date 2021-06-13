@@ -21,23 +21,24 @@ module Network.AWS.MediaConvert.Types.Rectangle where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use Rectangle to identify a specific area of the video frame.
 --
 -- /See:/ 'newRectangle' smart constructor.
 data Rectangle = Rectangle'
   { -- | Height of rectangle in pixels. Specify only even numbers.
-    height :: Core.Maybe Core.Natural,
+    height :: Prelude.Maybe Prelude.Natural,
     -- | The distance, in pixels, between the rectangle and the top edge of the
     -- video frame. Specify only even numbers.
-    y :: Core.Maybe Core.Natural,
+    y :: Prelude.Maybe Prelude.Natural,
     -- | Width of rectangle in pixels. Specify only even numbers.
-    width :: Core.Maybe Core.Natural,
+    width :: Prelude.Maybe Prelude.Natural,
     -- | The distance, in pixels, between the rectangle and the left edge of the
     -- video frame. Specify only even numbers.
-    x :: Core.Maybe Core.Natural
+    x :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Rectangle' with all optional fields omitted.
@@ -60,28 +61,28 @@ newRectangle ::
   Rectangle
 newRectangle =
   Rectangle'
-    { height = Core.Nothing,
-      y = Core.Nothing,
-      width = Core.Nothing,
-      x = Core.Nothing
+    { height = Prelude.Nothing,
+      y = Prelude.Nothing,
+      width = Prelude.Nothing,
+      x = Prelude.Nothing
     }
 
 -- | Height of rectangle in pixels. Specify only even numbers.
-rectangle_height :: Lens.Lens' Rectangle (Core.Maybe Core.Natural)
+rectangle_height :: Lens.Lens' Rectangle (Prelude.Maybe Prelude.Natural)
 rectangle_height = Lens.lens (\Rectangle' {height} -> height) (\s@Rectangle' {} a -> s {height = a} :: Rectangle)
 
 -- | The distance, in pixels, between the rectangle and the top edge of the
 -- video frame. Specify only even numbers.
-rectangle_y :: Lens.Lens' Rectangle (Core.Maybe Core.Natural)
+rectangle_y :: Lens.Lens' Rectangle (Prelude.Maybe Prelude.Natural)
 rectangle_y = Lens.lens (\Rectangle' {y} -> y) (\s@Rectangle' {} a -> s {y = a} :: Rectangle)
 
 -- | Width of rectangle in pixels. Specify only even numbers.
-rectangle_width :: Lens.Lens' Rectangle (Core.Maybe Core.Natural)
+rectangle_width :: Lens.Lens' Rectangle (Prelude.Maybe Prelude.Natural)
 rectangle_width = Lens.lens (\Rectangle' {width} -> width) (\s@Rectangle' {} a -> s {width = a} :: Rectangle)
 
 -- | The distance, in pixels, between the rectangle and the left edge of the
 -- video frame. Specify only even numbers.
-rectangle_x :: Lens.Lens' Rectangle (Core.Maybe Core.Natural)
+rectangle_x :: Lens.Lens' Rectangle (Prelude.Maybe Prelude.Natural)
 rectangle_x = Lens.lens (\Rectangle' {x} -> x) (\s@Rectangle' {} a -> s {x = a} :: Rectangle)
 
 instance Core.FromJSON Rectangle where
@@ -90,23 +91,23 @@ instance Core.FromJSON Rectangle where
       "Rectangle"
       ( \x ->
           Rectangle'
-            Core.<$> (x Core..:? "height")
-            Core.<*> (x Core..:? "y")
-            Core.<*> (x Core..:? "width")
-            Core.<*> (x Core..:? "x")
+            Prelude.<$> (x Core..:? "height")
+            Prelude.<*> (x Core..:? "y")
+            Prelude.<*> (x Core..:? "width")
+            Prelude.<*> (x Core..:? "x")
       )
 
-instance Core.Hashable Rectangle
+instance Prelude.Hashable Rectangle
 
-instance Core.NFData Rectangle
+instance Prelude.NFData Rectangle
 
 instance Core.ToJSON Rectangle where
   toJSON Rectangle' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("height" Core..=) Core.<$> height,
-            ("y" Core..=) Core.<$> y,
-            ("width" Core..=) Core.<$> width,
-            ("x" Core..=) Core.<$> x
+      ( Prelude.catMaybes
+          [ ("height" Core..=) Prelude.<$> height,
+            ("y" Core..=) Prelude.<$> y,
+            ("width" Core..=) Prelude.<$> width,
+            ("x" Core..=) Prelude.<$> x
           ]
       )

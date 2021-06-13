@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.ExportTask where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the details of a snapshot export to Amazon S3.
 --
@@ -30,20 +31,20 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newExportTask' smart constructor.
 data ExportTask = ExportTask'
   { -- | The time that the snapshot export task completed.
-    taskEndTime :: Core.Maybe Core.ISO8601,
+    taskEndTime :: Prelude.Maybe Core.ISO8601,
     -- | The name of the IAM role that is used to write to Amazon S3 when
     -- exporting a snapshot.
-    iamRoleArn :: Core.Maybe Core.Text,
+    iamRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The progress status of the export task.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | The total amount of data exported, in gigabytes.
-    totalExtractedDataInGB :: Core.Maybe Core.Int,
+    totalExtractedDataInGB :: Prelude.Maybe Prelude.Int,
     -- | A warning about the snapshot export task.
-    warningMessage :: Core.Maybe Core.Text,
+    warningMessage :: Prelude.Maybe Prelude.Text,
     -- | The time that the snapshot was created.
-    snapshotTime :: Core.Maybe Core.ISO8601,
+    snapshotTime :: Prelude.Maybe Core.ISO8601,
     -- | The Amazon S3 bucket that the snapshot is exported to.
-    s3Bucket :: Core.Maybe Core.Text,
+    s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The data exported from the snapshot. Valid values are the following:
     --
     -- -   @database@ - Export all the data from a specified database.
@@ -59,29 +60,29 @@ data ExportTask = ExportTask'
     -- -   @database.schema.table@ /table-name/ - Export a table of the
     --     database schema. This format is valid only for RDS for PostgreSQL
     --     and Aurora PostgreSQL.
-    exportOnly :: Core.Maybe [Core.Text],
+    exportOnly :: Prelude.Maybe [Prelude.Text],
     -- | The key identifier of the AWS KMS customer master key (CMK) that is used
     -- to encrypt the snapshot when it\'s exported to Amazon S3. The AWS KMS
     -- CMK identifier is its key ARN, key ID, alias ARN, or alias name. The IAM
     -- role used for the snapshot export must have encryption and decryption
     -- permissions to use this AWS KMS CMK.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The reason the export failed, if it failed.
-    failureCause :: Core.Maybe Core.Text,
+    failureCause :: Prelude.Maybe Prelude.Text,
     -- | The progress of the snapshot export task as a percentage.
-    percentProgress :: Core.Maybe Core.Int,
+    percentProgress :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
-    sourceArn :: Core.Maybe Core.Text,
+    sourceArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 bucket prefix that is the file name and path of the
     -- exported snapshot.
-    s3Prefix :: Core.Maybe Core.Text,
+    s3Prefix :: Prelude.Maybe Prelude.Text,
     -- | The time that the snapshot export task started.
-    taskStartTime :: Core.Maybe Core.ISO8601,
+    taskStartTime :: Prelude.Maybe Core.ISO8601,
     -- | A unique identifier for the snapshot export task. This ID isn\'t an
     -- identifier for the Amazon S3 bucket where the snapshot is exported to.
-    exportTaskIdentifier :: Core.Maybe Core.Text
+    exportTaskIdentifier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExportTask' with all optional fields omitted.
@@ -145,50 +146,50 @@ newExportTask ::
   ExportTask
 newExportTask =
   ExportTask'
-    { taskEndTime = Core.Nothing,
-      iamRoleArn = Core.Nothing,
-      status = Core.Nothing,
-      totalExtractedDataInGB = Core.Nothing,
-      warningMessage = Core.Nothing,
-      snapshotTime = Core.Nothing,
-      s3Bucket = Core.Nothing,
-      exportOnly = Core.Nothing,
-      kmsKeyId = Core.Nothing,
-      failureCause = Core.Nothing,
-      percentProgress = Core.Nothing,
-      sourceArn = Core.Nothing,
-      s3Prefix = Core.Nothing,
-      taskStartTime = Core.Nothing,
-      exportTaskIdentifier = Core.Nothing
+    { taskEndTime = Prelude.Nothing,
+      iamRoleArn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      totalExtractedDataInGB = Prelude.Nothing,
+      warningMessage = Prelude.Nothing,
+      snapshotTime = Prelude.Nothing,
+      s3Bucket = Prelude.Nothing,
+      exportOnly = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      failureCause = Prelude.Nothing,
+      percentProgress = Prelude.Nothing,
+      sourceArn = Prelude.Nothing,
+      s3Prefix = Prelude.Nothing,
+      taskStartTime = Prelude.Nothing,
+      exportTaskIdentifier = Prelude.Nothing
     }
 
 -- | The time that the snapshot export task completed.
-exportTask_taskEndTime :: Lens.Lens' ExportTask (Core.Maybe Core.UTCTime)
-exportTask_taskEndTime = Lens.lens (\ExportTask' {taskEndTime} -> taskEndTime) (\s@ExportTask' {} a -> s {taskEndTime = a} :: ExportTask) Core.. Lens.mapping Core._Time
+exportTask_taskEndTime :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.UTCTime)
+exportTask_taskEndTime = Lens.lens (\ExportTask' {taskEndTime} -> taskEndTime) (\s@ExportTask' {} a -> s {taskEndTime = a} :: ExportTask) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the IAM role that is used to write to Amazon S3 when
 -- exporting a snapshot.
-exportTask_iamRoleArn :: Lens.Lens' ExportTask (Core.Maybe Core.Text)
+exportTask_iamRoleArn :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
 exportTask_iamRoleArn = Lens.lens (\ExportTask' {iamRoleArn} -> iamRoleArn) (\s@ExportTask' {} a -> s {iamRoleArn = a} :: ExportTask)
 
 -- | The progress status of the export task.
-exportTask_status :: Lens.Lens' ExportTask (Core.Maybe Core.Text)
+exportTask_status :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
 exportTask_status = Lens.lens (\ExportTask' {status} -> status) (\s@ExportTask' {} a -> s {status = a} :: ExportTask)
 
 -- | The total amount of data exported, in gigabytes.
-exportTask_totalExtractedDataInGB :: Lens.Lens' ExportTask (Core.Maybe Core.Int)
+exportTask_totalExtractedDataInGB :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Int)
 exportTask_totalExtractedDataInGB = Lens.lens (\ExportTask' {totalExtractedDataInGB} -> totalExtractedDataInGB) (\s@ExportTask' {} a -> s {totalExtractedDataInGB = a} :: ExportTask)
 
 -- | A warning about the snapshot export task.
-exportTask_warningMessage :: Lens.Lens' ExportTask (Core.Maybe Core.Text)
+exportTask_warningMessage :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
 exportTask_warningMessage = Lens.lens (\ExportTask' {warningMessage} -> warningMessage) (\s@ExportTask' {} a -> s {warningMessage = a} :: ExportTask)
 
 -- | The time that the snapshot was created.
-exportTask_snapshotTime :: Lens.Lens' ExportTask (Core.Maybe Core.UTCTime)
-exportTask_snapshotTime = Lens.lens (\ExportTask' {snapshotTime} -> snapshotTime) (\s@ExportTask' {} a -> s {snapshotTime = a} :: ExportTask) Core.. Lens.mapping Core._Time
+exportTask_snapshotTime :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.UTCTime)
+exportTask_snapshotTime = Lens.lens (\ExportTask' {snapshotTime} -> snapshotTime) (\s@ExportTask' {} a -> s {snapshotTime = a} :: ExportTask) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon S3 bucket that the snapshot is exported to.
-exportTask_s3Bucket :: Lens.Lens' ExportTask (Core.Maybe Core.Text)
+exportTask_s3Bucket :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
 exportTask_s3Bucket = Lens.lens (\ExportTask' {s3Bucket} -> s3Bucket) (\s@ExportTask' {} a -> s {s3Bucket = a} :: ExportTask)
 
 -- | The data exported from the snapshot. Valid values are the following:
@@ -206,64 +207,64 @@ exportTask_s3Bucket = Lens.lens (\ExportTask' {s3Bucket} -> s3Bucket) (\s@Export
 -- -   @database.schema.table@ /table-name/ - Export a table of the
 --     database schema. This format is valid only for RDS for PostgreSQL
 --     and Aurora PostgreSQL.
-exportTask_exportOnly :: Lens.Lens' ExportTask (Core.Maybe [Core.Text])
-exportTask_exportOnly = Lens.lens (\ExportTask' {exportOnly} -> exportOnly) (\s@ExportTask' {} a -> s {exportOnly = a} :: ExportTask) Core.. Lens.mapping Lens._Coerce
+exportTask_exportOnly :: Lens.Lens' ExportTask (Prelude.Maybe [Prelude.Text])
+exportTask_exportOnly = Lens.lens (\ExportTask' {exportOnly} -> exportOnly) (\s@ExportTask' {} a -> s {exportOnly = a} :: ExportTask) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The key identifier of the AWS KMS customer master key (CMK) that is used
 -- to encrypt the snapshot when it\'s exported to Amazon S3. The AWS KMS
 -- CMK identifier is its key ARN, key ID, alias ARN, or alias name. The IAM
 -- role used for the snapshot export must have encryption and decryption
 -- permissions to use this AWS KMS CMK.
-exportTask_kmsKeyId :: Lens.Lens' ExportTask (Core.Maybe Core.Text)
+exportTask_kmsKeyId :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
 exportTask_kmsKeyId = Lens.lens (\ExportTask' {kmsKeyId} -> kmsKeyId) (\s@ExportTask' {} a -> s {kmsKeyId = a} :: ExportTask)
 
 -- | The reason the export failed, if it failed.
-exportTask_failureCause :: Lens.Lens' ExportTask (Core.Maybe Core.Text)
+exportTask_failureCause :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
 exportTask_failureCause = Lens.lens (\ExportTask' {failureCause} -> failureCause) (\s@ExportTask' {} a -> s {failureCause = a} :: ExportTask)
 
 -- | The progress of the snapshot export task as a percentage.
-exportTask_percentProgress :: Lens.Lens' ExportTask (Core.Maybe Core.Int)
+exportTask_percentProgress :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Int)
 exportTask_percentProgress = Lens.lens (\ExportTask' {percentProgress} -> percentProgress) (\s@ExportTask' {} a -> s {percentProgress = a} :: ExportTask)
 
 -- | The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
-exportTask_sourceArn :: Lens.Lens' ExportTask (Core.Maybe Core.Text)
+exportTask_sourceArn :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
 exportTask_sourceArn = Lens.lens (\ExportTask' {sourceArn} -> sourceArn) (\s@ExportTask' {} a -> s {sourceArn = a} :: ExportTask)
 
 -- | The Amazon S3 bucket prefix that is the file name and path of the
 -- exported snapshot.
-exportTask_s3Prefix :: Lens.Lens' ExportTask (Core.Maybe Core.Text)
+exportTask_s3Prefix :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
 exportTask_s3Prefix = Lens.lens (\ExportTask' {s3Prefix} -> s3Prefix) (\s@ExportTask' {} a -> s {s3Prefix = a} :: ExportTask)
 
 -- | The time that the snapshot export task started.
-exportTask_taskStartTime :: Lens.Lens' ExportTask (Core.Maybe Core.UTCTime)
-exportTask_taskStartTime = Lens.lens (\ExportTask' {taskStartTime} -> taskStartTime) (\s@ExportTask' {} a -> s {taskStartTime = a} :: ExportTask) Core.. Lens.mapping Core._Time
+exportTask_taskStartTime :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.UTCTime)
+exportTask_taskStartTime = Lens.lens (\ExportTask' {taskStartTime} -> taskStartTime) (\s@ExportTask' {} a -> s {taskStartTime = a} :: ExportTask) Prelude.. Lens.mapping Core._Time
 
 -- | A unique identifier for the snapshot export task. This ID isn\'t an
 -- identifier for the Amazon S3 bucket where the snapshot is exported to.
-exportTask_exportTaskIdentifier :: Lens.Lens' ExportTask (Core.Maybe Core.Text)
+exportTask_exportTaskIdentifier :: Lens.Lens' ExportTask (Prelude.Maybe Prelude.Text)
 exportTask_exportTaskIdentifier = Lens.lens (\ExportTask' {exportTaskIdentifier} -> exportTaskIdentifier) (\s@ExportTask' {} a -> s {exportTaskIdentifier = a} :: ExportTask)
 
 instance Core.FromXML ExportTask where
   parseXML x =
     ExportTask'
-      Core.<$> (x Core..@? "TaskEndTime")
-      Core.<*> (x Core..@? "IamRoleArn")
-      Core.<*> (x Core..@? "Status")
-      Core.<*> (x Core..@? "TotalExtractedDataInGB")
-      Core.<*> (x Core..@? "WarningMessage")
-      Core.<*> (x Core..@? "SnapshotTime")
-      Core.<*> (x Core..@? "S3Bucket")
-      Core.<*> ( x Core..@? "ExportOnly" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "KmsKeyId")
-      Core.<*> (x Core..@? "FailureCause")
-      Core.<*> (x Core..@? "PercentProgress")
-      Core.<*> (x Core..@? "SourceArn")
-      Core.<*> (x Core..@? "S3Prefix")
-      Core.<*> (x Core..@? "TaskStartTime")
-      Core.<*> (x Core..@? "ExportTaskIdentifier")
+      Prelude.<$> (x Core..@? "TaskEndTime")
+      Prelude.<*> (x Core..@? "IamRoleArn")
+      Prelude.<*> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "TotalExtractedDataInGB")
+      Prelude.<*> (x Core..@? "WarningMessage")
+      Prelude.<*> (x Core..@? "SnapshotTime")
+      Prelude.<*> (x Core..@? "S3Bucket")
+      Prelude.<*> ( x Core..@? "ExportOnly" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "KmsKeyId")
+      Prelude.<*> (x Core..@? "FailureCause")
+      Prelude.<*> (x Core..@? "PercentProgress")
+      Prelude.<*> (x Core..@? "SourceArn")
+      Prelude.<*> (x Core..@? "S3Prefix")
+      Prelude.<*> (x Core..@? "TaskStartTime")
+      Prelude.<*> (x Core..@? "ExportTaskIdentifier")
 
-instance Core.Hashable ExportTask
+instance Prelude.Hashable ExportTask
 
-instance Core.NFData ExportTask
+instance Prelude.NFData ExportTask

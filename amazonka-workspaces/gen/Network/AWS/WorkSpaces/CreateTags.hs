@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -50,11 +51,11 @@ data CreateTags = CreateTags'
   { -- | The identifier of the WorkSpaces resource. The supported resource types
     -- are WorkSpaces, registered directories, images, custom bundles, IP
     -- access control groups, and connection aliases.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTags' with all optional fields omitted.
@@ -71,23 +72,23 @@ data CreateTags = CreateTags'
 -- 'tags', 'createTags_tags' - The tags. Each WorkSpaces resource can have a maximum of 50 tags.
 newCreateTags ::
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   CreateTags
 newCreateTags pResourceId_ =
   CreateTags'
     { resourceId = pResourceId_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | The identifier of the WorkSpaces resource. The supported resource types
 -- are WorkSpaces, registered directories, images, custom bundles, IP
 -- access control groups, and connection aliases.
-createTags_resourceId :: Lens.Lens' CreateTags Core.Text
+createTags_resourceId :: Lens.Lens' CreateTags Prelude.Text
 createTags_resourceId = Lens.lens (\CreateTags' {resourceId} -> resourceId) (\s@CreateTags' {} a -> s {resourceId = a} :: CreateTags)
 
 -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
 createTags_tags :: Lens.Lens' CreateTags [Tag]
-createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Core.. Lens._Coerce
+createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateTags where
   type AWSResponse CreateTags = CreateTagsResponse
@@ -96,45 +97,49 @@ instance Core.AWSRequest CreateTags where
     Response.receiveEmpty
       ( \s h x ->
           CreateTagsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateTags
+instance Prelude.Hashable CreateTags
 
-instance Core.NFData CreateTags
+instance Prelude.NFData CreateTags
 
 instance Core.ToHeaders CreateTags where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("WorkspacesService.CreateTags" :: Core.ByteString),
+              Core.=# ( "WorkspacesService.CreateTags" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateTags where
   toJSON CreateTags' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just ("Tags" Core..= tags)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just ("Tags" Core..= tags)
           ]
       )
 
 instance Core.ToPath CreateTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateTags where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTagsResponse' smart constructor.
 data CreateTagsResponse = CreateTagsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTagsResponse' with all optional fields omitted.
@@ -147,13 +152,13 @@ data CreateTagsResponse = CreateTagsResponse'
 -- 'httpStatus', 'createTagsResponse_httpStatus' - The response's http status code.
 newCreateTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateTagsResponse
 newCreateTagsResponse pHttpStatus_ =
   CreateTagsResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-createTagsResponse_httpStatus :: Lens.Lens' CreateTagsResponse Core.Int
+createTagsResponse_httpStatus :: Lens.Lens' CreateTagsResponse Prelude.Int
 createTagsResponse_httpStatus = Lens.lens (\CreateTagsResponse' {httpStatus} -> httpStatus) (\s@CreateTagsResponse' {} a -> s {httpStatus = a} :: CreateTagsResponse)
 
-instance Core.NFData CreateTagsResponse
+instance Prelude.NFData CreateTagsResponse

@@ -44,15 +44,16 @@ where
 import Network.AWS.AppStream.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newBatchAssociateUserStack' smart constructor.
 data BatchAssociateUserStack = BatchAssociateUserStack'
   { -- | The list of UserStackAssociation objects.
-    userStackAssociations :: Core.NonEmpty UserStackAssociation
+    userStackAssociations :: Prelude.NonEmpty UserStackAssociation
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchAssociateUserStack' with all optional fields omitted.
@@ -65,7 +66,7 @@ data BatchAssociateUserStack = BatchAssociateUserStack'
 -- 'userStackAssociations', 'batchAssociateUserStack_userStackAssociations' - The list of UserStackAssociation objects.
 newBatchAssociateUserStack ::
   -- | 'userStackAssociations'
-  Core.NonEmpty UserStackAssociation ->
+  Prelude.NonEmpty UserStackAssociation ->
   BatchAssociateUserStack
 newBatchAssociateUserStack pUserStackAssociations_ =
   BatchAssociateUserStack'
@@ -74,8 +75,8 @@ newBatchAssociateUserStack pUserStackAssociations_ =
     }
 
 -- | The list of UserStackAssociation objects.
-batchAssociateUserStack_userStackAssociations :: Lens.Lens' BatchAssociateUserStack (Core.NonEmpty UserStackAssociation)
-batchAssociateUserStack_userStackAssociations = Lens.lens (\BatchAssociateUserStack' {userStackAssociations} -> userStackAssociations) (\s@BatchAssociateUserStack' {} a -> s {userStackAssociations = a} :: BatchAssociateUserStack) Core.. Lens._Coerce
+batchAssociateUserStack_userStackAssociations :: Lens.Lens' BatchAssociateUserStack (Prelude.NonEmpty UserStackAssociation)
+batchAssociateUserStack_userStackAssociations = Lens.lens (\BatchAssociateUserStack' {userStackAssociations} -> userStackAssociations) (\s@BatchAssociateUserStack' {} a -> s {userStackAssociations = a} :: BatchAssociateUserStack) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchAssociateUserStack where
   type
@@ -86,32 +87,34 @@ instance Core.AWSRequest BatchAssociateUserStack where
     Response.receiveJSON
       ( \s h x ->
           BatchAssociateUserStackResponse'
-            Core.<$> (x Core..?> "errors" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchAssociateUserStack
+instance Prelude.Hashable BatchAssociateUserStack
 
-instance Core.NFData BatchAssociateUserStack
+instance Prelude.NFData BatchAssociateUserStack
 
 instance Core.ToHeaders BatchAssociateUserStack where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "PhotonAdminProxyService.BatchAssociateUserStack" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchAssociateUserStack where
   toJSON BatchAssociateUserStack' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "UserStackAssociations"
                   Core..= userStackAssociations
               )
@@ -119,19 +122,19 @@ instance Core.ToJSON BatchAssociateUserStack where
       )
 
 instance Core.ToPath BatchAssociateUserStack where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchAssociateUserStack where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchAssociateUserStackResponse' smart constructor.
 data BatchAssociateUserStackResponse = BatchAssociateUserStackResponse'
   { -- | The list of UserStackAssociationError objects.
-    errors :: Core.Maybe [UserStackAssociationError],
+    errors :: Prelude.Maybe [UserStackAssociationError],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchAssociateUserStackResponse' with all optional fields omitted.
@@ -146,21 +149,23 @@ data BatchAssociateUserStackResponse = BatchAssociateUserStackResponse'
 -- 'httpStatus', 'batchAssociateUserStackResponse_httpStatus' - The response's http status code.
 newBatchAssociateUserStackResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchAssociateUserStackResponse
 newBatchAssociateUserStackResponse pHttpStatus_ =
   BatchAssociateUserStackResponse'
     { errors =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of UserStackAssociationError objects.
-batchAssociateUserStackResponse_errors :: Lens.Lens' BatchAssociateUserStackResponse (Core.Maybe [UserStackAssociationError])
-batchAssociateUserStackResponse_errors = Lens.lens (\BatchAssociateUserStackResponse' {errors} -> errors) (\s@BatchAssociateUserStackResponse' {} a -> s {errors = a} :: BatchAssociateUserStackResponse) Core.. Lens.mapping Lens._Coerce
+batchAssociateUserStackResponse_errors :: Lens.Lens' BatchAssociateUserStackResponse (Prelude.Maybe [UserStackAssociationError])
+batchAssociateUserStackResponse_errors = Lens.lens (\BatchAssociateUserStackResponse' {errors} -> errors) (\s@BatchAssociateUserStackResponse' {} a -> s {errors = a} :: BatchAssociateUserStackResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchAssociateUserStackResponse_httpStatus :: Lens.Lens' BatchAssociateUserStackResponse Core.Int
+batchAssociateUserStackResponse_httpStatus :: Lens.Lens' BatchAssociateUserStackResponse Prelude.Int
 batchAssociateUserStackResponse_httpStatus = Lens.lens (\BatchAssociateUserStackResponse' {httpStatus} -> httpStatus) (\s@BatchAssociateUserStackResponse' {} a -> s {httpStatus = a} :: BatchAssociateUserStackResponse)
 
-instance Core.NFData BatchAssociateUserStackResponse
+instance
+  Prelude.NFData
+    BatchAssociateUserStackResponse

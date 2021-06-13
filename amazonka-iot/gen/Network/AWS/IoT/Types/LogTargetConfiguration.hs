@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.LogLevel
 import Network.AWS.IoT.Types.LogTarget
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The target configuration.
 --
 -- /See:/ 'newLogTargetConfiguration' smart constructor.
 data LogTargetConfiguration = LogTargetConfiguration'
   { -- | The logging level.
-    logLevel :: Core.Maybe LogLevel,
+    logLevel :: Prelude.Maybe LogLevel,
     -- | A log target
-    logTarget :: Core.Maybe LogTarget
+    logTarget :: Prelude.Maybe LogTarget
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LogTargetConfiguration' with all optional fields omitted.
@@ -50,16 +51,16 @@ newLogTargetConfiguration ::
   LogTargetConfiguration
 newLogTargetConfiguration =
   LogTargetConfiguration'
-    { logLevel = Core.Nothing,
-      logTarget = Core.Nothing
+    { logLevel = Prelude.Nothing,
+      logTarget = Prelude.Nothing
     }
 
 -- | The logging level.
-logTargetConfiguration_logLevel :: Lens.Lens' LogTargetConfiguration (Core.Maybe LogLevel)
+logTargetConfiguration_logLevel :: Lens.Lens' LogTargetConfiguration (Prelude.Maybe LogLevel)
 logTargetConfiguration_logLevel = Lens.lens (\LogTargetConfiguration' {logLevel} -> logLevel) (\s@LogTargetConfiguration' {} a -> s {logLevel = a} :: LogTargetConfiguration)
 
 -- | A log target
-logTargetConfiguration_logTarget :: Lens.Lens' LogTargetConfiguration (Core.Maybe LogTarget)
+logTargetConfiguration_logTarget :: Lens.Lens' LogTargetConfiguration (Prelude.Maybe LogTarget)
 logTargetConfiguration_logTarget = Lens.lens (\LogTargetConfiguration' {logTarget} -> logTarget) (\s@LogTargetConfiguration' {} a -> s {logTarget = a} :: LogTargetConfiguration)
 
 instance Core.FromJSON LogTargetConfiguration where
@@ -68,10 +69,10 @@ instance Core.FromJSON LogTargetConfiguration where
       "LogTargetConfiguration"
       ( \x ->
           LogTargetConfiguration'
-            Core.<$> (x Core..:? "logLevel")
-            Core.<*> (x Core..:? "logTarget")
+            Prelude.<$> (x Core..:? "logLevel")
+            Prelude.<*> (x Core..:? "logTarget")
       )
 
-instance Core.Hashable LogTargetConfiguration
+instance Prelude.Hashable LogTargetConfiguration
 
-instance Core.NFData LogTargetConfiguration
+instance Prelude.NFData LogTargetConfiguration

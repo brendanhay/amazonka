@@ -22,15 +22,16 @@ module Network.AWS.Glacier.Types.OutputSerialization where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types.CSVOutput
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes how the select output is serialized.
 --
 -- /See:/ 'newOutputSerialization' smart constructor.
 data OutputSerialization = OutputSerialization'
   { -- | Describes the serialization of CSV-encoded query results.
-    csv :: Core.Maybe CSVOutput
+    csv :: Prelude.Maybe CSVOutput
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OutputSerialization' with all optional fields omitted.
@@ -44,10 +45,10 @@ data OutputSerialization = OutputSerialization'
 newOutputSerialization ::
   OutputSerialization
 newOutputSerialization =
-  OutputSerialization' {csv = Core.Nothing}
+  OutputSerialization' {csv = Prelude.Nothing}
 
 -- | Describes the serialization of CSV-encoded query results.
-outputSerialization_csv :: Lens.Lens' OutputSerialization (Core.Maybe CSVOutput)
+outputSerialization_csv :: Lens.Lens' OutputSerialization (Prelude.Maybe CSVOutput)
 outputSerialization_csv = Lens.lens (\OutputSerialization' {csv} -> csv) (\s@OutputSerialization' {} a -> s {csv = a} :: OutputSerialization)
 
 instance Core.FromJSON OutputSerialization where
@@ -55,14 +56,14 @@ instance Core.FromJSON OutputSerialization where
     Core.withObject
       "OutputSerialization"
       ( \x ->
-          OutputSerialization' Core.<$> (x Core..:? "csv")
+          OutputSerialization' Prelude.<$> (x Core..:? "csv")
       )
 
-instance Core.Hashable OutputSerialization
+instance Prelude.Hashable OutputSerialization
 
-instance Core.NFData OutputSerialization
+instance Prelude.NFData OutputSerialization
 
 instance Core.ToJSON OutputSerialization where
   toJSON OutputSerialization' {..} =
     Core.object
-      (Core.catMaybes [("csv" Core..=) Core.<$> csv])
+      (Prelude.catMaybes [("csv" Core..=) Prelude.<$> csv])

@@ -41,6 +41,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,9 +49,9 @@ import qualified Network.AWS.Response as Response
 data ImportCatalogToGlue = ImportCatalogToGlue'
   { -- | The ID of the catalog to import. Currently, this should be the AWS
     -- account ID.
-    catalogId :: Core.Maybe Core.Text
+    catalogId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportCatalogToGlue' with all optional fields omitted.
@@ -65,11 +66,11 @@ data ImportCatalogToGlue = ImportCatalogToGlue'
 newImportCatalogToGlue ::
   ImportCatalogToGlue
 newImportCatalogToGlue =
-  ImportCatalogToGlue' {catalogId = Core.Nothing}
+  ImportCatalogToGlue' {catalogId = Prelude.Nothing}
 
 -- | The ID of the catalog to import. Currently, this should be the AWS
 -- account ID.
-importCatalogToGlue_catalogId :: Lens.Lens' ImportCatalogToGlue (Core.Maybe Core.Text)
+importCatalogToGlue_catalogId :: Lens.Lens' ImportCatalogToGlue (Prelude.Maybe Prelude.Text)
 importCatalogToGlue_catalogId = Lens.lens (\ImportCatalogToGlue' {catalogId} -> catalogId) (\s@ImportCatalogToGlue' {} a -> s {catalogId = a} :: ImportCatalogToGlue)
 
 instance Core.AWSRequest ImportCatalogToGlue where
@@ -81,43 +82,47 @@ instance Core.AWSRequest ImportCatalogToGlue where
     Response.receiveEmpty
       ( \s h x ->
           ImportCatalogToGlueResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ImportCatalogToGlue
+instance Prelude.Hashable ImportCatalogToGlue
 
-instance Core.NFData ImportCatalogToGlue
+instance Prelude.NFData ImportCatalogToGlue
 
 instance Core.ToHeaders ImportCatalogToGlue where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.ImportCatalogToGlue" :: Core.ByteString),
+              Core.=# ( "AWSGlue.ImportCatalogToGlue" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ImportCatalogToGlue where
   toJSON ImportCatalogToGlue' {..} =
     Core.object
-      ( Core.catMaybes
-          [("CatalogId" Core..=) Core.<$> catalogId]
+      ( Prelude.catMaybes
+          [("CatalogId" Core..=) Prelude.<$> catalogId]
       )
 
 instance Core.ToPath ImportCatalogToGlue where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ImportCatalogToGlue where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportCatalogToGlueResponse' smart constructor.
 data ImportCatalogToGlueResponse = ImportCatalogToGlueResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportCatalogToGlueResponse' with all optional fields omitted.
@@ -130,7 +135,7 @@ data ImportCatalogToGlueResponse = ImportCatalogToGlueResponse'
 -- 'httpStatus', 'importCatalogToGlueResponse_httpStatus' - The response's http status code.
 newImportCatalogToGlueResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ImportCatalogToGlueResponse
 newImportCatalogToGlueResponse pHttpStatus_ =
   ImportCatalogToGlueResponse'
@@ -139,7 +144,7 @@ newImportCatalogToGlueResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-importCatalogToGlueResponse_httpStatus :: Lens.Lens' ImportCatalogToGlueResponse Core.Int
+importCatalogToGlueResponse_httpStatus :: Lens.Lens' ImportCatalogToGlueResponse Prelude.Int
 importCatalogToGlueResponse_httpStatus = Lens.lens (\ImportCatalogToGlueResponse' {httpStatus} -> httpStatus) (\s@ImportCatalogToGlueResponse' {} a -> s {httpStatus = a} :: ImportCatalogToGlueResponse)
 
-instance Core.NFData ImportCatalogToGlueResponse
+instance Prelude.NFData ImportCatalogToGlueResponse

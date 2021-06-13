@@ -39,6 +39,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,11 +49,11 @@ data DeleteDatasetContent = DeleteDatasetContent'
     -- the strings \"$LATEST\" or \"$LATEST_SUCCEEDED\" to delete the latest or
     -- latest successfully completed data set. If not specified,
     -- \"$LATEST_SUCCEEDED\" is the default.
-    versionId :: Core.Maybe Core.Text,
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the dataset whose content is deleted.
-    datasetName :: Core.Text
+    datasetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDatasetContent' with all optional fields omitted.
@@ -70,11 +71,11 @@ data DeleteDatasetContent = DeleteDatasetContent'
 -- 'datasetName', 'deleteDatasetContent_datasetName' - The name of the dataset whose content is deleted.
 newDeleteDatasetContent ::
   -- | 'datasetName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDatasetContent
 newDeleteDatasetContent pDatasetName_ =
   DeleteDatasetContent'
-    { versionId = Core.Nothing,
+    { versionId = Prelude.Nothing,
       datasetName = pDatasetName_
     }
 
@@ -82,11 +83,11 @@ newDeleteDatasetContent pDatasetName_ =
 -- the strings \"$LATEST\" or \"$LATEST_SUCCEEDED\" to delete the latest or
 -- latest successfully completed data set. If not specified,
 -- \"$LATEST_SUCCEEDED\" is the default.
-deleteDatasetContent_versionId :: Lens.Lens' DeleteDatasetContent (Core.Maybe Core.Text)
+deleteDatasetContent_versionId :: Lens.Lens' DeleteDatasetContent (Prelude.Maybe Prelude.Text)
 deleteDatasetContent_versionId = Lens.lens (\DeleteDatasetContent' {versionId} -> versionId) (\s@DeleteDatasetContent' {} a -> s {versionId = a} :: DeleteDatasetContent)
 
 -- | The name of the dataset whose content is deleted.
-deleteDatasetContent_datasetName :: Lens.Lens' DeleteDatasetContent Core.Text
+deleteDatasetContent_datasetName :: Lens.Lens' DeleteDatasetContent Prelude.Text
 deleteDatasetContent_datasetName = Lens.lens (\DeleteDatasetContent' {datasetName} -> datasetName) (\s@DeleteDatasetContent' {} a -> s {datasetName = a} :: DeleteDatasetContent)
 
 instance Core.AWSRequest DeleteDatasetContent where
@@ -97,27 +98,27 @@ instance Core.AWSRequest DeleteDatasetContent where
   response =
     Response.receiveNull DeleteDatasetContentResponse'
 
-instance Core.Hashable DeleteDatasetContent
+instance Prelude.Hashable DeleteDatasetContent
 
-instance Core.NFData DeleteDatasetContent
+instance Prelude.NFData DeleteDatasetContent
 
 instance Core.ToHeaders DeleteDatasetContent where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteDatasetContent where
   toPath DeleteDatasetContent' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/datasets/", Core.toBS datasetName, "/content"]
 
 instance Core.ToQuery DeleteDatasetContent where
   toQuery DeleteDatasetContent' {..} =
-    Core.mconcat ["versionId" Core.=: versionId]
+    Prelude.mconcat ["versionId" Core.=: versionId]
 
 -- | /See:/ 'newDeleteDatasetContentResponse' smart constructor.
 data DeleteDatasetContentResponse = DeleteDatasetContentResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDatasetContentResponse' with all optional fields omitted.
@@ -128,4 +129,4 @@ newDeleteDatasetContentResponse ::
 newDeleteDatasetContentResponse =
   DeleteDatasetContentResponse'
 
-instance Core.NFData DeleteDatasetContentResponse
+instance Prelude.NFData DeleteDatasetContentResponse

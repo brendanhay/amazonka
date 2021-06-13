@@ -63,6 +63,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,20 +72,20 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateReplicationInstance' smart constructor.
 data CreateReplicationInstance = CreateReplicationInstance'
   { -- | A subnet group to associate with the replication instance.
-    replicationSubnetGroupIdentifier :: Core.Maybe Core.Text,
+    replicationSubnetGroupIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the replication instance is a Multi-AZ deployment. You
     -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
     -- set to @true@.
-    multiAZ :: Core.Maybe Core.Bool,
+    multiAZ :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the accessibility options for the replication instance. A
     -- value of @true@ represents an instance with a public IP address. A value
     -- of @false@ represents an instance with a private IP address. The default
     -- value is @true@.
-    publiclyAccessible :: Core.Maybe Core.Bool,
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the VPC security group to be used with the replication
     -- instance. The VPC security group must work with the VPC containing the
     -- replication instance.
-    vpcSecurityGroupIds :: Core.Maybe [Core.Text],
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | An AWS KMS key identifier that is used to encrypt the data on the
     -- replication instance.
     --
@@ -93,16 +94,16 @@ data CreateReplicationInstance = CreateReplicationInstance'
     --
     -- AWS KMS creates the default encryption key for your AWS account. Your
     -- AWS account has a different default encryption key for each AWS Region.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone where the replication instance will be created.
     -- The default value is a random, system-chosen Availability Zone in the
     -- endpoint\'s AWS Region, for example: @us-east-1d@
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The engine version number of the replication instance.
     --
     -- If an engine version number is not specified when a replication instance
     -- is created, the default is the latest engine version available.
-    engineVersion :: Core.Maybe Core.Text,
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The weekly time range during which system maintenance can occur, in
     -- Universal Coordinated Time (UTC).
     --
@@ -114,9 +115,9 @@ data CreateReplicationInstance = CreateReplicationInstance'
     -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
     --
     -- Constraints: Minimum 30-minute window.
-    preferredMaintenanceWindow :: Core.Maybe Core.Text,
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | One or more tags to be assigned to the replication instance.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A friendly name for the resource identifier at the end of the
     -- @EndpointArn@ response parameter that is returned in the created
     -- @Endpoint@ object. The value for this parameter can have up to 31
@@ -127,23 +128,23 @@ data CreateReplicationInstance = CreateReplicationInstance'
     -- @arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1@. If you don\'t
     -- specify a @ResourceIdentifier@ value, AWS DMS generates a default
     -- identifier value for the end of @EndpointArn@.
-    resourceIdentifier :: Core.Maybe Core.Text,
+    resourceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A list of custom DNS name servers supported for the replication instance
     -- to access your on-premise source or target database. This list overrides
     -- the default name servers supported by the replication instance. You can
     -- specify a comma-separated list of internet addresses for up to four
     -- on-premise DNS name servers. For example:
     -- @\"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4\"@
-    dnsNameServers :: Core.Maybe Core.Text,
+    dnsNameServers :: Prelude.Maybe Prelude.Text,
     -- | The amount of storage (in gigabytes) to be initially allocated for the
     -- replication instance.
-    allocatedStorage :: Core.Maybe Core.Int,
+    allocatedStorage :: Prelude.Maybe Prelude.Int,
     -- | A value that indicates whether minor engine upgrades are applied
     -- automatically to the replication instance during the maintenance window.
     -- This parameter defaults to @true@.
     --
     -- Default: @true@
-    autoMinorVersionUpgrade :: Core.Maybe Core.Bool,
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The replication instance identifier. This parameter is stored as a
     -- lowercase string.
     --
@@ -156,7 +157,7 @@ data CreateReplicationInstance = CreateReplicationInstance'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
     --
     -- Example: @myrepinstance@
-    replicationInstanceIdentifier :: Core.Text,
+    replicationInstanceIdentifier :: Prelude.Text,
     -- | The compute and memory capacity of the replication instance as defined
     -- for the specified replication instance class. For example to specify the
     -- instance class dms.c4.large, set this parameter to @\"dms.c4.large\"@.
@@ -164,9 +165,9 @@ data CreateReplicationInstance = CreateReplicationInstance'
     -- For more information on the settings and capacities for the available
     -- replication instance classes, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
-    replicationInstanceClass :: Core.Text
+    replicationInstanceClass :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateReplicationInstance' with all optional fields omitted.
@@ -272,28 +273,28 @@ data CreateReplicationInstance = CreateReplicationInstance'
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
 newCreateReplicationInstance ::
   -- | 'replicationInstanceIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'replicationInstanceClass'
-  Core.Text ->
+  Prelude.Text ->
   CreateReplicationInstance
 newCreateReplicationInstance
   pReplicationInstanceIdentifier_
   pReplicationInstanceClass_ =
     CreateReplicationInstance'
       { replicationSubnetGroupIdentifier =
-          Core.Nothing,
-        multiAZ = Core.Nothing,
-        publiclyAccessible = Core.Nothing,
-        vpcSecurityGroupIds = Core.Nothing,
-        kmsKeyId = Core.Nothing,
-        availabilityZone = Core.Nothing,
-        engineVersion = Core.Nothing,
-        preferredMaintenanceWindow = Core.Nothing,
-        tags = Core.Nothing,
-        resourceIdentifier = Core.Nothing,
-        dnsNameServers = Core.Nothing,
-        allocatedStorage = Core.Nothing,
-        autoMinorVersionUpgrade = Core.Nothing,
+          Prelude.Nothing,
+        multiAZ = Prelude.Nothing,
+        publiclyAccessible = Prelude.Nothing,
+        vpcSecurityGroupIds = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
+        availabilityZone = Prelude.Nothing,
+        engineVersion = Prelude.Nothing,
+        preferredMaintenanceWindow = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        resourceIdentifier = Prelude.Nothing,
+        dnsNameServers = Prelude.Nothing,
+        allocatedStorage = Prelude.Nothing,
+        autoMinorVersionUpgrade = Prelude.Nothing,
         replicationInstanceIdentifier =
           pReplicationInstanceIdentifier_,
         replicationInstanceClass =
@@ -301,27 +302,27 @@ newCreateReplicationInstance
       }
 
 -- | A subnet group to associate with the replication instance.
-createReplicationInstance_replicationSubnetGroupIdentifier :: Lens.Lens' CreateReplicationInstance (Core.Maybe Core.Text)
+createReplicationInstance_replicationSubnetGroupIdentifier :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
 createReplicationInstance_replicationSubnetGroupIdentifier = Lens.lens (\CreateReplicationInstance' {replicationSubnetGroupIdentifier} -> replicationSubnetGroupIdentifier) (\s@CreateReplicationInstance' {} a -> s {replicationSubnetGroupIdentifier = a} :: CreateReplicationInstance)
 
 -- | Specifies whether the replication instance is a Multi-AZ deployment. You
 -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
 -- set to @true@.
-createReplicationInstance_multiAZ :: Lens.Lens' CreateReplicationInstance (Core.Maybe Core.Bool)
+createReplicationInstance_multiAZ :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Bool)
 createReplicationInstance_multiAZ = Lens.lens (\CreateReplicationInstance' {multiAZ} -> multiAZ) (\s@CreateReplicationInstance' {} a -> s {multiAZ = a} :: CreateReplicationInstance)
 
 -- | Specifies the accessibility options for the replication instance. A
 -- value of @true@ represents an instance with a public IP address. A value
 -- of @false@ represents an instance with a private IP address. The default
 -- value is @true@.
-createReplicationInstance_publiclyAccessible :: Lens.Lens' CreateReplicationInstance (Core.Maybe Core.Bool)
+createReplicationInstance_publiclyAccessible :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Bool)
 createReplicationInstance_publiclyAccessible = Lens.lens (\CreateReplicationInstance' {publiclyAccessible} -> publiclyAccessible) (\s@CreateReplicationInstance' {} a -> s {publiclyAccessible = a} :: CreateReplicationInstance)
 
 -- | Specifies the VPC security group to be used with the replication
 -- instance. The VPC security group must work with the VPC containing the
 -- replication instance.
-createReplicationInstance_vpcSecurityGroupIds :: Lens.Lens' CreateReplicationInstance (Core.Maybe [Core.Text])
-createReplicationInstance_vpcSecurityGroupIds = Lens.lens (\CreateReplicationInstance' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateReplicationInstance' {} a -> s {vpcSecurityGroupIds = a} :: CreateReplicationInstance) Core.. Lens.mapping Lens._Coerce
+createReplicationInstance_vpcSecurityGroupIds :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe [Prelude.Text])
+createReplicationInstance_vpcSecurityGroupIds = Lens.lens (\CreateReplicationInstance' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateReplicationInstance' {} a -> s {vpcSecurityGroupIds = a} :: CreateReplicationInstance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An AWS KMS key identifier that is used to encrypt the data on the
 -- replication instance.
@@ -331,20 +332,20 @@ createReplicationInstance_vpcSecurityGroupIds = Lens.lens (\CreateReplicationIns
 --
 -- AWS KMS creates the default encryption key for your AWS account. Your
 -- AWS account has a different default encryption key for each AWS Region.
-createReplicationInstance_kmsKeyId :: Lens.Lens' CreateReplicationInstance (Core.Maybe Core.Text)
+createReplicationInstance_kmsKeyId :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
 createReplicationInstance_kmsKeyId = Lens.lens (\CreateReplicationInstance' {kmsKeyId} -> kmsKeyId) (\s@CreateReplicationInstance' {} a -> s {kmsKeyId = a} :: CreateReplicationInstance)
 
 -- | The Availability Zone where the replication instance will be created.
 -- The default value is a random, system-chosen Availability Zone in the
 -- endpoint\'s AWS Region, for example: @us-east-1d@
-createReplicationInstance_availabilityZone :: Lens.Lens' CreateReplicationInstance (Core.Maybe Core.Text)
+createReplicationInstance_availabilityZone :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
 createReplicationInstance_availabilityZone = Lens.lens (\CreateReplicationInstance' {availabilityZone} -> availabilityZone) (\s@CreateReplicationInstance' {} a -> s {availabilityZone = a} :: CreateReplicationInstance)
 
 -- | The engine version number of the replication instance.
 --
 -- If an engine version number is not specified when a replication instance
 -- is created, the default is the latest engine version available.
-createReplicationInstance_engineVersion :: Lens.Lens' CreateReplicationInstance (Core.Maybe Core.Text)
+createReplicationInstance_engineVersion :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
 createReplicationInstance_engineVersion = Lens.lens (\CreateReplicationInstance' {engineVersion} -> engineVersion) (\s@CreateReplicationInstance' {} a -> s {engineVersion = a} :: CreateReplicationInstance)
 
 -- | The weekly time range during which system maintenance can occur, in
@@ -358,12 +359,12 @@ createReplicationInstance_engineVersion = Lens.lens (\CreateReplicationInstance'
 -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 --
 -- Constraints: Minimum 30-minute window.
-createReplicationInstance_preferredMaintenanceWindow :: Lens.Lens' CreateReplicationInstance (Core.Maybe Core.Text)
+createReplicationInstance_preferredMaintenanceWindow :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
 createReplicationInstance_preferredMaintenanceWindow = Lens.lens (\CreateReplicationInstance' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateReplicationInstance' {} a -> s {preferredMaintenanceWindow = a} :: CreateReplicationInstance)
 
 -- | One or more tags to be assigned to the replication instance.
-createReplicationInstance_tags :: Lens.Lens' CreateReplicationInstance (Core.Maybe [Tag])
-createReplicationInstance_tags = Lens.lens (\CreateReplicationInstance' {tags} -> tags) (\s@CreateReplicationInstance' {} a -> s {tags = a} :: CreateReplicationInstance) Core.. Lens.mapping Lens._Coerce
+createReplicationInstance_tags :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe [Tag])
+createReplicationInstance_tags = Lens.lens (\CreateReplicationInstance' {tags} -> tags) (\s@CreateReplicationInstance' {} a -> s {tags = a} :: CreateReplicationInstance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A friendly name for the resource identifier at the end of the
 -- @EndpointArn@ response parameter that is returned in the created
@@ -375,7 +376,7 @@ createReplicationInstance_tags = Lens.lens (\CreateReplicationInstance' {tags} -
 -- @arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1@. If you don\'t
 -- specify a @ResourceIdentifier@ value, AWS DMS generates a default
 -- identifier value for the end of @EndpointArn@.
-createReplicationInstance_resourceIdentifier :: Lens.Lens' CreateReplicationInstance (Core.Maybe Core.Text)
+createReplicationInstance_resourceIdentifier :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
 createReplicationInstance_resourceIdentifier = Lens.lens (\CreateReplicationInstance' {resourceIdentifier} -> resourceIdentifier) (\s@CreateReplicationInstance' {} a -> s {resourceIdentifier = a} :: CreateReplicationInstance)
 
 -- | A list of custom DNS name servers supported for the replication instance
@@ -384,12 +385,12 @@ createReplicationInstance_resourceIdentifier = Lens.lens (\CreateReplicationInst
 -- specify a comma-separated list of internet addresses for up to four
 -- on-premise DNS name servers. For example:
 -- @\"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4\"@
-createReplicationInstance_dnsNameServers :: Lens.Lens' CreateReplicationInstance (Core.Maybe Core.Text)
+createReplicationInstance_dnsNameServers :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
 createReplicationInstance_dnsNameServers = Lens.lens (\CreateReplicationInstance' {dnsNameServers} -> dnsNameServers) (\s@CreateReplicationInstance' {} a -> s {dnsNameServers = a} :: CreateReplicationInstance)
 
 -- | The amount of storage (in gigabytes) to be initially allocated for the
 -- replication instance.
-createReplicationInstance_allocatedStorage :: Lens.Lens' CreateReplicationInstance (Core.Maybe Core.Int)
+createReplicationInstance_allocatedStorage :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Int)
 createReplicationInstance_allocatedStorage = Lens.lens (\CreateReplicationInstance' {allocatedStorage} -> allocatedStorage) (\s@CreateReplicationInstance' {} a -> s {allocatedStorage = a} :: CreateReplicationInstance)
 
 -- | A value that indicates whether minor engine upgrades are applied
@@ -397,7 +398,7 @@ createReplicationInstance_allocatedStorage = Lens.lens (\CreateReplicationInstan
 -- This parameter defaults to @true@.
 --
 -- Default: @true@
-createReplicationInstance_autoMinorVersionUpgrade :: Lens.Lens' CreateReplicationInstance (Core.Maybe Core.Bool)
+createReplicationInstance_autoMinorVersionUpgrade :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Bool)
 createReplicationInstance_autoMinorVersionUpgrade = Lens.lens (\CreateReplicationInstance' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateReplicationInstance' {} a -> s {autoMinorVersionUpgrade = a} :: CreateReplicationInstance)
 
 -- | The replication instance identifier. This parameter is stored as a
@@ -412,7 +413,7 @@ createReplicationInstance_autoMinorVersionUpgrade = Lens.lens (\CreateReplicatio
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
 --
 -- Example: @myrepinstance@
-createReplicationInstance_replicationInstanceIdentifier :: Lens.Lens' CreateReplicationInstance Core.Text
+createReplicationInstance_replicationInstanceIdentifier :: Lens.Lens' CreateReplicationInstance Prelude.Text
 createReplicationInstance_replicationInstanceIdentifier = Lens.lens (\CreateReplicationInstance' {replicationInstanceIdentifier} -> replicationInstanceIdentifier) (\s@CreateReplicationInstance' {} a -> s {replicationInstanceIdentifier = a} :: CreateReplicationInstance)
 
 -- | The compute and memory capacity of the replication instance as defined
@@ -422,7 +423,7 @@ createReplicationInstance_replicationInstanceIdentifier = Lens.lens (\CreateRepl
 -- For more information on the settings and capacities for the available
 -- replication instance classes, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
-createReplicationInstance_replicationInstanceClass :: Lens.Lens' CreateReplicationInstance Core.Text
+createReplicationInstance_replicationInstanceClass :: Lens.Lens' CreateReplicationInstance Prelude.Text
 createReplicationInstance_replicationInstanceClass = Lens.lens (\CreateReplicationInstance' {replicationInstanceClass} -> replicationInstanceClass) (\s@CreateReplicationInstance' {} a -> s {replicationInstanceClass = a} :: CreateReplicationInstance)
 
 instance Core.AWSRequest CreateReplicationInstance where
@@ -434,57 +435,60 @@ instance Core.AWSRequest CreateReplicationInstance where
     Response.receiveJSON
       ( \s h x ->
           CreateReplicationInstanceResponse'
-            Core.<$> (x Core..?> "ReplicationInstance")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ReplicationInstance")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateReplicationInstance
+instance Prelude.Hashable CreateReplicationInstance
 
-instance Core.NFData CreateReplicationInstance
+instance Prelude.NFData CreateReplicationInstance
 
 instance Core.ToHeaders CreateReplicationInstance where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonDMSv20160101.CreateReplicationInstance" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateReplicationInstance where
   toJSON CreateReplicationInstance' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ReplicationSubnetGroupIdentifier" Core..=)
-              Core.<$> replicationSubnetGroupIdentifier,
-            ("MultiAZ" Core..=) Core.<$> multiAZ,
+              Prelude.<$> replicationSubnetGroupIdentifier,
+            ("MultiAZ" Core..=) Prelude.<$> multiAZ,
             ("PubliclyAccessible" Core..=)
-              Core.<$> publiclyAccessible,
+              Prelude.<$> publiclyAccessible,
             ("VpcSecurityGroupIds" Core..=)
-              Core.<$> vpcSecurityGroupIds,
-            ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+              Prelude.<$> vpcSecurityGroupIds,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             ("AvailabilityZone" Core..=)
-              Core.<$> availabilityZone,
-            ("EngineVersion" Core..=) Core.<$> engineVersion,
+              Prelude.<$> availabilityZone,
+            ("EngineVersion" Core..=) Prelude.<$> engineVersion,
             ("PreferredMaintenanceWindow" Core..=)
-              Core.<$> preferredMaintenanceWindow,
-            ("Tags" Core..=) Core.<$> tags,
+              Prelude.<$> preferredMaintenanceWindow,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("ResourceIdentifier" Core..=)
-              Core.<$> resourceIdentifier,
-            ("DnsNameServers" Core..=) Core.<$> dnsNameServers,
+              Prelude.<$> resourceIdentifier,
+            ("DnsNameServers" Core..=)
+              Prelude.<$> dnsNameServers,
             ("AllocatedStorage" Core..=)
-              Core.<$> allocatedStorage,
+              Prelude.<$> allocatedStorage,
             ("AutoMinorVersionUpgrade" Core..=)
-              Core.<$> autoMinorVersionUpgrade,
-            Core.Just
+              Prelude.<$> autoMinorVersionUpgrade,
+            Prelude.Just
               ( "ReplicationInstanceIdentifier"
                   Core..= replicationInstanceIdentifier
               ),
-            Core.Just
+            Prelude.Just
               ( "ReplicationInstanceClass"
                   Core..= replicationInstanceClass
               )
@@ -492,21 +496,21 @@ instance Core.ToJSON CreateReplicationInstance where
       )
 
 instance Core.ToPath CreateReplicationInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateReplicationInstance where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
 -- /See:/ 'newCreateReplicationInstanceResponse' smart constructor.
 data CreateReplicationInstanceResponse = CreateReplicationInstanceResponse'
   { -- | The replication instance that was created.
-    replicationInstance :: Core.Maybe ReplicationInstance,
+    replicationInstance :: Prelude.Maybe ReplicationInstance,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateReplicationInstanceResponse' with all optional fields omitted.
@@ -521,23 +525,23 @@ data CreateReplicationInstanceResponse = CreateReplicationInstanceResponse'
 -- 'httpStatus', 'createReplicationInstanceResponse_httpStatus' - The response's http status code.
 newCreateReplicationInstanceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateReplicationInstanceResponse
 newCreateReplicationInstanceResponse pHttpStatus_ =
   CreateReplicationInstanceResponse'
     { replicationInstance =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The replication instance that was created.
-createReplicationInstanceResponse_replicationInstance :: Lens.Lens' CreateReplicationInstanceResponse (Core.Maybe ReplicationInstance)
+createReplicationInstanceResponse_replicationInstance :: Lens.Lens' CreateReplicationInstanceResponse (Prelude.Maybe ReplicationInstance)
 createReplicationInstanceResponse_replicationInstance = Lens.lens (\CreateReplicationInstanceResponse' {replicationInstance} -> replicationInstance) (\s@CreateReplicationInstanceResponse' {} a -> s {replicationInstance = a} :: CreateReplicationInstanceResponse)
 
 -- | The response's http status code.
-createReplicationInstanceResponse_httpStatus :: Lens.Lens' CreateReplicationInstanceResponse Core.Int
+createReplicationInstanceResponse_httpStatus :: Lens.Lens' CreateReplicationInstanceResponse Prelude.Int
 createReplicationInstanceResponse_httpStatus = Lens.lens (\CreateReplicationInstanceResponse' {httpStatus} -> httpStatus) (\s@CreateReplicationInstanceResponse' {} a -> s {httpStatus = a} :: CreateReplicationInstanceResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateReplicationInstanceResponse

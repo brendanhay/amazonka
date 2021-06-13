@@ -48,19 +48,20 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateResourceDefinitionVersion' smart constructor.
 data CreateResourceDefinitionVersion = CreateResourceDefinitionVersion'
   { -- | A list of resources.
-    resources :: Core.Maybe [Resource],
+    resources :: Prelude.Maybe [Resource],
     -- | A client token used to correlate requests and responses.
-    amznClientToken :: Core.Maybe Core.Text,
+    amznClientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the resource definition.
-    resourceDefinitionId :: Core.Text
+    resourceDefinitionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateResourceDefinitionVersion' with all optional fields omitted.
@@ -77,28 +78,28 @@ data CreateResourceDefinitionVersion = CreateResourceDefinitionVersion'
 -- 'resourceDefinitionId', 'createResourceDefinitionVersion_resourceDefinitionId' - The ID of the resource definition.
 newCreateResourceDefinitionVersion ::
   -- | 'resourceDefinitionId'
-  Core.Text ->
+  Prelude.Text ->
   CreateResourceDefinitionVersion
 newCreateResourceDefinitionVersion
   pResourceDefinitionId_ =
     CreateResourceDefinitionVersion'
       { resources =
-          Core.Nothing,
-        amznClientToken = Core.Nothing,
+          Prelude.Nothing,
+        amznClientToken = Prelude.Nothing,
         resourceDefinitionId =
           pResourceDefinitionId_
       }
 
 -- | A list of resources.
-createResourceDefinitionVersion_resources :: Lens.Lens' CreateResourceDefinitionVersion (Core.Maybe [Resource])
-createResourceDefinitionVersion_resources = Lens.lens (\CreateResourceDefinitionVersion' {resources} -> resources) (\s@CreateResourceDefinitionVersion' {} a -> s {resources = a} :: CreateResourceDefinitionVersion) Core.. Lens.mapping Lens._Coerce
+createResourceDefinitionVersion_resources :: Lens.Lens' CreateResourceDefinitionVersion (Prelude.Maybe [Resource])
+createResourceDefinitionVersion_resources = Lens.lens (\CreateResourceDefinitionVersion' {resources} -> resources) (\s@CreateResourceDefinitionVersion' {} a -> s {resources = a} :: CreateResourceDefinitionVersion) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A client token used to correlate requests and responses.
-createResourceDefinitionVersion_amznClientToken :: Lens.Lens' CreateResourceDefinitionVersion (Core.Maybe Core.Text)
+createResourceDefinitionVersion_amznClientToken :: Lens.Lens' CreateResourceDefinitionVersion (Prelude.Maybe Prelude.Text)
 createResourceDefinitionVersion_amznClientToken = Lens.lens (\CreateResourceDefinitionVersion' {amznClientToken} -> amznClientToken) (\s@CreateResourceDefinitionVersion' {} a -> s {amznClientToken = a} :: CreateResourceDefinitionVersion)
 
 -- | The ID of the resource definition.
-createResourceDefinitionVersion_resourceDefinitionId :: Lens.Lens' CreateResourceDefinitionVersion Core.Text
+createResourceDefinitionVersion_resourceDefinitionId :: Lens.Lens' CreateResourceDefinitionVersion Prelude.Text
 createResourceDefinitionVersion_resourceDefinitionId = Lens.lens (\CreateResourceDefinitionVersion' {resourceDefinitionId} -> resourceDefinitionId) (\s@CreateResourceDefinitionVersion' {} a -> s {resourceDefinitionId = a} :: CreateResourceDefinitionVersion)
 
 instance
@@ -113,62 +114,64 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateResourceDefinitionVersionResponse'
-            Core.<$> (x Core..?> "CreationTimestamp")
-            Core.<*> (x Core..?> "Arn")
-            Core.<*> (x Core..?> "Id")
-            Core.<*> (x Core..?> "Version")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CreationTimestamp")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "Version")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateResourceDefinitionVersion
 
-instance Core.NFData CreateResourceDefinitionVersion
+instance
+  Prelude.NFData
+    CreateResourceDefinitionVersion
 
 instance
   Core.ToHeaders
     CreateResourceDefinitionVersion
   where
   toHeaders CreateResourceDefinitionVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "X-Amzn-Client-Token" Core.=# amznClientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance Core.ToJSON CreateResourceDefinitionVersion where
   toJSON CreateResourceDefinitionVersion' {..} =
     Core.object
-      ( Core.catMaybes
-          [("Resources" Core..=) Core.<$> resources]
+      ( Prelude.catMaybes
+          [("Resources" Core..=) Prelude.<$> resources]
       )
 
 instance Core.ToPath CreateResourceDefinitionVersion where
   toPath CreateResourceDefinitionVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/greengrass/definition/resources/",
         Core.toBS resourceDefinitionId,
         "/versions"
       ]
 
 instance Core.ToQuery CreateResourceDefinitionVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateResourceDefinitionVersionResponse' smart constructor.
 data CreateResourceDefinitionVersionResponse = CreateResourceDefinitionVersionResponse'
   { -- | The time, in milliseconds since the epoch, when the version was created.
-    creationTimestamp :: Core.Maybe Core.Text,
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the version.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the parent definition that the version is associated with.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The ID of the version.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateResourceDefinitionVersionResponse' with all optional fields omitted.
@@ -189,39 +192,39 @@ data CreateResourceDefinitionVersionResponse = CreateResourceDefinitionVersionRe
 -- 'httpStatus', 'createResourceDefinitionVersionResponse_httpStatus' - The response's http status code.
 newCreateResourceDefinitionVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateResourceDefinitionVersionResponse
 newCreateResourceDefinitionVersionResponse
   pHttpStatus_ =
     CreateResourceDefinitionVersionResponse'
       { creationTimestamp =
-          Core.Nothing,
-        arn = Core.Nothing,
-        id = Core.Nothing,
-        version = Core.Nothing,
+          Prelude.Nothing,
+        arn = Prelude.Nothing,
+        id = Prelude.Nothing,
+        version = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The time, in milliseconds since the epoch, when the version was created.
-createResourceDefinitionVersionResponse_creationTimestamp :: Lens.Lens' CreateResourceDefinitionVersionResponse (Core.Maybe Core.Text)
+createResourceDefinitionVersionResponse_creationTimestamp :: Lens.Lens' CreateResourceDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 createResourceDefinitionVersionResponse_creationTimestamp = Lens.lens (\CreateResourceDefinitionVersionResponse' {creationTimestamp} -> creationTimestamp) (\s@CreateResourceDefinitionVersionResponse' {} a -> s {creationTimestamp = a} :: CreateResourceDefinitionVersionResponse)
 
 -- | The ARN of the version.
-createResourceDefinitionVersionResponse_arn :: Lens.Lens' CreateResourceDefinitionVersionResponse (Core.Maybe Core.Text)
+createResourceDefinitionVersionResponse_arn :: Lens.Lens' CreateResourceDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 createResourceDefinitionVersionResponse_arn = Lens.lens (\CreateResourceDefinitionVersionResponse' {arn} -> arn) (\s@CreateResourceDefinitionVersionResponse' {} a -> s {arn = a} :: CreateResourceDefinitionVersionResponse)
 
 -- | The ID of the parent definition that the version is associated with.
-createResourceDefinitionVersionResponse_id :: Lens.Lens' CreateResourceDefinitionVersionResponse (Core.Maybe Core.Text)
+createResourceDefinitionVersionResponse_id :: Lens.Lens' CreateResourceDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 createResourceDefinitionVersionResponse_id = Lens.lens (\CreateResourceDefinitionVersionResponse' {id} -> id) (\s@CreateResourceDefinitionVersionResponse' {} a -> s {id = a} :: CreateResourceDefinitionVersionResponse)
 
 -- | The ID of the version.
-createResourceDefinitionVersionResponse_version :: Lens.Lens' CreateResourceDefinitionVersionResponse (Core.Maybe Core.Text)
+createResourceDefinitionVersionResponse_version :: Lens.Lens' CreateResourceDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 createResourceDefinitionVersionResponse_version = Lens.lens (\CreateResourceDefinitionVersionResponse' {version} -> version) (\s@CreateResourceDefinitionVersionResponse' {} a -> s {version = a} :: CreateResourceDefinitionVersionResponse)
 
 -- | The response's http status code.
-createResourceDefinitionVersionResponse_httpStatus :: Lens.Lens' CreateResourceDefinitionVersionResponse Core.Int
+createResourceDefinitionVersionResponse_httpStatus :: Lens.Lens' CreateResourceDefinitionVersionResponse Prelude.Int
 createResourceDefinitionVersionResponse_httpStatus = Lens.lens (\CreateResourceDefinitionVersionResponse' {httpStatus} -> httpStatus) (\s@CreateResourceDefinitionVersionResponse' {} a -> s {httpStatus = a} :: CreateResourceDefinitionVersionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateResourceDefinitionVersionResponse

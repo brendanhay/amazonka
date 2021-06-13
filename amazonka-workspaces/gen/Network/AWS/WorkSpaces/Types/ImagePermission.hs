@@ -21,6 +21,7 @@ module Network.AWS.WorkSpaces.Types.ImagePermission where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the AWS accounts that have been granted permission to use a
 -- shared image. For more information about sharing images, see
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newImagePermission' smart constructor.
 data ImagePermission = ImagePermission'
   { -- | The identifier of the AWS account that an image has been shared with.
-    sharedAccountId :: Core.Maybe Core.Text
+    sharedAccountId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImagePermission' with all optional fields omitted.
@@ -45,10 +46,10 @@ data ImagePermission = ImagePermission'
 newImagePermission ::
   ImagePermission
 newImagePermission =
-  ImagePermission' {sharedAccountId = Core.Nothing}
+  ImagePermission' {sharedAccountId = Prelude.Nothing}
 
 -- | The identifier of the AWS account that an image has been shared with.
-imagePermission_sharedAccountId :: Lens.Lens' ImagePermission (Core.Maybe Core.Text)
+imagePermission_sharedAccountId :: Lens.Lens' ImagePermission (Prelude.Maybe Prelude.Text)
 imagePermission_sharedAccountId = Lens.lens (\ImagePermission' {sharedAccountId} -> sharedAccountId) (\s@ImagePermission' {} a -> s {sharedAccountId = a} :: ImagePermission)
 
 instance Core.FromJSON ImagePermission where
@@ -57,9 +58,9 @@ instance Core.FromJSON ImagePermission where
       "ImagePermission"
       ( \x ->
           ImagePermission'
-            Core.<$> (x Core..:? "SharedAccountId")
+            Prelude.<$> (x Core..:? "SharedAccountId")
       )
 
-instance Core.Hashable ImagePermission
+instance Prelude.Hashable ImagePermission
 
-instance Core.NFData ImagePermission
+instance Prelude.NFData ImagePermission

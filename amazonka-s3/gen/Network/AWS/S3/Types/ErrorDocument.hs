@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.ErrorDocument where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | The error information.
@@ -35,7 +36,7 @@ data ErrorDocument = ErrorDocument'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
     key :: ObjectKey
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ErrorDocument' with all optional fields omitted.
@@ -68,12 +69,12 @@ errorDocument_key = Lens.lens (\ErrorDocument' {key} -> key) (\s@ErrorDocument' 
 
 instance Core.FromXML ErrorDocument where
   parseXML x =
-    ErrorDocument' Core.<$> (x Core..@ "Key")
+    ErrorDocument' Prelude.<$> (x Core..@ "Key")
 
-instance Core.Hashable ErrorDocument
+instance Prelude.Hashable ErrorDocument
 
-instance Core.NFData ErrorDocument
+instance Prelude.NFData ErrorDocument
 
 instance Core.ToXML ErrorDocument where
   toXML ErrorDocument' {..} =
-    Core.mconcat ["Key" Core.@= key]
+    Prelude.mconcat ["Key" Core.@= key]

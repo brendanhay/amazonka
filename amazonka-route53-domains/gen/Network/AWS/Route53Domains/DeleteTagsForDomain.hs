@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -53,11 +54,11 @@ import Network.AWS.Route53Domains.Types
 -- /See:/ 'newDeleteTagsForDomain' smart constructor.
 data DeleteTagsForDomain = DeleteTagsForDomain'
   { -- | The domain for which you want to delete one or more tags.
-    domainName :: Core.Text,
+    domainName :: Prelude.Text,
     -- | A list of tag keys to delete.
-    tagsToDelete :: [Core.Text]
+    tagsToDelete :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTagsForDomain' with all optional fields omitted.
@@ -72,21 +73,21 @@ data DeleteTagsForDomain = DeleteTagsForDomain'
 -- 'tagsToDelete', 'deleteTagsForDomain_tagsToDelete' - A list of tag keys to delete.
 newDeleteTagsForDomain ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTagsForDomain
 newDeleteTagsForDomain pDomainName_ =
   DeleteTagsForDomain'
     { domainName = pDomainName_,
-      tagsToDelete = Core.mempty
+      tagsToDelete = Prelude.mempty
     }
 
 -- | The domain for which you want to delete one or more tags.
-deleteTagsForDomain_domainName :: Lens.Lens' DeleteTagsForDomain Core.Text
+deleteTagsForDomain_domainName :: Lens.Lens' DeleteTagsForDomain Prelude.Text
 deleteTagsForDomain_domainName = Lens.lens (\DeleteTagsForDomain' {domainName} -> domainName) (\s@DeleteTagsForDomain' {} a -> s {domainName = a} :: DeleteTagsForDomain)
 
 -- | A list of tag keys to delete.
-deleteTagsForDomain_tagsToDelete :: Lens.Lens' DeleteTagsForDomain [Core.Text]
-deleteTagsForDomain_tagsToDelete = Lens.lens (\DeleteTagsForDomain' {tagsToDelete} -> tagsToDelete) (\s@DeleteTagsForDomain' {} a -> s {tagsToDelete = a} :: DeleteTagsForDomain) Core.. Lens._Coerce
+deleteTagsForDomain_tagsToDelete :: Lens.Lens' DeleteTagsForDomain [Prelude.Text]
+deleteTagsForDomain_tagsToDelete = Lens.lens (\DeleteTagsForDomain' {tagsToDelete} -> tagsToDelete) (\s@DeleteTagsForDomain' {} a -> s {tagsToDelete = a} :: DeleteTagsForDomain) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DeleteTagsForDomain where
   type
@@ -97,47 +98,49 @@ instance Core.AWSRequest DeleteTagsForDomain where
     Response.receiveEmpty
       ( \s h x ->
           DeleteTagsForDomainResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteTagsForDomain
+instance Prelude.Hashable DeleteTagsForDomain
 
-instance Core.NFData DeleteTagsForDomain
+instance Prelude.NFData DeleteTagsForDomain
 
 instance Core.ToHeaders DeleteTagsForDomain where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53Domains_v20140515.DeleteTagsForDomain" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteTagsForDomain where
   toJSON DeleteTagsForDomain' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DomainName" Core..= domainName),
-            Core.Just ("TagsToDelete" Core..= tagsToDelete)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("DomainName" Core..= domainName),
+            Prelude.Just ("TagsToDelete" Core..= tagsToDelete)
           ]
       )
 
 instance Core.ToPath DeleteTagsForDomain where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteTagsForDomain where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTagsForDomainResponse' smart constructor.
 data DeleteTagsForDomainResponse = DeleteTagsForDomainResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTagsForDomainResponse' with all optional fields omitted.
@@ -150,7 +153,7 @@ data DeleteTagsForDomainResponse = DeleteTagsForDomainResponse'
 -- 'httpStatus', 'deleteTagsForDomainResponse_httpStatus' - The response's http status code.
 newDeleteTagsForDomainResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteTagsForDomainResponse
 newDeleteTagsForDomainResponse pHttpStatus_ =
   DeleteTagsForDomainResponse'
@@ -159,7 +162,7 @@ newDeleteTagsForDomainResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteTagsForDomainResponse_httpStatus :: Lens.Lens' DeleteTagsForDomainResponse Core.Int
+deleteTagsForDomainResponse_httpStatus :: Lens.Lens' DeleteTagsForDomainResponse Prelude.Int
 deleteTagsForDomainResponse_httpStatus = Lens.lens (\DeleteTagsForDomainResponse' {httpStatus} -> httpStatus) (\s@DeleteTagsForDomainResponse' {} a -> s {httpStatus = a} :: DeleteTagsForDomainResponse)
 
-instance Core.NFData DeleteTagsForDomainResponse
+instance Prelude.NFData DeleteTagsForDomainResponse

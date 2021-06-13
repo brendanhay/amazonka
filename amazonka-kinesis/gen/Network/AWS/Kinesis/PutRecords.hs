@@ -114,6 +114,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -122,11 +123,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newPutRecords' smart constructor.
 data PutRecords = PutRecords'
   { -- | The records associated with the request.
-    records :: Core.NonEmpty PutRecordsRequestEntry,
+    records :: Prelude.NonEmpty PutRecordsRequestEntry,
     -- | The stream name associated with the request.
-    streamName :: Core.Text
+    streamName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRecords' with all optional fields omitted.
@@ -141,9 +142,9 @@ data PutRecords = PutRecords'
 -- 'streamName', 'putRecords_streamName' - The stream name associated with the request.
 newPutRecords ::
   -- | 'records'
-  Core.NonEmpty PutRecordsRequestEntry ->
+  Prelude.NonEmpty PutRecordsRequestEntry ->
   -- | 'streamName'
-  Core.Text ->
+  Prelude.Text ->
   PutRecords
 newPutRecords pRecords_ pStreamName_ =
   PutRecords'
@@ -153,11 +154,11 @@ newPutRecords pRecords_ pStreamName_ =
     }
 
 -- | The records associated with the request.
-putRecords_records :: Lens.Lens' PutRecords (Core.NonEmpty PutRecordsRequestEntry)
-putRecords_records = Lens.lens (\PutRecords' {records} -> records) (\s@PutRecords' {} a -> s {records = a} :: PutRecords) Core.. Lens._Coerce
+putRecords_records :: Lens.Lens' PutRecords (Prelude.NonEmpty PutRecordsRequestEntry)
+putRecords_records = Lens.lens (\PutRecords' {records} -> records) (\s@PutRecords' {} a -> s {records = a} :: PutRecords) Prelude.. Lens._Coerce
 
 -- | The stream name associated with the request.
-putRecords_streamName :: Lens.Lens' PutRecords Core.Text
+putRecords_streamName :: Lens.Lens' PutRecords Prelude.Text
 putRecords_streamName = Lens.lens (\PutRecords' {streamName} -> streamName) (\s@PutRecords' {} a -> s {streamName = a} :: PutRecords)
 
 instance Core.AWSRequest PutRecords where
@@ -167,41 +168,45 @@ instance Core.AWSRequest PutRecords where
     Response.receiveJSON
       ( \s h x ->
           PutRecordsResponse'
-            Core.<$> (x Core..?> "EncryptionType")
-            Core.<*> (x Core..?> "FailedRecordCount")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "Records")
+            Prelude.<$> (x Core..?> "EncryptionType")
+            Prelude.<*> (x Core..?> "FailedRecordCount")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "Records")
       )
 
-instance Core.Hashable PutRecords
+instance Prelude.Hashable PutRecords
 
-instance Core.NFData PutRecords
+instance Prelude.NFData PutRecords
 
 instance Core.ToHeaders PutRecords where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Kinesis_20131202.PutRecords" :: Core.ByteString),
+              Core.=# ( "Kinesis_20131202.PutRecords" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutRecords where
   toJSON PutRecords' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Records" Core..= records),
-            Core.Just ("StreamName" Core..= streamName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Records" Core..= records),
+            Prelude.Just ("StreamName" Core..= streamName)
           ]
       )
 
 instance Core.ToPath PutRecords where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutRecords where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | @PutRecords@ results.
 --
@@ -214,20 +219,20 @@ data PutRecordsResponse = PutRecordsResponse'
     --
     -- -   @KMS@: Use server-side encryption on the records using a
     --     customer-managed AWS KMS key.
-    encryptionType :: Core.Maybe EncryptionType,
+    encryptionType :: Prelude.Maybe EncryptionType,
     -- | The number of unsuccessfully processed records in a @PutRecords@
     -- request.
-    failedRecordCount :: Core.Maybe Core.Natural,
+    failedRecordCount :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | An array of successfully and unsuccessfully processed record results,
     -- correlated with the request by natural ordering. A record that is
     -- successfully added to a stream includes @SequenceNumber@ and @ShardId@
     -- in the result. A record that fails to be added to a stream includes
     -- @ErrorCode@ and @ErrorMessage@ in the result.
-    records :: Core.NonEmpty PutRecordsResultEntry
+    records :: Prelude.NonEmpty PutRecordsResultEntry
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRecordsResponse' with all optional fields omitted.
@@ -257,14 +262,15 @@ data PutRecordsResponse = PutRecordsResponse'
 -- @ErrorCode@ and @ErrorMessage@ in the result.
 newPutRecordsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'records'
-  Core.NonEmpty PutRecordsResultEntry ->
+  Prelude.NonEmpty PutRecordsResultEntry ->
   PutRecordsResponse
 newPutRecordsResponse pHttpStatus_ pRecords_ =
   PutRecordsResponse'
-    { encryptionType = Core.Nothing,
-      failedRecordCount = Core.Nothing,
+    { encryptionType =
+        Prelude.Nothing,
+      failedRecordCount = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       records = Lens._Coerce Lens.# pRecords_
     }
@@ -276,16 +282,16 @@ newPutRecordsResponse pHttpStatus_ pRecords_ =
 --
 -- -   @KMS@: Use server-side encryption on the records using a
 --     customer-managed AWS KMS key.
-putRecordsResponse_encryptionType :: Lens.Lens' PutRecordsResponse (Core.Maybe EncryptionType)
+putRecordsResponse_encryptionType :: Lens.Lens' PutRecordsResponse (Prelude.Maybe EncryptionType)
 putRecordsResponse_encryptionType = Lens.lens (\PutRecordsResponse' {encryptionType} -> encryptionType) (\s@PutRecordsResponse' {} a -> s {encryptionType = a} :: PutRecordsResponse)
 
 -- | The number of unsuccessfully processed records in a @PutRecords@
 -- request.
-putRecordsResponse_failedRecordCount :: Lens.Lens' PutRecordsResponse (Core.Maybe Core.Natural)
+putRecordsResponse_failedRecordCount :: Lens.Lens' PutRecordsResponse (Prelude.Maybe Prelude.Natural)
 putRecordsResponse_failedRecordCount = Lens.lens (\PutRecordsResponse' {failedRecordCount} -> failedRecordCount) (\s@PutRecordsResponse' {} a -> s {failedRecordCount = a} :: PutRecordsResponse)
 
 -- | The response's http status code.
-putRecordsResponse_httpStatus :: Lens.Lens' PutRecordsResponse Core.Int
+putRecordsResponse_httpStatus :: Lens.Lens' PutRecordsResponse Prelude.Int
 putRecordsResponse_httpStatus = Lens.lens (\PutRecordsResponse' {httpStatus} -> httpStatus) (\s@PutRecordsResponse' {} a -> s {httpStatus = a} :: PutRecordsResponse)
 
 -- | An array of successfully and unsuccessfully processed record results,
@@ -293,7 +299,7 @@ putRecordsResponse_httpStatus = Lens.lens (\PutRecordsResponse' {httpStatus} -> 
 -- successfully added to a stream includes @SequenceNumber@ and @ShardId@
 -- in the result. A record that fails to be added to a stream includes
 -- @ErrorCode@ and @ErrorMessage@ in the result.
-putRecordsResponse_records :: Lens.Lens' PutRecordsResponse (Core.NonEmpty PutRecordsResultEntry)
-putRecordsResponse_records = Lens.lens (\PutRecordsResponse' {records} -> records) (\s@PutRecordsResponse' {} a -> s {records = a} :: PutRecordsResponse) Core.. Lens._Coerce
+putRecordsResponse_records :: Lens.Lens' PutRecordsResponse (Prelude.NonEmpty PutRecordsResultEntry)
+putRecordsResponse_records = Lens.lens (\PutRecordsResponse' {records} -> records) (\s@PutRecordsResponse' {} a -> s {records = a} :: PutRecordsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData PutRecordsResponse
+instance Prelude.NFData PutRecordsResponse

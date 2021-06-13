@@ -22,6 +22,7 @@ module Network.AWS.AlexaBusiness.Types.CreateEndOfMeetingReminder where
 import Network.AWS.AlexaBusiness.Types.EndOfMeetingReminderType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Creates settings for the end of meeting reminder feature that are
 -- applied to a room profile. The end of meeting reminder enables Alexa to
@@ -30,13 +31,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCreateEndOfMeetingReminder' smart constructor.
 data CreateEndOfMeetingReminder = CreateEndOfMeetingReminder'
   { -- | A range of 3 to 15 minutes that determines when the reminder begins.
-    reminderAtMinutes :: Core.NonEmpty Core.Int,
+    reminderAtMinutes :: Prelude.NonEmpty Prelude.Int,
     -- | The type of sound that users hear during the end of meeting reminder.
     reminderType :: EndOfMeetingReminderType,
     -- | Whether an end of meeting reminder is enabled or not.
-    enabled :: Core.Bool
+    enabled :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateEndOfMeetingReminder' with all optional fields omitted.
@@ -53,11 +54,11 @@ data CreateEndOfMeetingReminder = CreateEndOfMeetingReminder'
 -- 'enabled', 'createEndOfMeetingReminder_enabled' - Whether an end of meeting reminder is enabled or not.
 newCreateEndOfMeetingReminder ::
   -- | 'reminderAtMinutes'
-  Core.NonEmpty Core.Int ->
+  Prelude.NonEmpty Prelude.Int ->
   -- | 'reminderType'
   EndOfMeetingReminderType ->
   -- | 'enabled'
-  Core.Bool ->
+  Prelude.Bool ->
   CreateEndOfMeetingReminder
 newCreateEndOfMeetingReminder
   pReminderAtMinutes_
@@ -71,28 +72,28 @@ newCreateEndOfMeetingReminder
       }
 
 -- | A range of 3 to 15 minutes that determines when the reminder begins.
-createEndOfMeetingReminder_reminderAtMinutes :: Lens.Lens' CreateEndOfMeetingReminder (Core.NonEmpty Core.Int)
-createEndOfMeetingReminder_reminderAtMinutes = Lens.lens (\CreateEndOfMeetingReminder' {reminderAtMinutes} -> reminderAtMinutes) (\s@CreateEndOfMeetingReminder' {} a -> s {reminderAtMinutes = a} :: CreateEndOfMeetingReminder) Core.. Lens._Coerce
+createEndOfMeetingReminder_reminderAtMinutes :: Lens.Lens' CreateEndOfMeetingReminder (Prelude.NonEmpty Prelude.Int)
+createEndOfMeetingReminder_reminderAtMinutes = Lens.lens (\CreateEndOfMeetingReminder' {reminderAtMinutes} -> reminderAtMinutes) (\s@CreateEndOfMeetingReminder' {} a -> s {reminderAtMinutes = a} :: CreateEndOfMeetingReminder) Prelude.. Lens._Coerce
 
 -- | The type of sound that users hear during the end of meeting reminder.
 createEndOfMeetingReminder_reminderType :: Lens.Lens' CreateEndOfMeetingReminder EndOfMeetingReminderType
 createEndOfMeetingReminder_reminderType = Lens.lens (\CreateEndOfMeetingReminder' {reminderType} -> reminderType) (\s@CreateEndOfMeetingReminder' {} a -> s {reminderType = a} :: CreateEndOfMeetingReminder)
 
 -- | Whether an end of meeting reminder is enabled or not.
-createEndOfMeetingReminder_enabled :: Lens.Lens' CreateEndOfMeetingReminder Core.Bool
+createEndOfMeetingReminder_enabled :: Lens.Lens' CreateEndOfMeetingReminder Prelude.Bool
 createEndOfMeetingReminder_enabled = Lens.lens (\CreateEndOfMeetingReminder' {enabled} -> enabled) (\s@CreateEndOfMeetingReminder' {} a -> s {enabled = a} :: CreateEndOfMeetingReminder)
 
-instance Core.Hashable CreateEndOfMeetingReminder
+instance Prelude.Hashable CreateEndOfMeetingReminder
 
-instance Core.NFData CreateEndOfMeetingReminder
+instance Prelude.NFData CreateEndOfMeetingReminder
 
 instance Core.ToJSON CreateEndOfMeetingReminder where
   toJSON CreateEndOfMeetingReminder' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ReminderAtMinutes" Core..= reminderAtMinutes),
-            Core.Just ("ReminderType" Core..= reminderType),
-            Core.Just ("Enabled" Core..= enabled)
+            Prelude.Just ("ReminderType" Core..= reminderType),
+            Prelude.Just ("Enabled" Core..= enabled)
           ]
       )

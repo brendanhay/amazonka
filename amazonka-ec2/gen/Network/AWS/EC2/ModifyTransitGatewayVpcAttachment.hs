@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,20 +56,20 @@ data ModifyTransitGatewayVpcAttachment = ModifyTransitGatewayVpcAttachment'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IDs of one or more subnets to remove.
-    removeSubnetIds :: Core.Maybe [Core.Text],
+    removeSubnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The new VPC attachment options.
     --
     -- You cannot modify the IPv6 options.
-    options :: Core.Maybe ModifyTransitGatewayVpcAttachmentRequestOptions,
+    options :: Prelude.Maybe ModifyTransitGatewayVpcAttachmentRequestOptions,
     -- | The IDs of one or more subnets to add. You can specify at most one
     -- subnet per Availability Zone.
-    addSubnetIds :: Core.Maybe [Core.Text],
+    addSubnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the attachment.
-    transitGatewayAttachmentId :: Core.Text
+    transitGatewayAttachmentId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyTransitGatewayVpcAttachment' with all optional fields omitted.
@@ -95,16 +96,16 @@ data ModifyTransitGatewayVpcAttachment = ModifyTransitGatewayVpcAttachment'
 -- 'transitGatewayAttachmentId', 'modifyTransitGatewayVpcAttachment_transitGatewayAttachmentId' - The ID of the attachment.
 newModifyTransitGatewayVpcAttachment ::
   -- | 'transitGatewayAttachmentId'
-  Core.Text ->
+  Prelude.Text ->
   ModifyTransitGatewayVpcAttachment
 newModifyTransitGatewayVpcAttachment
   pTransitGatewayAttachmentId_ =
     ModifyTransitGatewayVpcAttachment'
       { dryRun =
-          Core.Nothing,
-        removeSubnetIds = Core.Nothing,
-        options = Core.Nothing,
-        addSubnetIds = Core.Nothing,
+          Prelude.Nothing,
+        removeSubnetIds = Prelude.Nothing,
+        options = Prelude.Nothing,
+        addSubnetIds = Prelude.Nothing,
         transitGatewayAttachmentId =
           pTransitGatewayAttachmentId_
       }
@@ -113,26 +114,26 @@ newModifyTransitGatewayVpcAttachment
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyTransitGatewayVpcAttachment_dryRun :: Lens.Lens' ModifyTransitGatewayVpcAttachment (Core.Maybe Core.Bool)
+modifyTransitGatewayVpcAttachment_dryRun :: Lens.Lens' ModifyTransitGatewayVpcAttachment (Prelude.Maybe Prelude.Bool)
 modifyTransitGatewayVpcAttachment_dryRun = Lens.lens (\ModifyTransitGatewayVpcAttachment' {dryRun} -> dryRun) (\s@ModifyTransitGatewayVpcAttachment' {} a -> s {dryRun = a} :: ModifyTransitGatewayVpcAttachment)
 
 -- | The IDs of one or more subnets to remove.
-modifyTransitGatewayVpcAttachment_removeSubnetIds :: Lens.Lens' ModifyTransitGatewayVpcAttachment (Core.Maybe [Core.Text])
-modifyTransitGatewayVpcAttachment_removeSubnetIds = Lens.lens (\ModifyTransitGatewayVpcAttachment' {removeSubnetIds} -> removeSubnetIds) (\s@ModifyTransitGatewayVpcAttachment' {} a -> s {removeSubnetIds = a} :: ModifyTransitGatewayVpcAttachment) Core.. Lens.mapping Lens._Coerce
+modifyTransitGatewayVpcAttachment_removeSubnetIds :: Lens.Lens' ModifyTransitGatewayVpcAttachment (Prelude.Maybe [Prelude.Text])
+modifyTransitGatewayVpcAttachment_removeSubnetIds = Lens.lens (\ModifyTransitGatewayVpcAttachment' {removeSubnetIds} -> removeSubnetIds) (\s@ModifyTransitGatewayVpcAttachment' {} a -> s {removeSubnetIds = a} :: ModifyTransitGatewayVpcAttachment) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The new VPC attachment options.
 --
 -- You cannot modify the IPv6 options.
-modifyTransitGatewayVpcAttachment_options :: Lens.Lens' ModifyTransitGatewayVpcAttachment (Core.Maybe ModifyTransitGatewayVpcAttachmentRequestOptions)
+modifyTransitGatewayVpcAttachment_options :: Lens.Lens' ModifyTransitGatewayVpcAttachment (Prelude.Maybe ModifyTransitGatewayVpcAttachmentRequestOptions)
 modifyTransitGatewayVpcAttachment_options = Lens.lens (\ModifyTransitGatewayVpcAttachment' {options} -> options) (\s@ModifyTransitGatewayVpcAttachment' {} a -> s {options = a} :: ModifyTransitGatewayVpcAttachment)
 
 -- | The IDs of one or more subnets to add. You can specify at most one
 -- subnet per Availability Zone.
-modifyTransitGatewayVpcAttachment_addSubnetIds :: Lens.Lens' ModifyTransitGatewayVpcAttachment (Core.Maybe [Core.Text])
-modifyTransitGatewayVpcAttachment_addSubnetIds = Lens.lens (\ModifyTransitGatewayVpcAttachment' {addSubnetIds} -> addSubnetIds) (\s@ModifyTransitGatewayVpcAttachment' {} a -> s {addSubnetIds = a} :: ModifyTransitGatewayVpcAttachment) Core.. Lens.mapping Lens._Coerce
+modifyTransitGatewayVpcAttachment_addSubnetIds :: Lens.Lens' ModifyTransitGatewayVpcAttachment (Prelude.Maybe [Prelude.Text])
+modifyTransitGatewayVpcAttachment_addSubnetIds = Lens.lens (\ModifyTransitGatewayVpcAttachment' {addSubnetIds} -> addSubnetIds) (\s@ModifyTransitGatewayVpcAttachment' {} a -> s {addSubnetIds = a} :: ModifyTransitGatewayVpcAttachment) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the attachment.
-modifyTransitGatewayVpcAttachment_transitGatewayAttachmentId :: Lens.Lens' ModifyTransitGatewayVpcAttachment Core.Text
+modifyTransitGatewayVpcAttachment_transitGatewayAttachmentId :: Lens.Lens' ModifyTransitGatewayVpcAttachment Prelude.Text
 modifyTransitGatewayVpcAttachment_transitGatewayAttachmentId = Lens.lens (\ModifyTransitGatewayVpcAttachment' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@ModifyTransitGatewayVpcAttachment' {} a -> s {transitGatewayAttachmentId = a} :: ModifyTransitGatewayVpcAttachment)
 
 instance
@@ -147,50 +148,51 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyTransitGatewayVpcAttachmentResponse'
-            Core.<$> (x Core..@? "transitGatewayVpcAttachment")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "transitGatewayVpcAttachment")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ModifyTransitGatewayVpcAttachment
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifyTransitGatewayVpcAttachment
 
 instance
   Core.ToHeaders
     ModifyTransitGatewayVpcAttachment
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     ModifyTransitGatewayVpcAttachment
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     ModifyTransitGatewayVpcAttachment
   where
   toQuery ModifyTransitGatewayVpcAttachment' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "ModifyTransitGatewayVpcAttachment" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "RemoveSubnetIds"
-              Core.<$> removeSubnetIds
+              Prelude.<$> removeSubnetIds
           ),
         "Options" Core.=: options,
         Core.toQuery
           ( Core.toQueryList "AddSubnetIds"
-              Core.<$> addSubnetIds
+              Prelude.<$> addSubnetIds
           ),
         "TransitGatewayAttachmentId"
           Core.=: transitGatewayAttachmentId
@@ -199,11 +201,11 @@ instance
 -- | /See:/ 'newModifyTransitGatewayVpcAttachmentResponse' smart constructor.
 data ModifyTransitGatewayVpcAttachmentResponse = ModifyTransitGatewayVpcAttachmentResponse'
   { -- | Information about the modified attachment.
-    transitGatewayVpcAttachment :: Core.Maybe TransitGatewayVpcAttachment,
+    transitGatewayVpcAttachment :: Prelude.Maybe TransitGatewayVpcAttachment,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyTransitGatewayVpcAttachmentResponse' with all optional fields omitted.
@@ -218,24 +220,24 @@ data ModifyTransitGatewayVpcAttachmentResponse = ModifyTransitGatewayVpcAttachme
 -- 'httpStatus', 'modifyTransitGatewayVpcAttachmentResponse_httpStatus' - The response's http status code.
 newModifyTransitGatewayVpcAttachmentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyTransitGatewayVpcAttachmentResponse
 newModifyTransitGatewayVpcAttachmentResponse
   pHttpStatus_ =
     ModifyTransitGatewayVpcAttachmentResponse'
       { transitGatewayVpcAttachment =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the modified attachment.
-modifyTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment :: Lens.Lens' ModifyTransitGatewayVpcAttachmentResponse (Core.Maybe TransitGatewayVpcAttachment)
+modifyTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment :: Lens.Lens' ModifyTransitGatewayVpcAttachmentResponse (Prelude.Maybe TransitGatewayVpcAttachment)
 modifyTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment = Lens.lens (\ModifyTransitGatewayVpcAttachmentResponse' {transitGatewayVpcAttachment} -> transitGatewayVpcAttachment) (\s@ModifyTransitGatewayVpcAttachmentResponse' {} a -> s {transitGatewayVpcAttachment = a} :: ModifyTransitGatewayVpcAttachmentResponse)
 
 -- | The response's http status code.
-modifyTransitGatewayVpcAttachmentResponse_httpStatus :: Lens.Lens' ModifyTransitGatewayVpcAttachmentResponse Core.Int
+modifyTransitGatewayVpcAttachmentResponse_httpStatus :: Lens.Lens' ModifyTransitGatewayVpcAttachmentResponse Prelude.Int
 modifyTransitGatewayVpcAttachmentResponse_httpStatus = Lens.lens (\ModifyTransitGatewayVpcAttachmentResponse' {httpStatus} -> httpStatus) (\s@ModifyTransitGatewayVpcAttachmentResponse' {} a -> s {httpStatus = a} :: ModifyTransitGatewayVpcAttachmentResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifyTransitGatewayVpcAttachmentResponse

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.MetricDefinition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a metric that the training algorithm writes to @stderr@ or
 -- @stdout@ . Amazon SageMakerhyperparameter tuning captures all defined
@@ -30,14 +31,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newMetricDefinition' smart constructor.
 data MetricDefinition = MetricDefinition'
   { -- | The name of the metric.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | A regular expression that searches the output of a training job and gets
     -- the value of the metric. For more information about using regular
     -- expressions to define metrics, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html Defining Objective Metrics>.
-    regex :: Core.Text
+    regex :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetricDefinition' with all optional fields omitted.
@@ -55,22 +56,22 @@ data MetricDefinition = MetricDefinition'
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html Defining Objective Metrics>.
 newMetricDefinition ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'regex'
-  Core.Text ->
+  Prelude.Text ->
   MetricDefinition
 newMetricDefinition pName_ pRegex_ =
   MetricDefinition' {name = pName_, regex = pRegex_}
 
 -- | The name of the metric.
-metricDefinition_name :: Lens.Lens' MetricDefinition Core.Text
+metricDefinition_name :: Lens.Lens' MetricDefinition Prelude.Text
 metricDefinition_name = Lens.lens (\MetricDefinition' {name} -> name) (\s@MetricDefinition' {} a -> s {name = a} :: MetricDefinition)
 
 -- | A regular expression that searches the output of a training job and gets
 -- the value of the metric. For more information about using regular
 -- expressions to define metrics, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html Defining Objective Metrics>.
-metricDefinition_regex :: Lens.Lens' MetricDefinition Core.Text
+metricDefinition_regex :: Lens.Lens' MetricDefinition Prelude.Text
 metricDefinition_regex = Lens.lens (\MetricDefinition' {regex} -> regex) (\s@MetricDefinition' {} a -> s {regex = a} :: MetricDefinition)
 
 instance Core.FromJSON MetricDefinition where
@@ -79,18 +80,18 @@ instance Core.FromJSON MetricDefinition where
       "MetricDefinition"
       ( \x ->
           MetricDefinition'
-            Core.<$> (x Core..: "Name") Core.<*> (x Core..: "Regex")
+            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Regex")
       )
 
-instance Core.Hashable MetricDefinition
+instance Prelude.Hashable MetricDefinition
 
-instance Core.NFData MetricDefinition
+instance Prelude.NFData MetricDefinition
 
 instance Core.ToJSON MetricDefinition where
   toJSON MetricDefinition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("Regex" Core..= regex)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Regex" Core..= regex)
           ]
       )

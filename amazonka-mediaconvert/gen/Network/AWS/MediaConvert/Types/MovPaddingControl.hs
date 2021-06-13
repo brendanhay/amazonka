@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.MovPaddingControl
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | To make this output compatible with Omenon, keep the default value,
 -- OMNEON. Unless you need Omneon compatibility, set this value to NONE.
@@ -38,15 +39,15 @@ newtype MovPaddingControl = MovPaddingControl'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

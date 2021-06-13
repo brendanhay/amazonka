@@ -21,6 +21,7 @@ module Network.AWS.SES.Types.ReceiptFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.ReceiptIpFilter
 
 -- | A receipt IP address filter enables you to specify whether to accept or
@@ -39,12 +40,12 @@ data ReceiptFilter = ReceiptFilter'
     -- -   Start and end with a letter or number.
     --
     -- -   Contain less than 64 characters.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | A structure that provides the IP addresses to block or allow, and
     -- whether to block or allow incoming mail from them.
     ipFilter :: ReceiptIpFilter
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReceiptFilter' with all optional fields omitted.
@@ -67,7 +68,7 @@ data ReceiptFilter = ReceiptFilter'
 -- whether to block or allow incoming mail from them.
 newReceiptFilter ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'ipFilter'
   ReceiptIpFilter ->
   ReceiptFilter
@@ -85,7 +86,7 @@ newReceiptFilter pName_ pIpFilter_ =
 -- -   Start and end with a letter or number.
 --
 -- -   Contain less than 64 characters.
-receiptFilter_name :: Lens.Lens' ReceiptFilter Core.Text
+receiptFilter_name :: Lens.Lens' ReceiptFilter Prelude.Text
 receiptFilter_name = Lens.lens (\ReceiptFilter' {name} -> name) (\s@ReceiptFilter' {} a -> s {name = a} :: ReceiptFilter)
 
 -- | A structure that provides the IP addresses to block or allow, and
@@ -96,13 +97,13 @@ receiptFilter_ipFilter = Lens.lens (\ReceiptFilter' {ipFilter} -> ipFilter) (\s@
 instance Core.FromXML ReceiptFilter where
   parseXML x =
     ReceiptFilter'
-      Core.<$> (x Core..@ "Name") Core.<*> (x Core..@ "IpFilter")
+      Prelude.<$> (x Core..@ "Name") Prelude.<*> (x Core..@ "IpFilter")
 
-instance Core.Hashable ReceiptFilter
+instance Prelude.Hashable ReceiptFilter
 
-instance Core.NFData ReceiptFilter
+instance Prelude.NFData ReceiptFilter
 
 instance Core.ToQuery ReceiptFilter where
   toQuery ReceiptFilter' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Name" Core.=: name, "IpFilter" Core.=: ipFilter]

@@ -46,6 +46,7 @@ where
 import Network.AWS.CloudWatch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +55,9 @@ data DeleteInsightRules = DeleteInsightRules'
   { -- | An array of the rule names to delete. If you need to find out the names
     -- of your rules, use
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules>.
-    ruleNames :: [Core.Text]
+    ruleNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInsightRules' with all optional fields omitted.
@@ -72,13 +73,13 @@ data DeleteInsightRules = DeleteInsightRules'
 newDeleteInsightRules ::
   DeleteInsightRules
 newDeleteInsightRules =
-  DeleteInsightRules' {ruleNames = Core.mempty}
+  DeleteInsightRules' {ruleNames = Prelude.mempty}
 
 -- | An array of the rule names to delete. If you need to find out the names
 -- of your rules, use
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules>.
-deleteInsightRules_ruleNames :: Lens.Lens' DeleteInsightRules [Core.Text]
-deleteInsightRules_ruleNames = Lens.lens (\DeleteInsightRules' {ruleNames} -> ruleNames) (\s@DeleteInsightRules' {} a -> s {ruleNames = a} :: DeleteInsightRules) Core.. Lens._Coerce
+deleteInsightRules_ruleNames :: Lens.Lens' DeleteInsightRules [Prelude.Text]
+deleteInsightRules_ruleNames = Lens.lens (\DeleteInsightRules' {ruleNames} -> ruleNames) (\s@DeleteInsightRules' {} a -> s {ruleNames = a} :: DeleteInsightRules) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DeleteInsightRules where
   type
@@ -90,28 +91,29 @@ instance Core.AWSRequest DeleteInsightRules where
       "DeleteInsightRulesResult"
       ( \s h x ->
           DeleteInsightRulesResponse'
-            Core.<$> ( x Core..@? "Failures" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Failures" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteInsightRules
+instance Prelude.Hashable DeleteInsightRules
 
-instance Core.NFData DeleteInsightRules
+instance Prelude.NFData DeleteInsightRules
 
 instance Core.ToHeaders DeleteInsightRules where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteInsightRules where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteInsightRules where
   toQuery DeleteInsightRules' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteInsightRules" :: Core.ByteString),
-        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
+          Core.=: ("DeleteInsightRules" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
         "RuleNames"
           Core.=: Core.toQueryList "member" ruleNames
       ]
@@ -120,11 +122,11 @@ instance Core.ToQuery DeleteInsightRules where
 data DeleteInsightRulesResponse = DeleteInsightRulesResponse'
   { -- | An array listing the rules that could not be deleted. You cannot delete
     -- built-in rules.
-    failures :: Core.Maybe [PartialFailure],
+    failures :: Prelude.Maybe [PartialFailure],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInsightRulesResponse' with all optional fields omitted.
@@ -140,22 +142,22 @@ data DeleteInsightRulesResponse = DeleteInsightRulesResponse'
 -- 'httpStatus', 'deleteInsightRulesResponse_httpStatus' - The response's http status code.
 newDeleteInsightRulesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteInsightRulesResponse
 newDeleteInsightRulesResponse pHttpStatus_ =
   DeleteInsightRulesResponse'
     { failures =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array listing the rules that could not be deleted. You cannot delete
 -- built-in rules.
-deleteInsightRulesResponse_failures :: Lens.Lens' DeleteInsightRulesResponse (Core.Maybe [PartialFailure])
-deleteInsightRulesResponse_failures = Lens.lens (\DeleteInsightRulesResponse' {failures} -> failures) (\s@DeleteInsightRulesResponse' {} a -> s {failures = a} :: DeleteInsightRulesResponse) Core.. Lens.mapping Lens._Coerce
+deleteInsightRulesResponse_failures :: Lens.Lens' DeleteInsightRulesResponse (Prelude.Maybe [PartialFailure])
+deleteInsightRulesResponse_failures = Lens.lens (\DeleteInsightRulesResponse' {failures} -> failures) (\s@DeleteInsightRulesResponse' {} a -> s {failures = a} :: DeleteInsightRulesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteInsightRulesResponse_httpStatus :: Lens.Lens' DeleteInsightRulesResponse Core.Int
+deleteInsightRulesResponse_httpStatus :: Lens.Lens' DeleteInsightRulesResponse Prelude.Int
 deleteInsightRulesResponse_httpStatus = Lens.lens (\DeleteInsightRulesResponse' {httpStatus} -> httpStatus) (\s@DeleteInsightRulesResponse' {} a -> s {httpStatus = a} :: DeleteInsightRulesResponse)
 
-instance Core.NFData DeleteInsightRulesResponse
+instance Prelude.NFData DeleteInsightRulesResponse

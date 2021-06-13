@@ -21,6 +21,7 @@ module Network.AWS.Config.Types.RemediationExceptionResourceKey where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The details that identify a resource within AWS Config, including the
 -- resource type and resource ID.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newRemediationExceptionResourceKey' smart constructor.
 data RemediationExceptionResourceKey = RemediationExceptionResourceKey'
   { -- | The ID of the resource (for example., sg-xxxxxx).
-    resourceId :: Core.Maybe Core.Text,
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | The type of a resource.
-    resourceType :: Core.Maybe Core.Text
+    resourceType :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemediationExceptionResourceKey' with all optional fields omitted.
@@ -50,16 +51,16 @@ newRemediationExceptionResourceKey ::
 newRemediationExceptionResourceKey =
   RemediationExceptionResourceKey'
     { resourceId =
-        Core.Nothing,
-      resourceType = Core.Nothing
+        Prelude.Nothing,
+      resourceType = Prelude.Nothing
     }
 
 -- | The ID of the resource (for example., sg-xxxxxx).
-remediationExceptionResourceKey_resourceId :: Lens.Lens' RemediationExceptionResourceKey (Core.Maybe Core.Text)
+remediationExceptionResourceKey_resourceId :: Lens.Lens' RemediationExceptionResourceKey (Prelude.Maybe Prelude.Text)
 remediationExceptionResourceKey_resourceId = Lens.lens (\RemediationExceptionResourceKey' {resourceId} -> resourceId) (\s@RemediationExceptionResourceKey' {} a -> s {resourceId = a} :: RemediationExceptionResourceKey)
 
 -- | The type of a resource.
-remediationExceptionResourceKey_resourceType :: Lens.Lens' RemediationExceptionResourceKey (Core.Maybe Core.Text)
+remediationExceptionResourceKey_resourceType :: Lens.Lens' RemediationExceptionResourceKey (Prelude.Maybe Prelude.Text)
 remediationExceptionResourceKey_resourceType = Lens.lens (\RemediationExceptionResourceKey' {resourceType} -> resourceType) (\s@RemediationExceptionResourceKey' {} a -> s {resourceType = a} :: RemediationExceptionResourceKey)
 
 instance
@@ -71,21 +72,23 @@ instance
       "RemediationExceptionResourceKey"
       ( \x ->
           RemediationExceptionResourceKey'
-            Core.<$> (x Core..:? "ResourceId")
-            Core.<*> (x Core..:? "ResourceType")
+            Prelude.<$> (x Core..:? "ResourceId")
+            Prelude.<*> (x Core..:? "ResourceType")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     RemediationExceptionResourceKey
 
-instance Core.NFData RemediationExceptionResourceKey
+instance
+  Prelude.NFData
+    RemediationExceptionResourceKey
 
 instance Core.ToJSON RemediationExceptionResourceKey where
   toJSON RemediationExceptionResourceKey' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ResourceId" Core..=) Core.<$> resourceId,
-            ("ResourceType" Core..=) Core.<$> resourceType
+      ( Prelude.catMaybes
+          [ ("ResourceId" Core..=) Prelude.<$> resourceId,
+            ("ResourceType" Core..=) Prelude.<$> resourceType
           ]
       )

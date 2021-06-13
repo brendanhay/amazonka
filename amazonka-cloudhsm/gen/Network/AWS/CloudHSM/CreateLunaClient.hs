@@ -57,6 +57,7 @@ where
 import Network.AWS.CloudHSM.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,12 +66,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateLunaClient' smart constructor.
 data CreateLunaClient = CreateLunaClient'
   { -- | The label for the client.
-    label :: Core.Maybe Core.Text,
+    label :: Prelude.Maybe Prelude.Text,
     -- | The contents of a Base64-Encoded X.509 v3 certificate to be installed on
     -- the HSMs used by this client.
-    certificate :: Core.Text
+    certificate :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLunaClient' with all optional fields omitted.
@@ -86,21 +87,21 @@ data CreateLunaClient = CreateLunaClient'
 -- the HSMs used by this client.
 newCreateLunaClient ::
   -- | 'certificate'
-  Core.Text ->
+  Prelude.Text ->
   CreateLunaClient
 newCreateLunaClient pCertificate_ =
   CreateLunaClient'
-    { label = Core.Nothing,
+    { label = Prelude.Nothing,
       certificate = pCertificate_
     }
 
 -- | The label for the client.
-createLunaClient_label :: Lens.Lens' CreateLunaClient (Core.Maybe Core.Text)
+createLunaClient_label :: Lens.Lens' CreateLunaClient (Prelude.Maybe Prelude.Text)
 createLunaClient_label = Lens.lens (\CreateLunaClient' {label} -> label) (\s@CreateLunaClient' {} a -> s {label = a} :: CreateLunaClient)
 
 -- | The contents of a Base64-Encoded X.509 v3 certificate to be installed on
 -- the HSMs used by this client.
-createLunaClient_certificate :: Lens.Lens' CreateLunaClient Core.Text
+createLunaClient_certificate :: Lens.Lens' CreateLunaClient Prelude.Text
 createLunaClient_certificate = Lens.lens (\CreateLunaClient' {certificate} -> certificate) (\s@CreateLunaClient' {} a -> s {certificate = a} :: CreateLunaClient)
 
 instance Core.AWSRequest CreateLunaClient where
@@ -112,52 +113,54 @@ instance Core.AWSRequest CreateLunaClient where
     Response.receiveJSON
       ( \s h x ->
           CreateLunaClientResponse'
-            Core.<$> (x Core..?> "ClientArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ClientArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateLunaClient
+instance Prelude.Hashable CreateLunaClient
 
-instance Core.NFData CreateLunaClient
+instance Prelude.NFData CreateLunaClient
 
 instance Core.ToHeaders CreateLunaClient where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CloudHsmFrontendService.CreateLunaClient" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateLunaClient where
   toJSON CreateLunaClient' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Label" Core..=) Core.<$> label,
-            Core.Just ("Certificate" Core..= certificate)
+      ( Prelude.catMaybes
+          [ ("Label" Core..=) Prelude.<$> label,
+            Prelude.Just ("Certificate" Core..= certificate)
           ]
       )
 
 instance Core.ToPath CreateLunaClient where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateLunaClient where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of the CreateLunaClient action.
 --
 -- /See:/ 'newCreateLunaClientResponse' smart constructor.
 data CreateLunaClientResponse = CreateLunaClientResponse'
   { -- | The ARN of the client.
-    clientArn :: Core.Maybe Core.Text,
+    clientArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLunaClientResponse' with all optional fields omitted.
@@ -172,20 +175,21 @@ data CreateLunaClientResponse = CreateLunaClientResponse'
 -- 'httpStatus', 'createLunaClientResponse_httpStatus' - The response's http status code.
 newCreateLunaClientResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateLunaClientResponse
 newCreateLunaClientResponse pHttpStatus_ =
   CreateLunaClientResponse'
-    { clientArn = Core.Nothing,
+    { clientArn =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the client.
-createLunaClientResponse_clientArn :: Lens.Lens' CreateLunaClientResponse (Core.Maybe Core.Text)
+createLunaClientResponse_clientArn :: Lens.Lens' CreateLunaClientResponse (Prelude.Maybe Prelude.Text)
 createLunaClientResponse_clientArn = Lens.lens (\CreateLunaClientResponse' {clientArn} -> clientArn) (\s@CreateLunaClientResponse' {} a -> s {clientArn = a} :: CreateLunaClientResponse)
 
 -- | The response's http status code.
-createLunaClientResponse_httpStatus :: Lens.Lens' CreateLunaClientResponse Core.Int
+createLunaClientResponse_httpStatus :: Lens.Lens' CreateLunaClientResponse Prelude.Int
 createLunaClientResponse_httpStatus = Lens.lens (\CreateLunaClientResponse' {httpStatus} -> httpStatus) (\s@CreateLunaClientResponse' {} a -> s {httpStatus = a} :: CreateLunaClientResponse)
 
-instance Core.NFData CreateLunaClientResponse
+instance Prelude.NFData CreateLunaClientResponse

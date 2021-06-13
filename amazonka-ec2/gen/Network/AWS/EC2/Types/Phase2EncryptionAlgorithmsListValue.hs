@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.Phase2EncryptionAlgorithmsListValue where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The encryption algorithm for phase 2 IKE negotiations.
 --
 -- /See:/ 'newPhase2EncryptionAlgorithmsListValue' smart constructor.
 data Phase2EncryptionAlgorithmsListValue = Phase2EncryptionAlgorithmsListValue'
   { -- | The encryption algorithm.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Phase2EncryptionAlgorithmsListValue' with all optional fields omitted.
@@ -46,11 +47,11 @@ newPhase2EncryptionAlgorithmsListValue ::
 newPhase2EncryptionAlgorithmsListValue =
   Phase2EncryptionAlgorithmsListValue'
     { value =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The encryption algorithm.
-phase2EncryptionAlgorithmsListValue_value :: Lens.Lens' Phase2EncryptionAlgorithmsListValue (Core.Maybe Core.Text)
+phase2EncryptionAlgorithmsListValue_value :: Lens.Lens' Phase2EncryptionAlgorithmsListValue (Prelude.Maybe Prelude.Text)
 phase2EncryptionAlgorithmsListValue_value = Lens.lens (\Phase2EncryptionAlgorithmsListValue' {value} -> value) (\s@Phase2EncryptionAlgorithmsListValue' {} a -> s {value = a} :: Phase2EncryptionAlgorithmsListValue)
 
 instance
@@ -59,12 +60,12 @@ instance
   where
   parseXML x =
     Phase2EncryptionAlgorithmsListValue'
-      Core.<$> (x Core..@? "value")
+      Prelude.<$> (x Core..@? "value")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     Phase2EncryptionAlgorithmsListValue
 
 instance
-  Core.NFData
+  Prelude.NFData
     Phase2EncryptionAlgorithmsListValue

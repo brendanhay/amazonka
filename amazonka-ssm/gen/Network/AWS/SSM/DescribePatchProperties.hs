@@ -87,6 +87,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -95,21 +96,21 @@ import Network.AWS.SSM.Types
 data DescribePatchProperties = DescribePatchProperties'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Indicates whether to list patches for the Windows operating system or
     -- for Microsoft applications. Not applicable for the Linux or macOS
     -- operating systems.
-    patchSet :: Core.Maybe PatchSet,
+    patchSet :: Prelude.Maybe PatchSet,
     -- | The operating system type for which to list patches.
     operatingSystem :: OperatingSystem,
     -- | The patch property for which you want to view patch details.
     property :: PatchProperty
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePatchProperties' with all optional fields omitted.
@@ -143,28 +144,29 @@ newDescribePatchProperties
   pOperatingSystem_
   pProperty_ =
     DescribePatchProperties'
-      { nextToken = Core.Nothing,
-        maxResults = Core.Nothing,
-        patchSet = Core.Nothing,
+      { nextToken =
+          Prelude.Nothing,
+        maxResults = Prelude.Nothing,
+        patchSet = Prelude.Nothing,
         operatingSystem = pOperatingSystem_,
         property = pProperty_
       }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describePatchProperties_nextToken :: Lens.Lens' DescribePatchProperties (Core.Maybe Core.Text)
+describePatchProperties_nextToken :: Lens.Lens' DescribePatchProperties (Prelude.Maybe Prelude.Text)
 describePatchProperties_nextToken = Lens.lens (\DescribePatchProperties' {nextToken} -> nextToken) (\s@DescribePatchProperties' {} a -> s {nextToken = a} :: DescribePatchProperties)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-describePatchProperties_maxResults :: Lens.Lens' DescribePatchProperties (Core.Maybe Core.Natural)
+describePatchProperties_maxResults :: Lens.Lens' DescribePatchProperties (Prelude.Maybe Prelude.Natural)
 describePatchProperties_maxResults = Lens.lens (\DescribePatchProperties' {maxResults} -> maxResults) (\s@DescribePatchProperties' {} a -> s {maxResults = a} :: DescribePatchProperties)
 
 -- | Indicates whether to list patches for the Windows operating system or
 -- for Microsoft applications. Not applicable for the Linux or macOS
 -- operating systems.
-describePatchProperties_patchSet :: Lens.Lens' DescribePatchProperties (Core.Maybe PatchSet)
+describePatchProperties_patchSet :: Lens.Lens' DescribePatchProperties (Prelude.Maybe PatchSet)
 describePatchProperties_patchSet = Lens.lens (\DescribePatchProperties' {patchSet} -> patchSet) (\s@DescribePatchProperties' {} a -> s {patchSet = a} :: DescribePatchProperties)
 
 -- | The operating system type for which to list patches.
@@ -180,22 +182,22 @@ instance Core.AWSPager DescribePatchProperties where
     | Core.stop
         ( rs
             Lens.^? describePatchPropertiesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describePatchPropertiesResponse_properties
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describePatchProperties_nextToken
+          Prelude.& describePatchProperties_nextToken
           Lens..~ rs
           Lens.^? describePatchPropertiesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribePatchProperties where
   type
@@ -206,59 +208,61 @@ instance Core.AWSRequest DescribePatchProperties where
     Response.receiveJSON
       ( \s h x ->
           DescribePatchPropertiesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Properties" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Properties" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribePatchProperties
+instance Prelude.Hashable DescribePatchProperties
 
-instance Core.NFData DescribePatchProperties
+instance Prelude.NFData DescribePatchProperties
 
 instance Core.ToHeaders DescribePatchProperties where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonSSM.DescribePatchProperties" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribePatchProperties where
   toJSON DescribePatchProperties' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("PatchSet" Core..=) Core.<$> patchSet,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("PatchSet" Core..=) Prelude.<$> patchSet,
+            Prelude.Just
               ("OperatingSystem" Core..= operatingSystem),
-            Core.Just ("Property" Core..= property)
+            Prelude.Just ("Property" Core..= property)
           ]
       )
 
 instance Core.ToPath DescribePatchProperties where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribePatchProperties where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePatchPropertiesResponse' smart constructor.
 data DescribePatchPropertiesResponse = DescribePatchPropertiesResponse'
   { -- | The token for the next set of items to return. (You use this token in
     -- the next call.)
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of the properties for patches matching the filter request
     -- parameters.
-    properties :: Core.Maybe [Core.HashMap Core.Text Core.Text],
+    properties :: Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePatchPropertiesResponse' with all optional fields omitted.
@@ -277,28 +281,30 @@ data DescribePatchPropertiesResponse = DescribePatchPropertiesResponse'
 -- 'httpStatus', 'describePatchPropertiesResponse_httpStatus' - The response's http status code.
 newDescribePatchPropertiesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribePatchPropertiesResponse
 newDescribePatchPropertiesResponse pHttpStatus_ =
   DescribePatchPropertiesResponse'
     { nextToken =
-        Core.Nothing,
-      properties = Core.Nothing,
+        Prelude.Nothing,
+      properties = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of items to return. (You use this token in
 -- the next call.)
-describePatchPropertiesResponse_nextToken :: Lens.Lens' DescribePatchPropertiesResponse (Core.Maybe Core.Text)
+describePatchPropertiesResponse_nextToken :: Lens.Lens' DescribePatchPropertiesResponse (Prelude.Maybe Prelude.Text)
 describePatchPropertiesResponse_nextToken = Lens.lens (\DescribePatchPropertiesResponse' {nextToken} -> nextToken) (\s@DescribePatchPropertiesResponse' {} a -> s {nextToken = a} :: DescribePatchPropertiesResponse)
 
 -- | A list of the properties for patches matching the filter request
 -- parameters.
-describePatchPropertiesResponse_properties :: Lens.Lens' DescribePatchPropertiesResponse (Core.Maybe [Core.HashMap Core.Text Core.Text])
-describePatchPropertiesResponse_properties = Lens.lens (\DescribePatchPropertiesResponse' {properties} -> properties) (\s@DescribePatchPropertiesResponse' {} a -> s {properties = a} :: DescribePatchPropertiesResponse) Core.. Lens.mapping Lens._Coerce
+describePatchPropertiesResponse_properties :: Lens.Lens' DescribePatchPropertiesResponse (Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text])
+describePatchPropertiesResponse_properties = Lens.lens (\DescribePatchPropertiesResponse' {properties} -> properties) (\s@DescribePatchPropertiesResponse' {} a -> s {properties = a} :: DescribePatchPropertiesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describePatchPropertiesResponse_httpStatus :: Lens.Lens' DescribePatchPropertiesResponse Core.Int
+describePatchPropertiesResponse_httpStatus :: Lens.Lens' DescribePatchPropertiesResponse Prelude.Int
 describePatchPropertiesResponse_httpStatus = Lens.lens (\DescribePatchPropertiesResponse' {httpStatus} -> httpStatus) (\s@DescribePatchPropertiesResponse' {} a -> s {httpStatus = a} :: DescribePatchPropertiesResponse)
 
-instance Core.NFData DescribePatchPropertiesResponse
+instance
+  Prelude.NFData
+    DescribePatchPropertiesResponse

@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.StartTechnicalCueDetectionFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Filters for the technical segments returned by GetSegmentDetection. For
 -- more information, see StartSegmentDetectionFilters.
@@ -37,9 +38,9 @@ data StartTechnicalCueDetectionFilter = StartTechnicalCueDetectionFilter'
     -- If you don\'t specify @MinSegmentConfidence@, @GetSegmentDetection@
     -- returns segments with confidence values greater than or equal to 50
     -- percent.
-    minSegmentConfidence :: Core.Maybe Core.Double
+    minSegmentConfidence :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartTechnicalCueDetectionFilter' with all optional fields omitted.
@@ -64,7 +65,7 @@ newStartTechnicalCueDetectionFilter ::
 newStartTechnicalCueDetectionFilter =
   StartTechnicalCueDetectionFilter'
     { minSegmentConfidence =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Specifies the minimum confidence that Amazon Rekognition Video must have
@@ -77,20 +78,22 @@ newStartTechnicalCueDetectionFilter =
 -- If you don\'t specify @MinSegmentConfidence@, @GetSegmentDetection@
 -- returns segments with confidence values greater than or equal to 50
 -- percent.
-startTechnicalCueDetectionFilter_minSegmentConfidence :: Lens.Lens' StartTechnicalCueDetectionFilter (Core.Maybe Core.Double)
+startTechnicalCueDetectionFilter_minSegmentConfidence :: Lens.Lens' StartTechnicalCueDetectionFilter (Prelude.Maybe Prelude.Double)
 startTechnicalCueDetectionFilter_minSegmentConfidence = Lens.lens (\StartTechnicalCueDetectionFilter' {minSegmentConfidence} -> minSegmentConfidence) (\s@StartTechnicalCueDetectionFilter' {} a -> s {minSegmentConfidence = a} :: StartTechnicalCueDetectionFilter)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     StartTechnicalCueDetectionFilter
 
-instance Core.NFData StartTechnicalCueDetectionFilter
+instance
+  Prelude.NFData
+    StartTechnicalCueDetectionFilter
 
 instance Core.ToJSON StartTechnicalCueDetectionFilter where
   toJSON StartTechnicalCueDetectionFilter' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("MinSegmentConfidence" Core..=)
-              Core.<$> minSegmentConfidence
+              Prelude.<$> minSegmentConfidence
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.AlexaBusiness.Types.Filter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A filter name and value pair that is used to return a more specific list
 -- of results. Filters can be used to match a set of resources by various
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newFilter' smart constructor.
 data Filter = Filter'
   { -- | The key of a filter.
-    key :: Core.Text,
+    key :: Prelude.Text,
     -- | The values of a filter.
-    values :: [Core.Text]
+    values :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Filter' with all optional fields omitted.
@@ -48,28 +49,28 @@ data Filter = Filter'
 -- 'values', 'filter_values' - The values of a filter.
 newFilter ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   Filter
 newFilter pKey_ =
-  Filter' {key = pKey_, values = Core.mempty}
+  Filter' {key = pKey_, values = Prelude.mempty}
 
 -- | The key of a filter.
-filter_key :: Lens.Lens' Filter Core.Text
+filter_key :: Lens.Lens' Filter Prelude.Text
 filter_key = Lens.lens (\Filter' {key} -> key) (\s@Filter' {} a -> s {key = a} :: Filter)
 
 -- | The values of a filter.
-filter_values :: Lens.Lens' Filter [Core.Text]
-filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Core.. Lens._Coerce
+filter_values :: Lens.Lens' Filter [Prelude.Text]
+filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens._Coerce
 
-instance Core.Hashable Filter
+instance Prelude.Hashable Filter
 
-instance Core.NFData Filter
+instance Prelude.NFData Filter
 
 instance Core.ToJSON Filter where
   toJSON Filter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Key" Core..= key),
-            Core.Just ("Values" Core..= values)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Values" Core..= values)
           ]
       )

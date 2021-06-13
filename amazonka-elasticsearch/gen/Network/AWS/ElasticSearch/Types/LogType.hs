@@ -29,6 +29,7 @@ module Network.AWS.ElasticSearch.Types.LogType
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Type of Log File, it can be one of the following:
 --
@@ -43,15 +44,15 @@ import qualified Network.AWS.Core as Core
 --     from the domain.
 newtype LogType = LogType' {fromLogType :: Core.Text}
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -52,11 +53,11 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newUpdateServiceAction' smart constructor.
 data UpdateServiceAction = UpdateServiceAction'
   { -- | The self-service action name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The self-service action description.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | A map that defines the self-service action.
-    definition :: Core.Maybe (Core.HashMap ServiceActionDefinitionKey Core.Text),
+    definition :: Prelude.Maybe (Prelude.HashMap ServiceActionDefinitionKey Prelude.Text),
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -64,11 +65,11 @@ data UpdateServiceAction = UpdateServiceAction'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The self-service action identifier.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateServiceAction' with all optional fields omitted.
@@ -95,28 +96,28 @@ data UpdateServiceAction = UpdateServiceAction'
 -- 'id', 'updateServiceAction_id' - The self-service action identifier.
 newUpdateServiceAction ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   UpdateServiceAction
 newUpdateServiceAction pId_ =
   UpdateServiceAction'
-    { name = Core.Nothing,
-      description = Core.Nothing,
-      definition = Core.Nothing,
-      acceptLanguage = Core.Nothing,
+    { name = Prelude.Nothing,
+      description = Prelude.Nothing,
+      definition = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
       id = pId_
     }
 
 -- | The self-service action name.
-updateServiceAction_name :: Lens.Lens' UpdateServiceAction (Core.Maybe Core.Text)
+updateServiceAction_name :: Lens.Lens' UpdateServiceAction (Prelude.Maybe Prelude.Text)
 updateServiceAction_name = Lens.lens (\UpdateServiceAction' {name} -> name) (\s@UpdateServiceAction' {} a -> s {name = a} :: UpdateServiceAction)
 
 -- | The self-service action description.
-updateServiceAction_description :: Lens.Lens' UpdateServiceAction (Core.Maybe Core.Text)
+updateServiceAction_description :: Lens.Lens' UpdateServiceAction (Prelude.Maybe Prelude.Text)
 updateServiceAction_description = Lens.lens (\UpdateServiceAction' {description} -> description) (\s@UpdateServiceAction' {} a -> s {description = a} :: UpdateServiceAction)
 
 -- | A map that defines the self-service action.
-updateServiceAction_definition :: Lens.Lens' UpdateServiceAction (Core.Maybe (Core.HashMap ServiceActionDefinitionKey Core.Text))
-updateServiceAction_definition = Lens.lens (\UpdateServiceAction' {definition} -> definition) (\s@UpdateServiceAction' {} a -> s {definition = a} :: UpdateServiceAction) Core.. Lens.mapping Lens._Coerce
+updateServiceAction_definition :: Lens.Lens' UpdateServiceAction (Prelude.Maybe (Prelude.HashMap ServiceActionDefinitionKey Prelude.Text))
+updateServiceAction_definition = Lens.lens (\UpdateServiceAction' {definition} -> definition) (\s@UpdateServiceAction' {} a -> s {definition = a} :: UpdateServiceAction) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The language code.
 --
@@ -125,11 +126,11 @@ updateServiceAction_definition = Lens.lens (\UpdateServiceAction' {definition} -
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-updateServiceAction_acceptLanguage :: Lens.Lens' UpdateServiceAction (Core.Maybe Core.Text)
+updateServiceAction_acceptLanguage :: Lens.Lens' UpdateServiceAction (Prelude.Maybe Prelude.Text)
 updateServiceAction_acceptLanguage = Lens.lens (\UpdateServiceAction' {acceptLanguage} -> acceptLanguage) (\s@UpdateServiceAction' {} a -> s {acceptLanguage = a} :: UpdateServiceAction)
 
 -- | The self-service action identifier.
-updateServiceAction_id :: Lens.Lens' UpdateServiceAction Core.Text
+updateServiceAction_id :: Lens.Lens' UpdateServiceAction Prelude.Text
 updateServiceAction_id = Lens.lens (\UpdateServiceAction' {id} -> id) (\s@UpdateServiceAction' {} a -> s {id = a} :: UpdateServiceAction)
 
 instance Core.AWSRequest UpdateServiceAction where
@@ -141,53 +142,56 @@ instance Core.AWSRequest UpdateServiceAction where
     Response.receiveJSON
       ( \s h x ->
           UpdateServiceActionResponse'
-            Core.<$> (x Core..?> "ServiceActionDetail")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ServiceActionDetail")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateServiceAction
+instance Prelude.Hashable UpdateServiceAction
 
-instance Core.NFData UpdateServiceAction
+instance Prelude.NFData UpdateServiceAction
 
 instance Core.ToHeaders UpdateServiceAction where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.UpdateServiceAction" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateServiceAction where
   toJSON UpdateServiceAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Name" Core..=) Core.<$> name,
-            ("Description" Core..=) Core.<$> description,
-            ("Definition" Core..=) Core.<$> definition,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just ("Id" Core..= id)
+      ( Prelude.catMaybes
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Description" Core..=) Prelude.<$> description,
+            ("Definition" Core..=) Prelude.<$> definition,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("Id" Core..= id)
           ]
       )
 
 instance Core.ToPath UpdateServiceAction where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateServiceAction where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServiceActionResponse' smart constructor.
 data UpdateServiceActionResponse = UpdateServiceActionResponse'
   { -- | Detailed information about the self-service action.
-    serviceActionDetail :: Core.Maybe ServiceActionDetail,
+    serviceActionDetail :: Prelude.Maybe ServiceActionDetail,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateServiceActionResponse' with all optional fields omitted.
@@ -202,21 +206,21 @@ data UpdateServiceActionResponse = UpdateServiceActionResponse'
 -- 'httpStatus', 'updateServiceActionResponse_httpStatus' - The response's http status code.
 newUpdateServiceActionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateServiceActionResponse
 newUpdateServiceActionResponse pHttpStatus_ =
   UpdateServiceActionResponse'
     { serviceActionDetail =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Detailed information about the self-service action.
-updateServiceActionResponse_serviceActionDetail :: Lens.Lens' UpdateServiceActionResponse (Core.Maybe ServiceActionDetail)
+updateServiceActionResponse_serviceActionDetail :: Lens.Lens' UpdateServiceActionResponse (Prelude.Maybe ServiceActionDetail)
 updateServiceActionResponse_serviceActionDetail = Lens.lens (\UpdateServiceActionResponse' {serviceActionDetail} -> serviceActionDetail) (\s@UpdateServiceActionResponse' {} a -> s {serviceActionDetail = a} :: UpdateServiceActionResponse)
 
 -- | The response's http status code.
-updateServiceActionResponse_httpStatus :: Lens.Lens' UpdateServiceActionResponse Core.Int
+updateServiceActionResponse_httpStatus :: Lens.Lens' UpdateServiceActionResponse Prelude.Int
 updateServiceActionResponse_httpStatus = Lens.lens (\UpdateServiceActionResponse' {httpStatus} -> httpStatus) (\s@UpdateServiceActionResponse' {} a -> s {httpStatus = a} :: UpdateServiceActionResponse)
 
-instance Core.NFData UpdateServiceActionResponse
+instance Prelude.NFData UpdateServiceActionResponse

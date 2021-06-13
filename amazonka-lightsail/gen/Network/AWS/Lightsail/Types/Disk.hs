@@ -26,6 +26,7 @@ import Network.AWS.Lightsail.Types.DiskState
 import Network.AWS.Lightsail.Types.ResourceLocation
 import Network.AWS.Lightsail.Types.ResourceType
 import Network.AWS.Lightsail.Types.Tag
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a system disk or a block storage disk.
 --
@@ -35,51 +36,51 @@ data Disk = Disk'
     --
     -- In releases prior to November 14, 2017, this parameter was not included
     -- in the API response. It is now deprecated.
-    gbInUse :: Core.Maybe Core.Int,
+    gbInUse :: Prelude.Maybe Prelude.Int,
     -- | (Deprecated) The attachment state of the disk.
     --
     -- In releases prior to November 14, 2017, this parameter returned
     -- @attached@ for system disks in the API response. It is now deprecated,
     -- but still included in the response. Use @isAttached@ instead.
-    attachmentState :: Core.Maybe Core.Text,
+    attachmentState :: Prelude.Maybe Prelude.Text,
     -- | An array of objects representing the add-ons enabled on the disk.
-    addOns :: Core.Maybe [AddOn],
+    addOns :: Prelude.Maybe [AddOn],
     -- | A Boolean value indicating whether the disk is attached.
-    isAttached :: Core.Maybe Core.Bool,
+    isAttached :: Prelude.Maybe Prelude.Bool,
     -- | The date when the disk was created.
-    createdAt :: Core.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the disk.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The Lightsail resource type (e.g., @Disk@).
-    resourceType :: Core.Maybe ResourceType,
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The support code. Include this code in your email to support when you
     -- have questions about an instance or another resource in Lightsail. This
     -- code enables our support team to look up your Lightsail information more
     -- easily.
-    supportCode :: Core.Maybe Core.Text,
+    supportCode :: Prelude.Maybe Prelude.Text,
     -- | The size of the disk in GB.
-    sizeInGb :: Core.Maybe Core.Int,
+    sizeInGb :: Prelude.Maybe Prelude.Int,
     -- | Describes the status of the disk.
-    state :: Core.Maybe DiskState,
+    state :: Prelude.Maybe DiskState,
     -- | The unique name of the disk.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The resources to which the disk is attached.
-    attachedTo :: Core.Maybe Core.Text,
+    attachedTo :: Prelude.Maybe Prelude.Text,
     -- | The tag keys and optional values for the resource. For more information
     -- about tags in Lightsail, see the
     -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The input\/output operations per second (IOPS) of the disk.
-    iops :: Core.Maybe Core.Int,
+    iops :: Prelude.Maybe Prelude.Int,
     -- | The AWS Region and Availability Zone where the disk is located.
-    location :: Core.Maybe ResourceLocation,
+    location :: Prelude.Maybe ResourceLocation,
     -- | The disk path.
-    path :: Core.Maybe Core.Text,
+    path :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value indicating whether this disk is a system disk (has an
     -- operating system loaded on it).
-    isSystemDisk :: Core.Maybe Core.Bool
+    isSystemDisk :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Disk' with all optional fields omitted.
@@ -139,30 +140,30 @@ newDisk ::
   Disk
 newDisk =
   Disk'
-    { gbInUse = Core.Nothing,
-      attachmentState = Core.Nothing,
-      addOns = Core.Nothing,
-      isAttached = Core.Nothing,
-      createdAt = Core.Nothing,
-      arn = Core.Nothing,
-      resourceType = Core.Nothing,
-      supportCode = Core.Nothing,
-      sizeInGb = Core.Nothing,
-      state = Core.Nothing,
-      name = Core.Nothing,
-      attachedTo = Core.Nothing,
-      tags = Core.Nothing,
-      iops = Core.Nothing,
-      location = Core.Nothing,
-      path = Core.Nothing,
-      isSystemDisk = Core.Nothing
+    { gbInUse = Prelude.Nothing,
+      attachmentState = Prelude.Nothing,
+      addOns = Prelude.Nothing,
+      isAttached = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      supportCode = Prelude.Nothing,
+      sizeInGb = Prelude.Nothing,
+      state = Prelude.Nothing,
+      name = Prelude.Nothing,
+      attachedTo = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      iops = Prelude.Nothing,
+      location = Prelude.Nothing,
+      path = Prelude.Nothing,
+      isSystemDisk = Prelude.Nothing
     }
 
 -- | (Deprecated) The number of GB in use by the disk.
 --
 -- In releases prior to November 14, 2017, this parameter was not included
 -- in the API response. It is now deprecated.
-disk_gbInUse :: Lens.Lens' Disk (Core.Maybe Core.Int)
+disk_gbInUse :: Lens.Lens' Disk (Prelude.Maybe Prelude.Int)
 disk_gbInUse = Lens.lens (\Disk' {gbInUse} -> gbInUse) (\s@Disk' {} a -> s {gbInUse = a} :: Disk)
 
 -- | (Deprecated) The attachment state of the disk.
@@ -170,73 +171,73 @@ disk_gbInUse = Lens.lens (\Disk' {gbInUse} -> gbInUse) (\s@Disk' {} a -> s {gbIn
 -- In releases prior to November 14, 2017, this parameter returned
 -- @attached@ for system disks in the API response. It is now deprecated,
 -- but still included in the response. Use @isAttached@ instead.
-disk_attachmentState :: Lens.Lens' Disk (Core.Maybe Core.Text)
+disk_attachmentState :: Lens.Lens' Disk (Prelude.Maybe Prelude.Text)
 disk_attachmentState = Lens.lens (\Disk' {attachmentState} -> attachmentState) (\s@Disk' {} a -> s {attachmentState = a} :: Disk)
 
 -- | An array of objects representing the add-ons enabled on the disk.
-disk_addOns :: Lens.Lens' Disk (Core.Maybe [AddOn])
-disk_addOns = Lens.lens (\Disk' {addOns} -> addOns) (\s@Disk' {} a -> s {addOns = a} :: Disk) Core.. Lens.mapping Lens._Coerce
+disk_addOns :: Lens.Lens' Disk (Prelude.Maybe [AddOn])
+disk_addOns = Lens.lens (\Disk' {addOns} -> addOns) (\s@Disk' {} a -> s {addOns = a} :: Disk) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A Boolean value indicating whether the disk is attached.
-disk_isAttached :: Lens.Lens' Disk (Core.Maybe Core.Bool)
+disk_isAttached :: Lens.Lens' Disk (Prelude.Maybe Prelude.Bool)
 disk_isAttached = Lens.lens (\Disk' {isAttached} -> isAttached) (\s@Disk' {} a -> s {isAttached = a} :: Disk)
 
 -- | The date when the disk was created.
-disk_createdAt :: Lens.Lens' Disk (Core.Maybe Core.UTCTime)
-disk_createdAt = Lens.lens (\Disk' {createdAt} -> createdAt) (\s@Disk' {} a -> s {createdAt = a} :: Disk) Core.. Lens.mapping Core._Time
+disk_createdAt :: Lens.Lens' Disk (Prelude.Maybe Prelude.UTCTime)
+disk_createdAt = Lens.lens (\Disk' {createdAt} -> createdAt) (\s@Disk' {} a -> s {createdAt = a} :: Disk) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the disk.
-disk_arn :: Lens.Lens' Disk (Core.Maybe Core.Text)
+disk_arn :: Lens.Lens' Disk (Prelude.Maybe Prelude.Text)
 disk_arn = Lens.lens (\Disk' {arn} -> arn) (\s@Disk' {} a -> s {arn = a} :: Disk)
 
 -- | The Lightsail resource type (e.g., @Disk@).
-disk_resourceType :: Lens.Lens' Disk (Core.Maybe ResourceType)
+disk_resourceType :: Lens.Lens' Disk (Prelude.Maybe ResourceType)
 disk_resourceType = Lens.lens (\Disk' {resourceType} -> resourceType) (\s@Disk' {} a -> s {resourceType = a} :: Disk)
 
 -- | The support code. Include this code in your email to support when you
 -- have questions about an instance or another resource in Lightsail. This
 -- code enables our support team to look up your Lightsail information more
 -- easily.
-disk_supportCode :: Lens.Lens' Disk (Core.Maybe Core.Text)
+disk_supportCode :: Lens.Lens' Disk (Prelude.Maybe Prelude.Text)
 disk_supportCode = Lens.lens (\Disk' {supportCode} -> supportCode) (\s@Disk' {} a -> s {supportCode = a} :: Disk)
 
 -- | The size of the disk in GB.
-disk_sizeInGb :: Lens.Lens' Disk (Core.Maybe Core.Int)
+disk_sizeInGb :: Lens.Lens' Disk (Prelude.Maybe Prelude.Int)
 disk_sizeInGb = Lens.lens (\Disk' {sizeInGb} -> sizeInGb) (\s@Disk' {} a -> s {sizeInGb = a} :: Disk)
 
 -- | Describes the status of the disk.
-disk_state :: Lens.Lens' Disk (Core.Maybe DiskState)
+disk_state :: Lens.Lens' Disk (Prelude.Maybe DiskState)
 disk_state = Lens.lens (\Disk' {state} -> state) (\s@Disk' {} a -> s {state = a} :: Disk)
 
 -- | The unique name of the disk.
-disk_name :: Lens.Lens' Disk (Core.Maybe Core.Text)
+disk_name :: Lens.Lens' Disk (Prelude.Maybe Prelude.Text)
 disk_name = Lens.lens (\Disk' {name} -> name) (\s@Disk' {} a -> s {name = a} :: Disk)
 
 -- | The resources to which the disk is attached.
-disk_attachedTo :: Lens.Lens' Disk (Core.Maybe Core.Text)
+disk_attachedTo :: Lens.Lens' Disk (Prelude.Maybe Prelude.Text)
 disk_attachedTo = Lens.lens (\Disk' {attachedTo} -> attachedTo) (\s@Disk' {} a -> s {attachedTo = a} :: Disk)
 
 -- | The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
 -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-disk_tags :: Lens.Lens' Disk (Core.Maybe [Tag])
-disk_tags = Lens.lens (\Disk' {tags} -> tags) (\s@Disk' {} a -> s {tags = a} :: Disk) Core.. Lens.mapping Lens._Coerce
+disk_tags :: Lens.Lens' Disk (Prelude.Maybe [Tag])
+disk_tags = Lens.lens (\Disk' {tags} -> tags) (\s@Disk' {} a -> s {tags = a} :: Disk) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The input\/output operations per second (IOPS) of the disk.
-disk_iops :: Lens.Lens' Disk (Core.Maybe Core.Int)
+disk_iops :: Lens.Lens' Disk (Prelude.Maybe Prelude.Int)
 disk_iops = Lens.lens (\Disk' {iops} -> iops) (\s@Disk' {} a -> s {iops = a} :: Disk)
 
 -- | The AWS Region and Availability Zone where the disk is located.
-disk_location :: Lens.Lens' Disk (Core.Maybe ResourceLocation)
+disk_location :: Lens.Lens' Disk (Prelude.Maybe ResourceLocation)
 disk_location = Lens.lens (\Disk' {location} -> location) (\s@Disk' {} a -> s {location = a} :: Disk)
 
 -- | The disk path.
-disk_path :: Lens.Lens' Disk (Core.Maybe Core.Text)
+disk_path :: Lens.Lens' Disk (Prelude.Maybe Prelude.Text)
 disk_path = Lens.lens (\Disk' {path} -> path) (\s@Disk' {} a -> s {path = a} :: Disk)
 
 -- | A Boolean value indicating whether this disk is a system disk (has an
 -- operating system loaded on it).
-disk_isSystemDisk :: Lens.Lens' Disk (Core.Maybe Core.Bool)
+disk_isSystemDisk :: Lens.Lens' Disk (Prelude.Maybe Prelude.Bool)
 disk_isSystemDisk = Lens.lens (\Disk' {isSystemDisk} -> isSystemDisk) (\s@Disk' {} a -> s {isSystemDisk = a} :: Disk)
 
 instance Core.FromJSON Disk where
@@ -245,25 +246,25 @@ instance Core.FromJSON Disk where
       "Disk"
       ( \x ->
           Disk'
-            Core.<$> (x Core..:? "gbInUse")
-            Core.<*> (x Core..:? "attachmentState")
-            Core.<*> (x Core..:? "addOns" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "isAttached")
-            Core.<*> (x Core..:? "createdAt")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "resourceType")
-            Core.<*> (x Core..:? "supportCode")
-            Core.<*> (x Core..:? "sizeInGb")
-            Core.<*> (x Core..:? "state")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "attachedTo")
-            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "iops")
-            Core.<*> (x Core..:? "location")
-            Core.<*> (x Core..:? "path")
-            Core.<*> (x Core..:? "isSystemDisk")
+            Prelude.<$> (x Core..:? "gbInUse")
+            Prelude.<*> (x Core..:? "attachmentState")
+            Prelude.<*> (x Core..:? "addOns" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "isAttached")
+            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "resourceType")
+            Prelude.<*> (x Core..:? "supportCode")
+            Prelude.<*> (x Core..:? "sizeInGb")
+            Prelude.<*> (x Core..:? "state")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "attachedTo")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "iops")
+            Prelude.<*> (x Core..:? "location")
+            Prelude.<*> (x Core..:? "path")
+            Prelude.<*> (x Core..:? "isSystemDisk")
       )
 
-instance Core.Hashable Disk
+instance Prelude.Hashable Disk
 
-instance Core.NFData Disk
+instance Prelude.NFData Disk

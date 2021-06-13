@@ -57,6 +57,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,7 +75,7 @@ data CreateDiskFromSnapshot = CreateDiskFromSnapshot'
     -- -   Define this parameter only when creating a new disk from an
     --     automatic snapshot. For more information, see the
     --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
-    sourceDiskName :: Core.Maybe Core.Text,
+    sourceDiskName :: Prelude.Maybe Prelude.Text,
     -- | The date of the automatic snapshot to use for the new disk. Use the
     -- @get auto snapshots@ operation to identify the dates of the available
     -- automatic snapshots.
@@ -91,10 +92,10 @@ data CreateDiskFromSnapshot = CreateDiskFromSnapshot'
     -- -   Define this parameter only when creating a new disk from an
     --     automatic snapshot. For more information, see the
     --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
-    restoreDate :: Core.Maybe Core.Text,
+    restoreDate :: Prelude.Maybe Prelude.Text,
     -- | An array of objects that represent the add-ons to enable for the new
     -- disk.
-    addOns :: Core.Maybe [AddOnRequest],
+    addOns :: Prelude.Maybe [AddOnRequest],
     -- | A Boolean value to indicate whether to use the latest available
     -- automatic snapshot.
     --
@@ -107,11 +108,11 @@ data CreateDiskFromSnapshot = CreateDiskFromSnapshot'
     -- -   Define this parameter only when creating a new disk from an
     --     automatic snapshot. For more information, see the
     --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
-    useLatestRestorableAutoSnapshot :: Core.Maybe Core.Bool,
+    useLatestRestorableAutoSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | The tag keys and optional values to add to the resource during create.
     --
     -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the disk snapshot (e.g., @my-snapshot@) from which to create
     -- the new storage disk.
     --
@@ -120,20 +121,20 @@ data CreateDiskFromSnapshot = CreateDiskFromSnapshot'
     -- -   This parameter cannot be defined together with the
     --     @source disk name@ parameter. The @disk snapshot name@ and
     --     @source disk name@ parameters are mutually exclusive.
-    diskSnapshotName :: Core.Maybe Core.Text,
+    diskSnapshotName :: Prelude.Maybe Prelude.Text,
     -- | The unique Lightsail disk name (e.g., @my-disk@).
-    diskName :: Core.Text,
+    diskName :: Prelude.Text,
     -- | The Availability Zone where you want to create the disk (e.g.,
     -- @us-east-2a@). Choose the same Availability Zone as the Lightsail
     -- instance where you want to create the disk.
     --
     -- Use the GetRegions operation to list the Availability Zones where
     -- Lightsail is currently available.
-    availabilityZone :: Core.Text,
+    availabilityZone :: Prelude.Text,
     -- | The size of the disk in GB (e.g., @32@).
-    sizeInGb :: Core.Int
+    sizeInGb :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDiskFromSnapshot' with all optional fields omitted.
@@ -214,11 +215,11 @@ data CreateDiskFromSnapshot = CreateDiskFromSnapshot'
 -- 'sizeInGb', 'createDiskFromSnapshot_sizeInGb' - The size of the disk in GB (e.g., @32@).
 newCreateDiskFromSnapshot ::
   -- | 'diskName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'availabilityZone'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sizeInGb'
-  Core.Int ->
+  Prelude.Int ->
   CreateDiskFromSnapshot
 newCreateDiskFromSnapshot
   pDiskName_
@@ -226,12 +227,12 @@ newCreateDiskFromSnapshot
   pSizeInGb_ =
     CreateDiskFromSnapshot'
       { sourceDiskName =
-          Core.Nothing,
-        restoreDate = Core.Nothing,
-        addOns = Core.Nothing,
-        useLatestRestorableAutoSnapshot = Core.Nothing,
-        tags = Core.Nothing,
-        diskSnapshotName = Core.Nothing,
+          Prelude.Nothing,
+        restoreDate = Prelude.Nothing,
+        addOns = Prelude.Nothing,
+        useLatestRestorableAutoSnapshot = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        diskSnapshotName = Prelude.Nothing,
         diskName = pDiskName_,
         availabilityZone = pAvailabilityZone_,
         sizeInGb = pSizeInGb_
@@ -249,7 +250,7 @@ newCreateDiskFromSnapshot
 -- -   Define this parameter only when creating a new disk from an
 --     automatic snapshot. For more information, see the
 --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
-createDiskFromSnapshot_sourceDiskName :: Lens.Lens' CreateDiskFromSnapshot (Core.Maybe Core.Text)
+createDiskFromSnapshot_sourceDiskName :: Lens.Lens' CreateDiskFromSnapshot (Prelude.Maybe Prelude.Text)
 createDiskFromSnapshot_sourceDiskName = Lens.lens (\CreateDiskFromSnapshot' {sourceDiskName} -> sourceDiskName) (\s@CreateDiskFromSnapshot' {} a -> s {sourceDiskName = a} :: CreateDiskFromSnapshot)
 
 -- | The date of the automatic snapshot to use for the new disk. Use the
@@ -268,13 +269,13 @@ createDiskFromSnapshot_sourceDiskName = Lens.lens (\CreateDiskFromSnapshot' {sou
 -- -   Define this parameter only when creating a new disk from an
 --     automatic snapshot. For more information, see the
 --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
-createDiskFromSnapshot_restoreDate :: Lens.Lens' CreateDiskFromSnapshot (Core.Maybe Core.Text)
+createDiskFromSnapshot_restoreDate :: Lens.Lens' CreateDiskFromSnapshot (Prelude.Maybe Prelude.Text)
 createDiskFromSnapshot_restoreDate = Lens.lens (\CreateDiskFromSnapshot' {restoreDate} -> restoreDate) (\s@CreateDiskFromSnapshot' {} a -> s {restoreDate = a} :: CreateDiskFromSnapshot)
 
 -- | An array of objects that represent the add-ons to enable for the new
 -- disk.
-createDiskFromSnapshot_addOns :: Lens.Lens' CreateDiskFromSnapshot (Core.Maybe [AddOnRequest])
-createDiskFromSnapshot_addOns = Lens.lens (\CreateDiskFromSnapshot' {addOns} -> addOns) (\s@CreateDiskFromSnapshot' {} a -> s {addOns = a} :: CreateDiskFromSnapshot) Core.. Lens.mapping Lens._Coerce
+createDiskFromSnapshot_addOns :: Lens.Lens' CreateDiskFromSnapshot (Prelude.Maybe [AddOnRequest])
+createDiskFromSnapshot_addOns = Lens.lens (\CreateDiskFromSnapshot' {addOns} -> addOns) (\s@CreateDiskFromSnapshot' {} a -> s {addOns = a} :: CreateDiskFromSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A Boolean value to indicate whether to use the latest available
 -- automatic snapshot.
@@ -288,14 +289,14 @@ createDiskFromSnapshot_addOns = Lens.lens (\CreateDiskFromSnapshot' {addOns} -> 
 -- -   Define this parameter only when creating a new disk from an
 --     automatic snapshot. For more information, see the
 --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
-createDiskFromSnapshot_useLatestRestorableAutoSnapshot :: Lens.Lens' CreateDiskFromSnapshot (Core.Maybe Core.Bool)
+createDiskFromSnapshot_useLatestRestorableAutoSnapshot :: Lens.Lens' CreateDiskFromSnapshot (Prelude.Maybe Prelude.Bool)
 createDiskFromSnapshot_useLatestRestorableAutoSnapshot = Lens.lens (\CreateDiskFromSnapshot' {useLatestRestorableAutoSnapshot} -> useLatestRestorableAutoSnapshot) (\s@CreateDiskFromSnapshot' {} a -> s {useLatestRestorableAutoSnapshot = a} :: CreateDiskFromSnapshot)
 
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
-createDiskFromSnapshot_tags :: Lens.Lens' CreateDiskFromSnapshot (Core.Maybe [Tag])
-createDiskFromSnapshot_tags = Lens.lens (\CreateDiskFromSnapshot' {tags} -> tags) (\s@CreateDiskFromSnapshot' {} a -> s {tags = a} :: CreateDiskFromSnapshot) Core.. Lens.mapping Lens._Coerce
+createDiskFromSnapshot_tags :: Lens.Lens' CreateDiskFromSnapshot (Prelude.Maybe [Tag])
+createDiskFromSnapshot_tags = Lens.lens (\CreateDiskFromSnapshot' {tags} -> tags) (\s@CreateDiskFromSnapshot' {} a -> s {tags = a} :: CreateDiskFromSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the disk snapshot (e.g., @my-snapshot@) from which to create
 -- the new storage disk.
@@ -305,11 +306,11 @@ createDiskFromSnapshot_tags = Lens.lens (\CreateDiskFromSnapshot' {tags} -> tags
 -- -   This parameter cannot be defined together with the
 --     @source disk name@ parameter. The @disk snapshot name@ and
 --     @source disk name@ parameters are mutually exclusive.
-createDiskFromSnapshot_diskSnapshotName :: Lens.Lens' CreateDiskFromSnapshot (Core.Maybe Core.Text)
+createDiskFromSnapshot_diskSnapshotName :: Lens.Lens' CreateDiskFromSnapshot (Prelude.Maybe Prelude.Text)
 createDiskFromSnapshot_diskSnapshotName = Lens.lens (\CreateDiskFromSnapshot' {diskSnapshotName} -> diskSnapshotName) (\s@CreateDiskFromSnapshot' {} a -> s {diskSnapshotName = a} :: CreateDiskFromSnapshot)
 
 -- | The unique Lightsail disk name (e.g., @my-disk@).
-createDiskFromSnapshot_diskName :: Lens.Lens' CreateDiskFromSnapshot Core.Text
+createDiskFromSnapshot_diskName :: Lens.Lens' CreateDiskFromSnapshot Prelude.Text
 createDiskFromSnapshot_diskName = Lens.lens (\CreateDiskFromSnapshot' {diskName} -> diskName) (\s@CreateDiskFromSnapshot' {} a -> s {diskName = a} :: CreateDiskFromSnapshot)
 
 -- | The Availability Zone where you want to create the disk (e.g.,
@@ -318,11 +319,11 @@ createDiskFromSnapshot_diskName = Lens.lens (\CreateDiskFromSnapshot' {diskName}
 --
 -- Use the GetRegions operation to list the Availability Zones where
 -- Lightsail is currently available.
-createDiskFromSnapshot_availabilityZone :: Lens.Lens' CreateDiskFromSnapshot Core.Text
+createDiskFromSnapshot_availabilityZone :: Lens.Lens' CreateDiskFromSnapshot Prelude.Text
 createDiskFromSnapshot_availabilityZone = Lens.lens (\CreateDiskFromSnapshot' {availabilityZone} -> availabilityZone) (\s@CreateDiskFromSnapshot' {} a -> s {availabilityZone = a} :: CreateDiskFromSnapshot)
 
 -- | The size of the disk in GB (e.g., @32@).
-createDiskFromSnapshot_sizeInGb :: Lens.Lens' CreateDiskFromSnapshot Core.Int
+createDiskFromSnapshot_sizeInGb :: Lens.Lens' CreateDiskFromSnapshot Prelude.Int
 createDiskFromSnapshot_sizeInGb = Lens.lens (\CreateDiskFromSnapshot' {sizeInGb} -> sizeInGb) (\s@CreateDiskFromSnapshot' {} a -> s {sizeInGb = a} :: CreateDiskFromSnapshot)
 
 instance Core.AWSRequest CreateDiskFromSnapshot where
@@ -334,62 +335,65 @@ instance Core.AWSRequest CreateDiskFromSnapshot where
     Response.receiveJSON
       ( \s h x ->
           CreateDiskFromSnapshotResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateDiskFromSnapshot
+instance Prelude.Hashable CreateDiskFromSnapshot
 
-instance Core.NFData CreateDiskFromSnapshot
+instance Prelude.NFData CreateDiskFromSnapshot
 
 instance Core.ToHeaders CreateDiskFromSnapshot where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.CreateDiskFromSnapshot" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateDiskFromSnapshot where
   toJSON CreateDiskFromSnapshot' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("sourceDiskName" Core..=) Core.<$> sourceDiskName,
-            ("restoreDate" Core..=) Core.<$> restoreDate,
-            ("addOns" Core..=) Core.<$> addOns,
+      ( Prelude.catMaybes
+          [ ("sourceDiskName" Core..=)
+              Prelude.<$> sourceDiskName,
+            ("restoreDate" Core..=) Prelude.<$> restoreDate,
+            ("addOns" Core..=) Prelude.<$> addOns,
             ("useLatestRestorableAutoSnapshot" Core..=)
-              Core.<$> useLatestRestorableAutoSnapshot,
-            ("tags" Core..=) Core.<$> tags,
+              Prelude.<$> useLatestRestorableAutoSnapshot,
+            ("tags" Core..=) Prelude.<$> tags,
             ("diskSnapshotName" Core..=)
-              Core.<$> diskSnapshotName,
-            Core.Just ("diskName" Core..= diskName),
-            Core.Just
+              Prelude.<$> diskSnapshotName,
+            Prelude.Just ("diskName" Core..= diskName),
+            Prelude.Just
               ("availabilityZone" Core..= availabilityZone),
-            Core.Just ("sizeInGb" Core..= sizeInGb)
+            Prelude.Just ("sizeInGb" Core..= sizeInGb)
           ]
       )
 
 instance Core.ToPath CreateDiskFromSnapshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateDiskFromSnapshot where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDiskFromSnapshotResponse' smart constructor.
 data CreateDiskFromSnapshotResponse = CreateDiskFromSnapshotResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDiskFromSnapshotResponse' with all optional fields omitted.
@@ -406,23 +410,25 @@ data CreateDiskFromSnapshotResponse = CreateDiskFromSnapshotResponse'
 -- 'httpStatus', 'createDiskFromSnapshotResponse_httpStatus' - The response's http status code.
 newCreateDiskFromSnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateDiskFromSnapshotResponse
 newCreateDiskFromSnapshotResponse pHttpStatus_ =
   CreateDiskFromSnapshotResponse'
     { operations =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-createDiskFromSnapshotResponse_operations :: Lens.Lens' CreateDiskFromSnapshotResponse (Core.Maybe [Operation])
-createDiskFromSnapshotResponse_operations = Lens.lens (\CreateDiskFromSnapshotResponse' {operations} -> operations) (\s@CreateDiskFromSnapshotResponse' {} a -> s {operations = a} :: CreateDiskFromSnapshotResponse) Core.. Lens.mapping Lens._Coerce
+createDiskFromSnapshotResponse_operations :: Lens.Lens' CreateDiskFromSnapshotResponse (Prelude.Maybe [Operation])
+createDiskFromSnapshotResponse_operations = Lens.lens (\CreateDiskFromSnapshotResponse' {operations} -> operations) (\s@CreateDiskFromSnapshotResponse' {} a -> s {operations = a} :: CreateDiskFromSnapshotResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createDiskFromSnapshotResponse_httpStatus :: Lens.Lens' CreateDiskFromSnapshotResponse Core.Int
+createDiskFromSnapshotResponse_httpStatus :: Lens.Lens' CreateDiskFromSnapshotResponse Prelude.Int
 createDiskFromSnapshotResponse_httpStatus = Lens.lens (\CreateDiskFromSnapshotResponse' {httpStatus} -> httpStatus) (\s@CreateDiskFromSnapshotResponse' {} a -> s {httpStatus = a} :: CreateDiskFromSnapshotResponse)
 
-instance Core.NFData CreateDiskFromSnapshotResponse
+instance
+  Prelude.NFData
+    CreateDiskFromSnapshotResponse

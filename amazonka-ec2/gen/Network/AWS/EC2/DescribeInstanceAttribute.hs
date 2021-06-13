@@ -64,6 +64,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,15 +74,15 @@ data DescribeInstanceAttribute = DescribeInstanceAttribute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The instance attribute.
     --
     -- Note: The @enaSupport@ attribute is not supported at this time.
     attribute :: InstanceAttributeName,
     -- | The ID of the instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeInstanceAttribute' with all optional fields omitted.
@@ -105,11 +106,12 @@ newDescribeInstanceAttribute ::
   -- | 'attribute'
   InstanceAttributeName ->
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeInstanceAttribute
 newDescribeInstanceAttribute pAttribute_ pInstanceId_ =
   DescribeInstanceAttribute'
-    { dryRun = Core.Nothing,
+    { dryRun =
+        Prelude.Nothing,
       attribute = pAttribute_,
       instanceId = pInstanceId_
     }
@@ -118,7 +120,7 @@ newDescribeInstanceAttribute pAttribute_ pInstanceId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeInstanceAttribute_dryRun :: Lens.Lens' DescribeInstanceAttribute (Core.Maybe Core.Bool)
+describeInstanceAttribute_dryRun :: Lens.Lens' DescribeInstanceAttribute (Prelude.Maybe Prelude.Bool)
 describeInstanceAttribute_dryRun = Lens.lens (\DescribeInstanceAttribute' {dryRun} -> dryRun) (\s@DescribeInstanceAttribute' {} a -> s {dryRun = a} :: DescribeInstanceAttribute)
 
 -- | The instance attribute.
@@ -128,7 +130,7 @@ describeInstanceAttribute_attribute :: Lens.Lens' DescribeInstanceAttribute Inst
 describeInstanceAttribute_attribute = Lens.lens (\DescribeInstanceAttribute' {attribute} -> attribute) (\s@DescribeInstanceAttribute' {} a -> s {attribute = a} :: DescribeInstanceAttribute)
 
 -- | The ID of the instance.
-describeInstanceAttribute_instanceId :: Lens.Lens' DescribeInstanceAttribute Core.Text
+describeInstanceAttribute_instanceId :: Lens.Lens' DescribeInstanceAttribute Prelude.Text
 describeInstanceAttribute_instanceId = Lens.lens (\DescribeInstanceAttribute' {instanceId} -> instanceId) (\s@DescribeInstanceAttribute' {} a -> s {instanceId = a} :: DescribeInstanceAttribute)
 
 instance Core.AWSRequest DescribeInstanceAttribute where
@@ -140,47 +142,49 @@ instance Core.AWSRequest DescribeInstanceAttribute where
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceAttributeResponse'
-            Core.<$> ( x Core..@? "groupSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (x Core..@? "instanceId")
-            Core.<*> (x Core..@? "instanceType")
-            Core.<*> (x Core..@? "rootDeviceName")
-            Core.<*> (x Core..@? "ebsOptimized")
-            Core.<*> (x Core..@? "userData")
-            Core.<*> (x Core..@? "ramdisk")
-            Core.<*> (x Core..@? "sourceDestCheck")
-            Core.<*> ( x Core..@? "productCodes" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (x Core..@? "instanceInitiatedShutdownBehavior")
-            Core.<*> (x Core..@? "sriovNetSupport")
-            Core.<*> ( x Core..@? "blockDeviceMapping" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (x Core..@? "enclaveOptions")
-            Core.<*> (x Core..@? "kernel")
-            Core.<*> (x Core..@? "disableApiTermination")
-            Core.<*> (x Core..@? "enaSupport")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (x Core..@? "instanceId")
+            Prelude.<*> (x Core..@? "instanceType")
+            Prelude.<*> (x Core..@? "rootDeviceName")
+            Prelude.<*> (x Core..@? "ebsOptimized")
+            Prelude.<*> (x Core..@? "userData")
+            Prelude.<*> (x Core..@? "ramdisk")
+            Prelude.<*> (x Core..@? "sourceDestCheck")
+            Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (x Core..@? "instanceInitiatedShutdownBehavior")
+            Prelude.<*> (x Core..@? "sriovNetSupport")
+            Prelude.<*> ( x Core..@? "blockDeviceMapping"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (x Core..@? "enclaveOptions")
+            Prelude.<*> (x Core..@? "kernel")
+            Prelude.<*> (x Core..@? "disableApiTermination")
+            Prelude.<*> (x Core..@? "enaSupport")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeInstanceAttribute
+instance Prelude.Hashable DescribeInstanceAttribute
 
-instance Core.NFData DescribeInstanceAttribute
+instance Prelude.NFData DescribeInstanceAttribute
 
 instance Core.ToHeaders DescribeInstanceAttribute where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeInstanceAttribute where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeInstanceAttribute where
   toQuery DescribeInstanceAttribute' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeInstanceAttribute" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DescribeInstanceAttribute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "Attribute" Core.=: attribute,
         "InstanceId" Core.=: instanceId
@@ -191,49 +195,49 @@ instance Core.ToQuery DescribeInstanceAttribute where
 -- /See:/ 'newDescribeInstanceAttributeResponse' smart constructor.
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
   { -- | The security groups associated with the instance.
-    groups :: Core.Maybe [GroupIdentifier],
+    groups :: Prelude.Maybe [GroupIdentifier],
     -- | The ID of the instance.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The instance type.
-    instanceType :: Core.Maybe AttributeValue,
+    instanceType :: Prelude.Maybe AttributeValue,
     -- | The device name of the root device volume (for example, @\/dev\/sda1@).
-    rootDeviceName :: Core.Maybe AttributeValue,
+    rootDeviceName :: Prelude.Maybe AttributeValue,
     -- | Indicates whether the instance is optimized for Amazon EBS I\/O.
-    ebsOptimized :: Core.Maybe AttributeBooleanValue,
+    ebsOptimized :: Prelude.Maybe AttributeBooleanValue,
     -- | The user data.
-    userData :: Core.Maybe AttributeValue,
+    userData :: Prelude.Maybe AttributeValue,
     -- | The RAM disk ID.
-    ramdiskId :: Core.Maybe AttributeValue,
+    ramdiskId :: Prelude.Maybe AttributeValue,
     -- | Indicates whether source\/destination checking is enabled. A value of
     -- @true@ means that checking is enabled, and @false@ means that checking
     -- is disabled. This value must be @false@ for a NAT instance to perform
     -- NAT.
-    sourceDestCheck :: Core.Maybe AttributeBooleanValue,
+    sourceDestCheck :: Prelude.Maybe AttributeBooleanValue,
     -- | A list of product codes.
-    productCodes :: Core.Maybe [ProductCode],
+    productCodes :: Prelude.Maybe [ProductCode],
     -- | Indicates whether an instance stops or terminates when you initiate
     -- shutdown from the instance (using the operating system command for
     -- system shutdown).
-    instanceInitiatedShutdownBehavior :: Core.Maybe AttributeValue,
+    instanceInitiatedShutdownBehavior :: Prelude.Maybe AttributeValue,
     -- | Indicates whether enhanced networking with the Intel 82599 Virtual
     -- Function interface is enabled.
-    sriovNetSupport :: Core.Maybe AttributeValue,
+    sriovNetSupport :: Prelude.Maybe AttributeValue,
     -- | The block device mapping of the instance.
-    blockDeviceMappings :: Core.Maybe [InstanceBlockDeviceMapping],
+    blockDeviceMappings :: Prelude.Maybe [InstanceBlockDeviceMapping],
     -- | To enable the instance for AWS Nitro Enclaves, set this parameter to
     -- @true@; otherwise, set it to @false@.
-    enclaveOptions :: Core.Maybe EnclaveOptions,
+    enclaveOptions :: Prelude.Maybe EnclaveOptions,
     -- | The kernel ID.
-    kernelId :: Core.Maybe AttributeValue,
+    kernelId :: Prelude.Maybe AttributeValue,
     -- | If the value is @true@, you can\'t terminate the instance through the
     -- Amazon EC2 console, CLI, or API; otherwise, you can.
-    disableApiTermination :: Core.Maybe AttributeBooleanValue,
+    disableApiTermination :: Prelude.Maybe AttributeBooleanValue,
     -- | Indicates whether enhanced networking with ENA is enabled.
-    enaSupport :: Core.Maybe AttributeBooleanValue,
+    enaSupport :: Prelude.Maybe AttributeBooleanValue,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeInstanceAttributeResponse' with all optional fields omitted.
@@ -286,107 +290,107 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
 -- 'httpStatus', 'describeInstanceAttributeResponse_httpStatus' - The response's http status code.
 newDescribeInstanceAttributeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeInstanceAttributeResponse
 newDescribeInstanceAttributeResponse pHttpStatus_ =
   DescribeInstanceAttributeResponse'
     { groups =
-        Core.Nothing,
-      instanceId = Core.Nothing,
-      instanceType = Core.Nothing,
-      rootDeviceName = Core.Nothing,
-      ebsOptimized = Core.Nothing,
-      userData = Core.Nothing,
-      ramdiskId = Core.Nothing,
-      sourceDestCheck = Core.Nothing,
-      productCodes = Core.Nothing,
+        Prelude.Nothing,
+      instanceId = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      rootDeviceName = Prelude.Nothing,
+      ebsOptimized = Prelude.Nothing,
+      userData = Prelude.Nothing,
+      ramdiskId = Prelude.Nothing,
+      sourceDestCheck = Prelude.Nothing,
+      productCodes = Prelude.Nothing,
       instanceInitiatedShutdownBehavior =
-        Core.Nothing,
-      sriovNetSupport = Core.Nothing,
-      blockDeviceMappings = Core.Nothing,
-      enclaveOptions = Core.Nothing,
-      kernelId = Core.Nothing,
-      disableApiTermination = Core.Nothing,
-      enaSupport = Core.Nothing,
+        Prelude.Nothing,
+      sriovNetSupport = Prelude.Nothing,
+      blockDeviceMappings = Prelude.Nothing,
+      enclaveOptions = Prelude.Nothing,
+      kernelId = Prelude.Nothing,
+      disableApiTermination = Prelude.Nothing,
+      enaSupport = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The security groups associated with the instance.
-describeInstanceAttributeResponse_groups :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe [GroupIdentifier])
-describeInstanceAttributeResponse_groups = Lens.lens (\DescribeInstanceAttributeResponse' {groups} -> groups) (\s@DescribeInstanceAttributeResponse' {} a -> s {groups = a} :: DescribeInstanceAttributeResponse) Core.. Lens.mapping Lens._Coerce
+describeInstanceAttributeResponse_groups :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe [GroupIdentifier])
+describeInstanceAttributeResponse_groups = Lens.lens (\DescribeInstanceAttributeResponse' {groups} -> groups) (\s@DescribeInstanceAttributeResponse' {} a -> s {groups = a} :: DescribeInstanceAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the instance.
-describeInstanceAttributeResponse_instanceId :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe Core.Text)
+describeInstanceAttributeResponse_instanceId :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe Prelude.Text)
 describeInstanceAttributeResponse_instanceId = Lens.lens (\DescribeInstanceAttributeResponse' {instanceId} -> instanceId) (\s@DescribeInstanceAttributeResponse' {} a -> s {instanceId = a} :: DescribeInstanceAttributeResponse)
 
 -- | The instance type.
-describeInstanceAttributeResponse_instanceType :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe AttributeValue)
+describeInstanceAttributeResponse_instanceType :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
 describeInstanceAttributeResponse_instanceType = Lens.lens (\DescribeInstanceAttributeResponse' {instanceType} -> instanceType) (\s@DescribeInstanceAttributeResponse' {} a -> s {instanceType = a} :: DescribeInstanceAttributeResponse)
 
 -- | The device name of the root device volume (for example, @\/dev\/sda1@).
-describeInstanceAttributeResponse_rootDeviceName :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe AttributeValue)
+describeInstanceAttributeResponse_rootDeviceName :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
 describeInstanceAttributeResponse_rootDeviceName = Lens.lens (\DescribeInstanceAttributeResponse' {rootDeviceName} -> rootDeviceName) (\s@DescribeInstanceAttributeResponse' {} a -> s {rootDeviceName = a} :: DescribeInstanceAttributeResponse)
 
 -- | Indicates whether the instance is optimized for Amazon EBS I\/O.
-describeInstanceAttributeResponse_ebsOptimized :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe AttributeBooleanValue)
+describeInstanceAttributeResponse_ebsOptimized :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
 describeInstanceAttributeResponse_ebsOptimized = Lens.lens (\DescribeInstanceAttributeResponse' {ebsOptimized} -> ebsOptimized) (\s@DescribeInstanceAttributeResponse' {} a -> s {ebsOptimized = a} :: DescribeInstanceAttributeResponse)
 
 -- | The user data.
-describeInstanceAttributeResponse_userData :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe AttributeValue)
+describeInstanceAttributeResponse_userData :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
 describeInstanceAttributeResponse_userData = Lens.lens (\DescribeInstanceAttributeResponse' {userData} -> userData) (\s@DescribeInstanceAttributeResponse' {} a -> s {userData = a} :: DescribeInstanceAttributeResponse)
 
 -- | The RAM disk ID.
-describeInstanceAttributeResponse_ramdiskId :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe AttributeValue)
+describeInstanceAttributeResponse_ramdiskId :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
 describeInstanceAttributeResponse_ramdiskId = Lens.lens (\DescribeInstanceAttributeResponse' {ramdiskId} -> ramdiskId) (\s@DescribeInstanceAttributeResponse' {} a -> s {ramdiskId = a} :: DescribeInstanceAttributeResponse)
 
 -- | Indicates whether source\/destination checking is enabled. A value of
 -- @true@ means that checking is enabled, and @false@ means that checking
 -- is disabled. This value must be @false@ for a NAT instance to perform
 -- NAT.
-describeInstanceAttributeResponse_sourceDestCheck :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe AttributeBooleanValue)
+describeInstanceAttributeResponse_sourceDestCheck :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
 describeInstanceAttributeResponse_sourceDestCheck = Lens.lens (\DescribeInstanceAttributeResponse' {sourceDestCheck} -> sourceDestCheck) (\s@DescribeInstanceAttributeResponse' {} a -> s {sourceDestCheck = a} :: DescribeInstanceAttributeResponse)
 
 -- | A list of product codes.
-describeInstanceAttributeResponse_productCodes :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe [ProductCode])
-describeInstanceAttributeResponse_productCodes = Lens.lens (\DescribeInstanceAttributeResponse' {productCodes} -> productCodes) (\s@DescribeInstanceAttributeResponse' {} a -> s {productCodes = a} :: DescribeInstanceAttributeResponse) Core.. Lens.mapping Lens._Coerce
+describeInstanceAttributeResponse_productCodes :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe [ProductCode])
+describeInstanceAttributeResponse_productCodes = Lens.lens (\DescribeInstanceAttributeResponse' {productCodes} -> productCodes) (\s@DescribeInstanceAttributeResponse' {} a -> s {productCodes = a} :: DescribeInstanceAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for
 -- system shutdown).
-describeInstanceAttributeResponse_instanceInitiatedShutdownBehavior :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe AttributeValue)
+describeInstanceAttributeResponse_instanceInitiatedShutdownBehavior :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
 describeInstanceAttributeResponse_instanceInitiatedShutdownBehavior = Lens.lens (\DescribeInstanceAttributeResponse' {instanceInitiatedShutdownBehavior} -> instanceInitiatedShutdownBehavior) (\s@DescribeInstanceAttributeResponse' {} a -> s {instanceInitiatedShutdownBehavior = a} :: DescribeInstanceAttributeResponse)
 
 -- | Indicates whether enhanced networking with the Intel 82599 Virtual
 -- Function interface is enabled.
-describeInstanceAttributeResponse_sriovNetSupport :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe AttributeValue)
+describeInstanceAttributeResponse_sriovNetSupport :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
 describeInstanceAttributeResponse_sriovNetSupport = Lens.lens (\DescribeInstanceAttributeResponse' {sriovNetSupport} -> sriovNetSupport) (\s@DescribeInstanceAttributeResponse' {} a -> s {sriovNetSupport = a} :: DescribeInstanceAttributeResponse)
 
 -- | The block device mapping of the instance.
-describeInstanceAttributeResponse_blockDeviceMappings :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe [InstanceBlockDeviceMapping])
-describeInstanceAttributeResponse_blockDeviceMappings = Lens.lens (\DescribeInstanceAttributeResponse' {blockDeviceMappings} -> blockDeviceMappings) (\s@DescribeInstanceAttributeResponse' {} a -> s {blockDeviceMappings = a} :: DescribeInstanceAttributeResponse) Core.. Lens.mapping Lens._Coerce
+describeInstanceAttributeResponse_blockDeviceMappings :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe [InstanceBlockDeviceMapping])
+describeInstanceAttributeResponse_blockDeviceMappings = Lens.lens (\DescribeInstanceAttributeResponse' {blockDeviceMappings} -> blockDeviceMappings) (\s@DescribeInstanceAttributeResponse' {} a -> s {blockDeviceMappings = a} :: DescribeInstanceAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | To enable the instance for AWS Nitro Enclaves, set this parameter to
 -- @true@; otherwise, set it to @false@.
-describeInstanceAttributeResponse_enclaveOptions :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe EnclaveOptions)
+describeInstanceAttributeResponse_enclaveOptions :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe EnclaveOptions)
 describeInstanceAttributeResponse_enclaveOptions = Lens.lens (\DescribeInstanceAttributeResponse' {enclaveOptions} -> enclaveOptions) (\s@DescribeInstanceAttributeResponse' {} a -> s {enclaveOptions = a} :: DescribeInstanceAttributeResponse)
 
 -- | The kernel ID.
-describeInstanceAttributeResponse_kernelId :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe AttributeValue)
+describeInstanceAttributeResponse_kernelId :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
 describeInstanceAttributeResponse_kernelId = Lens.lens (\DescribeInstanceAttributeResponse' {kernelId} -> kernelId) (\s@DescribeInstanceAttributeResponse' {} a -> s {kernelId = a} :: DescribeInstanceAttributeResponse)
 
 -- | If the value is @true@, you can\'t terminate the instance through the
 -- Amazon EC2 console, CLI, or API; otherwise, you can.
-describeInstanceAttributeResponse_disableApiTermination :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe AttributeBooleanValue)
+describeInstanceAttributeResponse_disableApiTermination :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
 describeInstanceAttributeResponse_disableApiTermination = Lens.lens (\DescribeInstanceAttributeResponse' {disableApiTermination} -> disableApiTermination) (\s@DescribeInstanceAttributeResponse' {} a -> s {disableApiTermination = a} :: DescribeInstanceAttributeResponse)
 
 -- | Indicates whether enhanced networking with ENA is enabled.
-describeInstanceAttributeResponse_enaSupport :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe AttributeBooleanValue)
+describeInstanceAttributeResponse_enaSupport :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
 describeInstanceAttributeResponse_enaSupport = Lens.lens (\DescribeInstanceAttributeResponse' {enaSupport} -> enaSupport) (\s@DescribeInstanceAttributeResponse' {} a -> s {enaSupport = a} :: DescribeInstanceAttributeResponse)
 
 -- | The response's http status code.
-describeInstanceAttributeResponse_httpStatus :: Lens.Lens' DescribeInstanceAttributeResponse Core.Int
+describeInstanceAttributeResponse_httpStatus :: Lens.Lens' DescribeInstanceAttributeResponse Prelude.Int
 describeInstanceAttributeResponse_httpStatus = Lens.lens (\DescribeInstanceAttributeResponse' {httpStatus} -> httpStatus) (\s@DescribeInstanceAttributeResponse' {} a -> s {httpStatus = a} :: DescribeInstanceAttributeResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeInstanceAttributeResponse

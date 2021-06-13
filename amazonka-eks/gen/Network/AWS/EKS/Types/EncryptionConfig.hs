@@ -22,6 +22,7 @@ module Network.AWS.EKS.Types.EncryptionConfig where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.Provider
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The encryption configuration for the cluster.
 --
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data EncryptionConfig = EncryptionConfig'
   { -- | Specifies the resources to be encrypted. The only supported value is
     -- \"secrets\".
-    resources :: Core.Maybe [Core.Text],
+    resources :: Prelude.Maybe [Prelude.Text],
     -- | AWS Key Management Service (AWS KMS) customer master key (CMK). Either
     -- the ARN or the alias can be used.
-    provider :: Core.Maybe Provider
+    provider :: Prelude.Maybe Provider
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EncryptionConfig' with all optional fields omitted.
@@ -53,18 +54,18 @@ newEncryptionConfig ::
   EncryptionConfig
 newEncryptionConfig =
   EncryptionConfig'
-    { resources = Core.Nothing,
-      provider = Core.Nothing
+    { resources = Prelude.Nothing,
+      provider = Prelude.Nothing
     }
 
 -- | Specifies the resources to be encrypted. The only supported value is
 -- \"secrets\".
-encryptionConfig_resources :: Lens.Lens' EncryptionConfig (Core.Maybe [Core.Text])
-encryptionConfig_resources = Lens.lens (\EncryptionConfig' {resources} -> resources) (\s@EncryptionConfig' {} a -> s {resources = a} :: EncryptionConfig) Core.. Lens.mapping Lens._Coerce
+encryptionConfig_resources :: Lens.Lens' EncryptionConfig (Prelude.Maybe [Prelude.Text])
+encryptionConfig_resources = Lens.lens (\EncryptionConfig' {resources} -> resources) (\s@EncryptionConfig' {} a -> s {resources = a} :: EncryptionConfig) Prelude.. Lens.mapping Lens._Coerce
 
 -- | AWS Key Management Service (AWS KMS) customer master key (CMK). Either
 -- the ARN or the alias can be used.
-encryptionConfig_provider :: Lens.Lens' EncryptionConfig (Core.Maybe Provider)
+encryptionConfig_provider :: Lens.Lens' EncryptionConfig (Prelude.Maybe Provider)
 encryptionConfig_provider = Lens.lens (\EncryptionConfig' {provider} -> provider) (\s@EncryptionConfig' {} a -> s {provider = a} :: EncryptionConfig)
 
 instance Core.FromJSON EncryptionConfig where
@@ -73,19 +74,19 @@ instance Core.FromJSON EncryptionConfig where
       "EncryptionConfig"
       ( \x ->
           EncryptionConfig'
-            Core.<$> (x Core..:? "resources" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "provider")
+            Prelude.<$> (x Core..:? "resources" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "provider")
       )
 
-instance Core.Hashable EncryptionConfig
+instance Prelude.Hashable EncryptionConfig
 
-instance Core.NFData EncryptionConfig
+instance Prelude.NFData EncryptionConfig
 
 instance Core.ToJSON EncryptionConfig where
   toJSON EncryptionConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("resources" Core..=) Core.<$> resources,
-            ("provider" Core..=) Core.<$> provider
+      ( Prelude.catMaybes
+          [ ("resources" Core..=) Prelude.<$> resources,
+            ("provider" Core..=) Prelude.<$> provider
           ]
       )

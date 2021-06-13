@@ -23,32 +23,33 @@ import Network.AWS.CloudWatchEvents.Types.ApiDestinationHttpMethod
 import Network.AWS.CloudWatchEvents.Types.ApiDestinationState
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about an API destination.
 --
 -- /See:/ 'newApiDestination' smart constructor.
 data ApiDestination = ApiDestination'
   { -- | The method to use to connect to the HTTP endpoint.
-    httpMethod :: Core.Maybe ApiDestinationHttpMethod,
+    httpMethod :: Prelude.Maybe ApiDestinationHttpMethod,
     -- | A time stamp for the time that the API destination was created.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the API destination.
-    apiDestinationArn :: Core.Maybe Core.Text,
+    apiDestinationArn :: Prelude.Maybe Prelude.Text,
     -- | The URL to the endpoint for the API destination.
-    invocationEndpoint :: Core.Maybe Core.Text,
+    invocationEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The state of the API destination.
-    apiDestinationState :: Core.Maybe ApiDestinationState,
+    apiDestinationState :: Prelude.Maybe ApiDestinationState,
     -- | The ARN of the connection specified for the API destination.
-    connectionArn :: Core.Maybe Core.Text,
+    connectionArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the API destination.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | A time stamp for the time that the API destination was last modified.
-    lastModifiedTime :: Core.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The maximum number of invocations per second to send to the HTTP
     -- endpoint.
-    invocationRateLimitPerSecond :: Core.Maybe Core.Natural
+    invocationRateLimitPerSecond :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApiDestination' with all optional fields omitted.
@@ -80,52 +81,52 @@ newApiDestination ::
   ApiDestination
 newApiDestination =
   ApiDestination'
-    { httpMethod = Core.Nothing,
-      creationTime = Core.Nothing,
-      apiDestinationArn = Core.Nothing,
-      invocationEndpoint = Core.Nothing,
-      apiDestinationState = Core.Nothing,
-      connectionArn = Core.Nothing,
-      name = Core.Nothing,
-      lastModifiedTime = Core.Nothing,
-      invocationRateLimitPerSecond = Core.Nothing
+    { httpMethod = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      apiDestinationArn = Prelude.Nothing,
+      invocationEndpoint = Prelude.Nothing,
+      apiDestinationState = Prelude.Nothing,
+      connectionArn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      invocationRateLimitPerSecond = Prelude.Nothing
     }
 
 -- | The method to use to connect to the HTTP endpoint.
-apiDestination_httpMethod :: Lens.Lens' ApiDestination (Core.Maybe ApiDestinationHttpMethod)
+apiDestination_httpMethod :: Lens.Lens' ApiDestination (Prelude.Maybe ApiDestinationHttpMethod)
 apiDestination_httpMethod = Lens.lens (\ApiDestination' {httpMethod} -> httpMethod) (\s@ApiDestination' {} a -> s {httpMethod = a} :: ApiDestination)
 
 -- | A time stamp for the time that the API destination was created.
-apiDestination_creationTime :: Lens.Lens' ApiDestination (Core.Maybe Core.UTCTime)
-apiDestination_creationTime = Lens.lens (\ApiDestination' {creationTime} -> creationTime) (\s@ApiDestination' {} a -> s {creationTime = a} :: ApiDestination) Core.. Lens.mapping Core._Time
+apiDestination_creationTime :: Lens.Lens' ApiDestination (Prelude.Maybe Prelude.UTCTime)
+apiDestination_creationTime = Lens.lens (\ApiDestination' {creationTime} -> creationTime) (\s@ApiDestination' {} a -> s {creationTime = a} :: ApiDestination) Prelude.. Lens.mapping Core._Time
 
 -- | The ARN of the API destination.
-apiDestination_apiDestinationArn :: Lens.Lens' ApiDestination (Core.Maybe Core.Text)
+apiDestination_apiDestinationArn :: Lens.Lens' ApiDestination (Prelude.Maybe Prelude.Text)
 apiDestination_apiDestinationArn = Lens.lens (\ApiDestination' {apiDestinationArn} -> apiDestinationArn) (\s@ApiDestination' {} a -> s {apiDestinationArn = a} :: ApiDestination)
 
 -- | The URL to the endpoint for the API destination.
-apiDestination_invocationEndpoint :: Lens.Lens' ApiDestination (Core.Maybe Core.Text)
+apiDestination_invocationEndpoint :: Lens.Lens' ApiDestination (Prelude.Maybe Prelude.Text)
 apiDestination_invocationEndpoint = Lens.lens (\ApiDestination' {invocationEndpoint} -> invocationEndpoint) (\s@ApiDestination' {} a -> s {invocationEndpoint = a} :: ApiDestination)
 
 -- | The state of the API destination.
-apiDestination_apiDestinationState :: Lens.Lens' ApiDestination (Core.Maybe ApiDestinationState)
+apiDestination_apiDestinationState :: Lens.Lens' ApiDestination (Prelude.Maybe ApiDestinationState)
 apiDestination_apiDestinationState = Lens.lens (\ApiDestination' {apiDestinationState} -> apiDestinationState) (\s@ApiDestination' {} a -> s {apiDestinationState = a} :: ApiDestination)
 
 -- | The ARN of the connection specified for the API destination.
-apiDestination_connectionArn :: Lens.Lens' ApiDestination (Core.Maybe Core.Text)
+apiDestination_connectionArn :: Lens.Lens' ApiDestination (Prelude.Maybe Prelude.Text)
 apiDestination_connectionArn = Lens.lens (\ApiDestination' {connectionArn} -> connectionArn) (\s@ApiDestination' {} a -> s {connectionArn = a} :: ApiDestination)
 
 -- | The name of the API destination.
-apiDestination_name :: Lens.Lens' ApiDestination (Core.Maybe Core.Text)
+apiDestination_name :: Lens.Lens' ApiDestination (Prelude.Maybe Prelude.Text)
 apiDestination_name = Lens.lens (\ApiDestination' {name} -> name) (\s@ApiDestination' {} a -> s {name = a} :: ApiDestination)
 
 -- | A time stamp for the time that the API destination was last modified.
-apiDestination_lastModifiedTime :: Lens.Lens' ApiDestination (Core.Maybe Core.UTCTime)
-apiDestination_lastModifiedTime = Lens.lens (\ApiDestination' {lastModifiedTime} -> lastModifiedTime) (\s@ApiDestination' {} a -> s {lastModifiedTime = a} :: ApiDestination) Core.. Lens.mapping Core._Time
+apiDestination_lastModifiedTime :: Lens.Lens' ApiDestination (Prelude.Maybe Prelude.UTCTime)
+apiDestination_lastModifiedTime = Lens.lens (\ApiDestination' {lastModifiedTime} -> lastModifiedTime) (\s@ApiDestination' {} a -> s {lastModifiedTime = a} :: ApiDestination) Prelude.. Lens.mapping Core._Time
 
 -- | The maximum number of invocations per second to send to the HTTP
 -- endpoint.
-apiDestination_invocationRateLimitPerSecond :: Lens.Lens' ApiDestination (Core.Maybe Core.Natural)
+apiDestination_invocationRateLimitPerSecond :: Lens.Lens' ApiDestination (Prelude.Maybe Prelude.Natural)
 apiDestination_invocationRateLimitPerSecond = Lens.lens (\ApiDestination' {invocationRateLimitPerSecond} -> invocationRateLimitPerSecond) (\s@ApiDestination' {} a -> s {invocationRateLimitPerSecond = a} :: ApiDestination)
 
 instance Core.FromJSON ApiDestination where
@@ -134,17 +135,17 @@ instance Core.FromJSON ApiDestination where
       "ApiDestination"
       ( \x ->
           ApiDestination'
-            Core.<$> (x Core..:? "HttpMethod")
-            Core.<*> (x Core..:? "CreationTime")
-            Core.<*> (x Core..:? "ApiDestinationArn")
-            Core.<*> (x Core..:? "InvocationEndpoint")
-            Core.<*> (x Core..:? "ApiDestinationState")
-            Core.<*> (x Core..:? "ConnectionArn")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "LastModifiedTime")
-            Core.<*> (x Core..:? "InvocationRateLimitPerSecond")
+            Prelude.<$> (x Core..:? "HttpMethod")
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "ApiDestinationArn")
+            Prelude.<*> (x Core..:? "InvocationEndpoint")
+            Prelude.<*> (x Core..:? "ApiDestinationState")
+            Prelude.<*> (x Core..:? "ConnectionArn")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "InvocationRateLimitPerSecond")
       )
 
-instance Core.Hashable ApiDestination
+instance Prelude.Hashable ApiDestination
 
-instance Core.NFData ApiDestination
+instance Prelude.NFData ApiDestination

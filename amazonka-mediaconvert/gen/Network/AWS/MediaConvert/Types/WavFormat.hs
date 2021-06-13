@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.WavFormat
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The service defaults to using RIFF for WAV outputs. If your output audio
 -- is likely to exceed 4 GB in file size, or if you otherwise need the
@@ -37,15 +38,15 @@ newtype WavFormat = WavFormat'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

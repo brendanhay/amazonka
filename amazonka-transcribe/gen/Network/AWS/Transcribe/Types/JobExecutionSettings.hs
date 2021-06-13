@@ -21,6 +21,7 @@ module Network.AWS.Transcribe.Types.JobExecutionSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about when a transcription job should be executed.
 --
@@ -35,7 +36,7 @@ data JobExecutionSettings = JobExecutionSettings'
     --
     -- If you specify the @AllowDeferredExecution@ field, you must specify the
     -- @DataAccessRoleArn@ field.
-    allowDeferredExecution :: Core.Maybe Core.Bool,
+    allowDeferredExecution :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of a role that has access to the S3
     -- bucket that contains the input files. Amazon Transcribe assumes this
     -- role to read queued media files. If you have specified an output S3
@@ -44,9 +45,9 @@ data JobExecutionSettings = JobExecutionSettings'
     --
     -- If you specify the @AllowDeferredExecution@ field, you must specify the
     -- @DataAccessRoleArn@ field.
-    dataAccessRoleArn :: Core.Maybe Core.Text
+    dataAccessRoleArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobExecutionSettings' with all optional fields omitted.
@@ -79,8 +80,8 @@ newJobExecutionSettings ::
 newJobExecutionSettings =
   JobExecutionSettings'
     { allowDeferredExecution =
-        Core.Nothing,
-      dataAccessRoleArn = Core.Nothing
+        Prelude.Nothing,
+      dataAccessRoleArn = Prelude.Nothing
     }
 
 -- | Indicates whether a job should be queued by Amazon Transcribe when the
@@ -92,7 +93,7 @@ newJobExecutionSettings =
 --
 -- If you specify the @AllowDeferredExecution@ field, you must specify the
 -- @DataAccessRoleArn@ field.
-jobExecutionSettings_allowDeferredExecution :: Lens.Lens' JobExecutionSettings (Core.Maybe Core.Bool)
+jobExecutionSettings_allowDeferredExecution :: Lens.Lens' JobExecutionSettings (Prelude.Maybe Prelude.Bool)
 jobExecutionSettings_allowDeferredExecution = Lens.lens (\JobExecutionSettings' {allowDeferredExecution} -> allowDeferredExecution) (\s@JobExecutionSettings' {} a -> s {allowDeferredExecution = a} :: JobExecutionSettings)
 
 -- | The Amazon Resource Name (ARN) of a role that has access to the S3
@@ -103,7 +104,7 @@ jobExecutionSettings_allowDeferredExecution = Lens.lens (\JobExecutionSettings' 
 --
 -- If you specify the @AllowDeferredExecution@ field, you must specify the
 -- @DataAccessRoleArn@ field.
-jobExecutionSettings_dataAccessRoleArn :: Lens.Lens' JobExecutionSettings (Core.Maybe Core.Text)
+jobExecutionSettings_dataAccessRoleArn :: Lens.Lens' JobExecutionSettings (Prelude.Maybe Prelude.Text)
 jobExecutionSettings_dataAccessRoleArn = Lens.lens (\JobExecutionSettings' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@JobExecutionSettings' {} a -> s {dataAccessRoleArn = a} :: JobExecutionSettings)
 
 instance Core.FromJSON JobExecutionSettings where
@@ -112,21 +113,21 @@ instance Core.FromJSON JobExecutionSettings where
       "JobExecutionSettings"
       ( \x ->
           JobExecutionSettings'
-            Core.<$> (x Core..:? "AllowDeferredExecution")
-            Core.<*> (x Core..:? "DataAccessRoleArn")
+            Prelude.<$> (x Core..:? "AllowDeferredExecution")
+            Prelude.<*> (x Core..:? "DataAccessRoleArn")
       )
 
-instance Core.Hashable JobExecutionSettings
+instance Prelude.Hashable JobExecutionSettings
 
-instance Core.NFData JobExecutionSettings
+instance Prelude.NFData JobExecutionSettings
 
 instance Core.ToJSON JobExecutionSettings where
   toJSON JobExecutionSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AllowDeferredExecution" Core..=)
-              Core.<$> allowDeferredExecution,
+              Prelude.<$> allowDeferredExecution,
             ("DataAccessRoleArn" Core..=)
-              Core.<$> dataAccessRoleArn
+              Prelude.<$> dataAccessRoleArn
           ]
       )

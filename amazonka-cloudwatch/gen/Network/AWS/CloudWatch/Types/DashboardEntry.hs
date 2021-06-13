@@ -21,23 +21,24 @@ module Network.AWS.CloudWatch.Types.DashboardEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a specific dashboard.
 --
 -- /See:/ 'newDashboardEntry' smart constructor.
 data DashboardEntry = DashboardEntry'
   { -- | The Amazon Resource Name (ARN) of the dashboard.
-    dashboardArn :: Core.Maybe Core.Text,
+    dashboardArn :: Prelude.Maybe Prelude.Text,
     -- | The time stamp of when the dashboard was last modified, either by an API
     -- call or through the console. This number is expressed as the number of
     -- milliseconds since Jan 1, 1970 00:00:00 UTC.
-    lastModified :: Core.Maybe Core.ISO8601,
+    lastModified :: Prelude.Maybe Core.ISO8601,
     -- | The name of the dashboard.
-    dashboardName :: Core.Maybe Core.Text,
+    dashboardName :: Prelude.Maybe Prelude.Text,
     -- | The size of the dashboard, in bytes.
-    size :: Core.Maybe Core.Integer
+    size :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DashboardEntry' with all optional fields omitted.
@@ -60,38 +61,38 @@ newDashboardEntry ::
   DashboardEntry
 newDashboardEntry =
   DashboardEntry'
-    { dashboardArn = Core.Nothing,
-      lastModified = Core.Nothing,
-      dashboardName = Core.Nothing,
-      size = Core.Nothing
+    { dashboardArn = Prelude.Nothing,
+      lastModified = Prelude.Nothing,
+      dashboardName = Prelude.Nothing,
+      size = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the dashboard.
-dashboardEntry_dashboardArn :: Lens.Lens' DashboardEntry (Core.Maybe Core.Text)
+dashboardEntry_dashboardArn :: Lens.Lens' DashboardEntry (Prelude.Maybe Prelude.Text)
 dashboardEntry_dashboardArn = Lens.lens (\DashboardEntry' {dashboardArn} -> dashboardArn) (\s@DashboardEntry' {} a -> s {dashboardArn = a} :: DashboardEntry)
 
 -- | The time stamp of when the dashboard was last modified, either by an API
 -- call or through the console. This number is expressed as the number of
 -- milliseconds since Jan 1, 1970 00:00:00 UTC.
-dashboardEntry_lastModified :: Lens.Lens' DashboardEntry (Core.Maybe Core.UTCTime)
-dashboardEntry_lastModified = Lens.lens (\DashboardEntry' {lastModified} -> lastModified) (\s@DashboardEntry' {} a -> s {lastModified = a} :: DashboardEntry) Core.. Lens.mapping Core._Time
+dashboardEntry_lastModified :: Lens.Lens' DashboardEntry (Prelude.Maybe Prelude.UTCTime)
+dashboardEntry_lastModified = Lens.lens (\DashboardEntry' {lastModified} -> lastModified) (\s@DashboardEntry' {} a -> s {lastModified = a} :: DashboardEntry) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the dashboard.
-dashboardEntry_dashboardName :: Lens.Lens' DashboardEntry (Core.Maybe Core.Text)
+dashboardEntry_dashboardName :: Lens.Lens' DashboardEntry (Prelude.Maybe Prelude.Text)
 dashboardEntry_dashboardName = Lens.lens (\DashboardEntry' {dashboardName} -> dashboardName) (\s@DashboardEntry' {} a -> s {dashboardName = a} :: DashboardEntry)
 
 -- | The size of the dashboard, in bytes.
-dashboardEntry_size :: Lens.Lens' DashboardEntry (Core.Maybe Core.Integer)
+dashboardEntry_size :: Lens.Lens' DashboardEntry (Prelude.Maybe Prelude.Integer)
 dashboardEntry_size = Lens.lens (\DashboardEntry' {size} -> size) (\s@DashboardEntry' {} a -> s {size = a} :: DashboardEntry)
 
 instance Core.FromXML DashboardEntry where
   parseXML x =
     DashboardEntry'
-      Core.<$> (x Core..@? "DashboardArn")
-      Core.<*> (x Core..@? "LastModified")
-      Core.<*> (x Core..@? "DashboardName")
-      Core.<*> (x Core..@? "Size")
+      Prelude.<$> (x Core..@? "DashboardArn")
+      Prelude.<*> (x Core..@? "LastModified")
+      Prelude.<*> (x Core..@? "DashboardName")
+      Prelude.<*> (x Core..@? "Size")
 
-instance Core.Hashable DashboardEntry
+instance Prelude.Hashable DashboardEntry
 
-instance Core.NFData DashboardEntry
+instance Prelude.NFData DashboardEntry

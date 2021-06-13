@@ -29,6 +29,7 @@ import Network.AWS.MediaConvert.Types.ImscDestinationSettings
 import Network.AWS.MediaConvert.Types.SccDestinationSettings
 import Network.AWS.MediaConvert.Types.TeletextDestinationSettings
 import Network.AWS.MediaConvert.Types.TtmlDestinationSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specific settings required by destination type. Note that
 -- burnin_destination_settings are not available if the source of the
@@ -38,7 +39,7 @@ import Network.AWS.MediaConvert.Types.TtmlDestinationSettings
 data CaptionDestinationSettings = CaptionDestinationSettings'
   { -- | Settings specific to embedded\/ancillary caption outputs, including
     -- 608\/708 Channel destination number.
-    embeddedDestinationSettings :: Core.Maybe EmbeddedDestinationSettings,
+    embeddedDestinationSettings :: Prelude.Maybe EmbeddedDestinationSettings,
     -- | Specify the format for this set of captions on this output. The default
     -- format is embedded without SCTE-20. Other options are embedded with
     -- SCTE-20, burn-in, DVB-sub, IMSC, SCC, SRT, teletext, TTML, and web-VTT.
@@ -47,22 +48,22 @@ data CaptionDestinationSettings = CaptionDestinationSettings'
     -- SCTE-43 spec. To create a non-compliant output where the embedded
     -- captions come first, choose Embedded plus SCTE-20
     -- (EMBEDDED_PLUS_SCTE20).
-    destinationType :: Core.Maybe CaptionDestinationType,
+    destinationType :: Prelude.Maybe CaptionDestinationType,
     -- | DVB-Sub Destination Settings
-    dvbSubDestinationSettings :: Core.Maybe DvbSubDestinationSettings,
+    dvbSubDestinationSettings :: Prelude.Maybe DvbSubDestinationSettings,
     -- | Settings for Teletext caption output
-    teletextDestinationSettings :: Core.Maybe TeletextDestinationSettings,
+    teletextDestinationSettings :: Prelude.Maybe TeletextDestinationSettings,
     -- | Settings specific to TTML caption outputs, including Pass style
     -- information (TtmlStylePassthrough).
-    ttmlDestinationSettings :: Core.Maybe TtmlDestinationSettings,
+    ttmlDestinationSettings :: Prelude.Maybe TtmlDestinationSettings,
     -- | Burn-In Destination Settings.
-    burninDestinationSettings :: Core.Maybe BurninDestinationSettings,
+    burninDestinationSettings :: Prelude.Maybe BurninDestinationSettings,
     -- | Settings specific to IMSC caption outputs.
-    imscDestinationSettings :: Core.Maybe ImscDestinationSettings,
+    imscDestinationSettings :: Prelude.Maybe ImscDestinationSettings,
     -- | Settings for SCC caption output.
-    sccDestinationSettings :: Core.Maybe SccDestinationSettings
+    sccDestinationSettings :: Prelude.Maybe SccDestinationSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CaptionDestinationSettings' with all optional fields omitted.
@@ -101,19 +102,19 @@ newCaptionDestinationSettings ::
 newCaptionDestinationSettings =
   CaptionDestinationSettings'
     { embeddedDestinationSettings =
-        Core.Nothing,
-      destinationType = Core.Nothing,
-      dvbSubDestinationSettings = Core.Nothing,
-      teletextDestinationSettings = Core.Nothing,
-      ttmlDestinationSettings = Core.Nothing,
-      burninDestinationSettings = Core.Nothing,
-      imscDestinationSettings = Core.Nothing,
-      sccDestinationSettings = Core.Nothing
+        Prelude.Nothing,
+      destinationType = Prelude.Nothing,
+      dvbSubDestinationSettings = Prelude.Nothing,
+      teletextDestinationSettings = Prelude.Nothing,
+      ttmlDestinationSettings = Prelude.Nothing,
+      burninDestinationSettings = Prelude.Nothing,
+      imscDestinationSettings = Prelude.Nothing,
+      sccDestinationSettings = Prelude.Nothing
     }
 
 -- | Settings specific to embedded\/ancillary caption outputs, including
 -- 608\/708 Channel destination number.
-captionDestinationSettings_embeddedDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe EmbeddedDestinationSettings)
+captionDestinationSettings_embeddedDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe EmbeddedDestinationSettings)
 captionDestinationSettings_embeddedDestinationSettings = Lens.lens (\CaptionDestinationSettings' {embeddedDestinationSettings} -> embeddedDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {embeddedDestinationSettings = a} :: CaptionDestinationSettings)
 
 -- | Specify the format for this set of captions on this output. The default
@@ -124,32 +125,32 @@ captionDestinationSettings_embeddedDestinationSettings = Lens.lens (\CaptionDest
 -- SCTE-43 spec. To create a non-compliant output where the embedded
 -- captions come first, choose Embedded plus SCTE-20
 -- (EMBEDDED_PLUS_SCTE20).
-captionDestinationSettings_destinationType :: Lens.Lens' CaptionDestinationSettings (Core.Maybe CaptionDestinationType)
+captionDestinationSettings_destinationType :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe CaptionDestinationType)
 captionDestinationSettings_destinationType = Lens.lens (\CaptionDestinationSettings' {destinationType} -> destinationType) (\s@CaptionDestinationSettings' {} a -> s {destinationType = a} :: CaptionDestinationSettings)
 
 -- | DVB-Sub Destination Settings
-captionDestinationSettings_dvbSubDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe DvbSubDestinationSettings)
+captionDestinationSettings_dvbSubDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe DvbSubDestinationSettings)
 captionDestinationSettings_dvbSubDestinationSettings = Lens.lens (\CaptionDestinationSettings' {dvbSubDestinationSettings} -> dvbSubDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {dvbSubDestinationSettings = a} :: CaptionDestinationSettings)
 
 -- | Settings for Teletext caption output
-captionDestinationSettings_teletextDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe TeletextDestinationSettings)
+captionDestinationSettings_teletextDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe TeletextDestinationSettings)
 captionDestinationSettings_teletextDestinationSettings = Lens.lens (\CaptionDestinationSettings' {teletextDestinationSettings} -> teletextDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {teletextDestinationSettings = a} :: CaptionDestinationSettings)
 
 -- | Settings specific to TTML caption outputs, including Pass style
 -- information (TtmlStylePassthrough).
-captionDestinationSettings_ttmlDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe TtmlDestinationSettings)
+captionDestinationSettings_ttmlDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe TtmlDestinationSettings)
 captionDestinationSettings_ttmlDestinationSettings = Lens.lens (\CaptionDestinationSettings' {ttmlDestinationSettings} -> ttmlDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {ttmlDestinationSettings = a} :: CaptionDestinationSettings)
 
 -- | Burn-In Destination Settings.
-captionDestinationSettings_burninDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe BurninDestinationSettings)
+captionDestinationSettings_burninDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe BurninDestinationSettings)
 captionDestinationSettings_burninDestinationSettings = Lens.lens (\CaptionDestinationSettings' {burninDestinationSettings} -> burninDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {burninDestinationSettings = a} :: CaptionDestinationSettings)
 
 -- | Settings specific to IMSC caption outputs.
-captionDestinationSettings_imscDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe ImscDestinationSettings)
+captionDestinationSettings_imscDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe ImscDestinationSettings)
 captionDestinationSettings_imscDestinationSettings = Lens.lens (\CaptionDestinationSettings' {imscDestinationSettings} -> imscDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {imscDestinationSettings = a} :: CaptionDestinationSettings)
 
 -- | Settings for SCC caption output.
-captionDestinationSettings_sccDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe SccDestinationSettings)
+captionDestinationSettings_sccDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe SccDestinationSettings)
 captionDestinationSettings_sccDestinationSettings = Lens.lens (\CaptionDestinationSettings' {sccDestinationSettings} -> sccDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {sccDestinationSettings = a} :: CaptionDestinationSettings)
 
 instance Core.FromJSON CaptionDestinationSettings where
@@ -158,38 +159,39 @@ instance Core.FromJSON CaptionDestinationSettings where
       "CaptionDestinationSettings"
       ( \x ->
           CaptionDestinationSettings'
-            Core.<$> (x Core..:? "embeddedDestinationSettings")
-            Core.<*> (x Core..:? "destinationType")
-            Core.<*> (x Core..:? "dvbSubDestinationSettings")
-            Core.<*> (x Core..:? "teletextDestinationSettings")
-            Core.<*> (x Core..:? "ttmlDestinationSettings")
-            Core.<*> (x Core..:? "burninDestinationSettings")
-            Core.<*> (x Core..:? "imscDestinationSettings")
-            Core.<*> (x Core..:? "sccDestinationSettings")
+            Prelude.<$> (x Core..:? "embeddedDestinationSettings")
+            Prelude.<*> (x Core..:? "destinationType")
+            Prelude.<*> (x Core..:? "dvbSubDestinationSettings")
+            Prelude.<*> (x Core..:? "teletextDestinationSettings")
+            Prelude.<*> (x Core..:? "ttmlDestinationSettings")
+            Prelude.<*> (x Core..:? "burninDestinationSettings")
+            Prelude.<*> (x Core..:? "imscDestinationSettings")
+            Prelude.<*> (x Core..:? "sccDestinationSettings")
       )
 
-instance Core.Hashable CaptionDestinationSettings
+instance Prelude.Hashable CaptionDestinationSettings
 
-instance Core.NFData CaptionDestinationSettings
+instance Prelude.NFData CaptionDestinationSettings
 
 instance Core.ToJSON CaptionDestinationSettings where
   toJSON CaptionDestinationSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("embeddedDestinationSettings" Core..=)
-              Core.<$> embeddedDestinationSettings,
-            ("destinationType" Core..=) Core.<$> destinationType,
+              Prelude.<$> embeddedDestinationSettings,
+            ("destinationType" Core..=)
+              Prelude.<$> destinationType,
             ("dvbSubDestinationSettings" Core..=)
-              Core.<$> dvbSubDestinationSettings,
+              Prelude.<$> dvbSubDestinationSettings,
             ("teletextDestinationSettings" Core..=)
-              Core.<$> teletextDestinationSettings,
+              Prelude.<$> teletextDestinationSettings,
             ("ttmlDestinationSettings" Core..=)
-              Core.<$> ttmlDestinationSettings,
+              Prelude.<$> ttmlDestinationSettings,
             ("burninDestinationSettings" Core..=)
-              Core.<$> burninDestinationSettings,
+              Prelude.<$> burninDestinationSettings,
             ("imscDestinationSettings" Core..=)
-              Core.<$> imscDestinationSettings,
+              Prelude.<$> imscDestinationSettings,
             ("sccDestinationSettings" Core..=)
-              Core.<$> sccDestinationSettings
+              Prelude.<$> sccDestinationSettings
           ]
       )

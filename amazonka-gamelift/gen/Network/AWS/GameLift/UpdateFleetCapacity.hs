@@ -89,6 +89,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -98,17 +99,17 @@ import qualified Network.AWS.Response as Response
 data UpdateFleetCapacity = UpdateFleetCapacity'
   { -- | The minimum value allowed for the fleet\'s instance count. Default if
     -- not set is 0.
-    minSize :: Core.Maybe Core.Natural,
+    minSize :: Prelude.Maybe Prelude.Natural,
     -- | The maximum value allowed for the fleet\'s instance count. Default if
     -- not set is 1.
-    maxSize :: Core.Maybe Core.Natural,
+    maxSize :: Prelude.Maybe Prelude.Natural,
     -- | Number of EC2 instances you want this fleet to host.
-    desiredInstances :: Core.Maybe Core.Natural,
+    desiredInstances :: Prelude.Maybe Prelude.Natural,
     -- | A unique identifier for a fleet to update capacity for. You can use
     -- either the fleet ID or ARN value.
-    fleetId :: Core.Text
+    fleetId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFleetCapacity' with all optional fields omitted.
@@ -130,33 +131,33 @@ data UpdateFleetCapacity = UpdateFleetCapacity'
 -- either the fleet ID or ARN value.
 newUpdateFleetCapacity ::
   -- | 'fleetId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateFleetCapacity
 newUpdateFleetCapacity pFleetId_ =
   UpdateFleetCapacity'
-    { minSize = Core.Nothing,
-      maxSize = Core.Nothing,
-      desiredInstances = Core.Nothing,
+    { minSize = Prelude.Nothing,
+      maxSize = Prelude.Nothing,
+      desiredInstances = Prelude.Nothing,
       fleetId = pFleetId_
     }
 
 -- | The minimum value allowed for the fleet\'s instance count. Default if
 -- not set is 0.
-updateFleetCapacity_minSize :: Lens.Lens' UpdateFleetCapacity (Core.Maybe Core.Natural)
+updateFleetCapacity_minSize :: Lens.Lens' UpdateFleetCapacity (Prelude.Maybe Prelude.Natural)
 updateFleetCapacity_minSize = Lens.lens (\UpdateFleetCapacity' {minSize} -> minSize) (\s@UpdateFleetCapacity' {} a -> s {minSize = a} :: UpdateFleetCapacity)
 
 -- | The maximum value allowed for the fleet\'s instance count. Default if
 -- not set is 1.
-updateFleetCapacity_maxSize :: Lens.Lens' UpdateFleetCapacity (Core.Maybe Core.Natural)
+updateFleetCapacity_maxSize :: Lens.Lens' UpdateFleetCapacity (Prelude.Maybe Prelude.Natural)
 updateFleetCapacity_maxSize = Lens.lens (\UpdateFleetCapacity' {maxSize} -> maxSize) (\s@UpdateFleetCapacity' {} a -> s {maxSize = a} :: UpdateFleetCapacity)
 
 -- | Number of EC2 instances you want this fleet to host.
-updateFleetCapacity_desiredInstances :: Lens.Lens' UpdateFleetCapacity (Core.Maybe Core.Natural)
+updateFleetCapacity_desiredInstances :: Lens.Lens' UpdateFleetCapacity (Prelude.Maybe Prelude.Natural)
 updateFleetCapacity_desiredInstances = Lens.lens (\UpdateFleetCapacity' {desiredInstances} -> desiredInstances) (\s@UpdateFleetCapacity' {} a -> s {desiredInstances = a} :: UpdateFleetCapacity)
 
 -- | A unique identifier for a fleet to update capacity for. You can use
 -- either the fleet ID or ARN value.
-updateFleetCapacity_fleetId :: Lens.Lens' UpdateFleetCapacity Core.Text
+updateFleetCapacity_fleetId :: Lens.Lens' UpdateFleetCapacity Prelude.Text
 updateFleetCapacity_fleetId = Lens.lens (\UpdateFleetCapacity' {fleetId} -> fleetId) (\s@UpdateFleetCapacity' {} a -> s {fleetId = a} :: UpdateFleetCapacity)
 
 instance Core.AWSRequest UpdateFleetCapacity where
@@ -168,53 +169,57 @@ instance Core.AWSRequest UpdateFleetCapacity where
     Response.receiveJSON
       ( \s h x ->
           UpdateFleetCapacityResponse'
-            Core.<$> (x Core..?> "FleetId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "FleetId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateFleetCapacity
+instance Prelude.Hashable UpdateFleetCapacity
 
-instance Core.NFData UpdateFleetCapacity
+instance Prelude.NFData UpdateFleetCapacity
 
 instance Core.ToHeaders UpdateFleetCapacity where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.UpdateFleetCapacity" :: Core.ByteString),
+              Core.=# ( "GameLift.UpdateFleetCapacity" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateFleetCapacity where
   toJSON UpdateFleetCapacity' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("MinSize" Core..=) Core.<$> minSize,
-            ("MaxSize" Core..=) Core.<$> maxSize,
+      ( Prelude.catMaybes
+          [ ("MinSize" Core..=) Prelude.<$> minSize,
+            ("MaxSize" Core..=) Prelude.<$> maxSize,
             ("DesiredInstances" Core..=)
-              Core.<$> desiredInstances,
-            Core.Just ("FleetId" Core..= fleetId)
+              Prelude.<$> desiredInstances,
+            Prelude.Just ("FleetId" Core..= fleetId)
           ]
       )
 
 instance Core.ToPath UpdateFleetCapacity where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateFleetCapacity where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newUpdateFleetCapacityResponse' smart constructor.
 data UpdateFleetCapacityResponse = UpdateFleetCapacityResponse'
   { -- | A unique identifier for a fleet that was updated.
-    fleetId :: Core.Maybe Core.Text,
+    fleetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFleetCapacityResponse' with all optional fields omitted.
@@ -229,21 +234,21 @@ data UpdateFleetCapacityResponse = UpdateFleetCapacityResponse'
 -- 'httpStatus', 'updateFleetCapacityResponse_httpStatus' - The response's http status code.
 newUpdateFleetCapacityResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateFleetCapacityResponse
 newUpdateFleetCapacityResponse pHttpStatus_ =
   UpdateFleetCapacityResponse'
     { fleetId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique identifier for a fleet that was updated.
-updateFleetCapacityResponse_fleetId :: Lens.Lens' UpdateFleetCapacityResponse (Core.Maybe Core.Text)
+updateFleetCapacityResponse_fleetId :: Lens.Lens' UpdateFleetCapacityResponse (Prelude.Maybe Prelude.Text)
 updateFleetCapacityResponse_fleetId = Lens.lens (\UpdateFleetCapacityResponse' {fleetId} -> fleetId) (\s@UpdateFleetCapacityResponse' {} a -> s {fleetId = a} :: UpdateFleetCapacityResponse)
 
 -- | The response's http status code.
-updateFleetCapacityResponse_httpStatus :: Lens.Lens' UpdateFleetCapacityResponse Core.Int
+updateFleetCapacityResponse_httpStatus :: Lens.Lens' UpdateFleetCapacityResponse Prelude.Int
 updateFleetCapacityResponse_httpStatus = Lens.lens (\UpdateFleetCapacityResponse' {httpStatus} -> httpStatus) (\s@UpdateFleetCapacityResponse' {} a -> s {httpStatus = a} :: UpdateFleetCapacityResponse)
 
-instance Core.NFData UpdateFleetCapacityResponse
+instance Prelude.NFData UpdateFleetCapacityResponse

@@ -49,6 +49,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +57,11 @@ import qualified Network.AWS.Response as Response
 data DeleteRealtimeLogConfig = DeleteRealtimeLogConfig'
   { -- | The Amazon Resource Name (ARN) of the real-time log configuration to
     -- delete.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the real-time log configuration to delete.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRealtimeLogConfig' with all optional fields omitted.
@@ -78,17 +79,17 @@ newDeleteRealtimeLogConfig ::
   DeleteRealtimeLogConfig
 newDeleteRealtimeLogConfig =
   DeleteRealtimeLogConfig'
-    { arn = Core.Nothing,
-      name = Core.Nothing
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the real-time log configuration to
 -- delete.
-deleteRealtimeLogConfig_arn :: Lens.Lens' DeleteRealtimeLogConfig (Core.Maybe Core.Text)
+deleteRealtimeLogConfig_arn :: Lens.Lens' DeleteRealtimeLogConfig (Prelude.Maybe Prelude.Text)
 deleteRealtimeLogConfig_arn = Lens.lens (\DeleteRealtimeLogConfig' {arn} -> arn) (\s@DeleteRealtimeLogConfig' {} a -> s {arn = a} :: DeleteRealtimeLogConfig)
 
 -- | The name of the real-time log configuration to delete.
-deleteRealtimeLogConfig_name :: Lens.Lens' DeleteRealtimeLogConfig (Core.Maybe Core.Text)
+deleteRealtimeLogConfig_name :: Lens.Lens' DeleteRealtimeLogConfig (Prelude.Maybe Prelude.Text)
 deleteRealtimeLogConfig_name = Lens.lens (\DeleteRealtimeLogConfig' {name} -> name) (\s@DeleteRealtimeLogConfig' {} a -> s {name = a} :: DeleteRealtimeLogConfig)
 
 instance Core.AWSRequest DeleteRealtimeLogConfig where
@@ -100,9 +101,9 @@ instance Core.AWSRequest DeleteRealtimeLogConfig where
     Response.receiveNull
       DeleteRealtimeLogConfigResponse'
 
-instance Core.Hashable DeleteRealtimeLogConfig
+instance Prelude.Hashable DeleteRealtimeLogConfig
 
-instance Core.NFData DeleteRealtimeLogConfig
+instance Prelude.NFData DeleteRealtimeLogConfig
 
 instance Core.ToElement DeleteRealtimeLogConfig where
   toElement =
@@ -110,26 +111,26 @@ instance Core.ToElement DeleteRealtimeLogConfig where
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}DeleteRealtimeLogConfigRequest"
 
 instance Core.ToHeaders DeleteRealtimeLogConfig where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteRealtimeLogConfig where
   toPath =
-    Core.const
+    Prelude.const
       "/2020-05-31/delete-realtime-log-config/"
 
 instance Core.ToQuery DeleteRealtimeLogConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 instance Core.ToXML DeleteRealtimeLogConfig where
   toXML DeleteRealtimeLogConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["ARN" Core.@= arn, "Name" Core.@= name]
 
 -- | /See:/ 'newDeleteRealtimeLogConfigResponse' smart constructor.
 data DeleteRealtimeLogConfigResponse = DeleteRealtimeLogConfigResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRealtimeLogConfigResponse' with all optional fields omitted.
@@ -140,4 +141,6 @@ newDeleteRealtimeLogConfigResponse ::
 newDeleteRealtimeLogConfigResponse =
   DeleteRealtimeLogConfigResponse'
 
-instance Core.NFData DeleteRealtimeLogConfigResponse
+instance
+  Prelude.NFData
+    DeleteRealtimeLogConfigResponse

@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +57,13 @@ data CreateThingType = CreateThingType'
   { -- | The ThingTypeProperties for the thing type to create. It contains
     -- information about the new thing type including a description, and a list
     -- of searchable thing attribute names.
-    thingTypeProperties :: Core.Maybe ThingTypeProperties,
+    thingTypeProperties :: Prelude.Maybe ThingTypeProperties,
     -- | Metadata which can be used to manage the thing type.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the thing type.
-    thingTypeName :: Core.Text
+    thingTypeName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateThingType' with all optional fields omitted.
@@ -81,28 +82,28 @@ data CreateThingType = CreateThingType'
 -- 'thingTypeName', 'createThingType_thingTypeName' - The name of the thing type.
 newCreateThingType ::
   -- | 'thingTypeName'
-  Core.Text ->
+  Prelude.Text ->
   CreateThingType
 newCreateThingType pThingTypeName_ =
   CreateThingType'
     { thingTypeProperties =
-        Core.Nothing,
-      tags = Core.Nothing,
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       thingTypeName = pThingTypeName_
     }
 
 -- | The ThingTypeProperties for the thing type to create. It contains
 -- information about the new thing type including a description, and a list
 -- of searchable thing attribute names.
-createThingType_thingTypeProperties :: Lens.Lens' CreateThingType (Core.Maybe ThingTypeProperties)
+createThingType_thingTypeProperties :: Lens.Lens' CreateThingType (Prelude.Maybe ThingTypeProperties)
 createThingType_thingTypeProperties = Lens.lens (\CreateThingType' {thingTypeProperties} -> thingTypeProperties) (\s@CreateThingType' {} a -> s {thingTypeProperties = a} :: CreateThingType)
 
 -- | Metadata which can be used to manage the thing type.
-createThingType_tags :: Lens.Lens' CreateThingType (Core.Maybe [Tag])
-createThingType_tags = Lens.lens (\CreateThingType' {tags} -> tags) (\s@CreateThingType' {} a -> s {tags = a} :: CreateThingType) Core.. Lens.mapping Lens._Coerce
+createThingType_tags :: Lens.Lens' CreateThingType (Prelude.Maybe [Tag])
+createThingType_tags = Lens.lens (\CreateThingType' {tags} -> tags) (\s@CreateThingType' {} a -> s {tags = a} :: CreateThingType) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the thing type.
-createThingType_thingTypeName :: Lens.Lens' CreateThingType Core.Text
+createThingType_thingTypeName :: Lens.Lens' CreateThingType Prelude.Text
 createThingType_thingTypeName = Lens.lens (\CreateThingType' {thingTypeName} -> thingTypeName) (\s@CreateThingType' {} a -> s {thingTypeName = a} :: CreateThingType)
 
 instance Core.AWSRequest CreateThingType where
@@ -114,51 +115,51 @@ instance Core.AWSRequest CreateThingType where
     Response.receiveJSON
       ( \s h x ->
           CreateThingTypeResponse'
-            Core.<$> (x Core..?> "thingTypeId")
-            Core.<*> (x Core..?> "thingTypeArn")
-            Core.<*> (x Core..?> "thingTypeName")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "thingTypeId")
+            Prelude.<*> (x Core..?> "thingTypeArn")
+            Prelude.<*> (x Core..?> "thingTypeName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateThingType
+instance Prelude.Hashable CreateThingType
 
-instance Core.NFData CreateThingType
+instance Prelude.NFData CreateThingType
 
 instance Core.ToHeaders CreateThingType where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CreateThingType where
   toJSON CreateThingType' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("thingTypeProperties" Core..=)
-              Core.<$> thingTypeProperties,
-            ("tags" Core..=) Core.<$> tags
+              Prelude.<$> thingTypeProperties,
+            ("tags" Core..=) Prelude.<$> tags
           ]
       )
 
 instance Core.ToPath CreateThingType where
   toPath CreateThingType' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/thing-types/", Core.toBS thingTypeName]
 
 instance Core.ToQuery CreateThingType where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output of the CreateThingType operation.
 --
 -- /See:/ 'newCreateThingTypeResponse' smart constructor.
 data CreateThingTypeResponse = CreateThingTypeResponse'
   { -- | The thing type ID.
-    thingTypeId :: Core.Maybe Core.Text,
+    thingTypeId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the thing type.
-    thingTypeArn :: Core.Maybe Core.Text,
+    thingTypeArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the thing type.
-    thingTypeName :: Core.Maybe Core.Text,
+    thingTypeName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateThingTypeResponse' with all optional fields omitted.
@@ -177,31 +178,31 @@ data CreateThingTypeResponse = CreateThingTypeResponse'
 -- 'httpStatus', 'createThingTypeResponse_httpStatus' - The response's http status code.
 newCreateThingTypeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateThingTypeResponse
 newCreateThingTypeResponse pHttpStatus_ =
   CreateThingTypeResponse'
     { thingTypeId =
-        Core.Nothing,
-      thingTypeArn = Core.Nothing,
-      thingTypeName = Core.Nothing,
+        Prelude.Nothing,
+      thingTypeArn = Prelude.Nothing,
+      thingTypeName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The thing type ID.
-createThingTypeResponse_thingTypeId :: Lens.Lens' CreateThingTypeResponse (Core.Maybe Core.Text)
+createThingTypeResponse_thingTypeId :: Lens.Lens' CreateThingTypeResponse (Prelude.Maybe Prelude.Text)
 createThingTypeResponse_thingTypeId = Lens.lens (\CreateThingTypeResponse' {thingTypeId} -> thingTypeId) (\s@CreateThingTypeResponse' {} a -> s {thingTypeId = a} :: CreateThingTypeResponse)
 
 -- | The Amazon Resource Name (ARN) of the thing type.
-createThingTypeResponse_thingTypeArn :: Lens.Lens' CreateThingTypeResponse (Core.Maybe Core.Text)
+createThingTypeResponse_thingTypeArn :: Lens.Lens' CreateThingTypeResponse (Prelude.Maybe Prelude.Text)
 createThingTypeResponse_thingTypeArn = Lens.lens (\CreateThingTypeResponse' {thingTypeArn} -> thingTypeArn) (\s@CreateThingTypeResponse' {} a -> s {thingTypeArn = a} :: CreateThingTypeResponse)
 
 -- | The name of the thing type.
-createThingTypeResponse_thingTypeName :: Lens.Lens' CreateThingTypeResponse (Core.Maybe Core.Text)
+createThingTypeResponse_thingTypeName :: Lens.Lens' CreateThingTypeResponse (Prelude.Maybe Prelude.Text)
 createThingTypeResponse_thingTypeName = Lens.lens (\CreateThingTypeResponse' {thingTypeName} -> thingTypeName) (\s@CreateThingTypeResponse' {} a -> s {thingTypeName = a} :: CreateThingTypeResponse)
 
 -- | The response's http status code.
-createThingTypeResponse_httpStatus :: Lens.Lens' CreateThingTypeResponse Core.Int
+createThingTypeResponse_httpStatus :: Lens.Lens' CreateThingTypeResponse Prelude.Int
 createThingTypeResponse_httpStatus = Lens.lens (\CreateThingTypeResponse' {httpStatus} -> httpStatus) (\s@CreateThingTypeResponse' {} a -> s {httpStatus = a} :: CreateThingTypeResponse)
 
-instance Core.NFData CreateThingTypeResponse
+instance Prelude.NFData CreateThingTypeResponse

@@ -21,6 +21,7 @@ module Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Replica-specific provisioned throughput settings. If not specified, uses
 -- the source table\'s provisioned throughput settings.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data ProvisionedThroughputOverride = ProvisionedThroughputOverride'
   { -- | Replica-specific read capacity units. If not specified, uses the source
     -- table\'s read capacity settings.
-    readCapacityUnits :: Core.Maybe Core.Natural
+    readCapacityUnits :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProvisionedThroughputOverride' with all optional fields omitted.
@@ -48,12 +49,12 @@ newProvisionedThroughputOverride ::
 newProvisionedThroughputOverride =
   ProvisionedThroughputOverride'
     { readCapacityUnits =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Replica-specific read capacity units. If not specified, uses the source
 -- table\'s read capacity settings.
-provisionedThroughputOverride_readCapacityUnits :: Lens.Lens' ProvisionedThroughputOverride (Core.Maybe Core.Natural)
+provisionedThroughputOverride_readCapacityUnits :: Lens.Lens' ProvisionedThroughputOverride (Prelude.Maybe Prelude.Natural)
 provisionedThroughputOverride_readCapacityUnits = Lens.lens (\ProvisionedThroughputOverride' {readCapacityUnits} -> readCapacityUnits) (\s@ProvisionedThroughputOverride' {} a -> s {readCapacityUnits = a} :: ProvisionedThroughputOverride)
 
 instance Core.FromJSON ProvisionedThroughputOverride where
@@ -62,18 +63,20 @@ instance Core.FromJSON ProvisionedThroughputOverride where
       "ProvisionedThroughputOverride"
       ( \x ->
           ProvisionedThroughputOverride'
-            Core.<$> (x Core..:? "ReadCapacityUnits")
+            Prelude.<$> (x Core..:? "ReadCapacityUnits")
       )
 
-instance Core.Hashable ProvisionedThroughputOverride
+instance
+  Prelude.Hashable
+    ProvisionedThroughputOverride
 
-instance Core.NFData ProvisionedThroughputOverride
+instance Prelude.NFData ProvisionedThroughputOverride
 
 instance Core.ToJSON ProvisionedThroughputOverride where
   toJSON ProvisionedThroughputOverride' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ReadCapacityUnits" Core..=)
-              Core.<$> readCapacityUnits
+              Prelude.<$> readCapacityUnits
           ]
       )

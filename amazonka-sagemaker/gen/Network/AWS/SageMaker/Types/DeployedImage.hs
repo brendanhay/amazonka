@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.DeployedImage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Gets the Amazon EC2 Container Registry path of the docker image of the
 -- model that is hosted in this ProductionVariant.
@@ -37,15 +38,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDeployedImage' smart constructor.
 data DeployedImage = DeployedImage'
   { -- | The image path you specified when you created the model.
-    specifiedImage :: Core.Maybe Core.Text,
+    specifiedImage :: Prelude.Maybe Prelude.Text,
     -- | The specific digest path of the image hosted in this
     -- @ProductionVariant@.
-    resolvedImage :: Core.Maybe Core.Text,
+    resolvedImage :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the image path for the model resolved to the
     -- @ResolvedImage@
-    resolutionTime :: Core.Maybe Core.POSIX
+    resolutionTime :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeployedImage' with all optional fields omitted.
@@ -66,24 +67,24 @@ newDeployedImage ::
   DeployedImage
 newDeployedImage =
   DeployedImage'
-    { specifiedImage = Core.Nothing,
-      resolvedImage = Core.Nothing,
-      resolutionTime = Core.Nothing
+    { specifiedImage = Prelude.Nothing,
+      resolvedImage = Prelude.Nothing,
+      resolutionTime = Prelude.Nothing
     }
 
 -- | The image path you specified when you created the model.
-deployedImage_specifiedImage :: Lens.Lens' DeployedImage (Core.Maybe Core.Text)
+deployedImage_specifiedImage :: Lens.Lens' DeployedImage (Prelude.Maybe Prelude.Text)
 deployedImage_specifiedImage = Lens.lens (\DeployedImage' {specifiedImage} -> specifiedImage) (\s@DeployedImage' {} a -> s {specifiedImage = a} :: DeployedImage)
 
 -- | The specific digest path of the image hosted in this
 -- @ProductionVariant@.
-deployedImage_resolvedImage :: Lens.Lens' DeployedImage (Core.Maybe Core.Text)
+deployedImage_resolvedImage :: Lens.Lens' DeployedImage (Prelude.Maybe Prelude.Text)
 deployedImage_resolvedImage = Lens.lens (\DeployedImage' {resolvedImage} -> resolvedImage) (\s@DeployedImage' {} a -> s {resolvedImage = a} :: DeployedImage)
 
 -- | The date and time when the image path for the model resolved to the
 -- @ResolvedImage@
-deployedImage_resolutionTime :: Lens.Lens' DeployedImage (Core.Maybe Core.UTCTime)
-deployedImage_resolutionTime = Lens.lens (\DeployedImage' {resolutionTime} -> resolutionTime) (\s@DeployedImage' {} a -> s {resolutionTime = a} :: DeployedImage) Core.. Lens.mapping Core._Time
+deployedImage_resolutionTime :: Lens.Lens' DeployedImage (Prelude.Maybe Prelude.UTCTime)
+deployedImage_resolutionTime = Lens.lens (\DeployedImage' {resolutionTime} -> resolutionTime) (\s@DeployedImage' {} a -> s {resolutionTime = a} :: DeployedImage) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON DeployedImage where
   parseJSON =
@@ -91,11 +92,11 @@ instance Core.FromJSON DeployedImage where
       "DeployedImage"
       ( \x ->
           DeployedImage'
-            Core.<$> (x Core..:? "SpecifiedImage")
-            Core.<*> (x Core..:? "ResolvedImage")
-            Core.<*> (x Core..:? "ResolutionTime")
+            Prelude.<$> (x Core..:? "SpecifiedImage")
+            Prelude.<*> (x Core..:? "ResolvedImage")
+            Prelude.<*> (x Core..:? "ResolutionTime")
       )
 
-instance Core.Hashable DeployedImage
+instance Prelude.Hashable DeployedImage
 
-instance Core.NFData DeployedImage
+instance Prelude.NFData DeployedImage

@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,12 +55,12 @@ import qualified Network.AWS.Response as Response
 data CreateProgressUpdateStream = CreateProgressUpdateStream'
   { -- | Optional boolean flag to indicate whether any effect should take place.
     -- Used to test if the caller has permission to make the call.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The name of the ProgressUpdateStream. /Do not store personal data in
     -- this field./
-    progressUpdateStreamName :: Core.Text
+    progressUpdateStreamName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateProgressUpdateStream' with all optional fields omitted.
@@ -76,24 +77,25 @@ data CreateProgressUpdateStream = CreateProgressUpdateStream'
 -- this field./
 newCreateProgressUpdateStream ::
   -- | 'progressUpdateStreamName'
-  Core.Text ->
+  Prelude.Text ->
   CreateProgressUpdateStream
 newCreateProgressUpdateStream
   pProgressUpdateStreamName_ =
     CreateProgressUpdateStream'
-      { dryRun = Core.Nothing,
+      { dryRun =
+          Prelude.Nothing,
         progressUpdateStreamName =
           pProgressUpdateStreamName_
       }
 
 -- | Optional boolean flag to indicate whether any effect should take place.
 -- Used to test if the caller has permission to make the call.
-createProgressUpdateStream_dryRun :: Lens.Lens' CreateProgressUpdateStream (Core.Maybe Core.Bool)
+createProgressUpdateStream_dryRun :: Lens.Lens' CreateProgressUpdateStream (Prelude.Maybe Prelude.Bool)
 createProgressUpdateStream_dryRun = Lens.lens (\CreateProgressUpdateStream' {dryRun} -> dryRun) (\s@CreateProgressUpdateStream' {} a -> s {dryRun = a} :: CreateProgressUpdateStream)
 
 -- | The name of the ProgressUpdateStream. /Do not store personal data in
 -- this field./
-createProgressUpdateStream_progressUpdateStreamName :: Lens.Lens' CreateProgressUpdateStream Core.Text
+createProgressUpdateStream_progressUpdateStreamName :: Lens.Lens' CreateProgressUpdateStream Prelude.Text
 createProgressUpdateStream_progressUpdateStreamName = Lens.lens (\CreateProgressUpdateStream' {progressUpdateStreamName} -> progressUpdateStreamName) (\s@CreateProgressUpdateStream' {} a -> s {progressUpdateStreamName = a} :: CreateProgressUpdateStream)
 
 instance Core.AWSRequest CreateProgressUpdateStream where
@@ -105,32 +107,34 @@ instance Core.AWSRequest CreateProgressUpdateStream where
     Response.receiveEmpty
       ( \s h x ->
           CreateProgressUpdateStreamResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateProgressUpdateStream
+instance Prelude.Hashable CreateProgressUpdateStream
 
-instance Core.NFData CreateProgressUpdateStream
+instance Prelude.NFData CreateProgressUpdateStream
 
 instance Core.ToHeaders CreateProgressUpdateStream where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSMigrationHub.CreateProgressUpdateStream" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateProgressUpdateStream where
   toJSON CreateProgressUpdateStream' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DryRun" Core..=) Core.<$> dryRun,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("DryRun" Core..=) Prelude.<$> dryRun,
+            Prelude.Just
               ( "ProgressUpdateStreamName"
                   Core..= progressUpdateStreamName
               )
@@ -138,17 +142,17 @@ instance Core.ToJSON CreateProgressUpdateStream where
       )
 
 instance Core.ToPath CreateProgressUpdateStream where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateProgressUpdateStream where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProgressUpdateStreamResponse' smart constructor.
 data CreateProgressUpdateStreamResponse = CreateProgressUpdateStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateProgressUpdateStreamResponse' with all optional fields omitted.
@@ -161,7 +165,7 @@ data CreateProgressUpdateStreamResponse = CreateProgressUpdateStreamResponse'
 -- 'httpStatus', 'createProgressUpdateStreamResponse_httpStatus' - The response's http status code.
 newCreateProgressUpdateStreamResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateProgressUpdateStreamResponse
 newCreateProgressUpdateStreamResponse pHttpStatus_ =
   CreateProgressUpdateStreamResponse'
@@ -170,9 +174,9 @@ newCreateProgressUpdateStreamResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createProgressUpdateStreamResponse_httpStatus :: Lens.Lens' CreateProgressUpdateStreamResponse Core.Int
+createProgressUpdateStreamResponse_httpStatus :: Lens.Lens' CreateProgressUpdateStreamResponse Prelude.Int
 createProgressUpdateStreamResponse_httpStatus = Lens.lens (\CreateProgressUpdateStreamResponse' {httpStatus} -> httpStatus) (\s@CreateProgressUpdateStreamResponse' {} a -> s {httpStatus = a} :: CreateProgressUpdateStreamResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateProgressUpdateStreamResponse

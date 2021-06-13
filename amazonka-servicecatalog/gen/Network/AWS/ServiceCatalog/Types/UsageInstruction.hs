@@ -21,17 +21,18 @@ module Network.AWS.ServiceCatalog.Types.UsageInstruction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Additional information provided by the administrator.
 --
 -- /See:/ 'newUsageInstruction' smart constructor.
 data UsageInstruction = UsageInstruction'
   { -- | The usage instruction value for this type.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | The usage instruction type for the value.
-    type' :: Core.Maybe Core.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UsageInstruction' with all optional fields omitted.
@@ -48,16 +49,16 @@ newUsageInstruction ::
   UsageInstruction
 newUsageInstruction =
   UsageInstruction'
-    { value = Core.Nothing,
-      type' = Core.Nothing
+    { value = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The usage instruction value for this type.
-usageInstruction_value :: Lens.Lens' UsageInstruction (Core.Maybe Core.Text)
+usageInstruction_value :: Lens.Lens' UsageInstruction (Prelude.Maybe Prelude.Text)
 usageInstruction_value = Lens.lens (\UsageInstruction' {value} -> value) (\s@UsageInstruction' {} a -> s {value = a} :: UsageInstruction)
 
 -- | The usage instruction type for the value.
-usageInstruction_type :: Lens.Lens' UsageInstruction (Core.Maybe Core.Text)
+usageInstruction_type :: Lens.Lens' UsageInstruction (Prelude.Maybe Prelude.Text)
 usageInstruction_type = Lens.lens (\UsageInstruction' {type'} -> type') (\s@UsageInstruction' {} a -> s {type' = a} :: UsageInstruction)
 
 instance Core.FromJSON UsageInstruction where
@@ -66,9 +67,9 @@ instance Core.FromJSON UsageInstruction where
       "UsageInstruction"
       ( \x ->
           UsageInstruction'
-            Core.<$> (x Core..:? "Value") Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable UsageInstruction
+instance Prelude.Hashable UsageInstruction
 
-instance Core.NFData UsageInstruction
+instance Prelude.NFData UsageInstruction

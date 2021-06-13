@@ -25,19 +25,20 @@ import Network.AWS.AutoScalingPlans.Types.ScalingStatusCode
 import Network.AWS.AutoScalingPlans.Types.ServiceNamespace
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a scalable resource.
 --
 -- /See:/ 'newScalingPlanResource' smart constructor.
 data ScalingPlanResource = ScalingPlanResource'
   { -- | The scaling policies.
-    scalingPolicies :: Core.Maybe [ScalingPolicy],
+    scalingPolicies :: Prelude.Maybe [ScalingPolicy],
     -- | A simple message about the current scaling status of the resource.
-    scalingStatusMessage :: Core.Maybe Core.Text,
+    scalingStatusMessage :: Prelude.Maybe Prelude.Text,
     -- | The name of the scaling plan.
-    scalingPlanName :: Core.Text,
+    scalingPlanName :: Prelude.Text,
     -- | The version number of the scaling plan.
-    scalingPlanVersion :: Core.Integer,
+    scalingPlanVersion :: Prelude.Integer,
     -- | The namespace of the AWS service.
     serviceNamespace :: ServiceNamespace,
     -- | The ID of the resource. This string consists of the resource type and
@@ -64,7 +65,7 @@ data ScalingPlanResource = ScalingPlanResource'
     --
     -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The scalable dimension for the resource.
     --
     -- -   @autoscaling:autoScalingGroup:DesiredCapacity@ - The desired
@@ -106,7 +107,7 @@ data ScalingPlanResource = ScalingPlanResource'
     --     for more information.
     scalingStatusCode :: ScalingStatusCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScalingPlanResource' with all optional fields omitted.
@@ -192,13 +193,13 @@ data ScalingPlanResource = ScalingPlanResource'
 --     for more information.
 newScalingPlanResource ::
   -- | 'scalingPlanName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'scalingPlanVersion'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'serviceNamespace'
   ServiceNamespace ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'scalableDimension'
   ScalableDimension ->
   -- | 'scalingStatusCode'
@@ -213,8 +214,8 @@ newScalingPlanResource
   pScalingStatusCode_ =
     ScalingPlanResource'
       { scalingPolicies =
-          Core.Nothing,
-        scalingStatusMessage = Core.Nothing,
+          Prelude.Nothing,
+        scalingStatusMessage = Prelude.Nothing,
         scalingPlanName = pScalingPlanName_,
         scalingPlanVersion = pScalingPlanVersion_,
         serviceNamespace = pServiceNamespace_,
@@ -224,19 +225,19 @@ newScalingPlanResource
       }
 
 -- | The scaling policies.
-scalingPlanResource_scalingPolicies :: Lens.Lens' ScalingPlanResource (Core.Maybe [ScalingPolicy])
-scalingPlanResource_scalingPolicies = Lens.lens (\ScalingPlanResource' {scalingPolicies} -> scalingPolicies) (\s@ScalingPlanResource' {} a -> s {scalingPolicies = a} :: ScalingPlanResource) Core.. Lens.mapping Lens._Coerce
+scalingPlanResource_scalingPolicies :: Lens.Lens' ScalingPlanResource (Prelude.Maybe [ScalingPolicy])
+scalingPlanResource_scalingPolicies = Lens.lens (\ScalingPlanResource' {scalingPolicies} -> scalingPolicies) (\s@ScalingPlanResource' {} a -> s {scalingPolicies = a} :: ScalingPlanResource) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A simple message about the current scaling status of the resource.
-scalingPlanResource_scalingStatusMessage :: Lens.Lens' ScalingPlanResource (Core.Maybe Core.Text)
+scalingPlanResource_scalingStatusMessage :: Lens.Lens' ScalingPlanResource (Prelude.Maybe Prelude.Text)
 scalingPlanResource_scalingStatusMessage = Lens.lens (\ScalingPlanResource' {scalingStatusMessage} -> scalingStatusMessage) (\s@ScalingPlanResource' {} a -> s {scalingStatusMessage = a} :: ScalingPlanResource)
 
 -- | The name of the scaling plan.
-scalingPlanResource_scalingPlanName :: Lens.Lens' ScalingPlanResource Core.Text
+scalingPlanResource_scalingPlanName :: Lens.Lens' ScalingPlanResource Prelude.Text
 scalingPlanResource_scalingPlanName = Lens.lens (\ScalingPlanResource' {scalingPlanName} -> scalingPlanName) (\s@ScalingPlanResource' {} a -> s {scalingPlanName = a} :: ScalingPlanResource)
 
 -- | The version number of the scaling plan.
-scalingPlanResource_scalingPlanVersion :: Lens.Lens' ScalingPlanResource Core.Integer
+scalingPlanResource_scalingPlanVersion :: Lens.Lens' ScalingPlanResource Prelude.Integer
 scalingPlanResource_scalingPlanVersion = Lens.lens (\ScalingPlanResource' {scalingPlanVersion} -> scalingPlanVersion) (\s@ScalingPlanResource' {} a -> s {scalingPlanVersion = a} :: ScalingPlanResource)
 
 -- | The namespace of the AWS service.
@@ -267,7 +268,7 @@ scalingPlanResource_serviceNamespace = Lens.lens (\ScalingPlanResource' {service
 --
 -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
-scalingPlanResource_resourceId :: Lens.Lens' ScalingPlanResource Core.Text
+scalingPlanResource_resourceId :: Lens.Lens' ScalingPlanResource Prelude.Text
 scalingPlanResource_resourceId = Lens.lens (\ScalingPlanResource' {resourceId} -> resourceId) (\s@ScalingPlanResource' {} a -> s {resourceId = a} :: ScalingPlanResource)
 
 -- | The scalable dimension for the resource.
@@ -320,16 +321,18 @@ instance Core.FromJSON ScalingPlanResource where
       "ScalingPlanResource"
       ( \x ->
           ScalingPlanResource'
-            Core.<$> (x Core..:? "ScalingPolicies" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "ScalingStatusMessage")
-            Core.<*> (x Core..: "ScalingPlanName")
-            Core.<*> (x Core..: "ScalingPlanVersion")
-            Core.<*> (x Core..: "ServiceNamespace")
-            Core.<*> (x Core..: "ResourceId")
-            Core.<*> (x Core..: "ScalableDimension")
-            Core.<*> (x Core..: "ScalingStatusCode")
+            Prelude.<$> ( x Core..:? "ScalingPolicies"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "ScalingStatusMessage")
+            Prelude.<*> (x Core..: "ScalingPlanName")
+            Prelude.<*> (x Core..: "ScalingPlanVersion")
+            Prelude.<*> (x Core..: "ServiceNamespace")
+            Prelude.<*> (x Core..: "ResourceId")
+            Prelude.<*> (x Core..: "ScalableDimension")
+            Prelude.<*> (x Core..: "ScalingStatusCode")
       )
 
-instance Core.Hashable ScalingPlanResource
+instance Prelude.Hashable ScalingPlanResource
 
-instance Core.NFData ScalingPlanResource
+instance Prelude.NFData ScalingPlanResource

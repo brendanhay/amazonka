@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.TemplateResponse where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.TemplateType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about a message template that\'s associated with
 -- your Amazon Pinpoint account.
@@ -33,42 +34,42 @@ data TemplateResponse = TemplateResponse'
     -- template, use the GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or
     -- GetVoiceTemplate operation, depending on the type of template that you
     -- want to retrieve the description for.
-    templateDescription :: Core.Maybe Core.Text,
+    templateDescription :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the message template. This value
     -- isn\'t included in a TemplateResponse object. To retrieve the ARN of a
     -- template, use the GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or
     -- GetVoiceTemplate operation, depending on the type of template that you
     -- want to retrieve the ARN for.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier, as an integer, for the active version of the
     -- message template.
-    version :: Core.Maybe Core.Text,
+    version :: Prelude.Maybe Prelude.Text,
     -- | The JSON object that specifies the default values that are used for
     -- message variables in the message template. This object isn\'t included
     -- in a TemplateResponse object. To retrieve this object for a template,
     -- use the GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or
     -- GetVoiceTemplate operation, depending on the type of template that you
     -- want to retrieve the object for.
-    defaultSubstitutions :: Core.Maybe Core.Text,
+    defaultSubstitutions :: Prelude.Maybe Prelude.Text,
     -- | A map of key-value pairs that identifies the tags that are associated
     -- with the message template. This object isn\'t included in a
     -- TemplateResponse object. To retrieve this object for a template, use the
     -- GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or GetVoiceTemplate
     -- operation, depending on the type of template that you want to retrieve
     -- the object for.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The date, in ISO 8601 format, when the message template was last
     -- modified.
-    lastModifiedDate :: Core.Text,
+    lastModifiedDate :: Prelude.Text,
     -- | The date, in ISO 8601 format, when the message template was created.
-    creationDate :: Core.Text,
+    creationDate :: Prelude.Text,
     -- | The name of the message template.
-    templateName :: Core.Text,
+    templateName :: Prelude.Text,
     -- | The type of channel that the message template is designed for. Possible
     -- values are: EMAIL, PUSH, SMS, and VOICE.
     templateType :: TemplateType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TemplateResponse' with all optional fields omitted.
@@ -118,11 +119,11 @@ data TemplateResponse = TemplateResponse'
 -- values are: EMAIL, PUSH, SMS, and VOICE.
 newTemplateResponse ::
   -- | 'lastModifiedDate'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'creationDate'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'templateName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'templateType'
   TemplateType ->
   TemplateResponse
@@ -133,11 +134,11 @@ newTemplateResponse
   pTemplateType_ =
     TemplateResponse'
       { templateDescription =
-          Core.Nothing,
-        arn = Core.Nothing,
-        version = Core.Nothing,
-        defaultSubstitutions = Core.Nothing,
-        tags = Core.Nothing,
+          Prelude.Nothing,
+        arn = Prelude.Nothing,
+        version = Prelude.Nothing,
+        defaultSubstitutions = Prelude.Nothing,
+        tags = Prelude.Nothing,
         lastModifiedDate = pLastModifiedDate_,
         creationDate = pCreationDate_,
         templateName = pTemplateName_,
@@ -149,7 +150,7 @@ newTemplateResponse
 -- template, use the GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or
 -- GetVoiceTemplate operation, depending on the type of template that you
 -- want to retrieve the description for.
-templateResponse_templateDescription :: Lens.Lens' TemplateResponse (Core.Maybe Core.Text)
+templateResponse_templateDescription :: Lens.Lens' TemplateResponse (Prelude.Maybe Prelude.Text)
 templateResponse_templateDescription = Lens.lens (\TemplateResponse' {templateDescription} -> templateDescription) (\s@TemplateResponse' {} a -> s {templateDescription = a} :: TemplateResponse)
 
 -- | The Amazon Resource Name (ARN) of the message template. This value
@@ -157,12 +158,12 @@ templateResponse_templateDescription = Lens.lens (\TemplateResponse' {templateDe
 -- template, use the GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or
 -- GetVoiceTemplate operation, depending on the type of template that you
 -- want to retrieve the ARN for.
-templateResponse_arn :: Lens.Lens' TemplateResponse (Core.Maybe Core.Text)
+templateResponse_arn :: Lens.Lens' TemplateResponse (Prelude.Maybe Prelude.Text)
 templateResponse_arn = Lens.lens (\TemplateResponse' {arn} -> arn) (\s@TemplateResponse' {} a -> s {arn = a} :: TemplateResponse)
 
 -- | The unique identifier, as an integer, for the active version of the
 -- message template.
-templateResponse_version :: Lens.Lens' TemplateResponse (Core.Maybe Core.Text)
+templateResponse_version :: Lens.Lens' TemplateResponse (Prelude.Maybe Prelude.Text)
 templateResponse_version = Lens.lens (\TemplateResponse' {version} -> version) (\s@TemplateResponse' {} a -> s {version = a} :: TemplateResponse)
 
 -- | The JSON object that specifies the default values that are used for
@@ -171,7 +172,7 @@ templateResponse_version = Lens.lens (\TemplateResponse' {version} -> version) (
 -- use the GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or
 -- GetVoiceTemplate operation, depending on the type of template that you
 -- want to retrieve the object for.
-templateResponse_defaultSubstitutions :: Lens.Lens' TemplateResponse (Core.Maybe Core.Text)
+templateResponse_defaultSubstitutions :: Lens.Lens' TemplateResponse (Prelude.Maybe Prelude.Text)
 templateResponse_defaultSubstitutions = Lens.lens (\TemplateResponse' {defaultSubstitutions} -> defaultSubstitutions) (\s@TemplateResponse' {} a -> s {defaultSubstitutions = a} :: TemplateResponse)
 
 -- | A map of key-value pairs that identifies the tags that are associated
@@ -180,20 +181,20 @@ templateResponse_defaultSubstitutions = Lens.lens (\TemplateResponse' {defaultSu
 -- GetEmailTemplate, GetPushTemplate, GetSmsTemplate, or GetVoiceTemplate
 -- operation, depending on the type of template that you want to retrieve
 -- the object for.
-templateResponse_tags :: Lens.Lens' TemplateResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-templateResponse_tags = Lens.lens (\TemplateResponse' {tags} -> tags) (\s@TemplateResponse' {} a -> s {tags = a} :: TemplateResponse) Core.. Lens.mapping Lens._Coerce
+templateResponse_tags :: Lens.Lens' TemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+templateResponse_tags = Lens.lens (\TemplateResponse' {tags} -> tags) (\s@TemplateResponse' {} a -> s {tags = a} :: TemplateResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The date, in ISO 8601 format, when the message template was last
 -- modified.
-templateResponse_lastModifiedDate :: Lens.Lens' TemplateResponse Core.Text
+templateResponse_lastModifiedDate :: Lens.Lens' TemplateResponse Prelude.Text
 templateResponse_lastModifiedDate = Lens.lens (\TemplateResponse' {lastModifiedDate} -> lastModifiedDate) (\s@TemplateResponse' {} a -> s {lastModifiedDate = a} :: TemplateResponse)
 
 -- | The date, in ISO 8601 format, when the message template was created.
-templateResponse_creationDate :: Lens.Lens' TemplateResponse Core.Text
+templateResponse_creationDate :: Lens.Lens' TemplateResponse Prelude.Text
 templateResponse_creationDate = Lens.lens (\TemplateResponse' {creationDate} -> creationDate) (\s@TemplateResponse' {} a -> s {creationDate = a} :: TemplateResponse)
 
 -- | The name of the message template.
-templateResponse_templateName :: Lens.Lens' TemplateResponse Core.Text
+templateResponse_templateName :: Lens.Lens' TemplateResponse Prelude.Text
 templateResponse_templateName = Lens.lens (\TemplateResponse' {templateName} -> templateName) (\s@TemplateResponse' {} a -> s {templateName = a} :: TemplateResponse)
 
 -- | The type of channel that the message template is designed for. Possible
@@ -207,17 +208,17 @@ instance Core.FromJSON TemplateResponse where
       "TemplateResponse"
       ( \x ->
           TemplateResponse'
-            Core.<$> (x Core..:? "TemplateDescription")
-            Core.<*> (x Core..:? "Arn")
-            Core.<*> (x Core..:? "Version")
-            Core.<*> (x Core..:? "DefaultSubstitutions")
-            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
-            Core.<*> (x Core..: "LastModifiedDate")
-            Core.<*> (x Core..: "CreationDate")
-            Core.<*> (x Core..: "TemplateName")
-            Core.<*> (x Core..: "TemplateType")
+            Prelude.<$> (x Core..:? "TemplateDescription")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Version")
+            Prelude.<*> (x Core..:? "DefaultSubstitutions")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "LastModifiedDate")
+            Prelude.<*> (x Core..: "CreationDate")
+            Prelude.<*> (x Core..: "TemplateName")
+            Prelude.<*> (x Core..: "TemplateType")
       )
 
-instance Core.Hashable TemplateResponse
+instance Prelude.Hashable TemplateResponse
 
-instance Core.NFData TemplateResponse
+instance Prelude.NFData TemplateResponse

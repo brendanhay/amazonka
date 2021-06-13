@@ -21,25 +21,26 @@ module Network.AWS.OpsWorks.Types.UserProfile where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a user\'s SSH information.
 --
 -- /See:/ 'newUserProfile' smart constructor.
 data UserProfile = UserProfile'
   { -- | The user\'s IAM ARN.
-    iamUserArn :: Core.Maybe Core.Text,
+    iamUserArn :: Prelude.Maybe Prelude.Text,
     -- | Whether users can specify their own SSH public key through the My
     -- Settings page. For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
-    allowSelfManagement :: Core.Maybe Core.Bool,
+    allowSelfManagement :: Prelude.Maybe Prelude.Bool,
     -- | The user\'s SSH user name.
-    sshUsername :: Core.Maybe Core.Text,
+    sshUsername :: Prelude.Maybe Prelude.Text,
     -- | The user\'s name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The user\'s SSH public key.
-    sshPublicKey :: Core.Maybe Core.Text
+    sshPublicKey :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserProfile' with all optional fields omitted.
@@ -64,33 +65,33 @@ newUserProfile ::
   UserProfile
 newUserProfile =
   UserProfile'
-    { iamUserArn = Core.Nothing,
-      allowSelfManagement = Core.Nothing,
-      sshUsername = Core.Nothing,
-      name = Core.Nothing,
-      sshPublicKey = Core.Nothing
+    { iamUserArn = Prelude.Nothing,
+      allowSelfManagement = Prelude.Nothing,
+      sshUsername = Prelude.Nothing,
+      name = Prelude.Nothing,
+      sshPublicKey = Prelude.Nothing
     }
 
 -- | The user\'s IAM ARN.
-userProfile_iamUserArn :: Lens.Lens' UserProfile (Core.Maybe Core.Text)
+userProfile_iamUserArn :: Lens.Lens' UserProfile (Prelude.Maybe Prelude.Text)
 userProfile_iamUserArn = Lens.lens (\UserProfile' {iamUserArn} -> iamUserArn) (\s@UserProfile' {} a -> s {iamUserArn = a} :: UserProfile)
 
 -- | Whether users can specify their own SSH public key through the My
 -- Settings page. For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
-userProfile_allowSelfManagement :: Lens.Lens' UserProfile (Core.Maybe Core.Bool)
+userProfile_allowSelfManagement :: Lens.Lens' UserProfile (Prelude.Maybe Prelude.Bool)
 userProfile_allowSelfManagement = Lens.lens (\UserProfile' {allowSelfManagement} -> allowSelfManagement) (\s@UserProfile' {} a -> s {allowSelfManagement = a} :: UserProfile)
 
 -- | The user\'s SSH user name.
-userProfile_sshUsername :: Lens.Lens' UserProfile (Core.Maybe Core.Text)
+userProfile_sshUsername :: Lens.Lens' UserProfile (Prelude.Maybe Prelude.Text)
 userProfile_sshUsername = Lens.lens (\UserProfile' {sshUsername} -> sshUsername) (\s@UserProfile' {} a -> s {sshUsername = a} :: UserProfile)
 
 -- | The user\'s name.
-userProfile_name :: Lens.Lens' UserProfile (Core.Maybe Core.Text)
+userProfile_name :: Lens.Lens' UserProfile (Prelude.Maybe Prelude.Text)
 userProfile_name = Lens.lens (\UserProfile' {name} -> name) (\s@UserProfile' {} a -> s {name = a} :: UserProfile)
 
 -- | The user\'s SSH public key.
-userProfile_sshPublicKey :: Lens.Lens' UserProfile (Core.Maybe Core.Text)
+userProfile_sshPublicKey :: Lens.Lens' UserProfile (Prelude.Maybe Prelude.Text)
 userProfile_sshPublicKey = Lens.lens (\UserProfile' {sshPublicKey} -> sshPublicKey) (\s@UserProfile' {} a -> s {sshPublicKey = a} :: UserProfile)
 
 instance Core.FromJSON UserProfile where
@@ -99,13 +100,13 @@ instance Core.FromJSON UserProfile where
       "UserProfile"
       ( \x ->
           UserProfile'
-            Core.<$> (x Core..:? "IamUserArn")
-            Core.<*> (x Core..:? "AllowSelfManagement")
-            Core.<*> (x Core..:? "SshUsername")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "SshPublicKey")
+            Prelude.<$> (x Core..:? "IamUserArn")
+            Prelude.<*> (x Core..:? "AllowSelfManagement")
+            Prelude.<*> (x Core..:? "SshUsername")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "SshPublicKey")
       )
 
-instance Core.Hashable UserProfile
+instance Prelude.Hashable UserProfile
 
-instance Core.NFData UserProfile
+instance Prelude.NFData UserProfile

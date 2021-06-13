@@ -22,19 +22,20 @@ module Network.AWS.Lightsail.Types.InstanceHardware where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.Disk
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the hardware for the instance.
 --
 -- /See:/ 'newInstanceHardware' smart constructor.
 data InstanceHardware = InstanceHardware'
   { -- | The amount of RAM in GB on the instance (e.g., @1.0@).
-    ramSizeInGb :: Core.Maybe Core.Double,
+    ramSizeInGb :: Prelude.Maybe Prelude.Double,
     -- | The disks attached to the instance.
-    disks :: Core.Maybe [Disk],
+    disks :: Prelude.Maybe [Disk],
     -- | The number of vCPUs the instance has.
-    cpuCount :: Core.Maybe Core.Int
+    cpuCount :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceHardware' with all optional fields omitted.
@@ -53,21 +54,21 @@ newInstanceHardware ::
   InstanceHardware
 newInstanceHardware =
   InstanceHardware'
-    { ramSizeInGb = Core.Nothing,
-      disks = Core.Nothing,
-      cpuCount = Core.Nothing
+    { ramSizeInGb = Prelude.Nothing,
+      disks = Prelude.Nothing,
+      cpuCount = Prelude.Nothing
     }
 
 -- | The amount of RAM in GB on the instance (e.g., @1.0@).
-instanceHardware_ramSizeInGb :: Lens.Lens' InstanceHardware (Core.Maybe Core.Double)
+instanceHardware_ramSizeInGb :: Lens.Lens' InstanceHardware (Prelude.Maybe Prelude.Double)
 instanceHardware_ramSizeInGb = Lens.lens (\InstanceHardware' {ramSizeInGb} -> ramSizeInGb) (\s@InstanceHardware' {} a -> s {ramSizeInGb = a} :: InstanceHardware)
 
 -- | The disks attached to the instance.
-instanceHardware_disks :: Lens.Lens' InstanceHardware (Core.Maybe [Disk])
-instanceHardware_disks = Lens.lens (\InstanceHardware' {disks} -> disks) (\s@InstanceHardware' {} a -> s {disks = a} :: InstanceHardware) Core.. Lens.mapping Lens._Coerce
+instanceHardware_disks :: Lens.Lens' InstanceHardware (Prelude.Maybe [Disk])
+instanceHardware_disks = Lens.lens (\InstanceHardware' {disks} -> disks) (\s@InstanceHardware' {} a -> s {disks = a} :: InstanceHardware) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of vCPUs the instance has.
-instanceHardware_cpuCount :: Lens.Lens' InstanceHardware (Core.Maybe Core.Int)
+instanceHardware_cpuCount :: Lens.Lens' InstanceHardware (Prelude.Maybe Prelude.Int)
 instanceHardware_cpuCount = Lens.lens (\InstanceHardware' {cpuCount} -> cpuCount) (\s@InstanceHardware' {} a -> s {cpuCount = a} :: InstanceHardware)
 
 instance Core.FromJSON InstanceHardware where
@@ -76,11 +77,11 @@ instance Core.FromJSON InstanceHardware where
       "InstanceHardware"
       ( \x ->
           InstanceHardware'
-            Core.<$> (x Core..:? "ramSizeInGb")
-            Core.<*> (x Core..:? "disks" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "cpuCount")
+            Prelude.<$> (x Core..:? "ramSizeInGb")
+            Prelude.<*> (x Core..:? "disks" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "cpuCount")
       )
 
-instance Core.Hashable InstanceHardware
+instance Prelude.Hashable InstanceHardware
 
-instance Core.NFData InstanceHardware
+instance Prelude.NFData InstanceHardware

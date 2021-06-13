@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.AnalyticsConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.AnalyticsFilter
 import Network.AWS.S3.Types.StorageClassAnalysis
@@ -34,14 +35,14 @@ data AnalyticsConfiguration = AnalyticsConfiguration'
     -- have exactly one prefix, one tag, or one conjunction
     -- (AnalyticsAndOperator). If no filter is provided, all objects will be
     -- considered in any analysis.
-    filter' :: Core.Maybe AnalyticsFilter,
+    filter' :: Prelude.Maybe AnalyticsFilter,
     -- | The ID that identifies the analytics configuration.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | Contains data related to access patterns to be collected and made
     -- available to analyze the tradeoffs between different storage classes.
     storageClassAnalysis :: StorageClassAnalysis
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AnalyticsConfiguration' with all optional fields omitted.
@@ -62,13 +63,13 @@ data AnalyticsConfiguration = AnalyticsConfiguration'
 -- available to analyze the tradeoffs between different storage classes.
 newAnalyticsConfiguration ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'storageClassAnalysis'
   StorageClassAnalysis ->
   AnalyticsConfiguration
 newAnalyticsConfiguration pId_ pStorageClassAnalysis_ =
   AnalyticsConfiguration'
-    { filter' = Core.Nothing,
+    { filter' = Prelude.Nothing,
       id = pId_,
       storageClassAnalysis = pStorageClassAnalysis_
     }
@@ -77,11 +78,11 @@ newAnalyticsConfiguration pId_ pStorageClassAnalysis_ =
 -- have exactly one prefix, one tag, or one conjunction
 -- (AnalyticsAndOperator). If no filter is provided, all objects will be
 -- considered in any analysis.
-analyticsConfiguration_filter :: Lens.Lens' AnalyticsConfiguration (Core.Maybe AnalyticsFilter)
+analyticsConfiguration_filter :: Lens.Lens' AnalyticsConfiguration (Prelude.Maybe AnalyticsFilter)
 analyticsConfiguration_filter = Lens.lens (\AnalyticsConfiguration' {filter'} -> filter') (\s@AnalyticsConfiguration' {} a -> s {filter' = a} :: AnalyticsConfiguration)
 
 -- | The ID that identifies the analytics configuration.
-analyticsConfiguration_id :: Lens.Lens' AnalyticsConfiguration Core.Text
+analyticsConfiguration_id :: Lens.Lens' AnalyticsConfiguration Prelude.Text
 analyticsConfiguration_id = Lens.lens (\AnalyticsConfiguration' {id} -> id) (\s@AnalyticsConfiguration' {} a -> s {id = a} :: AnalyticsConfiguration)
 
 -- | Contains data related to access patterns to be collected and made
@@ -92,17 +93,17 @@ analyticsConfiguration_storageClassAnalysis = Lens.lens (\AnalyticsConfiguration
 instance Core.FromXML AnalyticsConfiguration where
   parseXML x =
     AnalyticsConfiguration'
-      Core.<$> (x Core..@? "Filter")
-      Core.<*> (x Core..@ "Id")
-      Core.<*> (x Core..@ "StorageClassAnalysis")
+      Prelude.<$> (x Core..@? "Filter")
+      Prelude.<*> (x Core..@ "Id")
+      Prelude.<*> (x Core..@ "StorageClassAnalysis")
 
-instance Core.Hashable AnalyticsConfiguration
+instance Prelude.Hashable AnalyticsConfiguration
 
-instance Core.NFData AnalyticsConfiguration
+instance Prelude.NFData AnalyticsConfiguration
 
 instance Core.ToXML AnalyticsConfiguration where
   toXML AnalyticsConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Filter" Core.@= filter',
         "Id" Core.@= id,
         "StorageClassAnalysis" Core.@= storageClassAnalysis

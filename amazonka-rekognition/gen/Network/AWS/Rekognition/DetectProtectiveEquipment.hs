@@ -84,6 +84,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -91,13 +92,13 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDetectProtectiveEquipment' smart constructor.
 data DetectProtectiveEquipment = DetectProtectiveEquipment'
   { -- | An array of PPE types that you want to summarize.
-    summarizationAttributes :: Core.Maybe ProtectiveEquipmentSummarizationAttributes,
+    summarizationAttributes :: Prelude.Maybe ProtectiveEquipmentSummarizationAttributes,
     -- | The image in which you want to detect PPE on detected persons. The image
     -- can be passed as image bytes or you can reference an image stored in an
     -- Amazon S3 bucket.
     image :: Image
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetectProtectiveEquipment' with all optional fields omitted.
@@ -119,12 +120,12 @@ newDetectProtectiveEquipment ::
 newDetectProtectiveEquipment pImage_ =
   DetectProtectiveEquipment'
     { summarizationAttributes =
-        Core.Nothing,
+        Prelude.Nothing,
       image = pImage_
     }
 
 -- | An array of PPE types that you want to summarize.
-detectProtectiveEquipment_summarizationAttributes :: Lens.Lens' DetectProtectiveEquipment (Core.Maybe ProtectiveEquipmentSummarizationAttributes)
+detectProtectiveEquipment_summarizationAttributes :: Lens.Lens' DetectProtectiveEquipment (Prelude.Maybe ProtectiveEquipmentSummarizationAttributes)
 detectProtectiveEquipment_summarizationAttributes = Lens.lens (\DetectProtectiveEquipment' {summarizationAttributes} -> summarizationAttributes) (\s@DetectProtectiveEquipment' {} a -> s {summarizationAttributes = a} :: DetectProtectiveEquipment)
 
 -- | The image in which you want to detect PPE on detected persons. The image
@@ -142,60 +143,62 @@ instance Core.AWSRequest DetectProtectiveEquipment where
     Response.receiveJSON
       ( \s h x ->
           DetectProtectiveEquipmentResponse'
-            Core.<$> (x Core..?> "ProtectiveEquipmentModelVersion")
-            Core.<*> (x Core..?> "Summary")
-            Core.<*> (x Core..?> "Persons" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ProtectiveEquipmentModelVersion")
+            Prelude.<*> (x Core..?> "Summary")
+            Prelude.<*> (x Core..?> "Persons" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DetectProtectiveEquipment
+instance Prelude.Hashable DetectProtectiveEquipment
 
-instance Core.NFData DetectProtectiveEquipment
+instance Prelude.NFData DetectProtectiveEquipment
 
 instance Core.ToHeaders DetectProtectiveEquipment where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "RekognitionService.DetectProtectiveEquipment" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DetectProtectiveEquipment where
   toJSON DetectProtectiveEquipment' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SummarizationAttributes" Core..=)
-              Core.<$> summarizationAttributes,
-            Core.Just ("Image" Core..= image)
+              Prelude.<$> summarizationAttributes,
+            Prelude.Just ("Image" Core..= image)
           ]
       )
 
 instance Core.ToPath DetectProtectiveEquipment where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetectProtectiveEquipment where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectProtectiveEquipmentResponse' smart constructor.
 data DetectProtectiveEquipmentResponse = DetectProtectiveEquipmentResponse'
   { -- | The version number of the PPE detection model used to detect PPE in the
     -- image.
-    protectiveEquipmentModelVersion :: Core.Maybe Core.Text,
+    protectiveEquipmentModelVersion :: Prelude.Maybe Prelude.Text,
     -- | Summary information for the types of PPE specified in the
     -- @SummarizationAttributes@ input parameter.
-    summary :: Core.Maybe ProtectiveEquipmentSummary,
+    summary :: Prelude.Maybe ProtectiveEquipmentSummary,
     -- | An array of persons detected in the image (including persons not wearing
     -- PPE).
-    persons :: Core.Maybe [ProtectiveEquipmentPerson],
+    persons :: Prelude.Maybe [ProtectiveEquipmentPerson],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetectProtectiveEquipmentResponse' with all optional fields omitted.
@@ -217,36 +220,36 @@ data DetectProtectiveEquipmentResponse = DetectProtectiveEquipmentResponse'
 -- 'httpStatus', 'detectProtectiveEquipmentResponse_httpStatus' - The response's http status code.
 newDetectProtectiveEquipmentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DetectProtectiveEquipmentResponse
 newDetectProtectiveEquipmentResponse pHttpStatus_ =
   DetectProtectiveEquipmentResponse'
     { protectiveEquipmentModelVersion =
-        Core.Nothing,
-      summary = Core.Nothing,
-      persons = Core.Nothing,
+        Prelude.Nothing,
+      summary = Prelude.Nothing,
+      persons = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The version number of the PPE detection model used to detect PPE in the
 -- image.
-detectProtectiveEquipmentResponse_protectiveEquipmentModelVersion :: Lens.Lens' DetectProtectiveEquipmentResponse (Core.Maybe Core.Text)
+detectProtectiveEquipmentResponse_protectiveEquipmentModelVersion :: Lens.Lens' DetectProtectiveEquipmentResponse (Prelude.Maybe Prelude.Text)
 detectProtectiveEquipmentResponse_protectiveEquipmentModelVersion = Lens.lens (\DetectProtectiveEquipmentResponse' {protectiveEquipmentModelVersion} -> protectiveEquipmentModelVersion) (\s@DetectProtectiveEquipmentResponse' {} a -> s {protectiveEquipmentModelVersion = a} :: DetectProtectiveEquipmentResponse)
 
 -- | Summary information for the types of PPE specified in the
 -- @SummarizationAttributes@ input parameter.
-detectProtectiveEquipmentResponse_summary :: Lens.Lens' DetectProtectiveEquipmentResponse (Core.Maybe ProtectiveEquipmentSummary)
+detectProtectiveEquipmentResponse_summary :: Lens.Lens' DetectProtectiveEquipmentResponse (Prelude.Maybe ProtectiveEquipmentSummary)
 detectProtectiveEquipmentResponse_summary = Lens.lens (\DetectProtectiveEquipmentResponse' {summary} -> summary) (\s@DetectProtectiveEquipmentResponse' {} a -> s {summary = a} :: DetectProtectiveEquipmentResponse)
 
 -- | An array of persons detected in the image (including persons not wearing
 -- PPE).
-detectProtectiveEquipmentResponse_persons :: Lens.Lens' DetectProtectiveEquipmentResponse (Core.Maybe [ProtectiveEquipmentPerson])
-detectProtectiveEquipmentResponse_persons = Lens.lens (\DetectProtectiveEquipmentResponse' {persons} -> persons) (\s@DetectProtectiveEquipmentResponse' {} a -> s {persons = a} :: DetectProtectiveEquipmentResponse) Core.. Lens.mapping Lens._Coerce
+detectProtectiveEquipmentResponse_persons :: Lens.Lens' DetectProtectiveEquipmentResponse (Prelude.Maybe [ProtectiveEquipmentPerson])
+detectProtectiveEquipmentResponse_persons = Lens.lens (\DetectProtectiveEquipmentResponse' {persons} -> persons) (\s@DetectProtectiveEquipmentResponse' {} a -> s {persons = a} :: DetectProtectiveEquipmentResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-detectProtectiveEquipmentResponse_httpStatus :: Lens.Lens' DetectProtectiveEquipmentResponse Core.Int
+detectProtectiveEquipmentResponse_httpStatus :: Lens.Lens' DetectProtectiveEquipmentResponse Prelude.Int
 detectProtectiveEquipmentResponse_httpStatus = Lens.lens (\DetectProtectiveEquipmentResponse' {httpStatus} -> httpStatus) (\s@DetectProtectiveEquipmentResponse' {} a -> s {httpStatus = a} :: DetectProtectiveEquipmentResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DetectProtectiveEquipmentResponse

@@ -22,6 +22,7 @@ module Network.AWS.Lightsail.Types.CookieObject where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.ForwardValues
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes whether an Amazon Lightsail content delivery network (CDN)
 -- distribution forwards cookies to the origin and, if so, which ones.
@@ -33,13 +34,13 @@ import Network.AWS.Lightsail.Types.ForwardValues
 -- /See:/ 'newCookieObject' smart constructor.
 data CookieObject = CookieObject'
   { -- | The specific cookies to forward to your distribution\'s origin.
-    cookiesAllowList :: Core.Maybe [Core.Text],
+    cookiesAllowList :: Prelude.Maybe [Prelude.Text],
     -- | Specifies which cookies to forward to the distribution\'s origin for a
     -- cache behavior: @all@, @none@, or @allow-list@ to forward only the
     -- cookies specified in the @cookiesAllowList@ parameter.
-    option :: Core.Maybe ForwardValues
+    option :: Prelude.Maybe ForwardValues
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CookieObject' with all optional fields omitted.
@@ -58,18 +59,18 @@ newCookieObject ::
   CookieObject
 newCookieObject =
   CookieObject'
-    { cookiesAllowList = Core.Nothing,
-      option = Core.Nothing
+    { cookiesAllowList = Prelude.Nothing,
+      option = Prelude.Nothing
     }
 
 -- | The specific cookies to forward to your distribution\'s origin.
-cookieObject_cookiesAllowList :: Lens.Lens' CookieObject (Core.Maybe [Core.Text])
-cookieObject_cookiesAllowList = Lens.lens (\CookieObject' {cookiesAllowList} -> cookiesAllowList) (\s@CookieObject' {} a -> s {cookiesAllowList = a} :: CookieObject) Core.. Lens.mapping Lens._Coerce
+cookieObject_cookiesAllowList :: Lens.Lens' CookieObject (Prelude.Maybe [Prelude.Text])
+cookieObject_cookiesAllowList = Lens.lens (\CookieObject' {cookiesAllowList} -> cookiesAllowList) (\s@CookieObject' {} a -> s {cookiesAllowList = a} :: CookieObject) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies which cookies to forward to the distribution\'s origin for a
 -- cache behavior: @all@, @none@, or @allow-list@ to forward only the
 -- cookies specified in the @cookiesAllowList@ parameter.
-cookieObject_option :: Lens.Lens' CookieObject (Core.Maybe ForwardValues)
+cookieObject_option :: Lens.Lens' CookieObject (Prelude.Maybe ForwardValues)
 cookieObject_option = Lens.lens (\CookieObject' {option} -> option) (\s@CookieObject' {} a -> s {option = a} :: CookieObject)
 
 instance Core.FromJSON CookieObject where
@@ -78,20 +79,22 @@ instance Core.FromJSON CookieObject where
       "CookieObject"
       ( \x ->
           CookieObject'
-            Core.<$> (x Core..:? "cookiesAllowList" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "option")
+            Prelude.<$> ( x Core..:? "cookiesAllowList"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "option")
       )
 
-instance Core.Hashable CookieObject
+instance Prelude.Hashable CookieObject
 
-instance Core.NFData CookieObject
+instance Prelude.NFData CookieObject
 
 instance Core.ToJSON CookieObject where
   toJSON CookieObject' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("cookiesAllowList" Core..=)
-              Core.<$> cookiesAllowList,
-            ("option" Core..=) Core.<$> option
+              Prelude.<$> cookiesAllowList,
+            ("option" Core..=) Prelude.<$> option
           ]
       )

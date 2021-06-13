@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.CompliantSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.SeveritySummary
 
 -- | A summary of resources that are compliant. The summary is organized
@@ -29,11 +30,11 @@ import Network.AWS.SSM.Types.SeveritySummary
 -- /See:/ 'newCompliantSummary' smart constructor.
 data CompliantSummary = CompliantSummary'
   { -- | A summary of the compliance severity by compliance type.
-    severitySummary :: Core.Maybe SeveritySummary,
+    severitySummary :: Prelude.Maybe SeveritySummary,
     -- | The total number of resources that are compliant.
-    compliantCount :: Core.Maybe Core.Int
+    compliantCount :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CompliantSummary' with all optional fields omitted.
@@ -50,16 +51,17 @@ newCompliantSummary ::
   CompliantSummary
 newCompliantSummary =
   CompliantSummary'
-    { severitySummary = Core.Nothing,
-      compliantCount = Core.Nothing
+    { severitySummary =
+        Prelude.Nothing,
+      compliantCount = Prelude.Nothing
     }
 
 -- | A summary of the compliance severity by compliance type.
-compliantSummary_severitySummary :: Lens.Lens' CompliantSummary (Core.Maybe SeveritySummary)
+compliantSummary_severitySummary :: Lens.Lens' CompliantSummary (Prelude.Maybe SeveritySummary)
 compliantSummary_severitySummary = Lens.lens (\CompliantSummary' {severitySummary} -> severitySummary) (\s@CompliantSummary' {} a -> s {severitySummary = a} :: CompliantSummary)
 
 -- | The total number of resources that are compliant.
-compliantSummary_compliantCount :: Lens.Lens' CompliantSummary (Core.Maybe Core.Int)
+compliantSummary_compliantCount :: Lens.Lens' CompliantSummary (Prelude.Maybe Prelude.Int)
 compliantSummary_compliantCount = Lens.lens (\CompliantSummary' {compliantCount} -> compliantCount) (\s@CompliantSummary' {} a -> s {compliantCount = a} :: CompliantSummary)
 
 instance Core.FromJSON CompliantSummary where
@@ -68,10 +70,10 @@ instance Core.FromJSON CompliantSummary where
       "CompliantSummary"
       ( \x ->
           CompliantSummary'
-            Core.<$> (x Core..:? "SeveritySummary")
-            Core.<*> (x Core..:? "CompliantCount")
+            Prelude.<$> (x Core..:? "SeveritySummary")
+            Prelude.<*> (x Core..:? "CompliantCount")
       )
 
-instance Core.Hashable CompliantSummary
+instance Prelude.Hashable CompliantSummary
 
-instance Core.NFData CompliantSummary
+instance Prelude.NFData CompliantSummary

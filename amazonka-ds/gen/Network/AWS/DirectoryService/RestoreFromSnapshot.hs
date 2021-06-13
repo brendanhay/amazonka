@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +59,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newRestoreFromSnapshot' smart constructor.
 data RestoreFromSnapshot = RestoreFromSnapshot'
   { -- | The identifier of the snapshot to restore from.
-    snapshotId :: Core.Text
+    snapshotId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RestoreFromSnapshot' with all optional fields omitted.
@@ -73,13 +74,13 @@ data RestoreFromSnapshot = RestoreFromSnapshot'
 -- 'snapshotId', 'restoreFromSnapshot_snapshotId' - The identifier of the snapshot to restore from.
 newRestoreFromSnapshot ::
   -- | 'snapshotId'
-  Core.Text ->
+  Prelude.Text ->
   RestoreFromSnapshot
 newRestoreFromSnapshot pSnapshotId_ =
   RestoreFromSnapshot' {snapshotId = pSnapshotId_}
 
 -- | The identifier of the snapshot to restore from.
-restoreFromSnapshot_snapshotId :: Lens.Lens' RestoreFromSnapshot Core.Text
+restoreFromSnapshot_snapshotId :: Lens.Lens' RestoreFromSnapshot Prelude.Text
 restoreFromSnapshot_snapshotId = Lens.lens (\RestoreFromSnapshot' {snapshotId} -> snapshotId) (\s@RestoreFromSnapshot' {} a -> s {snapshotId = a} :: RestoreFromSnapshot)
 
 instance Core.AWSRequest RestoreFromSnapshot where
@@ -91,47 +92,49 @@ instance Core.AWSRequest RestoreFromSnapshot where
     Response.receiveEmpty
       ( \s h x ->
           RestoreFromSnapshotResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RestoreFromSnapshot
+instance Prelude.Hashable RestoreFromSnapshot
 
-instance Core.NFData RestoreFromSnapshot
+instance Prelude.NFData RestoreFromSnapshot
 
 instance Core.ToHeaders RestoreFromSnapshot where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.RestoreFromSnapshot" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RestoreFromSnapshot where
   toJSON RestoreFromSnapshot' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("SnapshotId" Core..= snapshotId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("SnapshotId" Core..= snapshotId)]
       )
 
 instance Core.ToPath RestoreFromSnapshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RestoreFromSnapshot where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results of the RestoreFromSnapshot operation.
 --
 -- /See:/ 'newRestoreFromSnapshotResponse' smart constructor.
 data RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RestoreFromSnapshotResponse' with all optional fields omitted.
@@ -144,7 +147,7 @@ data RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
 -- 'httpStatus', 'restoreFromSnapshotResponse_httpStatus' - The response's http status code.
 newRestoreFromSnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RestoreFromSnapshotResponse
 newRestoreFromSnapshotResponse pHttpStatus_ =
   RestoreFromSnapshotResponse'
@@ -153,7 +156,7 @@ newRestoreFromSnapshotResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-restoreFromSnapshotResponse_httpStatus :: Lens.Lens' RestoreFromSnapshotResponse Core.Int
+restoreFromSnapshotResponse_httpStatus :: Lens.Lens' RestoreFromSnapshotResponse Prelude.Int
 restoreFromSnapshotResponse_httpStatus = Lens.lens (\RestoreFromSnapshotResponse' {httpStatus} -> httpStatus) (\s@RestoreFromSnapshotResponse' {} a -> s {httpStatus = a} :: RestoreFromSnapshotResponse)
 
-instance Core.NFData RestoreFromSnapshotResponse
+instance Prelude.NFData RestoreFromSnapshotResponse

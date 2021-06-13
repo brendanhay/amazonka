@@ -59,6 +59,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -67,14 +68,14 @@ import qualified Network.AWS.Response as Response
 data DetectModerationLabels = DetectModerationLabels'
   { -- | Sets up the configuration for human evaluation, including the
     -- FlowDefinition the image will be sent to.
-    humanLoopConfig :: Core.Maybe HumanLoopConfig,
+    humanLoopConfig :: Prelude.Maybe HumanLoopConfig,
     -- | Specifies the minimum confidence level for the labels to return. Amazon
     -- Rekognition doesn\'t return any labels with a confidence level lower
     -- than this specified value.
     --
     -- If you don\'t specify @MinConfidence@, the operation returns labels with
     -- confidence values greater than or equal to 50 percent.
-    minConfidence :: Core.Maybe Core.Double,
+    minConfidence :: Prelude.Maybe Prelude.Double,
     -- | The input image as base64-encoded bytes or an S3 object. If you use the
     -- AWS CLI to call Amazon Rekognition operations, passing base64-encoded
     -- image bytes is not supported.
@@ -84,7 +85,7 @@ data DetectModerationLabels = DetectModerationLabels'
     -- more information, see Images in the Amazon Rekognition developer guide.
     image :: Image
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetectModerationLabels' with all optional fields omitted.
@@ -118,14 +119,14 @@ newDetectModerationLabels ::
 newDetectModerationLabels pImage_ =
   DetectModerationLabels'
     { humanLoopConfig =
-        Core.Nothing,
-      minConfidence = Core.Nothing,
+        Prelude.Nothing,
+      minConfidence = Prelude.Nothing,
       image = pImage_
     }
 
 -- | Sets up the configuration for human evaluation, including the
 -- FlowDefinition the image will be sent to.
-detectModerationLabels_humanLoopConfig :: Lens.Lens' DetectModerationLabels (Core.Maybe HumanLoopConfig)
+detectModerationLabels_humanLoopConfig :: Lens.Lens' DetectModerationLabels (Prelude.Maybe HumanLoopConfig)
 detectModerationLabels_humanLoopConfig = Lens.lens (\DetectModerationLabels' {humanLoopConfig} -> humanLoopConfig) (\s@DetectModerationLabels' {} a -> s {humanLoopConfig = a} :: DetectModerationLabels)
 
 -- | Specifies the minimum confidence level for the labels to return. Amazon
@@ -134,7 +135,7 @@ detectModerationLabels_humanLoopConfig = Lens.lens (\DetectModerationLabels' {hu
 --
 -- If you don\'t specify @MinConfidence@, the operation returns labels with
 -- confidence values greater than or equal to 50 percent.
-detectModerationLabels_minConfidence :: Lens.Lens' DetectModerationLabels (Core.Maybe Core.Double)
+detectModerationLabels_minConfidence :: Lens.Lens' DetectModerationLabels (Prelude.Maybe Prelude.Double)
 detectModerationLabels_minConfidence = Lens.lens (\DetectModerationLabels' {minConfidence} -> minConfidence) (\s@DetectModerationLabels' {} a -> s {minConfidence = a} :: DetectModerationLabels)
 
 -- | The input image as base64-encoded bytes or an S3 object. If you use the
@@ -156,60 +157,64 @@ instance Core.AWSRequest DetectModerationLabels where
     Response.receiveJSON
       ( \s h x ->
           DetectModerationLabelsResponse'
-            Core.<$> (x Core..?> "ModerationLabels" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "ModerationModelVersion")
-            Core.<*> (x Core..?> "HumanLoopActivationOutput")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "ModerationLabels"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "ModerationModelVersion")
+            Prelude.<*> (x Core..?> "HumanLoopActivationOutput")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DetectModerationLabels
+instance Prelude.Hashable DetectModerationLabels
 
-instance Core.NFData DetectModerationLabels
+instance Prelude.NFData DetectModerationLabels
 
 instance Core.ToHeaders DetectModerationLabels where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "RekognitionService.DetectModerationLabels" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DetectModerationLabels where
   toJSON DetectModerationLabels' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("HumanLoopConfig" Core..=)
-              Core.<$> humanLoopConfig,
-            ("MinConfidence" Core..=) Core.<$> minConfidence,
-            Core.Just ("Image" Core..= image)
+              Prelude.<$> humanLoopConfig,
+            ("MinConfidence" Core..=) Prelude.<$> minConfidence,
+            Prelude.Just ("Image" Core..= image)
           ]
       )
 
 instance Core.ToPath DetectModerationLabels where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetectModerationLabels where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectModerationLabelsResponse' smart constructor.
 data DetectModerationLabelsResponse = DetectModerationLabelsResponse'
   { -- | Array of detected Moderation labels and the time, in milliseconds from
     -- the start of the video, they were detected.
-    moderationLabels :: Core.Maybe [ModerationLabel],
+    moderationLabels :: Prelude.Maybe [ModerationLabel],
     -- | Version number of the moderation detection model that was used to detect
     -- unsafe content.
-    moderationModelVersion :: Core.Maybe Core.Text,
+    moderationModelVersion :: Prelude.Maybe Prelude.Text,
     -- | Shows the results of the human in the loop evaluation.
-    humanLoopActivationOutput :: Core.Maybe HumanLoopActivationOutput,
+    humanLoopActivationOutput :: Prelude.Maybe HumanLoopActivationOutput,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetectModerationLabelsResponse' with all optional fields omitted.
@@ -230,33 +235,35 @@ data DetectModerationLabelsResponse = DetectModerationLabelsResponse'
 -- 'httpStatus', 'detectModerationLabelsResponse_httpStatus' - The response's http status code.
 newDetectModerationLabelsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DetectModerationLabelsResponse
 newDetectModerationLabelsResponse pHttpStatus_ =
   DetectModerationLabelsResponse'
     { moderationLabels =
-        Core.Nothing,
-      moderationModelVersion = Core.Nothing,
-      humanLoopActivationOutput = Core.Nothing,
+        Prelude.Nothing,
+      moderationModelVersion = Prelude.Nothing,
+      humanLoopActivationOutput = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Array of detected Moderation labels and the time, in milliseconds from
 -- the start of the video, they were detected.
-detectModerationLabelsResponse_moderationLabels :: Lens.Lens' DetectModerationLabelsResponse (Core.Maybe [ModerationLabel])
-detectModerationLabelsResponse_moderationLabels = Lens.lens (\DetectModerationLabelsResponse' {moderationLabels} -> moderationLabels) (\s@DetectModerationLabelsResponse' {} a -> s {moderationLabels = a} :: DetectModerationLabelsResponse) Core.. Lens.mapping Lens._Coerce
+detectModerationLabelsResponse_moderationLabels :: Lens.Lens' DetectModerationLabelsResponse (Prelude.Maybe [ModerationLabel])
+detectModerationLabelsResponse_moderationLabels = Lens.lens (\DetectModerationLabelsResponse' {moderationLabels} -> moderationLabels) (\s@DetectModerationLabelsResponse' {} a -> s {moderationLabels = a} :: DetectModerationLabelsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Version number of the moderation detection model that was used to detect
 -- unsafe content.
-detectModerationLabelsResponse_moderationModelVersion :: Lens.Lens' DetectModerationLabelsResponse (Core.Maybe Core.Text)
+detectModerationLabelsResponse_moderationModelVersion :: Lens.Lens' DetectModerationLabelsResponse (Prelude.Maybe Prelude.Text)
 detectModerationLabelsResponse_moderationModelVersion = Lens.lens (\DetectModerationLabelsResponse' {moderationModelVersion} -> moderationModelVersion) (\s@DetectModerationLabelsResponse' {} a -> s {moderationModelVersion = a} :: DetectModerationLabelsResponse)
 
 -- | Shows the results of the human in the loop evaluation.
-detectModerationLabelsResponse_humanLoopActivationOutput :: Lens.Lens' DetectModerationLabelsResponse (Core.Maybe HumanLoopActivationOutput)
+detectModerationLabelsResponse_humanLoopActivationOutput :: Lens.Lens' DetectModerationLabelsResponse (Prelude.Maybe HumanLoopActivationOutput)
 detectModerationLabelsResponse_humanLoopActivationOutput = Lens.lens (\DetectModerationLabelsResponse' {humanLoopActivationOutput} -> humanLoopActivationOutput) (\s@DetectModerationLabelsResponse' {} a -> s {humanLoopActivationOutput = a} :: DetectModerationLabelsResponse)
 
 -- | The response's http status code.
-detectModerationLabelsResponse_httpStatus :: Lens.Lens' DetectModerationLabelsResponse Core.Int
+detectModerationLabelsResponse_httpStatus :: Lens.Lens' DetectModerationLabelsResponse Prelude.Int
 detectModerationLabelsResponse_httpStatus = Lens.lens (\DetectModerationLabelsResponse' {httpStatus} -> httpStatus) (\s@DetectModerationLabelsResponse' {} a -> s {httpStatus = a} :: DetectModerationLabelsResponse)
 
-instance Core.NFData DetectModerationLabelsResponse
+instance
+  Prelude.NFData
+    DetectModerationLabelsResponse

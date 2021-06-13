@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -53,9 +54,9 @@ import Network.AWS.Route53.Types
 -- | /See:/ 'newDeleteQueryLoggingConfig' smart constructor.
 data DeleteQueryLoggingConfig = DeleteQueryLoggingConfig'
   { -- | The ID of the configuration that you want to delete.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteQueryLoggingConfig' with all optional fields omitted.
@@ -68,13 +69,13 @@ data DeleteQueryLoggingConfig = DeleteQueryLoggingConfig'
 -- 'id', 'deleteQueryLoggingConfig_id' - The ID of the configuration that you want to delete.
 newDeleteQueryLoggingConfig ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DeleteQueryLoggingConfig
 newDeleteQueryLoggingConfig pId_ =
   DeleteQueryLoggingConfig' {id = pId_}
 
 -- | The ID of the configuration that you want to delete.
-deleteQueryLoggingConfig_id :: Lens.Lens' DeleteQueryLoggingConfig Core.Text
+deleteQueryLoggingConfig_id :: Lens.Lens' DeleteQueryLoggingConfig Prelude.Text
 deleteQueryLoggingConfig_id = Lens.lens (\DeleteQueryLoggingConfig' {id} -> id) (\s@DeleteQueryLoggingConfig' {} a -> s {id = a} :: DeleteQueryLoggingConfig)
 
 instance Core.AWSRequest DeleteQueryLoggingConfig where
@@ -86,30 +87,30 @@ instance Core.AWSRequest DeleteQueryLoggingConfig where
     Response.receiveEmpty
       ( \s h x ->
           DeleteQueryLoggingConfigResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteQueryLoggingConfig
+instance Prelude.Hashable DeleteQueryLoggingConfig
 
-instance Core.NFData DeleteQueryLoggingConfig
+instance Prelude.NFData DeleteQueryLoggingConfig
 
 instance Core.ToHeaders DeleteQueryLoggingConfig where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteQueryLoggingConfig where
   toPath DeleteQueryLoggingConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2013-04-01/queryloggingconfig/", Core.toBS id]
 
 instance Core.ToQuery DeleteQueryLoggingConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteQueryLoggingConfigResponse' smart constructor.
 data DeleteQueryLoggingConfigResponse = DeleteQueryLoggingConfigResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteQueryLoggingConfigResponse' with all optional fields omitted.
@@ -122,7 +123,7 @@ data DeleteQueryLoggingConfigResponse = DeleteQueryLoggingConfigResponse'
 -- 'httpStatus', 'deleteQueryLoggingConfigResponse_httpStatus' - The response's http status code.
 newDeleteQueryLoggingConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteQueryLoggingConfigResponse
 newDeleteQueryLoggingConfigResponse pHttpStatus_ =
   DeleteQueryLoggingConfigResponse'
@@ -131,7 +132,9 @@ newDeleteQueryLoggingConfigResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteQueryLoggingConfigResponse_httpStatus :: Lens.Lens' DeleteQueryLoggingConfigResponse Core.Int
+deleteQueryLoggingConfigResponse_httpStatus :: Lens.Lens' DeleteQueryLoggingConfigResponse Prelude.Int
 deleteQueryLoggingConfigResponse_httpStatus = Lens.lens (\DeleteQueryLoggingConfigResponse' {httpStatus} -> httpStatus) (\s@DeleteQueryLoggingConfigResponse' {} a -> s {httpStatus = a} :: DeleteQueryLoggingConfigResponse)
 
-instance Core.NFData DeleteQueryLoggingConfigResponse
+instance
+  Prelude.NFData
+    DeleteQueryLoggingConfigResponse

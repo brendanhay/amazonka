@@ -21,25 +21,26 @@ module Network.AWS.WorkMail.Types.OrganizationSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The representation of an organization.
 --
 -- /See:/ 'newOrganizationSummary' smart constructor.
 data OrganizationSummary = OrganizationSummary'
   { -- | The identifier associated with the organization.
-    organizationId :: Core.Maybe Core.Text,
+    organizationId :: Prelude.Maybe Prelude.Text,
     -- | The alias associated with the organization.
-    alias :: Core.Maybe Core.Text,
+    alias :: Prelude.Maybe Prelude.Text,
     -- | The default email domain associated with the organization.
-    defaultMailDomain :: Core.Maybe Core.Text,
+    defaultMailDomain :: Prelude.Maybe Prelude.Text,
     -- | The state associated with the organization.
-    state :: Core.Maybe Core.Text,
+    state :: Prelude.Maybe Prelude.Text,
     -- | The error message associated with the organization. It is only present
     -- if unexpected behavior has occurred with regards to the organization. It
     -- provides insight or solutions regarding unexpected behavior.
-    errorMessage :: Core.Maybe Core.Text
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OrganizationSummary' with all optional fields omitted.
@@ -64,33 +65,34 @@ newOrganizationSummary ::
   OrganizationSummary
 newOrganizationSummary =
   OrganizationSummary'
-    { organizationId = Core.Nothing,
-      alias = Core.Nothing,
-      defaultMailDomain = Core.Nothing,
-      state = Core.Nothing,
-      errorMessage = Core.Nothing
+    { organizationId =
+        Prelude.Nothing,
+      alias = Prelude.Nothing,
+      defaultMailDomain = Prelude.Nothing,
+      state = Prelude.Nothing,
+      errorMessage = Prelude.Nothing
     }
 
 -- | The identifier associated with the organization.
-organizationSummary_organizationId :: Lens.Lens' OrganizationSummary (Core.Maybe Core.Text)
+organizationSummary_organizationId :: Lens.Lens' OrganizationSummary (Prelude.Maybe Prelude.Text)
 organizationSummary_organizationId = Lens.lens (\OrganizationSummary' {organizationId} -> organizationId) (\s@OrganizationSummary' {} a -> s {organizationId = a} :: OrganizationSummary)
 
 -- | The alias associated with the organization.
-organizationSummary_alias :: Lens.Lens' OrganizationSummary (Core.Maybe Core.Text)
+organizationSummary_alias :: Lens.Lens' OrganizationSummary (Prelude.Maybe Prelude.Text)
 organizationSummary_alias = Lens.lens (\OrganizationSummary' {alias} -> alias) (\s@OrganizationSummary' {} a -> s {alias = a} :: OrganizationSummary)
 
 -- | The default email domain associated with the organization.
-organizationSummary_defaultMailDomain :: Lens.Lens' OrganizationSummary (Core.Maybe Core.Text)
+organizationSummary_defaultMailDomain :: Lens.Lens' OrganizationSummary (Prelude.Maybe Prelude.Text)
 organizationSummary_defaultMailDomain = Lens.lens (\OrganizationSummary' {defaultMailDomain} -> defaultMailDomain) (\s@OrganizationSummary' {} a -> s {defaultMailDomain = a} :: OrganizationSummary)
 
 -- | The state associated with the organization.
-organizationSummary_state :: Lens.Lens' OrganizationSummary (Core.Maybe Core.Text)
+organizationSummary_state :: Lens.Lens' OrganizationSummary (Prelude.Maybe Prelude.Text)
 organizationSummary_state = Lens.lens (\OrganizationSummary' {state} -> state) (\s@OrganizationSummary' {} a -> s {state = a} :: OrganizationSummary)
 
 -- | The error message associated with the organization. It is only present
 -- if unexpected behavior has occurred with regards to the organization. It
 -- provides insight or solutions regarding unexpected behavior.
-organizationSummary_errorMessage :: Lens.Lens' OrganizationSummary (Core.Maybe Core.Text)
+organizationSummary_errorMessage :: Lens.Lens' OrganizationSummary (Prelude.Maybe Prelude.Text)
 organizationSummary_errorMessage = Lens.lens (\OrganizationSummary' {errorMessage} -> errorMessage) (\s@OrganizationSummary' {} a -> s {errorMessage = a} :: OrganizationSummary)
 
 instance Core.FromJSON OrganizationSummary where
@@ -99,13 +101,13 @@ instance Core.FromJSON OrganizationSummary where
       "OrganizationSummary"
       ( \x ->
           OrganizationSummary'
-            Core.<$> (x Core..:? "OrganizationId")
-            Core.<*> (x Core..:? "Alias")
-            Core.<*> (x Core..:? "DefaultMailDomain")
-            Core.<*> (x Core..:? "State")
-            Core.<*> (x Core..:? "ErrorMessage")
+            Prelude.<$> (x Core..:? "OrganizationId")
+            Prelude.<*> (x Core..:? "Alias")
+            Prelude.<*> (x Core..:? "DefaultMailDomain")
+            Prelude.<*> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Core.Hashable OrganizationSummary
+instance Prelude.Hashable OrganizationSummary
 
-instance Core.NFData OrganizationSummary
+instance Prelude.NFData OrganizationSummary

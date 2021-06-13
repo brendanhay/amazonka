@@ -21,6 +21,7 @@ module Network.AWS.ServiceCatalog.Types.PortfolioShareDetail where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.DescribePortfolioShareType
 
 -- | Information about the portfolio share.
@@ -29,7 +30,7 @@ import Network.AWS.ServiceCatalog.Types.DescribePortfolioShareType
 data PortfolioShareDetail = PortfolioShareDetail'
   { -- | Indicates whether TagOptions sharing is enabled or disabled for the
     -- portfolio share.
-    shareTagOptions :: Core.Maybe Core.Bool,
+    shareTagOptions :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the recipient entity that received the portfolio
     -- share. The recipient entities can be one of the following:
     --
@@ -41,15 +42,15 @@ data PortfolioShareDetail = PortfolioShareDetail'
     --
     -- 4. The organization itself. (This shares with every account in the
     -- organization).
-    principalId :: Core.Maybe Core.Text,
+    principalId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the shared portfolio is imported by the recipient
     -- account. If the recipient is in an organization node, the share is
     -- automatically imported, and the field is always set to true.
-    accepted :: Core.Maybe Core.Bool,
+    accepted :: Prelude.Maybe Prelude.Bool,
     -- | The type of the portfolio share.
-    type' :: Core.Maybe DescribePortfolioShareType
+    type' :: Prelude.Maybe DescribePortfolioShareType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PortfolioShareDetail' with all optional fields omitted.
@@ -84,15 +85,15 @@ newPortfolioShareDetail ::
 newPortfolioShareDetail =
   PortfolioShareDetail'
     { shareTagOptions =
-        Core.Nothing,
-      principalId = Core.Nothing,
-      accepted = Core.Nothing,
-      type' = Core.Nothing
+        Prelude.Nothing,
+      principalId = Prelude.Nothing,
+      accepted = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | Indicates whether TagOptions sharing is enabled or disabled for the
 -- portfolio share.
-portfolioShareDetail_shareTagOptions :: Lens.Lens' PortfolioShareDetail (Core.Maybe Core.Bool)
+portfolioShareDetail_shareTagOptions :: Lens.Lens' PortfolioShareDetail (Prelude.Maybe Prelude.Bool)
 portfolioShareDetail_shareTagOptions = Lens.lens (\PortfolioShareDetail' {shareTagOptions} -> shareTagOptions) (\s@PortfolioShareDetail' {} a -> s {shareTagOptions = a} :: PortfolioShareDetail)
 
 -- | The identifier of the recipient entity that received the portfolio
@@ -106,17 +107,17 @@ portfolioShareDetail_shareTagOptions = Lens.lens (\PortfolioShareDetail' {shareT
 --
 -- 4. The organization itself. (This shares with every account in the
 -- organization).
-portfolioShareDetail_principalId :: Lens.Lens' PortfolioShareDetail (Core.Maybe Core.Text)
+portfolioShareDetail_principalId :: Lens.Lens' PortfolioShareDetail (Prelude.Maybe Prelude.Text)
 portfolioShareDetail_principalId = Lens.lens (\PortfolioShareDetail' {principalId} -> principalId) (\s@PortfolioShareDetail' {} a -> s {principalId = a} :: PortfolioShareDetail)
 
 -- | Indicates whether the shared portfolio is imported by the recipient
 -- account. If the recipient is in an organization node, the share is
 -- automatically imported, and the field is always set to true.
-portfolioShareDetail_accepted :: Lens.Lens' PortfolioShareDetail (Core.Maybe Core.Bool)
+portfolioShareDetail_accepted :: Lens.Lens' PortfolioShareDetail (Prelude.Maybe Prelude.Bool)
 portfolioShareDetail_accepted = Lens.lens (\PortfolioShareDetail' {accepted} -> accepted) (\s@PortfolioShareDetail' {} a -> s {accepted = a} :: PortfolioShareDetail)
 
 -- | The type of the portfolio share.
-portfolioShareDetail_type :: Lens.Lens' PortfolioShareDetail (Core.Maybe DescribePortfolioShareType)
+portfolioShareDetail_type :: Lens.Lens' PortfolioShareDetail (Prelude.Maybe DescribePortfolioShareType)
 portfolioShareDetail_type = Lens.lens (\PortfolioShareDetail' {type'} -> type') (\s@PortfolioShareDetail' {} a -> s {type' = a} :: PortfolioShareDetail)
 
 instance Core.FromJSON PortfolioShareDetail where
@@ -125,12 +126,12 @@ instance Core.FromJSON PortfolioShareDetail where
       "PortfolioShareDetail"
       ( \x ->
           PortfolioShareDetail'
-            Core.<$> (x Core..:? "ShareTagOptions")
-            Core.<*> (x Core..:? "PrincipalId")
-            Core.<*> (x Core..:? "Accepted")
-            Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "ShareTagOptions")
+            Prelude.<*> (x Core..:? "PrincipalId")
+            Prelude.<*> (x Core..:? "Accepted")
+            Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable PortfolioShareDetail
+instance Prelude.Hashable PortfolioShareDetail
 
-instance Core.NFData PortfolioShareDetail
+instance Prelude.NFData PortfolioShareDetail

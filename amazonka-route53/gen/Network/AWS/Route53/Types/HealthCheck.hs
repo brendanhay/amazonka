@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.HealthCheck where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.CloudWatchAlarmConfiguration
 import Network.AWS.Route53.Types.HealthCheckConfig
@@ -33,27 +34,27 @@ import Network.AWS.Route53.Types.LinkedService
 data HealthCheck = HealthCheck'
   { -- | A complex type that contains information about the CloudWatch alarm that
     -- Amazon Route 53 is monitoring for this health check.
-    cloudWatchAlarmConfiguration :: Core.Maybe CloudWatchAlarmConfiguration,
+    cloudWatchAlarmConfiguration :: Prelude.Maybe CloudWatchAlarmConfiguration,
     -- | If the health check was created by another service, the service that
     -- created the health check. When a health check is created by another
     -- service, you can\'t edit or delete it using Amazon Route 53.
-    linkedService :: Core.Maybe LinkedService,
+    linkedService :: Prelude.Maybe LinkedService,
     -- | The identifier that Amazon Route 53 assigned to the health check when
     -- you created it. When you add or update a resource record set, you use
     -- this value to specify which health check to use. The value can be up to
     -- 64 characters long.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | A unique string that you specified when you created the health check.
-    callerReference :: Core.Text,
+    callerReference :: Prelude.Text,
     -- | A complex type that contains detailed information about one health
     -- check.
     healthCheckConfig :: HealthCheckConfig,
     -- | The version of the health check. You can optionally pass this value in a
     -- call to @UpdateHealthCheck@ to prevent overwriting another change to the
     -- health check.
-    healthCheckVersion :: Core.Natural
+    healthCheckVersion :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HealthCheck' with all optional fields omitted.
@@ -85,13 +86,13 @@ data HealthCheck = HealthCheck'
 -- health check.
 newHealthCheck ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'callerReference'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'healthCheckConfig'
   HealthCheckConfig ->
   -- | 'healthCheckVersion'
-  Core.Natural ->
+  Prelude.Natural ->
   HealthCheck
 newHealthCheck
   pId_
@@ -100,8 +101,8 @@ newHealthCheck
   pHealthCheckVersion_ =
     HealthCheck'
       { cloudWatchAlarmConfiguration =
-          Core.Nothing,
-        linkedService = Core.Nothing,
+          Prelude.Nothing,
+        linkedService = Prelude.Nothing,
         id = pId_,
         callerReference = pCallerReference_,
         healthCheckConfig = pHealthCheckConfig_,
@@ -110,24 +111,24 @@ newHealthCheck
 
 -- | A complex type that contains information about the CloudWatch alarm that
 -- Amazon Route 53 is monitoring for this health check.
-healthCheck_cloudWatchAlarmConfiguration :: Lens.Lens' HealthCheck (Core.Maybe CloudWatchAlarmConfiguration)
+healthCheck_cloudWatchAlarmConfiguration :: Lens.Lens' HealthCheck (Prelude.Maybe CloudWatchAlarmConfiguration)
 healthCheck_cloudWatchAlarmConfiguration = Lens.lens (\HealthCheck' {cloudWatchAlarmConfiguration} -> cloudWatchAlarmConfiguration) (\s@HealthCheck' {} a -> s {cloudWatchAlarmConfiguration = a} :: HealthCheck)
 
 -- | If the health check was created by another service, the service that
 -- created the health check. When a health check is created by another
 -- service, you can\'t edit or delete it using Amazon Route 53.
-healthCheck_linkedService :: Lens.Lens' HealthCheck (Core.Maybe LinkedService)
+healthCheck_linkedService :: Lens.Lens' HealthCheck (Prelude.Maybe LinkedService)
 healthCheck_linkedService = Lens.lens (\HealthCheck' {linkedService} -> linkedService) (\s@HealthCheck' {} a -> s {linkedService = a} :: HealthCheck)
 
 -- | The identifier that Amazon Route 53 assigned to the health check when
 -- you created it. When you add or update a resource record set, you use
 -- this value to specify which health check to use. The value can be up to
 -- 64 characters long.
-healthCheck_id :: Lens.Lens' HealthCheck Core.Text
+healthCheck_id :: Lens.Lens' HealthCheck Prelude.Text
 healthCheck_id = Lens.lens (\HealthCheck' {id} -> id) (\s@HealthCheck' {} a -> s {id = a} :: HealthCheck)
 
 -- | A unique string that you specified when you created the health check.
-healthCheck_callerReference :: Lens.Lens' HealthCheck Core.Text
+healthCheck_callerReference :: Lens.Lens' HealthCheck Prelude.Text
 healthCheck_callerReference = Lens.lens (\HealthCheck' {callerReference} -> callerReference) (\s@HealthCheck' {} a -> s {callerReference = a} :: HealthCheck)
 
 -- | A complex type that contains detailed information about one health
@@ -138,19 +139,19 @@ healthCheck_healthCheckConfig = Lens.lens (\HealthCheck' {healthCheckConfig} -> 
 -- | The version of the health check. You can optionally pass this value in a
 -- call to @UpdateHealthCheck@ to prevent overwriting another change to the
 -- health check.
-healthCheck_healthCheckVersion :: Lens.Lens' HealthCheck Core.Natural
+healthCheck_healthCheckVersion :: Lens.Lens' HealthCheck Prelude.Natural
 healthCheck_healthCheckVersion = Lens.lens (\HealthCheck' {healthCheckVersion} -> healthCheckVersion) (\s@HealthCheck' {} a -> s {healthCheckVersion = a} :: HealthCheck)
 
 instance Core.FromXML HealthCheck where
   parseXML x =
     HealthCheck'
-      Core.<$> (x Core..@? "CloudWatchAlarmConfiguration")
-      Core.<*> (x Core..@? "LinkedService")
-      Core.<*> (x Core..@ "Id")
-      Core.<*> (x Core..@ "CallerReference")
-      Core.<*> (x Core..@ "HealthCheckConfig")
-      Core.<*> (x Core..@ "HealthCheckVersion")
+      Prelude.<$> (x Core..@? "CloudWatchAlarmConfiguration")
+      Prelude.<*> (x Core..@? "LinkedService")
+      Prelude.<*> (x Core..@ "Id")
+      Prelude.<*> (x Core..@ "CallerReference")
+      Prelude.<*> (x Core..@ "HealthCheckConfig")
+      Prelude.<*> (x Core..@ "HealthCheckVersion")
 
-instance Core.Hashable HealthCheck
+instance Prelude.Hashable HealthCheck
 
-instance Core.NFData HealthCheck
+instance Prelude.NFData HealthCheck

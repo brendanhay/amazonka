@@ -21,6 +21,7 @@ module Network.AWS.CloudFront.Types.OriginShield where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | CloudFront Origin Shield.
 --
@@ -42,16 +43,16 @@ data OriginShield = OriginShield'
     -- specify, and for help choosing the best Region for your origin, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region Choosing the AWS Region for Origin Shield>
     -- in the /Amazon CloudFront Developer Guide/.
-    originShieldRegion :: Core.Maybe Core.Text,
+    originShieldRegion :: Prelude.Maybe Prelude.Text,
     -- | A flag that specifies whether Origin Shield is enabled.
     --
     -- When it’s enabled, CloudFront routes all requests through Origin Shield,
     -- which can help protect your origin. When it’s disabled, CloudFront might
     -- send requests directly to your origin from multiple edge locations or
     -- regional edge caches.
-    enabled :: Core.Bool
+    enabled :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OriginShield' with all optional fields omitted.
@@ -81,11 +82,11 @@ data OriginShield = OriginShield'
 -- regional edge caches.
 newOriginShield ::
   -- | 'enabled'
-  Core.Bool ->
+  Prelude.Bool ->
   OriginShield
 newOriginShield pEnabled_ =
   OriginShield'
-    { originShieldRegion = Core.Nothing,
+    { originShieldRegion = Prelude.Nothing,
       enabled = pEnabled_
     }
 
@@ -100,7 +101,7 @@ newOriginShield pEnabled_ =
 -- specify, and for help choosing the best Region for your origin, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region Choosing the AWS Region for Origin Shield>
 -- in the /Amazon CloudFront Developer Guide/.
-originShield_originShieldRegion :: Lens.Lens' OriginShield (Core.Maybe Core.Text)
+originShield_originShieldRegion :: Lens.Lens' OriginShield (Prelude.Maybe Prelude.Text)
 originShield_originShieldRegion = Lens.lens (\OriginShield' {originShieldRegion} -> originShieldRegion) (\s@OriginShield' {} a -> s {originShieldRegion = a} :: OriginShield)
 
 -- | A flag that specifies whether Origin Shield is enabled.
@@ -109,22 +110,22 @@ originShield_originShieldRegion = Lens.lens (\OriginShield' {originShieldRegion}
 -- which can help protect your origin. When it’s disabled, CloudFront might
 -- send requests directly to your origin from multiple edge locations or
 -- regional edge caches.
-originShield_enabled :: Lens.Lens' OriginShield Core.Bool
+originShield_enabled :: Lens.Lens' OriginShield Prelude.Bool
 originShield_enabled = Lens.lens (\OriginShield' {enabled} -> enabled) (\s@OriginShield' {} a -> s {enabled = a} :: OriginShield)
 
 instance Core.FromXML OriginShield where
   parseXML x =
     OriginShield'
-      Core.<$> (x Core..@? "OriginShieldRegion")
-      Core.<*> (x Core..@ "Enabled")
+      Prelude.<$> (x Core..@? "OriginShieldRegion")
+      Prelude.<*> (x Core..@ "Enabled")
 
-instance Core.Hashable OriginShield
+instance Prelude.Hashable OriginShield
 
-instance Core.NFData OriginShield
+instance Prelude.NFData OriginShield
 
 instance Core.ToXML OriginShield where
   toXML OriginShield' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "OriginShieldRegion" Core.@= originShieldRegion,
         "Enabled" Core.@= enabled
       ]

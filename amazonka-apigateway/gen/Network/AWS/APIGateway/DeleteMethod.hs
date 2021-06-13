@@ -40,6 +40,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,13 +49,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteMethod' smart constructor.
 data DeleteMethod = DeleteMethod'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The Resource identifier for the Method resource.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | [Required] The HTTP verb of the Method resource.
-    httpMethod :: Core.Text
+    httpMethod :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMethod' with all optional fields omitted.
@@ -71,11 +72,11 @@ data DeleteMethod = DeleteMethod'
 -- 'httpMethod', 'deleteMethod_httpMethod' - [Required] The HTTP verb of the Method resource.
 newDeleteMethod ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'httpMethod'
-  Core.Text ->
+  Prelude.Text ->
   DeleteMethod
 newDeleteMethod pRestApiId_ pResourceId_ pHttpMethod_ =
   DeleteMethod'
@@ -85,15 +86,15 @@ newDeleteMethod pRestApiId_ pResourceId_ pHttpMethod_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-deleteMethod_restApiId :: Lens.Lens' DeleteMethod Core.Text
+deleteMethod_restApiId :: Lens.Lens' DeleteMethod Prelude.Text
 deleteMethod_restApiId = Lens.lens (\DeleteMethod' {restApiId} -> restApiId) (\s@DeleteMethod' {} a -> s {restApiId = a} :: DeleteMethod)
 
 -- | [Required] The Resource identifier for the Method resource.
-deleteMethod_resourceId :: Lens.Lens' DeleteMethod Core.Text
+deleteMethod_resourceId :: Lens.Lens' DeleteMethod Prelude.Text
 deleteMethod_resourceId = Lens.lens (\DeleteMethod' {resourceId} -> resourceId) (\s@DeleteMethod' {} a -> s {resourceId = a} :: DeleteMethod)
 
 -- | [Required] The HTTP verb of the Method resource.
-deleteMethod_httpMethod :: Lens.Lens' DeleteMethod Core.Text
+deleteMethod_httpMethod :: Lens.Lens' DeleteMethod Prelude.Text
 deleteMethod_httpMethod = Lens.lens (\DeleteMethod' {httpMethod} -> httpMethod) (\s@DeleteMethod' {} a -> s {httpMethod = a} :: DeleteMethod)
 
 instance Core.AWSRequest DeleteMethod where
@@ -102,22 +103,22 @@ instance Core.AWSRequest DeleteMethod where
   response =
     Response.receiveNull DeleteMethodResponse''
 
-instance Core.Hashable DeleteMethod
+instance Prelude.Hashable DeleteMethod
 
-instance Core.NFData DeleteMethod
+instance Prelude.NFData DeleteMethod
 
 instance Core.ToHeaders DeleteMethod where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath DeleteMethod where
   toPath DeleteMethod' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/resources/",
@@ -127,13 +128,13 @@ instance Core.ToPath DeleteMethod where
       ]
 
 instance Core.ToQuery DeleteMethod where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMethodResponse'' smart constructor.
 data DeleteMethodResponse' = DeleteMethodResponse''
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMethodResponse'' with all optional fields omitted.
@@ -143,4 +144,4 @@ newDeleteMethodResponse' ::
   DeleteMethodResponse'
 newDeleteMethodResponse' = DeleteMethodResponse''
 
-instance Core.NFData DeleteMethodResponse'
+instance Prelude.NFData DeleteMethodResponse'

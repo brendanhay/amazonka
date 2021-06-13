@@ -53,26 +53,27 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeSubnets' smart constructor.
 data DescribeSubnets = DescribeSubnets'
   { -- | The token for the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more subnet IDs.
     --
     -- Default: Describes all your subnets.
-    subnetIds :: Core.Maybe [Core.Text],
+    subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | One or more filters.
     --
     -- -   @availability-zone@ - The Availability Zone for the subnet. You can
@@ -121,9 +122,9 @@ data DescribeSubnets = DescribeSubnets'
     --     regardless of the tag value.
     --
     -- -   @vpc-id@ - The ID of the VPC for the subnet.
-    filters :: Core.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSubnets' with all optional fields omitted.
@@ -200,35 +201,35 @@ newDescribeSubnets ::
   DescribeSubnets
 newDescribeSubnets =
   DescribeSubnets'
-    { nextToken = Core.Nothing,
-      dryRun = Core.Nothing,
-      maxResults = Core.Nothing,
-      subnetIds = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | The token for the next page of results.
-describeSubnets_nextToken :: Lens.Lens' DescribeSubnets (Core.Maybe Core.Text)
+describeSubnets_nextToken :: Lens.Lens' DescribeSubnets (Prelude.Maybe Prelude.Text)
 describeSubnets_nextToken = Lens.lens (\DescribeSubnets' {nextToken} -> nextToken) (\s@DescribeSubnets' {} a -> s {nextToken = a} :: DescribeSubnets)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeSubnets_dryRun :: Lens.Lens' DescribeSubnets (Core.Maybe Core.Bool)
+describeSubnets_dryRun :: Lens.Lens' DescribeSubnets (Prelude.Maybe Prelude.Bool)
 describeSubnets_dryRun = Lens.lens (\DescribeSubnets' {dryRun} -> dryRun) (\s@DescribeSubnets' {} a -> s {dryRun = a} :: DescribeSubnets)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-describeSubnets_maxResults :: Lens.Lens' DescribeSubnets (Core.Maybe Core.Natural)
+describeSubnets_maxResults :: Lens.Lens' DescribeSubnets (Prelude.Maybe Prelude.Natural)
 describeSubnets_maxResults = Lens.lens (\DescribeSubnets' {maxResults} -> maxResults) (\s@DescribeSubnets' {} a -> s {maxResults = a} :: DescribeSubnets)
 
 -- | One or more subnet IDs.
 --
 -- Default: Describes all your subnets.
-describeSubnets_subnetIds :: Lens.Lens' DescribeSubnets (Core.Maybe [Core.Text])
-describeSubnets_subnetIds = Lens.lens (\DescribeSubnets' {subnetIds} -> subnetIds) (\s@DescribeSubnets' {} a -> s {subnetIds = a} :: DescribeSubnets) Core.. Lens.mapping Lens._Coerce
+describeSubnets_subnetIds :: Lens.Lens' DescribeSubnets (Prelude.Maybe [Prelude.Text])
+describeSubnets_subnetIds = Lens.lens (\DescribeSubnets' {subnetIds} -> subnetIds) (\s@DescribeSubnets' {} a -> s {subnetIds = a} :: DescribeSubnets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more filters.
 --
@@ -278,27 +279,29 @@ describeSubnets_subnetIds = Lens.lens (\DescribeSubnets' {subnetIds} -> subnetId
 --     regardless of the tag value.
 --
 -- -   @vpc-id@ - The ID of the VPC for the subnet.
-describeSubnets_filters :: Lens.Lens' DescribeSubnets (Core.Maybe [Filter])
-describeSubnets_filters = Lens.lens (\DescribeSubnets' {filters} -> filters) (\s@DescribeSubnets' {} a -> s {filters = a} :: DescribeSubnets) Core.. Lens.mapping Lens._Coerce
+describeSubnets_filters :: Lens.Lens' DescribeSubnets (Prelude.Maybe [Filter])
+describeSubnets_filters = Lens.lens (\DescribeSubnets' {filters} -> filters) (\s@DescribeSubnets' {} a -> s {filters = a} :: DescribeSubnets) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeSubnets where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeSubnetsResponse_nextToken Core.. Lens._Just
+            Lens.^? describeSubnetsResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeSubnetsResponse_subnets Core.. Lens._Just
+            Lens.^? describeSubnetsResponse_subnets Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeSubnets_nextToken
+          Prelude.& describeSubnets_nextToken
           Lens..~ rs
-          Lens.^? describeSubnetsResponse_nextToken Core.. Lens._Just
+          Lens.^? describeSubnetsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSubnets where
   type
@@ -309,49 +312,50 @@ instance Core.AWSRequest DescribeSubnets where
     Response.receiveXML
       ( \s h x ->
           DescribeSubnetsResponse'
-            Core.<$> (x Core..@? "nextToken")
-            Core.<*> ( x Core..@? "subnetSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "subnetSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeSubnets
+instance Prelude.Hashable DescribeSubnets
 
-instance Core.NFData DescribeSubnets
+instance Prelude.NFData DescribeSubnets
 
 instance Core.ToHeaders DescribeSubnets where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeSubnets where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeSubnets where
   toQuery DescribeSubnets' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeSubnets" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DescribeSubnets" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         Core.toQuery
-          (Core.toQueryList "SubnetId" Core.<$> subnetIds),
+          (Core.toQueryList "SubnetId" Prelude.<$> subnetIds),
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeSubnetsResponse' smart constructor.
 data DescribeSubnetsResponse = DescribeSubnetsResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about one or more subnets.
-    subnets :: Core.Maybe [Subnet],
+    subnets :: Prelude.Maybe [Subnet],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSubnetsResponse' with all optional fields omitted.
@@ -369,26 +373,27 @@ data DescribeSubnetsResponse = DescribeSubnetsResponse'
 -- 'httpStatus', 'describeSubnetsResponse_httpStatus' - The response's http status code.
 newDescribeSubnetsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeSubnetsResponse
 newDescribeSubnetsResponse pHttpStatus_ =
   DescribeSubnetsResponse'
-    { nextToken = Core.Nothing,
-      subnets = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      subnets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeSubnetsResponse_nextToken :: Lens.Lens' DescribeSubnetsResponse (Core.Maybe Core.Text)
+describeSubnetsResponse_nextToken :: Lens.Lens' DescribeSubnetsResponse (Prelude.Maybe Prelude.Text)
 describeSubnetsResponse_nextToken = Lens.lens (\DescribeSubnetsResponse' {nextToken} -> nextToken) (\s@DescribeSubnetsResponse' {} a -> s {nextToken = a} :: DescribeSubnetsResponse)
 
 -- | Information about one or more subnets.
-describeSubnetsResponse_subnets :: Lens.Lens' DescribeSubnetsResponse (Core.Maybe [Subnet])
-describeSubnetsResponse_subnets = Lens.lens (\DescribeSubnetsResponse' {subnets} -> subnets) (\s@DescribeSubnetsResponse' {} a -> s {subnets = a} :: DescribeSubnetsResponse) Core.. Lens.mapping Lens._Coerce
+describeSubnetsResponse_subnets :: Lens.Lens' DescribeSubnetsResponse (Prelude.Maybe [Subnet])
+describeSubnetsResponse_subnets = Lens.lens (\DescribeSubnetsResponse' {subnets} -> subnets) (\s@DescribeSubnetsResponse' {} a -> s {subnets = a} :: DescribeSubnetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeSubnetsResponse_httpStatus :: Lens.Lens' DescribeSubnetsResponse Core.Int
+describeSubnetsResponse_httpStatus :: Lens.Lens' DescribeSubnetsResponse Prelude.Int
 describeSubnetsResponse_httpStatus = Lens.lens (\DescribeSubnetsResponse' {httpStatus} -> httpStatus) (\s@DescribeSubnetsResponse' {} a -> s {httpStatus = a} :: DescribeSubnetsResponse)
 
-instance Core.NFData DescribeSubnetsResponse
+instance Prelude.NFData DescribeSubnetsResponse

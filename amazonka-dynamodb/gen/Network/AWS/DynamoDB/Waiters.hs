@@ -20,6 +20,7 @@ import Network.AWS.DynamoDB.DescribeTable
 import Network.AWS.DynamoDB.Lens
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.DynamoDB.DescribeTable' every 20 seconds until a successful state is reached. An error is returned after 25 failed checks.
 newTableNotExists :: Core.Wait DescribeTable
@@ -46,10 +47,10 @@ newTableExists =
         [ Core.matchAll
             "ACTIVE"
             Core.AcceptSuccess
-            ( describeTableResponse_table Core.. Lens._Just
-                Core.. tableDescription_tableStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+            ( describeTableResponse_table Prelude.. Lens._Just
+                Prelude.. tableDescription_tableStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ResourceNotFoundException"

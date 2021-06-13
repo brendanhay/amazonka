@@ -21,6 +21,7 @@ module Network.AWS.CloudSearch.Types.DateOptions where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Options for a date field. Dates and times are specified in UTC
 -- (Coordinated Universal Time) according to IETF RFC3339:
@@ -30,19 +31,19 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDateOptions' smart constructor.
 data DateOptions = DateOptions'
   { -- | Whether the field can be used to sort the search results.
-    sortEnabled :: Core.Maybe Core.Bool,
+    sortEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether facet information can be returned for the field.
-    facetEnabled :: Core.Maybe Core.Bool,
+    facetEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the contents of the field can be returned in the search results.
-    returnEnabled :: Core.Maybe Core.Bool,
-    sourceField :: Core.Maybe Core.Text,
+    returnEnabled :: Prelude.Maybe Prelude.Bool,
+    sourceField :: Prelude.Maybe Prelude.Text,
     -- | Whether the contents of the field are searchable.
-    searchEnabled :: Core.Maybe Core.Bool,
+    searchEnabled :: Prelude.Maybe Prelude.Bool,
     -- | A value to use for the field if the field isn\'t specified for a
     -- document.
-    defaultValue :: Core.Maybe Core.Text
+    defaultValue :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DateOptions' with all optional fields omitted.
@@ -68,56 +69,56 @@ newDateOptions ::
   DateOptions
 newDateOptions =
   DateOptions'
-    { sortEnabled = Core.Nothing,
-      facetEnabled = Core.Nothing,
-      returnEnabled = Core.Nothing,
-      sourceField = Core.Nothing,
-      searchEnabled = Core.Nothing,
-      defaultValue = Core.Nothing
+    { sortEnabled = Prelude.Nothing,
+      facetEnabled = Prelude.Nothing,
+      returnEnabled = Prelude.Nothing,
+      sourceField = Prelude.Nothing,
+      searchEnabled = Prelude.Nothing,
+      defaultValue = Prelude.Nothing
     }
 
 -- | Whether the field can be used to sort the search results.
-dateOptions_sortEnabled :: Lens.Lens' DateOptions (Core.Maybe Core.Bool)
+dateOptions_sortEnabled :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Bool)
 dateOptions_sortEnabled = Lens.lens (\DateOptions' {sortEnabled} -> sortEnabled) (\s@DateOptions' {} a -> s {sortEnabled = a} :: DateOptions)
 
 -- | Whether facet information can be returned for the field.
-dateOptions_facetEnabled :: Lens.Lens' DateOptions (Core.Maybe Core.Bool)
+dateOptions_facetEnabled :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Bool)
 dateOptions_facetEnabled = Lens.lens (\DateOptions' {facetEnabled} -> facetEnabled) (\s@DateOptions' {} a -> s {facetEnabled = a} :: DateOptions)
 
 -- | Whether the contents of the field can be returned in the search results.
-dateOptions_returnEnabled :: Lens.Lens' DateOptions (Core.Maybe Core.Bool)
+dateOptions_returnEnabled :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Bool)
 dateOptions_returnEnabled = Lens.lens (\DateOptions' {returnEnabled} -> returnEnabled) (\s@DateOptions' {} a -> s {returnEnabled = a} :: DateOptions)
 
 -- | Undocumented member.
-dateOptions_sourceField :: Lens.Lens' DateOptions (Core.Maybe Core.Text)
+dateOptions_sourceField :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Text)
 dateOptions_sourceField = Lens.lens (\DateOptions' {sourceField} -> sourceField) (\s@DateOptions' {} a -> s {sourceField = a} :: DateOptions)
 
 -- | Whether the contents of the field are searchable.
-dateOptions_searchEnabled :: Lens.Lens' DateOptions (Core.Maybe Core.Bool)
+dateOptions_searchEnabled :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Bool)
 dateOptions_searchEnabled = Lens.lens (\DateOptions' {searchEnabled} -> searchEnabled) (\s@DateOptions' {} a -> s {searchEnabled = a} :: DateOptions)
 
 -- | A value to use for the field if the field isn\'t specified for a
 -- document.
-dateOptions_defaultValue :: Lens.Lens' DateOptions (Core.Maybe Core.Text)
+dateOptions_defaultValue :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Text)
 dateOptions_defaultValue = Lens.lens (\DateOptions' {defaultValue} -> defaultValue) (\s@DateOptions' {} a -> s {defaultValue = a} :: DateOptions)
 
 instance Core.FromXML DateOptions where
   parseXML x =
     DateOptions'
-      Core.<$> (x Core..@? "SortEnabled")
-      Core.<*> (x Core..@? "FacetEnabled")
-      Core.<*> (x Core..@? "ReturnEnabled")
-      Core.<*> (x Core..@? "SourceField")
-      Core.<*> (x Core..@? "SearchEnabled")
-      Core.<*> (x Core..@? "DefaultValue")
+      Prelude.<$> (x Core..@? "SortEnabled")
+      Prelude.<*> (x Core..@? "FacetEnabled")
+      Prelude.<*> (x Core..@? "ReturnEnabled")
+      Prelude.<*> (x Core..@? "SourceField")
+      Prelude.<*> (x Core..@? "SearchEnabled")
+      Prelude.<*> (x Core..@? "DefaultValue")
 
-instance Core.Hashable DateOptions
+instance Prelude.Hashable DateOptions
 
-instance Core.NFData DateOptions
+instance Prelude.NFData DateOptions
 
 instance Core.ToQuery DateOptions where
   toQuery DateOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "SortEnabled" Core.=: sortEnabled,
         "FacetEnabled" Core.=: facetEnabled,
         "ReturnEnabled" Core.=: returnEnabled,

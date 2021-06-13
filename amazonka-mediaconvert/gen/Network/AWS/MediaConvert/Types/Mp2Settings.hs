@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.Mp2Settings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
 -- to the value MP2.
@@ -30,13 +31,13 @@ data Mp2Settings = Mp2Settings'
   { -- | Set Channels to specify the number of channels in this output audio
     -- track. Choosing Mono in the console will give you 1 output channel;
     -- choosing Stereo will give you 2. In the API, valid values are 1 and 2.
-    channels :: Core.Maybe Core.Natural,
+    channels :: Prelude.Maybe Prelude.Natural,
     -- | Sample rate in hz.
-    sampleRate :: Core.Maybe Core.Natural,
+    sampleRate :: Prelude.Maybe Prelude.Natural,
     -- | Specify the average bitrate in bits per second.
-    bitrate :: Core.Maybe Core.Natural
+    bitrate :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Mp2Settings' with all optional fields omitted.
@@ -57,23 +58,23 @@ newMp2Settings ::
   Mp2Settings
 newMp2Settings =
   Mp2Settings'
-    { channels = Core.Nothing,
-      sampleRate = Core.Nothing,
-      bitrate = Core.Nothing
+    { channels = Prelude.Nothing,
+      sampleRate = Prelude.Nothing,
+      bitrate = Prelude.Nothing
     }
 
 -- | Set Channels to specify the number of channels in this output audio
 -- track. Choosing Mono in the console will give you 1 output channel;
 -- choosing Stereo will give you 2. In the API, valid values are 1 and 2.
-mp2Settings_channels :: Lens.Lens' Mp2Settings (Core.Maybe Core.Natural)
+mp2Settings_channels :: Lens.Lens' Mp2Settings (Prelude.Maybe Prelude.Natural)
 mp2Settings_channels = Lens.lens (\Mp2Settings' {channels} -> channels) (\s@Mp2Settings' {} a -> s {channels = a} :: Mp2Settings)
 
 -- | Sample rate in hz.
-mp2Settings_sampleRate :: Lens.Lens' Mp2Settings (Core.Maybe Core.Natural)
+mp2Settings_sampleRate :: Lens.Lens' Mp2Settings (Prelude.Maybe Prelude.Natural)
 mp2Settings_sampleRate = Lens.lens (\Mp2Settings' {sampleRate} -> sampleRate) (\s@Mp2Settings' {} a -> s {sampleRate = a} :: Mp2Settings)
 
 -- | Specify the average bitrate in bits per second.
-mp2Settings_bitrate :: Lens.Lens' Mp2Settings (Core.Maybe Core.Natural)
+mp2Settings_bitrate :: Lens.Lens' Mp2Settings (Prelude.Maybe Prelude.Natural)
 mp2Settings_bitrate = Lens.lens (\Mp2Settings' {bitrate} -> bitrate) (\s@Mp2Settings' {} a -> s {bitrate = a} :: Mp2Settings)
 
 instance Core.FromJSON Mp2Settings where
@@ -82,21 +83,21 @@ instance Core.FromJSON Mp2Settings where
       "Mp2Settings"
       ( \x ->
           Mp2Settings'
-            Core.<$> (x Core..:? "channels")
-            Core.<*> (x Core..:? "sampleRate")
-            Core.<*> (x Core..:? "bitrate")
+            Prelude.<$> (x Core..:? "channels")
+            Prelude.<*> (x Core..:? "sampleRate")
+            Prelude.<*> (x Core..:? "bitrate")
       )
 
-instance Core.Hashable Mp2Settings
+instance Prelude.Hashable Mp2Settings
 
-instance Core.NFData Mp2Settings
+instance Prelude.NFData Mp2Settings
 
 instance Core.ToJSON Mp2Settings where
   toJSON Mp2Settings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("channels" Core..=) Core.<$> channels,
-            ("sampleRate" Core..=) Core.<$> sampleRate,
-            ("bitrate" Core..=) Core.<$> bitrate
+      ( Prelude.catMaybes
+          [ ("channels" Core..=) Prelude.<$> channels,
+            ("sampleRate" Core..=) Prelude.<$> sampleRate,
+            ("bitrate" Core..=) Prelude.<$> bitrate
           ]
       )

@@ -22,6 +22,7 @@ module Network.AWS.ELB.Types.Listener where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a listener.
 --
@@ -46,20 +47,20 @@ data Listener = Listener'
     -- If there is another listener with the same @InstancePort@ whose
     -- @InstanceProtocol@ is HTTP or TCP, the listener\'s @InstanceProtocol@
     -- must be HTTP or TCP.
-    instanceProtocol :: Core.Maybe Core.Text,
+    instanceProtocol :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the server certificate.
-    sSLCertificateId :: Core.Maybe Core.Text,
+    sSLCertificateId :: Prelude.Maybe Prelude.Text,
     -- | The load balancer transport protocol to use for routing: HTTP, HTTPS,
     -- TCP, or SSL.
-    protocol :: Core.Text,
+    protocol :: Prelude.Text,
     -- | The port on which the load balancer is listening. On EC2-VPC, you can
     -- specify any port from the range 1-65535. On EC2-Classic, you can specify
     -- any port from the following list: 25, 80, 443, 465, 587, 1024-65535.
-    loadBalancerPort :: Core.Int,
+    loadBalancerPort :: Prelude.Int,
     -- | The port on which the instance is listening.
-    instancePort :: Core.Natural
+    instancePort :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Listener' with all optional fields omitted.
@@ -96,19 +97,19 @@ data Listener = Listener'
 -- 'instancePort', 'listener_instancePort' - The port on which the instance is listening.
 newListener ::
   -- | 'protocol'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'loadBalancerPort'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'instancePort'
-  Core.Natural ->
+  Prelude.Natural ->
   Listener
 newListener
   pProtocol_
   pLoadBalancerPort_
   pInstancePort_ =
     Listener'
-      { instanceProtocol = Core.Nothing,
-        sSLCertificateId = Core.Nothing,
+      { instanceProtocol = Prelude.Nothing,
+        sSLCertificateId = Prelude.Nothing,
         protocol = pProtocol_,
         loadBalancerPort = pLoadBalancerPort_,
         instancePort = pInstancePort_
@@ -128,44 +129,44 @@ newListener
 -- If there is another listener with the same @InstancePort@ whose
 -- @InstanceProtocol@ is HTTP or TCP, the listener\'s @InstanceProtocol@
 -- must be HTTP or TCP.
-listener_instanceProtocol :: Lens.Lens' Listener (Core.Maybe Core.Text)
+listener_instanceProtocol :: Lens.Lens' Listener (Prelude.Maybe Prelude.Text)
 listener_instanceProtocol = Lens.lens (\Listener' {instanceProtocol} -> instanceProtocol) (\s@Listener' {} a -> s {instanceProtocol = a} :: Listener)
 
 -- | The Amazon Resource Name (ARN) of the server certificate.
-listener_sSLCertificateId :: Lens.Lens' Listener (Core.Maybe Core.Text)
+listener_sSLCertificateId :: Lens.Lens' Listener (Prelude.Maybe Prelude.Text)
 listener_sSLCertificateId = Lens.lens (\Listener' {sSLCertificateId} -> sSLCertificateId) (\s@Listener' {} a -> s {sSLCertificateId = a} :: Listener)
 
 -- | The load balancer transport protocol to use for routing: HTTP, HTTPS,
 -- TCP, or SSL.
-listener_protocol :: Lens.Lens' Listener Core.Text
+listener_protocol :: Lens.Lens' Listener Prelude.Text
 listener_protocol = Lens.lens (\Listener' {protocol} -> protocol) (\s@Listener' {} a -> s {protocol = a} :: Listener)
 
 -- | The port on which the load balancer is listening. On EC2-VPC, you can
 -- specify any port from the range 1-65535. On EC2-Classic, you can specify
 -- any port from the following list: 25, 80, 443, 465, 587, 1024-65535.
-listener_loadBalancerPort :: Lens.Lens' Listener Core.Int
+listener_loadBalancerPort :: Lens.Lens' Listener Prelude.Int
 listener_loadBalancerPort = Lens.lens (\Listener' {loadBalancerPort} -> loadBalancerPort) (\s@Listener' {} a -> s {loadBalancerPort = a} :: Listener)
 
 -- | The port on which the instance is listening.
-listener_instancePort :: Lens.Lens' Listener Core.Natural
+listener_instancePort :: Lens.Lens' Listener Prelude.Natural
 listener_instancePort = Lens.lens (\Listener' {instancePort} -> instancePort) (\s@Listener' {} a -> s {instancePort = a} :: Listener)
 
 instance Core.FromXML Listener where
   parseXML x =
     Listener'
-      Core.<$> (x Core..@? "InstanceProtocol")
-      Core.<*> (x Core..@? "SSLCertificateId")
-      Core.<*> (x Core..@ "Protocol")
-      Core.<*> (x Core..@ "LoadBalancerPort")
-      Core.<*> (x Core..@ "InstancePort")
+      Prelude.<$> (x Core..@? "InstanceProtocol")
+      Prelude.<*> (x Core..@? "SSLCertificateId")
+      Prelude.<*> (x Core..@ "Protocol")
+      Prelude.<*> (x Core..@ "LoadBalancerPort")
+      Prelude.<*> (x Core..@ "InstancePort")
 
-instance Core.Hashable Listener
+instance Prelude.Hashable Listener
 
-instance Core.NFData Listener
+instance Prelude.NFData Listener
 
 instance Core.ToQuery Listener where
   toQuery Listener' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "InstanceProtocol" Core.=: instanceProtocol,
         "SSLCertificateId" Core.=: sSLCertificateId,
         "Protocol" Core.=: protocol,

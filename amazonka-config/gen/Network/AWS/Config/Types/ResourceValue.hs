@@ -22,6 +22,7 @@ module Network.AWS.Config.Types.ResourceValue where
 import Network.AWS.Config.Types.ResourceValueType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The dynamic value of the resource.
 --
@@ -30,7 +31,7 @@ data ResourceValue = ResourceValue'
   { -- | The value is a resource ID.
     value :: ResourceValueType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceValue' with all optional fields omitted.
@@ -56,13 +57,17 @@ instance Core.FromJSON ResourceValue where
   parseJSON =
     Core.withObject
       "ResourceValue"
-      (\x -> ResourceValue' Core.<$> (x Core..: "Value"))
+      ( \x ->
+          ResourceValue' Prelude.<$> (x Core..: "Value")
+      )
 
-instance Core.Hashable ResourceValue
+instance Prelude.Hashable ResourceValue
 
-instance Core.NFData ResourceValue
+instance Prelude.NFData ResourceValue
 
 instance Core.ToJSON ResourceValue where
   toJSON ResourceValue' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Value" Core..= value)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Value" Core..= value)]
+      )

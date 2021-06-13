@@ -69,6 +69,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -76,11 +77,11 @@ import Network.AWS.SWF.Types
 -- | /See:/ 'newUndeprecateWorkflowType' smart constructor.
 data UndeprecateWorkflowType = UndeprecateWorkflowType'
   { -- | The name of the domain of the deprecated workflow type.
-    domain :: Core.Text,
+    domain :: Prelude.Text,
     -- | The name of the domain of the deprecated workflow type.
     workflowType :: WorkflowType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UndeprecateWorkflowType' with all optional fields omitted.
@@ -95,7 +96,7 @@ data UndeprecateWorkflowType = UndeprecateWorkflowType'
 -- 'workflowType', 'undeprecateWorkflowType_workflowType' - The name of the domain of the deprecated workflow type.
 newUndeprecateWorkflowType ::
   -- | 'domain'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'workflowType'
   WorkflowType ->
   UndeprecateWorkflowType
@@ -106,7 +107,7 @@ newUndeprecateWorkflowType pDomain_ pWorkflowType_ =
     }
 
 -- | The name of the domain of the deprecated workflow type.
-undeprecateWorkflowType_domain :: Lens.Lens' UndeprecateWorkflowType Core.Text
+undeprecateWorkflowType_domain :: Lens.Lens' UndeprecateWorkflowType Prelude.Text
 undeprecateWorkflowType_domain = Lens.lens (\UndeprecateWorkflowType' {domain} -> domain) (\s@UndeprecateWorkflowType' {} a -> s {domain = a} :: UndeprecateWorkflowType)
 
 -- | The name of the domain of the deprecated workflow type.
@@ -122,43 +123,45 @@ instance Core.AWSRequest UndeprecateWorkflowType where
     Response.receiveNull
       UndeprecateWorkflowTypeResponse'
 
-instance Core.Hashable UndeprecateWorkflowType
+instance Prelude.Hashable UndeprecateWorkflowType
 
-instance Core.NFData UndeprecateWorkflowType
+instance Prelude.NFData UndeprecateWorkflowType
 
 instance Core.ToHeaders UndeprecateWorkflowType where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SimpleWorkflowService.UndeprecateWorkflowType" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UndeprecateWorkflowType where
   toJSON UndeprecateWorkflowType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("domain" Core..= domain),
-            Core.Just ("workflowType" Core..= workflowType)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("domain" Core..= domain),
+            Prelude.Just ("workflowType" Core..= workflowType)
           ]
       )
 
 instance Core.ToPath UndeprecateWorkflowType where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UndeprecateWorkflowType where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUndeprecateWorkflowTypeResponse' smart constructor.
 data UndeprecateWorkflowTypeResponse = UndeprecateWorkflowTypeResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UndeprecateWorkflowTypeResponse' with all optional fields omitted.
@@ -169,4 +172,6 @@ newUndeprecateWorkflowTypeResponse ::
 newUndeprecateWorkflowTypeResponse =
   UndeprecateWorkflowTypeResponse'
 
-instance Core.NFData UndeprecateWorkflowTypeResponse
+instance
+  Prelude.NFData
+    UndeprecateWorkflowTypeResponse

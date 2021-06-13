@@ -21,6 +21,7 @@ module Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies an Amazon Kinesis Firehose delivery stream as the streaming
 -- source. You provide the delivery stream\'s Amazon Resource Name (ARN)
@@ -30,13 +31,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newKinesisFirehoseInput' smart constructor.
 data KinesisFirehoseInput = KinesisFirehoseInput'
   { -- | ARN of the input delivery stream.
-    resourceARN :: Core.Text,
+    resourceARN :: Prelude.Text,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
     -- the stream on your behalf. You need to make sure that the role has the
     -- necessary permissions to access the stream.
-    roleARN :: Core.Text
+    roleARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KinesisFirehoseInput' with all optional fields omitted.
@@ -53,9 +54,9 @@ data KinesisFirehoseInput = KinesisFirehoseInput'
 -- necessary permissions to access the stream.
 newKinesisFirehoseInput ::
   -- | 'resourceARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleARN'
-  Core.Text ->
+  Prelude.Text ->
   KinesisFirehoseInput
 newKinesisFirehoseInput pResourceARN_ pRoleARN_ =
   KinesisFirehoseInput'
@@ -64,24 +65,24 @@ newKinesisFirehoseInput pResourceARN_ pRoleARN_ =
     }
 
 -- | ARN of the input delivery stream.
-kinesisFirehoseInput_resourceARN :: Lens.Lens' KinesisFirehoseInput Core.Text
+kinesisFirehoseInput_resourceARN :: Lens.Lens' KinesisFirehoseInput Prelude.Text
 kinesisFirehoseInput_resourceARN = Lens.lens (\KinesisFirehoseInput' {resourceARN} -> resourceARN) (\s@KinesisFirehoseInput' {} a -> s {resourceARN = a} :: KinesisFirehoseInput)
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
 -- the stream on your behalf. You need to make sure that the role has the
 -- necessary permissions to access the stream.
-kinesisFirehoseInput_roleARN :: Lens.Lens' KinesisFirehoseInput Core.Text
+kinesisFirehoseInput_roleARN :: Lens.Lens' KinesisFirehoseInput Prelude.Text
 kinesisFirehoseInput_roleARN = Lens.lens (\KinesisFirehoseInput' {roleARN} -> roleARN) (\s@KinesisFirehoseInput' {} a -> s {roleARN = a} :: KinesisFirehoseInput)
 
-instance Core.Hashable KinesisFirehoseInput
+instance Prelude.Hashable KinesisFirehoseInput
 
-instance Core.NFData KinesisFirehoseInput
+instance Prelude.NFData KinesisFirehoseInput
 
 instance Core.ToJSON KinesisFirehoseInput where
   toJSON KinesisFirehoseInput' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceARN" Core..= resourceARN),
-            Core.Just ("RoleARN" Core..= roleARN)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceARN" Core..= resourceARN),
+            Prelude.Just ("RoleARN" Core..= roleARN)
           ]
       )

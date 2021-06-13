@@ -45,6 +45,7 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,13 +54,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newListDevices' smart constructor.
 data ListDevices = ListDevices'
   { -- | The pagination token for the list request.
-    paginationToken :: Core.Maybe Core.Text,
+    paginationToken :: Prelude.Maybe Prelude.Text,
     -- | The limit of the device request.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The access tokens for the request to list devices.
-    accessToken :: Core.Sensitive Core.Text
+    accessToken :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDevices' with all optional fields omitted.
@@ -76,26 +77,26 @@ data ListDevices = ListDevices'
 -- 'accessToken', 'listDevices_accessToken' - The access tokens for the request to list devices.
 newListDevices ::
   -- | 'accessToken'
-  Core.Text ->
+  Prelude.Text ->
   ListDevices
 newListDevices pAccessToken_ =
   ListDevices'
-    { paginationToken = Core.Nothing,
-      limit = Core.Nothing,
+    { paginationToken = Prelude.Nothing,
+      limit = Prelude.Nothing,
       accessToken = Core._Sensitive Lens.# pAccessToken_
     }
 
 -- | The pagination token for the list request.
-listDevices_paginationToken :: Lens.Lens' ListDevices (Core.Maybe Core.Text)
+listDevices_paginationToken :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
 listDevices_paginationToken = Lens.lens (\ListDevices' {paginationToken} -> paginationToken) (\s@ListDevices' {} a -> s {paginationToken = a} :: ListDevices)
 
 -- | The limit of the device request.
-listDevices_limit :: Lens.Lens' ListDevices (Core.Maybe Core.Natural)
+listDevices_limit :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Natural)
 listDevices_limit = Lens.lens (\ListDevices' {limit} -> limit) (\s@ListDevices' {} a -> s {limit = a} :: ListDevices)
 
 -- | The access tokens for the request to list devices.
-listDevices_accessToken :: Lens.Lens' ListDevices Core.Text
-listDevices_accessToken = Lens.lens (\ListDevices' {accessToken} -> accessToken) (\s@ListDevices' {} a -> s {accessToken = a} :: ListDevices) Core.. Core._Sensitive
+listDevices_accessToken :: Lens.Lens' ListDevices Prelude.Text
+listDevices_accessToken = Lens.lens (\ListDevices' {accessToken} -> accessToken) (\s@ListDevices' {} a -> s {accessToken = a} :: ListDevices) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest ListDevices where
   type AWSResponse ListDevices = ListDevicesResponse
@@ -104,57 +105,59 @@ instance Core.AWSRequest ListDevices where
     Response.receiveJSON
       ( \s h x ->
           ListDevicesResponse'
-            Core.<$> (x Core..?> "Devices" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "PaginationToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Devices" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "PaginationToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListDevices
+instance Prelude.Hashable ListDevices
 
-instance Core.NFData ListDevices
+instance Prelude.NFData ListDevices
 
 instance Core.ToHeaders ListDevices where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.ListDevices" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListDevices where
   toJSON ListDevices' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("PaginationToken" Core..=)
-              Core.<$> paginationToken,
-            ("Limit" Core..=) Core.<$> limit,
-            Core.Just ("AccessToken" Core..= accessToken)
+              Prelude.<$> paginationToken,
+            ("Limit" Core..=) Prelude.<$> limit,
+            Prelude.Just ("AccessToken" Core..= accessToken)
           ]
       )
 
 instance Core.ToPath ListDevices where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListDevices where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response to list devices.
 --
 -- /See:/ 'newListDevicesResponse' smart constructor.
 data ListDevicesResponse = ListDevicesResponse'
   { -- | The devices returned in the list devices response.
-    devices :: Core.Maybe [DeviceType],
+    devices :: Prelude.Maybe [DeviceType],
     -- | The pagination token for the list device response.
-    paginationToken :: Core.Maybe Core.Text,
+    paginationToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDevicesResponse' with all optional fields omitted.
@@ -171,25 +174,25 @@ data ListDevicesResponse = ListDevicesResponse'
 -- 'httpStatus', 'listDevicesResponse_httpStatus' - The response's http status code.
 newListDevicesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListDevicesResponse
 newListDevicesResponse pHttpStatus_ =
   ListDevicesResponse'
-    { devices = Core.Nothing,
-      paginationToken = Core.Nothing,
+    { devices = Prelude.Nothing,
+      paginationToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The devices returned in the list devices response.
-listDevicesResponse_devices :: Lens.Lens' ListDevicesResponse (Core.Maybe [DeviceType])
-listDevicesResponse_devices = Lens.lens (\ListDevicesResponse' {devices} -> devices) (\s@ListDevicesResponse' {} a -> s {devices = a} :: ListDevicesResponse) Core.. Lens.mapping Lens._Coerce
+listDevicesResponse_devices :: Lens.Lens' ListDevicesResponse (Prelude.Maybe [DeviceType])
+listDevicesResponse_devices = Lens.lens (\ListDevicesResponse' {devices} -> devices) (\s@ListDevicesResponse' {} a -> s {devices = a} :: ListDevicesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token for the list device response.
-listDevicesResponse_paginationToken :: Lens.Lens' ListDevicesResponse (Core.Maybe Core.Text)
+listDevicesResponse_paginationToken :: Lens.Lens' ListDevicesResponse (Prelude.Maybe Prelude.Text)
 listDevicesResponse_paginationToken = Lens.lens (\ListDevicesResponse' {paginationToken} -> paginationToken) (\s@ListDevicesResponse' {} a -> s {paginationToken = a} :: ListDevicesResponse)
 
 -- | The response's http status code.
-listDevicesResponse_httpStatus :: Lens.Lens' ListDevicesResponse Core.Int
+listDevicesResponse_httpStatus :: Lens.Lens' ListDevicesResponse Prelude.Int
 listDevicesResponse_httpStatus = Lens.lens (\ListDevicesResponse' {httpStatus} -> httpStatus) (\s@ListDevicesResponse' {} a -> s {httpStatus = a} :: ListDevicesResponse)
 
-instance Core.NFData ListDevicesResponse
+instance Prelude.NFData ListDevicesResponse

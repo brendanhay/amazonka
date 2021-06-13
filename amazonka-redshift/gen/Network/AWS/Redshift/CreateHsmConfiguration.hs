@@ -56,6 +56,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -65,25 +66,25 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateHsmConfiguration' smart constructor.
 data CreateHsmConfiguration = CreateHsmConfiguration'
   { -- | A list of tag instances.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The identifier to be assigned to the new Amazon Redshift HSM
     -- configuration.
-    hsmConfigurationIdentifier :: Core.Text,
+    hsmConfigurationIdentifier :: Prelude.Text,
     -- | A text description of the HSM configuration to be created.
-    description :: Core.Text,
+    description :: Prelude.Text,
     -- | The IP address that the Amazon Redshift cluster must use to access the
     -- HSM.
-    hsmIpAddress :: Core.Text,
+    hsmIpAddress :: Prelude.Text,
     -- | The name of the partition in the HSM where the Amazon Redshift clusters
     -- will store their database encryption keys.
-    hsmPartitionName :: Core.Text,
+    hsmPartitionName :: Prelude.Text,
     -- | The password required to access the HSM partition.
-    hsmPartitionPassword :: Core.Text,
+    hsmPartitionPassword :: Prelude.Text,
     -- | The HSMs public certificate file. When using Cloud HSM, the file name is
     -- server.pem.
-    hsmServerPublicCertificate :: Core.Text
+    hsmServerPublicCertificate :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateHsmConfiguration' with all optional fields omitted.
@@ -112,17 +113,17 @@ data CreateHsmConfiguration = CreateHsmConfiguration'
 -- server.pem.
 newCreateHsmConfiguration ::
   -- | 'hsmConfigurationIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'description'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'hsmIpAddress'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'hsmPartitionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'hsmPartitionPassword'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'hsmServerPublicCertificate'
-  Core.Text ->
+  Prelude.Text ->
   CreateHsmConfiguration
 newCreateHsmConfiguration
   pHsmConfigurationIdentifier_
@@ -132,7 +133,7 @@ newCreateHsmConfiguration
   pHsmPartitionPassword_
   pHsmServerPublicCertificate_ =
     CreateHsmConfiguration'
-      { tags = Core.Nothing,
+      { tags = Prelude.Nothing,
         hsmConfigurationIdentifier =
           pHsmConfigurationIdentifier_,
         description = pDescription_,
@@ -144,35 +145,35 @@ newCreateHsmConfiguration
       }
 
 -- | A list of tag instances.
-createHsmConfiguration_tags :: Lens.Lens' CreateHsmConfiguration (Core.Maybe [Tag])
-createHsmConfiguration_tags = Lens.lens (\CreateHsmConfiguration' {tags} -> tags) (\s@CreateHsmConfiguration' {} a -> s {tags = a} :: CreateHsmConfiguration) Core.. Lens.mapping Lens._Coerce
+createHsmConfiguration_tags :: Lens.Lens' CreateHsmConfiguration (Prelude.Maybe [Tag])
+createHsmConfiguration_tags = Lens.lens (\CreateHsmConfiguration' {tags} -> tags) (\s@CreateHsmConfiguration' {} a -> s {tags = a} :: CreateHsmConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier to be assigned to the new Amazon Redshift HSM
 -- configuration.
-createHsmConfiguration_hsmConfigurationIdentifier :: Lens.Lens' CreateHsmConfiguration Core.Text
+createHsmConfiguration_hsmConfigurationIdentifier :: Lens.Lens' CreateHsmConfiguration Prelude.Text
 createHsmConfiguration_hsmConfigurationIdentifier = Lens.lens (\CreateHsmConfiguration' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@CreateHsmConfiguration' {} a -> s {hsmConfigurationIdentifier = a} :: CreateHsmConfiguration)
 
 -- | A text description of the HSM configuration to be created.
-createHsmConfiguration_description :: Lens.Lens' CreateHsmConfiguration Core.Text
+createHsmConfiguration_description :: Lens.Lens' CreateHsmConfiguration Prelude.Text
 createHsmConfiguration_description = Lens.lens (\CreateHsmConfiguration' {description} -> description) (\s@CreateHsmConfiguration' {} a -> s {description = a} :: CreateHsmConfiguration)
 
 -- | The IP address that the Amazon Redshift cluster must use to access the
 -- HSM.
-createHsmConfiguration_hsmIpAddress :: Lens.Lens' CreateHsmConfiguration Core.Text
+createHsmConfiguration_hsmIpAddress :: Lens.Lens' CreateHsmConfiguration Prelude.Text
 createHsmConfiguration_hsmIpAddress = Lens.lens (\CreateHsmConfiguration' {hsmIpAddress} -> hsmIpAddress) (\s@CreateHsmConfiguration' {} a -> s {hsmIpAddress = a} :: CreateHsmConfiguration)
 
 -- | The name of the partition in the HSM where the Amazon Redshift clusters
 -- will store their database encryption keys.
-createHsmConfiguration_hsmPartitionName :: Lens.Lens' CreateHsmConfiguration Core.Text
+createHsmConfiguration_hsmPartitionName :: Lens.Lens' CreateHsmConfiguration Prelude.Text
 createHsmConfiguration_hsmPartitionName = Lens.lens (\CreateHsmConfiguration' {hsmPartitionName} -> hsmPartitionName) (\s@CreateHsmConfiguration' {} a -> s {hsmPartitionName = a} :: CreateHsmConfiguration)
 
 -- | The password required to access the HSM partition.
-createHsmConfiguration_hsmPartitionPassword :: Lens.Lens' CreateHsmConfiguration Core.Text
+createHsmConfiguration_hsmPartitionPassword :: Lens.Lens' CreateHsmConfiguration Prelude.Text
 createHsmConfiguration_hsmPartitionPassword = Lens.lens (\CreateHsmConfiguration' {hsmPartitionPassword} -> hsmPartitionPassword) (\s@CreateHsmConfiguration' {} a -> s {hsmPartitionPassword = a} :: CreateHsmConfiguration)
 
 -- | The HSMs public certificate file. When using Cloud HSM, the file name is
 -- server.pem.
-createHsmConfiguration_hsmServerPublicCertificate :: Lens.Lens' CreateHsmConfiguration Core.Text
+createHsmConfiguration_hsmServerPublicCertificate :: Lens.Lens' CreateHsmConfiguration Prelude.Text
 createHsmConfiguration_hsmServerPublicCertificate = Lens.lens (\CreateHsmConfiguration' {hsmServerPublicCertificate} -> hsmServerPublicCertificate) (\s@CreateHsmConfiguration' {} a -> s {hsmServerPublicCertificate = a} :: CreateHsmConfiguration)
 
 instance Core.AWSRequest CreateHsmConfiguration where
@@ -185,28 +186,30 @@ instance Core.AWSRequest CreateHsmConfiguration where
       "CreateHsmConfigurationResult"
       ( \s h x ->
           CreateHsmConfigurationResponse'
-            Core.<$> (x Core..@? "HsmConfiguration")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "HsmConfiguration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateHsmConfiguration
+instance Prelude.Hashable CreateHsmConfiguration
 
-instance Core.NFData CreateHsmConfiguration
+instance Prelude.NFData CreateHsmConfiguration
 
 instance Core.ToHeaders CreateHsmConfiguration where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateHsmConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateHsmConfiguration where
   toQuery CreateHsmConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateHsmConfiguration" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("CreateHsmConfiguration" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "HsmConfigurationIdentifier"
           Core.=: hsmConfigurationIdentifier,
         "Description" Core.=: description,
@@ -219,11 +222,11 @@ instance Core.ToQuery CreateHsmConfiguration where
 
 -- | /See:/ 'newCreateHsmConfigurationResponse' smart constructor.
 data CreateHsmConfigurationResponse = CreateHsmConfigurationResponse'
-  { hsmConfiguration :: Core.Maybe HsmConfiguration,
+  { hsmConfiguration :: Prelude.Maybe HsmConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateHsmConfigurationResponse' with all optional fields omitted.
@@ -238,21 +241,23 @@ data CreateHsmConfigurationResponse = CreateHsmConfigurationResponse'
 -- 'httpStatus', 'createHsmConfigurationResponse_httpStatus' - The response's http status code.
 newCreateHsmConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateHsmConfigurationResponse
 newCreateHsmConfigurationResponse pHttpStatus_ =
   CreateHsmConfigurationResponse'
     { hsmConfiguration =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createHsmConfigurationResponse_hsmConfiguration :: Lens.Lens' CreateHsmConfigurationResponse (Core.Maybe HsmConfiguration)
+createHsmConfigurationResponse_hsmConfiguration :: Lens.Lens' CreateHsmConfigurationResponse (Prelude.Maybe HsmConfiguration)
 createHsmConfigurationResponse_hsmConfiguration = Lens.lens (\CreateHsmConfigurationResponse' {hsmConfiguration} -> hsmConfiguration) (\s@CreateHsmConfigurationResponse' {} a -> s {hsmConfiguration = a} :: CreateHsmConfigurationResponse)
 
 -- | The response's http status code.
-createHsmConfigurationResponse_httpStatus :: Lens.Lens' CreateHsmConfigurationResponse Core.Int
+createHsmConfigurationResponse_httpStatus :: Lens.Lens' CreateHsmConfigurationResponse Prelude.Int
 createHsmConfigurationResponse_httpStatus = Lens.lens (\CreateHsmConfigurationResponse' {httpStatus} -> httpStatus) (\s@CreateHsmConfigurationResponse' {} a -> s {httpStatus = a} :: CreateHsmConfigurationResponse)
 
-instance Core.NFData CreateHsmConfigurationResponse
+instance
+  Prelude.NFData
+    CreateHsmConfigurationResponse

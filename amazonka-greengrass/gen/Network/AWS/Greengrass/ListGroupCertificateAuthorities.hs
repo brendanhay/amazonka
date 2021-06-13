@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListGroupCertificateAuthorities' smart constructor.
 data ListGroupCertificateAuthorities = ListGroupCertificateAuthorities'
   { -- | The ID of the Greengrass group.
-    groupId :: Core.Text
+    groupId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListGroupCertificateAuthorities' with all optional fields omitted.
@@ -63,7 +64,7 @@ data ListGroupCertificateAuthorities = ListGroupCertificateAuthorities'
 -- 'groupId', 'listGroupCertificateAuthorities_groupId' - The ID of the Greengrass group.
 newListGroupCertificateAuthorities ::
   -- | 'groupId'
-  Core.Text ->
+  Prelude.Text ->
   ListGroupCertificateAuthorities
 newListGroupCertificateAuthorities pGroupId_ =
   ListGroupCertificateAuthorities'
@@ -72,7 +73,7 @@ newListGroupCertificateAuthorities pGroupId_ =
     }
 
 -- | The ID of the Greengrass group.
-listGroupCertificateAuthorities_groupId :: Lens.Lens' ListGroupCertificateAuthorities Core.Text
+listGroupCertificateAuthorities_groupId :: Lens.Lens' ListGroupCertificateAuthorities Prelude.Text
 listGroupCertificateAuthorities_groupId = Lens.lens (\ListGroupCertificateAuthorities' {groupId} -> groupId) (\s@ListGroupCertificateAuthorities' {} a -> s {groupId = a} :: ListGroupCertificateAuthorities)
 
 instance
@@ -87,49 +88,53 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListGroupCertificateAuthoritiesResponse'
-            Core.<$> ( x Core..?> "GroupCertificateAuthorities"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "GroupCertificateAuthorities"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ListGroupCertificateAuthorities
 
-instance Core.NFData ListGroupCertificateAuthorities
+instance
+  Prelude.NFData
+    ListGroupCertificateAuthorities
 
 instance
   Core.ToHeaders
     ListGroupCertificateAuthorities
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListGroupCertificateAuthorities where
   toPath ListGroupCertificateAuthorities' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/greengrass/groups/",
         Core.toBS groupId,
         "/certificateauthorities"
       ]
 
 instance Core.ToQuery ListGroupCertificateAuthorities where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListGroupCertificateAuthoritiesResponse' smart constructor.
 data ListGroupCertificateAuthoritiesResponse = ListGroupCertificateAuthoritiesResponse'
   { -- | A list of certificate authorities associated with the group.
-    groupCertificateAuthorities :: Core.Maybe [GroupCertificateAuthorityProperties],
+    groupCertificateAuthorities :: Prelude.Maybe [GroupCertificateAuthorityProperties],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListGroupCertificateAuthoritiesResponse' with all optional fields omitted.
@@ -144,24 +149,24 @@ data ListGroupCertificateAuthoritiesResponse = ListGroupCertificateAuthoritiesRe
 -- 'httpStatus', 'listGroupCertificateAuthoritiesResponse_httpStatus' - The response's http status code.
 newListGroupCertificateAuthoritiesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListGroupCertificateAuthoritiesResponse
 newListGroupCertificateAuthoritiesResponse
   pHttpStatus_ =
     ListGroupCertificateAuthoritiesResponse'
       { groupCertificateAuthorities =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A list of certificate authorities associated with the group.
-listGroupCertificateAuthoritiesResponse_groupCertificateAuthorities :: Lens.Lens' ListGroupCertificateAuthoritiesResponse (Core.Maybe [GroupCertificateAuthorityProperties])
-listGroupCertificateAuthoritiesResponse_groupCertificateAuthorities = Lens.lens (\ListGroupCertificateAuthoritiesResponse' {groupCertificateAuthorities} -> groupCertificateAuthorities) (\s@ListGroupCertificateAuthoritiesResponse' {} a -> s {groupCertificateAuthorities = a} :: ListGroupCertificateAuthoritiesResponse) Core.. Lens.mapping Lens._Coerce
+listGroupCertificateAuthoritiesResponse_groupCertificateAuthorities :: Lens.Lens' ListGroupCertificateAuthoritiesResponse (Prelude.Maybe [GroupCertificateAuthorityProperties])
+listGroupCertificateAuthoritiesResponse_groupCertificateAuthorities = Lens.lens (\ListGroupCertificateAuthoritiesResponse' {groupCertificateAuthorities} -> groupCertificateAuthorities) (\s@ListGroupCertificateAuthoritiesResponse' {} a -> s {groupCertificateAuthorities = a} :: ListGroupCertificateAuthoritiesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listGroupCertificateAuthoritiesResponse_httpStatus :: Lens.Lens' ListGroupCertificateAuthoritiesResponse Core.Int
+listGroupCertificateAuthoritiesResponse_httpStatus :: Lens.Lens' ListGroupCertificateAuthoritiesResponse Prelude.Int
 listGroupCertificateAuthoritiesResponse_httpStatus = Lens.lens (\ListGroupCertificateAuthoritiesResponse' {httpStatus} -> httpStatus) (\s@ListGroupCertificateAuthoritiesResponse' {} a -> s {httpStatus = a} :: ListGroupCertificateAuthoritiesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListGroupCertificateAuthoritiesResponse

@@ -65,6 +65,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,26 +75,26 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | TCP or UDP protocols: The range of ports the rule applies to. Required
     -- if specifying protocol 6 (TCP) or 17 (UDP).
-    portRange :: Core.Maybe PortRange,
+    portRange :: Prelude.Maybe PortRange,
     -- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying
     -- protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
-    icmpTypeCode :: Core.Maybe IcmpTypeCode,
+    icmpTypeCode :: Prelude.Maybe IcmpTypeCode,
     -- | The IPv6 network range to allow or deny, in CIDR notation (for example
     -- @2001:db8:1234:1a00::\/64@).
-    ipv6CidrBlock :: Core.Maybe Core.Text,
+    ipv6CidrBlock :: Prelude.Maybe Prelude.Text,
     -- | The IPv4 network range to allow or deny, in CIDR notation (for example
     -- @172.16.0.0\/24@). We modify the specified CIDR block to its canonical
     -- form; for example, if you specify @100.68.0.18\/18@, we modify it to
     -- @100.68.0.0\/18@.
-    cidrBlock :: Core.Maybe Core.Text,
+    cidrBlock :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether this is an egress rule (rule is applied to traffic
     -- leaving the subnet).
-    egress :: Core.Bool,
+    egress :: Prelude.Bool,
     -- | The ID of the network ACL.
-    networkAclId :: Core.Text,
+    networkAclId :: Prelude.Text,
     -- | The protocol number. A value of \"-1\" means all protocols. If you
     -- specify \"-1\" or a protocol number other than \"6\" (TCP), \"17\"
     -- (UDP), or \"1\" (ICMP), traffic on all ports is allowed, regardless of
@@ -102,7 +103,7 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry'
     -- ICMP types and codes allowed, regardless of any that you specify. If you
     -- specify protocol \"58\" (ICMPv6) and specify an IPv6 CIDR block, you
     -- must specify an ICMP type and code.
-    protocol :: Core.Text,
+    protocol :: Prelude.Text,
     -- | Indicates whether to allow or deny the traffic that matches the rule.
     ruleAction :: RuleAction,
     -- | The rule number for the entry (for example, 100). ACL entries are
@@ -110,9 +111,9 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry'
     --
     -- Constraints: Positive integer from 1 to 32766. The range 32767 to 65535
     -- is reserved for internal use.
-    ruleNumber :: Core.Int
+    ruleNumber :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateNetworkAclEntry' with all optional fields omitted.
@@ -164,15 +165,15 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry'
 -- is reserved for internal use.
 newCreateNetworkAclEntry ::
   -- | 'egress'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'networkAclId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'protocol'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'ruleAction'
   RuleAction ->
   -- | 'ruleNumber'
-  Core.Int ->
+  Prelude.Int ->
   CreateNetworkAclEntry
 newCreateNetworkAclEntry
   pEgress_
@@ -181,11 +182,11 @@ newCreateNetworkAclEntry
   pRuleAction_
   pRuleNumber_ =
     CreateNetworkAclEntry'
-      { dryRun = Core.Nothing,
-        portRange = Core.Nothing,
-        icmpTypeCode = Core.Nothing,
-        ipv6CidrBlock = Core.Nothing,
-        cidrBlock = Core.Nothing,
+      { dryRun = Prelude.Nothing,
+        portRange = Prelude.Nothing,
+        icmpTypeCode = Prelude.Nothing,
+        ipv6CidrBlock = Prelude.Nothing,
+        cidrBlock = Prelude.Nothing,
         egress = pEgress_,
         networkAclId = pNetworkAclId_,
         protocol = pProtocol_,
@@ -197,38 +198,38 @@ newCreateNetworkAclEntry
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createNetworkAclEntry_dryRun :: Lens.Lens' CreateNetworkAclEntry (Core.Maybe Core.Bool)
+createNetworkAclEntry_dryRun :: Lens.Lens' CreateNetworkAclEntry (Prelude.Maybe Prelude.Bool)
 createNetworkAclEntry_dryRun = Lens.lens (\CreateNetworkAclEntry' {dryRun} -> dryRun) (\s@CreateNetworkAclEntry' {} a -> s {dryRun = a} :: CreateNetworkAclEntry)
 
 -- | TCP or UDP protocols: The range of ports the rule applies to. Required
 -- if specifying protocol 6 (TCP) or 17 (UDP).
-createNetworkAclEntry_portRange :: Lens.Lens' CreateNetworkAclEntry (Core.Maybe PortRange)
+createNetworkAclEntry_portRange :: Lens.Lens' CreateNetworkAclEntry (Prelude.Maybe PortRange)
 createNetworkAclEntry_portRange = Lens.lens (\CreateNetworkAclEntry' {portRange} -> portRange) (\s@CreateNetworkAclEntry' {} a -> s {portRange = a} :: CreateNetworkAclEntry)
 
 -- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying
 -- protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
-createNetworkAclEntry_icmpTypeCode :: Lens.Lens' CreateNetworkAclEntry (Core.Maybe IcmpTypeCode)
+createNetworkAclEntry_icmpTypeCode :: Lens.Lens' CreateNetworkAclEntry (Prelude.Maybe IcmpTypeCode)
 createNetworkAclEntry_icmpTypeCode = Lens.lens (\CreateNetworkAclEntry' {icmpTypeCode} -> icmpTypeCode) (\s@CreateNetworkAclEntry' {} a -> s {icmpTypeCode = a} :: CreateNetworkAclEntry)
 
 -- | The IPv6 network range to allow or deny, in CIDR notation (for example
 -- @2001:db8:1234:1a00::\/64@).
-createNetworkAclEntry_ipv6CidrBlock :: Lens.Lens' CreateNetworkAclEntry (Core.Maybe Core.Text)
+createNetworkAclEntry_ipv6CidrBlock :: Lens.Lens' CreateNetworkAclEntry (Prelude.Maybe Prelude.Text)
 createNetworkAclEntry_ipv6CidrBlock = Lens.lens (\CreateNetworkAclEntry' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@CreateNetworkAclEntry' {} a -> s {ipv6CidrBlock = a} :: CreateNetworkAclEntry)
 
 -- | The IPv4 network range to allow or deny, in CIDR notation (for example
 -- @172.16.0.0\/24@). We modify the specified CIDR block to its canonical
 -- form; for example, if you specify @100.68.0.18\/18@, we modify it to
 -- @100.68.0.0\/18@.
-createNetworkAclEntry_cidrBlock :: Lens.Lens' CreateNetworkAclEntry (Core.Maybe Core.Text)
+createNetworkAclEntry_cidrBlock :: Lens.Lens' CreateNetworkAclEntry (Prelude.Maybe Prelude.Text)
 createNetworkAclEntry_cidrBlock = Lens.lens (\CreateNetworkAclEntry' {cidrBlock} -> cidrBlock) (\s@CreateNetworkAclEntry' {} a -> s {cidrBlock = a} :: CreateNetworkAclEntry)
 
 -- | Indicates whether this is an egress rule (rule is applied to traffic
 -- leaving the subnet).
-createNetworkAclEntry_egress :: Lens.Lens' CreateNetworkAclEntry Core.Bool
+createNetworkAclEntry_egress :: Lens.Lens' CreateNetworkAclEntry Prelude.Bool
 createNetworkAclEntry_egress = Lens.lens (\CreateNetworkAclEntry' {egress} -> egress) (\s@CreateNetworkAclEntry' {} a -> s {egress = a} :: CreateNetworkAclEntry)
 
 -- | The ID of the network ACL.
-createNetworkAclEntry_networkAclId :: Lens.Lens' CreateNetworkAclEntry Core.Text
+createNetworkAclEntry_networkAclId :: Lens.Lens' CreateNetworkAclEntry Prelude.Text
 createNetworkAclEntry_networkAclId = Lens.lens (\CreateNetworkAclEntry' {networkAclId} -> networkAclId) (\s@CreateNetworkAclEntry' {} a -> s {networkAclId = a} :: CreateNetworkAclEntry)
 
 -- | The protocol number. A value of \"-1\" means all protocols. If you
@@ -239,7 +240,7 @@ createNetworkAclEntry_networkAclId = Lens.lens (\CreateNetworkAclEntry' {network
 -- ICMP types and codes allowed, regardless of any that you specify. If you
 -- specify protocol \"58\" (ICMPv6) and specify an IPv6 CIDR block, you
 -- must specify an ICMP type and code.
-createNetworkAclEntry_protocol :: Lens.Lens' CreateNetworkAclEntry Core.Text
+createNetworkAclEntry_protocol :: Lens.Lens' CreateNetworkAclEntry Prelude.Text
 createNetworkAclEntry_protocol = Lens.lens (\CreateNetworkAclEntry' {protocol} -> protocol) (\s@CreateNetworkAclEntry' {} a -> s {protocol = a} :: CreateNetworkAclEntry)
 
 -- | Indicates whether to allow or deny the traffic that matches the rule.
@@ -251,7 +252,7 @@ createNetworkAclEntry_ruleAction = Lens.lens (\CreateNetworkAclEntry' {ruleActio
 --
 -- Constraints: Positive integer from 1 to 32766. The range 32767 to 65535
 -- is reserved for internal use.
-createNetworkAclEntry_ruleNumber :: Lens.Lens' CreateNetworkAclEntry Core.Int
+createNetworkAclEntry_ruleNumber :: Lens.Lens' CreateNetworkAclEntry Prelude.Int
 createNetworkAclEntry_ruleNumber = Lens.lens (\CreateNetworkAclEntry' {ruleNumber} -> ruleNumber) (\s@CreateNetworkAclEntry' {} a -> s {ruleNumber = a} :: CreateNetworkAclEntry)
 
 instance Core.AWSRequest CreateNetworkAclEntry where
@@ -262,22 +263,23 @@ instance Core.AWSRequest CreateNetworkAclEntry where
   response =
     Response.receiveNull CreateNetworkAclEntryResponse'
 
-instance Core.Hashable CreateNetworkAclEntry
+instance Prelude.Hashable CreateNetworkAclEntry
 
-instance Core.NFData CreateNetworkAclEntry
+instance Prelude.NFData CreateNetworkAclEntry
 
 instance Core.ToHeaders CreateNetworkAclEntry where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateNetworkAclEntry where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateNetworkAclEntry where
   toQuery CreateNetworkAclEntry' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateNetworkAclEntry" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("CreateNetworkAclEntry" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "PortRange" Core.=: portRange,
         "Icmp" Core.=: icmpTypeCode,
@@ -294,7 +296,7 @@ instance Core.ToQuery CreateNetworkAclEntry where
 data CreateNetworkAclEntryResponse = CreateNetworkAclEntryResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateNetworkAclEntryResponse' with all optional fields omitted.
@@ -305,4 +307,4 @@ newCreateNetworkAclEntryResponse ::
 newCreateNetworkAclEntryResponse =
   CreateNetworkAclEntryResponse'
 
-instance Core.NFData CreateNetworkAclEntryResponse
+instance Prelude.NFData CreateNetworkAclEntryResponse

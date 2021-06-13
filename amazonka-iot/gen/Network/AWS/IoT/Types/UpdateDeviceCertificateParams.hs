@@ -22,6 +22,7 @@ module Network.AWS.IoT.Types.UpdateDeviceCertificateParams where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.DeviceCertificateUpdateAction
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Parameters to define a mitigation action that changes the state of the
 -- device certificate to inactive.
@@ -32,7 +33,7 @@ data UpdateDeviceCertificateParams = UpdateDeviceCertificateParams'
     -- supported value is @DEACTIVATE@.
     action :: DeviceCertificateUpdateAction
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDeviceCertificateParams' with all optional fields omitted.
@@ -62,16 +63,18 @@ instance Core.FromJSON UpdateDeviceCertificateParams where
       "UpdateDeviceCertificateParams"
       ( \x ->
           UpdateDeviceCertificateParams'
-            Core.<$> (x Core..: "action")
+            Prelude.<$> (x Core..: "action")
       )
 
-instance Core.Hashable UpdateDeviceCertificateParams
+instance
+  Prelude.Hashable
+    UpdateDeviceCertificateParams
 
-instance Core.NFData UpdateDeviceCertificateParams
+instance Prelude.NFData UpdateDeviceCertificateParams
 
 instance Core.ToJSON UpdateDeviceCertificateParams where
   toJSON UpdateDeviceCertificateParams' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("action" Core..= action)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("action" Core..= action)]
       )

@@ -22,6 +22,7 @@ module Network.AWS.Lightsail.Types.DomainValidationRecord where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.ResourceRecord
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the domain validation records of an Amazon Lightsail SSL\/TLS
 -- certificate.
@@ -30,12 +31,12 @@ import Network.AWS.Lightsail.Types.ResourceRecord
 data DomainValidationRecord = DomainValidationRecord'
   { -- | An object that describes the DNS records to add to your domain\'s DNS to
     -- validate it for the certificate.
-    resourceRecord :: Core.Maybe ResourceRecord,
+    resourceRecord :: Prelude.Maybe ResourceRecord,
     -- | The domain name of the certificate validation record. For example,
     -- @example.com@ or @www.example.com@.
-    domainName :: Core.Maybe Core.Text
+    domainName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DomainValidationRecord' with all optional fields omitted.
@@ -55,18 +56,18 @@ newDomainValidationRecord ::
 newDomainValidationRecord =
   DomainValidationRecord'
     { resourceRecord =
-        Core.Nothing,
-      domainName = Core.Nothing
+        Prelude.Nothing,
+      domainName = Prelude.Nothing
     }
 
 -- | An object that describes the DNS records to add to your domain\'s DNS to
 -- validate it for the certificate.
-domainValidationRecord_resourceRecord :: Lens.Lens' DomainValidationRecord (Core.Maybe ResourceRecord)
+domainValidationRecord_resourceRecord :: Lens.Lens' DomainValidationRecord (Prelude.Maybe ResourceRecord)
 domainValidationRecord_resourceRecord = Lens.lens (\DomainValidationRecord' {resourceRecord} -> resourceRecord) (\s@DomainValidationRecord' {} a -> s {resourceRecord = a} :: DomainValidationRecord)
 
 -- | The domain name of the certificate validation record. For example,
 -- @example.com@ or @www.example.com@.
-domainValidationRecord_domainName :: Lens.Lens' DomainValidationRecord (Core.Maybe Core.Text)
+domainValidationRecord_domainName :: Lens.Lens' DomainValidationRecord (Prelude.Maybe Prelude.Text)
 domainValidationRecord_domainName = Lens.lens (\DomainValidationRecord' {domainName} -> domainName) (\s@DomainValidationRecord' {} a -> s {domainName = a} :: DomainValidationRecord)
 
 instance Core.FromJSON DomainValidationRecord where
@@ -75,10 +76,10 @@ instance Core.FromJSON DomainValidationRecord where
       "DomainValidationRecord"
       ( \x ->
           DomainValidationRecord'
-            Core.<$> (x Core..:? "resourceRecord")
-            Core.<*> (x Core..:? "domainName")
+            Prelude.<$> (x Core..:? "resourceRecord")
+            Prelude.<*> (x Core..:? "domainName")
       )
 
-instance Core.Hashable DomainValidationRecord
+instance Prelude.Hashable DomainValidationRecord
 
-instance Core.NFData DomainValidationRecord
+instance Prelude.NFData DomainValidationRecord

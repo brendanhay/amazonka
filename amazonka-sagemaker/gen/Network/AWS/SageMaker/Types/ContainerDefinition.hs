@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ContainerDefinition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ContainerMode
 import Network.AWS.SageMaker.Types.ImageConfig
 import Network.AWS.SageMaker.Types.MultiModelConfig
@@ -30,7 +31,7 @@ import Network.AWS.SageMaker.Types.MultiModelConfig
 -- /See:/ 'newContainerDefinition' smart constructor.
 data ContainerDefinition = ContainerDefinition'
   { -- | Specifies additional configuration for multi-model endpoints.
-    multiModelConfig :: Core.Maybe MultiModelConfig,
+    multiModelConfig :: Prelude.Maybe MultiModelConfig,
     -- | The S3 path where the model artifacts, which result from model training,
     -- are stored. This path must point to a single gzip compressed tar archive
     -- (.tar.gz suffix). The S3 path is required for Amazon SageMaker built-in
@@ -52,9 +53,9 @@ data ContainerDefinition = ContainerDefinition'
     -- If you use a built-in algorithm to create a model, Amazon SageMaker
     -- requires that you provide a S3 path to the model artifacts in
     -- @ModelDataUrl@.
-    modelDataUrl :: Core.Maybe Core.Text,
+    modelDataUrl :: Prelude.Maybe Prelude.Text,
     -- | Whether the container hosts a single model or multiple models.
-    mode :: Core.Maybe ContainerMode,
+    mode :: Prelude.Maybe ContainerMode,
     -- | This parameter is ignored for models that contain only a
     -- @PrimaryContainer@.
     --
@@ -69,20 +70,20 @@ data ContainerDefinition = ContainerDefinition'
     -- @ContainerHostName@ for any @ContainerDefinition@ that is part of an
     -- inference pipeline, you must specify a value for the @ContainerHostName@
     -- parameter of every @ContainerDefinition@ in that pipeline.
-    containerHostname :: Core.Maybe Core.Text,
+    containerHostname :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the model container is in Amazon ECR or a private
     -- Docker registry accessible from your Amazon Virtual Private Cloud (VPC).
     -- For information about storing containers in a private Docker registry,
     -- see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html Use a Private Docker Registry for Real-Time Inference Containers>
-    imageConfig :: Core.Maybe ImageConfig,
+    imageConfig :: Prelude.Maybe ImageConfig,
     -- | The environment variables to set in the Docker container. Each key and
     -- value in the @Environment@ string to string map can have length of up to
     -- 1024. We support up to 16 entries in the map.
-    environment :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name or Amazon Resource Name (ARN) of the model package to use to
     -- create the model.
-    modelPackageName :: Core.Maybe Core.Text,
+    modelPackageName :: Prelude.Maybe Prelude.Text,
     -- | The path where inference code is stored. This can be either in Amazon
     -- EC2 Container Registry or in a Docker registry that is accessible from
     -- the same VPC that you configure for your endpoint. If you are using your
@@ -92,9 +93,9 @@ data ContainerDefinition = ContainerDefinition'
     -- @registry\/repository[\@digest]@ image path formats. For more
     -- information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>
-    image :: Core.Maybe Core.Text
+    image :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ContainerDefinition' with all optional fields omitted.
@@ -172,18 +173,18 @@ newContainerDefinition ::
 newContainerDefinition =
   ContainerDefinition'
     { multiModelConfig =
-        Core.Nothing,
-      modelDataUrl = Core.Nothing,
-      mode = Core.Nothing,
-      containerHostname = Core.Nothing,
-      imageConfig = Core.Nothing,
-      environment = Core.Nothing,
-      modelPackageName = Core.Nothing,
-      image = Core.Nothing
+        Prelude.Nothing,
+      modelDataUrl = Prelude.Nothing,
+      mode = Prelude.Nothing,
+      containerHostname = Prelude.Nothing,
+      imageConfig = Prelude.Nothing,
+      environment = Prelude.Nothing,
+      modelPackageName = Prelude.Nothing,
+      image = Prelude.Nothing
     }
 
 -- | Specifies additional configuration for multi-model endpoints.
-containerDefinition_multiModelConfig :: Lens.Lens' ContainerDefinition (Core.Maybe MultiModelConfig)
+containerDefinition_multiModelConfig :: Lens.Lens' ContainerDefinition (Prelude.Maybe MultiModelConfig)
 containerDefinition_multiModelConfig = Lens.lens (\ContainerDefinition' {multiModelConfig} -> multiModelConfig) (\s@ContainerDefinition' {} a -> s {multiModelConfig = a} :: ContainerDefinition)
 
 -- | The S3 path where the model artifacts, which result from model training,
@@ -207,11 +208,11 @@ containerDefinition_multiModelConfig = Lens.lens (\ContainerDefinition' {multiMo
 -- If you use a built-in algorithm to create a model, Amazon SageMaker
 -- requires that you provide a S3 path to the model artifacts in
 -- @ModelDataUrl@.
-containerDefinition_modelDataUrl :: Lens.Lens' ContainerDefinition (Core.Maybe Core.Text)
+containerDefinition_modelDataUrl :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Text)
 containerDefinition_modelDataUrl = Lens.lens (\ContainerDefinition' {modelDataUrl} -> modelDataUrl) (\s@ContainerDefinition' {} a -> s {modelDataUrl = a} :: ContainerDefinition)
 
 -- | Whether the container hosts a single model or multiple models.
-containerDefinition_mode :: Lens.Lens' ContainerDefinition (Core.Maybe ContainerMode)
+containerDefinition_mode :: Lens.Lens' ContainerDefinition (Prelude.Maybe ContainerMode)
 containerDefinition_mode = Lens.lens (\ContainerDefinition' {mode} -> mode) (\s@ContainerDefinition' {} a -> s {mode = a} :: ContainerDefinition)
 
 -- | This parameter is ignored for models that contain only a
@@ -228,7 +229,7 @@ containerDefinition_mode = Lens.lens (\ContainerDefinition' {mode} -> mode) (\s@
 -- @ContainerHostName@ for any @ContainerDefinition@ that is part of an
 -- inference pipeline, you must specify a value for the @ContainerHostName@
 -- parameter of every @ContainerDefinition@ in that pipeline.
-containerDefinition_containerHostname :: Lens.Lens' ContainerDefinition (Core.Maybe Core.Text)
+containerDefinition_containerHostname :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Text)
 containerDefinition_containerHostname = Lens.lens (\ContainerDefinition' {containerHostname} -> containerHostname) (\s@ContainerDefinition' {} a -> s {containerHostname = a} :: ContainerDefinition)
 
 -- | Specifies whether the model container is in Amazon ECR or a private
@@ -236,18 +237,18 @@ containerDefinition_containerHostname = Lens.lens (\ContainerDefinition' {contai
 -- For information about storing containers in a private Docker registry,
 -- see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html Use a Private Docker Registry for Real-Time Inference Containers>
-containerDefinition_imageConfig :: Lens.Lens' ContainerDefinition (Core.Maybe ImageConfig)
+containerDefinition_imageConfig :: Lens.Lens' ContainerDefinition (Prelude.Maybe ImageConfig)
 containerDefinition_imageConfig = Lens.lens (\ContainerDefinition' {imageConfig} -> imageConfig) (\s@ContainerDefinition' {} a -> s {imageConfig = a} :: ContainerDefinition)
 
 -- | The environment variables to set in the Docker container. Each key and
 -- value in the @Environment@ string to string map can have length of up to
 -- 1024. We support up to 16 entries in the map.
-containerDefinition_environment :: Lens.Lens' ContainerDefinition (Core.Maybe (Core.HashMap Core.Text Core.Text))
-containerDefinition_environment = Lens.lens (\ContainerDefinition' {environment} -> environment) (\s@ContainerDefinition' {} a -> s {environment = a} :: ContainerDefinition) Core.. Lens.mapping Lens._Coerce
+containerDefinition_environment :: Lens.Lens' ContainerDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+containerDefinition_environment = Lens.lens (\ContainerDefinition' {environment} -> environment) (\s@ContainerDefinition' {} a -> s {environment = a} :: ContainerDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name or Amazon Resource Name (ARN) of the model package to use to
 -- create the model.
-containerDefinition_modelPackageName :: Lens.Lens' ContainerDefinition (Core.Maybe Core.Text)
+containerDefinition_modelPackageName :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Text)
 containerDefinition_modelPackageName = Lens.lens (\ContainerDefinition' {modelPackageName} -> modelPackageName) (\s@ContainerDefinition' {} a -> s {modelPackageName = a} :: ContainerDefinition)
 
 -- | The path where inference code is stored. This can be either in Amazon
@@ -259,7 +260,7 @@ containerDefinition_modelPackageName = Lens.lens (\ContainerDefinition' {modelPa
 -- @registry\/repository[\@digest]@ image path formats. For more
 -- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>
-containerDefinition_image :: Lens.Lens' ContainerDefinition (Core.Maybe Core.Text)
+containerDefinition_image :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Text)
 containerDefinition_image = Lens.lens (\ContainerDefinition' {image} -> image) (\s@ContainerDefinition' {} a -> s {image = a} :: ContainerDefinition)
 
 instance Core.FromJSON ContainerDefinition where
@@ -268,34 +269,34 @@ instance Core.FromJSON ContainerDefinition where
       "ContainerDefinition"
       ( \x ->
           ContainerDefinition'
-            Core.<$> (x Core..:? "MultiModelConfig")
-            Core.<*> (x Core..:? "ModelDataUrl")
-            Core.<*> (x Core..:? "Mode")
-            Core.<*> (x Core..:? "ContainerHostname")
-            Core.<*> (x Core..:? "ImageConfig")
-            Core.<*> (x Core..:? "Environment" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "ModelPackageName")
-            Core.<*> (x Core..:? "Image")
+            Prelude.<$> (x Core..:? "MultiModelConfig")
+            Prelude.<*> (x Core..:? "ModelDataUrl")
+            Prelude.<*> (x Core..:? "Mode")
+            Prelude.<*> (x Core..:? "ContainerHostname")
+            Prelude.<*> (x Core..:? "ImageConfig")
+            Prelude.<*> (x Core..:? "Environment" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ModelPackageName")
+            Prelude.<*> (x Core..:? "Image")
       )
 
-instance Core.Hashable ContainerDefinition
+instance Prelude.Hashable ContainerDefinition
 
-instance Core.NFData ContainerDefinition
+instance Prelude.NFData ContainerDefinition
 
 instance Core.ToJSON ContainerDefinition where
   toJSON ContainerDefinition' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("MultiModelConfig" Core..=)
-              Core.<$> multiModelConfig,
-            ("ModelDataUrl" Core..=) Core.<$> modelDataUrl,
-            ("Mode" Core..=) Core.<$> mode,
+              Prelude.<$> multiModelConfig,
+            ("ModelDataUrl" Core..=) Prelude.<$> modelDataUrl,
+            ("Mode" Core..=) Prelude.<$> mode,
             ("ContainerHostname" Core..=)
-              Core.<$> containerHostname,
-            ("ImageConfig" Core..=) Core.<$> imageConfig,
-            ("Environment" Core..=) Core.<$> environment,
+              Prelude.<$> containerHostname,
+            ("ImageConfig" Core..=) Prelude.<$> imageConfig,
+            ("Environment" Core..=) Prelude.<$> environment,
             ("ModelPackageName" Core..=)
-              Core.<$> modelPackageName,
-            ("Image" Core..=) Core.<$> image
+              Prelude.<$> modelPackageName,
+            ("Image" Core..=) Prelude.<$> image
           ]
       )

@@ -63,6 +63,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -70,9 +71,9 @@ import Network.AWS.SWF.Types
 -- | /See:/ 'newDescribeDomain' smart constructor.
 data DescribeDomain = DescribeDomain'
   { -- | The name of the domain to describe.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDomain' with all optional fields omitted.
@@ -85,13 +86,13 @@ data DescribeDomain = DescribeDomain'
 -- 'name', 'describeDomain_name' - The name of the domain to describe.
 newDescribeDomain ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DescribeDomain
 newDescribeDomain pName_ =
   DescribeDomain' {name = pName_}
 
 -- | The name of the domain to describe.
-describeDomain_name :: Lens.Lens' DescribeDomain Core.Text
+describeDomain_name :: Lens.Lens' DescribeDomain Prelude.Text
 describeDomain_name = Lens.lens (\DescribeDomain' {name} -> name) (\s@DescribeDomain' {} a -> s {name = a} :: DescribeDomain)
 
 instance Core.AWSRequest DescribeDomain where
@@ -103,45 +104,49 @@ instance Core.AWSRequest DescribeDomain where
     Response.receiveJSON
       ( \s h x ->
           DescribeDomainResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "domainInfo")
-            Core.<*> (x Core..:> "configuration")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "domainInfo")
+            Prelude.<*> (x Core..:> "configuration")
       )
 
-instance Core.Hashable DescribeDomain
+instance Prelude.Hashable DescribeDomain
 
-instance Core.NFData DescribeDomain
+instance Prelude.NFData DescribeDomain
 
 instance Core.ToHeaders DescribeDomain where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SimpleWorkflowService.DescribeDomain" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeDomain where
   toJSON DescribeDomain' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("name" Core..= name)]
+      )
 
 instance Core.ToPath DescribeDomain where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeDomain where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains details of a domain.
 --
 -- /See:/ 'newDescribeDomainResponse' smart constructor.
 data DescribeDomainResponse = DescribeDomainResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The basic information about a domain, such as its name, status, and
     -- description.
     domainInfo :: DomainInfo,
@@ -149,7 +154,7 @@ data DescribeDomainResponse = DescribeDomainResponse'
     -- retention period.
     configuration :: DomainConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDomainResponse' with all optional fields omitted.
@@ -168,7 +173,7 @@ data DescribeDomainResponse = DescribeDomainResponse'
 -- retention period.
 newDescribeDomainResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'domainInfo'
   DomainInfo ->
   -- | 'configuration'
@@ -185,7 +190,7 @@ newDescribeDomainResponse
       }
 
 -- | The response's http status code.
-describeDomainResponse_httpStatus :: Lens.Lens' DescribeDomainResponse Core.Int
+describeDomainResponse_httpStatus :: Lens.Lens' DescribeDomainResponse Prelude.Int
 describeDomainResponse_httpStatus = Lens.lens (\DescribeDomainResponse' {httpStatus} -> httpStatus) (\s@DescribeDomainResponse' {} a -> s {httpStatus = a} :: DescribeDomainResponse)
 
 -- | The basic information about a domain, such as its name, status, and
@@ -198,4 +203,4 @@ describeDomainResponse_domainInfo = Lens.lens (\DescribeDomainResponse' {domainI
 describeDomainResponse_configuration :: Lens.Lens' DescribeDomainResponse DomainConfiguration
 describeDomainResponse_configuration = Lens.lens (\DescribeDomainResponse' {configuration} -> configuration) (\s@DescribeDomainResponse' {} a -> s {configuration = a} :: DescribeDomainResponse)
 
-instance Core.NFData DescribeDomainResponse
+instance Prelude.NFData DescribeDomainResponse

@@ -38,6 +38,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,7 +48,7 @@ import qualified Network.AWS.Response as Response
 data DeleteRegistrationCode = DeleteRegistrationCode'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRegistrationCode' with all optional fields omitted.
@@ -66,30 +67,30 @@ instance Core.AWSRequest DeleteRegistrationCode where
     Response.receiveEmpty
       ( \s h x ->
           DeleteRegistrationCodeResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteRegistrationCode
+instance Prelude.Hashable DeleteRegistrationCode
 
-instance Core.NFData DeleteRegistrationCode
+instance Prelude.NFData DeleteRegistrationCode
 
 instance Core.ToHeaders DeleteRegistrationCode where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteRegistrationCode where
-  toPath = Core.const "/registrationcode"
+  toPath = Prelude.const "/registrationcode"
 
 instance Core.ToQuery DeleteRegistrationCode where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the DeleteRegistrationCode operation.
 --
 -- /See:/ 'newDeleteRegistrationCodeResponse' smart constructor.
 data DeleteRegistrationCodeResponse = DeleteRegistrationCodeResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRegistrationCodeResponse' with all optional fields omitted.
@@ -102,7 +103,7 @@ data DeleteRegistrationCodeResponse = DeleteRegistrationCodeResponse'
 -- 'httpStatus', 'deleteRegistrationCodeResponse_httpStatus' - The response's http status code.
 newDeleteRegistrationCodeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteRegistrationCodeResponse
 newDeleteRegistrationCodeResponse pHttpStatus_ =
   DeleteRegistrationCodeResponse'
@@ -111,7 +112,9 @@ newDeleteRegistrationCodeResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteRegistrationCodeResponse_httpStatus :: Lens.Lens' DeleteRegistrationCodeResponse Core.Int
+deleteRegistrationCodeResponse_httpStatus :: Lens.Lens' DeleteRegistrationCodeResponse Prelude.Int
 deleteRegistrationCodeResponse_httpStatus = Lens.lens (\DeleteRegistrationCodeResponse' {httpStatus} -> httpStatus) (\s@DeleteRegistrationCodeResponse' {} a -> s {httpStatus = a} :: DeleteRegistrationCodeResponse)
 
-instance Core.NFData DeleteRegistrationCodeResponse
+instance
+  Prelude.NFData
+    DeleteRegistrationCodeResponse

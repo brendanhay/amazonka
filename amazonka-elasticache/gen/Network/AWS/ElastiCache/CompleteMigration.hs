@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +52,11 @@ data CompleteMigration = CompleteMigration'
   { -- | Forces the migration to stop without ensuring that data is in sync. It
     -- is recommended to use this option only to abort the migration and not
     -- recommended when application wants to continue migration to ElastiCache.
-    force :: Core.Maybe Core.Bool,
+    force :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the replication group to which data is being migrated.
-    replicationGroupId :: Core.Text
+    replicationGroupId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CompleteMigration' with all optional fields omitted.
@@ -72,22 +73,22 @@ data CompleteMigration = CompleteMigration'
 -- 'replicationGroupId', 'completeMigration_replicationGroupId' - The ID of the replication group to which data is being migrated.
 newCompleteMigration ::
   -- | 'replicationGroupId'
-  Core.Text ->
+  Prelude.Text ->
   CompleteMigration
 newCompleteMigration pReplicationGroupId_ =
   CompleteMigration'
-    { force = Core.Nothing,
+    { force = Prelude.Nothing,
       replicationGroupId = pReplicationGroupId_
     }
 
 -- | Forces the migration to stop without ensuring that data is in sync. It
 -- is recommended to use this option only to abort the migration and not
 -- recommended when application wants to continue migration to ElastiCache.
-completeMigration_force :: Lens.Lens' CompleteMigration (Core.Maybe Core.Bool)
+completeMigration_force :: Lens.Lens' CompleteMigration (Prelude.Maybe Prelude.Bool)
 completeMigration_force = Lens.lens (\CompleteMigration' {force} -> force) (\s@CompleteMigration' {} a -> s {force = a} :: CompleteMigration)
 
 -- | The ID of the replication group to which data is being migrated.
-completeMigration_replicationGroupId :: Lens.Lens' CompleteMigration Core.Text
+completeMigration_replicationGroupId :: Lens.Lens' CompleteMigration Prelude.Text
 completeMigration_replicationGroupId = Lens.lens (\CompleteMigration' {replicationGroupId} -> replicationGroupId) (\s@CompleteMigration' {} a -> s {replicationGroupId = a} :: CompleteMigration)
 
 instance Core.AWSRequest CompleteMigration where
@@ -100,37 +101,38 @@ instance Core.AWSRequest CompleteMigration where
       "CompleteMigrationResult"
       ( \s h x ->
           CompleteMigrationResponse'
-            Core.<$> (x Core..@? "ReplicationGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ReplicationGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CompleteMigration
+instance Prelude.Hashable CompleteMigration
 
-instance Core.NFData CompleteMigration
+instance Prelude.NFData CompleteMigration
 
 instance Core.ToHeaders CompleteMigration where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CompleteMigration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CompleteMigration where
   toQuery CompleteMigration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CompleteMigration" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ("CompleteMigration" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "Force" Core.=: force,
         "ReplicationGroupId" Core.=: replicationGroupId
       ]
 
 -- | /See:/ 'newCompleteMigrationResponse' smart constructor.
 data CompleteMigrationResponse = CompleteMigrationResponse'
-  { replicationGroup :: Core.Maybe ReplicationGroup,
+  { replicationGroup :: Prelude.Maybe ReplicationGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CompleteMigrationResponse' with all optional fields omitted.
@@ -145,21 +147,21 @@ data CompleteMigrationResponse = CompleteMigrationResponse'
 -- 'httpStatus', 'completeMigrationResponse_httpStatus' - The response's http status code.
 newCompleteMigrationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CompleteMigrationResponse
 newCompleteMigrationResponse pHttpStatus_ =
   CompleteMigrationResponse'
     { replicationGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-completeMigrationResponse_replicationGroup :: Lens.Lens' CompleteMigrationResponse (Core.Maybe ReplicationGroup)
+completeMigrationResponse_replicationGroup :: Lens.Lens' CompleteMigrationResponse (Prelude.Maybe ReplicationGroup)
 completeMigrationResponse_replicationGroup = Lens.lens (\CompleteMigrationResponse' {replicationGroup} -> replicationGroup) (\s@CompleteMigrationResponse' {} a -> s {replicationGroup = a} :: CompleteMigrationResponse)
 
 -- | The response's http status code.
-completeMigrationResponse_httpStatus :: Lens.Lens' CompleteMigrationResponse Core.Int
+completeMigrationResponse_httpStatus :: Lens.Lens' CompleteMigrationResponse Prelude.Int
 completeMigrationResponse_httpStatus = Lens.lens (\CompleteMigrationResponse' {httpStatus} -> httpStatus) (\s@CompleteMigrationResponse' {} a -> s {httpStatus = a} :: CompleteMigrationResponse)
 
-instance Core.NFData CompleteMigrationResponse
+instance Prelude.NFData CompleteMigrationResponse

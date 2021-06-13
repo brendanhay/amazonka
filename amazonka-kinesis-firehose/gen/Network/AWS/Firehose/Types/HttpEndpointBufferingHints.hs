@@ -21,6 +21,7 @@ module Network.AWS.Firehose.Types.HttpEndpointBufferingHints where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the buffering options that can be applied before data is
 -- delivered to the HTTP endpoint destination. Kinesis Data Firehose treats
@@ -38,13 +39,13 @@ data HttpEndpointBufferingHints = HttpEndpointBufferingHints'
     -- of data you typically ingest into the delivery stream in 10 seconds. For
     -- example, if you typically ingest data at 1 MB\/sec, the value should be
     -- 10 MB or higher.
-    sizeInMBs :: Core.Maybe Core.Natural,
+    sizeInMBs :: Prelude.Maybe Prelude.Natural,
     -- | Buffer incoming data for the specified period of time, in seconds,
     -- before delivering it to the destination. The default value is 300 (5
     -- minutes).
-    intervalInSeconds :: Core.Maybe Core.Natural
+    intervalInSeconds :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HttpEndpointBufferingHints' with all optional fields omitted.
@@ -70,8 +71,8 @@ newHttpEndpointBufferingHints ::
 newHttpEndpointBufferingHints =
   HttpEndpointBufferingHints'
     { sizeInMBs =
-        Core.Nothing,
-      intervalInSeconds = Core.Nothing
+        Prelude.Nothing,
+      intervalInSeconds = Prelude.Nothing
     }
 
 -- | Buffer incoming data to the specified size, in MBs, before delivering it
@@ -81,13 +82,13 @@ newHttpEndpointBufferingHints =
 -- of data you typically ingest into the delivery stream in 10 seconds. For
 -- example, if you typically ingest data at 1 MB\/sec, the value should be
 -- 10 MB or higher.
-httpEndpointBufferingHints_sizeInMBs :: Lens.Lens' HttpEndpointBufferingHints (Core.Maybe Core.Natural)
+httpEndpointBufferingHints_sizeInMBs :: Lens.Lens' HttpEndpointBufferingHints (Prelude.Maybe Prelude.Natural)
 httpEndpointBufferingHints_sizeInMBs = Lens.lens (\HttpEndpointBufferingHints' {sizeInMBs} -> sizeInMBs) (\s@HttpEndpointBufferingHints' {} a -> s {sizeInMBs = a} :: HttpEndpointBufferingHints)
 
 -- | Buffer incoming data for the specified period of time, in seconds,
 -- before delivering it to the destination. The default value is 300 (5
 -- minutes).
-httpEndpointBufferingHints_intervalInSeconds :: Lens.Lens' HttpEndpointBufferingHints (Core.Maybe Core.Natural)
+httpEndpointBufferingHints_intervalInSeconds :: Lens.Lens' HttpEndpointBufferingHints (Prelude.Maybe Prelude.Natural)
 httpEndpointBufferingHints_intervalInSeconds = Lens.lens (\HttpEndpointBufferingHints' {intervalInSeconds} -> intervalInSeconds) (\s@HttpEndpointBufferingHints' {} a -> s {intervalInSeconds = a} :: HttpEndpointBufferingHints)
 
 instance Core.FromJSON HttpEndpointBufferingHints where
@@ -96,20 +97,20 @@ instance Core.FromJSON HttpEndpointBufferingHints where
       "HttpEndpointBufferingHints"
       ( \x ->
           HttpEndpointBufferingHints'
-            Core.<$> (x Core..:? "SizeInMBs")
-            Core.<*> (x Core..:? "IntervalInSeconds")
+            Prelude.<$> (x Core..:? "SizeInMBs")
+            Prelude.<*> (x Core..:? "IntervalInSeconds")
       )
 
-instance Core.Hashable HttpEndpointBufferingHints
+instance Prelude.Hashable HttpEndpointBufferingHints
 
-instance Core.NFData HttpEndpointBufferingHints
+instance Prelude.NFData HttpEndpointBufferingHints
 
 instance Core.ToJSON HttpEndpointBufferingHints where
   toJSON HttpEndpointBufferingHints' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SizeInMBs" Core..=) Core.<$> sizeInMBs,
+      ( Prelude.catMaybes
+          [ ("SizeInMBs" Core..=) Prelude.<$> sizeInMBs,
             ("IntervalInSeconds" Core..=)
-              Core.<$> intervalInSeconds
+              Prelude.<$> intervalInSeconds
           ]
       )

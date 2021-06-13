@@ -45,17 +45,18 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newBatchPutScheduledUpdateGroupAction' smart constructor.
 data BatchPutScheduledUpdateGroupAction = BatchPutScheduledUpdateGroupAction'
   { -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Core.Text,
+    autoScalingGroupName :: Prelude.Text,
     -- | One or more scheduled actions. The maximum number allowed is 50.
     scheduledUpdateGroupActions :: [ScheduledUpdateGroupActionRequest]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchPutScheduledUpdateGroupAction' with all optional fields omitted.
@@ -70,7 +71,7 @@ data BatchPutScheduledUpdateGroupAction = BatchPutScheduledUpdateGroupAction'
 -- 'scheduledUpdateGroupActions', 'batchPutScheduledUpdateGroupAction_scheduledUpdateGroupActions' - One or more scheduled actions. The maximum number allowed is 50.
 newBatchPutScheduledUpdateGroupAction ::
   -- | 'autoScalingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   BatchPutScheduledUpdateGroupAction
 newBatchPutScheduledUpdateGroupAction
   pAutoScalingGroupName_ =
@@ -78,16 +79,16 @@ newBatchPutScheduledUpdateGroupAction
       { autoScalingGroupName =
           pAutoScalingGroupName_,
         scheduledUpdateGroupActions =
-          Core.mempty
+          Prelude.mempty
       }
 
 -- | The name of the Auto Scaling group.
-batchPutScheduledUpdateGroupAction_autoScalingGroupName :: Lens.Lens' BatchPutScheduledUpdateGroupAction Core.Text
+batchPutScheduledUpdateGroupAction_autoScalingGroupName :: Lens.Lens' BatchPutScheduledUpdateGroupAction Prelude.Text
 batchPutScheduledUpdateGroupAction_autoScalingGroupName = Lens.lens (\BatchPutScheduledUpdateGroupAction' {autoScalingGroupName} -> autoScalingGroupName) (\s@BatchPutScheduledUpdateGroupAction' {} a -> s {autoScalingGroupName = a} :: BatchPutScheduledUpdateGroupAction)
 
 -- | One or more scheduled actions. The maximum number allowed is 50.
 batchPutScheduledUpdateGroupAction_scheduledUpdateGroupActions :: Lens.Lens' BatchPutScheduledUpdateGroupAction [ScheduledUpdateGroupActionRequest]
-batchPutScheduledUpdateGroupAction_scheduledUpdateGroupActions = Lens.lens (\BatchPutScheduledUpdateGroupAction' {scheduledUpdateGroupActions} -> scheduledUpdateGroupActions) (\s@BatchPutScheduledUpdateGroupAction' {} a -> s {scheduledUpdateGroupActions = a} :: BatchPutScheduledUpdateGroupAction) Core.. Lens._Coerce
+batchPutScheduledUpdateGroupAction_scheduledUpdateGroupActions = Lens.lens (\BatchPutScheduledUpdateGroupAction' {scheduledUpdateGroupActions} -> scheduledUpdateGroupActions) (\s@BatchPutScheduledUpdateGroupAction' {} a -> s {scheduledUpdateGroupActions = a} :: BatchPutScheduledUpdateGroupAction) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -102,44 +103,45 @@ instance
       "BatchPutScheduledUpdateGroupActionResult"
       ( \s h x ->
           BatchPutScheduledUpdateGroupActionResponse'
-            Core.<$> ( x Core..@? "FailedScheduledUpdateGroupActions"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "FailedScheduledUpdateGroupActions"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     BatchPutScheduledUpdateGroupAction
 
 instance
-  Core.NFData
+  Prelude.NFData
     BatchPutScheduledUpdateGroupAction
 
 instance
   Core.ToHeaders
     BatchPutScheduledUpdateGroupAction
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     BatchPutScheduledUpdateGroupAction
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     BatchPutScheduledUpdateGroupAction
   where
   toQuery BatchPutScheduledUpdateGroupAction' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "BatchPutScheduledUpdateGroupAction" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "AutoScalingGroupName" Core.=: autoScalingGroupName,
         "ScheduledUpdateGroupActions"
           Core.=: Core.toQueryList
@@ -151,11 +153,11 @@ instance
 data BatchPutScheduledUpdateGroupActionResponse = BatchPutScheduledUpdateGroupActionResponse'
   { -- | The names of the scheduled actions that could not be created or updated,
     -- including an error message.
-    failedScheduledUpdateGroupActions :: Core.Maybe [FailedScheduledUpdateGroupActionRequest],
+    failedScheduledUpdateGroupActions :: Prelude.Maybe [FailedScheduledUpdateGroupActionRequest],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchPutScheduledUpdateGroupActionResponse' with all optional fields omitted.
@@ -171,25 +173,25 @@ data BatchPutScheduledUpdateGroupActionResponse = BatchPutScheduledUpdateGroupAc
 -- 'httpStatus', 'batchPutScheduledUpdateGroupActionResponse_httpStatus' - The response's http status code.
 newBatchPutScheduledUpdateGroupActionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchPutScheduledUpdateGroupActionResponse
 newBatchPutScheduledUpdateGroupActionResponse
   pHttpStatus_ =
     BatchPutScheduledUpdateGroupActionResponse'
       { failedScheduledUpdateGroupActions =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The names of the scheduled actions that could not be created or updated,
 -- including an error message.
-batchPutScheduledUpdateGroupActionResponse_failedScheduledUpdateGroupActions :: Lens.Lens' BatchPutScheduledUpdateGroupActionResponse (Core.Maybe [FailedScheduledUpdateGroupActionRequest])
-batchPutScheduledUpdateGroupActionResponse_failedScheduledUpdateGroupActions = Lens.lens (\BatchPutScheduledUpdateGroupActionResponse' {failedScheduledUpdateGroupActions} -> failedScheduledUpdateGroupActions) (\s@BatchPutScheduledUpdateGroupActionResponse' {} a -> s {failedScheduledUpdateGroupActions = a} :: BatchPutScheduledUpdateGroupActionResponse) Core.. Lens.mapping Lens._Coerce
+batchPutScheduledUpdateGroupActionResponse_failedScheduledUpdateGroupActions :: Lens.Lens' BatchPutScheduledUpdateGroupActionResponse (Prelude.Maybe [FailedScheduledUpdateGroupActionRequest])
+batchPutScheduledUpdateGroupActionResponse_failedScheduledUpdateGroupActions = Lens.lens (\BatchPutScheduledUpdateGroupActionResponse' {failedScheduledUpdateGroupActions} -> failedScheduledUpdateGroupActions) (\s@BatchPutScheduledUpdateGroupActionResponse' {} a -> s {failedScheduledUpdateGroupActions = a} :: BatchPutScheduledUpdateGroupActionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchPutScheduledUpdateGroupActionResponse_httpStatus :: Lens.Lens' BatchPutScheduledUpdateGroupActionResponse Core.Int
+batchPutScheduledUpdateGroupActionResponse_httpStatus :: Lens.Lens' BatchPutScheduledUpdateGroupActionResponse Prelude.Int
 batchPutScheduledUpdateGroupActionResponse_httpStatus = Lens.lens (\BatchPutScheduledUpdateGroupActionResponse' {httpStatus} -> httpStatus) (\s@BatchPutScheduledUpdateGroupActionResponse' {} a -> s {httpStatus = a} :: BatchPutScheduledUpdateGroupActionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     BatchPutScheduledUpdateGroupActionResponse

@@ -49,15 +49,16 @@ where
 import Network.AWS.Athena.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newBatchGetQueryExecution' smart constructor.
 data BatchGetQueryExecution = BatchGetQueryExecution'
   { -- | An array of query execution IDs.
-    queryExecutionIds :: Core.NonEmpty Core.Text
+    queryExecutionIds :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetQueryExecution' with all optional fields omitted.
@@ -70,7 +71,7 @@ data BatchGetQueryExecution = BatchGetQueryExecution'
 -- 'queryExecutionIds', 'batchGetQueryExecution_queryExecutionIds' - An array of query execution IDs.
 newBatchGetQueryExecution ::
   -- | 'queryExecutionIds'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   BatchGetQueryExecution
 newBatchGetQueryExecution pQueryExecutionIds_ =
   BatchGetQueryExecution'
@@ -79,8 +80,8 @@ newBatchGetQueryExecution pQueryExecutionIds_ =
     }
 
 -- | An array of query execution IDs.
-batchGetQueryExecution_queryExecutionIds :: Lens.Lens' BatchGetQueryExecution (Core.NonEmpty Core.Text)
-batchGetQueryExecution_queryExecutionIds = Lens.lens (\BatchGetQueryExecution' {queryExecutionIds} -> queryExecutionIds) (\s@BatchGetQueryExecution' {} a -> s {queryExecutionIds = a} :: BatchGetQueryExecution) Core.. Lens._Coerce
+batchGetQueryExecution_queryExecutionIds :: Lens.Lens' BatchGetQueryExecution (Prelude.NonEmpty Prelude.Text)
+batchGetQueryExecution_queryExecutionIds = Lens.lens (\BatchGetQueryExecution' {queryExecutionIds} -> queryExecutionIds) (\s@BatchGetQueryExecution' {} a -> s {queryExecutionIds = a} :: BatchGetQueryExecution) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchGetQueryExecution where
   type
@@ -91,55 +92,59 @@ instance Core.AWSRequest BatchGetQueryExecution where
     Response.receiveJSON
       ( \s h x ->
           BatchGetQueryExecutionResponse'
-            Core.<$> (x Core..?> "QueryExecutions" Core..!@ Core.mempty)
-            Core.<*> ( x Core..?> "UnprocessedQueryExecutionIds"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "QueryExecutions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..?> "UnprocessedQueryExecutionIds"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchGetQueryExecution
+instance Prelude.Hashable BatchGetQueryExecution
 
-instance Core.NFData BatchGetQueryExecution
+instance Prelude.NFData BatchGetQueryExecution
 
 instance Core.ToHeaders BatchGetQueryExecution where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonAthena.BatchGetQueryExecution" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchGetQueryExecution where
   toJSON BatchGetQueryExecution' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("QueryExecutionIds" Core..= queryExecutionIds)
           ]
       )
 
 instance Core.ToPath BatchGetQueryExecution where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchGetQueryExecution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetQueryExecutionResponse' smart constructor.
 data BatchGetQueryExecutionResponse = BatchGetQueryExecutionResponse'
   { -- | Information about a query execution.
-    queryExecutions :: Core.Maybe [QueryExecution],
+    queryExecutions :: Prelude.Maybe [QueryExecution],
     -- | Information about the query executions that failed to run.
-    unprocessedQueryExecutionIds :: Core.Maybe [UnprocessedQueryExecutionId],
+    unprocessedQueryExecutionIds :: Prelude.Maybe [UnprocessedQueryExecutionId],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetQueryExecutionResponse' with all optional fields omitted.
@@ -156,26 +161,29 @@ data BatchGetQueryExecutionResponse = BatchGetQueryExecutionResponse'
 -- 'httpStatus', 'batchGetQueryExecutionResponse_httpStatus' - The response's http status code.
 newBatchGetQueryExecutionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchGetQueryExecutionResponse
 newBatchGetQueryExecutionResponse pHttpStatus_ =
   BatchGetQueryExecutionResponse'
     { queryExecutions =
-        Core.Nothing,
-      unprocessedQueryExecutionIds = Core.Nothing,
+        Prelude.Nothing,
+      unprocessedQueryExecutionIds =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about a query execution.
-batchGetQueryExecutionResponse_queryExecutions :: Lens.Lens' BatchGetQueryExecutionResponse (Core.Maybe [QueryExecution])
-batchGetQueryExecutionResponse_queryExecutions = Lens.lens (\BatchGetQueryExecutionResponse' {queryExecutions} -> queryExecutions) (\s@BatchGetQueryExecutionResponse' {} a -> s {queryExecutions = a} :: BatchGetQueryExecutionResponse) Core.. Lens.mapping Lens._Coerce
+batchGetQueryExecutionResponse_queryExecutions :: Lens.Lens' BatchGetQueryExecutionResponse (Prelude.Maybe [QueryExecution])
+batchGetQueryExecutionResponse_queryExecutions = Lens.lens (\BatchGetQueryExecutionResponse' {queryExecutions} -> queryExecutions) (\s@BatchGetQueryExecutionResponse' {} a -> s {queryExecutions = a} :: BatchGetQueryExecutionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the query executions that failed to run.
-batchGetQueryExecutionResponse_unprocessedQueryExecutionIds :: Lens.Lens' BatchGetQueryExecutionResponse (Core.Maybe [UnprocessedQueryExecutionId])
-batchGetQueryExecutionResponse_unprocessedQueryExecutionIds = Lens.lens (\BatchGetQueryExecutionResponse' {unprocessedQueryExecutionIds} -> unprocessedQueryExecutionIds) (\s@BatchGetQueryExecutionResponse' {} a -> s {unprocessedQueryExecutionIds = a} :: BatchGetQueryExecutionResponse) Core.. Lens.mapping Lens._Coerce
+batchGetQueryExecutionResponse_unprocessedQueryExecutionIds :: Lens.Lens' BatchGetQueryExecutionResponse (Prelude.Maybe [UnprocessedQueryExecutionId])
+batchGetQueryExecutionResponse_unprocessedQueryExecutionIds = Lens.lens (\BatchGetQueryExecutionResponse' {unprocessedQueryExecutionIds} -> unprocessedQueryExecutionIds) (\s@BatchGetQueryExecutionResponse' {} a -> s {unprocessedQueryExecutionIds = a} :: BatchGetQueryExecutionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchGetQueryExecutionResponse_httpStatus :: Lens.Lens' BatchGetQueryExecutionResponse Core.Int
+batchGetQueryExecutionResponse_httpStatus :: Lens.Lens' BatchGetQueryExecutionResponse Prelude.Int
 batchGetQueryExecutionResponse_httpStatus = Lens.lens (\BatchGetQueryExecutionResponse' {httpStatus} -> httpStatus) (\s@BatchGetQueryExecutionResponse' {} a -> s {httpStatus = a} :: BatchGetQueryExecutionResponse)
 
-instance Core.NFData BatchGetQueryExecutionResponse
+instance
+  Prelude.NFData
+    BatchGetQueryExecutionResponse

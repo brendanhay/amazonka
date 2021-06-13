@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.NoncurrentVersionExpiration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Specifies when noncurrent object versions expire. Upon expiration,
@@ -36,9 +37,9 @@ data NoncurrentVersionExpiration = NoncurrentVersionExpiration'
     -- days calculations, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations How Amazon S3 Calculates When an Object Became Noncurrent>
     -- in the /Amazon Simple Storage Service Developer Guide/.
-    noncurrentDays :: Core.Int
+    noncurrentDays :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NoncurrentVersionExpiration' with all optional fields omitted.
@@ -55,7 +56,7 @@ data NoncurrentVersionExpiration = NoncurrentVersionExpiration'
 -- in the /Amazon Simple Storage Service Developer Guide/.
 newNoncurrentVersionExpiration ::
   -- | 'noncurrentDays'
-  Core.Int ->
+  Prelude.Int ->
   NoncurrentVersionExpiration
 newNoncurrentVersionExpiration pNoncurrentDays_ =
   NoncurrentVersionExpiration'
@@ -68,19 +69,19 @@ newNoncurrentVersionExpiration pNoncurrentDays_ =
 -- days calculations, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations How Amazon S3 Calculates When an Object Became Noncurrent>
 -- in the /Amazon Simple Storage Service Developer Guide/.
-noncurrentVersionExpiration_noncurrentDays :: Lens.Lens' NoncurrentVersionExpiration Core.Int
+noncurrentVersionExpiration_noncurrentDays :: Lens.Lens' NoncurrentVersionExpiration Prelude.Int
 noncurrentVersionExpiration_noncurrentDays = Lens.lens (\NoncurrentVersionExpiration' {noncurrentDays} -> noncurrentDays) (\s@NoncurrentVersionExpiration' {} a -> s {noncurrentDays = a} :: NoncurrentVersionExpiration)
 
 instance Core.FromXML NoncurrentVersionExpiration where
   parseXML x =
     NoncurrentVersionExpiration'
-      Core.<$> (x Core..@ "NoncurrentDays")
+      Prelude.<$> (x Core..@ "NoncurrentDays")
 
-instance Core.Hashable NoncurrentVersionExpiration
+instance Prelude.Hashable NoncurrentVersionExpiration
 
-instance Core.NFData NoncurrentVersionExpiration
+instance Prelude.NFData NoncurrentVersionExpiration
 
 instance Core.ToXML NoncurrentVersionExpiration where
   toXML NoncurrentVersionExpiration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["NoncurrentDays" Core.@= noncurrentDays]

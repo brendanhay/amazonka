@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -52,9 +53,9 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newOptInPhoneNumber' smart constructor.
 data OptInPhoneNumber = OptInPhoneNumber'
   { -- | The phone number to opt in.
-    phoneNumber :: Core.Text
+    phoneNumber :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OptInPhoneNumber' with all optional fields omitted.
@@ -67,13 +68,13 @@ data OptInPhoneNumber = OptInPhoneNumber'
 -- 'phoneNumber', 'optInPhoneNumber_phoneNumber' - The phone number to opt in.
 newOptInPhoneNumber ::
   -- | 'phoneNumber'
-  Core.Text ->
+  Prelude.Text ->
   OptInPhoneNumber
 newOptInPhoneNumber pPhoneNumber_ =
   OptInPhoneNumber' {phoneNumber = pPhoneNumber_}
 
 -- | The phone number to opt in.
-optInPhoneNumber_phoneNumber :: Lens.Lens' OptInPhoneNumber Core.Text
+optInPhoneNumber_phoneNumber :: Lens.Lens' OptInPhoneNumber Prelude.Text
 optInPhoneNumber_phoneNumber = Lens.lens (\OptInPhoneNumber' {phoneNumber} -> phoneNumber) (\s@OptInPhoneNumber' {} a -> s {phoneNumber = a} :: OptInPhoneNumber)
 
 instance Core.AWSRequest OptInPhoneNumber where
@@ -86,25 +87,26 @@ instance Core.AWSRequest OptInPhoneNumber where
       "OptInPhoneNumberResult"
       ( \s h x ->
           OptInPhoneNumberResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable OptInPhoneNumber
+instance Prelude.Hashable OptInPhoneNumber
 
-instance Core.NFData OptInPhoneNumber
+instance Prelude.NFData OptInPhoneNumber
 
 instance Core.ToHeaders OptInPhoneNumber where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath OptInPhoneNumber where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery OptInPhoneNumber where
   toQuery OptInPhoneNumber' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("OptInPhoneNumber" :: Core.ByteString),
-        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+          Core.=: ("OptInPhoneNumber" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
         "phoneNumber" Core.=: phoneNumber
       ]
 
@@ -113,9 +115,9 @@ instance Core.ToQuery OptInPhoneNumber where
 -- /See:/ 'newOptInPhoneNumberResponse' smart constructor.
 data OptInPhoneNumberResponse = OptInPhoneNumberResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OptInPhoneNumberResponse' with all optional fields omitted.
@@ -128,7 +130,7 @@ data OptInPhoneNumberResponse = OptInPhoneNumberResponse'
 -- 'httpStatus', 'optInPhoneNumberResponse_httpStatus' - The response's http status code.
 newOptInPhoneNumberResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   OptInPhoneNumberResponse
 newOptInPhoneNumberResponse pHttpStatus_ =
   OptInPhoneNumberResponse'
@@ -137,7 +139,7 @@ newOptInPhoneNumberResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-optInPhoneNumberResponse_httpStatus :: Lens.Lens' OptInPhoneNumberResponse Core.Int
+optInPhoneNumberResponse_httpStatus :: Lens.Lens' OptInPhoneNumberResponse Prelude.Int
 optInPhoneNumberResponse_httpStatus = Lens.lens (\OptInPhoneNumberResponse' {httpStatus} -> httpStatus) (\s@OptInPhoneNumberResponse' {} a -> s {httpStatus = a} :: OptInPhoneNumberResponse)
 
-instance Core.NFData OptInPhoneNumberResponse
+instance Prelude.NFData OptInPhoneNumberResponse

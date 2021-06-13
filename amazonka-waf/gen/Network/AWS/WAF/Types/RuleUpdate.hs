@@ -21,6 +21,7 @@ module Network.AWS.WAF.Types.RuleUpdate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.ChangeAction
 import Network.AWS.WAF.Types.Predicate
 
@@ -45,7 +46,7 @@ data RuleUpdate = RuleUpdate'
     -- @Rule@.
     predicate :: Predicate
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RuleUpdate' with all optional fields omitted.
@@ -82,15 +83,15 @@ ruleUpdate_action = Lens.lens (\RuleUpdate' {action} -> action) (\s@RuleUpdate' 
 ruleUpdate_predicate :: Lens.Lens' RuleUpdate Predicate
 ruleUpdate_predicate = Lens.lens (\RuleUpdate' {predicate} -> predicate) (\s@RuleUpdate' {} a -> s {predicate = a} :: RuleUpdate)
 
-instance Core.Hashable RuleUpdate
+instance Prelude.Hashable RuleUpdate
 
-instance Core.NFData RuleUpdate
+instance Prelude.NFData RuleUpdate
 
 instance Core.ToJSON RuleUpdate where
   toJSON RuleUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Action" Core..= action),
-            Core.Just ("Predicate" Core..= predicate)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Action" Core..= action),
+            Prelude.Just ("Predicate" Core..= predicate)
           ]
       )

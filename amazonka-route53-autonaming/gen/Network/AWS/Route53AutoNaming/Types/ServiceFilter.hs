@@ -21,6 +21,7 @@ module Network.AWS.Route53AutoNaming.Types.ServiceFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53AutoNaming.Types.FilterCondition
 import Network.AWS.Route53AutoNaming.Types.ServiceFilterName
 
@@ -41,14 +42,14 @@ data ServiceFilter = ServiceFilter'
     --     for.
     --
     -- -   @BETWEEN@: Not applicable.
-    condition :: Core.Maybe FilterCondition,
+    condition :: Prelude.Maybe FilterCondition,
     -- | Specify @NAMESPACE_ID@.
     name :: ServiceFilterName,
     -- | The values that are applicable to the value that you specify for
     -- @Condition@ to filter the list of services.
-    values :: [Core.Text]
+    values :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServiceFilter' with all optional fields omitted.
@@ -81,9 +82,9 @@ newServiceFilter ::
   ServiceFilter
 newServiceFilter pName_ =
   ServiceFilter'
-    { condition = Core.Nothing,
+    { condition = Prelude.Nothing,
       name = pName_,
-      values = Core.mempty
+      values = Prelude.mempty
     }
 
 -- | The operator that you want to use to determine whether a service is
@@ -98,7 +99,7 @@ newServiceFilter pName_ =
 --     for.
 --
 -- -   @BETWEEN@: Not applicable.
-serviceFilter_condition :: Lens.Lens' ServiceFilter (Core.Maybe FilterCondition)
+serviceFilter_condition :: Lens.Lens' ServiceFilter (Prelude.Maybe FilterCondition)
 serviceFilter_condition = Lens.lens (\ServiceFilter' {condition} -> condition) (\s@ServiceFilter' {} a -> s {condition = a} :: ServiceFilter)
 
 -- | Specify @NAMESPACE_ID@.
@@ -107,19 +108,19 @@ serviceFilter_name = Lens.lens (\ServiceFilter' {name} -> name) (\s@ServiceFilte
 
 -- | The values that are applicable to the value that you specify for
 -- @Condition@ to filter the list of services.
-serviceFilter_values :: Lens.Lens' ServiceFilter [Core.Text]
-serviceFilter_values = Lens.lens (\ServiceFilter' {values} -> values) (\s@ServiceFilter' {} a -> s {values = a} :: ServiceFilter) Core.. Lens._Coerce
+serviceFilter_values :: Lens.Lens' ServiceFilter [Prelude.Text]
+serviceFilter_values = Lens.lens (\ServiceFilter' {values} -> values) (\s@ServiceFilter' {} a -> s {values = a} :: ServiceFilter) Prelude.. Lens._Coerce
 
-instance Core.Hashable ServiceFilter
+instance Prelude.Hashable ServiceFilter
 
-instance Core.NFData ServiceFilter
+instance Prelude.NFData ServiceFilter
 
 instance Core.ToJSON ServiceFilter where
   toJSON ServiceFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Condition" Core..=) Core.<$> condition,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("Values" Core..= values)
+      ( Prelude.catMaybes
+          [ ("Condition" Core..=) Prelude.<$> condition,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Values" Core..= values)
           ]
       )

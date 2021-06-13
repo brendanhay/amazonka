@@ -39,6 +39,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,11 +48,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteResource' smart constructor.
 data DeleteResource = DeleteResource'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The identifier of the Resource resource.
-    resourceId :: Core.Text
+    resourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteResource' with all optional fields omitted.
@@ -66,9 +67,9 @@ data DeleteResource = DeleteResource'
 -- 'resourceId', 'deleteResource_resourceId' - [Required] The identifier of the Resource resource.
 newDeleteResource ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteResource
 newDeleteResource pRestApiId_ pResourceId_ =
   DeleteResource'
@@ -77,11 +78,11 @@ newDeleteResource pRestApiId_ pResourceId_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-deleteResource_restApiId :: Lens.Lens' DeleteResource Core.Text
+deleteResource_restApiId :: Lens.Lens' DeleteResource Prelude.Text
 deleteResource_restApiId = Lens.lens (\DeleteResource' {restApiId} -> restApiId) (\s@DeleteResource' {} a -> s {restApiId = a} :: DeleteResource)
 
 -- | [Required] The identifier of the Resource resource.
-deleteResource_resourceId :: Lens.Lens' DeleteResource Core.Text
+deleteResource_resourceId :: Lens.Lens' DeleteResource Prelude.Text
 deleteResource_resourceId = Lens.lens (\DeleteResource' {resourceId} -> resourceId) (\s@DeleteResource' {} a -> s {resourceId = a} :: DeleteResource)
 
 instance Core.AWSRequest DeleteResource where
@@ -92,22 +93,22 @@ instance Core.AWSRequest DeleteResource where
   response =
     Response.receiveNull DeleteResourceResponse'
 
-instance Core.Hashable DeleteResource
+instance Prelude.Hashable DeleteResource
 
-instance Core.NFData DeleteResource
+instance Prelude.NFData DeleteResource
 
 instance Core.ToHeaders DeleteResource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath DeleteResource where
   toPath DeleteResource' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/resources/",
@@ -115,13 +116,13 @@ instance Core.ToPath DeleteResource where
       ]
 
 instance Core.ToQuery DeleteResource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResourceResponse' smart constructor.
 data DeleteResourceResponse = DeleteResourceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteResourceResponse' with all optional fields omitted.
@@ -131,4 +132,4 @@ newDeleteResourceResponse ::
   DeleteResourceResponse
 newDeleteResourceResponse = DeleteResourceResponse'
 
-instance Core.NFData DeleteResourceResponse
+instance Prelude.NFData DeleteResourceResponse

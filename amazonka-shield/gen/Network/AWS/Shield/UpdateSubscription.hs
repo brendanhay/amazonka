@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -53,9 +54,9 @@ data UpdateSubscription = UpdateSubscription'
     -- submitting an @UpdateSubscription@ request. If the @UpdateSubscription@
     -- request does not included a value for @AutoRenew@, the existing value
     -- for @AutoRenew@ remains unchanged.
-    autoRenew :: Core.Maybe AutoRenew
+    autoRenew :: Prelude.Maybe AutoRenew
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSubscription' with all optional fields omitted.
@@ -74,7 +75,7 @@ data UpdateSubscription = UpdateSubscription'
 newUpdateSubscription ::
   UpdateSubscription
 newUpdateSubscription =
-  UpdateSubscription' {autoRenew = Core.Nothing}
+  UpdateSubscription' {autoRenew = Prelude.Nothing}
 
 -- | When you initally create a subscription, @AutoRenew@ is set to
 -- @ENABLED@. If @ENABLED@, the subscription will be automatically renewed
@@ -82,7 +83,7 @@ newUpdateSubscription =
 -- submitting an @UpdateSubscription@ request. If the @UpdateSubscription@
 -- request does not included a value for @AutoRenew@, the existing value
 -- for @AutoRenew@ remains unchanged.
-updateSubscription_autoRenew :: Lens.Lens' UpdateSubscription (Core.Maybe AutoRenew)
+updateSubscription_autoRenew :: Lens.Lens' UpdateSubscription (Prelude.Maybe AutoRenew)
 updateSubscription_autoRenew = Lens.lens (\UpdateSubscription' {autoRenew} -> autoRenew) (\s@UpdateSubscription' {} a -> s {autoRenew = a} :: UpdateSubscription)
 
 instance Core.AWSRequest UpdateSubscription where
@@ -94,45 +95,47 @@ instance Core.AWSRequest UpdateSubscription where
     Response.receiveEmpty
       ( \s h x ->
           UpdateSubscriptionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateSubscription
+instance Prelude.Hashable UpdateSubscription
 
-instance Core.NFData UpdateSubscription
+instance Prelude.NFData UpdateSubscription
 
 instance Core.ToHeaders UpdateSubscription where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSShield_20160616.UpdateSubscription" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateSubscription where
   toJSON UpdateSubscription' {..} =
     Core.object
-      ( Core.catMaybes
-          [("AutoRenew" Core..=) Core.<$> autoRenew]
+      ( Prelude.catMaybes
+          [("AutoRenew" Core..=) Prelude.<$> autoRenew]
       )
 
 instance Core.ToPath UpdateSubscription where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateSubscription where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSubscriptionResponse' smart constructor.
 data UpdateSubscriptionResponse = UpdateSubscriptionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSubscriptionResponse' with all optional fields omitted.
@@ -145,7 +148,7 @@ data UpdateSubscriptionResponse = UpdateSubscriptionResponse'
 -- 'httpStatus', 'updateSubscriptionResponse_httpStatus' - The response's http status code.
 newUpdateSubscriptionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateSubscriptionResponse
 newUpdateSubscriptionResponse pHttpStatus_ =
   UpdateSubscriptionResponse'
@@ -154,7 +157,7 @@ newUpdateSubscriptionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateSubscriptionResponse_httpStatus :: Lens.Lens' UpdateSubscriptionResponse Core.Int
+updateSubscriptionResponse_httpStatus :: Lens.Lens' UpdateSubscriptionResponse Prelude.Int
 updateSubscriptionResponse_httpStatus = Lens.lens (\UpdateSubscriptionResponse' {httpStatus} -> httpStatus) (\s@UpdateSubscriptionResponse' {} a -> s {httpStatus = a} :: UpdateSubscriptionResponse)
 
-instance Core.NFData UpdateSubscriptionResponse
+instance Prelude.NFData UpdateSubscriptionResponse

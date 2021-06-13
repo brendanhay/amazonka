@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -51,11 +52,11 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newUpdateManagedInstanceRole' smart constructor.
 data UpdateManagedInstanceRole = UpdateManagedInstanceRole'
   { -- | The ID of the managed instance where you want to update the role.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The IAM role you want to assign or change.
-    iamRole :: Core.Text
+    iamRole :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateManagedInstanceRole' with all optional fields omitted.
@@ -70,9 +71,9 @@ data UpdateManagedInstanceRole = UpdateManagedInstanceRole'
 -- 'iamRole', 'updateManagedInstanceRole_iamRole' - The IAM role you want to assign or change.
 newUpdateManagedInstanceRole ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'iamRole'
-  Core.Text ->
+  Prelude.Text ->
   UpdateManagedInstanceRole
 newUpdateManagedInstanceRole pInstanceId_ pIamRole_ =
   UpdateManagedInstanceRole'
@@ -82,11 +83,11 @@ newUpdateManagedInstanceRole pInstanceId_ pIamRole_ =
     }
 
 -- | The ID of the managed instance where you want to update the role.
-updateManagedInstanceRole_instanceId :: Lens.Lens' UpdateManagedInstanceRole Core.Text
+updateManagedInstanceRole_instanceId :: Lens.Lens' UpdateManagedInstanceRole Prelude.Text
 updateManagedInstanceRole_instanceId = Lens.lens (\UpdateManagedInstanceRole' {instanceId} -> instanceId) (\s@UpdateManagedInstanceRole' {} a -> s {instanceId = a} :: UpdateManagedInstanceRole)
 
 -- | The IAM role you want to assign or change.
-updateManagedInstanceRole_iamRole :: Lens.Lens' UpdateManagedInstanceRole Core.Text
+updateManagedInstanceRole_iamRole :: Lens.Lens' UpdateManagedInstanceRole Prelude.Text
 updateManagedInstanceRole_iamRole = Lens.lens (\UpdateManagedInstanceRole' {iamRole} -> iamRole) (\s@UpdateManagedInstanceRole' {} a -> s {iamRole = a} :: UpdateManagedInstanceRole)
 
 instance Core.AWSRequest UpdateManagedInstanceRole where
@@ -98,47 +99,49 @@ instance Core.AWSRequest UpdateManagedInstanceRole where
     Response.receiveEmpty
       ( \s h x ->
           UpdateManagedInstanceRoleResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateManagedInstanceRole
+instance Prelude.Hashable UpdateManagedInstanceRole
 
-instance Core.NFData UpdateManagedInstanceRole
+instance Prelude.NFData UpdateManagedInstanceRole
 
 instance Core.ToHeaders UpdateManagedInstanceRole where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonSSM.UpdateManagedInstanceRole" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateManagedInstanceRole where
   toJSON UpdateManagedInstanceRole' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("InstanceId" Core..= instanceId),
-            Core.Just ("IamRole" Core..= iamRole)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("InstanceId" Core..= instanceId),
+            Prelude.Just ("IamRole" Core..= iamRole)
           ]
       )
 
 instance Core.ToPath UpdateManagedInstanceRole where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateManagedInstanceRole where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateManagedInstanceRoleResponse' smart constructor.
 data UpdateManagedInstanceRoleResponse = UpdateManagedInstanceRoleResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateManagedInstanceRoleResponse' with all optional fields omitted.
@@ -151,7 +154,7 @@ data UpdateManagedInstanceRoleResponse = UpdateManagedInstanceRoleResponse'
 -- 'httpStatus', 'updateManagedInstanceRoleResponse_httpStatus' - The response's http status code.
 newUpdateManagedInstanceRoleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateManagedInstanceRoleResponse
 newUpdateManagedInstanceRoleResponse pHttpStatus_ =
   UpdateManagedInstanceRoleResponse'
@@ -160,9 +163,9 @@ newUpdateManagedInstanceRoleResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateManagedInstanceRoleResponse_httpStatus :: Lens.Lens' UpdateManagedInstanceRoleResponse Core.Int
+updateManagedInstanceRoleResponse_httpStatus :: Lens.Lens' UpdateManagedInstanceRoleResponse Prelude.Int
 updateManagedInstanceRoleResponse_httpStatus = Lens.lens (\UpdateManagedInstanceRoleResponse' {httpStatus} -> httpStatus) (\s@UpdateManagedInstanceRoleResponse' {} a -> s {httpStatus = a} :: UpdateManagedInstanceRoleResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateManagedInstanceRoleResponse

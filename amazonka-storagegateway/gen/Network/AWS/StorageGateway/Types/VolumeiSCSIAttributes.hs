@@ -21,23 +21,24 @@ module Network.AWS.StorageGateway.Types.VolumeiSCSIAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Lists iSCSI information about a volume.
 --
 -- /See:/ 'newVolumeiSCSIAttributes' smart constructor.
 data VolumeiSCSIAttributes = VolumeiSCSIAttributes'
   { -- | Indicates whether mutual CHAP is enabled for the iSCSI target.
-    chapEnabled :: Core.Maybe Core.Bool,
+    chapEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The logical disk number.
-    lunNumber :: Core.Maybe Core.Natural,
+    lunNumber :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the volume target.
-    targetARN :: Core.Maybe Core.Text,
+    targetARN :: Prelude.Maybe Prelude.Text,
     -- | The network interface identifier.
-    networkInterfaceId :: Core.Maybe Core.Text,
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The port used to communicate with iSCSI targets.
-    networkInterfacePort :: Core.Maybe Core.Int
+    networkInterfacePort :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VolumeiSCSIAttributes' with all optional fields omitted.
@@ -60,31 +61,32 @@ newVolumeiSCSIAttributes ::
   VolumeiSCSIAttributes
 newVolumeiSCSIAttributes =
   VolumeiSCSIAttributes'
-    { chapEnabled = Core.Nothing,
-      lunNumber = Core.Nothing,
-      targetARN = Core.Nothing,
-      networkInterfaceId = Core.Nothing,
-      networkInterfacePort = Core.Nothing
+    { chapEnabled =
+        Prelude.Nothing,
+      lunNumber = Prelude.Nothing,
+      targetARN = Prelude.Nothing,
+      networkInterfaceId = Prelude.Nothing,
+      networkInterfacePort = Prelude.Nothing
     }
 
 -- | Indicates whether mutual CHAP is enabled for the iSCSI target.
-volumeiSCSIAttributes_chapEnabled :: Lens.Lens' VolumeiSCSIAttributes (Core.Maybe Core.Bool)
+volumeiSCSIAttributes_chapEnabled :: Lens.Lens' VolumeiSCSIAttributes (Prelude.Maybe Prelude.Bool)
 volumeiSCSIAttributes_chapEnabled = Lens.lens (\VolumeiSCSIAttributes' {chapEnabled} -> chapEnabled) (\s@VolumeiSCSIAttributes' {} a -> s {chapEnabled = a} :: VolumeiSCSIAttributes)
 
 -- | The logical disk number.
-volumeiSCSIAttributes_lunNumber :: Lens.Lens' VolumeiSCSIAttributes (Core.Maybe Core.Natural)
+volumeiSCSIAttributes_lunNumber :: Lens.Lens' VolumeiSCSIAttributes (Prelude.Maybe Prelude.Natural)
 volumeiSCSIAttributes_lunNumber = Lens.lens (\VolumeiSCSIAttributes' {lunNumber} -> lunNumber) (\s@VolumeiSCSIAttributes' {} a -> s {lunNumber = a} :: VolumeiSCSIAttributes)
 
 -- | The Amazon Resource Name (ARN) of the volume target.
-volumeiSCSIAttributes_targetARN :: Lens.Lens' VolumeiSCSIAttributes (Core.Maybe Core.Text)
+volumeiSCSIAttributes_targetARN :: Lens.Lens' VolumeiSCSIAttributes (Prelude.Maybe Prelude.Text)
 volumeiSCSIAttributes_targetARN = Lens.lens (\VolumeiSCSIAttributes' {targetARN} -> targetARN) (\s@VolumeiSCSIAttributes' {} a -> s {targetARN = a} :: VolumeiSCSIAttributes)
 
 -- | The network interface identifier.
-volumeiSCSIAttributes_networkInterfaceId :: Lens.Lens' VolumeiSCSIAttributes (Core.Maybe Core.Text)
+volumeiSCSIAttributes_networkInterfaceId :: Lens.Lens' VolumeiSCSIAttributes (Prelude.Maybe Prelude.Text)
 volumeiSCSIAttributes_networkInterfaceId = Lens.lens (\VolumeiSCSIAttributes' {networkInterfaceId} -> networkInterfaceId) (\s@VolumeiSCSIAttributes' {} a -> s {networkInterfaceId = a} :: VolumeiSCSIAttributes)
 
 -- | The port used to communicate with iSCSI targets.
-volumeiSCSIAttributes_networkInterfacePort :: Lens.Lens' VolumeiSCSIAttributes (Core.Maybe Core.Int)
+volumeiSCSIAttributes_networkInterfacePort :: Lens.Lens' VolumeiSCSIAttributes (Prelude.Maybe Prelude.Int)
 volumeiSCSIAttributes_networkInterfacePort = Lens.lens (\VolumeiSCSIAttributes' {networkInterfacePort} -> networkInterfacePort) (\s@VolumeiSCSIAttributes' {} a -> s {networkInterfacePort = a} :: VolumeiSCSIAttributes)
 
 instance Core.FromJSON VolumeiSCSIAttributes where
@@ -93,13 +95,13 @@ instance Core.FromJSON VolumeiSCSIAttributes where
       "VolumeiSCSIAttributes"
       ( \x ->
           VolumeiSCSIAttributes'
-            Core.<$> (x Core..:? "ChapEnabled")
-            Core.<*> (x Core..:? "LunNumber")
-            Core.<*> (x Core..:? "TargetARN")
-            Core.<*> (x Core..:? "NetworkInterfaceId")
-            Core.<*> (x Core..:? "NetworkInterfacePort")
+            Prelude.<$> (x Core..:? "ChapEnabled")
+            Prelude.<*> (x Core..:? "LunNumber")
+            Prelude.<*> (x Core..:? "TargetARN")
+            Prelude.<*> (x Core..:? "NetworkInterfaceId")
+            Prelude.<*> (x Core..:? "NetworkInterfacePort")
       )
 
-instance Core.Hashable VolumeiSCSIAttributes
+instance Prelude.Hashable VolumeiSCSIAttributes
 
-instance Core.NFData VolumeiSCSIAttributes
+instance Prelude.NFData VolumeiSCSIAttributes

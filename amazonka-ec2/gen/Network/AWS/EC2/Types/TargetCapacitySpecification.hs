@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.DefaultTargetCapacityType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The number of units to request. You can choose to set the target
 -- capacity in terms of instances or a performance characteristic that is
@@ -46,20 +47,20 @@ import qualified Network.AWS.Lens as Lens
 data TargetCapacitySpecification = TargetCapacitySpecification'
   { -- | The number of units to request, filled using
     -- @DefaultTargetCapacityType@.
-    totalTargetCapacity :: Core.Maybe Core.Int,
+    totalTargetCapacity :: Prelude.Maybe Prelude.Int,
     -- | The default @TotalTargetCapacity@, which is either @Spot@ or
     -- @On-Demand@.
-    defaultTargetCapacityType :: Core.Maybe DefaultTargetCapacityType,
+    defaultTargetCapacityType :: Prelude.Maybe DefaultTargetCapacityType,
     -- | The number of On-Demand units to request. If you specify a target
     -- capacity for Spot units, you cannot specify a target capacity for
     -- On-Demand units.
-    onDemandTargetCapacity :: Core.Maybe Core.Int,
+    onDemandTargetCapacity :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of Spot units to launch. If you specify a target
     -- capacity for On-Demand units, you cannot specify a target capacity for
     -- Spot units.
-    spotTargetCapacity :: Core.Maybe Core.Int
+    spotTargetCapacity :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TargetCapacitySpecification' with all optional fields omitted.
@@ -87,42 +88,42 @@ newTargetCapacitySpecification ::
 newTargetCapacitySpecification =
   TargetCapacitySpecification'
     { totalTargetCapacity =
-        Core.Nothing,
-      defaultTargetCapacityType = Core.Nothing,
-      onDemandTargetCapacity = Core.Nothing,
-      spotTargetCapacity = Core.Nothing
+        Prelude.Nothing,
+      defaultTargetCapacityType = Prelude.Nothing,
+      onDemandTargetCapacity = Prelude.Nothing,
+      spotTargetCapacity = Prelude.Nothing
     }
 
 -- | The number of units to request, filled using
 -- @DefaultTargetCapacityType@.
-targetCapacitySpecification_totalTargetCapacity :: Lens.Lens' TargetCapacitySpecification (Core.Maybe Core.Int)
+targetCapacitySpecification_totalTargetCapacity :: Lens.Lens' TargetCapacitySpecification (Prelude.Maybe Prelude.Int)
 targetCapacitySpecification_totalTargetCapacity = Lens.lens (\TargetCapacitySpecification' {totalTargetCapacity} -> totalTargetCapacity) (\s@TargetCapacitySpecification' {} a -> s {totalTargetCapacity = a} :: TargetCapacitySpecification)
 
 -- | The default @TotalTargetCapacity@, which is either @Spot@ or
 -- @On-Demand@.
-targetCapacitySpecification_defaultTargetCapacityType :: Lens.Lens' TargetCapacitySpecification (Core.Maybe DefaultTargetCapacityType)
+targetCapacitySpecification_defaultTargetCapacityType :: Lens.Lens' TargetCapacitySpecification (Prelude.Maybe DefaultTargetCapacityType)
 targetCapacitySpecification_defaultTargetCapacityType = Lens.lens (\TargetCapacitySpecification' {defaultTargetCapacityType} -> defaultTargetCapacityType) (\s@TargetCapacitySpecification' {} a -> s {defaultTargetCapacityType = a} :: TargetCapacitySpecification)
 
 -- | The number of On-Demand units to request. If you specify a target
 -- capacity for Spot units, you cannot specify a target capacity for
 -- On-Demand units.
-targetCapacitySpecification_onDemandTargetCapacity :: Lens.Lens' TargetCapacitySpecification (Core.Maybe Core.Int)
+targetCapacitySpecification_onDemandTargetCapacity :: Lens.Lens' TargetCapacitySpecification (Prelude.Maybe Prelude.Int)
 targetCapacitySpecification_onDemandTargetCapacity = Lens.lens (\TargetCapacitySpecification' {onDemandTargetCapacity} -> onDemandTargetCapacity) (\s@TargetCapacitySpecification' {} a -> s {onDemandTargetCapacity = a} :: TargetCapacitySpecification)
 
 -- | The maximum number of Spot units to launch. If you specify a target
 -- capacity for On-Demand units, you cannot specify a target capacity for
 -- Spot units.
-targetCapacitySpecification_spotTargetCapacity :: Lens.Lens' TargetCapacitySpecification (Core.Maybe Core.Int)
+targetCapacitySpecification_spotTargetCapacity :: Lens.Lens' TargetCapacitySpecification (Prelude.Maybe Prelude.Int)
 targetCapacitySpecification_spotTargetCapacity = Lens.lens (\TargetCapacitySpecification' {spotTargetCapacity} -> spotTargetCapacity) (\s@TargetCapacitySpecification' {} a -> s {spotTargetCapacity = a} :: TargetCapacitySpecification)
 
 instance Core.FromXML TargetCapacitySpecification where
   parseXML x =
     TargetCapacitySpecification'
-      Core.<$> (x Core..@? "totalTargetCapacity")
-      Core.<*> (x Core..@? "defaultTargetCapacityType")
-      Core.<*> (x Core..@? "onDemandTargetCapacity")
-      Core.<*> (x Core..@? "spotTargetCapacity")
+      Prelude.<$> (x Core..@? "totalTargetCapacity")
+      Prelude.<*> (x Core..@? "defaultTargetCapacityType")
+      Prelude.<*> (x Core..@? "onDemandTargetCapacity")
+      Prelude.<*> (x Core..@? "spotTargetCapacity")
 
-instance Core.Hashable TargetCapacitySpecification
+instance Prelude.Hashable TargetCapacitySpecification
 
-instance Core.NFData TargetCapacitySpecification
+instance Prelude.NFData TargetCapacitySpecification

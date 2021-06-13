@@ -22,6 +22,7 @@ module Network.AWS.Greengrass.Types.LocalDeviceResourceData where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.GroupOwnerSetting
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Attributes that define a local device resource.
 --
@@ -30,11 +31,11 @@ data LocalDeviceResourceData = LocalDeviceResourceData'
   { -- | The local absolute path of the device resource. The source path for a
     -- device resource can refer only to a character device or block device
     -- under \'\'\/dev\'\'.
-    sourcePath :: Core.Maybe Core.Text,
+    sourcePath :: Prelude.Maybe Prelude.Text,
     -- | Group\/owner related settings for local resources.
-    groupOwnerSetting :: Core.Maybe GroupOwnerSetting
+    groupOwnerSetting :: Prelude.Maybe GroupOwnerSetting
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LocalDeviceResourceData' with all optional fields omitted.
@@ -53,18 +54,19 @@ newLocalDeviceResourceData ::
   LocalDeviceResourceData
 newLocalDeviceResourceData =
   LocalDeviceResourceData'
-    { sourcePath = Core.Nothing,
-      groupOwnerSetting = Core.Nothing
+    { sourcePath =
+        Prelude.Nothing,
+      groupOwnerSetting = Prelude.Nothing
     }
 
 -- | The local absolute path of the device resource. The source path for a
 -- device resource can refer only to a character device or block device
 -- under \'\'\/dev\'\'.
-localDeviceResourceData_sourcePath :: Lens.Lens' LocalDeviceResourceData (Core.Maybe Core.Text)
+localDeviceResourceData_sourcePath :: Lens.Lens' LocalDeviceResourceData (Prelude.Maybe Prelude.Text)
 localDeviceResourceData_sourcePath = Lens.lens (\LocalDeviceResourceData' {sourcePath} -> sourcePath) (\s@LocalDeviceResourceData' {} a -> s {sourcePath = a} :: LocalDeviceResourceData)
 
 -- | Group\/owner related settings for local resources.
-localDeviceResourceData_groupOwnerSetting :: Lens.Lens' LocalDeviceResourceData (Core.Maybe GroupOwnerSetting)
+localDeviceResourceData_groupOwnerSetting :: Lens.Lens' LocalDeviceResourceData (Prelude.Maybe GroupOwnerSetting)
 localDeviceResourceData_groupOwnerSetting = Lens.lens (\LocalDeviceResourceData' {groupOwnerSetting} -> groupOwnerSetting) (\s@LocalDeviceResourceData' {} a -> s {groupOwnerSetting = a} :: LocalDeviceResourceData)
 
 instance Core.FromJSON LocalDeviceResourceData where
@@ -73,20 +75,20 @@ instance Core.FromJSON LocalDeviceResourceData where
       "LocalDeviceResourceData"
       ( \x ->
           LocalDeviceResourceData'
-            Core.<$> (x Core..:? "SourcePath")
-            Core.<*> (x Core..:? "GroupOwnerSetting")
+            Prelude.<$> (x Core..:? "SourcePath")
+            Prelude.<*> (x Core..:? "GroupOwnerSetting")
       )
 
-instance Core.Hashable LocalDeviceResourceData
+instance Prelude.Hashable LocalDeviceResourceData
 
-instance Core.NFData LocalDeviceResourceData
+instance Prelude.NFData LocalDeviceResourceData
 
 instance Core.ToJSON LocalDeviceResourceData where
   toJSON LocalDeviceResourceData' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SourcePath" Core..=) Core.<$> sourcePath,
+      ( Prelude.catMaybes
+          [ ("SourcePath" Core..=) Prelude.<$> sourcePath,
             ("GroupOwnerSetting" Core..=)
-              Core.<$> groupOwnerSetting
+              Prelude.<$> groupOwnerSetting
           ]
       )

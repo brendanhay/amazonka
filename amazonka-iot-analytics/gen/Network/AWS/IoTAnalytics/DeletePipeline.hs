@@ -38,15 +38,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeletePipeline' smart constructor.
 data DeletePipeline = DeletePipeline'
   { -- | The name of the pipeline to delete.
-    pipelineName :: Core.Text
+    pipelineName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePipeline' with all optional fields omitted.
@@ -59,13 +60,13 @@ data DeletePipeline = DeletePipeline'
 -- 'pipelineName', 'deletePipeline_pipelineName' - The name of the pipeline to delete.
 newDeletePipeline ::
   -- | 'pipelineName'
-  Core.Text ->
+  Prelude.Text ->
   DeletePipeline
 newDeletePipeline pPipelineName_ =
   DeletePipeline' {pipelineName = pPipelineName_}
 
 -- | The name of the pipeline to delete.
-deletePipeline_pipelineName :: Lens.Lens' DeletePipeline Core.Text
+deletePipeline_pipelineName :: Lens.Lens' DeletePipeline Prelude.Text
 deletePipeline_pipelineName = Lens.lens (\DeletePipeline' {pipelineName} -> pipelineName) (\s@DeletePipeline' {} a -> s {pipelineName = a} :: DeletePipeline)
 
 instance Core.AWSRequest DeletePipeline where
@@ -76,26 +77,26 @@ instance Core.AWSRequest DeletePipeline where
   response =
     Response.receiveNull DeletePipelineResponse'
 
-instance Core.Hashable DeletePipeline
+instance Prelude.Hashable DeletePipeline
 
-instance Core.NFData DeletePipeline
+instance Prelude.NFData DeletePipeline
 
 instance Core.ToHeaders DeletePipeline where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeletePipeline where
   toPath DeletePipeline' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/pipelines/", Core.toBS pipelineName]
 
 instance Core.ToQuery DeletePipeline where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePipelineResponse' smart constructor.
 data DeletePipelineResponse = DeletePipelineResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePipelineResponse' with all optional fields omitted.
@@ -105,4 +106,4 @@ newDeletePipelineResponse ::
   DeletePipelineResponse
 newDeletePipelineResponse = DeletePipelineResponse'
 
-instance Core.NFData DeletePipelineResponse
+instance Prelude.NFData DeletePipelineResponse

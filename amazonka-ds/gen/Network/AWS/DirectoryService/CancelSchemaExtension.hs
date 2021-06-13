@@ -46,17 +46,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCancelSchemaExtension' smart constructor.
 data CancelSchemaExtension = CancelSchemaExtension'
   { -- | The identifier of the directory whose schema extension will be canceled.
-    directoryId :: Core.Text,
+    directoryId :: Prelude.Text,
     -- | The identifier of the schema extension that will be canceled.
-    schemaExtensionId :: Core.Text
+    schemaExtensionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelSchemaExtension' with all optional fields omitted.
@@ -71,9 +72,9 @@ data CancelSchemaExtension = CancelSchemaExtension'
 -- 'schemaExtensionId', 'cancelSchemaExtension_schemaExtensionId' - The identifier of the schema extension that will be canceled.
 newCancelSchemaExtension ::
   -- | 'directoryId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'schemaExtensionId'
-  Core.Text ->
+  Prelude.Text ->
   CancelSchemaExtension
 newCancelSchemaExtension
   pDirectoryId_
@@ -84,11 +85,11 @@ newCancelSchemaExtension
       }
 
 -- | The identifier of the directory whose schema extension will be canceled.
-cancelSchemaExtension_directoryId :: Lens.Lens' CancelSchemaExtension Core.Text
+cancelSchemaExtension_directoryId :: Lens.Lens' CancelSchemaExtension Prelude.Text
 cancelSchemaExtension_directoryId = Lens.lens (\CancelSchemaExtension' {directoryId} -> directoryId) (\s@CancelSchemaExtension' {} a -> s {directoryId = a} :: CancelSchemaExtension)
 
 -- | The identifier of the schema extension that will be canceled.
-cancelSchemaExtension_schemaExtensionId :: Lens.Lens' CancelSchemaExtension Core.Text
+cancelSchemaExtension_schemaExtensionId :: Lens.Lens' CancelSchemaExtension Prelude.Text
 cancelSchemaExtension_schemaExtensionId = Lens.lens (\CancelSchemaExtension' {schemaExtensionId} -> schemaExtensionId) (\s@CancelSchemaExtension' {} a -> s {schemaExtensionId = a} :: CancelSchemaExtension)
 
 instance Core.AWSRequest CancelSchemaExtension where
@@ -100,48 +101,50 @@ instance Core.AWSRequest CancelSchemaExtension where
     Response.receiveEmpty
       ( \s h x ->
           CancelSchemaExtensionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CancelSchemaExtension
+instance Prelude.Hashable CancelSchemaExtension
 
-instance Core.NFData CancelSchemaExtension
+instance Prelude.NFData CancelSchemaExtension
 
 instance Core.ToHeaders CancelSchemaExtension where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.CancelSchemaExtension" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CancelSchemaExtension where
   toJSON CancelSchemaExtension' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DirectoryId" Core..= directoryId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("DirectoryId" Core..= directoryId),
+            Prelude.Just
               ("SchemaExtensionId" Core..= schemaExtensionId)
           ]
       )
 
 instance Core.ToPath CancelSchemaExtension where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CancelSchemaExtension where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelSchemaExtensionResponse' smart constructor.
 data CancelSchemaExtensionResponse = CancelSchemaExtensionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelSchemaExtensionResponse' with all optional fields omitted.
@@ -154,7 +157,7 @@ data CancelSchemaExtensionResponse = CancelSchemaExtensionResponse'
 -- 'httpStatus', 'cancelSchemaExtensionResponse_httpStatus' - The response's http status code.
 newCancelSchemaExtensionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CancelSchemaExtensionResponse
 newCancelSchemaExtensionResponse pHttpStatus_ =
   CancelSchemaExtensionResponse'
@@ -163,7 +166,7 @@ newCancelSchemaExtensionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-cancelSchemaExtensionResponse_httpStatus :: Lens.Lens' CancelSchemaExtensionResponse Core.Int
+cancelSchemaExtensionResponse_httpStatus :: Lens.Lens' CancelSchemaExtensionResponse Prelude.Int
 cancelSchemaExtensionResponse_httpStatus = Lens.lens (\CancelSchemaExtensionResponse' {httpStatus} -> httpStatus) (\s@CancelSchemaExtensionResponse' {} a -> s {httpStatus = a} :: CancelSchemaExtensionResponse)
 
-instance Core.NFData CancelSchemaExtensionResponse
+instance Prelude.NFData CancelSchemaExtensionResponse

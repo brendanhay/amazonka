@@ -50,26 +50,27 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListBonusPayments' smart constructor.
 data ListBonusPayments = ListBonusPayments'
   { -- | Pagination token
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the assignment associated with the bonus payments to retrieve.
     -- If specified, only bonus payments for the given assignment are returned.
     -- Either the HITId parameter or the AssignmentId parameter must be
     -- specified
-    assignmentId :: Core.Maybe Core.Text,
-    maxResults :: Core.Maybe Core.Natural,
+    assignmentId :: Prelude.Maybe Prelude.Text,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the HIT associated with the bonus payments to retrieve. If not
     -- specified, all bonus payments for all assignments for the given HIT are
     -- returned. Either the HITId parameter or the AssignmentId parameter must
     -- be specified
-    hITId :: Core.Maybe Core.Text
+    hITId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListBonusPayments' with all optional fields omitted.
@@ -96,32 +97,32 @@ newListBonusPayments ::
   ListBonusPayments
 newListBonusPayments =
   ListBonusPayments'
-    { nextToken = Core.Nothing,
-      assignmentId = Core.Nothing,
-      maxResults = Core.Nothing,
-      hITId = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      assignmentId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      hITId = Prelude.Nothing
     }
 
 -- | Pagination token
-listBonusPayments_nextToken :: Lens.Lens' ListBonusPayments (Core.Maybe Core.Text)
+listBonusPayments_nextToken :: Lens.Lens' ListBonusPayments (Prelude.Maybe Prelude.Text)
 listBonusPayments_nextToken = Lens.lens (\ListBonusPayments' {nextToken} -> nextToken) (\s@ListBonusPayments' {} a -> s {nextToken = a} :: ListBonusPayments)
 
 -- | The ID of the assignment associated with the bonus payments to retrieve.
 -- If specified, only bonus payments for the given assignment are returned.
 -- Either the HITId parameter or the AssignmentId parameter must be
 -- specified
-listBonusPayments_assignmentId :: Lens.Lens' ListBonusPayments (Core.Maybe Core.Text)
+listBonusPayments_assignmentId :: Lens.Lens' ListBonusPayments (Prelude.Maybe Prelude.Text)
 listBonusPayments_assignmentId = Lens.lens (\ListBonusPayments' {assignmentId} -> assignmentId) (\s@ListBonusPayments' {} a -> s {assignmentId = a} :: ListBonusPayments)
 
 -- | Undocumented member.
-listBonusPayments_maxResults :: Lens.Lens' ListBonusPayments (Core.Maybe Core.Natural)
+listBonusPayments_maxResults :: Lens.Lens' ListBonusPayments (Prelude.Maybe Prelude.Natural)
 listBonusPayments_maxResults = Lens.lens (\ListBonusPayments' {maxResults} -> maxResults) (\s@ListBonusPayments' {} a -> s {maxResults = a} :: ListBonusPayments)
 
 -- | The ID of the HIT associated with the bonus payments to retrieve. If not
 -- specified, all bonus payments for all assignments for the given HIT are
 -- returned. Either the HITId parameter or the AssignmentId parameter must
 -- be specified
-listBonusPayments_hITId :: Lens.Lens' ListBonusPayments (Core.Maybe Core.Text)
+listBonusPayments_hITId :: Lens.Lens' ListBonusPayments (Prelude.Maybe Prelude.Text)
 listBonusPayments_hITId = Lens.lens (\ListBonusPayments' {hITId} -> hITId) (\s@ListBonusPayments' {} a -> s {hITId = a} :: ListBonusPayments)
 
 instance Core.AWSPager ListBonusPayments where
@@ -129,21 +130,22 @@ instance Core.AWSPager ListBonusPayments where
     | Core.stop
         ( rs
             Lens.^? listBonusPaymentsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listBonusPaymentsResponse_bonusPayments
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listBonusPayments_nextToken
+          Prelude.& listBonusPayments_nextToken
           Lens..~ rs
-          Lens.^? listBonusPaymentsResponse_nextToken Core.. Lens._Just
+          Lens.^? listBonusPaymentsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBonusPayments where
   type
@@ -154,59 +156,61 @@ instance Core.AWSRequest ListBonusPayments where
     Response.receiveJSON
       ( \s h x ->
           ListBonusPaymentsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "NumResults")
-            Core.<*> (x Core..?> "BonusPayments" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "NumResults")
+            Prelude.<*> (x Core..?> "BonusPayments" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListBonusPayments
+instance Prelude.Hashable ListBonusPayments
 
-instance Core.NFData ListBonusPayments
+instance Prelude.NFData ListBonusPayments
 
 instance Core.ToHeaders ListBonusPayments where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MTurkRequesterServiceV20170117.ListBonusPayments" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListBonusPayments where
   toJSON ListBonusPayments' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("AssignmentId" Core..=) Core.<$> assignmentId,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("HITId" Core..=) Core.<$> hITId
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("AssignmentId" Core..=) Prelude.<$> assignmentId,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("HITId" Core..=) Prelude.<$> hITId
           ]
       )
 
 instance Core.ToPath ListBonusPayments where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListBonusPayments where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBonusPaymentsResponse' smart constructor.
 data ListBonusPaymentsResponse = ListBonusPaymentsResponse'
-  { nextToken :: Core.Maybe Core.Text,
+  { nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of bonus payments on this page in the filtered results list,
     -- equivalent to the number of bonus payments being returned by this call.
-    numResults :: Core.Maybe Core.Int,
+    numResults :: Prelude.Maybe Prelude.Int,
     -- | A successful request to the ListBonusPayments operation returns a list
     -- of BonusPayment objects.
-    bonusPayments :: Core.Maybe [BonusPayment],
+    bonusPayments :: Prelude.Maybe [BonusPayment],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListBonusPaymentsResponse' with all optional fields omitted.
@@ -227,33 +231,33 @@ data ListBonusPaymentsResponse = ListBonusPaymentsResponse'
 -- 'httpStatus', 'listBonusPaymentsResponse_httpStatus' - The response's http status code.
 newListBonusPaymentsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListBonusPaymentsResponse
 newListBonusPaymentsResponse pHttpStatus_ =
   ListBonusPaymentsResponse'
     { nextToken =
-        Core.Nothing,
-      numResults = Core.Nothing,
-      bonusPayments = Core.Nothing,
+        Prelude.Nothing,
+      numResults = Prelude.Nothing,
+      bonusPayments = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listBonusPaymentsResponse_nextToken :: Lens.Lens' ListBonusPaymentsResponse (Core.Maybe Core.Text)
+listBonusPaymentsResponse_nextToken :: Lens.Lens' ListBonusPaymentsResponse (Prelude.Maybe Prelude.Text)
 listBonusPaymentsResponse_nextToken = Lens.lens (\ListBonusPaymentsResponse' {nextToken} -> nextToken) (\s@ListBonusPaymentsResponse' {} a -> s {nextToken = a} :: ListBonusPaymentsResponse)
 
 -- | The number of bonus payments on this page in the filtered results list,
 -- equivalent to the number of bonus payments being returned by this call.
-listBonusPaymentsResponse_numResults :: Lens.Lens' ListBonusPaymentsResponse (Core.Maybe Core.Int)
+listBonusPaymentsResponse_numResults :: Lens.Lens' ListBonusPaymentsResponse (Prelude.Maybe Prelude.Int)
 listBonusPaymentsResponse_numResults = Lens.lens (\ListBonusPaymentsResponse' {numResults} -> numResults) (\s@ListBonusPaymentsResponse' {} a -> s {numResults = a} :: ListBonusPaymentsResponse)
 
 -- | A successful request to the ListBonusPayments operation returns a list
 -- of BonusPayment objects.
-listBonusPaymentsResponse_bonusPayments :: Lens.Lens' ListBonusPaymentsResponse (Core.Maybe [BonusPayment])
-listBonusPaymentsResponse_bonusPayments = Lens.lens (\ListBonusPaymentsResponse' {bonusPayments} -> bonusPayments) (\s@ListBonusPaymentsResponse' {} a -> s {bonusPayments = a} :: ListBonusPaymentsResponse) Core.. Lens.mapping Lens._Coerce
+listBonusPaymentsResponse_bonusPayments :: Lens.Lens' ListBonusPaymentsResponse (Prelude.Maybe [BonusPayment])
+listBonusPaymentsResponse_bonusPayments = Lens.lens (\ListBonusPaymentsResponse' {bonusPayments} -> bonusPayments) (\s@ListBonusPaymentsResponse' {} a -> s {bonusPayments = a} :: ListBonusPaymentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listBonusPaymentsResponse_httpStatus :: Lens.Lens' ListBonusPaymentsResponse Core.Int
+listBonusPaymentsResponse_httpStatus :: Lens.Lens' ListBonusPaymentsResponse Prelude.Int
 listBonusPaymentsResponse_httpStatus = Lens.lens (\ListBonusPaymentsResponse' {httpStatus} -> httpStatus) (\s@ListBonusPaymentsResponse' {} a -> s {httpStatus = a} :: ListBonusPaymentsResponse)
 
-instance Core.NFData ListBonusPaymentsResponse
+instance Prelude.NFData ListBonusPaymentsResponse

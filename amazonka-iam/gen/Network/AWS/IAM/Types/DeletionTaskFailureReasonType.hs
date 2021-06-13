@@ -22,6 +22,7 @@ module Network.AWS.IAM.Types.DeletionTaskFailureReasonType where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.RoleUsageType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The reason that the service-linked role deletion failed.
 --
@@ -32,7 +33,7 @@ import qualified Network.AWS.Lens as Lens
 data DeletionTaskFailureReasonType = DeletionTaskFailureReasonType'
   { -- | A short description of the reason that the service-linked role deletion
     -- failed.
-    reason :: Core.Maybe Core.Text,
+    reason :: Prelude.Maybe Prelude.Text,
     -- | A list of objects that contains details about the service-linked role
     -- deletion failure, if that information is returned by the service. If the
     -- service-linked role has active sessions or if any resources that were
@@ -40,9 +41,9 @@ data DeletionTaskFailureReasonType = DeletionTaskFailureReasonType'
     -- can\'t be deleted. This parameter includes a list of the resources that
     -- are associated with the role and the Region in which the resources are
     -- being used.
-    roleUsageList :: Core.Maybe [RoleUsageType]
+    roleUsageList :: Prelude.Maybe [RoleUsageType]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletionTaskFailureReasonType' with all optional fields omitted.
@@ -67,13 +68,13 @@ newDeletionTaskFailureReasonType ::
 newDeletionTaskFailureReasonType =
   DeletionTaskFailureReasonType'
     { reason =
-        Core.Nothing,
-      roleUsageList = Core.Nothing
+        Prelude.Nothing,
+      roleUsageList = Prelude.Nothing
     }
 
 -- | A short description of the reason that the service-linked role deletion
 -- failed.
-deletionTaskFailureReasonType_reason :: Lens.Lens' DeletionTaskFailureReasonType (Core.Maybe Core.Text)
+deletionTaskFailureReasonType_reason :: Lens.Lens' DeletionTaskFailureReasonType (Prelude.Maybe Prelude.Text)
 deletionTaskFailureReasonType_reason = Lens.lens (\DeletionTaskFailureReasonType' {reason} -> reason) (\s@DeletionTaskFailureReasonType' {} a -> s {reason = a} :: DeletionTaskFailureReasonType)
 
 -- | A list of objects that contains details about the service-linked role
@@ -83,17 +84,19 @@ deletionTaskFailureReasonType_reason = Lens.lens (\DeletionTaskFailureReasonType
 -- can\'t be deleted. This parameter includes a list of the resources that
 -- are associated with the role and the Region in which the resources are
 -- being used.
-deletionTaskFailureReasonType_roleUsageList :: Lens.Lens' DeletionTaskFailureReasonType (Core.Maybe [RoleUsageType])
-deletionTaskFailureReasonType_roleUsageList = Lens.lens (\DeletionTaskFailureReasonType' {roleUsageList} -> roleUsageList) (\s@DeletionTaskFailureReasonType' {} a -> s {roleUsageList = a} :: DeletionTaskFailureReasonType) Core.. Lens.mapping Lens._Coerce
+deletionTaskFailureReasonType_roleUsageList :: Lens.Lens' DeletionTaskFailureReasonType (Prelude.Maybe [RoleUsageType])
+deletionTaskFailureReasonType_roleUsageList = Lens.lens (\DeletionTaskFailureReasonType' {roleUsageList} -> roleUsageList) (\s@DeletionTaskFailureReasonType' {} a -> s {roleUsageList = a} :: DeletionTaskFailureReasonType) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML DeletionTaskFailureReasonType where
   parseXML x =
     DeletionTaskFailureReasonType'
-      Core.<$> (x Core..@? "Reason")
-      Core.<*> ( x Core..@? "RoleUsageList" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
+      Prelude.<$> (x Core..@? "Reason")
+      Prelude.<*> ( x Core..@? "RoleUsageList" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
 
-instance Core.Hashable DeletionTaskFailureReasonType
+instance
+  Prelude.Hashable
+    DeletionTaskFailureReasonType
 
-instance Core.NFData DeletionTaskFailureReasonType
+instance Prelude.NFData DeletionTaskFailureReasonType

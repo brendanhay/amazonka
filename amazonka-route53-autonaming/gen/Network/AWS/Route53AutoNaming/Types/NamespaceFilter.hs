@@ -21,6 +21,7 @@ module Network.AWS.Route53AutoNaming.Types.NamespaceFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53AutoNaming.Types.FilterCondition
 import Network.AWS.Route53AutoNaming.Types.NamespaceFilterName
 
@@ -40,7 +41,7 @@ data NamespaceFilter = NamespaceFilter'
     --     list public namespaces, private namespaces, or both.
     --
     -- -   @BETWEEN@: Not applicable
-    condition :: Core.Maybe FilterCondition,
+    condition :: Prelude.Maybe FilterCondition,
     -- | Specify @TYPE@.
     name :: NamespaceFilterName,
     -- | If you specify @EQ@ for @Condition@, specify either @DNS_PUBLIC@ or
@@ -48,9 +49,9 @@ data NamespaceFilter = NamespaceFilter'
     --
     -- If you specify @IN@ for @Condition@, you can specify @DNS_PUBLIC@,
     -- @DNS_PRIVATE@, or both.
-    values :: [Core.Text]
+    values :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NamespaceFilter' with all optional fields omitted.
@@ -85,9 +86,9 @@ newNamespaceFilter ::
   NamespaceFilter
 newNamespaceFilter pName_ =
   NamespaceFilter'
-    { condition = Core.Nothing,
+    { condition = Prelude.Nothing,
       name = pName_,
-      values = Core.mempty
+      values = Prelude.mempty
     }
 
 -- | The operator that you want to use to determine whether @ListNamespaces@
@@ -101,7 +102,7 @@ newNamespaceFilter pName_ =
 --     list public namespaces, private namespaces, or both.
 --
 -- -   @BETWEEN@: Not applicable
-namespaceFilter_condition :: Lens.Lens' NamespaceFilter (Core.Maybe FilterCondition)
+namespaceFilter_condition :: Lens.Lens' NamespaceFilter (Prelude.Maybe FilterCondition)
 namespaceFilter_condition = Lens.lens (\NamespaceFilter' {condition} -> condition) (\s@NamespaceFilter' {} a -> s {condition = a} :: NamespaceFilter)
 
 -- | Specify @TYPE@.
@@ -113,19 +114,19 @@ namespaceFilter_name = Lens.lens (\NamespaceFilter' {name} -> name) (\s@Namespac
 --
 -- If you specify @IN@ for @Condition@, you can specify @DNS_PUBLIC@,
 -- @DNS_PRIVATE@, or both.
-namespaceFilter_values :: Lens.Lens' NamespaceFilter [Core.Text]
-namespaceFilter_values = Lens.lens (\NamespaceFilter' {values} -> values) (\s@NamespaceFilter' {} a -> s {values = a} :: NamespaceFilter) Core.. Lens._Coerce
+namespaceFilter_values :: Lens.Lens' NamespaceFilter [Prelude.Text]
+namespaceFilter_values = Lens.lens (\NamespaceFilter' {values} -> values) (\s@NamespaceFilter' {} a -> s {values = a} :: NamespaceFilter) Prelude.. Lens._Coerce
 
-instance Core.Hashable NamespaceFilter
+instance Prelude.Hashable NamespaceFilter
 
-instance Core.NFData NamespaceFilter
+instance Prelude.NFData NamespaceFilter
 
 instance Core.ToJSON NamespaceFilter where
   toJSON NamespaceFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Condition" Core..=) Core.<$> condition,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("Values" Core..= values)
+      ( Prelude.catMaybes
+          [ ("Condition" Core..=) Prelude.<$> condition,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Values" Core..= values)
           ]
       )

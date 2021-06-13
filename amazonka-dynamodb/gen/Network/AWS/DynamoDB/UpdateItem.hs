@@ -62,6 +62,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,7 +74,7 @@ data UpdateItem = UpdateItem'
     -- information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected>
     -- in the /Amazon DynamoDB Developer Guide/.
-    expected :: Core.Maybe (Core.HashMap Core.Text ExpectedAttributeValue),
+    expected :: Prelude.Maybe (Prelude.HashMap Prelude.Text ExpectedAttributeValue),
     -- | One or more values that can be substituted in an expression.
     --
     -- Use the __:__ (colon) character in an expression to dereference an
@@ -93,12 +94,12 @@ data UpdateItem = UpdateItem'
     -- For more information on expression attribute values, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions>
     -- in the /Amazon DynamoDB Developer Guide/.
-    expressionAttributeValues :: Core.Maybe (Core.HashMap Core.Text AttributeValue),
+    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | Determines whether item collection metrics are returned. If set to
     -- @SIZE@, the response includes statistics about item collections, if any,
     -- that were modified during the operation are returned in the response. If
     -- set to @NONE@ (the default), no statistics are returned.
-    returnItemCollectionMetrics :: Core.Maybe ReturnItemCollectionMetrics,
+    returnItemCollectionMetrics :: Prelude.Maybe ReturnItemCollectionMetrics,
     -- | An expression that defines one or more attributes to be updated, the
     -- action to be performed on them, and new values for them.
     --
@@ -182,7 +183,7 @@ data UpdateItem = UpdateItem'
     -- For more information on update expressions, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html Modifying Items and Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
-    updateExpression :: Core.Maybe Core.Text,
+    updateExpression :: Prelude.Maybe Prelude.Text,
     -- | One or more substitution tokens for attribute names in an expression.
     -- The following are some use cases for using @ExpressionAttributeNames@:
     --
@@ -220,7 +221,7 @@ data UpdateItem = UpdateItem'
     -- For more information about expression attribute names, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
-    expressionAttributeNames :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Use @ReturnValues@ if you want to get the item attributes as they appear
     -- before or after they are updated. For @UpdateItem@, the valid values
     -- are:
@@ -246,7 +247,7 @@ data UpdateItem = UpdateItem'
     -- larger response. No read capacity units are consumed.
     --
     -- The values returned are strongly consistent.
-    returnValues :: Core.Maybe ReturnValue,
+    returnValues :: Prelude.Maybe ReturnValue,
     -- | A condition that must be satisfied in order for a conditional update to
     -- succeed.
     --
@@ -264,20 +265,20 @@ data UpdateItem = UpdateItem'
     -- For more information about condition expressions, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
     -- in the /Amazon DynamoDB Developer Guide/.
-    conditionExpression :: Core.Maybe Core.Text,
+    conditionExpression :: Prelude.Maybe Prelude.Text,
     -- | This is a legacy parameter. Use @UpdateExpression@ instead. For more
     -- information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html AttributeUpdates>
     -- in the /Amazon DynamoDB Developer Guide/.
-    attributeUpdates :: Core.Maybe (Core.HashMap Core.Text AttributeValueUpdate),
-    returnConsumedCapacity :: Core.Maybe ReturnConsumedCapacity,
+    attributeUpdates :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValueUpdate),
+    returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
     -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
     -- information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
     -- in the /Amazon DynamoDB Developer Guide/.
-    conditionalOperator :: Core.Maybe ConditionalOperator,
+    conditionalOperator :: Prelude.Maybe ConditionalOperator,
     -- | The name of the table containing the item to update.
-    tableName :: Core.Text,
+    tableName :: Prelude.Text,
     -- | The primary key of the item to be updated. Each element consists of an
     -- attribute name and a value for that attribute.
     --
@@ -285,9 +286,9 @@ data UpdateItem = UpdateItem'
     -- example, with a simple primary key, you only need to provide a value for
     -- the partition key. For a composite primary key, you must provide values
     -- for both the partition key and the sort key.
-    key :: Core.HashMap Core.Text AttributeValue
+    key :: Prelude.HashMap Prelude.Text AttributeValue
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateItem' with all optional fields omitted.
@@ -516,30 +517,30 @@ data UpdateItem = UpdateItem'
 -- for both the partition key and the sort key.
 newUpdateItem ::
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateItem
 newUpdateItem pTableName_ =
   UpdateItem'
-    { expected = Core.Nothing,
-      expressionAttributeValues = Core.Nothing,
-      returnItemCollectionMetrics = Core.Nothing,
-      updateExpression = Core.Nothing,
-      expressionAttributeNames = Core.Nothing,
-      returnValues = Core.Nothing,
-      conditionExpression = Core.Nothing,
-      attributeUpdates = Core.Nothing,
-      returnConsumedCapacity = Core.Nothing,
-      conditionalOperator = Core.Nothing,
+    { expected = Prelude.Nothing,
+      expressionAttributeValues = Prelude.Nothing,
+      returnItemCollectionMetrics = Prelude.Nothing,
+      updateExpression = Prelude.Nothing,
+      expressionAttributeNames = Prelude.Nothing,
+      returnValues = Prelude.Nothing,
+      conditionExpression = Prelude.Nothing,
+      attributeUpdates = Prelude.Nothing,
+      returnConsumedCapacity = Prelude.Nothing,
+      conditionalOperator = Prelude.Nothing,
       tableName = pTableName_,
-      key = Core.mempty
+      key = Prelude.mempty
     }
 
 -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
 -- information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected>
 -- in the /Amazon DynamoDB Developer Guide/.
-updateItem_expected :: Lens.Lens' UpdateItem (Core.Maybe (Core.HashMap Core.Text ExpectedAttributeValue))
-updateItem_expected = Lens.lens (\UpdateItem' {expected} -> expected) (\s@UpdateItem' {} a -> s {expected = a} :: UpdateItem) Core.. Lens.mapping Lens._Coerce
+updateItem_expected :: Lens.Lens' UpdateItem (Prelude.Maybe (Prelude.HashMap Prelude.Text ExpectedAttributeValue))
+updateItem_expected = Lens.lens (\UpdateItem' {expected} -> expected) (\s@UpdateItem' {} a -> s {expected = a} :: UpdateItem) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more values that can be substituted in an expression.
 --
@@ -560,14 +561,14 @@ updateItem_expected = Lens.lens (\UpdateItem' {expected} -> expected) (\s@Update
 -- For more information on expression attribute values, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions>
 -- in the /Amazon DynamoDB Developer Guide/.
-updateItem_expressionAttributeValues :: Lens.Lens' UpdateItem (Core.Maybe (Core.HashMap Core.Text AttributeValue))
-updateItem_expressionAttributeValues = Lens.lens (\UpdateItem' {expressionAttributeValues} -> expressionAttributeValues) (\s@UpdateItem' {} a -> s {expressionAttributeValues = a} :: UpdateItem) Core.. Lens.mapping Lens._Coerce
+updateItem_expressionAttributeValues :: Lens.Lens' UpdateItem (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+updateItem_expressionAttributeValues = Lens.lens (\UpdateItem' {expressionAttributeValues} -> expressionAttributeValues) (\s@UpdateItem' {} a -> s {expressionAttributeValues = a} :: UpdateItem) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Determines whether item collection metrics are returned. If set to
 -- @SIZE@, the response includes statistics about item collections, if any,
 -- that were modified during the operation are returned in the response. If
 -- set to @NONE@ (the default), no statistics are returned.
-updateItem_returnItemCollectionMetrics :: Lens.Lens' UpdateItem (Core.Maybe ReturnItemCollectionMetrics)
+updateItem_returnItemCollectionMetrics :: Lens.Lens' UpdateItem (Prelude.Maybe ReturnItemCollectionMetrics)
 updateItem_returnItemCollectionMetrics = Lens.lens (\UpdateItem' {returnItemCollectionMetrics} -> returnItemCollectionMetrics) (\s@UpdateItem' {} a -> s {returnItemCollectionMetrics = a} :: UpdateItem)
 
 -- | An expression that defines one or more attributes to be updated, the
@@ -653,7 +654,7 @@ updateItem_returnItemCollectionMetrics = Lens.lens (\UpdateItem' {returnItemColl
 -- For more information on update expressions, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html Modifying Items and Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
-updateItem_updateExpression :: Lens.Lens' UpdateItem (Core.Maybe Core.Text)
+updateItem_updateExpression :: Lens.Lens' UpdateItem (Prelude.Maybe Prelude.Text)
 updateItem_updateExpression = Lens.lens (\UpdateItem' {updateExpression} -> updateExpression) (\s@UpdateItem' {} a -> s {updateExpression = a} :: UpdateItem)
 
 -- | One or more substitution tokens for attribute names in an expression.
@@ -693,8 +694,8 @@ updateItem_updateExpression = Lens.lens (\UpdateItem' {updateExpression} -> upda
 -- For more information about expression attribute names, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
-updateItem_expressionAttributeNames :: Lens.Lens' UpdateItem (Core.Maybe (Core.HashMap Core.Text Core.Text))
-updateItem_expressionAttributeNames = Lens.lens (\UpdateItem' {expressionAttributeNames} -> expressionAttributeNames) (\s@UpdateItem' {} a -> s {expressionAttributeNames = a} :: UpdateItem) Core.. Lens.mapping Lens._Coerce
+updateItem_expressionAttributeNames :: Lens.Lens' UpdateItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateItem_expressionAttributeNames = Lens.lens (\UpdateItem' {expressionAttributeNames} -> expressionAttributeNames) (\s@UpdateItem' {} a -> s {expressionAttributeNames = a} :: UpdateItem) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Use @ReturnValues@ if you want to get the item attributes as they appear
 -- before or after they are updated. For @UpdateItem@, the valid values
@@ -721,7 +722,7 @@ updateItem_expressionAttributeNames = Lens.lens (\UpdateItem' {expressionAttribu
 -- larger response. No read capacity units are consumed.
 --
 -- The values returned are strongly consistent.
-updateItem_returnValues :: Lens.Lens' UpdateItem (Core.Maybe ReturnValue)
+updateItem_returnValues :: Lens.Lens' UpdateItem (Prelude.Maybe ReturnValue)
 updateItem_returnValues = Lens.lens (\UpdateItem' {returnValues} -> returnValues) (\s@UpdateItem' {} a -> s {returnValues = a} :: UpdateItem)
 
 -- | A condition that must be satisfied in order for a conditional update to
@@ -741,29 +742,29 @@ updateItem_returnValues = Lens.lens (\UpdateItem' {returnValues} -> returnValues
 -- For more information about condition expressions, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
-updateItem_conditionExpression :: Lens.Lens' UpdateItem (Core.Maybe Core.Text)
+updateItem_conditionExpression :: Lens.Lens' UpdateItem (Prelude.Maybe Prelude.Text)
 updateItem_conditionExpression = Lens.lens (\UpdateItem' {conditionExpression} -> conditionExpression) (\s@UpdateItem' {} a -> s {conditionExpression = a} :: UpdateItem)
 
 -- | This is a legacy parameter. Use @UpdateExpression@ instead. For more
 -- information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html AttributeUpdates>
 -- in the /Amazon DynamoDB Developer Guide/.
-updateItem_attributeUpdates :: Lens.Lens' UpdateItem (Core.Maybe (Core.HashMap Core.Text AttributeValueUpdate))
-updateItem_attributeUpdates = Lens.lens (\UpdateItem' {attributeUpdates} -> attributeUpdates) (\s@UpdateItem' {} a -> s {attributeUpdates = a} :: UpdateItem) Core.. Lens.mapping Lens._Coerce
+updateItem_attributeUpdates :: Lens.Lens' UpdateItem (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValueUpdate))
+updateItem_attributeUpdates = Lens.lens (\UpdateItem' {attributeUpdates} -> attributeUpdates) (\s@UpdateItem' {} a -> s {attributeUpdates = a} :: UpdateItem) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-updateItem_returnConsumedCapacity :: Lens.Lens' UpdateItem (Core.Maybe ReturnConsumedCapacity)
+updateItem_returnConsumedCapacity :: Lens.Lens' UpdateItem (Prelude.Maybe ReturnConsumedCapacity)
 updateItem_returnConsumedCapacity = Lens.lens (\UpdateItem' {returnConsumedCapacity} -> returnConsumedCapacity) (\s@UpdateItem' {} a -> s {returnConsumedCapacity = a} :: UpdateItem)
 
 -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
 -- information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
 -- in the /Amazon DynamoDB Developer Guide/.
-updateItem_conditionalOperator :: Lens.Lens' UpdateItem (Core.Maybe ConditionalOperator)
+updateItem_conditionalOperator :: Lens.Lens' UpdateItem (Prelude.Maybe ConditionalOperator)
 updateItem_conditionalOperator = Lens.lens (\UpdateItem' {conditionalOperator} -> conditionalOperator) (\s@UpdateItem' {} a -> s {conditionalOperator = a} :: UpdateItem)
 
 -- | The name of the table containing the item to update.
-updateItem_tableName :: Lens.Lens' UpdateItem Core.Text
+updateItem_tableName :: Lens.Lens' UpdateItem Prelude.Text
 updateItem_tableName = Lens.lens (\UpdateItem' {tableName} -> tableName) (\s@UpdateItem' {} a -> s {tableName = a} :: UpdateItem)
 
 -- | The primary key of the item to be updated. Each element consists of an
@@ -773,8 +774,8 @@ updateItem_tableName = Lens.lens (\UpdateItem' {tableName} -> tableName) (\s@Upd
 -- example, with a simple primary key, you only need to provide a value for
 -- the partition key. For a composite primary key, you must provide values
 -- for both the partition key and the sort key.
-updateItem_key :: Lens.Lens' UpdateItem (Core.HashMap Core.Text AttributeValue)
-updateItem_key = Lens.lens (\UpdateItem' {key} -> key) (\s@UpdateItem' {} a -> s {key = a} :: UpdateItem) Core.. Lens._Coerce
+updateItem_key :: Lens.Lens' UpdateItem (Prelude.HashMap Prelude.Text AttributeValue)
+updateItem_key = Lens.lens (\UpdateItem' {key} -> key) (\s@UpdateItem' {} a -> s {key = a} :: UpdateItem) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UpdateItem where
   type AWSResponse UpdateItem = UpdateItemResponse
@@ -783,59 +784,63 @@ instance Core.AWSRequest UpdateItem where
     Response.receiveJSON
       ( \s h x ->
           UpdateItemResponse'
-            Core.<$> (x Core..?> "ItemCollectionMetrics")
-            Core.<*> (x Core..?> "Attributes" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "ConsumedCapacity")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ItemCollectionMetrics")
+            Prelude.<*> (x Core..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ConsumedCapacity")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateItem
+instance Prelude.Hashable UpdateItem
 
-instance Core.NFData UpdateItem
+instance Prelude.NFData UpdateItem
 
 instance Core.ToHeaders UpdateItem where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DynamoDB_20120810.UpdateItem" :: Core.ByteString),
+              Core.=# ( "DynamoDB_20120810.UpdateItem" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateItem where
   toJSON UpdateItem' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Expected" Core..=) Core.<$> expected,
+      ( Prelude.catMaybes
+          [ ("Expected" Core..=) Prelude.<$> expected,
             ("ExpressionAttributeValues" Core..=)
-              Core.<$> expressionAttributeValues,
+              Prelude.<$> expressionAttributeValues,
             ("ReturnItemCollectionMetrics" Core..=)
-              Core.<$> returnItemCollectionMetrics,
+              Prelude.<$> returnItemCollectionMetrics,
             ("UpdateExpression" Core..=)
-              Core.<$> updateExpression,
+              Prelude.<$> updateExpression,
             ("ExpressionAttributeNames" Core..=)
-              Core.<$> expressionAttributeNames,
-            ("ReturnValues" Core..=) Core.<$> returnValues,
+              Prelude.<$> expressionAttributeNames,
+            ("ReturnValues" Core..=) Prelude.<$> returnValues,
             ("ConditionExpression" Core..=)
-              Core.<$> conditionExpression,
+              Prelude.<$> conditionExpression,
             ("AttributeUpdates" Core..=)
-              Core.<$> attributeUpdates,
+              Prelude.<$> attributeUpdates,
             ("ReturnConsumedCapacity" Core..=)
-              Core.<$> returnConsumedCapacity,
+              Prelude.<$> returnConsumedCapacity,
             ("ConditionalOperator" Core..=)
-              Core.<$> conditionalOperator,
-            Core.Just ("TableName" Core..= tableName),
-            Core.Just ("Key" Core..= key)
+              Prelude.<$> conditionalOperator,
+            Prelude.Just ("TableName" Core..= tableName),
+            Prelude.Just ("Key" Core..= key)
           ]
       )
 
 instance Core.ToPath UpdateItem where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateItem where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an @UpdateItem@ operation.
 --
@@ -863,14 +868,14 @@ data UpdateItemResponse = UpdateItemResponse'
     --
     --     The estimate is subject to change over time; therefore, do not rely
     --     on the precision or accuracy of the estimate.
-    itemCollectionMetrics :: Core.Maybe ItemCollectionMetrics,
+    itemCollectionMetrics :: Prelude.Maybe ItemCollectionMetrics,
     -- | A map of attribute values as they appear before or after the
     -- @UpdateItem@ operation, as determined by the @ReturnValues@ parameter.
     --
     -- The @Attributes@ map is only present if @ReturnValues@ was specified as
     -- something other than @NONE@ in the request. Each element represents one
     -- attribute.
-    attributes :: Core.Maybe (Core.HashMap Core.Text AttributeValue),
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | The capacity units consumed by the @UpdateItem@ operation. The data
     -- returned includes the total provisioned throughput consumed, along with
     -- statistics for the table and any indexes involved in the operation.
@@ -878,11 +883,11 @@ data UpdateItemResponse = UpdateItemResponse'
     -- parameter was specified. For more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
     -- in the /Amazon DynamoDB Developer Guide/.
-    consumedCapacity :: Core.Maybe ConsumedCapacity,
+    consumedCapacity :: Prelude.Maybe ConsumedCapacity,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateItemResponse' with all optional fields omitted.
@@ -933,14 +938,14 @@ data UpdateItemResponse = UpdateItemResponse'
 -- 'httpStatus', 'updateItemResponse_httpStatus' - The response's http status code.
 newUpdateItemResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateItemResponse
 newUpdateItemResponse pHttpStatus_ =
   UpdateItemResponse'
     { itemCollectionMetrics =
-        Core.Nothing,
-      attributes = Core.Nothing,
-      consumedCapacity = Core.Nothing,
+        Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      consumedCapacity = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -966,7 +971,7 @@ newUpdateItemResponse pHttpStatus_ =
 --
 --     The estimate is subject to change over time; therefore, do not rely
 --     on the precision or accuracy of the estimate.
-updateItemResponse_itemCollectionMetrics :: Lens.Lens' UpdateItemResponse (Core.Maybe ItemCollectionMetrics)
+updateItemResponse_itemCollectionMetrics :: Lens.Lens' UpdateItemResponse (Prelude.Maybe ItemCollectionMetrics)
 updateItemResponse_itemCollectionMetrics = Lens.lens (\UpdateItemResponse' {itemCollectionMetrics} -> itemCollectionMetrics) (\s@UpdateItemResponse' {} a -> s {itemCollectionMetrics = a} :: UpdateItemResponse)
 
 -- | A map of attribute values as they appear before or after the
@@ -975,8 +980,8 @@ updateItemResponse_itemCollectionMetrics = Lens.lens (\UpdateItemResponse' {item
 -- The @Attributes@ map is only present if @ReturnValues@ was specified as
 -- something other than @NONE@ in the request. Each element represents one
 -- attribute.
-updateItemResponse_attributes :: Lens.Lens' UpdateItemResponse (Core.Maybe (Core.HashMap Core.Text AttributeValue))
-updateItemResponse_attributes = Lens.lens (\UpdateItemResponse' {attributes} -> attributes) (\s@UpdateItemResponse' {} a -> s {attributes = a} :: UpdateItemResponse) Core.. Lens.mapping Lens._Coerce
+updateItemResponse_attributes :: Lens.Lens' UpdateItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+updateItemResponse_attributes = Lens.lens (\UpdateItemResponse' {attributes} -> attributes) (\s@UpdateItemResponse' {} a -> s {attributes = a} :: UpdateItemResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The capacity units consumed by the @UpdateItem@ operation. The data
 -- returned includes the total provisioned throughput consumed, along with
@@ -985,11 +990,11 @@ updateItemResponse_attributes = Lens.lens (\UpdateItemResponse' {attributes} -> 
 -- parameter was specified. For more information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
 -- in the /Amazon DynamoDB Developer Guide/.
-updateItemResponse_consumedCapacity :: Lens.Lens' UpdateItemResponse (Core.Maybe ConsumedCapacity)
+updateItemResponse_consumedCapacity :: Lens.Lens' UpdateItemResponse (Prelude.Maybe ConsumedCapacity)
 updateItemResponse_consumedCapacity = Lens.lens (\UpdateItemResponse' {consumedCapacity} -> consumedCapacity) (\s@UpdateItemResponse' {} a -> s {consumedCapacity = a} :: UpdateItemResponse)
 
 -- | The response's http status code.
-updateItemResponse_httpStatus :: Lens.Lens' UpdateItemResponse Core.Int
+updateItemResponse_httpStatus :: Lens.Lens' UpdateItemResponse Prelude.Int
 updateItemResponse_httpStatus = Lens.lens (\UpdateItemResponse' {httpStatus} -> httpStatus) (\s@UpdateItemResponse' {} a -> s {httpStatus = a} :: UpdateItemResponse)
 
-instance Core.NFData UpdateItemResponse
+instance Prelude.NFData UpdateItemResponse

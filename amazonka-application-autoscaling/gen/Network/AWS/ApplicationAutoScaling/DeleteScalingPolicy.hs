@@ -55,13 +55,14 @@ where
 import Network.AWS.ApplicationAutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteScalingPolicy' smart constructor.
 data DeleteScalingPolicy = DeleteScalingPolicy'
   { -- | The name of the scaling policy.
-    policyName :: Core.Text,
+    policyName :: Prelude.Text,
     -- | The namespace of the AWS service that provides the resource. For a
     -- resource provided by your own application or service, use
     -- @custom-resource@ instead.
@@ -126,7 +127,7 @@ data DeleteScalingPolicy = DeleteScalingPolicy'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
     --
@@ -185,7 +186,7 @@ data DeleteScalingPolicy = DeleteScalingPolicy'
     --     GiB) for brokers in an Amazon MSK cluster.
     scalableDimension :: ScalableDimension
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteScalingPolicy' with all optional fields omitted.
@@ -320,11 +321,11 @@ data DeleteScalingPolicy = DeleteScalingPolicy'
 --     GiB) for brokers in an Amazon MSK cluster.
 newDeleteScalingPolicy ::
   -- | 'policyName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'serviceNamespace'
   ServiceNamespace ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'scalableDimension'
   ScalableDimension ->
   DeleteScalingPolicy
@@ -341,7 +342,7 @@ newDeleteScalingPolicy
       }
 
 -- | The name of the scaling policy.
-deleteScalingPolicy_policyName :: Lens.Lens' DeleteScalingPolicy Core.Text
+deleteScalingPolicy_policyName :: Lens.Lens' DeleteScalingPolicy Prelude.Text
 deleteScalingPolicy_policyName = Lens.lens (\DeleteScalingPolicy' {policyName} -> policyName) (\s@DeleteScalingPolicy' {} a -> s {policyName = a} :: DeleteScalingPolicy)
 
 -- | The namespace of the AWS service that provides the resource. For a
@@ -410,7 +411,7 @@ deleteScalingPolicy_serviceNamespace = Lens.lens (\DeleteScalingPolicy' {service
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-deleteScalingPolicy_resourceId :: Lens.Lens' DeleteScalingPolicy Core.Text
+deleteScalingPolicy_resourceId :: Lens.Lens' DeleteScalingPolicy Prelude.Text
 deleteScalingPolicy_resourceId = Lens.lens (\DeleteScalingPolicy' {resourceId} -> resourceId) (\s@DeleteScalingPolicy' {} a -> s {resourceId = a} :: DeleteScalingPolicy)
 
 -- | The scalable dimension. This string consists of the service namespace,
@@ -481,51 +482,53 @@ instance Core.AWSRequest DeleteScalingPolicy where
     Response.receiveEmpty
       ( \s h x ->
           DeleteScalingPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteScalingPolicy
+instance Prelude.Hashable DeleteScalingPolicy
 
-instance Core.NFData DeleteScalingPolicy
+instance Prelude.NFData DeleteScalingPolicy
 
 instance Core.ToHeaders DeleteScalingPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AnyScaleFrontendService.DeleteScalingPolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteScalingPolicy where
   toJSON DeleteScalingPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("PolicyName" Core..= policyName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("PolicyName" Core..= policyName),
+            Prelude.Just
               ("ServiceNamespace" Core..= serviceNamespace),
-            Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just
+            Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just
               ("ScalableDimension" Core..= scalableDimension)
           ]
       )
 
 instance Core.ToPath DeleteScalingPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteScalingPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteScalingPolicyResponse' smart constructor.
 data DeleteScalingPolicyResponse = DeleteScalingPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteScalingPolicyResponse' with all optional fields omitted.
@@ -538,7 +541,7 @@ data DeleteScalingPolicyResponse = DeleteScalingPolicyResponse'
 -- 'httpStatus', 'deleteScalingPolicyResponse_httpStatus' - The response's http status code.
 newDeleteScalingPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteScalingPolicyResponse
 newDeleteScalingPolicyResponse pHttpStatus_ =
   DeleteScalingPolicyResponse'
@@ -547,7 +550,7 @@ newDeleteScalingPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteScalingPolicyResponse_httpStatus :: Lens.Lens' DeleteScalingPolicyResponse Core.Int
+deleteScalingPolicyResponse_httpStatus :: Lens.Lens' DeleteScalingPolicyResponse Prelude.Int
 deleteScalingPolicyResponse_httpStatus = Lens.lens (\DeleteScalingPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteScalingPolicyResponse' {} a -> s {httpStatus = a} :: DeleteScalingPolicyResponse)
 
-instance Core.NFData DeleteScalingPolicyResponse
+instance Prelude.NFData DeleteScalingPolicyResponse

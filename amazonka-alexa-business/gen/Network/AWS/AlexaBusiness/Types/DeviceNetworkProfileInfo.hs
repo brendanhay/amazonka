@@ -21,19 +21,20 @@ module Network.AWS.AlexaBusiness.Types.DeviceNetworkProfileInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Detailed information about a device\'s network profile.
 --
 -- /See:/ 'newDeviceNetworkProfileInfo' smart constructor.
 data DeviceNetworkProfileInfo = DeviceNetworkProfileInfo'
   { -- | The time (in epoch) when the certificate expires.
-    certificateExpirationTime :: Core.Maybe Core.POSIX,
+    certificateExpirationTime :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the certificate associated with a device.
-    certificateArn :: Core.Maybe Core.Text,
+    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the network profile associated with a device.
-    networkProfileArn :: Core.Maybe Core.Text
+    networkProfileArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeviceNetworkProfileInfo' with all optional fields omitted.
@@ -53,21 +54,21 @@ newDeviceNetworkProfileInfo ::
 newDeviceNetworkProfileInfo =
   DeviceNetworkProfileInfo'
     { certificateExpirationTime =
-        Core.Nothing,
-      certificateArn = Core.Nothing,
-      networkProfileArn = Core.Nothing
+        Prelude.Nothing,
+      certificateArn = Prelude.Nothing,
+      networkProfileArn = Prelude.Nothing
     }
 
 -- | The time (in epoch) when the certificate expires.
-deviceNetworkProfileInfo_certificateExpirationTime :: Lens.Lens' DeviceNetworkProfileInfo (Core.Maybe Core.UTCTime)
-deviceNetworkProfileInfo_certificateExpirationTime = Lens.lens (\DeviceNetworkProfileInfo' {certificateExpirationTime} -> certificateExpirationTime) (\s@DeviceNetworkProfileInfo' {} a -> s {certificateExpirationTime = a} :: DeviceNetworkProfileInfo) Core.. Lens.mapping Core._Time
+deviceNetworkProfileInfo_certificateExpirationTime :: Lens.Lens' DeviceNetworkProfileInfo (Prelude.Maybe Prelude.UTCTime)
+deviceNetworkProfileInfo_certificateExpirationTime = Lens.lens (\DeviceNetworkProfileInfo' {certificateExpirationTime} -> certificateExpirationTime) (\s@DeviceNetworkProfileInfo' {} a -> s {certificateExpirationTime = a} :: DeviceNetworkProfileInfo) Prelude.. Lens.mapping Core._Time
 
 -- | The ARN of the certificate associated with a device.
-deviceNetworkProfileInfo_certificateArn :: Lens.Lens' DeviceNetworkProfileInfo (Core.Maybe Core.Text)
+deviceNetworkProfileInfo_certificateArn :: Lens.Lens' DeviceNetworkProfileInfo (Prelude.Maybe Prelude.Text)
 deviceNetworkProfileInfo_certificateArn = Lens.lens (\DeviceNetworkProfileInfo' {certificateArn} -> certificateArn) (\s@DeviceNetworkProfileInfo' {} a -> s {certificateArn = a} :: DeviceNetworkProfileInfo)
 
 -- | The ARN of the network profile associated with a device.
-deviceNetworkProfileInfo_networkProfileArn :: Lens.Lens' DeviceNetworkProfileInfo (Core.Maybe Core.Text)
+deviceNetworkProfileInfo_networkProfileArn :: Lens.Lens' DeviceNetworkProfileInfo (Prelude.Maybe Prelude.Text)
 deviceNetworkProfileInfo_networkProfileArn = Lens.lens (\DeviceNetworkProfileInfo' {networkProfileArn} -> networkProfileArn) (\s@DeviceNetworkProfileInfo' {} a -> s {networkProfileArn = a} :: DeviceNetworkProfileInfo)
 
 instance Core.FromJSON DeviceNetworkProfileInfo where
@@ -76,11 +77,11 @@ instance Core.FromJSON DeviceNetworkProfileInfo where
       "DeviceNetworkProfileInfo"
       ( \x ->
           DeviceNetworkProfileInfo'
-            Core.<$> (x Core..:? "CertificateExpirationTime")
-            Core.<*> (x Core..:? "CertificateArn")
-            Core.<*> (x Core..:? "NetworkProfileArn")
+            Prelude.<$> (x Core..:? "CertificateExpirationTime")
+            Prelude.<*> (x Core..:? "CertificateArn")
+            Prelude.<*> (x Core..:? "NetworkProfileArn")
       )
 
-instance Core.Hashable DeviceNetworkProfileInfo
+instance Prelude.Hashable DeviceNetworkProfileInfo
 
-instance Core.NFData DeviceNetworkProfileInfo
+instance Prelude.NFData DeviceNetworkProfileInfo

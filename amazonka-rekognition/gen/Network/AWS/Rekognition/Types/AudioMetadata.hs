@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.AudioMetadata where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata information about an audio stream. An array of @AudioMetadata@
 -- objects for the audio streams found in a stored video is returned by
@@ -29,15 +30,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAudioMetadata' smart constructor.
 data AudioMetadata = AudioMetadata'
   { -- | The audio codec used to encode or decode the audio stream.
-    codec :: Core.Maybe Core.Text,
+    codec :: Prelude.Maybe Prelude.Text,
     -- | The sample rate for the audio stream.
-    sampleRate :: Core.Maybe Core.Natural,
+    sampleRate :: Prelude.Maybe Prelude.Natural,
     -- | The duration of the audio stream in milliseconds.
-    durationMillis :: Core.Maybe Core.Natural,
+    durationMillis :: Prelude.Maybe Prelude.Natural,
     -- | The number of audio channels in the segment.
-    numberOfChannels :: Core.Maybe Core.Natural
+    numberOfChannels :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AudioMetadata' with all optional fields omitted.
@@ -58,26 +59,26 @@ newAudioMetadata ::
   AudioMetadata
 newAudioMetadata =
   AudioMetadata'
-    { codec = Core.Nothing,
-      sampleRate = Core.Nothing,
-      durationMillis = Core.Nothing,
-      numberOfChannels = Core.Nothing
+    { codec = Prelude.Nothing,
+      sampleRate = Prelude.Nothing,
+      durationMillis = Prelude.Nothing,
+      numberOfChannels = Prelude.Nothing
     }
 
 -- | The audio codec used to encode or decode the audio stream.
-audioMetadata_codec :: Lens.Lens' AudioMetadata (Core.Maybe Core.Text)
+audioMetadata_codec :: Lens.Lens' AudioMetadata (Prelude.Maybe Prelude.Text)
 audioMetadata_codec = Lens.lens (\AudioMetadata' {codec} -> codec) (\s@AudioMetadata' {} a -> s {codec = a} :: AudioMetadata)
 
 -- | The sample rate for the audio stream.
-audioMetadata_sampleRate :: Lens.Lens' AudioMetadata (Core.Maybe Core.Natural)
+audioMetadata_sampleRate :: Lens.Lens' AudioMetadata (Prelude.Maybe Prelude.Natural)
 audioMetadata_sampleRate = Lens.lens (\AudioMetadata' {sampleRate} -> sampleRate) (\s@AudioMetadata' {} a -> s {sampleRate = a} :: AudioMetadata)
 
 -- | The duration of the audio stream in milliseconds.
-audioMetadata_durationMillis :: Lens.Lens' AudioMetadata (Core.Maybe Core.Natural)
+audioMetadata_durationMillis :: Lens.Lens' AudioMetadata (Prelude.Maybe Prelude.Natural)
 audioMetadata_durationMillis = Lens.lens (\AudioMetadata' {durationMillis} -> durationMillis) (\s@AudioMetadata' {} a -> s {durationMillis = a} :: AudioMetadata)
 
 -- | The number of audio channels in the segment.
-audioMetadata_numberOfChannels :: Lens.Lens' AudioMetadata (Core.Maybe Core.Natural)
+audioMetadata_numberOfChannels :: Lens.Lens' AudioMetadata (Prelude.Maybe Prelude.Natural)
 audioMetadata_numberOfChannels = Lens.lens (\AudioMetadata' {numberOfChannels} -> numberOfChannels) (\s@AudioMetadata' {} a -> s {numberOfChannels = a} :: AudioMetadata)
 
 instance Core.FromJSON AudioMetadata where
@@ -86,12 +87,12 @@ instance Core.FromJSON AudioMetadata where
       "AudioMetadata"
       ( \x ->
           AudioMetadata'
-            Core.<$> (x Core..:? "Codec")
-            Core.<*> (x Core..:? "SampleRate")
-            Core.<*> (x Core..:? "DurationMillis")
-            Core.<*> (x Core..:? "NumberOfChannels")
+            Prelude.<$> (x Core..:? "Codec")
+            Prelude.<*> (x Core..:? "SampleRate")
+            Prelude.<*> (x Core..:? "DurationMillis")
+            Prelude.<*> (x Core..:? "NumberOfChannels")
       )
 
-instance Core.Hashable AudioMetadata
+instance Prelude.Hashable AudioMetadata
 
-instance Core.NFData AudioMetadata
+instance Prelude.NFData AudioMetadata

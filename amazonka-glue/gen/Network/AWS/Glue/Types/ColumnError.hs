@@ -22,17 +22,18 @@ module Network.AWS.Glue.Types.ColumnError where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.ErrorDetail
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Encapsulates a column name that failed and the reason for failure.
 --
 -- /See:/ 'newColumnError' smart constructor.
 data ColumnError = ColumnError'
   { -- | The name of the column that failed.
-    columnName :: Core.Maybe Core.Text,
+    columnName :: Prelude.Maybe Prelude.Text,
     -- | An error message with the reason for the failure of an operation.
-    error :: Core.Maybe ErrorDetail
+    error :: Prelude.Maybe ErrorDetail
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ColumnError' with all optional fields omitted.
@@ -49,16 +50,16 @@ newColumnError ::
   ColumnError
 newColumnError =
   ColumnError'
-    { columnName = Core.Nothing,
-      error = Core.Nothing
+    { columnName = Prelude.Nothing,
+      error = Prelude.Nothing
     }
 
 -- | The name of the column that failed.
-columnError_columnName :: Lens.Lens' ColumnError (Core.Maybe Core.Text)
+columnError_columnName :: Lens.Lens' ColumnError (Prelude.Maybe Prelude.Text)
 columnError_columnName = Lens.lens (\ColumnError' {columnName} -> columnName) (\s@ColumnError' {} a -> s {columnName = a} :: ColumnError)
 
 -- | An error message with the reason for the failure of an operation.
-columnError_error :: Lens.Lens' ColumnError (Core.Maybe ErrorDetail)
+columnError_error :: Lens.Lens' ColumnError (Prelude.Maybe ErrorDetail)
 columnError_error = Lens.lens (\ColumnError' {error} -> error) (\s@ColumnError' {} a -> s {error = a} :: ColumnError)
 
 instance Core.FromJSON ColumnError where
@@ -67,10 +68,10 @@ instance Core.FromJSON ColumnError where
       "ColumnError"
       ( \x ->
           ColumnError'
-            Core.<$> (x Core..:? "ColumnName")
-            Core.<*> (x Core..:? "Error")
+            Prelude.<$> (x Core..:? "ColumnName")
+            Prelude.<*> (x Core..:? "Error")
       )
 
-instance Core.Hashable ColumnError
+instance Prelude.Hashable ColumnError
 
-instance Core.NFData ColumnError
+instance Prelude.NFData ColumnError

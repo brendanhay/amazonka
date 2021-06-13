@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.Mustache where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether or not the face has a mustache, and the confidence
 -- level in the determination.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newMustache' smart constructor.
 data Mustache = Mustache'
   { -- | Level of confidence in the determination.
-    confidence :: Core.Maybe Core.Double,
+    confidence :: Prelude.Maybe Prelude.Double,
     -- | Boolean value that indicates whether the face has mustache or not.
-    value :: Core.Maybe Core.Bool
+    value :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Mustache' with all optional fields omitted.
@@ -49,16 +50,16 @@ newMustache ::
   Mustache
 newMustache =
   Mustache'
-    { confidence = Core.Nothing,
-      value = Core.Nothing
+    { confidence = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | Level of confidence in the determination.
-mustache_confidence :: Lens.Lens' Mustache (Core.Maybe Core.Double)
+mustache_confidence :: Lens.Lens' Mustache (Prelude.Maybe Prelude.Double)
 mustache_confidence = Lens.lens (\Mustache' {confidence} -> confidence) (\s@Mustache' {} a -> s {confidence = a} :: Mustache)
 
 -- | Boolean value that indicates whether the face has mustache or not.
-mustache_value :: Lens.Lens' Mustache (Core.Maybe Core.Bool)
+mustache_value :: Lens.Lens' Mustache (Prelude.Maybe Prelude.Bool)
 mustache_value = Lens.lens (\Mustache' {value} -> value) (\s@Mustache' {} a -> s {value = a} :: Mustache)
 
 instance Core.FromJSON Mustache where
@@ -67,10 +68,10 @@ instance Core.FromJSON Mustache where
       "Mustache"
       ( \x ->
           Mustache'
-            Core.<$> (x Core..:? "Confidence")
-            Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable Mustache
+instance Prelude.Hashable Mustache
 
-instance Core.NFData Mustache
+instance Prelude.NFData Mustache

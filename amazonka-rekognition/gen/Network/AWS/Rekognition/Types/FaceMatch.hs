@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.FaceMatch where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.Face
 
 -- | Provides face metadata. In addition, it also provides the confidence in
@@ -29,12 +30,12 @@ import Network.AWS.Rekognition.Types.Face
 -- /See:/ 'newFaceMatch' smart constructor.
 data FaceMatch = FaceMatch'
   { -- | Confidence in the match of this face with the input face.
-    similarity :: Core.Maybe Core.Double,
+    similarity :: Prelude.Maybe Prelude.Double,
     -- | Describes the face properties such as the bounding box, face ID, image
     -- ID of the source image, and external image ID that you assigned.
-    face :: Core.Maybe Face
+    face :: Prelude.Maybe Face
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FaceMatch' with all optional fields omitted.
@@ -52,17 +53,17 @@ newFaceMatch ::
   FaceMatch
 newFaceMatch =
   FaceMatch'
-    { similarity = Core.Nothing,
-      face = Core.Nothing
+    { similarity = Prelude.Nothing,
+      face = Prelude.Nothing
     }
 
 -- | Confidence in the match of this face with the input face.
-faceMatch_similarity :: Lens.Lens' FaceMatch (Core.Maybe Core.Double)
+faceMatch_similarity :: Lens.Lens' FaceMatch (Prelude.Maybe Prelude.Double)
 faceMatch_similarity = Lens.lens (\FaceMatch' {similarity} -> similarity) (\s@FaceMatch' {} a -> s {similarity = a} :: FaceMatch)
 
 -- | Describes the face properties such as the bounding box, face ID, image
 -- ID of the source image, and external image ID that you assigned.
-faceMatch_face :: Lens.Lens' FaceMatch (Core.Maybe Face)
+faceMatch_face :: Lens.Lens' FaceMatch (Prelude.Maybe Face)
 faceMatch_face = Lens.lens (\FaceMatch' {face} -> face) (\s@FaceMatch' {} a -> s {face = a} :: FaceMatch)
 
 instance Core.FromJSON FaceMatch where
@@ -71,10 +72,10 @@ instance Core.FromJSON FaceMatch where
       "FaceMatch"
       ( \x ->
           FaceMatch'
-            Core.<$> (x Core..:? "Similarity")
-            Core.<*> (x Core..:? "Face")
+            Prelude.<$> (x Core..:? "Similarity")
+            Prelude.<*> (x Core..:? "Face")
       )
 
-instance Core.Hashable FaceMatch
+instance Prelude.Hashable FaceMatch
 
-instance Core.NFData FaceMatch
+instance Prelude.NFData FaceMatch

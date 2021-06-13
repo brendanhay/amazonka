@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.Role
 import Network.AWS.IAM.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an instance profile.
 --
@@ -43,29 +44,29 @@ data InstanceProfile = InstanceProfile'
     -- information about tagging, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
     -- in the /IAM User Guide/.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The path to the instance profile. For more information about paths, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    path :: Core.Text,
+    path :: Prelude.Text,
     -- | The name identifying the instance profile.
-    instanceProfileName :: Core.Text,
+    instanceProfileName :: Prelude.Text,
     -- | The stable and unique string identifying the instance profile. For more
     -- information about IDs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    instanceProfileId :: Core.Text,
+    instanceProfileId :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) specifying the instance profile. For more
     -- information about ARNs and how to use them in policies, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    arn :: Core.Text,
+    arn :: Prelude.Text,
     -- | The date when the instance profile was created.
     createDate :: Core.ISO8601,
     -- | The role associated with the instance profile.
     roles :: [Role]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceProfile' with all optional fields omitted.
@@ -101,15 +102,15 @@ data InstanceProfile = InstanceProfile'
 -- 'roles', 'instanceProfile_roles' - The role associated with the instance profile.
 newInstanceProfile ::
   -- | 'path'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceProfileName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceProfileId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'createDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   InstanceProfile
 newInstanceProfile
   pPath_
@@ -118,69 +119,69 @@ newInstanceProfile
   pArn_
   pCreateDate_ =
     InstanceProfile'
-      { tags = Core.Nothing,
+      { tags = Prelude.Nothing,
         path = pPath_,
         instanceProfileName = pInstanceProfileName_,
         instanceProfileId = pInstanceProfileId_,
         arn = pArn_,
         createDate = Core._Time Lens.# pCreateDate_,
-        roles = Core.mempty
+        roles = Prelude.mempty
       }
 
 -- | A list of tags that are attached to the instance profile. For more
 -- information about tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
-instanceProfile_tags :: Lens.Lens' InstanceProfile (Core.Maybe [Tag])
-instanceProfile_tags = Lens.lens (\InstanceProfile' {tags} -> tags) (\s@InstanceProfile' {} a -> s {tags = a} :: InstanceProfile) Core.. Lens.mapping Lens._Coerce
+instanceProfile_tags :: Lens.Lens' InstanceProfile (Prelude.Maybe [Tag])
+instanceProfile_tags = Lens.lens (\InstanceProfile' {tags} -> tags) (\s@InstanceProfile' {} a -> s {tags = a} :: InstanceProfile) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The path to the instance profile. For more information about paths, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
-instanceProfile_path :: Lens.Lens' InstanceProfile Core.Text
+instanceProfile_path :: Lens.Lens' InstanceProfile Prelude.Text
 instanceProfile_path = Lens.lens (\InstanceProfile' {path} -> path) (\s@InstanceProfile' {} a -> s {path = a} :: InstanceProfile)
 
 -- | The name identifying the instance profile.
-instanceProfile_instanceProfileName :: Lens.Lens' InstanceProfile Core.Text
+instanceProfile_instanceProfileName :: Lens.Lens' InstanceProfile Prelude.Text
 instanceProfile_instanceProfileName = Lens.lens (\InstanceProfile' {instanceProfileName} -> instanceProfileName) (\s@InstanceProfile' {} a -> s {instanceProfileName = a} :: InstanceProfile)
 
 -- | The stable and unique string identifying the instance profile. For more
 -- information about IDs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
-instanceProfile_instanceProfileId :: Lens.Lens' InstanceProfile Core.Text
+instanceProfile_instanceProfileId :: Lens.Lens' InstanceProfile Prelude.Text
 instanceProfile_instanceProfileId = Lens.lens (\InstanceProfile' {instanceProfileId} -> instanceProfileId) (\s@InstanceProfile' {} a -> s {instanceProfileId = a} :: InstanceProfile)
 
 -- | The Amazon Resource Name (ARN) specifying the instance profile. For more
 -- information about ARNs and how to use them in policies, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
-instanceProfile_arn :: Lens.Lens' InstanceProfile Core.Text
+instanceProfile_arn :: Lens.Lens' InstanceProfile Prelude.Text
 instanceProfile_arn = Lens.lens (\InstanceProfile' {arn} -> arn) (\s@InstanceProfile' {} a -> s {arn = a} :: InstanceProfile)
 
 -- | The date when the instance profile was created.
-instanceProfile_createDate :: Lens.Lens' InstanceProfile Core.UTCTime
-instanceProfile_createDate = Lens.lens (\InstanceProfile' {createDate} -> createDate) (\s@InstanceProfile' {} a -> s {createDate = a} :: InstanceProfile) Core.. Core._Time
+instanceProfile_createDate :: Lens.Lens' InstanceProfile Prelude.UTCTime
+instanceProfile_createDate = Lens.lens (\InstanceProfile' {createDate} -> createDate) (\s@InstanceProfile' {} a -> s {createDate = a} :: InstanceProfile) Prelude.. Core._Time
 
 -- | The role associated with the instance profile.
 instanceProfile_roles :: Lens.Lens' InstanceProfile [Role]
-instanceProfile_roles = Lens.lens (\InstanceProfile' {roles} -> roles) (\s@InstanceProfile' {} a -> s {roles = a} :: InstanceProfile) Core.. Lens._Coerce
+instanceProfile_roles = Lens.lens (\InstanceProfile' {roles} -> roles) (\s@InstanceProfile' {} a -> s {roles = a} :: InstanceProfile) Prelude.. Lens._Coerce
 
 instance Core.FromXML InstanceProfile where
   parseXML x =
     InstanceProfile'
-      Core.<$> ( x Core..@? "Tags" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@ "Path")
-      Core.<*> (x Core..@ "InstanceProfileName")
-      Core.<*> (x Core..@ "InstanceProfileId")
-      Core.<*> (x Core..@ "Arn")
-      Core.<*> (x Core..@ "CreateDate")
-      Core.<*> ( x Core..@? "Roles" Core..!@ Core.mempty
-                   Core.>>= Core.parseXMLList "member"
-               )
+      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@ "Path")
+      Prelude.<*> (x Core..@ "InstanceProfileName")
+      Prelude.<*> (x Core..@ "InstanceProfileId")
+      Prelude.<*> (x Core..@ "Arn")
+      Prelude.<*> (x Core..@ "CreateDate")
+      Prelude.<*> ( x Core..@? "Roles" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.parseXMLList "member"
+                  )
 
-instance Core.Hashable InstanceProfile
+instance Prelude.Hashable InstanceProfile
 
-instance Core.NFData InstanceProfile
+instance Prelude.NFData InstanceProfile

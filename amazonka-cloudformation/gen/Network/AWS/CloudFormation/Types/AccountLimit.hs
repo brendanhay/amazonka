@@ -21,6 +21,7 @@ module Network.AWS.CloudFormation.Types.AccountLimit where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The AccountLimit data type.
 --
@@ -42,11 +43,11 @@ data AccountLimit = AccountLimit'
   { -- | The name of the account limit.
     --
     -- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The value that is associated with the account limit name.
-    value :: Core.Maybe Core.Int
+    value :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccountLimit' with all optional fields omitted.
@@ -65,25 +66,25 @@ newAccountLimit ::
   AccountLimit
 newAccountLimit =
   AccountLimit'
-    { name = Core.Nothing,
-      value = Core.Nothing
+    { name = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The name of the account limit.
 --
 -- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@
-accountLimit_name :: Lens.Lens' AccountLimit (Core.Maybe Core.Text)
+accountLimit_name :: Lens.Lens' AccountLimit (Prelude.Maybe Prelude.Text)
 accountLimit_name = Lens.lens (\AccountLimit' {name} -> name) (\s@AccountLimit' {} a -> s {name = a} :: AccountLimit)
 
 -- | The value that is associated with the account limit name.
-accountLimit_value :: Lens.Lens' AccountLimit (Core.Maybe Core.Int)
+accountLimit_value :: Lens.Lens' AccountLimit (Prelude.Maybe Prelude.Int)
 accountLimit_value = Lens.lens (\AccountLimit' {value} -> value) (\s@AccountLimit' {} a -> s {value = a} :: AccountLimit)
 
 instance Core.FromXML AccountLimit where
   parseXML x =
     AccountLimit'
-      Core.<$> (x Core..@? "Name") Core.<*> (x Core..@? "Value")
+      Prelude.<$> (x Core..@? "Name") Prelude.<*> (x Core..@? "Value")
 
-instance Core.Hashable AccountLimit
+instance Prelude.Hashable AccountLimit
 
-instance Core.NFData AccountLimit
+instance Prelude.NFData AccountLimit

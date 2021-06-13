@@ -20,6 +20,7 @@ import Network.AWS.Kinesis.DescribeStream
 import Network.AWS.Kinesis.Lens
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.Kinesis.DescribeStream' every 10 seconds until a successful state is reached. An error is returned after 18 failed checks.
 newStreamExists :: Core.Wait DescribeStream
@@ -33,8 +34,8 @@ newStreamExists =
             "ACTIVE"
             Core.AcceptSuccess
             ( describeStreamResponse_streamDescription
-                Core.. streamDescription_streamStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. streamDescription_streamStatus
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

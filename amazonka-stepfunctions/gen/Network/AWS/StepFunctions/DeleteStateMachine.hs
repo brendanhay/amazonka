@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StepFunctions.Types
@@ -52,9 +53,9 @@ import Network.AWS.StepFunctions.Types
 -- | /See:/ 'newDeleteStateMachine' smart constructor.
 data DeleteStateMachine = DeleteStateMachine'
   { -- | The Amazon Resource Name (ARN) of the state machine to delete.
-    stateMachineArn :: Core.Text
+    stateMachineArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteStateMachine' with all optional fields omitted.
@@ -67,7 +68,7 @@ data DeleteStateMachine = DeleteStateMachine'
 -- 'stateMachineArn', 'deleteStateMachine_stateMachineArn' - The Amazon Resource Name (ARN) of the state machine to delete.
 newDeleteStateMachine ::
   -- | 'stateMachineArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteStateMachine
 newDeleteStateMachine pStateMachineArn_ =
   DeleteStateMachine'
@@ -76,7 +77,7 @@ newDeleteStateMachine pStateMachineArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the state machine to delete.
-deleteStateMachine_stateMachineArn :: Lens.Lens' DeleteStateMachine Core.Text
+deleteStateMachine_stateMachineArn :: Lens.Lens' DeleteStateMachine Prelude.Text
 deleteStateMachine_stateMachineArn = Lens.lens (\DeleteStateMachine' {stateMachineArn} -> stateMachineArn) (\s@DeleteStateMachine' {} a -> s {stateMachineArn = a} :: DeleteStateMachine)
 
 instance Core.AWSRequest DeleteStateMachine where
@@ -88,47 +89,49 @@ instance Core.AWSRequest DeleteStateMachine where
     Response.receiveEmpty
       ( \s h x ->
           DeleteStateMachineResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteStateMachine
+instance Prelude.Hashable DeleteStateMachine
 
-instance Core.NFData DeleteStateMachine
+instance Prelude.NFData DeleteStateMachine
 
 instance Core.ToHeaders DeleteStateMachine where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSStepFunctions.DeleteStateMachine" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteStateMachine where
   toJSON DeleteStateMachine' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("stateMachineArn" Core..= stateMachineArn)
           ]
       )
 
 instance Core.ToPath DeleteStateMachine where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteStateMachine where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStateMachineResponse' smart constructor.
 data DeleteStateMachineResponse = DeleteStateMachineResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteStateMachineResponse' with all optional fields omitted.
@@ -141,7 +144,7 @@ data DeleteStateMachineResponse = DeleteStateMachineResponse'
 -- 'httpStatus', 'deleteStateMachineResponse_httpStatus' - The response's http status code.
 newDeleteStateMachineResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteStateMachineResponse
 newDeleteStateMachineResponse pHttpStatus_ =
   DeleteStateMachineResponse'
@@ -150,7 +153,7 @@ newDeleteStateMachineResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteStateMachineResponse_httpStatus :: Lens.Lens' DeleteStateMachineResponse Core.Int
+deleteStateMachineResponse_httpStatus :: Lens.Lens' DeleteStateMachineResponse Prelude.Int
 deleteStateMachineResponse_httpStatus = Lens.lens (\DeleteStateMachineResponse' {httpStatus} -> httpStatus) (\s@DeleteStateMachineResponse' {} a -> s {httpStatus = a} :: DeleteStateMachineResponse)
 
-instance Core.NFData DeleteStateMachineResponse
+instance Prelude.NFData DeleteStateMachineResponse

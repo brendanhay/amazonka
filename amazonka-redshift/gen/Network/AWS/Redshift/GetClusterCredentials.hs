@@ -73,6 +73,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -100,7 +101,7 @@ data GetClusterCredentials = GetClusterCredentials'
     -- -   Cannot be a reserved word. A list of reserved words can be found in
     --     <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
     --     in the Amazon Redshift Database Developer Guide.
-    dbGroups :: Core.Maybe [Core.Text],
+    dbGroups :: Prelude.Maybe [Prelude.Text],
     -- | The name of a database that @DbUser@ is authorized to log on to. If
     -- @DbName@ is not specified, @DbUser@ can log on to any existing database.
     --
@@ -118,16 +119,16 @@ data GetClusterCredentials = GetClusterCredentials'
     -- -   Cannot be a reserved word. A list of reserved words can be found in
     --     <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
     --     in the Amazon Redshift Database Developer Guide.
-    dbName :: Core.Maybe Core.Text,
+    dbName :: Prelude.Maybe Prelude.Text,
     -- | Create a database user with the name specified for the user named in
     -- @DbUser@ if one does not exist.
-    autoCreate :: Core.Maybe Core.Bool,
+    autoCreate :: Prelude.Maybe Prelude.Bool,
     -- | The number of seconds until the returned temporary password expires.
     --
     -- Constraint: minimum 900, maximum 3600.
     --
     -- Default: 900
-    durationSeconds :: Core.Maybe Core.Int,
+    durationSeconds :: Prelude.Maybe Prelude.Int,
     -- | The name of a database user. If a user name matching @DbUser@ exists in
     -- the database, the temporary user credentials have the same permissions
     -- as the existing user. If @DbUser@ doesn\'t exist in the database and
@@ -156,12 +157,12 @@ data GetClusterCredentials = GetClusterCredentials'
     -- -   Cannot be a reserved word. A list of reserved words can be found in
     --     <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
     --     in the Amazon Redshift Database Developer Guide.
-    dbUser :: Core.Text,
+    dbUser :: Prelude.Text,
     -- | The unique identifier of the cluster that contains the database for
     -- which your are requesting credentials. This parameter is case sensitive.
-    clusterIdentifier :: Core.Text
+    clusterIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetClusterCredentials' with all optional fields omitted.
@@ -251,16 +252,16 @@ data GetClusterCredentials = GetClusterCredentials'
 -- which your are requesting credentials. This parameter is case sensitive.
 newGetClusterCredentials ::
   -- | 'dbUser'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'clusterIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   GetClusterCredentials
 newGetClusterCredentials pDbUser_ pClusterIdentifier_ =
   GetClusterCredentials'
-    { dbGroups = Core.Nothing,
-      dbName = Core.Nothing,
-      autoCreate = Core.Nothing,
-      durationSeconds = Core.Nothing,
+    { dbGroups = Prelude.Nothing,
+      dbName = Prelude.Nothing,
+      autoCreate = Prelude.Nothing,
+      durationSeconds = Prelude.Nothing,
       dbUser = pDbUser_,
       clusterIdentifier = pClusterIdentifier_
     }
@@ -284,8 +285,8 @@ newGetClusterCredentials pDbUser_ pClusterIdentifier_ =
 -- -   Cannot be a reserved word. A list of reserved words can be found in
 --     <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
 --     in the Amazon Redshift Database Developer Guide.
-getClusterCredentials_dbGroups :: Lens.Lens' GetClusterCredentials (Core.Maybe [Core.Text])
-getClusterCredentials_dbGroups = Lens.lens (\GetClusterCredentials' {dbGroups} -> dbGroups) (\s@GetClusterCredentials' {} a -> s {dbGroups = a} :: GetClusterCredentials) Core.. Lens.mapping Lens._Coerce
+getClusterCredentials_dbGroups :: Lens.Lens' GetClusterCredentials (Prelude.Maybe [Prelude.Text])
+getClusterCredentials_dbGroups = Lens.lens (\GetClusterCredentials' {dbGroups} -> dbGroups) (\s@GetClusterCredentials' {} a -> s {dbGroups = a} :: GetClusterCredentials) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of a database that @DbUser@ is authorized to log on to. If
 -- @DbName@ is not specified, @DbUser@ can log on to any existing database.
@@ -304,12 +305,12 @@ getClusterCredentials_dbGroups = Lens.lens (\GetClusterCredentials' {dbGroups} -
 -- -   Cannot be a reserved word. A list of reserved words can be found in
 --     <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
 --     in the Amazon Redshift Database Developer Guide.
-getClusterCredentials_dbName :: Lens.Lens' GetClusterCredentials (Core.Maybe Core.Text)
+getClusterCredentials_dbName :: Lens.Lens' GetClusterCredentials (Prelude.Maybe Prelude.Text)
 getClusterCredentials_dbName = Lens.lens (\GetClusterCredentials' {dbName} -> dbName) (\s@GetClusterCredentials' {} a -> s {dbName = a} :: GetClusterCredentials)
 
 -- | Create a database user with the name specified for the user named in
 -- @DbUser@ if one does not exist.
-getClusterCredentials_autoCreate :: Lens.Lens' GetClusterCredentials (Core.Maybe Core.Bool)
+getClusterCredentials_autoCreate :: Lens.Lens' GetClusterCredentials (Prelude.Maybe Prelude.Bool)
 getClusterCredentials_autoCreate = Lens.lens (\GetClusterCredentials' {autoCreate} -> autoCreate) (\s@GetClusterCredentials' {} a -> s {autoCreate = a} :: GetClusterCredentials)
 
 -- | The number of seconds until the returned temporary password expires.
@@ -317,7 +318,7 @@ getClusterCredentials_autoCreate = Lens.lens (\GetClusterCredentials' {autoCreat
 -- Constraint: minimum 900, maximum 3600.
 --
 -- Default: 900
-getClusterCredentials_durationSeconds :: Lens.Lens' GetClusterCredentials (Core.Maybe Core.Int)
+getClusterCredentials_durationSeconds :: Lens.Lens' GetClusterCredentials (Prelude.Maybe Prelude.Int)
 getClusterCredentials_durationSeconds = Lens.lens (\GetClusterCredentials' {durationSeconds} -> durationSeconds) (\s@GetClusterCredentials' {} a -> s {durationSeconds = a} :: GetClusterCredentials)
 
 -- | The name of a database user. If a user name matching @DbUser@ exists in
@@ -348,12 +349,12 @@ getClusterCredentials_durationSeconds = Lens.lens (\GetClusterCredentials' {dura
 -- -   Cannot be a reserved word. A list of reserved words can be found in
 --     <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
 --     in the Amazon Redshift Database Developer Guide.
-getClusterCredentials_dbUser :: Lens.Lens' GetClusterCredentials Core.Text
+getClusterCredentials_dbUser :: Lens.Lens' GetClusterCredentials Prelude.Text
 getClusterCredentials_dbUser = Lens.lens (\GetClusterCredentials' {dbUser} -> dbUser) (\s@GetClusterCredentials' {} a -> s {dbUser = a} :: GetClusterCredentials)
 
 -- | The unique identifier of the cluster that contains the database for
 -- which your are requesting credentials. This parameter is case sensitive.
-getClusterCredentials_clusterIdentifier :: Lens.Lens' GetClusterCredentials Core.Text
+getClusterCredentials_clusterIdentifier :: Lens.Lens' GetClusterCredentials Prelude.Text
 getClusterCredentials_clusterIdentifier = Lens.lens (\GetClusterCredentials' {clusterIdentifier} -> clusterIdentifier) (\s@GetClusterCredentials' {} a -> s {clusterIdentifier = a} :: GetClusterCredentials)
 
 instance Core.AWSRequest GetClusterCredentials where
@@ -366,31 +367,32 @@ instance Core.AWSRequest GetClusterCredentials where
       "GetClusterCredentialsResult"
       ( \s h x ->
           GetClusterCredentialsResponse'
-            Core.<$> (x Core..@? "DbUser")
-            Core.<*> (x Core..@? "Expiration")
-            Core.<*> (x Core..@? "DbPassword")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DbUser")
+            Prelude.<*> (x Core..@? "Expiration")
+            Prelude.<*> (x Core..@? "DbPassword")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetClusterCredentials
+instance Prelude.Hashable GetClusterCredentials
 
-instance Core.NFData GetClusterCredentials
+instance Prelude.NFData GetClusterCredentials
 
 instance Core.ToHeaders GetClusterCredentials where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetClusterCredentials where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetClusterCredentials where
   toQuery GetClusterCredentials' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetClusterCredentials" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("GetClusterCredentials" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "DbGroups"
           Core.=: Core.toQuery
-            (Core.toQueryList "DbGroup" Core.<$> dbGroups),
+            (Core.toQueryList "DbGroup" Prelude.<$> dbGroups),
         "DbName" Core.=: dbName,
         "AutoCreate" Core.=: autoCreate,
         "DurationSeconds" Core.=: durationSeconds,
@@ -409,16 +411,16 @@ data GetClusterCredentialsResponse = GetClusterCredentialsResponse'
     -- the the user named in DbUser. By default, the user is added to PUBLIC.
     -- If the @DbGroups@ parameter is specifed, @DbUser@ is added to the listed
     -- groups for any sessions created using these credentials.
-    dbUser :: Core.Maybe Core.Text,
+    dbUser :: Prelude.Maybe Prelude.Text,
     -- | The date and time the password in @DbPassword@ expires.
-    expiration :: Core.Maybe Core.ISO8601,
+    expiration :: Prelude.Maybe Core.ISO8601,
     -- | A temporary password that authorizes the user name returned by @DbUser@
     -- to log on to the database @DbName@.
-    dbPassword :: Core.Maybe (Core.Sensitive Core.Text),
+    dbPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetClusterCredentialsResponse' with all optional fields omitted.
@@ -443,14 +445,14 @@ data GetClusterCredentialsResponse = GetClusterCredentialsResponse'
 -- 'httpStatus', 'getClusterCredentialsResponse_httpStatus' - The response's http status code.
 newGetClusterCredentialsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetClusterCredentialsResponse
 newGetClusterCredentialsResponse pHttpStatus_ =
   GetClusterCredentialsResponse'
     { dbUser =
-        Core.Nothing,
-      expiration = Core.Nothing,
-      dbPassword = Core.Nothing,
+        Prelude.Nothing,
+      expiration = Prelude.Nothing,
+      dbPassword = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -460,20 +462,20 @@ newGetClusterCredentialsResponse pHttpStatus_ =
 -- the the user named in DbUser. By default, the user is added to PUBLIC.
 -- If the @DbGroups@ parameter is specifed, @DbUser@ is added to the listed
 -- groups for any sessions created using these credentials.
-getClusterCredentialsResponse_dbUser :: Lens.Lens' GetClusterCredentialsResponse (Core.Maybe Core.Text)
+getClusterCredentialsResponse_dbUser :: Lens.Lens' GetClusterCredentialsResponse (Prelude.Maybe Prelude.Text)
 getClusterCredentialsResponse_dbUser = Lens.lens (\GetClusterCredentialsResponse' {dbUser} -> dbUser) (\s@GetClusterCredentialsResponse' {} a -> s {dbUser = a} :: GetClusterCredentialsResponse)
 
 -- | The date and time the password in @DbPassword@ expires.
-getClusterCredentialsResponse_expiration :: Lens.Lens' GetClusterCredentialsResponse (Core.Maybe Core.UTCTime)
-getClusterCredentialsResponse_expiration = Lens.lens (\GetClusterCredentialsResponse' {expiration} -> expiration) (\s@GetClusterCredentialsResponse' {} a -> s {expiration = a} :: GetClusterCredentialsResponse) Core.. Lens.mapping Core._Time
+getClusterCredentialsResponse_expiration :: Lens.Lens' GetClusterCredentialsResponse (Prelude.Maybe Prelude.UTCTime)
+getClusterCredentialsResponse_expiration = Lens.lens (\GetClusterCredentialsResponse' {expiration} -> expiration) (\s@GetClusterCredentialsResponse' {} a -> s {expiration = a} :: GetClusterCredentialsResponse) Prelude.. Lens.mapping Core._Time
 
 -- | A temporary password that authorizes the user name returned by @DbUser@
 -- to log on to the database @DbName@.
-getClusterCredentialsResponse_dbPassword :: Lens.Lens' GetClusterCredentialsResponse (Core.Maybe Core.Text)
-getClusterCredentialsResponse_dbPassword = Lens.lens (\GetClusterCredentialsResponse' {dbPassword} -> dbPassword) (\s@GetClusterCredentialsResponse' {} a -> s {dbPassword = a} :: GetClusterCredentialsResponse) Core.. Lens.mapping Core._Sensitive
+getClusterCredentialsResponse_dbPassword :: Lens.Lens' GetClusterCredentialsResponse (Prelude.Maybe Prelude.Text)
+getClusterCredentialsResponse_dbPassword = Lens.lens (\GetClusterCredentialsResponse' {dbPassword} -> dbPassword) (\s@GetClusterCredentialsResponse' {} a -> s {dbPassword = a} :: GetClusterCredentialsResponse) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The response's http status code.
-getClusterCredentialsResponse_httpStatus :: Lens.Lens' GetClusterCredentialsResponse Core.Int
+getClusterCredentialsResponse_httpStatus :: Lens.Lens' GetClusterCredentialsResponse Prelude.Int
 getClusterCredentialsResponse_httpStatus = Lens.lens (\GetClusterCredentialsResponse' {httpStatus} -> httpStatus) (\s@GetClusterCredentialsResponse' {} a -> s {httpStatus = a} :: GetClusterCredentialsResponse)
 
-instance Core.NFData GetClusterCredentialsResponse
+instance Prelude.NFData GetClusterCredentialsResponse

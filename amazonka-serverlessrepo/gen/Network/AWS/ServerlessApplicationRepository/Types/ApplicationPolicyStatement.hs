@@ -21,24 +21,25 @@ module Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatem
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Policy statement applied to the application.
 --
 -- /See:/ 'newApplicationPolicyStatement' smart constructor.
 data ApplicationPolicyStatement = ApplicationPolicyStatement'
   { -- | A unique ID for the statement.
-    statementId :: Core.Maybe Core.Text,
+    statementId :: Prelude.Maybe Prelude.Text,
     -- | An array of PrinciplalOrgIDs, which corresponds to AWS IAM
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#principal-org-id aws:PrincipalOrgID>
     -- global condition key.
-    principalOrgIDs :: Core.Maybe [Core.Text],
+    principalOrgIDs :: Prelude.Maybe [Prelude.Text],
     -- | An array of AWS account IDs, or * to make the application public.
-    principals :: [Core.Text],
+    principals :: [Prelude.Text],
     -- | For the list of actions supported for this operation, see
     -- <https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions Application Permissions>.
-    actions :: [Core.Text]
+    actions :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApplicationPolicyStatement' with all optional fields omitted.
@@ -63,30 +64,30 @@ newApplicationPolicyStatement ::
 newApplicationPolicyStatement =
   ApplicationPolicyStatement'
     { statementId =
-        Core.Nothing,
-      principalOrgIDs = Core.Nothing,
-      principals = Core.mempty,
-      actions = Core.mempty
+        Prelude.Nothing,
+      principalOrgIDs = Prelude.Nothing,
+      principals = Prelude.mempty,
+      actions = Prelude.mempty
     }
 
 -- | A unique ID for the statement.
-applicationPolicyStatement_statementId :: Lens.Lens' ApplicationPolicyStatement (Core.Maybe Core.Text)
+applicationPolicyStatement_statementId :: Lens.Lens' ApplicationPolicyStatement (Prelude.Maybe Prelude.Text)
 applicationPolicyStatement_statementId = Lens.lens (\ApplicationPolicyStatement' {statementId} -> statementId) (\s@ApplicationPolicyStatement' {} a -> s {statementId = a} :: ApplicationPolicyStatement)
 
 -- | An array of PrinciplalOrgIDs, which corresponds to AWS IAM
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#principal-org-id aws:PrincipalOrgID>
 -- global condition key.
-applicationPolicyStatement_principalOrgIDs :: Lens.Lens' ApplicationPolicyStatement (Core.Maybe [Core.Text])
-applicationPolicyStatement_principalOrgIDs = Lens.lens (\ApplicationPolicyStatement' {principalOrgIDs} -> principalOrgIDs) (\s@ApplicationPolicyStatement' {} a -> s {principalOrgIDs = a} :: ApplicationPolicyStatement) Core.. Lens.mapping Lens._Coerce
+applicationPolicyStatement_principalOrgIDs :: Lens.Lens' ApplicationPolicyStatement (Prelude.Maybe [Prelude.Text])
+applicationPolicyStatement_principalOrgIDs = Lens.lens (\ApplicationPolicyStatement' {principalOrgIDs} -> principalOrgIDs) (\s@ApplicationPolicyStatement' {} a -> s {principalOrgIDs = a} :: ApplicationPolicyStatement) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An array of AWS account IDs, or * to make the application public.
-applicationPolicyStatement_principals :: Lens.Lens' ApplicationPolicyStatement [Core.Text]
-applicationPolicyStatement_principals = Lens.lens (\ApplicationPolicyStatement' {principals} -> principals) (\s@ApplicationPolicyStatement' {} a -> s {principals = a} :: ApplicationPolicyStatement) Core.. Lens._Coerce
+applicationPolicyStatement_principals :: Lens.Lens' ApplicationPolicyStatement [Prelude.Text]
+applicationPolicyStatement_principals = Lens.lens (\ApplicationPolicyStatement' {principals} -> principals) (\s@ApplicationPolicyStatement' {} a -> s {principals = a} :: ApplicationPolicyStatement) Prelude.. Lens._Coerce
 
 -- | For the list of actions supported for this operation, see
 -- <https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions Application Permissions>.
-applicationPolicyStatement_actions :: Lens.Lens' ApplicationPolicyStatement [Core.Text]
-applicationPolicyStatement_actions = Lens.lens (\ApplicationPolicyStatement' {actions} -> actions) (\s@ApplicationPolicyStatement' {} a -> s {actions = a} :: ApplicationPolicyStatement) Core.. Lens._Coerce
+applicationPolicyStatement_actions :: Lens.Lens' ApplicationPolicyStatement [Prelude.Text]
+applicationPolicyStatement_actions = Lens.lens (\ApplicationPolicyStatement' {actions} -> actions) (\s@ApplicationPolicyStatement' {} a -> s {actions = a} :: ApplicationPolicyStatement) Prelude.. Lens._Coerce
 
 instance Core.FromJSON ApplicationPolicyStatement where
   parseJSON =
@@ -94,23 +95,26 @@ instance Core.FromJSON ApplicationPolicyStatement where
       "ApplicationPolicyStatement"
       ( \x ->
           ApplicationPolicyStatement'
-            Core.<$> (x Core..:? "statementId")
-            Core.<*> (x Core..:? "principalOrgIDs" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "principals" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "actions" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "statementId")
+            Prelude.<*> ( x Core..:? "principalOrgIDs"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "principals" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "actions" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ApplicationPolicyStatement
+instance Prelude.Hashable ApplicationPolicyStatement
 
-instance Core.NFData ApplicationPolicyStatement
+instance Prelude.NFData ApplicationPolicyStatement
 
 instance Core.ToJSON ApplicationPolicyStatement where
   toJSON ApplicationPolicyStatement' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("statementId" Core..=) Core.<$> statementId,
-            ("principalOrgIDs" Core..=) Core.<$> principalOrgIDs,
-            Core.Just ("principals" Core..= principals),
-            Core.Just ("actions" Core..= actions)
+      ( Prelude.catMaybes
+          [ ("statementId" Core..=) Prelude.<$> statementId,
+            ("principalOrgIDs" Core..=)
+              Prelude.<$> principalOrgIDs,
+            Prelude.Just ("principals" Core..= principals),
+            Prelude.Just ("actions" Core..= actions)
           ]
       )

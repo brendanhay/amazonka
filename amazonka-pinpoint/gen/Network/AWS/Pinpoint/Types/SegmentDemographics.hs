@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.SegmentDemographics where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.SetDimension
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies demographic-based dimension settings for including or
 -- excluding endpoints from a segment. These settings derive from
@@ -30,19 +31,19 @@ import Network.AWS.Pinpoint.Types.SetDimension
 -- /See:/ 'newSegmentDemographics' smart constructor.
 data SegmentDemographics = SegmentDemographics'
   { -- | The device model criteria for the segment.
-    model :: Core.Maybe SetDimension,
+    model :: Prelude.Maybe SetDimension,
     -- | The device platform criteria for the segment.
-    platform :: Core.Maybe SetDimension,
+    platform :: Prelude.Maybe SetDimension,
     -- | The app version criteria for the segment.
-    appVersion :: Core.Maybe SetDimension,
+    appVersion :: Prelude.Maybe SetDimension,
     -- | The channel criteria for the segment.
-    channel :: Core.Maybe SetDimension,
+    channel :: Prelude.Maybe SetDimension,
     -- | The device type criteria for the segment.
-    deviceType :: Core.Maybe SetDimension,
+    deviceType :: Prelude.Maybe SetDimension,
     -- | The device make criteria for the segment.
-    make :: Core.Maybe SetDimension
+    make :: Prelude.Maybe SetDimension
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SegmentDemographics' with all optional fields omitted.
@@ -67,36 +68,36 @@ newSegmentDemographics ::
   SegmentDemographics
 newSegmentDemographics =
   SegmentDemographics'
-    { model = Core.Nothing,
-      platform = Core.Nothing,
-      appVersion = Core.Nothing,
-      channel = Core.Nothing,
-      deviceType = Core.Nothing,
-      make = Core.Nothing
+    { model = Prelude.Nothing,
+      platform = Prelude.Nothing,
+      appVersion = Prelude.Nothing,
+      channel = Prelude.Nothing,
+      deviceType = Prelude.Nothing,
+      make = Prelude.Nothing
     }
 
 -- | The device model criteria for the segment.
-segmentDemographics_model :: Lens.Lens' SegmentDemographics (Core.Maybe SetDimension)
+segmentDemographics_model :: Lens.Lens' SegmentDemographics (Prelude.Maybe SetDimension)
 segmentDemographics_model = Lens.lens (\SegmentDemographics' {model} -> model) (\s@SegmentDemographics' {} a -> s {model = a} :: SegmentDemographics)
 
 -- | The device platform criteria for the segment.
-segmentDemographics_platform :: Lens.Lens' SegmentDemographics (Core.Maybe SetDimension)
+segmentDemographics_platform :: Lens.Lens' SegmentDemographics (Prelude.Maybe SetDimension)
 segmentDemographics_platform = Lens.lens (\SegmentDemographics' {platform} -> platform) (\s@SegmentDemographics' {} a -> s {platform = a} :: SegmentDemographics)
 
 -- | The app version criteria for the segment.
-segmentDemographics_appVersion :: Lens.Lens' SegmentDemographics (Core.Maybe SetDimension)
+segmentDemographics_appVersion :: Lens.Lens' SegmentDemographics (Prelude.Maybe SetDimension)
 segmentDemographics_appVersion = Lens.lens (\SegmentDemographics' {appVersion} -> appVersion) (\s@SegmentDemographics' {} a -> s {appVersion = a} :: SegmentDemographics)
 
 -- | The channel criteria for the segment.
-segmentDemographics_channel :: Lens.Lens' SegmentDemographics (Core.Maybe SetDimension)
+segmentDemographics_channel :: Lens.Lens' SegmentDemographics (Prelude.Maybe SetDimension)
 segmentDemographics_channel = Lens.lens (\SegmentDemographics' {channel} -> channel) (\s@SegmentDemographics' {} a -> s {channel = a} :: SegmentDemographics)
 
 -- | The device type criteria for the segment.
-segmentDemographics_deviceType :: Lens.Lens' SegmentDemographics (Core.Maybe SetDimension)
+segmentDemographics_deviceType :: Lens.Lens' SegmentDemographics (Prelude.Maybe SetDimension)
 segmentDemographics_deviceType = Lens.lens (\SegmentDemographics' {deviceType} -> deviceType) (\s@SegmentDemographics' {} a -> s {deviceType = a} :: SegmentDemographics)
 
 -- | The device make criteria for the segment.
-segmentDemographics_make :: Lens.Lens' SegmentDemographics (Core.Maybe SetDimension)
+segmentDemographics_make :: Lens.Lens' SegmentDemographics (Prelude.Maybe SetDimension)
 segmentDemographics_make = Lens.lens (\SegmentDemographics' {make} -> make) (\s@SegmentDemographics' {} a -> s {make = a} :: SegmentDemographics)
 
 instance Core.FromJSON SegmentDemographics where
@@ -105,27 +106,27 @@ instance Core.FromJSON SegmentDemographics where
       "SegmentDemographics"
       ( \x ->
           SegmentDemographics'
-            Core.<$> (x Core..:? "Model")
-            Core.<*> (x Core..:? "Platform")
-            Core.<*> (x Core..:? "AppVersion")
-            Core.<*> (x Core..:? "Channel")
-            Core.<*> (x Core..:? "DeviceType")
-            Core.<*> (x Core..:? "Make")
+            Prelude.<$> (x Core..:? "Model")
+            Prelude.<*> (x Core..:? "Platform")
+            Prelude.<*> (x Core..:? "AppVersion")
+            Prelude.<*> (x Core..:? "Channel")
+            Prelude.<*> (x Core..:? "DeviceType")
+            Prelude.<*> (x Core..:? "Make")
       )
 
-instance Core.Hashable SegmentDemographics
+instance Prelude.Hashable SegmentDemographics
 
-instance Core.NFData SegmentDemographics
+instance Prelude.NFData SegmentDemographics
 
 instance Core.ToJSON SegmentDemographics where
   toJSON SegmentDemographics' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Model" Core..=) Core.<$> model,
-            ("Platform" Core..=) Core.<$> platform,
-            ("AppVersion" Core..=) Core.<$> appVersion,
-            ("Channel" Core..=) Core.<$> channel,
-            ("DeviceType" Core..=) Core.<$> deviceType,
-            ("Make" Core..=) Core.<$> make
+      ( Prelude.catMaybes
+          [ ("Model" Core..=) Prelude.<$> model,
+            ("Platform" Core..=) Prelude.<$> platform,
+            ("AppVersion" Core..=) Prelude.<$> appVersion,
+            ("Channel" Core..=) Prelude.<$> channel,
+            ("DeviceType" Core..=) Prelude.<$> deviceType,
+            ("Make" Core..=) Prelude.<$> make
           ]
       )

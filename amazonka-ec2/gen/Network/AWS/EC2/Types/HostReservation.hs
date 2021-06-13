@@ -26,6 +26,7 @@ import Network.AWS.EC2.Types.PaymentOption
 import Network.AWS.EC2.Types.ReservationState
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the Dedicated Host Reservation and associated Dedicated
 -- Hosts.
@@ -35,38 +36,38 @@ data HostReservation = HostReservation'
   { -- | The instance family of the Dedicated Host Reservation. The instance
     -- family on the Dedicated Host must be the same in order for it to benefit
     -- from the reservation.
-    instanceFamily :: Core.Maybe Core.Text,
+    instanceFamily :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the reservation ends.
-    end :: Core.Maybe Core.ISO8601,
+    end :: Prelude.Maybe Core.ISO8601,
     -- | The IDs of the Dedicated Hosts associated with the reservation.
-    hostIdSet :: Core.Maybe [Core.Text],
+    hostIdSet :: Prelude.Maybe [Prelude.Text],
     -- | The upfront price of the reservation.
-    upfrontPrice :: Core.Maybe Core.Text,
+    upfrontPrice :: Prelude.Maybe Prelude.Text,
     -- | The payment option selected for this reservation.
-    paymentOption :: Core.Maybe PaymentOption,
+    paymentOption :: Prelude.Maybe PaymentOption,
     -- | The length of the reservation\'s term, specified in seconds. Can be
     -- @31536000 (1 year)@ | @94608000 (3 years)@.
-    duration :: Core.Maybe Core.Int,
+    duration :: Prelude.Maybe Prelude.Int,
     -- | The ID of the reservation. This remains the same regardless of which
     -- Dedicated Hosts are associated with it.
-    offeringId :: Core.Maybe Core.Text,
+    offeringId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the reservation that specifies the associated Dedicated Hosts.
-    hostReservationId :: Core.Maybe Core.Text,
+    hostReservationId :: Prelude.Maybe Prelude.Text,
     -- | The currency in which the @upfrontPrice@ and @hourlyPrice@ amounts are
     -- specified. At this time, the only supported currency is @USD@.
-    currencyCode :: Core.Maybe CurrencyCodeValues,
+    currencyCode :: Prelude.Maybe CurrencyCodeValues,
     -- | The state of the reservation.
-    state :: Core.Maybe ReservationState,
+    state :: Prelude.Maybe ReservationState,
     -- | Any tags assigned to the Dedicated Host Reservation.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The number of Dedicated Hosts the reservation is associated with.
-    count :: Core.Maybe Core.Int,
+    count :: Prelude.Maybe Prelude.Int,
     -- | The hourly price of the reservation.
-    hourlyPrice :: Core.Maybe Core.Text,
+    hourlyPrice :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the reservation started.
-    start :: Core.Maybe Core.ISO8601
+    start :: Prelude.Maybe Core.ISO8601
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HostReservation' with all optional fields omitted.
@@ -112,105 +113,105 @@ newHostReservation ::
   HostReservation
 newHostReservation =
   HostReservation'
-    { instanceFamily = Core.Nothing,
-      end = Core.Nothing,
-      hostIdSet = Core.Nothing,
-      upfrontPrice = Core.Nothing,
-      paymentOption = Core.Nothing,
-      duration = Core.Nothing,
-      offeringId = Core.Nothing,
-      hostReservationId = Core.Nothing,
-      currencyCode = Core.Nothing,
-      state = Core.Nothing,
-      tags = Core.Nothing,
-      count = Core.Nothing,
-      hourlyPrice = Core.Nothing,
-      start = Core.Nothing
+    { instanceFamily = Prelude.Nothing,
+      end = Prelude.Nothing,
+      hostIdSet = Prelude.Nothing,
+      upfrontPrice = Prelude.Nothing,
+      paymentOption = Prelude.Nothing,
+      duration = Prelude.Nothing,
+      offeringId = Prelude.Nothing,
+      hostReservationId = Prelude.Nothing,
+      currencyCode = Prelude.Nothing,
+      state = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      count = Prelude.Nothing,
+      hourlyPrice = Prelude.Nothing,
+      start = Prelude.Nothing
     }
 
 -- | The instance family of the Dedicated Host Reservation. The instance
 -- family on the Dedicated Host must be the same in order for it to benefit
 -- from the reservation.
-hostReservation_instanceFamily :: Lens.Lens' HostReservation (Core.Maybe Core.Text)
+hostReservation_instanceFamily :: Lens.Lens' HostReservation (Prelude.Maybe Prelude.Text)
 hostReservation_instanceFamily = Lens.lens (\HostReservation' {instanceFamily} -> instanceFamily) (\s@HostReservation' {} a -> s {instanceFamily = a} :: HostReservation)
 
 -- | The date and time that the reservation ends.
-hostReservation_end :: Lens.Lens' HostReservation (Core.Maybe Core.UTCTime)
-hostReservation_end = Lens.lens (\HostReservation' {end} -> end) (\s@HostReservation' {} a -> s {end = a} :: HostReservation) Core.. Lens.mapping Core._Time
+hostReservation_end :: Lens.Lens' HostReservation (Prelude.Maybe Prelude.UTCTime)
+hostReservation_end = Lens.lens (\HostReservation' {end} -> end) (\s@HostReservation' {} a -> s {end = a} :: HostReservation) Prelude.. Lens.mapping Core._Time
 
 -- | The IDs of the Dedicated Hosts associated with the reservation.
-hostReservation_hostIdSet :: Lens.Lens' HostReservation (Core.Maybe [Core.Text])
-hostReservation_hostIdSet = Lens.lens (\HostReservation' {hostIdSet} -> hostIdSet) (\s@HostReservation' {} a -> s {hostIdSet = a} :: HostReservation) Core.. Lens.mapping Lens._Coerce
+hostReservation_hostIdSet :: Lens.Lens' HostReservation (Prelude.Maybe [Prelude.Text])
+hostReservation_hostIdSet = Lens.lens (\HostReservation' {hostIdSet} -> hostIdSet) (\s@HostReservation' {} a -> s {hostIdSet = a} :: HostReservation) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The upfront price of the reservation.
-hostReservation_upfrontPrice :: Lens.Lens' HostReservation (Core.Maybe Core.Text)
+hostReservation_upfrontPrice :: Lens.Lens' HostReservation (Prelude.Maybe Prelude.Text)
 hostReservation_upfrontPrice = Lens.lens (\HostReservation' {upfrontPrice} -> upfrontPrice) (\s@HostReservation' {} a -> s {upfrontPrice = a} :: HostReservation)
 
 -- | The payment option selected for this reservation.
-hostReservation_paymentOption :: Lens.Lens' HostReservation (Core.Maybe PaymentOption)
+hostReservation_paymentOption :: Lens.Lens' HostReservation (Prelude.Maybe PaymentOption)
 hostReservation_paymentOption = Lens.lens (\HostReservation' {paymentOption} -> paymentOption) (\s@HostReservation' {} a -> s {paymentOption = a} :: HostReservation)
 
 -- | The length of the reservation\'s term, specified in seconds. Can be
 -- @31536000 (1 year)@ | @94608000 (3 years)@.
-hostReservation_duration :: Lens.Lens' HostReservation (Core.Maybe Core.Int)
+hostReservation_duration :: Lens.Lens' HostReservation (Prelude.Maybe Prelude.Int)
 hostReservation_duration = Lens.lens (\HostReservation' {duration} -> duration) (\s@HostReservation' {} a -> s {duration = a} :: HostReservation)
 
 -- | The ID of the reservation. This remains the same regardless of which
 -- Dedicated Hosts are associated with it.
-hostReservation_offeringId :: Lens.Lens' HostReservation (Core.Maybe Core.Text)
+hostReservation_offeringId :: Lens.Lens' HostReservation (Prelude.Maybe Prelude.Text)
 hostReservation_offeringId = Lens.lens (\HostReservation' {offeringId} -> offeringId) (\s@HostReservation' {} a -> s {offeringId = a} :: HostReservation)
 
 -- | The ID of the reservation that specifies the associated Dedicated Hosts.
-hostReservation_hostReservationId :: Lens.Lens' HostReservation (Core.Maybe Core.Text)
+hostReservation_hostReservationId :: Lens.Lens' HostReservation (Prelude.Maybe Prelude.Text)
 hostReservation_hostReservationId = Lens.lens (\HostReservation' {hostReservationId} -> hostReservationId) (\s@HostReservation' {} a -> s {hostReservationId = a} :: HostReservation)
 
 -- | The currency in which the @upfrontPrice@ and @hourlyPrice@ amounts are
 -- specified. At this time, the only supported currency is @USD@.
-hostReservation_currencyCode :: Lens.Lens' HostReservation (Core.Maybe CurrencyCodeValues)
+hostReservation_currencyCode :: Lens.Lens' HostReservation (Prelude.Maybe CurrencyCodeValues)
 hostReservation_currencyCode = Lens.lens (\HostReservation' {currencyCode} -> currencyCode) (\s@HostReservation' {} a -> s {currencyCode = a} :: HostReservation)
 
 -- | The state of the reservation.
-hostReservation_state :: Lens.Lens' HostReservation (Core.Maybe ReservationState)
+hostReservation_state :: Lens.Lens' HostReservation (Prelude.Maybe ReservationState)
 hostReservation_state = Lens.lens (\HostReservation' {state} -> state) (\s@HostReservation' {} a -> s {state = a} :: HostReservation)
 
 -- | Any tags assigned to the Dedicated Host Reservation.
-hostReservation_tags :: Lens.Lens' HostReservation (Core.Maybe [Tag])
-hostReservation_tags = Lens.lens (\HostReservation' {tags} -> tags) (\s@HostReservation' {} a -> s {tags = a} :: HostReservation) Core.. Lens.mapping Lens._Coerce
+hostReservation_tags :: Lens.Lens' HostReservation (Prelude.Maybe [Tag])
+hostReservation_tags = Lens.lens (\HostReservation' {tags} -> tags) (\s@HostReservation' {} a -> s {tags = a} :: HostReservation) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of Dedicated Hosts the reservation is associated with.
-hostReservation_count :: Lens.Lens' HostReservation (Core.Maybe Core.Int)
+hostReservation_count :: Lens.Lens' HostReservation (Prelude.Maybe Prelude.Int)
 hostReservation_count = Lens.lens (\HostReservation' {count} -> count) (\s@HostReservation' {} a -> s {count = a} :: HostReservation)
 
 -- | The hourly price of the reservation.
-hostReservation_hourlyPrice :: Lens.Lens' HostReservation (Core.Maybe Core.Text)
+hostReservation_hourlyPrice :: Lens.Lens' HostReservation (Prelude.Maybe Prelude.Text)
 hostReservation_hourlyPrice = Lens.lens (\HostReservation' {hourlyPrice} -> hourlyPrice) (\s@HostReservation' {} a -> s {hourlyPrice = a} :: HostReservation)
 
 -- | The date and time that the reservation started.
-hostReservation_start :: Lens.Lens' HostReservation (Core.Maybe Core.UTCTime)
-hostReservation_start = Lens.lens (\HostReservation' {start} -> start) (\s@HostReservation' {} a -> s {start = a} :: HostReservation) Core.. Lens.mapping Core._Time
+hostReservation_start :: Lens.Lens' HostReservation (Prelude.Maybe Prelude.UTCTime)
+hostReservation_start = Lens.lens (\HostReservation' {start} -> start) (\s@HostReservation' {} a -> s {start = a} :: HostReservation) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromXML HostReservation where
   parseXML x =
     HostReservation'
-      Core.<$> (x Core..@? "instanceFamily")
-      Core.<*> (x Core..@? "end")
-      Core.<*> ( x Core..@? "hostIdSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "upfrontPrice")
-      Core.<*> (x Core..@? "paymentOption")
-      Core.<*> (x Core..@? "duration")
-      Core.<*> (x Core..@? "offeringId")
-      Core.<*> (x Core..@? "hostReservationId")
-      Core.<*> (x Core..@? "currencyCode")
-      Core.<*> (x Core..@? "state")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "count")
-      Core.<*> (x Core..@? "hourlyPrice")
-      Core.<*> (x Core..@? "start")
+      Prelude.<$> (x Core..@? "instanceFamily")
+      Prelude.<*> (x Core..@? "end")
+      Prelude.<*> ( x Core..@? "hostIdSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "upfrontPrice")
+      Prelude.<*> (x Core..@? "paymentOption")
+      Prelude.<*> (x Core..@? "duration")
+      Prelude.<*> (x Core..@? "offeringId")
+      Prelude.<*> (x Core..@? "hostReservationId")
+      Prelude.<*> (x Core..@? "currencyCode")
+      Prelude.<*> (x Core..@? "state")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "count")
+      Prelude.<*> (x Core..@? "hourlyPrice")
+      Prelude.<*> (x Core..@? "start")
 
-instance Core.Hashable HostReservation
+instance Prelude.Hashable HostReservation
 
-instance Core.NFData HostReservation
+instance Prelude.NFData HostReservation

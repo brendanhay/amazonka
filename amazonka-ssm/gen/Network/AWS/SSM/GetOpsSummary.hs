@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -57,22 +58,22 @@ import Network.AWS.SSM.Types
 data GetOpsSummary = GetOpsSummary'
   { -- | A token to start the list. Use this token to get the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specify the name of a resource data sync to get.
-    syncName :: Core.Maybe Core.Text,
+    syncName :: Prelude.Maybe Prelude.Text,
     -- | The OpsItem data type to return.
-    resultAttributes :: Core.Maybe (Core.NonEmpty OpsResultAttribute),
+    resultAttributes :: Prelude.Maybe (Prelude.NonEmpty OpsResultAttribute),
     -- | Optional filters used to scope down the returned OpsItems.
-    filters :: Core.Maybe (Core.NonEmpty OpsFilter),
+    filters :: Prelude.Maybe (Prelude.NonEmpty OpsFilter),
     -- | Optional aggregators that return counts of OpsItems based on one or more
     -- expressions.
-    aggregators :: Core.Maybe (Core.NonEmpty OpsAggregator)
+    aggregators :: Prelude.Maybe (Prelude.NonEmpty OpsAggregator)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetOpsSummary' with all optional fields omitted.
@@ -101,60 +102,60 @@ newGetOpsSummary ::
   GetOpsSummary
 newGetOpsSummary =
   GetOpsSummary'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      syncName = Core.Nothing,
-      resultAttributes = Core.Nothing,
-      filters = Core.Nothing,
-      aggregators = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      syncName = Prelude.Nothing,
+      resultAttributes = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      aggregators = Prelude.Nothing
     }
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
-getOpsSummary_nextToken :: Lens.Lens' GetOpsSummary (Core.Maybe Core.Text)
+getOpsSummary_nextToken :: Lens.Lens' GetOpsSummary (Prelude.Maybe Prelude.Text)
 getOpsSummary_nextToken = Lens.lens (\GetOpsSummary' {nextToken} -> nextToken) (\s@GetOpsSummary' {} a -> s {nextToken = a} :: GetOpsSummary)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-getOpsSummary_maxResults :: Lens.Lens' GetOpsSummary (Core.Maybe Core.Natural)
+getOpsSummary_maxResults :: Lens.Lens' GetOpsSummary (Prelude.Maybe Prelude.Natural)
 getOpsSummary_maxResults = Lens.lens (\GetOpsSummary' {maxResults} -> maxResults) (\s@GetOpsSummary' {} a -> s {maxResults = a} :: GetOpsSummary)
 
 -- | Specify the name of a resource data sync to get.
-getOpsSummary_syncName :: Lens.Lens' GetOpsSummary (Core.Maybe Core.Text)
+getOpsSummary_syncName :: Lens.Lens' GetOpsSummary (Prelude.Maybe Prelude.Text)
 getOpsSummary_syncName = Lens.lens (\GetOpsSummary' {syncName} -> syncName) (\s@GetOpsSummary' {} a -> s {syncName = a} :: GetOpsSummary)
 
 -- | The OpsItem data type to return.
-getOpsSummary_resultAttributes :: Lens.Lens' GetOpsSummary (Core.Maybe (Core.NonEmpty OpsResultAttribute))
-getOpsSummary_resultAttributes = Lens.lens (\GetOpsSummary' {resultAttributes} -> resultAttributes) (\s@GetOpsSummary' {} a -> s {resultAttributes = a} :: GetOpsSummary) Core.. Lens.mapping Lens._Coerce
+getOpsSummary_resultAttributes :: Lens.Lens' GetOpsSummary (Prelude.Maybe (Prelude.NonEmpty OpsResultAttribute))
+getOpsSummary_resultAttributes = Lens.lens (\GetOpsSummary' {resultAttributes} -> resultAttributes) (\s@GetOpsSummary' {} a -> s {resultAttributes = a} :: GetOpsSummary) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Optional filters used to scope down the returned OpsItems.
-getOpsSummary_filters :: Lens.Lens' GetOpsSummary (Core.Maybe (Core.NonEmpty OpsFilter))
-getOpsSummary_filters = Lens.lens (\GetOpsSummary' {filters} -> filters) (\s@GetOpsSummary' {} a -> s {filters = a} :: GetOpsSummary) Core.. Lens.mapping Lens._Coerce
+getOpsSummary_filters :: Lens.Lens' GetOpsSummary (Prelude.Maybe (Prelude.NonEmpty OpsFilter))
+getOpsSummary_filters = Lens.lens (\GetOpsSummary' {filters} -> filters) (\s@GetOpsSummary' {} a -> s {filters = a} :: GetOpsSummary) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Optional aggregators that return counts of OpsItems based on one or more
 -- expressions.
-getOpsSummary_aggregators :: Lens.Lens' GetOpsSummary (Core.Maybe (Core.NonEmpty OpsAggregator))
-getOpsSummary_aggregators = Lens.lens (\GetOpsSummary' {aggregators} -> aggregators) (\s@GetOpsSummary' {} a -> s {aggregators = a} :: GetOpsSummary) Core.. Lens.mapping Lens._Coerce
+getOpsSummary_aggregators :: Lens.Lens' GetOpsSummary (Prelude.Maybe (Prelude.NonEmpty OpsAggregator))
+getOpsSummary_aggregators = Lens.lens (\GetOpsSummary' {aggregators} -> aggregators) (\s@GetOpsSummary' {} a -> s {aggregators = a} :: GetOpsSummary) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager GetOpsSummary where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getOpsSummaryResponse_nextToken Core.. Lens._Just
+            Lens.^? getOpsSummaryResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getOpsSummaryResponse_entities Core.. Lens._Just
+            Lens.^? getOpsSummaryResponse_entities Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getOpsSummary_nextToken
+          Prelude.& getOpsSummary_nextToken
           Lens..~ rs
-          Lens.^? getOpsSummaryResponse_nextToken Core.. Lens._Just
+          Lens.^? getOpsSummaryResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest GetOpsSummary where
   type
@@ -165,57 +166,59 @@ instance Core.AWSRequest GetOpsSummary where
     Response.receiveJSON
       ( \s h x ->
           GetOpsSummaryResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Entities" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Entities" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetOpsSummary
+instance Prelude.Hashable GetOpsSummary
 
-instance Core.NFData GetOpsSummary
+instance Prelude.NFData GetOpsSummary
 
 instance Core.ToHeaders GetOpsSummary where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.GetOpsSummary" :: Core.ByteString),
+              Core.=# ("AmazonSSM.GetOpsSummary" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetOpsSummary where
   toJSON GetOpsSummary' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("SyncName" Core..=) Core.<$> syncName,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SyncName" Core..=) Prelude.<$> syncName,
             ("ResultAttributes" Core..=)
-              Core.<$> resultAttributes,
-            ("Filters" Core..=) Core.<$> filters,
-            ("Aggregators" Core..=) Core.<$> aggregators
+              Prelude.<$> resultAttributes,
+            ("Filters" Core..=) Prelude.<$> filters,
+            ("Aggregators" Core..=) Prelude.<$> aggregators
           ]
       )
 
 instance Core.ToPath GetOpsSummary where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetOpsSummary where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetOpsSummaryResponse' smart constructor.
 data GetOpsSummaryResponse = GetOpsSummaryResponse'
   { -- | The token for the next set of items to return. Use this token to get the
     -- next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of aggregated and filtered OpsItems.
-    entities :: Core.Maybe [OpsEntity],
+    entities :: Prelude.Maybe [OpsEntity],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetOpsSummaryResponse' with all optional fields omitted.
@@ -233,26 +236,26 @@ data GetOpsSummaryResponse = GetOpsSummaryResponse'
 -- 'httpStatus', 'getOpsSummaryResponse_httpStatus' - The response's http status code.
 newGetOpsSummaryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetOpsSummaryResponse
 newGetOpsSummaryResponse pHttpStatus_ =
   GetOpsSummaryResponse'
-    { nextToken = Core.Nothing,
-      entities = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      entities = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of items to return. Use this token to get the
 -- next set of results.
-getOpsSummaryResponse_nextToken :: Lens.Lens' GetOpsSummaryResponse (Core.Maybe Core.Text)
+getOpsSummaryResponse_nextToken :: Lens.Lens' GetOpsSummaryResponse (Prelude.Maybe Prelude.Text)
 getOpsSummaryResponse_nextToken = Lens.lens (\GetOpsSummaryResponse' {nextToken} -> nextToken) (\s@GetOpsSummaryResponse' {} a -> s {nextToken = a} :: GetOpsSummaryResponse)
 
 -- | The list of aggregated and filtered OpsItems.
-getOpsSummaryResponse_entities :: Lens.Lens' GetOpsSummaryResponse (Core.Maybe [OpsEntity])
-getOpsSummaryResponse_entities = Lens.lens (\GetOpsSummaryResponse' {entities} -> entities) (\s@GetOpsSummaryResponse' {} a -> s {entities = a} :: GetOpsSummaryResponse) Core.. Lens.mapping Lens._Coerce
+getOpsSummaryResponse_entities :: Lens.Lens' GetOpsSummaryResponse (Prelude.Maybe [OpsEntity])
+getOpsSummaryResponse_entities = Lens.lens (\GetOpsSummaryResponse' {entities} -> entities) (\s@GetOpsSummaryResponse' {} a -> s {entities = a} :: GetOpsSummaryResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getOpsSummaryResponse_httpStatus :: Lens.Lens' GetOpsSummaryResponse Core.Int
+getOpsSummaryResponse_httpStatus :: Lens.Lens' GetOpsSummaryResponse Prelude.Int
 getOpsSummaryResponse_httpStatus = Lens.lens (\GetOpsSummaryResponse' {httpStatus} -> httpStatus) (\s@GetOpsSummaryResponse' {} a -> s {httpStatus = a} :: GetOpsSummaryResponse)
 
-instance Core.NFData GetOpsSummaryResponse
+instance Prelude.NFData GetOpsSummaryResponse

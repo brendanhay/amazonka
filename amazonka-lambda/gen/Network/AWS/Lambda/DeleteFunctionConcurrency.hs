@@ -38,6 +38,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +57,9 @@ data DeleteFunctionConcurrency = DeleteFunctionConcurrency'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
-    functionName :: Core.Text
+    functionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFunctionConcurrency' with all optional fields omitted.
@@ -83,7 +84,7 @@ data DeleteFunctionConcurrency = DeleteFunctionConcurrency'
 -- the function name, it is limited to 64 characters in length.
 newDeleteFunctionConcurrency ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteFunctionConcurrency
 newDeleteFunctionConcurrency pFunctionName_ =
   DeleteFunctionConcurrency'
@@ -104,7 +105,7 @@ newDeleteFunctionConcurrency pFunctionName_ =
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
-deleteFunctionConcurrency_functionName :: Lens.Lens' DeleteFunctionConcurrency Core.Text
+deleteFunctionConcurrency_functionName :: Lens.Lens' DeleteFunctionConcurrency Prelude.Text
 deleteFunctionConcurrency_functionName = Lens.lens (\DeleteFunctionConcurrency' {functionName} -> functionName) (\s@DeleteFunctionConcurrency' {} a -> s {functionName = a} :: DeleteFunctionConcurrency)
 
 instance Core.AWSRequest DeleteFunctionConcurrency where
@@ -116,29 +117,29 @@ instance Core.AWSRequest DeleteFunctionConcurrency where
     Response.receiveNull
       DeleteFunctionConcurrencyResponse'
 
-instance Core.Hashable DeleteFunctionConcurrency
+instance Prelude.Hashable DeleteFunctionConcurrency
 
-instance Core.NFData DeleteFunctionConcurrency
+instance Prelude.NFData DeleteFunctionConcurrency
 
 instance Core.ToHeaders DeleteFunctionConcurrency where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteFunctionConcurrency where
   toPath DeleteFunctionConcurrency' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2017-10-31/functions/",
         Core.toBS functionName,
         "/concurrency"
       ]
 
 instance Core.ToQuery DeleteFunctionConcurrency where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFunctionConcurrencyResponse' smart constructor.
 data DeleteFunctionConcurrencyResponse = DeleteFunctionConcurrencyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFunctionConcurrencyResponse' with all optional fields omitted.
@@ -150,5 +151,5 @@ newDeleteFunctionConcurrencyResponse =
   DeleteFunctionConcurrencyResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteFunctionConcurrencyResponse

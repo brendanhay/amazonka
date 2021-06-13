@@ -60,6 +60,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -69,9 +70,9 @@ data DeleteObjectTagging = DeleteObjectTagging'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The versionId of the object that the tag-set will be removed from.
-    versionId :: Core.Maybe ObjectVersionId,
+    versionId :: Prelude.Maybe ObjectVersionId,
     -- | The bucket name containing the objects from which to remove the tags.
     --
     -- When using this API with an access point, you must direct requests to
@@ -97,7 +98,7 @@ data DeleteObjectTagging = DeleteObjectTagging'
     -- all tags.
     key :: ObjectKey
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteObjectTagging' with all optional fields omitted.
@@ -145,8 +146,8 @@ newDeleteObjectTagging ::
 newDeleteObjectTagging pBucket_ pKey_ =
   DeleteObjectTagging'
     { expectedBucketOwner =
-        Core.Nothing,
-      versionId = Core.Nothing,
+        Prelude.Nothing,
+      versionId = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
@@ -154,11 +155,11 @@ newDeleteObjectTagging pBucket_ pKey_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-deleteObjectTagging_expectedBucketOwner :: Lens.Lens' DeleteObjectTagging (Core.Maybe Core.Text)
+deleteObjectTagging_expectedBucketOwner :: Lens.Lens' DeleteObjectTagging (Prelude.Maybe Prelude.Text)
 deleteObjectTagging_expectedBucketOwner = Lens.lens (\DeleteObjectTagging' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteObjectTagging' {} a -> s {expectedBucketOwner = a} :: DeleteObjectTagging)
 
 -- | The versionId of the object that the tag-set will be removed from.
-deleteObjectTagging_versionId :: Lens.Lens' DeleteObjectTagging (Core.Maybe ObjectVersionId)
+deleteObjectTagging_versionId :: Lens.Lens' DeleteObjectTagging (Prelude.Maybe ObjectVersionId)
 deleteObjectTagging_versionId = Lens.lens (\DeleteObjectTagging' {versionId} -> versionId) (\s@DeleteObjectTagging' {} a -> s {versionId = a} :: DeleteObjectTagging)
 
 -- | The bucket name containing the objects from which to remove the tags.
@@ -198,39 +199,39 @@ instance Core.AWSRequest DeleteObjectTagging where
     Response.receiveEmpty
       ( \s h x ->
           DeleteObjectTaggingResponse'
-            Core.<$> (h Core..#? "x-amz-version-id")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "x-amz-version-id")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteObjectTagging
+instance Prelude.Hashable DeleteObjectTagging
 
-instance Core.NFData DeleteObjectTagging
+instance Prelude.NFData DeleteObjectTagging
 
 instance Core.ToHeaders DeleteObjectTagging where
   toHeaders DeleteObjectTagging' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath DeleteObjectTagging where
   toPath DeleteObjectTagging' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/", Core.toBS bucket, "/", Core.toBS key]
 
 instance Core.ToQuery DeleteObjectTagging where
   toQuery DeleteObjectTagging' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["versionId" Core.=: versionId, "tagging"]
 
 -- | /See:/ 'newDeleteObjectTaggingResponse' smart constructor.
 data DeleteObjectTaggingResponse = DeleteObjectTaggingResponse'
   { -- | The versionId of the object the tag-set was removed from.
-    versionId :: Core.Maybe ObjectVersionId,
+    versionId :: Prelude.Maybe ObjectVersionId,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteObjectTaggingResponse' with all optional fields omitted.
@@ -245,21 +246,21 @@ data DeleteObjectTaggingResponse = DeleteObjectTaggingResponse'
 -- 'httpStatus', 'deleteObjectTaggingResponse_httpStatus' - The response's http status code.
 newDeleteObjectTaggingResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteObjectTaggingResponse
 newDeleteObjectTaggingResponse pHttpStatus_ =
   DeleteObjectTaggingResponse'
     { versionId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The versionId of the object the tag-set was removed from.
-deleteObjectTaggingResponse_versionId :: Lens.Lens' DeleteObjectTaggingResponse (Core.Maybe ObjectVersionId)
+deleteObjectTaggingResponse_versionId :: Lens.Lens' DeleteObjectTaggingResponse (Prelude.Maybe ObjectVersionId)
 deleteObjectTaggingResponse_versionId = Lens.lens (\DeleteObjectTaggingResponse' {versionId} -> versionId) (\s@DeleteObjectTaggingResponse' {} a -> s {versionId = a} :: DeleteObjectTaggingResponse)
 
 -- | The response's http status code.
-deleteObjectTaggingResponse_httpStatus :: Lens.Lens' DeleteObjectTaggingResponse Core.Int
+deleteObjectTaggingResponse_httpStatus :: Lens.Lens' DeleteObjectTaggingResponse Prelude.Int
 deleteObjectTaggingResponse_httpStatus = Lens.lens (\DeleteObjectTaggingResponse' {httpStatus} -> httpStatus) (\s@DeleteObjectTaggingResponse' {} a -> s {httpStatus = a} :: DeleteObjectTaggingResponse)
 
-instance Core.NFData DeleteObjectTaggingResponse
+instance Prelude.NFData DeleteObjectTaggingResponse

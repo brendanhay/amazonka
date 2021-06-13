@@ -56,6 +56,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -65,9 +66,9 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newUpdateGatewaySoftwareNow' smart constructor.
 data UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow'
-  { gatewayARN :: Core.Text
+  { gatewayARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGatewaySoftwareNow' with all optional fields omitted.
@@ -80,7 +81,7 @@ data UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow'
 -- 'gatewayARN', 'updateGatewaySoftwareNow_gatewayARN' - Undocumented member.
 newUpdateGatewaySoftwareNow ::
   -- | 'gatewayARN'
-  Core.Text ->
+  Prelude.Text ->
   UpdateGatewaySoftwareNow
 newUpdateGatewaySoftwareNow pGatewayARN_ =
   UpdateGatewaySoftwareNow'
@@ -89,7 +90,7 @@ newUpdateGatewaySoftwareNow pGatewayARN_ =
     }
 
 -- | Undocumented member.
-updateGatewaySoftwareNow_gatewayARN :: Lens.Lens' UpdateGatewaySoftwareNow Core.Text
+updateGatewaySoftwareNow_gatewayARN :: Lens.Lens' UpdateGatewaySoftwareNow Prelude.Text
 updateGatewaySoftwareNow_gatewayARN = Lens.lens (\UpdateGatewaySoftwareNow' {gatewayARN} -> gatewayARN) (\s@UpdateGatewaySoftwareNow' {} a -> s {gatewayARN = a} :: UpdateGatewaySoftwareNow)
 
 instance Core.AWSRequest UpdateGatewaySoftwareNow where
@@ -101,50 +102,52 @@ instance Core.AWSRequest UpdateGatewaySoftwareNow where
     Response.receiveJSON
       ( \s h x ->
           UpdateGatewaySoftwareNowResponse'
-            Core.<$> (x Core..?> "GatewayARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateGatewaySoftwareNow
+instance Prelude.Hashable UpdateGatewaySoftwareNow
 
-instance Core.NFData UpdateGatewaySoftwareNow
+instance Prelude.NFData UpdateGatewaySoftwareNow
 
 instance Core.ToHeaders UpdateGatewaySoftwareNow where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.UpdateGatewaySoftwareNow" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateGatewaySoftwareNow where
   toJSON UpdateGatewaySoftwareNow' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("GatewayARN" Core..= gatewayARN)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
       )
 
 instance Core.ToPath UpdateGatewaySoftwareNow where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateGatewaySoftwareNow where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway
 -- that was updated.
 --
 -- /See:/ 'newUpdateGatewaySoftwareNowResponse' smart constructor.
 data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'
-  { gatewayARN :: Core.Maybe Core.Text,
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGatewaySoftwareNowResponse' with all optional fields omitted.
@@ -159,21 +162,23 @@ data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'
 -- 'httpStatus', 'updateGatewaySoftwareNowResponse_httpStatus' - The response's http status code.
 newUpdateGatewaySoftwareNowResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateGatewaySoftwareNowResponse
 newUpdateGatewaySoftwareNowResponse pHttpStatus_ =
   UpdateGatewaySoftwareNowResponse'
     { gatewayARN =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-updateGatewaySoftwareNowResponse_gatewayARN :: Lens.Lens' UpdateGatewaySoftwareNowResponse (Core.Maybe Core.Text)
+updateGatewaySoftwareNowResponse_gatewayARN :: Lens.Lens' UpdateGatewaySoftwareNowResponse (Prelude.Maybe Prelude.Text)
 updateGatewaySoftwareNowResponse_gatewayARN = Lens.lens (\UpdateGatewaySoftwareNowResponse' {gatewayARN} -> gatewayARN) (\s@UpdateGatewaySoftwareNowResponse' {} a -> s {gatewayARN = a} :: UpdateGatewaySoftwareNowResponse)
 
 -- | The response's http status code.
-updateGatewaySoftwareNowResponse_httpStatus :: Lens.Lens' UpdateGatewaySoftwareNowResponse Core.Int
+updateGatewaySoftwareNowResponse_httpStatus :: Lens.Lens' UpdateGatewaySoftwareNowResponse Prelude.Int
 updateGatewaySoftwareNowResponse_httpStatus = Lens.lens (\UpdateGatewaySoftwareNowResponse' {httpStatus} -> httpStatus) (\s@UpdateGatewaySoftwareNowResponse' {} a -> s {httpStatus = a} :: UpdateGatewaySoftwareNowResponse)
 
-instance Core.NFData UpdateGatewaySoftwareNowResponse
+instance
+  Prelude.NFData
+    UpdateGatewaySoftwareNowResponse

@@ -22,6 +22,7 @@ module Network.AWS.Config.Types.FailedDeleteRemediationExceptionsBatch where
 import Network.AWS.Config.Types.RemediationExceptionResourceKey
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | List of each of the failed delete remediation exceptions with specific
 -- reasons.
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 data FailedDeleteRemediationExceptionsBatch = FailedDeleteRemediationExceptionsBatch'
   { -- | Returns a failure message for delete remediation exception. For example,
     -- AWS Config creates an exception due to an internal error.
-    failureMessage :: Core.Maybe Core.Text,
+    failureMessage :: Prelude.Maybe Prelude.Text,
     -- | Returns remediation exception resource key object of the failed items.
-    failedItems :: Core.Maybe (Core.NonEmpty RemediationExceptionResourceKey)
+    failedItems :: Prelude.Maybe (Prelude.NonEmpty RemediationExceptionResourceKey)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FailedDeleteRemediationExceptionsBatch' with all optional fields omitted.
@@ -53,18 +54,18 @@ newFailedDeleteRemediationExceptionsBatch ::
 newFailedDeleteRemediationExceptionsBatch =
   FailedDeleteRemediationExceptionsBatch'
     { failureMessage =
-        Core.Nothing,
-      failedItems = Core.Nothing
+        Prelude.Nothing,
+      failedItems = Prelude.Nothing
     }
 
 -- | Returns a failure message for delete remediation exception. For example,
 -- AWS Config creates an exception due to an internal error.
-failedDeleteRemediationExceptionsBatch_failureMessage :: Lens.Lens' FailedDeleteRemediationExceptionsBatch (Core.Maybe Core.Text)
+failedDeleteRemediationExceptionsBatch_failureMessage :: Lens.Lens' FailedDeleteRemediationExceptionsBatch (Prelude.Maybe Prelude.Text)
 failedDeleteRemediationExceptionsBatch_failureMessage = Lens.lens (\FailedDeleteRemediationExceptionsBatch' {failureMessage} -> failureMessage) (\s@FailedDeleteRemediationExceptionsBatch' {} a -> s {failureMessage = a} :: FailedDeleteRemediationExceptionsBatch)
 
 -- | Returns remediation exception resource key object of the failed items.
-failedDeleteRemediationExceptionsBatch_failedItems :: Lens.Lens' FailedDeleteRemediationExceptionsBatch (Core.Maybe (Core.NonEmpty RemediationExceptionResourceKey))
-failedDeleteRemediationExceptionsBatch_failedItems = Lens.lens (\FailedDeleteRemediationExceptionsBatch' {failedItems} -> failedItems) (\s@FailedDeleteRemediationExceptionsBatch' {} a -> s {failedItems = a} :: FailedDeleteRemediationExceptionsBatch) Core.. Lens.mapping Lens._Coerce
+failedDeleteRemediationExceptionsBatch_failedItems :: Lens.Lens' FailedDeleteRemediationExceptionsBatch (Prelude.Maybe (Prelude.NonEmpty RemediationExceptionResourceKey))
+failedDeleteRemediationExceptionsBatch_failedItems = Lens.lens (\FailedDeleteRemediationExceptionsBatch' {failedItems} -> failedItems) (\s@FailedDeleteRemediationExceptionsBatch' {} a -> s {failedItems = a} :: FailedDeleteRemediationExceptionsBatch) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromJSON
@@ -75,14 +76,14 @@ instance
       "FailedDeleteRemediationExceptionsBatch"
       ( \x ->
           FailedDeleteRemediationExceptionsBatch'
-            Core.<$> (x Core..:? "FailureMessage")
-            Core.<*> (x Core..:? "FailedItems")
+            Prelude.<$> (x Core..:? "FailureMessage")
+            Prelude.<*> (x Core..:? "FailedItems")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     FailedDeleteRemediationExceptionsBatch
 
 instance
-  Core.NFData
+  Prelude.NFData
     FailedDeleteRemediationExceptionsBatch

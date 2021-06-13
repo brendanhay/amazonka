@@ -21,6 +21,7 @@ module Network.AWS.Comprehend.Types.EntityRecognizerDocuments where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the training documents submitted with an entity recognizer.
 --
@@ -29,9 +30,9 @@ data EntityRecognizerDocuments = EntityRecognizerDocuments'
   { -- | Specifies the Amazon S3 location where the training documents for an
     -- entity recognizer are located. The URI must be in the same region as the
     -- API endpoint that you are calling.
-    s3Uri :: Core.Text
+    s3Uri :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EntityRecognizerDocuments' with all optional fields omitted.
@@ -46,7 +47,7 @@ data EntityRecognizerDocuments = EntityRecognizerDocuments'
 -- API endpoint that you are calling.
 newEntityRecognizerDocuments ::
   -- | 's3Uri'
-  Core.Text ->
+  Prelude.Text ->
   EntityRecognizerDocuments
 newEntityRecognizerDocuments pS3Uri_ =
   EntityRecognizerDocuments' {s3Uri = pS3Uri_}
@@ -54,7 +55,7 @@ newEntityRecognizerDocuments pS3Uri_ =
 -- | Specifies the Amazon S3 location where the training documents for an
 -- entity recognizer are located. The URI must be in the same region as the
 -- API endpoint that you are calling.
-entityRecognizerDocuments_s3Uri :: Lens.Lens' EntityRecognizerDocuments Core.Text
+entityRecognizerDocuments_s3Uri :: Lens.Lens' EntityRecognizerDocuments Prelude.Text
 entityRecognizerDocuments_s3Uri = Lens.lens (\EntityRecognizerDocuments' {s3Uri} -> s3Uri) (\s@EntityRecognizerDocuments' {} a -> s {s3Uri = a} :: EntityRecognizerDocuments)
 
 instance Core.FromJSON EntityRecognizerDocuments where
@@ -63,14 +64,16 @@ instance Core.FromJSON EntityRecognizerDocuments where
       "EntityRecognizerDocuments"
       ( \x ->
           EntityRecognizerDocuments'
-            Core.<$> (x Core..: "S3Uri")
+            Prelude.<$> (x Core..: "S3Uri")
       )
 
-instance Core.Hashable EntityRecognizerDocuments
+instance Prelude.Hashable EntityRecognizerDocuments
 
-instance Core.NFData EntityRecognizerDocuments
+instance Prelude.NFData EntityRecognizerDocuments
 
 instance Core.ToJSON EntityRecognizerDocuments where
   toJSON EntityRecognizerDocuments' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("S3Uri" Core..= s3Uri)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("S3Uri" Core..= s3Uri)]
+      )

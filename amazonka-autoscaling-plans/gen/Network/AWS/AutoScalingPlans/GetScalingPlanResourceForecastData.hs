@@ -53,22 +53,23 @@ where
 import Network.AWS.AutoScalingPlans.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetScalingPlanResourceForecastData' smart constructor.
 data GetScalingPlanResourceForecastData = GetScalingPlanResourceForecastData'
   { -- | The name of the scaling plan.
-    scalingPlanName :: Core.Text,
+    scalingPlanName :: Prelude.Text,
     -- | The version number of the scaling plan. Currently, the only valid value
     -- is @1@.
-    scalingPlanVersion :: Core.Integer,
+    scalingPlanVersion :: Prelude.Integer,
     -- | The namespace of the AWS service. The only valid value is @autoscaling@.
     serviceNamespace :: ServiceNamespace,
     -- | The ID of the resource. This string consists of a prefix
     -- (@autoScalingGroup@) followed by the name of a specified Auto Scaling
     -- group (@my-asg@). Example: @autoScalingGroup\/my-asg@.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The scalable dimension for the resource. The only valid value is
     -- @autoscaling:autoScalingGroup:DesiredCapacity@.
     scalableDimension :: ScalableDimension,
@@ -100,7 +101,7 @@ data GetScalingPlanResourceForecastData = GetScalingPlanResourceForecastData'
     -- Auto Scaling only issues forecasts for periods of two days in advance.
     endTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetScalingPlanResourceForecastData' with all optional fields omitted.
@@ -152,21 +153,21 @@ data GetScalingPlanResourceForecastData = GetScalingPlanResourceForecastData'
 -- Auto Scaling only issues forecasts for periods of two days in advance.
 newGetScalingPlanResourceForecastData ::
   -- | 'scalingPlanName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'scalingPlanVersion'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'serviceNamespace'
   ServiceNamespace ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'scalableDimension'
   ScalableDimension ->
   -- | 'forecastDataType'
   ForecastDataType ->
   -- | 'startTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'endTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   GetScalingPlanResourceForecastData
 newGetScalingPlanResourceForecastData
   pScalingPlanName_
@@ -192,12 +193,12 @@ newGetScalingPlanResourceForecastData
       }
 
 -- | The name of the scaling plan.
-getScalingPlanResourceForecastData_scalingPlanName :: Lens.Lens' GetScalingPlanResourceForecastData Core.Text
+getScalingPlanResourceForecastData_scalingPlanName :: Lens.Lens' GetScalingPlanResourceForecastData Prelude.Text
 getScalingPlanResourceForecastData_scalingPlanName = Lens.lens (\GetScalingPlanResourceForecastData' {scalingPlanName} -> scalingPlanName) (\s@GetScalingPlanResourceForecastData' {} a -> s {scalingPlanName = a} :: GetScalingPlanResourceForecastData)
 
 -- | The version number of the scaling plan. Currently, the only valid value
 -- is @1@.
-getScalingPlanResourceForecastData_scalingPlanVersion :: Lens.Lens' GetScalingPlanResourceForecastData Core.Integer
+getScalingPlanResourceForecastData_scalingPlanVersion :: Lens.Lens' GetScalingPlanResourceForecastData Prelude.Integer
 getScalingPlanResourceForecastData_scalingPlanVersion = Lens.lens (\GetScalingPlanResourceForecastData' {scalingPlanVersion} -> scalingPlanVersion) (\s@GetScalingPlanResourceForecastData' {} a -> s {scalingPlanVersion = a} :: GetScalingPlanResourceForecastData)
 
 -- | The namespace of the AWS service. The only valid value is @autoscaling@.
@@ -207,7 +208,7 @@ getScalingPlanResourceForecastData_serviceNamespace = Lens.lens (\GetScalingPlan
 -- | The ID of the resource. This string consists of a prefix
 -- (@autoScalingGroup@) followed by the name of a specified Auto Scaling
 -- group (@my-asg@). Example: @autoScalingGroup\/my-asg@.
-getScalingPlanResourceForecastData_resourceId :: Lens.Lens' GetScalingPlanResourceForecastData Core.Text
+getScalingPlanResourceForecastData_resourceId :: Lens.Lens' GetScalingPlanResourceForecastData Prelude.Text
 getScalingPlanResourceForecastData_resourceId = Lens.lens (\GetScalingPlanResourceForecastData' {resourceId} -> resourceId) (\s@GetScalingPlanResourceForecastData' {} a -> s {resourceId = a} :: GetScalingPlanResourceForecastData)
 
 -- | The scalable dimension for the resource. The only valid value is
@@ -236,8 +237,8 @@ getScalingPlanResourceForecastData_forecastDataType = Lens.lens (\GetScalingPlan
 -- | The inclusive start time of the time range for the forecast data to get.
 -- The date and time can be at most 56 days before the current date and
 -- time.
-getScalingPlanResourceForecastData_startTime :: Lens.Lens' GetScalingPlanResourceForecastData Core.UTCTime
-getScalingPlanResourceForecastData_startTime = Lens.lens (\GetScalingPlanResourceForecastData' {startTime} -> startTime) (\s@GetScalingPlanResourceForecastData' {} a -> s {startTime = a} :: GetScalingPlanResourceForecastData) Core.. Core._Time
+getScalingPlanResourceForecastData_startTime :: Lens.Lens' GetScalingPlanResourceForecastData Prelude.UTCTime
+getScalingPlanResourceForecastData_startTime = Lens.lens (\GetScalingPlanResourceForecastData' {startTime} -> startTime) (\s@GetScalingPlanResourceForecastData' {} a -> s {startTime = a} :: GetScalingPlanResourceForecastData) Prelude.. Core._Time
 
 -- | The exclusive end time of the time range for the forecast data to get.
 -- The maximum time duration between the start and end time is seven days.
@@ -245,8 +246,8 @@ getScalingPlanResourceForecastData_startTime = Lens.lens (\GetScalingPlanResourc
 -- Although this parameter can accept a date and time that is more than two
 -- days in the future, the availability of forecast data has limits. AWS
 -- Auto Scaling only issues forecasts for periods of two days in advance.
-getScalingPlanResourceForecastData_endTime :: Lens.Lens' GetScalingPlanResourceForecastData Core.UTCTime
-getScalingPlanResourceForecastData_endTime = Lens.lens (\GetScalingPlanResourceForecastData' {endTime} -> endTime) (\s@GetScalingPlanResourceForecastData' {} a -> s {endTime = a} :: GetScalingPlanResourceForecastData) Core.. Core._Time
+getScalingPlanResourceForecastData_endTime :: Lens.Lens' GetScalingPlanResourceForecastData Prelude.UTCTime
+getScalingPlanResourceForecastData_endTime = Lens.lens (\GetScalingPlanResourceForecastData' {endTime} -> endTime) (\s@GetScalingPlanResourceForecastData' {} a -> s {endTime = a} :: GetScalingPlanResourceForecastData) Prelude.. Core._Time
 
 instance
   Core.AWSRequest
@@ -260,16 +261,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetScalingPlanResourceForecastDataResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "Datapoints" Core..!@ Core.mempty)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> (x Core..?> "Datapoints" Core..!@ Prelude.mempty)
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetScalingPlanResourceForecastData
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetScalingPlanResourceForecastData
 
 instance
@@ -277,14 +278,16 @@ instance
     GetScalingPlanResourceForecastData
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AnyScaleScalingPlannerFrontendService.GetScalingPlanResourceForecastData" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -294,20 +297,20 @@ instance
   where
   toJSON GetScalingPlanResourceForecastData' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ScalingPlanName" Core..= scalingPlanName),
-            Core.Just
+            Prelude.Just
               ("ScalingPlanVersion" Core..= scalingPlanVersion),
-            Core.Just
+            Prelude.Just
               ("ServiceNamespace" Core..= serviceNamespace),
-            Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just
+            Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just
               ("ScalableDimension" Core..= scalableDimension),
-            Core.Just
+            Prelude.Just
               ("ForecastDataType" Core..= forecastDataType),
-            Core.Just ("StartTime" Core..= startTime),
-            Core.Just ("EndTime" Core..= endTime)
+            Prelude.Just ("StartTime" Core..= startTime),
+            Prelude.Just ("EndTime" Core..= endTime)
           ]
       )
 
@@ -315,22 +318,22 @@ instance
   Core.ToPath
     GetScalingPlanResourceForecastData
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     GetScalingPlanResourceForecastData
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetScalingPlanResourceForecastDataResponse' smart constructor.
 data GetScalingPlanResourceForecastDataResponse = GetScalingPlanResourceForecastDataResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The data points to return.
     datapoints :: [Datapoint]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetScalingPlanResourceForecastDataResponse' with all optional fields omitted.
@@ -345,24 +348,24 @@ data GetScalingPlanResourceForecastDataResponse = GetScalingPlanResourceForecast
 -- 'datapoints', 'getScalingPlanResourceForecastDataResponse_datapoints' - The data points to return.
 newGetScalingPlanResourceForecastDataResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetScalingPlanResourceForecastDataResponse
 newGetScalingPlanResourceForecastDataResponse
   pHttpStatus_ =
     GetScalingPlanResourceForecastDataResponse'
       { httpStatus =
           pHttpStatus_,
-        datapoints = Core.mempty
+        datapoints = Prelude.mempty
       }
 
 -- | The response's http status code.
-getScalingPlanResourceForecastDataResponse_httpStatus :: Lens.Lens' GetScalingPlanResourceForecastDataResponse Core.Int
+getScalingPlanResourceForecastDataResponse_httpStatus :: Lens.Lens' GetScalingPlanResourceForecastDataResponse Prelude.Int
 getScalingPlanResourceForecastDataResponse_httpStatus = Lens.lens (\GetScalingPlanResourceForecastDataResponse' {httpStatus} -> httpStatus) (\s@GetScalingPlanResourceForecastDataResponse' {} a -> s {httpStatus = a} :: GetScalingPlanResourceForecastDataResponse)
 
 -- | The data points to return.
 getScalingPlanResourceForecastDataResponse_datapoints :: Lens.Lens' GetScalingPlanResourceForecastDataResponse [Datapoint]
-getScalingPlanResourceForecastDataResponse_datapoints = Lens.lens (\GetScalingPlanResourceForecastDataResponse' {datapoints} -> datapoints) (\s@GetScalingPlanResourceForecastDataResponse' {} a -> s {datapoints = a} :: GetScalingPlanResourceForecastDataResponse) Core.. Lens._Coerce
+getScalingPlanResourceForecastDataResponse_datapoints = Lens.lens (\GetScalingPlanResourceForecastDataResponse' {datapoints} -> datapoints) (\s@GetScalingPlanResourceForecastDataResponse' {} a -> s {datapoints = a} :: GetScalingPlanResourceForecastDataResponse) Prelude.. Lens._Coerce
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetScalingPlanResourceForecastDataResponse

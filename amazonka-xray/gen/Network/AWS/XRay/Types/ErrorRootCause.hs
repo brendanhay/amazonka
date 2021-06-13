@@ -21,6 +21,7 @@ module Network.AWS.XRay.Types.ErrorRootCause where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.ErrorRootCauseService
 
 -- | The root cause of a trace summary error.
@@ -29,11 +30,11 @@ import Network.AWS.XRay.Types.ErrorRootCauseService
 data ErrorRootCause = ErrorRootCause'
   { -- | A list of services corresponding to an error. A service identifies a
     -- segment and it contains a name, account ID, type, and inferred flag.
-    services :: Core.Maybe [ErrorRootCauseService],
+    services :: Prelude.Maybe [ErrorRootCauseService],
     -- | A flag that denotes that the root cause impacts the trace client.
-    clientImpacting :: Core.Maybe Core.Bool
+    clientImpacting :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ErrorRootCause' with all optional fields omitted.
@@ -51,17 +52,17 @@ newErrorRootCause ::
   ErrorRootCause
 newErrorRootCause =
   ErrorRootCause'
-    { services = Core.Nothing,
-      clientImpacting = Core.Nothing
+    { services = Prelude.Nothing,
+      clientImpacting = Prelude.Nothing
     }
 
 -- | A list of services corresponding to an error. A service identifies a
 -- segment and it contains a name, account ID, type, and inferred flag.
-errorRootCause_services :: Lens.Lens' ErrorRootCause (Core.Maybe [ErrorRootCauseService])
-errorRootCause_services = Lens.lens (\ErrorRootCause' {services} -> services) (\s@ErrorRootCause' {} a -> s {services = a} :: ErrorRootCause) Core.. Lens.mapping Lens._Coerce
+errorRootCause_services :: Lens.Lens' ErrorRootCause (Prelude.Maybe [ErrorRootCauseService])
+errorRootCause_services = Lens.lens (\ErrorRootCause' {services} -> services) (\s@ErrorRootCause' {} a -> s {services = a} :: ErrorRootCause) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A flag that denotes that the root cause impacts the trace client.
-errorRootCause_clientImpacting :: Lens.Lens' ErrorRootCause (Core.Maybe Core.Bool)
+errorRootCause_clientImpacting :: Lens.Lens' ErrorRootCause (Prelude.Maybe Prelude.Bool)
 errorRootCause_clientImpacting = Lens.lens (\ErrorRootCause' {clientImpacting} -> clientImpacting) (\s@ErrorRootCause' {} a -> s {clientImpacting = a} :: ErrorRootCause)
 
 instance Core.FromJSON ErrorRootCause where
@@ -70,10 +71,10 @@ instance Core.FromJSON ErrorRootCause where
       "ErrorRootCause"
       ( \x ->
           ErrorRootCause'
-            Core.<$> (x Core..:? "Services" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "ClientImpacting")
+            Prelude.<$> (x Core..:? "Services" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ClientImpacting")
       )
 
-instance Core.Hashable ErrorRootCause
+instance Prelude.Hashable ErrorRootCause
 
-instance Core.NFData ErrorRootCause
+instance Prelude.NFData ErrorRootCause

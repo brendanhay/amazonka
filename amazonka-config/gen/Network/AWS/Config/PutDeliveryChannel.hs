@@ -51,6 +51,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,7 +64,7 @@ data PutDeliveryChannel = PutDeliveryChannel'
     -- topic.
     deliveryChannel :: DeliveryChannel
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutDeliveryChannel' with all optional fields omitted.
@@ -100,43 +101,45 @@ instance Core.AWSRequest PutDeliveryChannel where
   response =
     Response.receiveNull PutDeliveryChannelResponse'
 
-instance Core.Hashable PutDeliveryChannel
+instance Prelude.Hashable PutDeliveryChannel
 
-instance Core.NFData PutDeliveryChannel
+instance Prelude.NFData PutDeliveryChannel
 
 instance Core.ToHeaders PutDeliveryChannel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.PutDeliveryChannel" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutDeliveryChannel where
   toJSON PutDeliveryChannel' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("DeliveryChannel" Core..= deliveryChannel)
           ]
       )
 
 instance Core.ToPath PutDeliveryChannel where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutDeliveryChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutDeliveryChannelResponse' smart constructor.
 data PutDeliveryChannelResponse = PutDeliveryChannelResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutDeliveryChannelResponse' with all optional fields omitted.
@@ -147,4 +150,4 @@ newPutDeliveryChannelResponse ::
 newPutDeliveryChannelResponse =
   PutDeliveryChannelResponse'
 
-instance Core.NFData PutDeliveryChannelResponse
+instance Prelude.NFData PutDeliveryChannelResponse

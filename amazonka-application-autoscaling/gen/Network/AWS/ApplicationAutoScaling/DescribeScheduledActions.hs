@@ -60,6 +60,7 @@ where
 import Network.AWS.ApplicationAutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -125,9 +126,9 @@ data DescribeScheduledActions = DescribeScheduledActions'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-    resourceId :: Core.Maybe Core.Text,
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of scheduled action results. This value can be
     -- between 1 and 50. The default value is 50.
     --
@@ -136,7 +137,7 @@ data DescribeScheduledActions = DescribeScheduledActions'
     -- of results, include the @NextToken@ value in a subsequent call. If this
     -- parameter is not used, the operation returns up to 50 results and a
     -- @NextToken@ value, if applicable.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property. If you specify a scalable
     -- dimension, you must also specify a resource ID.
@@ -194,15 +195,15 @@ data DescribeScheduledActions = DescribeScheduledActions'
     --
     -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
     --     GiB) for brokers in an Amazon MSK cluster.
-    scalableDimension :: Core.Maybe ScalableDimension,
+    scalableDimension :: Prelude.Maybe ScalableDimension,
     -- | The names of the scheduled actions to describe.
-    scheduledActionNames :: Core.Maybe [Core.Text],
+    scheduledActionNames :: Prelude.Maybe [Prelude.Text],
     -- | The namespace of the AWS service that provides the resource. For a
     -- resource provided by your own application or service, use
     -- @custom-resource@ instead.
     serviceNamespace :: ServiceNamespace
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeScheduledActions' with all optional fields omitted.
@@ -354,11 +355,11 @@ newDescribeScheduledActions ::
 newDescribeScheduledActions pServiceNamespace_ =
   DescribeScheduledActions'
     { resourceId =
-        Core.Nothing,
-      nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      scalableDimension = Core.Nothing,
-      scheduledActionNames = Core.Nothing,
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      scalableDimension = Prelude.Nothing,
+      scheduledActionNames = Prelude.Nothing,
       serviceNamespace = pServiceNamespace_
     }
 
@@ -422,11 +423,11 @@ newDescribeScheduledActions pServiceNamespace_ =
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-describeScheduledActions_resourceId :: Lens.Lens' DescribeScheduledActions (Core.Maybe Core.Text)
+describeScheduledActions_resourceId :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
 describeScheduledActions_resourceId = Lens.lens (\DescribeScheduledActions' {resourceId} -> resourceId) (\s@DescribeScheduledActions' {} a -> s {resourceId = a} :: DescribeScheduledActions)
 
 -- | The token for the next set of results.
-describeScheduledActions_nextToken :: Lens.Lens' DescribeScheduledActions (Core.Maybe Core.Text)
+describeScheduledActions_nextToken :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
 describeScheduledActions_nextToken = Lens.lens (\DescribeScheduledActions' {nextToken} -> nextToken) (\s@DescribeScheduledActions' {} a -> s {nextToken = a} :: DescribeScheduledActions)
 
 -- | The maximum number of scheduled action results. This value can be
@@ -437,7 +438,7 @@ describeScheduledActions_nextToken = Lens.lens (\DescribeScheduledActions' {next
 -- of results, include the @NextToken@ value in a subsequent call. If this
 -- parameter is not used, the operation returns up to 50 results and a
 -- @NextToken@ value, if applicable.
-describeScheduledActions_maxResults :: Lens.Lens' DescribeScheduledActions (Core.Maybe Core.Int)
+describeScheduledActions_maxResults :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Int)
 describeScheduledActions_maxResults = Lens.lens (\DescribeScheduledActions' {maxResults} -> maxResults) (\s@DescribeScheduledActions' {} a -> s {maxResults = a} :: DescribeScheduledActions)
 
 -- | The scalable dimension. This string consists of the service namespace,
@@ -497,12 +498,12 @@ describeScheduledActions_maxResults = Lens.lens (\DescribeScheduledActions' {max
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
-describeScheduledActions_scalableDimension :: Lens.Lens' DescribeScheduledActions (Core.Maybe ScalableDimension)
+describeScheduledActions_scalableDimension :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe ScalableDimension)
 describeScheduledActions_scalableDimension = Lens.lens (\DescribeScheduledActions' {scalableDimension} -> scalableDimension) (\s@DescribeScheduledActions' {} a -> s {scalableDimension = a} :: DescribeScheduledActions)
 
 -- | The names of the scheduled actions to describe.
-describeScheduledActions_scheduledActionNames :: Lens.Lens' DescribeScheduledActions (Core.Maybe [Core.Text])
-describeScheduledActions_scheduledActionNames = Lens.lens (\DescribeScheduledActions' {scheduledActionNames} -> scheduledActionNames) (\s@DescribeScheduledActions' {} a -> s {scheduledActionNames = a} :: DescribeScheduledActions) Core.. Lens.mapping Lens._Coerce
+describeScheduledActions_scheduledActionNames :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe [Prelude.Text])
+describeScheduledActions_scheduledActionNames = Lens.lens (\DescribeScheduledActions' {scheduledActionNames} -> scheduledActionNames) (\s@DescribeScheduledActions' {} a -> s {scheduledActionNames = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The namespace of the AWS service that provides the resource. For a
 -- resource provided by your own application or service, use
@@ -515,22 +516,22 @@ instance Core.AWSPager DescribeScheduledActions where
     | Core.stop
         ( rs
             Lens.^? describeScheduledActionsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeScheduledActionsResponse_scheduledActions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeScheduledActions_nextToken
+          Prelude.& describeScheduledActions_nextToken
           Lens..~ rs
           Lens.^? describeScheduledActionsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScheduledActions where
   type
@@ -541,61 +542,65 @@ instance Core.AWSRequest DescribeScheduledActions where
     Response.receiveJSON
       ( \s h x ->
           DescribeScheduledActionsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "ScheduledActions" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ScheduledActions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeScheduledActions
+instance Prelude.Hashable DescribeScheduledActions
 
-instance Core.NFData DescribeScheduledActions
+instance Prelude.NFData DescribeScheduledActions
 
 instance Core.ToHeaders DescribeScheduledActions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AnyScaleFrontendService.DescribeScheduledActions" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeScheduledActions where
   toJSON DescribeScheduledActions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ResourceId" Core..=) Core.<$> resourceId,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
+      ( Prelude.catMaybes
+          [ ("ResourceId" Core..=) Prelude.<$> resourceId,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("ScalableDimension" Core..=)
-              Core.<$> scalableDimension,
+              Prelude.<$> scalableDimension,
             ("ScheduledActionNames" Core..=)
-              Core.<$> scheduledActionNames,
-            Core.Just
+              Prelude.<$> scheduledActionNames,
+            Prelude.Just
               ("ServiceNamespace" Core..= serviceNamespace)
           ]
       )
 
 instance Core.ToPath DescribeScheduledActions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeScheduledActions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeScheduledActionsResponse' smart constructor.
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
   { -- | The token required to get the next set of results. This value is @null@
     -- if there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the scheduled actions.
-    scheduledActions :: Core.Maybe [ScheduledAction],
+    scheduledActions :: Prelude.Maybe [ScheduledAction],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeScheduledActionsResponse' with all optional fields omitted.
@@ -613,27 +618,29 @@ data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
 -- 'httpStatus', 'describeScheduledActionsResponse_httpStatus' - The response's http status code.
 newDescribeScheduledActionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeScheduledActionsResponse
 newDescribeScheduledActionsResponse pHttpStatus_ =
   DescribeScheduledActionsResponse'
     { nextToken =
-        Core.Nothing,
-      scheduledActions = Core.Nothing,
+        Prelude.Nothing,
+      scheduledActions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token required to get the next set of results. This value is @null@
 -- if there are no more results to return.
-describeScheduledActionsResponse_nextToken :: Lens.Lens' DescribeScheduledActionsResponse (Core.Maybe Core.Text)
+describeScheduledActionsResponse_nextToken :: Lens.Lens' DescribeScheduledActionsResponse (Prelude.Maybe Prelude.Text)
 describeScheduledActionsResponse_nextToken = Lens.lens (\DescribeScheduledActionsResponse' {nextToken} -> nextToken) (\s@DescribeScheduledActionsResponse' {} a -> s {nextToken = a} :: DescribeScheduledActionsResponse)
 
 -- | Information about the scheduled actions.
-describeScheduledActionsResponse_scheduledActions :: Lens.Lens' DescribeScheduledActionsResponse (Core.Maybe [ScheduledAction])
-describeScheduledActionsResponse_scheduledActions = Lens.lens (\DescribeScheduledActionsResponse' {scheduledActions} -> scheduledActions) (\s@DescribeScheduledActionsResponse' {} a -> s {scheduledActions = a} :: DescribeScheduledActionsResponse) Core.. Lens.mapping Lens._Coerce
+describeScheduledActionsResponse_scheduledActions :: Lens.Lens' DescribeScheduledActionsResponse (Prelude.Maybe [ScheduledAction])
+describeScheduledActionsResponse_scheduledActions = Lens.lens (\DescribeScheduledActionsResponse' {scheduledActions} -> scheduledActions) (\s@DescribeScheduledActionsResponse' {} a -> s {scheduledActions = a} :: DescribeScheduledActionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeScheduledActionsResponse_httpStatus :: Lens.Lens' DescribeScheduledActionsResponse Core.Int
+describeScheduledActionsResponse_httpStatus :: Lens.Lens' DescribeScheduledActionsResponse Prelude.Int
 describeScheduledActionsResponse_httpStatus = Lens.lens (\DescribeScheduledActionsResponse' {httpStatus} -> httpStatus) (\s@DescribeScheduledActionsResponse' {} a -> s {httpStatus = a} :: DescribeScheduledActionsResponse)
 
-instance Core.NFData DescribeScheduledActionsResponse
+instance
+  Prelude.NFData
+    DescribeScheduledActionsResponse

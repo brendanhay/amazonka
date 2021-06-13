@@ -51,6 +51,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,12 +59,12 @@ import qualified Network.AWS.Response as Response
 data StartRemediationExecution = StartRemediationExecution'
   { -- | The list of names of AWS Config rules that you want to run remediation
     -- execution for.
-    configRuleName :: Core.Text,
+    configRuleName :: Prelude.Text,
     -- | A list of resource keys to be processed with the current request. Each
     -- element in the list consists of the resource type and resource ID.
-    resourceKeys :: Core.NonEmpty ResourceKey
+    resourceKeys :: Prelude.NonEmpty ResourceKey
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartRemediationExecution' with all optional fields omitted.
@@ -80,9 +81,9 @@ data StartRemediationExecution = StartRemediationExecution'
 -- element in the list consists of the resource type and resource ID.
 newStartRemediationExecution ::
   -- | 'configRuleName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceKeys'
-  Core.NonEmpty ResourceKey ->
+  Prelude.NonEmpty ResourceKey ->
   StartRemediationExecution
 newStartRemediationExecution
   pConfigRuleName_
@@ -96,13 +97,13 @@ newStartRemediationExecution
 
 -- | The list of names of AWS Config rules that you want to run remediation
 -- execution for.
-startRemediationExecution_configRuleName :: Lens.Lens' StartRemediationExecution Core.Text
+startRemediationExecution_configRuleName :: Lens.Lens' StartRemediationExecution Prelude.Text
 startRemediationExecution_configRuleName = Lens.lens (\StartRemediationExecution' {configRuleName} -> configRuleName) (\s@StartRemediationExecution' {} a -> s {configRuleName = a} :: StartRemediationExecution)
 
 -- | A list of resource keys to be processed with the current request. Each
 -- element in the list consists of the resource type and resource ID.
-startRemediationExecution_resourceKeys :: Lens.Lens' StartRemediationExecution (Core.NonEmpty ResourceKey)
-startRemediationExecution_resourceKeys = Lens.lens (\StartRemediationExecution' {resourceKeys} -> resourceKeys) (\s@StartRemediationExecution' {} a -> s {resourceKeys = a} :: StartRemediationExecution) Core.. Lens._Coerce
+startRemediationExecution_resourceKeys :: Lens.Lens' StartRemediationExecution (Prelude.NonEmpty ResourceKey)
+startRemediationExecution_resourceKeys = Lens.lens (\StartRemediationExecution' {resourceKeys} -> resourceKeys) (\s@StartRemediationExecution' {} a -> s {resourceKeys = a} :: StartRemediationExecution) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest StartRemediationExecution where
   type
@@ -113,55 +114,58 @@ instance Core.AWSRequest StartRemediationExecution where
     Response.receiveJSON
       ( \s h x ->
           StartRemediationExecutionResponse'
-            Core.<$> (x Core..?> "FailureMessage")
-            Core.<*> (x Core..?> "FailedItems")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "FailureMessage")
+            Prelude.<*> (x Core..?> "FailedItems")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartRemediationExecution
+instance Prelude.Hashable StartRemediationExecution
 
-instance Core.NFData StartRemediationExecution
+instance Prelude.NFData StartRemediationExecution
 
 instance Core.ToHeaders StartRemediationExecution where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.StartRemediationExecution" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartRemediationExecution where
   toJSON StartRemediationExecution' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ConfigRuleName" Core..= configRuleName),
-            Core.Just ("ResourceKeys" Core..= resourceKeys)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ConfigRuleName" Core..= configRuleName),
+            Prelude.Just ("ResourceKeys" Core..= resourceKeys)
           ]
       )
 
 instance Core.ToPath StartRemediationExecution where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartRemediationExecution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartRemediationExecutionResponse' smart constructor.
 data StartRemediationExecutionResponse = StartRemediationExecutionResponse'
   { -- | Returns a failure message. For example, the resource is already
     -- compliant.
-    failureMessage :: Core.Maybe Core.Text,
+    failureMessage :: Prelude.Maybe Prelude.Text,
     -- | For resources that have failed to start execution, the API returns a
     -- resource key object.
-    failedItems :: Core.Maybe (Core.NonEmpty ResourceKey),
+    failedItems :: Prelude.Maybe (Prelude.NonEmpty ResourceKey),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartRemediationExecutionResponse' with all optional fields omitted.
@@ -180,30 +184,30 @@ data StartRemediationExecutionResponse = StartRemediationExecutionResponse'
 -- 'httpStatus', 'startRemediationExecutionResponse_httpStatus' - The response's http status code.
 newStartRemediationExecutionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartRemediationExecutionResponse
 newStartRemediationExecutionResponse pHttpStatus_ =
   StartRemediationExecutionResponse'
     { failureMessage =
-        Core.Nothing,
-      failedItems = Core.Nothing,
+        Prelude.Nothing,
+      failedItems = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns a failure message. For example, the resource is already
 -- compliant.
-startRemediationExecutionResponse_failureMessage :: Lens.Lens' StartRemediationExecutionResponse (Core.Maybe Core.Text)
+startRemediationExecutionResponse_failureMessage :: Lens.Lens' StartRemediationExecutionResponse (Prelude.Maybe Prelude.Text)
 startRemediationExecutionResponse_failureMessage = Lens.lens (\StartRemediationExecutionResponse' {failureMessage} -> failureMessage) (\s@StartRemediationExecutionResponse' {} a -> s {failureMessage = a} :: StartRemediationExecutionResponse)
 
 -- | For resources that have failed to start execution, the API returns a
 -- resource key object.
-startRemediationExecutionResponse_failedItems :: Lens.Lens' StartRemediationExecutionResponse (Core.Maybe (Core.NonEmpty ResourceKey))
-startRemediationExecutionResponse_failedItems = Lens.lens (\StartRemediationExecutionResponse' {failedItems} -> failedItems) (\s@StartRemediationExecutionResponse' {} a -> s {failedItems = a} :: StartRemediationExecutionResponse) Core.. Lens.mapping Lens._Coerce
+startRemediationExecutionResponse_failedItems :: Lens.Lens' StartRemediationExecutionResponse (Prelude.Maybe (Prelude.NonEmpty ResourceKey))
+startRemediationExecutionResponse_failedItems = Lens.lens (\StartRemediationExecutionResponse' {failedItems} -> failedItems) (\s@StartRemediationExecutionResponse' {} a -> s {failedItems = a} :: StartRemediationExecutionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-startRemediationExecutionResponse_httpStatus :: Lens.Lens' StartRemediationExecutionResponse Core.Int
+startRemediationExecutionResponse_httpStatus :: Lens.Lens' StartRemediationExecutionResponse Prelude.Int
 startRemediationExecutionResponse_httpStatus = Lens.lens (\StartRemediationExecutionResponse' {httpStatus} -> httpStatus) (\s@StartRemediationExecutionResponse' {} a -> s {httpStatus = a} :: StartRemediationExecutionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     StartRemediationExecutionResponse

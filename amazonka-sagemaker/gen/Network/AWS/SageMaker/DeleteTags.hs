@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -55,11 +56,11 @@ import Network.AWS.SageMaker.Types
 data DeleteTags = DeleteTags'
   { -- | The Amazon Resource Name (ARN) of the resource whose tags you want to
     -- delete.
-    resourceArn :: Core.Text,
+    resourceArn :: Prelude.Text,
     -- | An array or one or more tag keys to delete.
-    tagKeys :: Core.NonEmpty Core.Text
+    tagKeys :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTags' with all optional fields omitted.
@@ -75,9 +76,9 @@ data DeleteTags = DeleteTags'
 -- 'tagKeys', 'deleteTags_tagKeys' - An array or one or more tag keys to delete.
 newDeleteTags ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tagKeys'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   DeleteTags
 newDeleteTags pResourceArn_ pTagKeys_ =
   DeleteTags'
@@ -87,12 +88,12 @@ newDeleteTags pResourceArn_ pTagKeys_ =
 
 -- | The Amazon Resource Name (ARN) of the resource whose tags you want to
 -- delete.
-deleteTags_resourceArn :: Lens.Lens' DeleteTags Core.Text
+deleteTags_resourceArn :: Lens.Lens' DeleteTags Prelude.Text
 deleteTags_resourceArn = Lens.lens (\DeleteTags' {resourceArn} -> resourceArn) (\s@DeleteTags' {} a -> s {resourceArn = a} :: DeleteTags)
 
 -- | An array or one or more tag keys to delete.
-deleteTags_tagKeys :: Lens.Lens' DeleteTags (Core.NonEmpty Core.Text)
-deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Core.. Lens._Coerce
+deleteTags_tagKeys :: Lens.Lens' DeleteTags (Prelude.NonEmpty Prelude.Text)
+deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DeleteTags where
   type AWSResponse DeleteTags = DeleteTagsResponse
@@ -101,45 +102,47 @@ instance Core.AWSRequest DeleteTags where
     Response.receiveEmpty
       ( \s h x ->
           DeleteTagsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteTags
+instance Prelude.Hashable DeleteTags
 
-instance Core.NFData DeleteTags
+instance Prelude.NFData DeleteTags
 
 instance Core.ToHeaders DeleteTags where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteTags" :: Core.ByteString),
+              Core.=# ("SageMaker.DeleteTags" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteTags where
   toJSON DeleteTags' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceArn" Core..= resourceArn),
-            Core.Just ("TagKeys" Core..= tagKeys)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceArn" Core..= resourceArn),
+            Prelude.Just ("TagKeys" Core..= tagKeys)
           ]
       )
 
 instance Core.ToPath DeleteTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteTags where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTagsResponse' with all optional fields omitted.
@@ -152,13 +155,13 @@ data DeleteTagsResponse = DeleteTagsResponse'
 -- 'httpStatus', 'deleteTagsResponse_httpStatus' - The response's http status code.
 newDeleteTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteTagsResponse
 newDeleteTagsResponse pHttpStatus_ =
   DeleteTagsResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteTagsResponse_httpStatus :: Lens.Lens' DeleteTagsResponse Core.Int
+deleteTagsResponse_httpStatus :: Lens.Lens' DeleteTagsResponse Prelude.Int
 deleteTagsResponse_httpStatus = Lens.lens (\DeleteTagsResponse' {httpStatus} -> httpStatus) (\s@DeleteTagsResponse' {} a -> s {httpStatus = a} :: DeleteTagsResponse)
 
-instance Core.NFData DeleteTagsResponse
+instance Prelude.NFData DeleteTagsResponse

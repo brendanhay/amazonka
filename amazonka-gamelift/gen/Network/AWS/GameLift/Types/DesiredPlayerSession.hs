@@ -21,6 +21,7 @@ module Network.AWS.GameLift.Types.DesiredPlayerSession where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Player information for use when creating player sessions using a game
 -- session placement request with StartGameSessionPlacement.
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDesiredPlayerSession' smart constructor.
 data DesiredPlayerSession = DesiredPlayerSession'
   { -- | A unique identifier for a player to associate with the player session.
-    playerId :: Core.Maybe Core.Text,
+    playerId :: Prelude.Maybe Prelude.Text,
     -- | Developer-defined information related to a player. Amazon GameLift does
     -- not use this data, so it can be formatted as needed for use in the game.
-    playerData :: Core.Maybe Core.Text
+    playerData :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DesiredPlayerSession' with all optional fields omitted.
@@ -51,28 +52,28 @@ newDesiredPlayerSession ::
   DesiredPlayerSession
 newDesiredPlayerSession =
   DesiredPlayerSession'
-    { playerId = Core.Nothing,
-      playerData = Core.Nothing
+    { playerId = Prelude.Nothing,
+      playerData = Prelude.Nothing
     }
 
 -- | A unique identifier for a player to associate with the player session.
-desiredPlayerSession_playerId :: Lens.Lens' DesiredPlayerSession (Core.Maybe Core.Text)
+desiredPlayerSession_playerId :: Lens.Lens' DesiredPlayerSession (Prelude.Maybe Prelude.Text)
 desiredPlayerSession_playerId = Lens.lens (\DesiredPlayerSession' {playerId} -> playerId) (\s@DesiredPlayerSession' {} a -> s {playerId = a} :: DesiredPlayerSession)
 
 -- | Developer-defined information related to a player. Amazon GameLift does
 -- not use this data, so it can be formatted as needed for use in the game.
-desiredPlayerSession_playerData :: Lens.Lens' DesiredPlayerSession (Core.Maybe Core.Text)
+desiredPlayerSession_playerData :: Lens.Lens' DesiredPlayerSession (Prelude.Maybe Prelude.Text)
 desiredPlayerSession_playerData = Lens.lens (\DesiredPlayerSession' {playerData} -> playerData) (\s@DesiredPlayerSession' {} a -> s {playerData = a} :: DesiredPlayerSession)
 
-instance Core.Hashable DesiredPlayerSession
+instance Prelude.Hashable DesiredPlayerSession
 
-instance Core.NFData DesiredPlayerSession
+instance Prelude.NFData DesiredPlayerSession
 
 instance Core.ToJSON DesiredPlayerSession where
   toJSON DesiredPlayerSession' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("PlayerId" Core..=) Core.<$> playerId,
-            ("PlayerData" Core..=) Core.<$> playerData
+      ( Prelude.catMaybes
+          [ ("PlayerId" Core..=) Prelude.<$> playerId,
+            ("PlayerData" Core..=) Prelude.<$> playerData
           ]
       )

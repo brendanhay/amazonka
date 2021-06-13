@@ -24,6 +24,7 @@ import Network.AWS.CloudFormation.Types.EvaluationType
 import Network.AWS.CloudFormation.Types.ResourceTargetDefinition
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | For a resource with @Modify@ as the action, the @ResourceChange@
 -- structure describes the changes AWS CloudFormation will make to that
@@ -48,7 +49,7 @@ data ResourceChangeDetail = ResourceChangeDetail'
     -- the resource) might change, depending on if the resource is recreated.
     -- If the resource is recreated, it will have a new physical ID, so all
     -- references to that resource will also be updated.
-    evaluation :: Core.Maybe EvaluationType,
+    evaluation :: Prelude.Maybe EvaluationType,
     -- | The group to which the @CausingEntity@ value belongs. There are five
     -- entity groups:
     --
@@ -74,7 +75,7 @@ data ResourceChangeDetail = ResourceChangeDetail'
     --     template might have changed. Changes to a nested stack\'s template
     --     aren\'t visible to AWS CloudFormation until you run an update on the
     --     parent stack.
-    changeSource :: Core.Maybe ChangeSource,
+    changeSource :: Prelude.Maybe ChangeSource,
     -- | The identity of the entity that triggered this change. This entity is a
     -- member of the group that is specified by the @ChangeSource@ field. For
     -- example, if you modified the value of the @KeyPairName@ parameter, the
@@ -82,12 +83,12 @@ data ResourceChangeDetail = ResourceChangeDetail'
     --
     -- If the @ChangeSource@ value is @DirectModification@, no value is given
     -- for @CausingEntity@.
-    causingEntity :: Core.Maybe Core.Text,
+    causingEntity :: Prelude.Maybe Prelude.Text,
     -- | A @ResourceTargetDefinition@ structure that describes the field that AWS
     -- CloudFormation will change and whether the resource will be recreated.
-    target :: Core.Maybe ResourceTargetDefinition
+    target :: Prelude.Maybe ResourceTargetDefinition
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceChangeDetail' with all optional fields omitted.
@@ -155,10 +156,10 @@ newResourceChangeDetail ::
   ResourceChangeDetail
 newResourceChangeDetail =
   ResourceChangeDetail'
-    { evaluation = Core.Nothing,
-      changeSource = Core.Nothing,
-      causingEntity = Core.Nothing,
-      target = Core.Nothing
+    { evaluation = Prelude.Nothing,
+      changeSource = Prelude.Nothing,
+      causingEntity = Prelude.Nothing,
+      target = Prelude.Nothing
     }
 
 -- | Indicates whether AWS CloudFormation can determine the target value, and
@@ -178,7 +179,7 @@ newResourceChangeDetail =
 -- the resource) might change, depending on if the resource is recreated.
 -- If the resource is recreated, it will have a new physical ID, so all
 -- references to that resource will also be updated.
-resourceChangeDetail_evaluation :: Lens.Lens' ResourceChangeDetail (Core.Maybe EvaluationType)
+resourceChangeDetail_evaluation :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe EvaluationType)
 resourceChangeDetail_evaluation = Lens.lens (\ResourceChangeDetail' {evaluation} -> evaluation) (\s@ResourceChangeDetail' {} a -> s {evaluation = a} :: ResourceChangeDetail)
 
 -- | The group to which the @CausingEntity@ value belongs. There are five
@@ -206,7 +207,7 @@ resourceChangeDetail_evaluation = Lens.lens (\ResourceChangeDetail' {evaluation}
 --     template might have changed. Changes to a nested stack\'s template
 --     aren\'t visible to AWS CloudFormation until you run an update on the
 --     parent stack.
-resourceChangeDetail_changeSource :: Lens.Lens' ResourceChangeDetail (Core.Maybe ChangeSource)
+resourceChangeDetail_changeSource :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe ChangeSource)
 resourceChangeDetail_changeSource = Lens.lens (\ResourceChangeDetail' {changeSource} -> changeSource) (\s@ResourceChangeDetail' {} a -> s {changeSource = a} :: ResourceChangeDetail)
 
 -- | The identity of the entity that triggered this change. This entity is a
@@ -216,22 +217,22 @@ resourceChangeDetail_changeSource = Lens.lens (\ResourceChangeDetail' {changeSou
 --
 -- If the @ChangeSource@ value is @DirectModification@, no value is given
 -- for @CausingEntity@.
-resourceChangeDetail_causingEntity :: Lens.Lens' ResourceChangeDetail (Core.Maybe Core.Text)
+resourceChangeDetail_causingEntity :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe Prelude.Text)
 resourceChangeDetail_causingEntity = Lens.lens (\ResourceChangeDetail' {causingEntity} -> causingEntity) (\s@ResourceChangeDetail' {} a -> s {causingEntity = a} :: ResourceChangeDetail)
 
 -- | A @ResourceTargetDefinition@ structure that describes the field that AWS
 -- CloudFormation will change and whether the resource will be recreated.
-resourceChangeDetail_target :: Lens.Lens' ResourceChangeDetail (Core.Maybe ResourceTargetDefinition)
+resourceChangeDetail_target :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe ResourceTargetDefinition)
 resourceChangeDetail_target = Lens.lens (\ResourceChangeDetail' {target} -> target) (\s@ResourceChangeDetail' {} a -> s {target = a} :: ResourceChangeDetail)
 
 instance Core.FromXML ResourceChangeDetail where
   parseXML x =
     ResourceChangeDetail'
-      Core.<$> (x Core..@? "Evaluation")
-      Core.<*> (x Core..@? "ChangeSource")
-      Core.<*> (x Core..@? "CausingEntity")
-      Core.<*> (x Core..@? "Target")
+      Prelude.<$> (x Core..@? "Evaluation")
+      Prelude.<*> (x Core..@? "ChangeSource")
+      Prelude.<*> (x Core..@? "CausingEntity")
+      Prelude.<*> (x Core..@? "Target")
 
-instance Core.Hashable ResourceChangeDetail
+instance Prelude.Hashable ResourceChangeDetail
 
-instance Core.NFData ResourceChangeDetail
+instance Prelude.NFData ResourceChangeDetail

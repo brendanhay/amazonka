@@ -21,17 +21,18 @@ module Network.AWS.EMR.Types.EbsVolume where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | EBS block device that\'s attached to an EC2 instance.
 --
 -- /See:/ 'newEbsVolume' smart constructor.
 data EbsVolume = EbsVolume'
   { -- | The device name that is exposed to the instance, such as \/dev\/sdh.
-    device :: Core.Maybe Core.Text,
+    device :: Prelude.Maybe Prelude.Text,
     -- | The volume identifier of the EBS volume.
-    volumeId :: Core.Maybe Core.Text
+    volumeId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EbsVolume' with all optional fields omitted.
@@ -48,16 +49,16 @@ newEbsVolume ::
   EbsVolume
 newEbsVolume =
   EbsVolume'
-    { device = Core.Nothing,
-      volumeId = Core.Nothing
+    { device = Prelude.Nothing,
+      volumeId = Prelude.Nothing
     }
 
 -- | The device name that is exposed to the instance, such as \/dev\/sdh.
-ebsVolume_device :: Lens.Lens' EbsVolume (Core.Maybe Core.Text)
+ebsVolume_device :: Lens.Lens' EbsVolume (Prelude.Maybe Prelude.Text)
 ebsVolume_device = Lens.lens (\EbsVolume' {device} -> device) (\s@EbsVolume' {} a -> s {device = a} :: EbsVolume)
 
 -- | The volume identifier of the EBS volume.
-ebsVolume_volumeId :: Lens.Lens' EbsVolume (Core.Maybe Core.Text)
+ebsVolume_volumeId :: Lens.Lens' EbsVolume (Prelude.Maybe Prelude.Text)
 ebsVolume_volumeId = Lens.lens (\EbsVolume' {volumeId} -> volumeId) (\s@EbsVolume' {} a -> s {volumeId = a} :: EbsVolume)
 
 instance Core.FromJSON EbsVolume where
@@ -66,10 +67,10 @@ instance Core.FromJSON EbsVolume where
       "EbsVolume"
       ( \x ->
           EbsVolume'
-            Core.<$> (x Core..:? "Device")
-            Core.<*> (x Core..:? "VolumeId")
+            Prelude.<$> (x Core..:? "Device")
+            Prelude.<*> (x Core..:? "VolumeId")
       )
 
-instance Core.Hashable EbsVolume
+instance Prelude.Hashable EbsVolume
 
-instance Core.NFData EbsVolume
+instance Prelude.NFData EbsVolume

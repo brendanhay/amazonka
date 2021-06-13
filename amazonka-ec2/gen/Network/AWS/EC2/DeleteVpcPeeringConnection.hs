@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +57,11 @@ data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the VPC peering connection.
-    vpcPeeringConnectionId :: Core.Text
+    vpcPeeringConnectionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVpcPeeringConnection' with all optional fields omitted.
@@ -78,12 +79,13 @@ data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection'
 -- 'vpcPeeringConnectionId', 'deleteVpcPeeringConnection_vpcPeeringConnectionId' - The ID of the VPC peering connection.
 newDeleteVpcPeeringConnection ::
   -- | 'vpcPeeringConnectionId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteVpcPeeringConnection
 newDeleteVpcPeeringConnection
   pVpcPeeringConnectionId_ =
     DeleteVpcPeeringConnection'
-      { dryRun = Core.Nothing,
+      { dryRun =
+          Prelude.Nothing,
         vpcPeeringConnectionId =
           pVpcPeeringConnectionId_
       }
@@ -92,11 +94,11 @@ newDeleteVpcPeeringConnection
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteVpcPeeringConnection_dryRun :: Lens.Lens' DeleteVpcPeeringConnection (Core.Maybe Core.Bool)
+deleteVpcPeeringConnection_dryRun :: Lens.Lens' DeleteVpcPeeringConnection (Prelude.Maybe Prelude.Bool)
 deleteVpcPeeringConnection_dryRun = Lens.lens (\DeleteVpcPeeringConnection' {dryRun} -> dryRun) (\s@DeleteVpcPeeringConnection' {} a -> s {dryRun = a} :: DeleteVpcPeeringConnection)
 
 -- | The ID of the VPC peering connection.
-deleteVpcPeeringConnection_vpcPeeringConnectionId :: Lens.Lens' DeleteVpcPeeringConnection Core.Text
+deleteVpcPeeringConnection_vpcPeeringConnectionId :: Lens.Lens' DeleteVpcPeeringConnection Prelude.Text
 deleteVpcPeeringConnection_vpcPeeringConnectionId = Lens.lens (\DeleteVpcPeeringConnection' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@DeleteVpcPeeringConnection' {} a -> s {vpcPeeringConnectionId = a} :: DeleteVpcPeeringConnection)
 
 instance Core.AWSRequest DeleteVpcPeeringConnection where
@@ -108,26 +110,27 @@ instance Core.AWSRequest DeleteVpcPeeringConnection where
     Response.receiveXML
       ( \s h x ->
           DeleteVpcPeeringConnectionResponse'
-            Core.<$> (x Core..@? "return")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "return")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteVpcPeeringConnection
+instance Prelude.Hashable DeleteVpcPeeringConnection
 
-instance Core.NFData DeleteVpcPeeringConnection
+instance Prelude.NFData DeleteVpcPeeringConnection
 
 instance Core.ToHeaders DeleteVpcPeeringConnection where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteVpcPeeringConnection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteVpcPeeringConnection where
   toQuery DeleteVpcPeeringConnection' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteVpcPeeringConnection" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DeleteVpcPeeringConnection" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "VpcPeeringConnectionId"
           Core.=: vpcPeeringConnectionId
@@ -136,11 +139,11 @@ instance Core.ToQuery DeleteVpcPeeringConnection where
 -- | /See:/ 'newDeleteVpcPeeringConnectionResponse' smart constructor.
 data DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    return' :: Core.Maybe Core.Bool,
+    return' :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVpcPeeringConnectionResponse' with all optional fields omitted.
@@ -155,23 +158,23 @@ data DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse'
 -- 'httpStatus', 'deleteVpcPeeringConnectionResponse_httpStatus' - The response's http status code.
 newDeleteVpcPeeringConnectionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteVpcPeeringConnectionResponse
 newDeleteVpcPeeringConnectionResponse pHttpStatus_ =
   DeleteVpcPeeringConnectionResponse'
     { return' =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-deleteVpcPeeringConnectionResponse_return :: Lens.Lens' DeleteVpcPeeringConnectionResponse (Core.Maybe Core.Bool)
+deleteVpcPeeringConnectionResponse_return :: Lens.Lens' DeleteVpcPeeringConnectionResponse (Prelude.Maybe Prelude.Bool)
 deleteVpcPeeringConnectionResponse_return = Lens.lens (\DeleteVpcPeeringConnectionResponse' {return'} -> return') (\s@DeleteVpcPeeringConnectionResponse' {} a -> s {return' = a} :: DeleteVpcPeeringConnectionResponse)
 
 -- | The response's http status code.
-deleteVpcPeeringConnectionResponse_httpStatus :: Lens.Lens' DeleteVpcPeeringConnectionResponse Core.Int
+deleteVpcPeeringConnectionResponse_httpStatus :: Lens.Lens' DeleteVpcPeeringConnectionResponse Prelude.Int
 deleteVpcPeeringConnectionResponse_httpStatus = Lens.lens (\DeleteVpcPeeringConnectionResponse' {httpStatus} -> httpStatus) (\s@DeleteVpcPeeringConnectionResponse' {} a -> s {httpStatus = a} :: DeleteVpcPeeringConnectionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteVpcPeeringConnectionResponse

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ModelQualityBaselineConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MonitoringConstraintsResource
 
 -- | Configuration for monitoring constraints and monitoring statistics.
@@ -29,11 +30,11 @@ import Network.AWS.SageMaker.Types.MonitoringConstraintsResource
 --
 -- /See:/ 'newModelQualityBaselineConfig' smart constructor.
 data ModelQualityBaselineConfig = ModelQualityBaselineConfig'
-  { constraintsResource :: Core.Maybe MonitoringConstraintsResource,
+  { constraintsResource :: Prelude.Maybe MonitoringConstraintsResource,
     -- | The name of the job that performs baselining for the monitoring job.
-    baseliningJobName :: Core.Maybe Core.Text
+    baseliningJobName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModelQualityBaselineConfig' with all optional fields omitted.
@@ -51,16 +52,16 @@ newModelQualityBaselineConfig ::
 newModelQualityBaselineConfig =
   ModelQualityBaselineConfig'
     { constraintsResource =
-        Core.Nothing,
-      baseliningJobName = Core.Nothing
+        Prelude.Nothing,
+      baseliningJobName = Prelude.Nothing
     }
 
 -- | Undocumented member.
-modelQualityBaselineConfig_constraintsResource :: Lens.Lens' ModelQualityBaselineConfig (Core.Maybe MonitoringConstraintsResource)
+modelQualityBaselineConfig_constraintsResource :: Lens.Lens' ModelQualityBaselineConfig (Prelude.Maybe MonitoringConstraintsResource)
 modelQualityBaselineConfig_constraintsResource = Lens.lens (\ModelQualityBaselineConfig' {constraintsResource} -> constraintsResource) (\s@ModelQualityBaselineConfig' {} a -> s {constraintsResource = a} :: ModelQualityBaselineConfig)
 
 -- | The name of the job that performs baselining for the monitoring job.
-modelQualityBaselineConfig_baseliningJobName :: Lens.Lens' ModelQualityBaselineConfig (Core.Maybe Core.Text)
+modelQualityBaselineConfig_baseliningJobName :: Lens.Lens' ModelQualityBaselineConfig (Prelude.Maybe Prelude.Text)
 modelQualityBaselineConfig_baseliningJobName = Lens.lens (\ModelQualityBaselineConfig' {baseliningJobName} -> baseliningJobName) (\s@ModelQualityBaselineConfig' {} a -> s {baseliningJobName = a} :: ModelQualityBaselineConfig)
 
 instance Core.FromJSON ModelQualityBaselineConfig where
@@ -69,21 +70,21 @@ instance Core.FromJSON ModelQualityBaselineConfig where
       "ModelQualityBaselineConfig"
       ( \x ->
           ModelQualityBaselineConfig'
-            Core.<$> (x Core..:? "ConstraintsResource")
-            Core.<*> (x Core..:? "BaseliningJobName")
+            Prelude.<$> (x Core..:? "ConstraintsResource")
+            Prelude.<*> (x Core..:? "BaseliningJobName")
       )
 
-instance Core.Hashable ModelQualityBaselineConfig
+instance Prelude.Hashable ModelQualityBaselineConfig
 
-instance Core.NFData ModelQualityBaselineConfig
+instance Prelude.NFData ModelQualityBaselineConfig
 
 instance Core.ToJSON ModelQualityBaselineConfig where
   toJSON ModelQualityBaselineConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ConstraintsResource" Core..=)
-              Core.<$> constraintsResource,
+              Prelude.<$> constraintsResource,
             ("BaseliningJobName" Core..=)
-              Core.<$> baseliningJobName
+              Prelude.<$> baseliningJobName
           ]
       )

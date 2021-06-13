@@ -43,15 +43,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetInstanceState' smart constructor.
 data GetInstanceState = GetInstanceState'
   { -- | The name of the instance to get state information about.
-    instanceName :: Core.Text
+    instanceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInstanceState' with all optional fields omitted.
@@ -64,13 +65,13 @@ data GetInstanceState = GetInstanceState'
 -- 'instanceName', 'getInstanceState_instanceName' - The name of the instance to get state information about.
 newGetInstanceState ::
   -- | 'instanceName'
-  Core.Text ->
+  Prelude.Text ->
   GetInstanceState
 newGetInstanceState pInstanceName_ =
   GetInstanceState' {instanceName = pInstanceName_}
 
 -- | The name of the instance to get state information about.
-getInstanceState_instanceName :: Lens.Lens' GetInstanceState Core.Text
+getInstanceState_instanceName :: Lens.Lens' GetInstanceState Prelude.Text
 getInstanceState_instanceName = Lens.lens (\GetInstanceState' {instanceName} -> instanceName) (\s@GetInstanceState' {} a -> s {instanceName = a} :: GetInstanceState)
 
 instance Core.AWSRequest GetInstanceState where
@@ -82,48 +83,50 @@ instance Core.AWSRequest GetInstanceState where
     Response.receiveJSON
       ( \s h x ->
           GetInstanceStateResponse'
-            Core.<$> (x Core..?> "state")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "state")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetInstanceState
+instance Prelude.Hashable GetInstanceState
 
-instance Core.NFData GetInstanceState
+instance Prelude.NFData GetInstanceState
 
 instance Core.ToHeaders GetInstanceState where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetInstanceState" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetInstanceState where
   toJSON GetInstanceState' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("instanceName" Core..= instanceName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("instanceName" Core..= instanceName)]
       )
 
 instance Core.ToPath GetInstanceState where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetInstanceState where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetInstanceStateResponse' smart constructor.
 data GetInstanceStateResponse = GetInstanceStateResponse'
   { -- | The state of the instance.
-    state :: Core.Maybe InstanceState,
+    state :: Prelude.Maybe InstanceState,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInstanceStateResponse' with all optional fields omitted.
@@ -138,20 +141,20 @@ data GetInstanceStateResponse = GetInstanceStateResponse'
 -- 'httpStatus', 'getInstanceStateResponse_httpStatus' - The response's http status code.
 newGetInstanceStateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetInstanceStateResponse
 newGetInstanceStateResponse pHttpStatus_ =
   GetInstanceStateResponse'
-    { state = Core.Nothing,
+    { state = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The state of the instance.
-getInstanceStateResponse_state :: Lens.Lens' GetInstanceStateResponse (Core.Maybe InstanceState)
+getInstanceStateResponse_state :: Lens.Lens' GetInstanceStateResponse (Prelude.Maybe InstanceState)
 getInstanceStateResponse_state = Lens.lens (\GetInstanceStateResponse' {state} -> state) (\s@GetInstanceStateResponse' {} a -> s {state = a} :: GetInstanceStateResponse)
 
 -- | The response's http status code.
-getInstanceStateResponse_httpStatus :: Lens.Lens' GetInstanceStateResponse Core.Int
+getInstanceStateResponse_httpStatus :: Lens.Lens' GetInstanceStateResponse Prelude.Int
 getInstanceStateResponse_httpStatus = Lens.lens (\GetInstanceStateResponse' {httpStatus} -> httpStatus) (\s@GetInstanceStateResponse' {} a -> s {httpStatus = a} :: GetInstanceStateResponse)
 
-instance Core.NFData GetInstanceStateResponse
+instance Prelude.NFData GetInstanceStateResponse

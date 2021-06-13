@@ -66,15 +66,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateInstance' smart constructor.
 data CreateInstance = CreateInstance'
   { -- | The instance host name.
-    hostname :: Core.Maybe Core.Text,
+    hostname :: Prelude.Maybe Prelude.Text,
     -- | The instance\'s virtualization type, @paravirtual@ or @hvm@.
-    virtualizationType :: Core.Maybe Core.Text,
+    virtualizationType :: Prelude.Maybe Prelude.Text,
     -- | Whether to install operating system and package updates when the
     -- instance boots. The default value is @true@. To control when updates are
     -- installed, set this value to @false@. You must then update your
@@ -84,12 +85,12 @@ data CreateInstance = CreateInstance'
     --
     -- We strongly recommend using the default value of @true@ to ensure that
     -- your instances have the latest security updates.
-    installUpdatesOnBoot :: Core.Maybe Core.Bool,
+    installUpdatesOnBoot :: Prelude.Maybe Prelude.Bool,
     -- | Whether to create an Amazon EBS-optimized instance.
-    ebsOptimized :: Core.Maybe Core.Bool,
+    ebsOptimized :: Prelude.Maybe Prelude.Bool,
     -- | The instance root device type. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
-    rootDeviceType :: Core.Maybe RootDeviceType,
+    rootDeviceType :: Prelude.Maybe RootDeviceType,
     -- | The default AWS OpsWorks Stacks agent version. You have the following
     -- options:
     --
@@ -105,21 +106,21 @@ data CreateInstance = CreateInstance'
     -- use the complete version number, not the abbreviated number shown on the
     -- console. For a list of available agent version numbers, call
     -- DescribeAgentVersions. AgentVersion cannot be set to Chef 12.2.
-    agentVersion :: Core.Maybe Core.Text,
+    agentVersion :: Prelude.Maybe Prelude.Text,
     -- | The instance\'s Amazon EC2 key-pair name.
-    sshKeyName :: Core.Maybe Core.Text,
+    sshKeyName :: Prelude.Maybe Prelude.Text,
     -- | A custom AMI ID to be used to create the instance. The AMI should be
     -- based on one of the supported operating systems. For more information,
     -- see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
     --
     -- If you specify a custom AMI, you must set @Os@ to @Custom@.
-    amiId :: Core.Maybe Core.Text,
+    amiId :: Prelude.Maybe Prelude.Text,
     -- | The instance architecture. The default option is @x86_64@. Instance
     -- types do not necessarily support both architectures. For a list of the
     -- architectures that are supported by the different instance types, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
-    architecture :: Core.Maybe Architecture,
+    architecture :: Prelude.Maybe Architecture,
     -- | The instance\'s tenancy option. The default option is no tenancy, or if
     -- the instance is running in a VPC, inherit tenancy settings from the VPC.
     -- The following are valid values for this parameter: @dedicated@,
@@ -134,13 +135,13 @@ data CreateInstance = CreateInstance'
     -- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html Dedicated Instances>
     -- and
     -- <http://aws.amazon.com/ec2/purchasing-options/dedicated-instances/ Amazon EC2 Dedicated Instances>.
-    tenancy :: Core.Maybe Core.Text,
+    tenancy :: Prelude.Maybe Prelude.Text,
     -- | For load-based or time-based instances, the type. Windows stacks can use
     -- only time-based instances.
-    autoScalingType :: Core.Maybe AutoScalingType,
+    autoScalingType :: Prelude.Maybe AutoScalingType,
     -- | The instance Availability Zone. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The instance\'s operating system, which must be set to one of the
     -- following.
     --
@@ -177,21 +178,21 @@ data CreateInstance = CreateInstance'
     -- more information about how to use custom AMIs with AWS OpsWorks Stacks,
     -- see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
-    os :: Core.Maybe Core.Text,
+    os :: Prelude.Maybe Prelude.Text,
     -- | An array of @BlockDeviceMapping@ objects that specify the instance\'s
     -- block devices. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>.
     -- Note that block device mappings are not supported for custom AMIs.
-    blockDeviceMappings :: Core.Maybe [BlockDeviceMapping],
+    blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
     -- | The ID of the instance\'s subnet. If the stack is running in a VPC, you
     -- can use this parameter to override the stack\'s default subnet ID value
     -- and direct AWS OpsWorks Stacks to launch the instance in a different
     -- subnet.
-    subnetId :: Core.Maybe Core.Text,
+    subnetId :: Prelude.Maybe Prelude.Text,
     -- | The stack ID.
-    stackId :: Core.Text,
+    stackId :: Prelude.Text,
     -- | An array that contains the instance\'s layer IDs.
-    layerIds :: [Core.Text],
+    layerIds :: [Prelude.Text],
     -- | The instance type, such as @t2.micro@. For a list of supported instance
     -- types, open the stack in the console, choose __Instances__, and choose
     -- __+ Instance__. The __Size__ list contains the currently supported
@@ -199,9 +200,9 @@ data CreateInstance = CreateInstance'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
     -- The parameter values that you use to specify the various types are in
     -- the __API Name__ column of the __Available Instance Types__ table.
-    instanceType :: Core.Text
+    instanceType :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateInstance' with all optional fields omitted.
@@ -341,38 +342,38 @@ data CreateInstance = CreateInstance'
 -- the __API Name__ column of the __Available Instance Types__ table.
 newCreateInstance ::
   -- | 'stackId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceType'
-  Core.Text ->
+  Prelude.Text ->
   CreateInstance
 newCreateInstance pStackId_ pInstanceType_ =
   CreateInstance'
-    { hostname = Core.Nothing,
-      virtualizationType = Core.Nothing,
-      installUpdatesOnBoot = Core.Nothing,
-      ebsOptimized = Core.Nothing,
-      rootDeviceType = Core.Nothing,
-      agentVersion = Core.Nothing,
-      sshKeyName = Core.Nothing,
-      amiId = Core.Nothing,
-      architecture = Core.Nothing,
-      tenancy = Core.Nothing,
-      autoScalingType = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      os = Core.Nothing,
-      blockDeviceMappings = Core.Nothing,
-      subnetId = Core.Nothing,
+    { hostname = Prelude.Nothing,
+      virtualizationType = Prelude.Nothing,
+      installUpdatesOnBoot = Prelude.Nothing,
+      ebsOptimized = Prelude.Nothing,
+      rootDeviceType = Prelude.Nothing,
+      agentVersion = Prelude.Nothing,
+      sshKeyName = Prelude.Nothing,
+      amiId = Prelude.Nothing,
+      architecture = Prelude.Nothing,
+      tenancy = Prelude.Nothing,
+      autoScalingType = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      os = Prelude.Nothing,
+      blockDeviceMappings = Prelude.Nothing,
+      subnetId = Prelude.Nothing,
       stackId = pStackId_,
-      layerIds = Core.mempty,
+      layerIds = Prelude.mempty,
       instanceType = pInstanceType_
     }
 
 -- | The instance host name.
-createInstance_hostname :: Lens.Lens' CreateInstance (Core.Maybe Core.Text)
+createInstance_hostname :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
 createInstance_hostname = Lens.lens (\CreateInstance' {hostname} -> hostname) (\s@CreateInstance' {} a -> s {hostname = a} :: CreateInstance)
 
 -- | The instance\'s virtualization type, @paravirtual@ or @hvm@.
-createInstance_virtualizationType :: Lens.Lens' CreateInstance (Core.Maybe Core.Text)
+createInstance_virtualizationType :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
 createInstance_virtualizationType = Lens.lens (\CreateInstance' {virtualizationType} -> virtualizationType) (\s@CreateInstance' {} a -> s {virtualizationType = a} :: CreateInstance)
 
 -- | Whether to install operating system and package updates when the
@@ -384,16 +385,16 @@ createInstance_virtualizationType = Lens.lens (\CreateInstance' {virtualizationT
 --
 -- We strongly recommend using the default value of @true@ to ensure that
 -- your instances have the latest security updates.
-createInstance_installUpdatesOnBoot :: Lens.Lens' CreateInstance (Core.Maybe Core.Bool)
+createInstance_installUpdatesOnBoot :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Bool)
 createInstance_installUpdatesOnBoot = Lens.lens (\CreateInstance' {installUpdatesOnBoot} -> installUpdatesOnBoot) (\s@CreateInstance' {} a -> s {installUpdatesOnBoot = a} :: CreateInstance)
 
 -- | Whether to create an Amazon EBS-optimized instance.
-createInstance_ebsOptimized :: Lens.Lens' CreateInstance (Core.Maybe Core.Bool)
+createInstance_ebsOptimized :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Bool)
 createInstance_ebsOptimized = Lens.lens (\CreateInstance' {ebsOptimized} -> ebsOptimized) (\s@CreateInstance' {} a -> s {ebsOptimized = a} :: CreateInstance)
 
 -- | The instance root device type. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
-createInstance_rootDeviceType :: Lens.Lens' CreateInstance (Core.Maybe RootDeviceType)
+createInstance_rootDeviceType :: Lens.Lens' CreateInstance (Prelude.Maybe RootDeviceType)
 createInstance_rootDeviceType = Lens.lens (\CreateInstance' {rootDeviceType} -> rootDeviceType) (\s@CreateInstance' {} a -> s {rootDeviceType = a} :: CreateInstance)
 
 -- | The default AWS OpsWorks Stacks agent version. You have the following
@@ -411,11 +412,11 @@ createInstance_rootDeviceType = Lens.lens (\CreateInstance' {rootDeviceType} -> 
 -- use the complete version number, not the abbreviated number shown on the
 -- console. For a list of available agent version numbers, call
 -- DescribeAgentVersions. AgentVersion cannot be set to Chef 12.2.
-createInstance_agentVersion :: Lens.Lens' CreateInstance (Core.Maybe Core.Text)
+createInstance_agentVersion :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
 createInstance_agentVersion = Lens.lens (\CreateInstance' {agentVersion} -> agentVersion) (\s@CreateInstance' {} a -> s {agentVersion = a} :: CreateInstance)
 
 -- | The instance\'s Amazon EC2 key-pair name.
-createInstance_sshKeyName :: Lens.Lens' CreateInstance (Core.Maybe Core.Text)
+createInstance_sshKeyName :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
 createInstance_sshKeyName = Lens.lens (\CreateInstance' {sshKeyName} -> sshKeyName) (\s@CreateInstance' {} a -> s {sshKeyName = a} :: CreateInstance)
 
 -- | A custom AMI ID to be used to create the instance. The AMI should be
@@ -424,14 +425,14 @@ createInstance_sshKeyName = Lens.lens (\CreateInstance' {sshKeyName} -> sshKeyNa
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
 --
 -- If you specify a custom AMI, you must set @Os@ to @Custom@.
-createInstance_amiId :: Lens.Lens' CreateInstance (Core.Maybe Core.Text)
+createInstance_amiId :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
 createInstance_amiId = Lens.lens (\CreateInstance' {amiId} -> amiId) (\s@CreateInstance' {} a -> s {amiId = a} :: CreateInstance)
 
 -- | The instance architecture. The default option is @x86_64@. Instance
 -- types do not necessarily support both architectures. For a list of the
 -- architectures that are supported by the different instance types, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
-createInstance_architecture :: Lens.Lens' CreateInstance (Core.Maybe Architecture)
+createInstance_architecture :: Lens.Lens' CreateInstance (Prelude.Maybe Architecture)
 createInstance_architecture = Lens.lens (\CreateInstance' {architecture} -> architecture) (\s@CreateInstance' {} a -> s {architecture = a} :: CreateInstance)
 
 -- | The instance\'s tenancy option. The default option is no tenancy, or if
@@ -448,17 +449,17 @@ createInstance_architecture = Lens.lens (\CreateInstance' {architecture} -> arch
 -- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html Dedicated Instances>
 -- and
 -- <http://aws.amazon.com/ec2/purchasing-options/dedicated-instances/ Amazon EC2 Dedicated Instances>.
-createInstance_tenancy :: Lens.Lens' CreateInstance (Core.Maybe Core.Text)
+createInstance_tenancy :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
 createInstance_tenancy = Lens.lens (\CreateInstance' {tenancy} -> tenancy) (\s@CreateInstance' {} a -> s {tenancy = a} :: CreateInstance)
 
 -- | For load-based or time-based instances, the type. Windows stacks can use
 -- only time-based instances.
-createInstance_autoScalingType :: Lens.Lens' CreateInstance (Core.Maybe AutoScalingType)
+createInstance_autoScalingType :: Lens.Lens' CreateInstance (Prelude.Maybe AutoScalingType)
 createInstance_autoScalingType = Lens.lens (\CreateInstance' {autoScalingType} -> autoScalingType) (\s@CreateInstance' {} a -> s {autoScalingType = a} :: CreateInstance)
 
 -- | The instance Availability Zone. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
-createInstance_availabilityZone :: Lens.Lens' CreateInstance (Core.Maybe Core.Text)
+createInstance_availabilityZone :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
 createInstance_availabilityZone = Lens.lens (\CreateInstance' {availabilityZone} -> availabilityZone) (\s@CreateInstance' {} a -> s {availabilityZone = a} :: CreateInstance)
 
 -- | The instance\'s operating system, which must be set to one of the
@@ -497,30 +498,30 @@ createInstance_availabilityZone = Lens.lens (\CreateInstance' {availabilityZone}
 -- more information about how to use custom AMIs with AWS OpsWorks Stacks,
 -- see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
-createInstance_os :: Lens.Lens' CreateInstance (Core.Maybe Core.Text)
+createInstance_os :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
 createInstance_os = Lens.lens (\CreateInstance' {os} -> os) (\s@CreateInstance' {} a -> s {os = a} :: CreateInstance)
 
 -- | An array of @BlockDeviceMapping@ objects that specify the instance\'s
 -- block devices. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>.
 -- Note that block device mappings are not supported for custom AMIs.
-createInstance_blockDeviceMappings :: Lens.Lens' CreateInstance (Core.Maybe [BlockDeviceMapping])
-createInstance_blockDeviceMappings = Lens.lens (\CreateInstance' {blockDeviceMappings} -> blockDeviceMappings) (\s@CreateInstance' {} a -> s {blockDeviceMappings = a} :: CreateInstance) Core.. Lens.mapping Lens._Coerce
+createInstance_blockDeviceMappings :: Lens.Lens' CreateInstance (Prelude.Maybe [BlockDeviceMapping])
+createInstance_blockDeviceMappings = Lens.lens (\CreateInstance' {blockDeviceMappings} -> blockDeviceMappings) (\s@CreateInstance' {} a -> s {blockDeviceMappings = a} :: CreateInstance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the instance\'s subnet. If the stack is running in a VPC, you
 -- can use this parameter to override the stack\'s default subnet ID value
 -- and direct AWS OpsWorks Stacks to launch the instance in a different
 -- subnet.
-createInstance_subnetId :: Lens.Lens' CreateInstance (Core.Maybe Core.Text)
+createInstance_subnetId :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
 createInstance_subnetId = Lens.lens (\CreateInstance' {subnetId} -> subnetId) (\s@CreateInstance' {} a -> s {subnetId = a} :: CreateInstance)
 
 -- | The stack ID.
-createInstance_stackId :: Lens.Lens' CreateInstance Core.Text
+createInstance_stackId :: Lens.Lens' CreateInstance Prelude.Text
 createInstance_stackId = Lens.lens (\CreateInstance' {stackId} -> stackId) (\s@CreateInstance' {} a -> s {stackId = a} :: CreateInstance)
 
 -- | An array that contains the instance\'s layer IDs.
-createInstance_layerIds :: Lens.Lens' CreateInstance [Core.Text]
-createInstance_layerIds = Lens.lens (\CreateInstance' {layerIds} -> layerIds) (\s@CreateInstance' {} a -> s {layerIds = a} :: CreateInstance) Core.. Lens._Coerce
+createInstance_layerIds :: Lens.Lens' CreateInstance [Prelude.Text]
+createInstance_layerIds = Lens.lens (\CreateInstance' {layerIds} -> layerIds) (\s@CreateInstance' {} a -> s {layerIds = a} :: CreateInstance) Prelude.. Lens._Coerce
 
 -- | The instance type, such as @t2.micro@. For a list of supported instance
 -- types, open the stack in the console, choose __Instances__, and choose
@@ -529,7 +530,7 @@ createInstance_layerIds = Lens.lens (\CreateInstance' {layerIds} -> layerIds) (\
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
 -- The parameter values that you use to specify the various types are in
 -- the __API Name__ column of the __Available Instance Types__ table.
-createInstance_instanceType :: Lens.Lens' CreateInstance Core.Text
+createInstance_instanceType :: Lens.Lens' CreateInstance Prelude.Text
 createInstance_instanceType = Lens.lens (\CreateInstance' {instanceType} -> instanceType) (\s@CreateInstance' {} a -> s {instanceType = a} :: CreateInstance)
 
 instance Core.AWSRequest CreateInstance where
@@ -541,72 +542,76 @@ instance Core.AWSRequest CreateInstance where
     Response.receiveJSON
       ( \s h x ->
           CreateInstanceResponse'
-            Core.<$> (x Core..?> "InstanceId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "InstanceId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateInstance
+instance Prelude.Hashable CreateInstance
 
-instance Core.NFData CreateInstance
+instance Prelude.NFData CreateInstance
 
 instance Core.ToHeaders CreateInstance where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.CreateInstance" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateInstance where
   toJSON CreateInstance' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Hostname" Core..=) Core.<$> hostname,
+      ( Prelude.catMaybes
+          [ ("Hostname" Core..=) Prelude.<$> hostname,
             ("VirtualizationType" Core..=)
-              Core.<$> virtualizationType,
+              Prelude.<$> virtualizationType,
             ("InstallUpdatesOnBoot" Core..=)
-              Core.<$> installUpdatesOnBoot,
-            ("EbsOptimized" Core..=) Core.<$> ebsOptimized,
-            ("RootDeviceType" Core..=) Core.<$> rootDeviceType,
-            ("AgentVersion" Core..=) Core.<$> agentVersion,
-            ("SshKeyName" Core..=) Core.<$> sshKeyName,
-            ("AmiId" Core..=) Core.<$> amiId,
-            ("Architecture" Core..=) Core.<$> architecture,
-            ("Tenancy" Core..=) Core.<$> tenancy,
-            ("AutoScalingType" Core..=) Core.<$> autoScalingType,
+              Prelude.<$> installUpdatesOnBoot,
+            ("EbsOptimized" Core..=) Prelude.<$> ebsOptimized,
+            ("RootDeviceType" Core..=)
+              Prelude.<$> rootDeviceType,
+            ("AgentVersion" Core..=) Prelude.<$> agentVersion,
+            ("SshKeyName" Core..=) Prelude.<$> sshKeyName,
+            ("AmiId" Core..=) Prelude.<$> amiId,
+            ("Architecture" Core..=) Prelude.<$> architecture,
+            ("Tenancy" Core..=) Prelude.<$> tenancy,
+            ("AutoScalingType" Core..=)
+              Prelude.<$> autoScalingType,
             ("AvailabilityZone" Core..=)
-              Core.<$> availabilityZone,
-            ("Os" Core..=) Core.<$> os,
+              Prelude.<$> availabilityZone,
+            ("Os" Core..=) Prelude.<$> os,
             ("BlockDeviceMappings" Core..=)
-              Core.<$> blockDeviceMappings,
-            ("SubnetId" Core..=) Core.<$> subnetId,
-            Core.Just ("StackId" Core..= stackId),
-            Core.Just ("LayerIds" Core..= layerIds),
-            Core.Just ("InstanceType" Core..= instanceType)
+              Prelude.<$> blockDeviceMappings,
+            ("SubnetId" Core..=) Prelude.<$> subnetId,
+            Prelude.Just ("StackId" Core..= stackId),
+            Prelude.Just ("LayerIds" Core..= layerIds),
+            Prelude.Just ("InstanceType" Core..= instanceType)
           ]
       )
 
 instance Core.ToPath CreateInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateInstance where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @CreateInstance@ request.
 --
 -- /See:/ 'newCreateInstanceResponse' smart constructor.
 data CreateInstanceResponse = CreateInstanceResponse'
   { -- | The instance ID.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateInstanceResponse' with all optional fields omitted.
@@ -621,20 +626,21 @@ data CreateInstanceResponse = CreateInstanceResponse'
 -- 'httpStatus', 'createInstanceResponse_httpStatus' - The response's http status code.
 newCreateInstanceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateInstanceResponse
 newCreateInstanceResponse pHttpStatus_ =
   CreateInstanceResponse'
-    { instanceId = Core.Nothing,
+    { instanceId =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The instance ID.
-createInstanceResponse_instanceId :: Lens.Lens' CreateInstanceResponse (Core.Maybe Core.Text)
+createInstanceResponse_instanceId :: Lens.Lens' CreateInstanceResponse (Prelude.Maybe Prelude.Text)
 createInstanceResponse_instanceId = Lens.lens (\CreateInstanceResponse' {instanceId} -> instanceId) (\s@CreateInstanceResponse' {} a -> s {instanceId = a} :: CreateInstanceResponse)
 
 -- | The response's http status code.
-createInstanceResponse_httpStatus :: Lens.Lens' CreateInstanceResponse Core.Int
+createInstanceResponse_httpStatus :: Lens.Lens' CreateInstanceResponse Prelude.Int
 createInstanceResponse_httpStatus = Lens.lens (\CreateInstanceResponse' {httpStatus} -> httpStatus) (\s@CreateInstanceResponse' {} a -> s {httpStatus = a} :: CreateInstanceResponse)
 
-instance Core.NFData CreateInstanceResponse
+instance Prelude.NFData CreateInstanceResponse

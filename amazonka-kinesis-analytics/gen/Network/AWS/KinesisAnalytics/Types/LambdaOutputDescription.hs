@@ -21,6 +21,7 @@ module Network.AWS.KinesisAnalytics.Types.LambdaOutputDescription where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | For an application output, describes the AWS Lambda function configured
 -- as its destination.
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newLambdaOutputDescription' smart constructor.
 data LambdaOutputDescription = LambdaOutputDescription'
   { -- | Amazon Resource Name (ARN) of the destination Lambda function.
-    resourceARN :: Core.Maybe Core.Text,
+    resourceARN :: Prelude.Maybe Prelude.Text,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
     -- the destination function.
-    roleARN :: Core.Maybe Core.Text
+    roleARN :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LambdaOutputDescription' with all optional fields omitted.
@@ -52,17 +53,17 @@ newLambdaOutputDescription ::
 newLambdaOutputDescription =
   LambdaOutputDescription'
     { resourceARN =
-        Core.Nothing,
-      roleARN = Core.Nothing
+        Prelude.Nothing,
+      roleARN = Prelude.Nothing
     }
 
 -- | Amazon Resource Name (ARN) of the destination Lambda function.
-lambdaOutputDescription_resourceARN :: Lens.Lens' LambdaOutputDescription (Core.Maybe Core.Text)
+lambdaOutputDescription_resourceARN :: Lens.Lens' LambdaOutputDescription (Prelude.Maybe Prelude.Text)
 lambdaOutputDescription_resourceARN = Lens.lens (\LambdaOutputDescription' {resourceARN} -> resourceARN) (\s@LambdaOutputDescription' {} a -> s {resourceARN = a} :: LambdaOutputDescription)
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
 -- the destination function.
-lambdaOutputDescription_roleARN :: Lens.Lens' LambdaOutputDescription (Core.Maybe Core.Text)
+lambdaOutputDescription_roleARN :: Lens.Lens' LambdaOutputDescription (Prelude.Maybe Prelude.Text)
 lambdaOutputDescription_roleARN = Lens.lens (\LambdaOutputDescription' {roleARN} -> roleARN) (\s@LambdaOutputDescription' {} a -> s {roleARN = a} :: LambdaOutputDescription)
 
 instance Core.FromJSON LambdaOutputDescription where
@@ -71,10 +72,10 @@ instance Core.FromJSON LambdaOutputDescription where
       "LambdaOutputDescription"
       ( \x ->
           LambdaOutputDescription'
-            Core.<$> (x Core..:? "ResourceARN")
-            Core.<*> (x Core..:? "RoleARN")
+            Prelude.<$> (x Core..:? "ResourceARN")
+            Prelude.<*> (x Core..:? "RoleARN")
       )
 
-instance Core.Hashable LambdaOutputDescription
+instance Prelude.Hashable LambdaOutputDescription
 
-instance Core.NFData LambdaOutputDescription
+instance Prelude.NFData LambdaOutputDescription

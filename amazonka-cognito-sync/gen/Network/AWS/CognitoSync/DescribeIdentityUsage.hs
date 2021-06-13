@@ -47,6 +47,7 @@ where
 import Network.AWS.CognitoSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,13 +58,13 @@ data DescribeIdentityUsage = DescribeIdentityUsage'
   { -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
-    identityPoolId :: Core.Text,
+    identityPoolId :: Prelude.Text,
     -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
-    identityId :: Core.Text
+    identityId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeIdentityUsage' with all optional fields omitted.
@@ -82,9 +83,9 @@ data DescribeIdentityUsage = DescribeIdentityUsage'
 -- Cognito. GUID generation is unique within a region.
 newDescribeIdentityUsage ::
   -- | 'identityPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'identityId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeIdentityUsage
 newDescribeIdentityUsage
   pIdentityPoolId_
@@ -98,13 +99,13 @@ newDescribeIdentityUsage
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-describeIdentityUsage_identityPoolId :: Lens.Lens' DescribeIdentityUsage Core.Text
+describeIdentityUsage_identityPoolId :: Lens.Lens' DescribeIdentityUsage Prelude.Text
 describeIdentityUsage_identityPoolId = Lens.lens (\DescribeIdentityUsage' {identityPoolId} -> identityPoolId) (\s@DescribeIdentityUsage' {} a -> s {identityPoolId = a} :: DescribeIdentityUsage)
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-describeIdentityUsage_identityId :: Lens.Lens' DescribeIdentityUsage Core.Text
+describeIdentityUsage_identityId :: Lens.Lens' DescribeIdentityUsage Prelude.Text
 describeIdentityUsage_identityId = Lens.lens (\DescribeIdentityUsage' {identityId} -> identityId) (\s@DescribeIdentityUsage' {} a -> s {identityId = a} :: DescribeIdentityUsage)
 
 instance Core.AWSRequest DescribeIdentityUsage where
@@ -116,26 +117,28 @@ instance Core.AWSRequest DescribeIdentityUsage where
     Response.receiveJSON
       ( \s h x ->
           DescribeIdentityUsageResponse'
-            Core.<$> (x Core..?> "IdentityUsage")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "IdentityUsage")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeIdentityUsage
+instance Prelude.Hashable DescribeIdentityUsage
 
-instance Core.NFData DescribeIdentityUsage
+instance Prelude.NFData DescribeIdentityUsage
 
 instance Core.ToHeaders DescribeIdentityUsage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeIdentityUsage where
   toPath DescribeIdentityUsage' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/identitypools/",
         Core.toBS identityPoolId,
         "/identities/",
@@ -143,18 +146,18 @@ instance Core.ToPath DescribeIdentityUsage where
       ]
 
 instance Core.ToQuery DescribeIdentityUsage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The response to a successful DescribeIdentityUsage request.
 --
 -- /See:/ 'newDescribeIdentityUsageResponse' smart constructor.
 data DescribeIdentityUsageResponse = DescribeIdentityUsageResponse'
   { -- | Usage information for the identity.
-    identityUsage :: Core.Maybe IdentityUsage,
+    identityUsage :: Prelude.Maybe IdentityUsage,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeIdentityUsageResponse' with all optional fields omitted.
@@ -169,21 +172,21 @@ data DescribeIdentityUsageResponse = DescribeIdentityUsageResponse'
 -- 'httpStatus', 'describeIdentityUsageResponse_httpStatus' - The response's http status code.
 newDescribeIdentityUsageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeIdentityUsageResponse
 newDescribeIdentityUsageResponse pHttpStatus_ =
   DescribeIdentityUsageResponse'
     { identityUsage =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Usage information for the identity.
-describeIdentityUsageResponse_identityUsage :: Lens.Lens' DescribeIdentityUsageResponse (Core.Maybe IdentityUsage)
+describeIdentityUsageResponse_identityUsage :: Lens.Lens' DescribeIdentityUsageResponse (Prelude.Maybe IdentityUsage)
 describeIdentityUsageResponse_identityUsage = Lens.lens (\DescribeIdentityUsageResponse' {identityUsage} -> identityUsage) (\s@DescribeIdentityUsageResponse' {} a -> s {identityUsage = a} :: DescribeIdentityUsageResponse)
 
 -- | The response's http status code.
-describeIdentityUsageResponse_httpStatus :: Lens.Lens' DescribeIdentityUsageResponse Core.Int
+describeIdentityUsageResponse_httpStatus :: Lens.Lens' DescribeIdentityUsageResponse Prelude.Int
 describeIdentityUsageResponse_httpStatus = Lens.lens (\DescribeIdentityUsageResponse' {httpStatus} -> httpStatus) (\s@DescribeIdentityUsageResponse' {} a -> s {httpStatus = a} :: DescribeIdentityUsageResponse)
 
-instance Core.NFData DescribeIdentityUsageResponse
+instance Prelude.NFData DescribeIdentityUsageResponse

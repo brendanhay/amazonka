@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTData.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +56,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetThingShadow' smart constructor.
 data GetThingShadow = GetThingShadow'
   { -- | The name of the shadow.
-    shadowName :: Core.Maybe Core.Text,
+    shadowName :: Prelude.Maybe Prelude.Text,
     -- | The name of the thing.
-    thingName :: Core.Text
+    thingName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetThingShadow' with all optional fields omitted.
@@ -74,20 +75,20 @@ data GetThingShadow = GetThingShadow'
 -- 'thingName', 'getThingShadow_thingName' - The name of the thing.
 newGetThingShadow ::
   -- | 'thingName'
-  Core.Text ->
+  Prelude.Text ->
   GetThingShadow
 newGetThingShadow pThingName_ =
   GetThingShadow'
-    { shadowName = Core.Nothing,
+    { shadowName = Prelude.Nothing,
       thingName = pThingName_
     }
 
 -- | The name of the shadow.
-getThingShadow_shadowName :: Lens.Lens' GetThingShadow (Core.Maybe Core.Text)
+getThingShadow_shadowName :: Lens.Lens' GetThingShadow (Prelude.Maybe Prelude.Text)
 getThingShadow_shadowName = Lens.lens (\GetThingShadow' {shadowName} -> shadowName) (\s@GetThingShadow' {} a -> s {shadowName = a} :: GetThingShadow)
 
 -- | The name of the thing.
-getThingShadow_thingName :: Lens.Lens' GetThingShadow Core.Text
+getThingShadow_thingName :: Lens.Lens' GetThingShadow Prelude.Text
 getThingShadow_thingName = Lens.lens (\GetThingShadow' {thingName} -> thingName) (\s@GetThingShadow' {} a -> s {thingName = a} :: GetThingShadow)
 
 instance Core.AWSRequest GetThingShadow where
@@ -99,36 +100,36 @@ instance Core.AWSRequest GetThingShadow where
     Response.receiveBytes
       ( \s h x ->
           GetThingShadowResponse'
-            Core.<$> (Core.pure (Core.Just x))
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.Just x))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetThingShadow
+instance Prelude.Hashable GetThingShadow
 
-instance Core.NFData GetThingShadow
+instance Prelude.NFData GetThingShadow
 
 instance Core.ToHeaders GetThingShadow where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetThingShadow where
   toPath GetThingShadow' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/things/", Core.toBS thingName, "/shadow"]
 
 instance Core.ToQuery GetThingShadow where
   toQuery GetThingShadow' {..} =
-    Core.mconcat ["name" Core.=: shadowName]
+    Prelude.mconcat ["name" Core.=: shadowName]
 
 -- | The output from the GetThingShadow operation.
 --
 -- /See:/ 'newGetThingShadowResponse' smart constructor.
 data GetThingShadowResponse = GetThingShadowResponse'
   { -- | The state information, in JSON format.
-    payload :: Core.Maybe Core.ByteString,
+    payload :: Prelude.Maybe Prelude.ByteString,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetThingShadowResponse' with all optional fields omitted.
@@ -143,20 +144,20 @@ data GetThingShadowResponse = GetThingShadowResponse'
 -- 'httpStatus', 'getThingShadowResponse_httpStatus' - The response's http status code.
 newGetThingShadowResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetThingShadowResponse
 newGetThingShadowResponse pHttpStatus_ =
   GetThingShadowResponse'
-    { payload = Core.Nothing,
+    { payload = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The state information, in JSON format.
-getThingShadowResponse_payload :: Lens.Lens' GetThingShadowResponse (Core.Maybe Core.ByteString)
+getThingShadowResponse_payload :: Lens.Lens' GetThingShadowResponse (Prelude.Maybe Prelude.ByteString)
 getThingShadowResponse_payload = Lens.lens (\GetThingShadowResponse' {payload} -> payload) (\s@GetThingShadowResponse' {} a -> s {payload = a} :: GetThingShadowResponse)
 
 -- | The response's http status code.
-getThingShadowResponse_httpStatus :: Lens.Lens' GetThingShadowResponse Core.Int
+getThingShadowResponse_httpStatus :: Lens.Lens' GetThingShadowResponse Prelude.Int
 getThingShadowResponse_httpStatus = Lens.lens (\GetThingShadowResponse' {httpStatus} -> httpStatus) (\s@GetThingShadowResponse' {} a -> s {httpStatus = a} :: GetThingShadowResponse)
 
-instance Core.NFData GetThingShadowResponse
+instance Prelude.NFData GetThingShadowResponse

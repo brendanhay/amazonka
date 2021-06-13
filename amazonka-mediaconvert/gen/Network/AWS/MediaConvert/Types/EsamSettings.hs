@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.EsamManifestConfirmConditionNotification
 import Network.AWS.MediaConvert.Types.EsamSignalProcessingNotification
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for Event Signaling And Messaging (ESAM). If you don\'t do ad
 -- insertion, you can ignore these settings.
@@ -34,17 +35,17 @@ data EsamSettings = EsamSettings'
     -- refer to. If the time between the start of the asset and the SCTE-35
     -- message is less than this value, then the transcoder places the SCTE-35
     -- marker at the beginning of the stream.
-    responseSignalPreroll :: Core.Maybe Core.Natural,
+    responseSignalPreroll :: Prelude.Maybe Prelude.Natural,
     -- | Specifies an ESAM ManifestConfirmConditionNotification XML as per
     -- OC-SP-ESAM-API-I03-131025. The transcoder uses the manifest conditioning
     -- instructions that you provide in the setting MCC XML (mccXml).
-    manifestConfirmConditionNotification :: Core.Maybe EsamManifestConfirmConditionNotification,
+    manifestConfirmConditionNotification :: Prelude.Maybe EsamManifestConfirmConditionNotification,
     -- | Specifies an ESAM SignalProcessingNotification XML as per
     -- OC-SP-ESAM-API-I03-131025. The transcoder uses the signal processing
     -- instructions that you provide in the setting SCC XML (sccXml).
-    signalProcessingNotification :: Core.Maybe EsamSignalProcessingNotification
+    signalProcessingNotification :: Prelude.Maybe EsamSignalProcessingNotification
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EsamSettings' with all optional fields omitted.
@@ -71,9 +72,11 @@ newEsamSettings ::
   EsamSettings
 newEsamSettings =
   EsamSettings'
-    { responseSignalPreroll = Core.Nothing,
-      manifestConfirmConditionNotification = Core.Nothing,
-      signalProcessingNotification = Core.Nothing
+    { responseSignalPreroll =
+        Prelude.Nothing,
+      manifestConfirmConditionNotification =
+        Prelude.Nothing,
+      signalProcessingNotification = Prelude.Nothing
     }
 
 -- | Specifies the stream distance, in milliseconds, between the SCTE 35
@@ -81,19 +84,19 @@ newEsamSettings =
 -- refer to. If the time between the start of the asset and the SCTE-35
 -- message is less than this value, then the transcoder places the SCTE-35
 -- marker at the beginning of the stream.
-esamSettings_responseSignalPreroll :: Lens.Lens' EsamSettings (Core.Maybe Core.Natural)
+esamSettings_responseSignalPreroll :: Lens.Lens' EsamSettings (Prelude.Maybe Prelude.Natural)
 esamSettings_responseSignalPreroll = Lens.lens (\EsamSettings' {responseSignalPreroll} -> responseSignalPreroll) (\s@EsamSettings' {} a -> s {responseSignalPreroll = a} :: EsamSettings)
 
 -- | Specifies an ESAM ManifestConfirmConditionNotification XML as per
 -- OC-SP-ESAM-API-I03-131025. The transcoder uses the manifest conditioning
 -- instructions that you provide in the setting MCC XML (mccXml).
-esamSettings_manifestConfirmConditionNotification :: Lens.Lens' EsamSettings (Core.Maybe EsamManifestConfirmConditionNotification)
+esamSettings_manifestConfirmConditionNotification :: Lens.Lens' EsamSettings (Prelude.Maybe EsamManifestConfirmConditionNotification)
 esamSettings_manifestConfirmConditionNotification = Lens.lens (\EsamSettings' {manifestConfirmConditionNotification} -> manifestConfirmConditionNotification) (\s@EsamSettings' {} a -> s {manifestConfirmConditionNotification = a} :: EsamSettings)
 
 -- | Specifies an ESAM SignalProcessingNotification XML as per
 -- OC-SP-ESAM-API-I03-131025. The transcoder uses the signal processing
 -- instructions that you provide in the setting SCC XML (sccXml).
-esamSettings_signalProcessingNotification :: Lens.Lens' EsamSettings (Core.Maybe EsamSignalProcessingNotification)
+esamSettings_signalProcessingNotification :: Lens.Lens' EsamSettings (Prelude.Maybe EsamSignalProcessingNotification)
 esamSettings_signalProcessingNotification = Lens.lens (\EsamSettings' {signalProcessingNotification} -> signalProcessingNotification) (\s@EsamSettings' {} a -> s {signalProcessingNotification = a} :: EsamSettings)
 
 instance Core.FromJSON EsamSettings where
@@ -102,24 +105,24 @@ instance Core.FromJSON EsamSettings where
       "EsamSettings"
       ( \x ->
           EsamSettings'
-            Core.<$> (x Core..:? "responseSignalPreroll")
-            Core.<*> (x Core..:? "manifestConfirmConditionNotification")
-            Core.<*> (x Core..:? "signalProcessingNotification")
+            Prelude.<$> (x Core..:? "responseSignalPreroll")
+            Prelude.<*> (x Core..:? "manifestConfirmConditionNotification")
+            Prelude.<*> (x Core..:? "signalProcessingNotification")
       )
 
-instance Core.Hashable EsamSettings
+instance Prelude.Hashable EsamSettings
 
-instance Core.NFData EsamSettings
+instance Prelude.NFData EsamSettings
 
 instance Core.ToJSON EsamSettings where
   toJSON EsamSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("responseSignalPreroll" Core..=)
-              Core.<$> responseSignalPreroll,
+              Prelude.<$> responseSignalPreroll,
             ("manifestConfirmConditionNotification" Core..=)
-              Core.<$> manifestConfirmConditionNotification,
+              Prelude.<$> manifestConfirmConditionNotification,
             ("signalProcessingNotification" Core..=)
-              Core.<$> signalProcessingNotification
+              Prelude.<$> signalProcessingNotification
           ]
       )

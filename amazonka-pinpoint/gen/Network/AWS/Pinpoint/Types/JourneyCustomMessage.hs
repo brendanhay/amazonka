@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.JourneyCustomMessage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the message content for a custom channel message that\'s sent
 -- to participants in a journey.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data JourneyCustomMessage = JourneyCustomMessage'
   { -- | The message content that\'s passed to an AWS Lambda function or to a web
     -- hook.
-    data' :: Core.Maybe Core.Text
+    data' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JourneyCustomMessage' with all optional fields omitted.
@@ -46,11 +47,11 @@ data JourneyCustomMessage = JourneyCustomMessage'
 newJourneyCustomMessage ::
   JourneyCustomMessage
 newJourneyCustomMessage =
-  JourneyCustomMessage' {data' = Core.Nothing}
+  JourneyCustomMessage' {data' = Prelude.Nothing}
 
 -- | The message content that\'s passed to an AWS Lambda function or to a web
 -- hook.
-journeyCustomMessage_data :: Lens.Lens' JourneyCustomMessage (Core.Maybe Core.Text)
+journeyCustomMessage_data :: Lens.Lens' JourneyCustomMessage (Prelude.Maybe Prelude.Text)
 journeyCustomMessage_data = Lens.lens (\JourneyCustomMessage' {data'} -> data') (\s@JourneyCustomMessage' {} a -> s {data' = a} :: JourneyCustomMessage)
 
 instance Core.FromJSON JourneyCustomMessage where
@@ -58,14 +59,17 @@ instance Core.FromJSON JourneyCustomMessage where
     Core.withObject
       "JourneyCustomMessage"
       ( \x ->
-          JourneyCustomMessage' Core.<$> (x Core..:? "Data")
+          JourneyCustomMessage'
+            Prelude.<$> (x Core..:? "Data")
       )
 
-instance Core.Hashable JourneyCustomMessage
+instance Prelude.Hashable JourneyCustomMessage
 
-instance Core.NFData JourneyCustomMessage
+instance Prelude.NFData JourneyCustomMessage
 
 instance Core.ToJSON JourneyCustomMessage where
   toJSON JourneyCustomMessage' {..} =
     Core.object
-      (Core.catMaybes [("Data" Core..=) Core.<$> data'])
+      ( Prelude.catMaybes
+          [("Data" Core..=) Prelude.<$> data']
+      )

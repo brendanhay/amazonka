@@ -21,6 +21,7 @@ module Network.AWS.SES.Types.DeliveryOptions where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.TlsPolicy
 
 -- | Specifies whether messages that use the configuration set are required
@@ -33,9 +34,9 @@ data DeliveryOptions = DeliveryOptions'
     -- messages are only delivered if a TLS connection can be established. If
     -- the value is @Optional@, messages can be delivered in plain text if a
     -- TLS connection can\'t be established.
-    tlsPolicy :: Core.Maybe TlsPolicy
+    tlsPolicy :: Prelude.Maybe TlsPolicy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeliveryOptions' with all optional fields omitted.
@@ -53,24 +54,25 @@ data DeliveryOptions = DeliveryOptions'
 newDeliveryOptions ::
   DeliveryOptions
 newDeliveryOptions =
-  DeliveryOptions' {tlsPolicy = Core.Nothing}
+  DeliveryOptions' {tlsPolicy = Prelude.Nothing}
 
 -- | Specifies whether messages that use the configuration set are required
 -- to use Transport Layer Security (TLS). If the value is @Require@,
 -- messages are only delivered if a TLS connection can be established. If
 -- the value is @Optional@, messages can be delivered in plain text if a
 -- TLS connection can\'t be established.
-deliveryOptions_tlsPolicy :: Lens.Lens' DeliveryOptions (Core.Maybe TlsPolicy)
+deliveryOptions_tlsPolicy :: Lens.Lens' DeliveryOptions (Prelude.Maybe TlsPolicy)
 deliveryOptions_tlsPolicy = Lens.lens (\DeliveryOptions' {tlsPolicy} -> tlsPolicy) (\s@DeliveryOptions' {} a -> s {tlsPolicy = a} :: DeliveryOptions)
 
 instance Core.FromXML DeliveryOptions where
   parseXML x =
-    DeliveryOptions' Core.<$> (x Core..@? "TlsPolicy")
+    DeliveryOptions'
+      Prelude.<$> (x Core..@? "TlsPolicy")
 
-instance Core.Hashable DeliveryOptions
+instance Prelude.Hashable DeliveryOptions
 
-instance Core.NFData DeliveryOptions
+instance Prelude.NFData DeliveryOptions
 
 instance Core.ToQuery DeliveryOptions where
   toQuery DeliveryOptions' {..} =
-    Core.mconcat ["TlsPolicy" Core.=: tlsPolicy]
+    Prelude.mconcat ["TlsPolicy" Core.=: tlsPolicy]

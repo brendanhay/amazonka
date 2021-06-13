@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.DatasetDefinition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AthenaDatasetDefinition
 import Network.AWS.SageMaker.Types.DataDistributionType
 import Network.AWS.SageMaker.Types.InputMode
@@ -32,25 +33,25 @@ import Network.AWS.SageMaker.Types.RedshiftDatasetDefinition
 --
 -- /See:/ 'newDatasetDefinition' smart constructor.
 data DatasetDefinition = DatasetDefinition'
-  { redshiftDatasetDefinition :: Core.Maybe RedshiftDatasetDefinition,
-    athenaDatasetDefinition :: Core.Maybe AthenaDatasetDefinition,
+  { redshiftDatasetDefinition :: Prelude.Maybe RedshiftDatasetDefinition,
+    athenaDatasetDefinition :: Prelude.Maybe AthenaDatasetDefinition,
     -- | The local path where you want Amazon SageMaker to download the Dataset
     -- Definition inputs to run a processing job. @LocalPath@ is an absolute
     -- path to the input data. This is a required parameter when @AppManaged@
     -- is @False@ (default).
-    localPath :: Core.Maybe Core.Text,
+    localPath :: Prelude.Maybe Prelude.Text,
     -- | Whether to use @File@ or @Pipe@ input mode. In @File@ (default) mode,
     -- Amazon SageMaker copies the data from the input source onto the local
     -- Amazon Elastic Block Store (Amazon EBS) volumes before starting your
     -- training algorithm. This is the most commonly used input mode. In @Pipe@
     -- mode, Amazon SageMaker streams input data from the source directly to
     -- your algorithm without using the EBS volume.
-    inputMode :: Core.Maybe InputMode,
+    inputMode :: Prelude.Maybe InputMode,
     -- | Whether the generated dataset is @FullyReplicated@ or @ShardedByS3Key@
     -- (default).
-    dataDistributionType :: Core.Maybe DataDistributionType
+    dataDistributionType :: Prelude.Maybe DataDistributionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DatasetDefinition' with all optional fields omitted.
@@ -83,26 +84,26 @@ newDatasetDefinition ::
 newDatasetDefinition =
   DatasetDefinition'
     { redshiftDatasetDefinition =
-        Core.Nothing,
-      athenaDatasetDefinition = Core.Nothing,
-      localPath = Core.Nothing,
-      inputMode = Core.Nothing,
-      dataDistributionType = Core.Nothing
+        Prelude.Nothing,
+      athenaDatasetDefinition = Prelude.Nothing,
+      localPath = Prelude.Nothing,
+      inputMode = Prelude.Nothing,
+      dataDistributionType = Prelude.Nothing
     }
 
 -- | Undocumented member.
-datasetDefinition_redshiftDatasetDefinition :: Lens.Lens' DatasetDefinition (Core.Maybe RedshiftDatasetDefinition)
+datasetDefinition_redshiftDatasetDefinition :: Lens.Lens' DatasetDefinition (Prelude.Maybe RedshiftDatasetDefinition)
 datasetDefinition_redshiftDatasetDefinition = Lens.lens (\DatasetDefinition' {redshiftDatasetDefinition} -> redshiftDatasetDefinition) (\s@DatasetDefinition' {} a -> s {redshiftDatasetDefinition = a} :: DatasetDefinition)
 
 -- | Undocumented member.
-datasetDefinition_athenaDatasetDefinition :: Lens.Lens' DatasetDefinition (Core.Maybe AthenaDatasetDefinition)
+datasetDefinition_athenaDatasetDefinition :: Lens.Lens' DatasetDefinition (Prelude.Maybe AthenaDatasetDefinition)
 datasetDefinition_athenaDatasetDefinition = Lens.lens (\DatasetDefinition' {athenaDatasetDefinition} -> athenaDatasetDefinition) (\s@DatasetDefinition' {} a -> s {athenaDatasetDefinition = a} :: DatasetDefinition)
 
 -- | The local path where you want Amazon SageMaker to download the Dataset
 -- Definition inputs to run a processing job. @LocalPath@ is an absolute
 -- path to the input data. This is a required parameter when @AppManaged@
 -- is @False@ (default).
-datasetDefinition_localPath :: Lens.Lens' DatasetDefinition (Core.Maybe Core.Text)
+datasetDefinition_localPath :: Lens.Lens' DatasetDefinition (Prelude.Maybe Prelude.Text)
 datasetDefinition_localPath = Lens.lens (\DatasetDefinition' {localPath} -> localPath) (\s@DatasetDefinition' {} a -> s {localPath = a} :: DatasetDefinition)
 
 -- | Whether to use @File@ or @Pipe@ input mode. In @File@ (default) mode,
@@ -111,12 +112,12 @@ datasetDefinition_localPath = Lens.lens (\DatasetDefinition' {localPath} -> loca
 -- training algorithm. This is the most commonly used input mode. In @Pipe@
 -- mode, Amazon SageMaker streams input data from the source directly to
 -- your algorithm without using the EBS volume.
-datasetDefinition_inputMode :: Lens.Lens' DatasetDefinition (Core.Maybe InputMode)
+datasetDefinition_inputMode :: Lens.Lens' DatasetDefinition (Prelude.Maybe InputMode)
 datasetDefinition_inputMode = Lens.lens (\DatasetDefinition' {inputMode} -> inputMode) (\s@DatasetDefinition' {} a -> s {inputMode = a} :: DatasetDefinition)
 
 -- | Whether the generated dataset is @FullyReplicated@ or @ShardedByS3Key@
 -- (default).
-datasetDefinition_dataDistributionType :: Lens.Lens' DatasetDefinition (Core.Maybe DataDistributionType)
+datasetDefinition_dataDistributionType :: Lens.Lens' DatasetDefinition (Prelude.Maybe DataDistributionType)
 datasetDefinition_dataDistributionType = Lens.lens (\DatasetDefinition' {dataDistributionType} -> dataDistributionType) (\s@DatasetDefinition' {} a -> s {dataDistributionType = a} :: DatasetDefinition)
 
 instance Core.FromJSON DatasetDefinition where
@@ -125,28 +126,28 @@ instance Core.FromJSON DatasetDefinition where
       "DatasetDefinition"
       ( \x ->
           DatasetDefinition'
-            Core.<$> (x Core..:? "RedshiftDatasetDefinition")
-            Core.<*> (x Core..:? "AthenaDatasetDefinition")
-            Core.<*> (x Core..:? "LocalPath")
-            Core.<*> (x Core..:? "InputMode")
-            Core.<*> (x Core..:? "DataDistributionType")
+            Prelude.<$> (x Core..:? "RedshiftDatasetDefinition")
+            Prelude.<*> (x Core..:? "AthenaDatasetDefinition")
+            Prelude.<*> (x Core..:? "LocalPath")
+            Prelude.<*> (x Core..:? "InputMode")
+            Prelude.<*> (x Core..:? "DataDistributionType")
       )
 
-instance Core.Hashable DatasetDefinition
+instance Prelude.Hashable DatasetDefinition
 
-instance Core.NFData DatasetDefinition
+instance Prelude.NFData DatasetDefinition
 
 instance Core.ToJSON DatasetDefinition where
   toJSON DatasetDefinition' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("RedshiftDatasetDefinition" Core..=)
-              Core.<$> redshiftDatasetDefinition,
+              Prelude.<$> redshiftDatasetDefinition,
             ("AthenaDatasetDefinition" Core..=)
-              Core.<$> athenaDatasetDefinition,
-            ("LocalPath" Core..=) Core.<$> localPath,
-            ("InputMode" Core..=) Core.<$> inputMode,
+              Prelude.<$> athenaDatasetDefinition,
+            ("LocalPath" Core..=) Prelude.<$> localPath,
+            ("InputMode" Core..=) Prelude.<$> inputMode,
             ("DataDistributionType" Core..=)
-              Core.<$> dataDistributionType
+              Prelude.<$> dataDistributionType
           ]
       )

@@ -46,15 +46,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateSubnetCidrBlock' smart constructor.
 data DisassociateSubnetCidrBlock = DisassociateSubnetCidrBlock'
   { -- | The association ID for the CIDR block.
-    associationId :: Core.Text
+    associationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateSubnetCidrBlock' with all optional fields omitted.
@@ -67,7 +68,7 @@ data DisassociateSubnetCidrBlock = DisassociateSubnetCidrBlock'
 -- 'associationId', 'disassociateSubnetCidrBlock_associationId' - The association ID for the CIDR block.
 newDisassociateSubnetCidrBlock ::
   -- | 'associationId'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateSubnetCidrBlock
 newDisassociateSubnetCidrBlock pAssociationId_ =
   DisassociateSubnetCidrBlock'
@@ -76,7 +77,7 @@ newDisassociateSubnetCidrBlock pAssociationId_ =
     }
 
 -- | The association ID for the CIDR block.
-disassociateSubnetCidrBlock_associationId :: Lens.Lens' DisassociateSubnetCidrBlock Core.Text
+disassociateSubnetCidrBlock_associationId :: Lens.Lens' DisassociateSubnetCidrBlock Prelude.Text
 disassociateSubnetCidrBlock_associationId = Lens.lens (\DisassociateSubnetCidrBlock' {associationId} -> associationId) (\s@DisassociateSubnetCidrBlock' {} a -> s {associationId = a} :: DisassociateSubnetCidrBlock)
 
 instance Core.AWSRequest DisassociateSubnetCidrBlock where
@@ -88,40 +89,43 @@ instance Core.AWSRequest DisassociateSubnetCidrBlock where
     Response.receiveXML
       ( \s h x ->
           DisassociateSubnetCidrBlockResponse'
-            Core.<$> (x Core..@? "ipv6CidrBlockAssociation")
-            Core.<*> (x Core..@? "subnetId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ipv6CidrBlockAssociation")
+            Prelude.<*> (x Core..@? "subnetId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisassociateSubnetCidrBlock
+instance Prelude.Hashable DisassociateSubnetCidrBlock
 
-instance Core.NFData DisassociateSubnetCidrBlock
+instance Prelude.NFData DisassociateSubnetCidrBlock
 
 instance Core.ToHeaders DisassociateSubnetCidrBlock where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DisassociateSubnetCidrBlock where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisassociateSubnetCidrBlock where
   toQuery DisassociateSubnetCidrBlock' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DisassociateSubnetCidrBlock" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ( "DisassociateSubnetCidrBlock" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "AssociationId" Core.=: associationId
       ]
 
 -- | /See:/ 'newDisassociateSubnetCidrBlockResponse' smart constructor.
 data DisassociateSubnetCidrBlockResponse = DisassociateSubnetCidrBlockResponse'
   { -- | Information about the IPv6 CIDR block association.
-    ipv6CidrBlockAssociation :: Core.Maybe SubnetIpv6CidrBlockAssociation,
+    ipv6CidrBlockAssociation :: Prelude.Maybe SubnetIpv6CidrBlockAssociation,
     -- | The ID of the subnet.
-    subnetId :: Core.Maybe Core.Text,
+    subnetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateSubnetCidrBlockResponse' with all optional fields omitted.
@@ -138,28 +142,28 @@ data DisassociateSubnetCidrBlockResponse = DisassociateSubnetCidrBlockResponse'
 -- 'httpStatus', 'disassociateSubnetCidrBlockResponse_httpStatus' - The response's http status code.
 newDisassociateSubnetCidrBlockResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateSubnetCidrBlockResponse
 newDisassociateSubnetCidrBlockResponse pHttpStatus_ =
   DisassociateSubnetCidrBlockResponse'
     { ipv6CidrBlockAssociation =
-        Core.Nothing,
-      subnetId = Core.Nothing,
+        Prelude.Nothing,
+      subnetId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the IPv6 CIDR block association.
-disassociateSubnetCidrBlockResponse_ipv6CidrBlockAssociation :: Lens.Lens' DisassociateSubnetCidrBlockResponse (Core.Maybe SubnetIpv6CidrBlockAssociation)
+disassociateSubnetCidrBlockResponse_ipv6CidrBlockAssociation :: Lens.Lens' DisassociateSubnetCidrBlockResponse (Prelude.Maybe SubnetIpv6CidrBlockAssociation)
 disassociateSubnetCidrBlockResponse_ipv6CidrBlockAssociation = Lens.lens (\DisassociateSubnetCidrBlockResponse' {ipv6CidrBlockAssociation} -> ipv6CidrBlockAssociation) (\s@DisassociateSubnetCidrBlockResponse' {} a -> s {ipv6CidrBlockAssociation = a} :: DisassociateSubnetCidrBlockResponse)
 
 -- | The ID of the subnet.
-disassociateSubnetCidrBlockResponse_subnetId :: Lens.Lens' DisassociateSubnetCidrBlockResponse (Core.Maybe Core.Text)
+disassociateSubnetCidrBlockResponse_subnetId :: Lens.Lens' DisassociateSubnetCidrBlockResponse (Prelude.Maybe Prelude.Text)
 disassociateSubnetCidrBlockResponse_subnetId = Lens.lens (\DisassociateSubnetCidrBlockResponse' {subnetId} -> subnetId) (\s@DisassociateSubnetCidrBlockResponse' {} a -> s {subnetId = a} :: DisassociateSubnetCidrBlockResponse)
 
 -- | The response's http status code.
-disassociateSubnetCidrBlockResponse_httpStatus :: Lens.Lens' DisassociateSubnetCidrBlockResponse Core.Int
+disassociateSubnetCidrBlockResponse_httpStatus :: Lens.Lens' DisassociateSubnetCidrBlockResponse Prelude.Int
 disassociateSubnetCidrBlockResponse_httpStatus = Lens.lens (\DisassociateSubnetCidrBlockResponse' {httpStatus} -> httpStatus) (\s@DisassociateSubnetCidrBlockResponse' {} a -> s {httpStatus = a} :: DisassociateSubnetCidrBlockResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateSubnetCidrBlockResponse

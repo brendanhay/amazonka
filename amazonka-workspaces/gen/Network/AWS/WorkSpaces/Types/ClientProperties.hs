@@ -21,6 +21,7 @@ module Network.AWS.WorkSpaces.Types.ClientProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkSpaces.Types.ReconnectEnum
 
 -- | Describes an Amazon WorkSpaces client.
@@ -30,9 +31,9 @@ data ClientProperties = ClientProperties'
   { -- | Specifies whether users can cache their credentials on the Amazon
     -- WorkSpaces client. When enabled, users can choose to reconnect to their
     -- WorkSpaces without re-entering their credentials.
-    reconnectEnabled :: Core.Maybe ReconnectEnum
+    reconnectEnabled :: Prelude.Maybe ReconnectEnum
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClientProperties' with all optional fields omitted.
@@ -48,12 +49,15 @@ data ClientProperties = ClientProperties'
 newClientProperties ::
   ClientProperties
 newClientProperties =
-  ClientProperties' {reconnectEnabled = Core.Nothing}
+  ClientProperties'
+    { reconnectEnabled =
+        Prelude.Nothing
+    }
 
 -- | Specifies whether users can cache their credentials on the Amazon
 -- WorkSpaces client. When enabled, users can choose to reconnect to their
 -- WorkSpaces without re-entering their credentials.
-clientProperties_reconnectEnabled :: Lens.Lens' ClientProperties (Core.Maybe ReconnectEnum)
+clientProperties_reconnectEnabled :: Lens.Lens' ClientProperties (Prelude.Maybe ReconnectEnum)
 clientProperties_reconnectEnabled = Lens.lens (\ClientProperties' {reconnectEnabled} -> reconnectEnabled) (\s@ClientProperties' {} a -> s {reconnectEnabled = a} :: ClientProperties)
 
 instance Core.FromJSON ClientProperties where
@@ -62,18 +66,18 @@ instance Core.FromJSON ClientProperties where
       "ClientProperties"
       ( \x ->
           ClientProperties'
-            Core.<$> (x Core..:? "ReconnectEnabled")
+            Prelude.<$> (x Core..:? "ReconnectEnabled")
       )
 
-instance Core.Hashable ClientProperties
+instance Prelude.Hashable ClientProperties
 
-instance Core.NFData ClientProperties
+instance Prelude.NFData ClientProperties
 
 instance Core.ToJSON ClientProperties where
   toJSON ClientProperties' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ReconnectEnabled" Core..=)
-              Core.<$> reconnectEnabled
+              Prelude.<$> reconnectEnabled
           ]
       )

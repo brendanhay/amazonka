@@ -56,6 +56,7 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -94,25 +95,25 @@ data ForgotPassword = ForgotPassword'
     --
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
-    clientMetadata :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Contextual data such as the user\'s device fingerprint, IP address, or
     -- location used for evaluating the risk of an unexpected event by Amazon
     -- Cognito advanced security.
-    userContextData :: Core.Maybe UserContextDataType,
+    userContextData :: Prelude.Maybe UserContextDataType,
     -- | A keyed-hash message authentication code (HMAC) calculated using the
     -- secret key of a user pool client and username plus the client ID in the
     -- message.
-    secretHash :: Core.Maybe (Core.Sensitive Core.Text),
+    secretHash :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Pinpoint analytics metadata for collecting metrics for
     -- @ForgotPassword@ calls.
-    analyticsMetadata :: Core.Maybe AnalyticsMetadataType,
+    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
     -- | The ID of the client associated with the user pool.
-    clientId :: Core.Sensitive Core.Text,
+    clientId :: Core.Sensitive Prelude.Text,
     -- | The user name of the user for whom you want to enter a code to reset a
     -- forgotten password.
-    username :: Core.Sensitive Core.Text
+    username :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ForgotPassword' with all optional fields omitted.
@@ -171,16 +172,16 @@ data ForgotPassword = ForgotPassword'
 -- forgotten password.
 newForgotPassword ::
   -- | 'clientId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'username'
-  Core.Text ->
+  Prelude.Text ->
   ForgotPassword
 newForgotPassword pClientId_ pUsername_ =
   ForgotPassword'
-    { clientMetadata = Core.Nothing,
-      userContextData = Core.Nothing,
-      secretHash = Core.Nothing,
-      analyticsMetadata = Core.Nothing,
+    { clientMetadata = Prelude.Nothing,
+      userContextData = Prelude.Nothing,
+      secretHash = Prelude.Nothing,
+      analyticsMetadata = Prelude.Nothing,
       clientId = Core._Sensitive Lens.# pClientId_,
       username = Core._Sensitive Lens.# pUsername_
     }
@@ -216,34 +217,34 @@ newForgotPassword pClientId_ pUsername_ =
 --
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
-forgotPassword_clientMetadata :: Lens.Lens' ForgotPassword (Core.Maybe (Core.HashMap Core.Text Core.Text))
-forgotPassword_clientMetadata = Lens.lens (\ForgotPassword' {clientMetadata} -> clientMetadata) (\s@ForgotPassword' {} a -> s {clientMetadata = a} :: ForgotPassword) Core.. Lens.mapping Lens._Coerce
+forgotPassword_clientMetadata :: Lens.Lens' ForgotPassword (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+forgotPassword_clientMetadata = Lens.lens (\ForgotPassword' {clientMetadata} -> clientMetadata) (\s@ForgotPassword' {} a -> s {clientMetadata = a} :: ForgotPassword) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
 -- Cognito advanced security.
-forgotPassword_userContextData :: Lens.Lens' ForgotPassword (Core.Maybe UserContextDataType)
+forgotPassword_userContextData :: Lens.Lens' ForgotPassword (Prelude.Maybe UserContextDataType)
 forgotPassword_userContextData = Lens.lens (\ForgotPassword' {userContextData} -> userContextData) (\s@ForgotPassword' {} a -> s {userContextData = a} :: ForgotPassword)
 
 -- | A keyed-hash message authentication code (HMAC) calculated using the
 -- secret key of a user pool client and username plus the client ID in the
 -- message.
-forgotPassword_secretHash :: Lens.Lens' ForgotPassword (Core.Maybe Core.Text)
-forgotPassword_secretHash = Lens.lens (\ForgotPassword' {secretHash} -> secretHash) (\s@ForgotPassword' {} a -> s {secretHash = a} :: ForgotPassword) Core.. Lens.mapping Core._Sensitive
+forgotPassword_secretHash :: Lens.Lens' ForgotPassword (Prelude.Maybe Prelude.Text)
+forgotPassword_secretHash = Lens.lens (\ForgotPassword' {secretHash} -> secretHash) (\s@ForgotPassword' {} a -> s {secretHash = a} :: ForgotPassword) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The Amazon Pinpoint analytics metadata for collecting metrics for
 -- @ForgotPassword@ calls.
-forgotPassword_analyticsMetadata :: Lens.Lens' ForgotPassword (Core.Maybe AnalyticsMetadataType)
+forgotPassword_analyticsMetadata :: Lens.Lens' ForgotPassword (Prelude.Maybe AnalyticsMetadataType)
 forgotPassword_analyticsMetadata = Lens.lens (\ForgotPassword' {analyticsMetadata} -> analyticsMetadata) (\s@ForgotPassword' {} a -> s {analyticsMetadata = a} :: ForgotPassword)
 
 -- | The ID of the client associated with the user pool.
-forgotPassword_clientId :: Lens.Lens' ForgotPassword Core.Text
-forgotPassword_clientId = Lens.lens (\ForgotPassword' {clientId} -> clientId) (\s@ForgotPassword' {} a -> s {clientId = a} :: ForgotPassword) Core.. Core._Sensitive
+forgotPassword_clientId :: Lens.Lens' ForgotPassword Prelude.Text
+forgotPassword_clientId = Lens.lens (\ForgotPassword' {clientId} -> clientId) (\s@ForgotPassword' {} a -> s {clientId = a} :: ForgotPassword) Prelude.. Core._Sensitive
 
 -- | The user name of the user for whom you want to enter a code to reset a
 -- forgotten password.
-forgotPassword_username :: Lens.Lens' ForgotPassword Core.Text
-forgotPassword_username = Lens.lens (\ForgotPassword' {username} -> username) (\s@ForgotPassword' {} a -> s {username = a} :: ForgotPassword) Core.. Core._Sensitive
+forgotPassword_username :: Lens.Lens' ForgotPassword Prelude.Text
+forgotPassword_username = Lens.lens (\ForgotPassword' {username} -> username) (\s@ForgotPassword' {} a -> s {username = a} :: ForgotPassword) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest ForgotPassword where
   type
@@ -254,46 +255,50 @@ instance Core.AWSRequest ForgotPassword where
     Response.receiveJSON
       ( \s h x ->
           ForgotPasswordResponse'
-            Core.<$> (x Core..?> "CodeDeliveryDetails")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CodeDeliveryDetails")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ForgotPassword
+instance Prelude.Hashable ForgotPassword
 
-instance Core.NFData ForgotPassword
+instance Prelude.NFData ForgotPassword
 
 instance Core.ToHeaders ForgotPassword where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.ForgotPassword" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ForgotPassword where
   toJSON ForgotPassword' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ClientMetadata" Core..=) Core.<$> clientMetadata,
-            ("UserContextData" Core..=) Core.<$> userContextData,
-            ("SecretHash" Core..=) Core.<$> secretHash,
+      ( Prelude.catMaybes
+          [ ("ClientMetadata" Core..=)
+              Prelude.<$> clientMetadata,
+            ("UserContextData" Core..=)
+              Prelude.<$> userContextData,
+            ("SecretHash" Core..=) Prelude.<$> secretHash,
             ("AnalyticsMetadata" Core..=)
-              Core.<$> analyticsMetadata,
-            Core.Just ("ClientId" Core..= clientId),
-            Core.Just ("Username" Core..= username)
+              Prelude.<$> analyticsMetadata,
+            Prelude.Just ("ClientId" Core..= clientId),
+            Prelude.Just ("Username" Core..= username)
           ]
       )
 
 instance Core.ToPath ForgotPassword where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ForgotPassword where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Respresents the response from the server regarding the request to reset
 -- a password.
@@ -302,11 +307,11 @@ instance Core.ToQuery ForgotPassword where
 data ForgotPasswordResponse = ForgotPasswordResponse'
   { -- | The code delivery details returned by the server in response to the
     -- request to reset a password.
-    codeDeliveryDetails :: Core.Maybe CodeDeliveryDetailsType,
+    codeDeliveryDetails :: Prelude.Maybe CodeDeliveryDetailsType,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ForgotPasswordResponse' with all optional fields omitted.
@@ -322,22 +327,22 @@ data ForgotPasswordResponse = ForgotPasswordResponse'
 -- 'httpStatus', 'forgotPasswordResponse_httpStatus' - The response's http status code.
 newForgotPasswordResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ForgotPasswordResponse
 newForgotPasswordResponse pHttpStatus_ =
   ForgotPasswordResponse'
     { codeDeliveryDetails =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The code delivery details returned by the server in response to the
 -- request to reset a password.
-forgotPasswordResponse_codeDeliveryDetails :: Lens.Lens' ForgotPasswordResponse (Core.Maybe CodeDeliveryDetailsType)
+forgotPasswordResponse_codeDeliveryDetails :: Lens.Lens' ForgotPasswordResponse (Prelude.Maybe CodeDeliveryDetailsType)
 forgotPasswordResponse_codeDeliveryDetails = Lens.lens (\ForgotPasswordResponse' {codeDeliveryDetails} -> codeDeliveryDetails) (\s@ForgotPasswordResponse' {} a -> s {codeDeliveryDetails = a} :: ForgotPasswordResponse)
 
 -- | The response's http status code.
-forgotPasswordResponse_httpStatus :: Lens.Lens' ForgotPasswordResponse Core.Int
+forgotPasswordResponse_httpStatus :: Lens.Lens' ForgotPasswordResponse Prelude.Int
 forgotPasswordResponse_httpStatus = Lens.lens (\ForgotPasswordResponse' {httpStatus} -> httpStatus) (\s@ForgotPasswordResponse' {} a -> s {httpStatus = a} :: ForgotPasswordResponse)
 
-instance Core.NFData ForgotPasswordResponse
+instance Prelude.NFData ForgotPasswordResponse

@@ -25,6 +25,7 @@ import Network.AWS.Kinesis.Types.EnhancedMetrics
 import Network.AWS.Kinesis.Types.Shard
 import Network.AWS.Kinesis.Types.StreamStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output for DescribeStream.
 --
@@ -37,7 +38,7 @@ data StreamDescription = StreamDescription'
     --
     -- -   @KMS@: Use server-side encryption on the records in the stream using
     --     a customer-managed AWS KMS key.
-    encryptionType :: Core.Maybe EncryptionType,
+    encryptionType :: Prelude.Maybe EncryptionType,
     -- | The GUID for the customer-managed AWS KMS key to use for encryption.
     -- This value can be a globally unique identifier, a fully specified ARN to
     -- either an alias or a key, or an alias name prefixed by \"alias\/\".You
@@ -56,11 +57,11 @@ data StreamDescription = StreamDescription'
     -- -   Alias name example: @alias\/MyAliasName@
     --
     -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
-    keyId :: Core.Maybe Core.Text,
+    keyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the stream being described.
-    streamName :: Core.Text,
+    streamName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the stream being described.
-    streamARN :: Core.Text,
+    streamARN :: Prelude.Text,
     -- | The current status of the stream being described. The stream status is
     -- one of the following states:
     --
@@ -82,16 +83,16 @@ data StreamDescription = StreamDescription'
     -- | The shards that comprise the stream.
     shards :: [Shard],
     -- | If set to @true@, more shards in the stream are available to describe.
-    hasMoreShards :: Core.Bool,
+    hasMoreShards :: Prelude.Bool,
     -- | The current retention period, in hours. Minimum value of 24. Maximum
     -- value of 168.
-    retentionPeriodHours :: Core.Int,
+    retentionPeriodHours :: Prelude.Int,
     -- | The approximate time that the stream was created.
     streamCreationTimestamp :: Core.POSIX,
     -- | Represents the current enhanced monitoring settings of the stream.
     enhancedMonitoring :: [EnhancedMetrics]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StreamDescription' with all optional fields omitted.
@@ -162,17 +163,17 @@ data StreamDescription = StreamDescription'
 -- 'enhancedMonitoring', 'streamDescription_enhancedMonitoring' - Represents the current enhanced monitoring settings of the stream.
 newStreamDescription ::
   -- | 'streamName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'streamARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'streamStatus'
   StreamStatus ->
   -- | 'hasMoreShards'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'retentionPeriodHours'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'streamCreationTimestamp'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   StreamDescription
 newStreamDescription
   pStreamName_
@@ -182,17 +183,18 @@ newStreamDescription
   pRetentionPeriodHours_
   pStreamCreationTimestamp_ =
     StreamDescription'
-      { encryptionType = Core.Nothing,
-        keyId = Core.Nothing,
+      { encryptionType =
+          Prelude.Nothing,
+        keyId = Prelude.Nothing,
         streamName = pStreamName_,
         streamARN = pStreamARN_,
         streamStatus = pStreamStatus_,
-        shards = Core.mempty,
+        shards = Prelude.mempty,
         hasMoreShards = pHasMoreShards_,
         retentionPeriodHours = pRetentionPeriodHours_,
         streamCreationTimestamp =
           Core._Time Lens.# pStreamCreationTimestamp_,
-        enhancedMonitoring = Core.mempty
+        enhancedMonitoring = Prelude.mempty
       }
 
 -- | The server-side encryption type used on the stream. This parameter can
@@ -202,7 +204,7 @@ newStreamDescription
 --
 -- -   @KMS@: Use server-side encryption on the records in the stream using
 --     a customer-managed AWS KMS key.
-streamDescription_encryptionType :: Lens.Lens' StreamDescription (Core.Maybe EncryptionType)
+streamDescription_encryptionType :: Lens.Lens' StreamDescription (Prelude.Maybe EncryptionType)
 streamDescription_encryptionType = Lens.lens (\StreamDescription' {encryptionType} -> encryptionType) (\s@StreamDescription' {} a -> s {encryptionType = a} :: StreamDescription)
 
 -- | The GUID for the customer-managed AWS KMS key to use for encryption.
@@ -223,15 +225,15 @@ streamDescription_encryptionType = Lens.lens (\StreamDescription' {encryptionTyp
 -- -   Alias name example: @alias\/MyAliasName@
 --
 -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
-streamDescription_keyId :: Lens.Lens' StreamDescription (Core.Maybe Core.Text)
+streamDescription_keyId :: Lens.Lens' StreamDescription (Prelude.Maybe Prelude.Text)
 streamDescription_keyId = Lens.lens (\StreamDescription' {keyId} -> keyId) (\s@StreamDescription' {} a -> s {keyId = a} :: StreamDescription)
 
 -- | The name of the stream being described.
-streamDescription_streamName :: Lens.Lens' StreamDescription Core.Text
+streamDescription_streamName :: Lens.Lens' StreamDescription Prelude.Text
 streamDescription_streamName = Lens.lens (\StreamDescription' {streamName} -> streamName) (\s@StreamDescription' {} a -> s {streamName = a} :: StreamDescription)
 
 -- | The Amazon Resource Name (ARN) for the stream being described.
-streamDescription_streamARN :: Lens.Lens' StreamDescription Core.Text
+streamDescription_streamARN :: Lens.Lens' StreamDescription Prelude.Text
 streamDescription_streamARN = Lens.lens (\StreamDescription' {streamARN} -> streamARN) (\s@StreamDescription' {} a -> s {streamARN = a} :: StreamDescription)
 
 -- | The current status of the stream being described. The stream status is
@@ -256,24 +258,24 @@ streamDescription_streamStatus = Lens.lens (\StreamDescription' {streamStatus} -
 
 -- | The shards that comprise the stream.
 streamDescription_shards :: Lens.Lens' StreamDescription [Shard]
-streamDescription_shards = Lens.lens (\StreamDescription' {shards} -> shards) (\s@StreamDescription' {} a -> s {shards = a} :: StreamDescription) Core.. Lens._Coerce
+streamDescription_shards = Lens.lens (\StreamDescription' {shards} -> shards) (\s@StreamDescription' {} a -> s {shards = a} :: StreamDescription) Prelude.. Lens._Coerce
 
 -- | If set to @true@, more shards in the stream are available to describe.
-streamDescription_hasMoreShards :: Lens.Lens' StreamDescription Core.Bool
+streamDescription_hasMoreShards :: Lens.Lens' StreamDescription Prelude.Bool
 streamDescription_hasMoreShards = Lens.lens (\StreamDescription' {hasMoreShards} -> hasMoreShards) (\s@StreamDescription' {} a -> s {hasMoreShards = a} :: StreamDescription)
 
 -- | The current retention period, in hours. Minimum value of 24. Maximum
 -- value of 168.
-streamDescription_retentionPeriodHours :: Lens.Lens' StreamDescription Core.Int
+streamDescription_retentionPeriodHours :: Lens.Lens' StreamDescription Prelude.Int
 streamDescription_retentionPeriodHours = Lens.lens (\StreamDescription' {retentionPeriodHours} -> retentionPeriodHours) (\s@StreamDescription' {} a -> s {retentionPeriodHours = a} :: StreamDescription)
 
 -- | The approximate time that the stream was created.
-streamDescription_streamCreationTimestamp :: Lens.Lens' StreamDescription Core.UTCTime
-streamDescription_streamCreationTimestamp = Lens.lens (\StreamDescription' {streamCreationTimestamp} -> streamCreationTimestamp) (\s@StreamDescription' {} a -> s {streamCreationTimestamp = a} :: StreamDescription) Core.. Core._Time
+streamDescription_streamCreationTimestamp :: Lens.Lens' StreamDescription Prelude.UTCTime
+streamDescription_streamCreationTimestamp = Lens.lens (\StreamDescription' {streamCreationTimestamp} -> streamCreationTimestamp) (\s@StreamDescription' {} a -> s {streamCreationTimestamp = a} :: StreamDescription) Prelude.. Core._Time
 
 -- | Represents the current enhanced monitoring settings of the stream.
 streamDescription_enhancedMonitoring :: Lens.Lens' StreamDescription [EnhancedMetrics]
-streamDescription_enhancedMonitoring = Lens.lens (\StreamDescription' {enhancedMonitoring} -> enhancedMonitoring) (\s@StreamDescription' {} a -> s {enhancedMonitoring = a} :: StreamDescription) Core.. Lens._Coerce
+streamDescription_enhancedMonitoring = Lens.lens (\StreamDescription' {enhancedMonitoring} -> enhancedMonitoring) (\s@StreamDescription' {} a -> s {enhancedMonitoring = a} :: StreamDescription) Prelude.. Lens._Coerce
 
 instance Core.FromJSON StreamDescription where
   parseJSON =
@@ -281,20 +283,20 @@ instance Core.FromJSON StreamDescription where
       "StreamDescription"
       ( \x ->
           StreamDescription'
-            Core.<$> (x Core..:? "EncryptionType")
-            Core.<*> (x Core..:? "KeyId")
-            Core.<*> (x Core..: "StreamName")
-            Core.<*> (x Core..: "StreamARN")
-            Core.<*> (x Core..: "StreamStatus")
-            Core.<*> (x Core..:? "Shards" Core..!= Core.mempty)
-            Core.<*> (x Core..: "HasMoreShards")
-            Core.<*> (x Core..: "RetentionPeriodHours")
-            Core.<*> (x Core..: "StreamCreationTimestamp")
-            Core.<*> ( x Core..:? "EnhancedMonitoring"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "EncryptionType")
+            Prelude.<*> (x Core..:? "KeyId")
+            Prelude.<*> (x Core..: "StreamName")
+            Prelude.<*> (x Core..: "StreamARN")
+            Prelude.<*> (x Core..: "StreamStatus")
+            Prelude.<*> (x Core..:? "Shards" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "HasMoreShards")
+            Prelude.<*> (x Core..: "RetentionPeriodHours")
+            Prelude.<*> (x Core..: "StreamCreationTimestamp")
+            Prelude.<*> ( x Core..:? "EnhancedMonitoring"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable StreamDescription
+instance Prelude.Hashable StreamDescription
 
-instance Core.NFData StreamDescription
+instance Prelude.NFData StreamDescription

@@ -61,6 +61,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -69,9 +70,9 @@ import Network.AWS.SageMaker.Types
 data DescribeProcessingJob = DescribeProcessingJob'
   { -- | The name of the processing job. The name must be unique within an AWS
     -- Region in the AWS account.
-    processingJobName :: Core.Text
+    processingJobName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeProcessingJob' with all optional fields omitted.
@@ -85,7 +86,7 @@ data DescribeProcessingJob = DescribeProcessingJob'
 -- Region in the AWS account.
 newDescribeProcessingJob ::
   -- | 'processingJobName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeProcessingJob
 newDescribeProcessingJob pProcessingJobName_ =
   DescribeProcessingJob'
@@ -95,7 +96,7 @@ newDescribeProcessingJob pProcessingJobName_ =
 
 -- | The name of the processing job. The name must be unique within an AWS
 -- Region in the AWS account.
-describeProcessingJob_processingJobName :: Lens.Lens' DescribeProcessingJob Core.Text
+describeProcessingJob_processingJobName :: Lens.Lens' DescribeProcessingJob Prelude.Text
 describeProcessingJob_processingJobName = Lens.lens (\DescribeProcessingJob' {processingJobName} -> processingJobName) (\s@DescribeProcessingJob' {} a -> s {processingJobName = a} :: DescribeProcessingJob)
 
 instance Core.AWSRequest DescribeProcessingJob where
@@ -107,103 +108,107 @@ instance Core.AWSRequest DescribeProcessingJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeProcessingJobResponse'
-            Core.<$> (x Core..?> "NetworkConfig")
-            Core.<*> (x Core..?> "ProcessingEndTime")
-            Core.<*> (x Core..?> "RoleArn")
-            Core.<*> (x Core..?> "ProcessingOutputConfig")
-            Core.<*> (x Core..?> "ExitMessage")
-            Core.<*> (x Core..?> "ExperimentConfig")
-            Core.<*> (x Core..?> "Environment" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "AutoMLJobArn")
-            Core.<*> (x Core..?> "FailureReason")
-            Core.<*> (x Core..?> "MonitoringScheduleArn")
-            Core.<*> (x Core..?> "LastModifiedTime")
-            Core.<*> (x Core..?> "ProcessingInputs" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "ProcessingStartTime")
-            Core.<*> (x Core..?> "StoppingCondition")
-            Core.<*> (x Core..?> "TrainingJobArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "ProcessingJobName")
-            Core.<*> (x Core..:> "ProcessingResources")
-            Core.<*> (x Core..:> "AppSpecification")
-            Core.<*> (x Core..:> "ProcessingJobArn")
-            Core.<*> (x Core..:> "ProcessingJobStatus")
-            Core.<*> (x Core..:> "CreationTime")
+            Prelude.<$> (x Core..?> "NetworkConfig")
+            Prelude.<*> (x Core..?> "ProcessingEndTime")
+            Prelude.<*> (x Core..?> "RoleArn")
+            Prelude.<*> (x Core..?> "ProcessingOutputConfig")
+            Prelude.<*> (x Core..?> "ExitMessage")
+            Prelude.<*> (x Core..?> "ExperimentConfig")
+            Prelude.<*> (x Core..?> "Environment" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "AutoMLJobArn")
+            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<*> (x Core..?> "MonitoringScheduleArn")
+            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> ( x Core..?> "ProcessingInputs"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "ProcessingStartTime")
+            Prelude.<*> (x Core..?> "StoppingCondition")
+            Prelude.<*> (x Core..?> "TrainingJobArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "ProcessingJobName")
+            Prelude.<*> (x Core..:> "ProcessingResources")
+            Prelude.<*> (x Core..:> "AppSpecification")
+            Prelude.<*> (x Core..:> "ProcessingJobArn")
+            Prelude.<*> (x Core..:> "ProcessingJobStatus")
+            Prelude.<*> (x Core..:> "CreationTime")
       )
 
-instance Core.Hashable DescribeProcessingJob
+instance Prelude.Hashable DescribeProcessingJob
 
-instance Core.NFData DescribeProcessingJob
+instance Prelude.NFData DescribeProcessingJob
 
 instance Core.ToHeaders DescribeProcessingJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.DescribeProcessingJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeProcessingJob where
   toJSON DescribeProcessingJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ProcessingJobName" Core..= processingJobName)
           ]
       )
 
 instance Core.ToPath DescribeProcessingJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeProcessingJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProcessingJobResponse' smart constructor.
 data DescribeProcessingJobResponse = DescribeProcessingJobResponse'
   { -- | Networking options for a processing job.
-    networkConfig :: Core.Maybe NetworkConfig,
+    networkConfig :: Prelude.Maybe NetworkConfig,
     -- | The time at which the processing job completed.
-    processingEndTime :: Core.Maybe Core.POSIX,
+    processingEndTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
     -- assume to perform tasks on your behalf.
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | Output configuration for the processing job.
-    processingOutputConfig :: Core.Maybe ProcessingOutputConfig,
+    processingOutputConfig :: Prelude.Maybe ProcessingOutputConfig,
     -- | An optional string, up to one KB in size, that contains metadata from
     -- the processing container when the processing job exits.
-    exitMessage :: Core.Maybe Core.Text,
+    exitMessage :: Prelude.Maybe Prelude.Text,
     -- | The configuration information used to create an experiment.
-    experimentConfig :: Core.Maybe ExperimentConfig,
+    experimentConfig :: Prelude.Maybe ExperimentConfig,
     -- | The environment variables set in the Docker container.
-    environment :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of an AutoML job associated with this processing job.
-    autoMLJobArn :: Core.Maybe Core.Text,
+    autoMLJobArn :: Prelude.Maybe Prelude.Text,
     -- | A string, up to one KB in size, that contains the reason a processing
     -- job failed, if it failed.
-    failureReason :: Core.Maybe Core.Text,
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The ARN of a monitoring schedule for an endpoint associated with this
     -- processing job.
-    monitoringScheduleArn :: Core.Maybe Core.Text,
+    monitoringScheduleArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the processing job was last modified.
-    lastModifiedTime :: Core.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The inputs for a processing job.
-    processingInputs :: Core.Maybe [ProcessingInput],
+    processingInputs :: Prelude.Maybe [ProcessingInput],
     -- | The time at which the processing job started.
-    processingStartTime :: Core.Maybe Core.POSIX,
+    processingStartTime :: Prelude.Maybe Core.POSIX,
     -- | The time limit for how long the processing job is allowed to run.
-    stoppingCondition :: Core.Maybe ProcessingStoppingCondition,
+    stoppingCondition :: Prelude.Maybe ProcessingStoppingCondition,
     -- | The ARN of a training job associated with this processing job.
-    trainingJobArn :: Core.Maybe Core.Text,
+    trainingJobArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The name of the processing job. The name must be unique within an AWS
     -- Region in the AWS account.
-    processingJobName :: Core.Text,
+    processingJobName :: Prelude.Text,
     -- | Identifies the resources, ML compute instances, and ML storage volumes
     -- to deploy for a processing job. In distributed training, you specify
     -- more than one instance.
@@ -211,13 +216,13 @@ data DescribeProcessingJobResponse = DescribeProcessingJobResponse'
     -- | Configures the processing job to run a specified container image.
     appSpecification :: AppSpecification,
     -- | The Amazon Resource Name (ARN) of the processing job.
-    processingJobArn :: Core.Text,
+    processingJobArn :: Prelude.Text,
     -- | Provides the status of a processing job.
     processingJobStatus :: ProcessingJobStatus,
     -- | The time at which the processing job was created.
     creationTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeProcessingJobResponse' with all optional fields omitted.
@@ -279,19 +284,19 @@ data DescribeProcessingJobResponse = DescribeProcessingJobResponse'
 -- 'creationTime', 'describeProcessingJobResponse_creationTime' - The time at which the processing job was created.
 newDescribeProcessingJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'processingJobName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'processingResources'
   ProcessingResources ->
   -- | 'appSpecification'
   AppSpecification ->
   -- | 'processingJobArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'processingJobStatus'
   ProcessingJobStatus ->
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   DescribeProcessingJobResponse
 newDescribeProcessingJobResponse
   pHttpStatus_
@@ -303,21 +308,21 @@ newDescribeProcessingJobResponse
   pCreationTime_ =
     DescribeProcessingJobResponse'
       { networkConfig =
-          Core.Nothing,
-        processingEndTime = Core.Nothing,
-        roleArn = Core.Nothing,
-        processingOutputConfig = Core.Nothing,
-        exitMessage = Core.Nothing,
-        experimentConfig = Core.Nothing,
-        environment = Core.Nothing,
-        autoMLJobArn = Core.Nothing,
-        failureReason = Core.Nothing,
-        monitoringScheduleArn = Core.Nothing,
-        lastModifiedTime = Core.Nothing,
-        processingInputs = Core.Nothing,
-        processingStartTime = Core.Nothing,
-        stoppingCondition = Core.Nothing,
-        trainingJobArn = Core.Nothing,
+          Prelude.Nothing,
+        processingEndTime = Prelude.Nothing,
+        roleArn = Prelude.Nothing,
+        processingOutputConfig = Prelude.Nothing,
+        exitMessage = Prelude.Nothing,
+        experimentConfig = Prelude.Nothing,
+        environment = Prelude.Nothing,
+        autoMLJobArn = Prelude.Nothing,
+        failureReason = Prelude.Nothing,
+        monitoringScheduleArn = Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
+        processingInputs = Prelude.Nothing,
+        processingStartTime = Prelude.Nothing,
+        stoppingCondition = Prelude.Nothing,
+        trainingJobArn = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         processingJobName = pProcessingJobName_,
         processingResources = pProcessingResources_,
@@ -329,76 +334,76 @@ newDescribeProcessingJobResponse
       }
 
 -- | Networking options for a processing job.
-describeProcessingJobResponse_networkConfig :: Lens.Lens' DescribeProcessingJobResponse (Core.Maybe NetworkConfig)
+describeProcessingJobResponse_networkConfig :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe NetworkConfig)
 describeProcessingJobResponse_networkConfig = Lens.lens (\DescribeProcessingJobResponse' {networkConfig} -> networkConfig) (\s@DescribeProcessingJobResponse' {} a -> s {networkConfig = a} :: DescribeProcessingJobResponse)
 
 -- | The time at which the processing job completed.
-describeProcessingJobResponse_processingEndTime :: Lens.Lens' DescribeProcessingJobResponse (Core.Maybe Core.UTCTime)
-describeProcessingJobResponse_processingEndTime = Lens.lens (\DescribeProcessingJobResponse' {processingEndTime} -> processingEndTime) (\s@DescribeProcessingJobResponse' {} a -> s {processingEndTime = a} :: DescribeProcessingJobResponse) Core.. Lens.mapping Core._Time
+describeProcessingJobResponse_processingEndTime :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.UTCTime)
+describeProcessingJobResponse_processingEndTime = Lens.lens (\DescribeProcessingJobResponse' {processingEndTime} -> processingEndTime) (\s@DescribeProcessingJobResponse' {} a -> s {processingEndTime = a} :: DescribeProcessingJobResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
 -- assume to perform tasks on your behalf.
-describeProcessingJobResponse_roleArn :: Lens.Lens' DescribeProcessingJobResponse (Core.Maybe Core.Text)
+describeProcessingJobResponse_roleArn :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
 describeProcessingJobResponse_roleArn = Lens.lens (\DescribeProcessingJobResponse' {roleArn} -> roleArn) (\s@DescribeProcessingJobResponse' {} a -> s {roleArn = a} :: DescribeProcessingJobResponse)
 
 -- | Output configuration for the processing job.
-describeProcessingJobResponse_processingOutputConfig :: Lens.Lens' DescribeProcessingJobResponse (Core.Maybe ProcessingOutputConfig)
+describeProcessingJobResponse_processingOutputConfig :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe ProcessingOutputConfig)
 describeProcessingJobResponse_processingOutputConfig = Lens.lens (\DescribeProcessingJobResponse' {processingOutputConfig} -> processingOutputConfig) (\s@DescribeProcessingJobResponse' {} a -> s {processingOutputConfig = a} :: DescribeProcessingJobResponse)
 
 -- | An optional string, up to one KB in size, that contains metadata from
 -- the processing container when the processing job exits.
-describeProcessingJobResponse_exitMessage :: Lens.Lens' DescribeProcessingJobResponse (Core.Maybe Core.Text)
+describeProcessingJobResponse_exitMessage :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
 describeProcessingJobResponse_exitMessage = Lens.lens (\DescribeProcessingJobResponse' {exitMessage} -> exitMessage) (\s@DescribeProcessingJobResponse' {} a -> s {exitMessage = a} :: DescribeProcessingJobResponse)
 
 -- | The configuration information used to create an experiment.
-describeProcessingJobResponse_experimentConfig :: Lens.Lens' DescribeProcessingJobResponse (Core.Maybe ExperimentConfig)
+describeProcessingJobResponse_experimentConfig :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe ExperimentConfig)
 describeProcessingJobResponse_experimentConfig = Lens.lens (\DescribeProcessingJobResponse' {experimentConfig} -> experimentConfig) (\s@DescribeProcessingJobResponse' {} a -> s {experimentConfig = a} :: DescribeProcessingJobResponse)
 
 -- | The environment variables set in the Docker container.
-describeProcessingJobResponse_environment :: Lens.Lens' DescribeProcessingJobResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-describeProcessingJobResponse_environment = Lens.lens (\DescribeProcessingJobResponse' {environment} -> environment) (\s@DescribeProcessingJobResponse' {} a -> s {environment = a} :: DescribeProcessingJobResponse) Core.. Lens.mapping Lens._Coerce
+describeProcessingJobResponse_environment :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeProcessingJobResponse_environment = Lens.lens (\DescribeProcessingJobResponse' {environment} -> environment) (\s@DescribeProcessingJobResponse' {} a -> s {environment = a} :: DescribeProcessingJobResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ARN of an AutoML job associated with this processing job.
-describeProcessingJobResponse_autoMLJobArn :: Lens.Lens' DescribeProcessingJobResponse (Core.Maybe Core.Text)
+describeProcessingJobResponse_autoMLJobArn :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
 describeProcessingJobResponse_autoMLJobArn = Lens.lens (\DescribeProcessingJobResponse' {autoMLJobArn} -> autoMLJobArn) (\s@DescribeProcessingJobResponse' {} a -> s {autoMLJobArn = a} :: DescribeProcessingJobResponse)
 
 -- | A string, up to one KB in size, that contains the reason a processing
 -- job failed, if it failed.
-describeProcessingJobResponse_failureReason :: Lens.Lens' DescribeProcessingJobResponse (Core.Maybe Core.Text)
+describeProcessingJobResponse_failureReason :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
 describeProcessingJobResponse_failureReason = Lens.lens (\DescribeProcessingJobResponse' {failureReason} -> failureReason) (\s@DescribeProcessingJobResponse' {} a -> s {failureReason = a} :: DescribeProcessingJobResponse)
 
 -- | The ARN of a monitoring schedule for an endpoint associated with this
 -- processing job.
-describeProcessingJobResponse_monitoringScheduleArn :: Lens.Lens' DescribeProcessingJobResponse (Core.Maybe Core.Text)
+describeProcessingJobResponse_monitoringScheduleArn :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
 describeProcessingJobResponse_monitoringScheduleArn = Lens.lens (\DescribeProcessingJobResponse' {monitoringScheduleArn} -> monitoringScheduleArn) (\s@DescribeProcessingJobResponse' {} a -> s {monitoringScheduleArn = a} :: DescribeProcessingJobResponse)
 
 -- | The time at which the processing job was last modified.
-describeProcessingJobResponse_lastModifiedTime :: Lens.Lens' DescribeProcessingJobResponse (Core.Maybe Core.UTCTime)
-describeProcessingJobResponse_lastModifiedTime = Lens.lens (\DescribeProcessingJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeProcessingJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeProcessingJobResponse) Core.. Lens.mapping Core._Time
+describeProcessingJobResponse_lastModifiedTime :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.UTCTime)
+describeProcessingJobResponse_lastModifiedTime = Lens.lens (\DescribeProcessingJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeProcessingJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeProcessingJobResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The inputs for a processing job.
-describeProcessingJobResponse_processingInputs :: Lens.Lens' DescribeProcessingJobResponse (Core.Maybe [ProcessingInput])
-describeProcessingJobResponse_processingInputs = Lens.lens (\DescribeProcessingJobResponse' {processingInputs} -> processingInputs) (\s@DescribeProcessingJobResponse' {} a -> s {processingInputs = a} :: DescribeProcessingJobResponse) Core.. Lens.mapping Lens._Coerce
+describeProcessingJobResponse_processingInputs :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe [ProcessingInput])
+describeProcessingJobResponse_processingInputs = Lens.lens (\DescribeProcessingJobResponse' {processingInputs} -> processingInputs) (\s@DescribeProcessingJobResponse' {} a -> s {processingInputs = a} :: DescribeProcessingJobResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The time at which the processing job started.
-describeProcessingJobResponse_processingStartTime :: Lens.Lens' DescribeProcessingJobResponse (Core.Maybe Core.UTCTime)
-describeProcessingJobResponse_processingStartTime = Lens.lens (\DescribeProcessingJobResponse' {processingStartTime} -> processingStartTime) (\s@DescribeProcessingJobResponse' {} a -> s {processingStartTime = a} :: DescribeProcessingJobResponse) Core.. Lens.mapping Core._Time
+describeProcessingJobResponse_processingStartTime :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.UTCTime)
+describeProcessingJobResponse_processingStartTime = Lens.lens (\DescribeProcessingJobResponse' {processingStartTime} -> processingStartTime) (\s@DescribeProcessingJobResponse' {} a -> s {processingStartTime = a} :: DescribeProcessingJobResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The time limit for how long the processing job is allowed to run.
-describeProcessingJobResponse_stoppingCondition :: Lens.Lens' DescribeProcessingJobResponse (Core.Maybe ProcessingStoppingCondition)
+describeProcessingJobResponse_stoppingCondition :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe ProcessingStoppingCondition)
 describeProcessingJobResponse_stoppingCondition = Lens.lens (\DescribeProcessingJobResponse' {stoppingCondition} -> stoppingCondition) (\s@DescribeProcessingJobResponse' {} a -> s {stoppingCondition = a} :: DescribeProcessingJobResponse)
 
 -- | The ARN of a training job associated with this processing job.
-describeProcessingJobResponse_trainingJobArn :: Lens.Lens' DescribeProcessingJobResponse (Core.Maybe Core.Text)
+describeProcessingJobResponse_trainingJobArn :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
 describeProcessingJobResponse_trainingJobArn = Lens.lens (\DescribeProcessingJobResponse' {trainingJobArn} -> trainingJobArn) (\s@DescribeProcessingJobResponse' {} a -> s {trainingJobArn = a} :: DescribeProcessingJobResponse)
 
 -- | The response's http status code.
-describeProcessingJobResponse_httpStatus :: Lens.Lens' DescribeProcessingJobResponse Core.Int
+describeProcessingJobResponse_httpStatus :: Lens.Lens' DescribeProcessingJobResponse Prelude.Int
 describeProcessingJobResponse_httpStatus = Lens.lens (\DescribeProcessingJobResponse' {httpStatus} -> httpStatus) (\s@DescribeProcessingJobResponse' {} a -> s {httpStatus = a} :: DescribeProcessingJobResponse)
 
 -- | The name of the processing job. The name must be unique within an AWS
 -- Region in the AWS account.
-describeProcessingJobResponse_processingJobName :: Lens.Lens' DescribeProcessingJobResponse Core.Text
+describeProcessingJobResponse_processingJobName :: Lens.Lens' DescribeProcessingJobResponse Prelude.Text
 describeProcessingJobResponse_processingJobName = Lens.lens (\DescribeProcessingJobResponse' {processingJobName} -> processingJobName) (\s@DescribeProcessingJobResponse' {} a -> s {processingJobName = a} :: DescribeProcessingJobResponse)
 
 -- | Identifies the resources, ML compute instances, and ML storage volumes
@@ -412,7 +417,7 @@ describeProcessingJobResponse_appSpecification :: Lens.Lens' DescribeProcessingJ
 describeProcessingJobResponse_appSpecification = Lens.lens (\DescribeProcessingJobResponse' {appSpecification} -> appSpecification) (\s@DescribeProcessingJobResponse' {} a -> s {appSpecification = a} :: DescribeProcessingJobResponse)
 
 -- | The Amazon Resource Name (ARN) of the processing job.
-describeProcessingJobResponse_processingJobArn :: Lens.Lens' DescribeProcessingJobResponse Core.Text
+describeProcessingJobResponse_processingJobArn :: Lens.Lens' DescribeProcessingJobResponse Prelude.Text
 describeProcessingJobResponse_processingJobArn = Lens.lens (\DescribeProcessingJobResponse' {processingJobArn} -> processingJobArn) (\s@DescribeProcessingJobResponse' {} a -> s {processingJobArn = a} :: DescribeProcessingJobResponse)
 
 -- | Provides the status of a processing job.
@@ -420,7 +425,7 @@ describeProcessingJobResponse_processingJobStatus :: Lens.Lens' DescribeProcessi
 describeProcessingJobResponse_processingJobStatus = Lens.lens (\DescribeProcessingJobResponse' {processingJobStatus} -> processingJobStatus) (\s@DescribeProcessingJobResponse' {} a -> s {processingJobStatus = a} :: DescribeProcessingJobResponse)
 
 -- | The time at which the processing job was created.
-describeProcessingJobResponse_creationTime :: Lens.Lens' DescribeProcessingJobResponse Core.UTCTime
-describeProcessingJobResponse_creationTime = Lens.lens (\DescribeProcessingJobResponse' {creationTime} -> creationTime) (\s@DescribeProcessingJobResponse' {} a -> s {creationTime = a} :: DescribeProcessingJobResponse) Core.. Core._Time
+describeProcessingJobResponse_creationTime :: Lens.Lens' DescribeProcessingJobResponse Prelude.UTCTime
+describeProcessingJobResponse_creationTime = Lens.lens (\DescribeProcessingJobResponse' {creationTime} -> creationTime) (\s@DescribeProcessingJobResponse' {} a -> s {creationTime = a} :: DescribeProcessingJobResponse) Prelude.. Core._Time
 
-instance Core.NFData DescribeProcessingJobResponse
+instance Prelude.NFData DescribeProcessingJobResponse

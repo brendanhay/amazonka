@@ -22,6 +22,7 @@ module Network.AWS.CognitoIdentity.Types.RulesConfigurationType where
 import Network.AWS.CognitoIdentity.Types.MappingRule
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A container for rules.
 --
@@ -30,9 +31,9 @@ data RulesConfigurationType = RulesConfigurationType'
   { -- | An array of rules. You can specify up to 25 rules per identity provider.
     --
     -- Rules are evaluated in order. The first one to match specifies the role.
-    rules :: Core.NonEmpty MappingRule
+    rules :: Prelude.NonEmpty MappingRule
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RulesConfigurationType' with all optional fields omitted.
@@ -47,7 +48,7 @@ data RulesConfigurationType = RulesConfigurationType'
 -- Rules are evaluated in order. The first one to match specifies the role.
 newRulesConfigurationType ::
   -- | 'rules'
-  Core.NonEmpty MappingRule ->
+  Prelude.NonEmpty MappingRule ->
   RulesConfigurationType
 newRulesConfigurationType pRules_ =
   RulesConfigurationType'
@@ -58,22 +59,25 @@ newRulesConfigurationType pRules_ =
 -- | An array of rules. You can specify up to 25 rules per identity provider.
 --
 -- Rules are evaluated in order. The first one to match specifies the role.
-rulesConfigurationType_rules :: Lens.Lens' RulesConfigurationType (Core.NonEmpty MappingRule)
-rulesConfigurationType_rules = Lens.lens (\RulesConfigurationType' {rules} -> rules) (\s@RulesConfigurationType' {} a -> s {rules = a} :: RulesConfigurationType) Core.. Lens._Coerce
+rulesConfigurationType_rules :: Lens.Lens' RulesConfigurationType (Prelude.NonEmpty MappingRule)
+rulesConfigurationType_rules = Lens.lens (\RulesConfigurationType' {rules} -> rules) (\s@RulesConfigurationType' {} a -> s {rules = a} :: RulesConfigurationType) Prelude.. Lens._Coerce
 
 instance Core.FromJSON RulesConfigurationType where
   parseJSON =
     Core.withObject
       "RulesConfigurationType"
       ( \x ->
-          RulesConfigurationType' Core.<$> (x Core..: "Rules")
+          RulesConfigurationType'
+            Prelude.<$> (x Core..: "Rules")
       )
 
-instance Core.Hashable RulesConfigurationType
+instance Prelude.Hashable RulesConfigurationType
 
-instance Core.NFData RulesConfigurationType
+instance Prelude.NFData RulesConfigurationType
 
 instance Core.ToJSON RulesConfigurationType where
   toJSON RulesConfigurationType' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Rules" Core..= rules)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Rules" Core..= rules)]
+      )

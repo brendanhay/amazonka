@@ -53,13 +53,14 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetContainerServiceMetricData' smart constructor.
 data GetContainerServiceMetricData = GetContainerServiceMetricData'
   { -- | The name of the container service for which to get metric data.
-    serviceName :: Core.Text,
+    serviceName :: Prelude.Text,
     -- | The metric for which you want to return information.
     --
     -- Valid container service metric names are listed below, along with the
@@ -92,7 +93,7 @@ data GetContainerServiceMetricData = GetContainerServiceMetricData'
     --
     -- All container service metric data is available in 5-minute (300 seconds)
     -- granularity.
-    period :: Core.Natural,
+    period :: Prelude.Natural,
     -- | The statistic for the metric.
     --
     -- The following statistics are available:
@@ -120,7 +121,7 @@ data GetContainerServiceMetricData = GetContainerServiceMetricData'
     --     statistical calculation.
     statistics :: [MetricStatistic]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetContainerServiceMetricData' with all optional fields omitted.
@@ -192,15 +193,15 @@ data GetContainerServiceMetricData = GetContainerServiceMetricData'
 --     statistical calculation.
 newGetContainerServiceMetricData ::
   -- | 'serviceName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricName'
   ContainerServiceMetricName ->
   -- | 'startTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'endTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'period'
-  Core.Natural ->
+  Prelude.Natural ->
   GetContainerServiceMetricData
 newGetContainerServiceMetricData
   pServiceName_
@@ -215,11 +216,11 @@ newGetContainerServiceMetricData
         startTime = Core._Time Lens.# pStartTime_,
         endTime = Core._Time Lens.# pEndTime_,
         period = pPeriod_,
-        statistics = Core.mempty
+        statistics = Prelude.mempty
       }
 
 -- | The name of the container service for which to get metric data.
-getContainerServiceMetricData_serviceName :: Lens.Lens' GetContainerServiceMetricData Core.Text
+getContainerServiceMetricData_serviceName :: Lens.Lens' GetContainerServiceMetricData Prelude.Text
 getContainerServiceMetricData_serviceName = Lens.lens (\GetContainerServiceMetricData' {serviceName} -> serviceName) (\s@GetContainerServiceMetricData' {} a -> s {serviceName = a} :: GetContainerServiceMetricData)
 
 -- | The metric for which you want to return information.
@@ -249,18 +250,18 @@ getContainerServiceMetricData_metricName :: Lens.Lens' GetContainerServiceMetric
 getContainerServiceMetricData_metricName = Lens.lens (\GetContainerServiceMetricData' {metricName} -> metricName) (\s@GetContainerServiceMetricData' {} a -> s {metricName = a} :: GetContainerServiceMetricData)
 
 -- | The start time of the time period.
-getContainerServiceMetricData_startTime :: Lens.Lens' GetContainerServiceMetricData Core.UTCTime
-getContainerServiceMetricData_startTime = Lens.lens (\GetContainerServiceMetricData' {startTime} -> startTime) (\s@GetContainerServiceMetricData' {} a -> s {startTime = a} :: GetContainerServiceMetricData) Core.. Core._Time
+getContainerServiceMetricData_startTime :: Lens.Lens' GetContainerServiceMetricData Prelude.UTCTime
+getContainerServiceMetricData_startTime = Lens.lens (\GetContainerServiceMetricData' {startTime} -> startTime) (\s@GetContainerServiceMetricData' {} a -> s {startTime = a} :: GetContainerServiceMetricData) Prelude.. Core._Time
 
 -- | The end time of the time period.
-getContainerServiceMetricData_endTime :: Lens.Lens' GetContainerServiceMetricData Core.UTCTime
-getContainerServiceMetricData_endTime = Lens.lens (\GetContainerServiceMetricData' {endTime} -> endTime) (\s@GetContainerServiceMetricData' {} a -> s {endTime = a} :: GetContainerServiceMetricData) Core.. Core._Time
+getContainerServiceMetricData_endTime :: Lens.Lens' GetContainerServiceMetricData Prelude.UTCTime
+getContainerServiceMetricData_endTime = Lens.lens (\GetContainerServiceMetricData' {endTime} -> endTime) (\s@GetContainerServiceMetricData' {} a -> s {endTime = a} :: GetContainerServiceMetricData) Prelude.. Core._Time
 
 -- | The granularity, in seconds, of the returned data points.
 --
 -- All container service metric data is available in 5-minute (300 seconds)
 -- granularity.
-getContainerServiceMetricData_period :: Lens.Lens' GetContainerServiceMetricData Core.Natural
+getContainerServiceMetricData_period :: Lens.Lens' GetContainerServiceMetricData Prelude.Natural
 getContainerServiceMetricData_period = Lens.lens (\GetContainerServiceMetricData' {period} -> period) (\s@GetContainerServiceMetricData' {} a -> s {period = a} :: GetContainerServiceMetricData)
 
 -- | The statistic for the metric.
@@ -289,7 +290,7 @@ getContainerServiceMetricData_period = Lens.lens (\GetContainerServiceMetricData
 -- -   @SampleCount@ - The count, or number, of data points used for the
 --     statistical calculation.
 getContainerServiceMetricData_statistics :: Lens.Lens' GetContainerServiceMetricData [MetricStatistic]
-getContainerServiceMetricData_statistics = Lens.lens (\GetContainerServiceMetricData' {statistics} -> statistics) (\s@GetContainerServiceMetricData' {} a -> s {statistics = a} :: GetContainerServiceMetricData) Core.. Lens._Coerce
+getContainerServiceMetricData_statistics = Lens.lens (\GetContainerServiceMetricData' {statistics} -> statistics) (\s@GetContainerServiceMetricData' {} a -> s {statistics = a} :: GetContainerServiceMetricData) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -303,57 +304,61 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetContainerServiceMetricDataResponse'
-            Core.<$> (x Core..?> "metricName")
-            Core.<*> (x Core..?> "metricData" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "metricName")
+            Prelude.<*> (x Core..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetContainerServiceMetricData
+instance
+  Prelude.Hashable
+    GetContainerServiceMetricData
 
-instance Core.NFData GetContainerServiceMetricData
+instance Prelude.NFData GetContainerServiceMetricData
 
 instance Core.ToHeaders GetContainerServiceMetricData where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetContainerServiceMetricData" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetContainerServiceMetricData where
   toJSON GetContainerServiceMetricData' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("serviceName" Core..= serviceName),
-            Core.Just ("metricName" Core..= metricName),
-            Core.Just ("startTime" Core..= startTime),
-            Core.Just ("endTime" Core..= endTime),
-            Core.Just ("period" Core..= period),
-            Core.Just ("statistics" Core..= statistics)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("serviceName" Core..= serviceName),
+            Prelude.Just ("metricName" Core..= metricName),
+            Prelude.Just ("startTime" Core..= startTime),
+            Prelude.Just ("endTime" Core..= endTime),
+            Prelude.Just ("period" Core..= period),
+            Prelude.Just ("statistics" Core..= statistics)
           ]
       )
 
 instance Core.ToPath GetContainerServiceMetricData where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetContainerServiceMetricData where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContainerServiceMetricDataResponse' smart constructor.
 data GetContainerServiceMetricDataResponse = GetContainerServiceMetricDataResponse'
   { -- | The name of the metric returned.
-    metricName :: Core.Maybe ContainerServiceMetricName,
+    metricName :: Prelude.Maybe ContainerServiceMetricName,
     -- | An array of objects that describe the metric data returned.
-    metricData :: Core.Maybe [MetricDatapoint],
+    metricData :: Prelude.Maybe [MetricDatapoint],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetContainerServiceMetricDataResponse' with all optional fields omitted.
@@ -370,28 +375,28 @@ data GetContainerServiceMetricDataResponse = GetContainerServiceMetricDataRespon
 -- 'httpStatus', 'getContainerServiceMetricDataResponse_httpStatus' - The response's http status code.
 newGetContainerServiceMetricDataResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetContainerServiceMetricDataResponse
 newGetContainerServiceMetricDataResponse pHttpStatus_ =
   GetContainerServiceMetricDataResponse'
     { metricName =
-        Core.Nothing,
-      metricData = Core.Nothing,
+        Prelude.Nothing,
+      metricData = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the metric returned.
-getContainerServiceMetricDataResponse_metricName :: Lens.Lens' GetContainerServiceMetricDataResponse (Core.Maybe ContainerServiceMetricName)
+getContainerServiceMetricDataResponse_metricName :: Lens.Lens' GetContainerServiceMetricDataResponse (Prelude.Maybe ContainerServiceMetricName)
 getContainerServiceMetricDataResponse_metricName = Lens.lens (\GetContainerServiceMetricDataResponse' {metricName} -> metricName) (\s@GetContainerServiceMetricDataResponse' {} a -> s {metricName = a} :: GetContainerServiceMetricDataResponse)
 
 -- | An array of objects that describe the metric data returned.
-getContainerServiceMetricDataResponse_metricData :: Lens.Lens' GetContainerServiceMetricDataResponse (Core.Maybe [MetricDatapoint])
-getContainerServiceMetricDataResponse_metricData = Lens.lens (\GetContainerServiceMetricDataResponse' {metricData} -> metricData) (\s@GetContainerServiceMetricDataResponse' {} a -> s {metricData = a} :: GetContainerServiceMetricDataResponse) Core.. Lens.mapping Lens._Coerce
+getContainerServiceMetricDataResponse_metricData :: Lens.Lens' GetContainerServiceMetricDataResponse (Prelude.Maybe [MetricDatapoint])
+getContainerServiceMetricDataResponse_metricData = Lens.lens (\GetContainerServiceMetricDataResponse' {metricData} -> metricData) (\s@GetContainerServiceMetricDataResponse' {} a -> s {metricData = a} :: GetContainerServiceMetricDataResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getContainerServiceMetricDataResponse_httpStatus :: Lens.Lens' GetContainerServiceMetricDataResponse Core.Int
+getContainerServiceMetricDataResponse_httpStatus :: Lens.Lens' GetContainerServiceMetricDataResponse Prelude.Int
 getContainerServiceMetricDataResponse_httpStatus = Lens.lens (\GetContainerServiceMetricDataResponse' {httpStatus} -> httpStatus) (\s@GetContainerServiceMetricDataResponse' {} a -> s {httpStatus = a} :: GetContainerServiceMetricDataResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetContainerServiceMetricDataResponse

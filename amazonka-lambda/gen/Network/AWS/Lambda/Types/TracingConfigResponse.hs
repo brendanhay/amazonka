@@ -22,15 +22,16 @@ module Network.AWS.Lambda.Types.TracingConfigResponse where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types.TracingMode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The function\'s AWS X-Ray tracing configuration.
 --
 -- /See:/ 'newTracingConfigResponse' smart constructor.
 data TracingConfigResponse = TracingConfigResponse'
   { -- | The tracing mode.
-    mode :: Core.Maybe TracingMode
+    mode :: Prelude.Maybe TracingMode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TracingConfigResponse' with all optional fields omitted.
@@ -44,10 +45,10 @@ data TracingConfigResponse = TracingConfigResponse'
 newTracingConfigResponse ::
   TracingConfigResponse
 newTracingConfigResponse =
-  TracingConfigResponse' {mode = Core.Nothing}
+  TracingConfigResponse' {mode = Prelude.Nothing}
 
 -- | The tracing mode.
-tracingConfigResponse_mode :: Lens.Lens' TracingConfigResponse (Core.Maybe TracingMode)
+tracingConfigResponse_mode :: Lens.Lens' TracingConfigResponse (Prelude.Maybe TracingMode)
 tracingConfigResponse_mode = Lens.lens (\TracingConfigResponse' {mode} -> mode) (\s@TracingConfigResponse' {} a -> s {mode = a} :: TracingConfigResponse)
 
 instance Core.FromJSON TracingConfigResponse where
@@ -55,9 +56,10 @@ instance Core.FromJSON TracingConfigResponse where
     Core.withObject
       "TracingConfigResponse"
       ( \x ->
-          TracingConfigResponse' Core.<$> (x Core..:? "Mode")
+          TracingConfigResponse'
+            Prelude.<$> (x Core..:? "Mode")
       )
 
-instance Core.Hashable TracingConfigResponse
+instance Prelude.Hashable TracingConfigResponse
 
-instance Core.NFData TracingConfigResponse
+instance Prelude.NFData TracingConfigResponse

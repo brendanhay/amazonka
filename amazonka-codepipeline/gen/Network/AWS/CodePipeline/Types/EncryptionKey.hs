@@ -22,6 +22,7 @@ module Network.AWS.CodePipeline.Types.EncryptionKey where
 import Network.AWS.CodePipeline.Types.EncryptionKeyType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about the key used to encrypt data in the
 -- artifact store, such as an AWS Key Management Service (AWS KMS) key.
@@ -34,13 +35,13 @@ data EncryptionKey = EncryptionKey'
     -- Aliases are recognized only in the account that created the customer
     -- master key (CMK). For cross-account actions, you can only use the key ID
     -- or key ARN to identify the key.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The type of encryption key, such as an AWS Key Management Service (AWS
     -- KMS) key. When creating or updating a pipeline, the value must be set to
     -- \'KMS\'.
     type' :: EncryptionKeyType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EncryptionKey' with all optional fields omitted.
@@ -62,7 +63,7 @@ data EncryptionKey = EncryptionKey'
 -- \'KMS\'.
 newEncryptionKey ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   EncryptionKeyType ->
   EncryptionKey
@@ -75,7 +76,7 @@ newEncryptionKey pId_ pType_ =
 -- Aliases are recognized only in the account that created the customer
 -- master key (CMK). For cross-account actions, you can only use the key ID
 -- or key ARN to identify the key.
-encryptionKey_id :: Lens.Lens' EncryptionKey Core.Text
+encryptionKey_id :: Lens.Lens' EncryptionKey Prelude.Text
 encryptionKey_id = Lens.lens (\EncryptionKey' {id} -> id) (\s@EncryptionKey' {} a -> s {id = a} :: EncryptionKey)
 
 -- | The type of encryption key, such as an AWS Key Management Service (AWS
@@ -90,18 +91,18 @@ instance Core.FromJSON EncryptionKey where
       "EncryptionKey"
       ( \x ->
           EncryptionKey'
-            Core.<$> (x Core..: "id") Core.<*> (x Core..: "type")
+            Prelude.<$> (x Core..: "id") Prelude.<*> (x Core..: "type")
       )
 
-instance Core.Hashable EncryptionKey
+instance Prelude.Hashable EncryptionKey
 
-instance Core.NFData EncryptionKey
+instance Prelude.NFData EncryptionKey
 
 instance Core.ToJSON EncryptionKey where
   toJSON EncryptionKey' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("id" Core..= id),
-            Core.Just ("type" Core..= type')
+      ( Prelude.catMaybes
+          [ Prelude.Just ("id" Core..= id),
+            Prelude.Just ("type" Core..= type')
           ]
       )

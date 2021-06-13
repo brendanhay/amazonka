@@ -52,18 +52,19 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDetachLoadBalancers' smart constructor.
 data DetachLoadBalancers = DetachLoadBalancers'
   { -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Core.Text,
+    autoScalingGroupName :: Prelude.Text,
     -- | The names of the load balancers. You can specify up to 10 load
     -- balancers.
-    loadBalancerNames :: [Core.Text]
+    loadBalancerNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachLoadBalancers' with all optional fields omitted.
@@ -79,23 +80,23 @@ data DetachLoadBalancers = DetachLoadBalancers'
 -- balancers.
 newDetachLoadBalancers ::
   -- | 'autoScalingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DetachLoadBalancers
 newDetachLoadBalancers pAutoScalingGroupName_ =
   DetachLoadBalancers'
     { autoScalingGroupName =
         pAutoScalingGroupName_,
-      loadBalancerNames = Core.mempty
+      loadBalancerNames = Prelude.mempty
     }
 
 -- | The name of the Auto Scaling group.
-detachLoadBalancers_autoScalingGroupName :: Lens.Lens' DetachLoadBalancers Core.Text
+detachLoadBalancers_autoScalingGroupName :: Lens.Lens' DetachLoadBalancers Prelude.Text
 detachLoadBalancers_autoScalingGroupName = Lens.lens (\DetachLoadBalancers' {autoScalingGroupName} -> autoScalingGroupName) (\s@DetachLoadBalancers' {} a -> s {autoScalingGroupName = a} :: DetachLoadBalancers)
 
 -- | The names of the load balancers. You can specify up to 10 load
 -- balancers.
-detachLoadBalancers_loadBalancerNames :: Lens.Lens' DetachLoadBalancers [Core.Text]
-detachLoadBalancers_loadBalancerNames = Lens.lens (\DetachLoadBalancers' {loadBalancerNames} -> loadBalancerNames) (\s@DetachLoadBalancers' {} a -> s {loadBalancerNames = a} :: DetachLoadBalancers) Core.. Lens._Coerce
+detachLoadBalancers_loadBalancerNames :: Lens.Lens' DetachLoadBalancers [Prelude.Text]
+detachLoadBalancers_loadBalancerNames = Lens.lens (\DetachLoadBalancers' {loadBalancerNames} -> loadBalancerNames) (\s@DetachLoadBalancers' {} a -> s {loadBalancerNames = a} :: DetachLoadBalancers) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DetachLoadBalancers where
   type
@@ -107,25 +108,26 @@ instance Core.AWSRequest DetachLoadBalancers where
       "DetachLoadBalancersResult"
       ( \s h x ->
           DetachLoadBalancersResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DetachLoadBalancers
+instance Prelude.Hashable DetachLoadBalancers
 
-instance Core.NFData DetachLoadBalancers
+instance Prelude.NFData DetachLoadBalancers
 
 instance Core.ToHeaders DetachLoadBalancers where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DetachLoadBalancers where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetachLoadBalancers where
   toQuery DetachLoadBalancers' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DetachLoadBalancers" :: Core.ByteString),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+          Core.=: ("DetachLoadBalancers" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "AutoScalingGroupName" Core.=: autoScalingGroupName,
         "LoadBalancerNames"
           Core.=: Core.toQueryList "member" loadBalancerNames
@@ -134,9 +136,9 @@ instance Core.ToQuery DetachLoadBalancers where
 -- | /See:/ 'newDetachLoadBalancersResponse' smart constructor.
 data DetachLoadBalancersResponse = DetachLoadBalancersResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachLoadBalancersResponse' with all optional fields omitted.
@@ -149,7 +151,7 @@ data DetachLoadBalancersResponse = DetachLoadBalancersResponse'
 -- 'httpStatus', 'detachLoadBalancersResponse_httpStatus' - The response's http status code.
 newDetachLoadBalancersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DetachLoadBalancersResponse
 newDetachLoadBalancersResponse pHttpStatus_ =
   DetachLoadBalancersResponse'
@@ -158,7 +160,7 @@ newDetachLoadBalancersResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-detachLoadBalancersResponse_httpStatus :: Lens.Lens' DetachLoadBalancersResponse Core.Int
+detachLoadBalancersResponse_httpStatus :: Lens.Lens' DetachLoadBalancersResponse Prelude.Int
 detachLoadBalancersResponse_httpStatus = Lens.lens (\DetachLoadBalancersResponse' {httpStatus} -> httpStatus) (\s@DetachLoadBalancersResponse' {} a -> s {httpStatus = a} :: DetachLoadBalancersResponse)
 
-instance Core.NFData DetachLoadBalancersResponse
+instance Prelude.NFData DetachLoadBalancersResponse

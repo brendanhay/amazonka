@@ -21,6 +21,7 @@ module Network.AWS.Shield.Types.AttackVectorDescription where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the attack.
 --
@@ -63,9 +64,9 @@ data AttackVectorDescription = AttackVectorDescription'
     -- -   UDS_REFLECTION
     --
     -- -   MEMCACHED_REFLECTION
-    vectorType :: Core.Text
+    vectorType :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttackVectorDescription' with all optional fields omitted.
@@ -114,7 +115,7 @@ data AttackVectorDescription = AttackVectorDescription'
 -- -   MEMCACHED_REFLECTION
 newAttackVectorDescription ::
   -- | 'vectorType'
-  Core.Text ->
+  Prelude.Text ->
   AttackVectorDescription
 newAttackVectorDescription pVectorType_ =
   AttackVectorDescription' {vectorType = pVectorType_}
@@ -156,7 +157,7 @@ newAttackVectorDescription pVectorType_ =
 -- -   UDS_REFLECTION
 --
 -- -   MEMCACHED_REFLECTION
-attackVectorDescription_vectorType :: Lens.Lens' AttackVectorDescription Core.Text
+attackVectorDescription_vectorType :: Lens.Lens' AttackVectorDescription Prelude.Text
 attackVectorDescription_vectorType = Lens.lens (\AttackVectorDescription' {vectorType} -> vectorType) (\s@AttackVectorDescription' {} a -> s {vectorType = a} :: AttackVectorDescription)
 
 instance Core.FromJSON AttackVectorDescription where
@@ -165,9 +166,9 @@ instance Core.FromJSON AttackVectorDescription where
       "AttackVectorDescription"
       ( \x ->
           AttackVectorDescription'
-            Core.<$> (x Core..: "VectorType")
+            Prelude.<$> (x Core..: "VectorType")
       )
 
-instance Core.Hashable AttackVectorDescription
+instance Prelude.Hashable AttackVectorDescription
 
-instance Core.NFData AttackVectorDescription
+instance Prelude.NFData AttackVectorDescription

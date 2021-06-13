@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +57,9 @@ data DeleteCertificate = DeleteCertificate'
     --
     -- Use the @GetCertificates@ action to get a list of certificate names that
     -- you can specify.
-    certificateName :: Core.Text
+    certificateName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCertificate' with all optional fields omitted.
@@ -74,7 +75,7 @@ data DeleteCertificate = DeleteCertificate'
 -- you can specify.
 newDeleteCertificate ::
   -- | 'certificateName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteCertificate
 newDeleteCertificate pCertificateName_ =
   DeleteCertificate'
@@ -86,7 +87,7 @@ newDeleteCertificate pCertificateName_ =
 --
 -- Use the @GetCertificates@ action to get a list of certificate names that
 -- you can specify.
-deleteCertificate_certificateName :: Lens.Lens' DeleteCertificate Core.Text
+deleteCertificate_certificateName :: Lens.Lens' DeleteCertificate Prelude.Text
 deleteCertificate_certificateName = Lens.lens (\DeleteCertificate' {certificateName} -> certificateName) (\s@DeleteCertificate' {} a -> s {certificateName = a} :: DeleteCertificate)
 
 instance Core.AWSRequest DeleteCertificate where
@@ -98,52 +99,54 @@ instance Core.AWSRequest DeleteCertificate where
     Response.receiveJSON
       ( \s h x ->
           DeleteCertificateResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteCertificate
+instance Prelude.Hashable DeleteCertificate
 
-instance Core.NFData DeleteCertificate
+instance Prelude.NFData DeleteCertificate
 
 instance Core.ToHeaders DeleteCertificate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.DeleteCertificate" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteCertificate where
   toJSON DeleteCertificate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("certificateName" Core..= certificateName)
           ]
       )
 
 instance Core.ToPath DeleteCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteCertificate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCertificateResponse' smart constructor.
 data DeleteCertificateResponse = DeleteCertificateResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCertificateResponse' with all optional fields omitted.
@@ -160,23 +163,23 @@ data DeleteCertificateResponse = DeleteCertificateResponse'
 -- 'httpStatus', 'deleteCertificateResponse_httpStatus' - The response's http status code.
 newDeleteCertificateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteCertificateResponse
 newDeleteCertificateResponse pHttpStatus_ =
   DeleteCertificateResponse'
     { operations =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-deleteCertificateResponse_operations :: Lens.Lens' DeleteCertificateResponse (Core.Maybe [Operation])
-deleteCertificateResponse_operations = Lens.lens (\DeleteCertificateResponse' {operations} -> operations) (\s@DeleteCertificateResponse' {} a -> s {operations = a} :: DeleteCertificateResponse) Core.. Lens.mapping Lens._Coerce
+deleteCertificateResponse_operations :: Lens.Lens' DeleteCertificateResponse (Prelude.Maybe [Operation])
+deleteCertificateResponse_operations = Lens.lens (\DeleteCertificateResponse' {operations} -> operations) (\s@DeleteCertificateResponse' {} a -> s {operations = a} :: DeleteCertificateResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteCertificateResponse_httpStatus :: Lens.Lens' DeleteCertificateResponse Core.Int
+deleteCertificateResponse_httpStatus :: Lens.Lens' DeleteCertificateResponse Prelude.Int
 deleteCertificateResponse_httpStatus = Lens.lens (\DeleteCertificateResponse' {httpStatus} -> httpStatus) (\s@DeleteCertificateResponse' {} a -> s {httpStatus = a} :: DeleteCertificateResponse)
 
-instance Core.NFData DeleteCertificateResponse
+instance Prelude.NFData DeleteCertificateResponse

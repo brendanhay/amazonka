@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.SimulateReservedQueue
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Enable this setting when you run a test job to estimate how many
 -- reserved transcoding slots (RTS) you need. When this is enabled,
@@ -38,15 +39,15 @@ newtype SimulateReservedQueue = SimulateReservedQueue'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

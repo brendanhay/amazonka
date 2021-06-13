@@ -21,6 +21,7 @@ module Network.AWS.IAM.Types.OrganizationsDecisionDetail where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the effect that Organizations has on a policy
 -- simulation.
@@ -30,9 +31,9 @@ data OrganizationsDecisionDetail = OrganizationsDecisionDetail'
   { -- | Specifies whether the simulated operation is allowed by the
     -- Organizations service control policies that impact the simulated user\'s
     -- account.
-    allowedByOrganizations :: Core.Maybe Core.Bool
+    allowedByOrganizations :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OrganizationsDecisionDetail' with all optional fields omitted.
@@ -50,20 +51,20 @@ newOrganizationsDecisionDetail ::
 newOrganizationsDecisionDetail =
   OrganizationsDecisionDetail'
     { allowedByOrganizations =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Specifies whether the simulated operation is allowed by the
 -- Organizations service control policies that impact the simulated user\'s
 -- account.
-organizationsDecisionDetail_allowedByOrganizations :: Lens.Lens' OrganizationsDecisionDetail (Core.Maybe Core.Bool)
+organizationsDecisionDetail_allowedByOrganizations :: Lens.Lens' OrganizationsDecisionDetail (Prelude.Maybe Prelude.Bool)
 organizationsDecisionDetail_allowedByOrganizations = Lens.lens (\OrganizationsDecisionDetail' {allowedByOrganizations} -> allowedByOrganizations) (\s@OrganizationsDecisionDetail' {} a -> s {allowedByOrganizations = a} :: OrganizationsDecisionDetail)
 
 instance Core.FromXML OrganizationsDecisionDetail where
   parseXML x =
     OrganizationsDecisionDetail'
-      Core.<$> (x Core..@? "AllowedByOrganizations")
+      Prelude.<$> (x Core..@? "AllowedByOrganizations")
 
-instance Core.Hashable OrganizationsDecisionDetail
+instance Prelude.Hashable OrganizationsDecisionDetail
 
-instance Core.NFData OrganizationsDecisionDetail
+instance Prelude.NFData OrganizationsDecisionDetail

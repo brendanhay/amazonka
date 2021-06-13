@@ -21,17 +21,18 @@ module Network.AWS.ElasticBeanstalk.Types.Listener where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the properties of a Listener for the LoadBalancer.
 --
 -- /See:/ 'newListener' smart constructor.
 data Listener = Listener'
   { -- | The port that is used by the Listener.
-    port :: Core.Maybe Core.Int,
+    port :: Prelude.Maybe Prelude.Int,
     -- | The protocol that is used by the Listener.
-    protocol :: Core.Maybe Core.Text
+    protocol :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Listener' with all optional fields omitted.
@@ -48,23 +49,24 @@ newListener ::
   Listener
 newListener =
   Listener'
-    { port = Core.Nothing,
-      protocol = Core.Nothing
+    { port = Prelude.Nothing,
+      protocol = Prelude.Nothing
     }
 
 -- | The port that is used by the Listener.
-listener_port :: Lens.Lens' Listener (Core.Maybe Core.Int)
+listener_port :: Lens.Lens' Listener (Prelude.Maybe Prelude.Int)
 listener_port = Lens.lens (\Listener' {port} -> port) (\s@Listener' {} a -> s {port = a} :: Listener)
 
 -- | The protocol that is used by the Listener.
-listener_protocol :: Lens.Lens' Listener (Core.Maybe Core.Text)
+listener_protocol :: Lens.Lens' Listener (Prelude.Maybe Prelude.Text)
 listener_protocol = Lens.lens (\Listener' {protocol} -> protocol) (\s@Listener' {} a -> s {protocol = a} :: Listener)
 
 instance Core.FromXML Listener where
   parseXML x =
     Listener'
-      Core.<$> (x Core..@? "Port") Core.<*> (x Core..@? "Protocol")
+      Prelude.<$> (x Core..@? "Port")
+      Prelude.<*> (x Core..@? "Protocol")
 
-instance Core.Hashable Listener
+instance Prelude.Hashable Listener
 
-instance Core.NFData Listener
+instance Prelude.NFData Listener

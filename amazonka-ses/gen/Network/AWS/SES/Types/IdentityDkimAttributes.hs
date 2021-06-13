@@ -21,6 +21,7 @@ module Network.AWS.SES.Types.IdentityDkimAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.VerificationStatus
 
 -- | Represents the DKIM attributes of a verified email address or a domain.
@@ -38,16 +39,16 @@ data IdentityDkimAttributes = IdentityDkimAttributes'
     -- For more information about creating DNS records using DKIM tokens, see
     -- the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide>.
-    dkimTokens :: Core.Maybe [Core.Text],
+    dkimTokens :: Prelude.Maybe [Prelude.Text],
     -- | Is true if DKIM signing is enabled for email sent from the identity.
     -- It\'s false otherwise. The default value is true.
-    dkimEnabled :: Core.Bool,
+    dkimEnabled :: Prelude.Bool,
     -- | Describes whether Amazon SES has successfully verified the DKIM DNS
     -- records (tokens) published in the domain name\'s DNS. (This only applies
     -- to domain identities, not email address identities.)
     dkimVerificationStatus :: VerificationStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IdentityDkimAttributes' with all optional fields omitted.
@@ -77,7 +78,7 @@ data IdentityDkimAttributes = IdentityDkimAttributes'
 -- to domain identities, not email address identities.)
 newIdentityDkimAttributes ::
   -- | 'dkimEnabled'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'dkimVerificationStatus'
   VerificationStatus ->
   IdentityDkimAttributes
@@ -85,7 +86,8 @@ newIdentityDkimAttributes
   pDkimEnabled_
   pDkimVerificationStatus_ =
     IdentityDkimAttributes'
-      { dkimTokens = Core.Nothing,
+      { dkimTokens =
+          Prelude.Nothing,
         dkimEnabled = pDkimEnabled_,
         dkimVerificationStatus = pDkimVerificationStatus_
       }
@@ -101,12 +103,12 @@ newIdentityDkimAttributes
 -- For more information about creating DNS records using DKIM tokens, see
 -- the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide>.
-identityDkimAttributes_dkimTokens :: Lens.Lens' IdentityDkimAttributes (Core.Maybe [Core.Text])
-identityDkimAttributes_dkimTokens = Lens.lens (\IdentityDkimAttributes' {dkimTokens} -> dkimTokens) (\s@IdentityDkimAttributes' {} a -> s {dkimTokens = a} :: IdentityDkimAttributes) Core.. Lens.mapping Lens._Coerce
+identityDkimAttributes_dkimTokens :: Lens.Lens' IdentityDkimAttributes (Prelude.Maybe [Prelude.Text])
+identityDkimAttributes_dkimTokens = Lens.lens (\IdentityDkimAttributes' {dkimTokens} -> dkimTokens) (\s@IdentityDkimAttributes' {} a -> s {dkimTokens = a} :: IdentityDkimAttributes) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Is true if DKIM signing is enabled for email sent from the identity.
 -- It\'s false otherwise. The default value is true.
-identityDkimAttributes_dkimEnabled :: Lens.Lens' IdentityDkimAttributes Core.Bool
+identityDkimAttributes_dkimEnabled :: Lens.Lens' IdentityDkimAttributes Prelude.Bool
 identityDkimAttributes_dkimEnabled = Lens.lens (\IdentityDkimAttributes' {dkimEnabled} -> dkimEnabled) (\s@IdentityDkimAttributes' {} a -> s {dkimEnabled = a} :: IdentityDkimAttributes)
 
 -- | Describes whether Amazon SES has successfully verified the DKIM DNS
@@ -118,12 +120,12 @@ identityDkimAttributes_dkimVerificationStatus = Lens.lens (\IdentityDkimAttribut
 instance Core.FromXML IdentityDkimAttributes where
   parseXML x =
     IdentityDkimAttributes'
-      Core.<$> ( x Core..@? "DkimTokens" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@ "DkimEnabled")
-      Core.<*> (x Core..@ "DkimVerificationStatus")
+      Prelude.<$> ( x Core..@? "DkimTokens" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@ "DkimEnabled")
+      Prelude.<*> (x Core..@ "DkimVerificationStatus")
 
-instance Core.Hashable IdentityDkimAttributes
+instance Prelude.Hashable IdentityDkimAttributes
 
-instance Core.NFData IdentityDkimAttributes
+instance Prelude.NFData IdentityDkimAttributes

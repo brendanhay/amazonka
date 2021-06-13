@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ data DeleteRecommenderConfiguration = DeleteRecommenderConfiguration'
   { -- | The unique identifier for the recommender model configuration. This
     -- identifier is displayed as the __Recommender ID__ on the Amazon Pinpoint
     -- console.
-    recommenderId :: Core.Text
+    recommenderId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRecommenderConfiguration' with all optional fields omitted.
@@ -67,7 +68,7 @@ data DeleteRecommenderConfiguration = DeleteRecommenderConfiguration'
 -- console.
 newDeleteRecommenderConfiguration ::
   -- | 'recommenderId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRecommenderConfiguration
 newDeleteRecommenderConfiguration pRecommenderId_ =
   DeleteRecommenderConfiguration'
@@ -78,7 +79,7 @@ newDeleteRecommenderConfiguration pRecommenderId_ =
 -- | The unique identifier for the recommender model configuration. This
 -- identifier is displayed as the __Recommender ID__ on the Amazon Pinpoint
 -- console.
-deleteRecommenderConfiguration_recommenderId :: Lens.Lens' DeleteRecommenderConfiguration Core.Text
+deleteRecommenderConfiguration_recommenderId :: Lens.Lens' DeleteRecommenderConfiguration Prelude.Text
 deleteRecommenderConfiguration_recommenderId = Lens.lens (\DeleteRecommenderConfiguration' {recommenderId} -> recommenderId) (\s@DeleteRecommenderConfiguration' {} a -> s {recommenderId = a} :: DeleteRecommenderConfiguration)
 
 instance
@@ -93,41 +94,47 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteRecommenderConfigurationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable DeleteRecommenderConfiguration
+instance
+  Prelude.Hashable
+    DeleteRecommenderConfiguration
 
-instance Core.NFData DeleteRecommenderConfiguration
+instance
+  Prelude.NFData
+    DeleteRecommenderConfiguration
 
 instance
   Core.ToHeaders
     DeleteRecommenderConfiguration
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteRecommenderConfiguration where
   toPath DeleteRecommenderConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/recommenders/", Core.toBS recommenderId]
 
 instance Core.ToQuery DeleteRecommenderConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRecommenderConfigurationResponse' smart constructor.
 data DeleteRecommenderConfigurationResponse = DeleteRecommenderConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     recommenderConfigurationResponse :: RecommenderConfigurationResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRecommenderConfigurationResponse' with all optional fields omitted.
@@ -142,7 +149,7 @@ data DeleteRecommenderConfigurationResponse = DeleteRecommenderConfigurationResp
 -- 'recommenderConfigurationResponse', 'deleteRecommenderConfigurationResponse_recommenderConfigurationResponse' - Undocumented member.
 newDeleteRecommenderConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'recommenderConfigurationResponse'
   RecommenderConfigurationResponse ->
   DeleteRecommenderConfigurationResponse
@@ -157,7 +164,7 @@ newDeleteRecommenderConfigurationResponse
       }
 
 -- | The response's http status code.
-deleteRecommenderConfigurationResponse_httpStatus :: Lens.Lens' DeleteRecommenderConfigurationResponse Core.Int
+deleteRecommenderConfigurationResponse_httpStatus :: Lens.Lens' DeleteRecommenderConfigurationResponse Prelude.Int
 deleteRecommenderConfigurationResponse_httpStatus = Lens.lens (\DeleteRecommenderConfigurationResponse' {httpStatus} -> httpStatus) (\s@DeleteRecommenderConfigurationResponse' {} a -> s {httpStatus = a} :: DeleteRecommenderConfigurationResponse)
 
 -- | Undocumented member.
@@ -165,5 +172,5 @@ deleteRecommenderConfigurationResponse_recommenderConfigurationResponse :: Lens.
 deleteRecommenderConfigurationResponse_recommenderConfigurationResponse = Lens.lens (\DeleteRecommenderConfigurationResponse' {recommenderConfigurationResponse} -> recommenderConfigurationResponse) (\s@DeleteRecommenderConfigurationResponse' {} a -> s {recommenderConfigurationResponse = a} :: DeleteRecommenderConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteRecommenderConfigurationResponse

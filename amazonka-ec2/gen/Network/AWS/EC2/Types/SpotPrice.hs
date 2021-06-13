@@ -24,6 +24,7 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceType
 import Network.AWS.EC2.Types.RIProductDescription
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the maximum price per hour that you are willing to pay for a
 -- Spot Instance.
@@ -31,19 +32,19 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSpotPrice' smart constructor.
 data SpotPrice = SpotPrice'
   { -- | The instance type.
-    instanceType :: Core.Maybe InstanceType,
+    instanceType :: Prelude.Maybe InstanceType,
     -- | The maximum price per hour that you are willing to pay for a Spot
     -- Instance.
-    spotPrice :: Core.Maybe Core.Text,
+    spotPrice :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The date and time the request was created, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    timestamp :: Core.Maybe Core.ISO8601,
+    timestamp :: Prelude.Maybe Core.ISO8601,
     -- | A general description of the AMI.
-    productDescription :: Core.Maybe RIProductDescription
+    productDescription :: Prelude.Maybe RIProductDescription
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SpotPrice' with all optional fields omitted.
@@ -68,44 +69,44 @@ newSpotPrice ::
   SpotPrice
 newSpotPrice =
   SpotPrice'
-    { instanceType = Core.Nothing,
-      spotPrice = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      timestamp = Core.Nothing,
-      productDescription = Core.Nothing
+    { instanceType = Prelude.Nothing,
+      spotPrice = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
+      productDescription = Prelude.Nothing
     }
 
 -- | The instance type.
-spotPrice_instanceType :: Lens.Lens' SpotPrice (Core.Maybe InstanceType)
+spotPrice_instanceType :: Lens.Lens' SpotPrice (Prelude.Maybe InstanceType)
 spotPrice_instanceType = Lens.lens (\SpotPrice' {instanceType} -> instanceType) (\s@SpotPrice' {} a -> s {instanceType = a} :: SpotPrice)
 
 -- | The maximum price per hour that you are willing to pay for a Spot
 -- Instance.
-spotPrice_spotPrice :: Lens.Lens' SpotPrice (Core.Maybe Core.Text)
+spotPrice_spotPrice :: Lens.Lens' SpotPrice (Prelude.Maybe Prelude.Text)
 spotPrice_spotPrice = Lens.lens (\SpotPrice' {spotPrice} -> spotPrice) (\s@SpotPrice' {} a -> s {spotPrice = a} :: SpotPrice)
 
 -- | The Availability Zone.
-spotPrice_availabilityZone :: Lens.Lens' SpotPrice (Core.Maybe Core.Text)
+spotPrice_availabilityZone :: Lens.Lens' SpotPrice (Prelude.Maybe Prelude.Text)
 spotPrice_availabilityZone = Lens.lens (\SpotPrice' {availabilityZone} -> availabilityZone) (\s@SpotPrice' {} a -> s {availabilityZone = a} :: SpotPrice)
 
 -- | The date and time the request was created, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-spotPrice_timestamp :: Lens.Lens' SpotPrice (Core.Maybe Core.UTCTime)
-spotPrice_timestamp = Lens.lens (\SpotPrice' {timestamp} -> timestamp) (\s@SpotPrice' {} a -> s {timestamp = a} :: SpotPrice) Core.. Lens.mapping Core._Time
+spotPrice_timestamp :: Lens.Lens' SpotPrice (Prelude.Maybe Prelude.UTCTime)
+spotPrice_timestamp = Lens.lens (\SpotPrice' {timestamp} -> timestamp) (\s@SpotPrice' {} a -> s {timestamp = a} :: SpotPrice) Prelude.. Lens.mapping Core._Time
 
 -- | A general description of the AMI.
-spotPrice_productDescription :: Lens.Lens' SpotPrice (Core.Maybe RIProductDescription)
+spotPrice_productDescription :: Lens.Lens' SpotPrice (Prelude.Maybe RIProductDescription)
 spotPrice_productDescription = Lens.lens (\SpotPrice' {productDescription} -> productDescription) (\s@SpotPrice' {} a -> s {productDescription = a} :: SpotPrice)
 
 instance Core.FromXML SpotPrice where
   parseXML x =
     SpotPrice'
-      Core.<$> (x Core..@? "instanceType")
-      Core.<*> (x Core..@? "spotPrice")
-      Core.<*> (x Core..@? "availabilityZone")
-      Core.<*> (x Core..@? "timestamp")
-      Core.<*> (x Core..@? "productDescription")
+      Prelude.<$> (x Core..@? "instanceType")
+      Prelude.<*> (x Core..@? "spotPrice")
+      Prelude.<*> (x Core..@? "availabilityZone")
+      Prelude.<*> (x Core..@? "timestamp")
+      Prelude.<*> (x Core..@? "productDescription")
 
-instance Core.Hashable SpotPrice
+instance Prelude.Hashable SpotPrice
 
-instance Core.NFData SpotPrice
+instance Prelude.NFData SpotPrice

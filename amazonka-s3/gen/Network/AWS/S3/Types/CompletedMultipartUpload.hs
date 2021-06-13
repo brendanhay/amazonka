@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.CompletedMultipartUpload where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.CompletedPart
 
@@ -29,9 +30,9 @@ import Network.AWS.S3.Types.CompletedPart
 -- /See:/ 'newCompletedMultipartUpload' smart constructor.
 data CompletedMultipartUpload = CompletedMultipartUpload'
   { -- | Array of CompletedPart data types.
-    parts :: Core.Maybe (Core.NonEmpty CompletedPart)
+    parts :: Prelude.Maybe (Prelude.NonEmpty CompletedPart)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CompletedMultipartUpload' with all optional fields omitted.
@@ -45,17 +46,19 @@ data CompletedMultipartUpload = CompletedMultipartUpload'
 newCompletedMultipartUpload ::
   CompletedMultipartUpload
 newCompletedMultipartUpload =
-  CompletedMultipartUpload' {parts = Core.Nothing}
+  CompletedMultipartUpload' {parts = Prelude.Nothing}
 
 -- | Array of CompletedPart data types.
-completedMultipartUpload_parts :: Lens.Lens' CompletedMultipartUpload (Core.Maybe (Core.NonEmpty CompletedPart))
-completedMultipartUpload_parts = Lens.lens (\CompletedMultipartUpload' {parts} -> parts) (\s@CompletedMultipartUpload' {} a -> s {parts = a} :: CompletedMultipartUpload) Core.. Lens.mapping Lens._Coerce
+completedMultipartUpload_parts :: Lens.Lens' CompletedMultipartUpload (Prelude.Maybe (Prelude.NonEmpty CompletedPart))
+completedMultipartUpload_parts = Lens.lens (\CompletedMultipartUpload' {parts} -> parts) (\s@CompletedMultipartUpload' {} a -> s {parts = a} :: CompletedMultipartUpload) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable CompletedMultipartUpload
+instance Prelude.Hashable CompletedMultipartUpload
 
-instance Core.NFData CompletedMultipartUpload
+instance Prelude.NFData CompletedMultipartUpload
 
 instance Core.ToXML CompletedMultipartUpload where
   toXML CompletedMultipartUpload' {..} =
-    Core.mconcat
-      [Core.toXML (Core.toXMLList "Part" Core.<$> parts)]
+    Prelude.mconcat
+      [ Core.toXML
+          (Core.toXMLList "Part" Prelude.<$> parts)
+      ]

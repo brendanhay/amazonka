@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.LabelingJobSnsDataSource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An Amazon SNS data source used for streaming labeling jobs.
 --
@@ -32,9 +33,9 @@ data LabelingJobSnsDataSource = LabelingJobSnsDataSource'
     --
     -- If you specify an input topic for @SnsTopicArn@ in @InputConfig@, you
     -- must specify a value for @SnsTopicArn@ in @OutputConfig@.
-    snsTopicArn :: Core.Text
+    snsTopicArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LabelingJobSnsDataSource' with all optional fields omitted.
@@ -52,7 +53,7 @@ data LabelingJobSnsDataSource = LabelingJobSnsDataSource'
 -- must specify a value for @SnsTopicArn@ in @OutputConfig@.
 newLabelingJobSnsDataSource ::
   -- | 'snsTopicArn'
-  Core.Text ->
+  Prelude.Text ->
   LabelingJobSnsDataSource
 newLabelingJobSnsDataSource pSnsTopicArn_ =
   LabelingJobSnsDataSource'
@@ -66,7 +67,7 @@ newLabelingJobSnsDataSource pSnsTopicArn_ =
 --
 -- If you specify an input topic for @SnsTopicArn@ in @InputConfig@, you
 -- must specify a value for @SnsTopicArn@ in @OutputConfig@.
-labelingJobSnsDataSource_snsTopicArn :: Lens.Lens' LabelingJobSnsDataSource Core.Text
+labelingJobSnsDataSource_snsTopicArn :: Lens.Lens' LabelingJobSnsDataSource Prelude.Text
 labelingJobSnsDataSource_snsTopicArn = Lens.lens (\LabelingJobSnsDataSource' {snsTopicArn} -> snsTopicArn) (\s@LabelingJobSnsDataSource' {} a -> s {snsTopicArn = a} :: LabelingJobSnsDataSource)
 
 instance Core.FromJSON LabelingJobSnsDataSource where
@@ -75,16 +76,16 @@ instance Core.FromJSON LabelingJobSnsDataSource where
       "LabelingJobSnsDataSource"
       ( \x ->
           LabelingJobSnsDataSource'
-            Core.<$> (x Core..: "SnsTopicArn")
+            Prelude.<$> (x Core..: "SnsTopicArn")
       )
 
-instance Core.Hashable LabelingJobSnsDataSource
+instance Prelude.Hashable LabelingJobSnsDataSource
 
-instance Core.NFData LabelingJobSnsDataSource
+instance Prelude.NFData LabelingJobSnsDataSource
 
 instance Core.ToJSON LabelingJobSnsDataSource where
   toJSON LabelingJobSnsDataSource' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("SnsTopicArn" Core..= snsTopicArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("SnsTopicArn" Core..= snsTopicArn)]
       )

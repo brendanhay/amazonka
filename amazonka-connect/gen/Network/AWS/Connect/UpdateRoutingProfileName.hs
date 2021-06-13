@@ -43,22 +43,23 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateRoutingProfileName' smart constructor.
 data UpdateRoutingProfileName = UpdateRoutingProfileName'
   { -- | The name of the routing profile. Must not be more than 127 characters.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The description of the routing profile. Must not be more than 250
     -- characters.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The identifier of the routing profile.
-    routingProfileId :: Core.Text
+    routingProfileId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRoutingProfileName' with all optional fields omitted.
@@ -78,35 +79,35 @@ data UpdateRoutingProfileName = UpdateRoutingProfileName'
 -- 'routingProfileId', 'updateRoutingProfileName_routingProfileId' - The identifier of the routing profile.
 newUpdateRoutingProfileName ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'routingProfileId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateRoutingProfileName
 newUpdateRoutingProfileName
   pInstanceId_
   pRoutingProfileId_ =
     UpdateRoutingProfileName'
-      { name = Core.Nothing,
-        description = Core.Nothing,
+      { name = Prelude.Nothing,
+        description = Prelude.Nothing,
         instanceId = pInstanceId_,
         routingProfileId = pRoutingProfileId_
       }
 
 -- | The name of the routing profile. Must not be more than 127 characters.
-updateRoutingProfileName_name :: Lens.Lens' UpdateRoutingProfileName (Core.Maybe Core.Text)
+updateRoutingProfileName_name :: Lens.Lens' UpdateRoutingProfileName (Prelude.Maybe Prelude.Text)
 updateRoutingProfileName_name = Lens.lens (\UpdateRoutingProfileName' {name} -> name) (\s@UpdateRoutingProfileName' {} a -> s {name = a} :: UpdateRoutingProfileName)
 
 -- | The description of the routing profile. Must not be more than 250
 -- characters.
-updateRoutingProfileName_description :: Lens.Lens' UpdateRoutingProfileName (Core.Maybe Core.Text)
+updateRoutingProfileName_description :: Lens.Lens' UpdateRoutingProfileName (Prelude.Maybe Prelude.Text)
 updateRoutingProfileName_description = Lens.lens (\UpdateRoutingProfileName' {description} -> description) (\s@UpdateRoutingProfileName' {} a -> s {description = a} :: UpdateRoutingProfileName)
 
 -- | The identifier of the Amazon Connect instance.
-updateRoutingProfileName_instanceId :: Lens.Lens' UpdateRoutingProfileName Core.Text
+updateRoutingProfileName_instanceId :: Lens.Lens' UpdateRoutingProfileName Prelude.Text
 updateRoutingProfileName_instanceId = Lens.lens (\UpdateRoutingProfileName' {instanceId} -> instanceId) (\s@UpdateRoutingProfileName' {} a -> s {instanceId = a} :: UpdateRoutingProfileName)
 
 -- | The identifier of the routing profile.
-updateRoutingProfileName_routingProfileId :: Lens.Lens' UpdateRoutingProfileName Core.Text
+updateRoutingProfileName_routingProfileId :: Lens.Lens' UpdateRoutingProfileName Prelude.Text
 updateRoutingProfileName_routingProfileId = Lens.lens (\UpdateRoutingProfileName' {routingProfileId} -> routingProfileId) (\s@UpdateRoutingProfileName' {} a -> s {routingProfileId = a} :: UpdateRoutingProfileName)
 
 instance Core.AWSRequest UpdateRoutingProfileName where
@@ -118,31 +119,33 @@ instance Core.AWSRequest UpdateRoutingProfileName where
     Response.receiveNull
       UpdateRoutingProfileNameResponse'
 
-instance Core.Hashable UpdateRoutingProfileName
+instance Prelude.Hashable UpdateRoutingProfileName
 
-instance Core.NFData UpdateRoutingProfileName
+instance Prelude.NFData UpdateRoutingProfileName
 
 instance Core.ToHeaders UpdateRoutingProfileName where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateRoutingProfileName where
   toJSON UpdateRoutingProfileName' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Name" Core..=) Core.<$> name,
-            ("Description" Core..=) Core.<$> description
+      ( Prelude.catMaybes
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Description" Core..=) Prelude.<$> description
           ]
       )
 
 instance Core.ToPath UpdateRoutingProfileName where
   toPath UpdateRoutingProfileName' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/routing-profiles/",
         Core.toBS instanceId,
         "/",
@@ -151,13 +154,13 @@ instance Core.ToPath UpdateRoutingProfileName where
       ]
 
 instance Core.ToQuery UpdateRoutingProfileName where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRoutingProfileNameResponse' smart constructor.
 data UpdateRoutingProfileNameResponse = UpdateRoutingProfileNameResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRoutingProfileNameResponse' with all optional fields omitted.
@@ -168,4 +171,6 @@ newUpdateRoutingProfileNameResponse ::
 newUpdateRoutingProfileNameResponse =
   UpdateRoutingProfileNameResponse'
 
-instance Core.NFData UpdateRoutingProfileNameResponse
+instance
+  Prelude.NFData
+    UpdateRoutingProfileNameResponse

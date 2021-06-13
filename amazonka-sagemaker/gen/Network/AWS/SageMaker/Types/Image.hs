@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.Image where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ImageStatus
 
 -- | A SageMaker image. A SageMaker image represents a set of container
@@ -31,23 +32,23 @@ import Network.AWS.SageMaker.Types.ImageStatus
 data Image = Image'
   { -- | When a create, update, or delete operation fails, the reason for the
     -- failure.
-    failureReason :: Core.Maybe Core.Text,
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The description of the image.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the image as displayed.
-    displayName :: Core.Maybe Core.Text,
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | When the image was created.
     creationTime :: Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the image.
-    imageArn :: Core.Text,
+    imageArn :: Prelude.Text,
     -- | The name of the image.
-    imageName :: Core.Text,
+    imageName :: Prelude.Text,
     -- | The status of the image.
     imageStatus :: ImageStatus,
     -- | When the image was last modified.
     lastModifiedTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Image' with all optional fields omitted.
@@ -75,15 +76,15 @@ data Image = Image'
 -- 'lastModifiedTime', 'image_lastModifiedTime' - When the image was last modified.
 newImage ::
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'imageArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'imageName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'imageStatus'
   ImageStatus ->
   -- | 'lastModifiedTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   Image
 newImage
   pCreationTime_
@@ -92,9 +93,9 @@ newImage
   pImageStatus_
   pLastModifiedTime_ =
     Image'
-      { failureReason = Core.Nothing,
-        description = Core.Nothing,
-        displayName = Core.Nothing,
+      { failureReason = Prelude.Nothing,
+        description = Prelude.Nothing,
+        displayName = Prelude.Nothing,
         creationTime = Core._Time Lens.# pCreationTime_,
         imageArn = pImageArn_,
         imageName = pImageName_,
@@ -105,27 +106,27 @@ newImage
 
 -- | When a create, update, or delete operation fails, the reason for the
 -- failure.
-image_failureReason :: Lens.Lens' Image (Core.Maybe Core.Text)
+image_failureReason :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_failureReason = Lens.lens (\Image' {failureReason} -> failureReason) (\s@Image' {} a -> s {failureReason = a} :: Image)
 
 -- | The description of the image.
-image_description :: Lens.Lens' Image (Core.Maybe Core.Text)
+image_description :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_description = Lens.lens (\Image' {description} -> description) (\s@Image' {} a -> s {description = a} :: Image)
 
 -- | The name of the image as displayed.
-image_displayName :: Lens.Lens' Image (Core.Maybe Core.Text)
+image_displayName :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_displayName = Lens.lens (\Image' {displayName} -> displayName) (\s@Image' {} a -> s {displayName = a} :: Image)
 
 -- | When the image was created.
-image_creationTime :: Lens.Lens' Image Core.UTCTime
-image_creationTime = Lens.lens (\Image' {creationTime} -> creationTime) (\s@Image' {} a -> s {creationTime = a} :: Image) Core.. Core._Time
+image_creationTime :: Lens.Lens' Image Prelude.UTCTime
+image_creationTime = Lens.lens (\Image' {creationTime} -> creationTime) (\s@Image' {} a -> s {creationTime = a} :: Image) Prelude.. Core._Time
 
 -- | The Amazon Resource Name (ARN) of the image.
-image_imageArn :: Lens.Lens' Image Core.Text
+image_imageArn :: Lens.Lens' Image Prelude.Text
 image_imageArn = Lens.lens (\Image' {imageArn} -> imageArn) (\s@Image' {} a -> s {imageArn = a} :: Image)
 
 -- | The name of the image.
-image_imageName :: Lens.Lens' Image Core.Text
+image_imageName :: Lens.Lens' Image Prelude.Text
 image_imageName = Lens.lens (\Image' {imageName} -> imageName) (\s@Image' {} a -> s {imageName = a} :: Image)
 
 -- | The status of the image.
@@ -133,8 +134,8 @@ image_imageStatus :: Lens.Lens' Image ImageStatus
 image_imageStatus = Lens.lens (\Image' {imageStatus} -> imageStatus) (\s@Image' {} a -> s {imageStatus = a} :: Image)
 
 -- | When the image was last modified.
-image_lastModifiedTime :: Lens.Lens' Image Core.UTCTime
-image_lastModifiedTime = Lens.lens (\Image' {lastModifiedTime} -> lastModifiedTime) (\s@Image' {} a -> s {lastModifiedTime = a} :: Image) Core.. Core._Time
+image_lastModifiedTime :: Lens.Lens' Image Prelude.UTCTime
+image_lastModifiedTime = Lens.lens (\Image' {lastModifiedTime} -> lastModifiedTime) (\s@Image' {} a -> s {lastModifiedTime = a} :: Image) Prelude.. Core._Time
 
 instance Core.FromJSON Image where
   parseJSON =
@@ -142,16 +143,16 @@ instance Core.FromJSON Image where
       "Image"
       ( \x ->
           Image'
-            Core.<$> (x Core..:? "FailureReason")
-            Core.<*> (x Core..:? "Description")
-            Core.<*> (x Core..:? "DisplayName")
-            Core.<*> (x Core..: "CreationTime")
-            Core.<*> (x Core..: "ImageArn")
-            Core.<*> (x Core..: "ImageName")
-            Core.<*> (x Core..: "ImageStatus")
-            Core.<*> (x Core..: "LastModifiedTime")
+            Prelude.<$> (x Core..:? "FailureReason")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "DisplayName")
+            Prelude.<*> (x Core..: "CreationTime")
+            Prelude.<*> (x Core..: "ImageArn")
+            Prelude.<*> (x Core..: "ImageName")
+            Prelude.<*> (x Core..: "ImageStatus")
+            Prelude.<*> (x Core..: "LastModifiedTime")
       )
 
-instance Core.Hashable Image
+instance Prelude.Hashable Image
 
-instance Core.NFData Image
+instance Prelude.NFData Image

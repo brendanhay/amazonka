@@ -24,21 +24,22 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.SnapshotTaskDetail
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an import snapshot task.
 --
 -- /See:/ 'newImportSnapshotTask' smart constructor.
 data ImportSnapshotTask = ImportSnapshotTask'
   { -- | Describes an import snapshot task.
-    snapshotTaskDetail :: Core.Maybe SnapshotTaskDetail,
+    snapshotTaskDetail :: Prelude.Maybe SnapshotTaskDetail,
     -- | The ID of the import snapshot task.
-    importTaskId :: Core.Maybe Core.Text,
+    importTaskId :: Prelude.Maybe Prelude.Text,
     -- | The tags for the import snapshot task.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A description of the import snapshot task.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportSnapshotTask' with all optional fields omitted.
@@ -60,38 +61,38 @@ newImportSnapshotTask ::
 newImportSnapshotTask =
   ImportSnapshotTask'
     { snapshotTaskDetail =
-        Core.Nothing,
-      importTaskId = Core.Nothing,
-      tags = Core.Nothing,
-      description = Core.Nothing
+        Prelude.Nothing,
+      importTaskId = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | Describes an import snapshot task.
-importSnapshotTask_snapshotTaskDetail :: Lens.Lens' ImportSnapshotTask (Core.Maybe SnapshotTaskDetail)
+importSnapshotTask_snapshotTaskDetail :: Lens.Lens' ImportSnapshotTask (Prelude.Maybe SnapshotTaskDetail)
 importSnapshotTask_snapshotTaskDetail = Lens.lens (\ImportSnapshotTask' {snapshotTaskDetail} -> snapshotTaskDetail) (\s@ImportSnapshotTask' {} a -> s {snapshotTaskDetail = a} :: ImportSnapshotTask)
 
 -- | The ID of the import snapshot task.
-importSnapshotTask_importTaskId :: Lens.Lens' ImportSnapshotTask (Core.Maybe Core.Text)
+importSnapshotTask_importTaskId :: Lens.Lens' ImportSnapshotTask (Prelude.Maybe Prelude.Text)
 importSnapshotTask_importTaskId = Lens.lens (\ImportSnapshotTask' {importTaskId} -> importTaskId) (\s@ImportSnapshotTask' {} a -> s {importTaskId = a} :: ImportSnapshotTask)
 
 -- | The tags for the import snapshot task.
-importSnapshotTask_tags :: Lens.Lens' ImportSnapshotTask (Core.Maybe [Tag])
-importSnapshotTask_tags = Lens.lens (\ImportSnapshotTask' {tags} -> tags) (\s@ImportSnapshotTask' {} a -> s {tags = a} :: ImportSnapshotTask) Core.. Lens.mapping Lens._Coerce
+importSnapshotTask_tags :: Lens.Lens' ImportSnapshotTask (Prelude.Maybe [Tag])
+importSnapshotTask_tags = Lens.lens (\ImportSnapshotTask' {tags} -> tags) (\s@ImportSnapshotTask' {} a -> s {tags = a} :: ImportSnapshotTask) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A description of the import snapshot task.
-importSnapshotTask_description :: Lens.Lens' ImportSnapshotTask (Core.Maybe Core.Text)
+importSnapshotTask_description :: Lens.Lens' ImportSnapshotTask (Prelude.Maybe Prelude.Text)
 importSnapshotTask_description = Lens.lens (\ImportSnapshotTask' {description} -> description) (\s@ImportSnapshotTask' {} a -> s {description = a} :: ImportSnapshotTask)
 
 instance Core.FromXML ImportSnapshotTask where
   parseXML x =
     ImportSnapshotTask'
-      Core.<$> (x Core..@? "snapshotTaskDetail")
-      Core.<*> (x Core..@? "importTaskId")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "description")
+      Prelude.<$> (x Core..@? "snapshotTaskDetail")
+      Prelude.<*> (x Core..@? "importTaskId")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "description")
 
-instance Core.Hashable ImportSnapshotTask
+instance Prelude.Hashable ImportSnapshotTask
 
-instance Core.NFData ImportSnapshotTask
+instance Prelude.NFData ImportSnapshotTask

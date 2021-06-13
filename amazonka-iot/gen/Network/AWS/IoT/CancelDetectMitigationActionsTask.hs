@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCancelDetectMitigationActionsTask' smart constructor.
 data CancelDetectMitigationActionsTask = CancelDetectMitigationActionsTask'
   { -- | The unique identifier of the task.
-    taskId :: Core.Text
+    taskId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelDetectMitigationActionsTask' with all optional fields omitted.
@@ -62,7 +63,7 @@ data CancelDetectMitigationActionsTask = CancelDetectMitigationActionsTask'
 -- 'taskId', 'cancelDetectMitigationActionsTask_taskId' - The unique identifier of the task.
 newCancelDetectMitigationActionsTask ::
   -- | 'taskId'
-  Core.Text ->
+  Prelude.Text ->
   CancelDetectMitigationActionsTask
 newCancelDetectMitigationActionsTask pTaskId_ =
   CancelDetectMitigationActionsTask'
@@ -71,7 +72,7 @@ newCancelDetectMitigationActionsTask pTaskId_ =
     }
 
 -- | The unique identifier of the task.
-cancelDetectMitigationActionsTask_taskId :: Lens.Lens' CancelDetectMitigationActionsTask Core.Text
+cancelDetectMitigationActionsTask_taskId :: Lens.Lens' CancelDetectMitigationActionsTask Prelude.Text
 cancelDetectMitigationActionsTask_taskId = Lens.lens (\CancelDetectMitigationActionsTask' {taskId} -> taskId) (\s@CancelDetectMitigationActionsTask' {} a -> s {taskId = a} :: CancelDetectMitigationActionsTask)
 
 instance
@@ -86,35 +87,35 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           CancelDetectMitigationActionsTaskResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CancelDetectMitigationActionsTask
 
 instance
-  Core.NFData
+  Prelude.NFData
     CancelDetectMitigationActionsTask
 
 instance
   Core.ToHeaders
     CancelDetectMitigationActionsTask
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToJSON
     CancelDetectMitigationActionsTask
   where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance
   Core.ToPath
     CancelDetectMitigationActionsTask
   where
   toPath CancelDetectMitigationActionsTask' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/detect/mitigationactions/tasks/",
         Core.toBS taskId,
         "/cancel"
@@ -124,14 +125,14 @@ instance
   Core.ToQuery
     CancelDetectMitigationActionsTask
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelDetectMitigationActionsTaskResponse' smart constructor.
 data CancelDetectMitigationActionsTaskResponse = CancelDetectMitigationActionsTaskResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelDetectMitigationActionsTaskResponse' with all optional fields omitted.
@@ -144,7 +145,7 @@ data CancelDetectMitigationActionsTaskResponse = CancelDetectMitigationActionsTa
 -- 'httpStatus', 'cancelDetectMitigationActionsTaskResponse_httpStatus' - The response's http status code.
 newCancelDetectMitigationActionsTaskResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CancelDetectMitigationActionsTaskResponse
 newCancelDetectMitigationActionsTaskResponse
   pHttpStatus_ =
@@ -154,9 +155,9 @@ newCancelDetectMitigationActionsTaskResponse
       }
 
 -- | The response's http status code.
-cancelDetectMitigationActionsTaskResponse_httpStatus :: Lens.Lens' CancelDetectMitigationActionsTaskResponse Core.Int
+cancelDetectMitigationActionsTaskResponse_httpStatus :: Lens.Lens' CancelDetectMitigationActionsTaskResponse Prelude.Int
 cancelDetectMitigationActionsTaskResponse_httpStatus = Lens.lens (\CancelDetectMitigationActionsTaskResponse' {httpStatus} -> httpStatus) (\s@CancelDetectMitigationActionsTaskResponse' {} a -> s {httpStatus = a} :: CancelDetectMitigationActionsTaskResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CancelDetectMitigationActionsTaskResponse

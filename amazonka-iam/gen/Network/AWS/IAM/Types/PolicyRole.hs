@@ -21,6 +21,7 @@ module Network.AWS.IAM.Types.PolicyRole where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a role that a managed policy is attached to.
 --
@@ -37,11 +38,11 @@ data PolicyRole = PolicyRole'
     -- about IDs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    roleId :: Core.Maybe Core.Text,
+    roleId :: Prelude.Maybe Prelude.Text,
     -- | The name (friendly name, not ARN) identifying the role.
-    roleName :: Core.Maybe Core.Text
+    roleName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PolicyRole' with all optional fields omitted.
@@ -61,27 +62,27 @@ newPolicyRole ::
   PolicyRole
 newPolicyRole =
   PolicyRole'
-    { roleId = Core.Nothing,
-      roleName = Core.Nothing
+    { roleId = Prelude.Nothing,
+      roleName = Prelude.Nothing
     }
 
 -- | The stable and unique string identifying the role. For more information
 -- about IDs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
-policyRole_roleId :: Lens.Lens' PolicyRole (Core.Maybe Core.Text)
+policyRole_roleId :: Lens.Lens' PolicyRole (Prelude.Maybe Prelude.Text)
 policyRole_roleId = Lens.lens (\PolicyRole' {roleId} -> roleId) (\s@PolicyRole' {} a -> s {roleId = a} :: PolicyRole)
 
 -- | The name (friendly name, not ARN) identifying the role.
-policyRole_roleName :: Lens.Lens' PolicyRole (Core.Maybe Core.Text)
+policyRole_roleName :: Lens.Lens' PolicyRole (Prelude.Maybe Prelude.Text)
 policyRole_roleName = Lens.lens (\PolicyRole' {roleName} -> roleName) (\s@PolicyRole' {} a -> s {roleName = a} :: PolicyRole)
 
 instance Core.FromXML PolicyRole where
   parseXML x =
     PolicyRole'
-      Core.<$> (x Core..@? "RoleId")
-      Core.<*> (x Core..@? "RoleName")
+      Prelude.<$> (x Core..@? "RoleId")
+      Prelude.<*> (x Core..@? "RoleName")
 
-instance Core.Hashable PolicyRole
+instance Prelude.Hashable PolicyRole
 
-instance Core.NFData PolicyRole
+instance Prelude.NFData PolicyRole

@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,7 +65,7 @@ data UpdateGroup = UpdateGroup'
     -- IAM user, group, role, and policy names must be unique within the
     -- account. Names are not distinguished by case. For example, you cannot
     -- create resources named both \"MyResource\" and \"myresource\".
-    newGroupName' :: Core.Maybe Core.Text,
+    newGroupName' :: Prelude.Maybe Prelude.Text,
     -- | New path for the IAM group. Only include this if changing the group\'s
     -- path.
     --
@@ -75,7 +76,7 @@ data UpdateGroup = UpdateGroup'
     -- ASCII character from the ! (@\\u0021@) through the DEL character
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
-    newPath' :: Core.Maybe Core.Text,
+    newPath' :: Prelude.Maybe Prelude.Text,
     -- | Name of the IAM group to update. If you\'re changing the name of the
     -- group, this is the original name.
     --
@@ -83,9 +84,9 @@ data UpdateGroup = UpdateGroup'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    groupName :: Core.Text
+    groupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGroup' with all optional fields omitted.
@@ -122,12 +123,12 @@ data UpdateGroup = UpdateGroup'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newUpdateGroup ::
   -- | 'groupName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateGroup
 newUpdateGroup pGroupName_ =
   UpdateGroup'
-    { newGroupName' = Core.Nothing,
-      newPath' = Core.Nothing,
+    { newGroupName' = Prelude.Nothing,
+      newPath' = Prelude.Nothing,
       groupName = pGroupName_
     }
 
@@ -137,7 +138,7 @@ newUpdateGroup pGroupName_ =
 -- IAM user, group, role, and policy names must be unique within the
 -- account. Names are not distinguished by case. For example, you cannot
 -- create resources named both \"MyResource\" and \"myresource\".
-updateGroup_newGroupName :: Lens.Lens' UpdateGroup (Core.Maybe Core.Text)
+updateGroup_newGroupName :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
 updateGroup_newGroupName = Lens.lens (\UpdateGroup' {newGroupName'} -> newGroupName') (\s@UpdateGroup' {} a -> s {newGroupName' = a} :: UpdateGroup)
 
 -- | New path for the IAM group. Only include this if changing the group\'s
@@ -150,7 +151,7 @@ updateGroup_newGroupName = Lens.lens (\UpdateGroup' {newGroupName'} -> newGroupN
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
-updateGroup_newPath :: Lens.Lens' UpdateGroup (Core.Maybe Core.Text)
+updateGroup_newPath :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
 updateGroup_newPath = Lens.lens (\UpdateGroup' {newPath'} -> newPath') (\s@UpdateGroup' {} a -> s {newPath' = a} :: UpdateGroup)
 
 -- | Name of the IAM group to update. If you\'re changing the name of the
@@ -160,7 +161,7 @@ updateGroup_newPath = Lens.lens (\UpdateGroup' {newPath'} -> newPath') (\s@Updat
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-updateGroup_groupName :: Lens.Lens' UpdateGroup Core.Text
+updateGroup_groupName :: Lens.Lens' UpdateGroup Prelude.Text
 updateGroup_groupName = Lens.lens (\UpdateGroup' {groupName} -> groupName) (\s@UpdateGroup' {} a -> s {groupName = a} :: UpdateGroup)
 
 instance Core.AWSRequest UpdateGroup where
@@ -168,21 +169,23 @@ instance Core.AWSRequest UpdateGroup where
   request = Request.postQuery defaultService
   response = Response.receiveNull UpdateGroupResponse'
 
-instance Core.Hashable UpdateGroup
+instance Prelude.Hashable UpdateGroup
 
-instance Core.NFData UpdateGroup
+instance Prelude.NFData UpdateGroup
 
 instance Core.ToHeaders UpdateGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateGroup where
   toQuery UpdateGroup' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("UpdateGroup" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("UpdateGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "NewGroupName" Core.=: newGroupName',
         "NewPath" Core.=: newPath',
         "GroupName" Core.=: groupName
@@ -192,7 +195,7 @@ instance Core.ToQuery UpdateGroup where
 data UpdateGroupResponse = UpdateGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateGroupResponse' with all optional fields omitted.
@@ -202,4 +205,4 @@ newUpdateGroupResponse ::
   UpdateGroupResponse
 newUpdateGroupResponse = UpdateGroupResponse'
 
-instance Core.NFData UpdateGroupResponse
+instance Prelude.NFData UpdateGroupResponse

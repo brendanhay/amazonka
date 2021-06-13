@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteFunctionDefinition' smart constructor.
 data DeleteFunctionDefinition = DeleteFunctionDefinition'
   { -- | The ID of the Lambda function definition.
-    functionDefinitionId :: Core.Text
+    functionDefinitionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFunctionDefinition' with all optional fields omitted.
@@ -62,7 +63,7 @@ data DeleteFunctionDefinition = DeleteFunctionDefinition'
 -- 'functionDefinitionId', 'deleteFunctionDefinition_functionDefinitionId' - The ID of the Lambda function definition.
 newDeleteFunctionDefinition ::
   -- | 'functionDefinitionId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteFunctionDefinition
 newDeleteFunctionDefinition pFunctionDefinitionId_ =
   DeleteFunctionDefinition'
@@ -71,7 +72,7 @@ newDeleteFunctionDefinition pFunctionDefinitionId_ =
     }
 
 -- | The ID of the Lambda function definition.
-deleteFunctionDefinition_functionDefinitionId :: Lens.Lens' DeleteFunctionDefinition Core.Text
+deleteFunctionDefinition_functionDefinitionId :: Lens.Lens' DeleteFunctionDefinition Prelude.Text
 deleteFunctionDefinition_functionDefinitionId = Lens.lens (\DeleteFunctionDefinition' {functionDefinitionId} -> functionDefinitionId) (\s@DeleteFunctionDefinition' {} a -> s {functionDefinitionId = a} :: DeleteFunctionDefinition)
 
 instance Core.AWSRequest DeleteFunctionDefinition where
@@ -83,38 +84,40 @@ instance Core.AWSRequest DeleteFunctionDefinition where
     Response.receiveEmpty
       ( \s h x ->
           DeleteFunctionDefinitionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteFunctionDefinition
+instance Prelude.Hashable DeleteFunctionDefinition
 
-instance Core.NFData DeleteFunctionDefinition
+instance Prelude.NFData DeleteFunctionDefinition
 
 instance Core.ToHeaders DeleteFunctionDefinition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteFunctionDefinition where
   toPath DeleteFunctionDefinition' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/greengrass/definition/functions/",
         Core.toBS functionDefinitionId
       ]
 
 instance Core.ToQuery DeleteFunctionDefinition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFunctionDefinitionResponse' smart constructor.
 data DeleteFunctionDefinitionResponse = DeleteFunctionDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFunctionDefinitionResponse' with all optional fields omitted.
@@ -127,7 +130,7 @@ data DeleteFunctionDefinitionResponse = DeleteFunctionDefinitionResponse'
 -- 'httpStatus', 'deleteFunctionDefinitionResponse_httpStatus' - The response's http status code.
 newDeleteFunctionDefinitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteFunctionDefinitionResponse
 newDeleteFunctionDefinitionResponse pHttpStatus_ =
   DeleteFunctionDefinitionResponse'
@@ -136,7 +139,9 @@ newDeleteFunctionDefinitionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteFunctionDefinitionResponse_httpStatus :: Lens.Lens' DeleteFunctionDefinitionResponse Core.Int
+deleteFunctionDefinitionResponse_httpStatus :: Lens.Lens' DeleteFunctionDefinitionResponse Prelude.Int
 deleteFunctionDefinitionResponse_httpStatus = Lens.lens (\DeleteFunctionDefinitionResponse' {httpStatus} -> httpStatus) (\s@DeleteFunctionDefinitionResponse' {} a -> s {httpStatus = a} :: DeleteFunctionDefinitionResponse)
 
-instance Core.NFData DeleteFunctionDefinitionResponse
+instance
+  Prelude.NFData
+    DeleteFunctionDefinitionResponse

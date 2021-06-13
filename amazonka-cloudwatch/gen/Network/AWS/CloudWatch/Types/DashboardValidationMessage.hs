@@ -21,17 +21,18 @@ module Network.AWS.CloudWatch.Types.DashboardValidationMessage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An error or warning for the operation.
 --
 -- /See:/ 'newDashboardValidationMessage' smart constructor.
 data DashboardValidationMessage = DashboardValidationMessage'
   { -- | A message describing the error or warning.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The data path related to the message.
-    dataPath :: Core.Maybe Core.Text
+    dataPath :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DashboardValidationMessage' with all optional fields omitted.
@@ -48,24 +49,25 @@ newDashboardValidationMessage ::
   DashboardValidationMessage
 newDashboardValidationMessage =
   DashboardValidationMessage'
-    { message = Core.Nothing,
-      dataPath = Core.Nothing
+    { message =
+        Prelude.Nothing,
+      dataPath = Prelude.Nothing
     }
 
 -- | A message describing the error or warning.
-dashboardValidationMessage_message :: Lens.Lens' DashboardValidationMessage (Core.Maybe Core.Text)
+dashboardValidationMessage_message :: Lens.Lens' DashboardValidationMessage (Prelude.Maybe Prelude.Text)
 dashboardValidationMessage_message = Lens.lens (\DashboardValidationMessage' {message} -> message) (\s@DashboardValidationMessage' {} a -> s {message = a} :: DashboardValidationMessage)
 
 -- | The data path related to the message.
-dashboardValidationMessage_dataPath :: Lens.Lens' DashboardValidationMessage (Core.Maybe Core.Text)
+dashboardValidationMessage_dataPath :: Lens.Lens' DashboardValidationMessage (Prelude.Maybe Prelude.Text)
 dashboardValidationMessage_dataPath = Lens.lens (\DashboardValidationMessage' {dataPath} -> dataPath) (\s@DashboardValidationMessage' {} a -> s {dataPath = a} :: DashboardValidationMessage)
 
 instance Core.FromXML DashboardValidationMessage where
   parseXML x =
     DashboardValidationMessage'
-      Core.<$> (x Core..@? "Message")
-      Core.<*> (x Core..@? "DataPath")
+      Prelude.<$> (x Core..@? "Message")
+      Prelude.<*> (x Core..@? "DataPath")
 
-instance Core.Hashable DashboardValidationMessage
+instance Prelude.Hashable DashboardValidationMessage
 
-instance Core.NFData DashboardValidationMessage
+instance Prelude.NFData DashboardValidationMessage

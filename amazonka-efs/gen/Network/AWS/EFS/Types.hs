@@ -189,6 +189,7 @@ import Network.AWS.EFS.Types.Tag
 import Network.AWS.EFS.Types.ThroughputMode
 import Network.AWS.EFS.Types.TransitionToIARules
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-02-01@ of the Amazon Elastic File System SDK configuration.
@@ -202,7 +203,7 @@ defaultService =
       Core._serviceVersion = "2015-02-01",
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Core.Just 70,
+      Core._serviceTimeout = Prelude.Just 70,
       Core._serviceCheck = Core.statusSuccess,
       Core._serviceError = Core.parseJSONError "EFS",
       Core._serviceRetry = retry
@@ -217,138 +218,140 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 504) e =
-        Core.Just "gateway_timeout"
+        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throughput_exceeded"
+        Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 503) e =
-        Core.Just "service_unavailable"
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 502) e =
-        Core.Just "bad_gateway"
+        Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 429) e =
-        Core.Just "too_many_requests"
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "request_throttled_exception"
+        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttled_exception"
+        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 509) e =
-        Core.Just "limit_exceeded"
+        Prelude.Just "limit_exceeded"
       | Lens.has (Core.hasStatus 500) e =
-        Core.Just "general_server_error"
+        Prelude.Just "general_server_error"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttling_exception"
+        Prelude.Just "throttling_exception"
       | Lens.has
-          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
           e =
-        Core.Just "throttling"
-      | Core.otherwise = Core.Nothing
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | Returned if the size of @SecurityGroups@ specified in the request is
 -- greater than five.
-_SecurityGroupLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_SecurityGroupLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _SecurityGroupLimitExceeded =
   Core._MatchServiceError
     defaultService
     "SecurityGroupLimitExceeded"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Returned if a file system has mount targets.
-_FileSystemInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_FileSystemInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _FileSystemInUse =
   Core._MatchServiceError
     defaultService
     "FileSystemInUse"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | The service timed out trying to fulfill the request, and the client
 -- should try the call again.
-_DependencyTimeout :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DependencyTimeout :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DependencyTimeout =
   Core._MatchServiceError
     defaultService
     "DependencyTimeout"
-    Core.. Core.hasStatus 504
+    Prelude.. Core.hasStatus 504
 
 -- | Returned if the throughput mode or amount of provisioned throughput
 -- can\'t be changed because the throughput limit of 1024 MiB\/s has been
 -- reached.
-_ThroughputLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ThroughputLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ThroughputLimitExceeded =
   Core._MatchServiceError
     defaultService
     "ThroughputLimitExceeded"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Returned if the access point you are trying to create already exists,
 -- with the creation token you provided in the request.
-_AccessPointAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AccessPointAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessPointAlreadyExists =
   Core._MatchServiceError
     defaultService
     "AccessPointAlreadyExists"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | Returned if the AWS account has already created the maximum number of
 -- access points allowed per file system.
-_AccessPointLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AccessPointLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessPointLimitExceeded =
   Core._MatchServiceError
     defaultService
     "AccessPointLimitExceeded"
-    Core.. Core.hasStatus 403
+    Prelude.. Core.hasStatus 403
 
 -- | Returned if the @FileSystemPolicy@ is is malformed or contains an error
 -- such as an invalid parameter value or a missing required parameter.
 -- Returned in the case of a policy lockout safety check error.
-_InvalidPolicyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidPolicyException =
   Core._MatchServiceError
     defaultService
     "InvalidPolicyException"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Returned if the specified @AccessPointId@ value doesn\'t exist in the
 -- requester\'s AWS account.
-_AccessPointNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AccessPointNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessPointNotFound =
   Core._MatchServiceError
     defaultService
     "AccessPointNotFound"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | Returned if the specified @FileSystemId@ value doesn\'t exist in the
 -- requester\'s AWS account.
-_FileSystemNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_FileSystemNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _FileSystemNotFound =
   Core._MatchServiceError
     defaultService
     "FileSystemNotFound"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | Returned if there is no subnet with ID @SubnetId@ provided in the
 -- request.
-_SubnetNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_SubnetNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _SubnetNotFound =
   Core._MatchServiceError
     defaultService
     "SubnetNotFound"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The calling account has reached the limit for elastic network interfaces
 -- for the specific AWS Region. The client should try to delete some
@@ -357,90 +360,90 @@ _SubnetNotFound =
 -- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html Amazon VPC Limits>
 -- in the /Amazon VPC User Guide/ (see the Network interfaces per VPC entry
 -- in the table).
-_NetworkInterfaceLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NetworkInterfaceLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NetworkInterfaceLimitExceeded =
   Core._MatchServiceError
     defaultService
     "NetworkInterfaceLimitExceeded"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | Returned if the file system you are trying to create already exists,
 -- with the creation token you provided.
-_FileSystemAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_FileSystemAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _FileSystemAlreadyExists =
   Core._MatchServiceError
     defaultService
     "FileSystemAlreadyExists"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | Returned if you don’t wait at least 24 hours before changing the
 -- throughput mode, or decreasing the Provisioned Throughput value.
-_TooManyRequests :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyRequests :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyRequests =
   Core._MatchServiceError
     defaultService
     "TooManyRequests"
-    Core.. Core.hasStatus 429
+    Prelude.. Core.hasStatus 429
 
 -- | Returned if the AWS account has already created the maximum number of
 -- file systems allowed per account.
-_FileSystemLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_FileSystemLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _FileSystemLimitExceeded =
   Core._MatchServiceError
     defaultService
     "FileSystemLimitExceeded"
-    Core.. Core.hasStatus 403
+    Prelude.. Core.hasStatus 403
 
 -- | Returned if the mount target is not in the correct state for the
 -- operation.
-_IncorrectMountTargetState :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_IncorrectMountTargetState :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _IncorrectMountTargetState =
   Core._MatchServiceError
     defaultService
     "IncorrectMountTargetState"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | Returned if an error occurred on the server side.
-_InternalServerError :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
     "InternalServerError"
-    Core.. Core.hasStatus 500
+    Prelude.. Core.hasStatus 500
 
 -- | Returned if there is no mount target with the specified ID found in the
 -- caller\'s account.
-_MountTargetNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_MountTargetNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MountTargetNotFound =
   Core._MatchServiceError
     defaultService
     "MountTargetNotFound"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | Returned if the AWS Backup service is not available in the region that
 -- the request was made.
-_ValidationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService
     "ValidationException"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Returned if @IpAddress@ was not specified in the request and there are
 -- no free IP addresses in the subnet.
-_NoFreeAddressesInSubnet :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoFreeAddressesInSubnet :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoFreeAddressesInSubnet =
   Core._MatchServiceError
     defaultService
     "NoFreeAddressesInSubnet"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | Returned if the request is malformed or contains an error such as an
 -- invalid parameter value or a missing required parameter.
-_BadRequest :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_BadRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _BadRequest =
   Core._MatchServiceError defaultService "BadRequest"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Returned if there\'s not enough capacity to provision additional
 -- throughput. This value might be returned when you try to create a file
@@ -448,61 +451,61 @@ _BadRequest =
 -- provisioned throughput of an existing file system, or when you attempt
 -- to change an existing file system from bursting to provisioned
 -- throughput mode.
-_InsufficientThroughputCapacity :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InsufficientThroughputCapacity :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InsufficientThroughputCapacity =
   Core._MatchServiceError
     defaultService
     "InsufficientThroughputCapacity"
-    Core.. Core.hasStatus 503
+    Prelude.. Core.hasStatus 503
 
 -- | Returned if the default file system policy is in effect for the EFS file
 -- system specified.
-_PolicyNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PolicyNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PolicyNotFound =
   Core._MatchServiceError
     defaultService
     "PolicyNotFound"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | Returned if the file system\'s lifecycle state is not \"available\".
-_IncorrectFileSystemLifeCycleState :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_IncorrectFileSystemLifeCycleState :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _IncorrectFileSystemLifeCycleState =
   Core._MatchServiceError
     defaultService
     "IncorrectFileSystemLifeCycleState"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | Returned if the request specified an @IpAddress@ that is already in use
 -- in the subnet.
-_IpAddressInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_IpAddressInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _IpAddressInUse =
   Core._MatchServiceError
     defaultService
     "IpAddressInUse"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | Returned if the mount target would violate one of the specified
 -- restrictions based on the file system\'s existing mount targets.
-_MountTargetConflict :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_MountTargetConflict :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MountTargetConflict =
   Core._MatchServiceError
     defaultService
     "MountTargetConflict"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | Returned if one of the specified security groups doesn\'t exist in the
 -- subnet\'s VPC.
-_SecurityGroupNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_SecurityGroupNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _SecurityGroupNotFound =
   Core._MatchServiceError
     defaultService
     "SecurityGroupNotFound"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- |
-_UnsupportedAvailabilityZone :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnsupportedAvailabilityZone :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedAvailabilityZone =
   Core._MatchServiceError
     defaultService
     "UnsupportedAvailabilityZone"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400

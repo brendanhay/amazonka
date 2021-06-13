@@ -21,15 +21,16 @@ module Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of schedule actions to delete.
 --
 -- /See:/ 'newBatchScheduleActionDeleteRequest' smart constructor.
 data BatchScheduleActionDeleteRequest = BatchScheduleActionDeleteRequest'
   { -- | A list of schedule actions to delete.
-    actionNames :: [Core.Text]
+    actionNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchScheduleActionDeleteRequest' with all optional fields omitted.
@@ -45,22 +46,24 @@ newBatchScheduleActionDeleteRequest ::
 newBatchScheduleActionDeleteRequest =
   BatchScheduleActionDeleteRequest'
     { actionNames =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | A list of schedule actions to delete.
-batchScheduleActionDeleteRequest_actionNames :: Lens.Lens' BatchScheduleActionDeleteRequest [Core.Text]
-batchScheduleActionDeleteRequest_actionNames = Lens.lens (\BatchScheduleActionDeleteRequest' {actionNames} -> actionNames) (\s@BatchScheduleActionDeleteRequest' {} a -> s {actionNames = a} :: BatchScheduleActionDeleteRequest) Core.. Lens._Coerce
+batchScheduleActionDeleteRequest_actionNames :: Lens.Lens' BatchScheduleActionDeleteRequest [Prelude.Text]
+batchScheduleActionDeleteRequest_actionNames = Lens.lens (\BatchScheduleActionDeleteRequest' {actionNames} -> actionNames) (\s@BatchScheduleActionDeleteRequest' {} a -> s {actionNames = a} :: BatchScheduleActionDeleteRequest) Prelude.. Lens._Coerce
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     BatchScheduleActionDeleteRequest
 
-instance Core.NFData BatchScheduleActionDeleteRequest
+instance
+  Prelude.NFData
+    BatchScheduleActionDeleteRequest
 
 instance Core.ToJSON BatchScheduleActionDeleteRequest where
   toJSON BatchScheduleActionDeleteRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("actionNames" Core..= actionNames)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("actionNames" Core..= actionNames)]
       )

@@ -23,13 +23,14 @@ import Network.AWS.CloudFront.Types.Headers
 import Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that determines whether any HTTP headers (and if so, which
 -- headers) are included in requests that CloudFront sends to the origin.
 --
 -- /See:/ 'newOriginRequestPolicyHeadersConfig' smart constructor.
 data OriginRequestPolicyHeadersConfig = OriginRequestPolicyHeadersConfig'
-  { headers :: Core.Maybe Headers,
+  { headers :: Prelude.Maybe Headers,
     -- | Determines whether any HTTP headers are included in requests that
     -- CloudFront sends to the origin. Valid values are:
     --
@@ -50,7 +51,7 @@ data OriginRequestPolicyHeadersConfig = OriginRequestPolicyHeadersConfig'
     --     the origin. The additional headers are added by CloudFront.
     headerBehavior :: OriginRequestPolicyHeaderBehavior
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OriginRequestPolicyHeadersConfig' with all optional fields omitted.
@@ -87,12 +88,12 @@ newOriginRequestPolicyHeadersConfig ::
 newOriginRequestPolicyHeadersConfig pHeaderBehavior_ =
   OriginRequestPolicyHeadersConfig'
     { headers =
-        Core.Nothing,
+        Prelude.Nothing,
       headerBehavior = pHeaderBehavior_
     }
 
 -- | Undocumented member.
-originRequestPolicyHeadersConfig_headers :: Lens.Lens' OriginRequestPolicyHeadersConfig (Core.Maybe Headers)
+originRequestPolicyHeadersConfig_headers :: Lens.Lens' OriginRequestPolicyHeadersConfig (Prelude.Maybe Headers)
 originRequestPolicyHeadersConfig_headers = Lens.lens (\OriginRequestPolicyHeadersConfig' {headers} -> headers) (\s@OriginRequestPolicyHeadersConfig' {} a -> s {headers = a} :: OriginRequestPolicyHeadersConfig)
 
 -- | Determines whether any HTTP headers are included in requests that
@@ -122,18 +123,20 @@ instance
   where
   parseXML x =
     OriginRequestPolicyHeadersConfig'
-      Core.<$> (x Core..@? "Headers")
-      Core.<*> (x Core..@ "HeaderBehavior")
+      Prelude.<$> (x Core..@? "Headers")
+      Prelude.<*> (x Core..@ "HeaderBehavior")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     OriginRequestPolicyHeadersConfig
 
-instance Core.NFData OriginRequestPolicyHeadersConfig
+instance
+  Prelude.NFData
+    OriginRequestPolicyHeadersConfig
 
 instance Core.ToXML OriginRequestPolicyHeadersConfig where
   toXML OriginRequestPolicyHeadersConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Headers" Core.@= headers,
         "HeaderBehavior" Core.@= headerBehavior
       ]

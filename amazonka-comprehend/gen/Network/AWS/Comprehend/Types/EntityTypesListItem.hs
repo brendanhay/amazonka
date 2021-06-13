@@ -21,6 +21,7 @@ module Network.AWS.Comprehend.Types.EntityTypesListItem where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An entity type within a labeled training dataset that Amazon Comprehend
 -- uses to train a custom entity recognizer.
@@ -34,9 +35,9 @@ data EntityTypesListItem = EntityTypesListItem'
     -- (line break), \\\\n (escaped line break, \\r (carriage return), \\\\r
     -- (escaped carriage return), \\t (tab), \\\\t (escaped tab), space, and ,
     -- (comma).
-    type' :: Core.Text
+    type' :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EntityTypesListItem' with all optional fields omitted.
@@ -55,7 +56,7 @@ data EntityTypesListItem = EntityTypesListItem'
 -- (comma).
 newEntityTypesListItem ::
   -- | 'type''
-  Core.Text ->
+  Prelude.Text ->
   EntityTypesListItem
 newEntityTypesListItem pType_ =
   EntityTypesListItem' {type' = pType_}
@@ -67,7 +68,7 @@ newEntityTypesListItem pType_ =
 -- (line break), \\\\n (escaped line break, \\r (carriage return), \\\\r
 -- (escaped carriage return), \\t (tab), \\\\t (escaped tab), space, and ,
 -- (comma).
-entityTypesListItem_type :: Lens.Lens' EntityTypesListItem Core.Text
+entityTypesListItem_type :: Lens.Lens' EntityTypesListItem Prelude.Text
 entityTypesListItem_type = Lens.lens (\EntityTypesListItem' {type'} -> type') (\s@EntityTypesListItem' {} a -> s {type' = a} :: EntityTypesListItem)
 
 instance Core.FromJSON EntityTypesListItem where
@@ -75,14 +76,16 @@ instance Core.FromJSON EntityTypesListItem where
     Core.withObject
       "EntityTypesListItem"
       ( \x ->
-          EntityTypesListItem' Core.<$> (x Core..: "Type")
+          EntityTypesListItem' Prelude.<$> (x Core..: "Type")
       )
 
-instance Core.Hashable EntityTypesListItem
+instance Prelude.Hashable EntityTypesListItem
 
-instance Core.NFData EntityTypesListItem
+instance Prelude.NFData EntityTypesListItem
 
 instance Core.ToJSON EntityTypesListItem where
   toJSON EntityTypesListItem' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Type" Core..= type')])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Type" Core..= type')]
+      )

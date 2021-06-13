@@ -21,19 +21,20 @@ module Network.AWS.Glue.Types.CatalogImportStatus where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure containing migration status information.
 --
 -- /See:/ 'newCatalogImportStatus' smart constructor.
 data CatalogImportStatus = CatalogImportStatus'
   { -- | The name of the person who initiated the migration.
-    importedBy :: Core.Maybe Core.Text,
+    importedBy :: Prelude.Maybe Prelude.Text,
     -- | @True@ if the migration has completed, or @False@ otherwise.
-    importCompleted :: Core.Maybe Core.Bool,
+    importCompleted :: Prelude.Maybe Prelude.Bool,
     -- | The time that the migration was started.
-    importTime :: Core.Maybe Core.POSIX
+    importTime :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CatalogImportStatus' with all optional fields omitted.
@@ -52,22 +53,22 @@ newCatalogImportStatus ::
   CatalogImportStatus
 newCatalogImportStatus =
   CatalogImportStatus'
-    { importedBy = Core.Nothing,
-      importCompleted = Core.Nothing,
-      importTime = Core.Nothing
+    { importedBy = Prelude.Nothing,
+      importCompleted = Prelude.Nothing,
+      importTime = Prelude.Nothing
     }
 
 -- | The name of the person who initiated the migration.
-catalogImportStatus_importedBy :: Lens.Lens' CatalogImportStatus (Core.Maybe Core.Text)
+catalogImportStatus_importedBy :: Lens.Lens' CatalogImportStatus (Prelude.Maybe Prelude.Text)
 catalogImportStatus_importedBy = Lens.lens (\CatalogImportStatus' {importedBy} -> importedBy) (\s@CatalogImportStatus' {} a -> s {importedBy = a} :: CatalogImportStatus)
 
 -- | @True@ if the migration has completed, or @False@ otherwise.
-catalogImportStatus_importCompleted :: Lens.Lens' CatalogImportStatus (Core.Maybe Core.Bool)
+catalogImportStatus_importCompleted :: Lens.Lens' CatalogImportStatus (Prelude.Maybe Prelude.Bool)
 catalogImportStatus_importCompleted = Lens.lens (\CatalogImportStatus' {importCompleted} -> importCompleted) (\s@CatalogImportStatus' {} a -> s {importCompleted = a} :: CatalogImportStatus)
 
 -- | The time that the migration was started.
-catalogImportStatus_importTime :: Lens.Lens' CatalogImportStatus (Core.Maybe Core.UTCTime)
-catalogImportStatus_importTime = Lens.lens (\CatalogImportStatus' {importTime} -> importTime) (\s@CatalogImportStatus' {} a -> s {importTime = a} :: CatalogImportStatus) Core.. Lens.mapping Core._Time
+catalogImportStatus_importTime :: Lens.Lens' CatalogImportStatus (Prelude.Maybe Prelude.UTCTime)
+catalogImportStatus_importTime = Lens.lens (\CatalogImportStatus' {importTime} -> importTime) (\s@CatalogImportStatus' {} a -> s {importTime = a} :: CatalogImportStatus) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON CatalogImportStatus where
   parseJSON =
@@ -75,11 +76,11 @@ instance Core.FromJSON CatalogImportStatus where
       "CatalogImportStatus"
       ( \x ->
           CatalogImportStatus'
-            Core.<$> (x Core..:? "ImportedBy")
-            Core.<*> (x Core..:? "ImportCompleted")
-            Core.<*> (x Core..:? "ImportTime")
+            Prelude.<$> (x Core..:? "ImportedBy")
+            Prelude.<*> (x Core..:? "ImportCompleted")
+            Prelude.<*> (x Core..:? "ImportTime")
       )
 
-instance Core.Hashable CatalogImportStatus
+instance Prelude.Hashable CatalogImportStatus
 
-instance Core.NFData CatalogImportStatus
+instance Prelude.NFData CatalogImportStatus

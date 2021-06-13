@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -54,9 +55,9 @@ import Network.AWS.SageMaker.Types
 data DescribeHumanTaskUi = DescribeHumanTaskUi'
   { -- | The name of the human task user interface (worker task template) you
     -- want information about.
-    humanTaskUiName :: Core.Text
+    humanTaskUiName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeHumanTaskUi' with all optional fields omitted.
@@ -70,7 +71,7 @@ data DescribeHumanTaskUi = DescribeHumanTaskUi'
 -- want information about.
 newDescribeHumanTaskUi ::
   -- | 'humanTaskUiName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeHumanTaskUi
 newDescribeHumanTaskUi pHumanTaskUiName_ =
   DescribeHumanTaskUi'
@@ -80,7 +81,7 @@ newDescribeHumanTaskUi pHumanTaskUiName_ =
 
 -- | The name of the human task user interface (worker task template) you
 -- want information about.
-describeHumanTaskUi_humanTaskUiName :: Lens.Lens' DescribeHumanTaskUi Core.Text
+describeHumanTaskUi_humanTaskUiName :: Lens.Lens' DescribeHumanTaskUi Prelude.Text
 describeHumanTaskUi_humanTaskUiName = Lens.lens (\DescribeHumanTaskUi' {humanTaskUiName} -> humanTaskUiName) (\s@DescribeHumanTaskUi' {} a -> s {humanTaskUiName = a} :: DescribeHumanTaskUi)
 
 instance Core.AWSRequest DescribeHumanTaskUi where
@@ -92,61 +93,65 @@ instance Core.AWSRequest DescribeHumanTaskUi where
     Response.receiveJSON
       ( \s h x ->
           DescribeHumanTaskUiResponse'
-            Core.<$> (x Core..?> "HumanTaskUiStatus")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "HumanTaskUiArn")
-            Core.<*> (x Core..:> "HumanTaskUiName")
-            Core.<*> (x Core..:> "CreationTime")
-            Core.<*> (x Core..:> "UiTemplate")
+            Prelude.<$> (x Core..?> "HumanTaskUiStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "HumanTaskUiArn")
+            Prelude.<*> (x Core..:> "HumanTaskUiName")
+            Prelude.<*> (x Core..:> "CreationTime")
+            Prelude.<*> (x Core..:> "UiTemplate")
       )
 
-instance Core.Hashable DescribeHumanTaskUi
+instance Prelude.Hashable DescribeHumanTaskUi
 
-instance Core.NFData DescribeHumanTaskUi
+instance Prelude.NFData DescribeHumanTaskUi
 
 instance Core.ToHeaders DescribeHumanTaskUi where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeHumanTaskUi" :: Core.ByteString),
+              Core.=# ( "SageMaker.DescribeHumanTaskUi" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeHumanTaskUi where
   toJSON DescribeHumanTaskUi' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("HumanTaskUiName" Core..= humanTaskUiName)
           ]
       )
 
 instance Core.ToPath DescribeHumanTaskUi where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeHumanTaskUi where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeHumanTaskUiResponse' smart constructor.
 data DescribeHumanTaskUiResponse = DescribeHumanTaskUiResponse'
   { -- | The status of the human task user interface (worker task template).
     -- Valid values are listed below.
-    humanTaskUiStatus :: Core.Maybe HumanTaskUiStatus,
+    humanTaskUiStatus :: Prelude.Maybe HumanTaskUiStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the human task user interface (worker
     -- task template).
-    humanTaskUiArn :: Core.Text,
+    humanTaskUiArn :: Prelude.Text,
     -- | The name of the human task user interface (worker task template).
-    humanTaskUiName :: Core.Text,
+    humanTaskUiName :: Prelude.Text,
     -- | The timestamp when the human task user interface was created.
     creationTime :: Core.POSIX,
     uiTemplate :: UiTemplateInfo
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeHumanTaskUiResponse' with all optional fields omitted.
@@ -171,13 +176,13 @@ data DescribeHumanTaskUiResponse = DescribeHumanTaskUiResponse'
 -- 'uiTemplate', 'describeHumanTaskUiResponse_uiTemplate' - Undocumented member.
 newDescribeHumanTaskUiResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'humanTaskUiArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'humanTaskUiName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'uiTemplate'
   UiTemplateInfo ->
   DescribeHumanTaskUiResponse
@@ -189,7 +194,7 @@ newDescribeHumanTaskUiResponse
   pUiTemplate_ =
     DescribeHumanTaskUiResponse'
       { humanTaskUiStatus =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_,
         humanTaskUiArn = pHumanTaskUiArn_,
         humanTaskUiName = pHumanTaskUiName_,
@@ -200,28 +205,28 @@ newDescribeHumanTaskUiResponse
 
 -- | The status of the human task user interface (worker task template).
 -- Valid values are listed below.
-describeHumanTaskUiResponse_humanTaskUiStatus :: Lens.Lens' DescribeHumanTaskUiResponse (Core.Maybe HumanTaskUiStatus)
+describeHumanTaskUiResponse_humanTaskUiStatus :: Lens.Lens' DescribeHumanTaskUiResponse (Prelude.Maybe HumanTaskUiStatus)
 describeHumanTaskUiResponse_humanTaskUiStatus = Lens.lens (\DescribeHumanTaskUiResponse' {humanTaskUiStatus} -> humanTaskUiStatus) (\s@DescribeHumanTaskUiResponse' {} a -> s {humanTaskUiStatus = a} :: DescribeHumanTaskUiResponse)
 
 -- | The response's http status code.
-describeHumanTaskUiResponse_httpStatus :: Lens.Lens' DescribeHumanTaskUiResponse Core.Int
+describeHumanTaskUiResponse_httpStatus :: Lens.Lens' DescribeHumanTaskUiResponse Prelude.Int
 describeHumanTaskUiResponse_httpStatus = Lens.lens (\DescribeHumanTaskUiResponse' {httpStatus} -> httpStatus) (\s@DescribeHumanTaskUiResponse' {} a -> s {httpStatus = a} :: DescribeHumanTaskUiResponse)
 
 -- | The Amazon Resource Name (ARN) of the human task user interface (worker
 -- task template).
-describeHumanTaskUiResponse_humanTaskUiArn :: Lens.Lens' DescribeHumanTaskUiResponse Core.Text
+describeHumanTaskUiResponse_humanTaskUiArn :: Lens.Lens' DescribeHumanTaskUiResponse Prelude.Text
 describeHumanTaskUiResponse_humanTaskUiArn = Lens.lens (\DescribeHumanTaskUiResponse' {humanTaskUiArn} -> humanTaskUiArn) (\s@DescribeHumanTaskUiResponse' {} a -> s {humanTaskUiArn = a} :: DescribeHumanTaskUiResponse)
 
 -- | The name of the human task user interface (worker task template).
-describeHumanTaskUiResponse_humanTaskUiName :: Lens.Lens' DescribeHumanTaskUiResponse Core.Text
+describeHumanTaskUiResponse_humanTaskUiName :: Lens.Lens' DescribeHumanTaskUiResponse Prelude.Text
 describeHumanTaskUiResponse_humanTaskUiName = Lens.lens (\DescribeHumanTaskUiResponse' {humanTaskUiName} -> humanTaskUiName) (\s@DescribeHumanTaskUiResponse' {} a -> s {humanTaskUiName = a} :: DescribeHumanTaskUiResponse)
 
 -- | The timestamp when the human task user interface was created.
-describeHumanTaskUiResponse_creationTime :: Lens.Lens' DescribeHumanTaskUiResponse Core.UTCTime
-describeHumanTaskUiResponse_creationTime = Lens.lens (\DescribeHumanTaskUiResponse' {creationTime} -> creationTime) (\s@DescribeHumanTaskUiResponse' {} a -> s {creationTime = a} :: DescribeHumanTaskUiResponse) Core.. Core._Time
+describeHumanTaskUiResponse_creationTime :: Lens.Lens' DescribeHumanTaskUiResponse Prelude.UTCTime
+describeHumanTaskUiResponse_creationTime = Lens.lens (\DescribeHumanTaskUiResponse' {creationTime} -> creationTime) (\s@DescribeHumanTaskUiResponse' {} a -> s {creationTime = a} :: DescribeHumanTaskUiResponse) Prelude.. Core._Time
 
 -- | Undocumented member.
 describeHumanTaskUiResponse_uiTemplate :: Lens.Lens' DescribeHumanTaskUiResponse UiTemplateInfo
 describeHumanTaskUiResponse_uiTemplate = Lens.lens (\DescribeHumanTaskUiResponse' {uiTemplate} -> uiTemplate) (\s@DescribeHumanTaskUiResponse' {} a -> s {uiTemplate = a} :: DescribeHumanTaskUiResponse)
 
-instance Core.NFData DescribeHumanTaskUiResponse
+instance Prelude.NFData DescribeHumanTaskUiResponse

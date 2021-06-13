@@ -21,6 +21,7 @@ module Network.AWS.Snowball.Types.S3Resource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Snowball.Types.KeyRange
 
 -- | Each @S3Resource@ object represents an Amazon S3 bucket that your
@@ -33,14 +34,14 @@ import Network.AWS.Snowball.Types.KeyRange
 -- /See:/ 'newS3Resource' smart constructor.
 data S3Resource = S3Resource'
   { -- | The Amazon Resource Name (ARN) of an Amazon S3 bucket.
-    bucketArn :: Core.Maybe Core.Text,
+    bucketArn :: Prelude.Maybe Prelude.Text,
     -- | For export jobs, you can provide an optional @KeyRange@ within a
     -- specific Amazon S3 bucket. The length of the range is defined at job
     -- creation, and has either an inclusive @BeginMarker@, an inclusive
     -- @EndMarker@, or both. Ranges are UTF-8 binary sorted.
-    keyRange :: Core.Maybe KeyRange
+    keyRange :: Prelude.Maybe KeyRange
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3Resource' with all optional fields omitted.
@@ -60,19 +61,19 @@ newS3Resource ::
   S3Resource
 newS3Resource =
   S3Resource'
-    { bucketArn = Core.Nothing,
-      keyRange = Core.Nothing
+    { bucketArn = Prelude.Nothing,
+      keyRange = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of an Amazon S3 bucket.
-s3Resource_bucketArn :: Lens.Lens' S3Resource (Core.Maybe Core.Text)
+s3Resource_bucketArn :: Lens.Lens' S3Resource (Prelude.Maybe Prelude.Text)
 s3Resource_bucketArn = Lens.lens (\S3Resource' {bucketArn} -> bucketArn) (\s@S3Resource' {} a -> s {bucketArn = a} :: S3Resource)
 
 -- | For export jobs, you can provide an optional @KeyRange@ within a
 -- specific Amazon S3 bucket. The length of the range is defined at job
 -- creation, and has either an inclusive @BeginMarker@, an inclusive
 -- @EndMarker@, or both. Ranges are UTF-8 binary sorted.
-s3Resource_keyRange :: Lens.Lens' S3Resource (Core.Maybe KeyRange)
+s3Resource_keyRange :: Lens.Lens' S3Resource (Prelude.Maybe KeyRange)
 s3Resource_keyRange = Lens.lens (\S3Resource' {keyRange} -> keyRange) (\s@S3Resource' {} a -> s {keyRange = a} :: S3Resource)
 
 instance Core.FromJSON S3Resource where
@@ -81,19 +82,19 @@ instance Core.FromJSON S3Resource where
       "S3Resource"
       ( \x ->
           S3Resource'
-            Core.<$> (x Core..:? "BucketArn")
-            Core.<*> (x Core..:? "KeyRange")
+            Prelude.<$> (x Core..:? "BucketArn")
+            Prelude.<*> (x Core..:? "KeyRange")
       )
 
-instance Core.Hashable S3Resource
+instance Prelude.Hashable S3Resource
 
-instance Core.NFData S3Resource
+instance Prelude.NFData S3Resource
 
 instance Core.ToJSON S3Resource where
   toJSON S3Resource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("BucketArn" Core..=) Core.<$> bucketArn,
-            ("KeyRange" Core..=) Core.<$> keyRange
+      ( Prelude.catMaybes
+          [ ("BucketArn" Core..=) Prelude.<$> bucketArn,
+            ("KeyRange" Core..=) Prelude.<$> keyRange
           ]
       )

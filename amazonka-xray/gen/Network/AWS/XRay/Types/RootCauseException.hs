@@ -21,17 +21,18 @@ module Network.AWS.XRay.Types.RootCauseException where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The exception associated with a root cause.
 --
 -- /See:/ 'newRootCauseException' smart constructor.
 data RootCauseException = RootCauseException'
   { -- | The message of the exception.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The name of the exception.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RootCauseException' with all optional fields omitted.
@@ -48,16 +49,16 @@ newRootCauseException ::
   RootCauseException
 newRootCauseException =
   RootCauseException'
-    { message = Core.Nothing,
-      name = Core.Nothing
+    { message = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The message of the exception.
-rootCauseException_message :: Lens.Lens' RootCauseException (Core.Maybe Core.Text)
+rootCauseException_message :: Lens.Lens' RootCauseException (Prelude.Maybe Prelude.Text)
 rootCauseException_message = Lens.lens (\RootCauseException' {message} -> message) (\s@RootCauseException' {} a -> s {message = a} :: RootCauseException)
 
 -- | The name of the exception.
-rootCauseException_name :: Lens.Lens' RootCauseException (Core.Maybe Core.Text)
+rootCauseException_name :: Lens.Lens' RootCauseException (Prelude.Maybe Prelude.Text)
 rootCauseException_name = Lens.lens (\RootCauseException' {name} -> name) (\s@RootCauseException' {} a -> s {name = a} :: RootCauseException)
 
 instance Core.FromJSON RootCauseException where
@@ -66,9 +67,10 @@ instance Core.FromJSON RootCauseException where
       "RootCauseException"
       ( \x ->
           RootCauseException'
-            Core.<$> (x Core..:? "Message") Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable RootCauseException
+instance Prelude.Hashable RootCauseException
 
-instance Core.NFData RootCauseException
+instance Prelude.NFData RootCauseException

@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types.EngineType
 import Network.AWS.MQ.Types.EngineVersion
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Types of broker engines.
 --
 -- /See:/ 'newBrokerEngineType' smart constructor.
 data BrokerEngineType = BrokerEngineType'
   { -- | The type of broker engine.
-    engineType :: Core.Maybe EngineType,
+    engineType :: Prelude.Maybe EngineType,
     -- | The list of engine versions.
-    engineVersions :: Core.Maybe [EngineVersion]
+    engineVersions :: Prelude.Maybe [EngineVersion]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BrokerEngineType' with all optional fields omitted.
@@ -50,17 +51,17 @@ newBrokerEngineType ::
   BrokerEngineType
 newBrokerEngineType =
   BrokerEngineType'
-    { engineType = Core.Nothing,
-      engineVersions = Core.Nothing
+    { engineType = Prelude.Nothing,
+      engineVersions = Prelude.Nothing
     }
 
 -- | The type of broker engine.
-brokerEngineType_engineType :: Lens.Lens' BrokerEngineType (Core.Maybe EngineType)
+brokerEngineType_engineType :: Lens.Lens' BrokerEngineType (Prelude.Maybe EngineType)
 brokerEngineType_engineType = Lens.lens (\BrokerEngineType' {engineType} -> engineType) (\s@BrokerEngineType' {} a -> s {engineType = a} :: BrokerEngineType)
 
 -- | The list of engine versions.
-brokerEngineType_engineVersions :: Lens.Lens' BrokerEngineType (Core.Maybe [EngineVersion])
-brokerEngineType_engineVersions = Lens.lens (\BrokerEngineType' {engineVersions} -> engineVersions) (\s@BrokerEngineType' {} a -> s {engineVersions = a} :: BrokerEngineType) Core.. Lens.mapping Lens._Coerce
+brokerEngineType_engineVersions :: Lens.Lens' BrokerEngineType (Prelude.Maybe [EngineVersion])
+brokerEngineType_engineVersions = Lens.lens (\BrokerEngineType' {engineVersions} -> engineVersions) (\s@BrokerEngineType' {} a -> s {engineVersions = a} :: BrokerEngineType) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON BrokerEngineType where
   parseJSON =
@@ -68,10 +69,12 @@ instance Core.FromJSON BrokerEngineType where
       "BrokerEngineType"
       ( \x ->
           BrokerEngineType'
-            Core.<$> (x Core..:? "engineType")
-            Core.<*> (x Core..:? "engineVersions" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "engineType")
+            Prelude.<*> ( x Core..:? "engineVersions"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable BrokerEngineType
+instance Prelude.Hashable BrokerEngineType
 
-instance Core.NFData BrokerEngineType
+instance Prelude.NFData BrokerEngineType

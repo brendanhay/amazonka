@@ -22,6 +22,7 @@ module Network.AWS.IoT.Types.AwsJobExecutionsRolloutConfig where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.AwsJobExponentialRolloutRate
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration for the rollout of OTA updates.
 --
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 data AwsJobExecutionsRolloutConfig = AwsJobExecutionsRolloutConfig'
   { -- | The rate of increase for a job rollout. This parameter allows you to
     -- define an exponential rate increase for a job rollout.
-    exponentialRate :: Core.Maybe AwsJobExponentialRolloutRate,
+    exponentialRate :: Prelude.Maybe AwsJobExponentialRolloutRate,
     -- | The maximum number of OTA update job executions started per minute.
-    maximumPerMinute :: Core.Maybe Core.Natural
+    maximumPerMinute :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AwsJobExecutionsRolloutConfig' with all optional fields omitted.
@@ -52,17 +53,17 @@ newAwsJobExecutionsRolloutConfig ::
 newAwsJobExecutionsRolloutConfig =
   AwsJobExecutionsRolloutConfig'
     { exponentialRate =
-        Core.Nothing,
-      maximumPerMinute = Core.Nothing
+        Prelude.Nothing,
+      maximumPerMinute = Prelude.Nothing
     }
 
 -- | The rate of increase for a job rollout. This parameter allows you to
 -- define an exponential rate increase for a job rollout.
-awsJobExecutionsRolloutConfig_exponentialRate :: Lens.Lens' AwsJobExecutionsRolloutConfig (Core.Maybe AwsJobExponentialRolloutRate)
+awsJobExecutionsRolloutConfig_exponentialRate :: Lens.Lens' AwsJobExecutionsRolloutConfig (Prelude.Maybe AwsJobExponentialRolloutRate)
 awsJobExecutionsRolloutConfig_exponentialRate = Lens.lens (\AwsJobExecutionsRolloutConfig' {exponentialRate} -> exponentialRate) (\s@AwsJobExecutionsRolloutConfig' {} a -> s {exponentialRate = a} :: AwsJobExecutionsRolloutConfig)
 
 -- | The maximum number of OTA update job executions started per minute.
-awsJobExecutionsRolloutConfig_maximumPerMinute :: Lens.Lens' AwsJobExecutionsRolloutConfig (Core.Maybe Core.Natural)
+awsJobExecutionsRolloutConfig_maximumPerMinute :: Lens.Lens' AwsJobExecutionsRolloutConfig (Prelude.Maybe Prelude.Natural)
 awsJobExecutionsRolloutConfig_maximumPerMinute = Lens.lens (\AwsJobExecutionsRolloutConfig' {maximumPerMinute} -> maximumPerMinute) (\s@AwsJobExecutionsRolloutConfig' {} a -> s {maximumPerMinute = a} :: AwsJobExecutionsRolloutConfig)
 
 instance Core.FromJSON AwsJobExecutionsRolloutConfig where
@@ -71,21 +72,23 @@ instance Core.FromJSON AwsJobExecutionsRolloutConfig where
       "AwsJobExecutionsRolloutConfig"
       ( \x ->
           AwsJobExecutionsRolloutConfig'
-            Core.<$> (x Core..:? "exponentialRate")
-            Core.<*> (x Core..:? "maximumPerMinute")
+            Prelude.<$> (x Core..:? "exponentialRate")
+            Prelude.<*> (x Core..:? "maximumPerMinute")
       )
 
-instance Core.Hashable AwsJobExecutionsRolloutConfig
+instance
+  Prelude.Hashable
+    AwsJobExecutionsRolloutConfig
 
-instance Core.NFData AwsJobExecutionsRolloutConfig
+instance Prelude.NFData AwsJobExecutionsRolloutConfig
 
 instance Core.ToJSON AwsJobExecutionsRolloutConfig where
   toJSON AwsJobExecutionsRolloutConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("exponentialRate" Core..=)
-              Core.<$> exponentialRate,
+              Prelude.<$> exponentialRate,
             ("maximumPerMinute" Core..=)
-              Core.<$> maximumPerMinute
+              Prelude.<$> maximumPerMinute
           ]
       )

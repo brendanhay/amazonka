@@ -43,15 +43,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteTrigger' smart constructor.
 data DeleteTrigger = DeleteTrigger'
   { -- | The name of the trigger to delete.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTrigger' with all optional fields omitted.
@@ -64,13 +65,13 @@ data DeleteTrigger = DeleteTrigger'
 -- 'name', 'deleteTrigger_name' - The name of the trigger to delete.
 newDeleteTrigger ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTrigger
 newDeleteTrigger pName_ =
   DeleteTrigger' {name = pName_}
 
 -- | The name of the trigger to delete.
-deleteTrigger_name :: Lens.Lens' DeleteTrigger Core.Text
+deleteTrigger_name :: Lens.Lens' DeleteTrigger Prelude.Text
 deleteTrigger_name = Lens.lens (\DeleteTrigger' {name} -> name) (\s@DeleteTrigger' {} a -> s {name = a} :: DeleteTrigger)
 
 instance Core.AWSRequest DeleteTrigger where
@@ -82,44 +83,48 @@ instance Core.AWSRequest DeleteTrigger where
     Response.receiveJSON
       ( \s h x ->
           DeleteTriggerResponse'
-            Core.<$> (x Core..?> "Name")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Name")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteTrigger
+instance Prelude.Hashable DeleteTrigger
 
-instance Core.NFData DeleteTrigger
+instance Prelude.NFData DeleteTrigger
 
 instance Core.ToHeaders DeleteTrigger where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.DeleteTrigger" :: Core.ByteString),
+              Core.=# ("AWSGlue.DeleteTrigger" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteTrigger where
   toJSON DeleteTrigger' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath DeleteTrigger where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteTrigger where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTriggerResponse' smart constructor.
 data DeleteTriggerResponse = DeleteTriggerResponse'
   { -- | The name of the trigger that was deleted.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTriggerResponse' with all optional fields omitted.
@@ -134,20 +139,20 @@ data DeleteTriggerResponse = DeleteTriggerResponse'
 -- 'httpStatus', 'deleteTriggerResponse_httpStatus' - The response's http status code.
 newDeleteTriggerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteTriggerResponse
 newDeleteTriggerResponse pHttpStatus_ =
   DeleteTriggerResponse'
-    { name = Core.Nothing,
+    { name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the trigger that was deleted.
-deleteTriggerResponse_name :: Lens.Lens' DeleteTriggerResponse (Core.Maybe Core.Text)
+deleteTriggerResponse_name :: Lens.Lens' DeleteTriggerResponse (Prelude.Maybe Prelude.Text)
 deleteTriggerResponse_name = Lens.lens (\DeleteTriggerResponse' {name} -> name) (\s@DeleteTriggerResponse' {} a -> s {name = a} :: DeleteTriggerResponse)
 
 -- | The response's http status code.
-deleteTriggerResponse_httpStatus :: Lens.Lens' DeleteTriggerResponse Core.Int
+deleteTriggerResponse_httpStatus :: Lens.Lens' DeleteTriggerResponse Prelude.Int
 deleteTriggerResponse_httpStatus = Lens.lens (\DeleteTriggerResponse' {httpStatus} -> httpStatus) (\s@DeleteTriggerResponse' {} a -> s {httpStatus = a} :: DeleteTriggerResponse)
 
-instance Core.NFData DeleteTriggerResponse
+instance Prelude.NFData DeleteTriggerResponse

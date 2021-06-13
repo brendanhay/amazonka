@@ -21,6 +21,7 @@ module Network.AWS.AppSync.Types.CognitoUserPoolConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Amazon Cognito user pool configuration.
 --
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 data CognitoUserPoolConfig = CognitoUserPoolConfig'
   { -- | A regular expression for validating the incoming Amazon Cognito user
     -- pool app client ID.
-    appIdClientRegex :: Core.Maybe Core.Text,
+    appIdClientRegex :: Prelude.Maybe Prelude.Text,
     -- | The user pool ID.
-    userPoolId :: Core.Text,
+    userPoolId :: Prelude.Text,
     -- | The AWS Region in which the user pool was created.
-    awsRegion :: Core.Text
+    awsRegion :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CognitoUserPoolConfig' with all optional fields omitted.
@@ -52,29 +53,29 @@ data CognitoUserPoolConfig = CognitoUserPoolConfig'
 -- 'awsRegion', 'cognitoUserPoolConfig_awsRegion' - The AWS Region in which the user pool was created.
 newCognitoUserPoolConfig ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'awsRegion'
-  Core.Text ->
+  Prelude.Text ->
   CognitoUserPoolConfig
 newCognitoUserPoolConfig pUserPoolId_ pAwsRegion_ =
   CognitoUserPoolConfig'
     { appIdClientRegex =
-        Core.Nothing,
+        Prelude.Nothing,
       userPoolId = pUserPoolId_,
       awsRegion = pAwsRegion_
     }
 
 -- | A regular expression for validating the incoming Amazon Cognito user
 -- pool app client ID.
-cognitoUserPoolConfig_appIdClientRegex :: Lens.Lens' CognitoUserPoolConfig (Core.Maybe Core.Text)
+cognitoUserPoolConfig_appIdClientRegex :: Lens.Lens' CognitoUserPoolConfig (Prelude.Maybe Prelude.Text)
 cognitoUserPoolConfig_appIdClientRegex = Lens.lens (\CognitoUserPoolConfig' {appIdClientRegex} -> appIdClientRegex) (\s@CognitoUserPoolConfig' {} a -> s {appIdClientRegex = a} :: CognitoUserPoolConfig)
 
 -- | The user pool ID.
-cognitoUserPoolConfig_userPoolId :: Lens.Lens' CognitoUserPoolConfig Core.Text
+cognitoUserPoolConfig_userPoolId :: Lens.Lens' CognitoUserPoolConfig Prelude.Text
 cognitoUserPoolConfig_userPoolId = Lens.lens (\CognitoUserPoolConfig' {userPoolId} -> userPoolId) (\s@CognitoUserPoolConfig' {} a -> s {userPoolId = a} :: CognitoUserPoolConfig)
 
 -- | The AWS Region in which the user pool was created.
-cognitoUserPoolConfig_awsRegion :: Lens.Lens' CognitoUserPoolConfig Core.Text
+cognitoUserPoolConfig_awsRegion :: Lens.Lens' CognitoUserPoolConfig Prelude.Text
 cognitoUserPoolConfig_awsRegion = Lens.lens (\CognitoUserPoolConfig' {awsRegion} -> awsRegion) (\s@CognitoUserPoolConfig' {} a -> s {awsRegion = a} :: CognitoUserPoolConfig)
 
 instance Core.FromJSON CognitoUserPoolConfig where
@@ -83,22 +84,22 @@ instance Core.FromJSON CognitoUserPoolConfig where
       "CognitoUserPoolConfig"
       ( \x ->
           CognitoUserPoolConfig'
-            Core.<$> (x Core..:? "appIdClientRegex")
-            Core.<*> (x Core..: "userPoolId")
-            Core.<*> (x Core..: "awsRegion")
+            Prelude.<$> (x Core..:? "appIdClientRegex")
+            Prelude.<*> (x Core..: "userPoolId")
+            Prelude.<*> (x Core..: "awsRegion")
       )
 
-instance Core.Hashable CognitoUserPoolConfig
+instance Prelude.Hashable CognitoUserPoolConfig
 
-instance Core.NFData CognitoUserPoolConfig
+instance Prelude.NFData CognitoUserPoolConfig
 
 instance Core.ToJSON CognitoUserPoolConfig where
   toJSON CognitoUserPoolConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("appIdClientRegex" Core..=)
-              Core.<$> appIdClientRegex,
-            Core.Just ("userPoolId" Core..= userPoolId),
-            Core.Just ("awsRegion" Core..= awsRegion)
+              Prelude.<$> appIdClientRegex,
+            Prelude.Just ("userPoolId" Core..= userPoolId),
+            Prelude.Just ("awsRegion" Core..= awsRegion)
           ]
       )

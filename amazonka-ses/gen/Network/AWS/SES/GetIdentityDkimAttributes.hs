@@ -63,6 +63,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -78,9 +79,9 @@ import Network.AWS.SES.Types
 data GetIdentityDkimAttributes = GetIdentityDkimAttributes'
   { -- | A list of one or more verified identities - email addresses, domains, or
     -- both.
-    identities :: [Core.Text]
+    identities :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetIdentityDkimAttributes' with all optional fields omitted.
@@ -97,13 +98,13 @@ newGetIdentityDkimAttributes ::
 newGetIdentityDkimAttributes =
   GetIdentityDkimAttributes'
     { identities =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | A list of one or more verified identities - email addresses, domains, or
 -- both.
-getIdentityDkimAttributes_identities :: Lens.Lens' GetIdentityDkimAttributes [Core.Text]
-getIdentityDkimAttributes_identities = Lens.lens (\GetIdentityDkimAttributes' {identities} -> identities) (\s@GetIdentityDkimAttributes' {} a -> s {identities = a} :: GetIdentityDkimAttributes) Core.. Lens._Coerce
+getIdentityDkimAttributes_identities :: Lens.Lens' GetIdentityDkimAttributes [Prelude.Text]
+getIdentityDkimAttributes_identities = Lens.lens (\GetIdentityDkimAttributes' {identities} -> identities) (\s@GetIdentityDkimAttributes' {} a -> s {identities = a} :: GetIdentityDkimAttributes) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest GetIdentityDkimAttributes where
   type
@@ -115,28 +116,29 @@ instance Core.AWSRequest GetIdentityDkimAttributes where
       "GetIdentityDkimAttributesResult"
       ( \s h x ->
           GetIdentityDkimAttributesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "DkimAttributes" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLMap "entry" "key" "value"
-                     )
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "DkimAttributes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLMap "entry" "key" "value"
+                        )
       )
 
-instance Core.Hashable GetIdentityDkimAttributes
+instance Prelude.Hashable GetIdentityDkimAttributes
 
-instance Core.NFData GetIdentityDkimAttributes
+instance Prelude.NFData GetIdentityDkimAttributes
 
 instance Core.ToHeaders GetIdentityDkimAttributes where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetIdentityDkimAttributes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetIdentityDkimAttributes where
   toQuery GetIdentityDkimAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetIdentityDkimAttributes" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("GetIdentityDkimAttributes" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "Identities"
           Core.=: Core.toQueryList "member" identities
       ]
@@ -149,11 +151,11 @@ instance Core.ToQuery GetIdentityDkimAttributes where
 -- /See:/ 'newGetIdentityDkimAttributesResponse' smart constructor.
 data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The DKIM attributes for an email address or a domain.
-    dkimAttributes :: Core.HashMap Core.Text IdentityDkimAttributes
+    dkimAttributes :: Prelude.HashMap Prelude.Text IdentityDkimAttributes
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetIdentityDkimAttributesResponse' with all optional fields omitted.
@@ -168,23 +170,23 @@ data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
 -- 'dkimAttributes', 'getIdentityDkimAttributesResponse_dkimAttributes' - The DKIM attributes for an email address or a domain.
 newGetIdentityDkimAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetIdentityDkimAttributesResponse
 newGetIdentityDkimAttributesResponse pHttpStatus_ =
   GetIdentityDkimAttributesResponse'
     { httpStatus =
         pHttpStatus_,
-      dkimAttributes = Core.mempty
+      dkimAttributes = Prelude.mempty
     }
 
 -- | The response's http status code.
-getIdentityDkimAttributesResponse_httpStatus :: Lens.Lens' GetIdentityDkimAttributesResponse Core.Int
+getIdentityDkimAttributesResponse_httpStatus :: Lens.Lens' GetIdentityDkimAttributesResponse Prelude.Int
 getIdentityDkimAttributesResponse_httpStatus = Lens.lens (\GetIdentityDkimAttributesResponse' {httpStatus} -> httpStatus) (\s@GetIdentityDkimAttributesResponse' {} a -> s {httpStatus = a} :: GetIdentityDkimAttributesResponse)
 
 -- | The DKIM attributes for an email address or a domain.
-getIdentityDkimAttributesResponse_dkimAttributes :: Lens.Lens' GetIdentityDkimAttributesResponse (Core.HashMap Core.Text IdentityDkimAttributes)
-getIdentityDkimAttributesResponse_dkimAttributes = Lens.lens (\GetIdentityDkimAttributesResponse' {dkimAttributes} -> dkimAttributes) (\s@GetIdentityDkimAttributesResponse' {} a -> s {dkimAttributes = a} :: GetIdentityDkimAttributesResponse) Core.. Lens._Coerce
+getIdentityDkimAttributesResponse_dkimAttributes :: Lens.Lens' GetIdentityDkimAttributesResponse (Prelude.HashMap Prelude.Text IdentityDkimAttributes)
+getIdentityDkimAttributesResponse_dkimAttributes = Lens.lens (\GetIdentityDkimAttributesResponse' {dkimAttributes} -> dkimAttributes) (\s@GetIdentityDkimAttributesResponse' {} a -> s {dkimAttributes = a} :: GetIdentityDkimAttributesResponse) Prelude.. Lens._Coerce
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetIdentityDkimAttributesResponse

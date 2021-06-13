@@ -21,6 +21,7 @@ module Network.AWS.ResourceGroups.Types.GroupFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ResourceGroups.Types.GroupFilterName
 
 -- | A filter collection that you can use to restrict the results from a
@@ -32,9 +33,9 @@ data GroupFilter = GroupFilter'
     name :: GroupFilterName,
     -- | One or more filter values. Allowed filter values vary by group filter
     -- name, and are case-sensitive.
-    values :: Core.NonEmpty Core.Text
+    values :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GroupFilter' with all optional fields omitted.
@@ -52,7 +53,7 @@ newGroupFilter ::
   -- | 'name'
   GroupFilterName ->
   -- | 'values'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   GroupFilter
 newGroupFilter pName_ pValues_ =
   GroupFilter'
@@ -66,18 +67,18 @@ groupFilter_name = Lens.lens (\GroupFilter' {name} -> name) (\s@GroupFilter' {} 
 
 -- | One or more filter values. Allowed filter values vary by group filter
 -- name, and are case-sensitive.
-groupFilter_values :: Lens.Lens' GroupFilter (Core.NonEmpty Core.Text)
-groupFilter_values = Lens.lens (\GroupFilter' {values} -> values) (\s@GroupFilter' {} a -> s {values = a} :: GroupFilter) Core.. Lens._Coerce
+groupFilter_values :: Lens.Lens' GroupFilter (Prelude.NonEmpty Prelude.Text)
+groupFilter_values = Lens.lens (\GroupFilter' {values} -> values) (\s@GroupFilter' {} a -> s {values = a} :: GroupFilter) Prelude.. Lens._Coerce
 
-instance Core.Hashable GroupFilter
+instance Prelude.Hashable GroupFilter
 
-instance Core.NFData GroupFilter
+instance Prelude.NFData GroupFilter
 
 instance Core.ToJSON GroupFilter where
   toJSON GroupFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("Values" Core..= values)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Values" Core..= values)
           ]
       )

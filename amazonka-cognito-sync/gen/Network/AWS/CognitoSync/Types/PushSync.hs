@@ -21,6 +21,7 @@ module Network.AWS.CognitoSync.Types.PushSync where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration options to be applied to the identity pool.
 --
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 data PushSync = PushSync'
   { -- | A role configured to allow Cognito to call SNS on behalf of the
     -- developer.
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | List of SNS platform application ARNs that could be used by clients.
-    applicationArns :: Core.Maybe [Core.Text]
+    applicationArns :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PushSync' with all optional fields omitted.
@@ -50,18 +51,18 @@ newPushSync ::
   PushSync
 newPushSync =
   PushSync'
-    { roleArn = Core.Nothing,
-      applicationArns = Core.Nothing
+    { roleArn = Prelude.Nothing,
+      applicationArns = Prelude.Nothing
     }
 
 -- | A role configured to allow Cognito to call SNS on behalf of the
 -- developer.
-pushSync_roleArn :: Lens.Lens' PushSync (Core.Maybe Core.Text)
+pushSync_roleArn :: Lens.Lens' PushSync (Prelude.Maybe Prelude.Text)
 pushSync_roleArn = Lens.lens (\PushSync' {roleArn} -> roleArn) (\s@PushSync' {} a -> s {roleArn = a} :: PushSync)
 
 -- | List of SNS platform application ARNs that could be used by clients.
-pushSync_applicationArns :: Lens.Lens' PushSync (Core.Maybe [Core.Text])
-pushSync_applicationArns = Lens.lens (\PushSync' {applicationArns} -> applicationArns) (\s@PushSync' {} a -> s {applicationArns = a} :: PushSync) Core.. Lens.mapping Lens._Coerce
+pushSync_applicationArns :: Lens.Lens' PushSync (Prelude.Maybe [Prelude.Text])
+pushSync_applicationArns = Lens.lens (\PushSync' {applicationArns} -> applicationArns) (\s@PushSync' {} a -> s {applicationArns = a} :: PushSync) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON PushSync where
   parseJSON =
@@ -69,20 +70,22 @@ instance Core.FromJSON PushSync where
       "PushSync"
       ( \x ->
           PushSync'
-            Core.<$> (x Core..:? "RoleArn")
-            Core.<*> (x Core..:? "ApplicationArns" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "RoleArn")
+            Prelude.<*> ( x Core..:? "ApplicationArns"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable PushSync
+instance Prelude.Hashable PushSync
 
-instance Core.NFData PushSync
+instance Prelude.NFData PushSync
 
 instance Core.ToJSON PushSync where
   toJSON PushSync' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RoleArn" Core..=) Core.<$> roleArn,
+      ( Prelude.catMaybes
+          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
             ("ApplicationArns" Core..=)
-              Core.<$> applicationArns
+              Prelude.<$> applicationArns
           ]
       )

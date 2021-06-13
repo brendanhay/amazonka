@@ -21,6 +21,7 @@ module Network.AWS.CodeDeploy.Types.TargetGroupInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a target group in Elastic Load Balancing to use in a
 -- deployment. Instances are registered as targets in a target group, and
@@ -34,9 +35,9 @@ data TargetGroupInfo = TargetGroupInfo'
     -- the name of the target group that instances are deregistered from, so
     -- they are not serving traffic during a deployment, and then re-registered
     -- with after the deployment is complete.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TargetGroupInfo' with all optional fields omitted.
@@ -55,7 +56,7 @@ data TargetGroupInfo = TargetGroupInfo'
 newTargetGroupInfo ::
   TargetGroupInfo
 newTargetGroupInfo =
-  TargetGroupInfo' {name = Core.Nothing}
+  TargetGroupInfo' {name = Prelude.Nothing}
 
 -- | For blue\/green deployments, the name of the target group that instances
 -- in the original environment are deregistered from, and instances in the
@@ -63,7 +64,7 @@ newTargetGroupInfo =
 -- the name of the target group that instances are deregistered from, so
 -- they are not serving traffic during a deployment, and then re-registered
 -- with after the deployment is complete.
-targetGroupInfo_name :: Lens.Lens' TargetGroupInfo (Core.Maybe Core.Text)
+targetGroupInfo_name :: Lens.Lens' TargetGroupInfo (Prelude.Maybe Prelude.Text)
 targetGroupInfo_name = Lens.lens (\TargetGroupInfo' {name} -> name) (\s@TargetGroupInfo' {} a -> s {name = a} :: TargetGroupInfo)
 
 instance Core.FromJSON TargetGroupInfo where
@@ -71,14 +72,16 @@ instance Core.FromJSON TargetGroupInfo where
     Core.withObject
       "TargetGroupInfo"
       ( \x ->
-          TargetGroupInfo' Core.<$> (x Core..:? "name")
+          TargetGroupInfo' Prelude.<$> (x Core..:? "name")
       )
 
-instance Core.Hashable TargetGroupInfo
+instance Prelude.Hashable TargetGroupInfo
 
-instance Core.NFData TargetGroupInfo
+instance Prelude.NFData TargetGroupInfo
 
 instance Core.ToJSON TargetGroupInfo where
   toJSON TargetGroupInfo' {..} =
     Core.object
-      (Core.catMaybes [("name" Core..=) Core.<$> name])
+      ( Prelude.catMaybes
+          [("name" Core..=) Prelude.<$> name]
+      )

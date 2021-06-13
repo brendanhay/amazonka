@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This setting can improve the compatibility of your output with video
 -- players on obsolete devices. It applies only to DASH H.264 outputs with
@@ -40,15 +41,15 @@ newtype DashIsoPlaybackDeviceCompatibility = DashIsoPlaybackDeviceCompatibility'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

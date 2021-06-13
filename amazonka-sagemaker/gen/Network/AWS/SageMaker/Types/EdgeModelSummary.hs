@@ -21,17 +21,18 @@ module Network.AWS.SageMaker.Types.EdgeModelSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary of model on edge device.
 --
 -- /See:/ 'newEdgeModelSummary' smart constructor.
 data EdgeModelSummary = EdgeModelSummary'
   { -- | The name of the model.
-    modelName :: Core.Text,
+    modelName :: Prelude.Text,
     -- | The version model.
-    modelVersion :: Core.Text
+    modelVersion :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EdgeModelSummary' with all optional fields omitted.
@@ -46,9 +47,9 @@ data EdgeModelSummary = EdgeModelSummary'
 -- 'modelVersion', 'edgeModelSummary_modelVersion' - The version model.
 newEdgeModelSummary ::
   -- | 'modelName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'modelVersion'
-  Core.Text ->
+  Prelude.Text ->
   EdgeModelSummary
 newEdgeModelSummary pModelName_ pModelVersion_ =
   EdgeModelSummary'
@@ -57,11 +58,11 @@ newEdgeModelSummary pModelName_ pModelVersion_ =
     }
 
 -- | The name of the model.
-edgeModelSummary_modelName :: Lens.Lens' EdgeModelSummary Core.Text
+edgeModelSummary_modelName :: Lens.Lens' EdgeModelSummary Prelude.Text
 edgeModelSummary_modelName = Lens.lens (\EdgeModelSummary' {modelName} -> modelName) (\s@EdgeModelSummary' {} a -> s {modelName = a} :: EdgeModelSummary)
 
 -- | The version model.
-edgeModelSummary_modelVersion :: Lens.Lens' EdgeModelSummary Core.Text
+edgeModelSummary_modelVersion :: Lens.Lens' EdgeModelSummary Prelude.Text
 edgeModelSummary_modelVersion = Lens.lens (\EdgeModelSummary' {modelVersion} -> modelVersion) (\s@EdgeModelSummary' {} a -> s {modelVersion = a} :: EdgeModelSummary)
 
 instance Core.FromJSON EdgeModelSummary where
@@ -70,10 +71,10 @@ instance Core.FromJSON EdgeModelSummary where
       "EdgeModelSummary"
       ( \x ->
           EdgeModelSummary'
-            Core.<$> (x Core..: "ModelName")
-            Core.<*> (x Core..: "ModelVersion")
+            Prelude.<$> (x Core..: "ModelName")
+            Prelude.<*> (x Core..: "ModelVersion")
       )
 
-instance Core.Hashable EdgeModelSummary
+instance Prelude.Hashable EdgeModelSummary
 
-instance Core.NFData EdgeModelSummary
+instance Prelude.NFData EdgeModelSummary

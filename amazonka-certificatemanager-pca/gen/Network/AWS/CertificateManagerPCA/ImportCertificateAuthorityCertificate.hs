@@ -133,6 +133,7 @@ where
 import Network.AWS.CertificateManagerPCA.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -145,19 +146,19 @@ data ImportCertificateAuthorityCertificate = ImportCertificateAuthorityCertifica
     --
     -- This parameter must be supplied when you import a subordinate CA. When
     -- you import a root CA, there is no chain.
-    certificateChain :: Core.Maybe Core.Base64,
+    certificateChain :: Prelude.Maybe Core.Base64,
     -- | The Amazon Resource Name (ARN) that was returned when you called
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
     -- This must be of the form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
-    certificateAuthorityArn :: Core.Text,
+    certificateAuthorityArn :: Prelude.Text,
     -- | The PEM-encoded certificate for a private CA. This may be a self-signed
     -- certificate in the case of a root CA, or it may be signed by another CA
     -- that you control.
     certificate :: Core.Base64
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportCertificateAuthorityCertificate' with all optional fields omitted.
@@ -194,16 +195,16 @@ data ImportCertificateAuthorityCertificate = ImportCertificateAuthorityCertifica
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 newImportCertificateAuthorityCertificate ::
   -- | 'certificateAuthorityArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'certificate'
-  Core.ByteString ->
+  Prelude.ByteString ->
   ImportCertificateAuthorityCertificate
 newImportCertificateAuthorityCertificate
   pCertificateAuthorityArn_
   pCertificate_ =
     ImportCertificateAuthorityCertificate'
       { certificateChain =
-          Core.Nothing,
+          Prelude.Nothing,
         certificateAuthorityArn =
           pCertificateAuthorityArn_,
         certificate =
@@ -221,15 +222,15 @@ newImportCertificateAuthorityCertificate
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-importCertificateAuthorityCertificate_certificateChain :: Lens.Lens' ImportCertificateAuthorityCertificate (Core.Maybe Core.ByteString)
-importCertificateAuthorityCertificate_certificateChain = Lens.lens (\ImportCertificateAuthorityCertificate' {certificateChain} -> certificateChain) (\s@ImportCertificateAuthorityCertificate' {} a -> s {certificateChain = a} :: ImportCertificateAuthorityCertificate) Core.. Lens.mapping Core._Base64
+importCertificateAuthorityCertificate_certificateChain :: Lens.Lens' ImportCertificateAuthorityCertificate (Prelude.Maybe Prelude.ByteString)
+importCertificateAuthorityCertificate_certificateChain = Lens.lens (\ImportCertificateAuthorityCertificate' {certificateChain} -> certificateChain) (\s@ImportCertificateAuthorityCertificate' {} a -> s {certificateChain = a} :: ImportCertificateAuthorityCertificate) Prelude.. Lens.mapping Core._Base64
 
 -- | The Amazon Resource Name (ARN) that was returned when you called
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
-importCertificateAuthorityCertificate_certificateAuthorityArn :: Lens.Lens' ImportCertificateAuthorityCertificate Core.Text
+importCertificateAuthorityCertificate_certificateAuthorityArn :: Lens.Lens' ImportCertificateAuthorityCertificate Prelude.Text
 importCertificateAuthorityCertificate_certificateAuthorityArn = Lens.lens (\ImportCertificateAuthorityCertificate' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@ImportCertificateAuthorityCertificate' {} a -> s {certificateAuthorityArn = a} :: ImportCertificateAuthorityCertificate)
 
 -- | The PEM-encoded certificate for a private CA. This may be a self-signed
@@ -239,8 +240,8 @@ importCertificateAuthorityCertificate_certificateAuthorityArn = Lens.lens (\Impo
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-importCertificateAuthorityCertificate_certificate :: Lens.Lens' ImportCertificateAuthorityCertificate Core.ByteString
-importCertificateAuthorityCertificate_certificate = Lens.lens (\ImportCertificateAuthorityCertificate' {certificate} -> certificate) (\s@ImportCertificateAuthorityCertificate' {} a -> s {certificate = a} :: ImportCertificateAuthorityCertificate) Core.. Core._Base64
+importCertificateAuthorityCertificate_certificate :: Lens.Lens' ImportCertificateAuthorityCertificate Prelude.ByteString
+importCertificateAuthorityCertificate_certificate = Lens.lens (\ImportCertificateAuthorityCertificate' {certificate} -> certificate) (\s@ImportCertificateAuthorityCertificate' {} a -> s {certificate = a} :: ImportCertificateAuthorityCertificate) Prelude.. Core._Base64
 
 instance
   Core.AWSRequest
@@ -256,11 +257,11 @@ instance
       ImportCertificateAuthorityCertificateResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ImportCertificateAuthorityCertificate
 
 instance
-  Core.NFData
+  Prelude.NFData
     ImportCertificateAuthorityCertificate
 
 instance
@@ -268,14 +269,16 @@ instance
     ImportCertificateAuthorityCertificate
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ACMPrivateCA.ImportCertificateAuthorityCertificate" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -285,14 +288,14 @@ instance
   where
   toJSON ImportCertificateAuthorityCertificate' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("CertificateChain" Core..=)
-              Core.<$> certificateChain,
-            Core.Just
+              Prelude.<$> certificateChain,
+            Prelude.Just
               ( "CertificateAuthorityArn"
                   Core..= certificateAuthorityArn
               ),
-            Core.Just ("Certificate" Core..= certificate)
+            Prelude.Just ("Certificate" Core..= certificate)
           ]
       )
 
@@ -300,19 +303,19 @@ instance
   Core.ToPath
     ImportCertificateAuthorityCertificate
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     ImportCertificateAuthorityCertificate
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportCertificateAuthorityCertificateResponse' smart constructor.
 data ImportCertificateAuthorityCertificateResponse = ImportCertificateAuthorityCertificateResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportCertificateAuthorityCertificateResponse' with all optional fields omitted.
@@ -324,5 +327,5 @@ newImportCertificateAuthorityCertificateResponse =
   ImportCertificateAuthorityCertificateResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     ImportCertificateAuthorityCertificateResponse

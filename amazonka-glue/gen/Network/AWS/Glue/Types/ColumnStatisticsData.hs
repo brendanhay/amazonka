@@ -29,6 +29,7 @@ import Network.AWS.Glue.Types.DoubleColumnStatisticsData
 import Network.AWS.Glue.Types.LongColumnStatisticsData
 import Network.AWS.Glue.Types.StringColumnStatisticsData
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the individual types of column statistics data. Only one data
 -- object should be set and indicated by the @Type@ attribute.
@@ -36,23 +37,23 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newColumnStatisticsData' smart constructor.
 data ColumnStatisticsData = ColumnStatisticsData'
   { -- | Date column statistics data.
-    dateColumnStatisticsData :: Core.Maybe DateColumnStatisticsData,
+    dateColumnStatisticsData :: Prelude.Maybe DateColumnStatisticsData,
     -- | Binary column statistics data.
-    binaryColumnStatisticsData :: Core.Maybe BinaryColumnStatisticsData,
+    binaryColumnStatisticsData :: Prelude.Maybe BinaryColumnStatisticsData,
     -- | Boolean column statistics data.
-    booleanColumnStatisticsData :: Core.Maybe BooleanColumnStatisticsData,
+    booleanColumnStatisticsData :: Prelude.Maybe BooleanColumnStatisticsData,
     -- | Long column statistics data.
-    longColumnStatisticsData :: Core.Maybe LongColumnStatisticsData,
+    longColumnStatisticsData :: Prelude.Maybe LongColumnStatisticsData,
     -- | String column statistics data.
-    stringColumnStatisticsData :: Core.Maybe StringColumnStatisticsData,
+    stringColumnStatisticsData :: Prelude.Maybe StringColumnStatisticsData,
     -- | Double column statistics data.
-    doubleColumnStatisticsData :: Core.Maybe DoubleColumnStatisticsData,
+    doubleColumnStatisticsData :: Prelude.Maybe DoubleColumnStatisticsData,
     -- | Decimal column statistics data.
-    decimalColumnStatisticsData :: Core.Maybe DecimalColumnStatisticsData,
+    decimalColumnStatisticsData :: Prelude.Maybe DecimalColumnStatisticsData,
     -- | The type of column statistics data.
     type' :: ColumnStatisticsType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ColumnStatisticsData' with all optional fields omitted.
@@ -84,42 +85,42 @@ newColumnStatisticsData ::
 newColumnStatisticsData pType_ =
   ColumnStatisticsData'
     { dateColumnStatisticsData =
-        Core.Nothing,
-      binaryColumnStatisticsData = Core.Nothing,
-      booleanColumnStatisticsData = Core.Nothing,
-      longColumnStatisticsData = Core.Nothing,
-      stringColumnStatisticsData = Core.Nothing,
-      doubleColumnStatisticsData = Core.Nothing,
-      decimalColumnStatisticsData = Core.Nothing,
+        Prelude.Nothing,
+      binaryColumnStatisticsData = Prelude.Nothing,
+      booleanColumnStatisticsData = Prelude.Nothing,
+      longColumnStatisticsData = Prelude.Nothing,
+      stringColumnStatisticsData = Prelude.Nothing,
+      doubleColumnStatisticsData = Prelude.Nothing,
+      decimalColumnStatisticsData = Prelude.Nothing,
       type' = pType_
     }
 
 -- | Date column statistics data.
-columnStatisticsData_dateColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Core.Maybe DateColumnStatisticsData)
+columnStatisticsData_dateColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Prelude.Maybe DateColumnStatisticsData)
 columnStatisticsData_dateColumnStatisticsData = Lens.lens (\ColumnStatisticsData' {dateColumnStatisticsData} -> dateColumnStatisticsData) (\s@ColumnStatisticsData' {} a -> s {dateColumnStatisticsData = a} :: ColumnStatisticsData)
 
 -- | Binary column statistics data.
-columnStatisticsData_binaryColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Core.Maybe BinaryColumnStatisticsData)
+columnStatisticsData_binaryColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Prelude.Maybe BinaryColumnStatisticsData)
 columnStatisticsData_binaryColumnStatisticsData = Lens.lens (\ColumnStatisticsData' {binaryColumnStatisticsData} -> binaryColumnStatisticsData) (\s@ColumnStatisticsData' {} a -> s {binaryColumnStatisticsData = a} :: ColumnStatisticsData)
 
 -- | Boolean column statistics data.
-columnStatisticsData_booleanColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Core.Maybe BooleanColumnStatisticsData)
+columnStatisticsData_booleanColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Prelude.Maybe BooleanColumnStatisticsData)
 columnStatisticsData_booleanColumnStatisticsData = Lens.lens (\ColumnStatisticsData' {booleanColumnStatisticsData} -> booleanColumnStatisticsData) (\s@ColumnStatisticsData' {} a -> s {booleanColumnStatisticsData = a} :: ColumnStatisticsData)
 
 -- | Long column statistics data.
-columnStatisticsData_longColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Core.Maybe LongColumnStatisticsData)
+columnStatisticsData_longColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Prelude.Maybe LongColumnStatisticsData)
 columnStatisticsData_longColumnStatisticsData = Lens.lens (\ColumnStatisticsData' {longColumnStatisticsData} -> longColumnStatisticsData) (\s@ColumnStatisticsData' {} a -> s {longColumnStatisticsData = a} :: ColumnStatisticsData)
 
 -- | String column statistics data.
-columnStatisticsData_stringColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Core.Maybe StringColumnStatisticsData)
+columnStatisticsData_stringColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Prelude.Maybe StringColumnStatisticsData)
 columnStatisticsData_stringColumnStatisticsData = Lens.lens (\ColumnStatisticsData' {stringColumnStatisticsData} -> stringColumnStatisticsData) (\s@ColumnStatisticsData' {} a -> s {stringColumnStatisticsData = a} :: ColumnStatisticsData)
 
 -- | Double column statistics data.
-columnStatisticsData_doubleColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Core.Maybe DoubleColumnStatisticsData)
+columnStatisticsData_doubleColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Prelude.Maybe DoubleColumnStatisticsData)
 columnStatisticsData_doubleColumnStatisticsData = Lens.lens (\ColumnStatisticsData' {doubleColumnStatisticsData} -> doubleColumnStatisticsData) (\s@ColumnStatisticsData' {} a -> s {doubleColumnStatisticsData = a} :: ColumnStatisticsData)
 
 -- | Decimal column statistics data.
-columnStatisticsData_decimalColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Core.Maybe DecimalColumnStatisticsData)
+columnStatisticsData_decimalColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Prelude.Maybe DecimalColumnStatisticsData)
 columnStatisticsData_decimalColumnStatisticsData = Lens.lens (\ColumnStatisticsData' {decimalColumnStatisticsData} -> decimalColumnStatisticsData) (\s@ColumnStatisticsData' {} a -> s {decimalColumnStatisticsData = a} :: ColumnStatisticsData)
 
 -- | The type of column statistics data.
@@ -132,38 +133,38 @@ instance Core.FromJSON ColumnStatisticsData where
       "ColumnStatisticsData"
       ( \x ->
           ColumnStatisticsData'
-            Core.<$> (x Core..:? "DateColumnStatisticsData")
-            Core.<*> (x Core..:? "BinaryColumnStatisticsData")
-            Core.<*> (x Core..:? "BooleanColumnStatisticsData")
-            Core.<*> (x Core..:? "LongColumnStatisticsData")
-            Core.<*> (x Core..:? "StringColumnStatisticsData")
-            Core.<*> (x Core..:? "DoubleColumnStatisticsData")
-            Core.<*> (x Core..:? "DecimalColumnStatisticsData")
-            Core.<*> (x Core..: "Type")
+            Prelude.<$> (x Core..:? "DateColumnStatisticsData")
+            Prelude.<*> (x Core..:? "BinaryColumnStatisticsData")
+            Prelude.<*> (x Core..:? "BooleanColumnStatisticsData")
+            Prelude.<*> (x Core..:? "LongColumnStatisticsData")
+            Prelude.<*> (x Core..:? "StringColumnStatisticsData")
+            Prelude.<*> (x Core..:? "DoubleColumnStatisticsData")
+            Prelude.<*> (x Core..:? "DecimalColumnStatisticsData")
+            Prelude.<*> (x Core..: "Type")
       )
 
-instance Core.Hashable ColumnStatisticsData
+instance Prelude.Hashable ColumnStatisticsData
 
-instance Core.NFData ColumnStatisticsData
+instance Prelude.NFData ColumnStatisticsData
 
 instance Core.ToJSON ColumnStatisticsData where
   toJSON ColumnStatisticsData' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("DateColumnStatisticsData" Core..=)
-              Core.<$> dateColumnStatisticsData,
+              Prelude.<$> dateColumnStatisticsData,
             ("BinaryColumnStatisticsData" Core..=)
-              Core.<$> binaryColumnStatisticsData,
+              Prelude.<$> binaryColumnStatisticsData,
             ("BooleanColumnStatisticsData" Core..=)
-              Core.<$> booleanColumnStatisticsData,
+              Prelude.<$> booleanColumnStatisticsData,
             ("LongColumnStatisticsData" Core..=)
-              Core.<$> longColumnStatisticsData,
+              Prelude.<$> longColumnStatisticsData,
             ("StringColumnStatisticsData" Core..=)
-              Core.<$> stringColumnStatisticsData,
+              Prelude.<$> stringColumnStatisticsData,
             ("DoubleColumnStatisticsData" Core..=)
-              Core.<$> doubleColumnStatisticsData,
+              Prelude.<$> doubleColumnStatisticsData,
             ("DecimalColumnStatisticsData" Core..=)
-              Core.<$> decimalColumnStatisticsData,
-            Core.Just ("Type" Core..= type')
+              Prelude.<$> decimalColumnStatisticsData,
+            Prelude.Just ("Type" Core..= type')
           ]
       )

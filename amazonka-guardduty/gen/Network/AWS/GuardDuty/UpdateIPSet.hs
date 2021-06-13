@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,19 +53,19 @@ import qualified Network.AWS.Response as Response
 data UpdateIPSet = UpdateIPSet'
   { -- | The updated Boolean value that specifies whether the IPSet is active or
     -- not.
-    activate :: Core.Maybe Core.Bool,
+    activate :: Prelude.Maybe Prelude.Bool,
     -- | The unique ID that specifies the IPSet that you want to update.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The updated URI of the file that contains the IPSet. For example:
     -- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
-    location :: Core.Maybe Core.Text,
+    location :: Prelude.Maybe Prelude.Text,
     -- | The detectorID that specifies the GuardDuty service whose IPSet you want
     -- to update.
-    detectorId :: Core.Text,
+    detectorId :: Prelude.Text,
     -- | The unique ID that specifies the IPSet that you want to update.
-    ipSetId :: Core.Text
+    ipSetId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateIPSet' with all optional fields omitted.
@@ -88,40 +89,40 @@ data UpdateIPSet = UpdateIPSet'
 -- 'ipSetId', 'updateIPSet_ipSetId' - The unique ID that specifies the IPSet that you want to update.
 newUpdateIPSet ::
   -- | 'detectorId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'ipSetId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateIPSet
 newUpdateIPSet pDetectorId_ pIpSetId_ =
   UpdateIPSet'
-    { activate = Core.Nothing,
-      name = Core.Nothing,
-      location = Core.Nothing,
+    { activate = Prelude.Nothing,
+      name = Prelude.Nothing,
+      location = Prelude.Nothing,
       detectorId = pDetectorId_,
       ipSetId = pIpSetId_
     }
 
 -- | The updated Boolean value that specifies whether the IPSet is active or
 -- not.
-updateIPSet_activate :: Lens.Lens' UpdateIPSet (Core.Maybe Core.Bool)
+updateIPSet_activate :: Lens.Lens' UpdateIPSet (Prelude.Maybe Prelude.Bool)
 updateIPSet_activate = Lens.lens (\UpdateIPSet' {activate} -> activate) (\s@UpdateIPSet' {} a -> s {activate = a} :: UpdateIPSet)
 
 -- | The unique ID that specifies the IPSet that you want to update.
-updateIPSet_name :: Lens.Lens' UpdateIPSet (Core.Maybe Core.Text)
+updateIPSet_name :: Lens.Lens' UpdateIPSet (Prelude.Maybe Prelude.Text)
 updateIPSet_name = Lens.lens (\UpdateIPSet' {name} -> name) (\s@UpdateIPSet' {} a -> s {name = a} :: UpdateIPSet)
 
 -- | The updated URI of the file that contains the IPSet. For example:
 -- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
-updateIPSet_location :: Lens.Lens' UpdateIPSet (Core.Maybe Core.Text)
+updateIPSet_location :: Lens.Lens' UpdateIPSet (Prelude.Maybe Prelude.Text)
 updateIPSet_location = Lens.lens (\UpdateIPSet' {location} -> location) (\s@UpdateIPSet' {} a -> s {location = a} :: UpdateIPSet)
 
 -- | The detectorID that specifies the GuardDuty service whose IPSet you want
 -- to update.
-updateIPSet_detectorId :: Lens.Lens' UpdateIPSet Core.Text
+updateIPSet_detectorId :: Lens.Lens' UpdateIPSet Prelude.Text
 updateIPSet_detectorId = Lens.lens (\UpdateIPSet' {detectorId} -> detectorId) (\s@UpdateIPSet' {} a -> s {detectorId = a} :: UpdateIPSet)
 
 -- | The unique ID that specifies the IPSet that you want to update.
-updateIPSet_ipSetId :: Lens.Lens' UpdateIPSet Core.Text
+updateIPSet_ipSetId :: Lens.Lens' UpdateIPSet Prelude.Text
 updateIPSet_ipSetId = Lens.lens (\UpdateIPSet' {ipSetId} -> ipSetId) (\s@UpdateIPSet' {} a -> s {ipSetId = a} :: UpdateIPSet)
 
 instance Core.AWSRequest UpdateIPSet where
@@ -131,35 +132,37 @@ instance Core.AWSRequest UpdateIPSet where
     Response.receiveEmpty
       ( \s h x ->
           UpdateIPSetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateIPSet
+instance Prelude.Hashable UpdateIPSet
 
-instance Core.NFData UpdateIPSet
+instance Prelude.NFData UpdateIPSet
 
 instance Core.ToHeaders UpdateIPSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateIPSet where
   toJSON UpdateIPSet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("activate" Core..=) Core.<$> activate,
-            ("name" Core..=) Core.<$> name,
-            ("location" Core..=) Core.<$> location
+      ( Prelude.catMaybes
+          [ ("activate" Core..=) Prelude.<$> activate,
+            ("name" Core..=) Prelude.<$> name,
+            ("location" Core..=) Prelude.<$> location
           ]
       )
 
 instance Core.ToPath UpdateIPSet where
   toPath UpdateIPSet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/detector/",
         Core.toBS detectorId,
         "/ipset/",
@@ -167,14 +170,14 @@ instance Core.ToPath UpdateIPSet where
       ]
 
 instance Core.ToQuery UpdateIPSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateIPSetResponse' smart constructor.
 data UpdateIPSetResponse = UpdateIPSetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateIPSetResponse' with all optional fields omitted.
@@ -187,13 +190,13 @@ data UpdateIPSetResponse = UpdateIPSetResponse'
 -- 'httpStatus', 'updateIPSetResponse_httpStatus' - The response's http status code.
 newUpdateIPSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateIPSetResponse
 newUpdateIPSetResponse pHttpStatus_ =
   UpdateIPSetResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateIPSetResponse_httpStatus :: Lens.Lens' UpdateIPSetResponse Core.Int
+updateIPSetResponse_httpStatus :: Lens.Lens' UpdateIPSetResponse Prelude.Int
 updateIPSetResponse_httpStatus = Lens.lens (\UpdateIPSetResponse' {httpStatus} -> httpStatus) (\s@UpdateIPSetResponse' {} a -> s {httpStatus = a} :: UpdateIPSetResponse)
 
-instance Core.NFData UpdateIPSetResponse
+instance Prelude.NFData UpdateIPSetResponse

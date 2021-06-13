@@ -83,6 +83,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -95,12 +96,12 @@ data ModifyVolume = ModifyVolume'
     -- and @io2@ volumes only. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html Amazon EBS Multi-Attach>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
-    multiAttachEnabled :: Core.Maybe Core.Bool,
+    multiAttachEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The target throughput of the volume, in MiB\/s. This parameter is valid
     -- only for @gp3@ volumes. The maximum value is 1,000.
     --
@@ -108,13 +109,13 @@ data ModifyVolume = ModifyVolume'
     -- retained.
     --
     -- Valid Range: Minimum value of 125. Maximum value of 1000.
-    throughput :: Core.Maybe Core.Int,
+    throughput :: Prelude.Maybe Prelude.Int,
     -- | The target EBS volume type of the volume. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     --
     -- Default: If no type is specified, the existing type is retained.
-    volumeType :: Core.Maybe VolumeType,
+    volumeType :: Prelude.Maybe VolumeType,
     -- | The target IOPS rate of the volume. This parameter is valid only for
     -- @gp3@, @io1@, and @io2@ volumes.
     --
@@ -127,7 +128,7 @@ data ModifyVolume = ModifyVolume'
     -- -   @io2@: 100-64,000 IOPS
     --
     -- Default: If no IOPS value is specified, the existing value is retained.
-    iops :: Core.Maybe Core.Int,
+    iops :: Prelude.Maybe Prelude.Int,
     -- | The target size of the volume, in GiB. The target volume size must be
     -- greater than or equal to the existing size of the volume.
     --
@@ -142,11 +143,11 @@ data ModifyVolume = ModifyVolume'
     -- -   @standard@: 1-1,024
     --
     -- Default: If no size is specified, the existing size is retained.
-    size :: Core.Maybe Core.Int,
+    size :: Prelude.Maybe Prelude.Int,
     -- | The ID of the volume.
-    volumeId :: Core.Text
+    volumeId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVolume' with all optional fields omitted.
@@ -214,16 +215,16 @@ data ModifyVolume = ModifyVolume'
 -- 'volumeId', 'modifyVolume_volumeId' - The ID of the volume.
 newModifyVolume ::
   -- | 'volumeId'
-  Core.Text ->
+  Prelude.Text ->
   ModifyVolume
 newModifyVolume pVolumeId_ =
   ModifyVolume'
-    { multiAttachEnabled = Core.Nothing,
-      dryRun = Core.Nothing,
-      throughput = Core.Nothing,
-      volumeType = Core.Nothing,
-      iops = Core.Nothing,
-      size = Core.Nothing,
+    { multiAttachEnabled = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      throughput = Prelude.Nothing,
+      volumeType = Prelude.Nothing,
+      iops = Prelude.Nothing,
+      size = Prelude.Nothing,
       volumeId = pVolumeId_
     }
 
@@ -234,14 +235,14 @@ newModifyVolume pVolumeId_ =
 -- and @io2@ volumes only. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html Amazon EBS Multi-Attach>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-modifyVolume_multiAttachEnabled :: Lens.Lens' ModifyVolume (Core.Maybe Core.Bool)
+modifyVolume_multiAttachEnabled :: Lens.Lens' ModifyVolume (Prelude.Maybe Prelude.Bool)
 modifyVolume_multiAttachEnabled = Lens.lens (\ModifyVolume' {multiAttachEnabled} -> multiAttachEnabled) (\s@ModifyVolume' {} a -> s {multiAttachEnabled = a} :: ModifyVolume)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyVolume_dryRun :: Lens.Lens' ModifyVolume (Core.Maybe Core.Bool)
+modifyVolume_dryRun :: Lens.Lens' ModifyVolume (Prelude.Maybe Prelude.Bool)
 modifyVolume_dryRun = Lens.lens (\ModifyVolume' {dryRun} -> dryRun) (\s@ModifyVolume' {} a -> s {dryRun = a} :: ModifyVolume)
 
 -- | The target throughput of the volume, in MiB\/s. This parameter is valid
@@ -251,7 +252,7 @@ modifyVolume_dryRun = Lens.lens (\ModifyVolume' {dryRun} -> dryRun) (\s@ModifyVo
 -- retained.
 --
 -- Valid Range: Minimum value of 125. Maximum value of 1000.
-modifyVolume_throughput :: Lens.Lens' ModifyVolume (Core.Maybe Core.Int)
+modifyVolume_throughput :: Lens.Lens' ModifyVolume (Prelude.Maybe Prelude.Int)
 modifyVolume_throughput = Lens.lens (\ModifyVolume' {throughput} -> throughput) (\s@ModifyVolume' {} a -> s {throughput = a} :: ModifyVolume)
 
 -- | The target EBS volume type of the volume. For more information, see
@@ -259,7 +260,7 @@ modifyVolume_throughput = Lens.lens (\ModifyVolume' {throughput} -> throughput) 
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Default: If no type is specified, the existing type is retained.
-modifyVolume_volumeType :: Lens.Lens' ModifyVolume (Core.Maybe VolumeType)
+modifyVolume_volumeType :: Lens.Lens' ModifyVolume (Prelude.Maybe VolumeType)
 modifyVolume_volumeType = Lens.lens (\ModifyVolume' {volumeType} -> volumeType) (\s@ModifyVolume' {} a -> s {volumeType = a} :: ModifyVolume)
 
 -- | The target IOPS rate of the volume. This parameter is valid only for
@@ -274,7 +275,7 @@ modifyVolume_volumeType = Lens.lens (\ModifyVolume' {volumeType} -> volumeType) 
 -- -   @io2@: 100-64,000 IOPS
 --
 -- Default: If no IOPS value is specified, the existing value is retained.
-modifyVolume_iops :: Lens.Lens' ModifyVolume (Core.Maybe Core.Int)
+modifyVolume_iops :: Lens.Lens' ModifyVolume (Prelude.Maybe Prelude.Int)
 modifyVolume_iops = Lens.lens (\ModifyVolume' {iops} -> iops) (\s@ModifyVolume' {} a -> s {iops = a} :: ModifyVolume)
 
 -- | The target size of the volume, in GiB. The target volume size must be
@@ -291,11 +292,11 @@ modifyVolume_iops = Lens.lens (\ModifyVolume' {iops} -> iops) (\s@ModifyVolume' 
 -- -   @standard@: 1-1,024
 --
 -- Default: If no size is specified, the existing size is retained.
-modifyVolume_size :: Lens.Lens' ModifyVolume (Core.Maybe Core.Int)
+modifyVolume_size :: Lens.Lens' ModifyVolume (Prelude.Maybe Prelude.Int)
 modifyVolume_size = Lens.lens (\ModifyVolume' {size} -> size) (\s@ModifyVolume' {} a -> s {size = a} :: ModifyVolume)
 
 -- | The ID of the volume.
-modifyVolume_volumeId :: Lens.Lens' ModifyVolume Core.Text
+modifyVolume_volumeId :: Lens.Lens' ModifyVolume Prelude.Text
 modifyVolume_volumeId = Lens.lens (\ModifyVolume' {volumeId} -> volumeId) (\s@ModifyVolume' {} a -> s {volumeId = a} :: ModifyVolume)
 
 instance Core.AWSRequest ModifyVolume where
@@ -305,26 +306,27 @@ instance Core.AWSRequest ModifyVolume where
     Response.receiveXML
       ( \s h x ->
           ModifyVolumeResponse'
-            Core.<$> (x Core..@? "volumeModification")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "volumeModification")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyVolume
+instance Prelude.Hashable ModifyVolume
 
-instance Core.NFData ModifyVolume
+instance Prelude.NFData ModifyVolume
 
 instance Core.ToHeaders ModifyVolume where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyVolume where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyVolume where
   toQuery ModifyVolume' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyVolume" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ModifyVolume" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "MultiAttachEnabled" Core.=: multiAttachEnabled,
         "DryRun" Core.=: dryRun,
         "Throughput" Core.=: throughput,
@@ -337,11 +339,11 @@ instance Core.ToQuery ModifyVolume where
 -- | /See:/ 'newModifyVolumeResponse' smart constructor.
 data ModifyVolumeResponse = ModifyVolumeResponse'
   { -- | Information about the volume modification.
-    volumeModification :: Core.Maybe VolumeModification,
+    volumeModification :: Prelude.Maybe VolumeModification,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVolumeResponse' with all optional fields omitted.
@@ -356,21 +358,21 @@ data ModifyVolumeResponse = ModifyVolumeResponse'
 -- 'httpStatus', 'modifyVolumeResponse_httpStatus' - The response's http status code.
 newModifyVolumeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyVolumeResponse
 newModifyVolumeResponse pHttpStatus_ =
   ModifyVolumeResponse'
     { volumeModification =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the volume modification.
-modifyVolumeResponse_volumeModification :: Lens.Lens' ModifyVolumeResponse (Core.Maybe VolumeModification)
+modifyVolumeResponse_volumeModification :: Lens.Lens' ModifyVolumeResponse (Prelude.Maybe VolumeModification)
 modifyVolumeResponse_volumeModification = Lens.lens (\ModifyVolumeResponse' {volumeModification} -> volumeModification) (\s@ModifyVolumeResponse' {} a -> s {volumeModification = a} :: ModifyVolumeResponse)
 
 -- | The response's http status code.
-modifyVolumeResponse_httpStatus :: Lens.Lens' ModifyVolumeResponse Core.Int
+modifyVolumeResponse_httpStatus :: Lens.Lens' ModifyVolumeResponse Prelude.Int
 modifyVolumeResponse_httpStatus = Lens.lens (\ModifyVolumeResponse' {httpStatus} -> httpStatus) (\s@ModifyVolumeResponse' {} a -> s {httpStatus = a} :: ModifyVolumeResponse)
 
-instance Core.NFData ModifyVolumeResponse
+instance Prelude.NFData ModifyVolumeResponse

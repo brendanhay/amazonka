@@ -46,6 +46,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,14 +64,14 @@ data GetDeployment = GetDeployment'
     -- single-valued list containing only the @\"apisummary\"@ string. For
     -- example,
     -- @GET \/restapis\/{restapi_id}\/deployments\/{deployment_id}?embed=apisummary@.
-    embed :: Core.Maybe [Core.Text],
+    embed :: Prelude.Maybe [Prelude.Text],
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The identifier of the Deployment resource to get information
     -- about.
-    deploymentId :: Core.Text
+    deploymentId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDeployment' with all optional fields omitted.
@@ -97,13 +98,13 @@ data GetDeployment = GetDeployment'
 -- about.
 newGetDeployment ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'deploymentId'
-  Core.Text ->
+  Prelude.Text ->
   GetDeployment
 newGetDeployment pRestApiId_ pDeploymentId_ =
   GetDeployment'
-    { embed = Core.Nothing,
+    { embed = Prelude.Nothing,
       restApiId = pRestApiId_,
       deploymentId = pDeploymentId_
     }
@@ -118,16 +119,16 @@ newGetDeployment pRestApiId_ pDeploymentId_ =
 -- single-valued list containing only the @\"apisummary\"@ string. For
 -- example,
 -- @GET \/restapis\/{restapi_id}\/deployments\/{deployment_id}?embed=apisummary@.
-getDeployment_embed :: Lens.Lens' GetDeployment (Core.Maybe [Core.Text])
-getDeployment_embed = Lens.lens (\GetDeployment' {embed} -> embed) (\s@GetDeployment' {} a -> s {embed = a} :: GetDeployment) Core.. Lens.mapping Lens._Coerce
+getDeployment_embed :: Lens.Lens' GetDeployment (Prelude.Maybe [Prelude.Text])
+getDeployment_embed = Lens.lens (\GetDeployment' {embed} -> embed) (\s@GetDeployment' {} a -> s {embed = a} :: GetDeployment) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-getDeployment_restApiId :: Lens.Lens' GetDeployment Core.Text
+getDeployment_restApiId :: Lens.Lens' GetDeployment Prelude.Text
 getDeployment_restApiId = Lens.lens (\GetDeployment' {restApiId} -> restApiId) (\s@GetDeployment' {} a -> s {restApiId = a} :: GetDeployment)
 
 -- | [Required] The identifier of the Deployment resource to get information
 -- about.
-getDeployment_deploymentId :: Lens.Lens' GetDeployment Core.Text
+getDeployment_deploymentId :: Lens.Lens' GetDeployment Prelude.Text
 getDeployment_deploymentId = Lens.lens (\GetDeployment' {deploymentId} -> deploymentId) (\s@GetDeployment' {} a -> s {deploymentId = a} :: GetDeployment)
 
 instance Core.AWSRequest GetDeployment where
@@ -137,22 +138,22 @@ instance Core.AWSRequest GetDeployment where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetDeployment
+instance Prelude.Hashable GetDeployment
 
-instance Core.NFData GetDeployment
+instance Prelude.NFData GetDeployment
 
 instance Core.ToHeaders GetDeployment where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetDeployment where
   toPath GetDeployment' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/deployments/",
@@ -161,8 +162,8 @@ instance Core.ToPath GetDeployment where
 
 instance Core.ToQuery GetDeployment where
   toQuery GetDeployment' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "embed"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> embed)
+            (Core.toQueryList "member" Prelude.<$> embed)
       ]

@@ -21,6 +21,7 @@ module Network.AWS.Lambda.Types.FileSystemConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the connection between a Lambda function and an Amazon EFS
 -- file system.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data FileSystemConfig = FileSystemConfig'
   { -- | The Amazon Resource Name (ARN) of the Amazon EFS access point that
     -- provides access to the file system.
-    arn :: Core.Text,
+    arn :: Prelude.Text,
     -- | The path where the function can access the file system, starting with
     -- @\/mnt\/@.
-    localMountPath :: Core.Text
+    localMountPath :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FileSystemConfig' with all optional fields omitted.
@@ -51,9 +52,9 @@ data FileSystemConfig = FileSystemConfig'
 -- @\/mnt\/@.
 newFileSystemConfig ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'localMountPath'
-  Core.Text ->
+  Prelude.Text ->
   FileSystemConfig
 newFileSystemConfig pArn_ pLocalMountPath_ =
   FileSystemConfig'
@@ -63,12 +64,12 @@ newFileSystemConfig pArn_ pLocalMountPath_ =
 
 -- | The Amazon Resource Name (ARN) of the Amazon EFS access point that
 -- provides access to the file system.
-fileSystemConfig_arn :: Lens.Lens' FileSystemConfig Core.Text
+fileSystemConfig_arn :: Lens.Lens' FileSystemConfig Prelude.Text
 fileSystemConfig_arn = Lens.lens (\FileSystemConfig' {arn} -> arn) (\s@FileSystemConfig' {} a -> s {arn = a} :: FileSystemConfig)
 
 -- | The path where the function can access the file system, starting with
 -- @\/mnt\/@.
-fileSystemConfig_localMountPath :: Lens.Lens' FileSystemConfig Core.Text
+fileSystemConfig_localMountPath :: Lens.Lens' FileSystemConfig Prelude.Text
 fileSystemConfig_localMountPath = Lens.lens (\FileSystemConfig' {localMountPath} -> localMountPath) (\s@FileSystemConfig' {} a -> s {localMountPath = a} :: FileSystemConfig)
 
 instance Core.FromJSON FileSystemConfig where
@@ -77,19 +78,20 @@ instance Core.FromJSON FileSystemConfig where
       "FileSystemConfig"
       ( \x ->
           FileSystemConfig'
-            Core.<$> (x Core..: "Arn")
-            Core.<*> (x Core..: "LocalMountPath")
+            Prelude.<$> (x Core..: "Arn")
+            Prelude.<*> (x Core..: "LocalMountPath")
       )
 
-instance Core.Hashable FileSystemConfig
+instance Prelude.Hashable FileSystemConfig
 
-instance Core.NFData FileSystemConfig
+instance Prelude.NFData FileSystemConfig
 
 instance Core.ToJSON FileSystemConfig where
   toJSON FileSystemConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Arn" Core..= arn),
-            Core.Just ("LocalMountPath" Core..= localMountPath)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Arn" Core..= arn),
+            Prelude.Just
+              ("LocalMountPath" Core..= localMountPath)
           ]
       )

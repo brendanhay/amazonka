@@ -21,14 +21,15 @@ module Network.AWS.MediaLive.Types.OutputLocationRef where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Reference to an OutputDestination ID defined in the channel
 --
 -- /See:/ 'newOutputLocationRef' smart constructor.
 data OutputLocationRef = OutputLocationRef'
-  { destinationRefId :: Core.Maybe Core.Text
+  { destinationRefId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OutputLocationRef' with all optional fields omitted.
@@ -42,10 +43,13 @@ data OutputLocationRef = OutputLocationRef'
 newOutputLocationRef ::
   OutputLocationRef
 newOutputLocationRef =
-  OutputLocationRef' {destinationRefId = Core.Nothing}
+  OutputLocationRef'
+    { destinationRefId =
+        Prelude.Nothing
+    }
 
 -- | Undocumented member.
-outputLocationRef_destinationRefId :: Lens.Lens' OutputLocationRef (Core.Maybe Core.Text)
+outputLocationRef_destinationRefId :: Lens.Lens' OutputLocationRef (Prelude.Maybe Prelude.Text)
 outputLocationRef_destinationRefId = Lens.lens (\OutputLocationRef' {destinationRefId} -> destinationRefId) (\s@OutputLocationRef' {} a -> s {destinationRefId = a} :: OutputLocationRef)
 
 instance Core.FromJSON OutputLocationRef where
@@ -54,18 +58,18 @@ instance Core.FromJSON OutputLocationRef where
       "OutputLocationRef"
       ( \x ->
           OutputLocationRef'
-            Core.<$> (x Core..:? "destinationRefId")
+            Prelude.<$> (x Core..:? "destinationRefId")
       )
 
-instance Core.Hashable OutputLocationRef
+instance Prelude.Hashable OutputLocationRef
 
-instance Core.NFData OutputLocationRef
+instance Prelude.NFData OutputLocationRef
 
 instance Core.ToJSON OutputLocationRef where
   toJSON OutputLocationRef' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("destinationRefId" Core..=)
-              Core.<$> destinationRefId
+              Prelude.<$> destinationRefId
           ]
       )

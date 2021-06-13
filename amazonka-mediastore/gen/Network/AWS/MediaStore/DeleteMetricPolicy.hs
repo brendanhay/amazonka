@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DeleteMetricPolicy = DeleteMetricPolicy'
   { -- | The name of the container that is associated with the metric policy that
     -- you want to delete.
-    containerName :: Core.Text
+    containerName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMetricPolicy' with all optional fields omitted.
@@ -66,7 +67,7 @@ data DeleteMetricPolicy = DeleteMetricPolicy'
 -- you want to delete.
 newDeleteMetricPolicy ::
   -- | 'containerName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteMetricPolicy
 newDeleteMetricPolicy pContainerName_ =
   DeleteMetricPolicy'
@@ -76,7 +77,7 @@ newDeleteMetricPolicy pContainerName_ =
 
 -- | The name of the container that is associated with the metric policy that
 -- you want to delete.
-deleteMetricPolicy_containerName :: Lens.Lens' DeleteMetricPolicy Core.Text
+deleteMetricPolicy_containerName :: Lens.Lens' DeleteMetricPolicy Prelude.Text
 deleteMetricPolicy_containerName = Lens.lens (\DeleteMetricPolicy' {containerName} -> containerName) (\s@DeleteMetricPolicy' {} a -> s {containerName = a} :: DeleteMetricPolicy)
 
 instance Core.AWSRequest DeleteMetricPolicy where
@@ -88,45 +89,49 @@ instance Core.AWSRequest DeleteMetricPolicy where
     Response.receiveEmpty
       ( \s h x ->
           DeleteMetricPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteMetricPolicy
+instance Prelude.Hashable DeleteMetricPolicy
 
-instance Core.NFData DeleteMetricPolicy
+instance Prelude.NFData DeleteMetricPolicy
 
 instance Core.ToHeaders DeleteMetricPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MediaStore_20170901.DeleteMetricPolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteMetricPolicy where
   toJSON DeleteMetricPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ContainerName" Core..= containerName)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ContainerName" Core..= containerName)
+          ]
       )
 
 instance Core.ToPath DeleteMetricPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteMetricPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMetricPolicyResponse' smart constructor.
 data DeleteMetricPolicyResponse = DeleteMetricPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMetricPolicyResponse' with all optional fields omitted.
@@ -139,7 +144,7 @@ data DeleteMetricPolicyResponse = DeleteMetricPolicyResponse'
 -- 'httpStatus', 'deleteMetricPolicyResponse_httpStatus' - The response's http status code.
 newDeleteMetricPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteMetricPolicyResponse
 newDeleteMetricPolicyResponse pHttpStatus_ =
   DeleteMetricPolicyResponse'
@@ -148,7 +153,7 @@ newDeleteMetricPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteMetricPolicyResponse_httpStatus :: Lens.Lens' DeleteMetricPolicyResponse Core.Int
+deleteMetricPolicyResponse_httpStatus :: Lens.Lens' DeleteMetricPolicyResponse Prelude.Int
 deleteMetricPolicyResponse_httpStatus = Lens.lens (\DeleteMetricPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteMetricPolicyResponse' {} a -> s {httpStatus = a} :: DeleteMetricPolicyResponse)
 
-instance Core.NFData DeleteMetricPolicyResponse
+instance Prelude.NFData DeleteMetricPolicyResponse

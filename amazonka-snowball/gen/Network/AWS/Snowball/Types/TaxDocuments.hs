@@ -21,15 +21,16 @@ module Network.AWS.Snowball.Types.TaxDocuments where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Snowball.Types.INDTaxDocuments
 
 -- | The tax documents required in your AWS Region.
 --
 -- /See:/ 'newTaxDocuments' smart constructor.
 data TaxDocuments = TaxDocuments'
-  { ind :: Core.Maybe INDTaxDocuments
+  { ind :: Prelude.Maybe INDTaxDocuments
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TaxDocuments' with all optional fields omitted.
@@ -42,23 +43,24 @@ data TaxDocuments = TaxDocuments'
 -- 'ind', 'taxDocuments_ind' - Undocumented member.
 newTaxDocuments ::
   TaxDocuments
-newTaxDocuments = TaxDocuments' {ind = Core.Nothing}
+newTaxDocuments =
+  TaxDocuments' {ind = Prelude.Nothing}
 
 -- | Undocumented member.
-taxDocuments_ind :: Lens.Lens' TaxDocuments (Core.Maybe INDTaxDocuments)
+taxDocuments_ind :: Lens.Lens' TaxDocuments (Prelude.Maybe INDTaxDocuments)
 taxDocuments_ind = Lens.lens (\TaxDocuments' {ind} -> ind) (\s@TaxDocuments' {} a -> s {ind = a} :: TaxDocuments)
 
 instance Core.FromJSON TaxDocuments where
   parseJSON =
     Core.withObject
       "TaxDocuments"
-      (\x -> TaxDocuments' Core.<$> (x Core..:? "IND"))
+      (\x -> TaxDocuments' Prelude.<$> (x Core..:? "IND"))
 
-instance Core.Hashable TaxDocuments
+instance Prelude.Hashable TaxDocuments
 
-instance Core.NFData TaxDocuments
+instance Prelude.NFData TaxDocuments
 
 instance Core.ToJSON TaxDocuments where
   toJSON TaxDocuments' {..} =
     Core.object
-      (Core.catMaybes [("IND" Core..=) Core.<$> ind])
+      (Prelude.catMaybes [("IND" Core..=) Prelude.<$> ind])

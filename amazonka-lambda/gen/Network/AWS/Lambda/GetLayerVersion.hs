@@ -51,17 +51,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetLayerVersion' smart constructor.
 data GetLayerVersion = GetLayerVersion'
   { -- | The name or Amazon Resource Name (ARN) of the layer.
-    layerName :: Core.Text,
+    layerName :: Prelude.Text,
     -- | The version number.
-    versionNumber :: Core.Integer
+    versionNumber :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetLayerVersion' with all optional fields omitted.
@@ -76,9 +77,9 @@ data GetLayerVersion = GetLayerVersion'
 -- 'versionNumber', 'getLayerVersion_versionNumber' - The version number.
 newGetLayerVersion ::
   -- | 'layerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'versionNumber'
-  Core.Integer ->
+  Prelude.Integer ->
   GetLayerVersion
 newGetLayerVersion pLayerName_ pVersionNumber_ =
   GetLayerVersion'
@@ -87,11 +88,11 @@ newGetLayerVersion pLayerName_ pVersionNumber_ =
     }
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
-getLayerVersion_layerName :: Lens.Lens' GetLayerVersion Core.Text
+getLayerVersion_layerName :: Lens.Lens' GetLayerVersion Prelude.Text
 getLayerVersion_layerName = Lens.lens (\GetLayerVersion' {layerName} -> layerName) (\s@GetLayerVersion' {} a -> s {layerName = a} :: GetLayerVersion)
 
 -- | The version number.
-getLayerVersion_versionNumber :: Lens.Lens' GetLayerVersion Core.Integer
+getLayerVersion_versionNumber :: Lens.Lens' GetLayerVersion Prelude.Integer
 getLayerVersion_versionNumber = Lens.lens (\GetLayerVersion' {versionNumber} -> versionNumber) (\s@GetLayerVersion' {} a -> s {versionNumber = a} :: GetLayerVersion)
 
 instance Core.AWSRequest GetLayerVersion where
@@ -103,16 +104,16 @@ instance Core.AWSRequest GetLayerVersion where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetLayerVersion
+instance Prelude.Hashable GetLayerVersion
 
-instance Core.NFData GetLayerVersion
+instance Prelude.NFData GetLayerVersion
 
 instance Core.ToHeaders GetLayerVersion where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetLayerVersion where
   toPath GetLayerVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2018-10-31/layers/",
         Core.toBS layerName,
         "/versions/",
@@ -120,4 +121,4 @@ instance Core.ToPath GetLayerVersion where
       ]
 
 instance Core.ToQuery GetLayerVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

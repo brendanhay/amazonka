@@ -22,19 +22,20 @@ module Network.AWS.DynamoDBStreams.Types.Shard where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDBStreams.Types.SequenceNumberRange
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A uniquely identified group of stream records within a stream.
 --
 -- /See:/ 'newShard' smart constructor.
 data Shard = Shard'
   { -- | The system-generated identifier for this shard.
-    shardId :: Core.Maybe Core.Text,
+    shardId :: Prelude.Maybe Prelude.Text,
     -- | The range of possible sequence numbers for the shard.
-    sequenceNumberRange :: Core.Maybe SequenceNumberRange,
+    sequenceNumberRange :: Prelude.Maybe SequenceNumberRange,
     -- | The shard ID of the current shard\'s parent.
-    parentShardId :: Core.Maybe Core.Text
+    parentShardId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Shard' with all optional fields omitted.
@@ -53,21 +54,21 @@ newShard ::
   Shard
 newShard =
   Shard'
-    { shardId = Core.Nothing,
-      sequenceNumberRange = Core.Nothing,
-      parentShardId = Core.Nothing
+    { shardId = Prelude.Nothing,
+      sequenceNumberRange = Prelude.Nothing,
+      parentShardId = Prelude.Nothing
     }
 
 -- | The system-generated identifier for this shard.
-shard_shardId :: Lens.Lens' Shard (Core.Maybe Core.Text)
+shard_shardId :: Lens.Lens' Shard (Prelude.Maybe Prelude.Text)
 shard_shardId = Lens.lens (\Shard' {shardId} -> shardId) (\s@Shard' {} a -> s {shardId = a} :: Shard)
 
 -- | The range of possible sequence numbers for the shard.
-shard_sequenceNumberRange :: Lens.Lens' Shard (Core.Maybe SequenceNumberRange)
+shard_sequenceNumberRange :: Lens.Lens' Shard (Prelude.Maybe SequenceNumberRange)
 shard_sequenceNumberRange = Lens.lens (\Shard' {sequenceNumberRange} -> sequenceNumberRange) (\s@Shard' {} a -> s {sequenceNumberRange = a} :: Shard)
 
 -- | The shard ID of the current shard\'s parent.
-shard_parentShardId :: Lens.Lens' Shard (Core.Maybe Core.Text)
+shard_parentShardId :: Lens.Lens' Shard (Prelude.Maybe Prelude.Text)
 shard_parentShardId = Lens.lens (\Shard' {parentShardId} -> parentShardId) (\s@Shard' {} a -> s {parentShardId = a} :: Shard)
 
 instance Core.FromJSON Shard where
@@ -76,11 +77,11 @@ instance Core.FromJSON Shard where
       "Shard"
       ( \x ->
           Shard'
-            Core.<$> (x Core..:? "ShardId")
-            Core.<*> (x Core..:? "SequenceNumberRange")
-            Core.<*> (x Core..:? "ParentShardId")
+            Prelude.<$> (x Core..:? "ShardId")
+            Prelude.<*> (x Core..:? "SequenceNumberRange")
+            Prelude.<*> (x Core..:? "ParentShardId")
       )
 
-instance Core.Hashable Shard
+instance Prelude.Hashable Shard
 
-instance Core.NFData Shard
+instance Prelude.NFData Shard

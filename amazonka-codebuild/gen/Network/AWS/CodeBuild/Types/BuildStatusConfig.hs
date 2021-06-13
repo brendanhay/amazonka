@@ -21,6 +21,7 @@ module Network.AWS.CodeBuild.Types.BuildStatusConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information that defines how the AWS CodeBuild build project
 -- reports the build status to the source provider.
@@ -41,7 +42,7 @@ data BuildStatusConfig = BuildStatusConfig'
     --     commit status. For more information, see
     --     <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status>
     --     in the GitHub developer guide.
-    context :: Core.Maybe Core.Text,
+    context :: Prelude.Maybe Prelude.Text,
     -- | Specifies the target url of the build status CodeBuild sends to the
     -- source provider. The usage of this parameter depends on the source
     -- provider.
@@ -57,9 +58,9 @@ data BuildStatusConfig = BuildStatusConfig'
     --     commit status. For more information, see
     --     <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status>
     --     in the GitHub developer guide.
-    targetUrl :: Core.Maybe Core.Text
+    targetUrl :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BuildStatusConfig' with all optional fields omitted.
@@ -103,8 +104,8 @@ newBuildStatusConfig ::
   BuildStatusConfig
 newBuildStatusConfig =
   BuildStatusConfig'
-    { context = Core.Nothing,
-      targetUrl = Core.Nothing
+    { context = Prelude.Nothing,
+      targetUrl = Prelude.Nothing
     }
 
 -- | Specifies the context of the build status CodeBuild sends to the source
@@ -121,7 +122,7 @@ newBuildStatusConfig =
 --     commit status. For more information, see
 --     <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status>
 --     in the GitHub developer guide.
-buildStatusConfig_context :: Lens.Lens' BuildStatusConfig (Core.Maybe Core.Text)
+buildStatusConfig_context :: Lens.Lens' BuildStatusConfig (Prelude.Maybe Prelude.Text)
 buildStatusConfig_context = Lens.lens (\BuildStatusConfig' {context} -> context) (\s@BuildStatusConfig' {} a -> s {context = a} :: BuildStatusConfig)
 
 -- | Specifies the target url of the build status CodeBuild sends to the
@@ -139,7 +140,7 @@ buildStatusConfig_context = Lens.lens (\BuildStatusConfig' {context} -> context)
 --     commit status. For more information, see
 --     <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status>
 --     in the GitHub developer guide.
-buildStatusConfig_targetUrl :: Lens.Lens' BuildStatusConfig (Core.Maybe Core.Text)
+buildStatusConfig_targetUrl :: Lens.Lens' BuildStatusConfig (Prelude.Maybe Prelude.Text)
 buildStatusConfig_targetUrl = Lens.lens (\BuildStatusConfig' {targetUrl} -> targetUrl) (\s@BuildStatusConfig' {} a -> s {targetUrl = a} :: BuildStatusConfig)
 
 instance Core.FromJSON BuildStatusConfig where
@@ -148,19 +149,19 @@ instance Core.FromJSON BuildStatusConfig where
       "BuildStatusConfig"
       ( \x ->
           BuildStatusConfig'
-            Core.<$> (x Core..:? "context")
-            Core.<*> (x Core..:? "targetUrl")
+            Prelude.<$> (x Core..:? "context")
+            Prelude.<*> (x Core..:? "targetUrl")
       )
 
-instance Core.Hashable BuildStatusConfig
+instance Prelude.Hashable BuildStatusConfig
 
-instance Core.NFData BuildStatusConfig
+instance Prelude.NFData BuildStatusConfig
 
 instance Core.ToJSON BuildStatusConfig where
   toJSON BuildStatusConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("context" Core..=) Core.<$> context,
-            ("targetUrl" Core..=) Core.<$> targetUrl
+      ( Prelude.catMaybes
+          [ ("context" Core..=) Prelude.<$> context,
+            ("targetUrl" Core..=) Prelude.<$> targetUrl
           ]
       )

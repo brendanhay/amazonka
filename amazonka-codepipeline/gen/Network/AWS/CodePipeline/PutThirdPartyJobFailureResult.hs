@@ -41,6 +41,7 @@ where
 import Network.AWS.CodePipeline.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,15 +51,15 @@ import qualified Network.AWS.Response as Response
 data PutThirdPartyJobFailureResult = PutThirdPartyJobFailureResult'
   { -- | The ID of the job that failed. This is the same ID returned from
     -- @PollForThirdPartyJobs@.
-    jobId :: Core.Text,
+    jobId :: Prelude.Text,
     -- | The clientToken portion of the clientId and clientToken pair used to
     -- verify that the calling entity is allowed access to the job and its
     -- details.
-    clientToken :: Core.Text,
+    clientToken :: Prelude.Text,
     -- | Represents information about failure details.
     failureDetails :: FailureDetails
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutThirdPartyJobFailureResult' with all optional fields omitted.
@@ -78,9 +79,9 @@ data PutThirdPartyJobFailureResult = PutThirdPartyJobFailureResult'
 -- 'failureDetails', 'putThirdPartyJobFailureResult_failureDetails' - Represents information about failure details.
 newPutThirdPartyJobFailureResult ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'clientToken'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'failureDetails'
   FailureDetails ->
   PutThirdPartyJobFailureResult
@@ -96,13 +97,13 @@ newPutThirdPartyJobFailureResult
 
 -- | The ID of the job that failed. This is the same ID returned from
 -- @PollForThirdPartyJobs@.
-putThirdPartyJobFailureResult_jobId :: Lens.Lens' PutThirdPartyJobFailureResult Core.Text
+putThirdPartyJobFailureResult_jobId :: Lens.Lens' PutThirdPartyJobFailureResult Prelude.Text
 putThirdPartyJobFailureResult_jobId = Lens.lens (\PutThirdPartyJobFailureResult' {jobId} -> jobId) (\s@PutThirdPartyJobFailureResult' {} a -> s {jobId = a} :: PutThirdPartyJobFailureResult)
 
 -- | The clientToken portion of the clientId and clientToken pair used to
 -- verify that the calling entity is allowed access to the job and its
 -- details.
-putThirdPartyJobFailureResult_clientToken :: Lens.Lens' PutThirdPartyJobFailureResult Core.Text
+putThirdPartyJobFailureResult_clientToken :: Lens.Lens' PutThirdPartyJobFailureResult Prelude.Text
 putThirdPartyJobFailureResult_clientToken = Lens.lens (\PutThirdPartyJobFailureResult' {clientToken} -> clientToken) (\s@PutThirdPartyJobFailureResult' {} a -> s {clientToken = a} :: PutThirdPartyJobFailureResult)
 
 -- | Represents information about failure details.
@@ -121,44 +122,49 @@ instance
     Response.receiveNull
       PutThirdPartyJobFailureResultResponse'
 
-instance Core.Hashable PutThirdPartyJobFailureResult
+instance
+  Prelude.Hashable
+    PutThirdPartyJobFailureResult
 
-instance Core.NFData PutThirdPartyJobFailureResult
+instance Prelude.NFData PutThirdPartyJobFailureResult
 
 instance Core.ToHeaders PutThirdPartyJobFailureResult where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodePipeline_20150709.PutThirdPartyJobFailureResult" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutThirdPartyJobFailureResult where
   toJSON PutThirdPartyJobFailureResult' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("jobId" Core..= jobId),
-            Core.Just ("clientToken" Core..= clientToken),
-            Core.Just ("failureDetails" Core..= failureDetails)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("jobId" Core..= jobId),
+            Prelude.Just ("clientToken" Core..= clientToken),
+            Prelude.Just
+              ("failureDetails" Core..= failureDetails)
           ]
       )
 
 instance Core.ToPath PutThirdPartyJobFailureResult where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutThirdPartyJobFailureResult where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutThirdPartyJobFailureResultResponse' smart constructor.
 data PutThirdPartyJobFailureResultResponse = PutThirdPartyJobFailureResultResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutThirdPartyJobFailureResultResponse' with all optional fields omitted.
@@ -170,5 +176,5 @@ newPutThirdPartyJobFailureResultResponse =
   PutThirdPartyJobFailureResultResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutThirdPartyJobFailureResultResponse

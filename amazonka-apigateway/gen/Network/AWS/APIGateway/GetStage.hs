@@ -58,6 +58,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,11 +67,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetStage' smart constructor.
 data GetStage = GetStage'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The name of the Stage resource to get information about.
-    stageName :: Core.Text
+    stageName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetStage' with all optional fields omitted.
@@ -85,9 +86,9 @@ data GetStage = GetStage'
 -- 'stageName', 'getStage_stageName' - [Required] The name of the Stage resource to get information about.
 newGetStage ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'stageName'
-  Core.Text ->
+  Prelude.Text ->
   GetStage
 newGetStage pRestApiId_ pStageName_ =
   GetStage'
@@ -96,11 +97,11 @@ newGetStage pRestApiId_ pStageName_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-getStage_restApiId :: Lens.Lens' GetStage Core.Text
+getStage_restApiId :: Lens.Lens' GetStage Prelude.Text
 getStage_restApiId = Lens.lens (\GetStage' {restApiId} -> restApiId) (\s@GetStage' {} a -> s {restApiId = a} :: GetStage)
 
 -- | [Required] The name of the Stage resource to get information about.
-getStage_stageName :: Lens.Lens' GetStage Core.Text
+getStage_stageName :: Lens.Lens' GetStage Prelude.Text
 getStage_stageName = Lens.lens (\GetStage' {stageName} -> stageName) (\s@GetStage' {} a -> s {stageName = a} :: GetStage)
 
 instance Core.AWSRequest GetStage where
@@ -110,22 +111,22 @@ instance Core.AWSRequest GetStage where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetStage
+instance Prelude.Hashable GetStage
 
-instance Core.NFData GetStage
+instance Prelude.NFData GetStage
 
 instance Core.ToHeaders GetStage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetStage where
   toPath GetStage' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/stages/",
@@ -133,4 +134,4 @@ instance Core.ToPath GetStage where
       ]
 
 instance Core.ToQuery GetStage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

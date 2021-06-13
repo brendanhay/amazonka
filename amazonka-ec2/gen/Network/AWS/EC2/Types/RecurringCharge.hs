@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.RecurringChargeFrequency
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a recurring charge.
 --
 -- /See:/ 'newRecurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
   { -- | The amount of the recurring charge.
-    amount :: Core.Maybe Core.Double,
+    amount :: Prelude.Maybe Prelude.Double,
     -- | The frequency of the recurring charge.
-    frequency :: Core.Maybe RecurringChargeFrequency
+    frequency :: Prelude.Maybe RecurringChargeFrequency
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RecurringCharge' with all optional fields omitted.
@@ -50,24 +51,24 @@ newRecurringCharge ::
   RecurringCharge
 newRecurringCharge =
   RecurringCharge'
-    { amount = Core.Nothing,
-      frequency = Core.Nothing
+    { amount = Prelude.Nothing,
+      frequency = Prelude.Nothing
     }
 
 -- | The amount of the recurring charge.
-recurringCharge_amount :: Lens.Lens' RecurringCharge (Core.Maybe Core.Double)
+recurringCharge_amount :: Lens.Lens' RecurringCharge (Prelude.Maybe Prelude.Double)
 recurringCharge_amount = Lens.lens (\RecurringCharge' {amount} -> amount) (\s@RecurringCharge' {} a -> s {amount = a} :: RecurringCharge)
 
 -- | The frequency of the recurring charge.
-recurringCharge_frequency :: Lens.Lens' RecurringCharge (Core.Maybe RecurringChargeFrequency)
+recurringCharge_frequency :: Lens.Lens' RecurringCharge (Prelude.Maybe RecurringChargeFrequency)
 recurringCharge_frequency = Lens.lens (\RecurringCharge' {frequency} -> frequency) (\s@RecurringCharge' {} a -> s {frequency = a} :: RecurringCharge)
 
 instance Core.FromXML RecurringCharge where
   parseXML x =
     RecurringCharge'
-      Core.<$> (x Core..@? "amount")
-      Core.<*> (x Core..@? "frequency")
+      Prelude.<$> (x Core..@? "amount")
+      Prelude.<*> (x Core..@? "frequency")
 
-instance Core.Hashable RecurringCharge
+instance Prelude.Hashable RecurringCharge
 
-instance Core.NFData RecurringCharge
+instance Prelude.NFData RecurringCharge

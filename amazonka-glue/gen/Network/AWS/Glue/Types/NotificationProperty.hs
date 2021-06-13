@@ -21,6 +21,7 @@ module Network.AWS.Glue.Types.NotificationProperty where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies configuration properties of a notification.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data NotificationProperty = NotificationProperty'
   { -- | After a job run starts, the number of minutes to wait before sending a
     -- job run delay notification.
-    notifyDelayAfter :: Core.Maybe Core.Natural
+    notifyDelayAfter :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NotificationProperty' with all optional fields omitted.
@@ -47,12 +48,12 @@ newNotificationProperty ::
 newNotificationProperty =
   NotificationProperty'
     { notifyDelayAfter =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | After a job run starts, the number of minutes to wait before sending a
 -- job run delay notification.
-notificationProperty_notifyDelayAfter :: Lens.Lens' NotificationProperty (Core.Maybe Core.Natural)
+notificationProperty_notifyDelayAfter :: Lens.Lens' NotificationProperty (Prelude.Maybe Prelude.Natural)
 notificationProperty_notifyDelayAfter = Lens.lens (\NotificationProperty' {notifyDelayAfter} -> notifyDelayAfter) (\s@NotificationProperty' {} a -> s {notifyDelayAfter = a} :: NotificationProperty)
 
 instance Core.FromJSON NotificationProperty where
@@ -61,18 +62,18 @@ instance Core.FromJSON NotificationProperty where
       "NotificationProperty"
       ( \x ->
           NotificationProperty'
-            Core.<$> (x Core..:? "NotifyDelayAfter")
+            Prelude.<$> (x Core..:? "NotifyDelayAfter")
       )
 
-instance Core.Hashable NotificationProperty
+instance Prelude.Hashable NotificationProperty
 
-instance Core.NFData NotificationProperty
+instance Prelude.NFData NotificationProperty
 
 instance Core.ToJSON NotificationProperty where
   toJSON NotificationProperty' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("NotifyDelayAfter" Core..=)
-              Core.<$> notifyDelayAfter
+              Prelude.<$> notifyDelayAfter
           ]
       )

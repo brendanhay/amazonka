@@ -43,17 +43,18 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteIntegrationAssociation' smart constructor.
 data DeleteIntegrationAssociation = DeleteIntegrationAssociation'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The identifier for the AppIntegration association.
-    integrationAssociationId :: Core.Text
+    integrationAssociationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteIntegrationAssociation' with all optional fields omitted.
@@ -68,9 +69,9 @@ data DeleteIntegrationAssociation = DeleteIntegrationAssociation'
 -- 'integrationAssociationId', 'deleteIntegrationAssociation_integrationAssociationId' - The identifier for the AppIntegration association.
 newDeleteIntegrationAssociation ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'integrationAssociationId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteIntegrationAssociation
 newDeleteIntegrationAssociation
   pInstanceId_
@@ -83,11 +84,11 @@ newDeleteIntegrationAssociation
       }
 
 -- | The identifier of the Amazon Connect instance.
-deleteIntegrationAssociation_instanceId :: Lens.Lens' DeleteIntegrationAssociation Core.Text
+deleteIntegrationAssociation_instanceId :: Lens.Lens' DeleteIntegrationAssociation Prelude.Text
 deleteIntegrationAssociation_instanceId = Lens.lens (\DeleteIntegrationAssociation' {instanceId} -> instanceId) (\s@DeleteIntegrationAssociation' {} a -> s {instanceId = a} :: DeleteIntegrationAssociation)
 
 -- | The identifier for the AppIntegration association.
-deleteIntegrationAssociation_integrationAssociationId :: Lens.Lens' DeleteIntegrationAssociation Core.Text
+deleteIntegrationAssociation_integrationAssociationId :: Lens.Lens' DeleteIntegrationAssociation Prelude.Text
 deleteIntegrationAssociation_integrationAssociationId = Lens.lens (\DeleteIntegrationAssociation' {integrationAssociationId} -> integrationAssociationId) (\s@DeleteIntegrationAssociation' {} a -> s {integrationAssociationId = a} :: DeleteIntegrationAssociation)
 
 instance Core.AWSRequest DeleteIntegrationAssociation where
@@ -99,22 +100,26 @@ instance Core.AWSRequest DeleteIntegrationAssociation where
     Response.receiveNull
       DeleteIntegrationAssociationResponse'
 
-instance Core.Hashable DeleteIntegrationAssociation
+instance
+  Prelude.Hashable
+    DeleteIntegrationAssociation
 
-instance Core.NFData DeleteIntegrationAssociation
+instance Prelude.NFData DeleteIntegrationAssociation
 
 instance Core.ToHeaders DeleteIntegrationAssociation where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteIntegrationAssociation where
   toPath DeleteIntegrationAssociation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/instance/",
         Core.toBS instanceId,
         "/integration-associations/",
@@ -122,13 +127,13 @@ instance Core.ToPath DeleteIntegrationAssociation where
       ]
 
 instance Core.ToQuery DeleteIntegrationAssociation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteIntegrationAssociationResponse' smart constructor.
 data DeleteIntegrationAssociationResponse = DeleteIntegrationAssociationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteIntegrationAssociationResponse' with all optional fields omitted.
@@ -140,5 +145,5 @@ newDeleteIntegrationAssociationResponse =
   DeleteIntegrationAssociationResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteIntegrationAssociationResponse

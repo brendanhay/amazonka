@@ -22,6 +22,7 @@ module Network.AWS.ECS.Types.Device where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.DeviceCgroupPermission
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing a container instance host device.
 --
@@ -30,13 +31,13 @@ data Device = Device'
   { -- | The explicit permissions to provide to the container for the device. By
     -- default, the container has permissions for @read@, @write@, and @mknod@
     -- for the device.
-    permissions :: Core.Maybe [DeviceCgroupPermission],
+    permissions :: Prelude.Maybe [DeviceCgroupPermission],
     -- | The path inside the container at which to expose the host device.
-    containerPath :: Core.Maybe Core.Text,
+    containerPath :: Prelude.Maybe Prelude.Text,
     -- | The path for the device on the host container instance.
-    hostPath :: Core.Text
+    hostPath :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Device' with all optional fields omitted.
@@ -55,27 +56,27 @@ data Device = Device'
 -- 'hostPath', 'device_hostPath' - The path for the device on the host container instance.
 newDevice ::
   -- | 'hostPath'
-  Core.Text ->
+  Prelude.Text ->
   Device
 newDevice pHostPath_ =
   Device'
-    { permissions = Core.Nothing,
-      containerPath = Core.Nothing,
+    { permissions = Prelude.Nothing,
+      containerPath = Prelude.Nothing,
       hostPath = pHostPath_
     }
 
 -- | The explicit permissions to provide to the container for the device. By
 -- default, the container has permissions for @read@, @write@, and @mknod@
 -- for the device.
-device_permissions :: Lens.Lens' Device (Core.Maybe [DeviceCgroupPermission])
-device_permissions = Lens.lens (\Device' {permissions} -> permissions) (\s@Device' {} a -> s {permissions = a} :: Device) Core.. Lens.mapping Lens._Coerce
+device_permissions :: Lens.Lens' Device (Prelude.Maybe [DeviceCgroupPermission])
+device_permissions = Lens.lens (\Device' {permissions} -> permissions) (\s@Device' {} a -> s {permissions = a} :: Device) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The path inside the container at which to expose the host device.
-device_containerPath :: Lens.Lens' Device (Core.Maybe Core.Text)
+device_containerPath :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_containerPath = Lens.lens (\Device' {containerPath} -> containerPath) (\s@Device' {} a -> s {containerPath = a} :: Device)
 
 -- | The path for the device on the host container instance.
-device_hostPath :: Lens.Lens' Device Core.Text
+device_hostPath :: Lens.Lens' Device Prelude.Text
 device_hostPath = Lens.lens (\Device' {hostPath} -> hostPath) (\s@Device' {} a -> s {hostPath = a} :: Device)
 
 instance Core.FromJSON Device where
@@ -84,21 +85,21 @@ instance Core.FromJSON Device where
       "Device"
       ( \x ->
           Device'
-            Core.<$> (x Core..:? "permissions" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "containerPath")
-            Core.<*> (x Core..: "hostPath")
+            Prelude.<$> (x Core..:? "permissions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "containerPath")
+            Prelude.<*> (x Core..: "hostPath")
       )
 
-instance Core.Hashable Device
+instance Prelude.Hashable Device
 
-instance Core.NFData Device
+instance Prelude.NFData Device
 
 instance Core.ToJSON Device where
   toJSON Device' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("permissions" Core..=) Core.<$> permissions,
-            ("containerPath" Core..=) Core.<$> containerPath,
-            Core.Just ("hostPath" Core..= hostPath)
+      ( Prelude.catMaybes
+          [ ("permissions" Core..=) Prelude.<$> permissions,
+            ("containerPath" Core..=) Prelude.<$> containerPath,
+            Prelude.Just ("hostPath" Core..= hostPath)
           ]
       )

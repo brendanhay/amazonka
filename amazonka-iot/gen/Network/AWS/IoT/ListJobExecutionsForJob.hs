@@ -48,21 +48,22 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListJobExecutionsForJob' smart constructor.
 data ListJobExecutionsForJob = ListJobExecutionsForJob'
   { -- | The token to retrieve the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The status of the job.
-    status :: Core.Maybe JobExecutionStatus,
+    status :: Prelude.Maybe JobExecutionStatus,
     -- | The maximum number of results to be returned per request.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier you assigned to this job when it was created.
-    jobId :: Core.Text
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListJobExecutionsForJob' with all optional fields omitted.
@@ -81,30 +82,31 @@ data ListJobExecutionsForJob = ListJobExecutionsForJob'
 -- 'jobId', 'listJobExecutionsForJob_jobId' - The unique identifier you assigned to this job when it was created.
 newListJobExecutionsForJob ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   ListJobExecutionsForJob
 newListJobExecutionsForJob pJobId_ =
   ListJobExecutionsForJob'
-    { nextToken = Core.Nothing,
-      status = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       jobId = pJobId_
     }
 
 -- | The token to retrieve the next set of results.
-listJobExecutionsForJob_nextToken :: Lens.Lens' ListJobExecutionsForJob (Core.Maybe Core.Text)
+listJobExecutionsForJob_nextToken :: Lens.Lens' ListJobExecutionsForJob (Prelude.Maybe Prelude.Text)
 listJobExecutionsForJob_nextToken = Lens.lens (\ListJobExecutionsForJob' {nextToken} -> nextToken) (\s@ListJobExecutionsForJob' {} a -> s {nextToken = a} :: ListJobExecutionsForJob)
 
 -- | The status of the job.
-listJobExecutionsForJob_status :: Lens.Lens' ListJobExecutionsForJob (Core.Maybe JobExecutionStatus)
+listJobExecutionsForJob_status :: Lens.Lens' ListJobExecutionsForJob (Prelude.Maybe JobExecutionStatus)
 listJobExecutionsForJob_status = Lens.lens (\ListJobExecutionsForJob' {status} -> status) (\s@ListJobExecutionsForJob' {} a -> s {status = a} :: ListJobExecutionsForJob)
 
 -- | The maximum number of results to be returned per request.
-listJobExecutionsForJob_maxResults :: Lens.Lens' ListJobExecutionsForJob (Core.Maybe Core.Natural)
+listJobExecutionsForJob_maxResults :: Lens.Lens' ListJobExecutionsForJob (Prelude.Maybe Prelude.Natural)
 listJobExecutionsForJob_maxResults = Lens.lens (\ListJobExecutionsForJob' {maxResults} -> maxResults) (\s@ListJobExecutionsForJob' {} a -> s {maxResults = a} :: ListJobExecutionsForJob)
 
 -- | The unique identifier you assigned to this job when it was created.
-listJobExecutionsForJob_jobId :: Lens.Lens' ListJobExecutionsForJob Core.Text
+listJobExecutionsForJob_jobId :: Lens.Lens' ListJobExecutionsForJob Prelude.Text
 listJobExecutionsForJob_jobId = Lens.lens (\ListJobExecutionsForJob' {jobId} -> jobId) (\s@ListJobExecutionsForJob' {} a -> s {jobId = a} :: ListJobExecutionsForJob)
 
 instance Core.AWSPager ListJobExecutionsForJob where
@@ -112,22 +114,22 @@ instance Core.AWSPager ListJobExecutionsForJob where
     | Core.stop
         ( rs
             Lens.^? listJobExecutionsForJobResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listJobExecutionsForJobResponse_executionSummaries
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listJobExecutionsForJob_nextToken
+          Prelude.& listJobExecutionsForJob_nextToken
           Lens..~ rs
           Lens.^? listJobExecutionsForJobResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListJobExecutionsForJob where
   type
@@ -138,27 +140,28 @@ instance Core.AWSRequest ListJobExecutionsForJob where
     Response.receiveJSON
       ( \s h x ->
           ListJobExecutionsForJobResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> ( x Core..?> "executionSummaries"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "executionSummaries"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListJobExecutionsForJob
+instance Prelude.Hashable ListJobExecutionsForJob
 
-instance Core.NFData ListJobExecutionsForJob
+instance Prelude.NFData ListJobExecutionsForJob
 
 instance Core.ToHeaders ListJobExecutionsForJob where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListJobExecutionsForJob where
   toPath ListJobExecutionsForJob' {..} =
-    Core.mconcat ["/jobs/", Core.toBS jobId, "/things"]
+    Prelude.mconcat
+      ["/jobs/", Core.toBS jobId, "/things"]
 
 instance Core.ToQuery ListJobExecutionsForJob where
   toQuery ListJobExecutionsForJob' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "status" Core.=: status,
         "maxResults" Core.=: maxResults
@@ -168,13 +171,13 @@ instance Core.ToQuery ListJobExecutionsForJob where
 data ListJobExecutionsForJobResponse = ListJobExecutionsForJobResponse'
   { -- | The token for the next set of results, or __null__ if there are no
     -- additional results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of job execution summaries.
-    executionSummaries :: Core.Maybe [JobExecutionSummaryForJob],
+    executionSummaries :: Prelude.Maybe [JobExecutionSummaryForJob],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListJobExecutionsForJobResponse' with all optional fields omitted.
@@ -192,27 +195,29 @@ data ListJobExecutionsForJobResponse = ListJobExecutionsForJobResponse'
 -- 'httpStatus', 'listJobExecutionsForJobResponse_httpStatus' - The response's http status code.
 newListJobExecutionsForJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListJobExecutionsForJobResponse
 newListJobExecutionsForJobResponse pHttpStatus_ =
   ListJobExecutionsForJobResponse'
     { nextToken =
-        Core.Nothing,
-      executionSummaries = Core.Nothing,
+        Prelude.Nothing,
+      executionSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of results, or __null__ if there are no
 -- additional results.
-listJobExecutionsForJobResponse_nextToken :: Lens.Lens' ListJobExecutionsForJobResponse (Core.Maybe Core.Text)
+listJobExecutionsForJobResponse_nextToken :: Lens.Lens' ListJobExecutionsForJobResponse (Prelude.Maybe Prelude.Text)
 listJobExecutionsForJobResponse_nextToken = Lens.lens (\ListJobExecutionsForJobResponse' {nextToken} -> nextToken) (\s@ListJobExecutionsForJobResponse' {} a -> s {nextToken = a} :: ListJobExecutionsForJobResponse)
 
 -- | A list of job execution summaries.
-listJobExecutionsForJobResponse_executionSummaries :: Lens.Lens' ListJobExecutionsForJobResponse (Core.Maybe [JobExecutionSummaryForJob])
-listJobExecutionsForJobResponse_executionSummaries = Lens.lens (\ListJobExecutionsForJobResponse' {executionSummaries} -> executionSummaries) (\s@ListJobExecutionsForJobResponse' {} a -> s {executionSummaries = a} :: ListJobExecutionsForJobResponse) Core.. Lens.mapping Lens._Coerce
+listJobExecutionsForJobResponse_executionSummaries :: Lens.Lens' ListJobExecutionsForJobResponse (Prelude.Maybe [JobExecutionSummaryForJob])
+listJobExecutionsForJobResponse_executionSummaries = Lens.lens (\ListJobExecutionsForJobResponse' {executionSummaries} -> executionSummaries) (\s@ListJobExecutionsForJobResponse' {} a -> s {executionSummaries = a} :: ListJobExecutionsForJobResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listJobExecutionsForJobResponse_httpStatus :: Lens.Lens' ListJobExecutionsForJobResponse Core.Int
+listJobExecutionsForJobResponse_httpStatus :: Lens.Lens' ListJobExecutionsForJobResponse Prelude.Int
 listJobExecutionsForJobResponse_httpStatus = Lens.lens (\ListJobExecutionsForJobResponse' {httpStatus} -> httpStatus) (\s@ListJobExecutionsForJobResponse' {} a -> s {httpStatus = a} :: ListJobExecutionsForJobResponse)
 
-instance Core.NFData ListJobExecutionsForJobResponse
+instance
+  Prelude.NFData
+    ListJobExecutionsForJobResponse

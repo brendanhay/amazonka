@@ -23,22 +23,23 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types.RecordColumn
 import Network.AWS.KinesisAnalytics.Types.RecordFormat
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes updates for the application\'s input schema.
 --
 -- /See:/ 'newInputSchemaUpdate' smart constructor.
 data InputSchemaUpdate = InputSchemaUpdate'
   { -- | Specifies the format of the records on the streaming source.
-    recordFormatUpdate :: Core.Maybe RecordFormat,
+    recordFormatUpdate :: Prelude.Maybe RecordFormat,
     -- | A list of @RecordColumn@ objects. Each object describes the mapping of
     -- the streaming source element to the corresponding column in the
     -- in-application stream.
-    recordColumnUpdates :: Core.Maybe (Core.NonEmpty RecordColumn),
+    recordColumnUpdates :: Prelude.Maybe (Prelude.NonEmpty RecordColumn),
     -- | Specifies the encoding of the records in the streaming source. For
     -- example, UTF-8.
-    recordEncodingUpdate :: Core.Maybe Core.Text
+    recordEncodingUpdate :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputSchemaUpdate' with all optional fields omitted.
@@ -61,39 +62,39 @@ newInputSchemaUpdate ::
 newInputSchemaUpdate =
   InputSchemaUpdate'
     { recordFormatUpdate =
-        Core.Nothing,
-      recordColumnUpdates = Core.Nothing,
-      recordEncodingUpdate = Core.Nothing
+        Prelude.Nothing,
+      recordColumnUpdates = Prelude.Nothing,
+      recordEncodingUpdate = Prelude.Nothing
     }
 
 -- | Specifies the format of the records on the streaming source.
-inputSchemaUpdate_recordFormatUpdate :: Lens.Lens' InputSchemaUpdate (Core.Maybe RecordFormat)
+inputSchemaUpdate_recordFormatUpdate :: Lens.Lens' InputSchemaUpdate (Prelude.Maybe RecordFormat)
 inputSchemaUpdate_recordFormatUpdate = Lens.lens (\InputSchemaUpdate' {recordFormatUpdate} -> recordFormatUpdate) (\s@InputSchemaUpdate' {} a -> s {recordFormatUpdate = a} :: InputSchemaUpdate)
 
 -- | A list of @RecordColumn@ objects. Each object describes the mapping of
 -- the streaming source element to the corresponding column in the
 -- in-application stream.
-inputSchemaUpdate_recordColumnUpdates :: Lens.Lens' InputSchemaUpdate (Core.Maybe (Core.NonEmpty RecordColumn))
-inputSchemaUpdate_recordColumnUpdates = Lens.lens (\InputSchemaUpdate' {recordColumnUpdates} -> recordColumnUpdates) (\s@InputSchemaUpdate' {} a -> s {recordColumnUpdates = a} :: InputSchemaUpdate) Core.. Lens.mapping Lens._Coerce
+inputSchemaUpdate_recordColumnUpdates :: Lens.Lens' InputSchemaUpdate (Prelude.Maybe (Prelude.NonEmpty RecordColumn))
+inputSchemaUpdate_recordColumnUpdates = Lens.lens (\InputSchemaUpdate' {recordColumnUpdates} -> recordColumnUpdates) (\s@InputSchemaUpdate' {} a -> s {recordColumnUpdates = a} :: InputSchemaUpdate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the encoding of the records in the streaming source. For
 -- example, UTF-8.
-inputSchemaUpdate_recordEncodingUpdate :: Lens.Lens' InputSchemaUpdate (Core.Maybe Core.Text)
+inputSchemaUpdate_recordEncodingUpdate :: Lens.Lens' InputSchemaUpdate (Prelude.Maybe Prelude.Text)
 inputSchemaUpdate_recordEncodingUpdate = Lens.lens (\InputSchemaUpdate' {recordEncodingUpdate} -> recordEncodingUpdate) (\s@InputSchemaUpdate' {} a -> s {recordEncodingUpdate = a} :: InputSchemaUpdate)
 
-instance Core.Hashable InputSchemaUpdate
+instance Prelude.Hashable InputSchemaUpdate
 
-instance Core.NFData InputSchemaUpdate
+instance Prelude.NFData InputSchemaUpdate
 
 instance Core.ToJSON InputSchemaUpdate where
   toJSON InputSchemaUpdate' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("RecordFormatUpdate" Core..=)
-              Core.<$> recordFormatUpdate,
+              Prelude.<$> recordFormatUpdate,
             ("RecordColumnUpdates" Core..=)
-              Core.<$> recordColumnUpdates,
+              Prelude.<$> recordColumnUpdates,
             ("RecordEncodingUpdate" Core..=)
-              Core.<$> recordEncodingUpdate
+              Prelude.<$> recordEncodingUpdate
           ]
       )

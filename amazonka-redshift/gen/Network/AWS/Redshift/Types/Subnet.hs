@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.Subnet where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.AvailabilityZone
 
@@ -29,12 +30,12 @@ import Network.AWS.Redshift.Types.AvailabilityZone
 -- /See:/ 'newSubnet' smart constructor.
 data Subnet = Subnet'
   { -- | The status of the subnet.
-    subnetStatus :: Core.Maybe Core.Text,
+    subnetStatus :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the subnet.
-    subnetIdentifier :: Core.Maybe Core.Text,
-    subnetAvailabilityZone :: Core.Maybe AvailabilityZone
+    subnetIdentifier :: Prelude.Maybe Prelude.Text,
+    subnetAvailabilityZone :: Prelude.Maybe AvailabilityZone
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Subnet' with all optional fields omitted.
@@ -53,30 +54,30 @@ newSubnet ::
   Subnet
 newSubnet =
   Subnet'
-    { subnetStatus = Core.Nothing,
-      subnetIdentifier = Core.Nothing,
-      subnetAvailabilityZone = Core.Nothing
+    { subnetStatus = Prelude.Nothing,
+      subnetIdentifier = Prelude.Nothing,
+      subnetAvailabilityZone = Prelude.Nothing
     }
 
 -- | The status of the subnet.
-subnet_subnetStatus :: Lens.Lens' Subnet (Core.Maybe Core.Text)
+subnet_subnetStatus :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
 subnet_subnetStatus = Lens.lens (\Subnet' {subnetStatus} -> subnetStatus) (\s@Subnet' {} a -> s {subnetStatus = a} :: Subnet)
 
 -- | The identifier of the subnet.
-subnet_subnetIdentifier :: Lens.Lens' Subnet (Core.Maybe Core.Text)
+subnet_subnetIdentifier :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
 subnet_subnetIdentifier = Lens.lens (\Subnet' {subnetIdentifier} -> subnetIdentifier) (\s@Subnet' {} a -> s {subnetIdentifier = a} :: Subnet)
 
 -- |
-subnet_subnetAvailabilityZone :: Lens.Lens' Subnet (Core.Maybe AvailabilityZone)
+subnet_subnetAvailabilityZone :: Lens.Lens' Subnet (Prelude.Maybe AvailabilityZone)
 subnet_subnetAvailabilityZone = Lens.lens (\Subnet' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@Subnet' {} a -> s {subnetAvailabilityZone = a} :: Subnet)
 
 instance Core.FromXML Subnet where
   parseXML x =
     Subnet'
-      Core.<$> (x Core..@? "SubnetStatus")
-      Core.<*> (x Core..@? "SubnetIdentifier")
-      Core.<*> (x Core..@? "SubnetAvailabilityZone")
+      Prelude.<$> (x Core..@? "SubnetStatus")
+      Prelude.<*> (x Core..@? "SubnetIdentifier")
+      Prelude.<*> (x Core..@? "SubnetAvailabilityZone")
 
-instance Core.Hashable Subnet
+instance Prelude.Hashable Subnet
 
-instance Core.NFData Subnet
+instance Prelude.NFData Subnet

@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.EsamManifestConfirmConditionNotification w
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | ESAM ManifestConfirmConditionNotification defined by
 -- OC-SP-ESAM-API-I03-131025.
@@ -31,9 +32,9 @@ data EsamManifestConfirmConditionNotification = EsamManifestConfirmConditionNoti
     -- inside your JSON job settings. Form the XML document as per
     -- OC-SP-ESAM-API-I03-131025. The transcoder will use the Manifest
     -- Conditioning instructions in the message that you supply.
-    mccXml :: Core.Maybe Core.Text
+    mccXml :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EsamManifestConfirmConditionNotification' with all optional fields omitted.
@@ -52,14 +53,14 @@ newEsamManifestConfirmConditionNotification ::
 newEsamManifestConfirmConditionNotification =
   EsamManifestConfirmConditionNotification'
     { mccXml =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Provide your ESAM ManifestConfirmConditionNotification XML document
 -- inside your JSON job settings. Form the XML document as per
 -- OC-SP-ESAM-API-I03-131025. The transcoder will use the Manifest
 -- Conditioning instructions in the message that you supply.
-esamManifestConfirmConditionNotification_mccXml :: Lens.Lens' EsamManifestConfirmConditionNotification (Core.Maybe Core.Text)
+esamManifestConfirmConditionNotification_mccXml :: Lens.Lens' EsamManifestConfirmConditionNotification (Prelude.Maybe Prelude.Text)
 esamManifestConfirmConditionNotification_mccXml = Lens.lens (\EsamManifestConfirmConditionNotification' {mccXml} -> mccXml) (\s@EsamManifestConfirmConditionNotification' {} a -> s {mccXml = a} :: EsamManifestConfirmConditionNotification)
 
 instance
@@ -71,15 +72,15 @@ instance
       "EsamManifestConfirmConditionNotification"
       ( \x ->
           EsamManifestConfirmConditionNotification'
-            Core.<$> (x Core..:? "mccXml")
+            Prelude.<$> (x Core..:? "mccXml")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     EsamManifestConfirmConditionNotification
 
 instance
-  Core.NFData
+  Prelude.NFData
     EsamManifestConfirmConditionNotification
 
 instance
@@ -88,4 +89,6 @@ instance
   where
   toJSON EsamManifestConfirmConditionNotification' {..} =
     Core.object
-      (Core.catMaybes [("mccXml" Core..=) Core.<$> mccXml])
+      ( Prelude.catMaybes
+          [("mccXml" Core..=) Prelude.<$> mccXml]
+      )

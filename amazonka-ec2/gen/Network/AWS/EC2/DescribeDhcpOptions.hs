@@ -53,26 +53,27 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeDhcpOptions' smart constructor.
 data DescribeDhcpOptions = DescribeDhcpOptions'
   { -- | The token for the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The IDs of one or more DHCP options sets.
     --
     -- Default: Describes all your DHCP options sets.
-    dhcpOptionsIds :: Core.Maybe [Core.Text],
+    dhcpOptionsIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters.
     --
     -- -   @dhcp-options-id@ - The ID of a DHCP options set.
@@ -93,9 +94,9 @@ data DescribeDhcpOptions = DescribeDhcpOptions'
     -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
-    filters :: Core.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDhcpOptions' with all optional fields omitted.
@@ -144,34 +145,34 @@ newDescribeDhcpOptions ::
   DescribeDhcpOptions
 newDescribeDhcpOptions =
   DescribeDhcpOptions'
-    { nextToken = Core.Nothing,
-      dhcpOptionsIds = Core.Nothing,
-      dryRun = Core.Nothing,
-      maxResults = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      dhcpOptionsIds = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | The token for the next page of results.
-describeDhcpOptions_nextToken :: Lens.Lens' DescribeDhcpOptions (Core.Maybe Core.Text)
+describeDhcpOptions_nextToken :: Lens.Lens' DescribeDhcpOptions (Prelude.Maybe Prelude.Text)
 describeDhcpOptions_nextToken = Lens.lens (\DescribeDhcpOptions' {nextToken} -> nextToken) (\s@DescribeDhcpOptions' {} a -> s {nextToken = a} :: DescribeDhcpOptions)
 
 -- | The IDs of one or more DHCP options sets.
 --
 -- Default: Describes all your DHCP options sets.
-describeDhcpOptions_dhcpOptionsIds :: Lens.Lens' DescribeDhcpOptions (Core.Maybe [Core.Text])
-describeDhcpOptions_dhcpOptionsIds = Lens.lens (\DescribeDhcpOptions' {dhcpOptionsIds} -> dhcpOptionsIds) (\s@DescribeDhcpOptions' {} a -> s {dhcpOptionsIds = a} :: DescribeDhcpOptions) Core.. Lens.mapping Lens._Coerce
+describeDhcpOptions_dhcpOptionsIds :: Lens.Lens' DescribeDhcpOptions (Prelude.Maybe [Prelude.Text])
+describeDhcpOptions_dhcpOptionsIds = Lens.lens (\DescribeDhcpOptions' {dhcpOptionsIds} -> dhcpOptionsIds) (\s@DescribeDhcpOptions' {} a -> s {dhcpOptionsIds = a} :: DescribeDhcpOptions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeDhcpOptions_dryRun :: Lens.Lens' DescribeDhcpOptions (Core.Maybe Core.Bool)
+describeDhcpOptions_dryRun :: Lens.Lens' DescribeDhcpOptions (Prelude.Maybe Prelude.Bool)
 describeDhcpOptions_dryRun = Lens.lens (\DescribeDhcpOptions' {dryRun} -> dryRun) (\s@DescribeDhcpOptions' {} a -> s {dryRun = a} :: DescribeDhcpOptions)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-describeDhcpOptions_maxResults :: Lens.Lens' DescribeDhcpOptions (Core.Maybe Core.Natural)
+describeDhcpOptions_maxResults :: Lens.Lens' DescribeDhcpOptions (Prelude.Maybe Prelude.Natural)
 describeDhcpOptions_maxResults = Lens.lens (\DescribeDhcpOptions' {maxResults} -> maxResults) (\s@DescribeDhcpOptions' {} a -> s {maxResults = a} :: DescribeDhcpOptions)
 
 -- | One or more filters.
@@ -194,30 +195,30 @@ describeDhcpOptions_maxResults = Lens.lens (\DescribeDhcpOptions' {maxResults} -
 -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
-describeDhcpOptions_filters :: Lens.Lens' DescribeDhcpOptions (Core.Maybe [Filter])
-describeDhcpOptions_filters = Lens.lens (\DescribeDhcpOptions' {filters} -> filters) (\s@DescribeDhcpOptions' {} a -> s {filters = a} :: DescribeDhcpOptions) Core.. Lens.mapping Lens._Coerce
+describeDhcpOptions_filters :: Lens.Lens' DescribeDhcpOptions (Prelude.Maybe [Filter])
+describeDhcpOptions_filters = Lens.lens (\DescribeDhcpOptions' {filters} -> filters) (\s@DescribeDhcpOptions' {} a -> s {filters = a} :: DescribeDhcpOptions) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeDhcpOptions where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? describeDhcpOptionsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDhcpOptionsResponse_dhcpOptions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeDhcpOptions_nextToken
+          Prelude.& describeDhcpOptions_nextToken
           Lens..~ rs
           Lens.^? describeDhcpOptionsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDhcpOptions where
   type
@@ -228,51 +229,52 @@ instance Core.AWSRequest DescribeDhcpOptions where
     Response.receiveXML
       ( \s h x ->
           DescribeDhcpOptionsResponse'
-            Core.<$> (x Core..@? "nextToken")
-            Core.<*> ( x Core..@? "dhcpOptionsSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "dhcpOptionsSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeDhcpOptions
+instance Prelude.Hashable DescribeDhcpOptions
 
-instance Core.NFData DescribeDhcpOptions
+instance Prelude.NFData DescribeDhcpOptions
 
 instance Core.ToHeaders DescribeDhcpOptions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeDhcpOptions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeDhcpOptions where
   toQuery DescribeDhcpOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDhcpOptions" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DescribeDhcpOptions" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         Core.toQuery
           ( Core.toQueryList "DhcpOptionsId"
-              Core.<$> dhcpOptionsIds
+              Prelude.<$> dhcpOptionsIds
           ),
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeDhcpOptionsResponse' smart constructor.
 data DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about one or more DHCP options sets.
-    dhcpOptions :: Core.Maybe [DhcpOptions],
+    dhcpOptions :: Prelude.Maybe [DhcpOptions],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDhcpOptionsResponse' with all optional fields omitted.
@@ -290,27 +292,27 @@ data DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse'
 -- 'httpStatus', 'describeDhcpOptionsResponse_httpStatus' - The response's http status code.
 newDescribeDhcpOptionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeDhcpOptionsResponse
 newDescribeDhcpOptionsResponse pHttpStatus_ =
   DescribeDhcpOptionsResponse'
     { nextToken =
-        Core.Nothing,
-      dhcpOptions = Core.Nothing,
+        Prelude.Nothing,
+      dhcpOptions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeDhcpOptionsResponse_nextToken :: Lens.Lens' DescribeDhcpOptionsResponse (Core.Maybe Core.Text)
+describeDhcpOptionsResponse_nextToken :: Lens.Lens' DescribeDhcpOptionsResponse (Prelude.Maybe Prelude.Text)
 describeDhcpOptionsResponse_nextToken = Lens.lens (\DescribeDhcpOptionsResponse' {nextToken} -> nextToken) (\s@DescribeDhcpOptionsResponse' {} a -> s {nextToken = a} :: DescribeDhcpOptionsResponse)
 
 -- | Information about one or more DHCP options sets.
-describeDhcpOptionsResponse_dhcpOptions :: Lens.Lens' DescribeDhcpOptionsResponse (Core.Maybe [DhcpOptions])
-describeDhcpOptionsResponse_dhcpOptions = Lens.lens (\DescribeDhcpOptionsResponse' {dhcpOptions} -> dhcpOptions) (\s@DescribeDhcpOptionsResponse' {} a -> s {dhcpOptions = a} :: DescribeDhcpOptionsResponse) Core.. Lens.mapping Lens._Coerce
+describeDhcpOptionsResponse_dhcpOptions :: Lens.Lens' DescribeDhcpOptionsResponse (Prelude.Maybe [DhcpOptions])
+describeDhcpOptionsResponse_dhcpOptions = Lens.lens (\DescribeDhcpOptionsResponse' {dhcpOptions} -> dhcpOptions) (\s@DescribeDhcpOptionsResponse' {} a -> s {dhcpOptions = a} :: DescribeDhcpOptionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeDhcpOptionsResponse_httpStatus :: Lens.Lens' DescribeDhcpOptionsResponse Core.Int
+describeDhcpOptionsResponse_httpStatus :: Lens.Lens' DescribeDhcpOptionsResponse Prelude.Int
 describeDhcpOptionsResponse_httpStatus = Lens.lens (\DescribeDhcpOptionsResponse' {httpStatus} -> httpStatus) (\s@DescribeDhcpOptionsResponse' {} a -> s {httpStatus = a} :: DescribeDhcpOptionsResponse)
 
-instance Core.NFData DescribeDhcpOptionsResponse
+instance Prelude.NFData DescribeDhcpOptionsResponse

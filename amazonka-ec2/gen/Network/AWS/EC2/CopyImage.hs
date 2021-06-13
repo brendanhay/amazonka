@@ -75,6 +75,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -86,7 +87,7 @@ data CopyImage = CopyImage'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether the destination snapshots of the copied image should
     -- be encrypted. You can encrypt a copy of an unencrypted snapshot, but you
     -- cannot create an unencrypted copy of an encrypted snapshot. The default
@@ -94,7 +95,7 @@ data CopyImage = CopyImage'
     -- Service (AWS KMS) CMK using @KmsKeyId@. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
-    encrypted :: Core.Maybe Core.Bool,
+    encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the symmetric AWS Key Management Service (AWS KMS)
     -- customer master key (CMK) to use when creating encrypted volumes. If
     -- this parameter is not specified, your AWS managed CMK for EBS is used.
@@ -119,7 +120,7 @@ data CopyImage = CopyImage'
     -- The specified CMK must exist in the destination Region.
     --
     -- Amazon EBS does not support asymmetric CMKs.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.
     -- Only specify this parameter when copying an AMI from an AWS Region to an
     -- Outpost. The AMI must be in the Region of the destination Outpost. You
@@ -129,22 +130,22 @@ data CopyImage = CopyImage'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copying AMIs from an AWS Region to an Outpost>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
-    destinationOutpostArn :: Core.Maybe Core.Text,
+    destinationOutpostArn :: Prelude.Maybe Prelude.Text,
     -- | A description for the new AMI in the destination Region.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | Unique, case-sensitive identifier you provide to ensure idempotency of
     -- the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>
     -- in the /Amazon EC2 API Reference/.
-    clientToken :: Core.Maybe Core.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the new AMI in the destination Region.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The ID of the AMI to copy.
-    sourceImageId :: Core.Text,
+    sourceImageId :: Prelude.Text,
     -- | The name of the Region that contains the AMI to copy.
-    sourceRegion :: Core.Text
+    sourceRegion :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopyImage' with all optional fields omitted.
@@ -216,20 +217,20 @@ data CopyImage = CopyImage'
 -- 'sourceRegion', 'copyImage_sourceRegion' - The name of the Region that contains the AMI to copy.
 newCopyImage ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sourceImageId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sourceRegion'
-  Core.Text ->
+  Prelude.Text ->
   CopyImage
 newCopyImage pName_ pSourceImageId_ pSourceRegion_ =
   CopyImage'
-    { dryRun = Core.Nothing,
-      encrypted = Core.Nothing,
-      kmsKeyId = Core.Nothing,
-      destinationOutpostArn = Core.Nothing,
-      description = Core.Nothing,
-      clientToken = Core.Nothing,
+    { dryRun = Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      destinationOutpostArn = Prelude.Nothing,
+      description = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       name = pName_,
       sourceImageId = pSourceImageId_,
       sourceRegion = pSourceRegion_
@@ -239,7 +240,7 @@ newCopyImage pName_ pSourceImageId_ pSourceRegion_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-copyImage_dryRun :: Lens.Lens' CopyImage (Core.Maybe Core.Bool)
+copyImage_dryRun :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Bool)
 copyImage_dryRun = Lens.lens (\CopyImage' {dryRun} -> dryRun) (\s@CopyImage' {} a -> s {dryRun = a} :: CopyImage)
 
 -- | Specifies whether the destination snapshots of the copied image should
@@ -249,7 +250,7 @@ copyImage_dryRun = Lens.lens (\CopyImage' {dryRun} -> dryRun) (\s@CopyImage' {} 
 -- Service (AWS KMS) CMK using @KmsKeyId@. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-copyImage_encrypted :: Lens.Lens' CopyImage (Core.Maybe Core.Bool)
+copyImage_encrypted :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Bool)
 copyImage_encrypted = Lens.lens (\CopyImage' {encrypted} -> encrypted) (\s@CopyImage' {} a -> s {encrypted = a} :: CopyImage)
 
 -- | The identifier of the symmetric AWS Key Management Service (AWS KMS)
@@ -276,7 +277,7 @@ copyImage_encrypted = Lens.lens (\CopyImage' {encrypted} -> encrypted) (\s@CopyI
 -- The specified CMK must exist in the destination Region.
 --
 -- Amazon EBS does not support asymmetric CMKs.
-copyImage_kmsKeyId :: Lens.Lens' CopyImage (Core.Maybe Core.Text)
+copyImage_kmsKeyId :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
 copyImage_kmsKeyId = Lens.lens (\CopyImage' {kmsKeyId} -> kmsKeyId) (\s@CopyImage' {} a -> s {kmsKeyId = a} :: CopyImage)
 
 -- | The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.
@@ -288,30 +289,30 @@ copyImage_kmsKeyId = Lens.lens (\CopyImage' {kmsKeyId} -> kmsKeyId) (\s@CopyImag
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copying AMIs from an AWS Region to an Outpost>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-copyImage_destinationOutpostArn :: Lens.Lens' CopyImage (Core.Maybe Core.Text)
+copyImage_destinationOutpostArn :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
 copyImage_destinationOutpostArn = Lens.lens (\CopyImage' {destinationOutpostArn} -> destinationOutpostArn) (\s@CopyImage' {} a -> s {destinationOutpostArn = a} :: CopyImage)
 
 -- | A description for the new AMI in the destination Region.
-copyImage_description :: Lens.Lens' CopyImage (Core.Maybe Core.Text)
+copyImage_description :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
 copyImage_description = Lens.lens (\CopyImage' {description} -> description) (\s@CopyImage' {} a -> s {description = a} :: CopyImage)
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of
 -- the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>
 -- in the /Amazon EC2 API Reference/.
-copyImage_clientToken :: Lens.Lens' CopyImage (Core.Maybe Core.Text)
+copyImage_clientToken :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
 copyImage_clientToken = Lens.lens (\CopyImage' {clientToken} -> clientToken) (\s@CopyImage' {} a -> s {clientToken = a} :: CopyImage)
 
 -- | The name of the new AMI in the destination Region.
-copyImage_name :: Lens.Lens' CopyImage Core.Text
+copyImage_name :: Lens.Lens' CopyImage Prelude.Text
 copyImage_name = Lens.lens (\CopyImage' {name} -> name) (\s@CopyImage' {} a -> s {name = a} :: CopyImage)
 
 -- | The ID of the AMI to copy.
-copyImage_sourceImageId :: Lens.Lens' CopyImage Core.Text
+copyImage_sourceImageId :: Lens.Lens' CopyImage Prelude.Text
 copyImage_sourceImageId = Lens.lens (\CopyImage' {sourceImageId} -> sourceImageId) (\s@CopyImage' {} a -> s {sourceImageId = a} :: CopyImage)
 
 -- | The name of the Region that contains the AMI to copy.
-copyImage_sourceRegion :: Lens.Lens' CopyImage Core.Text
+copyImage_sourceRegion :: Lens.Lens' CopyImage Prelude.Text
 copyImage_sourceRegion = Lens.lens (\CopyImage' {sourceRegion} -> sourceRegion) (\s@CopyImage' {} a -> s {sourceRegion = a} :: CopyImage)
 
 instance Core.AWSRequest CopyImage where
@@ -321,25 +322,27 @@ instance Core.AWSRequest CopyImage where
     Response.receiveXML
       ( \s h x ->
           CopyImageResponse'
-            Core.<$> (x Core..@? "imageId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "imageId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CopyImage
+instance Prelude.Hashable CopyImage
 
-instance Core.NFData CopyImage
+instance Prelude.NFData CopyImage
 
 instance Core.ToHeaders CopyImage where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CopyImage where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CopyImage where
   toQuery CopyImage' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("CopyImage" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CopyImage" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "Encrypted" Core.=: encrypted,
         "KmsKeyId" Core.=: kmsKeyId,
@@ -357,11 +360,11 @@ instance Core.ToQuery CopyImage where
 -- /See:/ 'newCopyImageResponse' smart constructor.
 data CopyImageResponse = CopyImageResponse'
   { -- | The ID of the new AMI.
-    imageId :: Core.Maybe Core.Text,
+    imageId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopyImageResponse' with all optional fields omitted.
@@ -376,20 +379,20 @@ data CopyImageResponse = CopyImageResponse'
 -- 'httpStatus', 'copyImageResponse_httpStatus' - The response's http status code.
 newCopyImageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CopyImageResponse
 newCopyImageResponse pHttpStatus_ =
   CopyImageResponse'
-    { imageId = Core.Nothing,
+    { imageId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the new AMI.
-copyImageResponse_imageId :: Lens.Lens' CopyImageResponse (Core.Maybe Core.Text)
+copyImageResponse_imageId :: Lens.Lens' CopyImageResponse (Prelude.Maybe Prelude.Text)
 copyImageResponse_imageId = Lens.lens (\CopyImageResponse' {imageId} -> imageId) (\s@CopyImageResponse' {} a -> s {imageId = a} :: CopyImageResponse)
 
 -- | The response's http status code.
-copyImageResponse_httpStatus :: Lens.Lens' CopyImageResponse Core.Int
+copyImageResponse_httpStatus :: Lens.Lens' CopyImageResponse Prelude.Int
 copyImageResponse_httpStatus = Lens.lens (\CopyImageResponse' {httpStatus} -> httpStatus) (\s@CopyImageResponse' {} a -> s {httpStatus = a} :: CopyImageResponse)
 
-instance Core.NFData CopyImageResponse
+instance Prelude.NFData CopyImageResponse

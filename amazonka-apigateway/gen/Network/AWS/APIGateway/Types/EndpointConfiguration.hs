@@ -22,6 +22,7 @@ module Network.AWS.APIGateway.Types.EndpointConfiguration where
 import Network.AWS.APIGateway.Types.EndpointType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The endpoint configuration to indicate the types of endpoints an API
 -- (RestApi) or its custom domain name (DomainName) has.
@@ -33,12 +34,12 @@ data EndpointConfiguration = EndpointConfiguration'
     -- endpoint type is @\"EDGE\"@. For a regional API and its custom domain
     -- name, the endpoint type is @REGIONAL@. For a private API, the endpoint
     -- type is @PRIVATE@.
-    types :: Core.Maybe [EndpointType],
+    types :: Prelude.Maybe [EndpointType],
     -- | A list of VpcEndpointIds of an API (RestApi) against which to create
     -- Route53 ALIASes. It is only supported for @PRIVATE@ endpoint type.
-    vpcEndpointIds :: Core.Maybe [Core.Text]
+    vpcEndpointIds :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EndpointConfiguration' with all optional fields omitted.
@@ -60,8 +61,8 @@ newEndpointConfiguration ::
   EndpointConfiguration
 newEndpointConfiguration =
   EndpointConfiguration'
-    { types = Core.Nothing,
-      vpcEndpointIds = Core.Nothing
+    { types = Prelude.Nothing,
+      vpcEndpointIds = Prelude.Nothing
     }
 
 -- | A list of endpoint types of an API (RestApi) or its custom domain name
@@ -69,13 +70,13 @@ newEndpointConfiguration =
 -- endpoint type is @\"EDGE\"@. For a regional API and its custom domain
 -- name, the endpoint type is @REGIONAL@. For a private API, the endpoint
 -- type is @PRIVATE@.
-endpointConfiguration_types :: Lens.Lens' EndpointConfiguration (Core.Maybe [EndpointType])
-endpointConfiguration_types = Lens.lens (\EndpointConfiguration' {types} -> types) (\s@EndpointConfiguration' {} a -> s {types = a} :: EndpointConfiguration) Core.. Lens.mapping Lens._Coerce
+endpointConfiguration_types :: Lens.Lens' EndpointConfiguration (Prelude.Maybe [EndpointType])
+endpointConfiguration_types = Lens.lens (\EndpointConfiguration' {types} -> types) (\s@EndpointConfiguration' {} a -> s {types = a} :: EndpointConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of VpcEndpointIds of an API (RestApi) against which to create
 -- Route53 ALIASes. It is only supported for @PRIVATE@ endpoint type.
-endpointConfiguration_vpcEndpointIds :: Lens.Lens' EndpointConfiguration (Core.Maybe [Core.Text])
-endpointConfiguration_vpcEndpointIds = Lens.lens (\EndpointConfiguration' {vpcEndpointIds} -> vpcEndpointIds) (\s@EndpointConfiguration' {} a -> s {vpcEndpointIds = a} :: EndpointConfiguration) Core.. Lens.mapping Lens._Coerce
+endpointConfiguration_vpcEndpointIds :: Lens.Lens' EndpointConfiguration (Prelude.Maybe [Prelude.Text])
+endpointConfiguration_vpcEndpointIds = Lens.lens (\EndpointConfiguration' {vpcEndpointIds} -> vpcEndpointIds) (\s@EndpointConfiguration' {} a -> s {vpcEndpointIds = a} :: EndpointConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON EndpointConfiguration where
   parseJSON =
@@ -83,19 +84,22 @@ instance Core.FromJSON EndpointConfiguration where
       "EndpointConfiguration"
       ( \x ->
           EndpointConfiguration'
-            Core.<$> (x Core..:? "types" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "vpcEndpointIds" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "types" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "vpcEndpointIds"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable EndpointConfiguration
+instance Prelude.Hashable EndpointConfiguration
 
-instance Core.NFData EndpointConfiguration
+instance Prelude.NFData EndpointConfiguration
 
 instance Core.ToJSON EndpointConfiguration where
   toJSON EndpointConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("types" Core..=) Core.<$> types,
-            ("vpcEndpointIds" Core..=) Core.<$> vpcEndpointIds
+      ( Prelude.catMaybes
+          [ ("types" Core..=) Prelude.<$> types,
+            ("vpcEndpointIds" Core..=)
+              Prelude.<$> vpcEndpointIds
           ]
       )

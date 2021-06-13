@@ -66,6 +66,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,13 +76,13 @@ data CreateMLModel = CreateMLModel'
     -- that contains the @MLModel@ recipe. You must specify either the recipe
     -- or its URI. If you don\'t specify a recipe or its URI, Amazon ML creates
     -- a default.
-    recipeUri :: Core.Maybe Core.Text,
+    recipeUri :: Prelude.Maybe Prelude.Text,
     -- | The data recipe for creating the @MLModel@. You must specify either the
     -- recipe or its URI. If you don\'t specify a recipe or its URI, Amazon ML
     -- creates a default.
-    recipe :: Core.Maybe Core.Text,
+    recipe :: Prelude.Maybe Prelude.Text,
     -- | A user-supplied name or description of the @MLModel@.
-    mLModelName :: Core.Maybe Core.Text,
+    mLModelName :: Prelude.Maybe Prelude.Text,
     -- | A list of the training parameters in the @MLModel@. The list is
     -- implemented as a map of key-value pairs.
     --
@@ -123,9 +124,9 @@ data CreateMLModel = CreateMLModel'
     --     The value is a double that ranges from @0@ to @MAX_DOUBLE@. The
     --     default is to not use L2 normalization. This parameter can\'t be
     --     used when @L1@ is specified. Use this parameter sparingly.
-    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A user-supplied ID that uniquely identifies the @MLModel@.
-    mLModelId :: Core.Text,
+    mLModelId :: Prelude.Text,
     -- | The category of supervised learning that this @MLModel@ will address.
     -- Choose from the following types:
     --
@@ -139,9 +140,9 @@ data CreateMLModel = CreateMLModel'
     -- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
     mLModelType :: MLModelType,
     -- | The @DataSource@ that points to the training data.
-    trainingDataSourceId :: Core.Text
+    trainingDataSourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateMLModel' with all optional fields omitted.
@@ -221,21 +222,21 @@ data CreateMLModel = CreateMLModel'
 -- 'trainingDataSourceId', 'createMLModel_trainingDataSourceId' - The @DataSource@ that points to the training data.
 newCreateMLModel ::
   -- | 'mLModelId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'mLModelType'
   MLModelType ->
   -- | 'trainingDataSourceId'
-  Core.Text ->
+  Prelude.Text ->
   CreateMLModel
 newCreateMLModel
   pMLModelId_
   pMLModelType_
   pTrainingDataSourceId_ =
     CreateMLModel'
-      { recipeUri = Core.Nothing,
-        recipe = Core.Nothing,
-        mLModelName = Core.Nothing,
-        parameters = Core.Nothing,
+      { recipeUri = Prelude.Nothing,
+        recipe = Prelude.Nothing,
+        mLModelName = Prelude.Nothing,
+        parameters = Prelude.Nothing,
         mLModelId = pMLModelId_,
         mLModelType = pMLModelType_,
         trainingDataSourceId = pTrainingDataSourceId_
@@ -245,17 +246,17 @@ newCreateMLModel
 -- that contains the @MLModel@ recipe. You must specify either the recipe
 -- or its URI. If you don\'t specify a recipe or its URI, Amazon ML creates
 -- a default.
-createMLModel_recipeUri :: Lens.Lens' CreateMLModel (Core.Maybe Core.Text)
+createMLModel_recipeUri :: Lens.Lens' CreateMLModel (Prelude.Maybe Prelude.Text)
 createMLModel_recipeUri = Lens.lens (\CreateMLModel' {recipeUri} -> recipeUri) (\s@CreateMLModel' {} a -> s {recipeUri = a} :: CreateMLModel)
 
 -- | The data recipe for creating the @MLModel@. You must specify either the
 -- recipe or its URI. If you don\'t specify a recipe or its URI, Amazon ML
 -- creates a default.
-createMLModel_recipe :: Lens.Lens' CreateMLModel (Core.Maybe Core.Text)
+createMLModel_recipe :: Lens.Lens' CreateMLModel (Prelude.Maybe Prelude.Text)
 createMLModel_recipe = Lens.lens (\CreateMLModel' {recipe} -> recipe) (\s@CreateMLModel' {} a -> s {recipe = a} :: CreateMLModel)
 
 -- | A user-supplied name or description of the @MLModel@.
-createMLModel_mLModelName :: Lens.Lens' CreateMLModel (Core.Maybe Core.Text)
+createMLModel_mLModelName :: Lens.Lens' CreateMLModel (Prelude.Maybe Prelude.Text)
 createMLModel_mLModelName = Lens.lens (\CreateMLModel' {mLModelName} -> mLModelName) (\s@CreateMLModel' {} a -> s {mLModelName = a} :: CreateMLModel)
 
 -- | A list of the training parameters in the @MLModel@. The list is
@@ -299,11 +300,11 @@ createMLModel_mLModelName = Lens.lens (\CreateMLModel' {mLModelName} -> mLModelN
 --     The value is a double that ranges from @0@ to @MAX_DOUBLE@. The
 --     default is to not use L2 normalization. This parameter can\'t be
 --     used when @L1@ is specified. Use this parameter sparingly.
-createMLModel_parameters :: Lens.Lens' CreateMLModel (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createMLModel_parameters = Lens.lens (\CreateMLModel' {parameters} -> parameters) (\s@CreateMLModel' {} a -> s {parameters = a} :: CreateMLModel) Core.. Lens.mapping Lens._Coerce
+createMLModel_parameters :: Lens.Lens' CreateMLModel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createMLModel_parameters = Lens.lens (\CreateMLModel' {parameters} -> parameters) (\s@CreateMLModel' {} a -> s {parameters = a} :: CreateMLModel) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@.
-createMLModel_mLModelId :: Lens.Lens' CreateMLModel Core.Text
+createMLModel_mLModelId :: Lens.Lens' CreateMLModel Prelude.Text
 createMLModel_mLModelId = Lens.lens (\CreateMLModel' {mLModelId} -> mLModelId) (\s@CreateMLModel' {} a -> s {mLModelId = a} :: CreateMLModel)
 
 -- | The category of supervised learning that this @MLModel@ will address.
@@ -321,7 +322,7 @@ createMLModel_mLModelType :: Lens.Lens' CreateMLModel MLModelType
 createMLModel_mLModelType = Lens.lens (\CreateMLModel' {mLModelType} -> mLModelType) (\s@CreateMLModel' {} a -> s {mLModelType = a} :: CreateMLModel)
 
 -- | The @DataSource@ that points to the training data.
-createMLModel_trainingDataSourceId :: Lens.Lens' CreateMLModel Core.Text
+createMLModel_trainingDataSourceId :: Lens.Lens' CreateMLModel Prelude.Text
 createMLModel_trainingDataSourceId = Lens.lens (\CreateMLModel' {trainingDataSourceId} -> trainingDataSourceId) (\s@CreateMLModel' {} a -> s {trainingDataSourceId = a} :: CreateMLModel)
 
 instance Core.AWSRequest CreateMLModel where
@@ -333,38 +334,40 @@ instance Core.AWSRequest CreateMLModel where
     Response.receiveJSON
       ( \s h x ->
           CreateMLModelResponse'
-            Core.<$> (x Core..?> "MLModelId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "MLModelId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateMLModel
+instance Prelude.Hashable CreateMLModel
 
-instance Core.NFData CreateMLModel
+instance Prelude.NFData CreateMLModel
 
 instance Core.ToHeaders CreateMLModel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonML_20141212.CreateMLModel" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateMLModel where
   toJSON CreateMLModel' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RecipeUri" Core..=) Core.<$> recipeUri,
-            ("Recipe" Core..=) Core.<$> recipe,
-            ("MLModelName" Core..=) Core.<$> mLModelName,
-            ("Parameters" Core..=) Core.<$> parameters,
-            Core.Just ("MLModelId" Core..= mLModelId),
-            Core.Just ("MLModelType" Core..= mLModelType),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("RecipeUri" Core..=) Prelude.<$> recipeUri,
+            ("Recipe" Core..=) Prelude.<$> recipe,
+            ("MLModelName" Core..=) Prelude.<$> mLModelName,
+            ("Parameters" Core..=) Prelude.<$> parameters,
+            Prelude.Just ("MLModelId" Core..= mLModelId),
+            Prelude.Just ("MLModelType" Core..= mLModelType),
+            Prelude.Just
               ( "TrainingDataSourceId"
                   Core..= trainingDataSourceId
               )
@@ -372,10 +375,10 @@ instance Core.ToJSON CreateMLModel where
       )
 
 instance Core.ToPath CreateMLModel where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateMLModel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @CreateMLModel@ operation, and is an
 -- acknowledgement that Amazon ML received the request.
@@ -388,11 +391,11 @@ instance Core.ToQuery CreateMLModel where
 data CreateMLModelResponse = CreateMLModelResponse'
   { -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
     -- should be identical to the value of the @MLModelId@ in the request.
-    mLModelId :: Core.Maybe Core.Text,
+    mLModelId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateMLModelResponse' with all optional fields omitted.
@@ -408,21 +411,21 @@ data CreateMLModelResponse = CreateMLModelResponse'
 -- 'httpStatus', 'createMLModelResponse_httpStatus' - The response's http status code.
 newCreateMLModelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateMLModelResponse
 newCreateMLModelResponse pHttpStatus_ =
   CreateMLModelResponse'
-    { mLModelId = Core.Nothing,
+    { mLModelId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
 -- should be identical to the value of the @MLModelId@ in the request.
-createMLModelResponse_mLModelId :: Lens.Lens' CreateMLModelResponse (Core.Maybe Core.Text)
+createMLModelResponse_mLModelId :: Lens.Lens' CreateMLModelResponse (Prelude.Maybe Prelude.Text)
 createMLModelResponse_mLModelId = Lens.lens (\CreateMLModelResponse' {mLModelId} -> mLModelId) (\s@CreateMLModelResponse' {} a -> s {mLModelId = a} :: CreateMLModelResponse)
 
 -- | The response's http status code.
-createMLModelResponse_httpStatus :: Lens.Lens' CreateMLModelResponse Core.Int
+createMLModelResponse_httpStatus :: Lens.Lens' CreateMLModelResponse Prelude.Int
 createMLModelResponse_httpStatus = Lens.lens (\CreateMLModelResponse' {httpStatus} -> httpStatus) (\s@CreateMLModelResponse' {} a -> s {httpStatus = a} :: CreateMLModelResponse)
 
-instance Core.NFData CreateMLModelResponse
+instance Prelude.NFData CreateMLModelResponse

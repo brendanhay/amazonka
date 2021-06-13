@@ -22,6 +22,7 @@ module Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsActionsTy
 import Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsEventActionType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The compromised credentials actions type
 --
@@ -30,7 +31,7 @@ data CompromisedCredentialsActionsType = CompromisedCredentialsActionsType'
   { -- | The event action.
     eventAction :: CompromisedCredentialsEventActionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CompromisedCredentialsActionsType' with all optional fields omitted.
@@ -64,15 +65,15 @@ instance
       "CompromisedCredentialsActionsType"
       ( \x ->
           CompromisedCredentialsActionsType'
-            Core.<$> (x Core..: "EventAction")
+            Prelude.<$> (x Core..: "EventAction")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CompromisedCredentialsActionsType
 
 instance
-  Core.NFData
+  Prelude.NFData
     CompromisedCredentialsActionsType
 
 instance
@@ -81,6 +82,6 @@ instance
   where
   toJSON CompromisedCredentialsActionsType' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("EventAction" Core..= eventAction)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("EventAction" Core..= eventAction)]
       )

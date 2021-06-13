@@ -47,6 +47,7 @@ where
 import Network.AWS.CodePipeline.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,16 +57,16 @@ import qualified Network.AWS.Response as Response
 data PutActionRevision = PutActionRevision'
   { -- | The name of the pipeline that starts processing the revision to the
     -- source.
-    pipelineName :: Core.Text,
+    pipelineName :: Prelude.Text,
     -- | The name of the stage that contains the action that acts on the
     -- revision.
-    stageName :: Core.Text,
+    stageName :: Prelude.Text,
     -- | The name of the action that processes the revision.
-    actionName :: Core.Text,
+    actionName :: Prelude.Text,
     -- | Represents information about the version (or revision) of an action.
     actionRevision :: ActionRevision
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutActionRevision' with all optional fields omitted.
@@ -86,11 +87,11 @@ data PutActionRevision = PutActionRevision'
 -- 'actionRevision', 'putActionRevision_actionRevision' - Represents information about the version (or revision) of an action.
 newPutActionRevision ::
   -- | 'pipelineName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'stageName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'actionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'actionRevision'
   ActionRevision ->
   PutActionRevision
@@ -108,16 +109,16 @@ newPutActionRevision
 
 -- | The name of the pipeline that starts processing the revision to the
 -- source.
-putActionRevision_pipelineName :: Lens.Lens' PutActionRevision Core.Text
+putActionRevision_pipelineName :: Lens.Lens' PutActionRevision Prelude.Text
 putActionRevision_pipelineName = Lens.lens (\PutActionRevision' {pipelineName} -> pipelineName) (\s@PutActionRevision' {} a -> s {pipelineName = a} :: PutActionRevision)
 
 -- | The name of the stage that contains the action that acts on the
 -- revision.
-putActionRevision_stageName :: Lens.Lens' PutActionRevision Core.Text
+putActionRevision_stageName :: Lens.Lens' PutActionRevision Prelude.Text
 putActionRevision_stageName = Lens.lens (\PutActionRevision' {stageName} -> stageName) (\s@PutActionRevision' {} a -> s {stageName = a} :: PutActionRevision)
 
 -- | The name of the action that processes the revision.
-putActionRevision_actionName :: Lens.Lens' PutActionRevision Core.Text
+putActionRevision_actionName :: Lens.Lens' PutActionRevision Prelude.Text
 putActionRevision_actionName = Lens.lens (\PutActionRevision' {actionName} -> actionName) (\s@PutActionRevision' {} a -> s {actionName = a} :: PutActionRevision)
 
 -- | Represents information about the version (or revision) of an action.
@@ -133,44 +134,47 @@ instance Core.AWSRequest PutActionRevision where
     Response.receiveJSON
       ( \s h x ->
           PutActionRevisionResponse'
-            Core.<$> (x Core..?> "newRevision")
-            Core.<*> (x Core..?> "pipelineExecutionId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "newRevision")
+            Prelude.<*> (x Core..?> "pipelineExecutionId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutActionRevision
+instance Prelude.Hashable PutActionRevision
 
-instance Core.NFData PutActionRevision
+instance Prelude.NFData PutActionRevision
 
 instance Core.ToHeaders PutActionRevision where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodePipeline_20150709.PutActionRevision" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutActionRevision where
   toJSON PutActionRevision' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("pipelineName" Core..= pipelineName),
-            Core.Just ("stageName" Core..= stageName),
-            Core.Just ("actionName" Core..= actionName),
-            Core.Just ("actionRevision" Core..= actionRevision)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("pipelineName" Core..= pipelineName),
+            Prelude.Just ("stageName" Core..= stageName),
+            Prelude.Just ("actionName" Core..= actionName),
+            Prelude.Just
+              ("actionRevision" Core..= actionRevision)
           ]
       )
 
 instance Core.ToPath PutActionRevision where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutActionRevision where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @PutActionRevision@ action.
 --
@@ -178,13 +182,13 @@ instance Core.ToQuery PutActionRevision where
 data PutActionRevisionResponse = PutActionRevisionResponse'
   { -- | Indicates whether the artifact revision was previously used in an
     -- execution of the specified pipeline.
-    newRevision' :: Core.Maybe Core.Bool,
+    newRevision' :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the current workflow state of the pipeline.
-    pipelineExecutionId :: Core.Maybe Core.Text,
+    pipelineExecutionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutActionRevisionResponse' with all optional fields omitted.
@@ -202,27 +206,27 @@ data PutActionRevisionResponse = PutActionRevisionResponse'
 -- 'httpStatus', 'putActionRevisionResponse_httpStatus' - The response's http status code.
 newPutActionRevisionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutActionRevisionResponse
 newPutActionRevisionResponse pHttpStatus_ =
   PutActionRevisionResponse'
     { newRevision' =
-        Core.Nothing,
-      pipelineExecutionId = Core.Nothing,
+        Prelude.Nothing,
+      pipelineExecutionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Indicates whether the artifact revision was previously used in an
 -- execution of the specified pipeline.
-putActionRevisionResponse_newRevision :: Lens.Lens' PutActionRevisionResponse (Core.Maybe Core.Bool)
+putActionRevisionResponse_newRevision :: Lens.Lens' PutActionRevisionResponse (Prelude.Maybe Prelude.Bool)
 putActionRevisionResponse_newRevision = Lens.lens (\PutActionRevisionResponse' {newRevision'} -> newRevision') (\s@PutActionRevisionResponse' {} a -> s {newRevision' = a} :: PutActionRevisionResponse)
 
 -- | The ID of the current workflow state of the pipeline.
-putActionRevisionResponse_pipelineExecutionId :: Lens.Lens' PutActionRevisionResponse (Core.Maybe Core.Text)
+putActionRevisionResponse_pipelineExecutionId :: Lens.Lens' PutActionRevisionResponse (Prelude.Maybe Prelude.Text)
 putActionRevisionResponse_pipelineExecutionId = Lens.lens (\PutActionRevisionResponse' {pipelineExecutionId} -> pipelineExecutionId) (\s@PutActionRevisionResponse' {} a -> s {pipelineExecutionId = a} :: PutActionRevisionResponse)
 
 -- | The response's http status code.
-putActionRevisionResponse_httpStatus :: Lens.Lens' PutActionRevisionResponse Core.Int
+putActionRevisionResponse_httpStatus :: Lens.Lens' PutActionRevisionResponse Prelude.Int
 putActionRevisionResponse_httpStatus = Lens.lens (\PutActionRevisionResponse' {httpStatus} -> httpStatus) (\s@PutActionRevisionResponse' {} a -> s {httpStatus = a} :: PutActionRevisionResponse)
 
-instance Core.NFData PutActionRevisionResponse
+instance Prelude.NFData PutActionRevisionResponse

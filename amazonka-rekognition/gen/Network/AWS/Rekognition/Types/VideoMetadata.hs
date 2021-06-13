@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.VideoMetadata where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a video that Amazon Rekognition analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
@@ -29,19 +30,19 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newVideoMetadata' smart constructor.
 data VideoMetadata = VideoMetadata'
   { -- | Type of compression used in the analyzed video.
-    codec :: Core.Maybe Core.Text,
+    codec :: Prelude.Maybe Prelude.Text,
     -- | Format of the analyzed video. Possible values are MP4, MOV and AVI.
-    format :: Core.Maybe Core.Text,
+    format :: Prelude.Maybe Prelude.Text,
     -- | Vertical pixel dimension of the video.
-    frameHeight :: Core.Maybe Core.Natural,
+    frameHeight :: Prelude.Maybe Prelude.Natural,
     -- | Number of frames per second in the video.
-    frameRate :: Core.Maybe Core.Double,
+    frameRate :: Prelude.Maybe Prelude.Double,
     -- | Horizontal pixel dimension of the video.
-    frameWidth :: Core.Maybe Core.Natural,
+    frameWidth :: Prelude.Maybe Prelude.Natural,
     -- | Length of the video in milliseconds.
-    durationMillis :: Core.Maybe Core.Natural
+    durationMillis :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VideoMetadata' with all optional fields omitted.
@@ -66,36 +67,36 @@ newVideoMetadata ::
   VideoMetadata
 newVideoMetadata =
   VideoMetadata'
-    { codec = Core.Nothing,
-      format = Core.Nothing,
-      frameHeight = Core.Nothing,
-      frameRate = Core.Nothing,
-      frameWidth = Core.Nothing,
-      durationMillis = Core.Nothing
+    { codec = Prelude.Nothing,
+      format = Prelude.Nothing,
+      frameHeight = Prelude.Nothing,
+      frameRate = Prelude.Nothing,
+      frameWidth = Prelude.Nothing,
+      durationMillis = Prelude.Nothing
     }
 
 -- | Type of compression used in the analyzed video.
-videoMetadata_codec :: Lens.Lens' VideoMetadata (Core.Maybe Core.Text)
+videoMetadata_codec :: Lens.Lens' VideoMetadata (Prelude.Maybe Prelude.Text)
 videoMetadata_codec = Lens.lens (\VideoMetadata' {codec} -> codec) (\s@VideoMetadata' {} a -> s {codec = a} :: VideoMetadata)
 
 -- | Format of the analyzed video. Possible values are MP4, MOV and AVI.
-videoMetadata_format :: Lens.Lens' VideoMetadata (Core.Maybe Core.Text)
+videoMetadata_format :: Lens.Lens' VideoMetadata (Prelude.Maybe Prelude.Text)
 videoMetadata_format = Lens.lens (\VideoMetadata' {format} -> format) (\s@VideoMetadata' {} a -> s {format = a} :: VideoMetadata)
 
 -- | Vertical pixel dimension of the video.
-videoMetadata_frameHeight :: Lens.Lens' VideoMetadata (Core.Maybe Core.Natural)
+videoMetadata_frameHeight :: Lens.Lens' VideoMetadata (Prelude.Maybe Prelude.Natural)
 videoMetadata_frameHeight = Lens.lens (\VideoMetadata' {frameHeight} -> frameHeight) (\s@VideoMetadata' {} a -> s {frameHeight = a} :: VideoMetadata)
 
 -- | Number of frames per second in the video.
-videoMetadata_frameRate :: Lens.Lens' VideoMetadata (Core.Maybe Core.Double)
+videoMetadata_frameRate :: Lens.Lens' VideoMetadata (Prelude.Maybe Prelude.Double)
 videoMetadata_frameRate = Lens.lens (\VideoMetadata' {frameRate} -> frameRate) (\s@VideoMetadata' {} a -> s {frameRate = a} :: VideoMetadata)
 
 -- | Horizontal pixel dimension of the video.
-videoMetadata_frameWidth :: Lens.Lens' VideoMetadata (Core.Maybe Core.Natural)
+videoMetadata_frameWidth :: Lens.Lens' VideoMetadata (Prelude.Maybe Prelude.Natural)
 videoMetadata_frameWidth = Lens.lens (\VideoMetadata' {frameWidth} -> frameWidth) (\s@VideoMetadata' {} a -> s {frameWidth = a} :: VideoMetadata)
 
 -- | Length of the video in milliseconds.
-videoMetadata_durationMillis :: Lens.Lens' VideoMetadata (Core.Maybe Core.Natural)
+videoMetadata_durationMillis :: Lens.Lens' VideoMetadata (Prelude.Maybe Prelude.Natural)
 videoMetadata_durationMillis = Lens.lens (\VideoMetadata' {durationMillis} -> durationMillis) (\s@VideoMetadata' {} a -> s {durationMillis = a} :: VideoMetadata)
 
 instance Core.FromJSON VideoMetadata where
@@ -104,14 +105,14 @@ instance Core.FromJSON VideoMetadata where
       "VideoMetadata"
       ( \x ->
           VideoMetadata'
-            Core.<$> (x Core..:? "Codec")
-            Core.<*> (x Core..:? "Format")
-            Core.<*> (x Core..:? "FrameHeight")
-            Core.<*> (x Core..:? "FrameRate")
-            Core.<*> (x Core..:? "FrameWidth")
-            Core.<*> (x Core..:? "DurationMillis")
+            Prelude.<$> (x Core..:? "Codec")
+            Prelude.<*> (x Core..:? "Format")
+            Prelude.<*> (x Core..:? "FrameHeight")
+            Prelude.<*> (x Core..:? "FrameRate")
+            Prelude.<*> (x Core..:? "FrameWidth")
+            Prelude.<*> (x Core..:? "DurationMillis")
       )
 
-instance Core.Hashable VideoMetadata
+instance Prelude.Hashable VideoMetadata
 
-instance Core.NFData VideoMetadata
+instance Prelude.NFData VideoMetadata

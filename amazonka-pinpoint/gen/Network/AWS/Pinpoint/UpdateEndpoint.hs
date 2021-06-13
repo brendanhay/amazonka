@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,12 +56,12 @@ import qualified Network.AWS.Response as Response
 data UpdateEndpoint = UpdateEndpoint'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     -- | The unique identifier for the endpoint.
-    endpointId :: Core.Text,
+    endpointId :: Prelude.Text,
     endpointRequest :: EndpointRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateEndpoint' with all optional fields omitted.
@@ -78,9 +79,9 @@ data UpdateEndpoint = UpdateEndpoint'
 -- 'endpointRequest', 'updateEndpoint_endpointRequest' - Undocumented member.
 newUpdateEndpoint ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'endpointId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'endpointRequest'
   EndpointRequest ->
   UpdateEndpoint
@@ -96,11 +97,11 @@ newUpdateEndpoint
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-updateEndpoint_applicationId :: Lens.Lens' UpdateEndpoint Core.Text
+updateEndpoint_applicationId :: Lens.Lens' UpdateEndpoint Prelude.Text
 updateEndpoint_applicationId = Lens.lens (\UpdateEndpoint' {applicationId} -> applicationId) (\s@UpdateEndpoint' {} a -> s {applicationId = a} :: UpdateEndpoint)
 
 -- | The unique identifier for the endpoint.
-updateEndpoint_endpointId :: Lens.Lens' UpdateEndpoint Core.Text
+updateEndpoint_endpointId :: Lens.Lens' UpdateEndpoint Prelude.Text
 updateEndpoint_endpointId = Lens.lens (\UpdateEndpoint' {endpointId} -> endpointId) (\s@UpdateEndpoint' {} a -> s {endpointId = a} :: UpdateEndpoint)
 
 -- | Undocumented member.
@@ -116,35 +117,37 @@ instance Core.AWSRequest UpdateEndpoint where
     Response.receiveJSON
       ( \s h x ->
           UpdateEndpointResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable UpdateEndpoint
+instance Prelude.Hashable UpdateEndpoint
 
-instance Core.NFData UpdateEndpoint
+instance Prelude.NFData UpdateEndpoint
 
 instance Core.ToHeaders UpdateEndpoint where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateEndpoint where
   toJSON UpdateEndpoint' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("EndpointRequest" Core..= endpointRequest)
           ]
       )
 
 instance Core.ToPath UpdateEndpoint where
   toPath UpdateEndpoint' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/endpoints/",
@@ -152,15 +155,15 @@ instance Core.ToPath UpdateEndpoint where
       ]
 
 instance Core.ToQuery UpdateEndpoint where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEndpointResponse' smart constructor.
 data UpdateEndpointResponse = UpdateEndpointResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     messageBody :: MessageBody
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateEndpointResponse' with all optional fields omitted.
@@ -175,7 +178,7 @@ data UpdateEndpointResponse = UpdateEndpointResponse'
 -- 'messageBody', 'updateEndpointResponse_messageBody' - Undocumented member.
 newUpdateEndpointResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'messageBody'
   MessageBody ->
   UpdateEndpointResponse
@@ -186,11 +189,11 @@ newUpdateEndpointResponse pHttpStatus_ pMessageBody_ =
     }
 
 -- | The response's http status code.
-updateEndpointResponse_httpStatus :: Lens.Lens' UpdateEndpointResponse Core.Int
+updateEndpointResponse_httpStatus :: Lens.Lens' UpdateEndpointResponse Prelude.Int
 updateEndpointResponse_httpStatus = Lens.lens (\UpdateEndpointResponse' {httpStatus} -> httpStatus) (\s@UpdateEndpointResponse' {} a -> s {httpStatus = a} :: UpdateEndpointResponse)
 
 -- | Undocumented member.
 updateEndpointResponse_messageBody :: Lens.Lens' UpdateEndpointResponse MessageBody
 updateEndpointResponse_messageBody = Lens.lens (\UpdateEndpointResponse' {messageBody} -> messageBody) (\s@UpdateEndpointResponse' {} a -> s {messageBody = a} :: UpdateEndpointResponse)
 
-instance Core.NFData UpdateEndpointResponse
+instance Prelude.NFData UpdateEndpointResponse

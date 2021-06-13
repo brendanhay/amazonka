@@ -21,13 +21,14 @@ module Network.AWS.StepFunctions.Types.ActivityListItem where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about an activity.
 --
 -- /See:/ 'newActivityListItem' smart constructor.
 data ActivityListItem = ActivityListItem'
   { -- | The Amazon Resource Name (ARN) that identifies the activity.
-    activityArn :: Core.Text,
+    activityArn :: Prelude.Text,
     -- | The name of the activity.
     --
     -- A name must /not/ contain:
@@ -44,11 +45,11 @@ data ActivityListItem = ActivityListItem'
     --
     -- To enable logging with CloudWatch Logs, the name should only contain
     -- 0-9, A-Z, a-z, - and _.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The date the activity is created.
     creationDate :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActivityListItem' with all optional fields omitted.
@@ -80,11 +81,11 @@ data ActivityListItem = ActivityListItem'
 -- 'creationDate', 'activityListItem_creationDate' - The date the activity is created.
 newActivityListItem ::
   -- | 'activityArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'creationDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   ActivityListItem
 newActivityListItem
   pActivityArn_
@@ -97,7 +98,7 @@ newActivityListItem
       }
 
 -- | The Amazon Resource Name (ARN) that identifies the activity.
-activityListItem_activityArn :: Lens.Lens' ActivityListItem Core.Text
+activityListItem_activityArn :: Lens.Lens' ActivityListItem Prelude.Text
 activityListItem_activityArn = Lens.lens (\ActivityListItem' {activityArn} -> activityArn) (\s@ActivityListItem' {} a -> s {activityArn = a} :: ActivityListItem)
 
 -- | The name of the activity.
@@ -116,12 +117,12 @@ activityListItem_activityArn = Lens.lens (\ActivityListItem' {activityArn} -> ac
 --
 -- To enable logging with CloudWatch Logs, the name should only contain
 -- 0-9, A-Z, a-z, - and _.
-activityListItem_name :: Lens.Lens' ActivityListItem Core.Text
+activityListItem_name :: Lens.Lens' ActivityListItem Prelude.Text
 activityListItem_name = Lens.lens (\ActivityListItem' {name} -> name) (\s@ActivityListItem' {} a -> s {name = a} :: ActivityListItem)
 
 -- | The date the activity is created.
-activityListItem_creationDate :: Lens.Lens' ActivityListItem Core.UTCTime
-activityListItem_creationDate = Lens.lens (\ActivityListItem' {creationDate} -> creationDate) (\s@ActivityListItem' {} a -> s {creationDate = a} :: ActivityListItem) Core.. Core._Time
+activityListItem_creationDate :: Lens.Lens' ActivityListItem Prelude.UTCTime
+activityListItem_creationDate = Lens.lens (\ActivityListItem' {creationDate} -> creationDate) (\s@ActivityListItem' {} a -> s {creationDate = a} :: ActivityListItem) Prelude.. Core._Time
 
 instance Core.FromJSON ActivityListItem where
   parseJSON =
@@ -129,11 +130,11 @@ instance Core.FromJSON ActivityListItem where
       "ActivityListItem"
       ( \x ->
           ActivityListItem'
-            Core.<$> (x Core..: "activityArn")
-            Core.<*> (x Core..: "name")
-            Core.<*> (x Core..: "creationDate")
+            Prelude.<$> (x Core..: "activityArn")
+            Prelude.<*> (x Core..: "name")
+            Prelude.<*> (x Core..: "creationDate")
       )
 
-instance Core.Hashable ActivityListItem
+instance Prelude.Hashable ActivityListItem
 
-instance Core.NFData ActivityListItem
+instance Prelude.NFData ActivityListItem

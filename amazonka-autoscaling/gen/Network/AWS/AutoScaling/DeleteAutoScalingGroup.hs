@@ -55,6 +55,7 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,11 +65,11 @@ data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
     -- associated with the group, without waiting for all instances to be
     -- terminated. This parameter also deletes any lifecycle actions associated
     -- with the group.
-    forceDelete :: Core.Maybe Core.Bool,
+    forceDelete :: Prelude.Maybe Prelude.Bool,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Core.Text
+    autoScalingGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAutoScalingGroup' with all optional fields omitted.
@@ -86,11 +87,12 @@ data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
 -- 'autoScalingGroupName', 'deleteAutoScalingGroup_autoScalingGroupName' - The name of the Auto Scaling group.
 newDeleteAutoScalingGroup ::
   -- | 'autoScalingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteAutoScalingGroup
 newDeleteAutoScalingGroup pAutoScalingGroupName_ =
   DeleteAutoScalingGroup'
-    { forceDelete = Core.Nothing,
+    { forceDelete =
+        Prelude.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
 
@@ -98,11 +100,11 @@ newDeleteAutoScalingGroup pAutoScalingGroupName_ =
 -- associated with the group, without waiting for all instances to be
 -- terminated. This parameter also deletes any lifecycle actions associated
 -- with the group.
-deleteAutoScalingGroup_forceDelete :: Lens.Lens' DeleteAutoScalingGroup (Core.Maybe Core.Bool)
+deleteAutoScalingGroup_forceDelete :: Lens.Lens' DeleteAutoScalingGroup (Prelude.Maybe Prelude.Bool)
 deleteAutoScalingGroup_forceDelete = Lens.lens (\DeleteAutoScalingGroup' {forceDelete} -> forceDelete) (\s@DeleteAutoScalingGroup' {} a -> s {forceDelete = a} :: DeleteAutoScalingGroup)
 
 -- | The name of the Auto Scaling group.
-deleteAutoScalingGroup_autoScalingGroupName :: Lens.Lens' DeleteAutoScalingGroup Core.Text
+deleteAutoScalingGroup_autoScalingGroupName :: Lens.Lens' DeleteAutoScalingGroup Prelude.Text
 deleteAutoScalingGroup_autoScalingGroupName = Lens.lens (\DeleteAutoScalingGroup' {autoScalingGroupName} -> autoScalingGroupName) (\s@DeleteAutoScalingGroup' {} a -> s {autoScalingGroupName = a} :: DeleteAutoScalingGroup)
 
 instance Core.AWSRequest DeleteAutoScalingGroup where
@@ -114,22 +116,23 @@ instance Core.AWSRequest DeleteAutoScalingGroup where
     Response.receiveNull
       DeleteAutoScalingGroupResponse'
 
-instance Core.Hashable DeleteAutoScalingGroup
+instance Prelude.Hashable DeleteAutoScalingGroup
 
-instance Core.NFData DeleteAutoScalingGroup
+instance Prelude.NFData DeleteAutoScalingGroup
 
 instance Core.ToHeaders DeleteAutoScalingGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteAutoScalingGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteAutoScalingGroup where
   toQuery DeleteAutoScalingGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteAutoScalingGroup" :: Core.ByteString),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+          Core.=: ("DeleteAutoScalingGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "ForceDelete" Core.=: forceDelete,
         "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]
@@ -138,7 +141,7 @@ instance Core.ToQuery DeleteAutoScalingGroup where
 data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAutoScalingGroupResponse' with all optional fields omitted.
@@ -149,4 +152,6 @@ newDeleteAutoScalingGroupResponse ::
 newDeleteAutoScalingGroupResponse =
   DeleteAutoScalingGroupResponse'
 
-instance Core.NFData DeleteAutoScalingGroupResponse
+instance
+  Prelude.NFData
+    DeleteAutoScalingGroupResponse

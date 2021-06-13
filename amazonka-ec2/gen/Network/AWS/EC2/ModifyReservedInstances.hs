@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,13 +62,13 @@ data ModifyReservedInstances = ModifyReservedInstances'
   { -- | A unique, case-sensitive token you provide to ensure idempotency of your
     -- modification request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-    clientToken :: Core.Maybe Core.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the Reserved Instances to modify.
-    reservedInstancesIds :: [Core.Text],
+    reservedInstancesIds :: [Prelude.Text],
     -- | The configuration settings for the Reserved Instances to modify.
     targetConfigurations :: [ReservedInstancesConfiguration]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyReservedInstances' with all optional fields omitted.
@@ -89,24 +90,24 @@ newModifyReservedInstances ::
 newModifyReservedInstances =
   ModifyReservedInstances'
     { clientToken =
-        Core.Nothing,
-      reservedInstancesIds = Core.mempty,
-      targetConfigurations = Core.mempty
+        Prelude.Nothing,
+      reservedInstancesIds = Prelude.mempty,
+      targetConfigurations = Prelude.mempty
     }
 
 -- | A unique, case-sensitive token you provide to ensure idempotency of your
 -- modification request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-modifyReservedInstances_clientToken :: Lens.Lens' ModifyReservedInstances (Core.Maybe Core.Text)
+modifyReservedInstances_clientToken :: Lens.Lens' ModifyReservedInstances (Prelude.Maybe Prelude.Text)
 modifyReservedInstances_clientToken = Lens.lens (\ModifyReservedInstances' {clientToken} -> clientToken) (\s@ModifyReservedInstances' {} a -> s {clientToken = a} :: ModifyReservedInstances)
 
 -- | The IDs of the Reserved Instances to modify.
-modifyReservedInstances_reservedInstancesIds :: Lens.Lens' ModifyReservedInstances [Core.Text]
-modifyReservedInstances_reservedInstancesIds = Lens.lens (\ModifyReservedInstances' {reservedInstancesIds} -> reservedInstancesIds) (\s@ModifyReservedInstances' {} a -> s {reservedInstancesIds = a} :: ModifyReservedInstances) Core.. Lens._Coerce
+modifyReservedInstances_reservedInstancesIds :: Lens.Lens' ModifyReservedInstances [Prelude.Text]
+modifyReservedInstances_reservedInstancesIds = Lens.lens (\ModifyReservedInstances' {reservedInstancesIds} -> reservedInstancesIds) (\s@ModifyReservedInstances' {} a -> s {reservedInstancesIds = a} :: ModifyReservedInstances) Prelude.. Lens._Coerce
 
 -- | The configuration settings for the Reserved Instances to modify.
 modifyReservedInstances_targetConfigurations :: Lens.Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
-modifyReservedInstances_targetConfigurations = Lens.lens (\ModifyReservedInstances' {targetConfigurations} -> targetConfigurations) (\s@ModifyReservedInstances' {} a -> s {targetConfigurations = a} :: ModifyReservedInstances) Core.. Lens._Coerce
+modifyReservedInstances_targetConfigurations = Lens.lens (\ModifyReservedInstances' {targetConfigurations} -> targetConfigurations) (\s@ModifyReservedInstances' {} a -> s {targetConfigurations = a} :: ModifyReservedInstances) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest ModifyReservedInstances where
   type
@@ -117,26 +118,27 @@ instance Core.AWSRequest ModifyReservedInstances where
     Response.receiveXML
       ( \s h x ->
           ModifyReservedInstancesResponse'
-            Core.<$> (x Core..@? "reservedInstancesModificationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "reservedInstancesModificationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyReservedInstances
+instance Prelude.Hashable ModifyReservedInstances
 
-instance Core.NFData ModifyReservedInstances
+instance Prelude.NFData ModifyReservedInstances
 
 instance Core.ToHeaders ModifyReservedInstances where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyReservedInstances where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyReservedInstances where
   toQuery ModifyReservedInstances' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyReservedInstances" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ModifyReservedInstances" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "ClientToken" Core.=: clientToken,
         Core.toQueryList
           "ReservedInstancesId"
@@ -151,11 +153,11 @@ instance Core.ToQuery ModifyReservedInstances where
 -- /See:/ 'newModifyReservedInstancesResponse' smart constructor.
 data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'
   { -- | The ID for the modification.
-    reservedInstancesModificationId :: Core.Maybe Core.Text,
+    reservedInstancesModificationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyReservedInstancesResponse' with all optional fields omitted.
@@ -170,21 +172,23 @@ data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'
 -- 'httpStatus', 'modifyReservedInstancesResponse_httpStatus' - The response's http status code.
 newModifyReservedInstancesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyReservedInstancesResponse
 newModifyReservedInstancesResponse pHttpStatus_ =
   ModifyReservedInstancesResponse'
     { reservedInstancesModificationId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID for the modification.
-modifyReservedInstancesResponse_reservedInstancesModificationId :: Lens.Lens' ModifyReservedInstancesResponse (Core.Maybe Core.Text)
+modifyReservedInstancesResponse_reservedInstancesModificationId :: Lens.Lens' ModifyReservedInstancesResponse (Prelude.Maybe Prelude.Text)
 modifyReservedInstancesResponse_reservedInstancesModificationId = Lens.lens (\ModifyReservedInstancesResponse' {reservedInstancesModificationId} -> reservedInstancesModificationId) (\s@ModifyReservedInstancesResponse' {} a -> s {reservedInstancesModificationId = a} :: ModifyReservedInstancesResponse)
 
 -- | The response's http status code.
-modifyReservedInstancesResponse_httpStatus :: Lens.Lens' ModifyReservedInstancesResponse Core.Int
+modifyReservedInstancesResponse_httpStatus :: Lens.Lens' ModifyReservedInstancesResponse Prelude.Int
 modifyReservedInstancesResponse_httpStatus = Lens.lens (\ModifyReservedInstancesResponse' {httpStatus} -> httpStatus) (\s@ModifyReservedInstancesResponse' {} a -> s {httpStatus = a} :: ModifyReservedInstancesResponse)
 
-instance Core.NFData ModifyReservedInstancesResponse
+instance
+  Prelude.NFData
+    ModifyReservedInstancesResponse

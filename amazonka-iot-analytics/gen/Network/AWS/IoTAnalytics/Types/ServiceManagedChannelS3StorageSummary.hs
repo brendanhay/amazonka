@@ -21,6 +21,7 @@ module Network.AWS.IoTAnalytics.Types.ServiceManagedChannelS3StorageSummary wher
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Used to store channel data in an S3 bucket managed by AWS IoT Analytics.
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data ServiceManagedChannelS3StorageSummary = ServiceManagedChannelS3StorageSummary'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServiceManagedChannelS3StorageSummary' with all optional fields omitted.
@@ -47,13 +48,13 @@ instance
     Core.withObject
       "ServiceManagedChannelS3StorageSummary"
       ( \x ->
-          Core.pure ServiceManagedChannelS3StorageSummary'
+          Prelude.pure ServiceManagedChannelS3StorageSummary'
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ServiceManagedChannelS3StorageSummary
 
 instance
-  Core.NFData
+  Prelude.NFData
     ServiceManagedChannelS3StorageSummary

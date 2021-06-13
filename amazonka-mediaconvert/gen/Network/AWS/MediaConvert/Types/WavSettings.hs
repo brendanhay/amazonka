@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.WavSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.WavFormat
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
 -- to the value WAV.
@@ -32,18 +33,18 @@ data WavSettings = WavSettings'
     -- is likely to exceed 4 GB in file size, or if you otherwise need the
     -- extended support of the RF64 format, set your output WAV file format to
     -- RF64.
-    format :: Core.Maybe WavFormat,
+    format :: Prelude.Maybe WavFormat,
     -- | Specify the number of channels in this output audio track. Valid values
     -- are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up
     -- to 64.
-    channels :: Core.Maybe Core.Natural,
+    channels :: Prelude.Maybe Prelude.Natural,
     -- | Specify Bit depth (BitDepth), in bits per sample, to choose the encoding
     -- quality for this audio track.
-    bitDepth :: Core.Maybe Core.Natural,
+    bitDepth :: Prelude.Maybe Prelude.Natural,
     -- | Sample rate in Hz.
-    sampleRate :: Core.Maybe Core.Natural
+    sampleRate :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WavSettings' with all optional fields omitted.
@@ -70,32 +71,32 @@ newWavSettings ::
   WavSettings
 newWavSettings =
   WavSettings'
-    { format = Core.Nothing,
-      channels = Core.Nothing,
-      bitDepth = Core.Nothing,
-      sampleRate = Core.Nothing
+    { format = Prelude.Nothing,
+      channels = Prelude.Nothing,
+      bitDepth = Prelude.Nothing,
+      sampleRate = Prelude.Nothing
     }
 
 -- | The service defaults to using RIFF for WAV outputs. If your output audio
 -- is likely to exceed 4 GB in file size, or if you otherwise need the
 -- extended support of the RF64 format, set your output WAV file format to
 -- RF64.
-wavSettings_format :: Lens.Lens' WavSettings (Core.Maybe WavFormat)
+wavSettings_format :: Lens.Lens' WavSettings (Prelude.Maybe WavFormat)
 wavSettings_format = Lens.lens (\WavSettings' {format} -> format) (\s@WavSettings' {} a -> s {format = a} :: WavSettings)
 
 -- | Specify the number of channels in this output audio track. Valid values
 -- are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up
 -- to 64.
-wavSettings_channels :: Lens.Lens' WavSettings (Core.Maybe Core.Natural)
+wavSettings_channels :: Lens.Lens' WavSettings (Prelude.Maybe Prelude.Natural)
 wavSettings_channels = Lens.lens (\WavSettings' {channels} -> channels) (\s@WavSettings' {} a -> s {channels = a} :: WavSettings)
 
 -- | Specify Bit depth (BitDepth), in bits per sample, to choose the encoding
 -- quality for this audio track.
-wavSettings_bitDepth :: Lens.Lens' WavSettings (Core.Maybe Core.Natural)
+wavSettings_bitDepth :: Lens.Lens' WavSettings (Prelude.Maybe Prelude.Natural)
 wavSettings_bitDepth = Lens.lens (\WavSettings' {bitDepth} -> bitDepth) (\s@WavSettings' {} a -> s {bitDepth = a} :: WavSettings)
 
 -- | Sample rate in Hz.
-wavSettings_sampleRate :: Lens.Lens' WavSettings (Core.Maybe Core.Natural)
+wavSettings_sampleRate :: Lens.Lens' WavSettings (Prelude.Maybe Prelude.Natural)
 wavSettings_sampleRate = Lens.lens (\WavSettings' {sampleRate} -> sampleRate) (\s@WavSettings' {} a -> s {sampleRate = a} :: WavSettings)
 
 instance Core.FromJSON WavSettings where
@@ -104,23 +105,23 @@ instance Core.FromJSON WavSettings where
       "WavSettings"
       ( \x ->
           WavSettings'
-            Core.<$> (x Core..:? "format")
-            Core.<*> (x Core..:? "channels")
-            Core.<*> (x Core..:? "bitDepth")
-            Core.<*> (x Core..:? "sampleRate")
+            Prelude.<$> (x Core..:? "format")
+            Prelude.<*> (x Core..:? "channels")
+            Prelude.<*> (x Core..:? "bitDepth")
+            Prelude.<*> (x Core..:? "sampleRate")
       )
 
-instance Core.Hashable WavSettings
+instance Prelude.Hashable WavSettings
 
-instance Core.NFData WavSettings
+instance Prelude.NFData WavSettings
 
 instance Core.ToJSON WavSettings where
   toJSON WavSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("format" Core..=) Core.<$> format,
-            ("channels" Core..=) Core.<$> channels,
-            ("bitDepth" Core..=) Core.<$> bitDepth,
-            ("sampleRate" Core..=) Core.<$> sampleRate
+      ( Prelude.catMaybes
+          [ ("format" Core..=) Prelude.<$> format,
+            ("channels" Core..=) Prelude.<$> channels,
+            ("bitDepth" Core..=) Prelude.<$> bitDepth,
+            ("sampleRate" Core..=) Prelude.<$> sampleRate
           ]
       )

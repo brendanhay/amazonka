@@ -44,15 +44,16 @@ where
 import Network.AWS.AppStream.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteImage' smart constructor.
 data DeleteImage = DeleteImage'
   { -- | The name of the image.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteImage' with all optional fields omitted.
@@ -65,12 +66,12 @@ data DeleteImage = DeleteImage'
 -- 'name', 'deleteImage_name' - The name of the image.
 newDeleteImage ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteImage
 newDeleteImage pName_ = DeleteImage' {name = pName_}
 
 -- | The name of the image.
-deleteImage_name :: Lens.Lens' DeleteImage Core.Text
+deleteImage_name :: Lens.Lens' DeleteImage Prelude.Text
 deleteImage_name = Lens.lens (\DeleteImage' {name} -> name) (\s@DeleteImage' {} a -> s {name = a} :: DeleteImage)
 
 instance Core.AWSRequest DeleteImage where
@@ -80,46 +81,50 @@ instance Core.AWSRequest DeleteImage where
     Response.receiveJSON
       ( \s h x ->
           DeleteImageResponse'
-            Core.<$> (x Core..?> "Image")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Image")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteImage
+instance Prelude.Hashable DeleteImage
 
-instance Core.NFData DeleteImage
+instance Prelude.NFData DeleteImage
 
 instance Core.ToHeaders DeleteImage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "PhotonAdminProxyService.DeleteImage" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteImage where
   toJSON DeleteImage' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath DeleteImage where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteImage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteImageResponse' smart constructor.
 data DeleteImageResponse = DeleteImageResponse'
   { -- | Information about the image.
-    image :: Core.Maybe Image,
+    image :: Prelude.Maybe Image,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteImageResponse' with all optional fields omitted.
@@ -134,20 +139,20 @@ data DeleteImageResponse = DeleteImageResponse'
 -- 'httpStatus', 'deleteImageResponse_httpStatus' - The response's http status code.
 newDeleteImageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteImageResponse
 newDeleteImageResponse pHttpStatus_ =
   DeleteImageResponse'
-    { image = Core.Nothing,
+    { image = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the image.
-deleteImageResponse_image :: Lens.Lens' DeleteImageResponse (Core.Maybe Image)
+deleteImageResponse_image :: Lens.Lens' DeleteImageResponse (Prelude.Maybe Image)
 deleteImageResponse_image = Lens.lens (\DeleteImageResponse' {image} -> image) (\s@DeleteImageResponse' {} a -> s {image = a} :: DeleteImageResponse)
 
 -- | The response's http status code.
-deleteImageResponse_httpStatus :: Lens.Lens' DeleteImageResponse Core.Int
+deleteImageResponse_httpStatus :: Lens.Lens' DeleteImageResponse Prelude.Int
 deleteImageResponse_httpStatus = Lens.lens (\DeleteImageResponse' {httpStatus} -> httpStatus) (\s@DeleteImageResponse' {} a -> s {httpStatus = a} :: DeleteImageResponse)
 
-instance Core.NFData DeleteImageResponse
+instance Prelude.NFData DeleteImageResponse

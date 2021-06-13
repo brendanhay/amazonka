@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.BatchScheduleActionDeleteResult where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.ScheduleAction
+import qualified Network.AWS.Prelude as Prelude
 
 -- | List of actions that have been deleted from the schedule.
 --
@@ -30,7 +31,7 @@ data BatchScheduleActionDeleteResult = BatchScheduleActionDeleteResult'
   { -- | List of actions that have been deleted from the schedule.
     scheduleActions :: [ScheduleAction]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchScheduleActionDeleteResult' with all optional fields omitted.
@@ -46,12 +47,12 @@ newBatchScheduleActionDeleteResult ::
 newBatchScheduleActionDeleteResult =
   BatchScheduleActionDeleteResult'
     { scheduleActions =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | List of actions that have been deleted from the schedule.
 batchScheduleActionDeleteResult_scheduleActions :: Lens.Lens' BatchScheduleActionDeleteResult [ScheduleAction]
-batchScheduleActionDeleteResult_scheduleActions = Lens.lens (\BatchScheduleActionDeleteResult' {scheduleActions} -> scheduleActions) (\s@BatchScheduleActionDeleteResult' {} a -> s {scheduleActions = a} :: BatchScheduleActionDeleteResult) Core.. Lens._Coerce
+batchScheduleActionDeleteResult_scheduleActions = Lens.lens (\BatchScheduleActionDeleteResult' {scheduleActions} -> scheduleActions) (\s@BatchScheduleActionDeleteResult' {} a -> s {scheduleActions = a} :: BatchScheduleActionDeleteResult) Prelude.. Lens._Coerce
 
 instance
   Core.FromJSON
@@ -62,11 +63,15 @@ instance
       "BatchScheduleActionDeleteResult"
       ( \x ->
           BatchScheduleActionDeleteResult'
-            Core.<$> (x Core..:? "scheduleActions" Core..!= Core.mempty)
+            Prelude.<$> ( x Core..:? "scheduleActions"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     BatchScheduleActionDeleteResult
 
-instance Core.NFData BatchScheduleActionDeleteResult
+instance
+  Prelude.NFData
+    BatchScheduleActionDeleteResult

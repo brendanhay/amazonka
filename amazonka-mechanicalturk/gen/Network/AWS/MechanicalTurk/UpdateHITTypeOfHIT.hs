@@ -46,17 +46,18 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateHITTypeOfHIT' smart constructor.
 data UpdateHITTypeOfHIT = UpdateHITTypeOfHIT'
   { -- | The HIT to update.
-    hITId :: Core.Text,
+    hITId :: Prelude.Text,
     -- | The ID of the new HIT type.
-    hITTypeId :: Core.Text
+    hITTypeId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateHITTypeOfHIT' with all optional fields omitted.
@@ -71,9 +72,9 @@ data UpdateHITTypeOfHIT = UpdateHITTypeOfHIT'
 -- 'hITTypeId', 'updateHITTypeOfHIT_hITTypeId' - The ID of the new HIT type.
 newUpdateHITTypeOfHIT ::
   -- | 'hITId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'hITTypeId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateHITTypeOfHIT
 newUpdateHITTypeOfHIT pHITId_ pHITTypeId_ =
   UpdateHITTypeOfHIT'
@@ -82,11 +83,11 @@ newUpdateHITTypeOfHIT pHITId_ pHITTypeId_ =
     }
 
 -- | The HIT to update.
-updateHITTypeOfHIT_hITId :: Lens.Lens' UpdateHITTypeOfHIT Core.Text
+updateHITTypeOfHIT_hITId :: Lens.Lens' UpdateHITTypeOfHIT Prelude.Text
 updateHITTypeOfHIT_hITId = Lens.lens (\UpdateHITTypeOfHIT' {hITId} -> hITId) (\s@UpdateHITTypeOfHIT' {} a -> s {hITId = a} :: UpdateHITTypeOfHIT)
 
 -- | The ID of the new HIT type.
-updateHITTypeOfHIT_hITTypeId :: Lens.Lens' UpdateHITTypeOfHIT Core.Text
+updateHITTypeOfHIT_hITTypeId :: Lens.Lens' UpdateHITTypeOfHIT Prelude.Text
 updateHITTypeOfHIT_hITTypeId = Lens.lens (\UpdateHITTypeOfHIT' {hITTypeId} -> hITTypeId) (\s@UpdateHITTypeOfHIT' {} a -> s {hITTypeId = a} :: UpdateHITTypeOfHIT)
 
 instance Core.AWSRequest UpdateHITTypeOfHIT where
@@ -98,47 +99,49 @@ instance Core.AWSRequest UpdateHITTypeOfHIT where
     Response.receiveEmpty
       ( \s h x ->
           UpdateHITTypeOfHITResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateHITTypeOfHIT
+instance Prelude.Hashable UpdateHITTypeOfHIT
 
-instance Core.NFData UpdateHITTypeOfHIT
+instance Prelude.NFData UpdateHITTypeOfHIT
 
 instance Core.ToHeaders UpdateHITTypeOfHIT where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateHITTypeOfHIT where
   toJSON UpdateHITTypeOfHIT' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("HITId" Core..= hITId),
-            Core.Just ("HITTypeId" Core..= hITTypeId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("HITId" Core..= hITId),
+            Prelude.Just ("HITTypeId" Core..= hITTypeId)
           ]
       )
 
 instance Core.ToPath UpdateHITTypeOfHIT where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateHITTypeOfHIT where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateHITTypeOfHITResponse' smart constructor.
 data UpdateHITTypeOfHITResponse = UpdateHITTypeOfHITResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateHITTypeOfHITResponse' with all optional fields omitted.
@@ -151,7 +154,7 @@ data UpdateHITTypeOfHITResponse = UpdateHITTypeOfHITResponse'
 -- 'httpStatus', 'updateHITTypeOfHITResponse_httpStatus' - The response's http status code.
 newUpdateHITTypeOfHITResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateHITTypeOfHITResponse
 newUpdateHITTypeOfHITResponse pHttpStatus_ =
   UpdateHITTypeOfHITResponse'
@@ -160,7 +163,7 @@ newUpdateHITTypeOfHITResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateHITTypeOfHITResponse_httpStatus :: Lens.Lens' UpdateHITTypeOfHITResponse Core.Int
+updateHITTypeOfHITResponse_httpStatus :: Lens.Lens' UpdateHITTypeOfHITResponse Prelude.Int
 updateHITTypeOfHITResponse_httpStatus = Lens.lens (\UpdateHITTypeOfHITResponse' {httpStatus} -> httpStatus) (\s@UpdateHITTypeOfHITResponse' {} a -> s {httpStatus = a} :: UpdateHITTypeOfHITResponse)
 
-instance Core.NFData UpdateHITTypeOfHITResponse
+instance Prelude.NFData UpdateHITTypeOfHITResponse

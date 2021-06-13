@@ -48,17 +48,18 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateElasticIp' smart constructor.
 data AssociateElasticIp = AssociateElasticIp'
   { -- | The instance ID.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The Elastic IP address.
-    elasticIp :: Core.Text
+    elasticIp :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateElasticIp' with all optional fields omitted.
@@ -73,20 +74,20 @@ data AssociateElasticIp = AssociateElasticIp'
 -- 'elasticIp', 'associateElasticIp_elasticIp' - The Elastic IP address.
 newAssociateElasticIp ::
   -- | 'elasticIp'
-  Core.Text ->
+  Prelude.Text ->
   AssociateElasticIp
 newAssociateElasticIp pElasticIp_ =
   AssociateElasticIp'
-    { instanceId = Core.Nothing,
+    { instanceId = Prelude.Nothing,
       elasticIp = pElasticIp_
     }
 
 -- | The instance ID.
-associateElasticIp_instanceId :: Lens.Lens' AssociateElasticIp (Core.Maybe Core.Text)
+associateElasticIp_instanceId :: Lens.Lens' AssociateElasticIp (Prelude.Maybe Prelude.Text)
 associateElasticIp_instanceId = Lens.lens (\AssociateElasticIp' {instanceId} -> instanceId) (\s@AssociateElasticIp' {} a -> s {instanceId = a} :: AssociateElasticIp)
 
 -- | The Elastic IP address.
-associateElasticIp_elasticIp :: Lens.Lens' AssociateElasticIp Core.Text
+associateElasticIp_elasticIp :: Lens.Lens' AssociateElasticIp Prelude.Text
 associateElasticIp_elasticIp = Lens.lens (\AssociateElasticIp' {elasticIp} -> elasticIp) (\s@AssociateElasticIp' {} a -> s {elasticIp = a} :: AssociateElasticIp)
 
 instance Core.AWSRequest AssociateElasticIp where
@@ -97,43 +98,45 @@ instance Core.AWSRequest AssociateElasticIp where
   response =
     Response.receiveNull AssociateElasticIpResponse'
 
-instance Core.Hashable AssociateElasticIp
+instance Prelude.Hashable AssociateElasticIp
 
-instance Core.NFData AssociateElasticIp
+instance Prelude.NFData AssociateElasticIp
 
 instance Core.ToHeaders AssociateElasticIp where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.AssociateElasticIp" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateElasticIp where
   toJSON AssociateElasticIp' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("InstanceId" Core..=) Core.<$> instanceId,
-            Core.Just ("ElasticIp" Core..= elasticIp)
+      ( Prelude.catMaybes
+          [ ("InstanceId" Core..=) Prelude.<$> instanceId,
+            Prelude.Just ("ElasticIp" Core..= elasticIp)
           ]
       )
 
 instance Core.ToPath AssociateElasticIp where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AssociateElasticIp where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateElasticIpResponse' smart constructor.
 data AssociateElasticIpResponse = AssociateElasticIpResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateElasticIpResponse' with all optional fields omitted.
@@ -144,4 +147,4 @@ newAssociateElasticIpResponse ::
 newAssociateElasticIpResponse =
   AssociateElasticIpResponse'
 
-instance Core.NFData AssociateElasticIpResponse
+instance Prelude.NFData AssociateElasticIpResponse

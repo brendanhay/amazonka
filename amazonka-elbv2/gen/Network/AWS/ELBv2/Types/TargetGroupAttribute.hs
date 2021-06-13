@@ -21,6 +21,7 @@ module Network.AWS.ELBv2.Types.TargetGroupAttribute where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a target group attribute.
 --
@@ -107,11 +108,11 @@ data TargetGroupAttribute = TargetGroupAttribute'
     -- -   @proxy_protocol_v2.enabled@ - Indicates whether Proxy Protocol
     --     version 2 is enabled. The value is @true@ or @false@. The default is
     --     @false@.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The value of the attribute.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TargetGroupAttribute' with all optional fields omitted.
@@ -208,8 +209,8 @@ newTargetGroupAttribute ::
   TargetGroupAttribute
 newTargetGroupAttribute =
   TargetGroupAttribute'
-    { key = Core.Nothing,
-      value = Core.Nothing
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The name of the attribute.
@@ -293,23 +294,23 @@ newTargetGroupAttribute =
 -- -   @proxy_protocol_v2.enabled@ - Indicates whether Proxy Protocol
 --     version 2 is enabled. The value is @true@ or @false@. The default is
 --     @false@.
-targetGroupAttribute_key :: Lens.Lens' TargetGroupAttribute (Core.Maybe Core.Text)
+targetGroupAttribute_key :: Lens.Lens' TargetGroupAttribute (Prelude.Maybe Prelude.Text)
 targetGroupAttribute_key = Lens.lens (\TargetGroupAttribute' {key} -> key) (\s@TargetGroupAttribute' {} a -> s {key = a} :: TargetGroupAttribute)
 
 -- | The value of the attribute.
-targetGroupAttribute_value :: Lens.Lens' TargetGroupAttribute (Core.Maybe Core.Text)
+targetGroupAttribute_value :: Lens.Lens' TargetGroupAttribute (Prelude.Maybe Prelude.Text)
 targetGroupAttribute_value = Lens.lens (\TargetGroupAttribute' {value} -> value) (\s@TargetGroupAttribute' {} a -> s {value = a} :: TargetGroupAttribute)
 
 instance Core.FromXML TargetGroupAttribute where
   parseXML x =
     TargetGroupAttribute'
-      Core.<$> (x Core..@? "Key") Core.<*> (x Core..@? "Value")
+      Prelude.<$> (x Core..@? "Key") Prelude.<*> (x Core..@? "Value")
 
-instance Core.Hashable TargetGroupAttribute
+instance Prelude.Hashable TargetGroupAttribute
 
-instance Core.NFData TargetGroupAttribute
+instance Prelude.NFData TargetGroupAttribute
 
 instance Core.ToQuery TargetGroupAttribute where
   toQuery TargetGroupAttribute' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Key" Core.=: key, "Value" Core.=: value]

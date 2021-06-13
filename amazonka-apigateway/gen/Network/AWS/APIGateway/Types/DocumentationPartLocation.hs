@@ -22,6 +22,7 @@ module Network.AWS.APIGateway.Types.DocumentationPartLocation where
 import Network.AWS.APIGateway.Types.DocumentationPartType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the target API entity to which the documentation applies.
 --
@@ -31,7 +32,7 @@ data DocumentationPartLocation = DocumentationPartLocation'
     -- for the API entity types of @AUTHORIZER@, @MODEL@, @PATH_PARAMETER@,
     -- @QUERY_PARAMETER@, @REQUEST_HEADER@, @REQUEST_BODY@ and
     -- @RESPONSE_HEADER@. It is an invalid field for any other entity type.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The HTTP verb of a method. It is a valid field for the API entity types
     -- of @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@, @REQUEST_HEADER@,
     -- @REQUEST_BODY@, @RESPONSE@, @RESPONSE_HEADER@, and @RESPONSE_BODY@. The
@@ -39,7 +40,7 @@ data DocumentationPartLocation = DocumentationPartLocation'
     -- inherits the content of an entity of the same type with more general
     -- specifications of the other @location@ attributes, the child entity\'s
     -- @method@ attribute must match that of the parent entity exactly.
-    method :: Core.Maybe Core.Text,
+    method :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status code of a response. It is a valid field for the API
     -- entity types of @RESPONSE@, @RESPONSE_HEADER@, and @RESPONSE_BODY@. The
     -- default value is @*@ for any status code. When an applicable child
@@ -47,7 +48,7 @@ data DocumentationPartLocation = DocumentationPartLocation'
     -- general specifications of the other @location@ attributes, the child
     -- entity\'s @statusCode@ attribute must match that of the parent entity
     -- exactly.
-    statusCode :: Core.Maybe Core.Text,
+    statusCode :: Prelude.Maybe Prelude.Text,
     -- | The URL path of the target. It is a valid field for the API entity types
     -- of @RESOURCE@, @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@,
     -- @REQUEST_HEADER@, @REQUEST_BODY@, @RESPONSE@, @RESPONSE_HEADER@, and
@@ -56,7 +57,7 @@ data DocumentationPartLocation = DocumentationPartLocation'
     -- same type with more general specifications of the other @location@
     -- attributes, the child entity\'s @path@ attribute must match that of the
     -- parent entity as a prefix.
-    path :: Core.Maybe Core.Text,
+    path :: Prelude.Maybe Prelude.Text,
     -- | [Required] The type of API entity to which the documentation content
     -- applies. Valid values are @API@, @AUTHORIZER@, @MODEL@, @RESOURCE@,
     -- @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@, @REQUEST_HEADER@,
@@ -65,7 +66,7 @@ data DocumentationPartLocation = DocumentationPartLocation'
     -- @AUTHORIZER@, @METHOD@, @MODEL@, @REQUEST_BODY@, or @RESOURCE@ type.
     type' :: DocumentationPartType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DocumentationPartLocation' with all optional fields omitted.
@@ -117,10 +118,10 @@ newDocumentationPartLocation ::
   DocumentationPartLocation
 newDocumentationPartLocation pType_ =
   DocumentationPartLocation'
-    { name = Core.Nothing,
-      method = Core.Nothing,
-      statusCode = Core.Nothing,
-      path = Core.Nothing,
+    { name = Prelude.Nothing,
+      method = Prelude.Nothing,
+      statusCode = Prelude.Nothing,
+      path = Prelude.Nothing,
       type' = pType_
     }
 
@@ -128,7 +129,7 @@ newDocumentationPartLocation pType_ =
 -- for the API entity types of @AUTHORIZER@, @MODEL@, @PATH_PARAMETER@,
 -- @QUERY_PARAMETER@, @REQUEST_HEADER@, @REQUEST_BODY@ and
 -- @RESPONSE_HEADER@. It is an invalid field for any other entity type.
-documentationPartLocation_name :: Lens.Lens' DocumentationPartLocation (Core.Maybe Core.Text)
+documentationPartLocation_name :: Lens.Lens' DocumentationPartLocation (Prelude.Maybe Prelude.Text)
 documentationPartLocation_name = Lens.lens (\DocumentationPartLocation' {name} -> name) (\s@DocumentationPartLocation' {} a -> s {name = a} :: DocumentationPartLocation)
 
 -- | The HTTP verb of a method. It is a valid field for the API entity types
@@ -138,7 +139,7 @@ documentationPartLocation_name = Lens.lens (\DocumentationPartLocation' {name} -
 -- inherits the content of an entity of the same type with more general
 -- specifications of the other @location@ attributes, the child entity\'s
 -- @method@ attribute must match that of the parent entity exactly.
-documentationPartLocation_method :: Lens.Lens' DocumentationPartLocation (Core.Maybe Core.Text)
+documentationPartLocation_method :: Lens.Lens' DocumentationPartLocation (Prelude.Maybe Prelude.Text)
 documentationPartLocation_method = Lens.lens (\DocumentationPartLocation' {method} -> method) (\s@DocumentationPartLocation' {} a -> s {method = a} :: DocumentationPartLocation)
 
 -- | The HTTP status code of a response. It is a valid field for the API
@@ -148,7 +149,7 @@ documentationPartLocation_method = Lens.lens (\DocumentationPartLocation' {metho
 -- general specifications of the other @location@ attributes, the child
 -- entity\'s @statusCode@ attribute must match that of the parent entity
 -- exactly.
-documentationPartLocation_statusCode :: Lens.Lens' DocumentationPartLocation (Core.Maybe Core.Text)
+documentationPartLocation_statusCode :: Lens.Lens' DocumentationPartLocation (Prelude.Maybe Prelude.Text)
 documentationPartLocation_statusCode = Lens.lens (\DocumentationPartLocation' {statusCode} -> statusCode) (\s@DocumentationPartLocation' {} a -> s {statusCode = a} :: DocumentationPartLocation)
 
 -- | The URL path of the target. It is a valid field for the API entity types
@@ -159,7 +160,7 @@ documentationPartLocation_statusCode = Lens.lens (\DocumentationPartLocation' {s
 -- same type with more general specifications of the other @location@
 -- attributes, the child entity\'s @path@ attribute must match that of the
 -- parent entity as a prefix.
-documentationPartLocation_path :: Lens.Lens' DocumentationPartLocation (Core.Maybe Core.Text)
+documentationPartLocation_path :: Lens.Lens' DocumentationPartLocation (Prelude.Maybe Prelude.Text)
 documentationPartLocation_path = Lens.lens (\DocumentationPartLocation' {path} -> path) (\s@DocumentationPartLocation' {} a -> s {path = a} :: DocumentationPartLocation)
 
 -- | [Required] The type of API entity to which the documentation content
@@ -177,25 +178,25 @@ instance Core.FromJSON DocumentationPartLocation where
       "DocumentationPartLocation"
       ( \x ->
           DocumentationPartLocation'
-            Core.<$> (x Core..:? "name")
-            Core.<*> (x Core..:? "method")
-            Core.<*> (x Core..:? "statusCode")
-            Core.<*> (x Core..:? "path")
-            Core.<*> (x Core..: "type")
+            Prelude.<$> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "method")
+            Prelude.<*> (x Core..:? "statusCode")
+            Prelude.<*> (x Core..:? "path")
+            Prelude.<*> (x Core..: "type")
       )
 
-instance Core.Hashable DocumentationPartLocation
+instance Prelude.Hashable DocumentationPartLocation
 
-instance Core.NFData DocumentationPartLocation
+instance Prelude.NFData DocumentationPartLocation
 
 instance Core.ToJSON DocumentationPartLocation where
   toJSON DocumentationPartLocation' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("name" Core..=) Core.<$> name,
-            ("method" Core..=) Core.<$> method,
-            ("statusCode" Core..=) Core.<$> statusCode,
-            ("path" Core..=) Core.<$> path,
-            Core.Just ("type" Core..= type')
+      ( Prelude.catMaybes
+          [ ("name" Core..=) Prelude.<$> name,
+            ("method" Core..=) Prelude.<$> method,
+            ("statusCode" Core..=) Prelude.<$> statusCode,
+            ("path" Core..=) Prelude.<$> path,
+            Prelude.Just ("type" Core..= type')
           ]
       )

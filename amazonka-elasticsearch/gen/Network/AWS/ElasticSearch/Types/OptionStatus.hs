@@ -22,15 +22,16 @@ module Network.AWS.ElasticSearch.Types.OptionStatus where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.OptionState
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the current status of the entity.
 --
 -- /See:/ 'newOptionStatus' smart constructor.
 data OptionStatus = OptionStatus'
   { -- | Specifies the latest version for the entity.
-    updateVersion :: Core.Maybe Core.Natural,
+    updateVersion :: Prelude.Maybe Prelude.Natural,
     -- | Indicates whether the Elasticsearch domain is being deleted.
-    pendingDeletion :: Core.Maybe Core.Bool,
+    pendingDeletion :: Prelude.Maybe Prelude.Bool,
     -- | Timestamp which tells the creation date for the entity.
     creationDate :: Core.POSIX,
     -- | Timestamp which tells the last updated time for the entity.
@@ -38,7 +39,7 @@ data OptionStatus = OptionStatus'
     -- | Provides the @OptionState@ for the Elasticsearch domain.
     state :: OptionState
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OptionStatus' with all optional fields omitted.
@@ -59,36 +60,36 @@ data OptionStatus = OptionStatus'
 -- 'state', 'optionStatus_state' - Provides the @OptionState@ for the Elasticsearch domain.
 newOptionStatus ::
   -- | 'creationDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'updateDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'state'
   OptionState ->
   OptionStatus
 newOptionStatus pCreationDate_ pUpdateDate_ pState_ =
   OptionStatus'
-    { updateVersion = Core.Nothing,
-      pendingDeletion = Core.Nothing,
+    { updateVersion = Prelude.Nothing,
+      pendingDeletion = Prelude.Nothing,
       creationDate = Core._Time Lens.# pCreationDate_,
       updateDate = Core._Time Lens.# pUpdateDate_,
       state = pState_
     }
 
 -- | Specifies the latest version for the entity.
-optionStatus_updateVersion :: Lens.Lens' OptionStatus (Core.Maybe Core.Natural)
+optionStatus_updateVersion :: Lens.Lens' OptionStatus (Prelude.Maybe Prelude.Natural)
 optionStatus_updateVersion = Lens.lens (\OptionStatus' {updateVersion} -> updateVersion) (\s@OptionStatus' {} a -> s {updateVersion = a} :: OptionStatus)
 
 -- | Indicates whether the Elasticsearch domain is being deleted.
-optionStatus_pendingDeletion :: Lens.Lens' OptionStatus (Core.Maybe Core.Bool)
+optionStatus_pendingDeletion :: Lens.Lens' OptionStatus (Prelude.Maybe Prelude.Bool)
 optionStatus_pendingDeletion = Lens.lens (\OptionStatus' {pendingDeletion} -> pendingDeletion) (\s@OptionStatus' {} a -> s {pendingDeletion = a} :: OptionStatus)
 
 -- | Timestamp which tells the creation date for the entity.
-optionStatus_creationDate :: Lens.Lens' OptionStatus Core.UTCTime
-optionStatus_creationDate = Lens.lens (\OptionStatus' {creationDate} -> creationDate) (\s@OptionStatus' {} a -> s {creationDate = a} :: OptionStatus) Core.. Core._Time
+optionStatus_creationDate :: Lens.Lens' OptionStatus Prelude.UTCTime
+optionStatus_creationDate = Lens.lens (\OptionStatus' {creationDate} -> creationDate) (\s@OptionStatus' {} a -> s {creationDate = a} :: OptionStatus) Prelude.. Core._Time
 
 -- | Timestamp which tells the last updated time for the entity.
-optionStatus_updateDate :: Lens.Lens' OptionStatus Core.UTCTime
-optionStatus_updateDate = Lens.lens (\OptionStatus' {updateDate} -> updateDate) (\s@OptionStatus' {} a -> s {updateDate = a} :: OptionStatus) Core.. Core._Time
+optionStatus_updateDate :: Lens.Lens' OptionStatus Prelude.UTCTime
+optionStatus_updateDate = Lens.lens (\OptionStatus' {updateDate} -> updateDate) (\s@OptionStatus' {} a -> s {updateDate = a} :: OptionStatus) Prelude.. Core._Time
 
 -- | Provides the @OptionState@ for the Elasticsearch domain.
 optionStatus_state :: Lens.Lens' OptionStatus OptionState
@@ -100,13 +101,13 @@ instance Core.FromJSON OptionStatus where
       "OptionStatus"
       ( \x ->
           OptionStatus'
-            Core.<$> (x Core..:? "UpdateVersion")
-            Core.<*> (x Core..:? "PendingDeletion")
-            Core.<*> (x Core..: "CreationDate")
-            Core.<*> (x Core..: "UpdateDate")
-            Core.<*> (x Core..: "State")
+            Prelude.<$> (x Core..:? "UpdateVersion")
+            Prelude.<*> (x Core..:? "PendingDeletion")
+            Prelude.<*> (x Core..: "CreationDate")
+            Prelude.<*> (x Core..: "UpdateDate")
+            Prelude.<*> (x Core..: "State")
       )
 
-instance Core.Hashable OptionStatus
+instance Prelude.Hashable OptionStatus
 
-instance Core.NFData OptionStatus
+instance Prelude.NFData OptionStatus

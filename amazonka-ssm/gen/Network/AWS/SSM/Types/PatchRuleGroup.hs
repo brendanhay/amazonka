@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.PatchRuleGroup where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.PatchRule
 
 -- | A set of rules defining the approval rules for a patch baseline.
@@ -30,7 +31,7 @@ data PatchRuleGroup = PatchRuleGroup'
   { -- | The rules that make up the rule group.
     patchRules :: [PatchRule]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PatchRuleGroup' with all optional fields omitted.
@@ -44,11 +45,11 @@ data PatchRuleGroup = PatchRuleGroup'
 newPatchRuleGroup ::
   PatchRuleGroup
 newPatchRuleGroup =
-  PatchRuleGroup' {patchRules = Core.mempty}
+  PatchRuleGroup' {patchRules = Prelude.mempty}
 
 -- | The rules that make up the rule group.
 patchRuleGroup_patchRules :: Lens.Lens' PatchRuleGroup [PatchRule]
-patchRuleGroup_patchRules = Lens.lens (\PatchRuleGroup' {patchRules} -> patchRules) (\s@PatchRuleGroup' {} a -> s {patchRules = a} :: PatchRuleGroup) Core.. Lens._Coerce
+patchRuleGroup_patchRules = Lens.lens (\PatchRuleGroup' {patchRules} -> patchRules) (\s@PatchRuleGroup' {} a -> s {patchRules = a} :: PatchRuleGroup) Prelude.. Lens._Coerce
 
 instance Core.FromJSON PatchRuleGroup where
   parseJSON =
@@ -56,16 +57,16 @@ instance Core.FromJSON PatchRuleGroup where
       "PatchRuleGroup"
       ( \x ->
           PatchRuleGroup'
-            Core.<$> (x Core..:? "PatchRules" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "PatchRules" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable PatchRuleGroup
+instance Prelude.Hashable PatchRuleGroup
 
-instance Core.NFData PatchRuleGroup
+instance Prelude.NFData PatchRuleGroup
 
 instance Core.ToJSON PatchRuleGroup where
   toJSON PatchRuleGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("PatchRules" Core..= patchRules)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("PatchRules" Core..= patchRules)]
       )

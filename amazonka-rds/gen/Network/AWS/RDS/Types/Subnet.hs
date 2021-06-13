@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.Subnet where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types.AvailabilityZone
 import Network.AWS.RDS.Types.Outpost
 
@@ -30,19 +31,19 @@ import Network.AWS.RDS.Types.Outpost
 -- /See:/ 'newSubnet' smart constructor.
 data Subnet = Subnet'
   { -- | The status of the subnet.
-    subnetStatus :: Core.Maybe Core.Text,
+    subnetStatus :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the subnet.
-    subnetIdentifier :: Core.Maybe Core.Text,
-    subnetAvailabilityZone :: Core.Maybe AvailabilityZone,
+    subnetIdentifier :: Prelude.Maybe Prelude.Text,
+    subnetAvailabilityZone :: Prelude.Maybe AvailabilityZone,
     -- | If the subnet is associated with an Outpost, this value specifies the
     -- Outpost.
     --
     -- For more information about RDS on Outposts, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts>
     -- in the /Amazon RDS User Guide./
-    subnetOutpost :: Core.Maybe Outpost
+    subnetOutpost :: Prelude.Maybe Outpost
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Subnet' with all optional fields omitted.
@@ -68,22 +69,22 @@ newSubnet ::
   Subnet
 newSubnet =
   Subnet'
-    { subnetStatus = Core.Nothing,
-      subnetIdentifier = Core.Nothing,
-      subnetAvailabilityZone = Core.Nothing,
-      subnetOutpost = Core.Nothing
+    { subnetStatus = Prelude.Nothing,
+      subnetIdentifier = Prelude.Nothing,
+      subnetAvailabilityZone = Prelude.Nothing,
+      subnetOutpost = Prelude.Nothing
     }
 
 -- | The status of the subnet.
-subnet_subnetStatus :: Lens.Lens' Subnet (Core.Maybe Core.Text)
+subnet_subnetStatus :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
 subnet_subnetStatus = Lens.lens (\Subnet' {subnetStatus} -> subnetStatus) (\s@Subnet' {} a -> s {subnetStatus = a} :: Subnet)
 
 -- | The identifier of the subnet.
-subnet_subnetIdentifier :: Lens.Lens' Subnet (Core.Maybe Core.Text)
+subnet_subnetIdentifier :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
 subnet_subnetIdentifier = Lens.lens (\Subnet' {subnetIdentifier} -> subnetIdentifier) (\s@Subnet' {} a -> s {subnetIdentifier = a} :: Subnet)
 
 -- | Undocumented member.
-subnet_subnetAvailabilityZone :: Lens.Lens' Subnet (Core.Maybe AvailabilityZone)
+subnet_subnetAvailabilityZone :: Lens.Lens' Subnet (Prelude.Maybe AvailabilityZone)
 subnet_subnetAvailabilityZone = Lens.lens (\Subnet' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@Subnet' {} a -> s {subnetAvailabilityZone = a} :: Subnet)
 
 -- | If the subnet is associated with an Outpost, this value specifies the
@@ -92,17 +93,17 @@ subnet_subnetAvailabilityZone = Lens.lens (\Subnet' {subnetAvailabilityZone} -> 
 -- For more information about RDS on Outposts, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts>
 -- in the /Amazon RDS User Guide./
-subnet_subnetOutpost :: Lens.Lens' Subnet (Core.Maybe Outpost)
+subnet_subnetOutpost :: Lens.Lens' Subnet (Prelude.Maybe Outpost)
 subnet_subnetOutpost = Lens.lens (\Subnet' {subnetOutpost} -> subnetOutpost) (\s@Subnet' {} a -> s {subnetOutpost = a} :: Subnet)
 
 instance Core.FromXML Subnet where
   parseXML x =
     Subnet'
-      Core.<$> (x Core..@? "SubnetStatus")
-      Core.<*> (x Core..@? "SubnetIdentifier")
-      Core.<*> (x Core..@? "SubnetAvailabilityZone")
-      Core.<*> (x Core..@? "SubnetOutpost")
+      Prelude.<$> (x Core..@? "SubnetStatus")
+      Prelude.<*> (x Core..@? "SubnetIdentifier")
+      Prelude.<*> (x Core..@? "SubnetAvailabilityZone")
+      Prelude.<*> (x Core..@? "SubnetOutpost")
 
-instance Core.Hashable Subnet
+instance Prelude.Hashable Subnet
 
-instance Core.NFData Subnet
+instance Prelude.NFData Subnet

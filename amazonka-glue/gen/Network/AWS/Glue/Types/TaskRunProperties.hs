@@ -26,23 +26,24 @@ import Network.AWS.Glue.Types.ImportLabelsTaskRunProperties
 import Network.AWS.Glue.Types.LabelingSetGenerationTaskRunProperties
 import Network.AWS.Glue.Types.TaskType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration properties for the task run.
 --
 -- /See:/ 'newTaskRunProperties' smart constructor.
 data TaskRunProperties = TaskRunProperties'
   { -- | The configuration properties for an exporting labels task run.
-    exportLabelsTaskRunProperties :: Core.Maybe ExportLabelsTaskRunProperties,
+    exportLabelsTaskRunProperties :: Prelude.Maybe ExportLabelsTaskRunProperties,
     -- | The configuration properties for a find matches task run.
-    findMatchesTaskRunProperties :: Core.Maybe FindMatchesTaskRunProperties,
+    findMatchesTaskRunProperties :: Prelude.Maybe FindMatchesTaskRunProperties,
     -- | The configuration properties for a labeling set generation task run.
-    labelingSetGenerationTaskRunProperties :: Core.Maybe LabelingSetGenerationTaskRunProperties,
+    labelingSetGenerationTaskRunProperties :: Prelude.Maybe LabelingSetGenerationTaskRunProperties,
     -- | The type of task run.
-    taskType :: Core.Maybe TaskType,
+    taskType :: Prelude.Maybe TaskType,
     -- | The configuration properties for an importing labels task run.
-    importLabelsTaskRunProperties :: Core.Maybe ImportLabelsTaskRunProperties
+    importLabelsTaskRunProperties :: Prelude.Maybe ImportLabelsTaskRunProperties
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TaskRunProperties' with all optional fields omitted.
@@ -66,32 +67,32 @@ newTaskRunProperties ::
 newTaskRunProperties =
   TaskRunProperties'
     { exportLabelsTaskRunProperties =
-        Core.Nothing,
-      findMatchesTaskRunProperties = Core.Nothing,
+        Prelude.Nothing,
+      findMatchesTaskRunProperties = Prelude.Nothing,
       labelingSetGenerationTaskRunProperties =
-        Core.Nothing,
-      taskType = Core.Nothing,
-      importLabelsTaskRunProperties = Core.Nothing
+        Prelude.Nothing,
+      taskType = Prelude.Nothing,
+      importLabelsTaskRunProperties = Prelude.Nothing
     }
 
 -- | The configuration properties for an exporting labels task run.
-taskRunProperties_exportLabelsTaskRunProperties :: Lens.Lens' TaskRunProperties (Core.Maybe ExportLabelsTaskRunProperties)
+taskRunProperties_exportLabelsTaskRunProperties :: Lens.Lens' TaskRunProperties (Prelude.Maybe ExportLabelsTaskRunProperties)
 taskRunProperties_exportLabelsTaskRunProperties = Lens.lens (\TaskRunProperties' {exportLabelsTaskRunProperties} -> exportLabelsTaskRunProperties) (\s@TaskRunProperties' {} a -> s {exportLabelsTaskRunProperties = a} :: TaskRunProperties)
 
 -- | The configuration properties for a find matches task run.
-taskRunProperties_findMatchesTaskRunProperties :: Lens.Lens' TaskRunProperties (Core.Maybe FindMatchesTaskRunProperties)
+taskRunProperties_findMatchesTaskRunProperties :: Lens.Lens' TaskRunProperties (Prelude.Maybe FindMatchesTaskRunProperties)
 taskRunProperties_findMatchesTaskRunProperties = Lens.lens (\TaskRunProperties' {findMatchesTaskRunProperties} -> findMatchesTaskRunProperties) (\s@TaskRunProperties' {} a -> s {findMatchesTaskRunProperties = a} :: TaskRunProperties)
 
 -- | The configuration properties for a labeling set generation task run.
-taskRunProperties_labelingSetGenerationTaskRunProperties :: Lens.Lens' TaskRunProperties (Core.Maybe LabelingSetGenerationTaskRunProperties)
+taskRunProperties_labelingSetGenerationTaskRunProperties :: Lens.Lens' TaskRunProperties (Prelude.Maybe LabelingSetGenerationTaskRunProperties)
 taskRunProperties_labelingSetGenerationTaskRunProperties = Lens.lens (\TaskRunProperties' {labelingSetGenerationTaskRunProperties} -> labelingSetGenerationTaskRunProperties) (\s@TaskRunProperties' {} a -> s {labelingSetGenerationTaskRunProperties = a} :: TaskRunProperties)
 
 -- | The type of task run.
-taskRunProperties_taskType :: Lens.Lens' TaskRunProperties (Core.Maybe TaskType)
+taskRunProperties_taskType :: Lens.Lens' TaskRunProperties (Prelude.Maybe TaskType)
 taskRunProperties_taskType = Lens.lens (\TaskRunProperties' {taskType} -> taskType) (\s@TaskRunProperties' {} a -> s {taskType = a} :: TaskRunProperties)
 
 -- | The configuration properties for an importing labels task run.
-taskRunProperties_importLabelsTaskRunProperties :: Lens.Lens' TaskRunProperties (Core.Maybe ImportLabelsTaskRunProperties)
+taskRunProperties_importLabelsTaskRunProperties :: Lens.Lens' TaskRunProperties (Prelude.Maybe ImportLabelsTaskRunProperties)
 taskRunProperties_importLabelsTaskRunProperties = Lens.lens (\TaskRunProperties' {importLabelsTaskRunProperties} -> importLabelsTaskRunProperties) (\s@TaskRunProperties' {} a -> s {importLabelsTaskRunProperties = a} :: TaskRunProperties)
 
 instance Core.FromJSON TaskRunProperties where
@@ -100,13 +101,13 @@ instance Core.FromJSON TaskRunProperties where
       "TaskRunProperties"
       ( \x ->
           TaskRunProperties'
-            Core.<$> (x Core..:? "ExportLabelsTaskRunProperties")
-            Core.<*> (x Core..:? "FindMatchesTaskRunProperties")
-            Core.<*> (x Core..:? "LabelingSetGenerationTaskRunProperties")
-            Core.<*> (x Core..:? "TaskType")
-            Core.<*> (x Core..:? "ImportLabelsTaskRunProperties")
+            Prelude.<$> (x Core..:? "ExportLabelsTaskRunProperties")
+            Prelude.<*> (x Core..:? "FindMatchesTaskRunProperties")
+            Prelude.<*> (x Core..:? "LabelingSetGenerationTaskRunProperties")
+            Prelude.<*> (x Core..:? "TaskType")
+            Prelude.<*> (x Core..:? "ImportLabelsTaskRunProperties")
       )
 
-instance Core.Hashable TaskRunProperties
+instance Prelude.Hashable TaskRunProperties
 
-instance Core.NFData TaskRunProperties
+instance Prelude.NFData TaskRunProperties

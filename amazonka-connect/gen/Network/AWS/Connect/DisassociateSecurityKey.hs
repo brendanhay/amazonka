@@ -42,18 +42,19 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateSecurityKey' smart constructor.
 data DisassociateSecurityKey = DisassociateSecurityKey'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The existing association identifier that uniquely identifies the
     -- resource type and storage config for the given instance ID.
-    associationId :: Core.Text
+    associationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateSecurityKey' with all optional fields omitted.
@@ -69,9 +70,9 @@ data DisassociateSecurityKey = DisassociateSecurityKey'
 -- resource type and storage config for the given instance ID.
 newDisassociateSecurityKey ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'associationId'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateSecurityKey
 newDisassociateSecurityKey
   pInstanceId_
@@ -82,12 +83,12 @@ newDisassociateSecurityKey
       }
 
 -- | The identifier of the Amazon Connect instance.
-disassociateSecurityKey_instanceId :: Lens.Lens' DisassociateSecurityKey Core.Text
+disassociateSecurityKey_instanceId :: Lens.Lens' DisassociateSecurityKey Prelude.Text
 disassociateSecurityKey_instanceId = Lens.lens (\DisassociateSecurityKey' {instanceId} -> instanceId) (\s@DisassociateSecurityKey' {} a -> s {instanceId = a} :: DisassociateSecurityKey)
 
 -- | The existing association identifier that uniquely identifies the
 -- resource type and storage config for the given instance ID.
-disassociateSecurityKey_associationId :: Lens.Lens' DisassociateSecurityKey Core.Text
+disassociateSecurityKey_associationId :: Lens.Lens' DisassociateSecurityKey Prelude.Text
 disassociateSecurityKey_associationId = Lens.lens (\DisassociateSecurityKey' {associationId} -> associationId) (\s@DisassociateSecurityKey' {} a -> s {associationId = a} :: DisassociateSecurityKey)
 
 instance Core.AWSRequest DisassociateSecurityKey where
@@ -99,22 +100,24 @@ instance Core.AWSRequest DisassociateSecurityKey where
     Response.receiveNull
       DisassociateSecurityKeyResponse'
 
-instance Core.Hashable DisassociateSecurityKey
+instance Prelude.Hashable DisassociateSecurityKey
 
-instance Core.NFData DisassociateSecurityKey
+instance Prelude.NFData DisassociateSecurityKey
 
 instance Core.ToHeaders DisassociateSecurityKey where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DisassociateSecurityKey where
   toPath DisassociateSecurityKey' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/instance/",
         Core.toBS instanceId,
         "/security-key/",
@@ -122,13 +125,13 @@ instance Core.ToPath DisassociateSecurityKey where
       ]
 
 instance Core.ToQuery DisassociateSecurityKey where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateSecurityKeyResponse' smart constructor.
 data DisassociateSecurityKeyResponse = DisassociateSecurityKeyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateSecurityKeyResponse' with all optional fields omitted.
@@ -139,4 +142,6 @@ newDisassociateSecurityKeyResponse ::
 newDisassociateSecurityKeyResponse =
   DisassociateSecurityKeyResponse'
 
-instance Core.NFData DisassociateSecurityKeyResponse
+instance
+  Prelude.NFData
+    DisassociateSecurityKeyResponse

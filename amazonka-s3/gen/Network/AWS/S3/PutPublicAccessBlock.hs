@@ -65,6 +65,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -74,12 +75,12 @@ data PutPublicAccessBlock = PutPublicAccessBlock'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The MD5 hash of the @PutPublicAccessBlock@ request body.
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Core.Maybe Core.Text,
+    contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration
     -- you want to set.
     bucket :: BucketName,
@@ -91,7 +92,7 @@ data PutPublicAccessBlock = PutPublicAccessBlock'
     -- in the /Amazon Simple Storage Service Developer Guide/.
     publicAccessBlockConfiguration :: PublicAccessBlockConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutPublicAccessBlock' with all optional fields omitted.
@@ -130,8 +131,8 @@ newPutPublicAccessBlock
   pPublicAccessBlockConfiguration_ =
     PutPublicAccessBlock'
       { expectedBucketOwner =
-          Core.Nothing,
-        contentMD5 = Core.Nothing,
+          Prelude.Nothing,
+        contentMD5 = Prelude.Nothing,
         bucket = pBucket_,
         publicAccessBlockConfiguration =
           pPublicAccessBlockConfiguration_
@@ -140,14 +141,14 @@ newPutPublicAccessBlock
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putPublicAccessBlock_expectedBucketOwner :: Lens.Lens' PutPublicAccessBlock (Core.Maybe Core.Text)
+putPublicAccessBlock_expectedBucketOwner :: Lens.Lens' PutPublicAccessBlock (Prelude.Maybe Prelude.Text)
 putPublicAccessBlock_expectedBucketOwner = Lens.lens (\PutPublicAccessBlock' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutPublicAccessBlock' {} a -> s {expectedBucketOwner = a} :: PutPublicAccessBlock)
 
 -- | The MD5 hash of the @PutPublicAccessBlock@ request body.
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putPublicAccessBlock_contentMD5 :: Lens.Lens' PutPublicAccessBlock (Core.Maybe Core.Text)
+putPublicAccessBlock_contentMD5 :: Lens.Lens' PutPublicAccessBlock (Prelude.Maybe Prelude.Text)
 putPublicAccessBlock_contentMD5 = Lens.lens (\PutPublicAccessBlock' {contentMD5} -> contentMD5) (\s@PutPublicAccessBlock' {} a -> s {contentMD5 = a} :: PutPublicAccessBlock)
 
 -- | The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration
@@ -172,9 +173,9 @@ instance Core.AWSRequest PutPublicAccessBlock where
   response =
     Response.receiveNull PutPublicAccessBlockResponse'
 
-instance Core.Hashable PutPublicAccessBlock
+instance Prelude.Hashable PutPublicAccessBlock
 
-instance Core.NFData PutPublicAccessBlock
+instance Prelude.NFData PutPublicAccessBlock
 
 instance Core.ToElement PutPublicAccessBlock where
   toElement PutPublicAccessBlock' {..} =
@@ -184,7 +185,7 @@ instance Core.ToElement PutPublicAccessBlock where
 
 instance Core.ToHeaders PutPublicAccessBlock where
   toHeaders PutPublicAccessBlock' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "Content-MD5" Core.=# contentMD5
@@ -192,17 +193,18 @@ instance Core.ToHeaders PutPublicAccessBlock where
 
 instance Core.ToPath PutPublicAccessBlock where
   toPath PutPublicAccessBlock' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery PutPublicAccessBlock where
   toQuery =
-    Core.const (Core.mconcat ["publicAccessBlock"])
+    Prelude.const
+      (Prelude.mconcat ["publicAccessBlock"])
 
 -- | /See:/ 'newPutPublicAccessBlockResponse' smart constructor.
 data PutPublicAccessBlockResponse = PutPublicAccessBlockResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutPublicAccessBlockResponse' with all optional fields omitted.
@@ -213,4 +215,4 @@ newPutPublicAccessBlockResponse ::
 newPutPublicAccessBlockResponse =
   PutPublicAccessBlockResponse'
 
-instance Core.NFData PutPublicAccessBlockResponse
+instance Prelude.NFData PutPublicAccessBlockResponse

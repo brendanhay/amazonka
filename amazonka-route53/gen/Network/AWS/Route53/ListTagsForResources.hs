@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -63,9 +64,9 @@ data ListTagsForResources = ListTagsForResources'
     resourceType :: TagResourceType,
     -- | A complex type that contains the ResourceId element for each resource
     -- for which you want to get a list of tags.
-    resourceIds :: Core.NonEmpty Core.Text
+    resourceIds :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResources' with all optional fields omitted.
@@ -87,7 +88,7 @@ newListTagsForResources ::
   -- | 'resourceType'
   TagResourceType ->
   -- | 'resourceIds'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   ListTagsForResources
 newListTagsForResources pResourceType_ pResourceIds_ =
   ListTagsForResources'
@@ -106,8 +107,8 @@ listTagsForResources_resourceType = Lens.lens (\ListTagsForResources' {resourceT
 
 -- | A complex type that contains the ResourceId element for each resource
 -- for which you want to get a list of tags.
-listTagsForResources_resourceIds :: Lens.Lens' ListTagsForResources (Core.NonEmpty Core.Text)
-listTagsForResources_resourceIds = Lens.lens (\ListTagsForResources' {resourceIds} -> resourceIds) (\s@ListTagsForResources' {} a -> s {resourceIds = a} :: ListTagsForResources) Core.. Lens._Coerce
+listTagsForResources_resourceIds :: Lens.Lens' ListTagsForResources (Prelude.NonEmpty Prelude.Text)
+listTagsForResources_resourceIds = Lens.lens (\ListTagsForResources' {resourceIds} -> resourceIds) (\s@ListTagsForResources' {} a -> s {resourceIds = a} :: ListTagsForResources) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest ListTagsForResources where
   type
@@ -118,15 +119,15 @@ instance Core.AWSRequest ListTagsForResources where
     Response.receiveXML
       ( \s h x ->
           ListTagsForResourcesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "ResourceTagSets" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "ResourceTagSet"
-                     )
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "ResourceTagSets" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "ResourceTagSet"
+                        )
       )
 
-instance Core.Hashable ListTagsForResources
+instance Prelude.Hashable ListTagsForResources
 
-instance Core.NFData ListTagsForResources
+instance Prelude.NFData ListTagsForResources
 
 instance Core.ToElement ListTagsForResources where
   toElement =
@@ -134,19 +135,19 @@ instance Core.ToElement ListTagsForResources where
       "{https://route53.amazonaws.com/doc/2013-04-01/}ListTagsForResourcesRequest"
 
 instance Core.ToHeaders ListTagsForResources where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListTagsForResources where
   toPath ListTagsForResources' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2013-04-01/tags/", Core.toBS resourceType]
 
 instance Core.ToQuery ListTagsForResources where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 instance Core.ToXML ListTagsForResources where
   toXML ListTagsForResources' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "ResourceIds"
           Core.@= Core.toXMLList "ResourceId" resourceIds
       ]
@@ -156,12 +157,12 @@ instance Core.ToXML ListTagsForResources where
 -- /See:/ 'newListTagsForResourcesResponse' smart constructor.
 data ListTagsForResourcesResponse = ListTagsForResourcesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of @ResourceTagSet@s containing tags associated with the
     -- specified resources.
     resourceTagSets :: [ResourceTagSet]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResourcesResponse' with all optional fields omitted.
@@ -177,22 +178,22 @@ data ListTagsForResourcesResponse = ListTagsForResourcesResponse'
 -- specified resources.
 newListTagsForResourcesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTagsForResourcesResponse
 newListTagsForResourcesResponse pHttpStatus_ =
   ListTagsForResourcesResponse'
     { httpStatus =
         pHttpStatus_,
-      resourceTagSets = Core.mempty
+      resourceTagSets = Prelude.mempty
     }
 
 -- | The response's http status code.
-listTagsForResourcesResponse_httpStatus :: Lens.Lens' ListTagsForResourcesResponse Core.Int
+listTagsForResourcesResponse_httpStatus :: Lens.Lens' ListTagsForResourcesResponse Prelude.Int
 listTagsForResourcesResponse_httpStatus = Lens.lens (\ListTagsForResourcesResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourcesResponse' {} a -> s {httpStatus = a} :: ListTagsForResourcesResponse)
 
 -- | A list of @ResourceTagSet@s containing tags associated with the
 -- specified resources.
 listTagsForResourcesResponse_resourceTagSets :: Lens.Lens' ListTagsForResourcesResponse [ResourceTagSet]
-listTagsForResourcesResponse_resourceTagSets = Lens.lens (\ListTagsForResourcesResponse' {resourceTagSets} -> resourceTagSets) (\s@ListTagsForResourcesResponse' {} a -> s {resourceTagSets = a} :: ListTagsForResourcesResponse) Core.. Lens._Coerce
+listTagsForResourcesResponse_resourceTagSets = Lens.lens (\ListTagsForResourcesResponse' {resourceTagSets} -> resourceTagSets) (\s@ListTagsForResourcesResponse' {} a -> s {resourceTagSets = a} :: ListTagsForResourcesResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListTagsForResourcesResponse
+instance Prelude.NFData ListTagsForResourcesResponse

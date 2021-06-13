@@ -77,6 +77,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,7 +85,7 @@ import qualified Network.AWS.Response as Response
 data GetFunctionConfiguration = GetFunctionConfiguration'
   { -- | Specify a version or alias to get details about a published version of
     -- the function.
-    qualifier :: Core.Maybe Core.Text,
+    qualifier :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function, version, or alias.
     --
     -- __Name formats__
@@ -100,9 +101,9 @@ data GetFunctionConfiguration = GetFunctionConfiguration'
     -- You can append a version number or alias to any of the formats. The
     -- length constraint applies only to the full ARN. If you specify only the
     -- function name, it is limited to 64 characters in length.
-    functionName :: Core.Text
+    functionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetFunctionConfiguration' with all optional fields omitted.
@@ -132,17 +133,18 @@ data GetFunctionConfiguration = GetFunctionConfiguration'
 -- function name, it is limited to 64 characters in length.
 newGetFunctionConfiguration ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   GetFunctionConfiguration
 newGetFunctionConfiguration pFunctionName_ =
   GetFunctionConfiguration'
-    { qualifier = Core.Nothing,
+    { qualifier =
+        Prelude.Nothing,
       functionName = pFunctionName_
     }
 
 -- | Specify a version or alias to get details about a published version of
 -- the function.
-getFunctionConfiguration_qualifier :: Lens.Lens' GetFunctionConfiguration (Core.Maybe Core.Text)
+getFunctionConfiguration_qualifier :: Lens.Lens' GetFunctionConfiguration (Prelude.Maybe Prelude.Text)
 getFunctionConfiguration_qualifier = Lens.lens (\GetFunctionConfiguration' {qualifier} -> qualifier) (\s@GetFunctionConfiguration' {} a -> s {qualifier = a} :: GetFunctionConfiguration)
 
 -- | The name of the Lambda function, version, or alias.
@@ -160,7 +162,7 @@ getFunctionConfiguration_qualifier = Lens.lens (\GetFunctionConfiguration' {qual
 -- You can append a version number or alias to any of the formats. The
 -- length constraint applies only to the full ARN. If you specify only the
 -- function name, it is limited to 64 characters in length.
-getFunctionConfiguration_functionName :: Lens.Lens' GetFunctionConfiguration Core.Text
+getFunctionConfiguration_functionName :: Lens.Lens' GetFunctionConfiguration Prelude.Text
 getFunctionConfiguration_functionName = Lens.lens (\GetFunctionConfiguration' {functionName} -> functionName) (\s@GetFunctionConfiguration' {} a -> s {functionName = a} :: GetFunctionConfiguration)
 
 instance Core.AWSRequest GetFunctionConfiguration where
@@ -172,16 +174,16 @@ instance Core.AWSRequest GetFunctionConfiguration where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetFunctionConfiguration
+instance Prelude.Hashable GetFunctionConfiguration
 
-instance Core.NFData GetFunctionConfiguration
+instance Prelude.NFData GetFunctionConfiguration
 
 instance Core.ToHeaders GetFunctionConfiguration where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetFunctionConfiguration where
   toPath GetFunctionConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-03-31/functions/",
         Core.toBS functionName,
         "/configuration"
@@ -189,4 +191,4 @@ instance Core.ToPath GetFunctionConfiguration where
 
 instance Core.ToQuery GetFunctionConfiguration where
   toQuery GetFunctionConfiguration' {..} =
-    Core.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Core.=: qualifier]

@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -54,9 +55,9 @@ import Network.AWS.Route53Domains.Types
 -- /See:/ 'newEnableDomainTransferLock' smart constructor.
 data EnableDomainTransferLock = EnableDomainTransferLock'
   { -- | The name of the domain that you want to set the transfer lock for.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableDomainTransferLock' with all optional fields omitted.
@@ -69,7 +70,7 @@ data EnableDomainTransferLock = EnableDomainTransferLock'
 -- 'domainName', 'enableDomainTransferLock_domainName' - The name of the domain that you want to set the transfer lock for.
 newEnableDomainTransferLock ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   EnableDomainTransferLock
 newEnableDomainTransferLock pDomainName_ =
   EnableDomainTransferLock'
@@ -78,7 +79,7 @@ newEnableDomainTransferLock pDomainName_ =
     }
 
 -- | The name of the domain that you want to set the transfer lock for.
-enableDomainTransferLock_domainName :: Lens.Lens' EnableDomainTransferLock Core.Text
+enableDomainTransferLock_domainName :: Lens.Lens' EnableDomainTransferLock Prelude.Text
 enableDomainTransferLock_domainName = Lens.lens (\EnableDomainTransferLock' {domainName} -> domainName) (\s@EnableDomainTransferLock' {} a -> s {domainName = a} :: EnableDomainTransferLock)
 
 instance Core.AWSRequest EnableDomainTransferLock where
@@ -90,51 +91,53 @@ instance Core.AWSRequest EnableDomainTransferLock where
     Response.receiveJSON
       ( \s h x ->
           EnableDomainTransferLockResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "OperationId")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "OperationId")
       )
 
-instance Core.Hashable EnableDomainTransferLock
+instance Prelude.Hashable EnableDomainTransferLock
 
-instance Core.NFData EnableDomainTransferLock
+instance Prelude.NFData EnableDomainTransferLock
 
 instance Core.ToHeaders EnableDomainTransferLock where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53Domains_v20140515.EnableDomainTransferLock" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON EnableDomainTransferLock where
   toJSON EnableDomainTransferLock' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("DomainName" Core..= domainName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("DomainName" Core..= domainName)]
       )
 
 instance Core.ToPath EnableDomainTransferLock where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery EnableDomainTransferLock where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The EnableDomainTransferLock response includes the following elements.
 --
 -- /See:/ 'newEnableDomainTransferLockResponse' smart constructor.
 data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Identifier for tracking the progress of the request. To use this ID to
     -- query the operation status, use GetOperationDetail.
-    operationId :: Core.Text
+    operationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableDomainTransferLockResponse' with all optional fields omitted.
@@ -150,9 +153,9 @@ data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse'
 -- query the operation status, use GetOperationDetail.
 newEnableDomainTransferLockResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'operationId'
-  Core.Text ->
+  Prelude.Text ->
   EnableDomainTransferLockResponse
 newEnableDomainTransferLockResponse
   pHttpStatus_
@@ -164,12 +167,14 @@ newEnableDomainTransferLockResponse
       }
 
 -- | The response's http status code.
-enableDomainTransferLockResponse_httpStatus :: Lens.Lens' EnableDomainTransferLockResponse Core.Int
+enableDomainTransferLockResponse_httpStatus :: Lens.Lens' EnableDomainTransferLockResponse Prelude.Int
 enableDomainTransferLockResponse_httpStatus = Lens.lens (\EnableDomainTransferLockResponse' {httpStatus} -> httpStatus) (\s@EnableDomainTransferLockResponse' {} a -> s {httpStatus = a} :: EnableDomainTransferLockResponse)
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
-enableDomainTransferLockResponse_operationId :: Lens.Lens' EnableDomainTransferLockResponse Core.Text
+enableDomainTransferLockResponse_operationId :: Lens.Lens' EnableDomainTransferLockResponse Prelude.Text
 enableDomainTransferLockResponse_operationId = Lens.lens (\EnableDomainTransferLockResponse' {operationId} -> operationId) (\s@EnableDomainTransferLockResponse' {} a -> s {operationId = a} :: EnableDomainTransferLockResponse)
 
-instance Core.NFData EnableDomainTransferLockResponse
+instance
+  Prelude.NFData
+    EnableDomainTransferLockResponse

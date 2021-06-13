@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data DeleteUserPermissionsBoundary = DeleteUserPermissionsBoundary'
   { -- | The name (friendly name, not ARN) of the IAM user from which you want to
     -- remove the permissions boundary.
-    userName :: Core.Text
+    userName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserPermissionsBoundary' with all optional fields omitted.
@@ -65,7 +66,7 @@ data DeleteUserPermissionsBoundary = DeleteUserPermissionsBoundary'
 -- remove the permissions boundary.
 newDeleteUserPermissionsBoundary ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteUserPermissionsBoundary
 newDeleteUserPermissionsBoundary pUserName_ =
   DeleteUserPermissionsBoundary'
@@ -75,7 +76,7 @@ newDeleteUserPermissionsBoundary pUserName_ =
 
 -- | The name (friendly name, not ARN) of the IAM user from which you want to
 -- remove the permissions boundary.
-deleteUserPermissionsBoundary_userName :: Lens.Lens' DeleteUserPermissionsBoundary Core.Text
+deleteUserPermissionsBoundary_userName :: Lens.Lens' DeleteUserPermissionsBoundary Prelude.Text
 deleteUserPermissionsBoundary_userName = Lens.lens (\DeleteUserPermissionsBoundary' {userName} -> userName) (\s@DeleteUserPermissionsBoundary' {} a -> s {userName = a} :: DeleteUserPermissionsBoundary)
 
 instance
@@ -90,22 +91,27 @@ instance
     Response.receiveNull
       DeleteUserPermissionsBoundaryResponse'
 
-instance Core.Hashable DeleteUserPermissionsBoundary
+instance
+  Prelude.Hashable
+    DeleteUserPermissionsBoundary
 
-instance Core.NFData DeleteUserPermissionsBoundary
+instance Prelude.NFData DeleteUserPermissionsBoundary
 
 instance Core.ToHeaders DeleteUserPermissionsBoundary where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteUserPermissionsBoundary where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteUserPermissionsBoundary where
   toQuery DeleteUserPermissionsBoundary' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteUserPermissionsBoundary" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ( "DeleteUserPermissionsBoundary" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "UserName" Core.=: userName
       ]
 
@@ -113,7 +119,7 @@ instance Core.ToQuery DeleteUserPermissionsBoundary where
 data DeleteUserPermissionsBoundaryResponse = DeleteUserPermissionsBoundaryResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserPermissionsBoundaryResponse' with all optional fields omitted.
@@ -125,5 +131,5 @@ newDeleteUserPermissionsBoundaryResponse =
   DeleteUserPermissionsBoundaryResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteUserPermissionsBoundaryResponse

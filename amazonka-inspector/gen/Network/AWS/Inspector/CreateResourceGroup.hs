@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +56,9 @@ data CreateResourceGroup = CreateResourceGroup'
     -- \'[{\"key\":\"key1\",\"values\":[\"Value1\",\"Value2\"]},{\"key\":\"Key2\",\"values\":[\"Value3\"]}]\'.
     --
     -- For example,\'[{\"key\":\"Name\",\"values\":[\"TestEC2Instance\"]}]\'.
-    resourceGroupTags :: Core.NonEmpty ResourceGroupTag
+    resourceGroupTags :: Prelude.NonEmpty ResourceGroupTag
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateResourceGroup' with all optional fields omitted.
@@ -73,7 +74,7 @@ data CreateResourceGroup = CreateResourceGroup'
 -- For example,\'[{\"key\":\"Name\",\"values\":[\"TestEC2Instance\"]}]\'.
 newCreateResourceGroup ::
   -- | 'resourceGroupTags'
-  Core.NonEmpty ResourceGroupTag ->
+  Prelude.NonEmpty ResourceGroupTag ->
   CreateResourceGroup
 newCreateResourceGroup pResourceGroupTags_ =
   CreateResourceGroup'
@@ -85,8 +86,8 @@ newCreateResourceGroup pResourceGroupTags_ =
 -- \'[{\"key\":\"key1\",\"values\":[\"Value1\",\"Value2\"]},{\"key\":\"Key2\",\"values\":[\"Value3\"]}]\'.
 --
 -- For example,\'[{\"key\":\"Name\",\"values\":[\"TestEC2Instance\"]}]\'.
-createResourceGroup_resourceGroupTags :: Lens.Lens' CreateResourceGroup (Core.NonEmpty ResourceGroupTag)
-createResourceGroup_resourceGroupTags = Lens.lens (\CreateResourceGroup' {resourceGroupTags} -> resourceGroupTags) (\s@CreateResourceGroup' {} a -> s {resourceGroupTags = a} :: CreateResourceGroup) Core.. Lens._Coerce
+createResourceGroup_resourceGroupTags :: Lens.Lens' CreateResourceGroup (Prelude.NonEmpty ResourceGroupTag)
+createResourceGroup_resourceGroupTags = Lens.lens (\CreateResourceGroup' {resourceGroupTags} -> resourceGroupTags) (\s@CreateResourceGroup' {} a -> s {resourceGroupTags = a} :: CreateResourceGroup) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateResourceGroup where
   type
@@ -97,50 +98,52 @@ instance Core.AWSRequest CreateResourceGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateResourceGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "resourceGroupArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "resourceGroupArn")
       )
 
-instance Core.Hashable CreateResourceGroup
+instance Prelude.Hashable CreateResourceGroup
 
-instance Core.NFData CreateResourceGroup
+instance Prelude.NFData CreateResourceGroup
 
 instance Core.ToHeaders CreateResourceGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "InspectorService.CreateResourceGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateResourceGroup where
   toJSON CreateResourceGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("resourceGroupTags" Core..= resourceGroupTags)
           ]
       )
 
 instance Core.ToPath CreateResourceGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateResourceGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateResourceGroupResponse' smart constructor.
 data CreateResourceGroupResponse = CreateResourceGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The ARN that specifies the resource group that is created.
-    resourceGroupArn :: Core.Text
+    resourceGroupArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateResourceGroupResponse' with all optional fields omitted.
@@ -155,9 +158,9 @@ data CreateResourceGroupResponse = CreateResourceGroupResponse'
 -- 'resourceGroupArn', 'createResourceGroupResponse_resourceGroupArn' - The ARN that specifies the resource group that is created.
 newCreateResourceGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'resourceGroupArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateResourceGroupResponse
 newCreateResourceGroupResponse
   pHttpStatus_
@@ -169,11 +172,11 @@ newCreateResourceGroupResponse
       }
 
 -- | The response's http status code.
-createResourceGroupResponse_httpStatus :: Lens.Lens' CreateResourceGroupResponse Core.Int
+createResourceGroupResponse_httpStatus :: Lens.Lens' CreateResourceGroupResponse Prelude.Int
 createResourceGroupResponse_httpStatus = Lens.lens (\CreateResourceGroupResponse' {httpStatus} -> httpStatus) (\s@CreateResourceGroupResponse' {} a -> s {httpStatus = a} :: CreateResourceGroupResponse)
 
 -- | The ARN that specifies the resource group that is created.
-createResourceGroupResponse_resourceGroupArn :: Lens.Lens' CreateResourceGroupResponse Core.Text
+createResourceGroupResponse_resourceGroupArn :: Lens.Lens' CreateResourceGroupResponse Prelude.Text
 createResourceGroupResponse_resourceGroupArn = Lens.lens (\CreateResourceGroupResponse' {resourceGroupArn} -> resourceGroupArn) (\s@CreateResourceGroupResponse' {} a -> s {resourceGroupArn = a} :: CreateResourceGroupResponse)
 
-instance Core.NFData CreateResourceGroupResponse
+instance Prelude.NFData CreateResourceGroupResponse

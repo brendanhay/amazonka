@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.FrameCaptureGroupSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.OutputLocationRef
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Frame Capture Group Settings
 --
@@ -38,7 +39,7 @@ data FrameCaptureGroupSettings = FrameCaptureGroupSettings'
     -- curling-low.00001.jpg
     destination :: OutputLocationRef
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FrameCaptureGroupSettings' with all optional fields omitted.
@@ -85,16 +86,16 @@ instance Core.FromJSON FrameCaptureGroupSettings where
       "FrameCaptureGroupSettings"
       ( \x ->
           FrameCaptureGroupSettings'
-            Core.<$> (x Core..: "destination")
+            Prelude.<$> (x Core..: "destination")
       )
 
-instance Core.Hashable FrameCaptureGroupSettings
+instance Prelude.Hashable FrameCaptureGroupSettings
 
-instance Core.NFData FrameCaptureGroupSettings
+instance Prelude.NFData FrameCaptureGroupSettings
 
 instance Core.ToJSON FrameCaptureGroupSettings where
   toJSON FrameCaptureGroupSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("destination" Core..= destination)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("destination" Core..= destination)]
       )

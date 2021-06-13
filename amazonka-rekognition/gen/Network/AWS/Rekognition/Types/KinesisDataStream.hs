@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.KinesisDataStream where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Kinesis data stream Amazon Rekognition to which the analysis results
 -- of a Amazon Rekognition stream processor are streamed. For more
@@ -30,9 +31,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newKinesisDataStream' smart constructor.
 data KinesisDataStream = KinesisDataStream'
   { -- | ARN of the output Amazon Kinesis Data Streams stream.
-    arn :: Core.Maybe Core.Text
+    arn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KinesisDataStream' with all optional fields omitted.
@@ -46,10 +47,10 @@ data KinesisDataStream = KinesisDataStream'
 newKinesisDataStream ::
   KinesisDataStream
 newKinesisDataStream =
-  KinesisDataStream' {arn = Core.Nothing}
+  KinesisDataStream' {arn = Prelude.Nothing}
 
 -- | ARN of the output Amazon Kinesis Data Streams stream.
-kinesisDataStream_arn :: Lens.Lens' KinesisDataStream (Core.Maybe Core.Text)
+kinesisDataStream_arn :: Lens.Lens' KinesisDataStream (Prelude.Maybe Prelude.Text)
 kinesisDataStream_arn = Lens.lens (\KinesisDataStream' {arn} -> arn) (\s@KinesisDataStream' {} a -> s {arn = a} :: KinesisDataStream)
 
 instance Core.FromJSON KinesisDataStream where
@@ -57,14 +58,14 @@ instance Core.FromJSON KinesisDataStream where
     Core.withObject
       "KinesisDataStream"
       ( \x ->
-          KinesisDataStream' Core.<$> (x Core..:? "Arn")
+          KinesisDataStream' Prelude.<$> (x Core..:? "Arn")
       )
 
-instance Core.Hashable KinesisDataStream
+instance Prelude.Hashable KinesisDataStream
 
-instance Core.NFData KinesisDataStream
+instance Prelude.NFData KinesisDataStream
 
 instance Core.ToJSON KinesisDataStream where
   toJSON KinesisDataStream' {..} =
     Core.object
-      (Core.catMaybes [("Arn" Core..=) Core.<$> arn])
+      (Prelude.catMaybes [("Arn" Core..=) Prelude.<$> arn])

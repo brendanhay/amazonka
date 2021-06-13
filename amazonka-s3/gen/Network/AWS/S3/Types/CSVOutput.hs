@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.CSVOutput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.QuoteFields
 
@@ -31,25 +32,25 @@ import Network.AWS.S3.Types.QuoteFields
 data CSVOutput = CSVOutput'
   { -- | A single character used to separate individual records in the output.
     -- Instead of the default value, you can specify an arbitrary delimiter.
-    recordDelimiter :: Core.Maybe Core.Text,
+    recordDelimiter :: Prelude.Maybe Prelude.Text,
     -- | A single character used for escaping when the field delimiter is part of
     -- the value. For example, if the value is @a, b@, Amazon S3 wraps this
     -- field value in quotation marks, as follows: @\" a , b \"@.
-    quoteCharacter :: Core.Maybe Core.Text,
+    quoteCharacter :: Prelude.Maybe Prelude.Text,
     -- | The value used to separate individual fields in a record. You can
     -- specify an arbitrary delimiter.
-    fieldDelimiter :: Core.Maybe Core.Text,
+    fieldDelimiter :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether to use quotation marks around output fields.
     --
     -- -   @ALWAYS@: Always use quotation marks for output fields.
     --
     -- -   @ASNEEDED@: Use quotation marks for output fields when needed.
-    quoteFields :: Core.Maybe QuoteFields,
+    quoteFields :: Prelude.Maybe QuoteFields,
     -- | The single character used for escaping the quote character inside an
     -- already escaped value.
-    quoteEscapeCharacter :: Core.Maybe Core.Text
+    quoteEscapeCharacter :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CSVOutput' with all optional fields omitted.
@@ -81,27 +82,27 @@ newCSVOutput ::
   CSVOutput
 newCSVOutput =
   CSVOutput'
-    { recordDelimiter = Core.Nothing,
-      quoteCharacter = Core.Nothing,
-      fieldDelimiter = Core.Nothing,
-      quoteFields = Core.Nothing,
-      quoteEscapeCharacter = Core.Nothing
+    { recordDelimiter = Prelude.Nothing,
+      quoteCharacter = Prelude.Nothing,
+      fieldDelimiter = Prelude.Nothing,
+      quoteFields = Prelude.Nothing,
+      quoteEscapeCharacter = Prelude.Nothing
     }
 
 -- | A single character used to separate individual records in the output.
 -- Instead of the default value, you can specify an arbitrary delimiter.
-cSVOutput_recordDelimiter :: Lens.Lens' CSVOutput (Core.Maybe Core.Text)
+cSVOutput_recordDelimiter :: Lens.Lens' CSVOutput (Prelude.Maybe Prelude.Text)
 cSVOutput_recordDelimiter = Lens.lens (\CSVOutput' {recordDelimiter} -> recordDelimiter) (\s@CSVOutput' {} a -> s {recordDelimiter = a} :: CSVOutput)
 
 -- | A single character used for escaping when the field delimiter is part of
 -- the value. For example, if the value is @a, b@, Amazon S3 wraps this
 -- field value in quotation marks, as follows: @\" a , b \"@.
-cSVOutput_quoteCharacter :: Lens.Lens' CSVOutput (Core.Maybe Core.Text)
+cSVOutput_quoteCharacter :: Lens.Lens' CSVOutput (Prelude.Maybe Prelude.Text)
 cSVOutput_quoteCharacter = Lens.lens (\CSVOutput' {quoteCharacter} -> quoteCharacter) (\s@CSVOutput' {} a -> s {quoteCharacter = a} :: CSVOutput)
 
 -- | The value used to separate individual fields in a record. You can
 -- specify an arbitrary delimiter.
-cSVOutput_fieldDelimiter :: Lens.Lens' CSVOutput (Core.Maybe Core.Text)
+cSVOutput_fieldDelimiter :: Lens.Lens' CSVOutput (Prelude.Maybe Prelude.Text)
 cSVOutput_fieldDelimiter = Lens.lens (\CSVOutput' {fieldDelimiter} -> fieldDelimiter) (\s@CSVOutput' {} a -> s {fieldDelimiter = a} :: CSVOutput)
 
 -- | Indicates whether to use quotation marks around output fields.
@@ -109,21 +110,21 @@ cSVOutput_fieldDelimiter = Lens.lens (\CSVOutput' {fieldDelimiter} -> fieldDelim
 -- -   @ALWAYS@: Always use quotation marks for output fields.
 --
 -- -   @ASNEEDED@: Use quotation marks for output fields when needed.
-cSVOutput_quoteFields :: Lens.Lens' CSVOutput (Core.Maybe QuoteFields)
+cSVOutput_quoteFields :: Lens.Lens' CSVOutput (Prelude.Maybe QuoteFields)
 cSVOutput_quoteFields = Lens.lens (\CSVOutput' {quoteFields} -> quoteFields) (\s@CSVOutput' {} a -> s {quoteFields = a} :: CSVOutput)
 
 -- | The single character used for escaping the quote character inside an
 -- already escaped value.
-cSVOutput_quoteEscapeCharacter :: Lens.Lens' CSVOutput (Core.Maybe Core.Text)
+cSVOutput_quoteEscapeCharacter :: Lens.Lens' CSVOutput (Prelude.Maybe Prelude.Text)
 cSVOutput_quoteEscapeCharacter = Lens.lens (\CSVOutput' {quoteEscapeCharacter} -> quoteEscapeCharacter) (\s@CSVOutput' {} a -> s {quoteEscapeCharacter = a} :: CSVOutput)
 
-instance Core.Hashable CSVOutput
+instance Prelude.Hashable CSVOutput
 
-instance Core.NFData CSVOutput
+instance Prelude.NFData CSVOutput
 
 instance Core.ToXML CSVOutput where
   toXML CSVOutput' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "RecordDelimiter" Core.@= recordDelimiter,
         "QuoteCharacter" Core.@= quoteCharacter,
         "FieldDelimiter" Core.@= fieldDelimiter,

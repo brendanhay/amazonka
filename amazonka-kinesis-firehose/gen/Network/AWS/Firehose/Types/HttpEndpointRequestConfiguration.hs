@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types.ContentEncoding
 import Network.AWS.Firehose.Types.HttpEndpointCommonAttribute
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration of the HTTP endpoint request.
 --
@@ -33,11 +34,11 @@ data HttpEndpointRequestConfiguration = HttpEndpointRequestConfiguration'
     -- information, see
     -- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding Content-Encoding>
     -- in MDN Web Docs, the official Mozilla documentation.
-    contentEncoding :: Core.Maybe ContentEncoding,
+    contentEncoding :: Prelude.Maybe ContentEncoding,
     -- | Describes the metadata sent to the HTTP endpoint destination.
-    commonAttributes :: Core.Maybe [HttpEndpointCommonAttribute]
+    commonAttributes :: Prelude.Maybe [HttpEndpointCommonAttribute]
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HttpEndpointRequestConfiguration' with all optional fields omitted.
@@ -59,8 +60,8 @@ newHttpEndpointRequestConfiguration ::
 newHttpEndpointRequestConfiguration =
   HttpEndpointRequestConfiguration'
     { contentEncoding =
-        Core.Nothing,
-      commonAttributes = Core.Nothing
+        Prelude.Nothing,
+      commonAttributes = Prelude.Nothing
     }
 
 -- | Kinesis Data Firehose uses the content encoding to compress the body of
@@ -68,12 +69,12 @@ newHttpEndpointRequestConfiguration =
 -- information, see
 -- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding Content-Encoding>
 -- in MDN Web Docs, the official Mozilla documentation.
-httpEndpointRequestConfiguration_contentEncoding :: Lens.Lens' HttpEndpointRequestConfiguration (Core.Maybe ContentEncoding)
+httpEndpointRequestConfiguration_contentEncoding :: Lens.Lens' HttpEndpointRequestConfiguration (Prelude.Maybe ContentEncoding)
 httpEndpointRequestConfiguration_contentEncoding = Lens.lens (\HttpEndpointRequestConfiguration' {contentEncoding} -> contentEncoding) (\s@HttpEndpointRequestConfiguration' {} a -> s {contentEncoding = a} :: HttpEndpointRequestConfiguration)
 
 -- | Describes the metadata sent to the HTTP endpoint destination.
-httpEndpointRequestConfiguration_commonAttributes :: Lens.Lens' HttpEndpointRequestConfiguration (Core.Maybe [HttpEndpointCommonAttribute])
-httpEndpointRequestConfiguration_commonAttributes = Lens.lens (\HttpEndpointRequestConfiguration' {commonAttributes} -> commonAttributes) (\s@HttpEndpointRequestConfiguration' {} a -> s {commonAttributes = a} :: HttpEndpointRequestConfiguration) Core.. Lens.mapping Lens._Coerce
+httpEndpointRequestConfiguration_commonAttributes :: Lens.Lens' HttpEndpointRequestConfiguration (Prelude.Maybe [HttpEndpointCommonAttribute])
+httpEndpointRequestConfiguration_commonAttributes = Lens.lens (\HttpEndpointRequestConfiguration' {commonAttributes} -> commonAttributes) (\s@HttpEndpointRequestConfiguration' {} a -> s {commonAttributes = a} :: HttpEndpointRequestConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromJSON
@@ -84,23 +85,27 @@ instance
       "HttpEndpointRequestConfiguration"
       ( \x ->
           HttpEndpointRequestConfiguration'
-            Core.<$> (x Core..:? "ContentEncoding")
-            Core.<*> (x Core..:? "CommonAttributes" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "ContentEncoding")
+            Prelude.<*> ( x Core..:? "CommonAttributes"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     HttpEndpointRequestConfiguration
 
-instance Core.NFData HttpEndpointRequestConfiguration
+instance
+  Prelude.NFData
+    HttpEndpointRequestConfiguration
 
 instance Core.ToJSON HttpEndpointRequestConfiguration where
   toJSON HttpEndpointRequestConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ContentEncoding" Core..=)
-              Core.<$> contentEncoding,
+              Prelude.<$> contentEncoding,
             ("CommonAttributes" Core..=)
-              Core.<$> commonAttributes
+              Prelude.<$> commonAttributes
           ]
       )

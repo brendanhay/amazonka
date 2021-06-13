@@ -22,22 +22,23 @@ module Network.AWS.EC2.Types.InstanceNetworkInterfaceAssociation where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes association information for an Elastic IP address (IPv4).
 --
 -- /See:/ 'newInstanceNetworkInterfaceAssociation' smart constructor.
 data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation'
   { -- | The ID of the owner of the Elastic IP address.
-    ipOwnerId :: Core.Maybe Core.Text,
+    ipOwnerId :: Prelude.Maybe Prelude.Text,
     -- | The carrier IP address associated with the network interface.
-    carrierIp :: Core.Maybe Core.Text,
+    carrierIp :: Prelude.Maybe Prelude.Text,
     -- | The public DNS name.
-    publicDnsName :: Core.Maybe Core.Text,
+    publicDnsName :: Prelude.Maybe Prelude.Text,
     -- | The public IP address or Elastic IP address bound to the network
     -- interface.
-    publicIp :: Core.Maybe Core.Text
+    publicIp :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceNetworkInterfaceAssociation' with all optional fields omitted.
@@ -60,27 +61,27 @@ newInstanceNetworkInterfaceAssociation ::
 newInstanceNetworkInterfaceAssociation =
   InstanceNetworkInterfaceAssociation'
     { ipOwnerId =
-        Core.Nothing,
-      carrierIp = Core.Nothing,
-      publicDnsName = Core.Nothing,
-      publicIp = Core.Nothing
+        Prelude.Nothing,
+      carrierIp = Prelude.Nothing,
+      publicDnsName = Prelude.Nothing,
+      publicIp = Prelude.Nothing
     }
 
 -- | The ID of the owner of the Elastic IP address.
-instanceNetworkInterfaceAssociation_ipOwnerId :: Lens.Lens' InstanceNetworkInterfaceAssociation (Core.Maybe Core.Text)
+instanceNetworkInterfaceAssociation_ipOwnerId :: Lens.Lens' InstanceNetworkInterfaceAssociation (Prelude.Maybe Prelude.Text)
 instanceNetworkInterfaceAssociation_ipOwnerId = Lens.lens (\InstanceNetworkInterfaceAssociation' {ipOwnerId} -> ipOwnerId) (\s@InstanceNetworkInterfaceAssociation' {} a -> s {ipOwnerId = a} :: InstanceNetworkInterfaceAssociation)
 
 -- | The carrier IP address associated with the network interface.
-instanceNetworkInterfaceAssociation_carrierIp :: Lens.Lens' InstanceNetworkInterfaceAssociation (Core.Maybe Core.Text)
+instanceNetworkInterfaceAssociation_carrierIp :: Lens.Lens' InstanceNetworkInterfaceAssociation (Prelude.Maybe Prelude.Text)
 instanceNetworkInterfaceAssociation_carrierIp = Lens.lens (\InstanceNetworkInterfaceAssociation' {carrierIp} -> carrierIp) (\s@InstanceNetworkInterfaceAssociation' {} a -> s {carrierIp = a} :: InstanceNetworkInterfaceAssociation)
 
 -- | The public DNS name.
-instanceNetworkInterfaceAssociation_publicDnsName :: Lens.Lens' InstanceNetworkInterfaceAssociation (Core.Maybe Core.Text)
+instanceNetworkInterfaceAssociation_publicDnsName :: Lens.Lens' InstanceNetworkInterfaceAssociation (Prelude.Maybe Prelude.Text)
 instanceNetworkInterfaceAssociation_publicDnsName = Lens.lens (\InstanceNetworkInterfaceAssociation' {publicDnsName} -> publicDnsName) (\s@InstanceNetworkInterfaceAssociation' {} a -> s {publicDnsName = a} :: InstanceNetworkInterfaceAssociation)
 
 -- | The public IP address or Elastic IP address bound to the network
 -- interface.
-instanceNetworkInterfaceAssociation_publicIp :: Lens.Lens' InstanceNetworkInterfaceAssociation (Core.Maybe Core.Text)
+instanceNetworkInterfaceAssociation_publicIp :: Lens.Lens' InstanceNetworkInterfaceAssociation (Prelude.Maybe Prelude.Text)
 instanceNetworkInterfaceAssociation_publicIp = Lens.lens (\InstanceNetworkInterfaceAssociation' {publicIp} -> publicIp) (\s@InstanceNetworkInterfaceAssociation' {} a -> s {publicIp = a} :: InstanceNetworkInterfaceAssociation)
 
 instance
@@ -89,15 +90,15 @@ instance
   where
   parseXML x =
     InstanceNetworkInterfaceAssociation'
-      Core.<$> (x Core..@? "ipOwnerId")
-      Core.<*> (x Core..@? "carrierIp")
-      Core.<*> (x Core..@? "publicDnsName")
-      Core.<*> (x Core..@? "publicIp")
+      Prelude.<$> (x Core..@? "ipOwnerId")
+      Prelude.<*> (x Core..@? "carrierIp")
+      Prelude.<*> (x Core..@? "publicDnsName")
+      Prelude.<*> (x Core..@? "publicIp")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     InstanceNetworkInterfaceAssociation
 
 instance
-  Core.NFData
+  Prelude.NFData
     InstanceNetworkInterfaceAssociation

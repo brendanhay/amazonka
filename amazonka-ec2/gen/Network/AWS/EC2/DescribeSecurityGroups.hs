@@ -57,35 +57,36 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeSecurityGroups' smart constructor.
 data DescribeSecurityGroups = DescribeSecurityGroups'
   { -- | The token to request the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the security groups. Required for security groups in a
     -- nondefault VPC.
     --
     -- Default: Describes all your security groups.
-    groupIds :: Core.Maybe [Core.Text],
+    groupIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another request with the returned
     -- @NextToken@ value. This value can be between 5 and 1000. If this
     -- parameter is not specified, then all results are returned.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | [EC2-Classic and default VPC only] The names of the security groups. You
     -- can specify either the security group name or the security group ID. For
     -- security groups in a nondefault VPC, use the @group-name@ filter to
     -- describe security groups by name.
     --
     -- Default: Describes all your security groups.
-    groupNames :: Core.Maybe [Core.Text],
+    groupNames :: Prelude.Maybe [Prelude.Text],
     -- | The filters. If using multiple filters for rules, the results include
     -- security groups for which any combination of rules - not necessarily a
     -- single rule - match all filters.
@@ -166,9 +167,9 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
     --
     -- -   @vpc-id@ - The ID of the VPC specified when the security group was
     --     created.
-    filters :: Core.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSecurityGroups' with all optional fields omitted.
@@ -286,37 +287,38 @@ newDescribeSecurityGroups ::
   DescribeSecurityGroups
 newDescribeSecurityGroups =
   DescribeSecurityGroups'
-    { nextToken = Core.Nothing,
-      groupIds = Core.Nothing,
-      dryRun = Core.Nothing,
-      maxResults = Core.Nothing,
-      groupNames = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken =
+        Prelude.Nothing,
+      groupIds = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      groupNames = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | The token to request the next page of results.
-describeSecurityGroups_nextToken :: Lens.Lens' DescribeSecurityGroups (Core.Maybe Core.Text)
+describeSecurityGroups_nextToken :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe Prelude.Text)
 describeSecurityGroups_nextToken = Lens.lens (\DescribeSecurityGroups' {nextToken} -> nextToken) (\s@DescribeSecurityGroups' {} a -> s {nextToken = a} :: DescribeSecurityGroups)
 
 -- | The IDs of the security groups. Required for security groups in a
 -- nondefault VPC.
 --
 -- Default: Describes all your security groups.
-describeSecurityGroups_groupIds :: Lens.Lens' DescribeSecurityGroups (Core.Maybe [Core.Text])
-describeSecurityGroups_groupIds = Lens.lens (\DescribeSecurityGroups' {groupIds} -> groupIds) (\s@DescribeSecurityGroups' {} a -> s {groupIds = a} :: DescribeSecurityGroups) Core.. Lens.mapping Lens._Coerce
+describeSecurityGroups_groupIds :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe [Prelude.Text])
+describeSecurityGroups_groupIds = Lens.lens (\DescribeSecurityGroups' {groupIds} -> groupIds) (\s@DescribeSecurityGroups' {} a -> s {groupIds = a} :: DescribeSecurityGroups) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeSecurityGroups_dryRun :: Lens.Lens' DescribeSecurityGroups (Core.Maybe Core.Bool)
+describeSecurityGroups_dryRun :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe Prelude.Bool)
 describeSecurityGroups_dryRun = Lens.lens (\DescribeSecurityGroups' {dryRun} -> dryRun) (\s@DescribeSecurityGroups' {} a -> s {dryRun = a} :: DescribeSecurityGroups)
 
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another request with the returned
 -- @NextToken@ value. This value can be between 5 and 1000. If this
 -- parameter is not specified, then all results are returned.
-describeSecurityGroups_maxResults :: Lens.Lens' DescribeSecurityGroups (Core.Maybe Core.Natural)
+describeSecurityGroups_maxResults :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe Prelude.Natural)
 describeSecurityGroups_maxResults = Lens.lens (\DescribeSecurityGroups' {maxResults} -> maxResults) (\s@DescribeSecurityGroups' {} a -> s {maxResults = a} :: DescribeSecurityGroups)
 
 -- | [EC2-Classic and default VPC only] The names of the security groups. You
@@ -325,8 +327,8 @@ describeSecurityGroups_maxResults = Lens.lens (\DescribeSecurityGroups' {maxResu
 -- describe security groups by name.
 --
 -- Default: Describes all your security groups.
-describeSecurityGroups_groupNames :: Lens.Lens' DescribeSecurityGroups (Core.Maybe [Core.Text])
-describeSecurityGroups_groupNames = Lens.lens (\DescribeSecurityGroups' {groupNames} -> groupNames) (\s@DescribeSecurityGroups' {} a -> s {groupNames = a} :: DescribeSecurityGroups) Core.. Lens.mapping Lens._Coerce
+describeSecurityGroups_groupNames :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe [Prelude.Text])
+describeSecurityGroups_groupNames = Lens.lens (\DescribeSecurityGroups' {groupNames} -> groupNames) (\s@DescribeSecurityGroups' {} a -> s {groupNames = a} :: DescribeSecurityGroups) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The filters. If using multiple filters for rules, the results include
 -- security groups for which any combination of rules - not necessarily a
@@ -408,30 +410,30 @@ describeSecurityGroups_groupNames = Lens.lens (\DescribeSecurityGroups' {groupNa
 --
 -- -   @vpc-id@ - The ID of the VPC specified when the security group was
 --     created.
-describeSecurityGroups_filters :: Lens.Lens' DescribeSecurityGroups (Core.Maybe [Filter])
-describeSecurityGroups_filters = Lens.lens (\DescribeSecurityGroups' {filters} -> filters) (\s@DescribeSecurityGroups' {} a -> s {filters = a} :: DescribeSecurityGroups) Core.. Lens.mapping Lens._Coerce
+describeSecurityGroups_filters :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe [Filter])
+describeSecurityGroups_filters = Lens.lens (\DescribeSecurityGroups' {filters} -> filters) (\s@DescribeSecurityGroups' {} a -> s {filters = a} :: DescribeSecurityGroups) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeSecurityGroups where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? describeSecurityGroupsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSecurityGroupsResponse_securityGroups
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeSecurityGroups_nextToken
+          Prelude.& describeSecurityGroups_nextToken
           Lens..~ rs
           Lens.^? describeSecurityGroupsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSecurityGroups where
   type
@@ -442,51 +444,55 @@ instance Core.AWSRequest DescribeSecurityGroups where
     Response.receiveXML
       ( \s h x ->
           DescribeSecurityGroupsResponse'
-            Core.<$> (x Core..@? "nextToken")
-            Core.<*> ( x Core..@? "securityGroupInfo" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "securityGroupInfo"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeSecurityGroups
+instance Prelude.Hashable DescribeSecurityGroups
 
-instance Core.NFData DescribeSecurityGroups
+instance Prelude.NFData DescribeSecurityGroups
 
 instance Core.ToHeaders DescribeSecurityGroups where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeSecurityGroups where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeSecurityGroups where
   toQuery DescribeSecurityGroups' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeSecurityGroups" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DescribeSecurityGroups" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         Core.toQuery
-          (Core.toQueryList "GroupId" Core.<$> groupIds),
+          (Core.toQueryList "GroupId" Prelude.<$> groupIds),
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         Core.toQuery
-          (Core.toQueryList "GroupName" Core.<$> groupNames),
+          ( Core.toQueryList "GroupName"
+              Prelude.<$> groupNames
+          ),
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeSecurityGroupsResponse' smart constructor.
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the security groups.
-    securityGroups :: Core.Maybe [SecurityGroup],
+    securityGroups :: Prelude.Maybe [SecurityGroup],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSecurityGroupsResponse' with all optional fields omitted.
@@ -504,27 +510,29 @@ data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
 -- 'httpStatus', 'describeSecurityGroupsResponse_httpStatus' - The response's http status code.
 newDescribeSecurityGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeSecurityGroupsResponse
 newDescribeSecurityGroupsResponse pHttpStatus_ =
   DescribeSecurityGroupsResponse'
     { nextToken =
-        Core.Nothing,
-      securityGroups = Core.Nothing,
+        Prelude.Nothing,
+      securityGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeSecurityGroupsResponse_nextToken :: Lens.Lens' DescribeSecurityGroupsResponse (Core.Maybe Core.Text)
+describeSecurityGroupsResponse_nextToken :: Lens.Lens' DescribeSecurityGroupsResponse (Prelude.Maybe Prelude.Text)
 describeSecurityGroupsResponse_nextToken = Lens.lens (\DescribeSecurityGroupsResponse' {nextToken} -> nextToken) (\s@DescribeSecurityGroupsResponse' {} a -> s {nextToken = a} :: DescribeSecurityGroupsResponse)
 
 -- | Information about the security groups.
-describeSecurityGroupsResponse_securityGroups :: Lens.Lens' DescribeSecurityGroupsResponse (Core.Maybe [SecurityGroup])
-describeSecurityGroupsResponse_securityGroups = Lens.lens (\DescribeSecurityGroupsResponse' {securityGroups} -> securityGroups) (\s@DescribeSecurityGroupsResponse' {} a -> s {securityGroups = a} :: DescribeSecurityGroupsResponse) Core.. Lens.mapping Lens._Coerce
+describeSecurityGroupsResponse_securityGroups :: Lens.Lens' DescribeSecurityGroupsResponse (Prelude.Maybe [SecurityGroup])
+describeSecurityGroupsResponse_securityGroups = Lens.lens (\DescribeSecurityGroupsResponse' {securityGroups} -> securityGroups) (\s@DescribeSecurityGroupsResponse' {} a -> s {securityGroups = a} :: DescribeSecurityGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeSecurityGroupsResponse_httpStatus :: Lens.Lens' DescribeSecurityGroupsResponse Core.Int
+describeSecurityGroupsResponse_httpStatus :: Lens.Lens' DescribeSecurityGroupsResponse Prelude.Int
 describeSecurityGroupsResponse_httpStatus = Lens.lens (\DescribeSecurityGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeSecurityGroupsResponse' {} a -> s {httpStatus = a} :: DescribeSecurityGroupsResponse)
 
-instance Core.NFData DescribeSecurityGroupsResponse
+instance
+  Prelude.NFData
+    DescribeSecurityGroupsResponse

@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,11 +50,11 @@ import qualified Network.AWS.Response as Response
 data DeletePublishingDestination = DeletePublishingDestination'
   { -- | The unique ID of the detector associated with the publishing destination
     -- to delete.
-    detectorId :: Core.Text,
+    detectorId :: Prelude.Text,
     -- | The ID of the publishing destination to delete.
-    destinationId :: Core.Text
+    destinationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePublishingDestination' with all optional fields omitted.
@@ -69,9 +70,9 @@ data DeletePublishingDestination = DeletePublishingDestination'
 -- 'destinationId', 'deletePublishingDestination_destinationId' - The ID of the publishing destination to delete.
 newDeletePublishingDestination ::
   -- | 'detectorId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'destinationId'
-  Core.Text ->
+  Prelude.Text ->
   DeletePublishingDestination
 newDeletePublishingDestination
   pDetectorId_
@@ -84,11 +85,11 @@ newDeletePublishingDestination
 
 -- | The unique ID of the detector associated with the publishing destination
 -- to delete.
-deletePublishingDestination_detectorId :: Lens.Lens' DeletePublishingDestination Core.Text
+deletePublishingDestination_detectorId :: Lens.Lens' DeletePublishingDestination Prelude.Text
 deletePublishingDestination_detectorId = Lens.lens (\DeletePublishingDestination' {detectorId} -> detectorId) (\s@DeletePublishingDestination' {} a -> s {detectorId = a} :: DeletePublishingDestination)
 
 -- | The ID of the publishing destination to delete.
-deletePublishingDestination_destinationId :: Lens.Lens' DeletePublishingDestination Core.Text
+deletePublishingDestination_destinationId :: Lens.Lens' DeletePublishingDestination Prelude.Text
 deletePublishingDestination_destinationId = Lens.lens (\DeletePublishingDestination' {destinationId} -> destinationId) (\s@DeletePublishingDestination' {} a -> s {destinationId = a} :: DeletePublishingDestination)
 
 instance Core.AWSRequest DeletePublishingDestination where
@@ -100,25 +101,27 @@ instance Core.AWSRequest DeletePublishingDestination where
     Response.receiveEmpty
       ( \s h x ->
           DeletePublishingDestinationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeletePublishingDestination
+instance Prelude.Hashable DeletePublishingDestination
 
-instance Core.NFData DeletePublishingDestination
+instance Prelude.NFData DeletePublishingDestination
 
 instance Core.ToHeaders DeletePublishingDestination where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeletePublishingDestination where
   toPath DeletePublishingDestination' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/detector/",
         Core.toBS detectorId,
         "/publishingDestination/",
@@ -126,14 +129,14 @@ instance Core.ToPath DeletePublishingDestination where
       ]
 
 instance Core.ToQuery DeletePublishingDestination where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePublishingDestinationResponse' smart constructor.
 data DeletePublishingDestinationResponse = DeletePublishingDestinationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePublishingDestinationResponse' with all optional fields omitted.
@@ -146,7 +149,7 @@ data DeletePublishingDestinationResponse = DeletePublishingDestinationResponse'
 -- 'httpStatus', 'deletePublishingDestinationResponse_httpStatus' - The response's http status code.
 newDeletePublishingDestinationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeletePublishingDestinationResponse
 newDeletePublishingDestinationResponse pHttpStatus_ =
   DeletePublishingDestinationResponse'
@@ -155,9 +158,9 @@ newDeletePublishingDestinationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deletePublishingDestinationResponse_httpStatus :: Lens.Lens' DeletePublishingDestinationResponse Core.Int
+deletePublishingDestinationResponse_httpStatus :: Lens.Lens' DeletePublishingDestinationResponse Prelude.Int
 deletePublishingDestinationResponse_httpStatus = Lens.lens (\DeletePublishingDestinationResponse' {httpStatus} -> httpStatus) (\s@DeletePublishingDestinationResponse' {} a -> s {httpStatus = a} :: DeletePublishingDestinationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeletePublishingDestinationResponse

@@ -43,17 +43,18 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newImportKeyPair' smart constructor.
 data ImportKeyPair = ImportKeyPair'
   { -- | The name of the key pair for which you want to import the public key.
-    keyPairName :: Core.Text,
+    keyPairName :: Prelude.Text,
     -- | A base64-encoded public key of the @ssh-rsa@ type.
-    publicKeyBase64 :: Core.Text
+    publicKeyBase64 :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportKeyPair' with all optional fields omitted.
@@ -68,9 +69,9 @@ data ImportKeyPair = ImportKeyPair'
 -- 'publicKeyBase64', 'importKeyPair_publicKeyBase64' - A base64-encoded public key of the @ssh-rsa@ type.
 newImportKeyPair ::
   -- | 'keyPairName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'publicKeyBase64'
-  Core.Text ->
+  Prelude.Text ->
   ImportKeyPair
 newImportKeyPair pKeyPairName_ pPublicKeyBase64_ =
   ImportKeyPair'
@@ -79,11 +80,11 @@ newImportKeyPair pKeyPairName_ pPublicKeyBase64_ =
     }
 
 -- | The name of the key pair for which you want to import the public key.
-importKeyPair_keyPairName :: Lens.Lens' ImportKeyPair Core.Text
+importKeyPair_keyPairName :: Lens.Lens' ImportKeyPair Prelude.Text
 importKeyPair_keyPairName = Lens.lens (\ImportKeyPair' {keyPairName} -> keyPairName) (\s@ImportKeyPair' {} a -> s {keyPairName = a} :: ImportKeyPair)
 
 -- | A base64-encoded public key of the @ssh-rsa@ type.
-importKeyPair_publicKeyBase64 :: Lens.Lens' ImportKeyPair Core.Text
+importKeyPair_publicKeyBase64 :: Lens.Lens' ImportKeyPair Prelude.Text
 importKeyPair_publicKeyBase64 = Lens.lens (\ImportKeyPair' {publicKeyBase64} -> publicKeyBase64) (\s@ImportKeyPair' {} a -> s {publicKeyBase64 = a} :: ImportKeyPair)
 
 instance Core.AWSRequest ImportKeyPair where
@@ -95,53 +96,55 @@ instance Core.AWSRequest ImportKeyPair where
     Response.receiveJSON
       ( \s h x ->
           ImportKeyPairResponse'
-            Core.<$> (x Core..?> "operation")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operation")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ImportKeyPair
+instance Prelude.Hashable ImportKeyPair
 
-instance Core.NFData ImportKeyPair
+instance Prelude.NFData ImportKeyPair
 
 instance Core.ToHeaders ImportKeyPair where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.ImportKeyPair" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ImportKeyPair where
   toJSON ImportKeyPair' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("keyPairName" Core..= keyPairName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("keyPairName" Core..= keyPairName),
+            Prelude.Just
               ("publicKeyBase64" Core..= publicKeyBase64)
           ]
       )
 
 instance Core.ToPath ImportKeyPair where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ImportKeyPair where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportKeyPairResponse' smart constructor.
 data ImportKeyPairResponse = ImportKeyPairResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operation :: Core.Maybe Operation,
+    operation :: Prelude.Maybe Operation,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportKeyPairResponse' with all optional fields omitted.
@@ -158,22 +161,22 @@ data ImportKeyPairResponse = ImportKeyPairResponse'
 -- 'httpStatus', 'importKeyPairResponse_httpStatus' - The response's http status code.
 newImportKeyPairResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ImportKeyPairResponse
 newImportKeyPairResponse pHttpStatus_ =
   ImportKeyPairResponse'
-    { operation = Core.Nothing,
+    { operation = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-importKeyPairResponse_operation :: Lens.Lens' ImportKeyPairResponse (Core.Maybe Operation)
+importKeyPairResponse_operation :: Lens.Lens' ImportKeyPairResponse (Prelude.Maybe Operation)
 importKeyPairResponse_operation = Lens.lens (\ImportKeyPairResponse' {operation} -> operation) (\s@ImportKeyPairResponse' {} a -> s {operation = a} :: ImportKeyPairResponse)
 
 -- | The response's http status code.
-importKeyPairResponse_httpStatus :: Lens.Lens' ImportKeyPairResponse Core.Int
+importKeyPairResponse_httpStatus :: Lens.Lens' ImportKeyPairResponse Prelude.Int
 importKeyPairResponse_httpStatus = Lens.lens (\ImportKeyPairResponse' {httpStatus} -> httpStatus) (\s@ImportKeyPairResponse' {} a -> s {httpStatus = a} :: ImportKeyPairResponse)
 
-instance Core.NFData ImportKeyPairResponse
+instance Prelude.NFData ImportKeyPairResponse

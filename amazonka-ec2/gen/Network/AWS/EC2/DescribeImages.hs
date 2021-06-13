@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,17 +65,17 @@ data DescribeImages = DescribeImages'
   { -- | The image IDs.
     --
     -- Default: Describes all images available to you.
-    imageIds :: Core.Maybe [Core.Text],
+    imageIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Scopes the results to images with the specified owners. You can specify
     -- a combination of AWS account IDs, @self@, @amazon@, and
     -- @aws-marketplace@. If you omit this parameter, the results include all
     -- images for which you have launch permissions, regardless of ownership.
-    owners :: Core.Maybe [Core.Text],
+    owners :: Prelude.Maybe [Prelude.Text],
     -- | The filters.
     --
     -- -   @architecture@ - The image architecture (@i386@ | @x86_64@ |
@@ -166,13 +167,13 @@ data DescribeImages = DescribeImages'
     --
     -- -   @virtualization-type@ - The virtualization type (@paravirtual@ |
     --     @hvm@).
-    filters :: Core.Maybe [Filter],
+    filters :: Prelude.Maybe [Filter],
     -- | Scopes the images by users with explicit launch permissions. Specify an
     -- AWS account ID, @self@ (the sender of the request), or @all@ (public
     -- AMIs).
-    executableUsers :: Core.Maybe [Core.Text]
+    executableUsers :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeImages' with all optional fields omitted.
@@ -295,32 +296,32 @@ newDescribeImages ::
   DescribeImages
 newDescribeImages =
   DescribeImages'
-    { imageIds = Core.Nothing,
-      dryRun = Core.Nothing,
-      owners = Core.Nothing,
-      filters = Core.Nothing,
-      executableUsers = Core.Nothing
+    { imageIds = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      owners = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      executableUsers = Prelude.Nothing
     }
 
 -- | The image IDs.
 --
 -- Default: Describes all images available to you.
-describeImages_imageIds :: Lens.Lens' DescribeImages (Core.Maybe [Core.Text])
-describeImages_imageIds = Lens.lens (\DescribeImages' {imageIds} -> imageIds) (\s@DescribeImages' {} a -> s {imageIds = a} :: DescribeImages) Core.. Lens.mapping Lens._Coerce
+describeImages_imageIds :: Lens.Lens' DescribeImages (Prelude.Maybe [Prelude.Text])
+describeImages_imageIds = Lens.lens (\DescribeImages' {imageIds} -> imageIds) (\s@DescribeImages' {} a -> s {imageIds = a} :: DescribeImages) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeImages_dryRun :: Lens.Lens' DescribeImages (Core.Maybe Core.Bool)
+describeImages_dryRun :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Bool)
 describeImages_dryRun = Lens.lens (\DescribeImages' {dryRun} -> dryRun) (\s@DescribeImages' {} a -> s {dryRun = a} :: DescribeImages)
 
 -- | Scopes the results to images with the specified owners. You can specify
 -- a combination of AWS account IDs, @self@, @amazon@, and
 -- @aws-marketplace@. If you omit this parameter, the results include all
 -- images for which you have launch permissions, regardless of ownership.
-describeImages_owners :: Lens.Lens' DescribeImages (Core.Maybe [Core.Text])
-describeImages_owners = Lens.lens (\DescribeImages' {owners} -> owners) (\s@DescribeImages' {} a -> s {owners = a} :: DescribeImages) Core.. Lens.mapping Lens._Coerce
+describeImages_owners :: Lens.Lens' DescribeImages (Prelude.Maybe [Prelude.Text])
+describeImages_owners = Lens.lens (\DescribeImages' {owners} -> owners) (\s@DescribeImages' {} a -> s {owners = a} :: DescribeImages) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The filters.
 --
@@ -413,14 +414,14 @@ describeImages_owners = Lens.lens (\DescribeImages' {owners} -> owners) (\s@Desc
 --
 -- -   @virtualization-type@ - The virtualization type (@paravirtual@ |
 --     @hvm@).
-describeImages_filters :: Lens.Lens' DescribeImages (Core.Maybe [Filter])
-describeImages_filters = Lens.lens (\DescribeImages' {filters} -> filters) (\s@DescribeImages' {} a -> s {filters = a} :: DescribeImages) Core.. Lens.mapping Lens._Coerce
+describeImages_filters :: Lens.Lens' DescribeImages (Prelude.Maybe [Filter])
+describeImages_filters = Lens.lens (\DescribeImages' {filters} -> filters) (\s@DescribeImages' {} a -> s {filters = a} :: DescribeImages) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Scopes the images by users with explicit launch permissions. Specify an
 -- AWS account ID, @self@ (the sender of the request), or @all@ (public
 -- AMIs).
-describeImages_executableUsers :: Lens.Lens' DescribeImages (Core.Maybe [Core.Text])
-describeImages_executableUsers = Lens.lens (\DescribeImages' {executableUsers} -> executableUsers) (\s@DescribeImages' {} a -> s {executableUsers = a} :: DescribeImages) Core.. Lens.mapping Lens._Coerce
+describeImages_executableUsers :: Lens.Lens' DescribeImages (Prelude.Maybe [Prelude.Text])
+describeImages_executableUsers = Lens.lens (\DescribeImages' {executableUsers} -> executableUsers) (\s@DescribeImages' {} a -> s {executableUsers = a} :: DescribeImages) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest DescribeImages where
   type
@@ -431,49 +432,50 @@ instance Core.AWSRequest DescribeImages where
     Response.receiveXML
       ( \s h x ->
           DescribeImagesResponse'
-            Core.<$> ( x Core..@? "imagesSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "imagesSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeImages
+instance Prelude.Hashable DescribeImages
 
-instance Core.NFData DescribeImages
+instance Prelude.NFData DescribeImages
 
 instance Core.ToHeaders DescribeImages where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeImages where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeImages where
   toQuery DescribeImages' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeImages" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DescribeImages" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
-          (Core.toQueryList "ImageId" Core.<$> imageIds),
+          (Core.toQueryList "ImageId" Prelude.<$> imageIds),
         "DryRun" Core.=: dryRun,
         Core.toQuery
-          (Core.toQueryList "Owner" Core.<$> owners),
+          (Core.toQueryList "Owner" Prelude.<$> owners),
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters),
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         Core.toQuery
           ( Core.toQueryList "ExecutableBy"
-              Core.<$> executableUsers
+              Prelude.<$> executableUsers
           )
       ]
 
 -- | /See:/ 'newDescribeImagesResponse' smart constructor.
 data DescribeImagesResponse = DescribeImagesResponse'
   { -- | Information about the images.
-    images :: Core.Maybe [Image],
+    images :: Prelude.Maybe [Image],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeImagesResponse' with all optional fields omitted.
@@ -488,20 +490,20 @@ data DescribeImagesResponse = DescribeImagesResponse'
 -- 'httpStatus', 'describeImagesResponse_httpStatus' - The response's http status code.
 newDescribeImagesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeImagesResponse
 newDescribeImagesResponse pHttpStatus_ =
   DescribeImagesResponse'
-    { images = Core.Nothing,
+    { images = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the images.
-describeImagesResponse_images :: Lens.Lens' DescribeImagesResponse (Core.Maybe [Image])
-describeImagesResponse_images = Lens.lens (\DescribeImagesResponse' {images} -> images) (\s@DescribeImagesResponse' {} a -> s {images = a} :: DescribeImagesResponse) Core.. Lens.mapping Lens._Coerce
+describeImagesResponse_images :: Lens.Lens' DescribeImagesResponse (Prelude.Maybe [Image])
+describeImagesResponse_images = Lens.lens (\DescribeImagesResponse' {images} -> images) (\s@DescribeImagesResponse' {} a -> s {images = a} :: DescribeImagesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeImagesResponse_httpStatus :: Lens.Lens' DescribeImagesResponse Core.Int
+describeImagesResponse_httpStatus :: Lens.Lens' DescribeImagesResponse Prelude.Int
 describeImagesResponse_httpStatus = Lens.lens (\DescribeImagesResponse' {httpStatus} -> httpStatus) (\s@DescribeImagesResponse' {} a -> s {httpStatus = a} :: DescribeImagesResponse)
 
-instance Core.NFData DescribeImagesResponse
+instance Prelude.NFData DescribeImagesResponse

@@ -92,6 +92,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -101,7 +102,7 @@ data PutBucketTagging = PutBucketTagging'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
     -- header as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, see
@@ -109,13 +110,13 @@ data PutBucketTagging = PutBucketTagging'
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Core.Maybe Core.Text,
+    contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The bucket name.
     bucket :: BucketName,
     -- | Container for the @TagSet@ and @Tag@ elements.
     tagging :: Tagging
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketTagging' with all optional fields omitted.
@@ -149,8 +150,8 @@ newPutBucketTagging ::
 newPutBucketTagging pBucket_ pTagging_ =
   PutBucketTagging'
     { expectedBucketOwner =
-        Core.Nothing,
-      contentMD5 = Core.Nothing,
+        Prelude.Nothing,
+      contentMD5 = Prelude.Nothing,
       bucket = pBucket_,
       tagging = pTagging_
     }
@@ -158,7 +159,7 @@ newPutBucketTagging pBucket_ pTagging_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketTagging_expectedBucketOwner :: Lens.Lens' PutBucketTagging (Core.Maybe Core.Text)
+putBucketTagging_expectedBucketOwner :: Lens.Lens' PutBucketTagging (Prelude.Maybe Prelude.Text)
 putBucketTagging_expectedBucketOwner = Lens.lens (\PutBucketTagging' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketTagging' {} a -> s {expectedBucketOwner = a} :: PutBucketTagging)
 
 -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
@@ -168,7 +169,7 @@ putBucketTagging_expectedBucketOwner = Lens.lens (\PutBucketTagging' {expectedBu
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putBucketTagging_contentMD5 :: Lens.Lens' PutBucketTagging (Core.Maybe Core.Text)
+putBucketTagging_contentMD5 :: Lens.Lens' PutBucketTagging (Prelude.Maybe Prelude.Text)
 putBucketTagging_contentMD5 = Lens.lens (\PutBucketTagging' {contentMD5} -> contentMD5) (\s@PutBucketTagging' {} a -> s {contentMD5 = a} :: PutBucketTagging)
 
 -- | The bucket name.
@@ -185,13 +186,13 @@ instance Core.AWSRequest PutBucketTagging where
       PutBucketTaggingResponse
   request =
     Request.contentMD5Header
-      Core.. Request.putXML defaultService
+      Prelude.. Request.putXML defaultService
   response =
     Response.receiveNull PutBucketTaggingResponse'
 
-instance Core.Hashable PutBucketTagging
+instance Prelude.Hashable PutBucketTagging
 
-instance Core.NFData PutBucketTagging
+instance Prelude.NFData PutBucketTagging
 
 instance Core.ToElement PutBucketTagging where
   toElement PutBucketTagging' {..} =
@@ -201,7 +202,7 @@ instance Core.ToElement PutBucketTagging where
 
 instance Core.ToHeaders PutBucketTagging where
   toHeaders PutBucketTagging' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "Content-MD5" Core.=# contentMD5
@@ -209,16 +210,16 @@ instance Core.ToHeaders PutBucketTagging where
 
 instance Core.ToPath PutBucketTagging where
   toPath PutBucketTagging' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery PutBucketTagging where
-  toQuery = Core.const (Core.mconcat ["tagging"])
+  toQuery = Prelude.const (Prelude.mconcat ["tagging"])
 
 -- | /See:/ 'newPutBucketTaggingResponse' smart constructor.
 data PutBucketTaggingResponse = PutBucketTaggingResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutBucketTaggingResponse' with all optional fields omitted.
@@ -229,4 +230,4 @@ newPutBucketTaggingResponse ::
 newPutBucketTaggingResponse =
   PutBucketTaggingResponse'
 
-instance Core.NFData PutBucketTaggingResponse
+instance Prelude.NFData PutBucketTaggingResponse

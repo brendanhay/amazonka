@@ -22,6 +22,7 @@ module Network.AWS.LexModels.Types.ConversationLogsRequest where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.LogSettingsRequest
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the settings needed for conversation logs.
 --
@@ -36,9 +37,9 @@ data ConversationLogsRequest = ConversationLogsRequest'
     -- permission for the AWS KMS key used for encrypting audio logs. For more
     -- information, see
     -- <https://docs.aws.amazon.com/lex/latest/dg/conversation-logs-role-and-policy.html Creating an IAM Role and Policy for Conversation Logs>.
-    iamRoleArn :: Core.Text
+    iamRoleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConversationLogsRequest' with all optional fields omitted.
@@ -59,18 +60,19 @@ data ConversationLogsRequest = ConversationLogsRequest'
 -- <https://docs.aws.amazon.com/lex/latest/dg/conversation-logs-role-and-policy.html Creating an IAM Role and Policy for Conversation Logs>.
 newConversationLogsRequest ::
   -- | 'iamRoleArn'
-  Core.Text ->
+  Prelude.Text ->
   ConversationLogsRequest
 newConversationLogsRequest pIamRoleArn_ =
   ConversationLogsRequest'
-    { logSettings = Core.mempty,
+    { logSettings =
+        Prelude.mempty,
       iamRoleArn = pIamRoleArn_
     }
 
 -- | The settings for your conversation logs. You can log the conversation
 -- text, conversation audio, or both.
 conversationLogsRequest_logSettings :: Lens.Lens' ConversationLogsRequest [LogSettingsRequest]
-conversationLogsRequest_logSettings = Lens.lens (\ConversationLogsRequest' {logSettings} -> logSettings) (\s@ConversationLogsRequest' {} a -> s {logSettings = a} :: ConversationLogsRequest) Core.. Lens._Coerce
+conversationLogsRequest_logSettings = Lens.lens (\ConversationLogsRequest' {logSettings} -> logSettings) (\s@ConversationLogsRequest' {} a -> s {logSettings = a} :: ConversationLogsRequest) Prelude.. Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of an IAM role with permission to write
 -- to your CloudWatch Logs for text logs and your S3 bucket for audio logs.
@@ -78,18 +80,18 @@ conversationLogsRequest_logSettings = Lens.lens (\ConversationLogsRequest' {logS
 -- permission for the AWS KMS key used for encrypting audio logs. For more
 -- information, see
 -- <https://docs.aws.amazon.com/lex/latest/dg/conversation-logs-role-and-policy.html Creating an IAM Role and Policy for Conversation Logs>.
-conversationLogsRequest_iamRoleArn :: Lens.Lens' ConversationLogsRequest Core.Text
+conversationLogsRequest_iamRoleArn :: Lens.Lens' ConversationLogsRequest Prelude.Text
 conversationLogsRequest_iamRoleArn = Lens.lens (\ConversationLogsRequest' {iamRoleArn} -> iamRoleArn) (\s@ConversationLogsRequest' {} a -> s {iamRoleArn = a} :: ConversationLogsRequest)
 
-instance Core.Hashable ConversationLogsRequest
+instance Prelude.Hashable ConversationLogsRequest
 
-instance Core.NFData ConversationLogsRequest
+instance Prelude.NFData ConversationLogsRequest
 
 instance Core.ToJSON ConversationLogsRequest where
   toJSON ConversationLogsRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("logSettings" Core..= logSettings),
-            Core.Just ("iamRoleArn" Core..= iamRoleArn)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("logSettings" Core..= logSettings),
+            Prelude.Just ("iamRoleArn" Core..= iamRoleArn)
           ]
       )

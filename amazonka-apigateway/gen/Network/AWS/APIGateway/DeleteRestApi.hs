@@ -38,6 +38,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -46,9 +47,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteRestApi' smart constructor.
 data DeleteRestApi = DeleteRestApi'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text
+    restApiId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRestApi' with all optional fields omitted.
@@ -61,13 +62,13 @@ data DeleteRestApi = DeleteRestApi'
 -- 'restApiId', 'deleteRestApi_restApiId' - [Required] The string identifier of the associated RestApi.
 newDeleteRestApi ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRestApi
 newDeleteRestApi pRestApiId_ =
   DeleteRestApi' {restApiId = pRestApiId_}
 
 -- | [Required] The string identifier of the associated RestApi.
-deleteRestApi_restApiId :: Lens.Lens' DeleteRestApi Core.Text
+deleteRestApi_restApiId :: Lens.Lens' DeleteRestApi Prelude.Text
 deleteRestApi_restApiId = Lens.lens (\DeleteRestApi' {restApiId} -> restApiId) (\s@DeleteRestApi' {} a -> s {restApiId = a} :: DeleteRestApi)
 
 instance Core.AWSRequest DeleteRestApi where
@@ -78,31 +79,31 @@ instance Core.AWSRequest DeleteRestApi where
   response =
     Response.receiveNull DeleteRestApiResponse'
 
-instance Core.Hashable DeleteRestApi
+instance Prelude.Hashable DeleteRestApi
 
-instance Core.NFData DeleteRestApi
+instance Prelude.NFData DeleteRestApi
 
 instance Core.ToHeaders DeleteRestApi where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath DeleteRestApi where
   toPath DeleteRestApi' {..} =
-    Core.mconcat ["/restapis/", Core.toBS restApiId]
+    Prelude.mconcat ["/restapis/", Core.toBS restApiId]
 
 instance Core.ToQuery DeleteRestApi where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRestApiResponse' smart constructor.
 data DeleteRestApiResponse = DeleteRestApiResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRestApiResponse' with all optional fields omitted.
@@ -112,4 +113,4 @@ newDeleteRestApiResponse ::
   DeleteRestApiResponse
 newDeleteRestApiResponse = DeleteRestApiResponse'
 
-instance Core.NFData DeleteRestApiResponse
+instance Prelude.NFData DeleteRestApiResponse

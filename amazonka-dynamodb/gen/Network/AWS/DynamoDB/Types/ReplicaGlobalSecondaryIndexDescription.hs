@@ -22,17 +22,18 @@ module Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexDescription where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the properties of a replica global secondary index.
 --
 -- /See:/ 'newReplicaGlobalSecondaryIndexDescription' smart constructor.
 data ReplicaGlobalSecondaryIndexDescription = ReplicaGlobalSecondaryIndexDescription'
   { -- | The name of the global secondary index.
-    indexName :: Core.Maybe Core.Text,
+    indexName :: Prelude.Maybe Prelude.Text,
     -- | If not described, uses the source table GSI\'s read capacity settings.
-    provisionedThroughputOverride :: Core.Maybe ProvisionedThroughputOverride
+    provisionedThroughputOverride :: Prelude.Maybe ProvisionedThroughputOverride
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicaGlobalSecondaryIndexDescription' with all optional fields omitted.
@@ -50,17 +51,17 @@ newReplicaGlobalSecondaryIndexDescription ::
 newReplicaGlobalSecondaryIndexDescription =
   ReplicaGlobalSecondaryIndexDescription'
     { indexName =
-        Core.Nothing,
+        Prelude.Nothing,
       provisionedThroughputOverride =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The name of the global secondary index.
-replicaGlobalSecondaryIndexDescription_indexName :: Lens.Lens' ReplicaGlobalSecondaryIndexDescription (Core.Maybe Core.Text)
+replicaGlobalSecondaryIndexDescription_indexName :: Lens.Lens' ReplicaGlobalSecondaryIndexDescription (Prelude.Maybe Prelude.Text)
 replicaGlobalSecondaryIndexDescription_indexName = Lens.lens (\ReplicaGlobalSecondaryIndexDescription' {indexName} -> indexName) (\s@ReplicaGlobalSecondaryIndexDescription' {} a -> s {indexName = a} :: ReplicaGlobalSecondaryIndexDescription)
 
 -- | If not described, uses the source table GSI\'s read capacity settings.
-replicaGlobalSecondaryIndexDescription_provisionedThroughputOverride :: Lens.Lens' ReplicaGlobalSecondaryIndexDescription (Core.Maybe ProvisionedThroughputOverride)
+replicaGlobalSecondaryIndexDescription_provisionedThroughputOverride :: Lens.Lens' ReplicaGlobalSecondaryIndexDescription (Prelude.Maybe ProvisionedThroughputOverride)
 replicaGlobalSecondaryIndexDescription_provisionedThroughputOverride = Lens.lens (\ReplicaGlobalSecondaryIndexDescription' {provisionedThroughputOverride} -> provisionedThroughputOverride) (\s@ReplicaGlobalSecondaryIndexDescription' {} a -> s {provisionedThroughputOverride = a} :: ReplicaGlobalSecondaryIndexDescription)
 
 instance
@@ -72,14 +73,14 @@ instance
       "ReplicaGlobalSecondaryIndexDescription"
       ( \x ->
           ReplicaGlobalSecondaryIndexDescription'
-            Core.<$> (x Core..:? "IndexName")
-            Core.<*> (x Core..:? "ProvisionedThroughputOverride")
+            Prelude.<$> (x Core..:? "IndexName")
+            Prelude.<*> (x Core..:? "ProvisionedThroughputOverride")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ReplicaGlobalSecondaryIndexDescription
 
 instance
-  Core.NFData
+  Prelude.NFData
     ReplicaGlobalSecondaryIndexDescription

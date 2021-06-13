@@ -46,6 +46,7 @@ where
 import Network.AWS.Batch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,13 +55,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCancelJob' smart constructor.
 data CancelJob = CancelJob'
   { -- | The AWS Batch job ID of the job to cancel.
-    jobId :: Core.Text,
+    jobId :: Prelude.Text,
     -- | A message to attach to the job that explains the reason for canceling
     -- it. This message is returned by future DescribeJobs operations on the
     -- job. This message is also recorded in the AWS Batch activity logs.
-    reason :: Core.Text
+    reason :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelJob' with all optional fields omitted.
@@ -77,21 +78,21 @@ data CancelJob = CancelJob'
 -- job. This message is also recorded in the AWS Batch activity logs.
 newCancelJob ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'reason'
-  Core.Text ->
+  Prelude.Text ->
   CancelJob
 newCancelJob pJobId_ pReason_ =
   CancelJob' {jobId = pJobId_, reason = pReason_}
 
 -- | The AWS Batch job ID of the job to cancel.
-cancelJob_jobId :: Lens.Lens' CancelJob Core.Text
+cancelJob_jobId :: Lens.Lens' CancelJob Prelude.Text
 cancelJob_jobId = Lens.lens (\CancelJob' {jobId} -> jobId) (\s@CancelJob' {} a -> s {jobId = a} :: CancelJob)
 
 -- | A message to attach to the job that explains the reason for canceling
 -- it. This message is returned by future DescribeJobs operations on the
 -- job. This message is also recorded in the AWS Batch activity logs.
-cancelJob_reason :: Lens.Lens' CancelJob Core.Text
+cancelJob_reason :: Lens.Lens' CancelJob Prelude.Text
 cancelJob_reason = Lens.lens (\CancelJob' {reason} -> reason) (\s@CancelJob' {} a -> s {reason = a} :: CancelJob)
 
 instance Core.AWSRequest CancelJob where
@@ -101,43 +102,45 @@ instance Core.AWSRequest CancelJob where
     Response.receiveEmpty
       ( \s h x ->
           CancelJobResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CancelJob
+instance Prelude.Hashable CancelJob
 
-instance Core.NFData CancelJob
+instance Prelude.NFData CancelJob
 
 instance Core.ToHeaders CancelJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CancelJob where
   toJSON CancelJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("jobId" Core..= jobId),
-            Core.Just ("reason" Core..= reason)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("jobId" Core..= jobId),
+            Prelude.Just ("reason" Core..= reason)
           ]
       )
 
 instance Core.ToPath CancelJob where
-  toPath = Core.const "/v1/canceljob"
+  toPath = Prelude.const "/v1/canceljob"
 
 instance Core.ToQuery CancelJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelJobResponse' smart constructor.
 data CancelJobResponse = CancelJobResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelJobResponse' with all optional fields omitted.
@@ -150,13 +153,13 @@ data CancelJobResponse = CancelJobResponse'
 -- 'httpStatus', 'cancelJobResponse_httpStatus' - The response's http status code.
 newCancelJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CancelJobResponse
 newCancelJobResponse pHttpStatus_ =
   CancelJobResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-cancelJobResponse_httpStatus :: Lens.Lens' CancelJobResponse Core.Int
+cancelJobResponse_httpStatus :: Lens.Lens' CancelJobResponse Prelude.Int
 cancelJobResponse_httpStatus = Lens.lens (\CancelJobResponse' {httpStatus} -> httpStatus) (\s@CancelJobResponse' {} a -> s {httpStatus = a} :: CancelJobResponse)
 
-instance Core.NFData CancelJobResponse
+instance Prelude.NFData CancelJobResponse

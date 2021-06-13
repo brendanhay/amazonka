@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,14 +58,14 @@ data GetConsoleScreenshot = GetConsoleScreenshot'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | When set to @true@, acts as keystroke input and wakes up an instance
     -- that\'s in standby or \"sleep\" mode.
-    wakeUp :: Core.Maybe Core.Bool,
+    wakeUp :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetConsoleScreenshot' with all optional fields omitted.
@@ -85,12 +86,12 @@ data GetConsoleScreenshot = GetConsoleScreenshot'
 -- 'instanceId', 'getConsoleScreenshot_instanceId' - The ID of the instance.
 newGetConsoleScreenshot ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   GetConsoleScreenshot
 newGetConsoleScreenshot pInstanceId_ =
   GetConsoleScreenshot'
-    { dryRun = Core.Nothing,
-      wakeUp = Core.Nothing,
+    { dryRun = Prelude.Nothing,
+      wakeUp = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -98,16 +99,16 @@ newGetConsoleScreenshot pInstanceId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-getConsoleScreenshot_dryRun :: Lens.Lens' GetConsoleScreenshot (Core.Maybe Core.Bool)
+getConsoleScreenshot_dryRun :: Lens.Lens' GetConsoleScreenshot (Prelude.Maybe Prelude.Bool)
 getConsoleScreenshot_dryRun = Lens.lens (\GetConsoleScreenshot' {dryRun} -> dryRun) (\s@GetConsoleScreenshot' {} a -> s {dryRun = a} :: GetConsoleScreenshot)
 
 -- | When set to @true@, acts as keystroke input and wakes up an instance
 -- that\'s in standby or \"sleep\" mode.
-getConsoleScreenshot_wakeUp :: Lens.Lens' GetConsoleScreenshot (Core.Maybe Core.Bool)
+getConsoleScreenshot_wakeUp :: Lens.Lens' GetConsoleScreenshot (Prelude.Maybe Prelude.Bool)
 getConsoleScreenshot_wakeUp = Lens.lens (\GetConsoleScreenshot' {wakeUp} -> wakeUp) (\s@GetConsoleScreenshot' {} a -> s {wakeUp = a} :: GetConsoleScreenshot)
 
 -- | The ID of the instance.
-getConsoleScreenshot_instanceId :: Lens.Lens' GetConsoleScreenshot Core.Text
+getConsoleScreenshot_instanceId :: Lens.Lens' GetConsoleScreenshot Prelude.Text
 getConsoleScreenshot_instanceId = Lens.lens (\GetConsoleScreenshot' {instanceId} -> instanceId) (\s@GetConsoleScreenshot' {} a -> s {instanceId = a} :: GetConsoleScreenshot)
 
 instance Core.AWSRequest GetConsoleScreenshot where
@@ -119,27 +120,28 @@ instance Core.AWSRequest GetConsoleScreenshot where
     Response.receiveXML
       ( \s h x ->
           GetConsoleScreenshotResponse'
-            Core.<$> (x Core..@? "instanceId")
-            Core.<*> (x Core..@? "imageData")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "instanceId")
+            Prelude.<*> (x Core..@? "imageData")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetConsoleScreenshot
+instance Prelude.Hashable GetConsoleScreenshot
 
-instance Core.NFData GetConsoleScreenshot
+instance Prelude.NFData GetConsoleScreenshot
 
 instance Core.ToHeaders GetConsoleScreenshot where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetConsoleScreenshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetConsoleScreenshot where
   toQuery GetConsoleScreenshot' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetConsoleScreenshot" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("GetConsoleScreenshot" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "WakeUp" Core.=: wakeUp,
         "InstanceId" Core.=: instanceId
@@ -148,13 +150,13 @@ instance Core.ToQuery GetConsoleScreenshot where
 -- | /See:/ 'newGetConsoleScreenshotResponse' smart constructor.
 data GetConsoleScreenshotResponse = GetConsoleScreenshotResponse'
   { -- | The ID of the instance.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The data that comprises the image.
-    imageData :: Core.Maybe Core.Text,
+    imageData :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetConsoleScreenshotResponse' with all optional fields omitted.
@@ -171,26 +173,26 @@ data GetConsoleScreenshotResponse = GetConsoleScreenshotResponse'
 -- 'httpStatus', 'getConsoleScreenshotResponse_httpStatus' - The response's http status code.
 newGetConsoleScreenshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetConsoleScreenshotResponse
 newGetConsoleScreenshotResponse pHttpStatus_ =
   GetConsoleScreenshotResponse'
     { instanceId =
-        Core.Nothing,
-      imageData = Core.Nothing,
+        Prelude.Nothing,
+      imageData = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the instance.
-getConsoleScreenshotResponse_instanceId :: Lens.Lens' GetConsoleScreenshotResponse (Core.Maybe Core.Text)
+getConsoleScreenshotResponse_instanceId :: Lens.Lens' GetConsoleScreenshotResponse (Prelude.Maybe Prelude.Text)
 getConsoleScreenshotResponse_instanceId = Lens.lens (\GetConsoleScreenshotResponse' {instanceId} -> instanceId) (\s@GetConsoleScreenshotResponse' {} a -> s {instanceId = a} :: GetConsoleScreenshotResponse)
 
 -- | The data that comprises the image.
-getConsoleScreenshotResponse_imageData :: Lens.Lens' GetConsoleScreenshotResponse (Core.Maybe Core.Text)
+getConsoleScreenshotResponse_imageData :: Lens.Lens' GetConsoleScreenshotResponse (Prelude.Maybe Prelude.Text)
 getConsoleScreenshotResponse_imageData = Lens.lens (\GetConsoleScreenshotResponse' {imageData} -> imageData) (\s@GetConsoleScreenshotResponse' {} a -> s {imageData = a} :: GetConsoleScreenshotResponse)
 
 -- | The response's http status code.
-getConsoleScreenshotResponse_httpStatus :: Lens.Lens' GetConsoleScreenshotResponse Core.Int
+getConsoleScreenshotResponse_httpStatus :: Lens.Lens' GetConsoleScreenshotResponse Prelude.Int
 getConsoleScreenshotResponse_httpStatus = Lens.lens (\GetConsoleScreenshotResponse' {httpStatus} -> httpStatus) (\s@GetConsoleScreenshotResponse' {} a -> s {httpStatus = a} :: GetConsoleScreenshotResponse)
 
-instance Core.NFData GetConsoleScreenshotResponse
+instance Prelude.NFData GetConsoleScreenshotResponse

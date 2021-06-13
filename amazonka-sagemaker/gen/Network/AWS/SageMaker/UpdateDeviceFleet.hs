@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -47,15 +48,15 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newUpdateDeviceFleet' smart constructor.
 data UpdateDeviceFleet = UpdateDeviceFleet'
   { -- | The Amazon Resource Name (ARN) of the device.
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | Description of the fleet.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the fleet.
-    deviceFleetName :: Core.Text,
+    deviceFleetName :: Prelude.Text,
     -- | Output configuration for storing sample data collected by the fleet.
     outputConfig :: EdgeOutputConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDeviceFleet' with all optional fields omitted.
@@ -74,28 +75,28 @@ data UpdateDeviceFleet = UpdateDeviceFleet'
 -- 'outputConfig', 'updateDeviceFleet_outputConfig' - Output configuration for storing sample data collected by the fleet.
 newUpdateDeviceFleet ::
   -- | 'deviceFleetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'outputConfig'
   EdgeOutputConfig ->
   UpdateDeviceFleet
 newUpdateDeviceFleet pDeviceFleetName_ pOutputConfig_ =
   UpdateDeviceFleet'
-    { roleArn = Core.Nothing,
-      description = Core.Nothing,
+    { roleArn = Prelude.Nothing,
+      description = Prelude.Nothing,
       deviceFleetName = pDeviceFleetName_,
       outputConfig = pOutputConfig_
     }
 
 -- | The Amazon Resource Name (ARN) of the device.
-updateDeviceFleet_roleArn :: Lens.Lens' UpdateDeviceFleet (Core.Maybe Core.Text)
+updateDeviceFleet_roleArn :: Lens.Lens' UpdateDeviceFleet (Prelude.Maybe Prelude.Text)
 updateDeviceFleet_roleArn = Lens.lens (\UpdateDeviceFleet' {roleArn} -> roleArn) (\s@UpdateDeviceFleet' {} a -> s {roleArn = a} :: UpdateDeviceFleet)
 
 -- | Description of the fleet.
-updateDeviceFleet_description :: Lens.Lens' UpdateDeviceFleet (Core.Maybe Core.Text)
+updateDeviceFleet_description :: Lens.Lens' UpdateDeviceFleet (Prelude.Maybe Prelude.Text)
 updateDeviceFleet_description = Lens.lens (\UpdateDeviceFleet' {description} -> description) (\s@UpdateDeviceFleet' {} a -> s {description = a} :: UpdateDeviceFleet)
 
 -- | The name of the fleet.
-updateDeviceFleet_deviceFleetName :: Lens.Lens' UpdateDeviceFleet Core.Text
+updateDeviceFleet_deviceFleetName :: Lens.Lens' UpdateDeviceFleet Prelude.Text
 updateDeviceFleet_deviceFleetName = Lens.lens (\UpdateDeviceFleet' {deviceFleetName} -> deviceFleetName) (\s@UpdateDeviceFleet' {} a -> s {deviceFleetName = a} :: UpdateDeviceFleet)
 
 -- | Output configuration for storing sample data collected by the fleet.
@@ -110,44 +111,48 @@ instance Core.AWSRequest UpdateDeviceFleet where
   response =
     Response.receiveNull UpdateDeviceFleetResponse'
 
-instance Core.Hashable UpdateDeviceFleet
+instance Prelude.Hashable UpdateDeviceFleet
 
-instance Core.NFData UpdateDeviceFleet
+instance Prelude.NFData UpdateDeviceFleet
 
 instance Core.ToHeaders UpdateDeviceFleet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.UpdateDeviceFleet" :: Core.ByteString),
+              Core.=# ( "SageMaker.UpdateDeviceFleet" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateDeviceFleet where
   toJSON UpdateDeviceFleet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RoleArn" Core..=) Core.<$> roleArn,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just
               ("DeviceFleetName" Core..= deviceFleetName),
-            Core.Just ("OutputConfig" Core..= outputConfig)
+            Prelude.Just ("OutputConfig" Core..= outputConfig)
           ]
       )
 
 instance Core.ToPath UpdateDeviceFleet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateDeviceFleet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDeviceFleetResponse' smart constructor.
 data UpdateDeviceFleetResponse = UpdateDeviceFleetResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDeviceFleetResponse' with all optional fields omitted.
@@ -158,4 +163,4 @@ newUpdateDeviceFleetResponse ::
 newUpdateDeviceFleetResponse =
   UpdateDeviceFleetResponse'
 
-instance Core.NFData UpdateDeviceFleetResponse
+instance Prelude.NFData UpdateDeviceFleetResponse

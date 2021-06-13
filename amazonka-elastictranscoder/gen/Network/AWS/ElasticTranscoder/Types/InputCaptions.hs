@@ -22,6 +22,7 @@ module Network.AWS.ElasticTranscoder.Types.InputCaptions where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types.CaptionSource
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The captions to be created, if any.
 --
@@ -29,7 +30,7 @@ import qualified Network.AWS.Lens as Lens
 data InputCaptions = InputCaptions'
   { -- | Source files for the input sidecar captions used during the transcoding
     -- process. To omit all sidecar captions, leave @CaptionSources@ blank.
-    captionSources :: Core.Maybe [CaptionSource],
+    captionSources :: Prelude.Maybe [CaptionSource],
     -- | A policy that determines how Elastic Transcoder handles the existence of
     -- multiple captions.
     --
@@ -50,9 +51,9 @@ data InputCaptions = InputCaptions'
     --     captions that you specify in @CaptionSources@.
     --
     -- @MergePolicy@ cannot be null.
-    mergePolicy :: Core.Maybe Core.Text
+    mergePolicy :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InputCaptions' with all optional fields omitted.
@@ -89,14 +90,14 @@ newInputCaptions ::
   InputCaptions
 newInputCaptions =
   InputCaptions'
-    { captionSources = Core.Nothing,
-      mergePolicy = Core.Nothing
+    { captionSources = Prelude.Nothing,
+      mergePolicy = Prelude.Nothing
     }
 
 -- | Source files for the input sidecar captions used during the transcoding
 -- process. To omit all sidecar captions, leave @CaptionSources@ blank.
-inputCaptions_captionSources :: Lens.Lens' InputCaptions (Core.Maybe [CaptionSource])
-inputCaptions_captionSources = Lens.lens (\InputCaptions' {captionSources} -> captionSources) (\s@InputCaptions' {} a -> s {captionSources = a} :: InputCaptions) Core.. Lens.mapping Lens._Coerce
+inputCaptions_captionSources :: Lens.Lens' InputCaptions (Prelude.Maybe [CaptionSource])
+inputCaptions_captionSources = Lens.lens (\InputCaptions' {captionSources} -> captionSources) (\s@InputCaptions' {} a -> s {captionSources = a} :: InputCaptions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A policy that determines how Elastic Transcoder handles the existence of
 -- multiple captions.
@@ -118,7 +119,7 @@ inputCaptions_captionSources = Lens.lens (\InputCaptions' {captionSources} -> ca
 --     captions that you specify in @CaptionSources@.
 --
 -- @MergePolicy@ cannot be null.
-inputCaptions_mergePolicy :: Lens.Lens' InputCaptions (Core.Maybe Core.Text)
+inputCaptions_mergePolicy :: Lens.Lens' InputCaptions (Prelude.Maybe Prelude.Text)
 inputCaptions_mergePolicy = Lens.lens (\InputCaptions' {mergePolicy} -> mergePolicy) (\s@InputCaptions' {} a -> s {mergePolicy = a} :: InputCaptions)
 
 instance Core.FromJSON InputCaptions where
@@ -127,19 +128,20 @@ instance Core.FromJSON InputCaptions where
       "InputCaptions"
       ( \x ->
           InputCaptions'
-            Core.<$> (x Core..:? "CaptionSources" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "MergePolicy")
+            Prelude.<$> (x Core..:? "CaptionSources" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "MergePolicy")
       )
 
-instance Core.Hashable InputCaptions
+instance Prelude.Hashable InputCaptions
 
-instance Core.NFData InputCaptions
+instance Prelude.NFData InputCaptions
 
 instance Core.ToJSON InputCaptions where
   toJSON InputCaptions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CaptionSources" Core..=) Core.<$> captionSources,
-            ("MergePolicy" Core..=) Core.<$> mergePolicy
+      ( Prelude.catMaybes
+          [ ("CaptionSources" Core..=)
+              Prelude.<$> captionSources,
+            ("MergePolicy" Core..=) Prelude.<$> mergePolicy
           ]
       )

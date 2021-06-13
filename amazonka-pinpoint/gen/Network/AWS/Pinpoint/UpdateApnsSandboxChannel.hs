@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,10 +52,10 @@ import qualified Network.AWS.Response as Response
 data UpdateApnsSandboxChannel = UpdateApnsSandboxChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     aPNSSandboxChannelRequest :: APNSSandboxChannelRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApnsSandboxChannel' with all optional fields omitted.
@@ -70,7 +71,7 @@ data UpdateApnsSandboxChannel = UpdateApnsSandboxChannel'
 -- 'aPNSSandboxChannelRequest', 'updateApnsSandboxChannel_aPNSSandboxChannelRequest' - Undocumented member.
 newUpdateApnsSandboxChannel ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'aPNSSandboxChannelRequest'
   APNSSandboxChannelRequest ->
   UpdateApnsSandboxChannel
@@ -86,7 +87,7 @@ newUpdateApnsSandboxChannel
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-updateApnsSandboxChannel_applicationId :: Lens.Lens' UpdateApnsSandboxChannel Core.Text
+updateApnsSandboxChannel_applicationId :: Lens.Lens' UpdateApnsSandboxChannel Prelude.Text
 updateApnsSandboxChannel_applicationId = Lens.lens (\UpdateApnsSandboxChannel' {applicationId} -> applicationId) (\s@UpdateApnsSandboxChannel' {} a -> s {applicationId = a} :: UpdateApnsSandboxChannel)
 
 -- | Undocumented member.
@@ -102,28 +103,30 @@ instance Core.AWSRequest UpdateApnsSandboxChannel where
     Response.receiveJSON
       ( \s h x ->
           UpdateApnsSandboxChannelResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable UpdateApnsSandboxChannel
+instance Prelude.Hashable UpdateApnsSandboxChannel
 
-instance Core.NFData UpdateApnsSandboxChannel
+instance Prelude.NFData UpdateApnsSandboxChannel
 
 instance Core.ToHeaders UpdateApnsSandboxChannel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateApnsSandboxChannel where
   toJSON UpdateApnsSandboxChannel' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "APNSSandboxChannelRequest"
                   Core..= aPNSSandboxChannelRequest
               )
@@ -132,22 +135,22 @@ instance Core.ToJSON UpdateApnsSandboxChannel where
 
 instance Core.ToPath UpdateApnsSandboxChannel where
   toPath UpdateApnsSandboxChannel' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/channels/apns_sandbox"
       ]
 
 instance Core.ToQuery UpdateApnsSandboxChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateApnsSandboxChannelResponse' smart constructor.
 data UpdateApnsSandboxChannelResponse = UpdateApnsSandboxChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     aPNSSandboxChannelResponse :: APNSSandboxChannelResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApnsSandboxChannelResponse' with all optional fields omitted.
@@ -162,7 +165,7 @@ data UpdateApnsSandboxChannelResponse = UpdateApnsSandboxChannelResponse'
 -- 'aPNSSandboxChannelResponse', 'updateApnsSandboxChannelResponse_aPNSSandboxChannelResponse' - Undocumented member.
 newUpdateApnsSandboxChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'aPNSSandboxChannelResponse'
   APNSSandboxChannelResponse ->
   UpdateApnsSandboxChannelResponse
@@ -177,11 +180,13 @@ newUpdateApnsSandboxChannelResponse
       }
 
 -- | The response's http status code.
-updateApnsSandboxChannelResponse_httpStatus :: Lens.Lens' UpdateApnsSandboxChannelResponse Core.Int
+updateApnsSandboxChannelResponse_httpStatus :: Lens.Lens' UpdateApnsSandboxChannelResponse Prelude.Int
 updateApnsSandboxChannelResponse_httpStatus = Lens.lens (\UpdateApnsSandboxChannelResponse' {httpStatus} -> httpStatus) (\s@UpdateApnsSandboxChannelResponse' {} a -> s {httpStatus = a} :: UpdateApnsSandboxChannelResponse)
 
 -- | Undocumented member.
 updateApnsSandboxChannelResponse_aPNSSandboxChannelResponse :: Lens.Lens' UpdateApnsSandboxChannelResponse APNSSandboxChannelResponse
 updateApnsSandboxChannelResponse_aPNSSandboxChannelResponse = Lens.lens (\UpdateApnsSandboxChannelResponse' {aPNSSandboxChannelResponse} -> aPNSSandboxChannelResponse) (\s@UpdateApnsSandboxChannelResponse' {} a -> s {aPNSSandboxChannelResponse = a} :: UpdateApnsSandboxChannelResponse)
 
-instance Core.NFData UpdateApnsSandboxChannelResponse
+instance
+  Prelude.NFData
+    UpdateApnsSandboxChannelResponse

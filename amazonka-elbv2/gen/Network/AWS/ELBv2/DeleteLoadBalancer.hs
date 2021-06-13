@@ -52,15 +52,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteLoadBalancer' smart constructor.
 data DeleteLoadBalancer = DeleteLoadBalancer'
   { -- | The Amazon Resource Name (ARN) of the load balancer.
-    loadBalancerArn :: Core.Text
+    loadBalancerArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLoadBalancer' with all optional fields omitted.
@@ -73,7 +74,7 @@ data DeleteLoadBalancer = DeleteLoadBalancer'
 -- 'loadBalancerArn', 'deleteLoadBalancer_loadBalancerArn' - The Amazon Resource Name (ARN) of the load balancer.
 newDeleteLoadBalancer ::
   -- | 'loadBalancerArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteLoadBalancer
 newDeleteLoadBalancer pLoadBalancerArn_ =
   DeleteLoadBalancer'
@@ -82,7 +83,7 @@ newDeleteLoadBalancer pLoadBalancerArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
-deleteLoadBalancer_loadBalancerArn :: Lens.Lens' DeleteLoadBalancer Core.Text
+deleteLoadBalancer_loadBalancerArn :: Lens.Lens' DeleteLoadBalancer Prelude.Text
 deleteLoadBalancer_loadBalancerArn = Lens.lens (\DeleteLoadBalancer' {loadBalancerArn} -> loadBalancerArn) (\s@DeleteLoadBalancer' {} a -> s {loadBalancerArn = a} :: DeleteLoadBalancer)
 
 instance Core.AWSRequest DeleteLoadBalancer where
@@ -95,34 +96,35 @@ instance Core.AWSRequest DeleteLoadBalancer where
       "DeleteLoadBalancerResult"
       ( \s h x ->
           DeleteLoadBalancerResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteLoadBalancer
+instance Prelude.Hashable DeleteLoadBalancer
 
-instance Core.NFData DeleteLoadBalancer
+instance Prelude.NFData DeleteLoadBalancer
 
 instance Core.ToHeaders DeleteLoadBalancer where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteLoadBalancer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteLoadBalancer where
   toQuery DeleteLoadBalancer' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteLoadBalancer" :: Core.ByteString),
-        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+          Core.=: ("DeleteLoadBalancer" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
         "LoadBalancerArn" Core.=: loadBalancerArn
       ]
 
 -- | /See:/ 'newDeleteLoadBalancerResponse' smart constructor.
 data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLoadBalancerResponse' with all optional fields omitted.
@@ -135,7 +137,7 @@ data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
 -- 'httpStatus', 'deleteLoadBalancerResponse_httpStatus' - The response's http status code.
 newDeleteLoadBalancerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteLoadBalancerResponse
 newDeleteLoadBalancerResponse pHttpStatus_ =
   DeleteLoadBalancerResponse'
@@ -144,7 +146,7 @@ newDeleteLoadBalancerResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteLoadBalancerResponse_httpStatus :: Lens.Lens' DeleteLoadBalancerResponse Core.Int
+deleteLoadBalancerResponse_httpStatus :: Lens.Lens' DeleteLoadBalancerResponse Prelude.Int
 deleteLoadBalancerResponse_httpStatus = Lens.lens (\DeleteLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@DeleteLoadBalancerResponse' {} a -> s {httpStatus = a} :: DeleteLoadBalancerResponse)
 
-instance Core.NFData DeleteLoadBalancerResponse
+instance Prelude.NFData DeleteLoadBalancerResponse

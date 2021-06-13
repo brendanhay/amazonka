@@ -72,6 +72,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -79,7 +80,7 @@ import qualified Network.AWS.Response as Response
 data EnableAllFeatures = EnableAllFeatures'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableAllFeatures' with all optional fields omitted.
@@ -98,45 +99,47 @@ instance Core.AWSRequest EnableAllFeatures where
     Response.receiveJSON
       ( \s h x ->
           EnableAllFeaturesResponse'
-            Core.<$> (x Core..?> "Handshake")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Handshake")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable EnableAllFeatures
+instance Prelude.Hashable EnableAllFeatures
 
-instance Core.NFData EnableAllFeatures
+instance Prelude.NFData EnableAllFeatures
 
 instance Core.ToHeaders EnableAllFeatures where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.EnableAllFeatures" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON EnableAllFeatures where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath EnableAllFeatures where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery EnableAllFeatures where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableAllFeaturesResponse' smart constructor.
 data EnableAllFeaturesResponse = EnableAllFeaturesResponse'
   { -- | A structure that contains details about the handshake created to support
     -- this request to enable all features in the organization.
-    handshake :: Core.Maybe Handshake,
+    handshake :: Prelude.Maybe Handshake,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableAllFeaturesResponse' with all optional fields omitted.
@@ -152,22 +155,22 @@ data EnableAllFeaturesResponse = EnableAllFeaturesResponse'
 -- 'httpStatus', 'enableAllFeaturesResponse_httpStatus' - The response's http status code.
 newEnableAllFeaturesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   EnableAllFeaturesResponse
 newEnableAllFeaturesResponse pHttpStatus_ =
   EnableAllFeaturesResponse'
     { handshake =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains details about the handshake created to support
 -- this request to enable all features in the organization.
-enableAllFeaturesResponse_handshake :: Lens.Lens' EnableAllFeaturesResponse (Core.Maybe Handshake)
+enableAllFeaturesResponse_handshake :: Lens.Lens' EnableAllFeaturesResponse (Prelude.Maybe Handshake)
 enableAllFeaturesResponse_handshake = Lens.lens (\EnableAllFeaturesResponse' {handshake} -> handshake) (\s@EnableAllFeaturesResponse' {} a -> s {handshake = a} :: EnableAllFeaturesResponse)
 
 -- | The response's http status code.
-enableAllFeaturesResponse_httpStatus :: Lens.Lens' EnableAllFeaturesResponse Core.Int
+enableAllFeaturesResponse_httpStatus :: Lens.Lens' EnableAllFeaturesResponse Prelude.Int
 enableAllFeaturesResponse_httpStatus = Lens.lens (\EnableAllFeaturesResponse' {httpStatus} -> httpStatus) (\s@EnableAllFeaturesResponse' {} a -> s {httpStatus = a} :: EnableAllFeaturesResponse)
 
-instance Core.NFData EnableAllFeaturesResponse
+instance Prelude.NFData EnableAllFeaturesResponse

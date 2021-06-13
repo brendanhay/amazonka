@@ -44,17 +44,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateApplicationResourceLifecycle' smart constructor.
 data UpdateApplicationResourceLifecycle = UpdateApplicationResourceLifecycle'
   { -- | The name of the application.
-    applicationName :: Core.Text,
+    applicationName :: Prelude.Text,
     -- | The lifecycle configuration.
     resourceLifecycleConfig :: ApplicationResourceLifecycleConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApplicationResourceLifecycle' with all optional fields omitted.
@@ -69,7 +70,7 @@ data UpdateApplicationResourceLifecycle = UpdateApplicationResourceLifecycle'
 -- 'resourceLifecycleConfig', 'updateApplicationResourceLifecycle_resourceLifecycleConfig' - The lifecycle configuration.
 newUpdateApplicationResourceLifecycle ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceLifecycleConfig'
   ApplicationResourceLifecycleConfig ->
   UpdateApplicationResourceLifecycle
@@ -84,7 +85,7 @@ newUpdateApplicationResourceLifecycle
       }
 
 -- | The name of the application.
-updateApplicationResourceLifecycle_applicationName :: Lens.Lens' UpdateApplicationResourceLifecycle Core.Text
+updateApplicationResourceLifecycle_applicationName :: Lens.Lens' UpdateApplicationResourceLifecycle Prelude.Text
 updateApplicationResourceLifecycle_applicationName = Lens.lens (\UpdateApplicationResourceLifecycle' {applicationName} -> applicationName) (\s@UpdateApplicationResourceLifecycle' {} a -> s {applicationName = a} :: UpdateApplicationResourceLifecycle)
 
 -- | The lifecycle configuration.
@@ -104,42 +105,43 @@ instance
       "UpdateApplicationResourceLifecycleResult"
       ( \s h x ->
           UpdateApplicationResourceLifecycleResponse'
-            Core.<$> (x Core..@? "ResourceLifecycleConfig")
-            Core.<*> (x Core..@? "ApplicationName")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ResourceLifecycleConfig")
+              Prelude.<*> (x Core..@? "ApplicationName")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdateApplicationResourceLifecycle
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateApplicationResourceLifecycle
 
 instance
   Core.ToHeaders
     UpdateApplicationResourceLifecycle
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     UpdateApplicationResourceLifecycle
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     UpdateApplicationResourceLifecycle
   where
   toQuery UpdateApplicationResourceLifecycle' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "UpdateApplicationResourceLifecycle" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "ApplicationName" Core.=: applicationName,
         "ResourceLifecycleConfig"
           Core.=: resourceLifecycleConfig
@@ -148,13 +150,13 @@ instance
 -- | /See:/ 'newUpdateApplicationResourceLifecycleResponse' smart constructor.
 data UpdateApplicationResourceLifecycleResponse = UpdateApplicationResourceLifecycleResponse'
   { -- | The lifecycle configuration.
-    resourceLifecycleConfig :: Core.Maybe ApplicationResourceLifecycleConfig,
+    resourceLifecycleConfig :: Prelude.Maybe ApplicationResourceLifecycleConfig,
     -- | The name of the application.
-    applicationName :: Core.Maybe Core.Text,
+    applicationName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApplicationResourceLifecycleResponse' with all optional fields omitted.
@@ -171,29 +173,30 @@ data UpdateApplicationResourceLifecycleResponse = UpdateApplicationResourceLifec
 -- 'httpStatus', 'updateApplicationResourceLifecycleResponse_httpStatus' - The response's http status code.
 newUpdateApplicationResourceLifecycleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateApplicationResourceLifecycleResponse
 newUpdateApplicationResourceLifecycleResponse
   pHttpStatus_ =
     UpdateApplicationResourceLifecycleResponse'
       { resourceLifecycleConfig =
-          Core.Nothing,
-        applicationName = Core.Nothing,
+          Prelude.Nothing,
+        applicationName =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The lifecycle configuration.
-updateApplicationResourceLifecycleResponse_resourceLifecycleConfig :: Lens.Lens' UpdateApplicationResourceLifecycleResponse (Core.Maybe ApplicationResourceLifecycleConfig)
+updateApplicationResourceLifecycleResponse_resourceLifecycleConfig :: Lens.Lens' UpdateApplicationResourceLifecycleResponse (Prelude.Maybe ApplicationResourceLifecycleConfig)
 updateApplicationResourceLifecycleResponse_resourceLifecycleConfig = Lens.lens (\UpdateApplicationResourceLifecycleResponse' {resourceLifecycleConfig} -> resourceLifecycleConfig) (\s@UpdateApplicationResourceLifecycleResponse' {} a -> s {resourceLifecycleConfig = a} :: UpdateApplicationResourceLifecycleResponse)
 
 -- | The name of the application.
-updateApplicationResourceLifecycleResponse_applicationName :: Lens.Lens' UpdateApplicationResourceLifecycleResponse (Core.Maybe Core.Text)
+updateApplicationResourceLifecycleResponse_applicationName :: Lens.Lens' UpdateApplicationResourceLifecycleResponse (Prelude.Maybe Prelude.Text)
 updateApplicationResourceLifecycleResponse_applicationName = Lens.lens (\UpdateApplicationResourceLifecycleResponse' {applicationName} -> applicationName) (\s@UpdateApplicationResourceLifecycleResponse' {} a -> s {applicationName = a} :: UpdateApplicationResourceLifecycleResponse)
 
 -- | The response's http status code.
-updateApplicationResourceLifecycleResponse_httpStatus :: Lens.Lens' UpdateApplicationResourceLifecycleResponse Core.Int
+updateApplicationResourceLifecycleResponse_httpStatus :: Lens.Lens' UpdateApplicationResourceLifecycleResponse Prelude.Int
 updateApplicationResourceLifecycleResponse_httpStatus = Lens.lens (\UpdateApplicationResourceLifecycleResponse' {httpStatus} -> httpStatus) (\s@UpdateApplicationResourceLifecycleResponse' {} a -> s {httpStatus = a} :: UpdateApplicationResourceLifecycleResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateApplicationResourceLifecycleResponse

@@ -21,6 +21,7 @@ module Network.AWS.Greengrass.Types.SecretsManagerSecretResourceData where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Attributes that define a secret resource, which references a secret from
 -- AWS Secrets Manager. AWS IoT Greengrass stores a local, encrypted copy
@@ -32,12 +33,12 @@ data SecretsManagerSecretResourceData = SecretsManagerSecretResourceData'
   { -- | The ARN of the Secrets Manager secret to make available on the core. The
     -- value of the secret\'s latest version (represented by the
     -- \'\'AWSCURRENT\'\' staging label) is included by default.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Optional. The staging labels whose values you want to make available on
     -- the core, in addition to \'\'AWSCURRENT\'\'.
-    additionalStagingLabelsToDownload :: Core.Maybe [Core.Text]
+    additionalStagingLabelsToDownload :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SecretsManagerSecretResourceData' with all optional fields omitted.
@@ -58,21 +59,21 @@ newSecretsManagerSecretResourceData ::
 newSecretsManagerSecretResourceData =
   SecretsManagerSecretResourceData'
     { arn =
-        Core.Nothing,
+        Prelude.Nothing,
       additionalStagingLabelsToDownload =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The ARN of the Secrets Manager secret to make available on the core. The
 -- value of the secret\'s latest version (represented by the
 -- \'\'AWSCURRENT\'\' staging label) is included by default.
-secretsManagerSecretResourceData_arn :: Lens.Lens' SecretsManagerSecretResourceData (Core.Maybe Core.Text)
+secretsManagerSecretResourceData_arn :: Lens.Lens' SecretsManagerSecretResourceData (Prelude.Maybe Prelude.Text)
 secretsManagerSecretResourceData_arn = Lens.lens (\SecretsManagerSecretResourceData' {arn} -> arn) (\s@SecretsManagerSecretResourceData' {} a -> s {arn = a} :: SecretsManagerSecretResourceData)
 
 -- | Optional. The staging labels whose values you want to make available on
 -- the core, in addition to \'\'AWSCURRENT\'\'.
-secretsManagerSecretResourceData_additionalStagingLabelsToDownload :: Lens.Lens' SecretsManagerSecretResourceData (Core.Maybe [Core.Text])
-secretsManagerSecretResourceData_additionalStagingLabelsToDownload = Lens.lens (\SecretsManagerSecretResourceData' {additionalStagingLabelsToDownload} -> additionalStagingLabelsToDownload) (\s@SecretsManagerSecretResourceData' {} a -> s {additionalStagingLabelsToDownload = a} :: SecretsManagerSecretResourceData) Core.. Lens.mapping Lens._Coerce
+secretsManagerSecretResourceData_additionalStagingLabelsToDownload :: Lens.Lens' SecretsManagerSecretResourceData (Prelude.Maybe [Prelude.Text])
+secretsManagerSecretResourceData_additionalStagingLabelsToDownload = Lens.lens (\SecretsManagerSecretResourceData' {additionalStagingLabelsToDownload} -> additionalStagingLabelsToDownload) (\s@SecretsManagerSecretResourceData' {} a -> s {additionalStagingLabelsToDownload = a} :: SecretsManagerSecretResourceData) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromJSON
@@ -83,24 +84,26 @@ instance
       "SecretsManagerSecretResourceData"
       ( \x ->
           SecretsManagerSecretResourceData'
-            Core.<$> (x Core..:? "ARN")
-            Core.<*> ( x Core..:? "AdditionalStagingLabelsToDownload"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "ARN")
+            Prelude.<*> ( x Core..:? "AdditionalStagingLabelsToDownload"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     SecretsManagerSecretResourceData
 
-instance Core.NFData SecretsManagerSecretResourceData
+instance
+  Prelude.NFData
+    SecretsManagerSecretResourceData
 
 instance Core.ToJSON SecretsManagerSecretResourceData where
   toJSON SecretsManagerSecretResourceData' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ARN" Core..=) Core.<$> arn,
+      ( Prelude.catMaybes
+          [ ("ARN" Core..=) Prelude.<$> arn,
             ("AdditionalStagingLabelsToDownload" Core..=)
-              Core.<$> additionalStagingLabelsToDownload
+              Prelude.<$> additionalStagingLabelsToDownload
           ]
       )

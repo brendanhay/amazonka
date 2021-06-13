@@ -47,21 +47,22 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListBillingGroups' smart constructor.
 data ListBillingGroups = ListBillingGroups'
   { -- | Limit the results to billing groups whose names have the given prefix.
-    namePrefixFilter :: Core.Maybe Core.Text,
+    namePrefixFilter :: Prelude.Maybe Prelude.Text,
     -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per request.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListBillingGroups' with all optional fields omitted.
@@ -82,23 +83,24 @@ newListBillingGroups ::
   ListBillingGroups
 newListBillingGroups =
   ListBillingGroups'
-    { namePrefixFilter = Core.Nothing,
-      nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { namePrefixFilter =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | Limit the results to billing groups whose names have the given prefix.
-listBillingGroups_namePrefixFilter :: Lens.Lens' ListBillingGroups (Core.Maybe Core.Text)
+listBillingGroups_namePrefixFilter :: Lens.Lens' ListBillingGroups (Prelude.Maybe Prelude.Text)
 listBillingGroups_namePrefixFilter = Lens.lens (\ListBillingGroups' {namePrefixFilter} -> namePrefixFilter) (\s@ListBillingGroups' {} a -> s {namePrefixFilter = a} :: ListBillingGroups)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
-listBillingGroups_nextToken :: Lens.Lens' ListBillingGroups (Core.Maybe Core.Text)
+listBillingGroups_nextToken :: Lens.Lens' ListBillingGroups (Prelude.Maybe Prelude.Text)
 listBillingGroups_nextToken = Lens.lens (\ListBillingGroups' {nextToken} -> nextToken) (\s@ListBillingGroups' {} a -> s {nextToken = a} :: ListBillingGroups)
 
 -- | The maximum number of results to return per request.
-listBillingGroups_maxResults :: Lens.Lens' ListBillingGroups (Core.Maybe Core.Natural)
+listBillingGroups_maxResults :: Lens.Lens' ListBillingGroups (Prelude.Maybe Prelude.Natural)
 listBillingGroups_maxResults = Lens.lens (\ListBillingGroups' {maxResults} -> maxResults) (\s@ListBillingGroups' {} a -> s {maxResults = a} :: ListBillingGroups)
 
 instance Core.AWSPager ListBillingGroups where
@@ -106,21 +108,22 @@ instance Core.AWSPager ListBillingGroups where
     | Core.stop
         ( rs
             Lens.^? listBillingGroupsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listBillingGroupsResponse_billingGroups
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listBillingGroups_nextToken
+          Prelude.& listBillingGroups_nextToken
           Lens..~ rs
-          Lens.^? listBillingGroupsResponse_nextToken Core.. Lens._Just
+          Lens.^? listBillingGroupsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBillingGroups where
   type
@@ -131,24 +134,24 @@ instance Core.AWSRequest ListBillingGroups where
     Response.receiveJSON
       ( \s h x ->
           ListBillingGroupsResponse'
-            Core.<$> (x Core..?> "billingGroups" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "nextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "billingGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListBillingGroups
+instance Prelude.Hashable ListBillingGroups
 
-instance Core.NFData ListBillingGroups
+instance Prelude.NFData ListBillingGroups
 
 instance Core.ToHeaders ListBillingGroups where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListBillingGroups where
-  toPath = Core.const "/billing-groups"
+  toPath = Prelude.const "/billing-groups"
 
 instance Core.ToQuery ListBillingGroups where
   toQuery ListBillingGroups' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "namePrefixFilter" Core.=: namePrefixFilter,
         "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
@@ -157,14 +160,14 @@ instance Core.ToQuery ListBillingGroups where
 -- | /See:/ 'newListBillingGroupsResponse' smart constructor.
 data ListBillingGroupsResponse = ListBillingGroupsResponse'
   { -- | The list of billing groups.
-    billingGroups :: Core.Maybe [GroupNameAndArn],
+    billingGroups :: Prelude.Maybe [GroupNameAndArn],
     -- | The token to use to get the next set of results, or __null__ if there
     -- are no additional results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListBillingGroupsResponse' with all optional fields omitted.
@@ -182,27 +185,27 @@ data ListBillingGroupsResponse = ListBillingGroupsResponse'
 -- 'httpStatus', 'listBillingGroupsResponse_httpStatus' - The response's http status code.
 newListBillingGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListBillingGroupsResponse
 newListBillingGroupsResponse pHttpStatus_ =
   ListBillingGroupsResponse'
     { billingGroups =
-        Core.Nothing,
-      nextToken = Core.Nothing,
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of billing groups.
-listBillingGroupsResponse_billingGroups :: Lens.Lens' ListBillingGroupsResponse (Core.Maybe [GroupNameAndArn])
-listBillingGroupsResponse_billingGroups = Lens.lens (\ListBillingGroupsResponse' {billingGroups} -> billingGroups) (\s@ListBillingGroupsResponse' {} a -> s {billingGroups = a} :: ListBillingGroupsResponse) Core.. Lens.mapping Lens._Coerce
+listBillingGroupsResponse_billingGroups :: Lens.Lens' ListBillingGroupsResponse (Prelude.Maybe [GroupNameAndArn])
+listBillingGroupsResponse_billingGroups = Lens.lens (\ListBillingGroupsResponse' {billingGroups} -> billingGroups) (\s@ListBillingGroupsResponse' {} a -> s {billingGroups = a} :: ListBillingGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
-listBillingGroupsResponse_nextToken :: Lens.Lens' ListBillingGroupsResponse (Core.Maybe Core.Text)
+listBillingGroupsResponse_nextToken :: Lens.Lens' ListBillingGroupsResponse (Prelude.Maybe Prelude.Text)
 listBillingGroupsResponse_nextToken = Lens.lens (\ListBillingGroupsResponse' {nextToken} -> nextToken) (\s@ListBillingGroupsResponse' {} a -> s {nextToken = a} :: ListBillingGroupsResponse)
 
 -- | The response's http status code.
-listBillingGroupsResponse_httpStatus :: Lens.Lens' ListBillingGroupsResponse Core.Int
+listBillingGroupsResponse_httpStatus :: Lens.Lens' ListBillingGroupsResponse Prelude.Int
 listBillingGroupsResponse_httpStatus = Lens.lens (\ListBillingGroupsResponse' {httpStatus} -> httpStatus) (\s@ListBillingGroupsResponse' {} a -> s {httpStatus = a} :: ListBillingGroupsResponse)
 
-instance Core.NFData ListBillingGroupsResponse
+instance Prelude.NFData ListBillingGroupsResponse

@@ -40,6 +40,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,11 +59,11 @@ data DeleteAlias = DeleteAlias'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
-    functionName :: Core.Text,
+    functionName :: Prelude.Text,
     -- | The name of the alias.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAlias' with all optional fields omitted.
@@ -89,9 +90,9 @@ data DeleteAlias = DeleteAlias'
 -- 'name', 'deleteAlias_name' - The name of the alias.
 newDeleteAlias ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteAlias
 newDeleteAlias pFunctionName_ pName_ =
   DeleteAlias'
@@ -112,11 +113,11 @@ newDeleteAlias pFunctionName_ pName_ =
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
-deleteAlias_functionName :: Lens.Lens' DeleteAlias Core.Text
+deleteAlias_functionName :: Lens.Lens' DeleteAlias Prelude.Text
 deleteAlias_functionName = Lens.lens (\DeleteAlias' {functionName} -> functionName) (\s@DeleteAlias' {} a -> s {functionName = a} :: DeleteAlias)
 
 -- | The name of the alias.
-deleteAlias_name :: Lens.Lens' DeleteAlias Core.Text
+deleteAlias_name :: Lens.Lens' DeleteAlias Prelude.Text
 deleteAlias_name = Lens.lens (\DeleteAlias' {name} -> name) (\s@DeleteAlias' {} a -> s {name = a} :: DeleteAlias)
 
 instance Core.AWSRequest DeleteAlias where
@@ -124,16 +125,16 @@ instance Core.AWSRequest DeleteAlias where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteAliasResponse'
 
-instance Core.Hashable DeleteAlias
+instance Prelude.Hashable DeleteAlias
 
-instance Core.NFData DeleteAlias
+instance Prelude.NFData DeleteAlias
 
 instance Core.ToHeaders DeleteAlias where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteAlias where
   toPath DeleteAlias' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-03-31/functions/",
         Core.toBS functionName,
         "/aliases/",
@@ -141,13 +142,13 @@ instance Core.ToPath DeleteAlias where
       ]
 
 instance Core.ToQuery DeleteAlias where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAliasResponse' smart constructor.
 data DeleteAliasResponse = DeleteAliasResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAliasResponse' with all optional fields omitted.
@@ -157,4 +158,4 @@ newDeleteAliasResponse ::
   DeleteAliasResponse
 newDeleteAliasResponse = DeleteAliasResponse'
 
-instance Core.NFData DeleteAliasResponse
+instance Prelude.NFData DeleteAliasResponse

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.KernelGatewayImageConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.FileSystemConfig
 import Network.AWS.SageMaker.Types.KernelSpec
 
@@ -31,11 +32,11 @@ import Network.AWS.SageMaker.Types.KernelSpec
 data KernelGatewayImageConfig = KernelGatewayImageConfig'
   { -- | The Amazon Elastic File System (EFS) storage configuration for a
     -- SageMaker image.
-    fileSystemConfig :: Core.Maybe FileSystemConfig,
+    fileSystemConfig :: Prelude.Maybe FileSystemConfig,
     -- | The specification of the Jupyter kernels in the image.
-    kernelSpecs :: Core.NonEmpty KernelSpec
+    kernelSpecs :: Prelude.NonEmpty KernelSpec
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KernelGatewayImageConfig' with all optional fields omitted.
@@ -51,23 +52,23 @@ data KernelGatewayImageConfig = KernelGatewayImageConfig'
 -- 'kernelSpecs', 'kernelGatewayImageConfig_kernelSpecs' - The specification of the Jupyter kernels in the image.
 newKernelGatewayImageConfig ::
   -- | 'kernelSpecs'
-  Core.NonEmpty KernelSpec ->
+  Prelude.NonEmpty KernelSpec ->
   KernelGatewayImageConfig
 newKernelGatewayImageConfig pKernelSpecs_ =
   KernelGatewayImageConfig'
     { fileSystemConfig =
-        Core.Nothing,
+        Prelude.Nothing,
       kernelSpecs = Lens._Coerce Lens.# pKernelSpecs_
     }
 
 -- | The Amazon Elastic File System (EFS) storage configuration for a
 -- SageMaker image.
-kernelGatewayImageConfig_fileSystemConfig :: Lens.Lens' KernelGatewayImageConfig (Core.Maybe FileSystemConfig)
+kernelGatewayImageConfig_fileSystemConfig :: Lens.Lens' KernelGatewayImageConfig (Prelude.Maybe FileSystemConfig)
 kernelGatewayImageConfig_fileSystemConfig = Lens.lens (\KernelGatewayImageConfig' {fileSystemConfig} -> fileSystemConfig) (\s@KernelGatewayImageConfig' {} a -> s {fileSystemConfig = a} :: KernelGatewayImageConfig)
 
 -- | The specification of the Jupyter kernels in the image.
-kernelGatewayImageConfig_kernelSpecs :: Lens.Lens' KernelGatewayImageConfig (Core.NonEmpty KernelSpec)
-kernelGatewayImageConfig_kernelSpecs = Lens.lens (\KernelGatewayImageConfig' {kernelSpecs} -> kernelSpecs) (\s@KernelGatewayImageConfig' {} a -> s {kernelSpecs = a} :: KernelGatewayImageConfig) Core.. Lens._Coerce
+kernelGatewayImageConfig_kernelSpecs :: Lens.Lens' KernelGatewayImageConfig (Prelude.NonEmpty KernelSpec)
+kernelGatewayImageConfig_kernelSpecs = Lens.lens (\KernelGatewayImageConfig' {kernelSpecs} -> kernelSpecs) (\s@KernelGatewayImageConfig' {} a -> s {kernelSpecs = a} :: KernelGatewayImageConfig) Prelude.. Lens._Coerce
 
 instance Core.FromJSON KernelGatewayImageConfig where
   parseJSON =
@@ -75,20 +76,20 @@ instance Core.FromJSON KernelGatewayImageConfig where
       "KernelGatewayImageConfig"
       ( \x ->
           KernelGatewayImageConfig'
-            Core.<$> (x Core..:? "FileSystemConfig")
-            Core.<*> (x Core..: "KernelSpecs")
+            Prelude.<$> (x Core..:? "FileSystemConfig")
+            Prelude.<*> (x Core..: "KernelSpecs")
       )
 
-instance Core.Hashable KernelGatewayImageConfig
+instance Prelude.Hashable KernelGatewayImageConfig
 
-instance Core.NFData KernelGatewayImageConfig
+instance Prelude.NFData KernelGatewayImageConfig
 
 instance Core.ToJSON KernelGatewayImageConfig where
   toJSON KernelGatewayImageConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("FileSystemConfig" Core..=)
-              Core.<$> fileSystemConfig,
-            Core.Just ("KernelSpecs" Core..= kernelSpecs)
+              Prelude.<$> fileSystemConfig,
+            Prelude.Just ("KernelSpecs" Core..= kernelSpecs)
           ]
       )

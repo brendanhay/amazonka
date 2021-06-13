@@ -22,6 +22,7 @@ module Network.AWS.Comprehend.Types.SyntaxToken where
 import Network.AWS.Comprehend.Types.PartOfSpeechTag
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a work in the input text that was recognized and assigned a
 -- part of speech. There is one syntax token record for each word in the
@@ -30,21 +31,21 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSyntaxToken' smart constructor.
 data SyntaxToken = SyntaxToken'
   { -- | A unique identifier for a token.
-    tokenId :: Core.Maybe Core.Int,
+    tokenId :: Prelude.Maybe Prelude.Int,
     -- | Provides the part of speech label and the confidence level that Amazon
     -- Comprehend has that the part of speech was correctly identified. For
     -- more information, see how-syntax.
-    partOfSpeech :: Core.Maybe PartOfSpeechTag,
+    partOfSpeech :: Prelude.Maybe PartOfSpeechTag,
     -- | The zero-based offset from the beginning of the source text to the last
     -- character in the word.
-    endOffset :: Core.Maybe Core.Int,
+    endOffset :: Prelude.Maybe Prelude.Int,
     -- | The word that was recognized in the source text.
-    text :: Core.Maybe Core.Text,
+    text :: Prelude.Maybe Prelude.Text,
     -- | The zero-based offset from the beginning of the source text to the first
     -- character in the word.
-    beginOffset :: Core.Maybe Core.Int
+    beginOffset :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SyntaxToken' with all optional fields omitted.
@@ -71,35 +72,35 @@ newSyntaxToken ::
   SyntaxToken
 newSyntaxToken =
   SyntaxToken'
-    { tokenId = Core.Nothing,
-      partOfSpeech = Core.Nothing,
-      endOffset = Core.Nothing,
-      text = Core.Nothing,
-      beginOffset = Core.Nothing
+    { tokenId = Prelude.Nothing,
+      partOfSpeech = Prelude.Nothing,
+      endOffset = Prelude.Nothing,
+      text = Prelude.Nothing,
+      beginOffset = Prelude.Nothing
     }
 
 -- | A unique identifier for a token.
-syntaxToken_tokenId :: Lens.Lens' SyntaxToken (Core.Maybe Core.Int)
+syntaxToken_tokenId :: Lens.Lens' SyntaxToken (Prelude.Maybe Prelude.Int)
 syntaxToken_tokenId = Lens.lens (\SyntaxToken' {tokenId} -> tokenId) (\s@SyntaxToken' {} a -> s {tokenId = a} :: SyntaxToken)
 
 -- | Provides the part of speech label and the confidence level that Amazon
 -- Comprehend has that the part of speech was correctly identified. For
 -- more information, see how-syntax.
-syntaxToken_partOfSpeech :: Lens.Lens' SyntaxToken (Core.Maybe PartOfSpeechTag)
+syntaxToken_partOfSpeech :: Lens.Lens' SyntaxToken (Prelude.Maybe PartOfSpeechTag)
 syntaxToken_partOfSpeech = Lens.lens (\SyntaxToken' {partOfSpeech} -> partOfSpeech) (\s@SyntaxToken' {} a -> s {partOfSpeech = a} :: SyntaxToken)
 
 -- | The zero-based offset from the beginning of the source text to the last
 -- character in the word.
-syntaxToken_endOffset :: Lens.Lens' SyntaxToken (Core.Maybe Core.Int)
+syntaxToken_endOffset :: Lens.Lens' SyntaxToken (Prelude.Maybe Prelude.Int)
 syntaxToken_endOffset = Lens.lens (\SyntaxToken' {endOffset} -> endOffset) (\s@SyntaxToken' {} a -> s {endOffset = a} :: SyntaxToken)
 
 -- | The word that was recognized in the source text.
-syntaxToken_text :: Lens.Lens' SyntaxToken (Core.Maybe Core.Text)
+syntaxToken_text :: Lens.Lens' SyntaxToken (Prelude.Maybe Prelude.Text)
 syntaxToken_text = Lens.lens (\SyntaxToken' {text} -> text) (\s@SyntaxToken' {} a -> s {text = a} :: SyntaxToken)
 
 -- | The zero-based offset from the beginning of the source text to the first
 -- character in the word.
-syntaxToken_beginOffset :: Lens.Lens' SyntaxToken (Core.Maybe Core.Int)
+syntaxToken_beginOffset :: Lens.Lens' SyntaxToken (Prelude.Maybe Prelude.Int)
 syntaxToken_beginOffset = Lens.lens (\SyntaxToken' {beginOffset} -> beginOffset) (\s@SyntaxToken' {} a -> s {beginOffset = a} :: SyntaxToken)
 
 instance Core.FromJSON SyntaxToken where
@@ -108,13 +109,13 @@ instance Core.FromJSON SyntaxToken where
       "SyntaxToken"
       ( \x ->
           SyntaxToken'
-            Core.<$> (x Core..:? "TokenId")
-            Core.<*> (x Core..:? "PartOfSpeech")
-            Core.<*> (x Core..:? "EndOffset")
-            Core.<*> (x Core..:? "Text")
-            Core.<*> (x Core..:? "BeginOffset")
+            Prelude.<$> (x Core..:? "TokenId")
+            Prelude.<*> (x Core..:? "PartOfSpeech")
+            Prelude.<*> (x Core..:? "EndOffset")
+            Prelude.<*> (x Core..:? "Text")
+            Prelude.<*> (x Core..:? "BeginOffset")
       )
 
-instance Core.Hashable SyntaxToken
+instance Prelude.Hashable SyntaxToken
 
-instance Core.NFData SyntaxToken
+instance Prelude.NFData SyntaxToken

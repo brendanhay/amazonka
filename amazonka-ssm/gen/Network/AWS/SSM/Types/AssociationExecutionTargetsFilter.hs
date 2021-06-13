@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.AssociationExecutionTargetsFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey
 
 -- | Filters for the association execution.
@@ -30,9 +31,9 @@ data AssociationExecutionTargetsFilter = AssociationExecutionTargetsFilter'
   { -- | The key value used in the request.
     key :: AssociationExecutionTargetsFilterKey,
     -- | The value specified for the key.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociationExecutionTargetsFilter' with all optional fields omitted.
@@ -49,7 +50,7 @@ newAssociationExecutionTargetsFilter ::
   -- | 'key'
   AssociationExecutionTargetsFilterKey ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   AssociationExecutionTargetsFilter
 newAssociationExecutionTargetsFilter pKey_ pValue_ =
   AssociationExecutionTargetsFilter'
@@ -62,15 +63,15 @@ associationExecutionTargetsFilter_key :: Lens.Lens' AssociationExecutionTargetsF
 associationExecutionTargetsFilter_key = Lens.lens (\AssociationExecutionTargetsFilter' {key} -> key) (\s@AssociationExecutionTargetsFilter' {} a -> s {key = a} :: AssociationExecutionTargetsFilter)
 
 -- | The value specified for the key.
-associationExecutionTargetsFilter_value :: Lens.Lens' AssociationExecutionTargetsFilter Core.Text
+associationExecutionTargetsFilter_value :: Lens.Lens' AssociationExecutionTargetsFilter Prelude.Text
 associationExecutionTargetsFilter_value = Lens.lens (\AssociationExecutionTargetsFilter' {value} -> value) (\s@AssociationExecutionTargetsFilter' {} a -> s {value = a} :: AssociationExecutionTargetsFilter)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AssociationExecutionTargetsFilter
 
 instance
-  Core.NFData
+  Prelude.NFData
     AssociationExecutionTargetsFilter
 
 instance
@@ -79,8 +80,8 @@ instance
   where
   toJSON AssociationExecutionTargetsFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Key" Core..= key),
-            Core.Just ("Value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Value" Core..= value)
           ]
       )

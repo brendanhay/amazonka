@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.TransitGatewayPropagationState
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a propagation route table.
 --
 -- /See:/ 'newTransitGatewayAttachmentPropagation' smart constructor.
 data TransitGatewayAttachmentPropagation = TransitGatewayAttachmentPropagation'
   { -- | The state of the propagation route table.
-    state :: Core.Maybe TransitGatewayPropagationState,
+    state :: Prelude.Maybe TransitGatewayPropagationState,
     -- | The ID of the propagation route table.
-    transitGatewayRouteTableId :: Core.Maybe Core.Text
+    transitGatewayRouteTableId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayAttachmentPropagation' with all optional fields omitted.
@@ -51,17 +52,17 @@ newTransitGatewayAttachmentPropagation ::
 newTransitGatewayAttachmentPropagation =
   TransitGatewayAttachmentPropagation'
     { state =
-        Core.Nothing,
+        Prelude.Nothing,
       transitGatewayRouteTableId =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The state of the propagation route table.
-transitGatewayAttachmentPropagation_state :: Lens.Lens' TransitGatewayAttachmentPropagation (Core.Maybe TransitGatewayPropagationState)
+transitGatewayAttachmentPropagation_state :: Lens.Lens' TransitGatewayAttachmentPropagation (Prelude.Maybe TransitGatewayPropagationState)
 transitGatewayAttachmentPropagation_state = Lens.lens (\TransitGatewayAttachmentPropagation' {state} -> state) (\s@TransitGatewayAttachmentPropagation' {} a -> s {state = a} :: TransitGatewayAttachmentPropagation)
 
 -- | The ID of the propagation route table.
-transitGatewayAttachmentPropagation_transitGatewayRouteTableId :: Lens.Lens' TransitGatewayAttachmentPropagation (Core.Maybe Core.Text)
+transitGatewayAttachmentPropagation_transitGatewayRouteTableId :: Lens.Lens' TransitGatewayAttachmentPropagation (Prelude.Maybe Prelude.Text)
 transitGatewayAttachmentPropagation_transitGatewayRouteTableId = Lens.lens (\TransitGatewayAttachmentPropagation' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@TransitGatewayAttachmentPropagation' {} a -> s {transitGatewayRouteTableId = a} :: TransitGatewayAttachmentPropagation)
 
 instance
@@ -70,13 +71,13 @@ instance
   where
   parseXML x =
     TransitGatewayAttachmentPropagation'
-      Core.<$> (x Core..@? "state")
-      Core.<*> (x Core..@? "transitGatewayRouteTableId")
+      Prelude.<$> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "transitGatewayRouteTableId")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     TransitGatewayAttachmentPropagation
 
 instance
-  Core.NFData
+  Prelude.NFData
     TransitGatewayAttachmentPropagation

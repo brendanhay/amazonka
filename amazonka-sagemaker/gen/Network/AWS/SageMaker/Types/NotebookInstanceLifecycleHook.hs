@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.NotebookInstanceLifecycleHook where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the notebook instance lifecycle configuration script.
 --
@@ -44,9 +45,9 @@ import qualified Network.AWS.Lens as Lens
 data NotebookInstanceLifecycleHook = NotebookInstanceLifecycleHook'
   { -- | A base64-encoded string that contains a shell script for a notebook
     -- instance lifecycle configuration.
-    content :: Core.Maybe Core.Text
+    content :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NotebookInstanceLifecycleHook' with all optional fields omitted.
@@ -63,12 +64,12 @@ newNotebookInstanceLifecycleHook ::
 newNotebookInstanceLifecycleHook =
   NotebookInstanceLifecycleHook'
     { content =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | A base64-encoded string that contains a shell script for a notebook
 -- instance lifecycle configuration.
-notebookInstanceLifecycleHook_content :: Lens.Lens' NotebookInstanceLifecycleHook (Core.Maybe Core.Text)
+notebookInstanceLifecycleHook_content :: Lens.Lens' NotebookInstanceLifecycleHook (Prelude.Maybe Prelude.Text)
 notebookInstanceLifecycleHook_content = Lens.lens (\NotebookInstanceLifecycleHook' {content} -> content) (\s@NotebookInstanceLifecycleHook' {} a -> s {content = a} :: NotebookInstanceLifecycleHook)
 
 instance Core.FromJSON NotebookInstanceLifecycleHook where
@@ -77,16 +78,18 @@ instance Core.FromJSON NotebookInstanceLifecycleHook where
       "NotebookInstanceLifecycleHook"
       ( \x ->
           NotebookInstanceLifecycleHook'
-            Core.<$> (x Core..:? "Content")
+            Prelude.<$> (x Core..:? "Content")
       )
 
-instance Core.Hashable NotebookInstanceLifecycleHook
+instance
+  Prelude.Hashable
+    NotebookInstanceLifecycleHook
 
-instance Core.NFData NotebookInstanceLifecycleHook
+instance Prelude.NFData NotebookInstanceLifecycleHook
 
 instance Core.ToJSON NotebookInstanceLifecycleHook where
   toJSON NotebookInstanceLifecycleHook' {..} =
     Core.object
-      ( Core.catMaybes
-          [("Content" Core..=) Core.<$> content]
+      ( Prelude.catMaybes
+          [("Content" Core..=) Prelude.<$> content]
       )

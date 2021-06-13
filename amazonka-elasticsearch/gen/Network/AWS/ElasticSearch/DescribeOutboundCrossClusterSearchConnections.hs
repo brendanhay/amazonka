@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,10 +57,10 @@ import qualified Network.AWS.Response as Response
 data DescribeOutboundCrossClusterSearchConnections = DescribeOutboundCrossClusterSearchConnections'
   { -- | NextToken is sent in case the earlier API call results contain the
     -- NextToken. It is used for pagination.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Set this value to limit the number of results returned. If not
     -- specified, defaults to 100.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | A list of filters used to match properties for outbound cross-cluster
     -- search connection. Available @Filter@ names for this operation are:
     --
@@ -68,9 +69,9 @@ data DescribeOutboundCrossClusterSearchConnections = DescribeOutboundCrossCluste
     -- -   destination-domain-info.owner-id
     -- -   destination-domain-info.region
     -- -   source-domain-info.domain-name
-    filters :: Core.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeOutboundCrossClusterSearchConnections' with all optional fields omitted.
@@ -99,19 +100,19 @@ newDescribeOutboundCrossClusterSearchConnections ::
 newDescribeOutboundCrossClusterSearchConnections =
   DescribeOutboundCrossClusterSearchConnections'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing,
-      filters = Core.Nothing
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | NextToken is sent in case the earlier API call results contain the
 -- NextToken. It is used for pagination.
-describeOutboundCrossClusterSearchConnections_nextToken :: Lens.Lens' DescribeOutboundCrossClusterSearchConnections (Core.Maybe Core.Text)
+describeOutboundCrossClusterSearchConnections_nextToken :: Lens.Lens' DescribeOutboundCrossClusterSearchConnections (Prelude.Maybe Prelude.Text)
 describeOutboundCrossClusterSearchConnections_nextToken = Lens.lens (\DescribeOutboundCrossClusterSearchConnections' {nextToken} -> nextToken) (\s@DescribeOutboundCrossClusterSearchConnections' {} a -> s {nextToken = a} :: DescribeOutboundCrossClusterSearchConnections)
 
 -- | Set this value to limit the number of results returned. If not
 -- specified, defaults to 100.
-describeOutboundCrossClusterSearchConnections_maxResults :: Lens.Lens' DescribeOutboundCrossClusterSearchConnections (Core.Maybe Core.Int)
+describeOutboundCrossClusterSearchConnections_maxResults :: Lens.Lens' DescribeOutboundCrossClusterSearchConnections (Prelude.Maybe Prelude.Int)
 describeOutboundCrossClusterSearchConnections_maxResults = Lens.lens (\DescribeOutboundCrossClusterSearchConnections' {maxResults} -> maxResults) (\s@DescribeOutboundCrossClusterSearchConnections' {} a -> s {maxResults = a} :: DescribeOutboundCrossClusterSearchConnections)
 
 -- | A list of filters used to match properties for outbound cross-cluster
@@ -122,8 +123,8 @@ describeOutboundCrossClusterSearchConnections_maxResults = Lens.lens (\DescribeO
 -- -   destination-domain-info.owner-id
 -- -   destination-domain-info.region
 -- -   source-domain-info.domain-name
-describeOutboundCrossClusterSearchConnections_filters :: Lens.Lens' DescribeOutboundCrossClusterSearchConnections (Core.Maybe [Filter])
-describeOutboundCrossClusterSearchConnections_filters = Lens.lens (\DescribeOutboundCrossClusterSearchConnections' {filters} -> filters) (\s@DescribeOutboundCrossClusterSearchConnections' {} a -> s {filters = a} :: DescribeOutboundCrossClusterSearchConnections) Core.. Lens.mapping Lens._Coerce
+describeOutboundCrossClusterSearchConnections_filters :: Lens.Lens' DescribeOutboundCrossClusterSearchConnections (Prelude.Maybe [Filter])
+describeOutboundCrossClusterSearchConnections_filters = Lens.lens (\DescribeOutboundCrossClusterSearchConnections' {filters} -> filters) (\s@DescribeOutboundCrossClusterSearchConnections' {} a -> s {filters = a} :: DescribeOutboundCrossClusterSearchConnections) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -138,26 +139,26 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeOutboundCrossClusterSearchConnectionsResponse'
-            Core.<$> (x Core..?> "NextToken")
-              Core.<*> ( x Core..?> "CrossClusterSearchConnections"
-                           Core..!@ Core.mempty
-                       )
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x Core..?> "CrossClusterSearchConnections"
+                              Core..!@ Prelude.mempty
+                          )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeOutboundCrossClusterSearchConnections
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeOutboundCrossClusterSearchConnections
 
 instance
   Core.ToHeaders
     DescribeOutboundCrossClusterSearchConnections
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToJSON
@@ -166,10 +167,10 @@ instance
   toJSON
     DescribeOutboundCrossClusterSearchConnections' {..} =
       Core.object
-        ( Core.catMaybes
-            [ ("NextToken" Core..=) Core.<$> nextToken,
-              ("MaxResults" Core..=) Core.<$> maxResults,
-              ("Filters" Core..=) Core.<$> filters
+        ( Prelude.catMaybes
+            [ ("NextToken" Core..=) Prelude.<$> nextToken,
+              ("MaxResults" Core..=) Prelude.<$> maxResults,
+              ("Filters" Core..=) Prelude.<$> filters
             ]
         )
 
@@ -178,14 +179,14 @@ instance
     DescribeOutboundCrossClusterSearchConnections
   where
   toPath =
-    Core.const
+    Prelude.const
       "/2015-01-01/es/ccs/outboundConnection/search"
 
 instance
   Core.ToQuery
     DescribeOutboundCrossClusterSearchConnections
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a @DescribeOutboundCrossClusterSearchConnections@ request.
 -- Contains the list of connections matching the filter criteria.
@@ -195,14 +196,14 @@ data DescribeOutboundCrossClusterSearchConnectionsResponse = DescribeOutboundCro
   { -- | If more results are available and NextToken is present, make the next
     -- request to the same API with the received NextToken to paginate the
     -- remaining results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Consists of list of @OutboundCrossClusterSearchConnection@ matching the
     -- specified filter criteria.
-    crossClusterSearchConnections :: Core.Maybe [OutboundCrossClusterSearchConnection],
+    crossClusterSearchConnections :: Prelude.Maybe [OutboundCrossClusterSearchConnection],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeOutboundCrossClusterSearchConnectionsResponse' with all optional fields omitted.
@@ -222,15 +223,15 @@ data DescribeOutboundCrossClusterSearchConnectionsResponse = DescribeOutboundCro
 -- 'httpStatus', 'describeOutboundCrossClusterSearchConnectionsResponse_httpStatus' - The response's http status code.
 newDescribeOutboundCrossClusterSearchConnectionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeOutboundCrossClusterSearchConnectionsResponse
 newDescribeOutboundCrossClusterSearchConnectionsResponse
   pHttpStatus_ =
     DescribeOutboundCrossClusterSearchConnectionsResponse'
       { nextToken =
-          Core.Nothing,
+          Prelude.Nothing,
         crossClusterSearchConnections =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
@@ -238,18 +239,18 @@ newDescribeOutboundCrossClusterSearchConnectionsResponse
 -- | If more results are available and NextToken is present, make the next
 -- request to the same API with the received NextToken to paginate the
 -- remaining results.
-describeOutboundCrossClusterSearchConnectionsResponse_nextToken :: Lens.Lens' DescribeOutboundCrossClusterSearchConnectionsResponse (Core.Maybe Core.Text)
+describeOutboundCrossClusterSearchConnectionsResponse_nextToken :: Lens.Lens' DescribeOutboundCrossClusterSearchConnectionsResponse (Prelude.Maybe Prelude.Text)
 describeOutboundCrossClusterSearchConnectionsResponse_nextToken = Lens.lens (\DescribeOutboundCrossClusterSearchConnectionsResponse' {nextToken} -> nextToken) (\s@DescribeOutboundCrossClusterSearchConnectionsResponse' {} a -> s {nextToken = a} :: DescribeOutboundCrossClusterSearchConnectionsResponse)
 
 -- | Consists of list of @OutboundCrossClusterSearchConnection@ matching the
 -- specified filter criteria.
-describeOutboundCrossClusterSearchConnectionsResponse_crossClusterSearchConnections :: Lens.Lens' DescribeOutboundCrossClusterSearchConnectionsResponse (Core.Maybe [OutboundCrossClusterSearchConnection])
-describeOutboundCrossClusterSearchConnectionsResponse_crossClusterSearchConnections = Lens.lens (\DescribeOutboundCrossClusterSearchConnectionsResponse' {crossClusterSearchConnections} -> crossClusterSearchConnections) (\s@DescribeOutboundCrossClusterSearchConnectionsResponse' {} a -> s {crossClusterSearchConnections = a} :: DescribeOutboundCrossClusterSearchConnectionsResponse) Core.. Lens.mapping Lens._Coerce
+describeOutboundCrossClusterSearchConnectionsResponse_crossClusterSearchConnections :: Lens.Lens' DescribeOutboundCrossClusterSearchConnectionsResponse (Prelude.Maybe [OutboundCrossClusterSearchConnection])
+describeOutboundCrossClusterSearchConnectionsResponse_crossClusterSearchConnections = Lens.lens (\DescribeOutboundCrossClusterSearchConnectionsResponse' {crossClusterSearchConnections} -> crossClusterSearchConnections) (\s@DescribeOutboundCrossClusterSearchConnectionsResponse' {} a -> s {crossClusterSearchConnections = a} :: DescribeOutboundCrossClusterSearchConnectionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeOutboundCrossClusterSearchConnectionsResponse_httpStatus :: Lens.Lens' DescribeOutboundCrossClusterSearchConnectionsResponse Core.Int
+describeOutboundCrossClusterSearchConnectionsResponse_httpStatus :: Lens.Lens' DescribeOutboundCrossClusterSearchConnectionsResponse Prelude.Int
 describeOutboundCrossClusterSearchConnectionsResponse_httpStatus = Lens.lens (\DescribeOutboundCrossClusterSearchConnectionsResponse' {httpStatus} -> httpStatus) (\s@DescribeOutboundCrossClusterSearchConnectionsResponse' {} a -> s {httpStatus = a} :: DescribeOutboundCrossClusterSearchConnectionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeOutboundCrossClusterSearchConnectionsResponse

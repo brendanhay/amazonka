@@ -42,15 +42,16 @@ where
 import Network.AWS.CodeBuild.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopBuildBatch' smart constructor.
 data StopBuildBatch = StopBuildBatch'
   { -- | The identifier of the batch build to stop.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopBuildBatch' with all optional fields omitted.
@@ -63,12 +64,12 @@ data StopBuildBatch = StopBuildBatch'
 -- 'id', 'stopBuildBatch_id' - The identifier of the batch build to stop.
 newStopBuildBatch ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   StopBuildBatch
 newStopBuildBatch pId_ = StopBuildBatch' {id = pId_}
 
 -- | The identifier of the batch build to stop.
-stopBuildBatch_id :: Lens.Lens' StopBuildBatch Core.Text
+stopBuildBatch_id :: Lens.Lens' StopBuildBatch Prelude.Text
 stopBuildBatch_id = Lens.lens (\StopBuildBatch' {id} -> id) (\s@StopBuildBatch' {} a -> s {id = a} :: StopBuildBatch)
 
 instance Core.AWSRequest StopBuildBatch where
@@ -80,45 +81,47 @@ instance Core.AWSRequest StopBuildBatch where
     Response.receiveJSON
       ( \s h x ->
           StopBuildBatchResponse'
-            Core.<$> (x Core..?> "buildBatch")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "buildBatch")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopBuildBatch
+instance Prelude.Hashable StopBuildBatch
 
-instance Core.NFData StopBuildBatch
+instance Prelude.NFData StopBuildBatch
 
 instance Core.ToHeaders StopBuildBatch where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeBuild_20161006.StopBuildBatch" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopBuildBatch where
   toJSON StopBuildBatch' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("id" Core..= id)])
+      (Prelude.catMaybes [Prelude.Just ("id" Core..= id)])
 
 instance Core.ToPath StopBuildBatch where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopBuildBatch where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopBuildBatchResponse' smart constructor.
 data StopBuildBatchResponse = StopBuildBatchResponse'
-  { buildBatch :: Core.Maybe BuildBatch,
+  { buildBatch :: Prelude.Maybe BuildBatch,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopBuildBatchResponse' with all optional fields omitted.
@@ -133,20 +136,21 @@ data StopBuildBatchResponse = StopBuildBatchResponse'
 -- 'httpStatus', 'stopBuildBatchResponse_httpStatus' - The response's http status code.
 newStopBuildBatchResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopBuildBatchResponse
 newStopBuildBatchResponse pHttpStatus_ =
   StopBuildBatchResponse'
-    { buildBatch = Core.Nothing,
+    { buildBatch =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-stopBuildBatchResponse_buildBatch :: Lens.Lens' StopBuildBatchResponse (Core.Maybe BuildBatch)
+stopBuildBatchResponse_buildBatch :: Lens.Lens' StopBuildBatchResponse (Prelude.Maybe BuildBatch)
 stopBuildBatchResponse_buildBatch = Lens.lens (\StopBuildBatchResponse' {buildBatch} -> buildBatch) (\s@StopBuildBatchResponse' {} a -> s {buildBatch = a} :: StopBuildBatchResponse)
 
 -- | The response's http status code.
-stopBuildBatchResponse_httpStatus :: Lens.Lens' StopBuildBatchResponse Core.Int
+stopBuildBatchResponse_httpStatus :: Lens.Lens' StopBuildBatchResponse Prelude.Int
 stopBuildBatchResponse_httpStatus = Lens.lens (\StopBuildBatchResponse' {httpStatus} -> httpStatus) (\s@StopBuildBatchResponse' {} a -> s {httpStatus = a} :: StopBuildBatchResponse)
 
-instance Core.NFData StopBuildBatchResponse
+instance Prelude.NFData StopBuildBatchResponse

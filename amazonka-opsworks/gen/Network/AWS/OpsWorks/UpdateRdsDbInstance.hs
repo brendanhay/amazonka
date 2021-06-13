@@ -46,19 +46,20 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateRdsDbInstance' smart constructor.
 data UpdateRdsDbInstance = UpdateRdsDbInstance'
   { -- | The master user name.
-    dbUser :: Core.Maybe Core.Text,
+    dbUser :: Prelude.Maybe Prelude.Text,
     -- | The database password.
-    dbPassword :: Core.Maybe Core.Text,
+    dbPassword :: Prelude.Maybe Prelude.Text,
     -- | The Amazon RDS instance\'s ARN.
-    rdsDbInstanceArn :: Core.Text
+    rdsDbInstanceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRdsDbInstance' with all optional fields omitted.
@@ -75,25 +76,25 @@ data UpdateRdsDbInstance = UpdateRdsDbInstance'
 -- 'rdsDbInstanceArn', 'updateRdsDbInstance_rdsDbInstanceArn' - The Amazon RDS instance\'s ARN.
 newUpdateRdsDbInstance ::
   -- | 'rdsDbInstanceArn'
-  Core.Text ->
+  Prelude.Text ->
   UpdateRdsDbInstance
 newUpdateRdsDbInstance pRdsDbInstanceArn_ =
   UpdateRdsDbInstance'
-    { dbUser = Core.Nothing,
-      dbPassword = Core.Nothing,
+    { dbUser = Prelude.Nothing,
+      dbPassword = Prelude.Nothing,
       rdsDbInstanceArn = pRdsDbInstanceArn_
     }
 
 -- | The master user name.
-updateRdsDbInstance_dbUser :: Lens.Lens' UpdateRdsDbInstance (Core.Maybe Core.Text)
+updateRdsDbInstance_dbUser :: Lens.Lens' UpdateRdsDbInstance (Prelude.Maybe Prelude.Text)
 updateRdsDbInstance_dbUser = Lens.lens (\UpdateRdsDbInstance' {dbUser} -> dbUser) (\s@UpdateRdsDbInstance' {} a -> s {dbUser = a} :: UpdateRdsDbInstance)
 
 -- | The database password.
-updateRdsDbInstance_dbPassword :: Lens.Lens' UpdateRdsDbInstance (Core.Maybe Core.Text)
+updateRdsDbInstance_dbPassword :: Lens.Lens' UpdateRdsDbInstance (Prelude.Maybe Prelude.Text)
 updateRdsDbInstance_dbPassword = Lens.lens (\UpdateRdsDbInstance' {dbPassword} -> dbPassword) (\s@UpdateRdsDbInstance' {} a -> s {dbPassword = a} :: UpdateRdsDbInstance)
 
 -- | The Amazon RDS instance\'s ARN.
-updateRdsDbInstance_rdsDbInstanceArn :: Lens.Lens' UpdateRdsDbInstance Core.Text
+updateRdsDbInstance_rdsDbInstanceArn :: Lens.Lens' UpdateRdsDbInstance Prelude.Text
 updateRdsDbInstance_rdsDbInstanceArn = Lens.lens (\UpdateRdsDbInstance' {rdsDbInstanceArn} -> rdsDbInstanceArn) (\s@UpdateRdsDbInstance' {} a -> s {rdsDbInstanceArn = a} :: UpdateRdsDbInstance)
 
 instance Core.AWSRequest UpdateRdsDbInstance where
@@ -104,45 +105,47 @@ instance Core.AWSRequest UpdateRdsDbInstance where
   response =
     Response.receiveNull UpdateRdsDbInstanceResponse'
 
-instance Core.Hashable UpdateRdsDbInstance
+instance Prelude.Hashable UpdateRdsDbInstance
 
-instance Core.NFData UpdateRdsDbInstance
+instance Prelude.NFData UpdateRdsDbInstance
 
 instance Core.ToHeaders UpdateRdsDbInstance where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.UpdateRdsDbInstance" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateRdsDbInstance where
   toJSON UpdateRdsDbInstance' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DbUser" Core..=) Core.<$> dbUser,
-            ("DbPassword" Core..=) Core.<$> dbPassword,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("DbUser" Core..=) Prelude.<$> dbUser,
+            ("DbPassword" Core..=) Prelude.<$> dbPassword,
+            Prelude.Just
               ("RdsDbInstanceArn" Core..= rdsDbInstanceArn)
           ]
       )
 
 instance Core.ToPath UpdateRdsDbInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateRdsDbInstance where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRdsDbInstanceResponse' smart constructor.
 data UpdateRdsDbInstanceResponse = UpdateRdsDbInstanceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRdsDbInstanceResponse' with all optional fields omitted.
@@ -153,4 +156,4 @@ newUpdateRdsDbInstanceResponse ::
 newUpdateRdsDbInstanceResponse =
   UpdateRdsDbInstanceResponse'
 
-instance Core.NFData UpdateRdsDbInstanceResponse
+instance Prelude.NFData UpdateRdsDbInstanceResponse

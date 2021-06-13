@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,12 +58,12 @@ import qualified Network.AWS.Response as Response
 data PutUserPermissionsBoundary = PutUserPermissionsBoundary'
   { -- | The name (friendly name, not ARN) of the IAM user for which you want to
     -- set the permissions boundary.
-    userName :: Core.Text,
+    userName :: Prelude.Text,
     -- | The ARN of the policy that is used to set the permissions boundary for
     -- the user.
-    permissionsBoundary :: Core.Text
+    permissionsBoundary :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutUserPermissionsBoundary' with all optional fields omitted.
@@ -79,9 +80,9 @@ data PutUserPermissionsBoundary = PutUserPermissionsBoundary'
 -- the user.
 newPutUserPermissionsBoundary ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'permissionsBoundary'
-  Core.Text ->
+  Prelude.Text ->
   PutUserPermissionsBoundary
 newPutUserPermissionsBoundary
   pUserName_
@@ -93,12 +94,12 @@ newPutUserPermissionsBoundary
 
 -- | The name (friendly name, not ARN) of the IAM user for which you want to
 -- set the permissions boundary.
-putUserPermissionsBoundary_userName :: Lens.Lens' PutUserPermissionsBoundary Core.Text
+putUserPermissionsBoundary_userName :: Lens.Lens' PutUserPermissionsBoundary Prelude.Text
 putUserPermissionsBoundary_userName = Lens.lens (\PutUserPermissionsBoundary' {userName} -> userName) (\s@PutUserPermissionsBoundary' {} a -> s {userName = a} :: PutUserPermissionsBoundary)
 
 -- | The ARN of the policy that is used to set the permissions boundary for
 -- the user.
-putUserPermissionsBoundary_permissionsBoundary :: Lens.Lens' PutUserPermissionsBoundary Core.Text
+putUserPermissionsBoundary_permissionsBoundary :: Lens.Lens' PutUserPermissionsBoundary Prelude.Text
 putUserPermissionsBoundary_permissionsBoundary = Lens.lens (\PutUserPermissionsBoundary' {permissionsBoundary} -> permissionsBoundary) (\s@PutUserPermissionsBoundary' {} a -> s {permissionsBoundary = a} :: PutUserPermissionsBoundary)
 
 instance Core.AWSRequest PutUserPermissionsBoundary where
@@ -110,22 +111,23 @@ instance Core.AWSRequest PutUserPermissionsBoundary where
     Response.receiveNull
       PutUserPermissionsBoundaryResponse'
 
-instance Core.Hashable PutUserPermissionsBoundary
+instance Prelude.Hashable PutUserPermissionsBoundary
 
-instance Core.NFData PutUserPermissionsBoundary
+instance Prelude.NFData PutUserPermissionsBoundary
 
 instance Core.ToHeaders PutUserPermissionsBoundary where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath PutUserPermissionsBoundary where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutUserPermissionsBoundary where
   toQuery PutUserPermissionsBoundary' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("PutUserPermissionsBoundary" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("PutUserPermissionsBoundary" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "UserName" Core.=: userName,
         "PermissionsBoundary" Core.=: permissionsBoundary
       ]
@@ -134,7 +136,7 @@ instance Core.ToQuery PutUserPermissionsBoundary where
 data PutUserPermissionsBoundaryResponse = PutUserPermissionsBoundaryResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutUserPermissionsBoundaryResponse' with all optional fields omitted.
@@ -146,5 +148,5 @@ newPutUserPermissionsBoundaryResponse =
   PutUserPermissionsBoundaryResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutUserPermissionsBoundaryResponse

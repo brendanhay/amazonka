@@ -21,6 +21,7 @@ module Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A warning returned by the document service when an issue is discovered
 -- while processing an upload request.
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDocumentServiceWarning' smart constructor.
 data DocumentServiceWarning = DocumentServiceWarning'
   { -- | The description for a warning returned by the document service.
-    message :: Core.Maybe Core.Text
+    message :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DocumentServiceWarning' with all optional fields omitted.
@@ -44,10 +45,10 @@ data DocumentServiceWarning = DocumentServiceWarning'
 newDocumentServiceWarning ::
   DocumentServiceWarning
 newDocumentServiceWarning =
-  DocumentServiceWarning' {message = Core.Nothing}
+  DocumentServiceWarning' {message = Prelude.Nothing}
 
 -- | The description for a warning returned by the document service.
-documentServiceWarning_message :: Lens.Lens' DocumentServiceWarning (Core.Maybe Core.Text)
+documentServiceWarning_message :: Lens.Lens' DocumentServiceWarning (Prelude.Maybe Prelude.Text)
 documentServiceWarning_message = Lens.lens (\DocumentServiceWarning' {message} -> message) (\s@DocumentServiceWarning' {} a -> s {message = a} :: DocumentServiceWarning)
 
 instance Core.FromJSON DocumentServiceWarning where
@@ -56,9 +57,9 @@ instance Core.FromJSON DocumentServiceWarning where
       "DocumentServiceWarning"
       ( \x ->
           DocumentServiceWarning'
-            Core.<$> (x Core..:? "message")
+            Prelude.<$> (x Core..:? "message")
       )
 
-instance Core.Hashable DocumentServiceWarning
+instance Prelude.Hashable DocumentServiceWarning
 
-instance Core.NFData DocumentServiceWarning
+instance Prelude.NFData DocumentServiceWarning

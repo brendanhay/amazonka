@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -50,14 +51,14 @@ import Network.AWS.WorkDocs.Types
 -- | /See:/ 'newCreateFolder' smart constructor.
 data CreateFolder = CreateFolder'
   { -- | The name of the new folder.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ID of the parent folder.
-    parentFolderId :: Core.Text
+    parentFolderId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateFolder' with all optional fields omitted.
@@ -75,26 +76,26 @@ data CreateFolder = CreateFolder'
 -- 'parentFolderId', 'createFolder_parentFolderId' - The ID of the parent folder.
 newCreateFolder ::
   -- | 'parentFolderId'
-  Core.Text ->
+  Prelude.Text ->
   CreateFolder
 newCreateFolder pParentFolderId_ =
   CreateFolder'
-    { name = Core.Nothing,
-      authenticationToken = Core.Nothing,
+    { name = Prelude.Nothing,
+      authenticationToken = Prelude.Nothing,
       parentFolderId = pParentFolderId_
     }
 
 -- | The name of the new folder.
-createFolder_name :: Lens.Lens' CreateFolder (Core.Maybe Core.Text)
+createFolder_name :: Lens.Lens' CreateFolder (Prelude.Maybe Prelude.Text)
 createFolder_name = Lens.lens (\CreateFolder' {name} -> name) (\s@CreateFolder' {} a -> s {name = a} :: CreateFolder)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-createFolder_authenticationToken :: Lens.Lens' CreateFolder (Core.Maybe Core.Text)
-createFolder_authenticationToken = Lens.lens (\CreateFolder' {authenticationToken} -> authenticationToken) (\s@CreateFolder' {} a -> s {authenticationToken = a} :: CreateFolder) Core.. Lens.mapping Core._Sensitive
+createFolder_authenticationToken :: Lens.Lens' CreateFolder (Prelude.Maybe Prelude.Text)
+createFolder_authenticationToken = Lens.lens (\CreateFolder' {authenticationToken} -> authenticationToken) (\s@CreateFolder' {} a -> s {authenticationToken = a} :: CreateFolder) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the parent folder.
-createFolder_parentFolderId :: Lens.Lens' CreateFolder Core.Text
+createFolder_parentFolderId :: Lens.Lens' CreateFolder Prelude.Text
 createFolder_parentFolderId = Lens.lens (\CreateFolder' {parentFolderId} -> parentFolderId) (\s@CreateFolder' {} a -> s {parentFolderId = a} :: CreateFolder)
 
 instance Core.AWSRequest CreateFolder where
@@ -104,45 +105,46 @@ instance Core.AWSRequest CreateFolder where
     Response.receiveJSON
       ( \s h x ->
           CreateFolderResponse'
-            Core.<$> (x Core..?> "Metadata")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Metadata")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateFolder
+instance Prelude.Hashable CreateFolder
 
-instance Core.NFData CreateFolder
+instance Prelude.NFData CreateFolder
 
 instance Core.ToHeaders CreateFolder where
   toHeaders CreateFolder' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance Core.ToJSON CreateFolder where
   toJSON CreateFolder' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Name" Core..=) Core.<$> name,
-            Core.Just ("ParentFolderId" Core..= parentFolderId)
+      ( Prelude.catMaybes
+          [ ("Name" Core..=) Prelude.<$> name,
+            Prelude.Just
+              ("ParentFolderId" Core..= parentFolderId)
           ]
       )
 
 instance Core.ToPath CreateFolder where
-  toPath = Core.const "/api/v1/folders"
+  toPath = Prelude.const "/api/v1/folders"
 
 instance Core.ToQuery CreateFolder where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFolderResponse' smart constructor.
 data CreateFolderResponse = CreateFolderResponse'
   { -- | The metadata of the folder.
-    metadata :: Core.Maybe FolderMetadata,
+    metadata :: Prelude.Maybe FolderMetadata,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateFolderResponse' with all optional fields omitted.
@@ -157,20 +159,20 @@ data CreateFolderResponse = CreateFolderResponse'
 -- 'httpStatus', 'createFolderResponse_httpStatus' - The response's http status code.
 newCreateFolderResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateFolderResponse
 newCreateFolderResponse pHttpStatus_ =
   CreateFolderResponse'
-    { metadata = Core.Nothing,
+    { metadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The metadata of the folder.
-createFolderResponse_metadata :: Lens.Lens' CreateFolderResponse (Core.Maybe FolderMetadata)
+createFolderResponse_metadata :: Lens.Lens' CreateFolderResponse (Prelude.Maybe FolderMetadata)
 createFolderResponse_metadata = Lens.lens (\CreateFolderResponse' {metadata} -> metadata) (\s@CreateFolderResponse' {} a -> s {metadata = a} :: CreateFolderResponse)
 
 -- | The response's http status code.
-createFolderResponse_httpStatus :: Lens.Lens' CreateFolderResponse Core.Int
+createFolderResponse_httpStatus :: Lens.Lens' CreateFolderResponse Prelude.Int
 createFolderResponse_httpStatus = Lens.lens (\CreateFolderResponse' {httpStatus} -> httpStatus) (\s@CreateFolderResponse' {} a -> s {httpStatus = a} :: CreateFolderResponse)
 
-instance Core.NFData CreateFolderResponse
+instance Prelude.NFData CreateFolderResponse

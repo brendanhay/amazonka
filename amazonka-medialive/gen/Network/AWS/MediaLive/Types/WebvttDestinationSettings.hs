@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.WebvttDestinationSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Webvtt Destination Settings
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data WebvttDestinationSettings = WebvttDestinationSettings'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WebvttDestinationSettings' with all optional fields omitted.
@@ -43,11 +44,11 @@ instance Core.FromJSON WebvttDestinationSettings where
   parseJSON =
     Core.withObject
       "WebvttDestinationSettings"
-      (\x -> Core.pure WebvttDestinationSettings')
+      (\x -> Prelude.pure WebvttDestinationSettings')
 
-instance Core.Hashable WebvttDestinationSettings
+instance Prelude.Hashable WebvttDestinationSettings
 
-instance Core.NFData WebvttDestinationSettings
+instance Prelude.NFData WebvttDestinationSettings
 
 instance Core.ToJSON WebvttDestinationSettings where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)

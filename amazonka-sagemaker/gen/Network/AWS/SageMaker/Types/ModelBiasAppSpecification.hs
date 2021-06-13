@@ -21,21 +21,22 @@ module Network.AWS.SageMaker.Types.ModelBiasAppSpecification where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Docker container image configuration object for the model bias job.
 --
 -- /See:/ 'newModelBiasAppSpecification' smart constructor.
 data ModelBiasAppSpecification = ModelBiasAppSpecification'
   { -- | Sets the environment variables in the Docker container.
-    environment :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The container image to be run by the model bias job.
-    imageUri :: Core.Text,
+    imageUri :: Prelude.Text,
     -- | JSON formatted S3 file that defines bias parameters. For more
     -- information on this JSON configuration file, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/json-bias-parameter-config.html Configure bias parameters>.
-    configUri :: Core.Text
+    configUri :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModelBiasAppSpecification' with all optional fields omitted.
@@ -54,30 +55,30 @@ data ModelBiasAppSpecification = ModelBiasAppSpecification'
 -- <https://docs.aws.amazon.com/sagemaker/latest/json-bias-parameter-config.html Configure bias parameters>.
 newModelBiasAppSpecification ::
   -- | 'imageUri'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'configUri'
-  Core.Text ->
+  Prelude.Text ->
   ModelBiasAppSpecification
 newModelBiasAppSpecification pImageUri_ pConfigUri_ =
   ModelBiasAppSpecification'
     { environment =
-        Core.Nothing,
+        Prelude.Nothing,
       imageUri = pImageUri_,
       configUri = pConfigUri_
     }
 
 -- | Sets the environment variables in the Docker container.
-modelBiasAppSpecification_environment :: Lens.Lens' ModelBiasAppSpecification (Core.Maybe (Core.HashMap Core.Text Core.Text))
-modelBiasAppSpecification_environment = Lens.lens (\ModelBiasAppSpecification' {environment} -> environment) (\s@ModelBiasAppSpecification' {} a -> s {environment = a} :: ModelBiasAppSpecification) Core.. Lens.mapping Lens._Coerce
+modelBiasAppSpecification_environment :: Lens.Lens' ModelBiasAppSpecification (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+modelBiasAppSpecification_environment = Lens.lens (\ModelBiasAppSpecification' {environment} -> environment) (\s@ModelBiasAppSpecification' {} a -> s {environment = a} :: ModelBiasAppSpecification) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The container image to be run by the model bias job.
-modelBiasAppSpecification_imageUri :: Lens.Lens' ModelBiasAppSpecification Core.Text
+modelBiasAppSpecification_imageUri :: Lens.Lens' ModelBiasAppSpecification Prelude.Text
 modelBiasAppSpecification_imageUri = Lens.lens (\ModelBiasAppSpecification' {imageUri} -> imageUri) (\s@ModelBiasAppSpecification' {} a -> s {imageUri = a} :: ModelBiasAppSpecification)
 
 -- | JSON formatted S3 file that defines bias parameters. For more
 -- information on this JSON configuration file, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/json-bias-parameter-config.html Configure bias parameters>.
-modelBiasAppSpecification_configUri :: Lens.Lens' ModelBiasAppSpecification Core.Text
+modelBiasAppSpecification_configUri :: Lens.Lens' ModelBiasAppSpecification Prelude.Text
 modelBiasAppSpecification_configUri = Lens.lens (\ModelBiasAppSpecification' {configUri} -> configUri) (\s@ModelBiasAppSpecification' {} a -> s {configUri = a} :: ModelBiasAppSpecification)
 
 instance Core.FromJSON ModelBiasAppSpecification where
@@ -86,21 +87,21 @@ instance Core.FromJSON ModelBiasAppSpecification where
       "ModelBiasAppSpecification"
       ( \x ->
           ModelBiasAppSpecification'
-            Core.<$> (x Core..:? "Environment" Core..!= Core.mempty)
-            Core.<*> (x Core..: "ImageUri")
-            Core.<*> (x Core..: "ConfigUri")
+            Prelude.<$> (x Core..:? "Environment" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "ImageUri")
+            Prelude.<*> (x Core..: "ConfigUri")
       )
 
-instance Core.Hashable ModelBiasAppSpecification
+instance Prelude.Hashable ModelBiasAppSpecification
 
-instance Core.NFData ModelBiasAppSpecification
+instance Prelude.NFData ModelBiasAppSpecification
 
 instance Core.ToJSON ModelBiasAppSpecification where
   toJSON ModelBiasAppSpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Environment" Core..=) Core.<$> environment,
-            Core.Just ("ImageUri" Core..= imageUri),
-            Core.Just ("ConfigUri" Core..= configUri)
+      ( Prelude.catMaybes
+          [ ("Environment" Core..=) Prelude.<$> environment,
+            Prelude.Just ("ImageUri" Core..= imageUri),
+            Prelude.Just ("ConfigUri" Core..= configUri)
           ]
       )

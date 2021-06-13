@@ -47,6 +47,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,12 +57,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetVpcLinks' smart constructor.
 data GetVpcLinks = GetVpcLinks'
   { -- | The current pagination position in the paged result set.
-    position :: Core.Maybe Core.Text,
+    position :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Core.Maybe Core.Int
+    limit :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetVpcLinks' with all optional fields omitted.
@@ -79,37 +80,37 @@ newGetVpcLinks ::
   GetVpcLinks
 newGetVpcLinks =
   GetVpcLinks'
-    { position = Core.Nothing,
-      limit = Core.Nothing
+    { position = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | The current pagination position in the paged result set.
-getVpcLinks_position :: Lens.Lens' GetVpcLinks (Core.Maybe Core.Text)
+getVpcLinks_position :: Lens.Lens' GetVpcLinks (Prelude.Maybe Prelude.Text)
 getVpcLinks_position = Lens.lens (\GetVpcLinks' {position} -> position) (\s@GetVpcLinks' {} a -> s {position = a} :: GetVpcLinks)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
-getVpcLinks_limit :: Lens.Lens' GetVpcLinks (Core.Maybe Core.Int)
+getVpcLinks_limit :: Lens.Lens' GetVpcLinks (Prelude.Maybe Prelude.Int)
 getVpcLinks_limit = Lens.lens (\GetVpcLinks' {limit} -> limit) (\s@GetVpcLinks' {} a -> s {limit = a} :: GetVpcLinks)
 
 instance Core.AWSPager GetVpcLinks where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getVpcLinksResponse_position Core.. Lens._Just
+            Lens.^? getVpcLinksResponse_position Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getVpcLinksResponse_items Core.. Lens._Just
+            Lens.^? getVpcLinksResponse_items Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getVpcLinks_position
+          Prelude.& getVpcLinks_position
           Lens..~ rs
-          Lens.^? getVpcLinksResponse_position Core.. Lens._Just
+          Lens.^? getVpcLinksResponse_position Prelude.. Lens._Just
 
 instance Core.AWSRequest GetVpcLinks where
   type AWSResponse GetVpcLinks = GetVpcLinksResponse
@@ -118,30 +119,30 @@ instance Core.AWSRequest GetVpcLinks where
     Response.receiveJSON
       ( \s h x ->
           GetVpcLinksResponse'
-            Core.<$> (x Core..?> "item" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "position")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "position")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetVpcLinks
+instance Prelude.Hashable GetVpcLinks
 
-instance Core.NFData GetVpcLinks
+instance Prelude.NFData GetVpcLinks
 
 instance Core.ToHeaders GetVpcLinks where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetVpcLinks where
-  toPath = Core.const "/vpclinks"
+  toPath = Prelude.const "/vpclinks"
 
 instance Core.ToQuery GetVpcLinks where
   toQuery GetVpcLinks' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["position" Core.=: position, "limit" Core.=: limit]
 
 -- | The collection of VPC links under the caller\'s account in a region.
@@ -152,12 +153,12 @@ instance Core.ToQuery GetVpcLinks where
 -- /See:/ 'newGetVpcLinksResponse' smart constructor.
 data GetVpcLinksResponse = GetVpcLinksResponse'
   { -- | The current page of elements from this collection.
-    items :: Core.Maybe [VpcLink],
-    position :: Core.Maybe Core.Text,
+    items :: Prelude.Maybe [VpcLink],
+    position :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetVpcLinksResponse' with all optional fields omitted.
@@ -174,25 +175,25 @@ data GetVpcLinksResponse = GetVpcLinksResponse'
 -- 'httpStatus', 'getVpcLinksResponse_httpStatus' - The response's http status code.
 newGetVpcLinksResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetVpcLinksResponse
 newGetVpcLinksResponse pHttpStatus_ =
   GetVpcLinksResponse'
-    { items = Core.Nothing,
-      position = Core.Nothing,
+    { items = Prelude.Nothing,
+      position = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current page of elements from this collection.
-getVpcLinksResponse_items :: Lens.Lens' GetVpcLinksResponse (Core.Maybe [VpcLink])
-getVpcLinksResponse_items = Lens.lens (\GetVpcLinksResponse' {items} -> items) (\s@GetVpcLinksResponse' {} a -> s {items = a} :: GetVpcLinksResponse) Core.. Lens.mapping Lens._Coerce
+getVpcLinksResponse_items :: Lens.Lens' GetVpcLinksResponse (Prelude.Maybe [VpcLink])
+getVpcLinksResponse_items = Lens.lens (\GetVpcLinksResponse' {items} -> items) (\s@GetVpcLinksResponse' {} a -> s {items = a} :: GetVpcLinksResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getVpcLinksResponse_position :: Lens.Lens' GetVpcLinksResponse (Core.Maybe Core.Text)
+getVpcLinksResponse_position :: Lens.Lens' GetVpcLinksResponse (Prelude.Maybe Prelude.Text)
 getVpcLinksResponse_position = Lens.lens (\GetVpcLinksResponse' {position} -> position) (\s@GetVpcLinksResponse' {} a -> s {position = a} :: GetVpcLinksResponse)
 
 -- | The response's http status code.
-getVpcLinksResponse_httpStatus :: Lens.Lens' GetVpcLinksResponse Core.Int
+getVpcLinksResponse_httpStatus :: Lens.Lens' GetVpcLinksResponse Prelude.Int
 getVpcLinksResponse_httpStatus = Lens.lens (\GetVpcLinksResponse' {httpStatus} -> httpStatus) (\s@GetVpcLinksResponse' {} a -> s {httpStatus = a} :: GetVpcLinksResponse)
 
-instance Core.NFData GetVpcLinksResponse
+instance Prelude.NFData GetVpcLinksResponse

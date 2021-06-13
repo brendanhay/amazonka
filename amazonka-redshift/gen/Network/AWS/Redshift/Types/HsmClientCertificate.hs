@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.HsmClientCertificate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.Tag
 
@@ -32,13 +33,13 @@ import Network.AWS.Redshift.Types.Tag
 data HsmClientCertificate = HsmClientCertificate'
   { -- | The public key that the Amazon Redshift cluster will use to connect to
     -- the HSM. You must register the public key in the HSM.
-    hsmClientCertificatePublicKey :: Core.Maybe Core.Text,
+    hsmClientCertificatePublicKey :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the HSM client certificate.
-    hsmClientCertificateIdentifier :: Core.Maybe Core.Text,
+    hsmClientCertificateIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The list of tags for the HSM client certificate.
-    tags :: Core.Maybe [Tag]
+    tags :: Prelude.Maybe [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HsmClientCertificate' with all optional fields omitted.
@@ -59,33 +60,33 @@ newHsmClientCertificate ::
 newHsmClientCertificate =
   HsmClientCertificate'
     { hsmClientCertificatePublicKey =
-        Core.Nothing,
-      hsmClientCertificateIdentifier = Core.Nothing,
-      tags = Core.Nothing
+        Prelude.Nothing,
+      hsmClientCertificateIdentifier = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | The public key that the Amazon Redshift cluster will use to connect to
 -- the HSM. You must register the public key in the HSM.
-hsmClientCertificate_hsmClientCertificatePublicKey :: Lens.Lens' HsmClientCertificate (Core.Maybe Core.Text)
+hsmClientCertificate_hsmClientCertificatePublicKey :: Lens.Lens' HsmClientCertificate (Prelude.Maybe Prelude.Text)
 hsmClientCertificate_hsmClientCertificatePublicKey = Lens.lens (\HsmClientCertificate' {hsmClientCertificatePublicKey} -> hsmClientCertificatePublicKey) (\s@HsmClientCertificate' {} a -> s {hsmClientCertificatePublicKey = a} :: HsmClientCertificate)
 
 -- | The identifier of the HSM client certificate.
-hsmClientCertificate_hsmClientCertificateIdentifier :: Lens.Lens' HsmClientCertificate (Core.Maybe Core.Text)
+hsmClientCertificate_hsmClientCertificateIdentifier :: Lens.Lens' HsmClientCertificate (Prelude.Maybe Prelude.Text)
 hsmClientCertificate_hsmClientCertificateIdentifier = Lens.lens (\HsmClientCertificate' {hsmClientCertificateIdentifier} -> hsmClientCertificateIdentifier) (\s@HsmClientCertificate' {} a -> s {hsmClientCertificateIdentifier = a} :: HsmClientCertificate)
 
 -- | The list of tags for the HSM client certificate.
-hsmClientCertificate_tags :: Lens.Lens' HsmClientCertificate (Core.Maybe [Tag])
-hsmClientCertificate_tags = Lens.lens (\HsmClientCertificate' {tags} -> tags) (\s@HsmClientCertificate' {} a -> s {tags = a} :: HsmClientCertificate) Core.. Lens.mapping Lens._Coerce
+hsmClientCertificate_tags :: Lens.Lens' HsmClientCertificate (Prelude.Maybe [Tag])
+hsmClientCertificate_tags = Lens.lens (\HsmClientCertificate' {tags} -> tags) (\s@HsmClientCertificate' {} a -> s {tags = a} :: HsmClientCertificate) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML HsmClientCertificate where
   parseXML x =
     HsmClientCertificate'
-      Core.<$> (x Core..@? "HsmClientCertificatePublicKey")
-      Core.<*> (x Core..@? "HsmClientCertificateIdentifier")
-      Core.<*> ( x Core..@? "Tags" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Tag")
-               )
+      Prelude.<$> (x Core..@? "HsmClientCertificatePublicKey")
+      Prelude.<*> (x Core..@? "HsmClientCertificateIdentifier")
+      Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+                  )
 
-instance Core.Hashable HsmClientCertificate
+instance Prelude.Hashable HsmClientCertificate
 
-instance Core.NFData HsmClientCertificate
+instance Prelude.NFData HsmClientCertificate

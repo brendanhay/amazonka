@@ -50,31 +50,32 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListObjectAttributes' smart constructor.
 data ListObjectAttributes = ListObjectAttributes'
   { -- | The pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to be retrieved in a single call. This is an
     -- approximate number.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Represents the manner and timing in which the successful write or update
     -- of an object is reflected in a subsequent read operation of that same
     -- object.
-    consistencyLevel :: Core.Maybe ConsistencyLevel,
+    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
     -- | Used to filter the list of object attributes that are associated with a
     -- certain facet.
-    facetFilter :: Core.Maybe SchemaFacet,
+    facetFilter :: Prelude.Maybe SchemaFacet,
     -- | The Amazon Resource Name (ARN) that is associated with the Directory
     -- where the object resides. For more information, see arns.
-    directoryArn :: Core.Text,
+    directoryArn :: Prelude.Text,
     -- | The reference that identifies the object whose attributes will be
     -- listed.
     objectReference :: ObjectReference
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListObjectAttributes' with all optional fields omitted.
@@ -103,7 +104,7 @@ data ListObjectAttributes = ListObjectAttributes'
 -- listed.
 newListObjectAttributes ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'objectReference'
   ObjectReference ->
   ListObjectAttributes
@@ -111,37 +112,37 @@ newListObjectAttributes
   pDirectoryArn_
   pObjectReference_ =
     ListObjectAttributes'
-      { nextToken = Core.Nothing,
-        maxResults = Core.Nothing,
-        consistencyLevel = Core.Nothing,
-        facetFilter = Core.Nothing,
+      { nextToken = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
+        consistencyLevel = Prelude.Nothing,
+        facetFilter = Prelude.Nothing,
         directoryArn = pDirectoryArn_,
         objectReference = pObjectReference_
       }
 
 -- | The pagination token.
-listObjectAttributes_nextToken :: Lens.Lens' ListObjectAttributes (Core.Maybe Core.Text)
+listObjectAttributes_nextToken :: Lens.Lens' ListObjectAttributes (Prelude.Maybe Prelude.Text)
 listObjectAttributes_nextToken = Lens.lens (\ListObjectAttributes' {nextToken} -> nextToken) (\s@ListObjectAttributes' {} a -> s {nextToken = a} :: ListObjectAttributes)
 
 -- | The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
-listObjectAttributes_maxResults :: Lens.Lens' ListObjectAttributes (Core.Maybe Core.Natural)
+listObjectAttributes_maxResults :: Lens.Lens' ListObjectAttributes (Prelude.Maybe Prelude.Natural)
 listObjectAttributes_maxResults = Lens.lens (\ListObjectAttributes' {maxResults} -> maxResults) (\s@ListObjectAttributes' {} a -> s {maxResults = a} :: ListObjectAttributes)
 
 -- | Represents the manner and timing in which the successful write or update
 -- of an object is reflected in a subsequent read operation of that same
 -- object.
-listObjectAttributes_consistencyLevel :: Lens.Lens' ListObjectAttributes (Core.Maybe ConsistencyLevel)
+listObjectAttributes_consistencyLevel :: Lens.Lens' ListObjectAttributes (Prelude.Maybe ConsistencyLevel)
 listObjectAttributes_consistencyLevel = Lens.lens (\ListObjectAttributes' {consistencyLevel} -> consistencyLevel) (\s@ListObjectAttributes' {} a -> s {consistencyLevel = a} :: ListObjectAttributes)
 
 -- | Used to filter the list of object attributes that are associated with a
 -- certain facet.
-listObjectAttributes_facetFilter :: Lens.Lens' ListObjectAttributes (Core.Maybe SchemaFacet)
+listObjectAttributes_facetFilter :: Lens.Lens' ListObjectAttributes (Prelude.Maybe SchemaFacet)
 listObjectAttributes_facetFilter = Lens.lens (\ListObjectAttributes' {facetFilter} -> facetFilter) (\s@ListObjectAttributes' {} a -> s {facetFilter = a} :: ListObjectAttributes)
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory
 -- where the object resides. For more information, see arns.
-listObjectAttributes_directoryArn :: Lens.Lens' ListObjectAttributes Core.Text
+listObjectAttributes_directoryArn :: Lens.Lens' ListObjectAttributes Prelude.Text
 listObjectAttributes_directoryArn = Lens.lens (\ListObjectAttributes' {directoryArn} -> directoryArn) (\s@ListObjectAttributes' {} a -> s {directoryArn = a} :: ListObjectAttributes)
 
 -- | The reference that identifies the object whose attributes will be
@@ -154,22 +155,22 @@ instance Core.AWSPager ListObjectAttributes where
     | Core.stop
         ( rs
             Lens.^? listObjectAttributesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listObjectAttributesResponse_attributes
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listObjectAttributes_nextToken
+          Prelude.& listObjectAttributes_nextToken
           Lens..~ rs
           Lens.^? listObjectAttributesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListObjectAttributes where
   type
@@ -180,18 +181,18 @@ instance Core.AWSRequest ListObjectAttributes where
     Response.receiveJSON
       ( \s h x ->
           ListObjectAttributesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Attributes" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListObjectAttributes
+instance Prelude.Hashable ListObjectAttributes
 
-instance Core.NFData ListObjectAttributes
+instance Prelude.NFData ListObjectAttributes
 
 instance Core.ToHeaders ListObjectAttributes where
   toHeaders ListObjectAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-consistency-level" Core.=# consistencyLevel,
         "x-amz-data-partition" Core.=# directoryArn
       ]
@@ -199,34 +200,34 @@ instance Core.ToHeaders ListObjectAttributes where
 instance Core.ToJSON ListObjectAttributes where
   toJSON ListObjectAttributes' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("FacetFilter" Core..=) Core.<$> facetFilter,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("FacetFilter" Core..=) Prelude.<$> facetFilter,
+            Prelude.Just
               ("ObjectReference" Core..= objectReference)
           ]
       )
 
 instance Core.ToPath ListObjectAttributes where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/object/attributes"
 
 instance Core.ToQuery ListObjectAttributes where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListObjectAttributesResponse' smart constructor.
 data ListObjectAttributesResponse = ListObjectAttributesResponse'
   { -- | The pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Attributes map that is associated with the object. @AttributeArn@ is the
     -- key, and attribute value is the value.
-    attributes :: Core.Maybe [AttributeKeyAndValue],
+    attributes :: Prelude.Maybe [AttributeKeyAndValue],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListObjectAttributesResponse' with all optional fields omitted.
@@ -244,27 +245,27 @@ data ListObjectAttributesResponse = ListObjectAttributesResponse'
 -- 'httpStatus', 'listObjectAttributesResponse_httpStatus' - The response's http status code.
 newListObjectAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListObjectAttributesResponse
 newListObjectAttributesResponse pHttpStatus_ =
   ListObjectAttributesResponse'
     { nextToken =
-        Core.Nothing,
-      attributes = Core.Nothing,
+        Prelude.Nothing,
+      attributes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The pagination token.
-listObjectAttributesResponse_nextToken :: Lens.Lens' ListObjectAttributesResponse (Core.Maybe Core.Text)
+listObjectAttributesResponse_nextToken :: Lens.Lens' ListObjectAttributesResponse (Prelude.Maybe Prelude.Text)
 listObjectAttributesResponse_nextToken = Lens.lens (\ListObjectAttributesResponse' {nextToken} -> nextToken) (\s@ListObjectAttributesResponse' {} a -> s {nextToken = a} :: ListObjectAttributesResponse)
 
 -- | Attributes map that is associated with the object. @AttributeArn@ is the
 -- key, and attribute value is the value.
-listObjectAttributesResponse_attributes :: Lens.Lens' ListObjectAttributesResponse (Core.Maybe [AttributeKeyAndValue])
-listObjectAttributesResponse_attributes = Lens.lens (\ListObjectAttributesResponse' {attributes} -> attributes) (\s@ListObjectAttributesResponse' {} a -> s {attributes = a} :: ListObjectAttributesResponse) Core.. Lens.mapping Lens._Coerce
+listObjectAttributesResponse_attributes :: Lens.Lens' ListObjectAttributesResponse (Prelude.Maybe [AttributeKeyAndValue])
+listObjectAttributesResponse_attributes = Lens.lens (\ListObjectAttributesResponse' {attributes} -> attributes) (\s@ListObjectAttributesResponse' {} a -> s {attributes = a} :: ListObjectAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listObjectAttributesResponse_httpStatus :: Lens.Lens' ListObjectAttributesResponse Core.Int
+listObjectAttributesResponse_httpStatus :: Lens.Lens' ListObjectAttributesResponse Prelude.Int
 listObjectAttributesResponse_httpStatus = Lens.lens (\ListObjectAttributesResponse' {httpStatus} -> httpStatus) (\s@ListObjectAttributesResponse' {} a -> s {httpStatus = a} :: ListObjectAttributesResponse)
 
-instance Core.NFData ListObjectAttributesResponse
+instance Prelude.NFData ListObjectAttributesResponse

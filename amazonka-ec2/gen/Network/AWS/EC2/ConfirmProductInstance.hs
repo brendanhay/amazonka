@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,13 +58,13 @@ data ConfirmProductInstance = ConfirmProductInstance'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The product code. This must be a product code that you own.
-    productCode :: Core.Text
+    productCode :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfirmProductInstance' with all optional fields omitted.
@@ -83,13 +84,13 @@ data ConfirmProductInstance = ConfirmProductInstance'
 -- 'productCode', 'confirmProductInstance_productCode' - The product code. This must be a product code that you own.
 newConfirmProductInstance ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'productCode'
-  Core.Text ->
+  Prelude.Text ->
   ConfirmProductInstance
 newConfirmProductInstance pInstanceId_ pProductCode_ =
   ConfirmProductInstance'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       instanceId = pInstanceId_,
       productCode = pProductCode_
     }
@@ -98,15 +99,15 @@ newConfirmProductInstance pInstanceId_ pProductCode_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-confirmProductInstance_dryRun :: Lens.Lens' ConfirmProductInstance (Core.Maybe Core.Bool)
+confirmProductInstance_dryRun :: Lens.Lens' ConfirmProductInstance (Prelude.Maybe Prelude.Bool)
 confirmProductInstance_dryRun = Lens.lens (\ConfirmProductInstance' {dryRun} -> dryRun) (\s@ConfirmProductInstance' {} a -> s {dryRun = a} :: ConfirmProductInstance)
 
 -- | The ID of the instance.
-confirmProductInstance_instanceId :: Lens.Lens' ConfirmProductInstance Core.Text
+confirmProductInstance_instanceId :: Lens.Lens' ConfirmProductInstance Prelude.Text
 confirmProductInstance_instanceId = Lens.lens (\ConfirmProductInstance' {instanceId} -> instanceId) (\s@ConfirmProductInstance' {} a -> s {instanceId = a} :: ConfirmProductInstance)
 
 -- | The product code. This must be a product code that you own.
-confirmProductInstance_productCode :: Lens.Lens' ConfirmProductInstance Core.Text
+confirmProductInstance_productCode :: Lens.Lens' ConfirmProductInstance Prelude.Text
 confirmProductInstance_productCode = Lens.lens (\ConfirmProductInstance' {productCode} -> productCode) (\s@ConfirmProductInstance' {} a -> s {productCode = a} :: ConfirmProductInstance)
 
 instance Core.AWSRequest ConfirmProductInstance where
@@ -118,27 +119,28 @@ instance Core.AWSRequest ConfirmProductInstance where
     Response.receiveXML
       ( \s h x ->
           ConfirmProductInstanceResponse'
-            Core.<$> (x Core..@? "ownerId")
-            Core.<*> (x Core..@? "return")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ownerId")
+            Prelude.<*> (x Core..@? "return")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ConfirmProductInstance
+instance Prelude.Hashable ConfirmProductInstance
 
-instance Core.NFData ConfirmProductInstance
+instance Prelude.NFData ConfirmProductInstance
 
 instance Core.ToHeaders ConfirmProductInstance where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ConfirmProductInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ConfirmProductInstance where
   toQuery ConfirmProductInstance' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ConfirmProductInstance" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ConfirmProductInstance" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "InstanceId" Core.=: instanceId,
         "ProductCode" Core.=: productCode
@@ -148,15 +150,15 @@ instance Core.ToQuery ConfirmProductInstance where
 data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
   { -- | The AWS account ID of the instance owner. This is only present if the
     -- product code is attached to the instance.
-    ownerId :: Core.Maybe Core.Text,
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The return value of the request. Returns @true@ if the specified product
     -- code is owned by the requester and associated with the specified
     -- instance.
-    return' :: Core.Maybe Core.Bool,
+    return' :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfirmProductInstanceResponse' with all optional fields omitted.
@@ -176,29 +178,31 @@ data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
 -- 'httpStatus', 'confirmProductInstanceResponse_httpStatus' - The response's http status code.
 newConfirmProductInstanceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ConfirmProductInstanceResponse
 newConfirmProductInstanceResponse pHttpStatus_ =
   ConfirmProductInstanceResponse'
     { ownerId =
-        Core.Nothing,
-      return' = Core.Nothing,
+        Prelude.Nothing,
+      return' = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The AWS account ID of the instance owner. This is only present if the
 -- product code is attached to the instance.
-confirmProductInstanceResponse_ownerId :: Lens.Lens' ConfirmProductInstanceResponse (Core.Maybe Core.Text)
+confirmProductInstanceResponse_ownerId :: Lens.Lens' ConfirmProductInstanceResponse (Prelude.Maybe Prelude.Text)
 confirmProductInstanceResponse_ownerId = Lens.lens (\ConfirmProductInstanceResponse' {ownerId} -> ownerId) (\s@ConfirmProductInstanceResponse' {} a -> s {ownerId = a} :: ConfirmProductInstanceResponse)
 
 -- | The return value of the request. Returns @true@ if the specified product
 -- code is owned by the requester and associated with the specified
 -- instance.
-confirmProductInstanceResponse_return :: Lens.Lens' ConfirmProductInstanceResponse (Core.Maybe Core.Bool)
+confirmProductInstanceResponse_return :: Lens.Lens' ConfirmProductInstanceResponse (Prelude.Maybe Prelude.Bool)
 confirmProductInstanceResponse_return = Lens.lens (\ConfirmProductInstanceResponse' {return'} -> return') (\s@ConfirmProductInstanceResponse' {} a -> s {return' = a} :: ConfirmProductInstanceResponse)
 
 -- | The response's http status code.
-confirmProductInstanceResponse_httpStatus :: Lens.Lens' ConfirmProductInstanceResponse Core.Int
+confirmProductInstanceResponse_httpStatus :: Lens.Lens' ConfirmProductInstanceResponse Prelude.Int
 confirmProductInstanceResponse_httpStatus = Lens.lens (\ConfirmProductInstanceResponse' {httpStatus} -> httpStatus) (\s@ConfirmProductInstanceResponse' {} a -> s {httpStatus = a} :: ConfirmProductInstanceResponse)
 
-instance Core.NFData ConfirmProductInstanceResponse
+instance
+  Prelude.NFData
+    ConfirmProductInstanceResponse

@@ -50,6 +50,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,19 +60,19 @@ import qualified Network.AWS.Response as Response
 data GetApiKeys = GetApiKeys'
   { -- | The identifier of a customer in AWS Marketplace or an external system,
     -- such as a developer portal.
-    customerId :: Core.Maybe Core.Text,
+    customerId :: Prelude.Maybe Prelude.Text,
     -- | A boolean flag to specify whether (@true@) or not (@false@) the result
     -- contains key values.
-    includeValues :: Core.Maybe Core.Bool,
+    includeValues :: Prelude.Maybe Prelude.Bool,
     -- | The current pagination position in the paged result set.
-    position :: Core.Maybe Core.Text,
+    position :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Core.Maybe Core.Int,
+    limit :: Prelude.Maybe Prelude.Int,
     -- | The name of queried API keys.
-    nameQuery :: Core.Maybe Core.Text
+    nameQuery :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetApiKeys' with all optional fields omitted.
@@ -97,54 +98,54 @@ newGetApiKeys ::
   GetApiKeys
 newGetApiKeys =
   GetApiKeys'
-    { customerId = Core.Nothing,
-      includeValues = Core.Nothing,
-      position = Core.Nothing,
-      limit = Core.Nothing,
-      nameQuery = Core.Nothing
+    { customerId = Prelude.Nothing,
+      includeValues = Prelude.Nothing,
+      position = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      nameQuery = Prelude.Nothing
     }
 
 -- | The identifier of a customer in AWS Marketplace or an external system,
 -- such as a developer portal.
-getApiKeys_customerId :: Lens.Lens' GetApiKeys (Core.Maybe Core.Text)
+getApiKeys_customerId :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Text)
 getApiKeys_customerId = Lens.lens (\GetApiKeys' {customerId} -> customerId) (\s@GetApiKeys' {} a -> s {customerId = a} :: GetApiKeys)
 
 -- | A boolean flag to specify whether (@true@) or not (@false@) the result
 -- contains key values.
-getApiKeys_includeValues :: Lens.Lens' GetApiKeys (Core.Maybe Core.Bool)
+getApiKeys_includeValues :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Bool)
 getApiKeys_includeValues = Lens.lens (\GetApiKeys' {includeValues} -> includeValues) (\s@GetApiKeys' {} a -> s {includeValues = a} :: GetApiKeys)
 
 -- | The current pagination position in the paged result set.
-getApiKeys_position :: Lens.Lens' GetApiKeys (Core.Maybe Core.Text)
+getApiKeys_position :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Text)
 getApiKeys_position = Lens.lens (\GetApiKeys' {position} -> position) (\s@GetApiKeys' {} a -> s {position = a} :: GetApiKeys)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
-getApiKeys_limit :: Lens.Lens' GetApiKeys (Core.Maybe Core.Int)
+getApiKeys_limit :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Int)
 getApiKeys_limit = Lens.lens (\GetApiKeys' {limit} -> limit) (\s@GetApiKeys' {} a -> s {limit = a} :: GetApiKeys)
 
 -- | The name of queried API keys.
-getApiKeys_nameQuery :: Lens.Lens' GetApiKeys (Core.Maybe Core.Text)
+getApiKeys_nameQuery :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Text)
 getApiKeys_nameQuery = Lens.lens (\GetApiKeys' {nameQuery} -> nameQuery) (\s@GetApiKeys' {} a -> s {nameQuery = a} :: GetApiKeys)
 
 instance Core.AWSPager GetApiKeys where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getApiKeysResponse_position Core.. Lens._Just
+            Lens.^? getApiKeysResponse_position Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getApiKeysResponse_items Core.. Lens._Just
+            Lens.^? getApiKeysResponse_items Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getApiKeys_position
+          Prelude.& getApiKeys_position
           Lens..~ rs
-          Lens.^? getApiKeysResponse_position Core.. Lens._Just
+          Lens.^? getApiKeysResponse_position Prelude.. Lens._Just
 
 instance Core.AWSRequest GetApiKeys where
   type AWSResponse GetApiKeys = GetApiKeysResponse
@@ -153,31 +154,31 @@ instance Core.AWSRequest GetApiKeys where
     Response.receiveJSON
       ( \s h x ->
           GetApiKeysResponse'
-            Core.<$> (x Core..?> "warnings" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "item" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "position")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "position")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetApiKeys
+instance Prelude.Hashable GetApiKeys
 
-instance Core.NFData GetApiKeys
+instance Prelude.NFData GetApiKeys
 
 instance Core.ToHeaders GetApiKeys where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetApiKeys where
-  toPath = Core.const "/apikeys"
+  toPath = Prelude.const "/apikeys"
 
 instance Core.ToQuery GetApiKeys where
   toQuery GetApiKeys' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "customerId" Core.=: customerId,
         "includeValues" Core.=: includeValues,
         "position" Core.=: position,
@@ -194,14 +195,14 @@ instance Core.ToQuery GetApiKeys where
 data GetApiKeysResponse = GetApiKeysResponse'
   { -- | A list of warning messages logged during the import of API keys when the
     -- @failOnWarnings@ option is set to true.
-    warnings :: Core.Maybe [Core.Text],
+    warnings :: Prelude.Maybe [Prelude.Text],
     -- | The current page of elements from this collection.
-    items :: Core.Maybe [ApiKey],
-    position :: Core.Maybe Core.Text,
+    items :: Prelude.Maybe [ApiKey],
+    position :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetApiKeysResponse' with all optional fields omitted.
@@ -221,31 +222,31 @@ data GetApiKeysResponse = GetApiKeysResponse'
 -- 'httpStatus', 'getApiKeysResponse_httpStatus' - The response's http status code.
 newGetApiKeysResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetApiKeysResponse
 newGetApiKeysResponse pHttpStatus_ =
   GetApiKeysResponse'
-    { warnings = Core.Nothing,
-      items = Core.Nothing,
-      position = Core.Nothing,
+    { warnings = Prelude.Nothing,
+      items = Prelude.Nothing,
+      position = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of warning messages logged during the import of API keys when the
 -- @failOnWarnings@ option is set to true.
-getApiKeysResponse_warnings :: Lens.Lens' GetApiKeysResponse (Core.Maybe [Core.Text])
-getApiKeysResponse_warnings = Lens.lens (\GetApiKeysResponse' {warnings} -> warnings) (\s@GetApiKeysResponse' {} a -> s {warnings = a} :: GetApiKeysResponse) Core.. Lens.mapping Lens._Coerce
+getApiKeysResponse_warnings :: Lens.Lens' GetApiKeysResponse (Prelude.Maybe [Prelude.Text])
+getApiKeysResponse_warnings = Lens.lens (\GetApiKeysResponse' {warnings} -> warnings) (\s@GetApiKeysResponse' {} a -> s {warnings = a} :: GetApiKeysResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The current page of elements from this collection.
-getApiKeysResponse_items :: Lens.Lens' GetApiKeysResponse (Core.Maybe [ApiKey])
-getApiKeysResponse_items = Lens.lens (\GetApiKeysResponse' {items} -> items) (\s@GetApiKeysResponse' {} a -> s {items = a} :: GetApiKeysResponse) Core.. Lens.mapping Lens._Coerce
+getApiKeysResponse_items :: Lens.Lens' GetApiKeysResponse (Prelude.Maybe [ApiKey])
+getApiKeysResponse_items = Lens.lens (\GetApiKeysResponse' {items} -> items) (\s@GetApiKeysResponse' {} a -> s {items = a} :: GetApiKeysResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getApiKeysResponse_position :: Lens.Lens' GetApiKeysResponse (Core.Maybe Core.Text)
+getApiKeysResponse_position :: Lens.Lens' GetApiKeysResponse (Prelude.Maybe Prelude.Text)
 getApiKeysResponse_position = Lens.lens (\GetApiKeysResponse' {position} -> position) (\s@GetApiKeysResponse' {} a -> s {position = a} :: GetApiKeysResponse)
 
 -- | The response's http status code.
-getApiKeysResponse_httpStatus :: Lens.Lens' GetApiKeysResponse Core.Int
+getApiKeysResponse_httpStatus :: Lens.Lens' GetApiKeysResponse Prelude.Int
 getApiKeysResponse_httpStatus = Lens.lens (\GetApiKeysResponse' {httpStatus} -> httpStatus) (\s@GetApiKeysResponse' {} a -> s {httpStatus = a} :: GetApiKeysResponse)
 
-instance Core.NFData GetApiKeysResponse
+instance Prelude.NFData GetApiKeysResponse

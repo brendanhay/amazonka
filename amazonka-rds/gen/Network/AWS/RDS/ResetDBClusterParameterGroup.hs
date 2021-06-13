@@ -58,6 +58,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -70,15 +71,15 @@ data ResetDBClusterParameterGroup = ResetDBClusterParameterGroup'
     -- parameter group to their default values. You can\'t use this parameter
     -- if there is a list of parameter names specified for the @Parameters@
     -- parameter.
-    resetAllParameters :: Core.Maybe Core.Bool,
+    resetAllParameters :: Prelude.Maybe Prelude.Bool,
     -- | A list of parameter names in the DB cluster parameter group to reset to
     -- the default values. You can\'t use this parameter if the
     -- @ResetAllParameters@ parameter is enabled.
-    parameters :: Core.Maybe [Parameter],
+    parameters :: Prelude.Maybe [Parameter],
     -- | The name of the DB cluster parameter group to reset.
-    dbClusterParameterGroupName :: Core.Text
+    dbClusterParameterGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResetDBClusterParameterGroup' with all optional fields omitted.
@@ -100,14 +101,14 @@ data ResetDBClusterParameterGroup = ResetDBClusterParameterGroup'
 -- 'dbClusterParameterGroupName', 'resetDBClusterParameterGroup_dbClusterParameterGroupName' - The name of the DB cluster parameter group to reset.
 newResetDBClusterParameterGroup ::
   -- | 'dbClusterParameterGroupName'
-  Core.Text ->
+  Prelude.Text ->
   ResetDBClusterParameterGroup
 newResetDBClusterParameterGroup
   pDBClusterParameterGroupName_ =
     ResetDBClusterParameterGroup'
       { resetAllParameters =
-          Core.Nothing,
-        parameters = Core.Nothing,
+          Prelude.Nothing,
+        parameters = Prelude.Nothing,
         dbClusterParameterGroupName =
           pDBClusterParameterGroupName_
       }
@@ -116,17 +117,17 @@ newResetDBClusterParameterGroup
 -- parameter group to their default values. You can\'t use this parameter
 -- if there is a list of parameter names specified for the @Parameters@
 -- parameter.
-resetDBClusterParameterGroup_resetAllParameters :: Lens.Lens' ResetDBClusterParameterGroup (Core.Maybe Core.Bool)
+resetDBClusterParameterGroup_resetAllParameters :: Lens.Lens' ResetDBClusterParameterGroup (Prelude.Maybe Prelude.Bool)
 resetDBClusterParameterGroup_resetAllParameters = Lens.lens (\ResetDBClusterParameterGroup' {resetAllParameters} -> resetAllParameters) (\s@ResetDBClusterParameterGroup' {} a -> s {resetAllParameters = a} :: ResetDBClusterParameterGroup)
 
 -- | A list of parameter names in the DB cluster parameter group to reset to
 -- the default values. You can\'t use this parameter if the
 -- @ResetAllParameters@ parameter is enabled.
-resetDBClusterParameterGroup_parameters :: Lens.Lens' ResetDBClusterParameterGroup (Core.Maybe [Parameter])
-resetDBClusterParameterGroup_parameters = Lens.lens (\ResetDBClusterParameterGroup' {parameters} -> parameters) (\s@ResetDBClusterParameterGroup' {} a -> s {parameters = a} :: ResetDBClusterParameterGroup) Core.. Lens.mapping Lens._Coerce
+resetDBClusterParameterGroup_parameters :: Lens.Lens' ResetDBClusterParameterGroup (Prelude.Maybe [Parameter])
+resetDBClusterParameterGroup_parameters = Lens.lens (\ResetDBClusterParameterGroup' {parameters} -> parameters) (\s@ResetDBClusterParameterGroup' {} a -> s {parameters = a} :: ResetDBClusterParameterGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the DB cluster parameter group to reset.
-resetDBClusterParameterGroup_dbClusterParameterGroupName :: Lens.Lens' ResetDBClusterParameterGroup Core.Text
+resetDBClusterParameterGroup_dbClusterParameterGroupName :: Lens.Lens' ResetDBClusterParameterGroup Prelude.Text
 resetDBClusterParameterGroup_dbClusterParameterGroupName = Lens.lens (\ResetDBClusterParameterGroup' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@ResetDBClusterParameterGroup' {} a -> s {dbClusterParameterGroupName = a} :: ResetDBClusterParameterGroup)
 
 instance Core.AWSRequest ResetDBClusterParameterGroup where
@@ -139,26 +140,33 @@ instance Core.AWSRequest ResetDBClusterParameterGroup where
       "ResetDBClusterParameterGroupResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable ResetDBClusterParameterGroup
+instance
+  Prelude.Hashable
+    ResetDBClusterParameterGroup
 
-instance Core.NFData ResetDBClusterParameterGroup
+instance Prelude.NFData ResetDBClusterParameterGroup
 
 instance Core.ToHeaders ResetDBClusterParameterGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ResetDBClusterParameterGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ResetDBClusterParameterGroup where
   toQuery ResetDBClusterParameterGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ResetDBClusterParameterGroup" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ( "ResetDBClusterParameterGroup" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "ResetAllParameters" Core.=: resetAllParameters,
         "Parameters"
           Core.=: Core.toQuery
-            (Core.toQueryList "Parameter" Core.<$> parameters),
+            ( Core.toQueryList "Parameter"
+                Prelude.<$> parameters
+            ),
         "DBClusterParameterGroupName"
           Core.=: dbClusterParameterGroupName
       ]

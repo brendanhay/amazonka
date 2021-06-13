@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -49,11 +50,11 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newUpdateRulesOfIpGroup' smart constructor.
 data UpdateRulesOfIpGroup = UpdateRulesOfIpGroup'
   { -- | The identifier of the group.
-    groupId :: Core.Text,
+    groupId :: Prelude.Text,
     -- | One or more rules.
     userRules :: [IpRuleItem]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRulesOfIpGroup' with all optional fields omitted.
@@ -68,21 +69,21 @@ data UpdateRulesOfIpGroup = UpdateRulesOfIpGroup'
 -- 'userRules', 'updateRulesOfIpGroup_userRules' - One or more rules.
 newUpdateRulesOfIpGroup ::
   -- | 'groupId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateRulesOfIpGroup
 newUpdateRulesOfIpGroup pGroupId_ =
   UpdateRulesOfIpGroup'
     { groupId = pGroupId_,
-      userRules = Core.mempty
+      userRules = Prelude.mempty
     }
 
 -- | The identifier of the group.
-updateRulesOfIpGroup_groupId :: Lens.Lens' UpdateRulesOfIpGroup Core.Text
+updateRulesOfIpGroup_groupId :: Lens.Lens' UpdateRulesOfIpGroup Prelude.Text
 updateRulesOfIpGroup_groupId = Lens.lens (\UpdateRulesOfIpGroup' {groupId} -> groupId) (\s@UpdateRulesOfIpGroup' {} a -> s {groupId = a} :: UpdateRulesOfIpGroup)
 
 -- | One or more rules.
 updateRulesOfIpGroup_userRules :: Lens.Lens' UpdateRulesOfIpGroup [IpRuleItem]
-updateRulesOfIpGroup_userRules = Lens.lens (\UpdateRulesOfIpGroup' {userRules} -> userRules) (\s@UpdateRulesOfIpGroup' {} a -> s {userRules = a} :: UpdateRulesOfIpGroup) Core.. Lens._Coerce
+updateRulesOfIpGroup_userRules = Lens.lens (\UpdateRulesOfIpGroup' {userRules} -> userRules) (\s@UpdateRulesOfIpGroup' {} a -> s {userRules = a} :: UpdateRulesOfIpGroup) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UpdateRulesOfIpGroup where
   type
@@ -93,47 +94,49 @@ instance Core.AWSRequest UpdateRulesOfIpGroup where
     Response.receiveEmpty
       ( \s h x ->
           UpdateRulesOfIpGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateRulesOfIpGroup
+instance Prelude.Hashable UpdateRulesOfIpGroup
 
-instance Core.NFData UpdateRulesOfIpGroup
+instance Prelude.NFData UpdateRulesOfIpGroup
 
 instance Core.ToHeaders UpdateRulesOfIpGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.UpdateRulesOfIpGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateRulesOfIpGroup where
   toJSON UpdateRulesOfIpGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("GroupId" Core..= groupId),
-            Core.Just ("UserRules" Core..= userRules)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("GroupId" Core..= groupId),
+            Prelude.Just ("UserRules" Core..= userRules)
           ]
       )
 
 instance Core.ToPath UpdateRulesOfIpGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateRulesOfIpGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRulesOfIpGroupResponse' smart constructor.
 data UpdateRulesOfIpGroupResponse = UpdateRulesOfIpGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRulesOfIpGroupResponse' with all optional fields omitted.
@@ -146,7 +149,7 @@ data UpdateRulesOfIpGroupResponse = UpdateRulesOfIpGroupResponse'
 -- 'httpStatus', 'updateRulesOfIpGroupResponse_httpStatus' - The response's http status code.
 newUpdateRulesOfIpGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateRulesOfIpGroupResponse
 newUpdateRulesOfIpGroupResponse pHttpStatus_ =
   UpdateRulesOfIpGroupResponse'
@@ -155,7 +158,7 @@ newUpdateRulesOfIpGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateRulesOfIpGroupResponse_httpStatus :: Lens.Lens' UpdateRulesOfIpGroupResponse Core.Int
+updateRulesOfIpGroupResponse_httpStatus :: Lens.Lens' UpdateRulesOfIpGroupResponse Prelude.Int
 updateRulesOfIpGroupResponse_httpStatus = Lens.lens (\UpdateRulesOfIpGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateRulesOfIpGroupResponse' {} a -> s {httpStatus = a} :: UpdateRulesOfIpGroupResponse)
 
-instance Core.NFData UpdateRulesOfIpGroupResponse
+instance Prelude.NFData UpdateRulesOfIpGroupResponse

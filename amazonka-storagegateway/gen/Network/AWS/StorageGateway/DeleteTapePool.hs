@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -50,9 +51,9 @@ import Network.AWS.StorageGateway.Types
 -- | /See:/ 'newDeleteTapePool' smart constructor.
 data DeleteTapePool = DeleteTapePool'
   { -- | The Amazon Resource Name (ARN) of the custom tape pool to delete.
-    poolARN :: Core.Text
+    poolARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTapePool' with all optional fields omitted.
@@ -65,13 +66,13 @@ data DeleteTapePool = DeleteTapePool'
 -- 'poolARN', 'deleteTapePool_poolARN' - The Amazon Resource Name (ARN) of the custom tape pool to delete.
 newDeleteTapePool ::
   -- | 'poolARN'
-  Core.Text ->
+  Prelude.Text ->
   DeleteTapePool
 newDeleteTapePool pPoolARN_ =
   DeleteTapePool' {poolARN = pPoolARN_}
 
 -- | The Amazon Resource Name (ARN) of the custom tape pool to delete.
-deleteTapePool_poolARN :: Lens.Lens' DeleteTapePool Core.Text
+deleteTapePool_poolARN :: Lens.Lens' DeleteTapePool Prelude.Text
 deleteTapePool_poolARN = Lens.lens (\DeleteTapePool' {poolARN} -> poolARN) (\s@DeleteTapePool' {} a -> s {poolARN = a} :: DeleteTapePool)
 
 instance Core.AWSRequest DeleteTapePool where
@@ -83,48 +84,50 @@ instance Core.AWSRequest DeleteTapePool where
     Response.receiveJSON
       ( \s h x ->
           DeleteTapePoolResponse'
-            Core.<$> (x Core..?> "PoolARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "PoolARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteTapePool
+instance Prelude.Hashable DeleteTapePool
 
-instance Core.NFData DeleteTapePool
+instance Prelude.NFData DeleteTapePool
 
 instance Core.ToHeaders DeleteTapePool where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.DeleteTapePool" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteTapePool where
   toJSON DeleteTapePool' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("PoolARN" Core..= poolARN)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("PoolARN" Core..= poolARN)]
       )
 
 instance Core.ToPath DeleteTapePool where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteTapePool where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteTapePoolResponse' smart constructor.
 data DeleteTapePoolResponse = DeleteTapePoolResponse'
   { -- | The Amazon Resource Name (ARN) of the custom tape pool being deleted.
-    poolARN :: Core.Maybe Core.Text,
+    poolARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteTapePoolResponse' with all optional fields omitted.
@@ -139,20 +142,20 @@ data DeleteTapePoolResponse = DeleteTapePoolResponse'
 -- 'httpStatus', 'deleteTapePoolResponse_httpStatus' - The response's http status code.
 newDeleteTapePoolResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteTapePoolResponse
 newDeleteTapePoolResponse pHttpStatus_ =
   DeleteTapePoolResponse'
-    { poolARN = Core.Nothing,
+    { poolARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the custom tape pool being deleted.
-deleteTapePoolResponse_poolARN :: Lens.Lens' DeleteTapePoolResponse (Core.Maybe Core.Text)
+deleteTapePoolResponse_poolARN :: Lens.Lens' DeleteTapePoolResponse (Prelude.Maybe Prelude.Text)
 deleteTapePoolResponse_poolARN = Lens.lens (\DeleteTapePoolResponse' {poolARN} -> poolARN) (\s@DeleteTapePoolResponse' {} a -> s {poolARN = a} :: DeleteTapePoolResponse)
 
 -- | The response's http status code.
-deleteTapePoolResponse_httpStatus :: Lens.Lens' DeleteTapePoolResponse Core.Int
+deleteTapePoolResponse_httpStatus :: Lens.Lens' DeleteTapePoolResponse Prelude.Int
 deleteTapePoolResponse_httpStatus = Lens.lens (\DeleteTapePoolResponse' {httpStatus} -> httpStatus) (\s@DeleteTapePoolResponse' {} a -> s {httpStatus = a} :: DeleteTapePoolResponse)
 
-instance Core.NFData DeleteTapePoolResponse
+instance Prelude.NFData DeleteTapePoolResponse

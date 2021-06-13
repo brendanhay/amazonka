@@ -41,15 +41,16 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newForgetSmartHomeAppliances' smart constructor.
 data ForgetSmartHomeAppliances = ForgetSmartHomeAppliances'
   { -- | The room that the appliances are associated with.
-    roomArn :: Core.Text
+    roomArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ForgetSmartHomeAppliances' with all optional fields omitted.
@@ -62,13 +63,13 @@ data ForgetSmartHomeAppliances = ForgetSmartHomeAppliances'
 -- 'roomArn', 'forgetSmartHomeAppliances_roomArn' - The room that the appliances are associated with.
 newForgetSmartHomeAppliances ::
   -- | 'roomArn'
-  Core.Text ->
+  Prelude.Text ->
   ForgetSmartHomeAppliances
 newForgetSmartHomeAppliances pRoomArn_ =
   ForgetSmartHomeAppliances' {roomArn = pRoomArn_}
 
 -- | The room that the appliances are associated with.
-forgetSmartHomeAppliances_roomArn :: Lens.Lens' ForgetSmartHomeAppliances Core.Text
+forgetSmartHomeAppliances_roomArn :: Lens.Lens' ForgetSmartHomeAppliances Prelude.Text
 forgetSmartHomeAppliances_roomArn = Lens.lens (\ForgetSmartHomeAppliances' {roomArn} -> roomArn) (\s@ForgetSmartHomeAppliances' {} a -> s {roomArn = a} :: ForgetSmartHomeAppliances)
 
 instance Core.AWSRequest ForgetSmartHomeAppliances where
@@ -80,45 +81,47 @@ instance Core.AWSRequest ForgetSmartHomeAppliances where
     Response.receiveEmpty
       ( \s h x ->
           ForgetSmartHomeAppliancesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ForgetSmartHomeAppliances
+instance Prelude.Hashable ForgetSmartHomeAppliances
 
-instance Core.NFData ForgetSmartHomeAppliances
+instance Prelude.NFData ForgetSmartHomeAppliances
 
 instance Core.ToHeaders ForgetSmartHomeAppliances where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.ForgetSmartHomeAppliances" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ForgetSmartHomeAppliances where
   toJSON ForgetSmartHomeAppliances' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("RoomArn" Core..= roomArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("RoomArn" Core..= roomArn)]
       )
 
 instance Core.ToPath ForgetSmartHomeAppliances where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ForgetSmartHomeAppliances where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newForgetSmartHomeAppliancesResponse' smart constructor.
 data ForgetSmartHomeAppliancesResponse = ForgetSmartHomeAppliancesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ForgetSmartHomeAppliancesResponse' with all optional fields omitted.
@@ -131,7 +134,7 @@ data ForgetSmartHomeAppliancesResponse = ForgetSmartHomeAppliancesResponse'
 -- 'httpStatus', 'forgetSmartHomeAppliancesResponse_httpStatus' - The response's http status code.
 newForgetSmartHomeAppliancesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ForgetSmartHomeAppliancesResponse
 newForgetSmartHomeAppliancesResponse pHttpStatus_ =
   ForgetSmartHomeAppliancesResponse'
@@ -140,9 +143,9 @@ newForgetSmartHomeAppliancesResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-forgetSmartHomeAppliancesResponse_httpStatus :: Lens.Lens' ForgetSmartHomeAppliancesResponse Core.Int
+forgetSmartHomeAppliancesResponse_httpStatus :: Lens.Lens' ForgetSmartHomeAppliancesResponse Prelude.Int
 forgetSmartHomeAppliancesResponse_httpStatus = Lens.lens (\ForgetSmartHomeAppliancesResponse' {httpStatus} -> httpStatus) (\s@ForgetSmartHomeAppliancesResponse' {} a -> s {httpStatus = a} :: ForgetSmartHomeAppliancesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ForgetSmartHomeAppliancesResponse

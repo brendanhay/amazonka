@@ -22,6 +22,7 @@ module Network.AWS.AlexaBusiness.Types.PhoneNumber where
 import Network.AWS.AlexaBusiness.Types.PhoneNumberType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The phone number for the contact containing the raw number and phone
 -- number type.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPhoneNumber' smart constructor.
 data PhoneNumber = PhoneNumber'
   { -- | The raw value of the phone number.
-    number :: Core.Sensitive Core.Text,
+    number :: Core.Sensitive Prelude.Text,
     -- | The type of the phone number.
     type' :: Core.Sensitive PhoneNumberType
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PhoneNumber' with all optional fields omitted.
@@ -48,7 +49,7 @@ data PhoneNumber = PhoneNumber'
 -- 'type'', 'phoneNumber_type' - The type of the phone number.
 newPhoneNumber ::
   -- | 'number'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   PhoneNumberType ->
   PhoneNumber
@@ -60,12 +61,12 @@ newPhoneNumber pNumber_ pType_ =
     }
 
 -- | The raw value of the phone number.
-phoneNumber_number :: Lens.Lens' PhoneNumber Core.Text
-phoneNumber_number = Lens.lens (\PhoneNumber' {number} -> number) (\s@PhoneNumber' {} a -> s {number = a} :: PhoneNumber) Core.. Core._Sensitive
+phoneNumber_number :: Lens.Lens' PhoneNumber Prelude.Text
+phoneNumber_number = Lens.lens (\PhoneNumber' {number} -> number) (\s@PhoneNumber' {} a -> s {number = a} :: PhoneNumber) Prelude.. Core._Sensitive
 
 -- | The type of the phone number.
 phoneNumber_type :: Lens.Lens' PhoneNumber PhoneNumberType
-phoneNumber_type = Lens.lens (\PhoneNumber' {type'} -> type') (\s@PhoneNumber' {} a -> s {type' = a} :: PhoneNumber) Core.. Core._Sensitive
+phoneNumber_type = Lens.lens (\PhoneNumber' {type'} -> type') (\s@PhoneNumber' {} a -> s {type' = a} :: PhoneNumber) Prelude.. Core._Sensitive
 
 instance Core.FromJSON PhoneNumber where
   parseJSON =
@@ -73,18 +74,18 @@ instance Core.FromJSON PhoneNumber where
       "PhoneNumber"
       ( \x ->
           PhoneNumber'
-            Core.<$> (x Core..: "Number") Core.<*> (x Core..: "Type")
+            Prelude.<$> (x Core..: "Number") Prelude.<*> (x Core..: "Type")
       )
 
-instance Core.Hashable PhoneNumber
+instance Prelude.Hashable PhoneNumber
 
-instance Core.NFData PhoneNumber
+instance Prelude.NFData PhoneNumber
 
 instance Core.ToJSON PhoneNumber where
   toJSON PhoneNumber' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Number" Core..= number),
-            Core.Just ("Type" Core..= type')
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Number" Core..= number),
+            Prelude.Just ("Type" Core..= type')
           ]
       )

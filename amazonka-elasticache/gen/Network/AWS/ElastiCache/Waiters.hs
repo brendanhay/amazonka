@@ -21,6 +21,7 @@ import Network.AWS.ElastiCache.DescribeReplicationGroups
 import Network.AWS.ElastiCache.Lens
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.ElastiCache.DescribeReplicationGroups' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newReplicationGroupDeleted :: Core.Wait DescribeReplicationGroups
@@ -37,12 +38,12 @@ newReplicationGroupDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationGroupsResponse_replicationGroups
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationGroup_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationGroup_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "available"
@@ -50,12 +51,12 @@ newReplicationGroupDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationGroupsResponse_replicationGroups
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationGroup_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationGroup_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ReplicationGroupNotFoundFault"
@@ -78,12 +79,12 @@ newReplicationGroupAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationGroupsResponse_replicationGroups
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationGroup_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationGroup_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -91,12 +92,12 @@ newReplicationGroupAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationGroupsResponse_replicationGroups
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. replicationGroup_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. replicationGroup_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -115,12 +116,12 @@ newCacheClusterAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCacheClustersResponse_cacheClusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cacheCluster_cacheClusterStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cacheCluster_cacheClusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -128,12 +129,12 @@ newCacheClusterAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCacheClustersResponse_cacheClusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cacheCluster_cacheClusterStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cacheCluster_cacheClusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -141,12 +142,12 @@ newCacheClusterAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCacheClustersResponse_cacheClusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cacheCluster_cacheClusterStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cacheCluster_cacheClusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "incompatible-network"
@@ -154,12 +155,12 @@ newCacheClusterAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCacheClustersResponse_cacheClusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cacheCluster_cacheClusterStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cacheCluster_cacheClusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "restore-failed"
@@ -167,12 +168,12 @@ newCacheClusterAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCacheClustersResponse_cacheClusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cacheCluster_cacheClusterStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cacheCluster_cacheClusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -191,12 +192,12 @@ newCacheClusterDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCacheClustersResponse_cacheClusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cacheCluster_cacheClusterStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cacheCluster_cacheClusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "CacheClusterNotFound"
@@ -207,12 +208,12 @@ newCacheClusterDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCacheClustersResponse_cacheClusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cacheCluster_cacheClusterStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cacheCluster_cacheClusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "creating"
@@ -220,12 +221,12 @@ newCacheClusterDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCacheClustersResponse_cacheClusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cacheCluster_cacheClusterStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cacheCluster_cacheClusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "incompatible-network"
@@ -233,12 +234,12 @@ newCacheClusterDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCacheClustersResponse_cacheClusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cacheCluster_cacheClusterStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cacheCluster_cacheClusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "modifying"
@@ -246,12 +247,12 @@ newCacheClusterDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCacheClustersResponse_cacheClusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cacheCluster_cacheClusterStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cacheCluster_cacheClusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "restore-failed"
@@ -259,12 +260,12 @@ newCacheClusterDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCacheClustersResponse_cacheClusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cacheCluster_cacheClusterStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cacheCluster_cacheClusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "snapshotting"
@@ -272,12 +273,12 @@ newCacheClusterDeleted =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCacheClustersResponse_cacheClusters
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. cacheCluster_cacheClusterStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. cacheCluster_cacheClusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

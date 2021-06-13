@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.PeeringAttachmentStatus where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The status of the transit gateway peering attachment.
 --
 -- /See:/ 'newPeeringAttachmentStatus' smart constructor.
 data PeeringAttachmentStatus = PeeringAttachmentStatus'
   { -- | The status message, if applicable.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The status code.
-    code :: Core.Maybe Core.Text
+    code :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PeeringAttachmentStatus' with all optional fields omitted.
@@ -49,23 +50,24 @@ newPeeringAttachmentStatus ::
   PeeringAttachmentStatus
 newPeeringAttachmentStatus =
   PeeringAttachmentStatus'
-    { message = Core.Nothing,
-      code = Core.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The status message, if applicable.
-peeringAttachmentStatus_message :: Lens.Lens' PeeringAttachmentStatus (Core.Maybe Core.Text)
+peeringAttachmentStatus_message :: Lens.Lens' PeeringAttachmentStatus (Prelude.Maybe Prelude.Text)
 peeringAttachmentStatus_message = Lens.lens (\PeeringAttachmentStatus' {message} -> message) (\s@PeeringAttachmentStatus' {} a -> s {message = a} :: PeeringAttachmentStatus)
 
 -- | The status code.
-peeringAttachmentStatus_code :: Lens.Lens' PeeringAttachmentStatus (Core.Maybe Core.Text)
+peeringAttachmentStatus_code :: Lens.Lens' PeeringAttachmentStatus (Prelude.Maybe Prelude.Text)
 peeringAttachmentStatus_code = Lens.lens (\PeeringAttachmentStatus' {code} -> code) (\s@PeeringAttachmentStatus' {} a -> s {code = a} :: PeeringAttachmentStatus)
 
 instance Core.FromXML PeeringAttachmentStatus where
   parseXML x =
     PeeringAttachmentStatus'
-      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
-instance Core.Hashable PeeringAttachmentStatus
+instance Prelude.Hashable PeeringAttachmentStatus
 
-instance Core.NFData PeeringAttachmentStatus
+instance Prelude.NFData PeeringAttachmentStatus

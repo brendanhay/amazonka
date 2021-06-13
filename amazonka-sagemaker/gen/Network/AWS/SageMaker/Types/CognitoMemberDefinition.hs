@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.CognitoMemberDefinition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies a Amazon Cognito user group. A user group can be used in on
 -- or more work teams.
@@ -29,14 +30,14 @@ import qualified Network.AWS.Lens as Lens
 data CognitoMemberDefinition = CognitoMemberDefinition'
   { -- | An identifier for a user pool. The user pool must be in the same region
     -- as the service that you are calling.
-    userPool :: Core.Text,
+    userPool :: Prelude.Text,
     -- | An identifier for a user group.
-    userGroup :: Core.Text,
+    userGroup :: Prelude.Text,
     -- | An identifier for an application client. You must create the app client
     -- ID using Amazon Cognito.
-    clientId :: Core.Text
+    clientId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CognitoMemberDefinition' with all optional fields omitted.
@@ -55,11 +56,11 @@ data CognitoMemberDefinition = CognitoMemberDefinition'
 -- ID using Amazon Cognito.
 newCognitoMemberDefinition ::
   -- | 'userPool'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'userGroup'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'clientId'
-  Core.Text ->
+  Prelude.Text ->
   CognitoMemberDefinition
 newCognitoMemberDefinition
   pUserPool_
@@ -73,16 +74,16 @@ newCognitoMemberDefinition
 
 -- | An identifier for a user pool. The user pool must be in the same region
 -- as the service that you are calling.
-cognitoMemberDefinition_userPool :: Lens.Lens' CognitoMemberDefinition Core.Text
+cognitoMemberDefinition_userPool :: Lens.Lens' CognitoMemberDefinition Prelude.Text
 cognitoMemberDefinition_userPool = Lens.lens (\CognitoMemberDefinition' {userPool} -> userPool) (\s@CognitoMemberDefinition' {} a -> s {userPool = a} :: CognitoMemberDefinition)
 
 -- | An identifier for a user group.
-cognitoMemberDefinition_userGroup :: Lens.Lens' CognitoMemberDefinition Core.Text
+cognitoMemberDefinition_userGroup :: Lens.Lens' CognitoMemberDefinition Prelude.Text
 cognitoMemberDefinition_userGroup = Lens.lens (\CognitoMemberDefinition' {userGroup} -> userGroup) (\s@CognitoMemberDefinition' {} a -> s {userGroup = a} :: CognitoMemberDefinition)
 
 -- | An identifier for an application client. You must create the app client
 -- ID using Amazon Cognito.
-cognitoMemberDefinition_clientId :: Lens.Lens' CognitoMemberDefinition Core.Text
+cognitoMemberDefinition_clientId :: Lens.Lens' CognitoMemberDefinition Prelude.Text
 cognitoMemberDefinition_clientId = Lens.lens (\CognitoMemberDefinition' {clientId} -> clientId) (\s@CognitoMemberDefinition' {} a -> s {clientId = a} :: CognitoMemberDefinition)
 
 instance Core.FromJSON CognitoMemberDefinition where
@@ -91,21 +92,21 @@ instance Core.FromJSON CognitoMemberDefinition where
       "CognitoMemberDefinition"
       ( \x ->
           CognitoMemberDefinition'
-            Core.<$> (x Core..: "UserPool")
-            Core.<*> (x Core..: "UserGroup")
-            Core.<*> (x Core..: "ClientId")
+            Prelude.<$> (x Core..: "UserPool")
+            Prelude.<*> (x Core..: "UserGroup")
+            Prelude.<*> (x Core..: "ClientId")
       )
 
-instance Core.Hashable CognitoMemberDefinition
+instance Prelude.Hashable CognitoMemberDefinition
 
-instance Core.NFData CognitoMemberDefinition
+instance Prelude.NFData CognitoMemberDefinition
 
 instance Core.ToJSON CognitoMemberDefinition where
   toJSON CognitoMemberDefinition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("UserPool" Core..= userPool),
-            Core.Just ("UserGroup" Core..= userGroup),
-            Core.Just ("ClientId" Core..= clientId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserPool" Core..= userPool),
+            Prelude.Just ("UserGroup" Core..= userGroup),
+            Prelude.Just ("ClientId" Core..= clientId)
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.ActivityType where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an activity type.
 --
@@ -30,14 +31,14 @@ data ActivityType = ActivityType'
     --
     -- The combination of activity type name and version must be unique within
     -- a domain.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The version of this activity.
     --
     -- The combination of activity type name and version must be unique with in
     -- a domain.
-    version :: Core.Text
+    version :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActivityType' with all optional fields omitted.
@@ -58,9 +59,9 @@ data ActivityType = ActivityType'
 -- a domain.
 newActivityType ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'version'
-  Core.Text ->
+  Prelude.Text ->
   ActivityType
 newActivityType pName_ pVersion_ =
   ActivityType' {name = pName_, version = pVersion_}
@@ -69,14 +70,14 @@ newActivityType pName_ pVersion_ =
 --
 -- The combination of activity type name and version must be unique within
 -- a domain.
-activityType_name :: Lens.Lens' ActivityType Core.Text
+activityType_name :: Lens.Lens' ActivityType Prelude.Text
 activityType_name = Lens.lens (\ActivityType' {name} -> name) (\s@ActivityType' {} a -> s {name = a} :: ActivityType)
 
 -- | The version of this activity.
 --
 -- The combination of activity type name and version must be unique with in
 -- a domain.
-activityType_version :: Lens.Lens' ActivityType Core.Text
+activityType_version :: Lens.Lens' ActivityType Prelude.Text
 activityType_version = Lens.lens (\ActivityType' {version} -> version) (\s@ActivityType' {} a -> s {version = a} :: ActivityType)
 
 instance Core.FromJSON ActivityType where
@@ -85,18 +86,18 @@ instance Core.FromJSON ActivityType where
       "ActivityType"
       ( \x ->
           ActivityType'
-            Core.<$> (x Core..: "name") Core.<*> (x Core..: "version")
+            Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "version")
       )
 
-instance Core.Hashable ActivityType
+instance Prelude.Hashable ActivityType
 
-instance Core.NFData ActivityType
+instance Prelude.NFData ActivityType
 
 instance Core.ToJSON ActivityType where
   toJSON ActivityType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("name" Core..= name),
-            Core.Just ("version" Core..= version)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("name" Core..= name),
+            Prelude.Just ("version" Core..= version)
           ]
       )

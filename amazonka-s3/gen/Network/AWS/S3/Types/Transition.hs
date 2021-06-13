@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.Transition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.TransitionStorageClass
 
@@ -34,15 +35,15 @@ data Transition = Transition'
   { -- | Indicates the number of days after creation when objects are
     -- transitioned to the specified storage class. The value must be a
     -- positive integer.
-    days :: Core.Maybe Core.Int,
+    days :: Prelude.Maybe Prelude.Int,
     -- | The storage class to which you want the object to transition.
-    storageClass :: Core.Maybe TransitionStorageClass,
+    storageClass :: Prelude.Maybe TransitionStorageClass,
     -- | Indicates when objects are transitioned to the specified storage class.
     -- The date value must be in ISO 8601 format. The time is always midnight
     -- UTC.
-    date :: Core.Maybe Core.ISO8601
+    date :: Prelude.Maybe Core.ISO8601
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Transition' with all optional fields omitted.
@@ -65,41 +66,41 @@ newTransition ::
   Transition
 newTransition =
   Transition'
-    { days = Core.Nothing,
-      storageClass = Core.Nothing,
-      date = Core.Nothing
+    { days = Prelude.Nothing,
+      storageClass = Prelude.Nothing,
+      date = Prelude.Nothing
     }
 
 -- | Indicates the number of days after creation when objects are
 -- transitioned to the specified storage class. The value must be a
 -- positive integer.
-transition_days :: Lens.Lens' Transition (Core.Maybe Core.Int)
+transition_days :: Lens.Lens' Transition (Prelude.Maybe Prelude.Int)
 transition_days = Lens.lens (\Transition' {days} -> days) (\s@Transition' {} a -> s {days = a} :: Transition)
 
 -- | The storage class to which you want the object to transition.
-transition_storageClass :: Lens.Lens' Transition (Core.Maybe TransitionStorageClass)
+transition_storageClass :: Lens.Lens' Transition (Prelude.Maybe TransitionStorageClass)
 transition_storageClass = Lens.lens (\Transition' {storageClass} -> storageClass) (\s@Transition' {} a -> s {storageClass = a} :: Transition)
 
 -- | Indicates when objects are transitioned to the specified storage class.
 -- The date value must be in ISO 8601 format. The time is always midnight
 -- UTC.
-transition_date :: Lens.Lens' Transition (Core.Maybe Core.UTCTime)
-transition_date = Lens.lens (\Transition' {date} -> date) (\s@Transition' {} a -> s {date = a} :: Transition) Core.. Lens.mapping Core._Time
+transition_date :: Lens.Lens' Transition (Prelude.Maybe Prelude.UTCTime)
+transition_date = Lens.lens (\Transition' {date} -> date) (\s@Transition' {} a -> s {date = a} :: Transition) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromXML Transition where
   parseXML x =
     Transition'
-      Core.<$> (x Core..@? "Days")
-      Core.<*> (x Core..@? "StorageClass")
-      Core.<*> (x Core..@? "Date")
+      Prelude.<$> (x Core..@? "Days")
+      Prelude.<*> (x Core..@? "StorageClass")
+      Prelude.<*> (x Core..@? "Date")
 
-instance Core.Hashable Transition
+instance Prelude.Hashable Transition
 
-instance Core.NFData Transition
+instance Prelude.NFData Transition
 
 instance Core.ToXML Transition where
   toXML Transition' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Days" Core.@= days,
         "StorageClass" Core.@= storageClass,
         "Date" Core.@= date

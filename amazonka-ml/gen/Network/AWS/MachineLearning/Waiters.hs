@@ -23,6 +23,7 @@ import Network.AWS.MachineLearning.DescribeEvaluations
 import Network.AWS.MachineLearning.DescribeMLModels
 import Network.AWS.MachineLearning.Lens
 import Network.AWS.MachineLearning.Types
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.MachineLearning.DescribeMLModels' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newMLModelAvailable :: Core.Wait DescribeMLModels
@@ -37,22 +38,26 @@ newMLModelAvailable =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeMLModelsResponse_results Core.. Lens._Just)
+                    ( describeMLModelsResponse_results
+                        Prelude.. Lens._Just
+                    )
                 )
-                Core.. mLModel_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. mLModel_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "FAILED"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeMLModelsResponse_results Core.. Lens._Just)
+                    ( describeMLModelsResponse_results
+                        Prelude.. Lens._Just
+                    )
                 )
-                Core.. mLModel_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. mLModel_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -71,12 +76,12 @@ newEvaluationAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeEvaluationsResponse_results
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. evaluation_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. evaluation_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "FAILED"
@@ -84,12 +89,12 @@ newEvaluationAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeEvaluationsResponse_results
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. evaluation_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. evaluation_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -108,12 +113,12 @@ newDataSourceAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDataSourcesResponse_results
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dataSource_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dataSource_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "FAILED"
@@ -121,12 +126,12 @@ newDataSourceAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDataSourcesResponse_results
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. dataSource_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. dataSource_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -146,12 +151,12 @@ newBatchPredictionAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeBatchPredictionsResponse_results
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. batchPrediction_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. batchPrediction_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "FAILED"
@@ -159,12 +164,12 @@ newBatchPredictionAvailable =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeBatchPredictionsResponse_results
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. batchPrediction_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. batchPrediction_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

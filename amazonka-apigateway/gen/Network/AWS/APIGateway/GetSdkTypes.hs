@@ -46,6 +46,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,12 +55,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetSdkTypes' smart constructor.
 data GetSdkTypes = GetSdkTypes'
   { -- | The current pagination position in the paged result set.
-    position :: Core.Maybe Core.Text,
+    position :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Core.Maybe Core.Int
+    limit :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSdkTypes' with all optional fields omitted.
@@ -77,37 +78,37 @@ newGetSdkTypes ::
   GetSdkTypes
 newGetSdkTypes =
   GetSdkTypes'
-    { position = Core.Nothing,
-      limit = Core.Nothing
+    { position = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | The current pagination position in the paged result set.
-getSdkTypes_position :: Lens.Lens' GetSdkTypes (Core.Maybe Core.Text)
+getSdkTypes_position :: Lens.Lens' GetSdkTypes (Prelude.Maybe Prelude.Text)
 getSdkTypes_position = Lens.lens (\GetSdkTypes' {position} -> position) (\s@GetSdkTypes' {} a -> s {position = a} :: GetSdkTypes)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
-getSdkTypes_limit :: Lens.Lens' GetSdkTypes (Core.Maybe Core.Int)
+getSdkTypes_limit :: Lens.Lens' GetSdkTypes (Prelude.Maybe Prelude.Int)
 getSdkTypes_limit = Lens.lens (\GetSdkTypes' {limit} -> limit) (\s@GetSdkTypes' {} a -> s {limit = a} :: GetSdkTypes)
 
 instance Core.AWSPager GetSdkTypes where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getSdkTypesResponse_position Core.. Lens._Just
+            Lens.^? getSdkTypesResponse_position Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getSdkTypesResponse_items Core.. Lens._Just
+            Lens.^? getSdkTypesResponse_items Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getSdkTypes_position
+          Prelude.& getSdkTypes_position
           Lens..~ rs
-          Lens.^? getSdkTypesResponse_position Core.. Lens._Just
+          Lens.^? getSdkTypesResponse_position Prelude.. Lens._Just
 
 instance Core.AWSRequest GetSdkTypes where
   type AWSResponse GetSdkTypes = GetSdkTypesResponse
@@ -116,30 +117,30 @@ instance Core.AWSRequest GetSdkTypes where
     Response.receiveJSON
       ( \s h x ->
           GetSdkTypesResponse'
-            Core.<$> (x Core..?> "item" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "position")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "position")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSdkTypes
+instance Prelude.Hashable GetSdkTypes
 
-instance Core.NFData GetSdkTypes
+instance Prelude.NFData GetSdkTypes
 
 instance Core.ToHeaders GetSdkTypes where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetSdkTypes where
-  toPath = Core.const "/sdktypes"
+  toPath = Prelude.const "/sdktypes"
 
 instance Core.ToQuery GetSdkTypes where
   toQuery GetSdkTypes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["position" Core.=: position, "limit" Core.=: limit]
 
 -- | The collection of SdkType instances.
@@ -147,12 +148,12 @@ instance Core.ToQuery GetSdkTypes where
 -- /See:/ 'newGetSdkTypesResponse' smart constructor.
 data GetSdkTypesResponse = GetSdkTypesResponse'
   { -- | The current page of elements from this collection.
-    items :: Core.Maybe [SdkType],
-    position :: Core.Maybe Core.Text,
+    items :: Prelude.Maybe [SdkType],
+    position :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSdkTypesResponse' with all optional fields omitted.
@@ -169,25 +170,25 @@ data GetSdkTypesResponse = GetSdkTypesResponse'
 -- 'httpStatus', 'getSdkTypesResponse_httpStatus' - The response's http status code.
 newGetSdkTypesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSdkTypesResponse
 newGetSdkTypesResponse pHttpStatus_ =
   GetSdkTypesResponse'
-    { items = Core.Nothing,
-      position = Core.Nothing,
+    { items = Prelude.Nothing,
+      position = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current page of elements from this collection.
-getSdkTypesResponse_items :: Lens.Lens' GetSdkTypesResponse (Core.Maybe [SdkType])
-getSdkTypesResponse_items = Lens.lens (\GetSdkTypesResponse' {items} -> items) (\s@GetSdkTypesResponse' {} a -> s {items = a} :: GetSdkTypesResponse) Core.. Lens.mapping Lens._Coerce
+getSdkTypesResponse_items :: Lens.Lens' GetSdkTypesResponse (Prelude.Maybe [SdkType])
+getSdkTypesResponse_items = Lens.lens (\GetSdkTypesResponse' {items} -> items) (\s@GetSdkTypesResponse' {} a -> s {items = a} :: GetSdkTypesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getSdkTypesResponse_position :: Lens.Lens' GetSdkTypesResponse (Core.Maybe Core.Text)
+getSdkTypesResponse_position :: Lens.Lens' GetSdkTypesResponse (Prelude.Maybe Prelude.Text)
 getSdkTypesResponse_position = Lens.lens (\GetSdkTypesResponse' {position} -> position) (\s@GetSdkTypesResponse' {} a -> s {position = a} :: GetSdkTypesResponse)
 
 -- | The response's http status code.
-getSdkTypesResponse_httpStatus :: Lens.Lens' GetSdkTypesResponse Core.Int
+getSdkTypesResponse_httpStatus :: Lens.Lens' GetSdkTypesResponse Prelude.Int
 getSdkTypesResponse_httpStatus = Lens.lens (\GetSdkTypesResponse' {httpStatus} -> httpStatus) (\s@GetSdkTypesResponse' {} a -> s {httpStatus = a} :: GetSdkTypesResponse)
 
-instance Core.NFData GetSdkTypesResponse
+instance Prelude.NFData GetSdkTypesResponse

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ModelQualityJobInput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.EndpointInput
 import Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input
 
@@ -33,7 +34,7 @@ data ModelQualityJobInput = ModelQualityJobInput'
     -- | The ground truth label provided for the model.
     groundTruthS3Input :: MonitoringGroundTruthS3Input
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModelQualityJobInput' with all optional fields omitted.
@@ -75,20 +76,21 @@ instance Core.FromJSON ModelQualityJobInput where
       "ModelQualityJobInput"
       ( \x ->
           ModelQualityJobInput'
-            Core.<$> (x Core..: "EndpointInput")
-            Core.<*> (x Core..: "GroundTruthS3Input")
+            Prelude.<$> (x Core..: "EndpointInput")
+            Prelude.<*> (x Core..: "GroundTruthS3Input")
       )
 
-instance Core.Hashable ModelQualityJobInput
+instance Prelude.Hashable ModelQualityJobInput
 
-instance Core.NFData ModelQualityJobInput
+instance Prelude.NFData ModelQualityJobInput
 
 instance Core.ToJSON ModelQualityJobInput where
   toJSON ModelQualityJobInput' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("EndpointInput" Core..= endpointInput),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("EndpointInput" Core..= endpointInput),
+            Prelude.Just
               ("GroundTruthS3Input" Core..= groundTruthS3Input)
           ]
       )

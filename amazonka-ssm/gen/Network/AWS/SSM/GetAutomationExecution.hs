@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -50,9 +51,9 @@ data GetAutomationExecution = GetAutomationExecution'
   { -- | The unique identifier for an existing automation execution to examine.
     -- The execution ID is returned by StartAutomationExecution when the
     -- execution of an Automation document is initiated.
-    automationExecutionId :: Core.Text
+    automationExecutionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAutomationExecution' with all optional fields omitted.
@@ -67,7 +68,7 @@ data GetAutomationExecution = GetAutomationExecution'
 -- execution of an Automation document is initiated.
 newGetAutomationExecution ::
   -- | 'automationExecutionId'
-  Core.Text ->
+  Prelude.Text ->
   GetAutomationExecution
 newGetAutomationExecution pAutomationExecutionId_ =
   GetAutomationExecution'
@@ -78,7 +79,7 @@ newGetAutomationExecution pAutomationExecutionId_ =
 -- | The unique identifier for an existing automation execution to examine.
 -- The execution ID is returned by StartAutomationExecution when the
 -- execution of an Automation document is initiated.
-getAutomationExecution_automationExecutionId :: Lens.Lens' GetAutomationExecution Core.Text
+getAutomationExecution_automationExecutionId :: Lens.Lens' GetAutomationExecution Prelude.Text
 getAutomationExecution_automationExecutionId = Lens.lens (\GetAutomationExecution' {automationExecutionId} -> automationExecutionId) (\s@GetAutomationExecution' {} a -> s {automationExecutionId = a} :: GetAutomationExecution)
 
 instance Core.AWSRequest GetAutomationExecution where
@@ -90,32 +91,34 @@ instance Core.AWSRequest GetAutomationExecution where
     Response.receiveJSON
       ( \s h x ->
           GetAutomationExecutionResponse'
-            Core.<$> (x Core..?> "AutomationExecution")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AutomationExecution")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetAutomationExecution
+instance Prelude.Hashable GetAutomationExecution
 
-instance Core.NFData GetAutomationExecution
+instance Prelude.NFData GetAutomationExecution
 
 instance Core.ToHeaders GetAutomationExecution where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonSSM.GetAutomationExecution" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetAutomationExecution where
   toJSON GetAutomationExecution' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "AutomationExecutionId"
                   Core..= automationExecutionId
               )
@@ -123,19 +126,19 @@ instance Core.ToJSON GetAutomationExecution where
       )
 
 instance Core.ToPath GetAutomationExecution where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetAutomationExecution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAutomationExecutionResponse' smart constructor.
 data GetAutomationExecutionResponse = GetAutomationExecutionResponse'
   { -- | Detailed information about the current state of an automation execution.
-    automationExecution :: Core.Maybe AutomationExecution,
+    automationExecution :: Prelude.Maybe AutomationExecution,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAutomationExecutionResponse' with all optional fields omitted.
@@ -150,21 +153,23 @@ data GetAutomationExecutionResponse = GetAutomationExecutionResponse'
 -- 'httpStatus', 'getAutomationExecutionResponse_httpStatus' - The response's http status code.
 newGetAutomationExecutionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetAutomationExecutionResponse
 newGetAutomationExecutionResponse pHttpStatus_ =
   GetAutomationExecutionResponse'
     { automationExecution =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Detailed information about the current state of an automation execution.
-getAutomationExecutionResponse_automationExecution :: Lens.Lens' GetAutomationExecutionResponse (Core.Maybe AutomationExecution)
+getAutomationExecutionResponse_automationExecution :: Lens.Lens' GetAutomationExecutionResponse (Prelude.Maybe AutomationExecution)
 getAutomationExecutionResponse_automationExecution = Lens.lens (\GetAutomationExecutionResponse' {automationExecution} -> automationExecution) (\s@GetAutomationExecutionResponse' {} a -> s {automationExecution = a} :: GetAutomationExecutionResponse)
 
 -- | The response's http status code.
-getAutomationExecutionResponse_httpStatus :: Lens.Lens' GetAutomationExecutionResponse Core.Int
+getAutomationExecutionResponse_httpStatus :: Lens.Lens' GetAutomationExecutionResponse Prelude.Int
 getAutomationExecutionResponse_httpStatus = Lens.lens (\GetAutomationExecutionResponse' {httpStatus} -> httpStatus) (\s@GetAutomationExecutionResponse' {} a -> s {httpStatus = a} :: GetAutomationExecutionResponse)
 
-instance Core.NFData GetAutomationExecutionResponse
+instance
+  Prelude.NFData
+    GetAutomationExecutionResponse

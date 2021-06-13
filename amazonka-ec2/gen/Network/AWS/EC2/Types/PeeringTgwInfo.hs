@@ -22,19 +22,20 @@ module Network.AWS.EC2.Types.PeeringTgwInfo where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the transit gateway in the peering attachment.
 --
 -- /See:/ 'newPeeringTgwInfo' smart constructor.
 data PeeringTgwInfo = PeeringTgwInfo'
   { -- | The AWS account ID of the owner of the transit gateway.
-    ownerId :: Core.Maybe Core.Text,
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The Region of the transit gateway.
-    region :: Core.Maybe Core.Text,
+    region :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway.
-    transitGatewayId :: Core.Maybe Core.Text
+    transitGatewayId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PeeringTgwInfo' with all optional fields omitted.
@@ -53,30 +54,30 @@ newPeeringTgwInfo ::
   PeeringTgwInfo
 newPeeringTgwInfo =
   PeeringTgwInfo'
-    { ownerId = Core.Nothing,
-      region = Core.Nothing,
-      transitGatewayId = Core.Nothing
+    { ownerId = Prelude.Nothing,
+      region = Prelude.Nothing,
+      transitGatewayId = Prelude.Nothing
     }
 
 -- | The AWS account ID of the owner of the transit gateway.
-peeringTgwInfo_ownerId :: Lens.Lens' PeeringTgwInfo (Core.Maybe Core.Text)
+peeringTgwInfo_ownerId :: Lens.Lens' PeeringTgwInfo (Prelude.Maybe Prelude.Text)
 peeringTgwInfo_ownerId = Lens.lens (\PeeringTgwInfo' {ownerId} -> ownerId) (\s@PeeringTgwInfo' {} a -> s {ownerId = a} :: PeeringTgwInfo)
 
 -- | The Region of the transit gateway.
-peeringTgwInfo_region :: Lens.Lens' PeeringTgwInfo (Core.Maybe Core.Text)
+peeringTgwInfo_region :: Lens.Lens' PeeringTgwInfo (Prelude.Maybe Prelude.Text)
 peeringTgwInfo_region = Lens.lens (\PeeringTgwInfo' {region} -> region) (\s@PeeringTgwInfo' {} a -> s {region = a} :: PeeringTgwInfo)
 
 -- | The ID of the transit gateway.
-peeringTgwInfo_transitGatewayId :: Lens.Lens' PeeringTgwInfo (Core.Maybe Core.Text)
+peeringTgwInfo_transitGatewayId :: Lens.Lens' PeeringTgwInfo (Prelude.Maybe Prelude.Text)
 peeringTgwInfo_transitGatewayId = Lens.lens (\PeeringTgwInfo' {transitGatewayId} -> transitGatewayId) (\s@PeeringTgwInfo' {} a -> s {transitGatewayId = a} :: PeeringTgwInfo)
 
 instance Core.FromXML PeeringTgwInfo where
   parseXML x =
     PeeringTgwInfo'
-      Core.<$> (x Core..@? "ownerId")
-      Core.<*> (x Core..@? "region")
-      Core.<*> (x Core..@? "transitGatewayId")
+      Prelude.<$> (x Core..@? "ownerId")
+      Prelude.<*> (x Core..@? "region")
+      Prelude.<*> (x Core..@? "transitGatewayId")
 
-instance Core.Hashable PeeringTgwInfo
+instance Prelude.Hashable PeeringTgwInfo
 
-instance Core.NFData PeeringTgwInfo
+instance Prelude.NFData PeeringTgwInfo

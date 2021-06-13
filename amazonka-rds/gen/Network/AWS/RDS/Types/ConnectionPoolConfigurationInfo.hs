@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Displays the settings that control the size and behavior of the
 -- connection pool associated with a @DBProxyTarget@.
@@ -32,7 +33,7 @@ data ConnectionPoolConfigurationInfo = ConnectionPoolConfigurationInfo'
     -- the same underlying database connection. Including an item in the list
     -- exempts that class of SQL operations from the pinning behavior.
     -- Currently, the only allowed value is @EXCLUDE_VARIABLE_SETS@.
-    sessionPinningFilters :: Core.Maybe [Core.Text],
+    sessionPinningFilters :: Prelude.Maybe [Prelude.Text],
     -- | Controls how actively the proxy closes idle database connections in the
     -- connection pool. A high value enables the proxy to leave a high
     -- percentage of idle connections open. A low value causes the proxy to
@@ -40,26 +41,26 @@ data ConnectionPoolConfigurationInfo = ConnectionPoolConfigurationInfo'
     -- connections to the connection pool. For Aurora MySQL, it is expressed as
     -- a percentage of the @max_connections@ setting for the RDS DB instance or
     -- Aurora DB cluster used by the target group.
-    maxIdleConnectionsPercent :: Core.Maybe Core.Int,
+    maxIdleConnectionsPercent :: Prelude.Maybe Prelude.Int,
     -- | The number of seconds for a proxy to wait for a connection to become
     -- available in the connection pool. Only applies when the proxy has opened
     -- its maximum number of connections and all connections are busy with
     -- client sessions.
-    connectionBorrowTimeout :: Core.Maybe Core.Int,
+    connectionBorrowTimeout :: Prelude.Maybe Prelude.Int,
     -- | One or more SQL statements for the proxy to run when opening each new
     -- database connection. Typically used with @SET@ statements to make sure
     -- that each connection has identical settings such as time zone and
     -- character set. This setting is empty by default. For multiple
     -- statements, use semicolons as the separator. You can also include
     -- multiple variables in a single @SET@ statement, such as @SET x=1, y=2@.
-    initQuery :: Core.Maybe Core.Text,
+    initQuery :: Prelude.Maybe Prelude.Text,
     -- | The maximum size of the connection pool for each target in a target
     -- group. For Aurora MySQL, it is expressed as a percentage of the
     -- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
     -- used by the target group.
-    maxConnectionsPercent :: Core.Maybe Core.Int
+    maxConnectionsPercent :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConnectionPoolConfigurationInfo' with all optional fields omitted.
@@ -104,11 +105,12 @@ newConnectionPoolConfigurationInfo ::
 newConnectionPoolConfigurationInfo =
   ConnectionPoolConfigurationInfo'
     { sessionPinningFilters =
-        Core.Nothing,
-      maxIdleConnectionsPercent = Core.Nothing,
-      connectionBorrowTimeout = Core.Nothing,
-      initQuery = Core.Nothing,
-      maxConnectionsPercent = Core.Nothing
+        Prelude.Nothing,
+      maxIdleConnectionsPercent =
+        Prelude.Nothing,
+      connectionBorrowTimeout = Prelude.Nothing,
+      initQuery = Prelude.Nothing,
+      maxConnectionsPercent = Prelude.Nothing
     }
 
 -- | Each item in the list represents a class of SQL operations that normally
@@ -116,8 +118,8 @@ newConnectionPoolConfigurationInfo =
 -- the same underlying database connection. Including an item in the list
 -- exempts that class of SQL operations from the pinning behavior.
 -- Currently, the only allowed value is @EXCLUDE_VARIABLE_SETS@.
-connectionPoolConfigurationInfo_sessionPinningFilters :: Lens.Lens' ConnectionPoolConfigurationInfo (Core.Maybe [Core.Text])
-connectionPoolConfigurationInfo_sessionPinningFilters = Lens.lens (\ConnectionPoolConfigurationInfo' {sessionPinningFilters} -> sessionPinningFilters) (\s@ConnectionPoolConfigurationInfo' {} a -> s {sessionPinningFilters = a} :: ConnectionPoolConfigurationInfo) Core.. Lens.mapping Lens._Coerce
+connectionPoolConfigurationInfo_sessionPinningFilters :: Lens.Lens' ConnectionPoolConfigurationInfo (Prelude.Maybe [Prelude.Text])
+connectionPoolConfigurationInfo_sessionPinningFilters = Lens.lens (\ConnectionPoolConfigurationInfo' {sessionPinningFilters} -> sessionPinningFilters) (\s@ConnectionPoolConfigurationInfo' {} a -> s {sessionPinningFilters = a} :: ConnectionPoolConfigurationInfo) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Controls how actively the proxy closes idle database connections in the
 -- connection pool. A high value enables the proxy to leave a high
@@ -126,14 +128,14 @@ connectionPoolConfigurationInfo_sessionPinningFilters = Lens.lens (\ConnectionPo
 -- connections to the connection pool. For Aurora MySQL, it is expressed as
 -- a percentage of the @max_connections@ setting for the RDS DB instance or
 -- Aurora DB cluster used by the target group.
-connectionPoolConfigurationInfo_maxIdleConnectionsPercent :: Lens.Lens' ConnectionPoolConfigurationInfo (Core.Maybe Core.Int)
+connectionPoolConfigurationInfo_maxIdleConnectionsPercent :: Lens.Lens' ConnectionPoolConfigurationInfo (Prelude.Maybe Prelude.Int)
 connectionPoolConfigurationInfo_maxIdleConnectionsPercent = Lens.lens (\ConnectionPoolConfigurationInfo' {maxIdleConnectionsPercent} -> maxIdleConnectionsPercent) (\s@ConnectionPoolConfigurationInfo' {} a -> s {maxIdleConnectionsPercent = a} :: ConnectionPoolConfigurationInfo)
 
 -- | The number of seconds for a proxy to wait for a connection to become
 -- available in the connection pool. Only applies when the proxy has opened
 -- its maximum number of connections and all connections are busy with
 -- client sessions.
-connectionPoolConfigurationInfo_connectionBorrowTimeout :: Lens.Lens' ConnectionPoolConfigurationInfo (Core.Maybe Core.Int)
+connectionPoolConfigurationInfo_connectionBorrowTimeout :: Lens.Lens' ConnectionPoolConfigurationInfo (Prelude.Maybe Prelude.Int)
 connectionPoolConfigurationInfo_connectionBorrowTimeout = Lens.lens (\ConnectionPoolConfigurationInfo' {connectionBorrowTimeout} -> connectionBorrowTimeout) (\s@ConnectionPoolConfigurationInfo' {} a -> s {connectionBorrowTimeout = a} :: ConnectionPoolConfigurationInfo)
 
 -- | One or more SQL statements for the proxy to run when opening each new
@@ -142,30 +144,32 @@ connectionPoolConfigurationInfo_connectionBorrowTimeout = Lens.lens (\Connection
 -- character set. This setting is empty by default. For multiple
 -- statements, use semicolons as the separator. You can also include
 -- multiple variables in a single @SET@ statement, such as @SET x=1, y=2@.
-connectionPoolConfigurationInfo_initQuery :: Lens.Lens' ConnectionPoolConfigurationInfo (Core.Maybe Core.Text)
+connectionPoolConfigurationInfo_initQuery :: Lens.Lens' ConnectionPoolConfigurationInfo (Prelude.Maybe Prelude.Text)
 connectionPoolConfigurationInfo_initQuery = Lens.lens (\ConnectionPoolConfigurationInfo' {initQuery} -> initQuery) (\s@ConnectionPoolConfigurationInfo' {} a -> s {initQuery = a} :: ConnectionPoolConfigurationInfo)
 
 -- | The maximum size of the connection pool for each target in a target
 -- group. For Aurora MySQL, it is expressed as a percentage of the
 -- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
 -- used by the target group.
-connectionPoolConfigurationInfo_maxConnectionsPercent :: Lens.Lens' ConnectionPoolConfigurationInfo (Core.Maybe Core.Int)
+connectionPoolConfigurationInfo_maxConnectionsPercent :: Lens.Lens' ConnectionPoolConfigurationInfo (Prelude.Maybe Prelude.Int)
 connectionPoolConfigurationInfo_maxConnectionsPercent = Lens.lens (\ConnectionPoolConfigurationInfo' {maxConnectionsPercent} -> maxConnectionsPercent) (\s@ConnectionPoolConfigurationInfo' {} a -> s {maxConnectionsPercent = a} :: ConnectionPoolConfigurationInfo)
 
 instance Core.FromXML ConnectionPoolConfigurationInfo where
   parseXML x =
     ConnectionPoolConfigurationInfo'
-      Core.<$> ( x Core..@? "SessionPinningFilters"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "MaxIdleConnectionsPercent")
-      Core.<*> (x Core..@? "ConnectionBorrowTimeout")
-      Core.<*> (x Core..@? "InitQuery")
-      Core.<*> (x Core..@? "MaxConnectionsPercent")
+      Prelude.<$> ( x Core..@? "SessionPinningFilters"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "MaxIdleConnectionsPercent")
+      Prelude.<*> (x Core..@? "ConnectionBorrowTimeout")
+      Prelude.<*> (x Core..@? "InitQuery")
+      Prelude.<*> (x Core..@? "MaxConnectionsPercent")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ConnectionPoolConfigurationInfo
 
-instance Core.NFData ConnectionPoolConfigurationInfo
+instance
+  Prelude.NFData
+    ConnectionPoolConfigurationInfo

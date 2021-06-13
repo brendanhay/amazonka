@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,7 +50,7 @@ import qualified Network.AWS.Response as Response
 data PhoneNumberValidate = PhoneNumberValidate'
   { numberValidateRequest :: NumberValidateRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PhoneNumberValidate' with all optional fields omitted.
@@ -83,28 +84,30 @@ instance Core.AWSRequest PhoneNumberValidate where
     Response.receiveJSON
       ( \s h x ->
           PhoneNumberValidateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable PhoneNumberValidate
+instance Prelude.Hashable PhoneNumberValidate
 
-instance Core.NFData PhoneNumberValidate
+instance Prelude.NFData PhoneNumberValidate
 
 instance Core.ToHeaders PhoneNumberValidate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PhoneNumberValidate where
   toJSON PhoneNumberValidate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "NumberValidateRequest"
                   Core..= numberValidateRequest
               )
@@ -112,18 +115,18 @@ instance Core.ToJSON PhoneNumberValidate where
       )
 
 instance Core.ToPath PhoneNumberValidate where
-  toPath = Core.const "/v1/phone/number/validate"
+  toPath = Prelude.const "/v1/phone/number/validate"
 
 instance Core.ToQuery PhoneNumberValidate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPhoneNumberValidateResponse' smart constructor.
 data PhoneNumberValidateResponse = PhoneNumberValidateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     numberValidateResponse :: NumberValidateResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PhoneNumberValidateResponse' with all optional fields omitted.
@@ -138,7 +141,7 @@ data PhoneNumberValidateResponse = PhoneNumberValidateResponse'
 -- 'numberValidateResponse', 'phoneNumberValidateResponse_numberValidateResponse' - Undocumented member.
 newPhoneNumberValidateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'numberValidateResponse'
   NumberValidateResponse ->
   PhoneNumberValidateResponse
@@ -153,11 +156,11 @@ newPhoneNumberValidateResponse
       }
 
 -- | The response's http status code.
-phoneNumberValidateResponse_httpStatus :: Lens.Lens' PhoneNumberValidateResponse Core.Int
+phoneNumberValidateResponse_httpStatus :: Lens.Lens' PhoneNumberValidateResponse Prelude.Int
 phoneNumberValidateResponse_httpStatus = Lens.lens (\PhoneNumberValidateResponse' {httpStatus} -> httpStatus) (\s@PhoneNumberValidateResponse' {} a -> s {httpStatus = a} :: PhoneNumberValidateResponse)
 
 -- | Undocumented member.
 phoneNumberValidateResponse_numberValidateResponse :: Lens.Lens' PhoneNumberValidateResponse NumberValidateResponse
 phoneNumberValidateResponse_numberValidateResponse = Lens.lens (\PhoneNumberValidateResponse' {numberValidateResponse} -> numberValidateResponse) (\s@PhoneNumberValidateResponse' {} a -> s {numberValidateResponse = a} :: PhoneNumberValidateResponse)
 
-instance Core.NFData PhoneNumberValidateResponse
+instance Prelude.NFData PhoneNumberValidateResponse

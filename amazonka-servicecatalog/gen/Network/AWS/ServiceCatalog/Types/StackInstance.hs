@@ -21,6 +21,7 @@ module Network.AWS.ServiceCatalog.Types.StackInstance where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.StackInstanceStatus
 
 -- | An AWS CloudFormation stack, in a specific account and region, that\'s
@@ -50,13 +51,13 @@ data StackInstance = StackInstance'
     --     stopped before the stack was created or updated.
     --
     -- -   @CURRENT@: The stack is currently up to date with the stack set.
-    stackInstanceStatus :: Core.Maybe StackInstanceStatus,
+    stackInstanceStatus :: Prelude.Maybe StackInstanceStatus,
     -- | The name of the AWS account that the stack instance is associated with.
-    account :: Core.Maybe Core.Text,
+    account :: Prelude.Maybe Prelude.Text,
     -- | The name of the AWS region that the stack instance is associated with.
-    region :: Core.Maybe Core.Text
+    region :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StackInstance' with all optional fields omitted.
@@ -90,9 +91,10 @@ newStackInstance ::
   StackInstance
 newStackInstance =
   StackInstance'
-    { stackInstanceStatus = Core.Nothing,
-      account = Core.Nothing,
-      region = Core.Nothing
+    { stackInstanceStatus =
+        Prelude.Nothing,
+      account = Prelude.Nothing,
+      region = Prelude.Nothing
     }
 
 -- | The status of the stack instance, in terms of its synchronization with
@@ -111,15 +113,15 @@ newStackInstance =
 --     stopped before the stack was created or updated.
 --
 -- -   @CURRENT@: The stack is currently up to date with the stack set.
-stackInstance_stackInstanceStatus :: Lens.Lens' StackInstance (Core.Maybe StackInstanceStatus)
+stackInstance_stackInstanceStatus :: Lens.Lens' StackInstance (Prelude.Maybe StackInstanceStatus)
 stackInstance_stackInstanceStatus = Lens.lens (\StackInstance' {stackInstanceStatus} -> stackInstanceStatus) (\s@StackInstance' {} a -> s {stackInstanceStatus = a} :: StackInstance)
 
 -- | The name of the AWS account that the stack instance is associated with.
-stackInstance_account :: Lens.Lens' StackInstance (Core.Maybe Core.Text)
+stackInstance_account :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
 stackInstance_account = Lens.lens (\StackInstance' {account} -> account) (\s@StackInstance' {} a -> s {account = a} :: StackInstance)
 
 -- | The name of the AWS region that the stack instance is associated with.
-stackInstance_region :: Lens.Lens' StackInstance (Core.Maybe Core.Text)
+stackInstance_region :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
 stackInstance_region = Lens.lens (\StackInstance' {region} -> region) (\s@StackInstance' {} a -> s {region = a} :: StackInstance)
 
 instance Core.FromJSON StackInstance where
@@ -128,11 +130,11 @@ instance Core.FromJSON StackInstance where
       "StackInstance"
       ( \x ->
           StackInstance'
-            Core.<$> (x Core..:? "StackInstanceStatus")
-            Core.<*> (x Core..:? "Account")
-            Core.<*> (x Core..:? "Region")
+            Prelude.<$> (x Core..:? "StackInstanceStatus")
+            Prelude.<*> (x Core..:? "Account")
+            Prelude.<*> (x Core..:? "Region")
       )
 
-instance Core.Hashable StackInstance
+instance Prelude.Hashable StackInstance
 
-instance Core.NFData StackInstance
+instance Prelude.NFData StackInstance

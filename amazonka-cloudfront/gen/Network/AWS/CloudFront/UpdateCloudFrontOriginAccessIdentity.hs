@@ -45,6 +45,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,13 +55,13 @@ import qualified Network.AWS.Response as Response
 data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity'
   { -- | The value of the @ETag@ header that you received when retrieving the
     -- identity\'s configuration. For example: @E2QWRUHAPOMQZL@.
-    ifMatch :: Core.Maybe Core.Text,
+    ifMatch :: Prelude.Maybe Prelude.Text,
     -- | The identity\'s configuration information.
     cloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig,
     -- | The identity\'s id.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateCloudFrontOriginAccessIdentity' with all optional fields omitted.
@@ -80,14 +81,14 @@ newUpdateCloudFrontOriginAccessIdentity ::
   -- | 'cloudFrontOriginAccessIdentityConfig'
   CloudFrontOriginAccessIdentityConfig ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   UpdateCloudFrontOriginAccessIdentity
 newUpdateCloudFrontOriginAccessIdentity
   pCloudFrontOriginAccessIdentityConfig_
   pId_ =
     UpdateCloudFrontOriginAccessIdentity'
       { ifMatch =
-          Core.Nothing,
+          Prelude.Nothing,
         cloudFrontOriginAccessIdentityConfig =
           pCloudFrontOriginAccessIdentityConfig_,
         id = pId_
@@ -95,7 +96,7 @@ newUpdateCloudFrontOriginAccessIdentity
 
 -- | The value of the @ETag@ header that you received when retrieving the
 -- identity\'s configuration. For example: @E2QWRUHAPOMQZL@.
-updateCloudFrontOriginAccessIdentity_ifMatch :: Lens.Lens' UpdateCloudFrontOriginAccessIdentity (Core.Maybe Core.Text)
+updateCloudFrontOriginAccessIdentity_ifMatch :: Lens.Lens' UpdateCloudFrontOriginAccessIdentity (Prelude.Maybe Prelude.Text)
 updateCloudFrontOriginAccessIdentity_ifMatch = Lens.lens (\UpdateCloudFrontOriginAccessIdentity' {ifMatch} -> ifMatch) (\s@UpdateCloudFrontOriginAccessIdentity' {} a -> s {ifMatch = a} :: UpdateCloudFrontOriginAccessIdentity)
 
 -- | The identity\'s configuration information.
@@ -103,7 +104,7 @@ updateCloudFrontOriginAccessIdentity_cloudFrontOriginAccessIdentityConfig :: Len
 updateCloudFrontOriginAccessIdentity_cloudFrontOriginAccessIdentityConfig = Lens.lens (\UpdateCloudFrontOriginAccessIdentity' {cloudFrontOriginAccessIdentityConfig} -> cloudFrontOriginAccessIdentityConfig) (\s@UpdateCloudFrontOriginAccessIdentity' {} a -> s {cloudFrontOriginAccessIdentityConfig = a} :: UpdateCloudFrontOriginAccessIdentity)
 
 -- | The identity\'s id.
-updateCloudFrontOriginAccessIdentity_id :: Lens.Lens' UpdateCloudFrontOriginAccessIdentity Core.Text
+updateCloudFrontOriginAccessIdentity_id :: Lens.Lens' UpdateCloudFrontOriginAccessIdentity Prelude.Text
 updateCloudFrontOriginAccessIdentity_id = Lens.lens (\UpdateCloudFrontOriginAccessIdentity' {id} -> id) (\s@UpdateCloudFrontOriginAccessIdentity' {} a -> s {id = a} :: UpdateCloudFrontOriginAccessIdentity)
 
 instance
@@ -118,16 +119,16 @@ instance
     Response.receiveXML
       ( \s h x ->
           UpdateCloudFrontOriginAccessIdentityResponse'
-            Core.<$> (h Core..#? "ETag") Core.<*> (Core.parseXML x)
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "ETag") Prelude.<*> (Core.parseXML x)
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdateCloudFrontOriginAccessIdentity
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateCloudFrontOriginAccessIdentity
 
 instance
@@ -144,14 +145,14 @@ instance
     UpdateCloudFrontOriginAccessIdentity
   where
   toHeaders UpdateCloudFrontOriginAccessIdentity' {..} =
-    Core.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Core.=# ifMatch]
 
 instance
   Core.ToPath
     UpdateCloudFrontOriginAccessIdentity
   where
   toPath UpdateCloudFrontOriginAccessIdentity' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-05-31/origin-access-identity/cloudfront/",
         Core.toBS id,
         "/config"
@@ -161,20 +162,20 @@ instance
   Core.ToQuery
     UpdateCloudFrontOriginAccessIdentity
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'newUpdateCloudFrontOriginAccessIdentityResponse' smart constructor.
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse'
   { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The origin access identity\'s information.
-    cloudFrontOriginAccessIdentity :: Core.Maybe CloudFrontOriginAccessIdentity,
+    cloudFrontOriginAccessIdentity :: Prelude.Maybe CloudFrontOriginAccessIdentity,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateCloudFrontOriginAccessIdentityResponse' with all optional fields omitted.
@@ -191,30 +192,30 @@ data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccess
 -- 'httpStatus', 'updateCloudFrontOriginAccessIdentityResponse_httpStatus' - The response's http status code.
 newUpdateCloudFrontOriginAccessIdentityResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateCloudFrontOriginAccessIdentityResponse
 newUpdateCloudFrontOriginAccessIdentityResponse
   pHttpStatus_ =
     UpdateCloudFrontOriginAccessIdentityResponse'
       { eTag =
-          Core.Nothing,
+          Prelude.Nothing,
         cloudFrontOriginAccessIdentity =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-updateCloudFrontOriginAccessIdentityResponse_eTag :: Lens.Lens' UpdateCloudFrontOriginAccessIdentityResponse (Core.Maybe Core.Text)
+updateCloudFrontOriginAccessIdentityResponse_eTag :: Lens.Lens' UpdateCloudFrontOriginAccessIdentityResponse (Prelude.Maybe Prelude.Text)
 updateCloudFrontOriginAccessIdentityResponse_eTag = Lens.lens (\UpdateCloudFrontOriginAccessIdentityResponse' {eTag} -> eTag) (\s@UpdateCloudFrontOriginAccessIdentityResponse' {} a -> s {eTag = a} :: UpdateCloudFrontOriginAccessIdentityResponse)
 
 -- | The origin access identity\'s information.
-updateCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity :: Lens.Lens' UpdateCloudFrontOriginAccessIdentityResponse (Core.Maybe CloudFrontOriginAccessIdentity)
+updateCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity :: Lens.Lens' UpdateCloudFrontOriginAccessIdentityResponse (Prelude.Maybe CloudFrontOriginAccessIdentity)
 updateCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity = Lens.lens (\UpdateCloudFrontOriginAccessIdentityResponse' {cloudFrontOriginAccessIdentity} -> cloudFrontOriginAccessIdentity) (\s@UpdateCloudFrontOriginAccessIdentityResponse' {} a -> s {cloudFrontOriginAccessIdentity = a} :: UpdateCloudFrontOriginAccessIdentityResponse)
 
 -- | The response's http status code.
-updateCloudFrontOriginAccessIdentityResponse_httpStatus :: Lens.Lens' UpdateCloudFrontOriginAccessIdentityResponse Core.Int
+updateCloudFrontOriginAccessIdentityResponse_httpStatus :: Lens.Lens' UpdateCloudFrontOriginAccessIdentityResponse Prelude.Int
 updateCloudFrontOriginAccessIdentityResponse_httpStatus = Lens.lens (\UpdateCloudFrontOriginAccessIdentityResponse' {httpStatus} -> httpStatus) (\s@UpdateCloudFrontOriginAccessIdentityResponse' {} a -> s {httpStatus = a} :: UpdateCloudFrontOriginAccessIdentityResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateCloudFrontOriginAccessIdentityResponse

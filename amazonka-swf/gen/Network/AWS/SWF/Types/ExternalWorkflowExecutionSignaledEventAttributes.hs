@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes wh
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.WorkflowExecution
 
 -- | Provides the details of the @ExternalWorkflowExecutionSignaled@ event.
@@ -33,9 +34,9 @@ data ExternalWorkflowExecutionSignaledEventAttributes = ExternalWorkflowExecutio
     -- corresponding to the @SignalExternalWorkflowExecution@ decision to
     -- request this signal. This information can be useful for diagnosing
     -- problems by tracing back the chain of events leading up to this event.
-    initiatedEventId :: Core.Integer
+    initiatedEventId :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExternalWorkflowExecutionSignaledEventAttributes' with all optional fields omitted.
@@ -55,7 +56,7 @@ newExternalWorkflowExecutionSignaledEventAttributes ::
   -- | 'workflowExecution'
   WorkflowExecution ->
   -- | 'initiatedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   ExternalWorkflowExecutionSignaledEventAttributes
 newExternalWorkflowExecutionSignaledEventAttributes
   pWorkflowExecution_
@@ -75,7 +76,7 @@ externalWorkflowExecutionSignaledEventAttributes_workflowExecution = Lens.lens (
 -- corresponding to the @SignalExternalWorkflowExecution@ decision to
 -- request this signal. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
-externalWorkflowExecutionSignaledEventAttributes_initiatedEventId :: Lens.Lens' ExternalWorkflowExecutionSignaledEventAttributes Core.Integer
+externalWorkflowExecutionSignaledEventAttributes_initiatedEventId :: Lens.Lens' ExternalWorkflowExecutionSignaledEventAttributes Prelude.Integer
 externalWorkflowExecutionSignaledEventAttributes_initiatedEventId = Lens.lens (\ExternalWorkflowExecutionSignaledEventAttributes' {initiatedEventId} -> initiatedEventId) (\s@ExternalWorkflowExecutionSignaledEventAttributes' {} a -> s {initiatedEventId = a} :: ExternalWorkflowExecutionSignaledEventAttributes)
 
 instance
@@ -87,14 +88,14 @@ instance
       "ExternalWorkflowExecutionSignaledEventAttributes"
       ( \x ->
           ExternalWorkflowExecutionSignaledEventAttributes'
-            Core.<$> (x Core..: "workflowExecution")
-              Core.<*> (x Core..: "initiatedEventId")
+            Prelude.<$> (x Core..: "workflowExecution")
+              Prelude.<*> (x Core..: "initiatedEventId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ExternalWorkflowExecutionSignaledEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     ExternalWorkflowExecutionSignaledEventAttributes

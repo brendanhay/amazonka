@@ -28,6 +28,7 @@ import Network.AWS.Pinpoint.Types.MessageConfiguration
 import Network.AWS.Pinpoint.Types.Schedule
 import Network.AWS.Pinpoint.Types.TemplateConfiguration
 import Network.AWS.Pinpoint.Types.WriteTreatmentResource
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the configuration and other settings for a campaign.
 --
@@ -35,49 +36,49 @@ import Network.AWS.Pinpoint.Types.WriteTreatmentResource
 data WriteCampaignRequest = WriteCampaignRequest'
   { -- | An array of requests that defines additional treatments for the
     -- campaign, in addition to the default treatment for the campaign.
-    additionalTreatments :: Core.Maybe [WriteTreatmentResource],
+    additionalTreatments :: Prelude.Maybe [WriteTreatmentResource],
     -- | The settings for the AWS Lambda function to invoke as a code hook for
     -- the campaign. You can use this hook to customize the segment that\'s
     -- used by the campaign.
-    hook :: Core.Maybe CampaignHook,
+    hook :: Prelude.Maybe CampaignHook,
     -- | The delivery configuration settings for sending the campaign through a
     -- custom channel. This object is required if the MessageConfiguration
     -- object for the campaign specifies a CustomMessage object.
-    customDeliveryConfiguration :: Core.Maybe CustomDeliveryConfiguration,
+    customDeliveryConfiguration :: Prelude.Maybe CustomDeliveryConfiguration,
     -- | A custom name for the campaign.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to pause the campaign. A paused campaign doesn\'t run
     -- unless you resume it by changing this value to false.
-    isPaused :: Core.Maybe Core.Bool,
+    isPaused :: Prelude.Maybe Prelude.Bool,
     -- | A string-to-string map of key-value pairs that defines the tags to
     -- associate with the campaign. Each tag consists of a required tag key and
     -- an associated tag value.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The version of the segment to associate with the campaign.
-    segmentVersion :: Core.Maybe Core.Int,
+    segmentVersion :: Prelude.Maybe Prelude.Int,
     -- | The messaging limits for the campaign.
-    limits :: Core.Maybe CampaignLimits,
+    limits :: Prelude.Maybe CampaignLimits,
     -- | The unique identifier for the segment to associate with the campaign.
-    segmentId :: Core.Maybe Core.Text,
+    segmentId :: Prelude.Maybe Prelude.Text,
     -- | A custom description of the campaign.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | A custom name of the default treatment for the campaign, if the campaign
     -- has multiple treatments. A /treatment/ is a variation of a campaign
     -- that\'s used for A\/B testing.
-    treatmentName :: Core.Maybe Core.Text,
+    treatmentName :: Prelude.Maybe Prelude.Text,
     -- | The message configuration settings for the campaign.
-    messageConfiguration :: Core.Maybe MessageConfiguration,
+    messageConfiguration :: Prelude.Maybe MessageConfiguration,
     -- | The message template to use for the campaign.
-    templateConfiguration :: Core.Maybe TemplateConfiguration,
+    templateConfiguration :: Prelude.Maybe TemplateConfiguration,
     -- | The schedule settings for the campaign.
-    schedule :: Core.Maybe Schedule,
+    schedule :: Prelude.Maybe Schedule,
     -- | The allocated percentage of users (segment members) who shouldn\'t
     -- receive messages from the campaign.
-    holdoutPercent :: Core.Maybe Core.Int,
+    holdoutPercent :: Prelude.Maybe Prelude.Int,
     -- | A custom description of the default treatment for the campaign.
-    treatmentDescription :: Core.Maybe Core.Text
+    treatmentDescription :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WriteCampaignRequest' with all optional fields omitted.
@@ -134,127 +135,129 @@ newWriteCampaignRequest ::
 newWriteCampaignRequest =
   WriteCampaignRequest'
     { additionalTreatments =
-        Core.Nothing,
-      hook = Core.Nothing,
-      customDeliveryConfiguration = Core.Nothing,
-      name = Core.Nothing,
-      isPaused = Core.Nothing,
-      tags = Core.Nothing,
-      segmentVersion = Core.Nothing,
-      limits = Core.Nothing,
-      segmentId = Core.Nothing,
-      description = Core.Nothing,
-      treatmentName = Core.Nothing,
-      messageConfiguration = Core.Nothing,
-      templateConfiguration = Core.Nothing,
-      schedule = Core.Nothing,
-      holdoutPercent = Core.Nothing,
-      treatmentDescription = Core.Nothing
+        Prelude.Nothing,
+      hook = Prelude.Nothing,
+      customDeliveryConfiguration = Prelude.Nothing,
+      name = Prelude.Nothing,
+      isPaused = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      segmentVersion = Prelude.Nothing,
+      limits = Prelude.Nothing,
+      segmentId = Prelude.Nothing,
+      description = Prelude.Nothing,
+      treatmentName = Prelude.Nothing,
+      messageConfiguration = Prelude.Nothing,
+      templateConfiguration = Prelude.Nothing,
+      schedule = Prelude.Nothing,
+      holdoutPercent = Prelude.Nothing,
+      treatmentDescription = Prelude.Nothing
     }
 
 -- | An array of requests that defines additional treatments for the
 -- campaign, in addition to the default treatment for the campaign.
-writeCampaignRequest_additionalTreatments :: Lens.Lens' WriteCampaignRequest (Core.Maybe [WriteTreatmentResource])
-writeCampaignRequest_additionalTreatments = Lens.lens (\WriteCampaignRequest' {additionalTreatments} -> additionalTreatments) (\s@WriteCampaignRequest' {} a -> s {additionalTreatments = a} :: WriteCampaignRequest) Core.. Lens.mapping Lens._Coerce
+writeCampaignRequest_additionalTreatments :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe [WriteTreatmentResource])
+writeCampaignRequest_additionalTreatments = Lens.lens (\WriteCampaignRequest' {additionalTreatments} -> additionalTreatments) (\s@WriteCampaignRequest' {} a -> s {additionalTreatments = a} :: WriteCampaignRequest) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The settings for the AWS Lambda function to invoke as a code hook for
 -- the campaign. You can use this hook to customize the segment that\'s
 -- used by the campaign.
-writeCampaignRequest_hook :: Lens.Lens' WriteCampaignRequest (Core.Maybe CampaignHook)
+writeCampaignRequest_hook :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe CampaignHook)
 writeCampaignRequest_hook = Lens.lens (\WriteCampaignRequest' {hook} -> hook) (\s@WriteCampaignRequest' {} a -> s {hook = a} :: WriteCampaignRequest)
 
 -- | The delivery configuration settings for sending the campaign through a
 -- custom channel. This object is required if the MessageConfiguration
 -- object for the campaign specifies a CustomMessage object.
-writeCampaignRequest_customDeliveryConfiguration :: Lens.Lens' WriteCampaignRequest (Core.Maybe CustomDeliveryConfiguration)
+writeCampaignRequest_customDeliveryConfiguration :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe CustomDeliveryConfiguration)
 writeCampaignRequest_customDeliveryConfiguration = Lens.lens (\WriteCampaignRequest' {customDeliveryConfiguration} -> customDeliveryConfiguration) (\s@WriteCampaignRequest' {} a -> s {customDeliveryConfiguration = a} :: WriteCampaignRequest)
 
 -- | A custom name for the campaign.
-writeCampaignRequest_name :: Lens.Lens' WriteCampaignRequest (Core.Maybe Core.Text)
+writeCampaignRequest_name :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Text)
 writeCampaignRequest_name = Lens.lens (\WriteCampaignRequest' {name} -> name) (\s@WriteCampaignRequest' {} a -> s {name = a} :: WriteCampaignRequest)
 
 -- | Specifies whether to pause the campaign. A paused campaign doesn\'t run
 -- unless you resume it by changing this value to false.
-writeCampaignRequest_isPaused :: Lens.Lens' WriteCampaignRequest (Core.Maybe Core.Bool)
+writeCampaignRequest_isPaused :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Bool)
 writeCampaignRequest_isPaused = Lens.lens (\WriteCampaignRequest' {isPaused} -> isPaused) (\s@WriteCampaignRequest' {} a -> s {isPaused = a} :: WriteCampaignRequest)
 
 -- | A string-to-string map of key-value pairs that defines the tags to
 -- associate with the campaign. Each tag consists of a required tag key and
 -- an associated tag value.
-writeCampaignRequest_tags :: Lens.Lens' WriteCampaignRequest (Core.Maybe (Core.HashMap Core.Text Core.Text))
-writeCampaignRequest_tags = Lens.lens (\WriteCampaignRequest' {tags} -> tags) (\s@WriteCampaignRequest' {} a -> s {tags = a} :: WriteCampaignRequest) Core.. Lens.mapping Lens._Coerce
+writeCampaignRequest_tags :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+writeCampaignRequest_tags = Lens.lens (\WriteCampaignRequest' {tags} -> tags) (\s@WriteCampaignRequest' {} a -> s {tags = a} :: WriteCampaignRequest) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The version of the segment to associate with the campaign.
-writeCampaignRequest_segmentVersion :: Lens.Lens' WriteCampaignRequest (Core.Maybe Core.Int)
+writeCampaignRequest_segmentVersion :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Int)
 writeCampaignRequest_segmentVersion = Lens.lens (\WriteCampaignRequest' {segmentVersion} -> segmentVersion) (\s@WriteCampaignRequest' {} a -> s {segmentVersion = a} :: WriteCampaignRequest)
 
 -- | The messaging limits for the campaign.
-writeCampaignRequest_limits :: Lens.Lens' WriteCampaignRequest (Core.Maybe CampaignLimits)
+writeCampaignRequest_limits :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe CampaignLimits)
 writeCampaignRequest_limits = Lens.lens (\WriteCampaignRequest' {limits} -> limits) (\s@WriteCampaignRequest' {} a -> s {limits = a} :: WriteCampaignRequest)
 
 -- | The unique identifier for the segment to associate with the campaign.
-writeCampaignRequest_segmentId :: Lens.Lens' WriteCampaignRequest (Core.Maybe Core.Text)
+writeCampaignRequest_segmentId :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Text)
 writeCampaignRequest_segmentId = Lens.lens (\WriteCampaignRequest' {segmentId} -> segmentId) (\s@WriteCampaignRequest' {} a -> s {segmentId = a} :: WriteCampaignRequest)
 
 -- | A custom description of the campaign.
-writeCampaignRequest_description :: Lens.Lens' WriteCampaignRequest (Core.Maybe Core.Text)
+writeCampaignRequest_description :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Text)
 writeCampaignRequest_description = Lens.lens (\WriteCampaignRequest' {description} -> description) (\s@WriteCampaignRequest' {} a -> s {description = a} :: WriteCampaignRequest)
 
 -- | A custom name of the default treatment for the campaign, if the campaign
 -- has multiple treatments. A /treatment/ is a variation of a campaign
 -- that\'s used for A\/B testing.
-writeCampaignRequest_treatmentName :: Lens.Lens' WriteCampaignRequest (Core.Maybe Core.Text)
+writeCampaignRequest_treatmentName :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Text)
 writeCampaignRequest_treatmentName = Lens.lens (\WriteCampaignRequest' {treatmentName} -> treatmentName) (\s@WriteCampaignRequest' {} a -> s {treatmentName = a} :: WriteCampaignRequest)
 
 -- | The message configuration settings for the campaign.
-writeCampaignRequest_messageConfiguration :: Lens.Lens' WriteCampaignRequest (Core.Maybe MessageConfiguration)
+writeCampaignRequest_messageConfiguration :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe MessageConfiguration)
 writeCampaignRequest_messageConfiguration = Lens.lens (\WriteCampaignRequest' {messageConfiguration} -> messageConfiguration) (\s@WriteCampaignRequest' {} a -> s {messageConfiguration = a} :: WriteCampaignRequest)
 
 -- | The message template to use for the campaign.
-writeCampaignRequest_templateConfiguration :: Lens.Lens' WriteCampaignRequest (Core.Maybe TemplateConfiguration)
+writeCampaignRequest_templateConfiguration :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe TemplateConfiguration)
 writeCampaignRequest_templateConfiguration = Lens.lens (\WriteCampaignRequest' {templateConfiguration} -> templateConfiguration) (\s@WriteCampaignRequest' {} a -> s {templateConfiguration = a} :: WriteCampaignRequest)
 
 -- | The schedule settings for the campaign.
-writeCampaignRequest_schedule :: Lens.Lens' WriteCampaignRequest (Core.Maybe Schedule)
+writeCampaignRequest_schedule :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Schedule)
 writeCampaignRequest_schedule = Lens.lens (\WriteCampaignRequest' {schedule} -> schedule) (\s@WriteCampaignRequest' {} a -> s {schedule = a} :: WriteCampaignRequest)
 
 -- | The allocated percentage of users (segment members) who shouldn\'t
 -- receive messages from the campaign.
-writeCampaignRequest_holdoutPercent :: Lens.Lens' WriteCampaignRequest (Core.Maybe Core.Int)
+writeCampaignRequest_holdoutPercent :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Int)
 writeCampaignRequest_holdoutPercent = Lens.lens (\WriteCampaignRequest' {holdoutPercent} -> holdoutPercent) (\s@WriteCampaignRequest' {} a -> s {holdoutPercent = a} :: WriteCampaignRequest)
 
 -- | A custom description of the default treatment for the campaign.
-writeCampaignRequest_treatmentDescription :: Lens.Lens' WriteCampaignRequest (Core.Maybe Core.Text)
+writeCampaignRequest_treatmentDescription :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Text)
 writeCampaignRequest_treatmentDescription = Lens.lens (\WriteCampaignRequest' {treatmentDescription} -> treatmentDescription) (\s@WriteCampaignRequest' {} a -> s {treatmentDescription = a} :: WriteCampaignRequest)
 
-instance Core.Hashable WriteCampaignRequest
+instance Prelude.Hashable WriteCampaignRequest
 
-instance Core.NFData WriteCampaignRequest
+instance Prelude.NFData WriteCampaignRequest
 
 instance Core.ToJSON WriteCampaignRequest where
   toJSON WriteCampaignRequest' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AdditionalTreatments" Core..=)
-              Core.<$> additionalTreatments,
-            ("Hook" Core..=) Core.<$> hook,
+              Prelude.<$> additionalTreatments,
+            ("Hook" Core..=) Prelude.<$> hook,
             ("CustomDeliveryConfiguration" Core..=)
-              Core.<$> customDeliveryConfiguration,
-            ("Name" Core..=) Core.<$> name,
-            ("IsPaused" Core..=) Core.<$> isPaused,
-            ("tags" Core..=) Core.<$> tags,
-            ("SegmentVersion" Core..=) Core.<$> segmentVersion,
-            ("Limits" Core..=) Core.<$> limits,
-            ("SegmentId" Core..=) Core.<$> segmentId,
-            ("Description" Core..=) Core.<$> description,
-            ("TreatmentName" Core..=) Core.<$> treatmentName,
+              Prelude.<$> customDeliveryConfiguration,
+            ("Name" Core..=) Prelude.<$> name,
+            ("IsPaused" Core..=) Prelude.<$> isPaused,
+            ("tags" Core..=) Prelude.<$> tags,
+            ("SegmentVersion" Core..=)
+              Prelude.<$> segmentVersion,
+            ("Limits" Core..=) Prelude.<$> limits,
+            ("SegmentId" Core..=) Prelude.<$> segmentId,
+            ("Description" Core..=) Prelude.<$> description,
+            ("TreatmentName" Core..=) Prelude.<$> treatmentName,
             ("MessageConfiguration" Core..=)
-              Core.<$> messageConfiguration,
+              Prelude.<$> messageConfiguration,
             ("TemplateConfiguration" Core..=)
-              Core.<$> templateConfiguration,
-            ("Schedule" Core..=) Core.<$> schedule,
-            ("HoldoutPercent" Core..=) Core.<$> holdoutPercent,
+              Prelude.<$> templateConfiguration,
+            ("Schedule" Core..=) Prelude.<$> schedule,
+            ("HoldoutPercent" Core..=)
+              Prelude.<$> holdoutPercent,
             ("TreatmentDescription" Core..=)
-              Core.<$> treatmentDescription
+              Prelude.<$> treatmentDescription
           ]
       )

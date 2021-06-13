@@ -21,6 +21,7 @@ module Network.AWS.Budgets.Types.TimePeriod where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The period of time that is covered by a budget. The period has a start
 -- date and an end date. The start date must come before the end date.
@@ -35,7 +36,7 @@ data TimePeriod = TimePeriod'
     -- After the end date, AWS deletes the budget and all associated
     -- notifications and subscribers. You can change your end date with the
     -- @UpdateBudget@ operation.
-    end :: Core.Maybe Core.POSIX,
+    end :: Prelude.Maybe Core.POSIX,
     -- | The start date for a budget. If you created your budget and didn\'t
     -- specify a start date, AWS defaults to the start of your chosen time
     -- period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you
@@ -46,9 +47,9 @@ data TimePeriod = TimePeriod'
     -- and the API.
     --
     -- You can change your start date with the @UpdateBudget@ operation.
-    start :: Core.Maybe Core.POSIX
+    start :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TimePeriod' with all optional fields omitted.
@@ -80,8 +81,8 @@ newTimePeriod ::
   TimePeriod
 newTimePeriod =
   TimePeriod'
-    { end = Core.Nothing,
-      start = Core.Nothing
+    { end = Prelude.Nothing,
+      start = Prelude.Nothing
     }
 
 -- | The end date for a budget. If you didn\'t specify an end date, AWS set
@@ -91,8 +92,8 @@ newTimePeriod =
 -- After the end date, AWS deletes the budget and all associated
 -- notifications and subscribers. You can change your end date with the
 -- @UpdateBudget@ operation.
-timePeriod_end :: Lens.Lens' TimePeriod (Core.Maybe Core.UTCTime)
-timePeriod_end = Lens.lens (\TimePeriod' {end} -> end) (\s@TimePeriod' {} a -> s {end = a} :: TimePeriod) Core.. Lens.mapping Core._Time
+timePeriod_end :: Lens.Lens' TimePeriod (Prelude.Maybe Prelude.UTCTime)
+timePeriod_end = Lens.lens (\TimePeriod' {end} -> end) (\s@TimePeriod' {} a -> s {end = a} :: TimePeriod) Prelude.. Lens.mapping Core._Time
 
 -- | The start date for a budget. If you created your budget and didn\'t
 -- specify a start date, AWS defaults to the start of your chosen time
@@ -104,8 +105,8 @@ timePeriod_end = Lens.lens (\TimePeriod' {end} -> end) (\s@TimePeriod' {} a -> s
 -- and the API.
 --
 -- You can change your start date with the @UpdateBudget@ operation.
-timePeriod_start :: Lens.Lens' TimePeriod (Core.Maybe Core.UTCTime)
-timePeriod_start = Lens.lens (\TimePeriod' {start} -> start) (\s@TimePeriod' {} a -> s {start = a} :: TimePeriod) Core.. Lens.mapping Core._Time
+timePeriod_start :: Lens.Lens' TimePeriod (Prelude.Maybe Prelude.UTCTime)
+timePeriod_start = Lens.lens (\TimePeriod' {start} -> start) (\s@TimePeriod' {} a -> s {start = a} :: TimePeriod) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON TimePeriod where
   parseJSON =
@@ -113,18 +114,18 @@ instance Core.FromJSON TimePeriod where
       "TimePeriod"
       ( \x ->
           TimePeriod'
-            Core.<$> (x Core..:? "End") Core.<*> (x Core..:? "Start")
+            Prelude.<$> (x Core..:? "End") Prelude.<*> (x Core..:? "Start")
       )
 
-instance Core.Hashable TimePeriod
+instance Prelude.Hashable TimePeriod
 
-instance Core.NFData TimePeriod
+instance Prelude.NFData TimePeriod
 
 instance Core.ToJSON TimePeriod where
   toJSON TimePeriod' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("End" Core..=) Core.<$> end,
-            ("Start" Core..=) Core.<$> start
+      ( Prelude.catMaybes
+          [ ("End" Core..=) Prelude.<$> end,
+            ("Start" Core..=) Prelude.<$> start
           ]
       )

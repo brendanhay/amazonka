@@ -37,6 +37,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -44,9 +45,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteSnapshotSchedule' smart constructor.
 data DeleteSnapshotSchedule = DeleteSnapshotSchedule'
   { -- | A unique identifier of the snapshot schedule to delete.
-    scheduleIdentifier :: Core.Text
+    scheduleIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSnapshotSchedule' with all optional fields omitted.
@@ -59,7 +60,7 @@ data DeleteSnapshotSchedule = DeleteSnapshotSchedule'
 -- 'scheduleIdentifier', 'deleteSnapshotSchedule_scheduleIdentifier' - A unique identifier of the snapshot schedule to delete.
 newDeleteSnapshotSchedule ::
   -- | 'scheduleIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   DeleteSnapshotSchedule
 newDeleteSnapshotSchedule pScheduleIdentifier_ =
   DeleteSnapshotSchedule'
@@ -68,7 +69,7 @@ newDeleteSnapshotSchedule pScheduleIdentifier_ =
     }
 
 -- | A unique identifier of the snapshot schedule to delete.
-deleteSnapshotSchedule_scheduleIdentifier :: Lens.Lens' DeleteSnapshotSchedule Core.Text
+deleteSnapshotSchedule_scheduleIdentifier :: Lens.Lens' DeleteSnapshotSchedule Prelude.Text
 deleteSnapshotSchedule_scheduleIdentifier = Lens.lens (\DeleteSnapshotSchedule' {scheduleIdentifier} -> scheduleIdentifier) (\s@DeleteSnapshotSchedule' {} a -> s {scheduleIdentifier = a} :: DeleteSnapshotSchedule)
 
 instance Core.AWSRequest DeleteSnapshotSchedule where
@@ -80,22 +81,23 @@ instance Core.AWSRequest DeleteSnapshotSchedule where
     Response.receiveNull
       DeleteSnapshotScheduleResponse'
 
-instance Core.Hashable DeleteSnapshotSchedule
+instance Prelude.Hashable DeleteSnapshotSchedule
 
-instance Core.NFData DeleteSnapshotSchedule
+instance Prelude.NFData DeleteSnapshotSchedule
 
 instance Core.ToHeaders DeleteSnapshotSchedule where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteSnapshotSchedule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteSnapshotSchedule where
   toQuery DeleteSnapshotSchedule' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteSnapshotSchedule" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("DeleteSnapshotSchedule" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ScheduleIdentifier" Core.=: scheduleIdentifier
       ]
 
@@ -103,7 +105,7 @@ instance Core.ToQuery DeleteSnapshotSchedule where
 data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSnapshotScheduleResponse' with all optional fields omitted.
@@ -114,4 +116,6 @@ newDeleteSnapshotScheduleResponse ::
 newDeleteSnapshotScheduleResponse =
   DeleteSnapshotScheduleResponse'
 
-instance Core.NFData DeleteSnapshotScheduleResponse
+instance
+  Prelude.NFData
+    DeleteSnapshotScheduleResponse

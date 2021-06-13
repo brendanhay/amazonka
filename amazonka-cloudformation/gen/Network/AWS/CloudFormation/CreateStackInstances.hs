@@ -53,6 +53,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -92,12 +93,12 @@ data CreateStackInstances = CreateStackInstances'
     -- stack set; to add or delete a parameter itself, use
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html UpdateStackSet>
     -- to update the stack set template.
-    parameterOverrides :: Core.Maybe [Parameter],
+    parameterOverrides :: Prelude.Maybe [Parameter],
     -- | [Service-managed permissions] The AWS Organizations accounts for which
     -- to create stack instances in the specified Regions.
     --
     -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-    deploymentTargets :: Core.Maybe DeploymentTargets,
+    deploymentTargets :: Prelude.Maybe DeploymentTargets,
     -- | The unique identifier for this stack set operation.
     --
     -- The operation ID also functions as an idempotency token, to ensure that
@@ -111,7 +112,7 @@ data CreateStackInstances = CreateStackInstances'
     --
     -- Repeating this stack set operation with a new operation ID retries all
     -- stack instances whose status is @OUTDATED@.
-    operationId :: Core.Maybe Core.Text,
+    operationId :: Prelude.Maybe Prelude.Text,
     -- | [Service-managed permissions] Specifies whether you are acting as an
     -- account administrator in the organization\'s management account or as a
     -- delegated administrator in a member account.
@@ -128,23 +129,23 @@ data CreateStackInstances = CreateStackInstances'
     --     the management account. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
     --     in the /AWS CloudFormation User Guide/.
-    callAs :: Core.Maybe CallAs,
+    callAs :: Prelude.Maybe CallAs,
     -- | Preferences for how AWS CloudFormation performs this stack set
     -- operation.
-    operationPreferences :: Core.Maybe StackSetOperationPreferences,
+    operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
     -- | [Self-managed permissions] The names of one or more AWS accounts that
     -- you want to create stack instances in the specified Region(s) for.
     --
     -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-    accounts :: Core.Maybe [Core.Text],
+    accounts :: Prelude.Maybe [Prelude.Text],
     -- | The name or unique ID of the stack set that you want to create stack
     -- instances from.
-    stackSetName :: Core.Text,
+    stackSetName :: Prelude.Text,
     -- | The names of one or more Regions where you want to create stack
     -- instances using the specified AWS account(s).
-    regions :: [Core.Text]
+    regions :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateStackInstances' with all optional fields omitted.
@@ -240,19 +241,19 @@ data CreateStackInstances = CreateStackInstances'
 -- instances using the specified AWS account(s).
 newCreateStackInstances ::
   -- | 'stackSetName'
-  Core.Text ->
+  Prelude.Text ->
   CreateStackInstances
 newCreateStackInstances pStackSetName_ =
   CreateStackInstances'
     { parameterOverrides =
-        Core.Nothing,
-      deploymentTargets = Core.Nothing,
-      operationId = Core.Nothing,
-      callAs = Core.Nothing,
-      operationPreferences = Core.Nothing,
-      accounts = Core.Nothing,
+        Prelude.Nothing,
+      deploymentTargets = Prelude.Nothing,
+      operationId = Prelude.Nothing,
+      callAs = Prelude.Nothing,
+      operationPreferences = Prelude.Nothing,
+      accounts = Prelude.Nothing,
       stackSetName = pStackSetName_,
-      regions = Core.mempty
+      regions = Prelude.mempty
     }
 
 -- | A list of stack set parameters whose values you want to override in the
@@ -289,14 +290,14 @@ newCreateStackInstances pStackSetName_ =
 -- stack set; to add or delete a parameter itself, use
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html UpdateStackSet>
 -- to update the stack set template.
-createStackInstances_parameterOverrides :: Lens.Lens' CreateStackInstances (Core.Maybe [Parameter])
-createStackInstances_parameterOverrides = Lens.lens (\CreateStackInstances' {parameterOverrides} -> parameterOverrides) (\s@CreateStackInstances' {} a -> s {parameterOverrides = a} :: CreateStackInstances) Core.. Lens.mapping Lens._Coerce
+createStackInstances_parameterOverrides :: Lens.Lens' CreateStackInstances (Prelude.Maybe [Parameter])
+createStackInstances_parameterOverrides = Lens.lens (\CreateStackInstances' {parameterOverrides} -> parameterOverrides) (\s@CreateStackInstances' {} a -> s {parameterOverrides = a} :: CreateStackInstances) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Service-managed permissions] The AWS Organizations accounts for which
 -- to create stack instances in the specified Regions.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-createStackInstances_deploymentTargets :: Lens.Lens' CreateStackInstances (Core.Maybe DeploymentTargets)
+createStackInstances_deploymentTargets :: Lens.Lens' CreateStackInstances (Prelude.Maybe DeploymentTargets)
 createStackInstances_deploymentTargets = Lens.lens (\CreateStackInstances' {deploymentTargets} -> deploymentTargets) (\s@CreateStackInstances' {} a -> s {deploymentTargets = a} :: CreateStackInstances)
 
 -- | The unique identifier for this stack set operation.
@@ -312,7 +313,7 @@ createStackInstances_deploymentTargets = Lens.lens (\CreateStackInstances' {depl
 --
 -- Repeating this stack set operation with a new operation ID retries all
 -- stack instances whose status is @OUTDATED@.
-createStackInstances_operationId :: Lens.Lens' CreateStackInstances (Core.Maybe Core.Text)
+createStackInstances_operationId :: Lens.Lens' CreateStackInstances (Prelude.Maybe Prelude.Text)
 createStackInstances_operationId = Lens.lens (\CreateStackInstances' {operationId} -> operationId) (\s@CreateStackInstances' {} a -> s {operationId = a} :: CreateStackInstances)
 
 -- | [Service-managed permissions] Specifies whether you are acting as an
@@ -331,30 +332,30 @@ createStackInstances_operationId = Lens.lens (\CreateStackInstances' {operationI
 --     the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
 --     in the /AWS CloudFormation User Guide/.
-createStackInstances_callAs :: Lens.Lens' CreateStackInstances (Core.Maybe CallAs)
+createStackInstances_callAs :: Lens.Lens' CreateStackInstances (Prelude.Maybe CallAs)
 createStackInstances_callAs = Lens.lens (\CreateStackInstances' {callAs} -> callAs) (\s@CreateStackInstances' {} a -> s {callAs = a} :: CreateStackInstances)
 
 -- | Preferences for how AWS CloudFormation performs this stack set
 -- operation.
-createStackInstances_operationPreferences :: Lens.Lens' CreateStackInstances (Core.Maybe StackSetOperationPreferences)
+createStackInstances_operationPreferences :: Lens.Lens' CreateStackInstances (Prelude.Maybe StackSetOperationPreferences)
 createStackInstances_operationPreferences = Lens.lens (\CreateStackInstances' {operationPreferences} -> operationPreferences) (\s@CreateStackInstances' {} a -> s {operationPreferences = a} :: CreateStackInstances)
 
 -- | [Self-managed permissions] The names of one or more AWS accounts that
 -- you want to create stack instances in the specified Region(s) for.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-createStackInstances_accounts :: Lens.Lens' CreateStackInstances (Core.Maybe [Core.Text])
-createStackInstances_accounts = Lens.lens (\CreateStackInstances' {accounts} -> accounts) (\s@CreateStackInstances' {} a -> s {accounts = a} :: CreateStackInstances) Core.. Lens.mapping Lens._Coerce
+createStackInstances_accounts :: Lens.Lens' CreateStackInstances (Prelude.Maybe [Prelude.Text])
+createStackInstances_accounts = Lens.lens (\CreateStackInstances' {accounts} -> accounts) (\s@CreateStackInstances' {} a -> s {accounts = a} :: CreateStackInstances) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name or unique ID of the stack set that you want to create stack
 -- instances from.
-createStackInstances_stackSetName :: Lens.Lens' CreateStackInstances Core.Text
+createStackInstances_stackSetName :: Lens.Lens' CreateStackInstances Prelude.Text
 createStackInstances_stackSetName = Lens.lens (\CreateStackInstances' {stackSetName} -> stackSetName) (\s@CreateStackInstances' {} a -> s {stackSetName = a} :: CreateStackInstances)
 
 -- | The names of one or more Regions where you want to create stack
 -- instances using the specified AWS account(s).
-createStackInstances_regions :: Lens.Lens' CreateStackInstances [Core.Text]
-createStackInstances_regions = Lens.lens (\CreateStackInstances' {regions} -> regions) (\s@CreateStackInstances' {} a -> s {regions = a} :: CreateStackInstances) Core.. Lens._Coerce
+createStackInstances_regions :: Lens.Lens' CreateStackInstances [Prelude.Text]
+createStackInstances_regions = Lens.lens (\CreateStackInstances' {regions} -> regions) (\s@CreateStackInstances' {} a -> s {regions = a} :: CreateStackInstances) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateStackInstances where
   type
@@ -366,30 +367,31 @@ instance Core.AWSRequest CreateStackInstances where
       "CreateStackInstancesResult"
       ( \s h x ->
           CreateStackInstancesResponse'
-            Core.<$> (x Core..@? "OperationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "OperationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateStackInstances
+instance Prelude.Hashable CreateStackInstances
 
-instance Core.NFData CreateStackInstances
+instance Prelude.NFData CreateStackInstances
 
 instance Core.ToHeaders CreateStackInstances where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateStackInstances where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateStackInstances where
   toQuery CreateStackInstances' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateStackInstances" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("CreateStackInstances" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "ParameterOverrides"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> parameterOverrides
+                Prelude.<$> parameterOverrides
             ),
         "DeploymentTargets" Core.=: deploymentTargets,
         "OperationId" Core.=: operationId,
@@ -397,7 +399,7 @@ instance Core.ToQuery CreateStackInstances where
         "OperationPreferences" Core.=: operationPreferences,
         "Accounts"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> accounts),
+            (Core.toQueryList "member" Prelude.<$> accounts),
         "StackSetName" Core.=: stackSetName,
         "Regions" Core.=: Core.toQueryList "member" regions
       ]
@@ -405,11 +407,11 @@ instance Core.ToQuery CreateStackInstances where
 -- | /See:/ 'newCreateStackInstancesResponse' smart constructor.
 data CreateStackInstancesResponse = CreateStackInstancesResponse'
   { -- | The unique identifier for this stack set operation.
-    operationId :: Core.Maybe Core.Text,
+    operationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateStackInstancesResponse' with all optional fields omitted.
@@ -424,21 +426,21 @@ data CreateStackInstancesResponse = CreateStackInstancesResponse'
 -- 'httpStatus', 'createStackInstancesResponse_httpStatus' - The response's http status code.
 newCreateStackInstancesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateStackInstancesResponse
 newCreateStackInstancesResponse pHttpStatus_ =
   CreateStackInstancesResponse'
     { operationId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique identifier for this stack set operation.
-createStackInstancesResponse_operationId :: Lens.Lens' CreateStackInstancesResponse (Core.Maybe Core.Text)
+createStackInstancesResponse_operationId :: Lens.Lens' CreateStackInstancesResponse (Prelude.Maybe Prelude.Text)
 createStackInstancesResponse_operationId = Lens.lens (\CreateStackInstancesResponse' {operationId} -> operationId) (\s@CreateStackInstancesResponse' {} a -> s {operationId = a} :: CreateStackInstancesResponse)
 
 -- | The response's http status code.
-createStackInstancesResponse_httpStatus :: Lens.Lens' CreateStackInstancesResponse Core.Int
+createStackInstancesResponse_httpStatus :: Lens.Lens' CreateStackInstancesResponse Prelude.Int
 createStackInstancesResponse_httpStatus = Lens.lens (\CreateStackInstancesResponse' {httpStatus} -> httpStatus) (\s@CreateStackInstancesResponse' {} a -> s {httpStatus = a} :: CreateStackInstancesResponse)
 
-instance Core.NFData CreateStackInstancesResponse
+instance Prelude.NFData CreateStackInstancesResponse

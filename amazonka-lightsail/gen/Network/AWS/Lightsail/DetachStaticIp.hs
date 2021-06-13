@@ -43,15 +43,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDetachStaticIp' smart constructor.
 data DetachStaticIp = DetachStaticIp'
   { -- | The name of the static IP to detach from the instance.
-    staticIpName :: Core.Text
+    staticIpName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachStaticIp' with all optional fields omitted.
@@ -64,13 +65,13 @@ data DetachStaticIp = DetachStaticIp'
 -- 'staticIpName', 'detachStaticIp_staticIpName' - The name of the static IP to detach from the instance.
 newDetachStaticIp ::
   -- | 'staticIpName'
-  Core.Text ->
+  Prelude.Text ->
   DetachStaticIp
 newDetachStaticIp pStaticIpName_ =
   DetachStaticIp' {staticIpName = pStaticIpName_}
 
 -- | The name of the static IP to detach from the instance.
-detachStaticIp_staticIpName :: Lens.Lens' DetachStaticIp Core.Text
+detachStaticIp_staticIpName :: Lens.Lens' DetachStaticIp Prelude.Text
 detachStaticIp_staticIpName = Lens.lens (\DetachStaticIp' {staticIpName} -> staticIpName) (\s@DetachStaticIp' {} a -> s {staticIpName = a} :: DetachStaticIp)
 
 instance Core.AWSRequest DetachStaticIp where
@@ -82,50 +83,52 @@ instance Core.AWSRequest DetachStaticIp where
     Response.receiveJSON
       ( \s h x ->
           DetachStaticIpResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DetachStaticIp
+instance Prelude.Hashable DetachStaticIp
 
-instance Core.NFData DetachStaticIp
+instance Prelude.NFData DetachStaticIp
 
 instance Core.ToHeaders DetachStaticIp where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.DetachStaticIp" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DetachStaticIp where
   toJSON DetachStaticIp' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("staticIpName" Core..= staticIpName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("staticIpName" Core..= staticIpName)]
       )
 
 instance Core.ToPath DetachStaticIp where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DetachStaticIp where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetachStaticIpResponse' smart constructor.
 data DetachStaticIpResponse = DetachStaticIpResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachStaticIpResponse' with all optional fields omitted.
@@ -142,22 +145,23 @@ data DetachStaticIpResponse = DetachStaticIpResponse'
 -- 'httpStatus', 'detachStaticIpResponse_httpStatus' - The response's http status code.
 newDetachStaticIpResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DetachStaticIpResponse
 newDetachStaticIpResponse pHttpStatus_ =
   DetachStaticIpResponse'
-    { operations = Core.Nothing,
+    { operations =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-detachStaticIpResponse_operations :: Lens.Lens' DetachStaticIpResponse (Core.Maybe [Operation])
-detachStaticIpResponse_operations = Lens.lens (\DetachStaticIpResponse' {operations} -> operations) (\s@DetachStaticIpResponse' {} a -> s {operations = a} :: DetachStaticIpResponse) Core.. Lens.mapping Lens._Coerce
+detachStaticIpResponse_operations :: Lens.Lens' DetachStaticIpResponse (Prelude.Maybe [Operation])
+detachStaticIpResponse_operations = Lens.lens (\DetachStaticIpResponse' {operations} -> operations) (\s@DetachStaticIpResponse' {} a -> s {operations = a} :: DetachStaticIpResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-detachStaticIpResponse_httpStatus :: Lens.Lens' DetachStaticIpResponse Core.Int
+detachStaticIpResponse_httpStatus :: Lens.Lens' DetachStaticIpResponse Prelude.Int
 detachStaticIpResponse_httpStatus = Lens.lens (\DetachStaticIpResponse' {httpStatus} -> httpStatus) (\s@DetachStaticIpResponse' {} a -> s {httpStatus = a} :: DetachStaticIpResponse)
 
-instance Core.NFData DetachStaticIpResponse
+instance Prelude.NFData DetachStaticIpResponse

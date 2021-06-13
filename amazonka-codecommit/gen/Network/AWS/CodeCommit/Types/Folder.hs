@@ -21,6 +21,7 @@ module Network.AWS.CodeCommit.Types.Folder where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about a folder in a repository.
 --
@@ -28,14 +29,14 @@ import qualified Network.AWS.Lens as Lens
 data Folder = Folder'
   { -- | The full SHA-1 pointer of the tree information for the commit that
     -- contains the folder.
-    treeId :: Core.Maybe Core.Text,
+    treeId :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified path of the folder in the repository.
-    absolutePath :: Core.Maybe Core.Text,
+    absolutePath :: Prelude.Maybe Prelude.Text,
     -- | The relative path of the specified folder from the folder where the
     -- query originated.
-    relativePath :: Core.Maybe Core.Text
+    relativePath :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Folder' with all optional fields omitted.
@@ -56,23 +57,23 @@ newFolder ::
   Folder
 newFolder =
   Folder'
-    { treeId = Core.Nothing,
-      absolutePath = Core.Nothing,
-      relativePath = Core.Nothing
+    { treeId = Prelude.Nothing,
+      absolutePath = Prelude.Nothing,
+      relativePath = Prelude.Nothing
     }
 
 -- | The full SHA-1 pointer of the tree information for the commit that
 -- contains the folder.
-folder_treeId :: Lens.Lens' Folder (Core.Maybe Core.Text)
+folder_treeId :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
 folder_treeId = Lens.lens (\Folder' {treeId} -> treeId) (\s@Folder' {} a -> s {treeId = a} :: Folder)
 
 -- | The fully qualified path of the folder in the repository.
-folder_absolutePath :: Lens.Lens' Folder (Core.Maybe Core.Text)
+folder_absolutePath :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
 folder_absolutePath = Lens.lens (\Folder' {absolutePath} -> absolutePath) (\s@Folder' {} a -> s {absolutePath = a} :: Folder)
 
 -- | The relative path of the specified folder from the folder where the
 -- query originated.
-folder_relativePath :: Lens.Lens' Folder (Core.Maybe Core.Text)
+folder_relativePath :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
 folder_relativePath = Lens.lens (\Folder' {relativePath} -> relativePath) (\s@Folder' {} a -> s {relativePath = a} :: Folder)
 
 instance Core.FromJSON Folder where
@@ -81,11 +82,11 @@ instance Core.FromJSON Folder where
       "Folder"
       ( \x ->
           Folder'
-            Core.<$> (x Core..:? "treeId")
-            Core.<*> (x Core..:? "absolutePath")
-            Core.<*> (x Core..:? "relativePath")
+            Prelude.<$> (x Core..:? "treeId")
+            Prelude.<*> (x Core..:? "absolutePath")
+            Prelude.<*> (x Core..:? "relativePath")
       )
 
-instance Core.Hashable Folder
+instance Prelude.Hashable Folder
 
-instance Core.NFData Folder
+instance Prelude.NFData Folder

@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -56,11 +57,11 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newAssociateConnectionAlias' smart constructor.
 data AssociateConnectionAlias = AssociateConnectionAlias'
   { -- | The identifier of the connection alias.
-    aliasId :: Core.Text,
+    aliasId :: Prelude.Text,
     -- | The identifier of the directory to associate the connection alias with.
-    resourceId :: Core.Text
+    resourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateConnectionAlias' with all optional fields omitted.
@@ -75,9 +76,9 @@ data AssociateConnectionAlias = AssociateConnectionAlias'
 -- 'resourceId', 'associateConnectionAlias_resourceId' - The identifier of the directory to associate the connection alias with.
 newAssociateConnectionAlias ::
   -- | 'aliasId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   AssociateConnectionAlias
 newAssociateConnectionAlias pAliasId_ pResourceId_ =
   AssociateConnectionAlias'
@@ -86,11 +87,11 @@ newAssociateConnectionAlias pAliasId_ pResourceId_ =
     }
 
 -- | The identifier of the connection alias.
-associateConnectionAlias_aliasId :: Lens.Lens' AssociateConnectionAlias Core.Text
+associateConnectionAlias_aliasId :: Lens.Lens' AssociateConnectionAlias Prelude.Text
 associateConnectionAlias_aliasId = Lens.lens (\AssociateConnectionAlias' {aliasId} -> aliasId) (\s@AssociateConnectionAlias' {} a -> s {aliasId = a} :: AssociateConnectionAlias)
 
 -- | The identifier of the directory to associate the connection alias with.
-associateConnectionAlias_resourceId :: Lens.Lens' AssociateConnectionAlias Core.Text
+associateConnectionAlias_resourceId :: Lens.Lens' AssociateConnectionAlias Prelude.Text
 associateConnectionAlias_resourceId = Lens.lens (\AssociateConnectionAlias' {resourceId} -> resourceId) (\s@AssociateConnectionAlias' {} a -> s {resourceId = a} :: AssociateConnectionAlias)
 
 instance Core.AWSRequest AssociateConnectionAlias where
@@ -102,52 +103,54 @@ instance Core.AWSRequest AssociateConnectionAlias where
     Response.receiveJSON
       ( \s h x ->
           AssociateConnectionAliasResponse'
-            Core.<$> (x Core..?> "ConnectionIdentifier")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ConnectionIdentifier")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AssociateConnectionAlias
+instance Prelude.Hashable AssociateConnectionAlias
 
-instance Core.NFData AssociateConnectionAlias
+instance Prelude.NFData AssociateConnectionAlias
 
 instance Core.ToHeaders AssociateConnectionAlias where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.AssociateConnectionAlias" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateConnectionAlias where
   toJSON AssociateConnectionAlias' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("AliasId" Core..= aliasId),
-            Core.Just ("ResourceId" Core..= resourceId)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("AliasId" Core..= aliasId),
+            Prelude.Just ("ResourceId" Core..= resourceId)
           ]
       )
 
 instance Core.ToPath AssociateConnectionAlias where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AssociateConnectionAlias where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateConnectionAliasResponse' smart constructor.
 data AssociateConnectionAliasResponse = AssociateConnectionAliasResponse'
   { -- | The identifier of the connection alias association. You use the
     -- connection identifier in the DNS TXT record when you\'re configuring
     -- your DNS routing policies.
-    connectionIdentifier :: Core.Maybe Core.Text,
+    connectionIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateConnectionAliasResponse' with all optional fields omitted.
@@ -164,23 +167,25 @@ data AssociateConnectionAliasResponse = AssociateConnectionAliasResponse'
 -- 'httpStatus', 'associateConnectionAliasResponse_httpStatus' - The response's http status code.
 newAssociateConnectionAliasResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssociateConnectionAliasResponse
 newAssociateConnectionAliasResponse pHttpStatus_ =
   AssociateConnectionAliasResponse'
     { connectionIdentifier =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier of the connection alias association. You use the
 -- connection identifier in the DNS TXT record when you\'re configuring
 -- your DNS routing policies.
-associateConnectionAliasResponse_connectionIdentifier :: Lens.Lens' AssociateConnectionAliasResponse (Core.Maybe Core.Text)
+associateConnectionAliasResponse_connectionIdentifier :: Lens.Lens' AssociateConnectionAliasResponse (Prelude.Maybe Prelude.Text)
 associateConnectionAliasResponse_connectionIdentifier = Lens.lens (\AssociateConnectionAliasResponse' {connectionIdentifier} -> connectionIdentifier) (\s@AssociateConnectionAliasResponse' {} a -> s {connectionIdentifier = a} :: AssociateConnectionAliasResponse)
 
 -- | The response's http status code.
-associateConnectionAliasResponse_httpStatus :: Lens.Lens' AssociateConnectionAliasResponse Core.Int
+associateConnectionAliasResponse_httpStatus :: Lens.Lens' AssociateConnectionAliasResponse Prelude.Int
 associateConnectionAliasResponse_httpStatus = Lens.lens (\AssociateConnectionAliasResponse' {httpStatus} -> httpStatus) (\s@AssociateConnectionAliasResponse' {} a -> s {httpStatus = a} :: AssociateConnectionAliasResponse)
 
-instance Core.NFData AssociateConnectionAliasResponse
+instance
+  Prelude.NFData
+    AssociateConnectionAliasResponse

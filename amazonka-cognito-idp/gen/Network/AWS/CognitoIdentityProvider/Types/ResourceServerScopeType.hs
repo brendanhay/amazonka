@@ -21,17 +21,18 @@ module Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A resource server scope.
 --
 -- /See:/ 'newResourceServerScopeType' smart constructor.
 data ResourceServerScopeType = ResourceServerScopeType'
   { -- | The name of the scope.
-    scopeName :: Core.Text,
+    scopeName :: Prelude.Text,
     -- | A description of the scope.
-    scopeDescription :: Core.Text
+    scopeDescription :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceServerScopeType' with all optional fields omitted.
@@ -46,9 +47,9 @@ data ResourceServerScopeType = ResourceServerScopeType'
 -- 'scopeDescription', 'resourceServerScopeType_scopeDescription' - A description of the scope.
 newResourceServerScopeType ::
   -- | 'scopeName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'scopeDescription'
-  Core.Text ->
+  Prelude.Text ->
   ResourceServerScopeType
 newResourceServerScopeType
   pScopeName_
@@ -59,11 +60,11 @@ newResourceServerScopeType
       }
 
 -- | The name of the scope.
-resourceServerScopeType_scopeName :: Lens.Lens' ResourceServerScopeType Core.Text
+resourceServerScopeType_scopeName :: Lens.Lens' ResourceServerScopeType Prelude.Text
 resourceServerScopeType_scopeName = Lens.lens (\ResourceServerScopeType' {scopeName} -> scopeName) (\s@ResourceServerScopeType' {} a -> s {scopeName = a} :: ResourceServerScopeType)
 
 -- | A description of the scope.
-resourceServerScopeType_scopeDescription :: Lens.Lens' ResourceServerScopeType Core.Text
+resourceServerScopeType_scopeDescription :: Lens.Lens' ResourceServerScopeType Prelude.Text
 resourceServerScopeType_scopeDescription = Lens.lens (\ResourceServerScopeType' {scopeDescription} -> scopeDescription) (\s@ResourceServerScopeType' {} a -> s {scopeDescription = a} :: ResourceServerScopeType)
 
 instance Core.FromJSON ResourceServerScopeType where
@@ -72,20 +73,20 @@ instance Core.FromJSON ResourceServerScopeType where
       "ResourceServerScopeType"
       ( \x ->
           ResourceServerScopeType'
-            Core.<$> (x Core..: "ScopeName")
-            Core.<*> (x Core..: "ScopeDescription")
+            Prelude.<$> (x Core..: "ScopeName")
+            Prelude.<*> (x Core..: "ScopeDescription")
       )
 
-instance Core.Hashable ResourceServerScopeType
+instance Prelude.Hashable ResourceServerScopeType
 
-instance Core.NFData ResourceServerScopeType
+instance Prelude.NFData ResourceServerScopeType
 
 instance Core.ToJSON ResourceServerScopeType where
   toJSON ResourceServerScopeType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ScopeName" Core..= scopeName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ScopeName" Core..= scopeName),
+            Prelude.Just
               ("ScopeDescription" Core..= scopeDescription)
           ]
       )

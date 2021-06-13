@@ -66,22 +66,23 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribePrincipalIdFormat' smart constructor.
 data DescribePrincipalIdFormat = DescribePrincipalIdFormat'
   { -- | The token to request the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another call with the returned NextToken
     -- value.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
     -- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |
     -- @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ |
@@ -92,9 +93,9 @@ data DescribePrincipalIdFormat = DescribePrincipalIdFormat'
     -- @subnet-cidr-block-association@ | @volume@ | @vpc@ |
     -- @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@
     -- | @vpn-connection@ | @vpn-gateway@
-    resources :: Core.Maybe [Core.Text]
+    resources :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePrincipalIdFormat' with all optional fields omitted.
@@ -130,27 +131,27 @@ newDescribePrincipalIdFormat ::
 newDescribePrincipalIdFormat =
   DescribePrincipalIdFormat'
     { nextToken =
-        Core.Nothing,
-      dryRun = Core.Nothing,
-      maxResults = Core.Nothing,
-      resources = Core.Nothing
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      resources = Prelude.Nothing
     }
 
 -- | The token to request the next page of results.
-describePrincipalIdFormat_nextToken :: Lens.Lens' DescribePrincipalIdFormat (Core.Maybe Core.Text)
+describePrincipalIdFormat_nextToken :: Lens.Lens' DescribePrincipalIdFormat (Prelude.Maybe Prelude.Text)
 describePrincipalIdFormat_nextToken = Lens.lens (\DescribePrincipalIdFormat' {nextToken} -> nextToken) (\s@DescribePrincipalIdFormat' {} a -> s {nextToken = a} :: DescribePrincipalIdFormat)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describePrincipalIdFormat_dryRun :: Lens.Lens' DescribePrincipalIdFormat (Core.Maybe Core.Bool)
+describePrincipalIdFormat_dryRun :: Lens.Lens' DescribePrincipalIdFormat (Prelude.Maybe Prelude.Bool)
 describePrincipalIdFormat_dryRun = Lens.lens (\DescribePrincipalIdFormat' {dryRun} -> dryRun) (\s@DescribePrincipalIdFormat' {} a -> s {dryRun = a} :: DescribePrincipalIdFormat)
 
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned NextToken
 -- value.
-describePrincipalIdFormat_maxResults :: Lens.Lens' DescribePrincipalIdFormat (Core.Maybe Core.Natural)
+describePrincipalIdFormat_maxResults :: Lens.Lens' DescribePrincipalIdFormat (Prelude.Maybe Prelude.Natural)
 describePrincipalIdFormat_maxResults = Lens.lens (\DescribePrincipalIdFormat' {maxResults} -> maxResults) (\s@DescribePrincipalIdFormat' {} a -> s {maxResults = a} :: DescribePrincipalIdFormat)
 
 -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
@@ -163,30 +164,30 @@ describePrincipalIdFormat_maxResults = Lens.lens (\DescribePrincipalIdFormat' {m
 -- @subnet-cidr-block-association@ | @volume@ | @vpc@ |
 -- @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@
 -- | @vpn-connection@ | @vpn-gateway@
-describePrincipalIdFormat_resources :: Lens.Lens' DescribePrincipalIdFormat (Core.Maybe [Core.Text])
-describePrincipalIdFormat_resources = Lens.lens (\DescribePrincipalIdFormat' {resources} -> resources) (\s@DescribePrincipalIdFormat' {} a -> s {resources = a} :: DescribePrincipalIdFormat) Core.. Lens.mapping Lens._Coerce
+describePrincipalIdFormat_resources :: Lens.Lens' DescribePrincipalIdFormat (Prelude.Maybe [Prelude.Text])
+describePrincipalIdFormat_resources = Lens.lens (\DescribePrincipalIdFormat' {resources} -> resources) (\s@DescribePrincipalIdFormat' {} a -> s {resources = a} :: DescribePrincipalIdFormat) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribePrincipalIdFormat where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? describePrincipalIdFormatResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describePrincipalIdFormatResponse_principals
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describePrincipalIdFormat_nextToken
+          Prelude.& describePrincipalIdFormat_nextToken
           Lens..~ rs
           Lens.^? describePrincipalIdFormatResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribePrincipalIdFormat where
   type
@@ -197,47 +198,48 @@ instance Core.AWSRequest DescribePrincipalIdFormat where
     Response.receiveXML
       ( \s h x ->
           DescribePrincipalIdFormatResponse'
-            Core.<$> (x Core..@? "nextToken")
-            Core.<*> ( x Core..@? "principalSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "principalSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribePrincipalIdFormat
+instance Prelude.Hashable DescribePrincipalIdFormat
 
-instance Core.NFData DescribePrincipalIdFormat
+instance Prelude.NFData DescribePrincipalIdFormat
 
 instance Core.ToHeaders DescribePrincipalIdFormat where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribePrincipalIdFormat where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribePrincipalIdFormat where
   toQuery DescribePrincipalIdFormat' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribePrincipalIdFormat" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DescribePrincipalIdFormat" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         Core.toQuery
-          (Core.toQueryList "Resource" Core.<$> resources)
+          (Core.toQueryList "Resource" Prelude.<$> resources)
       ]
 
 -- | /See:/ 'newDescribePrincipalIdFormatResponse' smart constructor.
 data DescribePrincipalIdFormatResponse = DescribePrincipalIdFormatResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- null when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the ID format settings for the ARN.
-    principals :: Core.Maybe [PrincipalIdFormat],
+    principals :: Prelude.Maybe [PrincipalIdFormat],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePrincipalIdFormatResponse' with all optional fields omitted.
@@ -255,29 +257,29 @@ data DescribePrincipalIdFormatResponse = DescribePrincipalIdFormatResponse'
 -- 'httpStatus', 'describePrincipalIdFormatResponse_httpStatus' - The response's http status code.
 newDescribePrincipalIdFormatResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribePrincipalIdFormatResponse
 newDescribePrincipalIdFormatResponse pHttpStatus_ =
   DescribePrincipalIdFormatResponse'
     { nextToken =
-        Core.Nothing,
-      principals = Core.Nothing,
+        Prelude.Nothing,
+      principals = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
-describePrincipalIdFormatResponse_nextToken :: Lens.Lens' DescribePrincipalIdFormatResponse (Core.Maybe Core.Text)
+describePrincipalIdFormatResponse_nextToken :: Lens.Lens' DescribePrincipalIdFormatResponse (Prelude.Maybe Prelude.Text)
 describePrincipalIdFormatResponse_nextToken = Lens.lens (\DescribePrincipalIdFormatResponse' {nextToken} -> nextToken) (\s@DescribePrincipalIdFormatResponse' {} a -> s {nextToken = a} :: DescribePrincipalIdFormatResponse)
 
 -- | Information about the ID format settings for the ARN.
-describePrincipalIdFormatResponse_principals :: Lens.Lens' DescribePrincipalIdFormatResponse (Core.Maybe [PrincipalIdFormat])
-describePrincipalIdFormatResponse_principals = Lens.lens (\DescribePrincipalIdFormatResponse' {principals} -> principals) (\s@DescribePrincipalIdFormatResponse' {} a -> s {principals = a} :: DescribePrincipalIdFormatResponse) Core.. Lens.mapping Lens._Coerce
+describePrincipalIdFormatResponse_principals :: Lens.Lens' DescribePrincipalIdFormatResponse (Prelude.Maybe [PrincipalIdFormat])
+describePrincipalIdFormatResponse_principals = Lens.lens (\DescribePrincipalIdFormatResponse' {principals} -> principals) (\s@DescribePrincipalIdFormatResponse' {} a -> s {principals = a} :: DescribePrincipalIdFormatResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describePrincipalIdFormatResponse_httpStatus :: Lens.Lens' DescribePrincipalIdFormatResponse Core.Int
+describePrincipalIdFormatResponse_httpStatus :: Lens.Lens' DescribePrincipalIdFormatResponse Prelude.Int
 describePrincipalIdFormatResponse_httpStatus = Lens.lens (\DescribePrincipalIdFormatResponse' {httpStatus} -> httpStatus) (\s@DescribePrincipalIdFormatResponse' {} a -> s {httpStatus = a} :: DescribePrincipalIdFormatResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribePrincipalIdFormatResponse

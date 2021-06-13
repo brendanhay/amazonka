@@ -21,6 +21,7 @@ module Network.AWS.SecretsManager.Types.ReplicationStatusType where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SecretsManager.Types.StatusType
 
 -- | A replication object consisting of a @RegionReplicationStatus@ object
@@ -30,17 +31,17 @@ import Network.AWS.SecretsManager.Types.StatusType
 data ReplicationStatusType = ReplicationStatusType'
   { -- | Status message such as \"/Secret with this name already exists in this
     -- region/\".
-    statusMessage :: Core.Maybe Core.Text,
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The status can be @InProgress@, @Failed@, or @InSync@.
-    status :: Core.Maybe StatusType,
+    status :: Prelude.Maybe StatusType,
     -- | Can be an @ARN@, @Key ID@, or @Alias@.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The date that you last accessed the secret in the Region.
-    lastAccessedDate :: Core.Maybe Core.POSIX,
+    lastAccessedDate :: Prelude.Maybe Core.POSIX,
     -- | The Region where replication occurs.
-    region :: Core.Maybe Core.Text
+    region :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicationStatusType' with all optional fields omitted.
@@ -65,32 +66,32 @@ newReplicationStatusType ::
 newReplicationStatusType =
   ReplicationStatusType'
     { statusMessage =
-        Core.Nothing,
-      status = Core.Nothing,
-      kmsKeyId = Core.Nothing,
-      lastAccessedDate = Core.Nothing,
-      region = Core.Nothing
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      lastAccessedDate = Prelude.Nothing,
+      region = Prelude.Nothing
     }
 
 -- | Status message such as \"/Secret with this name already exists in this
 -- region/\".
-replicationStatusType_statusMessage :: Lens.Lens' ReplicationStatusType (Core.Maybe Core.Text)
+replicationStatusType_statusMessage :: Lens.Lens' ReplicationStatusType (Prelude.Maybe Prelude.Text)
 replicationStatusType_statusMessage = Lens.lens (\ReplicationStatusType' {statusMessage} -> statusMessage) (\s@ReplicationStatusType' {} a -> s {statusMessage = a} :: ReplicationStatusType)
 
 -- | The status can be @InProgress@, @Failed@, or @InSync@.
-replicationStatusType_status :: Lens.Lens' ReplicationStatusType (Core.Maybe StatusType)
+replicationStatusType_status :: Lens.Lens' ReplicationStatusType (Prelude.Maybe StatusType)
 replicationStatusType_status = Lens.lens (\ReplicationStatusType' {status} -> status) (\s@ReplicationStatusType' {} a -> s {status = a} :: ReplicationStatusType)
 
 -- | Can be an @ARN@, @Key ID@, or @Alias@.
-replicationStatusType_kmsKeyId :: Lens.Lens' ReplicationStatusType (Core.Maybe Core.Text)
+replicationStatusType_kmsKeyId :: Lens.Lens' ReplicationStatusType (Prelude.Maybe Prelude.Text)
 replicationStatusType_kmsKeyId = Lens.lens (\ReplicationStatusType' {kmsKeyId} -> kmsKeyId) (\s@ReplicationStatusType' {} a -> s {kmsKeyId = a} :: ReplicationStatusType)
 
 -- | The date that you last accessed the secret in the Region.
-replicationStatusType_lastAccessedDate :: Lens.Lens' ReplicationStatusType (Core.Maybe Core.UTCTime)
-replicationStatusType_lastAccessedDate = Lens.lens (\ReplicationStatusType' {lastAccessedDate} -> lastAccessedDate) (\s@ReplicationStatusType' {} a -> s {lastAccessedDate = a} :: ReplicationStatusType) Core.. Lens.mapping Core._Time
+replicationStatusType_lastAccessedDate :: Lens.Lens' ReplicationStatusType (Prelude.Maybe Prelude.UTCTime)
+replicationStatusType_lastAccessedDate = Lens.lens (\ReplicationStatusType' {lastAccessedDate} -> lastAccessedDate) (\s@ReplicationStatusType' {} a -> s {lastAccessedDate = a} :: ReplicationStatusType) Prelude.. Lens.mapping Core._Time
 
 -- | The Region where replication occurs.
-replicationStatusType_region :: Lens.Lens' ReplicationStatusType (Core.Maybe Core.Text)
+replicationStatusType_region :: Lens.Lens' ReplicationStatusType (Prelude.Maybe Prelude.Text)
 replicationStatusType_region = Lens.lens (\ReplicationStatusType' {region} -> region) (\s@ReplicationStatusType' {} a -> s {region = a} :: ReplicationStatusType)
 
 instance Core.FromJSON ReplicationStatusType where
@@ -99,13 +100,13 @@ instance Core.FromJSON ReplicationStatusType where
       "ReplicationStatusType"
       ( \x ->
           ReplicationStatusType'
-            Core.<$> (x Core..:? "StatusMessage")
-            Core.<*> (x Core..:? "Status")
-            Core.<*> (x Core..:? "KmsKeyId")
-            Core.<*> (x Core..:? "LastAccessedDate")
-            Core.<*> (x Core..:? "Region")
+            Prelude.<$> (x Core..:? "StatusMessage")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "KmsKeyId")
+            Prelude.<*> (x Core..:? "LastAccessedDate")
+            Prelude.<*> (x Core..:? "Region")
       )
 
-instance Core.Hashable ReplicationStatusType
+instance Prelude.Hashable ReplicationStatusType
 
-instance Core.NFData ReplicationStatusType
+instance Prelude.NFData ReplicationStatusType

@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -59,9 +60,9 @@ data GetGeoMatchSet = GetGeoMatchSet'
   { -- | The @GeoMatchSetId@ of the GeoMatchSet that you want to get.
     -- @GeoMatchSetId@ is returned by CreateGeoMatchSet and by
     -- ListGeoMatchSets.
-    geoMatchSetId :: Core.Text
+    geoMatchSetId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetGeoMatchSet' with all optional fields omitted.
@@ -76,7 +77,7 @@ data GetGeoMatchSet = GetGeoMatchSet'
 -- ListGeoMatchSets.
 newGetGeoMatchSet ::
   -- | 'geoMatchSetId'
-  Core.Text ->
+  Prelude.Text ->
   GetGeoMatchSet
 newGetGeoMatchSet pGeoMatchSetId_ =
   GetGeoMatchSet' {geoMatchSetId = pGeoMatchSetId_}
@@ -84,7 +85,7 @@ newGetGeoMatchSet pGeoMatchSetId_ =
 -- | The @GeoMatchSetId@ of the GeoMatchSet that you want to get.
 -- @GeoMatchSetId@ is returned by CreateGeoMatchSet and by
 -- ListGeoMatchSets.
-getGeoMatchSet_geoMatchSetId :: Lens.Lens' GetGeoMatchSet Core.Text
+getGeoMatchSet_geoMatchSetId :: Lens.Lens' GetGeoMatchSet Prelude.Text
 getGeoMatchSet_geoMatchSetId = Lens.lens (\GetGeoMatchSet' {geoMatchSetId} -> geoMatchSetId) (\s@GetGeoMatchSet' {} a -> s {geoMatchSetId = a} :: GetGeoMatchSet)
 
 instance Core.AWSRequest GetGeoMatchSet where
@@ -96,39 +97,43 @@ instance Core.AWSRequest GetGeoMatchSet where
     Response.receiveJSON
       ( \s h x ->
           GetGeoMatchSetResponse'
-            Core.<$> (x Core..?> "GeoMatchSet")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GeoMatchSet")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetGeoMatchSet
+instance Prelude.Hashable GetGeoMatchSet
 
-instance Core.NFData GetGeoMatchSet
+instance Prelude.NFData GetGeoMatchSet
 
 instance Core.ToHeaders GetGeoMatchSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.GetGeoMatchSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetGeoMatchSet where
   toJSON GetGeoMatchSet' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("GeoMatchSetId" Core..= geoMatchSetId)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("GeoMatchSetId" Core..= geoMatchSetId)
+          ]
       )
 
 instance Core.ToPath GetGeoMatchSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetGeoMatchSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetGeoMatchSetResponse' smart constructor.
 data GetGeoMatchSetResponse = GetGeoMatchSetResponse'
@@ -136,11 +141,11 @@ data GetGeoMatchSetResponse = GetGeoMatchSetResponse'
     -- @GetGeoMatchSet@ request. This includes the @Type@, which for a
     -- @GeoMatchContraint@ is always @Country@, as well as the @Value@, which
     -- is the identifier for a specific country.
-    geoMatchSet :: Core.Maybe GeoMatchSet,
+    geoMatchSet :: Prelude.Maybe GeoMatchSet,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetGeoMatchSetResponse' with all optional fields omitted.
@@ -158,11 +163,12 @@ data GetGeoMatchSetResponse = GetGeoMatchSetResponse'
 -- 'httpStatus', 'getGeoMatchSetResponse_httpStatus' - The response's http status code.
 newGetGeoMatchSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetGeoMatchSetResponse
 newGetGeoMatchSetResponse pHttpStatus_ =
   GetGeoMatchSetResponse'
-    { geoMatchSet = Core.Nothing,
+    { geoMatchSet =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -170,11 +176,11 @@ newGetGeoMatchSetResponse pHttpStatus_ =
 -- @GetGeoMatchSet@ request. This includes the @Type@, which for a
 -- @GeoMatchContraint@ is always @Country@, as well as the @Value@, which
 -- is the identifier for a specific country.
-getGeoMatchSetResponse_geoMatchSet :: Lens.Lens' GetGeoMatchSetResponse (Core.Maybe GeoMatchSet)
+getGeoMatchSetResponse_geoMatchSet :: Lens.Lens' GetGeoMatchSetResponse (Prelude.Maybe GeoMatchSet)
 getGeoMatchSetResponse_geoMatchSet = Lens.lens (\GetGeoMatchSetResponse' {geoMatchSet} -> geoMatchSet) (\s@GetGeoMatchSetResponse' {} a -> s {geoMatchSet = a} :: GetGeoMatchSetResponse)
 
 -- | The response's http status code.
-getGeoMatchSetResponse_httpStatus :: Lens.Lens' GetGeoMatchSetResponse Core.Int
+getGeoMatchSetResponse_httpStatus :: Lens.Lens' GetGeoMatchSetResponse Prelude.Int
 getGeoMatchSetResponse_httpStatus = Lens.lens (\GetGeoMatchSetResponse' {httpStatus} -> httpStatus) (\s@GetGeoMatchSetResponse' {} a -> s {httpStatus = a} :: GetGeoMatchSetResponse)
 
-instance Core.NFData GetGeoMatchSetResponse
+instance Prelude.NFData GetGeoMatchSetResponse

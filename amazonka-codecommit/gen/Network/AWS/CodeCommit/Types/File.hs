@@ -22,23 +22,24 @@ module Network.AWS.CodeCommit.Types.File where
 import Network.AWS.CodeCommit.Types.FileModeTypeEnum
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about a file in a repository.
 --
 -- /See:/ 'newFile' smart constructor.
 data File = File'
   { -- | The fully qualified path to the file in the repository.
-    absolutePath :: Core.Maybe Core.Text,
+    absolutePath :: Prelude.Maybe Prelude.Text,
     -- | The relative path of the file from the folder where the query
     -- originated.
-    relativePath :: Core.Maybe Core.Text,
+    relativePath :: Prelude.Maybe Prelude.Text,
     -- | The blob ID that contains the file information.
-    blobId :: Core.Maybe Core.Text,
+    blobId :: Prelude.Maybe Prelude.Text,
     -- | The extrapolated file mode permissions for the file. Valid values
     -- include EXECUTABLE and NORMAL.
-    fileMode :: Core.Maybe FileModeTypeEnum
+    fileMode :: Prelude.Maybe FileModeTypeEnum
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'File' with all optional fields omitted.
@@ -61,28 +62,28 @@ newFile ::
   File
 newFile =
   File'
-    { absolutePath = Core.Nothing,
-      relativePath = Core.Nothing,
-      blobId = Core.Nothing,
-      fileMode = Core.Nothing
+    { absolutePath = Prelude.Nothing,
+      relativePath = Prelude.Nothing,
+      blobId = Prelude.Nothing,
+      fileMode = Prelude.Nothing
     }
 
 -- | The fully qualified path to the file in the repository.
-file_absolutePath :: Lens.Lens' File (Core.Maybe Core.Text)
+file_absolutePath :: Lens.Lens' File (Prelude.Maybe Prelude.Text)
 file_absolutePath = Lens.lens (\File' {absolutePath} -> absolutePath) (\s@File' {} a -> s {absolutePath = a} :: File)
 
 -- | The relative path of the file from the folder where the query
 -- originated.
-file_relativePath :: Lens.Lens' File (Core.Maybe Core.Text)
+file_relativePath :: Lens.Lens' File (Prelude.Maybe Prelude.Text)
 file_relativePath = Lens.lens (\File' {relativePath} -> relativePath) (\s@File' {} a -> s {relativePath = a} :: File)
 
 -- | The blob ID that contains the file information.
-file_blobId :: Lens.Lens' File (Core.Maybe Core.Text)
+file_blobId :: Lens.Lens' File (Prelude.Maybe Prelude.Text)
 file_blobId = Lens.lens (\File' {blobId} -> blobId) (\s@File' {} a -> s {blobId = a} :: File)
 
 -- | The extrapolated file mode permissions for the file. Valid values
 -- include EXECUTABLE and NORMAL.
-file_fileMode :: Lens.Lens' File (Core.Maybe FileModeTypeEnum)
+file_fileMode :: Lens.Lens' File (Prelude.Maybe FileModeTypeEnum)
 file_fileMode = Lens.lens (\File' {fileMode} -> fileMode) (\s@File' {} a -> s {fileMode = a} :: File)
 
 instance Core.FromJSON File where
@@ -91,12 +92,12 @@ instance Core.FromJSON File where
       "File"
       ( \x ->
           File'
-            Core.<$> (x Core..:? "absolutePath")
-            Core.<*> (x Core..:? "relativePath")
-            Core.<*> (x Core..:? "blobId")
-            Core.<*> (x Core..:? "fileMode")
+            Prelude.<$> (x Core..:? "absolutePath")
+            Prelude.<*> (x Core..:? "relativePath")
+            Prelude.<*> (x Core..:? "blobId")
+            Prelude.<*> (x Core..:? "fileMode")
       )
 
-instance Core.Hashable File
+instance Prelude.Hashable File
 
-instance Core.NFData File
+instance Prelude.NFData File

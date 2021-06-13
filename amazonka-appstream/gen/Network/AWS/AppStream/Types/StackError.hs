@@ -22,17 +22,18 @@ module Network.AWS.AppStream.Types.StackError where
 import Network.AWS.AppStream.Types.StackErrorCode
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a stack error.
 --
 -- /See:/ 'newStackError' smart constructor.
 data StackError = StackError'
   { -- | The error message.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error code.
-    errorCode :: Core.Maybe StackErrorCode
+    errorCode :: Prelude.Maybe StackErrorCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StackError' with all optional fields omitted.
@@ -49,16 +50,16 @@ newStackError ::
   StackError
 newStackError =
   StackError'
-    { errorMessage = Core.Nothing,
-      errorCode = Core.Nothing
+    { errorMessage = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
 
 -- | The error message.
-stackError_errorMessage :: Lens.Lens' StackError (Core.Maybe Core.Text)
+stackError_errorMessage :: Lens.Lens' StackError (Prelude.Maybe Prelude.Text)
 stackError_errorMessage = Lens.lens (\StackError' {errorMessage} -> errorMessage) (\s@StackError' {} a -> s {errorMessage = a} :: StackError)
 
 -- | The error code.
-stackError_errorCode :: Lens.Lens' StackError (Core.Maybe StackErrorCode)
+stackError_errorCode :: Lens.Lens' StackError (Prelude.Maybe StackErrorCode)
 stackError_errorCode = Lens.lens (\StackError' {errorCode} -> errorCode) (\s@StackError' {} a -> s {errorCode = a} :: StackError)
 
 instance Core.FromJSON StackError where
@@ -67,10 +68,10 @@ instance Core.FromJSON StackError where
       "StackError"
       ( \x ->
           StackError'
-            Core.<$> (x Core..:? "ErrorMessage")
-            Core.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
-instance Core.Hashable StackError
+instance Prelude.Hashable StackError
 
-instance Core.NFData StackError
+instance Prelude.NFData StackError

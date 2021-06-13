@@ -26,6 +26,7 @@ import Network.AWS.AppSync.Types.OpenIDConnectConfig
 import Network.AWS.AppSync.Types.UserPoolConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a GraphQL API.
 --
@@ -33,32 +34,32 @@ import qualified Network.AWS.Lens as Lens
 data GraphqlApi = GraphqlApi'
   { -- | The ARN of the AWS Web Application Firewall (WAF) ACL associated with
     -- this @GraphqlApi@, if one exists.
-    wafWebAclArn :: Core.Maybe Core.Text,
+    wafWebAclArn :: Prelude.Maybe Prelude.Text,
     -- | The OpenID Connect configuration.
-    openIDConnectConfig :: Core.Maybe OpenIDConnectConfig,
+    openIDConnectConfig :: Prelude.Maybe OpenIDConnectConfig,
     -- | The API ID.
-    apiId :: Core.Maybe Core.Text,
+    apiId :: Prelude.Maybe Prelude.Text,
     -- | The ARN.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The API name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Cognito user pool configuration.
-    userPoolConfig :: Core.Maybe UserPoolConfig,
+    userPoolConfig :: Prelude.Maybe UserPoolConfig,
     -- | A flag representing whether X-Ray tracing is enabled for this
     -- @GraphqlApi@.
-    xrayEnabled :: Core.Maybe Core.Bool,
+    xrayEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The tags.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon CloudWatch Logs configuration.
-    logConfig :: Core.Maybe LogConfig,
+    logConfig :: Prelude.Maybe LogConfig,
     -- | A list of additional authentication providers for the @GraphqlApi@ API.
-    additionalAuthenticationProviders :: Core.Maybe [AdditionalAuthenticationProvider],
+    additionalAuthenticationProviders :: Prelude.Maybe [AdditionalAuthenticationProvider],
     -- | The authentication type.
-    authenticationType :: Core.Maybe AuthenticationType,
+    authenticationType :: Prelude.Maybe AuthenticationType,
     -- | The URIs.
-    uris :: Core.Maybe (Core.HashMap Core.Text Core.Text)
+    uris :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GraphqlApi' with all optional fields omitted.
@@ -97,69 +98,69 @@ newGraphqlApi ::
   GraphqlApi
 newGraphqlApi =
   GraphqlApi'
-    { wafWebAclArn = Core.Nothing,
-      openIDConnectConfig = Core.Nothing,
-      apiId = Core.Nothing,
-      arn = Core.Nothing,
-      name = Core.Nothing,
-      userPoolConfig = Core.Nothing,
-      xrayEnabled = Core.Nothing,
-      tags = Core.Nothing,
-      logConfig = Core.Nothing,
-      additionalAuthenticationProviders = Core.Nothing,
-      authenticationType = Core.Nothing,
-      uris = Core.Nothing
+    { wafWebAclArn = Prelude.Nothing,
+      openIDConnectConfig = Prelude.Nothing,
+      apiId = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      userPoolConfig = Prelude.Nothing,
+      xrayEnabled = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      logConfig = Prelude.Nothing,
+      additionalAuthenticationProviders = Prelude.Nothing,
+      authenticationType = Prelude.Nothing,
+      uris = Prelude.Nothing
     }
 
 -- | The ARN of the AWS Web Application Firewall (WAF) ACL associated with
 -- this @GraphqlApi@, if one exists.
-graphqlApi_wafWebAclArn :: Lens.Lens' GraphqlApi (Core.Maybe Core.Text)
+graphqlApi_wafWebAclArn :: Lens.Lens' GraphqlApi (Prelude.Maybe Prelude.Text)
 graphqlApi_wafWebAclArn = Lens.lens (\GraphqlApi' {wafWebAclArn} -> wafWebAclArn) (\s@GraphqlApi' {} a -> s {wafWebAclArn = a} :: GraphqlApi)
 
 -- | The OpenID Connect configuration.
-graphqlApi_openIDConnectConfig :: Lens.Lens' GraphqlApi (Core.Maybe OpenIDConnectConfig)
+graphqlApi_openIDConnectConfig :: Lens.Lens' GraphqlApi (Prelude.Maybe OpenIDConnectConfig)
 graphqlApi_openIDConnectConfig = Lens.lens (\GraphqlApi' {openIDConnectConfig} -> openIDConnectConfig) (\s@GraphqlApi' {} a -> s {openIDConnectConfig = a} :: GraphqlApi)
 
 -- | The API ID.
-graphqlApi_apiId :: Lens.Lens' GraphqlApi (Core.Maybe Core.Text)
+graphqlApi_apiId :: Lens.Lens' GraphqlApi (Prelude.Maybe Prelude.Text)
 graphqlApi_apiId = Lens.lens (\GraphqlApi' {apiId} -> apiId) (\s@GraphqlApi' {} a -> s {apiId = a} :: GraphqlApi)
 
 -- | The ARN.
-graphqlApi_arn :: Lens.Lens' GraphqlApi (Core.Maybe Core.Text)
+graphqlApi_arn :: Lens.Lens' GraphqlApi (Prelude.Maybe Prelude.Text)
 graphqlApi_arn = Lens.lens (\GraphqlApi' {arn} -> arn) (\s@GraphqlApi' {} a -> s {arn = a} :: GraphqlApi)
 
 -- | The API name.
-graphqlApi_name :: Lens.Lens' GraphqlApi (Core.Maybe Core.Text)
+graphqlApi_name :: Lens.Lens' GraphqlApi (Prelude.Maybe Prelude.Text)
 graphqlApi_name = Lens.lens (\GraphqlApi' {name} -> name) (\s@GraphqlApi' {} a -> s {name = a} :: GraphqlApi)
 
 -- | The Amazon Cognito user pool configuration.
-graphqlApi_userPoolConfig :: Lens.Lens' GraphqlApi (Core.Maybe UserPoolConfig)
+graphqlApi_userPoolConfig :: Lens.Lens' GraphqlApi (Prelude.Maybe UserPoolConfig)
 graphqlApi_userPoolConfig = Lens.lens (\GraphqlApi' {userPoolConfig} -> userPoolConfig) (\s@GraphqlApi' {} a -> s {userPoolConfig = a} :: GraphqlApi)
 
 -- | A flag representing whether X-Ray tracing is enabled for this
 -- @GraphqlApi@.
-graphqlApi_xrayEnabled :: Lens.Lens' GraphqlApi (Core.Maybe Core.Bool)
+graphqlApi_xrayEnabled :: Lens.Lens' GraphqlApi (Prelude.Maybe Prelude.Bool)
 graphqlApi_xrayEnabled = Lens.lens (\GraphqlApi' {xrayEnabled} -> xrayEnabled) (\s@GraphqlApi' {} a -> s {xrayEnabled = a} :: GraphqlApi)
 
 -- | The tags.
-graphqlApi_tags :: Lens.Lens' GraphqlApi (Core.Maybe (Core.HashMap Core.Text Core.Text))
-graphqlApi_tags = Lens.lens (\GraphqlApi' {tags} -> tags) (\s@GraphqlApi' {} a -> s {tags = a} :: GraphqlApi) Core.. Lens.mapping Lens._Coerce
+graphqlApi_tags :: Lens.Lens' GraphqlApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+graphqlApi_tags = Lens.lens (\GraphqlApi' {tags} -> tags) (\s@GraphqlApi' {} a -> s {tags = a} :: GraphqlApi) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon CloudWatch Logs configuration.
-graphqlApi_logConfig :: Lens.Lens' GraphqlApi (Core.Maybe LogConfig)
+graphqlApi_logConfig :: Lens.Lens' GraphqlApi (Prelude.Maybe LogConfig)
 graphqlApi_logConfig = Lens.lens (\GraphqlApi' {logConfig} -> logConfig) (\s@GraphqlApi' {} a -> s {logConfig = a} :: GraphqlApi)
 
 -- | A list of additional authentication providers for the @GraphqlApi@ API.
-graphqlApi_additionalAuthenticationProviders :: Lens.Lens' GraphqlApi (Core.Maybe [AdditionalAuthenticationProvider])
-graphqlApi_additionalAuthenticationProviders = Lens.lens (\GraphqlApi' {additionalAuthenticationProviders} -> additionalAuthenticationProviders) (\s@GraphqlApi' {} a -> s {additionalAuthenticationProviders = a} :: GraphqlApi) Core.. Lens.mapping Lens._Coerce
+graphqlApi_additionalAuthenticationProviders :: Lens.Lens' GraphqlApi (Prelude.Maybe [AdditionalAuthenticationProvider])
+graphqlApi_additionalAuthenticationProviders = Lens.lens (\GraphqlApi' {additionalAuthenticationProviders} -> additionalAuthenticationProviders) (\s@GraphqlApi' {} a -> s {additionalAuthenticationProviders = a} :: GraphqlApi) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The authentication type.
-graphqlApi_authenticationType :: Lens.Lens' GraphqlApi (Core.Maybe AuthenticationType)
+graphqlApi_authenticationType :: Lens.Lens' GraphqlApi (Prelude.Maybe AuthenticationType)
 graphqlApi_authenticationType = Lens.lens (\GraphqlApi' {authenticationType} -> authenticationType) (\s@GraphqlApi' {} a -> s {authenticationType = a} :: GraphqlApi)
 
 -- | The URIs.
-graphqlApi_uris :: Lens.Lens' GraphqlApi (Core.Maybe (Core.HashMap Core.Text Core.Text))
-graphqlApi_uris = Lens.lens (\GraphqlApi' {uris} -> uris) (\s@GraphqlApi' {} a -> s {uris = a} :: GraphqlApi) Core.. Lens.mapping Lens._Coerce
+graphqlApi_uris :: Lens.Lens' GraphqlApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+graphqlApi_uris = Lens.lens (\GraphqlApi' {uris} -> uris) (\s@GraphqlApi' {} a -> s {uris = a} :: GraphqlApi) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON GraphqlApi where
   parseJSON =
@@ -167,22 +168,22 @@ instance Core.FromJSON GraphqlApi where
       "GraphqlApi"
       ( \x ->
           GraphqlApi'
-            Core.<$> (x Core..:? "wafWebAclArn")
-            Core.<*> (x Core..:? "openIDConnectConfig")
-            Core.<*> (x Core..:? "apiId")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "userPoolConfig")
-            Core.<*> (x Core..:? "xrayEnabled")
-            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "logConfig")
-            Core.<*> ( x Core..:? "additionalAuthenticationProviders"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "authenticationType")
-            Core.<*> (x Core..:? "uris" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "wafWebAclArn")
+            Prelude.<*> (x Core..:? "openIDConnectConfig")
+            Prelude.<*> (x Core..:? "apiId")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "userPoolConfig")
+            Prelude.<*> (x Core..:? "xrayEnabled")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "logConfig")
+            Prelude.<*> ( x Core..:? "additionalAuthenticationProviders"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "authenticationType")
+            Prelude.<*> (x Core..:? "uris" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable GraphqlApi
+instance Prelude.Hashable GraphqlApi
 
-instance Core.NFData GraphqlApi
+instance Prelude.NFData GraphqlApi

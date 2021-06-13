@@ -22,19 +22,20 @@ module Network.AWS.AppStream.Types.StorageConnector where
 import Network.AWS.AppStream.Types.StorageConnectorType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a connector that enables persistent storage for users.
 --
 -- /See:/ 'newStorageConnector' smart constructor.
 data StorageConnector = StorageConnector'
   { -- | The names of the domains for the account.
-    domains :: Core.Maybe [Core.Text],
+    domains :: Prelude.Maybe [Prelude.Text],
     -- | The ARN of the storage connector.
-    resourceIdentifier :: Core.Maybe Core.Text,
+    resourceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The type of storage connector.
     connectorType :: StorageConnectorType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StorageConnector' with all optional fields omitted.
@@ -55,17 +56,17 @@ newStorageConnector ::
   StorageConnector
 newStorageConnector pConnectorType_ =
   StorageConnector'
-    { domains = Core.Nothing,
-      resourceIdentifier = Core.Nothing,
+    { domains = Prelude.Nothing,
+      resourceIdentifier = Prelude.Nothing,
       connectorType = pConnectorType_
     }
 
 -- | The names of the domains for the account.
-storageConnector_domains :: Lens.Lens' StorageConnector (Core.Maybe [Core.Text])
-storageConnector_domains = Lens.lens (\StorageConnector' {domains} -> domains) (\s@StorageConnector' {} a -> s {domains = a} :: StorageConnector) Core.. Lens.mapping Lens._Coerce
+storageConnector_domains :: Lens.Lens' StorageConnector (Prelude.Maybe [Prelude.Text])
+storageConnector_domains = Lens.lens (\StorageConnector' {domains} -> domains) (\s@StorageConnector' {} a -> s {domains = a} :: StorageConnector) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the storage connector.
-storageConnector_resourceIdentifier :: Lens.Lens' StorageConnector (Core.Maybe Core.Text)
+storageConnector_resourceIdentifier :: Lens.Lens' StorageConnector (Prelude.Maybe Prelude.Text)
 storageConnector_resourceIdentifier = Lens.lens (\StorageConnector' {resourceIdentifier} -> resourceIdentifier) (\s@StorageConnector' {} a -> s {resourceIdentifier = a} :: StorageConnector)
 
 -- | The type of storage connector.
@@ -78,22 +79,23 @@ instance Core.FromJSON StorageConnector where
       "StorageConnector"
       ( \x ->
           StorageConnector'
-            Core.<$> (x Core..:? "Domains" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "ResourceIdentifier")
-            Core.<*> (x Core..: "ConnectorType")
+            Prelude.<$> (x Core..:? "Domains" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ResourceIdentifier")
+            Prelude.<*> (x Core..: "ConnectorType")
       )
 
-instance Core.Hashable StorageConnector
+instance Prelude.Hashable StorageConnector
 
-instance Core.NFData StorageConnector
+instance Prelude.NFData StorageConnector
 
 instance Core.ToJSON StorageConnector where
   toJSON StorageConnector' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Domains" Core..=) Core.<$> domains,
+      ( Prelude.catMaybes
+          [ ("Domains" Core..=) Prelude.<$> domains,
             ("ResourceIdentifier" Core..=)
-              Core.<$> resourceIdentifier,
-            Core.Just ("ConnectorType" Core..= connectorType)
+              Prelude.<$> resourceIdentifier,
+            Prelude.Just
+              ("ConnectorType" Core..= connectorType)
           ]
       )

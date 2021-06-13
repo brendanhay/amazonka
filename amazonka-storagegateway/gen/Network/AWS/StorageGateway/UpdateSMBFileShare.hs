@@ -73,6 +73,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -90,70 +91,70 @@ data UpdateSMBFileShare = UpdateSMBFileShare'
     -- in the /AWS Storage Gateway User Guide/.
     --
     -- Valid Values: @true@ | @false@
-    sMBACLEnabled :: Core.Maybe Core.Bool,
+    sMBACLEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The files and folders on this share will only be visible to users with
     -- read access.
-    accessBasedEnumeration :: Core.Maybe Core.Bool,
+    accessBasedEnumeration :: Prelude.Maybe Prelude.Bool,
     -- | The default storage class for objects put into an Amazon S3 bucket by
     -- the file gateway. The default value is @S3_INTELLIGENT_TIERING@.
     -- Optional.
     --
     -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ |
     -- @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
-    defaultStorageClass :: Core.Maybe Core.Text,
+    defaultStorageClass :: Prelude.Maybe Prelude.Text,
     -- | The name of the file share. Optional.
     --
     -- @FileShareName@ must be set if an S3 prefix name is set in
     -- @LocationARN@.
-    fileShareName :: Core.Maybe Core.Text,
+    fileShareName :: Prelude.Maybe Prelude.Text,
     -- | The case of an object name in an Amazon S3 bucket. For
     -- @ClientSpecified@, the client determines the case sensitivity. For
     -- @CaseSensitive@, the gateway determines the case sensitivity. The
     -- default value is @ClientSpecified@.
-    caseSensitivity :: Core.Maybe CaseSensitivity,
+    caseSensitivity :: Prelude.Maybe CaseSensitivity,
     -- | A value that enables guessing of the MIME type for uploaded objects
     -- based on file extensions. Set this value to @true@ to enable MIME type
     -- guessing, otherwise set to @false@. The default value is @true@.
     --
     -- Valid Values: @true@ | @false@
-    guessMIMETypeEnabled :: Core.Maybe Core.Bool,
+    guessMIMETypeEnabled :: Prelude.Maybe Prelude.Bool,
     -- | A value that sets the write status of a file share. Set this value to
     -- @true@ to set write status to read-only, otherwise set to @false@.
     --
     -- Valid Values: @true@ | @false@
-    readOnly :: Core.Maybe Core.Bool,
+    readOnly :: Prelude.Maybe Prelude.Bool,
     -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS
     -- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
     --
     -- Valid Values: @true@ | @false@
-    kmsEncrypted :: Core.Maybe Core.Bool,
+    kmsEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | The notification policy of the file share.
-    notificationPolicy :: Core.Maybe Core.Text,
+    notificationPolicy :: Prelude.Maybe Prelude.Text,
     -- | A list of users or groups in the Active Directory that are allowed to
     -- access the file share. A group must be prefixed with the \@ character.
     -- Acceptable formats include: @DOMAIN\\User1@, @user1@, @\@group1@, and
     -- @\@DOMAIN\\group1@. Can only be set if Authentication is set to
     -- @ActiveDirectory@.
-    validUserList :: Core.Maybe [Core.Text],
+    validUserList :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
     -- used for Amazon S3 server-side encryption. Storage Gateway does not
     -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
     -- is @true@. Optional.
-    kmsKey :: Core.Maybe Core.Text,
+    kmsKey :: Prelude.Maybe Prelude.Text,
     -- | A list of users or groups in the Active Directory that have
     -- administrator rights to the file share. A group must be prefixed with
     -- the \@ character. Acceptable formats include: @DOMAIN\\User1@, @user1@,
     -- @\@group1@, and @\@DOMAIN\\group1@. Can only be set if Authentication is
     -- set to @ActiveDirectory@.
-    adminUserList :: Core.Maybe [Core.Text],
+    adminUserList :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
-    auditDestinationARN :: Core.Maybe Core.Text,
+    auditDestinationARN :: Prelude.Maybe Prelude.Text,
     -- | Refresh cache information.
-    cacheAttributes :: Core.Maybe CacheAttributes,
+    cacheAttributes :: Prelude.Maybe CacheAttributes,
     -- | A value that sets the access control list (ACL) permission for objects
     -- in the S3 bucket that a file gateway puts objects into. The default
     -- value is @private@.
-    objectACL :: Core.Maybe ObjectACL,
+    objectACL :: Prelude.Maybe ObjectACL,
     -- | A value that sets who pays the cost of the request and the cost
     -- associated with data download from the S3 bucket. If this value is set
     -- to @true@, the requester pays the costs; otherwise, the S3 bucket owner
@@ -164,18 +165,18 @@ data UpdateSMBFileShare = UpdateSMBFileShare'
     -- as the S3 bucket configuration.
     --
     -- Valid Values: @true@ | @false@
-    requesterPays :: Core.Maybe Core.Bool,
+    requesterPays :: Prelude.Maybe Prelude.Bool,
     -- | A list of users or groups in the Active Directory that are not allowed
     -- to access the file share. A group must be prefixed with the \@
     -- character. Acceptable formats include: @DOMAIN\\User1@, @user1@,
     -- @\@group1@, and @\@DOMAIN\\group1@. Can only be set if Authentication is
     -- set to @ActiveDirectory@.
-    invalidUserList :: Core.Maybe [Core.Text],
+    invalidUserList :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the SMB file share that you want to
     -- update.
-    fileShareARN :: Core.Text
+    fileShareARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSMBFileShare' with all optional fields omitted.
@@ -279,27 +280,28 @@ data UpdateSMBFileShare = UpdateSMBFileShare'
 -- update.
 newUpdateSMBFileShare ::
   -- | 'fileShareARN'
-  Core.Text ->
+  Prelude.Text ->
   UpdateSMBFileShare
 newUpdateSMBFileShare pFileShareARN_ =
   UpdateSMBFileShare'
-    { sMBACLEnabled = Core.Nothing,
-      accessBasedEnumeration = Core.Nothing,
-      defaultStorageClass = Core.Nothing,
-      fileShareName = Core.Nothing,
-      caseSensitivity = Core.Nothing,
-      guessMIMETypeEnabled = Core.Nothing,
-      readOnly = Core.Nothing,
-      kmsEncrypted = Core.Nothing,
-      notificationPolicy = Core.Nothing,
-      validUserList = Core.Nothing,
-      kmsKey = Core.Nothing,
-      adminUserList = Core.Nothing,
-      auditDestinationARN = Core.Nothing,
-      cacheAttributes = Core.Nothing,
-      objectACL = Core.Nothing,
-      requesterPays = Core.Nothing,
-      invalidUserList = Core.Nothing,
+    { sMBACLEnabled =
+        Prelude.Nothing,
+      accessBasedEnumeration = Prelude.Nothing,
+      defaultStorageClass = Prelude.Nothing,
+      fileShareName = Prelude.Nothing,
+      caseSensitivity = Prelude.Nothing,
+      guessMIMETypeEnabled = Prelude.Nothing,
+      readOnly = Prelude.Nothing,
+      kmsEncrypted = Prelude.Nothing,
+      notificationPolicy = Prelude.Nothing,
+      validUserList = Prelude.Nothing,
+      kmsKey = Prelude.Nothing,
+      adminUserList = Prelude.Nothing,
+      auditDestinationARN = Prelude.Nothing,
+      cacheAttributes = Prelude.Nothing,
+      objectACL = Prelude.Nothing,
+      requesterPays = Prelude.Nothing,
+      invalidUserList = Prelude.Nothing,
       fileShareARN = pFileShareARN_
     }
 
@@ -312,12 +314,12 @@ newUpdateSMBFileShare pFileShareARN_ =
 -- in the /AWS Storage Gateway User Guide/.
 --
 -- Valid Values: @true@ | @false@
-updateSMBFileShare_sMBACLEnabled :: Lens.Lens' UpdateSMBFileShare (Core.Maybe Core.Bool)
+updateSMBFileShare_sMBACLEnabled :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe Prelude.Bool)
 updateSMBFileShare_sMBACLEnabled = Lens.lens (\UpdateSMBFileShare' {sMBACLEnabled} -> sMBACLEnabled) (\s@UpdateSMBFileShare' {} a -> s {sMBACLEnabled = a} :: UpdateSMBFileShare)
 
 -- | The files and folders on this share will only be visible to users with
 -- read access.
-updateSMBFileShare_accessBasedEnumeration :: Lens.Lens' UpdateSMBFileShare (Core.Maybe Core.Bool)
+updateSMBFileShare_accessBasedEnumeration :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe Prelude.Bool)
 updateSMBFileShare_accessBasedEnumeration = Lens.lens (\UpdateSMBFileShare' {accessBasedEnumeration} -> accessBasedEnumeration) (\s@UpdateSMBFileShare' {} a -> s {accessBasedEnumeration = a} :: UpdateSMBFileShare)
 
 -- | The default storage class for objects put into an Amazon S3 bucket by
@@ -326,21 +328,21 @@ updateSMBFileShare_accessBasedEnumeration = Lens.lens (\UpdateSMBFileShare' {acc
 --
 -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ |
 -- @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
-updateSMBFileShare_defaultStorageClass :: Lens.Lens' UpdateSMBFileShare (Core.Maybe Core.Text)
+updateSMBFileShare_defaultStorageClass :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe Prelude.Text)
 updateSMBFileShare_defaultStorageClass = Lens.lens (\UpdateSMBFileShare' {defaultStorageClass} -> defaultStorageClass) (\s@UpdateSMBFileShare' {} a -> s {defaultStorageClass = a} :: UpdateSMBFileShare)
 
 -- | The name of the file share. Optional.
 --
 -- @FileShareName@ must be set if an S3 prefix name is set in
 -- @LocationARN@.
-updateSMBFileShare_fileShareName :: Lens.Lens' UpdateSMBFileShare (Core.Maybe Core.Text)
+updateSMBFileShare_fileShareName :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe Prelude.Text)
 updateSMBFileShare_fileShareName = Lens.lens (\UpdateSMBFileShare' {fileShareName} -> fileShareName) (\s@UpdateSMBFileShare' {} a -> s {fileShareName = a} :: UpdateSMBFileShare)
 
 -- | The case of an object name in an Amazon S3 bucket. For
 -- @ClientSpecified@, the client determines the case sensitivity. For
 -- @CaseSensitive@, the gateway determines the case sensitivity. The
 -- default value is @ClientSpecified@.
-updateSMBFileShare_caseSensitivity :: Lens.Lens' UpdateSMBFileShare (Core.Maybe CaseSensitivity)
+updateSMBFileShare_caseSensitivity :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe CaseSensitivity)
 updateSMBFileShare_caseSensitivity = Lens.lens (\UpdateSMBFileShare' {caseSensitivity} -> caseSensitivity) (\s@UpdateSMBFileShare' {} a -> s {caseSensitivity = a} :: UpdateSMBFileShare)
 
 -- | A value that enables guessing of the MIME type for uploaded objects
@@ -348,25 +350,25 @@ updateSMBFileShare_caseSensitivity = Lens.lens (\UpdateSMBFileShare' {caseSensit
 -- guessing, otherwise set to @false@. The default value is @true@.
 --
 -- Valid Values: @true@ | @false@
-updateSMBFileShare_guessMIMETypeEnabled :: Lens.Lens' UpdateSMBFileShare (Core.Maybe Core.Bool)
+updateSMBFileShare_guessMIMETypeEnabled :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe Prelude.Bool)
 updateSMBFileShare_guessMIMETypeEnabled = Lens.lens (\UpdateSMBFileShare' {guessMIMETypeEnabled} -> guessMIMETypeEnabled) (\s@UpdateSMBFileShare' {} a -> s {guessMIMETypeEnabled = a} :: UpdateSMBFileShare)
 
 -- | A value that sets the write status of a file share. Set this value to
 -- @true@ to set write status to read-only, otherwise set to @false@.
 --
 -- Valid Values: @true@ | @false@
-updateSMBFileShare_readOnly :: Lens.Lens' UpdateSMBFileShare (Core.Maybe Core.Bool)
+updateSMBFileShare_readOnly :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe Prelude.Bool)
 updateSMBFileShare_readOnly = Lens.lens (\UpdateSMBFileShare' {readOnly} -> readOnly) (\s@UpdateSMBFileShare' {} a -> s {readOnly = a} :: UpdateSMBFileShare)
 
 -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS
 -- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
-updateSMBFileShare_kmsEncrypted :: Lens.Lens' UpdateSMBFileShare (Core.Maybe Core.Bool)
+updateSMBFileShare_kmsEncrypted :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe Prelude.Bool)
 updateSMBFileShare_kmsEncrypted = Lens.lens (\UpdateSMBFileShare' {kmsEncrypted} -> kmsEncrypted) (\s@UpdateSMBFileShare' {} a -> s {kmsEncrypted = a} :: UpdateSMBFileShare)
 
 -- | The notification policy of the file share.
-updateSMBFileShare_notificationPolicy :: Lens.Lens' UpdateSMBFileShare (Core.Maybe Core.Text)
+updateSMBFileShare_notificationPolicy :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe Prelude.Text)
 updateSMBFileShare_notificationPolicy = Lens.lens (\UpdateSMBFileShare' {notificationPolicy} -> notificationPolicy) (\s@UpdateSMBFileShare' {} a -> s {notificationPolicy = a} :: UpdateSMBFileShare)
 
 -- | A list of users or groups in the Active Directory that are allowed to
@@ -374,14 +376,14 @@ updateSMBFileShare_notificationPolicy = Lens.lens (\UpdateSMBFileShare' {notific
 -- Acceptable formats include: @DOMAIN\\User1@, @user1@, @\@group1@, and
 -- @\@DOMAIN\\group1@. Can only be set if Authentication is set to
 -- @ActiveDirectory@.
-updateSMBFileShare_validUserList :: Lens.Lens' UpdateSMBFileShare (Core.Maybe [Core.Text])
-updateSMBFileShare_validUserList = Lens.lens (\UpdateSMBFileShare' {validUserList} -> validUserList) (\s@UpdateSMBFileShare' {} a -> s {validUserList = a} :: UpdateSMBFileShare) Core.. Lens.mapping Lens._Coerce
+updateSMBFileShare_validUserList :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe [Prelude.Text])
+updateSMBFileShare_validUserList = Lens.lens (\UpdateSMBFileShare' {validUserList} -> validUserList) (\s@UpdateSMBFileShare' {} a -> s {validUserList = a} :: UpdateSMBFileShare) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
 -- used for Amazon S3 server-side encryption. Storage Gateway does not
 -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
 -- is @true@. Optional.
-updateSMBFileShare_kmsKey :: Lens.Lens' UpdateSMBFileShare (Core.Maybe Core.Text)
+updateSMBFileShare_kmsKey :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe Prelude.Text)
 updateSMBFileShare_kmsKey = Lens.lens (\UpdateSMBFileShare' {kmsKey} -> kmsKey) (\s@UpdateSMBFileShare' {} a -> s {kmsKey = a} :: UpdateSMBFileShare)
 
 -- | A list of users or groups in the Active Directory that have
@@ -389,21 +391,21 @@ updateSMBFileShare_kmsKey = Lens.lens (\UpdateSMBFileShare' {kmsKey} -> kmsKey) 
 -- the \@ character. Acceptable formats include: @DOMAIN\\User1@, @user1@,
 -- @\@group1@, and @\@DOMAIN\\group1@. Can only be set if Authentication is
 -- set to @ActiveDirectory@.
-updateSMBFileShare_adminUserList :: Lens.Lens' UpdateSMBFileShare (Core.Maybe [Core.Text])
-updateSMBFileShare_adminUserList = Lens.lens (\UpdateSMBFileShare' {adminUserList} -> adminUserList) (\s@UpdateSMBFileShare' {} a -> s {adminUserList = a} :: UpdateSMBFileShare) Core.. Lens.mapping Lens._Coerce
+updateSMBFileShare_adminUserList :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe [Prelude.Text])
+updateSMBFileShare_adminUserList = Lens.lens (\UpdateSMBFileShare' {adminUserList} -> adminUserList) (\s@UpdateSMBFileShare' {} a -> s {adminUserList = a} :: UpdateSMBFileShare) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
-updateSMBFileShare_auditDestinationARN :: Lens.Lens' UpdateSMBFileShare (Core.Maybe Core.Text)
+updateSMBFileShare_auditDestinationARN :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe Prelude.Text)
 updateSMBFileShare_auditDestinationARN = Lens.lens (\UpdateSMBFileShare' {auditDestinationARN} -> auditDestinationARN) (\s@UpdateSMBFileShare' {} a -> s {auditDestinationARN = a} :: UpdateSMBFileShare)
 
 -- | Refresh cache information.
-updateSMBFileShare_cacheAttributes :: Lens.Lens' UpdateSMBFileShare (Core.Maybe CacheAttributes)
+updateSMBFileShare_cacheAttributes :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe CacheAttributes)
 updateSMBFileShare_cacheAttributes = Lens.lens (\UpdateSMBFileShare' {cacheAttributes} -> cacheAttributes) (\s@UpdateSMBFileShare' {} a -> s {cacheAttributes = a} :: UpdateSMBFileShare)
 
 -- | A value that sets the access control list (ACL) permission for objects
 -- in the S3 bucket that a file gateway puts objects into. The default
 -- value is @private@.
-updateSMBFileShare_objectACL :: Lens.Lens' UpdateSMBFileShare (Core.Maybe ObjectACL)
+updateSMBFileShare_objectACL :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe ObjectACL)
 updateSMBFileShare_objectACL = Lens.lens (\UpdateSMBFileShare' {objectACL} -> objectACL) (\s@UpdateSMBFileShare' {} a -> s {objectACL = a} :: UpdateSMBFileShare)
 
 -- | A value that sets who pays the cost of the request and the cost
@@ -416,7 +418,7 @@ updateSMBFileShare_objectACL = Lens.lens (\UpdateSMBFileShare' {objectACL} -> ob
 -- as the S3 bucket configuration.
 --
 -- Valid Values: @true@ | @false@
-updateSMBFileShare_requesterPays :: Lens.Lens' UpdateSMBFileShare (Core.Maybe Core.Bool)
+updateSMBFileShare_requesterPays :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe Prelude.Bool)
 updateSMBFileShare_requesterPays = Lens.lens (\UpdateSMBFileShare' {requesterPays} -> requesterPays) (\s@UpdateSMBFileShare' {} a -> s {requesterPays = a} :: UpdateSMBFileShare)
 
 -- | A list of users or groups in the Active Directory that are not allowed
@@ -424,12 +426,12 @@ updateSMBFileShare_requesterPays = Lens.lens (\UpdateSMBFileShare' {requesterPay
 -- character. Acceptable formats include: @DOMAIN\\User1@, @user1@,
 -- @\@group1@, and @\@DOMAIN\\group1@. Can only be set if Authentication is
 -- set to @ActiveDirectory@.
-updateSMBFileShare_invalidUserList :: Lens.Lens' UpdateSMBFileShare (Core.Maybe [Core.Text])
-updateSMBFileShare_invalidUserList = Lens.lens (\UpdateSMBFileShare' {invalidUserList} -> invalidUserList) (\s@UpdateSMBFileShare' {} a -> s {invalidUserList = a} :: UpdateSMBFileShare) Core.. Lens.mapping Lens._Coerce
+updateSMBFileShare_invalidUserList :: Lens.Lens' UpdateSMBFileShare (Prelude.Maybe [Prelude.Text])
+updateSMBFileShare_invalidUserList = Lens.lens (\UpdateSMBFileShare' {invalidUserList} -> invalidUserList) (\s@UpdateSMBFileShare' {} a -> s {invalidUserList = a} :: UpdateSMBFileShare) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the SMB file share that you want to
 -- update.
-updateSMBFileShare_fileShareARN :: Lens.Lens' UpdateSMBFileShare Core.Text
+updateSMBFileShare_fileShareARN :: Lens.Lens' UpdateSMBFileShare Prelude.Text
 updateSMBFileShare_fileShareARN = Lens.lens (\UpdateSMBFileShare' {fileShareARN} -> fileShareARN) (\s@UpdateSMBFileShare' {} a -> s {fileShareARN = a} :: UpdateSMBFileShare)
 
 instance Core.AWSRequest UpdateSMBFileShare where
@@ -441,73 +443,78 @@ instance Core.AWSRequest UpdateSMBFileShare where
     Response.receiveJSON
       ( \s h x ->
           UpdateSMBFileShareResponse'
-            Core.<$> (x Core..?> "FileShareARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "FileShareARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateSMBFileShare
+instance Prelude.Hashable UpdateSMBFileShare
 
-instance Core.NFData UpdateSMBFileShare
+instance Prelude.NFData UpdateSMBFileShare
 
 instance Core.ToHeaders UpdateSMBFileShare where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.UpdateSMBFileShare" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateSMBFileShare where
   toJSON UpdateSMBFileShare' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SMBACLEnabled" Core..=) Core.<$> sMBACLEnabled,
+      ( Prelude.catMaybes
+          [ ("SMBACLEnabled" Core..=) Prelude.<$> sMBACLEnabled,
             ("AccessBasedEnumeration" Core..=)
-              Core.<$> accessBasedEnumeration,
+              Prelude.<$> accessBasedEnumeration,
             ("DefaultStorageClass" Core..=)
-              Core.<$> defaultStorageClass,
-            ("FileShareName" Core..=) Core.<$> fileShareName,
-            ("CaseSensitivity" Core..=) Core.<$> caseSensitivity,
+              Prelude.<$> defaultStorageClass,
+            ("FileShareName" Core..=) Prelude.<$> fileShareName,
+            ("CaseSensitivity" Core..=)
+              Prelude.<$> caseSensitivity,
             ("GuessMIMETypeEnabled" Core..=)
-              Core.<$> guessMIMETypeEnabled,
-            ("ReadOnly" Core..=) Core.<$> readOnly,
-            ("KMSEncrypted" Core..=) Core.<$> kmsEncrypted,
+              Prelude.<$> guessMIMETypeEnabled,
+            ("ReadOnly" Core..=) Prelude.<$> readOnly,
+            ("KMSEncrypted" Core..=) Prelude.<$> kmsEncrypted,
             ("NotificationPolicy" Core..=)
-              Core.<$> notificationPolicy,
-            ("ValidUserList" Core..=) Core.<$> validUserList,
-            ("KMSKey" Core..=) Core.<$> kmsKey,
-            ("AdminUserList" Core..=) Core.<$> adminUserList,
+              Prelude.<$> notificationPolicy,
+            ("ValidUserList" Core..=) Prelude.<$> validUserList,
+            ("KMSKey" Core..=) Prelude.<$> kmsKey,
+            ("AdminUserList" Core..=) Prelude.<$> adminUserList,
             ("AuditDestinationARN" Core..=)
-              Core.<$> auditDestinationARN,
-            ("CacheAttributes" Core..=) Core.<$> cacheAttributes,
-            ("ObjectACL" Core..=) Core.<$> objectACL,
-            ("RequesterPays" Core..=) Core.<$> requesterPays,
-            ("InvalidUserList" Core..=) Core.<$> invalidUserList,
-            Core.Just ("FileShareARN" Core..= fileShareARN)
+              Prelude.<$> auditDestinationARN,
+            ("CacheAttributes" Core..=)
+              Prelude.<$> cacheAttributes,
+            ("ObjectACL" Core..=) Prelude.<$> objectACL,
+            ("RequesterPays" Core..=) Prelude.<$> requesterPays,
+            ("InvalidUserList" Core..=)
+              Prelude.<$> invalidUserList,
+            Prelude.Just ("FileShareARN" Core..= fileShareARN)
           ]
       )
 
 instance Core.ToPath UpdateSMBFileShare where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateSMBFileShare where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | UpdateSMBFileShareOutput
 --
 -- /See:/ 'newUpdateSMBFileShareResponse' smart constructor.
 data UpdateSMBFileShareResponse = UpdateSMBFileShareResponse'
   { -- | The Amazon Resource Name (ARN) of the updated SMB file share.
-    fileShareARN :: Core.Maybe Core.Text,
+    fileShareARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSMBFileShareResponse' with all optional fields omitted.
@@ -522,21 +529,21 @@ data UpdateSMBFileShareResponse = UpdateSMBFileShareResponse'
 -- 'httpStatus', 'updateSMBFileShareResponse_httpStatus' - The response's http status code.
 newUpdateSMBFileShareResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateSMBFileShareResponse
 newUpdateSMBFileShareResponse pHttpStatus_ =
   UpdateSMBFileShareResponse'
     { fileShareARN =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the updated SMB file share.
-updateSMBFileShareResponse_fileShareARN :: Lens.Lens' UpdateSMBFileShareResponse (Core.Maybe Core.Text)
+updateSMBFileShareResponse_fileShareARN :: Lens.Lens' UpdateSMBFileShareResponse (Prelude.Maybe Prelude.Text)
 updateSMBFileShareResponse_fileShareARN = Lens.lens (\UpdateSMBFileShareResponse' {fileShareARN} -> fileShareARN) (\s@UpdateSMBFileShareResponse' {} a -> s {fileShareARN = a} :: UpdateSMBFileShareResponse)
 
 -- | The response's http status code.
-updateSMBFileShareResponse_httpStatus :: Lens.Lens' UpdateSMBFileShareResponse Core.Int
+updateSMBFileShareResponse_httpStatus :: Lens.Lens' UpdateSMBFileShareResponse Prelude.Int
 updateSMBFileShareResponse_httpStatus = Lens.lens (\UpdateSMBFileShareResponse' {httpStatus} -> httpStatus) (\s@UpdateSMBFileShareResponse' {} a -> s {httpStatus = a} :: UpdateSMBFileShareResponse)
 
-instance Core.NFData UpdateSMBFileShareResponse
+instance Prelude.NFData UpdateSMBFileShareResponse

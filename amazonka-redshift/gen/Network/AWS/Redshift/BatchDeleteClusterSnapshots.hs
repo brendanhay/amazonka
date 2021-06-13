@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -51,7 +52,7 @@ data BatchDeleteClusterSnapshots = BatchDeleteClusterSnapshots'
   { -- | A list of identifiers for the snapshots that you want to delete.
     identifiers :: [DeleteClusterSnapshotMessage]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteClusterSnapshots' with all optional fields omitted.
@@ -67,12 +68,12 @@ newBatchDeleteClusterSnapshots ::
 newBatchDeleteClusterSnapshots =
   BatchDeleteClusterSnapshots'
     { identifiers =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | A list of identifiers for the snapshots that you want to delete.
 batchDeleteClusterSnapshots_identifiers :: Lens.Lens' BatchDeleteClusterSnapshots [DeleteClusterSnapshotMessage]
-batchDeleteClusterSnapshots_identifiers = Lens.lens (\BatchDeleteClusterSnapshots' {identifiers} -> identifiers) (\s@BatchDeleteClusterSnapshots' {} a -> s {identifiers = a} :: BatchDeleteClusterSnapshots) Core.. Lens._Coerce
+batchDeleteClusterSnapshots_identifiers = Lens.lens (\BatchDeleteClusterSnapshots' {identifiers} -> identifiers) (\s@BatchDeleteClusterSnapshots' {} a -> s {identifiers = a} :: BatchDeleteClusterSnapshots) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchDeleteClusterSnapshots where
   type
@@ -84,31 +85,34 @@ instance Core.AWSRequest BatchDeleteClusterSnapshots where
       "BatchDeleteClusterSnapshotsResult"
       ( \s h x ->
           BatchDeleteClusterSnapshotsResponse'
-            Core.<$> ( x Core..@? "Resources" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "String")
-                     )
-            Core.<*> ( x Core..@? "Errors" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "SnapshotErrorMessage")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Resources" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "String")
+                        )
+            Prelude.<*> ( x Core..@? "Errors" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "SnapshotErrorMessage")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchDeleteClusterSnapshots
+instance Prelude.Hashable BatchDeleteClusterSnapshots
 
-instance Core.NFData BatchDeleteClusterSnapshots
+instance Prelude.NFData BatchDeleteClusterSnapshots
 
 instance Core.ToHeaders BatchDeleteClusterSnapshots where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath BatchDeleteClusterSnapshots where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchDeleteClusterSnapshots where
   toQuery BatchDeleteClusterSnapshots' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("BatchDeleteClusterSnapshots" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ( "BatchDeleteClusterSnapshots" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "Identifiers"
           Core.=: Core.toQueryList
             "DeleteClusterSnapshotMessage"
@@ -118,13 +122,13 @@ instance Core.ToQuery BatchDeleteClusterSnapshots where
 -- | /See:/ 'newBatchDeleteClusterSnapshotsResponse' smart constructor.
 data BatchDeleteClusterSnapshotsResponse = BatchDeleteClusterSnapshotsResponse'
   { -- | A list of the snapshot identifiers that were deleted.
-    resources :: Core.Maybe [Core.Text],
+    resources :: Prelude.Maybe [Prelude.Text],
     -- | A list of any errors returned.
-    errors :: Core.Maybe [SnapshotErrorMessage],
+    errors :: Prelude.Maybe [SnapshotErrorMessage],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteClusterSnapshotsResponse' with all optional fields omitted.
@@ -141,28 +145,28 @@ data BatchDeleteClusterSnapshotsResponse = BatchDeleteClusterSnapshotsResponse'
 -- 'httpStatus', 'batchDeleteClusterSnapshotsResponse_httpStatus' - The response's http status code.
 newBatchDeleteClusterSnapshotsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchDeleteClusterSnapshotsResponse
 newBatchDeleteClusterSnapshotsResponse pHttpStatus_ =
   BatchDeleteClusterSnapshotsResponse'
     { resources =
-        Core.Nothing,
-      errors = Core.Nothing,
+        Prelude.Nothing,
+      errors = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of the snapshot identifiers that were deleted.
-batchDeleteClusterSnapshotsResponse_resources :: Lens.Lens' BatchDeleteClusterSnapshotsResponse (Core.Maybe [Core.Text])
-batchDeleteClusterSnapshotsResponse_resources = Lens.lens (\BatchDeleteClusterSnapshotsResponse' {resources} -> resources) (\s@BatchDeleteClusterSnapshotsResponse' {} a -> s {resources = a} :: BatchDeleteClusterSnapshotsResponse) Core.. Lens.mapping Lens._Coerce
+batchDeleteClusterSnapshotsResponse_resources :: Lens.Lens' BatchDeleteClusterSnapshotsResponse (Prelude.Maybe [Prelude.Text])
+batchDeleteClusterSnapshotsResponse_resources = Lens.lens (\BatchDeleteClusterSnapshotsResponse' {resources} -> resources) (\s@BatchDeleteClusterSnapshotsResponse' {} a -> s {resources = a} :: BatchDeleteClusterSnapshotsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of any errors returned.
-batchDeleteClusterSnapshotsResponse_errors :: Lens.Lens' BatchDeleteClusterSnapshotsResponse (Core.Maybe [SnapshotErrorMessage])
-batchDeleteClusterSnapshotsResponse_errors = Lens.lens (\BatchDeleteClusterSnapshotsResponse' {errors} -> errors) (\s@BatchDeleteClusterSnapshotsResponse' {} a -> s {errors = a} :: BatchDeleteClusterSnapshotsResponse) Core.. Lens.mapping Lens._Coerce
+batchDeleteClusterSnapshotsResponse_errors :: Lens.Lens' BatchDeleteClusterSnapshotsResponse (Prelude.Maybe [SnapshotErrorMessage])
+batchDeleteClusterSnapshotsResponse_errors = Lens.lens (\BatchDeleteClusterSnapshotsResponse' {errors} -> errors) (\s@BatchDeleteClusterSnapshotsResponse' {} a -> s {errors = a} :: BatchDeleteClusterSnapshotsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchDeleteClusterSnapshotsResponse_httpStatus :: Lens.Lens' BatchDeleteClusterSnapshotsResponse Core.Int
+batchDeleteClusterSnapshotsResponse_httpStatus :: Lens.Lens' BatchDeleteClusterSnapshotsResponse Prelude.Int
 batchDeleteClusterSnapshotsResponse_httpStatus = Lens.lens (\BatchDeleteClusterSnapshotsResponse' {httpStatus} -> httpStatus) (\s@BatchDeleteClusterSnapshotsResponse' {} a -> s {httpStatus = a} :: BatchDeleteClusterSnapshotsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     BatchDeleteClusterSnapshotsResponse

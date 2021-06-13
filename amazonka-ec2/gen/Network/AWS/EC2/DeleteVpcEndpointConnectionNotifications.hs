@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ data DeleteVpcEndpointConnectionNotifications = DeleteVpcEndpointConnectionNotif
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more notification IDs.
-    connectionNotificationIds :: [Core.Text]
+    connectionNotificationIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVpcEndpointConnectionNotifications' with all optional fields omitted.
@@ -77,21 +78,21 @@ newDeleteVpcEndpointConnectionNotifications ::
 newDeleteVpcEndpointConnectionNotifications =
   DeleteVpcEndpointConnectionNotifications'
     { dryRun =
-        Core.Nothing,
+        Prelude.Nothing,
       connectionNotificationIds =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteVpcEndpointConnectionNotifications_dryRun :: Lens.Lens' DeleteVpcEndpointConnectionNotifications (Core.Maybe Core.Bool)
+deleteVpcEndpointConnectionNotifications_dryRun :: Lens.Lens' DeleteVpcEndpointConnectionNotifications (Prelude.Maybe Prelude.Bool)
 deleteVpcEndpointConnectionNotifications_dryRun = Lens.lens (\DeleteVpcEndpointConnectionNotifications' {dryRun} -> dryRun) (\s@DeleteVpcEndpointConnectionNotifications' {} a -> s {dryRun = a} :: DeleteVpcEndpointConnectionNotifications)
 
 -- | One or more notification IDs.
-deleteVpcEndpointConnectionNotifications_connectionNotificationIds :: Lens.Lens' DeleteVpcEndpointConnectionNotifications [Core.Text]
-deleteVpcEndpointConnectionNotifications_connectionNotificationIds = Lens.lens (\DeleteVpcEndpointConnectionNotifications' {connectionNotificationIds} -> connectionNotificationIds) (\s@DeleteVpcEndpointConnectionNotifications' {} a -> s {connectionNotificationIds = a} :: DeleteVpcEndpointConnectionNotifications) Core.. Lens._Coerce
+deleteVpcEndpointConnectionNotifications_connectionNotificationIds :: Lens.Lens' DeleteVpcEndpointConnectionNotifications [Prelude.Text]
+deleteVpcEndpointConnectionNotifications_connectionNotificationIds = Lens.lens (\DeleteVpcEndpointConnectionNotifications' {connectionNotificationIds} -> connectionNotificationIds) (\s@DeleteVpcEndpointConnectionNotifications' {} a -> s {connectionNotificationIds = a} :: DeleteVpcEndpointConnectionNotifications) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -106,43 +107,44 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeleteVpcEndpointConnectionNotificationsResponse'
-            Core.<$> ( x Core..@? "unsuccessful" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "unsuccessful" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteVpcEndpointConnectionNotifications
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteVpcEndpointConnectionNotifications
 
 instance
   Core.ToHeaders
     DeleteVpcEndpointConnectionNotifications
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     DeleteVpcEndpointConnectionNotifications
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DeleteVpcEndpointConnectionNotifications
   where
   toQuery DeleteVpcEndpointConnectionNotifications' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DeleteVpcEndpointConnectionNotifications" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         Core.toQueryList
           "ConnectionNotificationId"
@@ -153,11 +155,11 @@ instance
 data DeleteVpcEndpointConnectionNotificationsResponse = DeleteVpcEndpointConnectionNotificationsResponse'
   { -- | Information about the notifications that could not be deleted
     -- successfully.
-    unsuccessful :: Core.Maybe [UnsuccessfulItem],
+    unsuccessful :: Prelude.Maybe [UnsuccessfulItem],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVpcEndpointConnectionNotificationsResponse' with all optional fields omitted.
@@ -173,25 +175,25 @@ data DeleteVpcEndpointConnectionNotificationsResponse = DeleteVpcEndpointConnect
 -- 'httpStatus', 'deleteVpcEndpointConnectionNotificationsResponse_httpStatus' - The response's http status code.
 newDeleteVpcEndpointConnectionNotificationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteVpcEndpointConnectionNotificationsResponse
 newDeleteVpcEndpointConnectionNotificationsResponse
   pHttpStatus_ =
     DeleteVpcEndpointConnectionNotificationsResponse'
       { unsuccessful =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the notifications that could not be deleted
 -- successfully.
-deleteVpcEndpointConnectionNotificationsResponse_unsuccessful :: Lens.Lens' DeleteVpcEndpointConnectionNotificationsResponse (Core.Maybe [UnsuccessfulItem])
-deleteVpcEndpointConnectionNotificationsResponse_unsuccessful = Lens.lens (\DeleteVpcEndpointConnectionNotificationsResponse' {unsuccessful} -> unsuccessful) (\s@DeleteVpcEndpointConnectionNotificationsResponse' {} a -> s {unsuccessful = a} :: DeleteVpcEndpointConnectionNotificationsResponse) Core.. Lens.mapping Lens._Coerce
+deleteVpcEndpointConnectionNotificationsResponse_unsuccessful :: Lens.Lens' DeleteVpcEndpointConnectionNotificationsResponse (Prelude.Maybe [UnsuccessfulItem])
+deleteVpcEndpointConnectionNotificationsResponse_unsuccessful = Lens.lens (\DeleteVpcEndpointConnectionNotificationsResponse' {unsuccessful} -> unsuccessful) (\s@DeleteVpcEndpointConnectionNotificationsResponse' {} a -> s {unsuccessful = a} :: DeleteVpcEndpointConnectionNotificationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteVpcEndpointConnectionNotificationsResponse_httpStatus :: Lens.Lens' DeleteVpcEndpointConnectionNotificationsResponse Core.Int
+deleteVpcEndpointConnectionNotificationsResponse_httpStatus :: Lens.Lens' DeleteVpcEndpointConnectionNotificationsResponse Prelude.Int
 deleteVpcEndpointConnectionNotificationsResponse_httpStatus = Lens.lens (\DeleteVpcEndpointConnectionNotificationsResponse' {httpStatus} -> httpStatus) (\s@DeleteVpcEndpointConnectionNotificationsResponse' {} a -> s {httpStatus = a} :: DeleteVpcEndpointConnectionNotificationsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteVpcEndpointConnectionNotificationsResponse

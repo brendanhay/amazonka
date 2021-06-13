@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,12 +53,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAssociateEnvironmentOperationsRole' smart constructor.
 data AssociateEnvironmentOperationsRole = AssociateEnvironmentOperationsRole'
   { -- | The name of the environment to which to set the operations role.
-    environmentName :: Core.Text,
+    environmentName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an existing IAM role to be used as the
     -- environment\'s operations role.
-    operationsRole :: Core.Text
+    operationsRole :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateEnvironmentOperationsRole' with all optional fields omitted.
@@ -73,9 +74,9 @@ data AssociateEnvironmentOperationsRole = AssociateEnvironmentOperationsRole'
 -- environment\'s operations role.
 newAssociateEnvironmentOperationsRole ::
   -- | 'environmentName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'operationsRole'
-  Core.Text ->
+  Prelude.Text ->
   AssociateEnvironmentOperationsRole
 newAssociateEnvironmentOperationsRole
   pEnvironmentName_
@@ -87,12 +88,12 @@ newAssociateEnvironmentOperationsRole
       }
 
 -- | The name of the environment to which to set the operations role.
-associateEnvironmentOperationsRole_environmentName :: Lens.Lens' AssociateEnvironmentOperationsRole Core.Text
+associateEnvironmentOperationsRole_environmentName :: Lens.Lens' AssociateEnvironmentOperationsRole Prelude.Text
 associateEnvironmentOperationsRole_environmentName = Lens.lens (\AssociateEnvironmentOperationsRole' {environmentName} -> environmentName) (\s@AssociateEnvironmentOperationsRole' {} a -> s {environmentName = a} :: AssociateEnvironmentOperationsRole)
 
 -- | The Amazon Resource Name (ARN) of an existing IAM role to be used as the
 -- environment\'s operations role.
-associateEnvironmentOperationsRole_operationsRole :: Lens.Lens' AssociateEnvironmentOperationsRole Core.Text
+associateEnvironmentOperationsRole_operationsRole :: Lens.Lens' AssociateEnvironmentOperationsRole Prelude.Text
 associateEnvironmentOperationsRole_operationsRole = Lens.lens (\AssociateEnvironmentOperationsRole' {operationsRole} -> operationsRole) (\s@AssociateEnvironmentOperationsRole' {} a -> s {operationsRole = a} :: AssociateEnvironmentOperationsRole)
 
 instance
@@ -108,36 +109,37 @@ instance
       AssociateEnvironmentOperationsRoleResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AssociateEnvironmentOperationsRole
 
 instance
-  Core.NFData
+  Prelude.NFData
     AssociateEnvironmentOperationsRole
 
 instance
   Core.ToHeaders
     AssociateEnvironmentOperationsRole
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     AssociateEnvironmentOperationsRole
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     AssociateEnvironmentOperationsRole
   where
   toQuery AssociateEnvironmentOperationsRole' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "AssociateEnvironmentOperationsRole" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "EnvironmentName" Core.=: environmentName,
         "OperationsRole" Core.=: operationsRole
       ]
@@ -146,7 +148,7 @@ instance
 data AssociateEnvironmentOperationsRoleResponse = AssociateEnvironmentOperationsRoleResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateEnvironmentOperationsRoleResponse' with all optional fields omitted.
@@ -158,5 +160,5 @@ newAssociateEnvironmentOperationsRoleResponse =
   AssociateEnvironmentOperationsRoleResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     AssociateEnvironmentOperationsRoleResponse

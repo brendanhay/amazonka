@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.PublicKey where
 import Network.AWS.CloudFront.Types.PublicKeyConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A public key that you can use with
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies>,
@@ -31,7 +32,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPublicKey' smart constructor.
 data PublicKey = PublicKey'
   { -- | The identifier of the public key.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The date and time when the public key was uploaded.
     createdTime :: Core.ISO8601,
     -- | Configuration information about a public key that you can use with
@@ -40,7 +41,7 @@ data PublicKey = PublicKey'
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption>.
     publicKeyConfig :: PublicKeyConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PublicKey' with all optional fields omitted.
@@ -60,9 +61,9 @@ data PublicKey = PublicKey'
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption>.
 newPublicKey ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'createdTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'publicKeyConfig'
   PublicKeyConfig ->
   PublicKey
@@ -74,12 +75,12 @@ newPublicKey pId_ pCreatedTime_ pPublicKeyConfig_ =
     }
 
 -- | The identifier of the public key.
-publicKey_id :: Lens.Lens' PublicKey Core.Text
+publicKey_id :: Lens.Lens' PublicKey Prelude.Text
 publicKey_id = Lens.lens (\PublicKey' {id} -> id) (\s@PublicKey' {} a -> s {id = a} :: PublicKey)
 
 -- | The date and time when the public key was uploaded.
-publicKey_createdTime :: Lens.Lens' PublicKey Core.UTCTime
-publicKey_createdTime = Lens.lens (\PublicKey' {createdTime} -> createdTime) (\s@PublicKey' {} a -> s {createdTime = a} :: PublicKey) Core.. Core._Time
+publicKey_createdTime :: Lens.Lens' PublicKey Prelude.UTCTime
+publicKey_createdTime = Lens.lens (\PublicKey' {createdTime} -> createdTime) (\s@PublicKey' {} a -> s {createdTime = a} :: PublicKey) Prelude.. Core._Time
 
 -- | Configuration information about a public key that you can use with
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies>,
@@ -91,10 +92,10 @@ publicKey_publicKeyConfig = Lens.lens (\PublicKey' {publicKeyConfig} -> publicKe
 instance Core.FromXML PublicKey where
   parseXML x =
     PublicKey'
-      Core.<$> (x Core..@ "Id")
-      Core.<*> (x Core..@ "CreatedTime")
-      Core.<*> (x Core..@ "PublicKeyConfig")
+      Prelude.<$> (x Core..@ "Id")
+      Prelude.<*> (x Core..@ "CreatedTime")
+      Prelude.<*> (x Core..@ "PublicKeyConfig")
 
-instance Core.Hashable PublicKey
+instance Prelude.Hashable PublicKey
 
-instance Core.NFData PublicKey
+instance Prelude.NFData PublicKey

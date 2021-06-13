@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.SegmentBehaviors where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.RecencyDimension
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies dimension settings for including or excluding endpoints from a
 -- segment based on how recently an endpoint was active.
@@ -30,9 +31,9 @@ import Network.AWS.Pinpoint.Types.RecencyDimension
 data SegmentBehaviors = SegmentBehaviors'
   { -- | The dimension settings that are based on how recently an endpoint was
     -- active.
-    recency :: Core.Maybe RecencyDimension
+    recency :: Prelude.Maybe RecencyDimension
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SegmentBehaviors' with all optional fields omitted.
@@ -47,11 +48,11 @@ data SegmentBehaviors = SegmentBehaviors'
 newSegmentBehaviors ::
   SegmentBehaviors
 newSegmentBehaviors =
-  SegmentBehaviors' {recency = Core.Nothing}
+  SegmentBehaviors' {recency = Prelude.Nothing}
 
 -- | The dimension settings that are based on how recently an endpoint was
 -- active.
-segmentBehaviors_recency :: Lens.Lens' SegmentBehaviors (Core.Maybe RecencyDimension)
+segmentBehaviors_recency :: Lens.Lens' SegmentBehaviors (Prelude.Maybe RecencyDimension)
 segmentBehaviors_recency = Lens.lens (\SegmentBehaviors' {recency} -> recency) (\s@SegmentBehaviors' {} a -> s {recency = a} :: SegmentBehaviors)
 
 instance Core.FromJSON SegmentBehaviors where
@@ -59,16 +60,16 @@ instance Core.FromJSON SegmentBehaviors where
     Core.withObject
       "SegmentBehaviors"
       ( \x ->
-          SegmentBehaviors' Core.<$> (x Core..:? "Recency")
+          SegmentBehaviors' Prelude.<$> (x Core..:? "Recency")
       )
 
-instance Core.Hashable SegmentBehaviors
+instance Prelude.Hashable SegmentBehaviors
 
-instance Core.NFData SegmentBehaviors
+instance Prelude.NFData SegmentBehaviors
 
 instance Core.ToJSON SegmentBehaviors where
   toJSON SegmentBehaviors' {..} =
     Core.object
-      ( Core.catMaybes
-          [("Recency" Core..=) Core.<$> recency]
+      ( Prelude.catMaybes
+          [("Recency" Core..=) Prelude.<$> recency]
       )

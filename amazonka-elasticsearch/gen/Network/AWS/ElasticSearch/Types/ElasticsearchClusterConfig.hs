@@ -24,6 +24,7 @@ import Network.AWS.ElasticSearch.Types.ESPartitionInstanceType
 import Network.AWS.ElasticSearch.Types.ESWarmPartitionInstanceType
 import Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the configuration for the domain cluster, such as the type and
 -- number of instances.
@@ -32,34 +33,34 @@ import qualified Network.AWS.Lens as Lens
 data ElasticsearchClusterConfig = ElasticsearchClusterConfig'
   { -- | Specifies the zone awareness configuration for a domain when zone
     -- awareness is enabled.
-    zoneAwarenessConfig :: Core.Maybe ZoneAwarenessConfig,
+    zoneAwarenessConfig :: Prelude.Maybe ZoneAwarenessConfig,
     -- | Total number of dedicated master nodes, active and on standby, for the
     -- cluster.
-    dedicatedMasterCount :: Core.Maybe Core.Int,
+    dedicatedMasterCount :: Prelude.Maybe Prelude.Int,
     -- | True to enable warm storage.
-    warmEnabled :: Core.Maybe Core.Bool,
+    warmEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The instance type for an Elasticsearch cluster. UltraWarm instance types
     -- are not supported for data instances.
-    instanceType :: Core.Maybe ESPartitionInstanceType,
+    instanceType :: Prelude.Maybe ESPartitionInstanceType,
     -- | A boolean value to indicate whether zone awareness is enabled. See
     -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness About Zone Awareness>
     -- for more information.
-    zoneAwarenessEnabled :: Core.Maybe Core.Bool,
+    zoneAwarenessEnabled :: Prelude.Maybe Prelude.Bool,
     -- | A boolean value to indicate whether a dedicated master node is enabled.
     -- See
     -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes About Dedicated Master Nodes>
     -- for more information.
-    dedicatedMasterEnabled :: Core.Maybe Core.Bool,
+    dedicatedMasterEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The number of warm nodes in the cluster.
-    warmCount :: Core.Maybe Core.Int,
+    warmCount :: Prelude.Maybe Prelude.Int,
     -- | The instance type for a dedicated master node.
-    dedicatedMasterType :: Core.Maybe ESPartitionInstanceType,
+    dedicatedMasterType :: Prelude.Maybe ESPartitionInstanceType,
     -- | The instance type for the Elasticsearch cluster\'s warm nodes.
-    warmType :: Core.Maybe ESWarmPartitionInstanceType,
+    warmType :: Prelude.Maybe ESWarmPartitionInstanceType,
     -- | The number of instances in the specified domain cluster.
-    instanceCount :: Core.Maybe Core.Int
+    instanceCount :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ElasticsearchClusterConfig' with all optional fields omitted.
@@ -101,64 +102,64 @@ newElasticsearchClusterConfig ::
 newElasticsearchClusterConfig =
   ElasticsearchClusterConfig'
     { zoneAwarenessConfig =
-        Core.Nothing,
-      dedicatedMasterCount = Core.Nothing,
-      warmEnabled = Core.Nothing,
-      instanceType = Core.Nothing,
-      zoneAwarenessEnabled = Core.Nothing,
-      dedicatedMasterEnabled = Core.Nothing,
-      warmCount = Core.Nothing,
-      dedicatedMasterType = Core.Nothing,
-      warmType = Core.Nothing,
-      instanceCount = Core.Nothing
+        Prelude.Nothing,
+      dedicatedMasterCount = Prelude.Nothing,
+      warmEnabled = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      zoneAwarenessEnabled = Prelude.Nothing,
+      dedicatedMasterEnabled = Prelude.Nothing,
+      warmCount = Prelude.Nothing,
+      dedicatedMasterType = Prelude.Nothing,
+      warmType = Prelude.Nothing,
+      instanceCount = Prelude.Nothing
     }
 
 -- | Specifies the zone awareness configuration for a domain when zone
 -- awareness is enabled.
-elasticsearchClusterConfig_zoneAwarenessConfig :: Lens.Lens' ElasticsearchClusterConfig (Core.Maybe ZoneAwarenessConfig)
+elasticsearchClusterConfig_zoneAwarenessConfig :: Lens.Lens' ElasticsearchClusterConfig (Prelude.Maybe ZoneAwarenessConfig)
 elasticsearchClusterConfig_zoneAwarenessConfig = Lens.lens (\ElasticsearchClusterConfig' {zoneAwarenessConfig} -> zoneAwarenessConfig) (\s@ElasticsearchClusterConfig' {} a -> s {zoneAwarenessConfig = a} :: ElasticsearchClusterConfig)
 
 -- | Total number of dedicated master nodes, active and on standby, for the
 -- cluster.
-elasticsearchClusterConfig_dedicatedMasterCount :: Lens.Lens' ElasticsearchClusterConfig (Core.Maybe Core.Int)
+elasticsearchClusterConfig_dedicatedMasterCount :: Lens.Lens' ElasticsearchClusterConfig (Prelude.Maybe Prelude.Int)
 elasticsearchClusterConfig_dedicatedMasterCount = Lens.lens (\ElasticsearchClusterConfig' {dedicatedMasterCount} -> dedicatedMasterCount) (\s@ElasticsearchClusterConfig' {} a -> s {dedicatedMasterCount = a} :: ElasticsearchClusterConfig)
 
 -- | True to enable warm storage.
-elasticsearchClusterConfig_warmEnabled :: Lens.Lens' ElasticsearchClusterConfig (Core.Maybe Core.Bool)
+elasticsearchClusterConfig_warmEnabled :: Lens.Lens' ElasticsearchClusterConfig (Prelude.Maybe Prelude.Bool)
 elasticsearchClusterConfig_warmEnabled = Lens.lens (\ElasticsearchClusterConfig' {warmEnabled} -> warmEnabled) (\s@ElasticsearchClusterConfig' {} a -> s {warmEnabled = a} :: ElasticsearchClusterConfig)
 
 -- | The instance type for an Elasticsearch cluster. UltraWarm instance types
 -- are not supported for data instances.
-elasticsearchClusterConfig_instanceType :: Lens.Lens' ElasticsearchClusterConfig (Core.Maybe ESPartitionInstanceType)
+elasticsearchClusterConfig_instanceType :: Lens.Lens' ElasticsearchClusterConfig (Prelude.Maybe ESPartitionInstanceType)
 elasticsearchClusterConfig_instanceType = Lens.lens (\ElasticsearchClusterConfig' {instanceType} -> instanceType) (\s@ElasticsearchClusterConfig' {} a -> s {instanceType = a} :: ElasticsearchClusterConfig)
 
 -- | A boolean value to indicate whether zone awareness is enabled. See
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness About Zone Awareness>
 -- for more information.
-elasticsearchClusterConfig_zoneAwarenessEnabled :: Lens.Lens' ElasticsearchClusterConfig (Core.Maybe Core.Bool)
+elasticsearchClusterConfig_zoneAwarenessEnabled :: Lens.Lens' ElasticsearchClusterConfig (Prelude.Maybe Prelude.Bool)
 elasticsearchClusterConfig_zoneAwarenessEnabled = Lens.lens (\ElasticsearchClusterConfig' {zoneAwarenessEnabled} -> zoneAwarenessEnabled) (\s@ElasticsearchClusterConfig' {} a -> s {zoneAwarenessEnabled = a} :: ElasticsearchClusterConfig)
 
 -- | A boolean value to indicate whether a dedicated master node is enabled.
 -- See
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes About Dedicated Master Nodes>
 -- for more information.
-elasticsearchClusterConfig_dedicatedMasterEnabled :: Lens.Lens' ElasticsearchClusterConfig (Core.Maybe Core.Bool)
+elasticsearchClusterConfig_dedicatedMasterEnabled :: Lens.Lens' ElasticsearchClusterConfig (Prelude.Maybe Prelude.Bool)
 elasticsearchClusterConfig_dedicatedMasterEnabled = Lens.lens (\ElasticsearchClusterConfig' {dedicatedMasterEnabled} -> dedicatedMasterEnabled) (\s@ElasticsearchClusterConfig' {} a -> s {dedicatedMasterEnabled = a} :: ElasticsearchClusterConfig)
 
 -- | The number of warm nodes in the cluster.
-elasticsearchClusterConfig_warmCount :: Lens.Lens' ElasticsearchClusterConfig (Core.Maybe Core.Int)
+elasticsearchClusterConfig_warmCount :: Lens.Lens' ElasticsearchClusterConfig (Prelude.Maybe Prelude.Int)
 elasticsearchClusterConfig_warmCount = Lens.lens (\ElasticsearchClusterConfig' {warmCount} -> warmCount) (\s@ElasticsearchClusterConfig' {} a -> s {warmCount = a} :: ElasticsearchClusterConfig)
 
 -- | The instance type for a dedicated master node.
-elasticsearchClusterConfig_dedicatedMasterType :: Lens.Lens' ElasticsearchClusterConfig (Core.Maybe ESPartitionInstanceType)
+elasticsearchClusterConfig_dedicatedMasterType :: Lens.Lens' ElasticsearchClusterConfig (Prelude.Maybe ESPartitionInstanceType)
 elasticsearchClusterConfig_dedicatedMasterType = Lens.lens (\ElasticsearchClusterConfig' {dedicatedMasterType} -> dedicatedMasterType) (\s@ElasticsearchClusterConfig' {} a -> s {dedicatedMasterType = a} :: ElasticsearchClusterConfig)
 
 -- | The instance type for the Elasticsearch cluster\'s warm nodes.
-elasticsearchClusterConfig_warmType :: Lens.Lens' ElasticsearchClusterConfig (Core.Maybe ESWarmPartitionInstanceType)
+elasticsearchClusterConfig_warmType :: Lens.Lens' ElasticsearchClusterConfig (Prelude.Maybe ESWarmPartitionInstanceType)
 elasticsearchClusterConfig_warmType = Lens.lens (\ElasticsearchClusterConfig' {warmType} -> warmType) (\s@ElasticsearchClusterConfig' {} a -> s {warmType = a} :: ElasticsearchClusterConfig)
 
 -- | The number of instances in the specified domain cluster.
-elasticsearchClusterConfig_instanceCount :: Lens.Lens' ElasticsearchClusterConfig (Core.Maybe Core.Int)
+elasticsearchClusterConfig_instanceCount :: Lens.Lens' ElasticsearchClusterConfig (Prelude.Maybe Prelude.Int)
 elasticsearchClusterConfig_instanceCount = Lens.lens (\ElasticsearchClusterConfig' {instanceCount} -> instanceCount) (\s@ElasticsearchClusterConfig' {} a -> s {instanceCount = a} :: ElasticsearchClusterConfig)
 
 instance Core.FromJSON ElasticsearchClusterConfig where
@@ -167,40 +168,40 @@ instance Core.FromJSON ElasticsearchClusterConfig where
       "ElasticsearchClusterConfig"
       ( \x ->
           ElasticsearchClusterConfig'
-            Core.<$> (x Core..:? "ZoneAwarenessConfig")
-            Core.<*> (x Core..:? "DedicatedMasterCount")
-            Core.<*> (x Core..:? "WarmEnabled")
-            Core.<*> (x Core..:? "InstanceType")
-            Core.<*> (x Core..:? "ZoneAwarenessEnabled")
-            Core.<*> (x Core..:? "DedicatedMasterEnabled")
-            Core.<*> (x Core..:? "WarmCount")
-            Core.<*> (x Core..:? "DedicatedMasterType")
-            Core.<*> (x Core..:? "WarmType")
-            Core.<*> (x Core..:? "InstanceCount")
+            Prelude.<$> (x Core..:? "ZoneAwarenessConfig")
+            Prelude.<*> (x Core..:? "DedicatedMasterCount")
+            Prelude.<*> (x Core..:? "WarmEnabled")
+            Prelude.<*> (x Core..:? "InstanceType")
+            Prelude.<*> (x Core..:? "ZoneAwarenessEnabled")
+            Prelude.<*> (x Core..:? "DedicatedMasterEnabled")
+            Prelude.<*> (x Core..:? "WarmCount")
+            Prelude.<*> (x Core..:? "DedicatedMasterType")
+            Prelude.<*> (x Core..:? "WarmType")
+            Prelude.<*> (x Core..:? "InstanceCount")
       )
 
-instance Core.Hashable ElasticsearchClusterConfig
+instance Prelude.Hashable ElasticsearchClusterConfig
 
-instance Core.NFData ElasticsearchClusterConfig
+instance Prelude.NFData ElasticsearchClusterConfig
 
 instance Core.ToJSON ElasticsearchClusterConfig where
   toJSON ElasticsearchClusterConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ZoneAwarenessConfig" Core..=)
-              Core.<$> zoneAwarenessConfig,
+              Prelude.<$> zoneAwarenessConfig,
             ("DedicatedMasterCount" Core..=)
-              Core.<$> dedicatedMasterCount,
-            ("WarmEnabled" Core..=) Core.<$> warmEnabled,
-            ("InstanceType" Core..=) Core.<$> instanceType,
+              Prelude.<$> dedicatedMasterCount,
+            ("WarmEnabled" Core..=) Prelude.<$> warmEnabled,
+            ("InstanceType" Core..=) Prelude.<$> instanceType,
             ("ZoneAwarenessEnabled" Core..=)
-              Core.<$> zoneAwarenessEnabled,
+              Prelude.<$> zoneAwarenessEnabled,
             ("DedicatedMasterEnabled" Core..=)
-              Core.<$> dedicatedMasterEnabled,
-            ("WarmCount" Core..=) Core.<$> warmCount,
+              Prelude.<$> dedicatedMasterEnabled,
+            ("WarmCount" Core..=) Prelude.<$> warmCount,
             ("DedicatedMasterType" Core..=)
-              Core.<$> dedicatedMasterType,
-            ("WarmType" Core..=) Core.<$> warmType,
-            ("InstanceCount" Core..=) Core.<$> instanceCount
+              Prelude.<$> dedicatedMasterType,
+            ("WarmType" Core..=) Prelude.<$> warmType,
+            ("InstanceCount" Core..=) Prelude.<$> instanceCount
           ]
       )

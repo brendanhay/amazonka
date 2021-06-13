@@ -21,6 +21,7 @@ module Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary
 
 -- | The container for summary information that relates to the category of
@@ -30,9 +31,9 @@ import Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary
 data TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary'
   { -- | The summary information about cost savings for a Trusted Advisor check
     -- that is in the Cost Optimizing category.
-    costOptimizing :: Core.Maybe TrustedAdvisorCostOptimizingSummary
+    costOptimizing :: Prelude.Maybe TrustedAdvisorCostOptimizingSummary
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrustedAdvisorCategorySpecificSummary' with all optional fields omitted.
@@ -49,12 +50,12 @@ newTrustedAdvisorCategorySpecificSummary ::
 newTrustedAdvisorCategorySpecificSummary =
   TrustedAdvisorCategorySpecificSummary'
     { costOptimizing =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The summary information about cost savings for a Trusted Advisor check
 -- that is in the Cost Optimizing category.
-trustedAdvisorCategorySpecificSummary_costOptimizing :: Lens.Lens' TrustedAdvisorCategorySpecificSummary (Core.Maybe TrustedAdvisorCostOptimizingSummary)
+trustedAdvisorCategorySpecificSummary_costOptimizing :: Lens.Lens' TrustedAdvisorCategorySpecificSummary (Prelude.Maybe TrustedAdvisorCostOptimizingSummary)
 trustedAdvisorCategorySpecificSummary_costOptimizing = Lens.lens (\TrustedAdvisorCategorySpecificSummary' {costOptimizing} -> costOptimizing) (\s@TrustedAdvisorCategorySpecificSummary' {} a -> s {costOptimizing = a} :: TrustedAdvisorCategorySpecificSummary)
 
 instance
@@ -66,13 +67,13 @@ instance
       "TrustedAdvisorCategorySpecificSummary"
       ( \x ->
           TrustedAdvisorCategorySpecificSummary'
-            Core.<$> (x Core..:? "costOptimizing")
+            Prelude.<$> (x Core..:? "costOptimizing")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     TrustedAdvisorCategorySpecificSummary
 
 instance
-  Core.NFData
+  Prelude.NFData
     TrustedAdvisorCategorySpecificSummary

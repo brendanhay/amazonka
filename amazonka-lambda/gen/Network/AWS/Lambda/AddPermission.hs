@@ -67,6 +67,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,21 +76,21 @@ data AddPermission = AddPermission'
   { -- | Only update the policy if the revision ID matches the ID that\'s
     -- specified. Use this option to avoid modifying a policy that has changed
     -- since you last read it.
-    revisionId :: Core.Maybe Core.Text,
+    revisionId :: Prelude.Maybe Prelude.Text,
     -- | Specify a version or alias to add permissions to a published version of
     -- the function.
-    qualifier :: Core.Maybe Core.Text,
+    qualifier :: Prelude.Maybe Prelude.Text,
     -- | For Alexa Smart Home functions, a token that must be supplied by the
     -- invoker.
-    eventSourceToken :: Core.Maybe Core.Text,
+    eventSourceToken :: Prelude.Maybe Prelude.Text,
     -- | For Amazon S3, the ID of the account that owns the resource. Use this
     -- together with @SourceArn@ to ensure that the resource is owned by the
     -- specified account. It is possible for an Amazon S3 bucket to be deleted
     -- by its owner and recreated by another account.
-    sourceAccount :: Core.Maybe Core.Text,
+    sourceAccount :: Prelude.Maybe Prelude.Text,
     -- | For AWS services, the ARN of the AWS resource that invokes the function.
     -- For example, an Amazon S3 bucket or Amazon SNS topic.
-    sourceArn :: Core.Maybe Core.Text,
+    sourceArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function, version, or alias.
     --
     -- __Name formats__
@@ -105,19 +106,19 @@ data AddPermission = AddPermission'
     -- You can append a version number or alias to any of the formats. The
     -- length constraint applies only to the full ARN. If you specify only the
     -- function name, it is limited to 64 characters in length.
-    functionName :: Core.Text,
+    functionName :: Prelude.Text,
     -- | A statement identifier that differentiates the statement from others in
     -- the same policy.
-    statementId :: Core.Text,
+    statementId :: Prelude.Text,
     -- | The action that the principal can use on the function. For example,
     -- @lambda:InvokeFunction@ or @lambda:GetFunction@.
-    action :: Core.Text,
+    action :: Prelude.Text,
     -- | The AWS service or account that invokes the function. If you specify a
     -- service, use @SourceArn@ or @SourceAccount@ to limit who can invoke the
     -- function through that service.
-    principal :: Core.Text
+    principal :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddPermission' with all optional fields omitted.
@@ -172,13 +173,13 @@ data AddPermission = AddPermission'
 -- function through that service.
 newAddPermission ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'statementId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'action'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'principal'
-  Core.Text ->
+  Prelude.Text ->
   AddPermission
 newAddPermission
   pFunctionName_
@@ -186,11 +187,11 @@ newAddPermission
   pAction_
   pPrincipal_ =
     AddPermission'
-      { revisionId = Core.Nothing,
-        qualifier = Core.Nothing,
-        eventSourceToken = Core.Nothing,
-        sourceAccount = Core.Nothing,
-        sourceArn = Core.Nothing,
+      { revisionId = Prelude.Nothing,
+        qualifier = Prelude.Nothing,
+        eventSourceToken = Prelude.Nothing,
+        sourceAccount = Prelude.Nothing,
+        sourceArn = Prelude.Nothing,
         functionName = pFunctionName_,
         statementId = pStatementId_,
         action = pAction_,
@@ -200,29 +201,29 @@ newAddPermission
 -- | Only update the policy if the revision ID matches the ID that\'s
 -- specified. Use this option to avoid modifying a policy that has changed
 -- since you last read it.
-addPermission_revisionId :: Lens.Lens' AddPermission (Core.Maybe Core.Text)
+addPermission_revisionId :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
 addPermission_revisionId = Lens.lens (\AddPermission' {revisionId} -> revisionId) (\s@AddPermission' {} a -> s {revisionId = a} :: AddPermission)
 
 -- | Specify a version or alias to add permissions to a published version of
 -- the function.
-addPermission_qualifier :: Lens.Lens' AddPermission (Core.Maybe Core.Text)
+addPermission_qualifier :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
 addPermission_qualifier = Lens.lens (\AddPermission' {qualifier} -> qualifier) (\s@AddPermission' {} a -> s {qualifier = a} :: AddPermission)
 
 -- | For Alexa Smart Home functions, a token that must be supplied by the
 -- invoker.
-addPermission_eventSourceToken :: Lens.Lens' AddPermission (Core.Maybe Core.Text)
+addPermission_eventSourceToken :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
 addPermission_eventSourceToken = Lens.lens (\AddPermission' {eventSourceToken} -> eventSourceToken) (\s@AddPermission' {} a -> s {eventSourceToken = a} :: AddPermission)
 
 -- | For Amazon S3, the ID of the account that owns the resource. Use this
 -- together with @SourceArn@ to ensure that the resource is owned by the
 -- specified account. It is possible for an Amazon S3 bucket to be deleted
 -- by its owner and recreated by another account.
-addPermission_sourceAccount :: Lens.Lens' AddPermission (Core.Maybe Core.Text)
+addPermission_sourceAccount :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
 addPermission_sourceAccount = Lens.lens (\AddPermission' {sourceAccount} -> sourceAccount) (\s@AddPermission' {} a -> s {sourceAccount = a} :: AddPermission)
 
 -- | For AWS services, the ARN of the AWS resource that invokes the function.
 -- For example, an Amazon S3 bucket or Amazon SNS topic.
-addPermission_sourceArn :: Lens.Lens' AddPermission (Core.Maybe Core.Text)
+addPermission_sourceArn :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
 addPermission_sourceArn = Lens.lens (\AddPermission' {sourceArn} -> sourceArn) (\s@AddPermission' {} a -> s {sourceArn = a} :: AddPermission)
 
 -- | The name of the Lambda function, version, or alias.
@@ -240,23 +241,23 @@ addPermission_sourceArn = Lens.lens (\AddPermission' {sourceArn} -> sourceArn) (
 -- You can append a version number or alias to any of the formats. The
 -- length constraint applies only to the full ARN. If you specify only the
 -- function name, it is limited to 64 characters in length.
-addPermission_functionName :: Lens.Lens' AddPermission Core.Text
+addPermission_functionName :: Lens.Lens' AddPermission Prelude.Text
 addPermission_functionName = Lens.lens (\AddPermission' {functionName} -> functionName) (\s@AddPermission' {} a -> s {functionName = a} :: AddPermission)
 
 -- | A statement identifier that differentiates the statement from others in
 -- the same policy.
-addPermission_statementId :: Lens.Lens' AddPermission Core.Text
+addPermission_statementId :: Lens.Lens' AddPermission Prelude.Text
 addPermission_statementId = Lens.lens (\AddPermission' {statementId} -> statementId) (\s@AddPermission' {} a -> s {statementId = a} :: AddPermission)
 
 -- | The action that the principal can use on the function. For example,
 -- @lambda:InvokeFunction@ or @lambda:GetFunction@.
-addPermission_action :: Lens.Lens' AddPermission Core.Text
+addPermission_action :: Lens.Lens' AddPermission Prelude.Text
 addPermission_action = Lens.lens (\AddPermission' {action} -> action) (\s@AddPermission' {} a -> s {action = a} :: AddPermission)
 
 -- | The AWS service or account that invokes the function. If you specify a
 -- service, use @SourceArn@ or @SourceAccount@ to limit who can invoke the
 -- function through that service.
-addPermission_principal :: Lens.Lens' AddPermission Core.Text
+addPermission_principal :: Lens.Lens' AddPermission Prelude.Text
 addPermission_principal = Lens.lens (\AddPermission' {principal} -> principal) (\s@AddPermission' {} a -> s {principal = a} :: AddPermission)
 
 instance Core.AWSRequest AddPermission where
@@ -268,35 +269,35 @@ instance Core.AWSRequest AddPermission where
     Response.receiveJSON
       ( \s h x ->
           AddPermissionResponse'
-            Core.<$> (x Core..?> "Statement")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Statement")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AddPermission
+instance Prelude.Hashable AddPermission
 
-instance Core.NFData AddPermission
+instance Prelude.NFData AddPermission
 
 instance Core.ToHeaders AddPermission where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON AddPermission where
   toJSON AddPermission' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RevisionId" Core..=) Core.<$> revisionId,
+      ( Prelude.catMaybes
+          [ ("RevisionId" Core..=) Prelude.<$> revisionId,
             ("EventSourceToken" Core..=)
-              Core.<$> eventSourceToken,
-            ("SourceAccount" Core..=) Core.<$> sourceAccount,
-            ("SourceArn" Core..=) Core.<$> sourceArn,
-            Core.Just ("StatementId" Core..= statementId),
-            Core.Just ("Action" Core..= action),
-            Core.Just ("Principal" Core..= principal)
+              Prelude.<$> eventSourceToken,
+            ("SourceAccount" Core..=) Prelude.<$> sourceAccount,
+            ("SourceArn" Core..=) Prelude.<$> sourceArn,
+            Prelude.Just ("StatementId" Core..= statementId),
+            Prelude.Just ("Action" Core..= action),
+            Prelude.Just ("Principal" Core..= principal)
           ]
       )
 
 instance Core.ToPath AddPermission where
   toPath AddPermission' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-03-31/functions/",
         Core.toBS functionName,
         "/policy"
@@ -304,16 +305,16 @@ instance Core.ToPath AddPermission where
 
 instance Core.ToQuery AddPermission where
   toQuery AddPermission' {..} =
-    Core.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Core.=: qualifier]
 
 -- | /See:/ 'newAddPermissionResponse' smart constructor.
 data AddPermissionResponse = AddPermissionResponse'
   { -- | The permission statement that\'s added to the function policy.
-    statement :: Core.Maybe Core.Text,
+    statement :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddPermissionResponse' with all optional fields omitted.
@@ -328,20 +329,20 @@ data AddPermissionResponse = AddPermissionResponse'
 -- 'httpStatus', 'addPermissionResponse_httpStatus' - The response's http status code.
 newAddPermissionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddPermissionResponse
 newAddPermissionResponse pHttpStatus_ =
   AddPermissionResponse'
-    { statement = Core.Nothing,
+    { statement = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The permission statement that\'s added to the function policy.
-addPermissionResponse_statement :: Lens.Lens' AddPermissionResponse (Core.Maybe Core.Text)
+addPermissionResponse_statement :: Lens.Lens' AddPermissionResponse (Prelude.Maybe Prelude.Text)
 addPermissionResponse_statement = Lens.lens (\AddPermissionResponse' {statement} -> statement) (\s@AddPermissionResponse' {} a -> s {statement = a} :: AddPermissionResponse)
 
 -- | The response's http status code.
-addPermissionResponse_httpStatus :: Lens.Lens' AddPermissionResponse Core.Int
+addPermissionResponse_httpStatus :: Lens.Lens' AddPermissionResponse Prelude.Int
 addPermissionResponse_httpStatus = Lens.lens (\AddPermissionResponse' {httpStatus} -> httpStatus) (\s@AddPermissionResponse' {} a -> s {httpStatus = a} :: AddPermissionResponse)
 
-instance Core.NFData AddPermissionResponse
+instance Prelude.NFData AddPermissionResponse

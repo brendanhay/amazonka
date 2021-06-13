@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,12 +52,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newTestConnection' smart constructor.
 data TestConnection = TestConnection'
   { -- | The Amazon Resource Name (ARN) of the replication instance.
-    replicationInstanceArn :: Core.Text,
+    replicationInstanceArn :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) string that uniquely identifies the
     -- endpoint.
-    endpointArn :: Core.Text
+    endpointArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TestConnection' with all optional fields omitted.
@@ -72,9 +73,9 @@ data TestConnection = TestConnection'
 -- endpoint.
 newTestConnection ::
   -- | 'replicationInstanceArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'endpointArn'
-  Core.Text ->
+  Prelude.Text ->
   TestConnection
 newTestConnection
   pReplicationInstanceArn_
@@ -86,12 +87,12 @@ newTestConnection
       }
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
-testConnection_replicationInstanceArn :: Lens.Lens' TestConnection Core.Text
+testConnection_replicationInstanceArn :: Lens.Lens' TestConnection Prelude.Text
 testConnection_replicationInstanceArn = Lens.lens (\TestConnection' {replicationInstanceArn} -> replicationInstanceArn) (\s@TestConnection' {} a -> s {replicationInstanceArn = a} :: TestConnection)
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the
 -- endpoint.
-testConnection_endpointArn :: Lens.Lens' TestConnection Core.Text
+testConnection_endpointArn :: Lens.Lens' TestConnection Prelude.Text
 testConnection_endpointArn = Lens.lens (\TestConnection' {endpointArn} -> endpointArn) (\s@TestConnection' {} a -> s {endpointArn = a} :: TestConnection)
 
 instance Core.AWSRequest TestConnection where
@@ -103,55 +104,57 @@ instance Core.AWSRequest TestConnection where
     Response.receiveJSON
       ( \s h x ->
           TestConnectionResponse'
-            Core.<$> (x Core..?> "Connection")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Connection")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable TestConnection
+instance Prelude.Hashable TestConnection
 
-instance Core.NFData TestConnection
+instance Prelude.NFData TestConnection
 
 instance Core.ToHeaders TestConnection where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonDMSv20160101.TestConnection" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON TestConnection where
   toJSON TestConnection' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "ReplicationInstanceArn"
                   Core..= replicationInstanceArn
               ),
-            Core.Just ("EndpointArn" Core..= endpointArn)
+            Prelude.Just ("EndpointArn" Core..= endpointArn)
           ]
       )
 
 instance Core.ToPath TestConnection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TestConnection where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
 -- /See:/ 'newTestConnectionResponse' smart constructor.
 data TestConnectionResponse = TestConnectionResponse'
   { -- | The connection tested.
-    connection :: Core.Maybe Connection,
+    connection :: Prelude.Maybe Connection,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TestConnectionResponse' with all optional fields omitted.
@@ -166,20 +169,21 @@ data TestConnectionResponse = TestConnectionResponse'
 -- 'httpStatus', 'testConnectionResponse_httpStatus' - The response's http status code.
 newTestConnectionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   TestConnectionResponse
 newTestConnectionResponse pHttpStatus_ =
   TestConnectionResponse'
-    { connection = Core.Nothing,
+    { connection =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The connection tested.
-testConnectionResponse_connection :: Lens.Lens' TestConnectionResponse (Core.Maybe Connection)
+testConnectionResponse_connection :: Lens.Lens' TestConnectionResponse (Prelude.Maybe Connection)
 testConnectionResponse_connection = Lens.lens (\TestConnectionResponse' {connection} -> connection) (\s@TestConnectionResponse' {} a -> s {connection = a} :: TestConnectionResponse)
 
 -- | The response's http status code.
-testConnectionResponse_httpStatus :: Lens.Lens' TestConnectionResponse Core.Int
+testConnectionResponse_httpStatus :: Lens.Lens' TestConnectionResponse Prelude.Int
 testConnectionResponse_httpStatus = Lens.lens (\TestConnectionResponse' {httpStatus} -> httpStatus) (\s@TestConnectionResponse' {} a -> s {httpStatus = a} :: TestConnectionResponse)
 
-instance Core.NFData TestConnectionResponse
+instance Prelude.NFData TestConnectionResponse

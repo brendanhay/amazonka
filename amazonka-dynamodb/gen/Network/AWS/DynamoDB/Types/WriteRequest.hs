@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.DeleteRequest
 import Network.AWS.DynamoDB.Types.PutRequest
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an operation to perform - either @DeleteItem@ or @PutItem@.
 -- You can only request one of these operations, not both, in a single
@@ -32,11 +33,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newWriteRequest' smart constructor.
 data WriteRequest = WriteRequest'
   { -- | A request to perform a @DeleteItem@ operation.
-    deleteRequest :: Core.Maybe DeleteRequest,
+    deleteRequest :: Prelude.Maybe DeleteRequest,
     -- | A request to perform a @PutItem@ operation.
-    putRequest :: Core.Maybe PutRequest
+    putRequest :: Prelude.Maybe PutRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WriteRequest' with all optional fields omitted.
@@ -53,16 +54,16 @@ newWriteRequest ::
   WriteRequest
 newWriteRequest =
   WriteRequest'
-    { deleteRequest = Core.Nothing,
-      putRequest = Core.Nothing
+    { deleteRequest = Prelude.Nothing,
+      putRequest = Prelude.Nothing
     }
 
 -- | A request to perform a @DeleteItem@ operation.
-writeRequest_deleteRequest :: Lens.Lens' WriteRequest (Core.Maybe DeleteRequest)
+writeRequest_deleteRequest :: Lens.Lens' WriteRequest (Prelude.Maybe DeleteRequest)
 writeRequest_deleteRequest = Lens.lens (\WriteRequest' {deleteRequest} -> deleteRequest) (\s@WriteRequest' {} a -> s {deleteRequest = a} :: WriteRequest)
 
 -- | A request to perform a @PutItem@ operation.
-writeRequest_putRequest :: Lens.Lens' WriteRequest (Core.Maybe PutRequest)
+writeRequest_putRequest :: Lens.Lens' WriteRequest (Prelude.Maybe PutRequest)
 writeRequest_putRequest = Lens.lens (\WriteRequest' {putRequest} -> putRequest) (\s@WriteRequest' {} a -> s {putRequest = a} :: WriteRequest)
 
 instance Core.FromJSON WriteRequest where
@@ -71,19 +72,19 @@ instance Core.FromJSON WriteRequest where
       "WriteRequest"
       ( \x ->
           WriteRequest'
-            Core.<$> (x Core..:? "DeleteRequest")
-            Core.<*> (x Core..:? "PutRequest")
+            Prelude.<$> (x Core..:? "DeleteRequest")
+            Prelude.<*> (x Core..:? "PutRequest")
       )
 
-instance Core.Hashable WriteRequest
+instance Prelude.Hashable WriteRequest
 
-instance Core.NFData WriteRequest
+instance Prelude.NFData WriteRequest
 
 instance Core.ToJSON WriteRequest where
   toJSON WriteRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DeleteRequest" Core..=) Core.<$> deleteRequest,
-            ("PutRequest" Core..=) Core.<$> putRequest
+      ( Prelude.catMaybes
+          [ ("DeleteRequest" Core..=) Prelude.<$> deleteRequest,
+            ("PutRequest" Core..=) Prelude.<$> putRequest
           ]
       )

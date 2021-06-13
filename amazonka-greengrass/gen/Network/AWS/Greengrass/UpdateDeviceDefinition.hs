@@ -42,17 +42,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDeviceDefinition' smart constructor.
 data UpdateDeviceDefinition = UpdateDeviceDefinition'
   { -- | The name of the definition.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ID of the device definition.
-    deviceDefinitionId :: Core.Text
+    deviceDefinitionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDeviceDefinition' with all optional fields omitted.
@@ -67,20 +68,20 @@ data UpdateDeviceDefinition = UpdateDeviceDefinition'
 -- 'deviceDefinitionId', 'updateDeviceDefinition_deviceDefinitionId' - The ID of the device definition.
 newUpdateDeviceDefinition ::
   -- | 'deviceDefinitionId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateDeviceDefinition
 newUpdateDeviceDefinition pDeviceDefinitionId_ =
   UpdateDeviceDefinition'
-    { name = Core.Nothing,
+    { name = Prelude.Nothing,
       deviceDefinitionId = pDeviceDefinitionId_
     }
 
 -- | The name of the definition.
-updateDeviceDefinition_name :: Lens.Lens' UpdateDeviceDefinition (Core.Maybe Core.Text)
+updateDeviceDefinition_name :: Lens.Lens' UpdateDeviceDefinition (Prelude.Maybe Prelude.Text)
 updateDeviceDefinition_name = Lens.lens (\UpdateDeviceDefinition' {name} -> name) (\s@UpdateDeviceDefinition' {} a -> s {name = a} :: UpdateDeviceDefinition)
 
 -- | The ID of the device definition.
-updateDeviceDefinition_deviceDefinitionId :: Lens.Lens' UpdateDeviceDefinition Core.Text
+updateDeviceDefinition_deviceDefinitionId :: Lens.Lens' UpdateDeviceDefinition Prelude.Text
 updateDeviceDefinition_deviceDefinitionId = Lens.lens (\UpdateDeviceDefinition' {deviceDefinitionId} -> deviceDefinitionId) (\s@UpdateDeviceDefinition' {} a -> s {deviceDefinitionId = a} :: UpdateDeviceDefinition)
 
 instance Core.AWSRequest UpdateDeviceDefinition where
@@ -92,43 +93,47 @@ instance Core.AWSRequest UpdateDeviceDefinition where
     Response.receiveEmpty
       ( \s h x ->
           UpdateDeviceDefinitionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateDeviceDefinition
+instance Prelude.Hashable UpdateDeviceDefinition
 
-instance Core.NFData UpdateDeviceDefinition
+instance Prelude.NFData UpdateDeviceDefinition
 
 instance Core.ToHeaders UpdateDeviceDefinition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateDeviceDefinition where
   toJSON UpdateDeviceDefinition' {..} =
     Core.object
-      (Core.catMaybes [("Name" Core..=) Core.<$> name])
+      ( Prelude.catMaybes
+          [("Name" Core..=) Prelude.<$> name]
+      )
 
 instance Core.ToPath UpdateDeviceDefinition where
   toPath UpdateDeviceDefinition' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/greengrass/definition/devices/",
         Core.toBS deviceDefinitionId
       ]
 
 instance Core.ToQuery UpdateDeviceDefinition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDeviceDefinitionResponse' smart constructor.
 data UpdateDeviceDefinitionResponse = UpdateDeviceDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDeviceDefinitionResponse' with all optional fields omitted.
@@ -141,7 +146,7 @@ data UpdateDeviceDefinitionResponse = UpdateDeviceDefinitionResponse'
 -- 'httpStatus', 'updateDeviceDefinitionResponse_httpStatus' - The response's http status code.
 newUpdateDeviceDefinitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateDeviceDefinitionResponse
 newUpdateDeviceDefinitionResponse pHttpStatus_ =
   UpdateDeviceDefinitionResponse'
@@ -150,7 +155,9 @@ newUpdateDeviceDefinitionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateDeviceDefinitionResponse_httpStatus :: Lens.Lens' UpdateDeviceDefinitionResponse Core.Int
+updateDeviceDefinitionResponse_httpStatus :: Lens.Lens' UpdateDeviceDefinitionResponse Prelude.Int
 updateDeviceDefinitionResponse_httpStatus = Lens.lens (\UpdateDeviceDefinitionResponse' {httpStatus} -> httpStatus) (\s@UpdateDeviceDefinitionResponse' {} a -> s {httpStatus = a} :: UpdateDeviceDefinitionResponse)
 
-instance Core.NFData UpdateDeviceDefinitionResponse
+instance
+  Prelude.NFData
+    UpdateDeviceDefinitionResponse

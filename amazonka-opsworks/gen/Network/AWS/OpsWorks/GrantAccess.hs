@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +55,11 @@ data GrantAccess = GrantAccess'
     -- expires at the end of this period, the user will no longer be able to
     -- use the credentials to log in. If the user is logged in at the time, he
     -- or she automatically will be logged out.
-    validForInMinutes :: Core.Maybe Core.Natural,
+    validForInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | The instance\'s AWS OpsWorks Stacks ID.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GrantAccess' with all optional fields omitted.
@@ -76,11 +77,11 @@ data GrantAccess = GrantAccess'
 -- 'instanceId', 'grantAccess_instanceId' - The instance\'s AWS OpsWorks Stacks ID.
 newGrantAccess ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   GrantAccess
 newGrantAccess pInstanceId_ =
   GrantAccess'
-    { validForInMinutes = Core.Nothing,
+    { validForInMinutes = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -88,11 +89,11 @@ newGrantAccess pInstanceId_ =
 -- expires at the end of this period, the user will no longer be able to
 -- use the credentials to log in. If the user is logged in at the time, he
 -- or she automatically will be logged out.
-grantAccess_validForInMinutes :: Lens.Lens' GrantAccess (Core.Maybe Core.Natural)
+grantAccess_validForInMinutes :: Lens.Lens' GrantAccess (Prelude.Maybe Prelude.Natural)
 grantAccess_validForInMinutes = Lens.lens (\GrantAccess' {validForInMinutes} -> validForInMinutes) (\s@GrantAccess' {} a -> s {validForInMinutes = a} :: GrantAccess)
 
 -- | The instance\'s AWS OpsWorks Stacks ID.
-grantAccess_instanceId :: Lens.Lens' GrantAccess Core.Text
+grantAccess_instanceId :: Lens.Lens' GrantAccess Prelude.Text
 grantAccess_instanceId = Lens.lens (\GrantAccess' {instanceId} -> instanceId) (\s@GrantAccess' {} a -> s {instanceId = a} :: GrantAccess)
 
 instance Core.AWSRequest GrantAccess where
@@ -102,40 +103,44 @@ instance Core.AWSRequest GrantAccess where
     Response.receiveJSON
       ( \s h x ->
           GrantAccessResponse'
-            Core.<$> (x Core..?> "TemporaryCredential")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TemporaryCredential")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GrantAccess
+instance Prelude.Hashable GrantAccess
 
-instance Core.NFData GrantAccess
+instance Prelude.NFData GrantAccess
 
 instance Core.ToHeaders GrantAccess where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("OpsWorks_20130218.GrantAccess" :: Core.ByteString),
+              Core.=# ( "OpsWorks_20130218.GrantAccess" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GrantAccess where
   toJSON GrantAccess' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ValidForInMinutes" Core..=)
-              Core.<$> validForInMinutes,
-            Core.Just ("InstanceId" Core..= instanceId)
+              Prelude.<$> validForInMinutes,
+            Prelude.Just ("InstanceId" Core..= instanceId)
           ]
       )
 
 instance Core.ToPath GrantAccess where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GrantAccess where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @GrantAccess@ request.
 --
@@ -144,11 +149,11 @@ data GrantAccessResponse = GrantAccessResponse'
   { -- | A @TemporaryCredential@ object that contains the data needed to log in
     -- to the instance by RDP clients, such as the Microsoft Remote Desktop
     -- Connection.
-    temporaryCredential :: Core.Maybe TemporaryCredential,
+    temporaryCredential :: Prelude.Maybe TemporaryCredential,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GrantAccessResponse' with all optional fields omitted.
@@ -165,23 +170,23 @@ data GrantAccessResponse = GrantAccessResponse'
 -- 'httpStatus', 'grantAccessResponse_httpStatus' - The response's http status code.
 newGrantAccessResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GrantAccessResponse
 newGrantAccessResponse pHttpStatus_ =
   GrantAccessResponse'
     { temporaryCredential =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A @TemporaryCredential@ object that contains the data needed to log in
 -- to the instance by RDP clients, such as the Microsoft Remote Desktop
 -- Connection.
-grantAccessResponse_temporaryCredential :: Lens.Lens' GrantAccessResponse (Core.Maybe TemporaryCredential)
+grantAccessResponse_temporaryCredential :: Lens.Lens' GrantAccessResponse (Prelude.Maybe TemporaryCredential)
 grantAccessResponse_temporaryCredential = Lens.lens (\GrantAccessResponse' {temporaryCredential} -> temporaryCredential) (\s@GrantAccessResponse' {} a -> s {temporaryCredential = a} :: GrantAccessResponse)
 
 -- | The response's http status code.
-grantAccessResponse_httpStatus :: Lens.Lens' GrantAccessResponse Core.Int
+grantAccessResponse_httpStatus :: Lens.Lens' GrantAccessResponse Prelude.Int
 grantAccessResponse_httpStatus = Lens.lens (\GrantAccessResponse' {httpStatus} -> httpStatus) (\s@GrantAccessResponse' {} a -> s {httpStatus = a} :: GrantAccessResponse)
 
-instance Core.NFData GrantAccessResponse
+instance Prelude.NFData GrantAccessResponse

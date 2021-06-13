@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +54,11 @@ data DeleteVpc = DeleteVpc'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the VPC.
-    vpcId :: Core.Text
+    vpcId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVpc' with all optional fields omitted.
@@ -75,20 +76,23 @@ data DeleteVpc = DeleteVpc'
 -- 'vpcId', 'deleteVpc_vpcId' - The ID of the VPC.
 newDeleteVpc ::
   -- | 'vpcId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteVpc
 newDeleteVpc pVpcId_ =
-  DeleteVpc' {dryRun = Core.Nothing, vpcId = pVpcId_}
+  DeleteVpc'
+    { dryRun = Prelude.Nothing,
+      vpcId = pVpcId_
+    }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteVpc_dryRun :: Lens.Lens' DeleteVpc (Core.Maybe Core.Bool)
+deleteVpc_dryRun :: Lens.Lens' DeleteVpc (Prelude.Maybe Prelude.Bool)
 deleteVpc_dryRun = Lens.lens (\DeleteVpc' {dryRun} -> dryRun) (\s@DeleteVpc' {} a -> s {dryRun = a} :: DeleteVpc)
 
 -- | The ID of the VPC.
-deleteVpc_vpcId :: Lens.Lens' DeleteVpc Core.Text
+deleteVpc_vpcId :: Lens.Lens' DeleteVpc Prelude.Text
 deleteVpc_vpcId = Lens.lens (\DeleteVpc' {vpcId} -> vpcId) (\s@DeleteVpc' {} a -> s {vpcId = a} :: DeleteVpc)
 
 instance Core.AWSRequest DeleteVpc where
@@ -96,21 +100,23 @@ instance Core.AWSRequest DeleteVpc where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteVpcResponse'
 
-instance Core.Hashable DeleteVpc
+instance Prelude.Hashable DeleteVpc
 
-instance Core.NFData DeleteVpc
+instance Prelude.NFData DeleteVpc
 
 instance Core.ToHeaders DeleteVpc where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteVpc where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteVpc where
   toQuery DeleteVpc' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("DeleteVpc" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteVpc" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "VpcId" Core.=: vpcId
       ]
@@ -119,7 +125,7 @@ instance Core.ToQuery DeleteVpc where
 data DeleteVpcResponse = DeleteVpcResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVpcResponse' with all optional fields omitted.
@@ -129,4 +135,4 @@ newDeleteVpcResponse ::
   DeleteVpcResponse
 newDeleteVpcResponse = DeleteVpcResponse'
 
-instance Core.NFData DeleteVpcResponse
+instance Prelude.NFData DeleteVpcResponse

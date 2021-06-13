@@ -22,16 +22,17 @@ module Network.AWS.MediaPackage.Types.DashEncryption where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types.SpekeKeyProvider
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
 --
 -- /See:/ 'newDashEncryption' smart constructor.
 data DashEncryption = DashEncryption'
   { -- | Time (in seconds) between each encryption key rotation.
-    keyRotationIntervalSeconds :: Core.Maybe Core.Int,
+    keyRotationIntervalSeconds :: Prelude.Maybe Prelude.Int,
     spekeKeyProvider :: SpekeKeyProvider
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DashEncryption' with all optional fields omitted.
@@ -51,12 +52,12 @@ newDashEncryption ::
 newDashEncryption pSpekeKeyProvider_ =
   DashEncryption'
     { keyRotationIntervalSeconds =
-        Core.Nothing,
+        Prelude.Nothing,
       spekeKeyProvider = pSpekeKeyProvider_
     }
 
 -- | Time (in seconds) between each encryption key rotation.
-dashEncryption_keyRotationIntervalSeconds :: Lens.Lens' DashEncryption (Core.Maybe Core.Int)
+dashEncryption_keyRotationIntervalSeconds :: Lens.Lens' DashEncryption (Prelude.Maybe Prelude.Int)
 dashEncryption_keyRotationIntervalSeconds = Lens.lens (\DashEncryption' {keyRotationIntervalSeconds} -> keyRotationIntervalSeconds) (\s@DashEncryption' {} a -> s {keyRotationIntervalSeconds = a} :: DashEncryption)
 
 -- | Undocumented member.
@@ -69,21 +70,21 @@ instance Core.FromJSON DashEncryption where
       "DashEncryption"
       ( \x ->
           DashEncryption'
-            Core.<$> (x Core..:? "keyRotationIntervalSeconds")
-            Core.<*> (x Core..: "spekeKeyProvider")
+            Prelude.<$> (x Core..:? "keyRotationIntervalSeconds")
+            Prelude.<*> (x Core..: "spekeKeyProvider")
       )
 
-instance Core.Hashable DashEncryption
+instance Prelude.Hashable DashEncryption
 
-instance Core.NFData DashEncryption
+instance Prelude.NFData DashEncryption
 
 instance Core.ToJSON DashEncryption where
   toJSON DashEncryption' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("keyRotationIntervalSeconds" Core..=)
-              Core.<$> keyRotationIntervalSeconds,
-            Core.Just
+              Prelude.<$> keyRotationIntervalSeconds,
+            Prelude.Just
               ("spekeKeyProvider" Core..= spekeKeyProvider)
           ]
       )

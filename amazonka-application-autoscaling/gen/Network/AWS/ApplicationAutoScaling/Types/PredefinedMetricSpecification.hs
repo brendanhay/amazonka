@@ -22,6 +22,7 @@ module Network.AWS.ApplicationAutoScaling.Types.PredefinedMetricSpecification wh
 import Network.AWS.ApplicationAutoScaling.Types.MetricType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a predefined metric for a target tracking scaling policy to
 -- use with Application Auto Scaling.
@@ -60,12 +61,12 @@ data PredefinedMetricSpecification = PredefinedMetricSpecification'
     -- API operation. To find the ARN for the target group, use the
     -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups>
     -- API operation.
-    resourceLabel :: Core.Maybe Core.Text,
+    resourceLabel :: Prelude.Maybe Prelude.Text,
     -- | The metric type. The @ALBRequestCountPerTarget@ metric type applies only
     -- to Spot Fleet requests and ECS services.
     predefinedMetricType :: MetricType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PredefinedMetricSpecification' with all optional fields omitted.
@@ -111,7 +112,7 @@ newPredefinedMetricSpecification
   pPredefinedMetricType_ =
     PredefinedMetricSpecification'
       { resourceLabel =
-          Core.Nothing,
+          Prelude.Nothing,
         predefinedMetricType =
           pPredefinedMetricType_
       }
@@ -141,7 +142,7 @@ newPredefinedMetricSpecification
 -- API operation. To find the ARN for the target group, use the
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups>
 -- API operation.
-predefinedMetricSpecification_resourceLabel :: Lens.Lens' PredefinedMetricSpecification (Core.Maybe Core.Text)
+predefinedMetricSpecification_resourceLabel :: Lens.Lens' PredefinedMetricSpecification (Prelude.Maybe Prelude.Text)
 predefinedMetricSpecification_resourceLabel = Lens.lens (\PredefinedMetricSpecification' {resourceLabel} -> resourceLabel) (\s@PredefinedMetricSpecification' {} a -> s {resourceLabel = a} :: PredefinedMetricSpecification)
 
 -- | The metric type. The @ALBRequestCountPerTarget@ metric type applies only
@@ -155,20 +156,22 @@ instance Core.FromJSON PredefinedMetricSpecification where
       "PredefinedMetricSpecification"
       ( \x ->
           PredefinedMetricSpecification'
-            Core.<$> (x Core..:? "ResourceLabel")
-            Core.<*> (x Core..: "PredefinedMetricType")
+            Prelude.<$> (x Core..:? "ResourceLabel")
+            Prelude.<*> (x Core..: "PredefinedMetricType")
       )
 
-instance Core.Hashable PredefinedMetricSpecification
+instance
+  Prelude.Hashable
+    PredefinedMetricSpecification
 
-instance Core.NFData PredefinedMetricSpecification
+instance Prelude.NFData PredefinedMetricSpecification
 
 instance Core.ToJSON PredefinedMetricSpecification where
   toJSON PredefinedMetricSpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ResourceLabel" Core..=) Core.<$> resourceLabel,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("ResourceLabel" Core..=) Prelude.<$> resourceLabel,
+            Prelude.Just
               ( "PredefinedMetricType"
                   Core..= predefinedMetricType
               )

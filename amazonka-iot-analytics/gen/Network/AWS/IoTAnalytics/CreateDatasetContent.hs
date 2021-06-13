@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +54,11 @@ data CreateDatasetContent = CreateDatasetContent'
     -- dataset content, the dataset must use a
     -- <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer>
     -- filter.
-    versionId :: Core.Maybe Core.Text,
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the dataset.
-    datasetName :: Core.Text
+    datasetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDatasetContent' with all optional fields omitted.
@@ -75,11 +76,11 @@ data CreateDatasetContent = CreateDatasetContent'
 -- 'datasetName', 'createDatasetContent_datasetName' - The name of the dataset.
 newCreateDatasetContent ::
   -- | 'datasetName'
-  Core.Text ->
+  Prelude.Text ->
   CreateDatasetContent
 newCreateDatasetContent pDatasetName_ =
   CreateDatasetContent'
-    { versionId = Core.Nothing,
+    { versionId = Prelude.Nothing,
       datasetName = pDatasetName_
     }
 
@@ -87,11 +88,11 @@ newCreateDatasetContent pDatasetName_ =
 -- dataset content, the dataset must use a
 -- <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer>
 -- filter.
-createDatasetContent_versionId :: Lens.Lens' CreateDatasetContent (Core.Maybe Core.Text)
+createDatasetContent_versionId :: Lens.Lens' CreateDatasetContent (Prelude.Maybe Prelude.Text)
 createDatasetContent_versionId = Lens.lens (\CreateDatasetContent' {versionId} -> versionId) (\s@CreateDatasetContent' {} a -> s {versionId = a} :: CreateDatasetContent)
 
 -- | The name of the dataset.
-createDatasetContent_datasetName :: Lens.Lens' CreateDatasetContent Core.Text
+createDatasetContent_datasetName :: Lens.Lens' CreateDatasetContent Prelude.Text
 createDatasetContent_datasetName = Lens.lens (\CreateDatasetContent' {datasetName} -> datasetName) (\s@CreateDatasetContent' {} a -> s {datasetName = a} :: CreateDatasetContent)
 
 instance Core.AWSRequest CreateDatasetContent where
@@ -103,40 +104,40 @@ instance Core.AWSRequest CreateDatasetContent where
     Response.receiveJSON
       ( \s h x ->
           CreateDatasetContentResponse'
-            Core.<$> (x Core..?> "versionId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "versionId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateDatasetContent
+instance Prelude.Hashable CreateDatasetContent
 
-instance Core.NFData CreateDatasetContent
+instance Prelude.NFData CreateDatasetContent
 
 instance Core.ToHeaders CreateDatasetContent where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CreateDatasetContent where
   toJSON CreateDatasetContent' {..} =
     Core.object
-      ( Core.catMaybes
-          [("versionId" Core..=) Core.<$> versionId]
+      ( Prelude.catMaybes
+          [("versionId" Core..=) Prelude.<$> versionId]
       )
 
 instance Core.ToPath CreateDatasetContent where
   toPath CreateDatasetContent' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/datasets/", Core.toBS datasetName, "/content"]
 
 instance Core.ToQuery CreateDatasetContent where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDatasetContentResponse' smart constructor.
 data CreateDatasetContentResponse = CreateDatasetContentResponse'
   { -- | The version ID of the dataset contents that are being created.
-    versionId :: Core.Maybe Core.Text,
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDatasetContentResponse' with all optional fields omitted.
@@ -151,21 +152,21 @@ data CreateDatasetContentResponse = CreateDatasetContentResponse'
 -- 'httpStatus', 'createDatasetContentResponse_httpStatus' - The response's http status code.
 newCreateDatasetContentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateDatasetContentResponse
 newCreateDatasetContentResponse pHttpStatus_ =
   CreateDatasetContentResponse'
     { versionId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The version ID of the dataset contents that are being created.
-createDatasetContentResponse_versionId :: Lens.Lens' CreateDatasetContentResponse (Core.Maybe Core.Text)
+createDatasetContentResponse_versionId :: Lens.Lens' CreateDatasetContentResponse (Prelude.Maybe Prelude.Text)
 createDatasetContentResponse_versionId = Lens.lens (\CreateDatasetContentResponse' {versionId} -> versionId) (\s@CreateDatasetContentResponse' {} a -> s {versionId = a} :: CreateDatasetContentResponse)
 
 -- | The response's http status code.
-createDatasetContentResponse_httpStatus :: Lens.Lens' CreateDatasetContentResponse Core.Int
+createDatasetContentResponse_httpStatus :: Lens.Lens' CreateDatasetContentResponse Prelude.Int
 createDatasetContentResponse_httpStatus = Lens.lens (\CreateDatasetContentResponse' {httpStatus} -> httpStatus) (\s@CreateDatasetContentResponse' {} a -> s {httpStatus = a} :: CreateDatasetContentResponse)
 
-instance Core.NFData CreateDatasetContentResponse
+instance Prelude.NFData CreateDatasetContentResponse

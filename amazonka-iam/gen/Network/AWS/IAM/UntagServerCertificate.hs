@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,12 +62,12 @@ data UntagServerCertificate = UntagServerCertificate'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    serverCertificateName :: Core.Text,
+    serverCertificateName :: Prelude.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified IAM server certificate.
-    tagKeys :: [Core.Text]
+    tagKeys :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagServerCertificate' with all optional fields omitted.
@@ -88,13 +89,13 @@ data UntagServerCertificate = UntagServerCertificate'
 -- keys are removed from the specified IAM server certificate.
 newUntagServerCertificate ::
   -- | 'serverCertificateName'
-  Core.Text ->
+  Prelude.Text ->
   UntagServerCertificate
 newUntagServerCertificate pServerCertificateName_ =
   UntagServerCertificate'
     { serverCertificateName =
         pServerCertificateName_,
-      tagKeys = Core.mempty
+      tagKeys = Prelude.mempty
     }
 
 -- | The name of the IAM server certificate from which you want to remove
@@ -104,13 +105,13 @@ newUntagServerCertificate pServerCertificateName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-untagServerCertificate_serverCertificateName :: Lens.Lens' UntagServerCertificate Core.Text
+untagServerCertificate_serverCertificateName :: Lens.Lens' UntagServerCertificate Prelude.Text
 untagServerCertificate_serverCertificateName = Lens.lens (\UntagServerCertificate' {serverCertificateName} -> serverCertificateName) (\s@UntagServerCertificate' {} a -> s {serverCertificateName = a} :: UntagServerCertificate)
 
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified IAM server certificate.
-untagServerCertificate_tagKeys :: Lens.Lens' UntagServerCertificate [Core.Text]
-untagServerCertificate_tagKeys = Lens.lens (\UntagServerCertificate' {tagKeys} -> tagKeys) (\s@UntagServerCertificate' {} a -> s {tagKeys = a} :: UntagServerCertificate) Core.. Lens._Coerce
+untagServerCertificate_tagKeys :: Lens.Lens' UntagServerCertificate [Prelude.Text]
+untagServerCertificate_tagKeys = Lens.lens (\UntagServerCertificate' {tagKeys} -> tagKeys) (\s@UntagServerCertificate' {} a -> s {tagKeys = a} :: UntagServerCertificate) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UntagServerCertificate where
   type
@@ -121,22 +122,23 @@ instance Core.AWSRequest UntagServerCertificate where
     Response.receiveNull
       UntagServerCertificateResponse'
 
-instance Core.Hashable UntagServerCertificate
+instance Prelude.Hashable UntagServerCertificate
 
-instance Core.NFData UntagServerCertificate
+instance Prelude.NFData UntagServerCertificate
 
 instance Core.ToHeaders UntagServerCertificate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UntagServerCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UntagServerCertificate where
   toQuery UntagServerCertificate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UntagServerCertificate" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("UntagServerCertificate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "ServerCertificateName"
           Core.=: serverCertificateName,
         "TagKeys" Core.=: Core.toQueryList "member" tagKeys
@@ -146,7 +148,7 @@ instance Core.ToQuery UntagServerCertificate where
 data UntagServerCertificateResponse = UntagServerCertificateResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagServerCertificateResponse' with all optional fields omitted.
@@ -157,4 +159,6 @@ newUntagServerCertificateResponse ::
 newUntagServerCertificateResponse =
   UntagServerCertificateResponse'
 
-instance Core.NFData UntagServerCertificateResponse
+instance
+  Prelude.NFData
+    UntagServerCertificateResponse

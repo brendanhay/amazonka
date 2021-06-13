@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.OidcMemberDefinition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of user groups that exist in your OIDC Identity Provider (IdP).
 -- One to ten groups can be used to create a single private work team. When
@@ -33,9 +34,9 @@ import qualified Network.AWS.Lens as Lens
 data OidcMemberDefinition = OidcMemberDefinition'
   { -- | A list of comma seperated strings that identifies user groups in your
     -- OIDC IdP. Each user group is made up of a group of private workers.
-    groups :: Core.NonEmpty Core.Text
+    groups :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OidcMemberDefinition' with all optional fields omitted.
@@ -49,7 +50,7 @@ data OidcMemberDefinition = OidcMemberDefinition'
 -- OIDC IdP. Each user group is made up of a group of private workers.
 newOidcMemberDefinition ::
   -- | 'groups'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   OidcMemberDefinition
 newOidcMemberDefinition pGroups_ =
   OidcMemberDefinition'
@@ -59,24 +60,25 @@ newOidcMemberDefinition pGroups_ =
 
 -- | A list of comma seperated strings that identifies user groups in your
 -- OIDC IdP. Each user group is made up of a group of private workers.
-oidcMemberDefinition_groups :: Lens.Lens' OidcMemberDefinition (Core.NonEmpty Core.Text)
-oidcMemberDefinition_groups = Lens.lens (\OidcMemberDefinition' {groups} -> groups) (\s@OidcMemberDefinition' {} a -> s {groups = a} :: OidcMemberDefinition) Core.. Lens._Coerce
+oidcMemberDefinition_groups :: Lens.Lens' OidcMemberDefinition (Prelude.NonEmpty Prelude.Text)
+oidcMemberDefinition_groups = Lens.lens (\OidcMemberDefinition' {groups} -> groups) (\s@OidcMemberDefinition' {} a -> s {groups = a} :: OidcMemberDefinition) Prelude.. Lens._Coerce
 
 instance Core.FromJSON OidcMemberDefinition where
   parseJSON =
     Core.withObject
       "OidcMemberDefinition"
       ( \x ->
-          OidcMemberDefinition' Core.<$> (x Core..: "Groups")
+          OidcMemberDefinition'
+            Prelude.<$> (x Core..: "Groups")
       )
 
-instance Core.Hashable OidcMemberDefinition
+instance Prelude.Hashable OidcMemberDefinition
 
-instance Core.NFData OidcMemberDefinition
+instance Prelude.NFData OidcMemberDefinition
 
 instance Core.ToJSON OidcMemberDefinition where
   toJSON OidcMemberDefinition' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Groups" Core..= groups)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Groups" Core..= groups)]
       )

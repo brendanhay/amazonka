@@ -63,6 +63,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,10 +73,10 @@ data ShareDirectory = ShareDirectory'
     -- directory consumer. The request includes a typed message to help the
     -- directory consumer administrator determine whether to approve or reject
     -- the share invitation.
-    shareNotes :: Core.Maybe (Core.Sensitive Core.Text),
+    shareNotes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Identifier of the AWS Managed Microsoft AD directory that you want to
     -- share with other AWS accounts.
-    directoryId :: Core.Text,
+    directoryId :: Prelude.Text,
     -- | Identifier for the directory consumer account with whom the directory is
     -- to be shared.
     shareTarget :: ShareTarget,
@@ -85,7 +86,7 @@ data ShareDirectory = ShareDirectory'
     -- request (@HANDSHAKE@).
     shareMethod :: ShareMethod
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ShareDirectory' with all optional fields omitted.
@@ -112,7 +113,7 @@ data ShareDirectory = ShareDirectory'
 -- request (@HANDSHAKE@).
 newShareDirectory ::
   -- | 'directoryId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'shareTarget'
   ShareTarget ->
   -- | 'shareMethod'
@@ -123,7 +124,7 @@ newShareDirectory
   pShareTarget_
   pShareMethod_ =
     ShareDirectory'
-      { shareNotes = Core.Nothing,
+      { shareNotes = Prelude.Nothing,
         directoryId = pDirectoryId_,
         shareTarget = pShareTarget_,
         shareMethod = pShareMethod_
@@ -133,12 +134,12 @@ newShareDirectory
 -- directory consumer. The request includes a typed message to help the
 -- directory consumer administrator determine whether to approve or reject
 -- the share invitation.
-shareDirectory_shareNotes :: Lens.Lens' ShareDirectory (Core.Maybe Core.Text)
-shareDirectory_shareNotes = Lens.lens (\ShareDirectory' {shareNotes} -> shareNotes) (\s@ShareDirectory' {} a -> s {shareNotes = a} :: ShareDirectory) Core.. Lens.mapping Core._Sensitive
+shareDirectory_shareNotes :: Lens.Lens' ShareDirectory (Prelude.Maybe Prelude.Text)
+shareDirectory_shareNotes = Lens.lens (\ShareDirectory' {shareNotes} -> shareNotes) (\s@ShareDirectory' {} a -> s {shareNotes = a} :: ShareDirectory) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Identifier of the AWS Managed Microsoft AD directory that you want to
 -- share with other AWS accounts.
-shareDirectory_directoryId :: Lens.Lens' ShareDirectory Core.Text
+shareDirectory_directoryId :: Lens.Lens' ShareDirectory Prelude.Text
 shareDirectory_directoryId = Lens.lens (\ShareDirectory' {directoryId} -> directoryId) (\s@ShareDirectory' {} a -> s {directoryId = a} :: ShareDirectory)
 
 -- | Identifier for the directory consumer account with whom the directory is
@@ -162,53 +163,55 @@ instance Core.AWSRequest ShareDirectory where
     Response.receiveJSON
       ( \s h x ->
           ShareDirectoryResponse'
-            Core.<$> (x Core..?> "SharedDirectoryId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SharedDirectoryId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ShareDirectory
+instance Prelude.Hashable ShareDirectory
 
-instance Core.NFData ShareDirectory
+instance Prelude.NFData ShareDirectory
 
 instance Core.ToHeaders ShareDirectory where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.ShareDirectory" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ShareDirectory where
   toJSON ShareDirectory' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ShareNotes" Core..=) Core.<$> shareNotes,
-            Core.Just ("DirectoryId" Core..= directoryId),
-            Core.Just ("ShareTarget" Core..= shareTarget),
-            Core.Just ("ShareMethod" Core..= shareMethod)
+      ( Prelude.catMaybes
+          [ ("ShareNotes" Core..=) Prelude.<$> shareNotes,
+            Prelude.Just ("DirectoryId" Core..= directoryId),
+            Prelude.Just ("ShareTarget" Core..= shareTarget),
+            Prelude.Just ("ShareMethod" Core..= shareMethod)
           ]
       )
 
 instance Core.ToPath ShareDirectory where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ShareDirectory where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newShareDirectoryResponse' smart constructor.
 data ShareDirectoryResponse = ShareDirectoryResponse'
   { -- | Identifier of the directory that is stored in the directory consumer
     -- account that is shared from the specified directory (@DirectoryId@).
-    sharedDirectoryId :: Core.Maybe Core.Text,
+    sharedDirectoryId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ShareDirectoryResponse' with all optional fields omitted.
@@ -224,22 +227,22 @@ data ShareDirectoryResponse = ShareDirectoryResponse'
 -- 'httpStatus', 'shareDirectoryResponse_httpStatus' - The response's http status code.
 newShareDirectoryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ShareDirectoryResponse
 newShareDirectoryResponse pHttpStatus_ =
   ShareDirectoryResponse'
     { sharedDirectoryId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Identifier of the directory that is stored in the directory consumer
 -- account that is shared from the specified directory (@DirectoryId@).
-shareDirectoryResponse_sharedDirectoryId :: Lens.Lens' ShareDirectoryResponse (Core.Maybe Core.Text)
+shareDirectoryResponse_sharedDirectoryId :: Lens.Lens' ShareDirectoryResponse (Prelude.Maybe Prelude.Text)
 shareDirectoryResponse_sharedDirectoryId = Lens.lens (\ShareDirectoryResponse' {sharedDirectoryId} -> sharedDirectoryId) (\s@ShareDirectoryResponse' {} a -> s {sharedDirectoryId = a} :: ShareDirectoryResponse)
 
 -- | The response's http status code.
-shareDirectoryResponse_httpStatus :: Lens.Lens' ShareDirectoryResponse Core.Int
+shareDirectoryResponse_httpStatus :: Lens.Lens' ShareDirectoryResponse Prelude.Int
 shareDirectoryResponse_httpStatus = Lens.lens (\ShareDirectoryResponse' {httpStatus} -> httpStatus) (\s@ShareDirectoryResponse' {} a -> s {httpStatus = a} :: ShareDirectoryResponse)
 
-instance Core.NFData ShareDirectoryResponse
+instance Prelude.NFData ShareDirectoryResponse

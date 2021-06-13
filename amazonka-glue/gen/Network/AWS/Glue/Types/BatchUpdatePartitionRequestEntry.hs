@@ -22,6 +22,7 @@ module Network.AWS.Glue.Types.BatchUpdatePartitionRequestEntry where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.PartitionInput
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that contains the values and structure used to update a
 -- partition.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newBatchUpdatePartitionRequestEntry' smart constructor.
 data BatchUpdatePartitionRequestEntry = BatchUpdatePartitionRequestEntry'
   { -- | A list of values defining the partitions.
-    partitionValueList :: [Core.Text],
+    partitionValueList :: [Prelude.Text],
     -- | The structure used to update a partition.
     partitionInput :: PartitionInput
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchUpdatePartitionRequestEntry' with all optional fields omitted.
@@ -53,30 +54,33 @@ newBatchUpdatePartitionRequestEntry ::
 newBatchUpdatePartitionRequestEntry pPartitionInput_ =
   BatchUpdatePartitionRequestEntry'
     { partitionValueList =
-        Core.mempty,
+        Prelude.mempty,
       partitionInput = pPartitionInput_
     }
 
 -- | A list of values defining the partitions.
-batchUpdatePartitionRequestEntry_partitionValueList :: Lens.Lens' BatchUpdatePartitionRequestEntry [Core.Text]
-batchUpdatePartitionRequestEntry_partitionValueList = Lens.lens (\BatchUpdatePartitionRequestEntry' {partitionValueList} -> partitionValueList) (\s@BatchUpdatePartitionRequestEntry' {} a -> s {partitionValueList = a} :: BatchUpdatePartitionRequestEntry) Core.. Lens._Coerce
+batchUpdatePartitionRequestEntry_partitionValueList :: Lens.Lens' BatchUpdatePartitionRequestEntry [Prelude.Text]
+batchUpdatePartitionRequestEntry_partitionValueList = Lens.lens (\BatchUpdatePartitionRequestEntry' {partitionValueList} -> partitionValueList) (\s@BatchUpdatePartitionRequestEntry' {} a -> s {partitionValueList = a} :: BatchUpdatePartitionRequestEntry) Prelude.. Lens._Coerce
 
 -- | The structure used to update a partition.
 batchUpdatePartitionRequestEntry_partitionInput :: Lens.Lens' BatchUpdatePartitionRequestEntry PartitionInput
 batchUpdatePartitionRequestEntry_partitionInput = Lens.lens (\BatchUpdatePartitionRequestEntry' {partitionInput} -> partitionInput) (\s@BatchUpdatePartitionRequestEntry' {} a -> s {partitionInput = a} :: BatchUpdatePartitionRequestEntry)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     BatchUpdatePartitionRequestEntry
 
-instance Core.NFData BatchUpdatePartitionRequestEntry
+instance
+  Prelude.NFData
+    BatchUpdatePartitionRequestEntry
 
 instance Core.ToJSON BatchUpdatePartitionRequestEntry where
   toJSON BatchUpdatePartitionRequestEntry' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("PartitionValueList" Core..= partitionValueList),
-            Core.Just ("PartitionInput" Core..= partitionInput)
+            Prelude.Just
+              ("PartitionInput" Core..= partitionInput)
           ]
       )

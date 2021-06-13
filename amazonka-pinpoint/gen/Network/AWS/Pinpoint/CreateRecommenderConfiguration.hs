@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,7 +50,7 @@ import qualified Network.AWS.Response as Response
 data CreateRecommenderConfiguration' = CreateRecommenderConfiguration''
   { createRecommenderConfiguration :: CreateRecommenderConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateRecommenderConfiguration'' with all optional fields omitted.
@@ -87,33 +88,37 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateRecommenderConfigurationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateRecommenderConfiguration'
 
-instance Core.NFData CreateRecommenderConfiguration'
+instance
+  Prelude.NFData
+    CreateRecommenderConfiguration'
 
 instance
   Core.ToHeaders
     CreateRecommenderConfiguration'
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateRecommenderConfiguration' where
   toJSON CreateRecommenderConfiguration'' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "CreateRecommenderConfiguration"
                   Core..= createRecommenderConfiguration
               )
@@ -121,18 +126,18 @@ instance Core.ToJSON CreateRecommenderConfiguration' where
       )
 
 instance Core.ToPath CreateRecommenderConfiguration' where
-  toPath = Core.const "/v1/recommenders"
+  toPath = Prelude.const "/v1/recommenders"
 
 instance Core.ToQuery CreateRecommenderConfiguration' where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRecommenderConfigurationResponse' smart constructor.
 data CreateRecommenderConfigurationResponse = CreateRecommenderConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     recommenderConfigurationResponse :: RecommenderConfigurationResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateRecommenderConfigurationResponse' with all optional fields omitted.
@@ -147,7 +152,7 @@ data CreateRecommenderConfigurationResponse = CreateRecommenderConfigurationResp
 -- 'recommenderConfigurationResponse', 'createRecommenderConfigurationResponse_recommenderConfigurationResponse' - Undocumented member.
 newCreateRecommenderConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'recommenderConfigurationResponse'
   RecommenderConfigurationResponse ->
   CreateRecommenderConfigurationResponse
@@ -162,7 +167,7 @@ newCreateRecommenderConfigurationResponse
       }
 
 -- | The response's http status code.
-createRecommenderConfigurationResponse_httpStatus :: Lens.Lens' CreateRecommenderConfigurationResponse Core.Int
+createRecommenderConfigurationResponse_httpStatus :: Lens.Lens' CreateRecommenderConfigurationResponse Prelude.Int
 createRecommenderConfigurationResponse_httpStatus = Lens.lens (\CreateRecommenderConfigurationResponse' {httpStatus} -> httpStatus) (\s@CreateRecommenderConfigurationResponse' {} a -> s {httpStatus = a} :: CreateRecommenderConfigurationResponse)
 
 -- | Undocumented member.
@@ -170,5 +175,5 @@ createRecommenderConfigurationResponse_recommenderConfigurationResponse :: Lens.
 createRecommenderConfigurationResponse_recommenderConfigurationResponse = Lens.lens (\CreateRecommenderConfigurationResponse' {recommenderConfigurationResponse} -> recommenderConfigurationResponse) (\s@CreateRecommenderConfigurationResponse' {} a -> s {recommenderConfigurationResponse = a} :: CreateRecommenderConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateRecommenderConfigurationResponse

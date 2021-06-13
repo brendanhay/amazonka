@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.ProgressCounters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An aggregate of step execution statuses displayed in the AWS Console for
 -- a multi-Region and multi-account Automation execution.
@@ -29,21 +30,21 @@ import qualified Network.AWS.Lens as Lens
 data ProgressCounters = ProgressCounters'
   { -- | The total number of steps that the system cancelled in all specified AWS
     -- Regions and accounts for the current Automation execution.
-    cancelledSteps :: Core.Maybe Core.Int,
+    cancelledSteps :: Prelude.Maybe Prelude.Int,
     -- | The total number of steps that timed out in all specified AWS Regions
     -- and accounts for the current Automation execution.
-    timedOutSteps :: Core.Maybe Core.Int,
+    timedOutSteps :: Prelude.Maybe Prelude.Int,
     -- | The total number of steps run in all specified AWS Regions and accounts
     -- for the current Automation execution.
-    totalSteps :: Core.Maybe Core.Int,
+    totalSteps :: Prelude.Maybe Prelude.Int,
     -- | The total number of steps that successfully completed in all specified
     -- AWS Regions and accounts for the current Automation execution.
-    successSteps :: Core.Maybe Core.Int,
+    successSteps :: Prelude.Maybe Prelude.Int,
     -- | The total number of steps that failed to run in all specified AWS
     -- Regions and accounts for the current Automation execution.
-    failedSteps :: Core.Maybe Core.Int
+    failedSteps :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProgressCounters' with all optional fields omitted.
@@ -71,36 +72,36 @@ newProgressCounters ::
   ProgressCounters
 newProgressCounters =
   ProgressCounters'
-    { cancelledSteps = Core.Nothing,
-      timedOutSteps = Core.Nothing,
-      totalSteps = Core.Nothing,
-      successSteps = Core.Nothing,
-      failedSteps = Core.Nothing
+    { cancelledSteps = Prelude.Nothing,
+      timedOutSteps = Prelude.Nothing,
+      totalSteps = Prelude.Nothing,
+      successSteps = Prelude.Nothing,
+      failedSteps = Prelude.Nothing
     }
 
 -- | The total number of steps that the system cancelled in all specified AWS
 -- Regions and accounts for the current Automation execution.
-progressCounters_cancelledSteps :: Lens.Lens' ProgressCounters (Core.Maybe Core.Int)
+progressCounters_cancelledSteps :: Lens.Lens' ProgressCounters (Prelude.Maybe Prelude.Int)
 progressCounters_cancelledSteps = Lens.lens (\ProgressCounters' {cancelledSteps} -> cancelledSteps) (\s@ProgressCounters' {} a -> s {cancelledSteps = a} :: ProgressCounters)
 
 -- | The total number of steps that timed out in all specified AWS Regions
 -- and accounts for the current Automation execution.
-progressCounters_timedOutSteps :: Lens.Lens' ProgressCounters (Core.Maybe Core.Int)
+progressCounters_timedOutSteps :: Lens.Lens' ProgressCounters (Prelude.Maybe Prelude.Int)
 progressCounters_timedOutSteps = Lens.lens (\ProgressCounters' {timedOutSteps} -> timedOutSteps) (\s@ProgressCounters' {} a -> s {timedOutSteps = a} :: ProgressCounters)
 
 -- | The total number of steps run in all specified AWS Regions and accounts
 -- for the current Automation execution.
-progressCounters_totalSteps :: Lens.Lens' ProgressCounters (Core.Maybe Core.Int)
+progressCounters_totalSteps :: Lens.Lens' ProgressCounters (Prelude.Maybe Prelude.Int)
 progressCounters_totalSteps = Lens.lens (\ProgressCounters' {totalSteps} -> totalSteps) (\s@ProgressCounters' {} a -> s {totalSteps = a} :: ProgressCounters)
 
 -- | The total number of steps that successfully completed in all specified
 -- AWS Regions and accounts for the current Automation execution.
-progressCounters_successSteps :: Lens.Lens' ProgressCounters (Core.Maybe Core.Int)
+progressCounters_successSteps :: Lens.Lens' ProgressCounters (Prelude.Maybe Prelude.Int)
 progressCounters_successSteps = Lens.lens (\ProgressCounters' {successSteps} -> successSteps) (\s@ProgressCounters' {} a -> s {successSteps = a} :: ProgressCounters)
 
 -- | The total number of steps that failed to run in all specified AWS
 -- Regions and accounts for the current Automation execution.
-progressCounters_failedSteps :: Lens.Lens' ProgressCounters (Core.Maybe Core.Int)
+progressCounters_failedSteps :: Lens.Lens' ProgressCounters (Prelude.Maybe Prelude.Int)
 progressCounters_failedSteps = Lens.lens (\ProgressCounters' {failedSteps} -> failedSteps) (\s@ProgressCounters' {} a -> s {failedSteps = a} :: ProgressCounters)
 
 instance Core.FromJSON ProgressCounters where
@@ -109,13 +110,13 @@ instance Core.FromJSON ProgressCounters where
       "ProgressCounters"
       ( \x ->
           ProgressCounters'
-            Core.<$> (x Core..:? "CancelledSteps")
-            Core.<*> (x Core..:? "TimedOutSteps")
-            Core.<*> (x Core..:? "TotalSteps")
-            Core.<*> (x Core..:? "SuccessSteps")
-            Core.<*> (x Core..:? "FailedSteps")
+            Prelude.<$> (x Core..:? "CancelledSteps")
+            Prelude.<*> (x Core..:? "TimedOutSteps")
+            Prelude.<*> (x Core..:? "TotalSteps")
+            Prelude.<*> (x Core..:? "SuccessSteps")
+            Prelude.<*> (x Core..:? "FailedSteps")
       )
 
-instance Core.Hashable ProgressCounters
+instance Prelude.Hashable ProgressCounters
 
-instance Core.NFData ProgressCounters
+instance Prelude.NFData ProgressCounters

@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.ParameterInlinePolicy where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | One or more policies assigned to a parameter.
 --
@@ -28,16 +29,16 @@ import qualified Network.AWS.Lens as Lens
 data ParameterInlinePolicy = ParameterInlinePolicy'
   { -- | The type of policy. Parameter Store supports the following policy types:
     -- Expiration, ExpirationNotification, and NoChangeNotification.
-    policyType :: Core.Maybe Core.Text,
+    policyType :: Prelude.Maybe Prelude.Text,
     -- | The JSON text of the policy.
-    policyText :: Core.Maybe Core.Text,
+    policyText :: Prelude.Maybe Prelude.Text,
     -- | The status of the policy. Policies report the following statuses:
     -- Pending (the policy has not been enforced or applied yet), Finished (the
     -- policy was applied), Failed (the policy was not applied), or InProgress
     -- (the policy is being applied now).
-    policyStatus :: Core.Maybe Core.Text
+    policyStatus :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ParameterInlinePolicy' with all optional fields omitted.
@@ -60,25 +61,26 @@ newParameterInlinePolicy ::
   ParameterInlinePolicy
 newParameterInlinePolicy =
   ParameterInlinePolicy'
-    { policyType = Core.Nothing,
-      policyText = Core.Nothing,
-      policyStatus = Core.Nothing
+    { policyType =
+        Prelude.Nothing,
+      policyText = Prelude.Nothing,
+      policyStatus = Prelude.Nothing
     }
 
 -- | The type of policy. Parameter Store supports the following policy types:
 -- Expiration, ExpirationNotification, and NoChangeNotification.
-parameterInlinePolicy_policyType :: Lens.Lens' ParameterInlinePolicy (Core.Maybe Core.Text)
+parameterInlinePolicy_policyType :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
 parameterInlinePolicy_policyType = Lens.lens (\ParameterInlinePolicy' {policyType} -> policyType) (\s@ParameterInlinePolicy' {} a -> s {policyType = a} :: ParameterInlinePolicy)
 
 -- | The JSON text of the policy.
-parameterInlinePolicy_policyText :: Lens.Lens' ParameterInlinePolicy (Core.Maybe Core.Text)
+parameterInlinePolicy_policyText :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
 parameterInlinePolicy_policyText = Lens.lens (\ParameterInlinePolicy' {policyText} -> policyText) (\s@ParameterInlinePolicy' {} a -> s {policyText = a} :: ParameterInlinePolicy)
 
 -- | The status of the policy. Policies report the following statuses:
 -- Pending (the policy has not been enforced or applied yet), Finished (the
 -- policy was applied), Failed (the policy was not applied), or InProgress
 -- (the policy is being applied now).
-parameterInlinePolicy_policyStatus :: Lens.Lens' ParameterInlinePolicy (Core.Maybe Core.Text)
+parameterInlinePolicy_policyStatus :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
 parameterInlinePolicy_policyStatus = Lens.lens (\ParameterInlinePolicy' {policyStatus} -> policyStatus) (\s@ParameterInlinePolicy' {} a -> s {policyStatus = a} :: ParameterInlinePolicy)
 
 instance Core.FromJSON ParameterInlinePolicy where
@@ -87,11 +89,11 @@ instance Core.FromJSON ParameterInlinePolicy where
       "ParameterInlinePolicy"
       ( \x ->
           ParameterInlinePolicy'
-            Core.<$> (x Core..:? "PolicyType")
-            Core.<*> (x Core..:? "PolicyText")
-            Core.<*> (x Core..:? "PolicyStatus")
+            Prelude.<$> (x Core..:? "PolicyType")
+            Prelude.<*> (x Core..:? "PolicyText")
+            Prelude.<*> (x Core..:? "PolicyStatus")
       )
 
-instance Core.Hashable ParameterInlinePolicy
+instance Prelude.Hashable ParameterInlinePolicy
 
-instance Core.NFData ParameterInlinePolicy
+instance Prelude.NFData ParameterInlinePolicy

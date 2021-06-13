@@ -22,6 +22,7 @@ module Network.AWS.ElasticTranscoder.Types.CaptionFormat where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types.Encryption
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The file format of the output captions. If you leave this value blank,
 -- Elastic Transcoder returns an error.
@@ -54,10 +55,10 @@ data CaptionFormat = CaptionFormat'
     --     -   __Non-FMP4 outputs__: All sidecar types
     --
     --     @fmp4@ captions have an extension of @.ismt@
-    format :: Core.Maybe Core.Text,
+    format :: Prelude.Maybe Prelude.Text,
     -- | The encryption settings, if any, that you want Elastic Transcoder to
     -- apply to your caption formats.
-    encryption :: Core.Maybe Encryption,
+    encryption :: Prelude.Maybe Encryption,
     -- | The prefix for caption filenames, in the form
     -- /description/-@{language}@, where:
     --
@@ -76,9 +77,9 @@ data CaptionFormat = CaptionFormat'
     -- \"Sydney-{language}-sunrise\", and the language of the captions is
     -- English (en), the name of the first caption file is be
     -- Sydney-en-sunrise00000.srt.
-    pattern' :: Core.Maybe Core.Text
+    pattern' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CaptionFormat' with all optional fields omitted.
@@ -140,9 +141,9 @@ newCaptionFormat ::
   CaptionFormat
 newCaptionFormat =
   CaptionFormat'
-    { format = Core.Nothing,
-      encryption = Core.Nothing,
-      pattern' = Core.Nothing
+    { format = Prelude.Nothing,
+      encryption = Prelude.Nothing,
+      pattern' = Prelude.Nothing
     }
 
 -- | The format you specify determines whether Elastic Transcoder generates
@@ -171,12 +172,12 @@ newCaptionFormat =
 --     -   __Non-FMP4 outputs__: All sidecar types
 --
 --     @fmp4@ captions have an extension of @.ismt@
-captionFormat_format :: Lens.Lens' CaptionFormat (Core.Maybe Core.Text)
+captionFormat_format :: Lens.Lens' CaptionFormat (Prelude.Maybe Prelude.Text)
 captionFormat_format = Lens.lens (\CaptionFormat' {format} -> format) (\s@CaptionFormat' {} a -> s {format = a} :: CaptionFormat)
 
 -- | The encryption settings, if any, that you want Elastic Transcoder to
 -- apply to your caption formats.
-captionFormat_encryption :: Lens.Lens' CaptionFormat (Core.Maybe Encryption)
+captionFormat_encryption :: Lens.Lens' CaptionFormat (Prelude.Maybe Encryption)
 captionFormat_encryption = Lens.lens (\CaptionFormat' {encryption} -> encryption) (\s@CaptionFormat' {} a -> s {encryption = a} :: CaptionFormat)
 
 -- | The prefix for caption filenames, in the form
@@ -197,7 +198,7 @@ captionFormat_encryption = Lens.lens (\CaptionFormat' {encryption} -> encryption
 -- \"Sydney-{language}-sunrise\", and the language of the captions is
 -- English (en), the name of the first caption file is be
 -- Sydney-en-sunrise00000.srt.
-captionFormat_pattern :: Lens.Lens' CaptionFormat (Core.Maybe Core.Text)
+captionFormat_pattern :: Lens.Lens' CaptionFormat (Prelude.Maybe Prelude.Text)
 captionFormat_pattern = Lens.lens (\CaptionFormat' {pattern'} -> pattern') (\s@CaptionFormat' {} a -> s {pattern' = a} :: CaptionFormat)
 
 instance Core.FromJSON CaptionFormat where
@@ -206,21 +207,21 @@ instance Core.FromJSON CaptionFormat where
       "CaptionFormat"
       ( \x ->
           CaptionFormat'
-            Core.<$> (x Core..:? "Format")
-            Core.<*> (x Core..:? "Encryption")
-            Core.<*> (x Core..:? "Pattern")
+            Prelude.<$> (x Core..:? "Format")
+            Prelude.<*> (x Core..:? "Encryption")
+            Prelude.<*> (x Core..:? "Pattern")
       )
 
-instance Core.Hashable CaptionFormat
+instance Prelude.Hashable CaptionFormat
 
-instance Core.NFData CaptionFormat
+instance Prelude.NFData CaptionFormat
 
 instance Core.ToJSON CaptionFormat where
   toJSON CaptionFormat' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Format" Core..=) Core.<$> format,
-            ("Encryption" Core..=) Core.<$> encryption,
-            ("Pattern" Core..=) Core.<$> pattern'
+      ( Prelude.catMaybes
+          [ ("Format" Core..=) Prelude.<$> format,
+            ("Encryption" Core..=) Prelude.<$> encryption,
+            ("Pattern" Core..=) Prelude.<$> pattern'
           ]
       )

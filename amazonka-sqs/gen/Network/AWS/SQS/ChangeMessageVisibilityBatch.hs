@@ -59,6 +59,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -70,12 +71,12 @@ data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch'
   { -- | The URL of the Amazon SQS queue whose messages\' visibility is changed.
     --
     -- Queue URLs and names are case-sensitive.
-    queueUrl :: Core.Text,
+    queueUrl :: Prelude.Text,
     -- | A list of receipt handles of the messages for which the visibility
     -- timeout must be changed.
     entries :: [ChangeMessageVisibilityBatchRequestEntry]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChangeMessageVisibilityBatch' with all optional fields omitted.
@@ -93,25 +94,25 @@ data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch'
 -- timeout must be changed.
 newChangeMessageVisibilityBatch ::
   -- | 'queueUrl'
-  Core.Text ->
+  Prelude.Text ->
   ChangeMessageVisibilityBatch
 newChangeMessageVisibilityBatch pQueueUrl_ =
   ChangeMessageVisibilityBatch'
     { queueUrl =
         pQueueUrl_,
-      entries = Core.mempty
+      entries = Prelude.mempty
     }
 
 -- | The URL of the Amazon SQS queue whose messages\' visibility is changed.
 --
 -- Queue URLs and names are case-sensitive.
-changeMessageVisibilityBatch_queueUrl :: Lens.Lens' ChangeMessageVisibilityBatch Core.Text
+changeMessageVisibilityBatch_queueUrl :: Lens.Lens' ChangeMessageVisibilityBatch Prelude.Text
 changeMessageVisibilityBatch_queueUrl = Lens.lens (\ChangeMessageVisibilityBatch' {queueUrl} -> queueUrl) (\s@ChangeMessageVisibilityBatch' {} a -> s {queueUrl = a} :: ChangeMessageVisibilityBatch)
 
 -- | A list of receipt handles of the messages for which the visibility
 -- timeout must be changed.
 changeMessageVisibilityBatch_entries :: Lens.Lens' ChangeMessageVisibilityBatch [ChangeMessageVisibilityBatchRequestEntry]
-changeMessageVisibilityBatch_entries = Lens.lens (\ChangeMessageVisibilityBatch' {entries} -> entries) (\s@ChangeMessageVisibilityBatch' {} a -> s {entries = a} :: ChangeMessageVisibilityBatch) Core.. Lens._Coerce
+changeMessageVisibilityBatch_entries = Lens.lens (\ChangeMessageVisibilityBatch' {entries} -> entries) (\s@ChangeMessageVisibilityBatch' {} a -> s {entries = a} :: ChangeMessageVisibilityBatch) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest ChangeMessageVisibilityBatch where
   type
@@ -123,30 +124,35 @@ instance Core.AWSRequest ChangeMessageVisibilityBatch where
       "ChangeMessageVisibilityBatchResult"
       ( \s h x ->
           ChangeMessageVisibilityBatchResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( Core.parseXMLList
-                         "ChangeMessageVisibilityBatchResultEntry"
-                         x
-                     )
-            Core.<*> (Core.parseXMLList "BatchResultErrorEntry" x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( Core.parseXMLList
+                            "ChangeMessageVisibilityBatchResultEntry"
+                            x
+                        )
+            Prelude.<*> (Core.parseXMLList "BatchResultErrorEntry" x)
       )
 
-instance Core.Hashable ChangeMessageVisibilityBatch
+instance
+  Prelude.Hashable
+    ChangeMessageVisibilityBatch
 
-instance Core.NFData ChangeMessageVisibilityBatch
+instance Prelude.NFData ChangeMessageVisibilityBatch
 
 instance Core.ToHeaders ChangeMessageVisibilityBatch where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ChangeMessageVisibilityBatch where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ChangeMessageVisibilityBatch where
   toQuery ChangeMessageVisibilityBatch' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ChangeMessageVisibilityBatch" :: Core.ByteString),
-        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+          Core.=: ( "ChangeMessageVisibilityBatch" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2012-11-05" :: Prelude.ByteString),
         "QueueUrl" Core.=: queueUrl,
         Core.toQueryList
           "ChangeMessageVisibilityBatchRequestEntry"
@@ -160,13 +166,13 @@ instance Core.ToQuery ChangeMessageVisibilityBatch where
 -- /See:/ 'newChangeMessageVisibilityBatchResponse' smart constructor.
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of @ ChangeMessageVisibilityBatchResultEntry @ items.
     successful :: [ChangeMessageVisibilityBatchResultEntry],
     -- | A list of @ BatchResultErrorEntry @ items.
     failed :: [BatchResultErrorEntry]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChangeMessageVisibilityBatchResponse' with all optional fields omitted.
@@ -183,28 +189,28 @@ data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
 -- 'failed', 'changeMessageVisibilityBatchResponse_failed' - A list of @ BatchResultErrorEntry @ items.
 newChangeMessageVisibilityBatchResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ChangeMessageVisibilityBatchResponse
 newChangeMessageVisibilityBatchResponse pHttpStatus_ =
   ChangeMessageVisibilityBatchResponse'
     { httpStatus =
         pHttpStatus_,
-      successful = Core.mempty,
-      failed = Core.mempty
+      successful = Prelude.mempty,
+      failed = Prelude.mempty
     }
 
 -- | The response's http status code.
-changeMessageVisibilityBatchResponse_httpStatus :: Lens.Lens' ChangeMessageVisibilityBatchResponse Core.Int
+changeMessageVisibilityBatchResponse_httpStatus :: Lens.Lens' ChangeMessageVisibilityBatchResponse Prelude.Int
 changeMessageVisibilityBatchResponse_httpStatus = Lens.lens (\ChangeMessageVisibilityBatchResponse' {httpStatus} -> httpStatus) (\s@ChangeMessageVisibilityBatchResponse' {} a -> s {httpStatus = a} :: ChangeMessageVisibilityBatchResponse)
 
 -- | A list of @ ChangeMessageVisibilityBatchResultEntry @ items.
 changeMessageVisibilityBatchResponse_successful :: Lens.Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
-changeMessageVisibilityBatchResponse_successful = Lens.lens (\ChangeMessageVisibilityBatchResponse' {successful} -> successful) (\s@ChangeMessageVisibilityBatchResponse' {} a -> s {successful = a} :: ChangeMessageVisibilityBatchResponse) Core.. Lens._Coerce
+changeMessageVisibilityBatchResponse_successful = Lens.lens (\ChangeMessageVisibilityBatchResponse' {successful} -> successful) (\s@ChangeMessageVisibilityBatchResponse' {} a -> s {successful = a} :: ChangeMessageVisibilityBatchResponse) Prelude.. Lens._Coerce
 
 -- | A list of @ BatchResultErrorEntry @ items.
 changeMessageVisibilityBatchResponse_failed :: Lens.Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
-changeMessageVisibilityBatchResponse_failed = Lens.lens (\ChangeMessageVisibilityBatchResponse' {failed} -> failed) (\s@ChangeMessageVisibilityBatchResponse' {} a -> s {failed = a} :: ChangeMessageVisibilityBatchResponse) Core.. Lens._Coerce
+changeMessageVisibilityBatchResponse_failed = Lens.lens (\ChangeMessageVisibilityBatchResponse' {failed} -> failed) (\s@ChangeMessageVisibilityBatchResponse' {} a -> s {failed = a} :: ChangeMessageVisibilityBatchResponse) Prelude.. Lens._Coerce
 
 instance
-  Core.NFData
+  Prelude.NFData
     ChangeMessageVisibilityBatchResponse

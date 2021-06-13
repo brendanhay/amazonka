@@ -22,6 +22,7 @@ module Network.AWS.CloudDirectory.Types.PolicyToPath where
 import Network.AWS.CloudDirectory.Types.PolicyAttachment
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Used when a regular object exists in a Directory and you want to find
 -- all of the policies that are associated with that object and the parent
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPolicyToPath' smart constructor.
 data PolicyToPath = PolicyToPath'
   { -- | List of policy objects.
-    policies :: Core.Maybe [PolicyAttachment],
+    policies :: Prelude.Maybe [PolicyAttachment],
     -- | The path that is referenced from the root.
-    path :: Core.Maybe Core.Text
+    path :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PolicyToPath' with all optional fields omitted.
@@ -51,16 +52,16 @@ newPolicyToPath ::
   PolicyToPath
 newPolicyToPath =
   PolicyToPath'
-    { policies = Core.Nothing,
-      path = Core.Nothing
+    { policies = Prelude.Nothing,
+      path = Prelude.Nothing
     }
 
 -- | List of policy objects.
-policyToPath_policies :: Lens.Lens' PolicyToPath (Core.Maybe [PolicyAttachment])
-policyToPath_policies = Lens.lens (\PolicyToPath' {policies} -> policies) (\s@PolicyToPath' {} a -> s {policies = a} :: PolicyToPath) Core.. Lens.mapping Lens._Coerce
+policyToPath_policies :: Lens.Lens' PolicyToPath (Prelude.Maybe [PolicyAttachment])
+policyToPath_policies = Lens.lens (\PolicyToPath' {policies} -> policies) (\s@PolicyToPath' {} a -> s {policies = a} :: PolicyToPath) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The path that is referenced from the root.
-policyToPath_path :: Lens.Lens' PolicyToPath (Core.Maybe Core.Text)
+policyToPath_path :: Lens.Lens' PolicyToPath (Prelude.Maybe Prelude.Text)
 policyToPath_path = Lens.lens (\PolicyToPath' {path} -> path) (\s@PolicyToPath' {} a -> s {path = a} :: PolicyToPath)
 
 instance Core.FromJSON PolicyToPath where
@@ -69,10 +70,10 @@ instance Core.FromJSON PolicyToPath where
       "PolicyToPath"
       ( \x ->
           PolicyToPath'
-            Core.<$> (x Core..:? "Policies" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Path")
+            Prelude.<$> (x Core..:? "Policies" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Path")
       )
 
-instance Core.Hashable PolicyToPath
+instance Prelude.Hashable PolicyToPath
 
-instance Core.NFData PolicyToPath
+instance Prelude.NFData PolicyToPath

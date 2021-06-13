@@ -21,6 +21,7 @@ module Network.AWS.WAF.Types.TagInfoForResource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.Tag
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -46,10 +47,10 @@ import Network.AWS.WAF.Types.Tag
 --
 -- /See:/ 'newTagInfoForResource' smart constructor.
 data TagInfoForResource = TagInfoForResource'
-  { resourceARN :: Core.Maybe Core.Text,
-    tagList :: Core.Maybe (Core.NonEmpty Tag)
+  { resourceARN :: Prelude.Maybe Prelude.Text,
+    tagList :: Prelude.Maybe (Prelude.NonEmpty Tag)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagInfoForResource' with all optional fields omitted.
@@ -66,17 +67,17 @@ newTagInfoForResource ::
   TagInfoForResource
 newTagInfoForResource =
   TagInfoForResource'
-    { resourceARN = Core.Nothing,
-      tagList = Core.Nothing
+    { resourceARN = Prelude.Nothing,
+      tagList = Prelude.Nothing
     }
 
 -- |
-tagInfoForResource_resourceARN :: Lens.Lens' TagInfoForResource (Core.Maybe Core.Text)
+tagInfoForResource_resourceARN :: Lens.Lens' TagInfoForResource (Prelude.Maybe Prelude.Text)
 tagInfoForResource_resourceARN = Lens.lens (\TagInfoForResource' {resourceARN} -> resourceARN) (\s@TagInfoForResource' {} a -> s {resourceARN = a} :: TagInfoForResource)
 
 -- |
-tagInfoForResource_tagList :: Lens.Lens' TagInfoForResource (Core.Maybe (Core.NonEmpty Tag))
-tagInfoForResource_tagList = Lens.lens (\TagInfoForResource' {tagList} -> tagList) (\s@TagInfoForResource' {} a -> s {tagList = a} :: TagInfoForResource) Core.. Lens.mapping Lens._Coerce
+tagInfoForResource_tagList :: Lens.Lens' TagInfoForResource (Prelude.Maybe (Prelude.NonEmpty Tag))
+tagInfoForResource_tagList = Lens.lens (\TagInfoForResource' {tagList} -> tagList) (\s@TagInfoForResource' {} a -> s {tagList = a} :: TagInfoForResource) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON TagInfoForResource where
   parseJSON =
@@ -84,10 +85,10 @@ instance Core.FromJSON TagInfoForResource where
       "TagInfoForResource"
       ( \x ->
           TagInfoForResource'
-            Core.<$> (x Core..:? "ResourceARN")
-            Core.<*> (x Core..:? "TagList")
+            Prelude.<$> (x Core..:? "ResourceARN")
+            Prelude.<*> (x Core..:? "TagList")
       )
 
-instance Core.Hashable TagInfoForResource
+instance Prelude.Hashable TagInfoForResource
 
-instance Core.NFData TagInfoForResource
+instance Prelude.NFData TagInfoForResource

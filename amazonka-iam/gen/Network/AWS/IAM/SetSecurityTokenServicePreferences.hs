@@ -63,6 +63,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -79,7 +80,7 @@ data SetSecurityTokenServicePreferences = SetSecurityTokenServicePreferences'
     -- in the /IAM User Guide/.
     globalEndpointTokenVersion :: GlobalEndpointTokenVersion
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetSecurityTokenServicePreferences' with all optional fields omitted.
@@ -134,36 +135,37 @@ instance
       SetSecurityTokenServicePreferencesResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     SetSecurityTokenServicePreferences
 
 instance
-  Core.NFData
+  Prelude.NFData
     SetSecurityTokenServicePreferences
 
 instance
   Core.ToHeaders
     SetSecurityTokenServicePreferences
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     SetSecurityTokenServicePreferences
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     SetSecurityTokenServicePreferences
   where
   toQuery SetSecurityTokenServicePreferences' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "SetSecurityTokenServicePreferences" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "GlobalEndpointTokenVersion"
           Core.=: globalEndpointTokenVersion
       ]
@@ -172,7 +174,7 @@ instance
 data SetSecurityTokenServicePreferencesResponse = SetSecurityTokenServicePreferencesResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetSecurityTokenServicePreferencesResponse' with all optional fields omitted.
@@ -184,5 +186,5 @@ newSetSecurityTokenServicePreferencesResponse =
   SetSecurityTokenServicePreferencesResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     SetSecurityTokenServicePreferencesResponse

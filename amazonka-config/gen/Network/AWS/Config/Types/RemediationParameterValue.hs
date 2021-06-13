@@ -23,6 +23,7 @@ import Network.AWS.Config.Types.ResourceValue
 import Network.AWS.Config.Types.StaticValue
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The value is either a dynamic (resource) value or a static value. You
 -- must select either a dynamic value or a static value.
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newRemediationParameterValue' smart constructor.
 data RemediationParameterValue = RemediationParameterValue'
   { -- | The value is dynamic and changes at run-time.
-    resourceValue :: Core.Maybe ResourceValue,
+    resourceValue :: Prelude.Maybe ResourceValue,
     -- | The value is static and does not change at run-time.
-    staticValue :: Core.Maybe StaticValue
+    staticValue :: Prelude.Maybe StaticValue
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemediationParameterValue' with all optional fields omitted.
@@ -52,16 +53,16 @@ newRemediationParameterValue ::
 newRemediationParameterValue =
   RemediationParameterValue'
     { resourceValue =
-        Core.Nothing,
-      staticValue = Core.Nothing
+        Prelude.Nothing,
+      staticValue = Prelude.Nothing
     }
 
 -- | The value is dynamic and changes at run-time.
-remediationParameterValue_resourceValue :: Lens.Lens' RemediationParameterValue (Core.Maybe ResourceValue)
+remediationParameterValue_resourceValue :: Lens.Lens' RemediationParameterValue (Prelude.Maybe ResourceValue)
 remediationParameterValue_resourceValue = Lens.lens (\RemediationParameterValue' {resourceValue} -> resourceValue) (\s@RemediationParameterValue' {} a -> s {resourceValue = a} :: RemediationParameterValue)
 
 -- | The value is static and does not change at run-time.
-remediationParameterValue_staticValue :: Lens.Lens' RemediationParameterValue (Core.Maybe StaticValue)
+remediationParameterValue_staticValue :: Lens.Lens' RemediationParameterValue (Prelude.Maybe StaticValue)
 remediationParameterValue_staticValue = Lens.lens (\RemediationParameterValue' {staticValue} -> staticValue) (\s@RemediationParameterValue' {} a -> s {staticValue = a} :: RemediationParameterValue)
 
 instance Core.FromJSON RemediationParameterValue where
@@ -70,19 +71,19 @@ instance Core.FromJSON RemediationParameterValue where
       "RemediationParameterValue"
       ( \x ->
           RemediationParameterValue'
-            Core.<$> (x Core..:? "ResourceValue")
-            Core.<*> (x Core..:? "StaticValue")
+            Prelude.<$> (x Core..:? "ResourceValue")
+            Prelude.<*> (x Core..:? "StaticValue")
       )
 
-instance Core.Hashable RemediationParameterValue
+instance Prelude.Hashable RemediationParameterValue
 
-instance Core.NFData RemediationParameterValue
+instance Prelude.NFData RemediationParameterValue
 
 instance Core.ToJSON RemediationParameterValue where
   toJSON RemediationParameterValue' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ResourceValue" Core..=) Core.<$> resourceValue,
-            ("StaticValue" Core..=) Core.<$> staticValue
+      ( Prelude.catMaybes
+          [ ("ResourceValue" Core..=) Prelude.<$> resourceValue,
+            ("StaticValue" Core..=) Prelude.<$> staticValue
           ]
       )

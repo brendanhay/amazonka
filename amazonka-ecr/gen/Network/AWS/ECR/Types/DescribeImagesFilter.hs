@@ -22,6 +22,7 @@ module Network.AWS.ECR.Types.DescribeImagesFilter where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.TagStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing a filter on a DescribeImages operation.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data DescribeImagesFilter = DescribeImagesFilter'
   { -- | The tag status with which to filter your DescribeImages results. You can
     -- filter results based on whether they are @TAGGED@ or @UNTAGGED@.
-    tagStatus :: Core.Maybe TagStatus
+    tagStatus :: Prelude.Maybe TagStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeImagesFilter' with all optional fields omitted.
@@ -46,20 +47,20 @@ data DescribeImagesFilter = DescribeImagesFilter'
 newDescribeImagesFilter ::
   DescribeImagesFilter
 newDescribeImagesFilter =
-  DescribeImagesFilter' {tagStatus = Core.Nothing}
+  DescribeImagesFilter' {tagStatus = Prelude.Nothing}
 
 -- | The tag status with which to filter your DescribeImages results. You can
 -- filter results based on whether they are @TAGGED@ or @UNTAGGED@.
-describeImagesFilter_tagStatus :: Lens.Lens' DescribeImagesFilter (Core.Maybe TagStatus)
+describeImagesFilter_tagStatus :: Lens.Lens' DescribeImagesFilter (Prelude.Maybe TagStatus)
 describeImagesFilter_tagStatus = Lens.lens (\DescribeImagesFilter' {tagStatus} -> tagStatus) (\s@DescribeImagesFilter' {} a -> s {tagStatus = a} :: DescribeImagesFilter)
 
-instance Core.Hashable DescribeImagesFilter
+instance Prelude.Hashable DescribeImagesFilter
 
-instance Core.NFData DescribeImagesFilter
+instance Prelude.NFData DescribeImagesFilter
 
 instance Core.ToJSON DescribeImagesFilter where
   toJSON DescribeImagesFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [("tagStatus" Core..=) Core.<$> tagStatus]
+      ( Prelude.catMaybes
+          [("tagStatus" Core..=) Prelude.<$> tagStatus]
       )

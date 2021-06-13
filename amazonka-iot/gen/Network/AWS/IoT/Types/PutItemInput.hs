@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.PutItemInput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The input for the DynamoActionVS action that specifies the DynamoDB
 -- table to which the message data will be written.
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPutItemInput' smart constructor.
 data PutItemInput = PutItemInput'
   { -- | The table where the message data will be written.
-    tableName :: Core.Text
+    tableName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutItemInput' with all optional fields omitted.
@@ -43,13 +44,13 @@ data PutItemInput = PutItemInput'
 -- 'tableName', 'putItemInput_tableName' - The table where the message data will be written.
 newPutItemInput ::
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   PutItemInput
 newPutItemInput pTableName_ =
   PutItemInput' {tableName = pTableName_}
 
 -- | The table where the message data will be written.
-putItemInput_tableName :: Lens.Lens' PutItemInput Core.Text
+putItemInput_tableName :: Lens.Lens' PutItemInput Prelude.Text
 putItemInput_tableName = Lens.lens (\PutItemInput' {tableName} -> tableName) (\s@PutItemInput' {} a -> s {tableName = a} :: PutItemInput)
 
 instance Core.FromJSON PutItemInput where
@@ -57,16 +58,16 @@ instance Core.FromJSON PutItemInput where
     Core.withObject
       "PutItemInput"
       ( \x ->
-          PutItemInput' Core.<$> (x Core..: "tableName")
+          PutItemInput' Prelude.<$> (x Core..: "tableName")
       )
 
-instance Core.Hashable PutItemInput
+instance Prelude.Hashable PutItemInput
 
-instance Core.NFData PutItemInput
+instance Prelude.NFData PutItemInput
 
 instance Core.ToJSON PutItemInput where
   toJSON PutItemInput' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("tableName" Core..= tableName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("tableName" Core..= tableName)]
       )

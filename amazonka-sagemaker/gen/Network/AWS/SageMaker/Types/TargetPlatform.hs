@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.TargetPlatform where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.TargetPlatformAccelerator
 import Network.AWS.SageMaker.Types.TargetPlatformArch
 import Network.AWS.SageMaker.Types.TargetPlatformOs
@@ -39,7 +40,7 @@ data TargetPlatform = TargetPlatform'
     -- -   @MALI@: ARM Mali graphics processor
     --
     -- -   @INTEL_GRAPHICS@: Integrated Intel graphics
-    accelerator :: Core.Maybe TargetPlatformAccelerator,
+    accelerator :: Prelude.Maybe TargetPlatformAccelerator,
     -- | Specifies a target platform OS.
     --
     -- -   @LINUX@: Linux-based operating systems.
@@ -62,7 +63,7 @@ data TargetPlatform = TargetPlatform'
     --     platform.
     arch :: TargetPlatformArch
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TargetPlatform' with all optional fields omitted.
@@ -109,7 +110,7 @@ newTargetPlatform ::
   TargetPlatform
 newTargetPlatform pOs_ pArch_ =
   TargetPlatform'
-    { accelerator = Core.Nothing,
+    { accelerator = Prelude.Nothing,
       os = pOs_,
       arch = pArch_
     }
@@ -122,7 +123,7 @@ newTargetPlatform pOs_ pArch_ =
 -- -   @MALI@: ARM Mali graphics processor
 --
 -- -   @INTEL_GRAPHICS@: Integrated Intel graphics
-targetPlatform_accelerator :: Lens.Lens' TargetPlatform (Core.Maybe TargetPlatformAccelerator)
+targetPlatform_accelerator :: Lens.Lens' TargetPlatform (Prelude.Maybe TargetPlatformAccelerator)
 targetPlatform_accelerator = Lens.lens (\TargetPlatform' {accelerator} -> accelerator) (\s@TargetPlatform' {} a -> s {accelerator = a} :: TargetPlatform)
 
 -- | Specifies a target platform OS.
@@ -156,21 +157,21 @@ instance Core.FromJSON TargetPlatform where
       "TargetPlatform"
       ( \x ->
           TargetPlatform'
-            Core.<$> (x Core..:? "Accelerator")
-            Core.<*> (x Core..: "Os")
-            Core.<*> (x Core..: "Arch")
+            Prelude.<$> (x Core..:? "Accelerator")
+            Prelude.<*> (x Core..: "Os")
+            Prelude.<*> (x Core..: "Arch")
       )
 
-instance Core.Hashable TargetPlatform
+instance Prelude.Hashable TargetPlatform
 
-instance Core.NFData TargetPlatform
+instance Prelude.NFData TargetPlatform
 
 instance Core.ToJSON TargetPlatform where
   toJSON TargetPlatform' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Accelerator" Core..=) Core.<$> accelerator,
-            Core.Just ("Os" Core..= os),
-            Core.Just ("Arch" Core..= arch)
+      ( Prelude.catMaybes
+          [ ("Accelerator" Core..=) Prelude.<$> accelerator,
+            Prelude.Just ("Os" Core..= os),
+            Prelude.Just ("Arch" Core..= arch)
           ]
       )

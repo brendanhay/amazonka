@@ -46,6 +46,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,12 +56,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetClientCertificates' smart constructor.
 data GetClientCertificates = GetClientCertificates'
   { -- | The current pagination position in the paged result set.
-    position :: Core.Maybe Core.Text,
+    position :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Core.Maybe Core.Int
+    limit :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetClientCertificates' with all optional fields omitted.
@@ -78,17 +79,17 @@ newGetClientCertificates ::
   GetClientCertificates
 newGetClientCertificates =
   GetClientCertificates'
-    { position = Core.Nothing,
-      limit = Core.Nothing
+    { position = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | The current pagination position in the paged result set.
-getClientCertificates_position :: Lens.Lens' GetClientCertificates (Core.Maybe Core.Text)
+getClientCertificates_position :: Lens.Lens' GetClientCertificates (Prelude.Maybe Prelude.Text)
 getClientCertificates_position = Lens.lens (\GetClientCertificates' {position} -> position) (\s@GetClientCertificates' {} a -> s {position = a} :: GetClientCertificates)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
-getClientCertificates_limit :: Lens.Lens' GetClientCertificates (Core.Maybe Core.Int)
+getClientCertificates_limit :: Lens.Lens' GetClientCertificates (Prelude.Maybe Prelude.Int)
 getClientCertificates_limit = Lens.lens (\GetClientCertificates' {limit} -> limit) (\s@GetClientCertificates' {} a -> s {limit = a} :: GetClientCertificates)
 
 instance Core.AWSPager GetClientCertificates where
@@ -96,22 +97,22 @@ instance Core.AWSPager GetClientCertificates where
     | Core.stop
         ( rs
             Lens.^? getClientCertificatesResponse_position
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getClientCertificatesResponse_items
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getClientCertificates_position
+          Prelude.& getClientCertificates_position
           Lens..~ rs
           Lens.^? getClientCertificatesResponse_position
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetClientCertificates where
   type
@@ -122,30 +123,30 @@ instance Core.AWSRequest GetClientCertificates where
     Response.receiveJSON
       ( \s h x ->
           GetClientCertificatesResponse'
-            Core.<$> (x Core..?> "item" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "position")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "position")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetClientCertificates
+instance Prelude.Hashable GetClientCertificates
 
-instance Core.NFData GetClientCertificates
+instance Prelude.NFData GetClientCertificates
 
 instance Core.ToHeaders GetClientCertificates where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetClientCertificates where
-  toPath = Core.const "/clientcertificates"
+  toPath = Prelude.const "/clientcertificates"
 
 instance Core.ToQuery GetClientCertificates where
   toQuery GetClientCertificates' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["position" Core.=: position, "limit" Core.=: limit]
 
 -- | Represents a collection of ClientCertificate resources.
@@ -155,12 +156,12 @@ instance Core.ToQuery GetClientCertificates where
 -- /See:/ 'newGetClientCertificatesResponse' smart constructor.
 data GetClientCertificatesResponse = GetClientCertificatesResponse'
   { -- | The current page of elements from this collection.
-    items :: Core.Maybe [ClientCertificate],
-    position :: Core.Maybe Core.Text,
+    items :: Prelude.Maybe [ClientCertificate],
+    position :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetClientCertificatesResponse' with all optional fields omitted.
@@ -177,26 +178,26 @@ data GetClientCertificatesResponse = GetClientCertificatesResponse'
 -- 'httpStatus', 'getClientCertificatesResponse_httpStatus' - The response's http status code.
 newGetClientCertificatesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetClientCertificatesResponse
 newGetClientCertificatesResponse pHttpStatus_ =
   GetClientCertificatesResponse'
     { items =
-        Core.Nothing,
-      position = Core.Nothing,
+        Prelude.Nothing,
+      position = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current page of elements from this collection.
-getClientCertificatesResponse_items :: Lens.Lens' GetClientCertificatesResponse (Core.Maybe [ClientCertificate])
-getClientCertificatesResponse_items = Lens.lens (\GetClientCertificatesResponse' {items} -> items) (\s@GetClientCertificatesResponse' {} a -> s {items = a} :: GetClientCertificatesResponse) Core.. Lens.mapping Lens._Coerce
+getClientCertificatesResponse_items :: Lens.Lens' GetClientCertificatesResponse (Prelude.Maybe [ClientCertificate])
+getClientCertificatesResponse_items = Lens.lens (\GetClientCertificatesResponse' {items} -> items) (\s@GetClientCertificatesResponse' {} a -> s {items = a} :: GetClientCertificatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getClientCertificatesResponse_position :: Lens.Lens' GetClientCertificatesResponse (Core.Maybe Core.Text)
+getClientCertificatesResponse_position :: Lens.Lens' GetClientCertificatesResponse (Prelude.Maybe Prelude.Text)
 getClientCertificatesResponse_position = Lens.lens (\GetClientCertificatesResponse' {position} -> position) (\s@GetClientCertificatesResponse' {} a -> s {position = a} :: GetClientCertificatesResponse)
 
 -- | The response's http status code.
-getClientCertificatesResponse_httpStatus :: Lens.Lens' GetClientCertificatesResponse Core.Int
+getClientCertificatesResponse_httpStatus :: Lens.Lens' GetClientCertificatesResponse Prelude.Int
 getClientCertificatesResponse_httpStatus = Lens.lens (\GetClientCertificatesResponse' {httpStatus} -> httpStatus) (\s@GetClientCertificatesResponse' {} a -> s {httpStatus = a} :: GetClientCertificatesResponse)
 
-instance Core.NFData GetClientCertificatesResponse
+instance Prelude.NFData GetClientCertificatesResponse

@@ -59,6 +59,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,9 +68,9 @@ data PublishLayerVersion = PublishLayerVersion'
   { -- | A list of compatible
     -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html function runtimes>.
     -- Used for filtering with ListLayers and ListLayerVersions.
-    compatibleRuntimes :: Core.Maybe [Runtime],
+    compatibleRuntimes :: Prelude.Maybe [Runtime],
     -- | The description of the version.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The layer\'s software license. It can be any of the following:
     --
     -- -   An <https://spdx.org/licenses/ SPDX license identifier>. For
@@ -79,13 +80,13 @@ data PublishLayerVersion = PublishLayerVersion'
     --     @https:\/\/opensource.org\/licenses\/MIT@.
     --
     -- -   The full text of the license.
-    licenseInfo :: Core.Maybe Core.Text,
+    licenseInfo :: Prelude.Maybe Prelude.Text,
     -- | The name or Amazon Resource Name (ARN) of the layer.
-    layerName :: Core.Text,
+    layerName :: Prelude.Text,
     -- | The function layer archive.
     content :: LayerVersionContentInput
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PublishLayerVersion' with all optional fields omitted.
@@ -116,16 +117,16 @@ data PublishLayerVersion = PublishLayerVersion'
 -- 'content', 'publishLayerVersion_content' - The function layer archive.
 newPublishLayerVersion ::
   -- | 'layerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'content'
   LayerVersionContentInput ->
   PublishLayerVersion
 newPublishLayerVersion pLayerName_ pContent_ =
   PublishLayerVersion'
     { compatibleRuntimes =
-        Core.Nothing,
-      description = Core.Nothing,
-      licenseInfo = Core.Nothing,
+        Prelude.Nothing,
+      description = Prelude.Nothing,
+      licenseInfo = Prelude.Nothing,
       layerName = pLayerName_,
       content = pContent_
     }
@@ -133,11 +134,11 @@ newPublishLayerVersion pLayerName_ pContent_ =
 -- | A list of compatible
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html function runtimes>.
 -- Used for filtering with ListLayers and ListLayerVersions.
-publishLayerVersion_compatibleRuntimes :: Lens.Lens' PublishLayerVersion (Core.Maybe [Runtime])
-publishLayerVersion_compatibleRuntimes = Lens.lens (\PublishLayerVersion' {compatibleRuntimes} -> compatibleRuntimes) (\s@PublishLayerVersion' {} a -> s {compatibleRuntimes = a} :: PublishLayerVersion) Core.. Lens.mapping Lens._Coerce
+publishLayerVersion_compatibleRuntimes :: Lens.Lens' PublishLayerVersion (Prelude.Maybe [Runtime])
+publishLayerVersion_compatibleRuntimes = Lens.lens (\PublishLayerVersion' {compatibleRuntimes} -> compatibleRuntimes) (\s@PublishLayerVersion' {} a -> s {compatibleRuntimes = a} :: PublishLayerVersion) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The description of the version.
-publishLayerVersion_description :: Lens.Lens' PublishLayerVersion (Core.Maybe Core.Text)
+publishLayerVersion_description :: Lens.Lens' PublishLayerVersion (Prelude.Maybe Prelude.Text)
 publishLayerVersion_description = Lens.lens (\PublishLayerVersion' {description} -> description) (\s@PublishLayerVersion' {} a -> s {description = a} :: PublishLayerVersion)
 
 -- | The layer\'s software license. It can be any of the following:
@@ -149,11 +150,11 @@ publishLayerVersion_description = Lens.lens (\PublishLayerVersion' {description}
 --     @https:\/\/opensource.org\/licenses\/MIT@.
 --
 -- -   The full text of the license.
-publishLayerVersion_licenseInfo :: Lens.Lens' PublishLayerVersion (Core.Maybe Core.Text)
+publishLayerVersion_licenseInfo :: Lens.Lens' PublishLayerVersion (Prelude.Maybe Prelude.Text)
 publishLayerVersion_licenseInfo = Lens.lens (\PublishLayerVersion' {licenseInfo} -> licenseInfo) (\s@PublishLayerVersion' {} a -> s {licenseInfo = a} :: PublishLayerVersion)
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
-publishLayerVersion_layerName :: Lens.Lens' PublishLayerVersion Core.Text
+publishLayerVersion_layerName :: Lens.Lens' PublishLayerVersion Prelude.Text
 publishLayerVersion_layerName = Lens.lens (\PublishLayerVersion' {layerName} -> layerName) (\s@PublishLayerVersion' {} a -> s {layerName = a} :: PublishLayerVersion)
 
 -- | The function layer archive.
@@ -169,73 +170,73 @@ instance Core.AWSRequest PublishLayerVersion where
     Response.receiveJSON
       ( \s h x ->
           PublishLayerVersionResponse'
-            Core.<$> (x Core..?> "CreatedDate")
-            Core.<*> (x Core..?> "LayerArn")
-            Core.<*> (x Core..?> "Version")
-            Core.<*> (x Core..?> "LayerVersionArn")
-            Core.<*> (x Core..?> "Content")
-            Core.<*> ( x Core..?> "CompatibleRuntimes"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "Description")
-            Core.<*> (x Core..?> "LicenseInfo")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CreatedDate")
+            Prelude.<*> (x Core..?> "LayerArn")
+            Prelude.<*> (x Core..?> "Version")
+            Prelude.<*> (x Core..?> "LayerVersionArn")
+            Prelude.<*> (x Core..?> "Content")
+            Prelude.<*> ( x Core..?> "CompatibleRuntimes"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "LicenseInfo")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PublishLayerVersion
+instance Prelude.Hashable PublishLayerVersion
 
-instance Core.NFData PublishLayerVersion
+instance Prelude.NFData PublishLayerVersion
 
 instance Core.ToHeaders PublishLayerVersion where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON PublishLayerVersion where
   toJSON PublishLayerVersion' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("CompatibleRuntimes" Core..=)
-              Core.<$> compatibleRuntimes,
-            ("Description" Core..=) Core.<$> description,
-            ("LicenseInfo" Core..=) Core.<$> licenseInfo,
-            Core.Just ("Content" Core..= content)
+              Prelude.<$> compatibleRuntimes,
+            ("Description" Core..=) Prelude.<$> description,
+            ("LicenseInfo" Core..=) Prelude.<$> licenseInfo,
+            Prelude.Just ("Content" Core..= content)
           ]
       )
 
 instance Core.ToPath PublishLayerVersion where
   toPath PublishLayerVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2018-10-31/layers/",
         Core.toBS layerName,
         "/versions"
       ]
 
 instance Core.ToQuery PublishLayerVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPublishLayerVersionResponse' smart constructor.
 data PublishLayerVersionResponse = PublishLayerVersionResponse'
   { -- | The date that the layer version was created, in
     -- <https://www.w3.org/TR/NOTE-datetime ISO-8601 format>
     -- (YYYY-MM-DDThh:mm:ss.sTZD).
-    createdDate :: Core.Maybe Core.Text,
+    createdDate :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the layer.
-    layerArn :: Core.Maybe Core.Text,
+    layerArn :: Prelude.Maybe Prelude.Text,
     -- | The version number.
-    version :: Core.Maybe Core.Integer,
+    version :: Prelude.Maybe Prelude.Integer,
     -- | The ARN of the layer version.
-    layerVersionArn :: Core.Maybe Core.Text,
+    layerVersionArn :: Prelude.Maybe Prelude.Text,
     -- | Details about the layer version.
-    content :: Core.Maybe LayerVersionContentOutput,
+    content :: Prelude.Maybe LayerVersionContentOutput,
     -- | The layer\'s compatible runtimes.
-    compatibleRuntimes :: Core.Maybe [Runtime],
+    compatibleRuntimes :: Prelude.Maybe [Runtime],
     -- | The description of the version.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The layer\'s software license.
-    licenseInfo :: Core.Maybe Core.Text,
+    licenseInfo :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PublishLayerVersionResponse' with all optional fields omitted.
@@ -266,58 +267,58 @@ data PublishLayerVersionResponse = PublishLayerVersionResponse'
 -- 'httpStatus', 'publishLayerVersionResponse_httpStatus' - The response's http status code.
 newPublishLayerVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PublishLayerVersionResponse
 newPublishLayerVersionResponse pHttpStatus_ =
   PublishLayerVersionResponse'
     { createdDate =
-        Core.Nothing,
-      layerArn = Core.Nothing,
-      version = Core.Nothing,
-      layerVersionArn = Core.Nothing,
-      content = Core.Nothing,
-      compatibleRuntimes = Core.Nothing,
-      description = Core.Nothing,
-      licenseInfo = Core.Nothing,
+        Prelude.Nothing,
+      layerArn = Prelude.Nothing,
+      version = Prelude.Nothing,
+      layerVersionArn = Prelude.Nothing,
+      content = Prelude.Nothing,
+      compatibleRuntimes = Prelude.Nothing,
+      description = Prelude.Nothing,
+      licenseInfo = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The date that the layer version was created, in
 -- <https://www.w3.org/TR/NOTE-datetime ISO-8601 format>
 -- (YYYY-MM-DDThh:mm:ss.sTZD).
-publishLayerVersionResponse_createdDate :: Lens.Lens' PublishLayerVersionResponse (Core.Maybe Core.Text)
+publishLayerVersionResponse_createdDate :: Lens.Lens' PublishLayerVersionResponse (Prelude.Maybe Prelude.Text)
 publishLayerVersionResponse_createdDate = Lens.lens (\PublishLayerVersionResponse' {createdDate} -> createdDate) (\s@PublishLayerVersionResponse' {} a -> s {createdDate = a} :: PublishLayerVersionResponse)
 
 -- | The ARN of the layer.
-publishLayerVersionResponse_layerArn :: Lens.Lens' PublishLayerVersionResponse (Core.Maybe Core.Text)
+publishLayerVersionResponse_layerArn :: Lens.Lens' PublishLayerVersionResponse (Prelude.Maybe Prelude.Text)
 publishLayerVersionResponse_layerArn = Lens.lens (\PublishLayerVersionResponse' {layerArn} -> layerArn) (\s@PublishLayerVersionResponse' {} a -> s {layerArn = a} :: PublishLayerVersionResponse)
 
 -- | The version number.
-publishLayerVersionResponse_version :: Lens.Lens' PublishLayerVersionResponse (Core.Maybe Core.Integer)
+publishLayerVersionResponse_version :: Lens.Lens' PublishLayerVersionResponse (Prelude.Maybe Prelude.Integer)
 publishLayerVersionResponse_version = Lens.lens (\PublishLayerVersionResponse' {version} -> version) (\s@PublishLayerVersionResponse' {} a -> s {version = a} :: PublishLayerVersionResponse)
 
 -- | The ARN of the layer version.
-publishLayerVersionResponse_layerVersionArn :: Lens.Lens' PublishLayerVersionResponse (Core.Maybe Core.Text)
+publishLayerVersionResponse_layerVersionArn :: Lens.Lens' PublishLayerVersionResponse (Prelude.Maybe Prelude.Text)
 publishLayerVersionResponse_layerVersionArn = Lens.lens (\PublishLayerVersionResponse' {layerVersionArn} -> layerVersionArn) (\s@PublishLayerVersionResponse' {} a -> s {layerVersionArn = a} :: PublishLayerVersionResponse)
 
 -- | Details about the layer version.
-publishLayerVersionResponse_content :: Lens.Lens' PublishLayerVersionResponse (Core.Maybe LayerVersionContentOutput)
+publishLayerVersionResponse_content :: Lens.Lens' PublishLayerVersionResponse (Prelude.Maybe LayerVersionContentOutput)
 publishLayerVersionResponse_content = Lens.lens (\PublishLayerVersionResponse' {content} -> content) (\s@PublishLayerVersionResponse' {} a -> s {content = a} :: PublishLayerVersionResponse)
 
 -- | The layer\'s compatible runtimes.
-publishLayerVersionResponse_compatibleRuntimes :: Lens.Lens' PublishLayerVersionResponse (Core.Maybe [Runtime])
-publishLayerVersionResponse_compatibleRuntimes = Lens.lens (\PublishLayerVersionResponse' {compatibleRuntimes} -> compatibleRuntimes) (\s@PublishLayerVersionResponse' {} a -> s {compatibleRuntimes = a} :: PublishLayerVersionResponse) Core.. Lens.mapping Lens._Coerce
+publishLayerVersionResponse_compatibleRuntimes :: Lens.Lens' PublishLayerVersionResponse (Prelude.Maybe [Runtime])
+publishLayerVersionResponse_compatibleRuntimes = Lens.lens (\PublishLayerVersionResponse' {compatibleRuntimes} -> compatibleRuntimes) (\s@PublishLayerVersionResponse' {} a -> s {compatibleRuntimes = a} :: PublishLayerVersionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The description of the version.
-publishLayerVersionResponse_description :: Lens.Lens' PublishLayerVersionResponse (Core.Maybe Core.Text)
+publishLayerVersionResponse_description :: Lens.Lens' PublishLayerVersionResponse (Prelude.Maybe Prelude.Text)
 publishLayerVersionResponse_description = Lens.lens (\PublishLayerVersionResponse' {description} -> description) (\s@PublishLayerVersionResponse' {} a -> s {description = a} :: PublishLayerVersionResponse)
 
 -- | The layer\'s software license.
-publishLayerVersionResponse_licenseInfo :: Lens.Lens' PublishLayerVersionResponse (Core.Maybe Core.Text)
+publishLayerVersionResponse_licenseInfo :: Lens.Lens' PublishLayerVersionResponse (Prelude.Maybe Prelude.Text)
 publishLayerVersionResponse_licenseInfo = Lens.lens (\PublishLayerVersionResponse' {licenseInfo} -> licenseInfo) (\s@PublishLayerVersionResponse' {} a -> s {licenseInfo = a} :: PublishLayerVersionResponse)
 
 -- | The response's http status code.
-publishLayerVersionResponse_httpStatus :: Lens.Lens' PublishLayerVersionResponse Core.Int
+publishLayerVersionResponse_httpStatus :: Lens.Lens' PublishLayerVersionResponse Prelude.Int
 publishLayerVersionResponse_httpStatus = Lens.lens (\PublishLayerVersionResponse' {httpStatus} -> httpStatus) (\s@PublishLayerVersionResponse' {} a -> s {httpStatus = a} :: PublishLayerVersionResponse)
 
-instance Core.NFData PublishLayerVersionResponse
+instance Prelude.NFData PublishLayerVersionResponse

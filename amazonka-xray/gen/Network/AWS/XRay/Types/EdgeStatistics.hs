@@ -21,6 +21,7 @@ module Network.AWS.XRay.Types.EdgeStatistics where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.ErrorStatistics
 import Network.AWS.XRay.Types.FaultStatistics
 
@@ -29,19 +30,19 @@ import Network.AWS.XRay.Types.FaultStatistics
 -- /See:/ 'newEdgeStatistics' smart constructor.
 data EdgeStatistics = EdgeStatistics'
   { -- | The aggregate response time of completed requests.
-    totalResponseTime :: Core.Maybe Core.Double,
+    totalResponseTime :: Prelude.Maybe Prelude.Double,
     -- | The number of requests that completed with a 2xx Success status code.
-    okCount :: Core.Maybe Core.Integer,
+    okCount :: Prelude.Maybe Prelude.Integer,
     -- | Information about requests that failed with a 5xx Server Error status
     -- code.
-    faultStatistics :: Core.Maybe FaultStatistics,
+    faultStatistics :: Prelude.Maybe FaultStatistics,
     -- | The total number of completed requests.
-    totalCount :: Core.Maybe Core.Integer,
+    totalCount :: Prelude.Maybe Prelude.Integer,
     -- | Information about requests that failed with a 4xx Client Error status
     -- code.
-    errorStatistics :: Core.Maybe ErrorStatistics
+    errorStatistics :: Prelude.Maybe ErrorStatistics
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EdgeStatistics' with all optional fields omitted.
@@ -66,33 +67,34 @@ newEdgeStatistics ::
   EdgeStatistics
 newEdgeStatistics =
   EdgeStatistics'
-    { totalResponseTime = Core.Nothing,
-      okCount = Core.Nothing,
-      faultStatistics = Core.Nothing,
-      totalCount = Core.Nothing,
-      errorStatistics = Core.Nothing
+    { totalResponseTime =
+        Prelude.Nothing,
+      okCount = Prelude.Nothing,
+      faultStatistics = Prelude.Nothing,
+      totalCount = Prelude.Nothing,
+      errorStatistics = Prelude.Nothing
     }
 
 -- | The aggregate response time of completed requests.
-edgeStatistics_totalResponseTime :: Lens.Lens' EdgeStatistics (Core.Maybe Core.Double)
+edgeStatistics_totalResponseTime :: Lens.Lens' EdgeStatistics (Prelude.Maybe Prelude.Double)
 edgeStatistics_totalResponseTime = Lens.lens (\EdgeStatistics' {totalResponseTime} -> totalResponseTime) (\s@EdgeStatistics' {} a -> s {totalResponseTime = a} :: EdgeStatistics)
 
 -- | The number of requests that completed with a 2xx Success status code.
-edgeStatistics_okCount :: Lens.Lens' EdgeStatistics (Core.Maybe Core.Integer)
+edgeStatistics_okCount :: Lens.Lens' EdgeStatistics (Prelude.Maybe Prelude.Integer)
 edgeStatistics_okCount = Lens.lens (\EdgeStatistics' {okCount} -> okCount) (\s@EdgeStatistics' {} a -> s {okCount = a} :: EdgeStatistics)
 
 -- | Information about requests that failed with a 5xx Server Error status
 -- code.
-edgeStatistics_faultStatistics :: Lens.Lens' EdgeStatistics (Core.Maybe FaultStatistics)
+edgeStatistics_faultStatistics :: Lens.Lens' EdgeStatistics (Prelude.Maybe FaultStatistics)
 edgeStatistics_faultStatistics = Lens.lens (\EdgeStatistics' {faultStatistics} -> faultStatistics) (\s@EdgeStatistics' {} a -> s {faultStatistics = a} :: EdgeStatistics)
 
 -- | The total number of completed requests.
-edgeStatistics_totalCount :: Lens.Lens' EdgeStatistics (Core.Maybe Core.Integer)
+edgeStatistics_totalCount :: Lens.Lens' EdgeStatistics (Prelude.Maybe Prelude.Integer)
 edgeStatistics_totalCount = Lens.lens (\EdgeStatistics' {totalCount} -> totalCount) (\s@EdgeStatistics' {} a -> s {totalCount = a} :: EdgeStatistics)
 
 -- | Information about requests that failed with a 4xx Client Error status
 -- code.
-edgeStatistics_errorStatistics :: Lens.Lens' EdgeStatistics (Core.Maybe ErrorStatistics)
+edgeStatistics_errorStatistics :: Lens.Lens' EdgeStatistics (Prelude.Maybe ErrorStatistics)
 edgeStatistics_errorStatistics = Lens.lens (\EdgeStatistics' {errorStatistics} -> errorStatistics) (\s@EdgeStatistics' {} a -> s {errorStatistics = a} :: EdgeStatistics)
 
 instance Core.FromJSON EdgeStatistics where
@@ -101,13 +103,13 @@ instance Core.FromJSON EdgeStatistics where
       "EdgeStatistics"
       ( \x ->
           EdgeStatistics'
-            Core.<$> (x Core..:? "TotalResponseTime")
-            Core.<*> (x Core..:? "OkCount")
-            Core.<*> (x Core..:? "FaultStatistics")
-            Core.<*> (x Core..:? "TotalCount")
-            Core.<*> (x Core..:? "ErrorStatistics")
+            Prelude.<$> (x Core..:? "TotalResponseTime")
+            Prelude.<*> (x Core..:? "OkCount")
+            Prelude.<*> (x Core..:? "FaultStatistics")
+            Prelude.<*> (x Core..:? "TotalCount")
+            Prelude.<*> (x Core..:? "ErrorStatistics")
       )
 
-instance Core.Hashable EdgeStatistics
+instance Prelude.Hashable EdgeStatistics
 
-instance Core.NFData EdgeStatistics
+instance Prelude.NFData EdgeStatistics

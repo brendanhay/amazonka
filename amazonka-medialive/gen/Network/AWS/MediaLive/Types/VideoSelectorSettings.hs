@@ -23,15 +23,16 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.VideoSelectorPid
 import Network.AWS.MediaLive.Types.VideoSelectorProgramId
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Video Selector Settings
 --
 -- /See:/ 'newVideoSelectorSettings' smart constructor.
 data VideoSelectorSettings = VideoSelectorSettings'
-  { videoSelectorPid :: Core.Maybe VideoSelectorPid,
-    videoSelectorProgramId :: Core.Maybe VideoSelectorProgramId
+  { videoSelectorPid :: Prelude.Maybe VideoSelectorPid,
+    videoSelectorProgramId :: Prelude.Maybe VideoSelectorProgramId
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VideoSelectorSettings' with all optional fields omitted.
@@ -49,16 +50,16 @@ newVideoSelectorSettings ::
 newVideoSelectorSettings =
   VideoSelectorSettings'
     { videoSelectorPid =
-        Core.Nothing,
-      videoSelectorProgramId = Core.Nothing
+        Prelude.Nothing,
+      videoSelectorProgramId = Prelude.Nothing
     }
 
 -- | Undocumented member.
-videoSelectorSettings_videoSelectorPid :: Lens.Lens' VideoSelectorSettings (Core.Maybe VideoSelectorPid)
+videoSelectorSettings_videoSelectorPid :: Lens.Lens' VideoSelectorSettings (Prelude.Maybe VideoSelectorPid)
 videoSelectorSettings_videoSelectorPid = Lens.lens (\VideoSelectorSettings' {videoSelectorPid} -> videoSelectorPid) (\s@VideoSelectorSettings' {} a -> s {videoSelectorPid = a} :: VideoSelectorSettings)
 
 -- | Undocumented member.
-videoSelectorSettings_videoSelectorProgramId :: Lens.Lens' VideoSelectorSettings (Core.Maybe VideoSelectorProgramId)
+videoSelectorSettings_videoSelectorProgramId :: Lens.Lens' VideoSelectorSettings (Prelude.Maybe VideoSelectorProgramId)
 videoSelectorSettings_videoSelectorProgramId = Lens.lens (\VideoSelectorSettings' {videoSelectorProgramId} -> videoSelectorProgramId) (\s@VideoSelectorSettings' {} a -> s {videoSelectorProgramId = a} :: VideoSelectorSettings)
 
 instance Core.FromJSON VideoSelectorSettings where
@@ -67,21 +68,21 @@ instance Core.FromJSON VideoSelectorSettings where
       "VideoSelectorSettings"
       ( \x ->
           VideoSelectorSettings'
-            Core.<$> (x Core..:? "videoSelectorPid")
-            Core.<*> (x Core..:? "videoSelectorProgramId")
+            Prelude.<$> (x Core..:? "videoSelectorPid")
+            Prelude.<*> (x Core..:? "videoSelectorProgramId")
       )
 
-instance Core.Hashable VideoSelectorSettings
+instance Prelude.Hashable VideoSelectorSettings
 
-instance Core.NFData VideoSelectorSettings
+instance Prelude.NFData VideoSelectorSettings
 
 instance Core.ToJSON VideoSelectorSettings where
   toJSON VideoSelectorSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("videoSelectorPid" Core..=)
-              Core.<$> videoSelectorPid,
+              Prelude.<$> videoSelectorPid,
             ("videoSelectorProgramId" Core..=)
-              Core.<$> videoSelectorProgramId
+              Prelude.<$> videoSelectorProgramId
           ]
       )

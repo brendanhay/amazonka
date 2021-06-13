@@ -97,6 +97,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -108,11 +109,11 @@ data ReceiveMessage = ReceiveMessage'
   { -- | The duration (in seconds) that the received messages are hidden from
     -- subsequent retrieve requests after being retrieved by a @ReceiveMessage@
     -- request.
-    visibilityTimeout :: Core.Maybe Core.Int,
+    visibilityTimeout :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of messages to return. Amazon SQS never returns more
     -- messages than this value (however, fewer messages might be returned).
     -- Valid values: 1 to 10. Default: 1.
-    maxNumberOfMessages :: Core.Maybe Core.Int,
+    maxNumberOfMessages :: Prelude.Maybe Prelude.Int,
     -- | The name of the message attribute, where /N/ is the index.
     --
     -- -   The name can contain alphanumeric characters and the underscore
@@ -133,7 +134,7 @@ data ReceiveMessage = ReceiveMessage'
     -- receive, or you can return all of the attributes by specifying @All@ or
     -- @.*@ in your request. You can also use all message attributes starting
     -- with a prefix, for example @bar.*@.
-    messageAttributeNames :: Core.Maybe [Core.Text],
+    messageAttributeNames :: Prelude.Maybe [Prelude.Text],
     -- | A list of attributes that need to be returned along with each message.
     -- These attributes include:
     --
@@ -169,7 +170,7 @@ data ReceiveMessage = ReceiveMessage'
     --     @MessageGroupId@ are returned in sequence.
     --
     -- -   @SequenceNumber@ – Returns the value provided by Amazon SQS.
-    attributeNames :: Core.Maybe [MessageAttribute],
+    attributeNames :: Prelude.Maybe [MessageAttribute],
     -- | The duration (in seconds) for which the call waits for a message to
     -- arrive in the queue before returning. If a message is available, the
     -- call returns sooner than @WaitTimeSeconds@. If no messages are available
@@ -184,7 +185,7 @@ data ReceiveMessage = ReceiveMessage'
     -- for asynchronous clients, or the
     -- <https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/http/apache/ApacheHttpClient.html ApacheHttpClient>
     -- for synchronous clients.
-    waitTimeSeconds :: Core.Maybe Core.Int,
+    waitTimeSeconds :: Prelude.Maybe Prelude.Int,
     -- | This parameter applies only to FIFO (first-in-first-out) queues.
     --
     -- The token used for deduplication of @ReceiveMessage@ calls. If a
@@ -243,13 +244,13 @@ data ReceiveMessage = ReceiveMessage'
     -- For best practices of using @ReceiveRequestAttemptId@, see
     -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html Using the ReceiveRequestAttemptId Request Parameter>
     -- in the /Amazon Simple Queue Service Developer Guide/.
-    receiveRequestAttemptId :: Core.Maybe Core.Text,
+    receiveRequestAttemptId :: Prelude.Maybe Prelude.Text,
     -- | The URL of the Amazon SQS queue from which messages are received.
     --
     -- Queue URLs and names are case-sensitive.
-    queueUrl :: Core.Text
+    queueUrl :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReceiveMessage' with all optional fields omitted.
@@ -403,29 +404,30 @@ data ReceiveMessage = ReceiveMessage'
 -- Queue URLs and names are case-sensitive.
 newReceiveMessage ::
   -- | 'queueUrl'
-  Core.Text ->
+  Prelude.Text ->
   ReceiveMessage
 newReceiveMessage pQueueUrl_ =
   ReceiveMessage'
-    { visibilityTimeout = Core.Nothing,
-      maxNumberOfMessages = Core.Nothing,
-      messageAttributeNames = Core.Nothing,
-      attributeNames = Core.Nothing,
-      waitTimeSeconds = Core.Nothing,
-      receiveRequestAttemptId = Core.Nothing,
+    { visibilityTimeout =
+        Prelude.Nothing,
+      maxNumberOfMessages = Prelude.Nothing,
+      messageAttributeNames = Prelude.Nothing,
+      attributeNames = Prelude.Nothing,
+      waitTimeSeconds = Prelude.Nothing,
+      receiveRequestAttemptId = Prelude.Nothing,
       queueUrl = pQueueUrl_
     }
 
 -- | The duration (in seconds) that the received messages are hidden from
 -- subsequent retrieve requests after being retrieved by a @ReceiveMessage@
 -- request.
-receiveMessage_visibilityTimeout :: Lens.Lens' ReceiveMessage (Core.Maybe Core.Int)
+receiveMessage_visibilityTimeout :: Lens.Lens' ReceiveMessage (Prelude.Maybe Prelude.Int)
 receiveMessage_visibilityTimeout = Lens.lens (\ReceiveMessage' {visibilityTimeout} -> visibilityTimeout) (\s@ReceiveMessage' {} a -> s {visibilityTimeout = a} :: ReceiveMessage)
 
 -- | The maximum number of messages to return. Amazon SQS never returns more
 -- messages than this value (however, fewer messages might be returned).
 -- Valid values: 1 to 10. Default: 1.
-receiveMessage_maxNumberOfMessages :: Lens.Lens' ReceiveMessage (Core.Maybe Core.Int)
+receiveMessage_maxNumberOfMessages :: Lens.Lens' ReceiveMessage (Prelude.Maybe Prelude.Int)
 receiveMessage_maxNumberOfMessages = Lens.lens (\ReceiveMessage' {maxNumberOfMessages} -> maxNumberOfMessages) (\s@ReceiveMessage' {} a -> s {maxNumberOfMessages = a} :: ReceiveMessage)
 
 -- | The name of the message attribute, where /N/ is the index.
@@ -448,8 +450,8 @@ receiveMessage_maxNumberOfMessages = Lens.lens (\ReceiveMessage' {maxNumberOfMes
 -- receive, or you can return all of the attributes by specifying @All@ or
 -- @.*@ in your request. You can also use all message attributes starting
 -- with a prefix, for example @bar.*@.
-receiveMessage_messageAttributeNames :: Lens.Lens' ReceiveMessage (Core.Maybe [Core.Text])
-receiveMessage_messageAttributeNames = Lens.lens (\ReceiveMessage' {messageAttributeNames} -> messageAttributeNames) (\s@ReceiveMessage' {} a -> s {messageAttributeNames = a} :: ReceiveMessage) Core.. Lens.mapping Lens._Coerce
+receiveMessage_messageAttributeNames :: Lens.Lens' ReceiveMessage (Prelude.Maybe [Prelude.Text])
+receiveMessage_messageAttributeNames = Lens.lens (\ReceiveMessage' {messageAttributeNames} -> messageAttributeNames) (\s@ReceiveMessage' {} a -> s {messageAttributeNames = a} :: ReceiveMessage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of attributes that need to be returned along with each message.
 -- These attributes include:
@@ -486,8 +488,8 @@ receiveMessage_messageAttributeNames = Lens.lens (\ReceiveMessage' {messageAttri
 --     @MessageGroupId@ are returned in sequence.
 --
 -- -   @SequenceNumber@ – Returns the value provided by Amazon SQS.
-receiveMessage_attributeNames :: Lens.Lens' ReceiveMessage (Core.Maybe [MessageAttribute])
-receiveMessage_attributeNames = Lens.lens (\ReceiveMessage' {attributeNames} -> attributeNames) (\s@ReceiveMessage' {} a -> s {attributeNames = a} :: ReceiveMessage) Core.. Lens.mapping Lens._Coerce
+receiveMessage_attributeNames :: Lens.Lens' ReceiveMessage (Prelude.Maybe [MessageAttribute])
+receiveMessage_attributeNames = Lens.lens (\ReceiveMessage' {attributeNames} -> attributeNames) (\s@ReceiveMessage' {} a -> s {attributeNames = a} :: ReceiveMessage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The duration (in seconds) for which the call waits for a message to
 -- arrive in the queue before returning. If a message is available, the
@@ -503,7 +505,7 @@ receiveMessage_attributeNames = Lens.lens (\ReceiveMessage' {attributeNames} -> 
 -- for asynchronous clients, or the
 -- <https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/http/apache/ApacheHttpClient.html ApacheHttpClient>
 -- for synchronous clients.
-receiveMessage_waitTimeSeconds :: Lens.Lens' ReceiveMessage (Core.Maybe Core.Int)
+receiveMessage_waitTimeSeconds :: Lens.Lens' ReceiveMessage (Prelude.Maybe Prelude.Int)
 receiveMessage_waitTimeSeconds = Lens.lens (\ReceiveMessage' {waitTimeSeconds} -> waitTimeSeconds) (\s@ReceiveMessage' {} a -> s {waitTimeSeconds = a} :: ReceiveMessage)
 
 -- | This parameter applies only to FIFO (first-in-first-out) queues.
@@ -564,13 +566,13 @@ receiveMessage_waitTimeSeconds = Lens.lens (\ReceiveMessage' {waitTimeSeconds} -
 -- For best practices of using @ReceiveRequestAttemptId@, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html Using the ReceiveRequestAttemptId Request Parameter>
 -- in the /Amazon Simple Queue Service Developer Guide/.
-receiveMessage_receiveRequestAttemptId :: Lens.Lens' ReceiveMessage (Core.Maybe Core.Text)
+receiveMessage_receiveRequestAttemptId :: Lens.Lens' ReceiveMessage (Prelude.Maybe Prelude.Text)
 receiveMessage_receiveRequestAttemptId = Lens.lens (\ReceiveMessage' {receiveRequestAttemptId} -> receiveRequestAttemptId) (\s@ReceiveMessage' {} a -> s {receiveRequestAttemptId = a} :: ReceiveMessage)
 
 -- | The URL of the Amazon SQS queue from which messages are received.
 --
 -- Queue URLs and names are case-sensitive.
-receiveMessage_queueUrl :: Lens.Lens' ReceiveMessage Core.Text
+receiveMessage_queueUrl :: Lens.Lens' ReceiveMessage Prelude.Text
 receiveMessage_queueUrl = Lens.lens (\ReceiveMessage' {queueUrl} -> queueUrl) (\s@ReceiveMessage' {} a -> s {queueUrl = a} :: ReceiveMessage)
 
 instance Core.AWSRequest ReceiveMessage where
@@ -583,35 +585,36 @@ instance Core.AWSRequest ReceiveMessage where
       "ReceiveMessageResult"
       ( \s h x ->
           ReceiveMessageResponse'
-            Core.<$> (Core.may (Core.parseXMLList "Message") x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.may (Core.parseXMLList "Message") x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ReceiveMessage
+instance Prelude.Hashable ReceiveMessage
 
-instance Core.NFData ReceiveMessage
+instance Prelude.NFData ReceiveMessage
 
 instance Core.ToHeaders ReceiveMessage where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ReceiveMessage where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ReceiveMessage where
   toQuery ReceiveMessage' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ReceiveMessage" :: Core.ByteString),
-        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+          Core.=: ("ReceiveMessage" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-11-05" :: Prelude.ByteString),
         "VisibilityTimeout" Core.=: visibilityTimeout,
         "MaxNumberOfMessages" Core.=: maxNumberOfMessages,
         Core.toQuery
           ( Core.toQueryList "MessageAttributeName"
-              Core.<$> messageAttributeNames
+              Prelude.<$> messageAttributeNames
           ),
         Core.toQuery
           ( Core.toQueryList "AttributeName"
-              Core.<$> attributeNames
+              Prelude.<$> attributeNames
           ),
         "WaitTimeSeconds" Core.=: waitTimeSeconds,
         "ReceiveRequestAttemptId"
@@ -624,11 +627,11 @@ instance Core.ToQuery ReceiveMessage where
 -- /See:/ 'newReceiveMessageResponse' smart constructor.
 data ReceiveMessageResponse = ReceiveMessageResponse'
   { -- | A list of messages.
-    messages :: Core.Maybe [Message],
+    messages :: Prelude.Maybe [Message],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReceiveMessageResponse' with all optional fields omitted.
@@ -643,20 +646,20 @@ data ReceiveMessageResponse = ReceiveMessageResponse'
 -- 'httpStatus', 'receiveMessageResponse_httpStatus' - The response's http status code.
 newReceiveMessageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ReceiveMessageResponse
 newReceiveMessageResponse pHttpStatus_ =
   ReceiveMessageResponse'
-    { messages = Core.Nothing,
+    { messages = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of messages.
-receiveMessageResponse_messages :: Lens.Lens' ReceiveMessageResponse (Core.Maybe [Message])
-receiveMessageResponse_messages = Lens.lens (\ReceiveMessageResponse' {messages} -> messages) (\s@ReceiveMessageResponse' {} a -> s {messages = a} :: ReceiveMessageResponse) Core.. Lens.mapping Lens._Coerce
+receiveMessageResponse_messages :: Lens.Lens' ReceiveMessageResponse (Prelude.Maybe [Message])
+receiveMessageResponse_messages = Lens.lens (\ReceiveMessageResponse' {messages} -> messages) (\s@ReceiveMessageResponse' {} a -> s {messages = a} :: ReceiveMessageResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-receiveMessageResponse_httpStatus :: Lens.Lens' ReceiveMessageResponse Core.Int
+receiveMessageResponse_httpStatus :: Lens.Lens' ReceiveMessageResponse Prelude.Int
 receiveMessageResponse_httpStatus = Lens.lens (\ReceiveMessageResponse' {httpStatus} -> httpStatus) (\s@ReceiveMessageResponse' {} a -> s {httpStatus = a} :: ReceiveMessageResponse)
 
-instance Core.NFData ReceiveMessageResponse
+instance Prelude.NFData ReceiveMessageResponse

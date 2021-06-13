@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.FindMatchesMetrics
 import Network.AWS.Glue.Types.TransformType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Evaluation metrics provide an estimate of the quality of your machine
 -- learning transform.
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEvaluationMetrics' smart constructor.
 data EvaluationMetrics = EvaluationMetrics'
   { -- | The evaluation metrics for the find matches algorithm.
-    findMatchesMetrics :: Core.Maybe FindMatchesMetrics,
+    findMatchesMetrics :: Prelude.Maybe FindMatchesMetrics,
     -- | The type of machine learning transform.
     transformType :: TransformType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EvaluationMetrics' with all optional fields omitted.
@@ -54,12 +55,12 @@ newEvaluationMetrics ::
 newEvaluationMetrics pTransformType_ =
   EvaluationMetrics'
     { findMatchesMetrics =
-        Core.Nothing,
+        Prelude.Nothing,
       transformType = pTransformType_
     }
 
 -- | The evaluation metrics for the find matches algorithm.
-evaluationMetrics_findMatchesMetrics :: Lens.Lens' EvaluationMetrics (Core.Maybe FindMatchesMetrics)
+evaluationMetrics_findMatchesMetrics :: Lens.Lens' EvaluationMetrics (Prelude.Maybe FindMatchesMetrics)
 evaluationMetrics_findMatchesMetrics = Lens.lens (\EvaluationMetrics' {findMatchesMetrics} -> findMatchesMetrics) (\s@EvaluationMetrics' {} a -> s {findMatchesMetrics = a} :: EvaluationMetrics)
 
 -- | The type of machine learning transform.
@@ -72,10 +73,10 @@ instance Core.FromJSON EvaluationMetrics where
       "EvaluationMetrics"
       ( \x ->
           EvaluationMetrics'
-            Core.<$> (x Core..:? "FindMatchesMetrics")
-            Core.<*> (x Core..: "TransformType")
+            Prelude.<$> (x Core..:? "FindMatchesMetrics")
+            Prelude.<*> (x Core..: "TransformType")
       )
 
-instance Core.Hashable EvaluationMetrics
+instance Prelude.Hashable EvaluationMetrics
 
-instance Core.NFData EvaluationMetrics
+instance Prelude.NFData EvaluationMetrics

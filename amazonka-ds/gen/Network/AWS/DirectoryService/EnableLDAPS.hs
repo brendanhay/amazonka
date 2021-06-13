@@ -43,18 +43,19 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newEnableLDAPS' smart constructor.
 data EnableLDAPS = EnableLDAPS'
   { -- | The identifier of the directory.
-    directoryId :: Core.Text,
+    directoryId :: Prelude.Text,
     -- | The type of LDAP security to enable. Currently only the value @Client@
     -- is supported.
     type' :: LDAPSType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableLDAPS' with all optional fields omitted.
@@ -70,7 +71,7 @@ data EnableLDAPS = EnableLDAPS'
 -- is supported.
 newEnableLDAPS ::
   -- | 'directoryId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   LDAPSType ->
   EnableLDAPS
@@ -81,7 +82,7 @@ newEnableLDAPS pDirectoryId_ pType_ =
     }
 
 -- | The identifier of the directory.
-enableLDAPS_directoryId :: Lens.Lens' EnableLDAPS Core.Text
+enableLDAPS_directoryId :: Lens.Lens' EnableLDAPS Prelude.Text
 enableLDAPS_directoryId = Lens.lens (\EnableLDAPS' {directoryId} -> directoryId) (\s@EnableLDAPS' {} a -> s {directoryId = a} :: EnableLDAPS)
 
 -- | The type of LDAP security to enable. Currently only the value @Client@
@@ -96,47 +97,49 @@ instance Core.AWSRequest EnableLDAPS where
     Response.receiveEmpty
       ( \s h x ->
           EnableLDAPSResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable EnableLDAPS
+instance Prelude.Hashable EnableLDAPS
 
-instance Core.NFData EnableLDAPS
+instance Prelude.NFData EnableLDAPS
 
 instance Core.ToHeaders EnableLDAPS where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.EnableLDAPS" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON EnableLDAPS where
   toJSON EnableLDAPS' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DirectoryId" Core..= directoryId),
-            Core.Just ("Type" Core..= type')
+      ( Prelude.catMaybes
+          [ Prelude.Just ("DirectoryId" Core..= directoryId),
+            Prelude.Just ("Type" Core..= type')
           ]
       )
 
 instance Core.ToPath EnableLDAPS where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery EnableLDAPS where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableLDAPSResponse' smart constructor.
 data EnableLDAPSResponse = EnableLDAPSResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableLDAPSResponse' with all optional fields omitted.
@@ -149,13 +152,13 @@ data EnableLDAPSResponse = EnableLDAPSResponse'
 -- 'httpStatus', 'enableLDAPSResponse_httpStatus' - The response's http status code.
 newEnableLDAPSResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   EnableLDAPSResponse
 newEnableLDAPSResponse pHttpStatus_ =
   EnableLDAPSResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-enableLDAPSResponse_httpStatus :: Lens.Lens' EnableLDAPSResponse Core.Int
+enableLDAPSResponse_httpStatus :: Lens.Lens' EnableLDAPSResponse Prelude.Int
 enableLDAPSResponse_httpStatus = Lens.lens (\EnableLDAPSResponse' {httpStatus} -> httpStatus) (\s@EnableLDAPSResponse' {} a -> s {httpStatus = a} :: EnableLDAPSResponse)
 
-instance Core.NFData EnableLDAPSResponse
+instance Prelude.NFData EnableLDAPSResponse

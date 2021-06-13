@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +58,9 @@ import qualified Network.AWS.Response as Response
 data CancelCertificateTransfer = CancelCertificateTransfer'
   { -- | The ID of the certificate. (The last part of the certificate ARN
     -- contains the certificate ID.)
-    certificateId :: Core.Text
+    certificateId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelCertificateTransfer' with all optional fields omitted.
@@ -73,7 +74,7 @@ data CancelCertificateTransfer = CancelCertificateTransfer'
 -- contains the certificate ID.)
 newCancelCertificateTransfer ::
   -- | 'certificateId'
-  Core.Text ->
+  Prelude.Text ->
   CancelCertificateTransfer
 newCancelCertificateTransfer pCertificateId_ =
   CancelCertificateTransfer'
@@ -83,7 +84,7 @@ newCancelCertificateTransfer pCertificateId_ =
 
 -- | The ID of the certificate. (The last part of the certificate ARN
 -- contains the certificate ID.)
-cancelCertificateTransfer_certificateId :: Lens.Lens' CancelCertificateTransfer Core.Text
+cancelCertificateTransfer_certificateId :: Lens.Lens' CancelCertificateTransfer Prelude.Text
 cancelCertificateTransfer_certificateId = Lens.lens (\CancelCertificateTransfer' {certificateId} -> certificateId) (\s@CancelCertificateTransfer' {} a -> s {certificateId = a} :: CancelCertificateTransfer)
 
 instance Core.AWSRequest CancelCertificateTransfer where
@@ -95,31 +96,31 @@ instance Core.AWSRequest CancelCertificateTransfer where
     Response.receiveNull
       CancelCertificateTransferResponse'
 
-instance Core.Hashable CancelCertificateTransfer
+instance Prelude.Hashable CancelCertificateTransfer
 
-instance Core.NFData CancelCertificateTransfer
+instance Prelude.NFData CancelCertificateTransfer
 
 instance Core.ToHeaders CancelCertificateTransfer where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CancelCertificateTransfer where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath CancelCertificateTransfer where
   toPath CancelCertificateTransfer' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/cancel-certificate-transfer/",
         Core.toBS certificateId
       ]
 
 instance Core.ToQuery CancelCertificateTransfer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelCertificateTransferResponse' smart constructor.
 data CancelCertificateTransferResponse = CancelCertificateTransferResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelCertificateTransferResponse' with all optional fields omitted.
@@ -131,5 +132,5 @@ newCancelCertificateTransferResponse =
   CancelCertificateTransferResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     CancelCertificateTransferResponse

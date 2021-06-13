@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ModelDataQuality where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MetricsSource
 
 -- | Data quality constraints and statistics for a model.
@@ -28,11 +29,11 @@ import Network.AWS.SageMaker.Types.MetricsSource
 -- /See:/ 'newModelDataQuality' smart constructor.
 data ModelDataQuality = ModelDataQuality'
   { -- | Data quality constraints for a model.
-    constraints :: Core.Maybe MetricsSource,
+    constraints :: Prelude.Maybe MetricsSource,
     -- | Data quality statistics for a model.
-    statistics :: Core.Maybe MetricsSource
+    statistics :: Prelude.Maybe MetricsSource
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModelDataQuality' with all optional fields omitted.
@@ -49,16 +50,16 @@ newModelDataQuality ::
   ModelDataQuality
 newModelDataQuality =
   ModelDataQuality'
-    { constraints = Core.Nothing,
-      statistics = Core.Nothing
+    { constraints = Prelude.Nothing,
+      statistics = Prelude.Nothing
     }
 
 -- | Data quality constraints for a model.
-modelDataQuality_constraints :: Lens.Lens' ModelDataQuality (Core.Maybe MetricsSource)
+modelDataQuality_constraints :: Lens.Lens' ModelDataQuality (Prelude.Maybe MetricsSource)
 modelDataQuality_constraints = Lens.lens (\ModelDataQuality' {constraints} -> constraints) (\s@ModelDataQuality' {} a -> s {constraints = a} :: ModelDataQuality)
 
 -- | Data quality statistics for a model.
-modelDataQuality_statistics :: Lens.Lens' ModelDataQuality (Core.Maybe MetricsSource)
+modelDataQuality_statistics :: Lens.Lens' ModelDataQuality (Prelude.Maybe MetricsSource)
 modelDataQuality_statistics = Lens.lens (\ModelDataQuality' {statistics} -> statistics) (\s@ModelDataQuality' {} a -> s {statistics = a} :: ModelDataQuality)
 
 instance Core.FromJSON ModelDataQuality where
@@ -67,19 +68,19 @@ instance Core.FromJSON ModelDataQuality where
       "ModelDataQuality"
       ( \x ->
           ModelDataQuality'
-            Core.<$> (x Core..:? "Constraints")
-            Core.<*> (x Core..:? "Statistics")
+            Prelude.<$> (x Core..:? "Constraints")
+            Prelude.<*> (x Core..:? "Statistics")
       )
 
-instance Core.Hashable ModelDataQuality
+instance Prelude.Hashable ModelDataQuality
 
-instance Core.NFData ModelDataQuality
+instance Prelude.NFData ModelDataQuality
 
 instance Core.ToJSON ModelDataQuality where
   toJSON ModelDataQuality' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Constraints" Core..=) Core.<$> constraints,
-            ("Statistics" Core..=) Core.<$> statistics
+      ( Prelude.catMaybes
+          [ ("Constraints" Core..=) Prelude.<$> constraints,
+            ("Statistics" Core..=) Prelude.<$> statistics
           ]
       )

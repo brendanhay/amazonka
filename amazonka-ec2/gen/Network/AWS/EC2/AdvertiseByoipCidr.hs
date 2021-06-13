@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,13 +68,13 @@ data AdvertiseByoipCidr = AdvertiseByoipCidr'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The address range, in CIDR notation. This must be the exact range that
     -- you provisioned. You can\'t advertise only a portion of the provisioned
     -- range.
-    cidr :: Core.Text
+    cidr :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdvertiseByoipCidr' with all optional fields omitted.
@@ -93,11 +94,11 @@ data AdvertiseByoipCidr = AdvertiseByoipCidr'
 -- range.
 newAdvertiseByoipCidr ::
   -- | 'cidr'
-  Core.Text ->
+  Prelude.Text ->
   AdvertiseByoipCidr
 newAdvertiseByoipCidr pCidr_ =
   AdvertiseByoipCidr'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       cidr = pCidr_
     }
 
@@ -105,13 +106,13 @@ newAdvertiseByoipCidr pCidr_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-advertiseByoipCidr_dryRun :: Lens.Lens' AdvertiseByoipCidr (Core.Maybe Core.Bool)
+advertiseByoipCidr_dryRun :: Lens.Lens' AdvertiseByoipCidr (Prelude.Maybe Prelude.Bool)
 advertiseByoipCidr_dryRun = Lens.lens (\AdvertiseByoipCidr' {dryRun} -> dryRun) (\s@AdvertiseByoipCidr' {} a -> s {dryRun = a} :: AdvertiseByoipCidr)
 
 -- | The address range, in CIDR notation. This must be the exact range that
 -- you provisioned. You can\'t advertise only a portion of the provisioned
 -- range.
-advertiseByoipCidr_cidr :: Lens.Lens' AdvertiseByoipCidr Core.Text
+advertiseByoipCidr_cidr :: Lens.Lens' AdvertiseByoipCidr Prelude.Text
 advertiseByoipCidr_cidr = Lens.lens (\AdvertiseByoipCidr' {cidr} -> cidr) (\s@AdvertiseByoipCidr' {} a -> s {cidr = a} :: AdvertiseByoipCidr)
 
 instance Core.AWSRequest AdvertiseByoipCidr where
@@ -123,26 +124,27 @@ instance Core.AWSRequest AdvertiseByoipCidr where
     Response.receiveXML
       ( \s h x ->
           AdvertiseByoipCidrResponse'
-            Core.<$> (x Core..@? "byoipCidr")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "byoipCidr")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AdvertiseByoipCidr
+instance Prelude.Hashable AdvertiseByoipCidr
 
-instance Core.NFData AdvertiseByoipCidr
+instance Prelude.NFData AdvertiseByoipCidr
 
 instance Core.ToHeaders AdvertiseByoipCidr where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AdvertiseByoipCidr where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AdvertiseByoipCidr where
   toQuery AdvertiseByoipCidr' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("AdvertiseByoipCidr" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("AdvertiseByoipCidr" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "Cidr" Core.=: cidr
       ]
@@ -150,11 +152,11 @@ instance Core.ToQuery AdvertiseByoipCidr where
 -- | /See:/ 'newAdvertiseByoipCidrResponse' smart constructor.
 data AdvertiseByoipCidrResponse = AdvertiseByoipCidrResponse'
   { -- | Information about the address range.
-    byoipCidr :: Core.Maybe ByoipCidr,
+    byoipCidr :: Prelude.Maybe ByoipCidr,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdvertiseByoipCidrResponse' with all optional fields omitted.
@@ -169,21 +171,21 @@ data AdvertiseByoipCidrResponse = AdvertiseByoipCidrResponse'
 -- 'httpStatus', 'advertiseByoipCidrResponse_httpStatus' - The response's http status code.
 newAdvertiseByoipCidrResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AdvertiseByoipCidrResponse
 newAdvertiseByoipCidrResponse pHttpStatus_ =
   AdvertiseByoipCidrResponse'
     { byoipCidr =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the address range.
-advertiseByoipCidrResponse_byoipCidr :: Lens.Lens' AdvertiseByoipCidrResponse (Core.Maybe ByoipCidr)
+advertiseByoipCidrResponse_byoipCidr :: Lens.Lens' AdvertiseByoipCidrResponse (Prelude.Maybe ByoipCidr)
 advertiseByoipCidrResponse_byoipCidr = Lens.lens (\AdvertiseByoipCidrResponse' {byoipCidr} -> byoipCidr) (\s@AdvertiseByoipCidrResponse' {} a -> s {byoipCidr = a} :: AdvertiseByoipCidrResponse)
 
 -- | The response's http status code.
-advertiseByoipCidrResponse_httpStatus :: Lens.Lens' AdvertiseByoipCidrResponse Core.Int
+advertiseByoipCidrResponse_httpStatus :: Lens.Lens' AdvertiseByoipCidrResponse Prelude.Int
 advertiseByoipCidrResponse_httpStatus = Lens.lens (\AdvertiseByoipCidrResponse' {httpStatus} -> httpStatus) (\s@AdvertiseByoipCidrResponse' {} a -> s {httpStatus = a} :: AdvertiseByoipCidrResponse)
 
-instance Core.NFData AdvertiseByoipCidrResponse
+instance Prelude.NFData AdvertiseByoipCidrResponse

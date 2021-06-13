@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,12 +52,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAcceptCertificateTransfer' smart constructor.
 data AcceptCertificateTransfer = AcceptCertificateTransfer'
   { -- | Specifies whether the certificate is active.
-    setAsActive :: Core.Maybe Core.Bool,
+    setAsActive :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the certificate. (The last part of the certificate ARN
     -- contains the certificate ID.)
-    certificateId :: Core.Text
+    certificateId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AcceptCertificateTransfer' with all optional fields omitted.
@@ -72,22 +73,22 @@ data AcceptCertificateTransfer = AcceptCertificateTransfer'
 -- contains the certificate ID.)
 newAcceptCertificateTransfer ::
   -- | 'certificateId'
-  Core.Text ->
+  Prelude.Text ->
   AcceptCertificateTransfer
 newAcceptCertificateTransfer pCertificateId_ =
   AcceptCertificateTransfer'
     { setAsActive =
-        Core.Nothing,
+        Prelude.Nothing,
       certificateId = pCertificateId_
     }
 
 -- | Specifies whether the certificate is active.
-acceptCertificateTransfer_setAsActive :: Lens.Lens' AcceptCertificateTransfer (Core.Maybe Core.Bool)
+acceptCertificateTransfer_setAsActive :: Lens.Lens' AcceptCertificateTransfer (Prelude.Maybe Prelude.Bool)
 acceptCertificateTransfer_setAsActive = Lens.lens (\AcceptCertificateTransfer' {setAsActive} -> setAsActive) (\s@AcceptCertificateTransfer' {} a -> s {setAsActive = a} :: AcceptCertificateTransfer)
 
 -- | The ID of the certificate. (The last part of the certificate ARN
 -- contains the certificate ID.)
-acceptCertificateTransfer_certificateId :: Lens.Lens' AcceptCertificateTransfer Core.Text
+acceptCertificateTransfer_certificateId :: Lens.Lens' AcceptCertificateTransfer Prelude.Text
 acceptCertificateTransfer_certificateId = Lens.lens (\AcceptCertificateTransfer' {certificateId} -> certificateId) (\s@AcceptCertificateTransfer' {} a -> s {certificateId = a} :: AcceptCertificateTransfer)
 
 instance Core.AWSRequest AcceptCertificateTransfer where
@@ -99,32 +100,32 @@ instance Core.AWSRequest AcceptCertificateTransfer where
     Response.receiveNull
       AcceptCertificateTransferResponse'
 
-instance Core.Hashable AcceptCertificateTransfer
+instance Prelude.Hashable AcceptCertificateTransfer
 
-instance Core.NFData AcceptCertificateTransfer
+instance Prelude.NFData AcceptCertificateTransfer
 
 instance Core.ToHeaders AcceptCertificateTransfer where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON AcceptCertificateTransfer where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath AcceptCertificateTransfer where
   toPath AcceptCertificateTransfer' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/accept-certificate-transfer/",
         Core.toBS certificateId
       ]
 
 instance Core.ToQuery AcceptCertificateTransfer where
   toQuery AcceptCertificateTransfer' {..} =
-    Core.mconcat ["setAsActive" Core.=: setAsActive]
+    Prelude.mconcat ["setAsActive" Core.=: setAsActive]
 
 -- | /See:/ 'newAcceptCertificateTransferResponse' smart constructor.
 data AcceptCertificateTransferResponse = AcceptCertificateTransferResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AcceptCertificateTransferResponse' with all optional fields omitted.
@@ -136,5 +137,5 @@ newAcceptCertificateTransferResponse =
   AcceptCertificateTransferResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     AcceptCertificateTransferResponse

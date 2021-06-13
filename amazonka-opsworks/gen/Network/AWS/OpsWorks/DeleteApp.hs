@@ -44,15 +44,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteApp' smart constructor.
 data DeleteApp = DeleteApp'
   { -- | The app ID.
-    appId :: Core.Text
+    appId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteApp' with all optional fields omitted.
@@ -65,12 +66,12 @@ data DeleteApp = DeleteApp'
 -- 'appId', 'deleteApp_appId' - The app ID.
 newDeleteApp ::
   -- | 'appId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteApp
 newDeleteApp pAppId_ = DeleteApp' {appId = pAppId_}
 
 -- | The app ID.
-deleteApp_appId :: Lens.Lens' DeleteApp Core.Text
+deleteApp_appId :: Lens.Lens' DeleteApp Prelude.Text
 deleteApp_appId = Lens.lens (\DeleteApp' {appId} -> appId) (\s@DeleteApp' {} a -> s {appId = a} :: DeleteApp)
 
 instance Core.AWSRequest DeleteApp where
@@ -78,37 +79,43 @@ instance Core.AWSRequest DeleteApp where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteAppResponse'
 
-instance Core.Hashable DeleteApp
+instance Prelude.Hashable DeleteApp
 
-instance Core.NFData DeleteApp
+instance Prelude.NFData DeleteApp
 
 instance Core.ToHeaders DeleteApp where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("OpsWorks_20130218.DeleteApp" :: Core.ByteString),
+              Core.=# ( "OpsWorks_20130218.DeleteApp" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteApp where
   toJSON DeleteApp' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("AppId" Core..= appId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("AppId" Core..= appId)]
+      )
 
 instance Core.ToPath DeleteApp where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteApp where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAppResponse' smart constructor.
 data DeleteAppResponse = DeleteAppResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAppResponse' with all optional fields omitted.
@@ -118,4 +125,4 @@ newDeleteAppResponse ::
   DeleteAppResponse
 newDeleteAppResponse = DeleteAppResponse'
 
-instance Core.NFData DeleteAppResponse
+instance Prelude.NFData DeleteAppResponse

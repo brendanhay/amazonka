@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.CelebrityRecognition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.CelebrityDetail
 
 -- | Information about a detected celebrity and the time the celebrity was
@@ -31,11 +32,11 @@ import Network.AWS.Rekognition.Types.CelebrityDetail
 data CelebrityRecognition = CelebrityRecognition'
   { -- | The time, in milliseconds from the start of the video, that the
     -- celebrity was recognized.
-    timestamp :: Core.Maybe Core.Integer,
+    timestamp :: Prelude.Maybe Prelude.Integer,
     -- | Information about a recognized celebrity.
-    celebrity :: Core.Maybe CelebrityDetail
+    celebrity :: Prelude.Maybe CelebrityDetail
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CelebrityRecognition' with all optional fields omitted.
@@ -53,17 +54,17 @@ newCelebrityRecognition ::
   CelebrityRecognition
 newCelebrityRecognition =
   CelebrityRecognition'
-    { timestamp = Core.Nothing,
-      celebrity = Core.Nothing
+    { timestamp = Prelude.Nothing,
+      celebrity = Prelude.Nothing
     }
 
 -- | The time, in milliseconds from the start of the video, that the
 -- celebrity was recognized.
-celebrityRecognition_timestamp :: Lens.Lens' CelebrityRecognition (Core.Maybe Core.Integer)
+celebrityRecognition_timestamp :: Lens.Lens' CelebrityRecognition (Prelude.Maybe Prelude.Integer)
 celebrityRecognition_timestamp = Lens.lens (\CelebrityRecognition' {timestamp} -> timestamp) (\s@CelebrityRecognition' {} a -> s {timestamp = a} :: CelebrityRecognition)
 
 -- | Information about a recognized celebrity.
-celebrityRecognition_celebrity :: Lens.Lens' CelebrityRecognition (Core.Maybe CelebrityDetail)
+celebrityRecognition_celebrity :: Lens.Lens' CelebrityRecognition (Prelude.Maybe CelebrityDetail)
 celebrityRecognition_celebrity = Lens.lens (\CelebrityRecognition' {celebrity} -> celebrity) (\s@CelebrityRecognition' {} a -> s {celebrity = a} :: CelebrityRecognition)
 
 instance Core.FromJSON CelebrityRecognition where
@@ -72,10 +73,10 @@ instance Core.FromJSON CelebrityRecognition where
       "CelebrityRecognition"
       ( \x ->
           CelebrityRecognition'
-            Core.<$> (x Core..:? "Timestamp")
-            Core.<*> (x Core..:? "Celebrity")
+            Prelude.<$> (x Core..:? "Timestamp")
+            Prelude.<*> (x Core..:? "Celebrity")
       )
 
-instance Core.Hashable CelebrityRecognition
+instance Prelude.Hashable CelebrityRecognition
 
-instance Core.NFData CelebrityRecognition
+instance Prelude.NFData CelebrityRecognition

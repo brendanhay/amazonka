@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,9 +67,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeApplication' smart constructor.
 data DescribeApplication = DescribeApplication'
   { -- | Name of the application.
-    applicationName :: Core.Text
+    applicationName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeApplication' with all optional fields omitted.
@@ -81,7 +82,7 @@ data DescribeApplication = DescribeApplication'
 -- 'applicationName', 'describeApplication_applicationName' - Name of the application.
 newDescribeApplication ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeApplication
 newDescribeApplication pApplicationName_ =
   DescribeApplication'
@@ -90,7 +91,7 @@ newDescribeApplication pApplicationName_ =
     }
 
 -- | Name of the application.
-describeApplication_applicationName :: Lens.Lens' DescribeApplication Core.Text
+describeApplication_applicationName :: Lens.Lens' DescribeApplication Prelude.Text
 describeApplication_applicationName = Lens.lens (\DescribeApplication' {applicationName} -> applicationName) (\s@DescribeApplication' {} a -> s {applicationName = a} :: DescribeApplication)
 
 instance Core.AWSRequest DescribeApplication where
@@ -102,54 +103,56 @@ instance Core.AWSRequest DescribeApplication where
     Response.receiveJSON
       ( \s h x ->
           DescribeApplicationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "ApplicationDetail")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "ApplicationDetail")
       )
 
-instance Core.Hashable DescribeApplication
+instance Prelude.Hashable DescribeApplication
 
-instance Core.NFData DescribeApplication
+instance Prelude.NFData DescribeApplication
 
 instance Core.ToHeaders DescribeApplication where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "KinesisAnalytics_20150814.DescribeApplication" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeApplication where
   toJSON DescribeApplication' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ApplicationName" Core..= applicationName)
           ]
       )
 
 instance Core.ToPath DescribeApplication where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeApplication where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
 -- /See:/ 'newDescribeApplicationResponse' smart constructor.
 data DescribeApplicationResponse = DescribeApplicationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Provides a description of the application, such as the application
     -- Amazon Resource Name (ARN), status, latest version, and input and output
     -- configuration details.
     applicationDetail :: ApplicationDetail
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeApplicationResponse' with all optional fields omitted.
@@ -166,7 +169,7 @@ data DescribeApplicationResponse = DescribeApplicationResponse'
 -- configuration details.
 newDescribeApplicationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'applicationDetail'
   ApplicationDetail ->
   DescribeApplicationResponse
@@ -180,7 +183,7 @@ newDescribeApplicationResponse
       }
 
 -- | The response's http status code.
-describeApplicationResponse_httpStatus :: Lens.Lens' DescribeApplicationResponse Core.Int
+describeApplicationResponse_httpStatus :: Lens.Lens' DescribeApplicationResponse Prelude.Int
 describeApplicationResponse_httpStatus = Lens.lens (\DescribeApplicationResponse' {httpStatus} -> httpStatus) (\s@DescribeApplicationResponse' {} a -> s {httpStatus = a} :: DescribeApplicationResponse)
 
 -- | Provides a description of the application, such as the application
@@ -189,4 +192,4 @@ describeApplicationResponse_httpStatus = Lens.lens (\DescribeApplicationResponse
 describeApplicationResponse_applicationDetail :: Lens.Lens' DescribeApplicationResponse ApplicationDetail
 describeApplicationResponse_applicationDetail = Lens.lens (\DescribeApplicationResponse' {applicationDetail} -> applicationDetail) (\s@DescribeApplicationResponse' {} a -> s {applicationDetail = a} :: DescribeApplicationResponse)
 
-instance Core.NFData DescribeApplicationResponse
+instance Prelude.NFData DescribeApplicationResponse

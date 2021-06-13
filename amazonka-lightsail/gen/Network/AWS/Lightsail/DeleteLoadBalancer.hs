@@ -50,15 +50,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteLoadBalancer' smart constructor.
 data DeleteLoadBalancer = DeleteLoadBalancer'
   { -- | The name of the load balancer you want to delete.
-    loadBalancerName :: Core.Text
+    loadBalancerName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLoadBalancer' with all optional fields omitted.
@@ -71,7 +72,7 @@ data DeleteLoadBalancer = DeleteLoadBalancer'
 -- 'loadBalancerName', 'deleteLoadBalancer_loadBalancerName' - The name of the load balancer you want to delete.
 newDeleteLoadBalancer ::
   -- | 'loadBalancerName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteLoadBalancer
 newDeleteLoadBalancer pLoadBalancerName_ =
   DeleteLoadBalancer'
@@ -80,7 +81,7 @@ newDeleteLoadBalancer pLoadBalancerName_ =
     }
 
 -- | The name of the load balancer you want to delete.
-deleteLoadBalancer_loadBalancerName :: Lens.Lens' DeleteLoadBalancer Core.Text
+deleteLoadBalancer_loadBalancerName :: Lens.Lens' DeleteLoadBalancer Prelude.Text
 deleteLoadBalancer_loadBalancerName = Lens.lens (\DeleteLoadBalancer' {loadBalancerName} -> loadBalancerName) (\s@DeleteLoadBalancer' {} a -> s {loadBalancerName = a} :: DeleteLoadBalancer)
 
 instance Core.AWSRequest DeleteLoadBalancer where
@@ -92,52 +93,54 @@ instance Core.AWSRequest DeleteLoadBalancer where
     Response.receiveJSON
       ( \s h x ->
           DeleteLoadBalancerResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteLoadBalancer
+instance Prelude.Hashable DeleteLoadBalancer
 
-instance Core.NFData DeleteLoadBalancer
+instance Prelude.NFData DeleteLoadBalancer
 
 instance Core.ToHeaders DeleteLoadBalancer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.DeleteLoadBalancer" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteLoadBalancer where
   toJSON DeleteLoadBalancer' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("loadBalancerName" Core..= loadBalancerName)
           ]
       )
 
 instance Core.ToPath DeleteLoadBalancer where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteLoadBalancer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLoadBalancerResponse' smart constructor.
 data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLoadBalancerResponse' with all optional fields omitted.
@@ -154,23 +157,23 @@ data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
 -- 'httpStatus', 'deleteLoadBalancerResponse_httpStatus' - The response's http status code.
 newDeleteLoadBalancerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteLoadBalancerResponse
 newDeleteLoadBalancerResponse pHttpStatus_ =
   DeleteLoadBalancerResponse'
     { operations =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-deleteLoadBalancerResponse_operations :: Lens.Lens' DeleteLoadBalancerResponse (Core.Maybe [Operation])
-deleteLoadBalancerResponse_operations = Lens.lens (\DeleteLoadBalancerResponse' {operations} -> operations) (\s@DeleteLoadBalancerResponse' {} a -> s {operations = a} :: DeleteLoadBalancerResponse) Core.. Lens.mapping Lens._Coerce
+deleteLoadBalancerResponse_operations :: Lens.Lens' DeleteLoadBalancerResponse (Prelude.Maybe [Operation])
+deleteLoadBalancerResponse_operations = Lens.lens (\DeleteLoadBalancerResponse' {operations} -> operations) (\s@DeleteLoadBalancerResponse' {} a -> s {operations = a} :: DeleteLoadBalancerResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteLoadBalancerResponse_httpStatus :: Lens.Lens' DeleteLoadBalancerResponse Core.Int
+deleteLoadBalancerResponse_httpStatus :: Lens.Lens' DeleteLoadBalancerResponse Prelude.Int
 deleteLoadBalancerResponse_httpStatus = Lens.lens (\DeleteLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@DeleteLoadBalancerResponse' {} a -> s {httpStatus = a} :: DeleteLoadBalancerResponse)
 
-instance Core.NFData DeleteLoadBalancerResponse
+instance Prelude.NFData DeleteLoadBalancerResponse

@@ -22,6 +22,7 @@ module Network.AWS.EKS.Types.ErrorDetail where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.EKSErrorCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an error when an asynchronous operation fails.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data ErrorDetail = ErrorDetail'
   { -- | An optional field that contains the resource IDs associated with the
     -- error.
-    resourceIds :: Core.Maybe [Core.Text],
+    resourceIds :: Prelude.Maybe [Prelude.Text],
     -- | A more complete description of the error.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | A brief description of the error.
     --
     -- -   __SubnetNotFound__: We couldn\'t find one of the subnets associated
@@ -55,9 +56,9 @@ data ErrorDetail = ErrorDetail'
     --
     -- -   __VpcIdNotFound__: We couldn\'t find the VPC associated with the
     --     cluster.
-    errorCode :: Core.Maybe EKSErrorCode
+    errorCode :: Prelude.Maybe EKSErrorCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ErrorDetail' with all optional fields omitted.
@@ -99,18 +100,18 @@ newErrorDetail ::
   ErrorDetail
 newErrorDetail =
   ErrorDetail'
-    { resourceIds = Core.Nothing,
-      errorMessage = Core.Nothing,
-      errorCode = Core.Nothing
+    { resourceIds = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
 
 -- | An optional field that contains the resource IDs associated with the
 -- error.
-errorDetail_resourceIds :: Lens.Lens' ErrorDetail (Core.Maybe [Core.Text])
-errorDetail_resourceIds = Lens.lens (\ErrorDetail' {resourceIds} -> resourceIds) (\s@ErrorDetail' {} a -> s {resourceIds = a} :: ErrorDetail) Core.. Lens.mapping Lens._Coerce
+errorDetail_resourceIds :: Lens.Lens' ErrorDetail (Prelude.Maybe [Prelude.Text])
+errorDetail_resourceIds = Lens.lens (\ErrorDetail' {resourceIds} -> resourceIds) (\s@ErrorDetail' {} a -> s {resourceIds = a} :: ErrorDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A more complete description of the error.
-errorDetail_errorMessage :: Lens.Lens' ErrorDetail (Core.Maybe Core.Text)
+errorDetail_errorMessage :: Lens.Lens' ErrorDetail (Prelude.Maybe Prelude.Text)
 errorDetail_errorMessage = Lens.lens (\ErrorDetail' {errorMessage} -> errorMessage) (\s@ErrorDetail' {} a -> s {errorMessage = a} :: ErrorDetail)
 
 -- | A brief description of the error.
@@ -136,7 +137,7 @@ errorDetail_errorMessage = Lens.lens (\ErrorDetail' {errorMessage} -> errorMessa
 --
 -- -   __VpcIdNotFound__: We couldn\'t find the VPC associated with the
 --     cluster.
-errorDetail_errorCode :: Lens.Lens' ErrorDetail (Core.Maybe EKSErrorCode)
+errorDetail_errorCode :: Lens.Lens' ErrorDetail (Prelude.Maybe EKSErrorCode)
 errorDetail_errorCode = Lens.lens (\ErrorDetail' {errorCode} -> errorCode) (\s@ErrorDetail' {} a -> s {errorCode = a} :: ErrorDetail)
 
 instance Core.FromJSON ErrorDetail where
@@ -145,11 +146,11 @@ instance Core.FromJSON ErrorDetail where
       "ErrorDetail"
       ( \x ->
           ErrorDetail'
-            Core.<$> (x Core..:? "resourceIds" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "errorMessage")
-            Core.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Core..:? "resourceIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "errorMessage")
+            Prelude.<*> (x Core..:? "errorCode")
       )
 
-instance Core.Hashable ErrorDetail
+instance Prelude.Hashable ErrorDetail
 
-instance Core.NFData ErrorDetail
+instance Prelude.NFData ErrorDetail

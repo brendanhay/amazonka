@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,13 +54,13 @@ data DeleteApplicationVersion = DeleteApplicationVersion'
   { -- | Set to @true@ to delete the source bundle from your storage bucket.
     -- Otherwise, the application version is deleted only from Elastic
     -- Beanstalk and the source bundle remains in Amazon S3.
-    deleteSourceBundle :: Core.Maybe Core.Bool,
+    deleteSourceBundle :: Prelude.Maybe Prelude.Bool,
     -- | The name of the application to which the version belongs.
-    applicationName :: Core.Text,
+    applicationName :: Prelude.Text,
     -- | The label of the version to delete.
-    versionLabel :: Core.Text
+    versionLabel :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteApplicationVersion' with all optional fields omitted.
@@ -78,16 +79,16 @@ data DeleteApplicationVersion = DeleteApplicationVersion'
 -- 'versionLabel', 'deleteApplicationVersion_versionLabel' - The label of the version to delete.
 newDeleteApplicationVersion ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'versionLabel'
-  Core.Text ->
+  Prelude.Text ->
   DeleteApplicationVersion
 newDeleteApplicationVersion
   pApplicationName_
   pVersionLabel_ =
     DeleteApplicationVersion'
       { deleteSourceBundle =
-          Core.Nothing,
+          Prelude.Nothing,
         applicationName = pApplicationName_,
         versionLabel = pVersionLabel_
       }
@@ -95,15 +96,15 @@ newDeleteApplicationVersion
 -- | Set to @true@ to delete the source bundle from your storage bucket.
 -- Otherwise, the application version is deleted only from Elastic
 -- Beanstalk and the source bundle remains in Amazon S3.
-deleteApplicationVersion_deleteSourceBundle :: Lens.Lens' DeleteApplicationVersion (Core.Maybe Core.Bool)
+deleteApplicationVersion_deleteSourceBundle :: Lens.Lens' DeleteApplicationVersion (Prelude.Maybe Prelude.Bool)
 deleteApplicationVersion_deleteSourceBundle = Lens.lens (\DeleteApplicationVersion' {deleteSourceBundle} -> deleteSourceBundle) (\s@DeleteApplicationVersion' {} a -> s {deleteSourceBundle = a} :: DeleteApplicationVersion)
 
 -- | The name of the application to which the version belongs.
-deleteApplicationVersion_applicationName :: Lens.Lens' DeleteApplicationVersion Core.Text
+deleteApplicationVersion_applicationName :: Lens.Lens' DeleteApplicationVersion Prelude.Text
 deleteApplicationVersion_applicationName = Lens.lens (\DeleteApplicationVersion' {applicationName} -> applicationName) (\s@DeleteApplicationVersion' {} a -> s {applicationName = a} :: DeleteApplicationVersion)
 
 -- | The label of the version to delete.
-deleteApplicationVersion_versionLabel :: Lens.Lens' DeleteApplicationVersion Core.Text
+deleteApplicationVersion_versionLabel :: Lens.Lens' DeleteApplicationVersion Prelude.Text
 deleteApplicationVersion_versionLabel = Lens.lens (\DeleteApplicationVersion' {versionLabel} -> versionLabel) (\s@DeleteApplicationVersion' {} a -> s {versionLabel = a} :: DeleteApplicationVersion)
 
 instance Core.AWSRequest DeleteApplicationVersion where
@@ -115,22 +116,23 @@ instance Core.AWSRequest DeleteApplicationVersion where
     Response.receiveNull
       DeleteApplicationVersionResponse'
 
-instance Core.Hashable DeleteApplicationVersion
+instance Prelude.Hashable DeleteApplicationVersion
 
-instance Core.NFData DeleteApplicationVersion
+instance Prelude.NFData DeleteApplicationVersion
 
 instance Core.ToHeaders DeleteApplicationVersion where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteApplicationVersion where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteApplicationVersion where
   toQuery DeleteApplicationVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteApplicationVersion" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("DeleteApplicationVersion" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "DeleteSourceBundle" Core.=: deleteSourceBundle,
         "ApplicationName" Core.=: applicationName,
         "VersionLabel" Core.=: versionLabel
@@ -140,7 +142,7 @@ instance Core.ToQuery DeleteApplicationVersion where
 data DeleteApplicationVersionResponse = DeleteApplicationVersionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteApplicationVersionResponse' with all optional fields omitted.
@@ -151,4 +153,6 @@ newDeleteApplicationVersionResponse ::
 newDeleteApplicationVersionResponse =
   DeleteApplicationVersionResponse'
 
-instance Core.NFData DeleteApplicationVersionResponse
+instance
+  Prelude.NFData
+    DeleteApplicationVersionResponse

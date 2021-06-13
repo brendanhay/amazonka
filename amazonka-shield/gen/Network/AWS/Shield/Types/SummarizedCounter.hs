@@ -21,25 +21,26 @@ module Network.AWS.Shield.Types.SummarizedCounter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The counter that describes a DDoS attack.
 --
 -- /See:/ 'newSummarizedCounter' smart constructor.
 data SummarizedCounter = SummarizedCounter'
   { -- | The unit of the counters.
-    unit :: Core.Maybe Core.Text,
+    unit :: Prelude.Maybe Prelude.Text,
     -- | The number of counters for a specified time period.
-    n :: Core.Maybe Core.Int,
+    n :: Prelude.Maybe Prelude.Int,
     -- | The total of counter values for a specified time period.
-    sum :: Core.Maybe Core.Double,
+    sum :: Prelude.Maybe Prelude.Double,
     -- | The counter name.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The maximum value of the counter for a specified time period.
-    max :: Core.Maybe Core.Double,
+    max :: Prelude.Maybe Prelude.Double,
     -- | The average value of the counter for a specified time period.
-    average :: Core.Maybe Core.Double
+    average :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SummarizedCounter' with all optional fields omitted.
@@ -64,36 +65,36 @@ newSummarizedCounter ::
   SummarizedCounter
 newSummarizedCounter =
   SummarizedCounter'
-    { unit = Core.Nothing,
-      n = Core.Nothing,
-      sum = Core.Nothing,
-      name = Core.Nothing,
-      max = Core.Nothing,
-      average = Core.Nothing
+    { unit = Prelude.Nothing,
+      n = Prelude.Nothing,
+      sum = Prelude.Nothing,
+      name = Prelude.Nothing,
+      max = Prelude.Nothing,
+      average = Prelude.Nothing
     }
 
 -- | The unit of the counters.
-summarizedCounter_unit :: Lens.Lens' SummarizedCounter (Core.Maybe Core.Text)
+summarizedCounter_unit :: Lens.Lens' SummarizedCounter (Prelude.Maybe Prelude.Text)
 summarizedCounter_unit = Lens.lens (\SummarizedCounter' {unit} -> unit) (\s@SummarizedCounter' {} a -> s {unit = a} :: SummarizedCounter)
 
 -- | The number of counters for a specified time period.
-summarizedCounter_n :: Lens.Lens' SummarizedCounter (Core.Maybe Core.Int)
+summarizedCounter_n :: Lens.Lens' SummarizedCounter (Prelude.Maybe Prelude.Int)
 summarizedCounter_n = Lens.lens (\SummarizedCounter' {n} -> n) (\s@SummarizedCounter' {} a -> s {n = a} :: SummarizedCounter)
 
 -- | The total of counter values for a specified time period.
-summarizedCounter_sum :: Lens.Lens' SummarizedCounter (Core.Maybe Core.Double)
+summarizedCounter_sum :: Lens.Lens' SummarizedCounter (Prelude.Maybe Prelude.Double)
 summarizedCounter_sum = Lens.lens (\SummarizedCounter' {sum} -> sum) (\s@SummarizedCounter' {} a -> s {sum = a} :: SummarizedCounter)
 
 -- | The counter name.
-summarizedCounter_name :: Lens.Lens' SummarizedCounter (Core.Maybe Core.Text)
+summarizedCounter_name :: Lens.Lens' SummarizedCounter (Prelude.Maybe Prelude.Text)
 summarizedCounter_name = Lens.lens (\SummarizedCounter' {name} -> name) (\s@SummarizedCounter' {} a -> s {name = a} :: SummarizedCounter)
 
 -- | The maximum value of the counter for a specified time period.
-summarizedCounter_max :: Lens.Lens' SummarizedCounter (Core.Maybe Core.Double)
+summarizedCounter_max :: Lens.Lens' SummarizedCounter (Prelude.Maybe Prelude.Double)
 summarizedCounter_max = Lens.lens (\SummarizedCounter' {max} -> max) (\s@SummarizedCounter' {} a -> s {max = a} :: SummarizedCounter)
 
 -- | The average value of the counter for a specified time period.
-summarizedCounter_average :: Lens.Lens' SummarizedCounter (Core.Maybe Core.Double)
+summarizedCounter_average :: Lens.Lens' SummarizedCounter (Prelude.Maybe Prelude.Double)
 summarizedCounter_average = Lens.lens (\SummarizedCounter' {average} -> average) (\s@SummarizedCounter' {} a -> s {average = a} :: SummarizedCounter)
 
 instance Core.FromJSON SummarizedCounter where
@@ -102,14 +103,14 @@ instance Core.FromJSON SummarizedCounter where
       "SummarizedCounter"
       ( \x ->
           SummarizedCounter'
-            Core.<$> (x Core..:? "Unit")
-            Core.<*> (x Core..:? "N")
-            Core.<*> (x Core..:? "Sum")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "Max")
-            Core.<*> (x Core..:? "Average")
+            Prelude.<$> (x Core..:? "Unit")
+            Prelude.<*> (x Core..:? "N")
+            Prelude.<*> (x Core..:? "Sum")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Max")
+            Prelude.<*> (x Core..:? "Average")
       )
 
-instance Core.Hashable SummarizedCounter
+instance Prelude.Hashable SummarizedCounter
 
-instance Core.NFData SummarizedCounter
+instance Prelude.NFData SummarizedCounter

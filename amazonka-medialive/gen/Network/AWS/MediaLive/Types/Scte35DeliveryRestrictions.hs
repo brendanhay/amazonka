@@ -25,6 +25,7 @@ import Network.AWS.MediaLive.Types.Scte35ArchiveAllowedFlag
 import Network.AWS.MediaLive.Types.Scte35DeviceRestrictions
 import Network.AWS.MediaLive.Types.Scte35NoRegionalBlackoutFlag
 import Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Corresponds to SCTE-35 delivery_not_restricted_flag parameter. To
 -- declare delivery restrictions, include this element and its four
@@ -42,7 +43,7 @@ data Scte35DeliveryRestrictions = Scte35DeliveryRestrictions'
     -- | Corresponds to SCTE-35 no_regional_blackout_flag parameter.
     noRegionalBlackoutFlag :: Scte35NoRegionalBlackoutFlag
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Scte35DeliveryRestrictions' with all optional fields omitted.
@@ -106,29 +107,29 @@ instance Core.FromJSON Scte35DeliveryRestrictions where
       "Scte35DeliveryRestrictions"
       ( \x ->
           Scte35DeliveryRestrictions'
-            Core.<$> (x Core..: "deviceRestrictions")
-            Core.<*> (x Core..: "archiveAllowedFlag")
-            Core.<*> (x Core..: "webDeliveryAllowedFlag")
-            Core.<*> (x Core..: "noRegionalBlackoutFlag")
+            Prelude.<$> (x Core..: "deviceRestrictions")
+            Prelude.<*> (x Core..: "archiveAllowedFlag")
+            Prelude.<*> (x Core..: "webDeliveryAllowedFlag")
+            Prelude.<*> (x Core..: "noRegionalBlackoutFlag")
       )
 
-instance Core.Hashable Scte35DeliveryRestrictions
+instance Prelude.Hashable Scte35DeliveryRestrictions
 
-instance Core.NFData Scte35DeliveryRestrictions
+instance Prelude.NFData Scte35DeliveryRestrictions
 
 instance Core.ToJSON Scte35DeliveryRestrictions where
   toJSON Scte35DeliveryRestrictions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("deviceRestrictions" Core..= deviceRestrictions),
-            Core.Just
+            Prelude.Just
               ("archiveAllowedFlag" Core..= archiveAllowedFlag),
-            Core.Just
+            Prelude.Just
               ( "webDeliveryAllowedFlag"
                   Core..= webDeliveryAllowedFlag
               ),
-            Core.Just
+            Prelude.Just
               ( "noRegionalBlackoutFlag"
                   Core..= noRegionalBlackoutFlag
               )

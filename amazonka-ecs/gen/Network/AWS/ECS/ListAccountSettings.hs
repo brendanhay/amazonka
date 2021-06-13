@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,7 +64,7 @@ data ListAccountSettings = ListAccountSettings'
     -- This token should be treated as an opaque identifier that is only used
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of account setting results returned by
     -- @ListAccountSettings@ in paginated output. When this parameter is used,
     -- @ListAccountSettings@ only returns @maxResults@ results in a single page
@@ -72,24 +73,24 @@ data ListAccountSettings = ListAccountSettings'
     -- request with the returned @nextToken@ value. This value can be between 1
     -- and 10. If this parameter is not used, then @ListAccountSettings@
     -- returns up to 10 results and a @nextToken@ value if applicable.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Specifies whether to return the effective settings. If @true@, the
     -- account settings for the root user or the default setting for the
     -- @principalArn@ are returned. If @false@, the account settings for the
     -- @principalArn@ are returned if they are set. Otherwise, no account
     -- settings are returned.
-    effectiveSettings :: Core.Maybe Core.Bool,
+    effectiveSettings :: Prelude.Maybe Prelude.Bool,
     -- | The name of the account setting you want to list the settings for.
-    name :: Core.Maybe SettingName,
+    name :: Prelude.Maybe SettingName,
     -- | The ARN of the principal, which can be an IAM user, IAM role, or the
     -- root user. If this field is omitted, the account settings are listed
     -- only for the authenticated user.
-    principalArn :: Core.Maybe Core.Text,
+    principalArn :: Prelude.Maybe Prelude.Text,
     -- | The value of the account settings with which to filter results. You must
     -- also specify an account setting name to use this parameter.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAccountSettings' with all optional fields omitted.
@@ -135,12 +136,12 @@ newListAccountSettings ::
   ListAccountSettings
 newListAccountSettings =
   ListAccountSettings'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      effectiveSettings = Core.Nothing,
-      name = Core.Nothing,
-      principalArn = Core.Nothing,
-      value = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      effectiveSettings = Prelude.Nothing,
+      name = Prelude.Nothing,
+      principalArn = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The @nextToken@ value returned from a @ListAccountSettings@ request
@@ -151,7 +152,7 @@ newListAccountSettings =
 -- This token should be treated as an opaque identifier that is only used
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-listAccountSettings_nextToken :: Lens.Lens' ListAccountSettings (Core.Maybe Core.Text)
+listAccountSettings_nextToken :: Lens.Lens' ListAccountSettings (Prelude.Maybe Prelude.Text)
 listAccountSettings_nextToken = Lens.lens (\ListAccountSettings' {nextToken} -> nextToken) (\s@ListAccountSettings' {} a -> s {nextToken = a} :: ListAccountSettings)
 
 -- | The maximum number of account setting results returned by
@@ -162,7 +163,7 @@ listAccountSettings_nextToken = Lens.lens (\ListAccountSettings' {nextToken} -> 
 -- request with the returned @nextToken@ value. This value can be between 1
 -- and 10. If this parameter is not used, then @ListAccountSettings@
 -- returns up to 10 results and a @nextToken@ value if applicable.
-listAccountSettings_maxResults :: Lens.Lens' ListAccountSettings (Core.Maybe Core.Int)
+listAccountSettings_maxResults :: Lens.Lens' ListAccountSettings (Prelude.Maybe Prelude.Int)
 listAccountSettings_maxResults = Lens.lens (\ListAccountSettings' {maxResults} -> maxResults) (\s@ListAccountSettings' {} a -> s {maxResults = a} :: ListAccountSettings)
 
 -- | Specifies whether to return the effective settings. If @true@, the
@@ -170,22 +171,22 @@ listAccountSettings_maxResults = Lens.lens (\ListAccountSettings' {maxResults} -
 -- @principalArn@ are returned. If @false@, the account settings for the
 -- @principalArn@ are returned if they are set. Otherwise, no account
 -- settings are returned.
-listAccountSettings_effectiveSettings :: Lens.Lens' ListAccountSettings (Core.Maybe Core.Bool)
+listAccountSettings_effectiveSettings :: Lens.Lens' ListAccountSettings (Prelude.Maybe Prelude.Bool)
 listAccountSettings_effectiveSettings = Lens.lens (\ListAccountSettings' {effectiveSettings} -> effectiveSettings) (\s@ListAccountSettings' {} a -> s {effectiveSettings = a} :: ListAccountSettings)
 
 -- | The name of the account setting you want to list the settings for.
-listAccountSettings_name :: Lens.Lens' ListAccountSettings (Core.Maybe SettingName)
+listAccountSettings_name :: Lens.Lens' ListAccountSettings (Prelude.Maybe SettingName)
 listAccountSettings_name = Lens.lens (\ListAccountSettings' {name} -> name) (\s@ListAccountSettings' {} a -> s {name = a} :: ListAccountSettings)
 
 -- | The ARN of the principal, which can be an IAM user, IAM role, or the
 -- root user. If this field is omitted, the account settings are listed
 -- only for the authenticated user.
-listAccountSettings_principalArn :: Lens.Lens' ListAccountSettings (Core.Maybe Core.Text)
+listAccountSettings_principalArn :: Lens.Lens' ListAccountSettings (Prelude.Maybe Prelude.Text)
 listAccountSettings_principalArn = Lens.lens (\ListAccountSettings' {principalArn} -> principalArn) (\s@ListAccountSettings' {} a -> s {principalArn = a} :: ListAccountSettings)
 
 -- | The value of the account settings with which to filter results. You must
 -- also specify an account setting name to use this parameter.
-listAccountSettings_value :: Lens.Lens' ListAccountSettings (Core.Maybe Core.Text)
+listAccountSettings_value :: Lens.Lens' ListAccountSettings (Prelude.Maybe Prelude.Text)
 listAccountSettings_value = Lens.lens (\ListAccountSettings' {value} -> value) (\s@ListAccountSettings' {} a -> s {value = a} :: ListAccountSettings)
 
 instance Core.AWSPager ListAccountSettings where
@@ -193,22 +194,22 @@ instance Core.AWSPager ListAccountSettings where
     | Core.stop
         ( rs
             Lens.^? listAccountSettingsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAccountSettingsResponse_settings
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listAccountSettings_nextToken
+          Prelude.& listAccountSettings_nextToken
           Lens..~ rs
           Lens.^? listAccountSettingsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccountSettings where
   type
@@ -219,47 +220,49 @@ instance Core.AWSRequest ListAccountSettings where
     Response.receiveJSON
       ( \s h x ->
           ListAccountSettingsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "settings" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "settings" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListAccountSettings
+instance Prelude.Hashable ListAccountSettings
 
-instance Core.NFData ListAccountSettings
+instance Prelude.NFData ListAccountSettings
 
 instance Core.ToHeaders ListAccountSettings where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerServiceV20141113.ListAccountSettings" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListAccountSettings where
   toJSON ListAccountSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResults" Core..=) Core.<$> maxResults,
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("effectiveSettings" Core..=)
-              Core.<$> effectiveSettings,
-            ("name" Core..=) Core.<$> name,
-            ("principalArn" Core..=) Core.<$> principalArn,
-            ("value" Core..=) Core.<$> value
+              Prelude.<$> effectiveSettings,
+            ("name" Core..=) Prelude.<$> name,
+            ("principalArn" Core..=) Prelude.<$> principalArn,
+            ("value" Core..=) Prelude.<$> value
           ]
       )
 
 instance Core.ToPath ListAccountSettings where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListAccountSettings where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAccountSettingsResponse' smart constructor.
 data ListAccountSettingsResponse = ListAccountSettingsResponse'
@@ -267,13 +270,13 @@ data ListAccountSettingsResponse = ListAccountSettingsResponse'
     -- request. When the results of a @ListAccountSettings@ request exceed
     -- @maxResults@, this value can be used to retrieve the next page of
     -- results. This value is @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The account settings for the resource.
-    settings :: Core.Maybe [Setting],
+    settings :: Prelude.Maybe [Setting],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAccountSettingsResponse' with all optional fields omitted.
@@ -293,13 +296,13 @@ data ListAccountSettingsResponse = ListAccountSettingsResponse'
 -- 'httpStatus', 'listAccountSettingsResponse_httpStatus' - The response's http status code.
 newListAccountSettingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListAccountSettingsResponse
 newListAccountSettingsResponse pHttpStatus_ =
   ListAccountSettingsResponse'
     { nextToken =
-        Core.Nothing,
-      settings = Core.Nothing,
+        Prelude.Nothing,
+      settings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -307,15 +310,15 @@ newListAccountSettingsResponse pHttpStatus_ =
 -- request. When the results of a @ListAccountSettings@ request exceed
 -- @maxResults@, this value can be used to retrieve the next page of
 -- results. This value is @null@ when there are no more results to return.
-listAccountSettingsResponse_nextToken :: Lens.Lens' ListAccountSettingsResponse (Core.Maybe Core.Text)
+listAccountSettingsResponse_nextToken :: Lens.Lens' ListAccountSettingsResponse (Prelude.Maybe Prelude.Text)
 listAccountSettingsResponse_nextToken = Lens.lens (\ListAccountSettingsResponse' {nextToken} -> nextToken) (\s@ListAccountSettingsResponse' {} a -> s {nextToken = a} :: ListAccountSettingsResponse)
 
 -- | The account settings for the resource.
-listAccountSettingsResponse_settings :: Lens.Lens' ListAccountSettingsResponse (Core.Maybe [Setting])
-listAccountSettingsResponse_settings = Lens.lens (\ListAccountSettingsResponse' {settings} -> settings) (\s@ListAccountSettingsResponse' {} a -> s {settings = a} :: ListAccountSettingsResponse) Core.. Lens.mapping Lens._Coerce
+listAccountSettingsResponse_settings :: Lens.Lens' ListAccountSettingsResponse (Prelude.Maybe [Setting])
+listAccountSettingsResponse_settings = Lens.lens (\ListAccountSettingsResponse' {settings} -> settings) (\s@ListAccountSettingsResponse' {} a -> s {settings = a} :: ListAccountSettingsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAccountSettingsResponse_httpStatus :: Lens.Lens' ListAccountSettingsResponse Core.Int
+listAccountSettingsResponse_httpStatus :: Lens.Lens' ListAccountSettingsResponse Prelude.Int
 listAccountSettingsResponse_httpStatus = Lens.lens (\ListAccountSettingsResponse' {httpStatus} -> httpStatus) (\s@ListAccountSettingsResponse' {} a -> s {httpStatus = a} :: ListAccountSettingsResponse)
 
-instance Core.NFData ListAccountSettingsResponse
+instance Prelude.NFData ListAccountSettingsResponse

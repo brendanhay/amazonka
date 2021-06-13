@@ -22,6 +22,7 @@ module Network.AWS.CodeDeploy.Types.AlarmConfiguration where
 import Network.AWS.CodeDeploy.Types.Alarm
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about alarms associated with the deployment group.
 --
@@ -36,14 +37,14 @@ data AlarmConfiguration = AlarmConfiguration'
     --
     -- -   @false@: The deployment stops if alarm status information can\'t be
     --     retrieved from Amazon CloudWatch.
-    ignorePollAlarmFailure :: Core.Maybe Core.Bool,
+    ignorePollAlarmFailure :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether the alarm configuration is enabled.
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | A list of alarms configured for the deployment group. A maximum of 10
     -- alarms can be added to a deployment group.
-    alarms :: Core.Maybe [Alarm]
+    alarms :: Prelude.Maybe [Alarm]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AlarmConfiguration' with all optional fields omitted.
@@ -72,9 +73,9 @@ newAlarmConfiguration ::
 newAlarmConfiguration =
   AlarmConfiguration'
     { ignorePollAlarmFailure =
-        Core.Nothing,
-      enabled = Core.Nothing,
-      alarms = Core.Nothing
+        Prelude.Nothing,
+      enabled = Prelude.Nothing,
+      alarms = Prelude.Nothing
     }
 
 -- | Indicates whether a deployment should continue if information about the
@@ -86,17 +87,17 @@ newAlarmConfiguration =
 --
 -- -   @false@: The deployment stops if alarm status information can\'t be
 --     retrieved from Amazon CloudWatch.
-alarmConfiguration_ignorePollAlarmFailure :: Lens.Lens' AlarmConfiguration (Core.Maybe Core.Bool)
+alarmConfiguration_ignorePollAlarmFailure :: Lens.Lens' AlarmConfiguration (Prelude.Maybe Prelude.Bool)
 alarmConfiguration_ignorePollAlarmFailure = Lens.lens (\AlarmConfiguration' {ignorePollAlarmFailure} -> ignorePollAlarmFailure) (\s@AlarmConfiguration' {} a -> s {ignorePollAlarmFailure = a} :: AlarmConfiguration)
 
 -- | Indicates whether the alarm configuration is enabled.
-alarmConfiguration_enabled :: Lens.Lens' AlarmConfiguration (Core.Maybe Core.Bool)
+alarmConfiguration_enabled :: Lens.Lens' AlarmConfiguration (Prelude.Maybe Prelude.Bool)
 alarmConfiguration_enabled = Lens.lens (\AlarmConfiguration' {enabled} -> enabled) (\s@AlarmConfiguration' {} a -> s {enabled = a} :: AlarmConfiguration)
 
 -- | A list of alarms configured for the deployment group. A maximum of 10
 -- alarms can be added to a deployment group.
-alarmConfiguration_alarms :: Lens.Lens' AlarmConfiguration (Core.Maybe [Alarm])
-alarmConfiguration_alarms = Lens.lens (\AlarmConfiguration' {alarms} -> alarms) (\s@AlarmConfiguration' {} a -> s {alarms = a} :: AlarmConfiguration) Core.. Lens.mapping Lens._Coerce
+alarmConfiguration_alarms :: Lens.Lens' AlarmConfiguration (Prelude.Maybe [Alarm])
+alarmConfiguration_alarms = Lens.lens (\AlarmConfiguration' {alarms} -> alarms) (\s@AlarmConfiguration' {} a -> s {alarms = a} :: AlarmConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON AlarmConfiguration where
   parseJSON =
@@ -104,22 +105,22 @@ instance Core.FromJSON AlarmConfiguration where
       "AlarmConfiguration"
       ( \x ->
           AlarmConfiguration'
-            Core.<$> (x Core..:? "ignorePollAlarmFailure")
-            Core.<*> (x Core..:? "enabled")
-            Core.<*> (x Core..:? "alarms" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "ignorePollAlarmFailure")
+            Prelude.<*> (x Core..:? "enabled")
+            Prelude.<*> (x Core..:? "alarms" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable AlarmConfiguration
+instance Prelude.Hashable AlarmConfiguration
 
-instance Core.NFData AlarmConfiguration
+instance Prelude.NFData AlarmConfiguration
 
 instance Core.ToJSON AlarmConfiguration where
   toJSON AlarmConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ignorePollAlarmFailure" Core..=)
-              Core.<$> ignorePollAlarmFailure,
-            ("enabled" Core..=) Core.<$> enabled,
-            ("alarms" Core..=) Core.<$> alarms
+              Prelude.<$> ignorePollAlarmFailure,
+            ("enabled" Core..=) Prelude.<$> enabled,
+            ("alarms" Core..=) Prelude.<$> alarms
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.Transcribe.Types.VocabularyFilterInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Transcribe.Types.LanguageCode
 
 -- | Provides information about a vocabulary filter.
@@ -28,14 +29,14 @@ import Network.AWS.Transcribe.Types.LanguageCode
 -- /See:/ 'newVocabularyFilterInfo' smart constructor.
 data VocabularyFilterInfo = VocabularyFilterInfo'
   { -- | The language code of the words in the vocabulary filter.
-    languageCode :: Core.Maybe LanguageCode,
+    languageCode :: Prelude.Maybe LanguageCode,
     -- | The name of the vocabulary filter. The name must be unique in the
     -- account that holds the filter.
-    vocabularyFilterName :: Core.Maybe Core.Text,
+    vocabularyFilterName :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the vocabulary was last updated.
-    lastModifiedTime :: Core.Maybe Core.POSIX
+    lastModifiedTime :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VocabularyFilterInfo' with all optional fields omitted.
@@ -55,23 +56,24 @@ newVocabularyFilterInfo ::
   VocabularyFilterInfo
 newVocabularyFilterInfo =
   VocabularyFilterInfo'
-    { languageCode = Core.Nothing,
-      vocabularyFilterName = Core.Nothing,
-      lastModifiedTime = Core.Nothing
+    { languageCode =
+        Prelude.Nothing,
+      vocabularyFilterName = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing
     }
 
 -- | The language code of the words in the vocabulary filter.
-vocabularyFilterInfo_languageCode :: Lens.Lens' VocabularyFilterInfo (Core.Maybe LanguageCode)
+vocabularyFilterInfo_languageCode :: Lens.Lens' VocabularyFilterInfo (Prelude.Maybe LanguageCode)
 vocabularyFilterInfo_languageCode = Lens.lens (\VocabularyFilterInfo' {languageCode} -> languageCode) (\s@VocabularyFilterInfo' {} a -> s {languageCode = a} :: VocabularyFilterInfo)
 
 -- | The name of the vocabulary filter. The name must be unique in the
 -- account that holds the filter.
-vocabularyFilterInfo_vocabularyFilterName :: Lens.Lens' VocabularyFilterInfo (Core.Maybe Core.Text)
+vocabularyFilterInfo_vocabularyFilterName :: Lens.Lens' VocabularyFilterInfo (Prelude.Maybe Prelude.Text)
 vocabularyFilterInfo_vocabularyFilterName = Lens.lens (\VocabularyFilterInfo' {vocabularyFilterName} -> vocabularyFilterName) (\s@VocabularyFilterInfo' {} a -> s {vocabularyFilterName = a} :: VocabularyFilterInfo)
 
 -- | The date and time that the vocabulary was last updated.
-vocabularyFilterInfo_lastModifiedTime :: Lens.Lens' VocabularyFilterInfo (Core.Maybe Core.UTCTime)
-vocabularyFilterInfo_lastModifiedTime = Lens.lens (\VocabularyFilterInfo' {lastModifiedTime} -> lastModifiedTime) (\s@VocabularyFilterInfo' {} a -> s {lastModifiedTime = a} :: VocabularyFilterInfo) Core.. Lens.mapping Core._Time
+vocabularyFilterInfo_lastModifiedTime :: Lens.Lens' VocabularyFilterInfo (Prelude.Maybe Prelude.UTCTime)
+vocabularyFilterInfo_lastModifiedTime = Lens.lens (\VocabularyFilterInfo' {lastModifiedTime} -> lastModifiedTime) (\s@VocabularyFilterInfo' {} a -> s {lastModifiedTime = a} :: VocabularyFilterInfo) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON VocabularyFilterInfo where
   parseJSON =
@@ -79,11 +81,11 @@ instance Core.FromJSON VocabularyFilterInfo where
       "VocabularyFilterInfo"
       ( \x ->
           VocabularyFilterInfo'
-            Core.<$> (x Core..:? "LanguageCode")
-            Core.<*> (x Core..:? "VocabularyFilterName")
-            Core.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<$> (x Core..:? "LanguageCode")
+            Prelude.<*> (x Core..:? "VocabularyFilterName")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
       )
 
-instance Core.Hashable VocabularyFilterInfo
+instance Prelude.Hashable VocabularyFilterInfo
 
-instance Core.NFData VocabularyFilterInfo
+instance Prelude.NFData VocabularyFilterInfo

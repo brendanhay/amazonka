@@ -22,6 +22,7 @@ module Network.AWS.ECS.Types.EnvironmentFile where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.EnvironmentFileType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of files containing the environment variables to pass to a
 -- container. You can specify up to ten environment files. The file must
@@ -47,11 +48,11 @@ import qualified Network.AWS.Lens as Lens
 data EnvironmentFile = EnvironmentFile'
   { -- | The Amazon Resource Name (ARN) of the Amazon S3 object containing the
     -- environment variable file.
-    value :: Core.Text,
+    value :: Prelude.Text,
     -- | The file type to use. The only supported value is @s3@.
     type' :: EnvironmentFileType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnvironmentFile' with all optional fields omitted.
@@ -67,7 +68,7 @@ data EnvironmentFile = EnvironmentFile'
 -- 'type'', 'environmentFile_type' - The file type to use. The only supported value is @s3@.
 newEnvironmentFile ::
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   EnvironmentFileType ->
   EnvironmentFile
@@ -76,7 +77,7 @@ newEnvironmentFile pValue_ pType_ =
 
 -- | The Amazon Resource Name (ARN) of the Amazon S3 object containing the
 -- environment variable file.
-environmentFile_value :: Lens.Lens' EnvironmentFile Core.Text
+environmentFile_value :: Lens.Lens' EnvironmentFile Prelude.Text
 environmentFile_value = Lens.lens (\EnvironmentFile' {value} -> value) (\s@EnvironmentFile' {} a -> s {value = a} :: EnvironmentFile)
 
 -- | The file type to use. The only supported value is @s3@.
@@ -89,18 +90,18 @@ instance Core.FromJSON EnvironmentFile where
       "EnvironmentFile"
       ( \x ->
           EnvironmentFile'
-            Core.<$> (x Core..: "value") Core.<*> (x Core..: "type")
+            Prelude.<$> (x Core..: "value") Prelude.<*> (x Core..: "type")
       )
 
-instance Core.Hashable EnvironmentFile
+instance Prelude.Hashable EnvironmentFile
 
-instance Core.NFData EnvironmentFile
+instance Prelude.NFData EnvironmentFile
 
 instance Core.ToJSON EnvironmentFile where
   toJSON EnvironmentFile' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("value" Core..= value),
-            Core.Just ("type" Core..= type')
+      ( Prelude.catMaybes
+          [ Prelude.Just ("value" Core..= value),
+            Prelude.Just ("type" Core..= type')
           ]
       )

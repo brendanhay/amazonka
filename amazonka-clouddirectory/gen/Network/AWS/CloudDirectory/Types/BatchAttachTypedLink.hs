@@ -24,6 +24,7 @@ import Network.AWS.CloudDirectory.Types.ObjectReference
 import Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Attaches a typed link to a specified source and target object inside a
 -- BatchRead operation. For more information, see AttachTypedLink and
@@ -40,7 +41,7 @@ data BatchAttachTypedLink = BatchAttachTypedLink'
     -- | A set of attributes that are associated with the typed link.
     attributes :: [AttributeNameAndValue]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchAttachTypedLink' with all optional fields omitted.
@@ -74,7 +75,7 @@ newBatchAttachTypedLink
           pSourceObjectReference_,
         targetObjectReference = pTargetObjectReference_,
         typedLinkFacet = pTypedLinkFacet_,
-        attributes = Core.mempty
+        attributes = Prelude.mempty
       }
 
 -- | Identifies the source object that the typed link will attach to.
@@ -91,25 +92,26 @@ batchAttachTypedLink_typedLinkFacet = Lens.lens (\BatchAttachTypedLink' {typedLi
 
 -- | A set of attributes that are associated with the typed link.
 batchAttachTypedLink_attributes :: Lens.Lens' BatchAttachTypedLink [AttributeNameAndValue]
-batchAttachTypedLink_attributes = Lens.lens (\BatchAttachTypedLink' {attributes} -> attributes) (\s@BatchAttachTypedLink' {} a -> s {attributes = a} :: BatchAttachTypedLink) Core.. Lens._Coerce
+batchAttachTypedLink_attributes = Lens.lens (\BatchAttachTypedLink' {attributes} -> attributes) (\s@BatchAttachTypedLink' {} a -> s {attributes = a} :: BatchAttachTypedLink) Prelude.. Lens._Coerce
 
-instance Core.Hashable BatchAttachTypedLink
+instance Prelude.Hashable BatchAttachTypedLink
 
-instance Core.NFData BatchAttachTypedLink
+instance Prelude.NFData BatchAttachTypedLink
 
 instance Core.ToJSON BatchAttachTypedLink where
   toJSON BatchAttachTypedLink' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "SourceObjectReference"
                   Core..= sourceObjectReference
               ),
-            Core.Just
+            Prelude.Just
               ( "TargetObjectReference"
                   Core..= targetObjectReference
               ),
-            Core.Just ("TypedLinkFacet" Core..= typedLinkFacet),
-            Core.Just ("Attributes" Core..= attributes)
+            Prelude.Just
+              ("TypedLinkFacet" Core..= typedLinkFacet),
+            Prelude.Just ("Attributes" Core..= attributes)
           ]
       )

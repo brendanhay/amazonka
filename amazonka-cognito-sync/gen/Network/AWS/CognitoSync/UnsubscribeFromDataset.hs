@@ -48,6 +48,7 @@ where
 import Network.AWS.CognitoSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,15 +59,15 @@ data UnsubscribeFromDataset = UnsubscribeFromDataset'
   { -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. The ID of the pool to which this identity belongs.
-    identityPoolId :: Core.Text,
+    identityPoolId :: Prelude.Text,
     -- | Unique ID for this identity.
-    identityId :: Core.Text,
+    identityId :: Prelude.Text,
     -- | The name of the dataset from which to unsubcribe.
-    datasetName :: Core.Text,
+    datasetName :: Prelude.Text,
     -- | The unique ID generated for this device by Cognito.
-    deviceId :: Core.Text
+    deviceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnsubscribeFromDataset' with all optional fields omitted.
@@ -87,13 +88,13 @@ data UnsubscribeFromDataset = UnsubscribeFromDataset'
 -- 'deviceId', 'unsubscribeFromDataset_deviceId' - The unique ID generated for this device by Cognito.
 newUnsubscribeFromDataset ::
   -- | 'identityPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'identityId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'datasetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'deviceId'
-  Core.Text ->
+  Prelude.Text ->
   UnsubscribeFromDataset
 newUnsubscribeFromDataset
   pIdentityPoolId_
@@ -111,19 +112,19 @@ newUnsubscribeFromDataset
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. The ID of the pool to which this identity belongs.
-unsubscribeFromDataset_identityPoolId :: Lens.Lens' UnsubscribeFromDataset Core.Text
+unsubscribeFromDataset_identityPoolId :: Lens.Lens' UnsubscribeFromDataset Prelude.Text
 unsubscribeFromDataset_identityPoolId = Lens.lens (\UnsubscribeFromDataset' {identityPoolId} -> identityPoolId) (\s@UnsubscribeFromDataset' {} a -> s {identityPoolId = a} :: UnsubscribeFromDataset)
 
 -- | Unique ID for this identity.
-unsubscribeFromDataset_identityId :: Lens.Lens' UnsubscribeFromDataset Core.Text
+unsubscribeFromDataset_identityId :: Lens.Lens' UnsubscribeFromDataset Prelude.Text
 unsubscribeFromDataset_identityId = Lens.lens (\UnsubscribeFromDataset' {identityId} -> identityId) (\s@UnsubscribeFromDataset' {} a -> s {identityId = a} :: UnsubscribeFromDataset)
 
 -- | The name of the dataset from which to unsubcribe.
-unsubscribeFromDataset_datasetName :: Lens.Lens' UnsubscribeFromDataset Core.Text
+unsubscribeFromDataset_datasetName :: Lens.Lens' UnsubscribeFromDataset Prelude.Text
 unsubscribeFromDataset_datasetName = Lens.lens (\UnsubscribeFromDataset' {datasetName} -> datasetName) (\s@UnsubscribeFromDataset' {} a -> s {datasetName = a} :: UnsubscribeFromDataset)
 
 -- | The unique ID generated for this device by Cognito.
-unsubscribeFromDataset_deviceId :: Lens.Lens' UnsubscribeFromDataset Core.Text
+unsubscribeFromDataset_deviceId :: Lens.Lens' UnsubscribeFromDataset Prelude.Text
 unsubscribeFromDataset_deviceId = Lens.lens (\UnsubscribeFromDataset' {deviceId} -> deviceId) (\s@UnsubscribeFromDataset' {} a -> s {deviceId = a} :: UnsubscribeFromDataset)
 
 instance Core.AWSRequest UnsubscribeFromDataset where
@@ -135,25 +136,27 @@ instance Core.AWSRequest UnsubscribeFromDataset where
     Response.receiveEmpty
       ( \s h x ->
           UnsubscribeFromDatasetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UnsubscribeFromDataset
+instance Prelude.Hashable UnsubscribeFromDataset
 
-instance Core.NFData UnsubscribeFromDataset
+instance Prelude.NFData UnsubscribeFromDataset
 
 instance Core.ToHeaders UnsubscribeFromDataset where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath UnsubscribeFromDataset where
   toPath UnsubscribeFromDataset' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/identitypools/",
         Core.toBS identityPoolId,
         "/identities/",
@@ -165,16 +168,16 @@ instance Core.ToPath UnsubscribeFromDataset where
       ]
 
 instance Core.ToQuery UnsubscribeFromDataset where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Response to an UnsubscribeFromDataset request.
 --
 -- /See:/ 'newUnsubscribeFromDatasetResponse' smart constructor.
 data UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnsubscribeFromDatasetResponse' with all optional fields omitted.
@@ -187,7 +190,7 @@ data UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse'
 -- 'httpStatus', 'unsubscribeFromDatasetResponse_httpStatus' - The response's http status code.
 newUnsubscribeFromDatasetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UnsubscribeFromDatasetResponse
 newUnsubscribeFromDatasetResponse pHttpStatus_ =
   UnsubscribeFromDatasetResponse'
@@ -196,7 +199,9 @@ newUnsubscribeFromDatasetResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-unsubscribeFromDatasetResponse_httpStatus :: Lens.Lens' UnsubscribeFromDatasetResponse Core.Int
+unsubscribeFromDatasetResponse_httpStatus :: Lens.Lens' UnsubscribeFromDatasetResponse Prelude.Int
 unsubscribeFromDatasetResponse_httpStatus = Lens.lens (\UnsubscribeFromDatasetResponse' {httpStatus} -> httpStatus) (\s@UnsubscribeFromDatasetResponse' {} a -> s {httpStatus = a} :: UnsubscribeFromDatasetResponse)
 
-instance Core.NFData UnsubscribeFromDatasetResponse
+instance
+  Prelude.NFData
+    UnsubscribeFromDatasetResponse

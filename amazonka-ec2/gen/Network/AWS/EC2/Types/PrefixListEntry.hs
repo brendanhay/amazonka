@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.PrefixListEntry where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a prefix list entry.
 --
 -- /See:/ 'newPrefixListEntry' smart constructor.
 data PrefixListEntry = PrefixListEntry'
   { -- | The CIDR block.
-    cidr :: Core.Maybe Core.Text,
+    cidr :: Prelude.Maybe Prelude.Text,
     -- | The description.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PrefixListEntry' with all optional fields omitted.
@@ -49,24 +50,24 @@ newPrefixListEntry ::
   PrefixListEntry
 newPrefixListEntry =
   PrefixListEntry'
-    { cidr = Core.Nothing,
-      description = Core.Nothing
+    { cidr = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The CIDR block.
-prefixListEntry_cidr :: Lens.Lens' PrefixListEntry (Core.Maybe Core.Text)
+prefixListEntry_cidr :: Lens.Lens' PrefixListEntry (Prelude.Maybe Prelude.Text)
 prefixListEntry_cidr = Lens.lens (\PrefixListEntry' {cidr} -> cidr) (\s@PrefixListEntry' {} a -> s {cidr = a} :: PrefixListEntry)
 
 -- | The description.
-prefixListEntry_description :: Lens.Lens' PrefixListEntry (Core.Maybe Core.Text)
+prefixListEntry_description :: Lens.Lens' PrefixListEntry (Prelude.Maybe Prelude.Text)
 prefixListEntry_description = Lens.lens (\PrefixListEntry' {description} -> description) (\s@PrefixListEntry' {} a -> s {description = a} :: PrefixListEntry)
 
 instance Core.FromXML PrefixListEntry where
   parseXML x =
     PrefixListEntry'
-      Core.<$> (x Core..@? "cidr")
-      Core.<*> (x Core..@? "description")
+      Prelude.<$> (x Core..@? "cidr")
+      Prelude.<*> (x Core..@? "description")
 
-instance Core.Hashable PrefixListEntry
+instance Prelude.Hashable PrefixListEntry
 
-instance Core.NFData PrefixListEntry
+instance Prelude.NFData PrefixListEntry

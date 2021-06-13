@@ -22,13 +22,14 @@ module Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverActionType where
 import Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverEventActionType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Account takeover action type.
 --
 -- /See:/ 'newAccountTakeoverActionType' smart constructor.
 data AccountTakeoverActionType = AccountTakeoverActionType'
   { -- | Flag specifying whether to send a notification.
-    notify :: Core.Bool,
+    notify :: Prelude.Bool,
     -- | The event action.
     --
     -- -   @BLOCK@ Choosing this action will block the request.
@@ -42,7 +43,7 @@ data AccountTakeoverActionType = AccountTakeoverActionType'
     -- -   @NO_ACTION@ Allow the user sign-in.
     eventAction :: AccountTakeoverEventActionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccountTakeoverActionType' with all optional fields omitted.
@@ -67,7 +68,7 @@ data AccountTakeoverActionType = AccountTakeoverActionType'
 -- -   @NO_ACTION@ Allow the user sign-in.
 newAccountTakeoverActionType ::
   -- | 'notify'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'eventAction'
   AccountTakeoverEventActionType ->
   AccountTakeoverActionType
@@ -78,7 +79,7 @@ newAccountTakeoverActionType pNotify_ pEventAction_ =
     }
 
 -- | Flag specifying whether to send a notification.
-accountTakeoverActionType_notify :: Lens.Lens' AccountTakeoverActionType Core.Bool
+accountTakeoverActionType_notify :: Lens.Lens' AccountTakeoverActionType Prelude.Bool
 accountTakeoverActionType_notify = Lens.lens (\AccountTakeoverActionType' {notify} -> notify) (\s@AccountTakeoverActionType' {} a -> s {notify = a} :: AccountTakeoverActionType)
 
 -- | The event action.
@@ -101,19 +102,19 @@ instance Core.FromJSON AccountTakeoverActionType where
       "AccountTakeoverActionType"
       ( \x ->
           AccountTakeoverActionType'
-            Core.<$> (x Core..: "Notify")
-            Core.<*> (x Core..: "EventAction")
+            Prelude.<$> (x Core..: "Notify")
+            Prelude.<*> (x Core..: "EventAction")
       )
 
-instance Core.Hashable AccountTakeoverActionType
+instance Prelude.Hashable AccountTakeoverActionType
 
-instance Core.NFData AccountTakeoverActionType
+instance Prelude.NFData AccountTakeoverActionType
 
 instance Core.ToJSON AccountTakeoverActionType where
   toJSON AccountTakeoverActionType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Notify" Core..= notify),
-            Core.Just ("EventAction" Core..= eventAction)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Notify" Core..= notify),
+            Prelude.Just ("EventAction" Core..= eventAction)
           ]
       )

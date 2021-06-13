@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.BurninSubtitleAlignment
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | If no explicit x_position or y_position is provided, setting alignment
 -- to centered will place the captions at the bottom center of the output.
@@ -42,15 +43,15 @@ newtype BurninSubtitleAlignment = BurninSubtitleAlignment'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

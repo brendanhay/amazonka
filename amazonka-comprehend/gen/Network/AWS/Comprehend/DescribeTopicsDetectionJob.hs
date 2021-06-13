@@ -43,15 +43,16 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTopicsDetectionJob' smart constructor.
 data DescribeTopicsDetectionJob = DescribeTopicsDetectionJob'
   { -- | The identifier assigned by the user to the detection job.
-    jobId :: Core.Text
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTopicsDetectionJob' with all optional fields omitted.
@@ -64,13 +65,13 @@ data DescribeTopicsDetectionJob = DescribeTopicsDetectionJob'
 -- 'jobId', 'describeTopicsDetectionJob_jobId' - The identifier assigned by the user to the detection job.
 newDescribeTopicsDetectionJob ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeTopicsDetectionJob
 newDescribeTopicsDetectionJob pJobId_ =
   DescribeTopicsDetectionJob' {jobId = pJobId_}
 
 -- | The identifier assigned by the user to the detection job.
-describeTopicsDetectionJob_jobId :: Lens.Lens' DescribeTopicsDetectionJob Core.Text
+describeTopicsDetectionJob_jobId :: Lens.Lens' DescribeTopicsDetectionJob Prelude.Text
 describeTopicsDetectionJob_jobId = Lens.lens (\DescribeTopicsDetectionJob' {jobId} -> jobId) (\s@DescribeTopicsDetectionJob' {} a -> s {jobId = a} :: DescribeTopicsDetectionJob)
 
 instance Core.AWSRequest DescribeTopicsDetectionJob where
@@ -82,46 +83,50 @@ instance Core.AWSRequest DescribeTopicsDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeTopicsDetectionJobResponse'
-            Core.<$> (x Core..?> "TopicsDetectionJobProperties")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TopicsDetectionJobProperties")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeTopicsDetectionJob
+instance Prelude.Hashable DescribeTopicsDetectionJob
 
-instance Core.NFData DescribeTopicsDetectionJob
+instance Prelude.NFData DescribeTopicsDetectionJob
 
 instance Core.ToHeaders DescribeTopicsDetectionJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.DescribeTopicsDetectionJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeTopicsDetectionJob where
   toJSON DescribeTopicsDetectionJob' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("JobId" Core..= jobId)]
+      )
 
 instance Core.ToPath DescribeTopicsDetectionJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeTopicsDetectionJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTopicsDetectionJobResponse' smart constructor.
 data DescribeTopicsDetectionJobResponse = DescribeTopicsDetectionJobResponse'
   { -- | The list of properties for the requested job.
-    topicsDetectionJobProperties :: Core.Maybe TopicsDetectionJobProperties,
+    topicsDetectionJobProperties :: Prelude.Maybe TopicsDetectionJobProperties,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTopicsDetectionJobResponse' with all optional fields omitted.
@@ -136,23 +141,23 @@ data DescribeTopicsDetectionJobResponse = DescribeTopicsDetectionJobResponse'
 -- 'httpStatus', 'describeTopicsDetectionJobResponse_httpStatus' - The response's http status code.
 newDescribeTopicsDetectionJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeTopicsDetectionJobResponse
 newDescribeTopicsDetectionJobResponse pHttpStatus_ =
   DescribeTopicsDetectionJobResponse'
     { topicsDetectionJobProperties =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of properties for the requested job.
-describeTopicsDetectionJobResponse_topicsDetectionJobProperties :: Lens.Lens' DescribeTopicsDetectionJobResponse (Core.Maybe TopicsDetectionJobProperties)
+describeTopicsDetectionJobResponse_topicsDetectionJobProperties :: Lens.Lens' DescribeTopicsDetectionJobResponse (Prelude.Maybe TopicsDetectionJobProperties)
 describeTopicsDetectionJobResponse_topicsDetectionJobProperties = Lens.lens (\DescribeTopicsDetectionJobResponse' {topicsDetectionJobProperties} -> topicsDetectionJobProperties) (\s@DescribeTopicsDetectionJobResponse' {} a -> s {topicsDetectionJobProperties = a} :: DescribeTopicsDetectionJobResponse)
 
 -- | The response's http status code.
-describeTopicsDetectionJobResponse_httpStatus :: Lens.Lens' DescribeTopicsDetectionJobResponse Core.Int
+describeTopicsDetectionJobResponse_httpStatus :: Lens.Lens' DescribeTopicsDetectionJobResponse Prelude.Int
 describeTopicsDetectionJobResponse_httpStatus = Lens.lens (\DescribeTopicsDetectionJobResponse' {httpStatus} -> httpStatus) (\s@DescribeTopicsDetectionJobResponse' {} a -> s {httpStatus = a} :: DescribeTopicsDetectionJobResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeTopicsDetectionJobResponse

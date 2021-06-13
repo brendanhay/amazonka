@@ -47,20 +47,21 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListDirectories' smart constructor.
 data ListDirectories = ListDirectories'
   { -- | The pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to retrieve.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The state of the directories in the list. Can be either Enabled,
     -- Disabled, or Deleted.
-    state :: Core.Maybe DirectoryState
+    state :: Prelude.Maybe DirectoryState
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDirectories' with all optional fields omitted.
@@ -80,40 +81,42 @@ newListDirectories ::
   ListDirectories
 newListDirectories =
   ListDirectories'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      state = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      state = Prelude.Nothing
     }
 
 -- | The pagination token.
-listDirectories_nextToken :: Lens.Lens' ListDirectories (Core.Maybe Core.Text)
+listDirectories_nextToken :: Lens.Lens' ListDirectories (Prelude.Maybe Prelude.Text)
 listDirectories_nextToken = Lens.lens (\ListDirectories' {nextToken} -> nextToken) (\s@ListDirectories' {} a -> s {nextToken = a} :: ListDirectories)
 
 -- | The maximum number of results to retrieve.
-listDirectories_maxResults :: Lens.Lens' ListDirectories (Core.Maybe Core.Natural)
+listDirectories_maxResults :: Lens.Lens' ListDirectories (Prelude.Maybe Prelude.Natural)
 listDirectories_maxResults = Lens.lens (\ListDirectories' {maxResults} -> maxResults) (\s@ListDirectories' {} a -> s {maxResults = a} :: ListDirectories)
 
 -- | The state of the directories in the list. Can be either Enabled,
 -- Disabled, or Deleted.
-listDirectories_state :: Lens.Lens' ListDirectories (Core.Maybe DirectoryState)
+listDirectories_state :: Lens.Lens' ListDirectories (Prelude.Maybe DirectoryState)
 listDirectories_state = Lens.lens (\ListDirectories' {state} -> state) (\s@ListDirectories' {} a -> s {state = a} :: ListDirectories)
 
 instance Core.AWSPager ListDirectories where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listDirectoriesResponse_nextToken Core.. Lens._Just
+            Lens.^? listDirectoriesResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         (rs Lens.^. listDirectoriesResponse_directories) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listDirectories_nextToken
+          Prelude.& listDirectories_nextToken
           Lens..~ rs
-          Lens.^? listDirectoriesResponse_nextToken Core.. Lens._Just
+          Lens.^? listDirectoriesResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDirectories where
   type
@@ -124,47 +127,47 @@ instance Core.AWSRequest ListDirectories where
     Response.receiveJSON
       ( \s h x ->
           ListDirectoriesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "Directories" Core..!@ Core.mempty)
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "Directories" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable ListDirectories
+instance Prelude.Hashable ListDirectories
 
-instance Core.NFData ListDirectories
+instance Prelude.NFData ListDirectories
 
 instance Core.ToHeaders ListDirectories where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON ListDirectories where
   toJSON ListDirectories' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("state" Core..=) Core.<$> state
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("state" Core..=) Prelude.<$> state
           ]
       )
 
 instance Core.ToPath ListDirectories where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/directory/list"
 
 instance Core.ToQuery ListDirectories where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDirectoriesResponse' smart constructor.
 data ListDirectoriesResponse = ListDirectoriesResponse'
   { -- | The pagination token.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Lists all directories that are associated with your account in
     -- pagination fashion.
     directories :: [Directory]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDirectoriesResponse' with all optional fields omitted.
@@ -182,26 +185,27 @@ data ListDirectoriesResponse = ListDirectoriesResponse'
 -- pagination fashion.
 newListDirectoriesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListDirectoriesResponse
 newListDirectoriesResponse pHttpStatus_ =
   ListDirectoriesResponse'
-    { nextToken = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      directories = Core.mempty
+      directories = Prelude.mempty
     }
 
 -- | The pagination token.
-listDirectoriesResponse_nextToken :: Lens.Lens' ListDirectoriesResponse (Core.Maybe Core.Text)
+listDirectoriesResponse_nextToken :: Lens.Lens' ListDirectoriesResponse (Prelude.Maybe Prelude.Text)
 listDirectoriesResponse_nextToken = Lens.lens (\ListDirectoriesResponse' {nextToken} -> nextToken) (\s@ListDirectoriesResponse' {} a -> s {nextToken = a} :: ListDirectoriesResponse)
 
 -- | The response's http status code.
-listDirectoriesResponse_httpStatus :: Lens.Lens' ListDirectoriesResponse Core.Int
+listDirectoriesResponse_httpStatus :: Lens.Lens' ListDirectoriesResponse Prelude.Int
 listDirectoriesResponse_httpStatus = Lens.lens (\ListDirectoriesResponse' {httpStatus} -> httpStatus) (\s@ListDirectoriesResponse' {} a -> s {httpStatus = a} :: ListDirectoriesResponse)
 
 -- | Lists all directories that are associated with your account in
 -- pagination fashion.
 listDirectoriesResponse_directories :: Lens.Lens' ListDirectoriesResponse [Directory]
-listDirectoriesResponse_directories = Lens.lens (\ListDirectoriesResponse' {directories} -> directories) (\s@ListDirectoriesResponse' {} a -> s {directories = a} :: ListDirectoriesResponse) Core.. Lens._Coerce
+listDirectoriesResponse_directories = Lens.lens (\ListDirectoriesResponse' {directories} -> directories) (\s@ListDirectoriesResponse' {} a -> s {directories = a} :: ListDirectoriesResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListDirectoriesResponse
+instance Prelude.NFData ListDirectoriesResponse

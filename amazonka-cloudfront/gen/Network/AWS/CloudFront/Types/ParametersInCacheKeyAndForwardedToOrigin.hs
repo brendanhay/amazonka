@@ -24,6 +24,7 @@ import Network.AWS.CloudFront.Types.CachePolicyHeadersConfig
 import Network.AWS.CloudFront.Types.CachePolicyQueryStringsConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This object determines the values that CloudFront includes in the cache
 -- key. These values can include HTTP headers, cookies, and URL query
@@ -70,7 +71,7 @@ data ParametersInCacheKeyAndForwardedToOrigin = ParametersInCacheKeyAndForwarded
     -- request. By default, it’s not included in the cache key and it’s not
     -- included in origin requests. In this case, you can manually add
     -- @Accept-Encoding@ to the headers whitelist like any other HTTP header.
-    enableAcceptEncodingBrotli :: Core.Maybe Core.Bool,
+    enableAcceptEncodingBrotli :: Prelude.Maybe Prelude.Bool,
     -- | A flag that can affect whether the @Accept-Encoding@ HTTP header is
     -- included in the cache key and included in requests that CloudFront sends
     -- to the origin.
@@ -102,7 +103,7 @@ data ParametersInCacheKeyAndForwardedToOrigin = ParametersInCacheKeyAndForwarded
     -- request. By default, it’s not included in the cache key and it’s not
     -- included in origin requests. In this case, you can manually add
     -- @Accept-Encoding@ to the headers whitelist like any other HTTP header.
-    enableAcceptEncodingGzip :: Core.Bool,
+    enableAcceptEncodingGzip :: Prelude.Bool,
     -- | An object that determines whether any HTTP headers (and if so, which
     -- headers) are included in the cache key and automatically included in
     -- requests that CloudFront sends to the origin.
@@ -117,7 +118,7 @@ data ParametersInCacheKeyAndForwardedToOrigin = ParametersInCacheKeyAndForwarded
     -- origin.
     queryStringsConfig :: CachePolicyQueryStringsConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ParametersInCacheKeyAndForwardedToOrigin' with all optional fields omitted.
@@ -205,7 +206,7 @@ data ParametersInCacheKeyAndForwardedToOrigin = ParametersInCacheKeyAndForwarded
 -- origin.
 newParametersInCacheKeyAndForwardedToOrigin ::
   -- | 'enableAcceptEncodingGzip'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'headersConfig'
   CachePolicyHeadersConfig ->
   -- | 'cookiesConfig'
@@ -220,7 +221,7 @@ newParametersInCacheKeyAndForwardedToOrigin
   pQueryStringsConfig_ =
     ParametersInCacheKeyAndForwardedToOrigin'
       { enableAcceptEncodingBrotli =
-          Core.Nothing,
+          Prelude.Nothing,
         enableAcceptEncodingGzip =
           pEnableAcceptEncodingGzip_,
         headersConfig = pHeadersConfig_,
@@ -260,7 +261,7 @@ newParametersInCacheKeyAndForwardedToOrigin
 -- request. By default, it’s not included in the cache key and it’s not
 -- included in origin requests. In this case, you can manually add
 -- @Accept-Encoding@ to the headers whitelist like any other HTTP header.
-parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingBrotli :: Lens.Lens' ParametersInCacheKeyAndForwardedToOrigin (Core.Maybe Core.Bool)
+parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingBrotli :: Lens.Lens' ParametersInCacheKeyAndForwardedToOrigin (Prelude.Maybe Prelude.Bool)
 parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingBrotli = Lens.lens (\ParametersInCacheKeyAndForwardedToOrigin' {enableAcceptEncodingBrotli} -> enableAcceptEncodingBrotli) (\s@ParametersInCacheKeyAndForwardedToOrigin' {} a -> s {enableAcceptEncodingBrotli = a} :: ParametersInCacheKeyAndForwardedToOrigin)
 
 -- | A flag that can affect whether the @Accept-Encoding@ HTTP header is
@@ -294,7 +295,7 @@ parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingBrotli = Lens.lens 
 -- request. By default, it’s not included in the cache key and it’s not
 -- included in origin requests. In this case, you can manually add
 -- @Accept-Encoding@ to the headers whitelist like any other HTTP header.
-parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingGzip :: Lens.Lens' ParametersInCacheKeyAndForwardedToOrigin Core.Bool
+parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingGzip :: Lens.Lens' ParametersInCacheKeyAndForwardedToOrigin Prelude.Bool
 parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingGzip = Lens.lens (\ParametersInCacheKeyAndForwardedToOrigin' {enableAcceptEncodingGzip} -> enableAcceptEncodingGzip) (\s@ParametersInCacheKeyAndForwardedToOrigin' {} a -> s {enableAcceptEncodingGzip = a} :: ParametersInCacheKeyAndForwardedToOrigin)
 
 -- | An object that determines whether any HTTP headers (and if so, which
@@ -322,18 +323,18 @@ instance
   where
   parseXML x =
     ParametersInCacheKeyAndForwardedToOrigin'
-      Core.<$> (x Core..@? "EnableAcceptEncodingBrotli")
-      Core.<*> (x Core..@ "EnableAcceptEncodingGzip")
-      Core.<*> (x Core..@ "HeadersConfig")
-      Core.<*> (x Core..@ "CookiesConfig")
-      Core.<*> (x Core..@ "QueryStringsConfig")
+      Prelude.<$> (x Core..@? "EnableAcceptEncodingBrotli")
+        Prelude.<*> (x Core..@ "EnableAcceptEncodingGzip")
+        Prelude.<*> (x Core..@ "HeadersConfig")
+        Prelude.<*> (x Core..@ "CookiesConfig")
+        Prelude.<*> (x Core..@ "QueryStringsConfig")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ParametersInCacheKeyAndForwardedToOrigin
 
 instance
-  Core.NFData
+  Prelude.NFData
     ParametersInCacheKeyAndForwardedToOrigin
 
 instance
@@ -341,7 +342,7 @@ instance
     ParametersInCacheKeyAndForwardedToOrigin
   where
   toXML ParametersInCacheKeyAndForwardedToOrigin' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "EnableAcceptEncodingBrotli"
           Core.@= enableAcceptEncodingBrotli,
         "EnableAcceptEncodingGzip"

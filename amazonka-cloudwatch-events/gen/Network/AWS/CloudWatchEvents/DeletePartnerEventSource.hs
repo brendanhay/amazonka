@@ -43,18 +43,19 @@ where
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeletePartnerEventSource' smart constructor.
 data DeletePartnerEventSource = DeletePartnerEventSource'
   { -- | The name of the event source to delete.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The AWS account ID of the AWS customer that the event source was created
     -- for.
-    account :: Core.Text
+    account :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePartnerEventSource' with all optional fields omitted.
@@ -70,9 +71,9 @@ data DeletePartnerEventSource = DeletePartnerEventSource'
 -- for.
 newDeletePartnerEventSource ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'account'
-  Core.Text ->
+  Prelude.Text ->
   DeletePartnerEventSource
 newDeletePartnerEventSource pName_ pAccount_ =
   DeletePartnerEventSource'
@@ -81,12 +82,12 @@ newDeletePartnerEventSource pName_ pAccount_ =
     }
 
 -- | The name of the event source to delete.
-deletePartnerEventSource_name :: Lens.Lens' DeletePartnerEventSource Core.Text
+deletePartnerEventSource_name :: Lens.Lens' DeletePartnerEventSource Prelude.Text
 deletePartnerEventSource_name = Lens.lens (\DeletePartnerEventSource' {name} -> name) (\s@DeletePartnerEventSource' {} a -> s {name = a} :: DeletePartnerEventSource)
 
 -- | The AWS account ID of the AWS customer that the event source was created
 -- for.
-deletePartnerEventSource_account :: Lens.Lens' DeletePartnerEventSource Core.Text
+deletePartnerEventSource_account :: Lens.Lens' DeletePartnerEventSource Prelude.Text
 deletePartnerEventSource_account = Lens.lens (\DeletePartnerEventSource' {account} -> account) (\s@DeletePartnerEventSource' {} a -> s {account = a} :: DeletePartnerEventSource)
 
 instance Core.AWSRequest DeletePartnerEventSource where
@@ -98,43 +99,45 @@ instance Core.AWSRequest DeletePartnerEventSource where
     Response.receiveNull
       DeletePartnerEventSourceResponse'
 
-instance Core.Hashable DeletePartnerEventSource
+instance Prelude.Hashable DeletePartnerEventSource
 
-instance Core.NFData DeletePartnerEventSource
+instance Prelude.NFData DeletePartnerEventSource
 
 instance Core.ToHeaders DeletePartnerEventSource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSEvents.DeletePartnerEventSource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeletePartnerEventSource where
   toJSON DeletePartnerEventSource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("Account" Core..= account)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Account" Core..= account)
           ]
       )
 
 instance Core.ToPath DeletePartnerEventSource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeletePartnerEventSource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePartnerEventSourceResponse' smart constructor.
 data DeletePartnerEventSourceResponse = DeletePartnerEventSourceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePartnerEventSourceResponse' with all optional fields omitted.
@@ -145,4 +148,6 @@ newDeletePartnerEventSourceResponse ::
 newDeletePartnerEventSourceResponse =
   DeletePartnerEventSourceResponse'
 
-instance Core.NFData DeletePartnerEventSourceResponse
+instance
+  Prelude.NFData
+    DeletePartnerEventSourceResponse

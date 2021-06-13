@@ -21,6 +21,7 @@ module Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides details about input or output in an execution history event.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data HistoryEventExecutionDataDetails = HistoryEventExecutionDataDetails'
   { -- | Indicates whether input or output was truncated in the response. Always
     -- @false@ for API calls.
-    truncated :: Core.Maybe Core.Bool
+    truncated :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HistoryEventExecutionDataDetails' with all optional fields omitted.
@@ -47,12 +48,12 @@ newHistoryEventExecutionDataDetails ::
 newHistoryEventExecutionDataDetails =
   HistoryEventExecutionDataDetails'
     { truncated =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Indicates whether input or output was truncated in the response. Always
 -- @false@ for API calls.
-historyEventExecutionDataDetails_truncated :: Lens.Lens' HistoryEventExecutionDataDetails (Core.Maybe Core.Bool)
+historyEventExecutionDataDetails_truncated :: Lens.Lens' HistoryEventExecutionDataDetails (Prelude.Maybe Prelude.Bool)
 historyEventExecutionDataDetails_truncated = Lens.lens (\HistoryEventExecutionDataDetails' {truncated} -> truncated) (\s@HistoryEventExecutionDataDetails' {} a -> s {truncated = a} :: HistoryEventExecutionDataDetails)
 
 instance
@@ -64,11 +65,13 @@ instance
       "HistoryEventExecutionDataDetails"
       ( \x ->
           HistoryEventExecutionDataDetails'
-            Core.<$> (x Core..:? "truncated")
+            Prelude.<$> (x Core..:? "truncated")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     HistoryEventExecutionDataDetails
 
-instance Core.NFData HistoryEventExecutionDataDetails
+instance
+  Prelude.NFData
+    HistoryEventExecutionDataDetails

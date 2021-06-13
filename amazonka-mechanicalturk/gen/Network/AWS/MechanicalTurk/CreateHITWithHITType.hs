@@ -66,6 +66,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -83,7 +84,7 @@ data CreateHITWithHITType = CreateHITWithHITType'
     -- unique token expires after 24 hours. Subsequent calls using the same
     -- UniqueRequestToken made after the 24 hour limit could create duplicate
     -- HITs.
-    uniqueRequestToken :: Core.Maybe Core.Text,
+    uniqueRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The data the person completing the HIT uses to produce the results.
     --
     -- Constraints: Must be a QuestionForm data structure, an ExternalQuestion
@@ -92,20 +93,20 @@ data CreateHITWithHITType = CreateHITWithHITType'
     -- whitespace.
     --
     -- Either a Question parameter or a HITLayoutId parameter must be provided.
-    question :: Core.Maybe Core.Text,
+    question :: Prelude.Maybe Prelude.Text,
     -- | The HITLayoutId allows you to use a pre-existing HIT design with
     -- placeholder values and create an additional HIT by providing those
     -- values as HITLayoutParameters.
     --
     -- Constraints: Either a Question parameter or a HITLayoutId parameter must
     -- be provided.
-    hITLayoutId :: Core.Maybe Core.Text,
+    hITLayoutId :: Prelude.Maybe Prelude.Text,
     -- | The HIT-level Review Policy applies to the HIT. You can specify for
     -- Mechanical Turk to take various actions based on the policy.
-    hITReviewPolicy :: Core.Maybe ReviewPolicy,
+    hITReviewPolicy :: Prelude.Maybe ReviewPolicy,
     -- | The number of times the HIT can be accepted and completed before the HIT
     -- becomes unavailable.
-    maxAssignments :: Core.Maybe Core.Int,
+    maxAssignments :: Prelude.Maybe Prelude.Int,
     -- | An arbitrary data field. The RequesterAnnotation parameter lets your
     -- application attach arbitrary data to the HIT for tracking purposes. For
     -- example, this parameter could be an identifier internal to the
@@ -117,24 +118,24 @@ data CreateHITWithHITType = CreateHITWithHITType'
     --
     -- The RequesterAnnotation parameter may be different for each HIT you
     -- submit. It does not affect how your HITs are grouped.
-    requesterAnnotation :: Core.Maybe Core.Text,
+    requesterAnnotation :: Prelude.Maybe Prelude.Text,
     -- | The Assignment-level Review Policy applies to the assignments under the
     -- HIT. You can specify for Mechanical Turk to take various actions based
     -- on the policy.
-    assignmentReviewPolicy :: Core.Maybe ReviewPolicy,
+    assignmentReviewPolicy :: Prelude.Maybe ReviewPolicy,
     -- | If the HITLayoutId is provided, any placeholder values must be filled in
     -- with values using the HITLayoutParameter structure. For more
     -- information, see HITLayout.
-    hITLayoutParameters :: Core.Maybe [HITLayoutParameter],
+    hITLayoutParameters :: Prelude.Maybe [HITLayoutParameter],
     -- | The HIT type ID you want to create this HIT with.
-    hITTypeId :: Core.Text,
+    hITTypeId :: Prelude.Text,
     -- | An amount of time, in seconds, after which the HIT is no longer
     -- available for users to accept. After the lifetime of the HIT elapses,
     -- the HIT no longer appears in HIT searches, even if not all of the
     -- assignments for the HIT have been accepted.
-    lifetimeInSeconds :: Core.Integer
+    lifetimeInSeconds :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateHITWithHITType' with all optional fields omitted.
@@ -207,23 +208,23 @@ data CreateHITWithHITType = CreateHITWithHITType'
 -- assignments for the HIT have been accepted.
 newCreateHITWithHITType ::
   -- | 'hITTypeId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'lifetimeInSeconds'
-  Core.Integer ->
+  Prelude.Integer ->
   CreateHITWithHITType
 newCreateHITWithHITType
   pHITTypeId_
   pLifetimeInSeconds_ =
     CreateHITWithHITType'
       { uniqueRequestToken =
-          Core.Nothing,
-        question = Core.Nothing,
-        hITLayoutId = Core.Nothing,
-        hITReviewPolicy = Core.Nothing,
-        maxAssignments = Core.Nothing,
-        requesterAnnotation = Core.Nothing,
-        assignmentReviewPolicy = Core.Nothing,
-        hITLayoutParameters = Core.Nothing,
+          Prelude.Nothing,
+        question = Prelude.Nothing,
+        hITLayoutId = Prelude.Nothing,
+        hITReviewPolicy = Prelude.Nothing,
+        maxAssignments = Prelude.Nothing,
+        requesterAnnotation = Prelude.Nothing,
+        assignmentReviewPolicy = Prelude.Nothing,
+        hITLayoutParameters = Prelude.Nothing,
         hITTypeId = pHITTypeId_,
         lifetimeInSeconds = pLifetimeInSeconds_
       }
@@ -240,7 +241,7 @@ newCreateHITWithHITType
 -- unique token expires after 24 hours. Subsequent calls using the same
 -- UniqueRequestToken made after the 24 hour limit could create duplicate
 -- HITs.
-createHITWithHITType_uniqueRequestToken :: Lens.Lens' CreateHITWithHITType (Core.Maybe Core.Text)
+createHITWithHITType_uniqueRequestToken :: Lens.Lens' CreateHITWithHITType (Prelude.Maybe Prelude.Text)
 createHITWithHITType_uniqueRequestToken = Lens.lens (\CreateHITWithHITType' {uniqueRequestToken} -> uniqueRequestToken) (\s@CreateHITWithHITType' {} a -> s {uniqueRequestToken = a} :: CreateHITWithHITType)
 
 -- | The data the person completing the HIT uses to produce the results.
@@ -251,7 +252,7 @@ createHITWithHITType_uniqueRequestToken = Lens.lens (\CreateHITWithHITType' {uni
 -- whitespace.
 --
 -- Either a Question parameter or a HITLayoutId parameter must be provided.
-createHITWithHITType_question :: Lens.Lens' CreateHITWithHITType (Core.Maybe Core.Text)
+createHITWithHITType_question :: Lens.Lens' CreateHITWithHITType (Prelude.Maybe Prelude.Text)
 createHITWithHITType_question = Lens.lens (\CreateHITWithHITType' {question} -> question) (\s@CreateHITWithHITType' {} a -> s {question = a} :: CreateHITWithHITType)
 
 -- | The HITLayoutId allows you to use a pre-existing HIT design with
@@ -260,17 +261,17 @@ createHITWithHITType_question = Lens.lens (\CreateHITWithHITType' {question} -> 
 --
 -- Constraints: Either a Question parameter or a HITLayoutId parameter must
 -- be provided.
-createHITWithHITType_hITLayoutId :: Lens.Lens' CreateHITWithHITType (Core.Maybe Core.Text)
+createHITWithHITType_hITLayoutId :: Lens.Lens' CreateHITWithHITType (Prelude.Maybe Prelude.Text)
 createHITWithHITType_hITLayoutId = Lens.lens (\CreateHITWithHITType' {hITLayoutId} -> hITLayoutId) (\s@CreateHITWithHITType' {} a -> s {hITLayoutId = a} :: CreateHITWithHITType)
 
 -- | The HIT-level Review Policy applies to the HIT. You can specify for
 -- Mechanical Turk to take various actions based on the policy.
-createHITWithHITType_hITReviewPolicy :: Lens.Lens' CreateHITWithHITType (Core.Maybe ReviewPolicy)
+createHITWithHITType_hITReviewPolicy :: Lens.Lens' CreateHITWithHITType (Prelude.Maybe ReviewPolicy)
 createHITWithHITType_hITReviewPolicy = Lens.lens (\CreateHITWithHITType' {hITReviewPolicy} -> hITReviewPolicy) (\s@CreateHITWithHITType' {} a -> s {hITReviewPolicy = a} :: CreateHITWithHITType)
 
 -- | The number of times the HIT can be accepted and completed before the HIT
 -- becomes unavailable.
-createHITWithHITType_maxAssignments :: Lens.Lens' CreateHITWithHITType (Core.Maybe Core.Int)
+createHITWithHITType_maxAssignments :: Lens.Lens' CreateHITWithHITType (Prelude.Maybe Prelude.Int)
 createHITWithHITType_maxAssignments = Lens.lens (\CreateHITWithHITType' {maxAssignments} -> maxAssignments) (\s@CreateHITWithHITType' {} a -> s {maxAssignments = a} :: CreateHITWithHITType)
 
 -- | An arbitrary data field. The RequesterAnnotation parameter lets your
@@ -284,30 +285,30 @@ createHITWithHITType_maxAssignments = Lens.lens (\CreateHITWithHITType' {maxAssi
 --
 -- The RequesterAnnotation parameter may be different for each HIT you
 -- submit. It does not affect how your HITs are grouped.
-createHITWithHITType_requesterAnnotation :: Lens.Lens' CreateHITWithHITType (Core.Maybe Core.Text)
+createHITWithHITType_requesterAnnotation :: Lens.Lens' CreateHITWithHITType (Prelude.Maybe Prelude.Text)
 createHITWithHITType_requesterAnnotation = Lens.lens (\CreateHITWithHITType' {requesterAnnotation} -> requesterAnnotation) (\s@CreateHITWithHITType' {} a -> s {requesterAnnotation = a} :: CreateHITWithHITType)
 
 -- | The Assignment-level Review Policy applies to the assignments under the
 -- HIT. You can specify for Mechanical Turk to take various actions based
 -- on the policy.
-createHITWithHITType_assignmentReviewPolicy :: Lens.Lens' CreateHITWithHITType (Core.Maybe ReviewPolicy)
+createHITWithHITType_assignmentReviewPolicy :: Lens.Lens' CreateHITWithHITType (Prelude.Maybe ReviewPolicy)
 createHITWithHITType_assignmentReviewPolicy = Lens.lens (\CreateHITWithHITType' {assignmentReviewPolicy} -> assignmentReviewPolicy) (\s@CreateHITWithHITType' {} a -> s {assignmentReviewPolicy = a} :: CreateHITWithHITType)
 
 -- | If the HITLayoutId is provided, any placeholder values must be filled in
 -- with values using the HITLayoutParameter structure. For more
 -- information, see HITLayout.
-createHITWithHITType_hITLayoutParameters :: Lens.Lens' CreateHITWithHITType (Core.Maybe [HITLayoutParameter])
-createHITWithHITType_hITLayoutParameters = Lens.lens (\CreateHITWithHITType' {hITLayoutParameters} -> hITLayoutParameters) (\s@CreateHITWithHITType' {} a -> s {hITLayoutParameters = a} :: CreateHITWithHITType) Core.. Lens.mapping Lens._Coerce
+createHITWithHITType_hITLayoutParameters :: Lens.Lens' CreateHITWithHITType (Prelude.Maybe [HITLayoutParameter])
+createHITWithHITType_hITLayoutParameters = Lens.lens (\CreateHITWithHITType' {hITLayoutParameters} -> hITLayoutParameters) (\s@CreateHITWithHITType' {} a -> s {hITLayoutParameters = a} :: CreateHITWithHITType) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The HIT type ID you want to create this HIT with.
-createHITWithHITType_hITTypeId :: Lens.Lens' CreateHITWithHITType Core.Text
+createHITWithHITType_hITTypeId :: Lens.Lens' CreateHITWithHITType Prelude.Text
 createHITWithHITType_hITTypeId = Lens.lens (\CreateHITWithHITType' {hITTypeId} -> hITTypeId) (\s@CreateHITWithHITType' {} a -> s {hITTypeId = a} :: CreateHITWithHITType)
 
 -- | An amount of time, in seconds, after which the HIT is no longer
 -- available for users to accept. After the lifetime of the HIT elapses,
 -- the HIT no longer appears in HIT searches, even if not all of the
 -- assignments for the HIT have been accepted.
-createHITWithHITType_lifetimeInSeconds :: Lens.Lens' CreateHITWithHITType Core.Integer
+createHITWithHITType_lifetimeInSeconds :: Lens.Lens' CreateHITWithHITType Prelude.Integer
 createHITWithHITType_lifetimeInSeconds = Lens.lens (\CreateHITWithHITType' {lifetimeInSeconds} -> lifetimeInSeconds) (\s@CreateHITWithHITType' {} a -> s {lifetimeInSeconds = a} :: CreateHITWithHITType)
 
 instance Core.AWSRequest CreateHITWithHITType where
@@ -319,65 +320,69 @@ instance Core.AWSRequest CreateHITWithHITType where
     Response.receiveJSON
       ( \s h x ->
           CreateHITWithHITTypeResponse'
-            Core.<$> (x Core..?> "HIT")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "HIT")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateHITWithHITType
+instance Prelude.Hashable CreateHITWithHITType
 
-instance Core.NFData CreateHITWithHITType
+instance Prelude.NFData CreateHITWithHITType
 
 instance Core.ToHeaders CreateHITWithHITType where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MTurkRequesterServiceV20170117.CreateHITWithHITType" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateHITWithHITType where
   toJSON CreateHITWithHITType' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("UniqueRequestToken" Core..=)
-              Core.<$> uniqueRequestToken,
-            ("Question" Core..=) Core.<$> question,
-            ("HITLayoutId" Core..=) Core.<$> hITLayoutId,
-            ("HITReviewPolicy" Core..=) Core.<$> hITReviewPolicy,
-            ("MaxAssignments" Core..=) Core.<$> maxAssignments,
+              Prelude.<$> uniqueRequestToken,
+            ("Question" Core..=) Prelude.<$> question,
+            ("HITLayoutId" Core..=) Prelude.<$> hITLayoutId,
+            ("HITReviewPolicy" Core..=)
+              Prelude.<$> hITReviewPolicy,
+            ("MaxAssignments" Core..=)
+              Prelude.<$> maxAssignments,
             ("RequesterAnnotation" Core..=)
-              Core.<$> requesterAnnotation,
+              Prelude.<$> requesterAnnotation,
             ("AssignmentReviewPolicy" Core..=)
-              Core.<$> assignmentReviewPolicy,
+              Prelude.<$> assignmentReviewPolicy,
             ("HITLayoutParameters" Core..=)
-              Core.<$> hITLayoutParameters,
-            Core.Just ("HITTypeId" Core..= hITTypeId),
-            Core.Just
+              Prelude.<$> hITLayoutParameters,
+            Prelude.Just ("HITTypeId" Core..= hITTypeId),
+            Prelude.Just
               ("LifetimeInSeconds" Core..= lifetimeInSeconds)
           ]
       )
 
 instance Core.ToPath CreateHITWithHITType where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateHITWithHITType where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateHITWithHITTypeResponse' smart constructor.
 data CreateHITWithHITTypeResponse = CreateHITWithHITTypeResponse'
   { -- | Contains the newly created HIT data. For a description of the HIT data
     -- structure as it appears in responses, see the HIT Data Structure
     -- documentation.
-    hit :: Core.Maybe HIT,
+    hit :: Prelude.Maybe HIT,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateHITWithHITTypeResponse' with all optional fields omitted.
@@ -394,22 +399,23 @@ data CreateHITWithHITTypeResponse = CreateHITWithHITTypeResponse'
 -- 'httpStatus', 'createHITWithHITTypeResponse_httpStatus' - The response's http status code.
 newCreateHITWithHITTypeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateHITWithHITTypeResponse
 newCreateHITWithHITTypeResponse pHttpStatus_ =
   CreateHITWithHITTypeResponse'
-    { hit = Core.Nothing,
+    { hit =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains the newly created HIT data. For a description of the HIT data
 -- structure as it appears in responses, see the HIT Data Structure
 -- documentation.
-createHITWithHITTypeResponse_hit :: Lens.Lens' CreateHITWithHITTypeResponse (Core.Maybe HIT)
+createHITWithHITTypeResponse_hit :: Lens.Lens' CreateHITWithHITTypeResponse (Prelude.Maybe HIT)
 createHITWithHITTypeResponse_hit = Lens.lens (\CreateHITWithHITTypeResponse' {hit} -> hit) (\s@CreateHITWithHITTypeResponse' {} a -> s {hit = a} :: CreateHITWithHITTypeResponse)
 
 -- | The response's http status code.
-createHITWithHITTypeResponse_httpStatus :: Lens.Lens' CreateHITWithHITTypeResponse Core.Int
+createHITWithHITTypeResponse_httpStatus :: Lens.Lens' CreateHITWithHITTypeResponse Prelude.Int
 createHITWithHITTypeResponse_httpStatus = Lens.lens (\CreateHITWithHITTypeResponse' {httpStatus} -> httpStatus) (\s@CreateHITWithHITTypeResponse' {} a -> s {httpStatus = a} :: CreateHITWithHITTypeResponse)
 
-instance Core.NFData CreateHITWithHITTypeResponse
+instance Prelude.NFData CreateHITWithHITTypeResponse

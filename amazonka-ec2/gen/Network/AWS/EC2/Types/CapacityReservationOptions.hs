@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.FleetCapacityReservationUsageStrategy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the strategy for using unused Capacity Reservations for
 -- fulfilling On-Demand capacity.
@@ -52,9 +53,9 @@ data CapacityReservationOptions = CapacityReservationOptions'
     --
     -- If you do not specify a value, the fleet fulfils the On-Demand capacity
     -- according to the chosen On-Demand allocation strategy.
-    usageStrategy :: Core.Maybe FleetCapacityReservationUsageStrategy
+    usageStrategy :: Prelude.Maybe FleetCapacityReservationUsageStrategy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CapacityReservationOptions' with all optional fields omitted.
@@ -83,7 +84,7 @@ newCapacityReservationOptions ::
 newCapacityReservationOptions =
   CapacityReservationOptions'
     { usageStrategy =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Indicates whether to use unused Capacity Reservations for fulfilling
@@ -100,14 +101,14 @@ newCapacityReservationOptions =
 --
 -- If you do not specify a value, the fleet fulfils the On-Demand capacity
 -- according to the chosen On-Demand allocation strategy.
-capacityReservationOptions_usageStrategy :: Lens.Lens' CapacityReservationOptions (Core.Maybe FleetCapacityReservationUsageStrategy)
+capacityReservationOptions_usageStrategy :: Lens.Lens' CapacityReservationOptions (Prelude.Maybe FleetCapacityReservationUsageStrategy)
 capacityReservationOptions_usageStrategy = Lens.lens (\CapacityReservationOptions' {usageStrategy} -> usageStrategy) (\s@CapacityReservationOptions' {} a -> s {usageStrategy = a} :: CapacityReservationOptions)
 
 instance Core.FromXML CapacityReservationOptions where
   parseXML x =
     CapacityReservationOptions'
-      Core.<$> (x Core..@? "usageStrategy")
+      Prelude.<$> (x Core..@? "usageStrategy")
 
-instance Core.Hashable CapacityReservationOptions
+instance Prelude.Hashable CapacityReservationOptions
 
-instance Core.NFData CapacityReservationOptions
+instance Prelude.NFData CapacityReservationOptions

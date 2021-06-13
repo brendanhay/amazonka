@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Placeholder documentation for AudioSilenceFailoverSettings
 --
@@ -29,13 +30,13 @@ data AudioSilenceFailoverSettings = AudioSilenceFailoverSettings'
   { -- | The amount of time (in milliseconds) that the active input must be
     -- silent before automatic input failover occurs. Silence is defined as
     -- audio loss or audio quieter than -50 dBFS.
-    audioSilenceThresholdMsec :: Core.Maybe Core.Natural,
+    audioSilenceThresholdMsec :: Prelude.Maybe Prelude.Natural,
     -- | The name of the audio selector in the input that MediaLive should
     -- monitor to detect silence. Select your most important rendition. If you
     -- didn\'t create an audio selector in this input, leave blank.
-    audioSelectorName :: Core.Text
+    audioSelectorName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AudioSilenceFailoverSettings' with all optional fields omitted.
@@ -54,25 +55,25 @@ data AudioSilenceFailoverSettings = AudioSilenceFailoverSettings'
 -- didn\'t create an audio selector in this input, leave blank.
 newAudioSilenceFailoverSettings ::
   -- | 'audioSelectorName'
-  Core.Text ->
+  Prelude.Text ->
   AudioSilenceFailoverSettings
 newAudioSilenceFailoverSettings pAudioSelectorName_ =
   AudioSilenceFailoverSettings'
     { audioSilenceThresholdMsec =
-        Core.Nothing,
+        Prelude.Nothing,
       audioSelectorName = pAudioSelectorName_
     }
 
 -- | The amount of time (in milliseconds) that the active input must be
 -- silent before automatic input failover occurs. Silence is defined as
 -- audio loss or audio quieter than -50 dBFS.
-audioSilenceFailoverSettings_audioSilenceThresholdMsec :: Lens.Lens' AudioSilenceFailoverSettings (Core.Maybe Core.Natural)
+audioSilenceFailoverSettings_audioSilenceThresholdMsec :: Lens.Lens' AudioSilenceFailoverSettings (Prelude.Maybe Prelude.Natural)
 audioSilenceFailoverSettings_audioSilenceThresholdMsec = Lens.lens (\AudioSilenceFailoverSettings' {audioSilenceThresholdMsec} -> audioSilenceThresholdMsec) (\s@AudioSilenceFailoverSettings' {} a -> s {audioSilenceThresholdMsec = a} :: AudioSilenceFailoverSettings)
 
 -- | The name of the audio selector in the input that MediaLive should
 -- monitor to detect silence. Select your most important rendition. If you
 -- didn\'t create an audio selector in this input, leave blank.
-audioSilenceFailoverSettings_audioSelectorName :: Lens.Lens' AudioSilenceFailoverSettings Core.Text
+audioSilenceFailoverSettings_audioSelectorName :: Lens.Lens' AudioSilenceFailoverSettings Prelude.Text
 audioSilenceFailoverSettings_audioSelectorName = Lens.lens (\AudioSilenceFailoverSettings' {audioSelectorName} -> audioSelectorName) (\s@AudioSilenceFailoverSettings' {} a -> s {audioSelectorName = a} :: AudioSilenceFailoverSettings)
 
 instance Core.FromJSON AudioSilenceFailoverSettings where
@@ -81,21 +82,23 @@ instance Core.FromJSON AudioSilenceFailoverSettings where
       "AudioSilenceFailoverSettings"
       ( \x ->
           AudioSilenceFailoverSettings'
-            Core.<$> (x Core..:? "audioSilenceThresholdMsec")
-            Core.<*> (x Core..: "audioSelectorName")
+            Prelude.<$> (x Core..:? "audioSilenceThresholdMsec")
+            Prelude.<*> (x Core..: "audioSelectorName")
       )
 
-instance Core.Hashable AudioSilenceFailoverSettings
+instance
+  Prelude.Hashable
+    AudioSilenceFailoverSettings
 
-instance Core.NFData AudioSilenceFailoverSettings
+instance Prelude.NFData AudioSilenceFailoverSettings
 
 instance Core.ToJSON AudioSilenceFailoverSettings where
   toJSON AudioSilenceFailoverSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("audioSilenceThresholdMsec" Core..=)
-              Core.<$> audioSilenceThresholdMsec,
-            Core.Just
+              Prelude.<$> audioSilenceThresholdMsec,
+            Prelude.Just
               ("audioSelectorName" Core..= audioSelectorName)
           ]
       )

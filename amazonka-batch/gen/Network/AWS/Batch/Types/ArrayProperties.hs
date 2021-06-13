@@ -21,15 +21,16 @@ module Network.AWS.Batch.Types.ArrayProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an AWS Batch array job.
 --
 -- /See:/ 'newArrayProperties' smart constructor.
 data ArrayProperties = ArrayProperties'
   { -- | The size of the array job.
-    size :: Core.Maybe Core.Int
+    size :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ArrayProperties' with all optional fields omitted.
@@ -43,17 +44,19 @@ data ArrayProperties = ArrayProperties'
 newArrayProperties ::
   ArrayProperties
 newArrayProperties =
-  ArrayProperties' {size = Core.Nothing}
+  ArrayProperties' {size = Prelude.Nothing}
 
 -- | The size of the array job.
-arrayProperties_size :: Lens.Lens' ArrayProperties (Core.Maybe Core.Int)
+arrayProperties_size :: Lens.Lens' ArrayProperties (Prelude.Maybe Prelude.Int)
 arrayProperties_size = Lens.lens (\ArrayProperties' {size} -> size) (\s@ArrayProperties' {} a -> s {size = a} :: ArrayProperties)
 
-instance Core.Hashable ArrayProperties
+instance Prelude.Hashable ArrayProperties
 
-instance Core.NFData ArrayProperties
+instance Prelude.NFData ArrayProperties
 
 instance Core.ToJSON ArrayProperties where
   toJSON ArrayProperties' {..} =
     Core.object
-      (Core.catMaybes [("size" Core..=) Core.<$> size])
+      ( Prelude.catMaybes
+          [("size" Core..=) Prelude.<$> size]
+      )

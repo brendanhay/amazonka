@@ -25,6 +25,7 @@ import Network.AWS.Lightsail.Types.ContactMethodStatus
 import Network.AWS.Lightsail.Types.ContactProtocol
 import Network.AWS.Lightsail.Types.ResourceLocation
 import Network.AWS.Lightsail.Types.ResourceType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a contact method.
 --
@@ -45,28 +46,28 @@ data ContactMethod = ContactMethod'
     --
     -- -   @InValid@ - An attempt was made to verify the contact method, but
     --     the verification has expired.
-    status :: Core.Maybe ContactMethodStatus,
+    status :: Prelude.Maybe ContactMethodStatus,
     -- | The destination of the contact method, such as an email address or a
     -- mobile phone number.
-    contactEndpoint :: Core.Maybe Core.Text,
+    contactEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the contact method was created.
-    createdAt :: Core.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the contact method.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The Lightsail resource type (e.g., @ContactMethod@).
-    resourceType :: Core.Maybe ResourceType,
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The support code. Include this code in your email to support when you
     -- have questions about your Lightsail contact method. This code enables
     -- our support team to look up your Lightsail information more easily.
-    supportCode :: Core.Maybe Core.Text,
+    supportCode :: Prelude.Maybe Prelude.Text,
     -- | The name of the contact method.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The protocol of the contact method, such as email or SMS (text
     -- messaging).
-    protocol :: Core.Maybe ContactProtocol,
-    location :: Core.Maybe ResourceLocation
+    protocol :: Prelude.Maybe ContactProtocol,
+    location :: Prelude.Maybe ResourceLocation
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ContactMethod' with all optional fields omitted.
@@ -111,15 +112,15 @@ newContactMethod ::
   ContactMethod
 newContactMethod =
   ContactMethod'
-    { status = Core.Nothing,
-      contactEndpoint = Core.Nothing,
-      createdAt = Core.Nothing,
-      arn = Core.Nothing,
-      resourceType = Core.Nothing,
-      supportCode = Core.Nothing,
-      name = Core.Nothing,
-      protocol = Core.Nothing,
-      location = Core.Nothing
+    { status = Prelude.Nothing,
+      contactEndpoint = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      supportCode = Prelude.Nothing,
+      name = Prelude.Nothing,
+      protocol = Prelude.Nothing,
+      location = Prelude.Nothing
     }
 
 -- | The current status of the contact method.
@@ -133,43 +134,43 @@ newContactMethod =
 --
 -- -   @InValid@ - An attempt was made to verify the contact method, but
 --     the verification has expired.
-contactMethod_status :: Lens.Lens' ContactMethod (Core.Maybe ContactMethodStatus)
+contactMethod_status :: Lens.Lens' ContactMethod (Prelude.Maybe ContactMethodStatus)
 contactMethod_status = Lens.lens (\ContactMethod' {status} -> status) (\s@ContactMethod' {} a -> s {status = a} :: ContactMethod)
 
 -- | The destination of the contact method, such as an email address or a
 -- mobile phone number.
-contactMethod_contactEndpoint :: Lens.Lens' ContactMethod (Core.Maybe Core.Text)
+contactMethod_contactEndpoint :: Lens.Lens' ContactMethod (Prelude.Maybe Prelude.Text)
 contactMethod_contactEndpoint = Lens.lens (\ContactMethod' {contactEndpoint} -> contactEndpoint) (\s@ContactMethod' {} a -> s {contactEndpoint = a} :: ContactMethod)
 
 -- | The timestamp when the contact method was created.
-contactMethod_createdAt :: Lens.Lens' ContactMethod (Core.Maybe Core.UTCTime)
-contactMethod_createdAt = Lens.lens (\ContactMethod' {createdAt} -> createdAt) (\s@ContactMethod' {} a -> s {createdAt = a} :: ContactMethod) Core.. Lens.mapping Core._Time
+contactMethod_createdAt :: Lens.Lens' ContactMethod (Prelude.Maybe Prelude.UTCTime)
+contactMethod_createdAt = Lens.lens (\ContactMethod' {createdAt} -> createdAt) (\s@ContactMethod' {} a -> s {createdAt = a} :: ContactMethod) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the contact method.
-contactMethod_arn :: Lens.Lens' ContactMethod (Core.Maybe Core.Text)
+contactMethod_arn :: Lens.Lens' ContactMethod (Prelude.Maybe Prelude.Text)
 contactMethod_arn = Lens.lens (\ContactMethod' {arn} -> arn) (\s@ContactMethod' {} a -> s {arn = a} :: ContactMethod)
 
 -- | The Lightsail resource type (e.g., @ContactMethod@).
-contactMethod_resourceType :: Lens.Lens' ContactMethod (Core.Maybe ResourceType)
+contactMethod_resourceType :: Lens.Lens' ContactMethod (Prelude.Maybe ResourceType)
 contactMethod_resourceType = Lens.lens (\ContactMethod' {resourceType} -> resourceType) (\s@ContactMethod' {} a -> s {resourceType = a} :: ContactMethod)
 
 -- | The support code. Include this code in your email to support when you
 -- have questions about your Lightsail contact method. This code enables
 -- our support team to look up your Lightsail information more easily.
-contactMethod_supportCode :: Lens.Lens' ContactMethod (Core.Maybe Core.Text)
+contactMethod_supportCode :: Lens.Lens' ContactMethod (Prelude.Maybe Prelude.Text)
 contactMethod_supportCode = Lens.lens (\ContactMethod' {supportCode} -> supportCode) (\s@ContactMethod' {} a -> s {supportCode = a} :: ContactMethod)
 
 -- | The name of the contact method.
-contactMethod_name :: Lens.Lens' ContactMethod (Core.Maybe Core.Text)
+contactMethod_name :: Lens.Lens' ContactMethod (Prelude.Maybe Prelude.Text)
 contactMethod_name = Lens.lens (\ContactMethod' {name} -> name) (\s@ContactMethod' {} a -> s {name = a} :: ContactMethod)
 
 -- | The protocol of the contact method, such as email or SMS (text
 -- messaging).
-contactMethod_protocol :: Lens.Lens' ContactMethod (Core.Maybe ContactProtocol)
+contactMethod_protocol :: Lens.Lens' ContactMethod (Prelude.Maybe ContactProtocol)
 contactMethod_protocol = Lens.lens (\ContactMethod' {protocol} -> protocol) (\s@ContactMethod' {} a -> s {protocol = a} :: ContactMethod)
 
 -- | Undocumented member.
-contactMethod_location :: Lens.Lens' ContactMethod (Core.Maybe ResourceLocation)
+contactMethod_location :: Lens.Lens' ContactMethod (Prelude.Maybe ResourceLocation)
 contactMethod_location = Lens.lens (\ContactMethod' {location} -> location) (\s@ContactMethod' {} a -> s {location = a} :: ContactMethod)
 
 instance Core.FromJSON ContactMethod where
@@ -178,17 +179,17 @@ instance Core.FromJSON ContactMethod where
       "ContactMethod"
       ( \x ->
           ContactMethod'
-            Core.<$> (x Core..:? "status")
-            Core.<*> (x Core..:? "contactEndpoint")
-            Core.<*> (x Core..:? "createdAt")
-            Core.<*> (x Core..:? "arn")
-            Core.<*> (x Core..:? "resourceType")
-            Core.<*> (x Core..:? "supportCode")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "protocol")
-            Core.<*> (x Core..:? "location")
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "contactEndpoint")
+            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "resourceType")
+            Prelude.<*> (x Core..:? "supportCode")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "protocol")
+            Prelude.<*> (x Core..:? "location")
       )
 
-instance Core.Hashable ContactMethod
+instance Prelude.Hashable ContactMethod
 
-instance Core.NFData ContactMethod
+instance Prelude.NFData ContactMethod

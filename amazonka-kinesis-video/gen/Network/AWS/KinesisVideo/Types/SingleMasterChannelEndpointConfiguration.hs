@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types.ChannelProtocol
 import Network.AWS.KinesisVideo.Types.ChannelRole
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that contains the endpoint configuration for the
 -- @SINGLE_MASTER@ channel type.
@@ -33,7 +34,7 @@ data SingleMasterChannelEndpointConfiguration = SingleMasterChannelEndpointConfi
     -- @SINGLE_MASTER@ signaling channel. If @WSS@ is specified, this API
     -- returns a websocket endpoint. If @HTTPS@ is specified, this API returns
     -- an @HTTPS@ endpoint.
-    protocols :: Core.Maybe (Core.NonEmpty ChannelProtocol),
+    protocols :: Prelude.Maybe (Prelude.NonEmpty ChannelProtocol),
     -- | This property is used to determine messaging permissions in this
     -- @SINGLE_MASTER@ signaling channel. If @MASTER@ is specified, this API
     -- returns an endpoint that a client can use to receive offers from and
@@ -41,9 +42,9 @@ data SingleMasterChannelEndpointConfiguration = SingleMasterChannelEndpointConfi
     -- @VIEWER@ is specified, this API returns an endpoint that a client can
     -- use only to send offers to another @MASTER@ client on this signaling
     -- channel.
-    role' :: Core.Maybe ChannelRole
+    role' :: Prelude.Maybe ChannelRole
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SingleMasterChannelEndpointConfiguration' with all optional fields omitted.
@@ -70,16 +71,16 @@ newSingleMasterChannelEndpointConfiguration ::
 newSingleMasterChannelEndpointConfiguration =
   SingleMasterChannelEndpointConfiguration'
     { protocols =
-        Core.Nothing,
-      role' = Core.Nothing
+        Prelude.Nothing,
+      role' = Prelude.Nothing
     }
 
 -- | This property is used to determine the nature of communication over this
 -- @SINGLE_MASTER@ signaling channel. If @WSS@ is specified, this API
 -- returns a websocket endpoint. If @HTTPS@ is specified, this API returns
 -- an @HTTPS@ endpoint.
-singleMasterChannelEndpointConfiguration_protocols :: Lens.Lens' SingleMasterChannelEndpointConfiguration (Core.Maybe (Core.NonEmpty ChannelProtocol))
-singleMasterChannelEndpointConfiguration_protocols = Lens.lens (\SingleMasterChannelEndpointConfiguration' {protocols} -> protocols) (\s@SingleMasterChannelEndpointConfiguration' {} a -> s {protocols = a} :: SingleMasterChannelEndpointConfiguration) Core.. Lens.mapping Lens._Coerce
+singleMasterChannelEndpointConfiguration_protocols :: Lens.Lens' SingleMasterChannelEndpointConfiguration (Prelude.Maybe (Prelude.NonEmpty ChannelProtocol))
+singleMasterChannelEndpointConfiguration_protocols = Lens.lens (\SingleMasterChannelEndpointConfiguration' {protocols} -> protocols) (\s@SingleMasterChannelEndpointConfiguration' {} a -> s {protocols = a} :: SingleMasterChannelEndpointConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | This property is used to determine messaging permissions in this
 -- @SINGLE_MASTER@ signaling channel. If @MASTER@ is specified, this API
@@ -88,15 +89,15 @@ singleMasterChannelEndpointConfiguration_protocols = Lens.lens (\SingleMasterCha
 -- @VIEWER@ is specified, this API returns an endpoint that a client can
 -- use only to send offers to another @MASTER@ client on this signaling
 -- channel.
-singleMasterChannelEndpointConfiguration_role :: Lens.Lens' SingleMasterChannelEndpointConfiguration (Core.Maybe ChannelRole)
+singleMasterChannelEndpointConfiguration_role :: Lens.Lens' SingleMasterChannelEndpointConfiguration (Prelude.Maybe ChannelRole)
 singleMasterChannelEndpointConfiguration_role = Lens.lens (\SingleMasterChannelEndpointConfiguration' {role'} -> role') (\s@SingleMasterChannelEndpointConfiguration' {} a -> s {role' = a} :: SingleMasterChannelEndpointConfiguration)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     SingleMasterChannelEndpointConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     SingleMasterChannelEndpointConfiguration
 
 instance
@@ -105,8 +106,8 @@ instance
   where
   toJSON SingleMasterChannelEndpointConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Protocols" Core..=) Core.<$> protocols,
-            ("Role" Core..=) Core.<$> role'
+      ( Prelude.catMaybes
+          [ ("Protocols" Core..=) Prelude.<$> protocols,
+            ("Role" Core..=) Prelude.<$> role'
           ]
       )

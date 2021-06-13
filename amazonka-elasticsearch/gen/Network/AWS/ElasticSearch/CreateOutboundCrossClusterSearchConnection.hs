@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,9 +65,9 @@ data CreateOutboundCrossClusterSearchConnection = CreateOutboundCrossClusterSear
     destinationDomainInfo :: DomainInformation,
     -- | Specifies the connection alias that will be used by the customer for
     -- this connection.
-    connectionAlias :: Core.Text
+    connectionAlias :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateOutboundCrossClusterSearchConnection' with all optional fields omitted.
@@ -89,7 +90,7 @@ newCreateOutboundCrossClusterSearchConnection ::
   -- | 'destinationDomainInfo'
   DomainInformation ->
   -- | 'connectionAlias'
-  Core.Text ->
+  Prelude.Text ->
   CreateOutboundCrossClusterSearchConnection
 newCreateOutboundCrossClusterSearchConnection
   pSourceDomainInfo_
@@ -115,7 +116,7 @@ createOutboundCrossClusterSearchConnection_destinationDomainInfo = Lens.lens (\C
 
 -- | Specifies the connection alias that will be used by the customer for
 -- this connection.
-createOutboundCrossClusterSearchConnection_connectionAlias :: Lens.Lens' CreateOutboundCrossClusterSearchConnection Core.Text
+createOutboundCrossClusterSearchConnection_connectionAlias :: Lens.Lens' CreateOutboundCrossClusterSearchConnection Prelude.Text
 createOutboundCrossClusterSearchConnection_connectionAlias = Lens.lens (\CreateOutboundCrossClusterSearchConnection' {connectionAlias} -> connectionAlias) (\s@CreateOutboundCrossClusterSearchConnection' {} a -> s {connectionAlias = a} :: CreateOutboundCrossClusterSearchConnection)
 
 instance
@@ -131,27 +132,27 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateOutboundCrossClusterSearchConnectionResponse'
-            Core.<$> (x Core..?> "CrossClusterSearchConnectionId")
-              Core.<*> (x Core..?> "SourceDomainInfo")
-              Core.<*> (x Core..?> "ConnectionAlias")
-              Core.<*> (x Core..?> "DestinationDomainInfo")
-              Core.<*> (x Core..?> "ConnectionStatus")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CrossClusterSearchConnectionId")
+              Prelude.<*> (x Core..?> "SourceDomainInfo")
+              Prelude.<*> (x Core..?> "ConnectionAlias")
+              Prelude.<*> (x Core..?> "DestinationDomainInfo")
+              Prelude.<*> (x Core..?> "ConnectionStatus")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CreateOutboundCrossClusterSearchConnection
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateOutboundCrossClusterSearchConnection
 
 instance
   Core.ToHeaders
     CreateOutboundCrossClusterSearchConnection
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToJSON
@@ -160,14 +161,14 @@ instance
   toJSON
     CreateOutboundCrossClusterSearchConnection' {..} =
       Core.object
-        ( Core.catMaybes
-            [ Core.Just
+        ( Prelude.catMaybes
+            [ Prelude.Just
                 ("SourceDomainInfo" Core..= sourceDomainInfo),
-              Core.Just
+              Prelude.Just
                 ( "DestinationDomainInfo"
                     Core..= destinationDomainInfo
                 ),
-              Core.Just
+              Prelude.Just
                 ("ConnectionAlias" Core..= connectionAlias)
             ]
         )
@@ -177,13 +178,14 @@ instance
     CreateOutboundCrossClusterSearchConnection
   where
   toPath =
-    Core.const "/2015-01-01/es/ccs/outboundConnection"
+    Prelude.const
+      "/2015-01-01/es/ccs/outboundConnection"
 
 instance
   Core.ToQuery
     CreateOutboundCrossClusterSearchConnection
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a @CreateOutboundCrossClusterSearchConnection@ request.
 -- Contains the details of the newly created cross-cluster search
@@ -193,22 +195,22 @@ instance
 data CreateOutboundCrossClusterSearchConnectionResponse = CreateOutboundCrossClusterSearchConnectionResponse'
   { -- | Unique id for the created outbound connection, which is used for
     -- subsequent operations on connection.
-    crossClusterSearchConnectionId :: Core.Maybe Core.Text,
+    crossClusterSearchConnectionId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the @DomainInformation@ for the source Elasticsearch domain.
-    sourceDomainInfo :: Core.Maybe DomainInformation,
+    sourceDomainInfo :: Prelude.Maybe DomainInformation,
     -- | Specifies the connection alias provided during the create connection
     -- request.
-    connectionAlias :: Core.Maybe Core.Text,
+    connectionAlias :: Prelude.Maybe Prelude.Text,
     -- | Specifies the @DomainInformation@ for the destination Elasticsearch
     -- domain.
-    destinationDomainInfo :: Core.Maybe DomainInformation,
+    destinationDomainInfo :: Prelude.Maybe DomainInformation,
     -- | Specifies the @OutboundCrossClusterSearchConnectionStatus@ for the newly
     -- created connection.
-    connectionStatus :: Core.Maybe OutboundCrossClusterSearchConnectionStatus,
+    connectionStatus :: Prelude.Maybe OutboundCrossClusterSearchConnectionStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateOutboundCrossClusterSearchConnectionResponse' with all optional fields omitted.
@@ -235,53 +237,53 @@ data CreateOutboundCrossClusterSearchConnectionResponse = CreateOutboundCrossClu
 -- 'httpStatus', 'createOutboundCrossClusterSearchConnectionResponse_httpStatus' - The response's http status code.
 newCreateOutboundCrossClusterSearchConnectionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateOutboundCrossClusterSearchConnectionResponse
 newCreateOutboundCrossClusterSearchConnectionResponse
   pHttpStatus_ =
     CreateOutboundCrossClusterSearchConnectionResponse'
       { crossClusterSearchConnectionId =
-          Core.Nothing,
+          Prelude.Nothing,
         sourceDomainInfo =
-          Core.Nothing,
+          Prelude.Nothing,
         connectionAlias =
-          Core.Nothing,
+          Prelude.Nothing,
         destinationDomainInfo =
-          Core.Nothing,
+          Prelude.Nothing,
         connectionStatus =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | Unique id for the created outbound connection, which is used for
 -- subsequent operations on connection.
-createOutboundCrossClusterSearchConnectionResponse_crossClusterSearchConnectionId :: Lens.Lens' CreateOutboundCrossClusterSearchConnectionResponse (Core.Maybe Core.Text)
+createOutboundCrossClusterSearchConnectionResponse_crossClusterSearchConnectionId :: Lens.Lens' CreateOutboundCrossClusterSearchConnectionResponse (Prelude.Maybe Prelude.Text)
 createOutboundCrossClusterSearchConnectionResponse_crossClusterSearchConnectionId = Lens.lens (\CreateOutboundCrossClusterSearchConnectionResponse' {crossClusterSearchConnectionId} -> crossClusterSearchConnectionId) (\s@CreateOutboundCrossClusterSearchConnectionResponse' {} a -> s {crossClusterSearchConnectionId = a} :: CreateOutboundCrossClusterSearchConnectionResponse)
 
 -- | Specifies the @DomainInformation@ for the source Elasticsearch domain.
-createOutboundCrossClusterSearchConnectionResponse_sourceDomainInfo :: Lens.Lens' CreateOutboundCrossClusterSearchConnectionResponse (Core.Maybe DomainInformation)
+createOutboundCrossClusterSearchConnectionResponse_sourceDomainInfo :: Lens.Lens' CreateOutboundCrossClusterSearchConnectionResponse (Prelude.Maybe DomainInformation)
 createOutboundCrossClusterSearchConnectionResponse_sourceDomainInfo = Lens.lens (\CreateOutboundCrossClusterSearchConnectionResponse' {sourceDomainInfo} -> sourceDomainInfo) (\s@CreateOutboundCrossClusterSearchConnectionResponse' {} a -> s {sourceDomainInfo = a} :: CreateOutboundCrossClusterSearchConnectionResponse)
 
 -- | Specifies the connection alias provided during the create connection
 -- request.
-createOutboundCrossClusterSearchConnectionResponse_connectionAlias :: Lens.Lens' CreateOutboundCrossClusterSearchConnectionResponse (Core.Maybe Core.Text)
+createOutboundCrossClusterSearchConnectionResponse_connectionAlias :: Lens.Lens' CreateOutboundCrossClusterSearchConnectionResponse (Prelude.Maybe Prelude.Text)
 createOutboundCrossClusterSearchConnectionResponse_connectionAlias = Lens.lens (\CreateOutboundCrossClusterSearchConnectionResponse' {connectionAlias} -> connectionAlias) (\s@CreateOutboundCrossClusterSearchConnectionResponse' {} a -> s {connectionAlias = a} :: CreateOutboundCrossClusterSearchConnectionResponse)
 
 -- | Specifies the @DomainInformation@ for the destination Elasticsearch
 -- domain.
-createOutboundCrossClusterSearchConnectionResponse_destinationDomainInfo :: Lens.Lens' CreateOutboundCrossClusterSearchConnectionResponse (Core.Maybe DomainInformation)
+createOutboundCrossClusterSearchConnectionResponse_destinationDomainInfo :: Lens.Lens' CreateOutboundCrossClusterSearchConnectionResponse (Prelude.Maybe DomainInformation)
 createOutboundCrossClusterSearchConnectionResponse_destinationDomainInfo = Lens.lens (\CreateOutboundCrossClusterSearchConnectionResponse' {destinationDomainInfo} -> destinationDomainInfo) (\s@CreateOutboundCrossClusterSearchConnectionResponse' {} a -> s {destinationDomainInfo = a} :: CreateOutboundCrossClusterSearchConnectionResponse)
 
 -- | Specifies the @OutboundCrossClusterSearchConnectionStatus@ for the newly
 -- created connection.
-createOutboundCrossClusterSearchConnectionResponse_connectionStatus :: Lens.Lens' CreateOutboundCrossClusterSearchConnectionResponse (Core.Maybe OutboundCrossClusterSearchConnectionStatus)
+createOutboundCrossClusterSearchConnectionResponse_connectionStatus :: Lens.Lens' CreateOutboundCrossClusterSearchConnectionResponse (Prelude.Maybe OutboundCrossClusterSearchConnectionStatus)
 createOutboundCrossClusterSearchConnectionResponse_connectionStatus = Lens.lens (\CreateOutboundCrossClusterSearchConnectionResponse' {connectionStatus} -> connectionStatus) (\s@CreateOutboundCrossClusterSearchConnectionResponse' {} a -> s {connectionStatus = a} :: CreateOutboundCrossClusterSearchConnectionResponse)
 
 -- | The response's http status code.
-createOutboundCrossClusterSearchConnectionResponse_httpStatus :: Lens.Lens' CreateOutboundCrossClusterSearchConnectionResponse Core.Int
+createOutboundCrossClusterSearchConnectionResponse_httpStatus :: Lens.Lens' CreateOutboundCrossClusterSearchConnectionResponse Prelude.Int
 createOutboundCrossClusterSearchConnectionResponse_httpStatus = Lens.lens (\CreateOutboundCrossClusterSearchConnectionResponse' {httpStatus} -> httpStatus) (\s@CreateOutboundCrossClusterSearchConnectionResponse' {} a -> s {httpStatus = a} :: CreateOutboundCrossClusterSearchConnectionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateOutboundCrossClusterSearchConnectionResponse

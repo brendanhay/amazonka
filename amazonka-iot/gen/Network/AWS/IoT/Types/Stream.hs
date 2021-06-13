@@ -21,17 +21,18 @@ module Network.AWS.IoT.Types.Stream where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a group of files that can be streamed.
 --
 -- /See:/ 'newStream' smart constructor.
 data Stream = Stream'
   { -- | The stream ID.
-    streamId :: Core.Maybe Core.Text,
+    streamId :: Prelude.Maybe Prelude.Text,
     -- | The ID of a file associated with a stream.
-    fileId :: Core.Maybe Core.Natural
+    fileId :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Stream' with all optional fields omitted.
@@ -48,16 +49,16 @@ newStream ::
   Stream
 newStream =
   Stream'
-    { streamId = Core.Nothing,
-      fileId = Core.Nothing
+    { streamId = Prelude.Nothing,
+      fileId = Prelude.Nothing
     }
 
 -- | The stream ID.
-stream_streamId :: Lens.Lens' Stream (Core.Maybe Core.Text)
+stream_streamId :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
 stream_streamId = Lens.lens (\Stream' {streamId} -> streamId) (\s@Stream' {} a -> s {streamId = a} :: Stream)
 
 -- | The ID of a file associated with a stream.
-stream_fileId :: Lens.Lens' Stream (Core.Maybe Core.Natural)
+stream_fileId :: Lens.Lens' Stream (Prelude.Maybe Prelude.Natural)
 stream_fileId = Lens.lens (\Stream' {fileId} -> fileId) (\s@Stream' {} a -> s {fileId = a} :: Stream)
 
 instance Core.FromJSON Stream where
@@ -66,19 +67,19 @@ instance Core.FromJSON Stream where
       "Stream"
       ( \x ->
           Stream'
-            Core.<$> (x Core..:? "streamId")
-            Core.<*> (x Core..:? "fileId")
+            Prelude.<$> (x Core..:? "streamId")
+            Prelude.<*> (x Core..:? "fileId")
       )
 
-instance Core.Hashable Stream
+instance Prelude.Hashable Stream
 
-instance Core.NFData Stream
+instance Prelude.NFData Stream
 
 instance Core.ToJSON Stream where
   toJSON Stream' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("streamId" Core..=) Core.<$> streamId,
-            ("fileId" Core..=) Core.<$> fileId
+      ( Prelude.catMaybes
+          [ ("streamId" Core..=) Prelude.<$> streamId,
+            ("fileId" Core..=) Prelude.<$> fileId
           ]
       )

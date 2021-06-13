@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.STS.Types
@@ -58,7 +59,7 @@ import Network.AWS.STS.Types
 data GetCallerIdentity = GetCallerIdentity'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCallerIdentity' with all optional fields omitted.
@@ -78,29 +79,30 @@ instance Core.AWSRequest GetCallerIdentity where
       "GetCallerIdentityResult"
       ( \s h x ->
           GetCallerIdentityResponse'
-            Core.<$> (x Core..@? "Arn")
-            Core.<*> (x Core..@? "UserId")
-            Core.<*> (x Core..@? "Account")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Arn")
+            Prelude.<*> (x Core..@? "UserId")
+            Prelude.<*> (x Core..@? "Account")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetCallerIdentity
+instance Prelude.Hashable GetCallerIdentity
 
-instance Core.NFData GetCallerIdentity
+instance Prelude.NFData GetCallerIdentity
 
 instance Core.ToHeaders GetCallerIdentity where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetCallerIdentity where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetCallerIdentity where
   toQuery =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Action"
-              Core.=: ("GetCallerIdentity" :: Core.ByteString),
-            "Version" Core.=: ("2011-06-15" :: Core.ByteString)
+              Core.=: ("GetCallerIdentity" :: Prelude.ByteString),
+            "Version"
+              Core.=: ("2011-06-15" :: Prelude.ByteString)
           ]
       )
 
@@ -110,21 +112,21 @@ instance Core.ToQuery GetCallerIdentity where
 -- /See:/ 'newGetCallerIdentityResponse' smart constructor.
 data GetCallerIdentityResponse = GetCallerIdentityResponse'
   { -- | The AWS ARN associated with the calling entity.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the calling entity. The exact value depends on
     -- the type of entity that is making the call. The values returned are
     -- those listed in the __aws:userid__ column in the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable Principal table>
     -- found on the __Policy Variables__ reference page in the /IAM User
     -- Guide/.
-    userId :: Core.Maybe Core.Text,
+    userId :: Prelude.Maybe Prelude.Text,
     -- | The AWS account ID number of the account that owns or contains the
     -- calling entity.
-    account :: Core.Maybe Core.Text,
+    account :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCallerIdentityResponse' with all optional fields omitted.
@@ -149,18 +151,18 @@ data GetCallerIdentityResponse = GetCallerIdentityResponse'
 -- 'httpStatus', 'getCallerIdentityResponse_httpStatus' - The response's http status code.
 newGetCallerIdentityResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetCallerIdentityResponse
 newGetCallerIdentityResponse pHttpStatus_ =
   GetCallerIdentityResponse'
-    { arn = Core.Nothing,
-      userId = Core.Nothing,
-      account = Core.Nothing,
+    { arn = Prelude.Nothing,
+      userId = Prelude.Nothing,
+      account = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The AWS ARN associated with the calling entity.
-getCallerIdentityResponse_arn :: Lens.Lens' GetCallerIdentityResponse (Core.Maybe Core.Text)
+getCallerIdentityResponse_arn :: Lens.Lens' GetCallerIdentityResponse (Prelude.Maybe Prelude.Text)
 getCallerIdentityResponse_arn = Lens.lens (\GetCallerIdentityResponse' {arn} -> arn) (\s@GetCallerIdentityResponse' {} a -> s {arn = a} :: GetCallerIdentityResponse)
 
 -- | The unique identifier of the calling entity. The exact value depends on
@@ -169,16 +171,16 @@ getCallerIdentityResponse_arn = Lens.lens (\GetCallerIdentityResponse' {arn} -> 
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable Principal table>
 -- found on the __Policy Variables__ reference page in the /IAM User
 -- Guide/.
-getCallerIdentityResponse_userId :: Lens.Lens' GetCallerIdentityResponse (Core.Maybe Core.Text)
+getCallerIdentityResponse_userId :: Lens.Lens' GetCallerIdentityResponse (Prelude.Maybe Prelude.Text)
 getCallerIdentityResponse_userId = Lens.lens (\GetCallerIdentityResponse' {userId} -> userId) (\s@GetCallerIdentityResponse' {} a -> s {userId = a} :: GetCallerIdentityResponse)
 
 -- | The AWS account ID number of the account that owns or contains the
 -- calling entity.
-getCallerIdentityResponse_account :: Lens.Lens' GetCallerIdentityResponse (Core.Maybe Core.Text)
+getCallerIdentityResponse_account :: Lens.Lens' GetCallerIdentityResponse (Prelude.Maybe Prelude.Text)
 getCallerIdentityResponse_account = Lens.lens (\GetCallerIdentityResponse' {account} -> account) (\s@GetCallerIdentityResponse' {} a -> s {account = a} :: GetCallerIdentityResponse)
 
 -- | The response's http status code.
-getCallerIdentityResponse_httpStatus :: Lens.Lens' GetCallerIdentityResponse Core.Int
+getCallerIdentityResponse_httpStatus :: Lens.Lens' GetCallerIdentityResponse Prelude.Int
 getCallerIdentityResponse_httpStatus = Lens.lens (\GetCallerIdentityResponse' {httpStatus} -> httpStatus) (\s@GetCallerIdentityResponse' {} a -> s {httpStatus = a} :: GetCallerIdentityResponse)
 
-instance Core.NFData GetCallerIdentityResponse
+instance Prelude.NFData GetCallerIdentityResponse

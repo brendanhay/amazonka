@@ -23,6 +23,7 @@ import Network.AWS.AWSHealth.Types.Event
 import Network.AWS.AWSHealth.Types.EventDescription
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Detailed information about an event. A combination of an
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html Event>
@@ -35,13 +36,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newOrganizationEventDetails' smart constructor.
 data OrganizationEventDetails = OrganizationEventDetails'
   { -- | The 12-digit AWS account numbers that contains the affected entities.
-    awsAccountId :: Core.Maybe Core.Text,
+    awsAccountId :: Prelude.Maybe Prelude.Text,
     -- | Additional metadata about the event.
-    eventMetadata :: Core.Maybe (Core.HashMap Core.Text Core.Text),
-    eventDescription :: Core.Maybe EventDescription,
-    event :: Core.Maybe Event
+    eventMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    eventDescription :: Prelude.Maybe EventDescription,
+    event :: Prelude.Maybe Event
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OrganizationEventDetails' with all optional fields omitted.
@@ -63,26 +64,26 @@ newOrganizationEventDetails ::
 newOrganizationEventDetails =
   OrganizationEventDetails'
     { awsAccountId =
-        Core.Nothing,
-      eventMetadata = Core.Nothing,
-      eventDescription = Core.Nothing,
-      event = Core.Nothing
+        Prelude.Nothing,
+      eventMetadata = Prelude.Nothing,
+      eventDescription = Prelude.Nothing,
+      event = Prelude.Nothing
     }
 
 -- | The 12-digit AWS account numbers that contains the affected entities.
-organizationEventDetails_awsAccountId :: Lens.Lens' OrganizationEventDetails (Core.Maybe Core.Text)
+organizationEventDetails_awsAccountId :: Lens.Lens' OrganizationEventDetails (Prelude.Maybe Prelude.Text)
 organizationEventDetails_awsAccountId = Lens.lens (\OrganizationEventDetails' {awsAccountId} -> awsAccountId) (\s@OrganizationEventDetails' {} a -> s {awsAccountId = a} :: OrganizationEventDetails)
 
 -- | Additional metadata about the event.
-organizationEventDetails_eventMetadata :: Lens.Lens' OrganizationEventDetails (Core.Maybe (Core.HashMap Core.Text Core.Text))
-organizationEventDetails_eventMetadata = Lens.lens (\OrganizationEventDetails' {eventMetadata} -> eventMetadata) (\s@OrganizationEventDetails' {} a -> s {eventMetadata = a} :: OrganizationEventDetails) Core.. Lens.mapping Lens._Coerce
+organizationEventDetails_eventMetadata :: Lens.Lens' OrganizationEventDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+organizationEventDetails_eventMetadata = Lens.lens (\OrganizationEventDetails' {eventMetadata} -> eventMetadata) (\s@OrganizationEventDetails' {} a -> s {eventMetadata = a} :: OrganizationEventDetails) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-organizationEventDetails_eventDescription :: Lens.Lens' OrganizationEventDetails (Core.Maybe EventDescription)
+organizationEventDetails_eventDescription :: Lens.Lens' OrganizationEventDetails (Prelude.Maybe EventDescription)
 organizationEventDetails_eventDescription = Lens.lens (\OrganizationEventDetails' {eventDescription} -> eventDescription) (\s@OrganizationEventDetails' {} a -> s {eventDescription = a} :: OrganizationEventDetails)
 
 -- | Undocumented member.
-organizationEventDetails_event :: Lens.Lens' OrganizationEventDetails (Core.Maybe Event)
+organizationEventDetails_event :: Lens.Lens' OrganizationEventDetails (Prelude.Maybe Event)
 organizationEventDetails_event = Lens.lens (\OrganizationEventDetails' {event} -> event) (\s@OrganizationEventDetails' {} a -> s {event = a} :: OrganizationEventDetails)
 
 instance Core.FromJSON OrganizationEventDetails where
@@ -91,12 +92,12 @@ instance Core.FromJSON OrganizationEventDetails where
       "OrganizationEventDetails"
       ( \x ->
           OrganizationEventDetails'
-            Core.<$> (x Core..:? "awsAccountId")
-            Core.<*> (x Core..:? "eventMetadata" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "eventDescription")
-            Core.<*> (x Core..:? "event")
+            Prelude.<$> (x Core..:? "awsAccountId")
+            Prelude.<*> (x Core..:? "eventMetadata" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "eventDescription")
+            Prelude.<*> (x Core..:? "event")
       )
 
-instance Core.Hashable OrganizationEventDetails
+instance Prelude.Hashable OrganizationEventDetails
 
-instance Core.NFData OrganizationEventDetails
+instance Prelude.NFData OrganizationEventDetails

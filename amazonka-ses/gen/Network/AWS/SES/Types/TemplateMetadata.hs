@@ -21,17 +21,18 @@ module Network.AWS.SES.Types.TemplateMetadata where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an email template.
 --
 -- /See:/ 'newTemplateMetadata' smart constructor.
 data TemplateMetadata = TemplateMetadata'
   { -- | The time and date the template was created.
-    createdTimestamp :: Core.Maybe Core.ISO8601,
+    createdTimestamp :: Prelude.Maybe Core.ISO8601,
     -- | The name of the template.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TemplateMetadata' with all optional fields omitted.
@@ -48,24 +49,25 @@ newTemplateMetadata ::
   TemplateMetadata
 newTemplateMetadata =
   TemplateMetadata'
-    { createdTimestamp = Core.Nothing,
-      name = Core.Nothing
+    { createdTimestamp =
+        Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The time and date the template was created.
-templateMetadata_createdTimestamp :: Lens.Lens' TemplateMetadata (Core.Maybe Core.UTCTime)
-templateMetadata_createdTimestamp = Lens.lens (\TemplateMetadata' {createdTimestamp} -> createdTimestamp) (\s@TemplateMetadata' {} a -> s {createdTimestamp = a} :: TemplateMetadata) Core.. Lens.mapping Core._Time
+templateMetadata_createdTimestamp :: Lens.Lens' TemplateMetadata (Prelude.Maybe Prelude.UTCTime)
+templateMetadata_createdTimestamp = Lens.lens (\TemplateMetadata' {createdTimestamp} -> createdTimestamp) (\s@TemplateMetadata' {} a -> s {createdTimestamp = a} :: TemplateMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the template.
-templateMetadata_name :: Lens.Lens' TemplateMetadata (Core.Maybe Core.Text)
+templateMetadata_name :: Lens.Lens' TemplateMetadata (Prelude.Maybe Prelude.Text)
 templateMetadata_name = Lens.lens (\TemplateMetadata' {name} -> name) (\s@TemplateMetadata' {} a -> s {name = a} :: TemplateMetadata)
 
 instance Core.FromXML TemplateMetadata where
   parseXML x =
     TemplateMetadata'
-      Core.<$> (x Core..@? "CreatedTimestamp")
-      Core.<*> (x Core..@? "Name")
+      Prelude.<$> (x Core..@? "CreatedTimestamp")
+      Prelude.<*> (x Core..@? "Name")
 
-instance Core.Hashable TemplateMetadata
+instance Prelude.Hashable TemplateMetadata
 
-instance Core.NFData TemplateMetadata
+instance Prelude.NFData TemplateMetadata

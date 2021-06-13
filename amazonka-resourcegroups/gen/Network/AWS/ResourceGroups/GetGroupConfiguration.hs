@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroups.Types
 import qualified Network.AWS.Response as Response
@@ -56,9 +57,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newGetGroupConfiguration' smart constructor.
 data GetGroupConfiguration = GetGroupConfiguration'
   { -- | The name or the ARN of the resource group.
-    group' :: Core.Maybe Core.Text
+    group' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetGroupConfiguration' with all optional fields omitted.
@@ -72,10 +73,10 @@ data GetGroupConfiguration = GetGroupConfiguration'
 newGetGroupConfiguration ::
   GetGroupConfiguration
 newGetGroupConfiguration =
-  GetGroupConfiguration' {group' = Core.Nothing}
+  GetGroupConfiguration' {group' = Prelude.Nothing}
 
 -- | The name or the ARN of the resource group.
-getGroupConfiguration_group :: Lens.Lens' GetGroupConfiguration (Core.Maybe Core.Text)
+getGroupConfiguration_group :: Lens.Lens' GetGroupConfiguration (Prelude.Maybe Prelude.Text)
 getGroupConfiguration_group = Lens.lens (\GetGroupConfiguration' {group'} -> group') (\s@GetGroupConfiguration' {} a -> s {group' = a} :: GetGroupConfiguration)
 
 instance Core.AWSRequest GetGroupConfiguration where
@@ -87,38 +88,40 @@ instance Core.AWSRequest GetGroupConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetGroupConfigurationResponse'
-            Core.<$> (x Core..?> "GroupConfiguration")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GroupConfiguration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetGroupConfiguration
+instance Prelude.Hashable GetGroupConfiguration
 
-instance Core.NFData GetGroupConfiguration
+instance Prelude.NFData GetGroupConfiguration
 
 instance Core.ToHeaders GetGroupConfiguration where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON GetGroupConfiguration where
   toJSON GetGroupConfiguration' {..} =
     Core.object
-      (Core.catMaybes [("Group" Core..=) Core.<$> group'])
+      ( Prelude.catMaybes
+          [("Group" Core..=) Prelude.<$> group']
+      )
 
 instance Core.ToPath GetGroupConfiguration where
-  toPath = Core.const "/get-group-configuration"
+  toPath = Prelude.const "/get-group-configuration"
 
 instance Core.ToQuery GetGroupConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetGroupConfigurationResponse' smart constructor.
 data GetGroupConfigurationResponse = GetGroupConfigurationResponse'
   { -- | The service configuration associated with the specified group. For
     -- details about the service configuration syntax, see
     -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
-    groupConfiguration :: Core.Maybe GroupConfiguration,
+    groupConfiguration :: Prelude.Maybe GroupConfiguration,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetGroupConfigurationResponse' with all optional fields omitted.
@@ -135,23 +138,23 @@ data GetGroupConfigurationResponse = GetGroupConfigurationResponse'
 -- 'httpStatus', 'getGroupConfigurationResponse_httpStatus' - The response's http status code.
 newGetGroupConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetGroupConfigurationResponse
 newGetGroupConfigurationResponse pHttpStatus_ =
   GetGroupConfigurationResponse'
     { groupConfiguration =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The service configuration associated with the specified group. For
 -- details about the service configuration syntax, see
 -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
-getGroupConfigurationResponse_groupConfiguration :: Lens.Lens' GetGroupConfigurationResponse (Core.Maybe GroupConfiguration)
+getGroupConfigurationResponse_groupConfiguration :: Lens.Lens' GetGroupConfigurationResponse (Prelude.Maybe GroupConfiguration)
 getGroupConfigurationResponse_groupConfiguration = Lens.lens (\GetGroupConfigurationResponse' {groupConfiguration} -> groupConfiguration) (\s@GetGroupConfigurationResponse' {} a -> s {groupConfiguration = a} :: GetGroupConfigurationResponse)
 
 -- | The response's http status code.
-getGroupConfigurationResponse_httpStatus :: Lens.Lens' GetGroupConfigurationResponse Core.Int
+getGroupConfigurationResponse_httpStatus :: Lens.Lens' GetGroupConfigurationResponse Prelude.Int
 getGroupConfigurationResponse_httpStatus = Lens.lens (\GetGroupConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetGroupConfigurationResponse' {} a -> s {httpStatus = a} :: GetGroupConfigurationResponse)
 
-instance Core.NFData GetGroupConfigurationResponse
+instance Prelude.NFData GetGroupConfigurationResponse

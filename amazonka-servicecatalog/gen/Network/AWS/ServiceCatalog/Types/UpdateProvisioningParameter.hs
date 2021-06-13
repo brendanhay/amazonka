@@ -21,20 +21,21 @@ module Network.AWS.ServiceCatalog.Types.UpdateProvisioningParameter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The parameter key-value pair used to update a provisioned product.
 --
 -- /See:/ 'newUpdateProvisioningParameter' smart constructor.
 data UpdateProvisioningParameter = UpdateProvisioningParameter'
   { -- | The parameter key.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | If set to true, @Value@ is ignored and the previous parameter value is
     -- kept.
-    usePreviousValue :: Core.Maybe Core.Bool,
+    usePreviousValue :: Prelude.Maybe Prelude.Bool,
     -- | The parameter value.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateProvisioningParameter' with all optional fields omitted.
@@ -54,22 +55,22 @@ newUpdateProvisioningParameter ::
   UpdateProvisioningParameter
 newUpdateProvisioningParameter =
   UpdateProvisioningParameter'
-    { key = Core.Nothing,
-      usePreviousValue = Core.Nothing,
-      value = Core.Nothing
+    { key = Prelude.Nothing,
+      usePreviousValue = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The parameter key.
-updateProvisioningParameter_key :: Lens.Lens' UpdateProvisioningParameter (Core.Maybe Core.Text)
+updateProvisioningParameter_key :: Lens.Lens' UpdateProvisioningParameter (Prelude.Maybe Prelude.Text)
 updateProvisioningParameter_key = Lens.lens (\UpdateProvisioningParameter' {key} -> key) (\s@UpdateProvisioningParameter' {} a -> s {key = a} :: UpdateProvisioningParameter)
 
 -- | If set to true, @Value@ is ignored and the previous parameter value is
 -- kept.
-updateProvisioningParameter_usePreviousValue :: Lens.Lens' UpdateProvisioningParameter (Core.Maybe Core.Bool)
+updateProvisioningParameter_usePreviousValue :: Lens.Lens' UpdateProvisioningParameter (Prelude.Maybe Prelude.Bool)
 updateProvisioningParameter_usePreviousValue = Lens.lens (\UpdateProvisioningParameter' {usePreviousValue} -> usePreviousValue) (\s@UpdateProvisioningParameter' {} a -> s {usePreviousValue = a} :: UpdateProvisioningParameter)
 
 -- | The parameter value.
-updateProvisioningParameter_value :: Lens.Lens' UpdateProvisioningParameter (Core.Maybe Core.Text)
+updateProvisioningParameter_value :: Lens.Lens' UpdateProvisioningParameter (Prelude.Maybe Prelude.Text)
 updateProvisioningParameter_value = Lens.lens (\UpdateProvisioningParameter' {value} -> value) (\s@UpdateProvisioningParameter' {} a -> s {value = a} :: UpdateProvisioningParameter)
 
 instance Core.FromJSON UpdateProvisioningParameter where
@@ -78,22 +79,22 @@ instance Core.FromJSON UpdateProvisioningParameter where
       "UpdateProvisioningParameter"
       ( \x ->
           UpdateProvisioningParameter'
-            Core.<$> (x Core..:? "Key")
-            Core.<*> (x Core..:? "UsePreviousValue")
-            Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "UsePreviousValue")
+            Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable UpdateProvisioningParameter
+instance Prelude.Hashable UpdateProvisioningParameter
 
-instance Core.NFData UpdateProvisioningParameter
+instance Prelude.NFData UpdateProvisioningParameter
 
 instance Core.ToJSON UpdateProvisioningParameter where
   toJSON UpdateProvisioningParameter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Key" Core..=) Core.<$> key,
+      ( Prelude.catMaybes
+          [ ("Key" Core..=) Prelude.<$> key,
             ("UsePreviousValue" Core..=)
-              Core.<$> usePreviousValue,
-            ("Value" Core..=) Core.<$> value
+              Prelude.<$> usePreviousValue,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

@@ -45,6 +45,7 @@ where
 import Network.AWS.CloudHSMv2.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +53,9 @@ import qualified Network.AWS.Response as Response
 data DeleteCluster = DeleteCluster'
   { -- | The identifier (ID) of the cluster that you are deleting. To find the
     -- cluster ID, use DescribeClusters.
-    clusterId :: Core.Text
+    clusterId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCluster' with all optional fields omitted.
@@ -68,14 +69,14 @@ data DeleteCluster = DeleteCluster'
 -- cluster ID, use DescribeClusters.
 newDeleteCluster ::
   -- | 'clusterId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteCluster
 newDeleteCluster pClusterId_ =
   DeleteCluster' {clusterId = pClusterId_}
 
 -- | The identifier (ID) of the cluster that you are deleting. To find the
 -- cluster ID, use DescribeClusters.
-deleteCluster_clusterId :: Lens.Lens' DeleteCluster Core.Text
+deleteCluster_clusterId :: Lens.Lens' DeleteCluster Prelude.Text
 deleteCluster_clusterId = Lens.lens (\DeleteCluster' {clusterId} -> clusterId) (\s@DeleteCluster' {} a -> s {clusterId = a} :: DeleteCluster)
 
 instance Core.AWSRequest DeleteCluster where
@@ -87,46 +88,50 @@ instance Core.AWSRequest DeleteCluster where
     Response.receiveJSON
       ( \s h x ->
           DeleteClusterResponse'
-            Core.<$> (x Core..?> "Cluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Cluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteCluster
+instance Prelude.Hashable DeleteCluster
 
-instance Core.NFData DeleteCluster
+instance Prelude.NFData DeleteCluster
 
 instance Core.ToHeaders DeleteCluster where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("BaldrApiService.DeleteCluster" :: Core.ByteString),
+              Core.=# ( "BaldrApiService.DeleteCluster" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteCluster where
   toJSON DeleteCluster' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ClusterId" Core..= clusterId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ClusterId" Core..= clusterId)]
       )
 
 instance Core.ToPath DeleteCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteCluster where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteClusterResponse' smart constructor.
 data DeleteClusterResponse = DeleteClusterResponse'
   { -- | Information about the cluster that was deleted.
-    cluster :: Core.Maybe Cluster,
+    cluster :: Prelude.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteClusterResponse' with all optional fields omitted.
@@ -141,20 +146,20 @@ data DeleteClusterResponse = DeleteClusterResponse'
 -- 'httpStatus', 'deleteClusterResponse_httpStatus' - The response's http status code.
 newDeleteClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteClusterResponse
 newDeleteClusterResponse pHttpStatus_ =
   DeleteClusterResponse'
-    { cluster = Core.Nothing,
+    { cluster = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the cluster that was deleted.
-deleteClusterResponse_cluster :: Lens.Lens' DeleteClusterResponse (Core.Maybe Cluster)
+deleteClusterResponse_cluster :: Lens.Lens' DeleteClusterResponse (Prelude.Maybe Cluster)
 deleteClusterResponse_cluster = Lens.lens (\DeleteClusterResponse' {cluster} -> cluster) (\s@DeleteClusterResponse' {} a -> s {cluster = a} :: DeleteClusterResponse)
 
 -- | The response's http status code.
-deleteClusterResponse_httpStatus :: Lens.Lens' DeleteClusterResponse Core.Int
+deleteClusterResponse_httpStatus :: Lens.Lens' DeleteClusterResponse Prelude.Int
 deleteClusterResponse_httpStatus = Lens.lens (\DeleteClusterResponse' {httpStatus} -> httpStatus) (\s@DeleteClusterResponse' {} a -> s {httpStatus = a} :: DeleteClusterResponse)
 
-instance Core.NFData DeleteClusterResponse
+instance Prelude.NFData DeleteClusterResponse

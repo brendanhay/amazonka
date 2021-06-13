@@ -21,6 +21,7 @@ module Network.AWS.ElasticTranscoder.Types.Thumbnails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Thumbnails for videos.
 --
@@ -30,7 +31,7 @@ data Thumbnails = Thumbnails'
     --
     -- You specify whether you want Elastic Transcoder to create thumbnails
     -- when you create a job.
-    format :: Core.Maybe Core.Text,
+    format :: Prelude.Maybe Prelude.Text,
     -- | Specify one of the following values to control scaling of thumbnails:
     --
     -- -   @Fit@: Elastic Transcoder scales thumbnails so they match the value
@@ -64,10 +65,10 @@ data Thumbnails = Thumbnails'
     --     one of @MaxWidth@ and @MaxHeight@ without dropping below either
     --     value. If you specify this option, Elastic Transcoder does not scale
     --     thumbnails up.
-    sizingPolicy :: Core.Maybe Core.Text,
+    sizingPolicy :: Prelude.Maybe Prelude.Text,
     -- | The approximate number of seconds between thumbnails. Specify an integer
     -- value.
-    interval :: Core.Maybe Core.Text,
+    interval :: Prelude.Maybe Prelude.Text,
     -- | To better control resolution and aspect ratio of thumbnails, we
     -- recommend that you use the values @MaxWidth@, @MaxHeight@,
     -- @SizingPolicy@, and @PaddingPolicy@ instead of @Resolution@ and
@@ -80,12 +81,12 @@ data Thumbnails = Thumbnails'
     --
     -- If you specify @auto@, Elastic Transcoder tries to preserve the aspect
     -- ratio of the video in the output file.
-    aspectRatio :: Core.Maybe Core.Text,
+    aspectRatio :: Prelude.Maybe Prelude.Text,
     -- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add black
     -- bars to the top and bottom and\/or left and right sides of thumbnails to
     -- make the total size of the thumbnails match the values that you
     -- specified for thumbnail @MaxWidth@ and @MaxHeight@ settings.
-    paddingPolicy :: Core.Maybe Core.Text,
+    paddingPolicy :: Prelude.Maybe Prelude.Text,
     -- | To better control resolution and aspect ratio of thumbnails, we
     -- recommend that you use the values @MaxWidth@, @MaxHeight@,
     -- @SizingPolicy@, and @PaddingPolicy@ instead of @Resolution@ and
@@ -96,17 +97,17 @@ data Thumbnails = Thumbnails'
     -- the format @ width @ x @ height @ where both values are even integers.
     -- The values cannot exceed the width and height that you specified in the
     -- @Video:Resolution@ object.
-    resolution :: Core.Maybe Core.Text,
+    resolution :: Prelude.Maybe Prelude.Text,
     -- | The maximum height of thumbnails in pixels. If you specify auto, Elastic
     -- Transcoder uses 1080 (Full HD) as the default value. If you specify a
     -- numeric value, enter an even integer between 32 and 3072.
-    maxHeight :: Core.Maybe Core.Text,
+    maxHeight :: Prelude.Maybe Prelude.Text,
     -- | The maximum width of thumbnails in pixels. If you specify auto, Elastic
     -- Transcoder uses 1920 (Full HD) as the default value. If you specify a
     -- numeric value, enter an even integer between 32 and 4096.
-    maxWidth :: Core.Maybe Core.Text
+    maxWidth :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Thumbnails' with all optional fields omitted.
@@ -198,21 +199,21 @@ newThumbnails ::
   Thumbnails
 newThumbnails =
   Thumbnails'
-    { format = Core.Nothing,
-      sizingPolicy = Core.Nothing,
-      interval = Core.Nothing,
-      aspectRatio = Core.Nothing,
-      paddingPolicy = Core.Nothing,
-      resolution = Core.Nothing,
-      maxHeight = Core.Nothing,
-      maxWidth = Core.Nothing
+    { format = Prelude.Nothing,
+      sizingPolicy = Prelude.Nothing,
+      interval = Prelude.Nothing,
+      aspectRatio = Prelude.Nothing,
+      paddingPolicy = Prelude.Nothing,
+      resolution = Prelude.Nothing,
+      maxHeight = Prelude.Nothing,
+      maxWidth = Prelude.Nothing
     }
 
 -- | The format of thumbnails, if any. Valid values are @jpg@ and @png@.
 --
 -- You specify whether you want Elastic Transcoder to create thumbnails
 -- when you create a job.
-thumbnails_format :: Lens.Lens' Thumbnails (Core.Maybe Core.Text)
+thumbnails_format :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
 thumbnails_format = Lens.lens (\Thumbnails' {format} -> format) (\s@Thumbnails' {} a -> s {format = a} :: Thumbnails)
 
 -- | Specify one of the following values to control scaling of thumbnails:
@@ -248,12 +249,12 @@ thumbnails_format = Lens.lens (\Thumbnails' {format} -> format) (\s@Thumbnails' 
 --     one of @MaxWidth@ and @MaxHeight@ without dropping below either
 --     value. If you specify this option, Elastic Transcoder does not scale
 --     thumbnails up.
-thumbnails_sizingPolicy :: Lens.Lens' Thumbnails (Core.Maybe Core.Text)
+thumbnails_sizingPolicy :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
 thumbnails_sizingPolicy = Lens.lens (\Thumbnails' {sizingPolicy} -> sizingPolicy) (\s@Thumbnails' {} a -> s {sizingPolicy = a} :: Thumbnails)
 
 -- | The approximate number of seconds between thumbnails. Specify an integer
 -- value.
-thumbnails_interval :: Lens.Lens' Thumbnails (Core.Maybe Core.Text)
+thumbnails_interval :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
 thumbnails_interval = Lens.lens (\Thumbnails' {interval} -> interval) (\s@Thumbnails' {} a -> s {interval = a} :: Thumbnails)
 
 -- | To better control resolution and aspect ratio of thumbnails, we
@@ -268,14 +269,14 @@ thumbnails_interval = Lens.lens (\Thumbnails' {interval} -> interval) (\s@Thumbn
 --
 -- If you specify @auto@, Elastic Transcoder tries to preserve the aspect
 -- ratio of the video in the output file.
-thumbnails_aspectRatio :: Lens.Lens' Thumbnails (Core.Maybe Core.Text)
+thumbnails_aspectRatio :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
 thumbnails_aspectRatio = Lens.lens (\Thumbnails' {aspectRatio} -> aspectRatio) (\s@Thumbnails' {} a -> s {aspectRatio = a} :: Thumbnails)
 
 -- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add black
 -- bars to the top and bottom and\/or left and right sides of thumbnails to
 -- make the total size of the thumbnails match the values that you
 -- specified for thumbnail @MaxWidth@ and @MaxHeight@ settings.
-thumbnails_paddingPolicy :: Lens.Lens' Thumbnails (Core.Maybe Core.Text)
+thumbnails_paddingPolicy :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
 thumbnails_paddingPolicy = Lens.lens (\Thumbnails' {paddingPolicy} -> paddingPolicy) (\s@Thumbnails' {} a -> s {paddingPolicy = a} :: Thumbnails)
 
 -- | To better control resolution and aspect ratio of thumbnails, we
@@ -288,19 +289,19 @@ thumbnails_paddingPolicy = Lens.lens (\Thumbnails' {paddingPolicy} -> paddingPol
 -- the format @ width @ x @ height @ where both values are even integers.
 -- The values cannot exceed the width and height that you specified in the
 -- @Video:Resolution@ object.
-thumbnails_resolution :: Lens.Lens' Thumbnails (Core.Maybe Core.Text)
+thumbnails_resolution :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
 thumbnails_resolution = Lens.lens (\Thumbnails' {resolution} -> resolution) (\s@Thumbnails' {} a -> s {resolution = a} :: Thumbnails)
 
 -- | The maximum height of thumbnails in pixels. If you specify auto, Elastic
 -- Transcoder uses 1080 (Full HD) as the default value. If you specify a
 -- numeric value, enter an even integer between 32 and 3072.
-thumbnails_maxHeight :: Lens.Lens' Thumbnails (Core.Maybe Core.Text)
+thumbnails_maxHeight :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
 thumbnails_maxHeight = Lens.lens (\Thumbnails' {maxHeight} -> maxHeight) (\s@Thumbnails' {} a -> s {maxHeight = a} :: Thumbnails)
 
 -- | The maximum width of thumbnails in pixels. If you specify auto, Elastic
 -- Transcoder uses 1920 (Full HD) as the default value. If you specify a
 -- numeric value, enter an even integer between 32 and 4096.
-thumbnails_maxWidth :: Lens.Lens' Thumbnails (Core.Maybe Core.Text)
+thumbnails_maxWidth :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
 thumbnails_maxWidth = Lens.lens (\Thumbnails' {maxWidth} -> maxWidth) (\s@Thumbnails' {} a -> s {maxWidth = a} :: Thumbnails)
 
 instance Core.FromJSON Thumbnails where
@@ -309,31 +310,31 @@ instance Core.FromJSON Thumbnails where
       "Thumbnails"
       ( \x ->
           Thumbnails'
-            Core.<$> (x Core..:? "Format")
-            Core.<*> (x Core..:? "SizingPolicy")
-            Core.<*> (x Core..:? "Interval")
-            Core.<*> (x Core..:? "AspectRatio")
-            Core.<*> (x Core..:? "PaddingPolicy")
-            Core.<*> (x Core..:? "Resolution")
-            Core.<*> (x Core..:? "MaxHeight")
-            Core.<*> (x Core..:? "MaxWidth")
+            Prelude.<$> (x Core..:? "Format")
+            Prelude.<*> (x Core..:? "SizingPolicy")
+            Prelude.<*> (x Core..:? "Interval")
+            Prelude.<*> (x Core..:? "AspectRatio")
+            Prelude.<*> (x Core..:? "PaddingPolicy")
+            Prelude.<*> (x Core..:? "Resolution")
+            Prelude.<*> (x Core..:? "MaxHeight")
+            Prelude.<*> (x Core..:? "MaxWidth")
       )
 
-instance Core.Hashable Thumbnails
+instance Prelude.Hashable Thumbnails
 
-instance Core.NFData Thumbnails
+instance Prelude.NFData Thumbnails
 
 instance Core.ToJSON Thumbnails where
   toJSON Thumbnails' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Format" Core..=) Core.<$> format,
-            ("SizingPolicy" Core..=) Core.<$> sizingPolicy,
-            ("Interval" Core..=) Core.<$> interval,
-            ("AspectRatio" Core..=) Core.<$> aspectRatio,
-            ("PaddingPolicy" Core..=) Core.<$> paddingPolicy,
-            ("Resolution" Core..=) Core.<$> resolution,
-            ("MaxHeight" Core..=) Core.<$> maxHeight,
-            ("MaxWidth" Core..=) Core.<$> maxWidth
+      ( Prelude.catMaybes
+          [ ("Format" Core..=) Prelude.<$> format,
+            ("SizingPolicy" Core..=) Prelude.<$> sizingPolicy,
+            ("Interval" Core..=) Prelude.<$> interval,
+            ("AspectRatio" Core..=) Prelude.<$> aspectRatio,
+            ("PaddingPolicy" Core..=) Prelude.<$> paddingPolicy,
+            ("Resolution" Core..=) Prelude.<$> resolution,
+            ("MaxHeight" Core..=) Prelude.<$> maxHeight,
+            ("MaxWidth" Core..=) Prelude.<$> maxWidth
           ]
       )

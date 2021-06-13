@@ -21,6 +21,7 @@ module Network.AWS.CodePipeline.Types.OutputArtifact where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about the output of an action.
 --
@@ -35,9 +36,9 @@ data OutputArtifact = OutputArtifact'
     -- artifacts, which are in turn consumed by different following actions.
     --
     -- Output artifact names must be unique within a pipeline.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OutputArtifact' with all optional fields omitted.
@@ -58,7 +59,7 @@ data OutputArtifact = OutputArtifact'
 -- Output artifact names must be unique within a pipeline.
 newOutputArtifact ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   OutputArtifact
 newOutputArtifact pName_ =
   OutputArtifact' {name = pName_}
@@ -72,20 +73,24 @@ newOutputArtifact pName_ =
 -- artifacts, which are in turn consumed by different following actions.
 --
 -- Output artifact names must be unique within a pipeline.
-outputArtifact_name :: Lens.Lens' OutputArtifact Core.Text
+outputArtifact_name :: Lens.Lens' OutputArtifact Prelude.Text
 outputArtifact_name = Lens.lens (\OutputArtifact' {name} -> name) (\s@OutputArtifact' {} a -> s {name = a} :: OutputArtifact)
 
 instance Core.FromJSON OutputArtifact where
   parseJSON =
     Core.withObject
       "OutputArtifact"
-      (\x -> OutputArtifact' Core.<$> (x Core..: "name"))
+      ( \x ->
+          OutputArtifact' Prelude.<$> (x Core..: "name")
+      )
 
-instance Core.Hashable OutputArtifact
+instance Prelude.Hashable OutputArtifact
 
-instance Core.NFData OutputArtifact
+instance Prelude.NFData OutputArtifact
 
 instance Core.ToJSON OutputArtifact where
   toJSON OutputArtifact' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("name" Core..= name)]
+      )

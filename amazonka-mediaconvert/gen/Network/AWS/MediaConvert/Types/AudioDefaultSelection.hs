@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.AudioDefaultSelection
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Enable this setting on one audio selector to set it as the default for
 -- the job. The service uses this default for outputs where it can\'t find
@@ -37,15 +38,15 @@ newtype AudioDefaultSelection = AudioDefaultSelection'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

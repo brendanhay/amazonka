@@ -47,19 +47,20 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteAddon' smart constructor.
 data DeleteAddon = DeleteAddon'
   { -- | The name of the cluster to delete the add-on from.
-    clusterName :: Core.Text,
+    clusterName :: Prelude.Text,
     -- | The name of the add-on. The name must match one of the names returned by
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
     -- .
-    addonName :: Core.Text
+    addonName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAddon' with all optional fields omitted.
@@ -76,9 +77,9 @@ data DeleteAddon = DeleteAddon'
 -- .
 newDeleteAddon ::
   -- | 'clusterName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'addonName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteAddon
 newDeleteAddon pClusterName_ pAddonName_ =
   DeleteAddon'
@@ -87,13 +88,13 @@ newDeleteAddon pClusterName_ pAddonName_ =
     }
 
 -- | The name of the cluster to delete the add-on from.
-deleteAddon_clusterName :: Lens.Lens' DeleteAddon Core.Text
+deleteAddon_clusterName :: Lens.Lens' DeleteAddon Prelude.Text
 deleteAddon_clusterName = Lens.lens (\DeleteAddon' {clusterName} -> clusterName) (\s@DeleteAddon' {} a -> s {clusterName = a} :: DeleteAddon)
 
 -- | The name of the add-on. The name must match one of the names returned by
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
 -- .
-deleteAddon_addonName :: Lens.Lens' DeleteAddon Core.Text
+deleteAddon_addonName :: Lens.Lens' DeleteAddon Prelude.Text
 deleteAddon_addonName = Lens.lens (\DeleteAddon' {addonName} -> addonName) (\s@DeleteAddon' {} a -> s {addonName = a} :: DeleteAddon)
 
 instance Core.AWSRequest DeleteAddon where
@@ -103,26 +104,28 @@ instance Core.AWSRequest DeleteAddon where
     Response.receiveJSON
       ( \s h x ->
           DeleteAddonResponse'
-            Core.<$> (x Core..?> "addon")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "addon")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteAddon
+instance Prelude.Hashable DeleteAddon
 
-instance Core.NFData DeleteAddon
+instance Prelude.NFData DeleteAddon
 
 instance Core.ToHeaders DeleteAddon where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteAddon where
   toPath DeleteAddon' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/clusters/",
         Core.toBS clusterName,
         "/addons/",
@@ -130,15 +133,15 @@ instance Core.ToPath DeleteAddon where
       ]
 
 instance Core.ToQuery DeleteAddon where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAddonResponse' smart constructor.
 data DeleteAddonResponse = DeleteAddonResponse'
-  { addon :: Core.Maybe Addon,
+  { addon :: Prelude.Maybe Addon,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAddonResponse' with all optional fields omitted.
@@ -153,20 +156,20 @@ data DeleteAddonResponse = DeleteAddonResponse'
 -- 'httpStatus', 'deleteAddonResponse_httpStatus' - The response's http status code.
 newDeleteAddonResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteAddonResponse
 newDeleteAddonResponse pHttpStatus_ =
   DeleteAddonResponse'
-    { addon = Core.Nothing,
+    { addon = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteAddonResponse_addon :: Lens.Lens' DeleteAddonResponse (Core.Maybe Addon)
+deleteAddonResponse_addon :: Lens.Lens' DeleteAddonResponse (Prelude.Maybe Addon)
 deleteAddonResponse_addon = Lens.lens (\DeleteAddonResponse' {addon} -> addon) (\s@DeleteAddonResponse' {} a -> s {addon = a} :: DeleteAddonResponse)
 
 -- | The response's http status code.
-deleteAddonResponse_httpStatus :: Lens.Lens' DeleteAddonResponse Core.Int
+deleteAddonResponse_httpStatus :: Lens.Lens' DeleteAddonResponse Prelude.Int
 deleteAddonResponse_httpStatus = Lens.lens (\DeleteAddonResponse' {httpStatus} -> httpStatus) (\s@DeleteAddonResponse' {} a -> s {httpStatus = a} :: DeleteAddonResponse)
 
-instance Core.NFData DeleteAddonResponse
+instance Prelude.NFData DeleteAddonResponse

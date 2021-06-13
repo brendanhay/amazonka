@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,16 +66,16 @@ data GetBots = GetBots'
     -- to this call is truncated, Amazon Lex returns a pagination token in the
     -- response. To fetch the next page of bots, specify the pagination token
     -- in the next request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Substring to match in bot names. A bot will be returned if any part of
     -- its name matches the substring. For example, \"xyz\" matches both
     -- \"xyzabc\" and \"abcxyz.\"
-    nameContains :: Core.Maybe Core.Text,
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of bots to return in the response that the request
     -- will return. The default is 10.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBots' with all optional fields omitted.
@@ -99,45 +100,47 @@ newGetBots ::
   GetBots
 newGetBots =
   GetBots'
-    { nextToken = Core.Nothing,
-      nameContains = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | A pagination token that fetches the next page of bots. If the response
 -- to this call is truncated, Amazon Lex returns a pagination token in the
 -- response. To fetch the next page of bots, specify the pagination token
 -- in the next request.
-getBots_nextToken :: Lens.Lens' GetBots (Core.Maybe Core.Text)
+getBots_nextToken :: Lens.Lens' GetBots (Prelude.Maybe Prelude.Text)
 getBots_nextToken = Lens.lens (\GetBots' {nextToken} -> nextToken) (\s@GetBots' {} a -> s {nextToken = a} :: GetBots)
 
 -- | Substring to match in bot names. A bot will be returned if any part of
 -- its name matches the substring. For example, \"xyz\" matches both
 -- \"xyzabc\" and \"abcxyz.\"
-getBots_nameContains :: Lens.Lens' GetBots (Core.Maybe Core.Text)
+getBots_nameContains :: Lens.Lens' GetBots (Prelude.Maybe Prelude.Text)
 getBots_nameContains = Lens.lens (\GetBots' {nameContains} -> nameContains) (\s@GetBots' {} a -> s {nameContains = a} :: GetBots)
 
 -- | The maximum number of bots to return in the response that the request
 -- will return. The default is 10.
-getBots_maxResults :: Lens.Lens' GetBots (Core.Maybe Core.Natural)
+getBots_maxResults :: Lens.Lens' GetBots (Prelude.Maybe Prelude.Natural)
 getBots_maxResults = Lens.lens (\GetBots' {maxResults} -> maxResults) (\s@GetBots' {} a -> s {maxResults = a} :: GetBots)
 
 instance Core.AWSPager GetBots where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getBotsResponse_nextToken Core.. Lens._Just
+            Lens.^? getBotsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
-        (rs Lens.^? getBotsResponse_bots Core.. Lens._Just) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+        ( rs
+            Lens.^? getBotsResponse_bots Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getBots_nextToken
+          Prelude.& getBots_nextToken
           Lens..~ rs
-          Lens.^? getBotsResponse_nextToken Core.. Lens._Just
+          Lens.^? getBotsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBots where
   type AWSResponse GetBots = GetBotsResponse
@@ -146,30 +149,32 @@ instance Core.AWSRequest GetBots where
     Response.receiveJSON
       ( \s h x ->
           GetBotsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "bots" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "bots" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetBots
+instance Prelude.Hashable GetBots
 
-instance Core.NFData GetBots
+instance Prelude.NFData GetBots
 
 instance Core.ToHeaders GetBots where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetBots where
-  toPath = Core.const "/bots/"
+  toPath = Prelude.const "/bots/"
 
 instance Core.ToQuery GetBots where
   toQuery GetBots' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "nameContains" Core.=: nameContains,
         "maxResults" Core.=: maxResults
@@ -179,13 +184,13 @@ instance Core.ToQuery GetBots where
 data GetBotsResponse = GetBotsResponse'
   { -- | If the response is truncated, it includes a pagination token that you
     -- can specify in your next request to fetch the next page of bots.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of @botMetadata@ objects, with one entry for each bot.
-    bots :: Core.Maybe [BotMetadata],
+    bots :: Prelude.Maybe [BotMetadata],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBotsResponse' with all optional fields omitted.
@@ -203,26 +208,26 @@ data GetBotsResponse = GetBotsResponse'
 -- 'httpStatus', 'getBotsResponse_httpStatus' - The response's http status code.
 newGetBotsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetBotsResponse
 newGetBotsResponse pHttpStatus_ =
   GetBotsResponse'
-    { nextToken = Core.Nothing,
-      bots = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      bots = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the response is truncated, it includes a pagination token that you
 -- can specify in your next request to fetch the next page of bots.
-getBotsResponse_nextToken :: Lens.Lens' GetBotsResponse (Core.Maybe Core.Text)
+getBotsResponse_nextToken :: Lens.Lens' GetBotsResponse (Prelude.Maybe Prelude.Text)
 getBotsResponse_nextToken = Lens.lens (\GetBotsResponse' {nextToken} -> nextToken) (\s@GetBotsResponse' {} a -> s {nextToken = a} :: GetBotsResponse)
 
 -- | An array of @botMetadata@ objects, with one entry for each bot.
-getBotsResponse_bots :: Lens.Lens' GetBotsResponse (Core.Maybe [BotMetadata])
-getBotsResponse_bots = Lens.lens (\GetBotsResponse' {bots} -> bots) (\s@GetBotsResponse' {} a -> s {bots = a} :: GetBotsResponse) Core.. Lens.mapping Lens._Coerce
+getBotsResponse_bots :: Lens.Lens' GetBotsResponse (Prelude.Maybe [BotMetadata])
+getBotsResponse_bots = Lens.lens (\GetBotsResponse' {bots} -> bots) (\s@GetBotsResponse' {} a -> s {bots = a} :: GetBotsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getBotsResponse_httpStatus :: Lens.Lens' GetBotsResponse Core.Int
+getBotsResponse_httpStatus :: Lens.Lens' GetBotsResponse Prelude.Int
 getBotsResponse_httpStatus = Lens.lens (\GetBotsResponse' {httpStatus} -> httpStatus) (\s@GetBotsResponse' {} a -> s {httpStatus = a} :: GetBotsResponse)
 
-instance Core.NFData GetBotsResponse
+instance Prelude.NFData GetBotsResponse

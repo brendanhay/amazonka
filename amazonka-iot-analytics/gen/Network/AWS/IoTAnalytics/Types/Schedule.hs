@@ -21,6 +21,7 @@ module Network.AWS.IoTAnalytics.Types.Schedule where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The schedule for when to trigger an update.
 --
@@ -30,9 +31,9 @@ data Schedule = Schedule'
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html Schedule Expressions for Rules>
     -- in the /Amazon CloudWatch Events User Guide/.
-    expression :: Core.Maybe Core.Text
+    expression :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Schedule' with all optional fields omitted.
@@ -48,28 +49,30 @@ data Schedule = Schedule'
 -- in the /Amazon CloudWatch Events User Guide/.
 newSchedule ::
   Schedule
-newSchedule = Schedule' {expression = Core.Nothing}
+newSchedule = Schedule' {expression = Prelude.Nothing}
 
 -- | The expression that defines when to trigger an update. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html Schedule Expressions for Rules>
 -- in the /Amazon CloudWatch Events User Guide/.
-schedule_expression :: Lens.Lens' Schedule (Core.Maybe Core.Text)
+schedule_expression :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Text)
 schedule_expression = Lens.lens (\Schedule' {expression} -> expression) (\s@Schedule' {} a -> s {expression = a} :: Schedule)
 
 instance Core.FromJSON Schedule where
   parseJSON =
     Core.withObject
       "Schedule"
-      (\x -> Schedule' Core.<$> (x Core..:? "expression"))
+      ( \x ->
+          Schedule' Prelude.<$> (x Core..:? "expression")
+      )
 
-instance Core.Hashable Schedule
+instance Prelude.Hashable Schedule
 
-instance Core.NFData Schedule
+instance Prelude.NFData Schedule
 
 instance Core.ToJSON Schedule where
   toJSON Schedule' {..} =
     Core.object
-      ( Core.catMaybes
-          [("expression" Core..=) Core.<$> expression]
+      ( Prelude.catMaybes
+          [("expression" Core..=) Prelude.<$> expression]
       )

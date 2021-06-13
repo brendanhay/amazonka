@@ -48,6 +48,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +57,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetUsagePlan' smart constructor.
 data GetUsagePlan = GetUsagePlan'
   { -- | [Required] The identifier of the UsagePlan resource to be retrieved.
-    usagePlanId :: Core.Text
+    usagePlanId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetUsagePlan' with all optional fields omitted.
@@ -71,13 +72,13 @@ data GetUsagePlan = GetUsagePlan'
 -- 'usagePlanId', 'getUsagePlan_usagePlanId' - [Required] The identifier of the UsagePlan resource to be retrieved.
 newGetUsagePlan ::
   -- | 'usagePlanId'
-  Core.Text ->
+  Prelude.Text ->
   GetUsagePlan
 newGetUsagePlan pUsagePlanId_ =
   GetUsagePlan' {usagePlanId = pUsagePlanId_}
 
 -- | [Required] The identifier of the UsagePlan resource to be retrieved.
-getUsagePlan_usagePlanId :: Lens.Lens' GetUsagePlan Core.Text
+getUsagePlan_usagePlanId :: Lens.Lens' GetUsagePlan Prelude.Text
 getUsagePlan_usagePlanId = Lens.lens (\GetUsagePlan' {usagePlanId} -> usagePlanId) (\s@GetUsagePlan' {} a -> s {usagePlanId = a} :: GetUsagePlan)
 
 instance Core.AWSRequest GetUsagePlan where
@@ -87,23 +88,23 @@ instance Core.AWSRequest GetUsagePlan where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetUsagePlan
+instance Prelude.Hashable GetUsagePlan
 
-instance Core.NFData GetUsagePlan
+instance Prelude.NFData GetUsagePlan
 
 instance Core.ToHeaders GetUsagePlan where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetUsagePlan where
   toPath GetUsagePlan' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/usageplans/", Core.toBS usagePlanId]
 
 instance Core.ToQuery GetUsagePlan where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

@@ -39,18 +39,19 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteNotificationConfiguration' smart constructor.
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration'
   { -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Core.Text,
+    autoScalingGroupName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
     -- (Amazon SNS) topic.
-    topicARN :: Core.Text
+    topicARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteNotificationConfiguration' with all optional fields omitted.
@@ -66,9 +67,9 @@ data DeleteNotificationConfiguration = DeleteNotificationConfiguration'
 -- (Amazon SNS) topic.
 newDeleteNotificationConfiguration ::
   -- | 'autoScalingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'topicARN'
-  Core.Text ->
+  Prelude.Text ->
   DeleteNotificationConfiguration
 newDeleteNotificationConfiguration
   pAutoScalingGroupName_
@@ -80,12 +81,12 @@ newDeleteNotificationConfiguration
       }
 
 -- | The name of the Auto Scaling group.
-deleteNotificationConfiguration_autoScalingGroupName :: Lens.Lens' DeleteNotificationConfiguration Core.Text
+deleteNotificationConfiguration_autoScalingGroupName :: Lens.Lens' DeleteNotificationConfiguration Prelude.Text
 deleteNotificationConfiguration_autoScalingGroupName = Lens.lens (\DeleteNotificationConfiguration' {autoScalingGroupName} -> autoScalingGroupName) (\s@DeleteNotificationConfiguration' {} a -> s {autoScalingGroupName = a} :: DeleteNotificationConfiguration)
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (Amazon SNS) topic.
-deleteNotificationConfiguration_topicARN :: Lens.Lens' DeleteNotificationConfiguration Core.Text
+deleteNotificationConfiguration_topicARN :: Lens.Lens' DeleteNotificationConfiguration Prelude.Text
 deleteNotificationConfiguration_topicARN = Lens.lens (\DeleteNotificationConfiguration' {topicARN} -> topicARN) (\s@DeleteNotificationConfiguration' {} a -> s {topicARN = a} :: DeleteNotificationConfiguration)
 
 instance
@@ -101,28 +102,31 @@ instance
       DeleteNotificationConfigurationResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteNotificationConfiguration
 
-instance Core.NFData DeleteNotificationConfiguration
+instance
+  Prelude.NFData
+    DeleteNotificationConfiguration
 
 instance
   Core.ToHeaders
     DeleteNotificationConfiguration
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteNotificationConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteNotificationConfiguration where
   toQuery DeleteNotificationConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DeleteNotificationConfiguration" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "AutoScalingGroupName" Core.=: autoScalingGroupName,
         "TopicARN" Core.=: topicARN
       ]
@@ -131,7 +135,7 @@ instance Core.ToQuery DeleteNotificationConfiguration where
 data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteNotificationConfigurationResponse' with all optional fields omitted.
@@ -143,5 +147,5 @@ newDeleteNotificationConfigurationResponse =
   DeleteNotificationConfigurationResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteNotificationConfigurationResponse

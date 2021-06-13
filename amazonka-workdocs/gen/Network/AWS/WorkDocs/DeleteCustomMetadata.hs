@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -52,19 +53,19 @@ import Network.AWS.WorkDocs.Types
 data DeleteCustomMetadata = DeleteCustomMetadata'
   { -- | The ID of the version, if the custom metadata is being deleted from a
     -- document version.
-    versionId :: Core.Maybe Core.Text,
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | List of properties to remove.
-    keys :: Core.Maybe [Core.Text],
+    keys :: Prelude.Maybe [Prelude.Text],
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Flag to indicate removal of all custom metadata properties from the
     -- specified resource.
-    deleteAll :: Core.Maybe Core.Bool,
+    deleteAll :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the resource, either a document or folder.
-    resourceId :: Core.Text
+    resourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCustomMetadata' with all optional fields omitted.
@@ -88,38 +89,38 @@ data DeleteCustomMetadata = DeleteCustomMetadata'
 -- 'resourceId', 'deleteCustomMetadata_resourceId' - The ID of the resource, either a document or folder.
 newDeleteCustomMetadata ::
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteCustomMetadata
 newDeleteCustomMetadata pResourceId_ =
   DeleteCustomMetadata'
-    { versionId = Core.Nothing,
-      keys = Core.Nothing,
-      authenticationToken = Core.Nothing,
-      deleteAll = Core.Nothing,
+    { versionId = Prelude.Nothing,
+      keys = Prelude.Nothing,
+      authenticationToken = Prelude.Nothing,
+      deleteAll = Prelude.Nothing,
       resourceId = pResourceId_
     }
 
 -- | The ID of the version, if the custom metadata is being deleted from a
 -- document version.
-deleteCustomMetadata_versionId :: Lens.Lens' DeleteCustomMetadata (Core.Maybe Core.Text)
+deleteCustomMetadata_versionId :: Lens.Lens' DeleteCustomMetadata (Prelude.Maybe Prelude.Text)
 deleteCustomMetadata_versionId = Lens.lens (\DeleteCustomMetadata' {versionId} -> versionId) (\s@DeleteCustomMetadata' {} a -> s {versionId = a} :: DeleteCustomMetadata)
 
 -- | List of properties to remove.
-deleteCustomMetadata_keys :: Lens.Lens' DeleteCustomMetadata (Core.Maybe [Core.Text])
-deleteCustomMetadata_keys = Lens.lens (\DeleteCustomMetadata' {keys} -> keys) (\s@DeleteCustomMetadata' {} a -> s {keys = a} :: DeleteCustomMetadata) Core.. Lens.mapping Lens._Coerce
+deleteCustomMetadata_keys :: Lens.Lens' DeleteCustomMetadata (Prelude.Maybe [Prelude.Text])
+deleteCustomMetadata_keys = Lens.lens (\DeleteCustomMetadata' {keys} -> keys) (\s@DeleteCustomMetadata' {} a -> s {keys = a} :: DeleteCustomMetadata) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-deleteCustomMetadata_authenticationToken :: Lens.Lens' DeleteCustomMetadata (Core.Maybe Core.Text)
-deleteCustomMetadata_authenticationToken = Lens.lens (\DeleteCustomMetadata' {authenticationToken} -> authenticationToken) (\s@DeleteCustomMetadata' {} a -> s {authenticationToken = a} :: DeleteCustomMetadata) Core.. Lens.mapping Core._Sensitive
+deleteCustomMetadata_authenticationToken :: Lens.Lens' DeleteCustomMetadata (Prelude.Maybe Prelude.Text)
+deleteCustomMetadata_authenticationToken = Lens.lens (\DeleteCustomMetadata' {authenticationToken} -> authenticationToken) (\s@DeleteCustomMetadata' {} a -> s {authenticationToken = a} :: DeleteCustomMetadata) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Flag to indicate removal of all custom metadata properties from the
 -- specified resource.
-deleteCustomMetadata_deleteAll :: Lens.Lens' DeleteCustomMetadata (Core.Maybe Core.Bool)
+deleteCustomMetadata_deleteAll :: Lens.Lens' DeleteCustomMetadata (Prelude.Maybe Prelude.Bool)
 deleteCustomMetadata_deleteAll = Lens.lens (\DeleteCustomMetadata' {deleteAll} -> deleteAll) (\s@DeleteCustomMetadata' {} a -> s {deleteAll = a} :: DeleteCustomMetadata)
 
 -- | The ID of the resource, either a document or folder.
-deleteCustomMetadata_resourceId :: Lens.Lens' DeleteCustomMetadata Core.Text
+deleteCustomMetadata_resourceId :: Lens.Lens' DeleteCustomMetadata Prelude.Text
 deleteCustomMetadata_resourceId = Lens.lens (\DeleteCustomMetadata' {resourceId} -> resourceId) (\s@DeleteCustomMetadata' {} a -> s {resourceId = a} :: DeleteCustomMetadata)
 
 instance Core.AWSRequest DeleteCustomMetadata where
@@ -131,24 +132,24 @@ instance Core.AWSRequest DeleteCustomMetadata where
     Response.receiveEmpty
       ( \s h x ->
           DeleteCustomMetadataResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteCustomMetadata
+instance Prelude.Hashable DeleteCustomMetadata
 
-instance Core.NFData DeleteCustomMetadata
+instance Prelude.NFData DeleteCustomMetadata
 
 instance Core.ToHeaders DeleteCustomMetadata where
   toHeaders DeleteCustomMetadata' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance Core.ToPath DeleteCustomMetadata where
   toPath DeleteCustomMetadata' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/api/v1/resources/",
         Core.toBS resourceId,
         "/customMetadata"
@@ -156,20 +157,20 @@ instance Core.ToPath DeleteCustomMetadata where
 
 instance Core.ToQuery DeleteCustomMetadata where
   toQuery DeleteCustomMetadata' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "versionId" Core.=: versionId,
         "keys"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> keys),
+            (Core.toQueryList "member" Prelude.<$> keys),
         "deleteAll" Core.=: deleteAll
       ]
 
 -- | /See:/ 'newDeleteCustomMetadataResponse' smart constructor.
 data DeleteCustomMetadataResponse = DeleteCustomMetadataResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCustomMetadataResponse' with all optional fields omitted.
@@ -182,7 +183,7 @@ data DeleteCustomMetadataResponse = DeleteCustomMetadataResponse'
 -- 'httpStatus', 'deleteCustomMetadataResponse_httpStatus' - The response's http status code.
 newDeleteCustomMetadataResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteCustomMetadataResponse
 newDeleteCustomMetadataResponse pHttpStatus_ =
   DeleteCustomMetadataResponse'
@@ -191,7 +192,7 @@ newDeleteCustomMetadataResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteCustomMetadataResponse_httpStatus :: Lens.Lens' DeleteCustomMetadataResponse Core.Int
+deleteCustomMetadataResponse_httpStatus :: Lens.Lens' DeleteCustomMetadataResponse Prelude.Int
 deleteCustomMetadataResponse_httpStatus = Lens.lens (\DeleteCustomMetadataResponse' {httpStatus} -> httpStatus) (\s@DeleteCustomMetadataResponse' {} a -> s {httpStatus = a} :: DeleteCustomMetadataResponse)
 
-instance Core.NFData DeleteCustomMetadataResponse
+instance Prelude.NFData DeleteCustomMetadataResponse

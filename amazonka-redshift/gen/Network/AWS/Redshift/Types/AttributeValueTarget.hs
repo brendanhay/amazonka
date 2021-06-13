@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.AttributeValueTarget where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | Describes an attribute value.
@@ -28,9 +29,9 @@ import Network.AWS.Redshift.Internal
 -- /See:/ 'newAttributeValueTarget' smart constructor.
 data AttributeValueTarget = AttributeValueTarget'
   { -- | The value of the attribute.
-    attributeValue :: Core.Maybe Core.Text
+    attributeValue :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttributeValueTarget' with all optional fields omitted.
@@ -46,18 +47,18 @@ newAttributeValueTarget ::
 newAttributeValueTarget =
   AttributeValueTarget'
     { attributeValue =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The value of the attribute.
-attributeValueTarget_attributeValue :: Lens.Lens' AttributeValueTarget (Core.Maybe Core.Text)
+attributeValueTarget_attributeValue :: Lens.Lens' AttributeValueTarget (Prelude.Maybe Prelude.Text)
 attributeValueTarget_attributeValue = Lens.lens (\AttributeValueTarget' {attributeValue} -> attributeValue) (\s@AttributeValueTarget' {} a -> s {attributeValue = a} :: AttributeValueTarget)
 
 instance Core.FromXML AttributeValueTarget where
   parseXML x =
     AttributeValueTarget'
-      Core.<$> (x Core..@? "AttributeValue")
+      Prelude.<$> (x Core..@? "AttributeValue")
 
-instance Core.Hashable AttributeValueTarget
+instance Prelude.Hashable AttributeValueTarget
 
-instance Core.NFData AttributeValueTarget
+instance Prelude.NFData AttributeValueTarget

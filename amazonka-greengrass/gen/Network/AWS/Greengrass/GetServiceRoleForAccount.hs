@@ -40,6 +40,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,7 +48,7 @@ import qualified Network.AWS.Response as Response
 data GetServiceRoleForAccount = GetServiceRoleForAccount'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetServiceRoleForAccount' with all optional fields omitted.
@@ -67,40 +68,42 @@ instance Core.AWSRequest GetServiceRoleForAccount where
     Response.receiveJSON
       ( \s h x ->
           GetServiceRoleForAccountResponse'
-            Core.<$> (x Core..?> "RoleArn")
-            Core.<*> (x Core..?> "AssociatedAt")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RoleArn")
+            Prelude.<*> (x Core..?> "AssociatedAt")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetServiceRoleForAccount
+instance Prelude.Hashable GetServiceRoleForAccount
 
-instance Core.NFData GetServiceRoleForAccount
+instance Prelude.NFData GetServiceRoleForAccount
 
 instance Core.ToHeaders GetServiceRoleForAccount where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetServiceRoleForAccount where
-  toPath = Core.const "/greengrass/servicerole"
+  toPath = Prelude.const "/greengrass/servicerole"
 
 instance Core.ToQuery GetServiceRoleForAccount where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetServiceRoleForAccountResponse' smart constructor.
 data GetServiceRoleForAccountResponse = GetServiceRoleForAccountResponse'
   { -- | The ARN of the role which is associated with the account.
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The time when the service role was associated with the account.
-    associatedAt :: Core.Maybe Core.Text,
+    associatedAt :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetServiceRoleForAccountResponse' with all optional fields omitted.
@@ -117,26 +120,28 @@ data GetServiceRoleForAccountResponse = GetServiceRoleForAccountResponse'
 -- 'httpStatus', 'getServiceRoleForAccountResponse_httpStatus' - The response's http status code.
 newGetServiceRoleForAccountResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetServiceRoleForAccountResponse
 newGetServiceRoleForAccountResponse pHttpStatus_ =
   GetServiceRoleForAccountResponse'
     { roleArn =
-        Core.Nothing,
-      associatedAt = Core.Nothing,
+        Prelude.Nothing,
+      associatedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the role which is associated with the account.
-getServiceRoleForAccountResponse_roleArn :: Lens.Lens' GetServiceRoleForAccountResponse (Core.Maybe Core.Text)
+getServiceRoleForAccountResponse_roleArn :: Lens.Lens' GetServiceRoleForAccountResponse (Prelude.Maybe Prelude.Text)
 getServiceRoleForAccountResponse_roleArn = Lens.lens (\GetServiceRoleForAccountResponse' {roleArn} -> roleArn) (\s@GetServiceRoleForAccountResponse' {} a -> s {roleArn = a} :: GetServiceRoleForAccountResponse)
 
 -- | The time when the service role was associated with the account.
-getServiceRoleForAccountResponse_associatedAt :: Lens.Lens' GetServiceRoleForAccountResponse (Core.Maybe Core.Text)
+getServiceRoleForAccountResponse_associatedAt :: Lens.Lens' GetServiceRoleForAccountResponse (Prelude.Maybe Prelude.Text)
 getServiceRoleForAccountResponse_associatedAt = Lens.lens (\GetServiceRoleForAccountResponse' {associatedAt} -> associatedAt) (\s@GetServiceRoleForAccountResponse' {} a -> s {associatedAt = a} :: GetServiceRoleForAccountResponse)
 
 -- | The response's http status code.
-getServiceRoleForAccountResponse_httpStatus :: Lens.Lens' GetServiceRoleForAccountResponse Core.Int
+getServiceRoleForAccountResponse_httpStatus :: Lens.Lens' GetServiceRoleForAccountResponse Prelude.Int
 getServiceRoleForAccountResponse_httpStatus = Lens.lens (\GetServiceRoleForAccountResponse' {httpStatus} -> httpStatus) (\s@GetServiceRoleForAccountResponse' {} a -> s {httpStatus = a} :: GetServiceRoleForAccountResponse)
 
-instance Core.NFData GetServiceRoleForAccountResponse
+instance
+  Prelude.NFData
+    GetServiceRoleForAccountResponse

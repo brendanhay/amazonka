@@ -25,6 +25,7 @@ import Network.AWS.Comprehend.Types.OutputDataConfig
 import Network.AWS.Comprehend.Types.VpcConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about a dominant language detection job.
 --
@@ -34,20 +35,20 @@ data DominantLanguageDetectionJobProperties = DominantLanguageDetectionJobProper
     -- containing the resources you are using for your dominant language
     -- detection job. For more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-    vpcConfig :: Core.Maybe VpcConfig,
+    vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The input data configuration that you supplied when you created the
     -- dominant language detection job.
-    inputDataConfig :: Core.Maybe InputDataConfig,
+    inputDataConfig :: Prelude.Maybe InputDataConfig,
     -- | A description for the status of a job.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The current status of the dominant language detection job. If the status
     -- is @FAILED@, the @Message@ field shows the reason for the failure.
-    jobStatus :: Core.Maybe JobStatus,
+    jobStatus :: Prelude.Maybe JobStatus,
     -- | The output data configuration that you supplied when you created the
     -- dominant language detection job.
-    outputDataConfig :: Core.Maybe OutputDataConfig,
+    outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | The time that the dominant language detection job completed.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -57,19 +58,19 @@ data DominantLanguageDetectionJobProperties = DominantLanguageDetectionJobProper
     --
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-    volumeKmsKeyId :: Core.Maybe Core.Text,
+    volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The time that the dominant language detection job was submitted for
     -- processing.
-    submitTime :: Core.Maybe Core.POSIX,
+    submitTime :: Prelude.Maybe Core.POSIX,
     -- | The name that you assigned to the dominant language detection job.
-    jobName :: Core.Maybe Core.Text,
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
     -- to your input data.
-    dataAccessRoleArn :: Core.Maybe Core.Text,
+    dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier assigned to the dominant language detection job.
-    jobId :: Core.Maybe Core.Text
+    jobId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DominantLanguageDetectionJobProperties' with all optional fields omitted.
@@ -121,48 +122,48 @@ newDominantLanguageDetectionJobProperties ::
 newDominantLanguageDetectionJobProperties =
   DominantLanguageDetectionJobProperties'
     { vpcConfig =
-        Core.Nothing,
-      inputDataConfig = Core.Nothing,
-      message = Core.Nothing,
-      jobStatus = Core.Nothing,
-      outputDataConfig = Core.Nothing,
-      endTime = Core.Nothing,
-      volumeKmsKeyId = Core.Nothing,
-      submitTime = Core.Nothing,
-      jobName = Core.Nothing,
-      dataAccessRoleArn = Core.Nothing,
-      jobId = Core.Nothing
+        Prelude.Nothing,
+      inputDataConfig = Prelude.Nothing,
+      message = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      outputDataConfig = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      volumeKmsKeyId = Prelude.Nothing,
+      submitTime = Prelude.Nothing,
+      jobName = Prelude.Nothing,
+      dataAccessRoleArn = Prelude.Nothing,
+      jobId = Prelude.Nothing
     }
 
 -- | Configuration parameters for a private Virtual Private Cloud (VPC)
 -- containing the resources you are using for your dominant language
 -- detection job. For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-dominantLanguageDetectionJobProperties_vpcConfig :: Lens.Lens' DominantLanguageDetectionJobProperties (Core.Maybe VpcConfig)
+dominantLanguageDetectionJobProperties_vpcConfig :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe VpcConfig)
 dominantLanguageDetectionJobProperties_vpcConfig = Lens.lens (\DominantLanguageDetectionJobProperties' {vpcConfig} -> vpcConfig) (\s@DominantLanguageDetectionJobProperties' {} a -> s {vpcConfig = a} :: DominantLanguageDetectionJobProperties)
 
 -- | The input data configuration that you supplied when you created the
 -- dominant language detection job.
-dominantLanguageDetectionJobProperties_inputDataConfig :: Lens.Lens' DominantLanguageDetectionJobProperties (Core.Maybe InputDataConfig)
+dominantLanguageDetectionJobProperties_inputDataConfig :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe InputDataConfig)
 dominantLanguageDetectionJobProperties_inputDataConfig = Lens.lens (\DominantLanguageDetectionJobProperties' {inputDataConfig} -> inputDataConfig) (\s@DominantLanguageDetectionJobProperties' {} a -> s {inputDataConfig = a} :: DominantLanguageDetectionJobProperties)
 
 -- | A description for the status of a job.
-dominantLanguageDetectionJobProperties_message :: Lens.Lens' DominantLanguageDetectionJobProperties (Core.Maybe Core.Text)
+dominantLanguageDetectionJobProperties_message :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe Prelude.Text)
 dominantLanguageDetectionJobProperties_message = Lens.lens (\DominantLanguageDetectionJobProperties' {message} -> message) (\s@DominantLanguageDetectionJobProperties' {} a -> s {message = a} :: DominantLanguageDetectionJobProperties)
 
 -- | The current status of the dominant language detection job. If the status
 -- is @FAILED@, the @Message@ field shows the reason for the failure.
-dominantLanguageDetectionJobProperties_jobStatus :: Lens.Lens' DominantLanguageDetectionJobProperties (Core.Maybe JobStatus)
+dominantLanguageDetectionJobProperties_jobStatus :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe JobStatus)
 dominantLanguageDetectionJobProperties_jobStatus = Lens.lens (\DominantLanguageDetectionJobProperties' {jobStatus} -> jobStatus) (\s@DominantLanguageDetectionJobProperties' {} a -> s {jobStatus = a} :: DominantLanguageDetectionJobProperties)
 
 -- | The output data configuration that you supplied when you created the
 -- dominant language detection job.
-dominantLanguageDetectionJobProperties_outputDataConfig :: Lens.Lens' DominantLanguageDetectionJobProperties (Core.Maybe OutputDataConfig)
+dominantLanguageDetectionJobProperties_outputDataConfig :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe OutputDataConfig)
 dominantLanguageDetectionJobProperties_outputDataConfig = Lens.lens (\DominantLanguageDetectionJobProperties' {outputDataConfig} -> outputDataConfig) (\s@DominantLanguageDetectionJobProperties' {} a -> s {outputDataConfig = a} :: DominantLanguageDetectionJobProperties)
 
 -- | The time that the dominant language detection job completed.
-dominantLanguageDetectionJobProperties_endTime :: Lens.Lens' DominantLanguageDetectionJobProperties (Core.Maybe Core.UTCTime)
-dominantLanguageDetectionJobProperties_endTime = Lens.lens (\DominantLanguageDetectionJobProperties' {endTime} -> endTime) (\s@DominantLanguageDetectionJobProperties' {} a -> s {endTime = a} :: DominantLanguageDetectionJobProperties) Core.. Lens.mapping Core._Time
+dominantLanguageDetectionJobProperties_endTime :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
+dominantLanguageDetectionJobProperties_endTime = Lens.lens (\DominantLanguageDetectionJobProperties' {endTime} -> endTime) (\s@DominantLanguageDetectionJobProperties' {} a -> s {endTime = a} :: DominantLanguageDetectionJobProperties) Prelude.. Lens.mapping Core._Time
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -173,25 +174,25 @@ dominantLanguageDetectionJobProperties_endTime = Lens.lens (\DominantLanguageDet
 --
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-dominantLanguageDetectionJobProperties_volumeKmsKeyId :: Lens.Lens' DominantLanguageDetectionJobProperties (Core.Maybe Core.Text)
+dominantLanguageDetectionJobProperties_volumeKmsKeyId :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe Prelude.Text)
 dominantLanguageDetectionJobProperties_volumeKmsKeyId = Lens.lens (\DominantLanguageDetectionJobProperties' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@DominantLanguageDetectionJobProperties' {} a -> s {volumeKmsKeyId = a} :: DominantLanguageDetectionJobProperties)
 
 -- | The time that the dominant language detection job was submitted for
 -- processing.
-dominantLanguageDetectionJobProperties_submitTime :: Lens.Lens' DominantLanguageDetectionJobProperties (Core.Maybe Core.UTCTime)
-dominantLanguageDetectionJobProperties_submitTime = Lens.lens (\DominantLanguageDetectionJobProperties' {submitTime} -> submitTime) (\s@DominantLanguageDetectionJobProperties' {} a -> s {submitTime = a} :: DominantLanguageDetectionJobProperties) Core.. Lens.mapping Core._Time
+dominantLanguageDetectionJobProperties_submitTime :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
+dominantLanguageDetectionJobProperties_submitTime = Lens.lens (\DominantLanguageDetectionJobProperties' {submitTime} -> submitTime) (\s@DominantLanguageDetectionJobProperties' {} a -> s {submitTime = a} :: DominantLanguageDetectionJobProperties) Prelude.. Lens.mapping Core._Time
 
 -- | The name that you assigned to the dominant language detection job.
-dominantLanguageDetectionJobProperties_jobName :: Lens.Lens' DominantLanguageDetectionJobProperties (Core.Maybe Core.Text)
+dominantLanguageDetectionJobProperties_jobName :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe Prelude.Text)
 dominantLanguageDetectionJobProperties_jobName = Lens.lens (\DominantLanguageDetectionJobProperties' {jobName} -> jobName) (\s@DominantLanguageDetectionJobProperties' {} a -> s {jobName = a} :: DominantLanguageDetectionJobProperties)
 
 -- | The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
 -- to your input data.
-dominantLanguageDetectionJobProperties_dataAccessRoleArn :: Lens.Lens' DominantLanguageDetectionJobProperties (Core.Maybe Core.Text)
+dominantLanguageDetectionJobProperties_dataAccessRoleArn :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe Prelude.Text)
 dominantLanguageDetectionJobProperties_dataAccessRoleArn = Lens.lens (\DominantLanguageDetectionJobProperties' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@DominantLanguageDetectionJobProperties' {} a -> s {dataAccessRoleArn = a} :: DominantLanguageDetectionJobProperties)
 
 -- | The identifier assigned to the dominant language detection job.
-dominantLanguageDetectionJobProperties_jobId :: Lens.Lens' DominantLanguageDetectionJobProperties (Core.Maybe Core.Text)
+dominantLanguageDetectionJobProperties_jobId :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe Prelude.Text)
 dominantLanguageDetectionJobProperties_jobId = Lens.lens (\DominantLanguageDetectionJobProperties' {jobId} -> jobId) (\s@DominantLanguageDetectionJobProperties' {} a -> s {jobId = a} :: DominantLanguageDetectionJobProperties)
 
 instance
@@ -203,23 +204,23 @@ instance
       "DominantLanguageDetectionJobProperties"
       ( \x ->
           DominantLanguageDetectionJobProperties'
-            Core.<$> (x Core..:? "VpcConfig")
-            Core.<*> (x Core..:? "InputDataConfig")
-            Core.<*> (x Core..:? "Message")
-            Core.<*> (x Core..:? "JobStatus")
-            Core.<*> (x Core..:? "OutputDataConfig")
-            Core.<*> (x Core..:? "EndTime")
-            Core.<*> (x Core..:? "VolumeKmsKeyId")
-            Core.<*> (x Core..:? "SubmitTime")
-            Core.<*> (x Core..:? "JobName")
-            Core.<*> (x Core..:? "DataAccessRoleArn")
-            Core.<*> (x Core..:? "JobId")
+            Prelude.<$> (x Core..:? "VpcConfig")
+            Prelude.<*> (x Core..:? "InputDataConfig")
+            Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "JobStatus")
+            Prelude.<*> (x Core..:? "OutputDataConfig")
+            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Core..:? "SubmitTime")
+            Prelude.<*> (x Core..:? "JobName")
+            Prelude.<*> (x Core..:? "DataAccessRoleArn")
+            Prelude.<*> (x Core..:? "JobId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DominantLanguageDetectionJobProperties
 
 instance
-  Core.NFData
+  Prelude.NFData
     DominantLanguageDetectionJobProperties

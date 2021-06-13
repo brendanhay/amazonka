@@ -25,42 +25,43 @@ import Network.AWS.AlexaBusiness.Types.TemperatureUnit
 import Network.AWS.AlexaBusiness.Types.WakeWord
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A room profile with attributes.
 --
 -- /See:/ 'newProfile' smart constructor.
 data Profile = Profile'
   { -- | The name of a room profile.
-    profileName :: Core.Maybe Core.Text,
+    profileName :: Prelude.Maybe Prelude.Text,
     -- | Retrieves if the profile is default or not.
-    isDefault :: Core.Maybe Core.Bool,
+    isDefault :: Prelude.Maybe Prelude.Bool,
     -- | The address of a room profile.
-    address :: Core.Maybe Core.Text,
+    address :: Prelude.Maybe Prelude.Text,
     -- | The locale of a room profile. (This is currently available only to a
     -- limited preview audience.)
-    locale :: Core.Maybe Core.Text,
+    locale :: Prelude.Maybe Prelude.Text,
     -- | The temperature unit of a room profile.
-    temperatureUnit :: Core.Maybe TemperatureUnit,
+    temperatureUnit :: Prelude.Maybe TemperatureUnit,
     -- | The ARN of the address book.
-    addressBookArn :: Core.Maybe Core.Text,
+    addressBookArn :: Prelude.Maybe Prelude.Text,
     -- | The setup mode of a room profile.
-    setupModeDisabled :: Core.Maybe Core.Bool,
+    setupModeDisabled :: Prelude.Maybe Prelude.Bool,
     -- | The PSTN setting of a room profile.
-    pSTNEnabled :: Core.Maybe Core.Bool,
+    pSTNEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The max volume limit of a room profile.
-    maxVolumeLimit :: Core.Maybe Core.Int,
+    maxVolumeLimit :: Prelude.Maybe Prelude.Int,
     -- | Meeting room settings of a room profile.
-    meetingRoomConfiguration :: Core.Maybe MeetingRoomConfiguration,
+    meetingRoomConfiguration :: Prelude.Maybe MeetingRoomConfiguration,
     -- | The wake word of a room profile.
-    wakeWord :: Core.Maybe WakeWord,
+    wakeWord :: Prelude.Maybe WakeWord,
     -- | The ARN of a room profile.
-    profileArn :: Core.Maybe Core.Text,
+    profileArn :: Prelude.Maybe Prelude.Text,
     -- | The time zone of a room profile.
-    timezone :: Core.Maybe Core.Text,
+    timezone :: Prelude.Maybe Prelude.Text,
     -- | The distance unit of a room profile.
-    distanceUnit :: Core.Maybe DistanceUnit
+    distanceUnit :: Prelude.Maybe DistanceUnit
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Profile' with all optional fields omitted.
@@ -102,77 +103,77 @@ newProfile ::
   Profile
 newProfile =
   Profile'
-    { profileName = Core.Nothing,
-      isDefault = Core.Nothing,
-      address = Core.Nothing,
-      locale = Core.Nothing,
-      temperatureUnit = Core.Nothing,
-      addressBookArn = Core.Nothing,
-      setupModeDisabled = Core.Nothing,
-      pSTNEnabled = Core.Nothing,
-      maxVolumeLimit = Core.Nothing,
-      meetingRoomConfiguration = Core.Nothing,
-      wakeWord = Core.Nothing,
-      profileArn = Core.Nothing,
-      timezone = Core.Nothing,
-      distanceUnit = Core.Nothing
+    { profileName = Prelude.Nothing,
+      isDefault = Prelude.Nothing,
+      address = Prelude.Nothing,
+      locale = Prelude.Nothing,
+      temperatureUnit = Prelude.Nothing,
+      addressBookArn = Prelude.Nothing,
+      setupModeDisabled = Prelude.Nothing,
+      pSTNEnabled = Prelude.Nothing,
+      maxVolumeLimit = Prelude.Nothing,
+      meetingRoomConfiguration = Prelude.Nothing,
+      wakeWord = Prelude.Nothing,
+      profileArn = Prelude.Nothing,
+      timezone = Prelude.Nothing,
+      distanceUnit = Prelude.Nothing
     }
 
 -- | The name of a room profile.
-profile_profileName :: Lens.Lens' Profile (Core.Maybe Core.Text)
+profile_profileName :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
 profile_profileName = Lens.lens (\Profile' {profileName} -> profileName) (\s@Profile' {} a -> s {profileName = a} :: Profile)
 
 -- | Retrieves if the profile is default or not.
-profile_isDefault :: Lens.Lens' Profile (Core.Maybe Core.Bool)
+profile_isDefault :: Lens.Lens' Profile (Prelude.Maybe Prelude.Bool)
 profile_isDefault = Lens.lens (\Profile' {isDefault} -> isDefault) (\s@Profile' {} a -> s {isDefault = a} :: Profile)
 
 -- | The address of a room profile.
-profile_address :: Lens.Lens' Profile (Core.Maybe Core.Text)
+profile_address :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
 profile_address = Lens.lens (\Profile' {address} -> address) (\s@Profile' {} a -> s {address = a} :: Profile)
 
 -- | The locale of a room profile. (This is currently available only to a
 -- limited preview audience.)
-profile_locale :: Lens.Lens' Profile (Core.Maybe Core.Text)
+profile_locale :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
 profile_locale = Lens.lens (\Profile' {locale} -> locale) (\s@Profile' {} a -> s {locale = a} :: Profile)
 
 -- | The temperature unit of a room profile.
-profile_temperatureUnit :: Lens.Lens' Profile (Core.Maybe TemperatureUnit)
+profile_temperatureUnit :: Lens.Lens' Profile (Prelude.Maybe TemperatureUnit)
 profile_temperatureUnit = Lens.lens (\Profile' {temperatureUnit} -> temperatureUnit) (\s@Profile' {} a -> s {temperatureUnit = a} :: Profile)
 
 -- | The ARN of the address book.
-profile_addressBookArn :: Lens.Lens' Profile (Core.Maybe Core.Text)
+profile_addressBookArn :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
 profile_addressBookArn = Lens.lens (\Profile' {addressBookArn} -> addressBookArn) (\s@Profile' {} a -> s {addressBookArn = a} :: Profile)
 
 -- | The setup mode of a room profile.
-profile_setupModeDisabled :: Lens.Lens' Profile (Core.Maybe Core.Bool)
+profile_setupModeDisabled :: Lens.Lens' Profile (Prelude.Maybe Prelude.Bool)
 profile_setupModeDisabled = Lens.lens (\Profile' {setupModeDisabled} -> setupModeDisabled) (\s@Profile' {} a -> s {setupModeDisabled = a} :: Profile)
 
 -- | The PSTN setting of a room profile.
-profile_pSTNEnabled :: Lens.Lens' Profile (Core.Maybe Core.Bool)
+profile_pSTNEnabled :: Lens.Lens' Profile (Prelude.Maybe Prelude.Bool)
 profile_pSTNEnabled = Lens.lens (\Profile' {pSTNEnabled} -> pSTNEnabled) (\s@Profile' {} a -> s {pSTNEnabled = a} :: Profile)
 
 -- | The max volume limit of a room profile.
-profile_maxVolumeLimit :: Lens.Lens' Profile (Core.Maybe Core.Int)
+profile_maxVolumeLimit :: Lens.Lens' Profile (Prelude.Maybe Prelude.Int)
 profile_maxVolumeLimit = Lens.lens (\Profile' {maxVolumeLimit} -> maxVolumeLimit) (\s@Profile' {} a -> s {maxVolumeLimit = a} :: Profile)
 
 -- | Meeting room settings of a room profile.
-profile_meetingRoomConfiguration :: Lens.Lens' Profile (Core.Maybe MeetingRoomConfiguration)
+profile_meetingRoomConfiguration :: Lens.Lens' Profile (Prelude.Maybe MeetingRoomConfiguration)
 profile_meetingRoomConfiguration = Lens.lens (\Profile' {meetingRoomConfiguration} -> meetingRoomConfiguration) (\s@Profile' {} a -> s {meetingRoomConfiguration = a} :: Profile)
 
 -- | The wake word of a room profile.
-profile_wakeWord :: Lens.Lens' Profile (Core.Maybe WakeWord)
+profile_wakeWord :: Lens.Lens' Profile (Prelude.Maybe WakeWord)
 profile_wakeWord = Lens.lens (\Profile' {wakeWord} -> wakeWord) (\s@Profile' {} a -> s {wakeWord = a} :: Profile)
 
 -- | The ARN of a room profile.
-profile_profileArn :: Lens.Lens' Profile (Core.Maybe Core.Text)
+profile_profileArn :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
 profile_profileArn = Lens.lens (\Profile' {profileArn} -> profileArn) (\s@Profile' {} a -> s {profileArn = a} :: Profile)
 
 -- | The time zone of a room profile.
-profile_timezone :: Lens.Lens' Profile (Core.Maybe Core.Text)
+profile_timezone :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
 profile_timezone = Lens.lens (\Profile' {timezone} -> timezone) (\s@Profile' {} a -> s {timezone = a} :: Profile)
 
 -- | The distance unit of a room profile.
-profile_distanceUnit :: Lens.Lens' Profile (Core.Maybe DistanceUnit)
+profile_distanceUnit :: Lens.Lens' Profile (Prelude.Maybe DistanceUnit)
 profile_distanceUnit = Lens.lens (\Profile' {distanceUnit} -> distanceUnit) (\s@Profile' {} a -> s {distanceUnit = a} :: Profile)
 
 instance Core.FromJSON Profile where
@@ -181,22 +182,22 @@ instance Core.FromJSON Profile where
       "Profile"
       ( \x ->
           Profile'
-            Core.<$> (x Core..:? "ProfileName")
-            Core.<*> (x Core..:? "IsDefault")
-            Core.<*> (x Core..:? "Address")
-            Core.<*> (x Core..:? "Locale")
-            Core.<*> (x Core..:? "TemperatureUnit")
-            Core.<*> (x Core..:? "AddressBookArn")
-            Core.<*> (x Core..:? "SetupModeDisabled")
-            Core.<*> (x Core..:? "PSTNEnabled")
-            Core.<*> (x Core..:? "MaxVolumeLimit")
-            Core.<*> (x Core..:? "MeetingRoomConfiguration")
-            Core.<*> (x Core..:? "WakeWord")
-            Core.<*> (x Core..:? "ProfileArn")
-            Core.<*> (x Core..:? "Timezone")
-            Core.<*> (x Core..:? "DistanceUnit")
+            Prelude.<$> (x Core..:? "ProfileName")
+            Prelude.<*> (x Core..:? "IsDefault")
+            Prelude.<*> (x Core..:? "Address")
+            Prelude.<*> (x Core..:? "Locale")
+            Prelude.<*> (x Core..:? "TemperatureUnit")
+            Prelude.<*> (x Core..:? "AddressBookArn")
+            Prelude.<*> (x Core..:? "SetupModeDisabled")
+            Prelude.<*> (x Core..:? "PSTNEnabled")
+            Prelude.<*> (x Core..:? "MaxVolumeLimit")
+            Prelude.<*> (x Core..:? "MeetingRoomConfiguration")
+            Prelude.<*> (x Core..:? "WakeWord")
+            Prelude.<*> (x Core..:? "ProfileArn")
+            Prelude.<*> (x Core..:? "Timezone")
+            Prelude.<*> (x Core..:? "DistanceUnit")
       )
 
-instance Core.Hashable Profile
+instance Prelude.Hashable Profile
 
-instance Core.NFData Profile
+instance Prelude.NFData Profile

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ProcessingStoppingCondition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configures conditions under which the processing job should be stopped,
 -- such as how long the processing job has been running. After the
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newProcessingStoppingCondition' smart constructor.
 data ProcessingStoppingCondition = ProcessingStoppingCondition'
   { -- | Specifies the maximum runtime in seconds.
-    maxRuntimeInSeconds :: Core.Natural
+    maxRuntimeInSeconds :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProcessingStoppingCondition' with all optional fields omitted.
@@ -44,7 +45,7 @@ data ProcessingStoppingCondition = ProcessingStoppingCondition'
 -- 'maxRuntimeInSeconds', 'processingStoppingCondition_maxRuntimeInSeconds' - Specifies the maximum runtime in seconds.
 newProcessingStoppingCondition ::
   -- | 'maxRuntimeInSeconds'
-  Core.Natural ->
+  Prelude.Natural ->
   ProcessingStoppingCondition
 newProcessingStoppingCondition pMaxRuntimeInSeconds_ =
   ProcessingStoppingCondition'
@@ -53,7 +54,7 @@ newProcessingStoppingCondition pMaxRuntimeInSeconds_ =
     }
 
 -- | Specifies the maximum runtime in seconds.
-processingStoppingCondition_maxRuntimeInSeconds :: Lens.Lens' ProcessingStoppingCondition Core.Natural
+processingStoppingCondition_maxRuntimeInSeconds :: Lens.Lens' ProcessingStoppingCondition Prelude.Natural
 processingStoppingCondition_maxRuntimeInSeconds = Lens.lens (\ProcessingStoppingCondition' {maxRuntimeInSeconds} -> maxRuntimeInSeconds) (\s@ProcessingStoppingCondition' {} a -> s {maxRuntimeInSeconds = a} :: ProcessingStoppingCondition)
 
 instance Core.FromJSON ProcessingStoppingCondition where
@@ -62,18 +63,18 @@ instance Core.FromJSON ProcessingStoppingCondition where
       "ProcessingStoppingCondition"
       ( \x ->
           ProcessingStoppingCondition'
-            Core.<$> (x Core..: "MaxRuntimeInSeconds")
+            Prelude.<$> (x Core..: "MaxRuntimeInSeconds")
       )
 
-instance Core.Hashable ProcessingStoppingCondition
+instance Prelude.Hashable ProcessingStoppingCondition
 
-instance Core.NFData ProcessingStoppingCondition
+instance Prelude.NFData ProcessingStoppingCondition
 
 instance Core.ToJSON ProcessingStoppingCondition where
   toJSON ProcessingStoppingCondition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("MaxRuntimeInSeconds" Core..= maxRuntimeInSeconds)
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.MediaStore.Types.Tag where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A collection of tags associated with a container. Each tag consists of a
 -- key:value pair, which can be anything you define. Typically, the tag key
@@ -36,13 +37,13 @@ data Tag = Tag'
   { -- | Part of the key:value pair that defines a tag. You can use a tag value
     -- to describe a specific value within a category, such as \"companyA\" or
     -- \"companyB.\" Tag values are case-sensitive.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | Part of the key:value pair that defines a tag. You can use a tag key to
     -- describe a category of information, such as \"customer.\" Tag keys are
     -- case-sensitive.
-    key :: Core.Text
+    key :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -61,21 +62,21 @@ data Tag = Tag'
 -- case-sensitive.
 newTag ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   Tag
 newTag pKey_ =
-  Tag' {value = Core.Nothing, key = pKey_}
+  Tag' {value = Prelude.Nothing, key = pKey_}
 
 -- | Part of the key:value pair that defines a tag. You can use a tag value
 -- to describe a specific value within a category, such as \"companyA\" or
 -- \"companyB.\" Tag values are case-sensitive.
-tag_value :: Lens.Lens' Tag (Core.Maybe Core.Text)
+tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 -- | Part of the key:value pair that defines a tag. You can use a tag key to
 -- describe a category of information, such as \"customer.\" Tag keys are
 -- case-sensitive.
-tag_key :: Lens.Lens' Tag Core.Text
+tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 instance Core.FromJSON Tag where
@@ -84,18 +85,18 @@ instance Core.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Core.<$> (x Core..:? "Value") Core.<*> (x Core..: "Key")
+            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..: "Key")
       )
 
-instance Core.Hashable Tag
+instance Prelude.Hashable Tag
 
-instance Core.NFData Tag
+instance Prelude.NFData Tag
 
 instance Core.ToJSON Tag where
   toJSON Tag' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Value" Core..=) Core.<$> value,
-            Core.Just ("Key" Core..= key)
+      ( Prelude.catMaybes
+          [ ("Value" Core..=) Prelude.<$> value,
+            Prelude.Just ("Key" Core..= key)
           ]
       )

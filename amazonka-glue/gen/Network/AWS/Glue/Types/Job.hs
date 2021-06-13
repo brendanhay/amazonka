@@ -26,22 +26,23 @@ import Network.AWS.Glue.Types.JobCommand
 import Network.AWS.Glue.Types.NotificationProperty
 import Network.AWS.Glue.Types.WorkerType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a job definition.
 --
 -- /See:/ 'newJob' smart constructor.
 data Job = Job'
   { -- | Non-overridable arguments for this job, specified as name-value pairs.
-    nonOverridableArguments :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    nonOverridableArguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time and date that this job definition was created.
-    createdOn :: Core.Maybe Core.POSIX,
+    createdOn :: Prelude.Maybe Core.POSIX,
     -- | The name of the @SecurityConfiguration@ structure to be used with this
     -- job.
-    securityConfiguration :: Core.Maybe Core.Text,
+    securityConfiguration :: Prelude.Maybe Prelude.Text,
     -- | The job timeout in minutes. This is the maximum time that a job run can
     -- consume resources before it is terminated and enters @TIMEOUT@ status.
     -- The default is 2,880 minutes (48 hours).
-    timeout :: Core.Maybe Core.Natural,
+    timeout :: Prelude.Maybe Prelude.Natural,
     -- | The number of AWS Glue data processing units (DPUs) that can be
     -- allocated when this job runs. A DPU is a relative measure of processing
     -- power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
@@ -63,26 +64,26 @@ data Job = Job'
     --     (@JobCommand.Name@=\"gluestreaming\"), you can allocate from 2 to
     --     100 DPUs. The default is 10 DPUs. This job type cannot have a
     --     fractional DPU allocation.
-    maxCapacity :: Core.Maybe Core.Double,
+    maxCapacity :: Prelude.Maybe Prelude.Double,
     -- | The connections used for this job.
-    connections :: Core.Maybe ConnectionsList,
+    connections :: Prelude.Maybe ConnectionsList,
     -- | Specifies configuration properties of a job notification.
-    notificationProperty :: Core.Maybe NotificationProperty,
+    notificationProperty :: Prelude.Maybe NotificationProperty,
     -- | The last point in time when this job definition was modified.
-    lastModifiedOn :: Core.Maybe Core.POSIX,
+    lastModifiedOn :: Prelude.Maybe Core.POSIX,
     -- | The @JobCommand@ that executes this job.
-    command :: Core.Maybe JobCommand,
+    command :: Prelude.Maybe JobCommand,
     -- | The number of workers of a defined @workerType@ that are allocated when
     -- a job runs.
     --
     -- The maximum number of workers you can define are 299 for @G.1X@, and 149
     -- for @G.2X@.
-    numberOfWorkers :: Core.Maybe Core.Int,
+    numberOfWorkers :: Prelude.Maybe Prelude.Int,
     -- | The name you assign to this job definition.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The name or Amazon Resource Name (ARN) of the IAM role associated with
     -- this job.
-    role' :: Core.Maybe Core.Text,
+    role' :: Prelude.Maybe Prelude.Text,
     -- | Glue version determines the versions of Apache Spark and Python that AWS
     -- Glue supports. The Python version indicates the version supported for
     -- jobs of type Spark.
@@ -94,7 +95,7 @@ data Job = Job'
     --
     -- Jobs that are created without specifying a Glue version default to Glue
     -- 0.9.
-    glueVersion :: Core.Maybe Core.Text,
+    glueVersion :: Prelude.Maybe Prelude.Text,
     -- | The type of predefined worker that is allocated when a job runs. Accepts
     -- a value of Standard, G.1X, or G.2X.
     --
@@ -108,9 +109,9 @@ data Job = Job'
     -- -   For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB
     --     of memory, 128 GB disk), and provides 1 executor per worker. We
     --     recommend this worker type for memory-intensive jobs.
-    workerType :: Core.Maybe WorkerType,
+    workerType :: Prelude.Maybe WorkerType,
     -- | A description of the job.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The default arguments for this job, specified as name-value pairs.
     --
     -- You can specify arguments here that your own job-execution script
@@ -125,7 +126,7 @@ data Job = Job'
     -- up your job, see the
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue>
     -- topic in the developer guide.
-    defaultArguments :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    defaultArguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | This field is deprecated. Use @MaxCapacity@ instead.
     --
     -- The number of AWS Glue data processing units (DPUs) allocated to runs of
@@ -133,16 +134,16 @@ data Job = Job'
     -- is a relative measure of processing power that consists of 4 vCPUs of
     -- compute capacity and 16 GB of memory. For more information, see the
     -- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
-    allocatedCapacity :: Core.Maybe Core.Int,
+    allocatedCapacity :: Prelude.Maybe Prelude.Int,
     -- | An @ExecutionProperty@ specifying the maximum number of concurrent runs
     -- allowed for this job.
-    executionProperty :: Core.Maybe ExecutionProperty,
+    executionProperty :: Prelude.Maybe ExecutionProperty,
     -- | The maximum number of times to retry this job after a JobRun fails.
-    maxRetries :: Core.Maybe Core.Int,
+    maxRetries :: Prelude.Maybe Prelude.Int,
     -- | This field is reserved for future use.
-    logUri :: Core.Maybe Core.Text
+    logUri :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Job' with all optional fields omitted.
@@ -265,45 +266,45 @@ newJob ::
   Job
 newJob =
   Job'
-    { nonOverridableArguments = Core.Nothing,
-      createdOn = Core.Nothing,
-      securityConfiguration = Core.Nothing,
-      timeout = Core.Nothing,
-      maxCapacity = Core.Nothing,
-      connections = Core.Nothing,
-      notificationProperty = Core.Nothing,
-      lastModifiedOn = Core.Nothing,
-      command = Core.Nothing,
-      numberOfWorkers = Core.Nothing,
-      name = Core.Nothing,
-      role' = Core.Nothing,
-      glueVersion = Core.Nothing,
-      workerType = Core.Nothing,
-      description = Core.Nothing,
-      defaultArguments = Core.Nothing,
-      allocatedCapacity = Core.Nothing,
-      executionProperty = Core.Nothing,
-      maxRetries = Core.Nothing,
-      logUri = Core.Nothing
+    { nonOverridableArguments = Prelude.Nothing,
+      createdOn = Prelude.Nothing,
+      securityConfiguration = Prelude.Nothing,
+      timeout = Prelude.Nothing,
+      maxCapacity = Prelude.Nothing,
+      connections = Prelude.Nothing,
+      notificationProperty = Prelude.Nothing,
+      lastModifiedOn = Prelude.Nothing,
+      command = Prelude.Nothing,
+      numberOfWorkers = Prelude.Nothing,
+      name = Prelude.Nothing,
+      role' = Prelude.Nothing,
+      glueVersion = Prelude.Nothing,
+      workerType = Prelude.Nothing,
+      description = Prelude.Nothing,
+      defaultArguments = Prelude.Nothing,
+      allocatedCapacity = Prelude.Nothing,
+      executionProperty = Prelude.Nothing,
+      maxRetries = Prelude.Nothing,
+      logUri = Prelude.Nothing
     }
 
 -- | Non-overridable arguments for this job, specified as name-value pairs.
-job_nonOverridableArguments :: Lens.Lens' Job (Core.Maybe (Core.HashMap Core.Text Core.Text))
-job_nonOverridableArguments = Lens.lens (\Job' {nonOverridableArguments} -> nonOverridableArguments) (\s@Job' {} a -> s {nonOverridableArguments = a} :: Job) Core.. Lens.mapping Lens._Coerce
+job_nonOverridableArguments :: Lens.Lens' Job (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+job_nonOverridableArguments = Lens.lens (\Job' {nonOverridableArguments} -> nonOverridableArguments) (\s@Job' {} a -> s {nonOverridableArguments = a} :: Job) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The time and date that this job definition was created.
-job_createdOn :: Lens.Lens' Job (Core.Maybe Core.UTCTime)
-job_createdOn = Lens.lens (\Job' {createdOn} -> createdOn) (\s@Job' {} a -> s {createdOn = a} :: Job) Core.. Lens.mapping Core._Time
+job_createdOn :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
+job_createdOn = Lens.lens (\Job' {createdOn} -> createdOn) (\s@Job' {} a -> s {createdOn = a} :: Job) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the @SecurityConfiguration@ structure to be used with this
 -- job.
-job_securityConfiguration :: Lens.Lens' Job (Core.Maybe Core.Text)
+job_securityConfiguration :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_securityConfiguration = Lens.lens (\Job' {securityConfiguration} -> securityConfiguration) (\s@Job' {} a -> s {securityConfiguration = a} :: Job)
 
 -- | The job timeout in minutes. This is the maximum time that a job run can
 -- consume resources before it is terminated and enters @TIMEOUT@ status.
 -- The default is 2,880 minutes (48 hours).
-job_timeout :: Lens.Lens' Job (Core.Maybe Core.Natural)
+job_timeout :: Lens.Lens' Job (Prelude.Maybe Prelude.Natural)
 job_timeout = Lens.lens (\Job' {timeout} -> timeout) (\s@Job' {} a -> s {timeout = a} :: Job)
 
 -- | The number of AWS Glue data processing units (DPUs) that can be
@@ -327,23 +328,23 @@ job_timeout = Lens.lens (\Job' {timeout} -> timeout) (\s@Job' {} a -> s {timeout
 --     (@JobCommand.Name@=\"gluestreaming\"), you can allocate from 2 to
 --     100 DPUs. The default is 10 DPUs. This job type cannot have a
 --     fractional DPU allocation.
-job_maxCapacity :: Lens.Lens' Job (Core.Maybe Core.Double)
+job_maxCapacity :: Lens.Lens' Job (Prelude.Maybe Prelude.Double)
 job_maxCapacity = Lens.lens (\Job' {maxCapacity} -> maxCapacity) (\s@Job' {} a -> s {maxCapacity = a} :: Job)
 
 -- | The connections used for this job.
-job_connections :: Lens.Lens' Job (Core.Maybe ConnectionsList)
+job_connections :: Lens.Lens' Job (Prelude.Maybe ConnectionsList)
 job_connections = Lens.lens (\Job' {connections} -> connections) (\s@Job' {} a -> s {connections = a} :: Job)
 
 -- | Specifies configuration properties of a job notification.
-job_notificationProperty :: Lens.Lens' Job (Core.Maybe NotificationProperty)
+job_notificationProperty :: Lens.Lens' Job (Prelude.Maybe NotificationProperty)
 job_notificationProperty = Lens.lens (\Job' {notificationProperty} -> notificationProperty) (\s@Job' {} a -> s {notificationProperty = a} :: Job)
 
 -- | The last point in time when this job definition was modified.
-job_lastModifiedOn :: Lens.Lens' Job (Core.Maybe Core.UTCTime)
-job_lastModifiedOn = Lens.lens (\Job' {lastModifiedOn} -> lastModifiedOn) (\s@Job' {} a -> s {lastModifiedOn = a} :: Job) Core.. Lens.mapping Core._Time
+job_lastModifiedOn :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
+job_lastModifiedOn = Lens.lens (\Job' {lastModifiedOn} -> lastModifiedOn) (\s@Job' {} a -> s {lastModifiedOn = a} :: Job) Prelude.. Lens.mapping Core._Time
 
 -- | The @JobCommand@ that executes this job.
-job_command :: Lens.Lens' Job (Core.Maybe JobCommand)
+job_command :: Lens.Lens' Job (Prelude.Maybe JobCommand)
 job_command = Lens.lens (\Job' {command} -> command) (\s@Job' {} a -> s {command = a} :: Job)
 
 -- | The number of workers of a defined @workerType@ that are allocated when
@@ -351,16 +352,16 @@ job_command = Lens.lens (\Job' {command} -> command) (\s@Job' {} a -> s {command
 --
 -- The maximum number of workers you can define are 299 for @G.1X@, and 149
 -- for @G.2X@.
-job_numberOfWorkers :: Lens.Lens' Job (Core.Maybe Core.Int)
+job_numberOfWorkers :: Lens.Lens' Job (Prelude.Maybe Prelude.Int)
 job_numberOfWorkers = Lens.lens (\Job' {numberOfWorkers} -> numberOfWorkers) (\s@Job' {} a -> s {numberOfWorkers = a} :: Job)
 
 -- | The name you assign to this job definition.
-job_name :: Lens.Lens' Job (Core.Maybe Core.Text)
+job_name :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_name = Lens.lens (\Job' {name} -> name) (\s@Job' {} a -> s {name = a} :: Job)
 
 -- | The name or Amazon Resource Name (ARN) of the IAM role associated with
 -- this job.
-job_role :: Lens.Lens' Job (Core.Maybe Core.Text)
+job_role :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_role = Lens.lens (\Job' {role'} -> role') (\s@Job' {} a -> s {role' = a} :: Job)
 
 -- | Glue version determines the versions of Apache Spark and Python that AWS
@@ -374,7 +375,7 @@ job_role = Lens.lens (\Job' {role'} -> role') (\s@Job' {} a -> s {role' = a} :: 
 --
 -- Jobs that are created without specifying a Glue version default to Glue
 -- 0.9.
-job_glueVersion :: Lens.Lens' Job (Core.Maybe Core.Text)
+job_glueVersion :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_glueVersion = Lens.lens (\Job' {glueVersion} -> glueVersion) (\s@Job' {} a -> s {glueVersion = a} :: Job)
 
 -- | The type of predefined worker that is allocated when a job runs. Accepts
@@ -390,11 +391,11 @@ job_glueVersion = Lens.lens (\Job' {glueVersion} -> glueVersion) (\s@Job' {} a -
 -- -   For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB
 --     of memory, 128 GB disk), and provides 1 executor per worker. We
 --     recommend this worker type for memory-intensive jobs.
-job_workerType :: Lens.Lens' Job (Core.Maybe WorkerType)
+job_workerType :: Lens.Lens' Job (Prelude.Maybe WorkerType)
 job_workerType = Lens.lens (\Job' {workerType} -> workerType) (\s@Job' {} a -> s {workerType = a} :: Job)
 
 -- | A description of the job.
-job_description :: Lens.Lens' Job (Core.Maybe Core.Text)
+job_description :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_description = Lens.lens (\Job' {description} -> description) (\s@Job' {} a -> s {description = a} :: Job)
 
 -- | The default arguments for this job, specified as name-value pairs.
@@ -411,8 +412,8 @@ job_description = Lens.lens (\Job' {description} -> description) (\s@Job' {} a -
 -- up your job, see the
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue>
 -- topic in the developer guide.
-job_defaultArguments :: Lens.Lens' Job (Core.Maybe (Core.HashMap Core.Text Core.Text))
-job_defaultArguments = Lens.lens (\Job' {defaultArguments} -> defaultArguments) (\s@Job' {} a -> s {defaultArguments = a} :: Job) Core.. Lens.mapping Lens._Coerce
+job_defaultArguments :: Lens.Lens' Job (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+job_defaultArguments = Lens.lens (\Job' {defaultArguments} -> defaultArguments) (\s@Job' {} a -> s {defaultArguments = a} :: Job) Prelude.. Lens.mapping Lens._Coerce
 
 -- | This field is deprecated. Use @MaxCapacity@ instead.
 --
@@ -421,20 +422,20 @@ job_defaultArguments = Lens.lens (\Job' {defaultArguments} -> defaultArguments) 
 -- is a relative measure of processing power that consists of 4 vCPUs of
 -- compute capacity and 16 GB of memory. For more information, see the
 -- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
-job_allocatedCapacity :: Lens.Lens' Job (Core.Maybe Core.Int)
+job_allocatedCapacity :: Lens.Lens' Job (Prelude.Maybe Prelude.Int)
 job_allocatedCapacity = Lens.lens (\Job' {allocatedCapacity} -> allocatedCapacity) (\s@Job' {} a -> s {allocatedCapacity = a} :: Job)
 
 -- | An @ExecutionProperty@ specifying the maximum number of concurrent runs
 -- allowed for this job.
-job_executionProperty :: Lens.Lens' Job (Core.Maybe ExecutionProperty)
+job_executionProperty :: Lens.Lens' Job (Prelude.Maybe ExecutionProperty)
 job_executionProperty = Lens.lens (\Job' {executionProperty} -> executionProperty) (\s@Job' {} a -> s {executionProperty = a} :: Job)
 
 -- | The maximum number of times to retry this job after a JobRun fails.
-job_maxRetries :: Lens.Lens' Job (Core.Maybe Core.Int)
+job_maxRetries :: Lens.Lens' Job (Prelude.Maybe Prelude.Int)
 job_maxRetries = Lens.lens (\Job' {maxRetries} -> maxRetries) (\s@Job' {} a -> s {maxRetries = a} :: Job)
 
 -- | This field is reserved for future use.
-job_logUri :: Lens.Lens' Job (Core.Maybe Core.Text)
+job_logUri :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_logUri = Lens.lens (\Job' {logUri} -> logUri) (\s@Job' {} a -> s {logUri = a} :: Job)
 
 instance Core.FromJSON Job where
@@ -443,30 +444,32 @@ instance Core.FromJSON Job where
       "Job"
       ( \x ->
           Job'
-            Core.<$> ( x Core..:? "NonOverridableArguments"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "CreatedOn")
-            Core.<*> (x Core..:? "SecurityConfiguration")
-            Core.<*> (x Core..:? "Timeout")
-            Core.<*> (x Core..:? "MaxCapacity")
-            Core.<*> (x Core..:? "Connections")
-            Core.<*> (x Core..:? "NotificationProperty")
-            Core.<*> (x Core..:? "LastModifiedOn")
-            Core.<*> (x Core..:? "Command")
-            Core.<*> (x Core..:? "NumberOfWorkers")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "Role")
-            Core.<*> (x Core..:? "GlueVersion")
-            Core.<*> (x Core..:? "WorkerType")
-            Core.<*> (x Core..:? "Description")
-            Core.<*> (x Core..:? "DefaultArguments" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "AllocatedCapacity")
-            Core.<*> (x Core..:? "ExecutionProperty")
-            Core.<*> (x Core..:? "MaxRetries")
-            Core.<*> (x Core..:? "LogUri")
+            Prelude.<$> ( x Core..:? "NonOverridableArguments"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "CreatedOn")
+            Prelude.<*> (x Core..:? "SecurityConfiguration")
+            Prelude.<*> (x Core..:? "Timeout")
+            Prelude.<*> (x Core..:? "MaxCapacity")
+            Prelude.<*> (x Core..:? "Connections")
+            Prelude.<*> (x Core..:? "NotificationProperty")
+            Prelude.<*> (x Core..:? "LastModifiedOn")
+            Prelude.<*> (x Core..:? "Command")
+            Prelude.<*> (x Core..:? "NumberOfWorkers")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Role")
+            Prelude.<*> (x Core..:? "GlueVersion")
+            Prelude.<*> (x Core..:? "WorkerType")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> ( x Core..:? "DefaultArguments"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "AllocatedCapacity")
+            Prelude.<*> (x Core..:? "ExecutionProperty")
+            Prelude.<*> (x Core..:? "MaxRetries")
+            Prelude.<*> (x Core..:? "LogUri")
       )
 
-instance Core.Hashable Job
+instance Prelude.Hashable Job
 
-instance Core.NFData Job
+instance Prelude.NFData Job

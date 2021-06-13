@@ -38,6 +38,7 @@ import Network.AWS.MediaConvert.Types.HlsProgramDateTime
 import Network.AWS.MediaConvert.Types.HlsSegmentControl
 import Network.AWS.MediaConvert.Types.HlsStreamInfResolution
 import Network.AWS.MediaConvert.Types.HlsTimedMetadataId3Frame
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Required when you set (Type) under (OutputGroups)>(OutputGroupSettings)
 -- to HLS_GROUP_SETTINGS.
@@ -46,60 +47,60 @@ import Network.AWS.MediaConvert.Types.HlsTimedMetadataId3Frame
 data HlsGroupSettings = HlsGroupSettings'
   { -- | Indicates whether the .m3u8 manifest file should be generated for this
     -- HLS output group.
-    outputSelection :: Core.Maybe HlsOutputSelection,
+    outputSelection :: Prelude.Maybe HlsOutputSelection,
     -- | Timed Metadata interval in seconds.
-    timedMetadataId3Period :: Core.Maybe Core.Int,
+    timedMetadataId3Period :: Prelude.Maybe Prelude.Int,
     -- | Length of MPEG-2 Transport Stream segments to create (in seconds). Note
     -- that segments will end on the next keyframe after this number of
     -- seconds, so actual segment length may be longer.
-    segmentLength :: Core.Maybe Core.Natural,
+    segmentLength :: Prelude.Maybe Prelude.Natural,
     -- | Indicates ID3 frame that has the timecode.
-    timedMetadataId3Frame :: Core.Maybe HlsTimedMetadataId3Frame,
+    timedMetadataId3Frame :: Prelude.Maybe HlsTimedMetadataId3Frame,
     -- | Choose one or more ad marker types to decorate your Apple HLS manifest.
     -- This setting does not determine whether SCTE-35 markers appear in the
     -- outputs themselves.
-    adMarkers :: Core.Maybe [HlsAdMarkers],
+    adMarkers :: Prelude.Maybe [HlsAdMarkers],
     -- | When set to SINGLE_FILE, emits program as a single media resource (.ts)
     -- file, uses #EXT-X-BYTERANGE tags to index segment for playback.
-    segmentControl :: Core.Maybe HlsSegmentControl,
+    segmentControl :: Prelude.Maybe HlsSegmentControl,
     -- | Indicates whether segments should be placed in subdirectories.
-    directoryStructure :: Core.Maybe HlsDirectoryStructure,
+    directoryStructure :: Prelude.Maybe HlsDirectoryStructure,
     -- | When set to GZIP, compresses HLS playlist.
-    manifestCompression :: Core.Maybe HlsManifestCompression,
+    manifestCompression :: Prelude.Maybe HlsManifestCompression,
     -- | A partial URI prefix that will be prepended to each output in the media
     -- .m3u8 file. Can be used if base manifest is delivered from a different
     -- URL than the main .m3u8 file.
-    baseUrl :: Core.Maybe Core.Text,
+    baseUrl :: Prelude.Maybe Prelude.Text,
     -- | Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF
     -- tag of variant manifest.
-    streamInfResolution :: Core.Maybe HlsStreamInfResolution,
+    streamInfResolution :: Prelude.Maybe HlsStreamInfResolution,
     -- | Specification to use (RFC-6381 or the default RFC-4281) during m3u8
     -- playlist generation.
-    codecSpecification :: Core.Maybe HlsCodecSpecification,
+    codecSpecification :: Prelude.Maybe HlsCodecSpecification,
     -- | By default, the service creates one top-level .m3u8 HLS manifest for
     -- each HLS output group in your job. This default manifest references
     -- every output in the output group. To create additional top-level
     -- manifests that reference a subset of the outputs in the output group,
     -- specify a list of them here.
-    additionalManifests :: Core.Maybe [HlsAdditionalManifest],
+    additionalManifests :: Prelude.Maybe [HlsAdditionalManifest],
     -- | Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest
     -- files. The value is calculated as follows: either the program date and
     -- time are initialized using the input timecode source, or the time is
     -- initialized using the input timecode source and the date is initialized
     -- using the timestamp_offset.
-    programDateTime :: Core.Maybe HlsProgramDateTime,
+    programDateTime :: Prelude.Maybe HlsProgramDateTime,
     -- | Number of segments to write to a subdirectory before starting a new one.
     -- directoryStructure must be SINGLE_DIRECTORY for this setting to have an
     -- effect.
-    segmentsPerSubdirectory :: Core.Maybe Core.Natural,
+    segmentsPerSubdirectory :: Prelude.Maybe Prelude.Natural,
     -- | DRM settings.
-    encryption :: Core.Maybe HlsEncryptionSettings,
+    encryption :: Prelude.Maybe HlsEncryptionSettings,
     -- | Use Destination (Destination) to specify the S3 output location and the
     -- output filename base. Destination accepts format identifiers. If you do
     -- not specify the base filename in the URI, the service will use the
     -- filename of the input file. If your job has multiple inputs, the service
     -- uses the filename of the first input file.
-    destination :: Core.Maybe Core.Text,
+    destination :: Prelude.Maybe Prelude.Text,
     -- | Keep this setting at the default value of 0, unless you are
     -- troubleshooting a problem with how devices play back the end of your
     -- video asset. If you know that player devices are hanging on the final
@@ -112,33 +113,33 @@ data HlsGroupSettings = HlsGroupSettings'
     -- length is 3 seconds and your final segment is .5 seconds without a
     -- minimum final segment length; when you set the minimum final segment
     -- length to 1, your final segment is 3.5 seconds.
-    minFinalSegmentLength :: Core.Maybe Core.Double,
+    minFinalSegmentLength :: Prelude.Maybe Prelude.Double,
     -- | Settings associated with the destination. Will vary based on the type of
     -- destination
-    destinationSettings :: Core.Maybe DestinationSettings,
+    destinationSettings :: Prelude.Maybe DestinationSettings,
     -- | Language to be used on Caption outputs
-    captionLanguageMappings :: Core.Maybe [HlsCaptionLanguageMapping],
+    captionLanguageMappings :: Prelude.Maybe [HlsCaptionLanguageMapping],
     -- | Provides an extra millisecond delta offset to fine tune the timestamps.
-    timestampDeltaMilliseconds :: Core.Maybe Core.Int,
+    timestampDeltaMilliseconds :: Prelude.Maybe Prelude.Int,
     -- | Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
-    programDateTimePeriod :: Core.Maybe Core.Natural,
+    programDateTimePeriod :: Prelude.Maybe Prelude.Natural,
     -- | Disable this setting only when your workflow requires the
     -- #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled
     -- (ENABLED) and control caching in your video distribution set up. For
     -- example, use the Cache-Control http header.
-    clientCache :: Core.Maybe HlsClientCache,
+    clientCache :: Prelude.Maybe HlsClientCache,
     -- | Ignore this setting unless you are using FairPlay DRM with Verimatrix
     -- and you encounter playback issues. Keep the default value, Include
     -- (INCLUDE), to output audio-only headers. Choose Exclude (EXCLUDE) to
     -- remove the audio-only headers from your audio segments.
-    audioOnlyHeader :: Core.Maybe HlsAudioOnlyHeader,
+    audioOnlyHeader :: Prelude.Maybe HlsAudioOnlyHeader,
     -- | When set, Minimum Segment Size is enforced by looking ahead and back
     -- within the specified range for a nearby avail and extending the segment
     -- size if needed.
-    minSegmentLength :: Core.Maybe Core.Natural,
+    minSegmentLength :: Prelude.Maybe Prelude.Natural,
     -- | Indicates whether the output manifest should use floating point values
     -- for segment duration.
-    manifestDurationFormat :: Core.Maybe HlsManifestDurationFormat,
+    manifestDurationFormat :: Prelude.Maybe HlsManifestDurationFormat,
     -- | Applies only to 608 Embedded output captions. Insert: Include
     -- CLOSED-CAPTIONS lines in the manifest. Specify at least one language in
     -- the CC1 Language Code field. One CLOSED-CAPTION line is added for each
@@ -149,9 +150,9 @@ data HlsGroupSettings = HlsGroupSettings'
     -- match up properly with the output captions. None: Include
     -- CLOSED-CAPTIONS=NONE line in the manifest. Omit: Omit any
     -- CLOSED-CAPTIONS line from the manifest.
-    captionLanguageSetting :: Core.Maybe HlsCaptionLanguageSetting
+    captionLanguageSetting :: Prelude.Maybe HlsCaptionLanguageSetting
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HlsGroupSettings' with all optional fields omitted.
@@ -270,86 +271,87 @@ newHlsGroupSettings ::
   HlsGroupSettings
 newHlsGroupSettings =
   HlsGroupSettings'
-    { outputSelection = Core.Nothing,
-      timedMetadataId3Period = Core.Nothing,
-      segmentLength = Core.Nothing,
-      timedMetadataId3Frame = Core.Nothing,
-      adMarkers = Core.Nothing,
-      segmentControl = Core.Nothing,
-      directoryStructure = Core.Nothing,
-      manifestCompression = Core.Nothing,
-      baseUrl = Core.Nothing,
-      streamInfResolution = Core.Nothing,
-      codecSpecification = Core.Nothing,
-      additionalManifests = Core.Nothing,
-      programDateTime = Core.Nothing,
-      segmentsPerSubdirectory = Core.Nothing,
-      encryption = Core.Nothing,
-      destination = Core.Nothing,
-      minFinalSegmentLength = Core.Nothing,
-      destinationSettings = Core.Nothing,
-      captionLanguageMappings = Core.Nothing,
-      timestampDeltaMilliseconds = Core.Nothing,
-      programDateTimePeriod = Core.Nothing,
-      clientCache = Core.Nothing,
-      audioOnlyHeader = Core.Nothing,
-      minSegmentLength = Core.Nothing,
-      manifestDurationFormat = Core.Nothing,
-      captionLanguageSetting = Core.Nothing
+    { outputSelection =
+        Prelude.Nothing,
+      timedMetadataId3Period = Prelude.Nothing,
+      segmentLength = Prelude.Nothing,
+      timedMetadataId3Frame = Prelude.Nothing,
+      adMarkers = Prelude.Nothing,
+      segmentControl = Prelude.Nothing,
+      directoryStructure = Prelude.Nothing,
+      manifestCompression = Prelude.Nothing,
+      baseUrl = Prelude.Nothing,
+      streamInfResolution = Prelude.Nothing,
+      codecSpecification = Prelude.Nothing,
+      additionalManifests = Prelude.Nothing,
+      programDateTime = Prelude.Nothing,
+      segmentsPerSubdirectory = Prelude.Nothing,
+      encryption = Prelude.Nothing,
+      destination = Prelude.Nothing,
+      minFinalSegmentLength = Prelude.Nothing,
+      destinationSettings = Prelude.Nothing,
+      captionLanguageMappings = Prelude.Nothing,
+      timestampDeltaMilliseconds = Prelude.Nothing,
+      programDateTimePeriod = Prelude.Nothing,
+      clientCache = Prelude.Nothing,
+      audioOnlyHeader = Prelude.Nothing,
+      minSegmentLength = Prelude.Nothing,
+      manifestDurationFormat = Prelude.Nothing,
+      captionLanguageSetting = Prelude.Nothing
     }
 
 -- | Indicates whether the .m3u8 manifest file should be generated for this
 -- HLS output group.
-hlsGroupSettings_outputSelection :: Lens.Lens' HlsGroupSettings (Core.Maybe HlsOutputSelection)
+hlsGroupSettings_outputSelection :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsOutputSelection)
 hlsGroupSettings_outputSelection = Lens.lens (\HlsGroupSettings' {outputSelection} -> outputSelection) (\s@HlsGroupSettings' {} a -> s {outputSelection = a} :: HlsGroupSettings)
 
 -- | Timed Metadata interval in seconds.
-hlsGroupSettings_timedMetadataId3Period :: Lens.Lens' HlsGroupSettings (Core.Maybe Core.Int)
+hlsGroupSettings_timedMetadataId3Period :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Int)
 hlsGroupSettings_timedMetadataId3Period = Lens.lens (\HlsGroupSettings' {timedMetadataId3Period} -> timedMetadataId3Period) (\s@HlsGroupSettings' {} a -> s {timedMetadataId3Period = a} :: HlsGroupSettings)
 
 -- | Length of MPEG-2 Transport Stream segments to create (in seconds). Note
 -- that segments will end on the next keyframe after this number of
 -- seconds, so actual segment length may be longer.
-hlsGroupSettings_segmentLength :: Lens.Lens' HlsGroupSettings (Core.Maybe Core.Natural)
+hlsGroupSettings_segmentLength :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Natural)
 hlsGroupSettings_segmentLength = Lens.lens (\HlsGroupSettings' {segmentLength} -> segmentLength) (\s@HlsGroupSettings' {} a -> s {segmentLength = a} :: HlsGroupSettings)
 
 -- | Indicates ID3 frame that has the timecode.
-hlsGroupSettings_timedMetadataId3Frame :: Lens.Lens' HlsGroupSettings (Core.Maybe HlsTimedMetadataId3Frame)
+hlsGroupSettings_timedMetadataId3Frame :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsTimedMetadataId3Frame)
 hlsGroupSettings_timedMetadataId3Frame = Lens.lens (\HlsGroupSettings' {timedMetadataId3Frame} -> timedMetadataId3Frame) (\s@HlsGroupSettings' {} a -> s {timedMetadataId3Frame = a} :: HlsGroupSettings)
 
 -- | Choose one or more ad marker types to decorate your Apple HLS manifest.
 -- This setting does not determine whether SCTE-35 markers appear in the
 -- outputs themselves.
-hlsGroupSettings_adMarkers :: Lens.Lens' HlsGroupSettings (Core.Maybe [HlsAdMarkers])
-hlsGroupSettings_adMarkers = Lens.lens (\HlsGroupSettings' {adMarkers} -> adMarkers) (\s@HlsGroupSettings' {} a -> s {adMarkers = a} :: HlsGroupSettings) Core.. Lens.mapping Lens._Coerce
+hlsGroupSettings_adMarkers :: Lens.Lens' HlsGroupSettings (Prelude.Maybe [HlsAdMarkers])
+hlsGroupSettings_adMarkers = Lens.lens (\HlsGroupSettings' {adMarkers} -> adMarkers) (\s@HlsGroupSettings' {} a -> s {adMarkers = a} :: HlsGroupSettings) Prelude.. Lens.mapping Lens._Coerce
 
 -- | When set to SINGLE_FILE, emits program as a single media resource (.ts)
 -- file, uses #EXT-X-BYTERANGE tags to index segment for playback.
-hlsGroupSettings_segmentControl :: Lens.Lens' HlsGroupSettings (Core.Maybe HlsSegmentControl)
+hlsGroupSettings_segmentControl :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsSegmentControl)
 hlsGroupSettings_segmentControl = Lens.lens (\HlsGroupSettings' {segmentControl} -> segmentControl) (\s@HlsGroupSettings' {} a -> s {segmentControl = a} :: HlsGroupSettings)
 
 -- | Indicates whether segments should be placed in subdirectories.
-hlsGroupSettings_directoryStructure :: Lens.Lens' HlsGroupSettings (Core.Maybe HlsDirectoryStructure)
+hlsGroupSettings_directoryStructure :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsDirectoryStructure)
 hlsGroupSettings_directoryStructure = Lens.lens (\HlsGroupSettings' {directoryStructure} -> directoryStructure) (\s@HlsGroupSettings' {} a -> s {directoryStructure = a} :: HlsGroupSettings)
 
 -- | When set to GZIP, compresses HLS playlist.
-hlsGroupSettings_manifestCompression :: Lens.Lens' HlsGroupSettings (Core.Maybe HlsManifestCompression)
+hlsGroupSettings_manifestCompression :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsManifestCompression)
 hlsGroupSettings_manifestCompression = Lens.lens (\HlsGroupSettings' {manifestCompression} -> manifestCompression) (\s@HlsGroupSettings' {} a -> s {manifestCompression = a} :: HlsGroupSettings)
 
 -- | A partial URI prefix that will be prepended to each output in the media
 -- .m3u8 file. Can be used if base manifest is delivered from a different
 -- URL than the main .m3u8 file.
-hlsGroupSettings_baseUrl :: Lens.Lens' HlsGroupSettings (Core.Maybe Core.Text)
+hlsGroupSettings_baseUrl :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Text)
 hlsGroupSettings_baseUrl = Lens.lens (\HlsGroupSettings' {baseUrl} -> baseUrl) (\s@HlsGroupSettings' {} a -> s {baseUrl = a} :: HlsGroupSettings)
 
 -- | Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF
 -- tag of variant manifest.
-hlsGroupSettings_streamInfResolution :: Lens.Lens' HlsGroupSettings (Core.Maybe HlsStreamInfResolution)
+hlsGroupSettings_streamInfResolution :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsStreamInfResolution)
 hlsGroupSettings_streamInfResolution = Lens.lens (\HlsGroupSettings' {streamInfResolution} -> streamInfResolution) (\s@HlsGroupSettings' {} a -> s {streamInfResolution = a} :: HlsGroupSettings)
 
 -- | Specification to use (RFC-6381 or the default RFC-4281) during m3u8
 -- playlist generation.
-hlsGroupSettings_codecSpecification :: Lens.Lens' HlsGroupSettings (Core.Maybe HlsCodecSpecification)
+hlsGroupSettings_codecSpecification :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsCodecSpecification)
 hlsGroupSettings_codecSpecification = Lens.lens (\HlsGroupSettings' {codecSpecification} -> codecSpecification) (\s@HlsGroupSettings' {} a -> s {codecSpecification = a} :: HlsGroupSettings)
 
 -- | By default, the service creates one top-level .m3u8 HLS manifest for
@@ -357,25 +359,25 @@ hlsGroupSettings_codecSpecification = Lens.lens (\HlsGroupSettings' {codecSpecif
 -- every output in the output group. To create additional top-level
 -- manifests that reference a subset of the outputs in the output group,
 -- specify a list of them here.
-hlsGroupSettings_additionalManifests :: Lens.Lens' HlsGroupSettings (Core.Maybe [HlsAdditionalManifest])
-hlsGroupSettings_additionalManifests = Lens.lens (\HlsGroupSettings' {additionalManifests} -> additionalManifests) (\s@HlsGroupSettings' {} a -> s {additionalManifests = a} :: HlsGroupSettings) Core.. Lens.mapping Lens._Coerce
+hlsGroupSettings_additionalManifests :: Lens.Lens' HlsGroupSettings (Prelude.Maybe [HlsAdditionalManifest])
+hlsGroupSettings_additionalManifests = Lens.lens (\HlsGroupSettings' {additionalManifests} -> additionalManifests) (\s@HlsGroupSettings' {} a -> s {additionalManifests = a} :: HlsGroupSettings) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest
 -- files. The value is calculated as follows: either the program date and
 -- time are initialized using the input timecode source, or the time is
 -- initialized using the input timecode source and the date is initialized
 -- using the timestamp_offset.
-hlsGroupSettings_programDateTime :: Lens.Lens' HlsGroupSettings (Core.Maybe HlsProgramDateTime)
+hlsGroupSettings_programDateTime :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsProgramDateTime)
 hlsGroupSettings_programDateTime = Lens.lens (\HlsGroupSettings' {programDateTime} -> programDateTime) (\s@HlsGroupSettings' {} a -> s {programDateTime = a} :: HlsGroupSettings)
 
 -- | Number of segments to write to a subdirectory before starting a new one.
 -- directoryStructure must be SINGLE_DIRECTORY for this setting to have an
 -- effect.
-hlsGroupSettings_segmentsPerSubdirectory :: Lens.Lens' HlsGroupSettings (Core.Maybe Core.Natural)
+hlsGroupSettings_segmentsPerSubdirectory :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Natural)
 hlsGroupSettings_segmentsPerSubdirectory = Lens.lens (\HlsGroupSettings' {segmentsPerSubdirectory} -> segmentsPerSubdirectory) (\s@HlsGroupSettings' {} a -> s {segmentsPerSubdirectory = a} :: HlsGroupSettings)
 
 -- | DRM settings.
-hlsGroupSettings_encryption :: Lens.Lens' HlsGroupSettings (Core.Maybe HlsEncryptionSettings)
+hlsGroupSettings_encryption :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsEncryptionSettings)
 hlsGroupSettings_encryption = Lens.lens (\HlsGroupSettings' {encryption} -> encryption) (\s@HlsGroupSettings' {} a -> s {encryption = a} :: HlsGroupSettings)
 
 -- | Use Destination (Destination) to specify the S3 output location and the
@@ -383,7 +385,7 @@ hlsGroupSettings_encryption = Lens.lens (\HlsGroupSettings' {encryption} -> encr
 -- not specify the base filename in the URI, the service will use the
 -- filename of the input file. If your job has multiple inputs, the service
 -- uses the filename of the first input file.
-hlsGroupSettings_destination :: Lens.Lens' HlsGroupSettings (Core.Maybe Core.Text)
+hlsGroupSettings_destination :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Text)
 hlsGroupSettings_destination = Lens.lens (\HlsGroupSettings' {destination} -> destination) (\s@HlsGroupSettings' {} a -> s {destination = a} :: HlsGroupSettings)
 
 -- | Keep this setting at the default value of 0, unless you are
@@ -398,49 +400,49 @@ hlsGroupSettings_destination = Lens.lens (\HlsGroupSettings' {destination} -> de
 -- length is 3 seconds and your final segment is .5 seconds without a
 -- minimum final segment length; when you set the minimum final segment
 -- length to 1, your final segment is 3.5 seconds.
-hlsGroupSettings_minFinalSegmentLength :: Lens.Lens' HlsGroupSettings (Core.Maybe Core.Double)
+hlsGroupSettings_minFinalSegmentLength :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Double)
 hlsGroupSettings_minFinalSegmentLength = Lens.lens (\HlsGroupSettings' {minFinalSegmentLength} -> minFinalSegmentLength) (\s@HlsGroupSettings' {} a -> s {minFinalSegmentLength = a} :: HlsGroupSettings)
 
 -- | Settings associated with the destination. Will vary based on the type of
 -- destination
-hlsGroupSettings_destinationSettings :: Lens.Lens' HlsGroupSettings (Core.Maybe DestinationSettings)
+hlsGroupSettings_destinationSettings :: Lens.Lens' HlsGroupSettings (Prelude.Maybe DestinationSettings)
 hlsGroupSettings_destinationSettings = Lens.lens (\HlsGroupSettings' {destinationSettings} -> destinationSettings) (\s@HlsGroupSettings' {} a -> s {destinationSettings = a} :: HlsGroupSettings)
 
 -- | Language to be used on Caption outputs
-hlsGroupSettings_captionLanguageMappings :: Lens.Lens' HlsGroupSettings (Core.Maybe [HlsCaptionLanguageMapping])
-hlsGroupSettings_captionLanguageMappings = Lens.lens (\HlsGroupSettings' {captionLanguageMappings} -> captionLanguageMappings) (\s@HlsGroupSettings' {} a -> s {captionLanguageMappings = a} :: HlsGroupSettings) Core.. Lens.mapping Lens._Coerce
+hlsGroupSettings_captionLanguageMappings :: Lens.Lens' HlsGroupSettings (Prelude.Maybe [HlsCaptionLanguageMapping])
+hlsGroupSettings_captionLanguageMappings = Lens.lens (\HlsGroupSettings' {captionLanguageMappings} -> captionLanguageMappings) (\s@HlsGroupSettings' {} a -> s {captionLanguageMappings = a} :: HlsGroupSettings) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Provides an extra millisecond delta offset to fine tune the timestamps.
-hlsGroupSettings_timestampDeltaMilliseconds :: Lens.Lens' HlsGroupSettings (Core.Maybe Core.Int)
+hlsGroupSettings_timestampDeltaMilliseconds :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Int)
 hlsGroupSettings_timestampDeltaMilliseconds = Lens.lens (\HlsGroupSettings' {timestampDeltaMilliseconds} -> timestampDeltaMilliseconds) (\s@HlsGroupSettings' {} a -> s {timestampDeltaMilliseconds = a} :: HlsGroupSettings)
 
 -- | Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
-hlsGroupSettings_programDateTimePeriod :: Lens.Lens' HlsGroupSettings (Core.Maybe Core.Natural)
+hlsGroupSettings_programDateTimePeriod :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Natural)
 hlsGroupSettings_programDateTimePeriod = Lens.lens (\HlsGroupSettings' {programDateTimePeriod} -> programDateTimePeriod) (\s@HlsGroupSettings' {} a -> s {programDateTimePeriod = a} :: HlsGroupSettings)
 
 -- | Disable this setting only when your workflow requires the
 -- #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled
 -- (ENABLED) and control caching in your video distribution set up. For
 -- example, use the Cache-Control http header.
-hlsGroupSettings_clientCache :: Lens.Lens' HlsGroupSettings (Core.Maybe HlsClientCache)
+hlsGroupSettings_clientCache :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsClientCache)
 hlsGroupSettings_clientCache = Lens.lens (\HlsGroupSettings' {clientCache} -> clientCache) (\s@HlsGroupSettings' {} a -> s {clientCache = a} :: HlsGroupSettings)
 
 -- | Ignore this setting unless you are using FairPlay DRM with Verimatrix
 -- and you encounter playback issues. Keep the default value, Include
 -- (INCLUDE), to output audio-only headers. Choose Exclude (EXCLUDE) to
 -- remove the audio-only headers from your audio segments.
-hlsGroupSettings_audioOnlyHeader :: Lens.Lens' HlsGroupSettings (Core.Maybe HlsAudioOnlyHeader)
+hlsGroupSettings_audioOnlyHeader :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsAudioOnlyHeader)
 hlsGroupSettings_audioOnlyHeader = Lens.lens (\HlsGroupSettings' {audioOnlyHeader} -> audioOnlyHeader) (\s@HlsGroupSettings' {} a -> s {audioOnlyHeader = a} :: HlsGroupSettings)
 
 -- | When set, Minimum Segment Size is enforced by looking ahead and back
 -- within the specified range for a nearby avail and extending the segment
 -- size if needed.
-hlsGroupSettings_minSegmentLength :: Lens.Lens' HlsGroupSettings (Core.Maybe Core.Natural)
+hlsGroupSettings_minSegmentLength :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Natural)
 hlsGroupSettings_minSegmentLength = Lens.lens (\HlsGroupSettings' {minSegmentLength} -> minSegmentLength) (\s@HlsGroupSettings' {} a -> s {minSegmentLength = a} :: HlsGroupSettings)
 
 -- | Indicates whether the output manifest should use floating point values
 -- for segment duration.
-hlsGroupSettings_manifestDurationFormat :: Lens.Lens' HlsGroupSettings (Core.Maybe HlsManifestDurationFormat)
+hlsGroupSettings_manifestDurationFormat :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsManifestDurationFormat)
 hlsGroupSettings_manifestDurationFormat = Lens.lens (\HlsGroupSettings' {manifestDurationFormat} -> manifestDurationFormat) (\s@HlsGroupSettings' {} a -> s {manifestDurationFormat = a} :: HlsGroupSettings)
 
 -- | Applies only to 608 Embedded output captions. Insert: Include
@@ -453,7 +455,7 @@ hlsGroupSettings_manifestDurationFormat = Lens.lens (\HlsGroupSettings' {manifes
 -- match up properly with the output captions. None: Include
 -- CLOSED-CAPTIONS=NONE line in the manifest. Omit: Omit any
 -- CLOSED-CAPTIONS line from the manifest.
-hlsGroupSettings_captionLanguageSetting :: Lens.Lens' HlsGroupSettings (Core.Maybe HlsCaptionLanguageSetting)
+hlsGroupSettings_captionLanguageSetting :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsCaptionLanguageSetting)
 hlsGroupSettings_captionLanguageSetting = Lens.lens (\HlsGroupSettings' {captionLanguageSetting} -> captionLanguageSetting) (\s@HlsGroupSettings' {} a -> s {captionLanguageSetting = a} :: HlsGroupSettings)
 
 instance Core.FromJSON HlsGroupSettings where
@@ -462,88 +464,91 @@ instance Core.FromJSON HlsGroupSettings where
       "HlsGroupSettings"
       ( \x ->
           HlsGroupSettings'
-            Core.<$> (x Core..:? "outputSelection")
-            Core.<*> (x Core..:? "timedMetadataId3Period")
-            Core.<*> (x Core..:? "segmentLength")
-            Core.<*> (x Core..:? "timedMetadataId3Frame")
-            Core.<*> (x Core..:? "adMarkers" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "segmentControl")
-            Core.<*> (x Core..:? "directoryStructure")
-            Core.<*> (x Core..:? "manifestCompression")
-            Core.<*> (x Core..:? "baseUrl")
-            Core.<*> (x Core..:? "streamInfResolution")
-            Core.<*> (x Core..:? "codecSpecification")
-            Core.<*> ( x Core..:? "additionalManifests"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "programDateTime")
-            Core.<*> (x Core..:? "segmentsPerSubdirectory")
-            Core.<*> (x Core..:? "encryption")
-            Core.<*> (x Core..:? "destination")
-            Core.<*> (x Core..:? "minFinalSegmentLength")
-            Core.<*> (x Core..:? "destinationSettings")
-            Core.<*> ( x Core..:? "captionLanguageMappings"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "timestampDeltaMilliseconds")
-            Core.<*> (x Core..:? "programDateTimePeriod")
-            Core.<*> (x Core..:? "clientCache")
-            Core.<*> (x Core..:? "audioOnlyHeader")
-            Core.<*> (x Core..:? "minSegmentLength")
-            Core.<*> (x Core..:? "manifestDurationFormat")
-            Core.<*> (x Core..:? "captionLanguageSetting")
+            Prelude.<$> (x Core..:? "outputSelection")
+            Prelude.<*> (x Core..:? "timedMetadataId3Period")
+            Prelude.<*> (x Core..:? "segmentLength")
+            Prelude.<*> (x Core..:? "timedMetadataId3Frame")
+            Prelude.<*> (x Core..:? "adMarkers" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "segmentControl")
+            Prelude.<*> (x Core..:? "directoryStructure")
+            Prelude.<*> (x Core..:? "manifestCompression")
+            Prelude.<*> (x Core..:? "baseUrl")
+            Prelude.<*> (x Core..:? "streamInfResolution")
+            Prelude.<*> (x Core..:? "codecSpecification")
+            Prelude.<*> ( x Core..:? "additionalManifests"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "programDateTime")
+            Prelude.<*> (x Core..:? "segmentsPerSubdirectory")
+            Prelude.<*> (x Core..:? "encryption")
+            Prelude.<*> (x Core..:? "destination")
+            Prelude.<*> (x Core..:? "minFinalSegmentLength")
+            Prelude.<*> (x Core..:? "destinationSettings")
+            Prelude.<*> ( x Core..:? "captionLanguageMappings"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "timestampDeltaMilliseconds")
+            Prelude.<*> (x Core..:? "programDateTimePeriod")
+            Prelude.<*> (x Core..:? "clientCache")
+            Prelude.<*> (x Core..:? "audioOnlyHeader")
+            Prelude.<*> (x Core..:? "minSegmentLength")
+            Prelude.<*> (x Core..:? "manifestDurationFormat")
+            Prelude.<*> (x Core..:? "captionLanguageSetting")
       )
 
-instance Core.Hashable HlsGroupSettings
+instance Prelude.Hashable HlsGroupSettings
 
-instance Core.NFData HlsGroupSettings
+instance Prelude.NFData HlsGroupSettings
 
 instance Core.ToJSON HlsGroupSettings where
   toJSON HlsGroupSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("outputSelection" Core..=)
-              Core.<$> outputSelection,
+              Prelude.<$> outputSelection,
             ("timedMetadataId3Period" Core..=)
-              Core.<$> timedMetadataId3Period,
-            ("segmentLength" Core..=) Core.<$> segmentLength,
+              Prelude.<$> timedMetadataId3Period,
+            ("segmentLength" Core..=) Prelude.<$> segmentLength,
             ("timedMetadataId3Frame" Core..=)
-              Core.<$> timedMetadataId3Frame,
-            ("adMarkers" Core..=) Core.<$> adMarkers,
-            ("segmentControl" Core..=) Core.<$> segmentControl,
+              Prelude.<$> timedMetadataId3Frame,
+            ("adMarkers" Core..=) Prelude.<$> adMarkers,
+            ("segmentControl" Core..=)
+              Prelude.<$> segmentControl,
             ("directoryStructure" Core..=)
-              Core.<$> directoryStructure,
+              Prelude.<$> directoryStructure,
             ("manifestCompression" Core..=)
-              Core.<$> manifestCompression,
-            ("baseUrl" Core..=) Core.<$> baseUrl,
+              Prelude.<$> manifestCompression,
+            ("baseUrl" Core..=) Prelude.<$> baseUrl,
             ("streamInfResolution" Core..=)
-              Core.<$> streamInfResolution,
+              Prelude.<$> streamInfResolution,
             ("codecSpecification" Core..=)
-              Core.<$> codecSpecification,
+              Prelude.<$> codecSpecification,
             ("additionalManifests" Core..=)
-              Core.<$> additionalManifests,
-            ("programDateTime" Core..=) Core.<$> programDateTime,
+              Prelude.<$> additionalManifests,
+            ("programDateTime" Core..=)
+              Prelude.<$> programDateTime,
             ("segmentsPerSubdirectory" Core..=)
-              Core.<$> segmentsPerSubdirectory,
-            ("encryption" Core..=) Core.<$> encryption,
-            ("destination" Core..=) Core.<$> destination,
+              Prelude.<$> segmentsPerSubdirectory,
+            ("encryption" Core..=) Prelude.<$> encryption,
+            ("destination" Core..=) Prelude.<$> destination,
             ("minFinalSegmentLength" Core..=)
-              Core.<$> minFinalSegmentLength,
+              Prelude.<$> minFinalSegmentLength,
             ("destinationSettings" Core..=)
-              Core.<$> destinationSettings,
+              Prelude.<$> destinationSettings,
             ("captionLanguageMappings" Core..=)
-              Core.<$> captionLanguageMappings,
+              Prelude.<$> captionLanguageMappings,
             ("timestampDeltaMilliseconds" Core..=)
-              Core.<$> timestampDeltaMilliseconds,
+              Prelude.<$> timestampDeltaMilliseconds,
             ("programDateTimePeriod" Core..=)
-              Core.<$> programDateTimePeriod,
-            ("clientCache" Core..=) Core.<$> clientCache,
-            ("audioOnlyHeader" Core..=) Core.<$> audioOnlyHeader,
+              Prelude.<$> programDateTimePeriod,
+            ("clientCache" Core..=) Prelude.<$> clientCache,
+            ("audioOnlyHeader" Core..=)
+              Prelude.<$> audioOnlyHeader,
             ("minSegmentLength" Core..=)
-              Core.<$> minSegmentLength,
+              Prelude.<$> minSegmentLength,
             ("manifestDurationFormat" Core..=)
-              Core.<$> manifestDurationFormat,
+              Prelude.<$> manifestDurationFormat,
             ("captionLanguageSetting" Core..=)
-              Core.<$> captionLanguageSetting
+              Prelude.<$> captionLanguageSetting
           ]
       )

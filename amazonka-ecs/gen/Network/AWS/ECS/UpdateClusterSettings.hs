@@ -43,20 +43,21 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateClusterSettings' smart constructor.
 data UpdateClusterSettings = UpdateClusterSettings'
   { -- | The name of the cluster to modify the settings for.
-    cluster :: Core.Text,
+    cluster :: Prelude.Text,
     -- | The setting to use by default for a cluster. This parameter is used to
     -- enable CloudWatch Container Insights for a cluster. If this value is
     -- specified, it will override the @containerInsights@ value set with
     -- PutAccountSetting or PutAccountSettingDefault.
     settings :: [ClusterSetting]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateClusterSettings' with all optional fields omitted.
@@ -74,16 +75,16 @@ data UpdateClusterSettings = UpdateClusterSettings'
 -- PutAccountSetting or PutAccountSettingDefault.
 newUpdateClusterSettings ::
   -- | 'cluster'
-  Core.Text ->
+  Prelude.Text ->
   UpdateClusterSettings
 newUpdateClusterSettings pCluster_ =
   UpdateClusterSettings'
     { cluster = pCluster_,
-      settings = Core.mempty
+      settings = Prelude.mempty
     }
 
 -- | The name of the cluster to modify the settings for.
-updateClusterSettings_cluster :: Lens.Lens' UpdateClusterSettings Core.Text
+updateClusterSettings_cluster :: Lens.Lens' UpdateClusterSettings Prelude.Text
 updateClusterSettings_cluster = Lens.lens (\UpdateClusterSettings' {cluster} -> cluster) (\s@UpdateClusterSettings' {} a -> s {cluster = a} :: UpdateClusterSettings)
 
 -- | The setting to use by default for a cluster. This parameter is used to
@@ -91,7 +92,7 @@ updateClusterSettings_cluster = Lens.lens (\UpdateClusterSettings' {cluster} -> 
 -- specified, it will override the @containerInsights@ value set with
 -- PutAccountSetting or PutAccountSettingDefault.
 updateClusterSettings_settings :: Lens.Lens' UpdateClusterSettings [ClusterSetting]
-updateClusterSettings_settings = Lens.lens (\UpdateClusterSettings' {settings} -> settings) (\s@UpdateClusterSettings' {} a -> s {settings = a} :: UpdateClusterSettings) Core.. Lens._Coerce
+updateClusterSettings_settings = Lens.lens (\UpdateClusterSettings' {settings} -> settings) (\s@UpdateClusterSettings' {} a -> s {settings = a} :: UpdateClusterSettings) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UpdateClusterSettings where
   type
@@ -102,49 +103,51 @@ instance Core.AWSRequest UpdateClusterSettings where
     Response.receiveJSON
       ( \s h x ->
           UpdateClusterSettingsResponse'
-            Core.<$> (x Core..?> "cluster")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "cluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateClusterSettings
+instance Prelude.Hashable UpdateClusterSettings
 
-instance Core.NFData UpdateClusterSettings
+instance Prelude.NFData UpdateClusterSettings
 
 instance Core.ToHeaders UpdateClusterSettings where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerServiceV20141113.UpdateClusterSettings" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateClusterSettings where
   toJSON UpdateClusterSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("cluster" Core..= cluster),
-            Core.Just ("settings" Core..= settings)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("cluster" Core..= cluster),
+            Prelude.Just ("settings" Core..= settings)
           ]
       )
 
 instance Core.ToPath UpdateClusterSettings where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateClusterSettings where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateClusterSettingsResponse' smart constructor.
 data UpdateClusterSettingsResponse = UpdateClusterSettingsResponse'
-  { cluster :: Core.Maybe Cluster,
+  { cluster :: Prelude.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateClusterSettingsResponse' with all optional fields omitted.
@@ -159,21 +162,21 @@ data UpdateClusterSettingsResponse = UpdateClusterSettingsResponse'
 -- 'httpStatus', 'updateClusterSettingsResponse_httpStatus' - The response's http status code.
 newUpdateClusterSettingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateClusterSettingsResponse
 newUpdateClusterSettingsResponse pHttpStatus_ =
   UpdateClusterSettingsResponse'
     { cluster =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-updateClusterSettingsResponse_cluster :: Lens.Lens' UpdateClusterSettingsResponse (Core.Maybe Cluster)
+updateClusterSettingsResponse_cluster :: Lens.Lens' UpdateClusterSettingsResponse (Prelude.Maybe Cluster)
 updateClusterSettingsResponse_cluster = Lens.lens (\UpdateClusterSettingsResponse' {cluster} -> cluster) (\s@UpdateClusterSettingsResponse' {} a -> s {cluster = a} :: UpdateClusterSettingsResponse)
 
 -- | The response's http status code.
-updateClusterSettingsResponse_httpStatus :: Lens.Lens' UpdateClusterSettingsResponse Core.Int
+updateClusterSettingsResponse_httpStatus :: Lens.Lens' UpdateClusterSettingsResponse Prelude.Int
 updateClusterSettingsResponse_httpStatus = Lens.lens (\UpdateClusterSettingsResponse' {httpStatus} -> httpStatus) (\s@UpdateClusterSettingsResponse' {} a -> s {httpStatus = a} :: UpdateClusterSettingsResponse)
 
-instance Core.NFData UpdateClusterSettingsResponse
+instance Prelude.NFData UpdateClusterSettingsResponse

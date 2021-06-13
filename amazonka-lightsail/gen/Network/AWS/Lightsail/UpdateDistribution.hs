@@ -51,38 +51,39 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDistribution' smart constructor.
 data UpdateDistribution = UpdateDistribution'
   { -- | Indicates whether to enable the distribution.
-    isEnabled :: Core.Maybe Core.Bool,
+    isEnabled :: Prelude.Maybe Prelude.Bool,
     -- | An object that describes the origin resource for the distribution, such
     -- as a Lightsail instance or load balancer.
     --
     -- The distribution pulls, caches, and serves content from the origin.
-    origin :: Core.Maybe InputOrigin,
+    origin :: Prelude.Maybe InputOrigin,
     -- | An object that describes the cache behavior settings for the
     -- distribution.
     --
     -- The @cacheBehaviorSettings@ specified in your
     -- @UpdateDistributionRequest@ will replace your distribution\'s existing
     -- settings.
-    cacheBehaviorSettings :: Core.Maybe CacheSettings,
+    cacheBehaviorSettings :: Prelude.Maybe CacheSettings,
     -- | An array of objects that describe the per-path cache behavior for the
     -- distribution.
-    cacheBehaviors :: Core.Maybe [CacheBehaviorPerPath],
+    cacheBehaviors :: Prelude.Maybe [CacheBehaviorPerPath],
     -- | An object that describes the default cache behavior for the
     -- distribution.
-    defaultCacheBehavior :: Core.Maybe CacheBehavior,
+    defaultCacheBehavior :: Prelude.Maybe CacheBehavior,
     -- | The name of the distribution to update.
     --
     -- Use the @GetDistributions@ action to get a list of distribution names
     -- that you can specify.
-    distributionName :: Core.Text
+    distributionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDistribution' with all optional fields omitted.
@@ -118,27 +119,27 @@ data UpdateDistribution = UpdateDistribution'
 -- that you can specify.
 newUpdateDistribution ::
   -- | 'distributionName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateDistribution
 newUpdateDistribution pDistributionName_ =
   UpdateDistribution'
-    { isEnabled = Core.Nothing,
-      origin = Core.Nothing,
-      cacheBehaviorSettings = Core.Nothing,
-      cacheBehaviors = Core.Nothing,
-      defaultCacheBehavior = Core.Nothing,
+    { isEnabled = Prelude.Nothing,
+      origin = Prelude.Nothing,
+      cacheBehaviorSettings = Prelude.Nothing,
+      cacheBehaviors = Prelude.Nothing,
+      defaultCacheBehavior = Prelude.Nothing,
       distributionName = pDistributionName_
     }
 
 -- | Indicates whether to enable the distribution.
-updateDistribution_isEnabled :: Lens.Lens' UpdateDistribution (Core.Maybe Core.Bool)
+updateDistribution_isEnabled :: Lens.Lens' UpdateDistribution (Prelude.Maybe Prelude.Bool)
 updateDistribution_isEnabled = Lens.lens (\UpdateDistribution' {isEnabled} -> isEnabled) (\s@UpdateDistribution' {} a -> s {isEnabled = a} :: UpdateDistribution)
 
 -- | An object that describes the origin resource for the distribution, such
 -- as a Lightsail instance or load balancer.
 --
 -- The distribution pulls, caches, and serves content from the origin.
-updateDistribution_origin :: Lens.Lens' UpdateDistribution (Core.Maybe InputOrigin)
+updateDistribution_origin :: Lens.Lens' UpdateDistribution (Prelude.Maybe InputOrigin)
 updateDistribution_origin = Lens.lens (\UpdateDistribution' {origin} -> origin) (\s@UpdateDistribution' {} a -> s {origin = a} :: UpdateDistribution)
 
 -- | An object that describes the cache behavior settings for the
@@ -147,24 +148,24 @@ updateDistribution_origin = Lens.lens (\UpdateDistribution' {origin} -> origin) 
 -- The @cacheBehaviorSettings@ specified in your
 -- @UpdateDistributionRequest@ will replace your distribution\'s existing
 -- settings.
-updateDistribution_cacheBehaviorSettings :: Lens.Lens' UpdateDistribution (Core.Maybe CacheSettings)
+updateDistribution_cacheBehaviorSettings :: Lens.Lens' UpdateDistribution (Prelude.Maybe CacheSettings)
 updateDistribution_cacheBehaviorSettings = Lens.lens (\UpdateDistribution' {cacheBehaviorSettings} -> cacheBehaviorSettings) (\s@UpdateDistribution' {} a -> s {cacheBehaviorSettings = a} :: UpdateDistribution)
 
 -- | An array of objects that describe the per-path cache behavior for the
 -- distribution.
-updateDistribution_cacheBehaviors :: Lens.Lens' UpdateDistribution (Core.Maybe [CacheBehaviorPerPath])
-updateDistribution_cacheBehaviors = Lens.lens (\UpdateDistribution' {cacheBehaviors} -> cacheBehaviors) (\s@UpdateDistribution' {} a -> s {cacheBehaviors = a} :: UpdateDistribution) Core.. Lens.mapping Lens._Coerce
+updateDistribution_cacheBehaviors :: Lens.Lens' UpdateDistribution (Prelude.Maybe [CacheBehaviorPerPath])
+updateDistribution_cacheBehaviors = Lens.lens (\UpdateDistribution' {cacheBehaviors} -> cacheBehaviors) (\s@UpdateDistribution' {} a -> s {cacheBehaviors = a} :: UpdateDistribution) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An object that describes the default cache behavior for the
 -- distribution.
-updateDistribution_defaultCacheBehavior :: Lens.Lens' UpdateDistribution (Core.Maybe CacheBehavior)
+updateDistribution_defaultCacheBehavior :: Lens.Lens' UpdateDistribution (Prelude.Maybe CacheBehavior)
 updateDistribution_defaultCacheBehavior = Lens.lens (\UpdateDistribution' {defaultCacheBehavior} -> defaultCacheBehavior) (\s@UpdateDistribution' {} a -> s {defaultCacheBehavior = a} :: UpdateDistribution)
 
 -- | The name of the distribution to update.
 --
 -- Use the @GetDistributions@ action to get a list of distribution names
 -- that you can specify.
-updateDistribution_distributionName :: Lens.Lens' UpdateDistribution Core.Text
+updateDistribution_distributionName :: Lens.Lens' UpdateDistribution Prelude.Text
 updateDistribution_distributionName = Lens.lens (\UpdateDistribution' {distributionName} -> distributionName) (\s@UpdateDistribution' {} a -> s {distributionName = a} :: UpdateDistribution)
 
 instance Core.AWSRequest UpdateDistribution where
@@ -176,59 +177,62 @@ instance Core.AWSRequest UpdateDistribution where
     Response.receiveJSON
       ( \s h x ->
           UpdateDistributionResponse'
-            Core.<$> (x Core..?> "operation")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operation")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateDistribution
+instance Prelude.Hashable UpdateDistribution
 
-instance Core.NFData UpdateDistribution
+instance Prelude.NFData UpdateDistribution
 
 instance Core.ToHeaders UpdateDistribution where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.UpdateDistribution" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateDistribution where
   toJSON UpdateDistribution' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("isEnabled" Core..=) Core.<$> isEnabled,
-            ("origin" Core..=) Core.<$> origin,
+      ( Prelude.catMaybes
+          [ ("isEnabled" Core..=) Prelude.<$> isEnabled,
+            ("origin" Core..=) Prelude.<$> origin,
             ("cacheBehaviorSettings" Core..=)
-              Core.<$> cacheBehaviorSettings,
-            ("cacheBehaviors" Core..=) Core.<$> cacheBehaviors,
+              Prelude.<$> cacheBehaviorSettings,
+            ("cacheBehaviors" Core..=)
+              Prelude.<$> cacheBehaviors,
             ("defaultCacheBehavior" Core..=)
-              Core.<$> defaultCacheBehavior,
-            Core.Just
+              Prelude.<$> defaultCacheBehavior,
+            Prelude.Just
               ("distributionName" Core..= distributionName)
           ]
       )
 
 instance Core.ToPath UpdateDistribution where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateDistribution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDistributionResponse' smart constructor.
 data UpdateDistributionResponse = UpdateDistributionResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operation :: Core.Maybe Operation,
+    operation :: Prelude.Maybe Operation,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDistributionResponse' with all optional fields omitted.
@@ -245,23 +249,23 @@ data UpdateDistributionResponse = UpdateDistributionResponse'
 -- 'httpStatus', 'updateDistributionResponse_httpStatus' - The response's http status code.
 newUpdateDistributionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateDistributionResponse
 newUpdateDistributionResponse pHttpStatus_ =
   UpdateDistributionResponse'
     { operation =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-updateDistributionResponse_operation :: Lens.Lens' UpdateDistributionResponse (Core.Maybe Operation)
+updateDistributionResponse_operation :: Lens.Lens' UpdateDistributionResponse (Prelude.Maybe Operation)
 updateDistributionResponse_operation = Lens.lens (\UpdateDistributionResponse' {operation} -> operation) (\s@UpdateDistributionResponse' {} a -> s {operation = a} :: UpdateDistributionResponse)
 
 -- | The response's http status code.
-updateDistributionResponse_httpStatus :: Lens.Lens' UpdateDistributionResponse Core.Int
+updateDistributionResponse_httpStatus :: Lens.Lens' UpdateDistributionResponse Prelude.Int
 updateDistributionResponse_httpStatus = Lens.lens (\UpdateDistributionResponse' {httpStatus} -> httpStatus) (\s@UpdateDistributionResponse' {} a -> s {httpStatus = a} :: UpdateDistributionResponse)
 
-instance Core.NFData UpdateDistributionResponse
+instance Prelude.NFData UpdateDistributionResponse

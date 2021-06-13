@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +51,11 @@ import qualified Network.AWS.Response as Response
 data DeleteUserEndpoints = DeleteUserEndpoints'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     -- | The unique identifier for the user.
-    userId :: Core.Text
+    userId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserEndpoints' with all optional fields omitted.
@@ -70,9 +71,9 @@ data DeleteUserEndpoints = DeleteUserEndpoints'
 -- 'userId', 'deleteUserEndpoints_userId' - The unique identifier for the user.
 newDeleteUserEndpoints ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'userId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteUserEndpoints
 newDeleteUserEndpoints pApplicationId_ pUserId_ =
   DeleteUserEndpoints'
@@ -83,11 +84,11 @@ newDeleteUserEndpoints pApplicationId_ pUserId_ =
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-deleteUserEndpoints_applicationId :: Lens.Lens' DeleteUserEndpoints Core.Text
+deleteUserEndpoints_applicationId :: Lens.Lens' DeleteUserEndpoints Prelude.Text
 deleteUserEndpoints_applicationId = Lens.lens (\DeleteUserEndpoints' {applicationId} -> applicationId) (\s@DeleteUserEndpoints' {} a -> s {applicationId = a} :: DeleteUserEndpoints)
 
 -- | The unique identifier for the user.
-deleteUserEndpoints_userId :: Lens.Lens' DeleteUserEndpoints Core.Text
+deleteUserEndpoints_userId :: Lens.Lens' DeleteUserEndpoints Prelude.Text
 deleteUserEndpoints_userId = Lens.lens (\DeleteUserEndpoints' {userId} -> userId) (\s@DeleteUserEndpoints' {} a -> s {userId = a} :: DeleteUserEndpoints)
 
 instance Core.AWSRequest DeleteUserEndpoints where
@@ -99,26 +100,28 @@ instance Core.AWSRequest DeleteUserEndpoints where
     Response.receiveJSON
       ( \s h x ->
           DeleteUserEndpointsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable DeleteUserEndpoints
+instance Prelude.Hashable DeleteUserEndpoints
 
-instance Core.NFData DeleteUserEndpoints
+instance Prelude.NFData DeleteUserEndpoints
 
 instance Core.ToHeaders DeleteUserEndpoints where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteUserEndpoints where
   toPath DeleteUserEndpoints' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/users/",
@@ -126,15 +129,15 @@ instance Core.ToPath DeleteUserEndpoints where
       ]
 
 instance Core.ToQuery DeleteUserEndpoints where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserEndpointsResponse' smart constructor.
 data DeleteUserEndpointsResponse = DeleteUserEndpointsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     endpointsResponse :: EndpointsResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserEndpointsResponse' with all optional fields omitted.
@@ -149,7 +152,7 @@ data DeleteUserEndpointsResponse = DeleteUserEndpointsResponse'
 -- 'endpointsResponse', 'deleteUserEndpointsResponse_endpointsResponse' - Undocumented member.
 newDeleteUserEndpointsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'endpointsResponse'
   EndpointsResponse ->
   DeleteUserEndpointsResponse
@@ -163,11 +166,11 @@ newDeleteUserEndpointsResponse
       }
 
 -- | The response's http status code.
-deleteUserEndpointsResponse_httpStatus :: Lens.Lens' DeleteUserEndpointsResponse Core.Int
+deleteUserEndpointsResponse_httpStatus :: Lens.Lens' DeleteUserEndpointsResponse Prelude.Int
 deleteUserEndpointsResponse_httpStatus = Lens.lens (\DeleteUserEndpointsResponse' {httpStatus} -> httpStatus) (\s@DeleteUserEndpointsResponse' {} a -> s {httpStatus = a} :: DeleteUserEndpointsResponse)
 
 -- | Undocumented member.
 deleteUserEndpointsResponse_endpointsResponse :: Lens.Lens' DeleteUserEndpointsResponse EndpointsResponse
 deleteUserEndpointsResponse_endpointsResponse = Lens.lens (\DeleteUserEndpointsResponse' {endpointsResponse} -> endpointsResponse) (\s@DeleteUserEndpointsResponse' {} a -> s {endpointsResponse = a} :: DeleteUserEndpointsResponse)
 
-instance Core.NFData DeleteUserEndpointsResponse
+instance Prelude.NFData DeleteUserEndpointsResponse

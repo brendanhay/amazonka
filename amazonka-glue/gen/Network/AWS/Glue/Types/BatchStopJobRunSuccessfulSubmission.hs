@@ -21,17 +21,18 @@ module Network.AWS.Glue.Types.BatchStopJobRunSuccessfulSubmission where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Records a successful request to stop a specified @JobRun@.
 --
 -- /See:/ 'newBatchStopJobRunSuccessfulSubmission' smart constructor.
 data BatchStopJobRunSuccessfulSubmission = BatchStopJobRunSuccessfulSubmission'
   { -- | The @JobRunId@ of the job run that was stopped.
-    jobRunId :: Core.Maybe Core.Text,
+    jobRunId :: Prelude.Maybe Prelude.Text,
     -- | The name of the job definition used in the job run that was stopped.
-    jobName :: Core.Maybe Core.Text
+    jobName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchStopJobRunSuccessfulSubmission' with all optional fields omitted.
@@ -49,16 +50,16 @@ newBatchStopJobRunSuccessfulSubmission ::
 newBatchStopJobRunSuccessfulSubmission =
   BatchStopJobRunSuccessfulSubmission'
     { jobRunId =
-        Core.Nothing,
-      jobName = Core.Nothing
+        Prelude.Nothing,
+      jobName = Prelude.Nothing
     }
 
 -- | The @JobRunId@ of the job run that was stopped.
-batchStopJobRunSuccessfulSubmission_jobRunId :: Lens.Lens' BatchStopJobRunSuccessfulSubmission (Core.Maybe Core.Text)
+batchStopJobRunSuccessfulSubmission_jobRunId :: Lens.Lens' BatchStopJobRunSuccessfulSubmission (Prelude.Maybe Prelude.Text)
 batchStopJobRunSuccessfulSubmission_jobRunId = Lens.lens (\BatchStopJobRunSuccessfulSubmission' {jobRunId} -> jobRunId) (\s@BatchStopJobRunSuccessfulSubmission' {} a -> s {jobRunId = a} :: BatchStopJobRunSuccessfulSubmission)
 
 -- | The name of the job definition used in the job run that was stopped.
-batchStopJobRunSuccessfulSubmission_jobName :: Lens.Lens' BatchStopJobRunSuccessfulSubmission (Core.Maybe Core.Text)
+batchStopJobRunSuccessfulSubmission_jobName :: Lens.Lens' BatchStopJobRunSuccessfulSubmission (Prelude.Maybe Prelude.Text)
 batchStopJobRunSuccessfulSubmission_jobName = Lens.lens (\BatchStopJobRunSuccessfulSubmission' {jobName} -> jobName) (\s@BatchStopJobRunSuccessfulSubmission' {} a -> s {jobName = a} :: BatchStopJobRunSuccessfulSubmission)
 
 instance
@@ -70,14 +71,14 @@ instance
       "BatchStopJobRunSuccessfulSubmission"
       ( \x ->
           BatchStopJobRunSuccessfulSubmission'
-            Core.<$> (x Core..:? "JobRunId")
-            Core.<*> (x Core..:? "JobName")
+            Prelude.<$> (x Core..:? "JobRunId")
+            Prelude.<*> (x Core..:? "JobName")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     BatchStopJobRunSuccessfulSubmission
 
 instance
-  Core.NFData
+  Prelude.NFData
     BatchStopJobRunSuccessfulSubmission

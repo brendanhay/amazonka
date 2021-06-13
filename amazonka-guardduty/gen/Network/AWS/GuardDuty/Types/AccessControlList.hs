@@ -21,6 +21,7 @@ module Network.AWS.GuardDuty.Types.AccessControlList where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on the current access control policies for the
 -- bucket.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data AccessControlList = AccessControlList'
   { -- | A value that indicates whether public read access for the bucket is
     -- enabled through an Access Control List (ACL).
-    allowsPublicReadAccess :: Core.Maybe Core.Bool,
+    allowsPublicReadAccess :: Prelude.Maybe Prelude.Bool,
     -- | A value that indicates whether public write access for the bucket is
     -- enabled through an Access Control List (ACL).
-    allowsPublicWriteAccess :: Core.Maybe Core.Bool
+    allowsPublicWriteAccess :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccessControlList' with all optional fields omitted.
@@ -54,18 +55,18 @@ newAccessControlList ::
 newAccessControlList =
   AccessControlList'
     { allowsPublicReadAccess =
-        Core.Nothing,
-      allowsPublicWriteAccess = Core.Nothing
+        Prelude.Nothing,
+      allowsPublicWriteAccess = Prelude.Nothing
     }
 
 -- | A value that indicates whether public read access for the bucket is
 -- enabled through an Access Control List (ACL).
-accessControlList_allowsPublicReadAccess :: Lens.Lens' AccessControlList (Core.Maybe Core.Bool)
+accessControlList_allowsPublicReadAccess :: Lens.Lens' AccessControlList (Prelude.Maybe Prelude.Bool)
 accessControlList_allowsPublicReadAccess = Lens.lens (\AccessControlList' {allowsPublicReadAccess} -> allowsPublicReadAccess) (\s@AccessControlList' {} a -> s {allowsPublicReadAccess = a} :: AccessControlList)
 
 -- | A value that indicates whether public write access for the bucket is
 -- enabled through an Access Control List (ACL).
-accessControlList_allowsPublicWriteAccess :: Lens.Lens' AccessControlList (Core.Maybe Core.Bool)
+accessControlList_allowsPublicWriteAccess :: Lens.Lens' AccessControlList (Prelude.Maybe Prelude.Bool)
 accessControlList_allowsPublicWriteAccess = Lens.lens (\AccessControlList' {allowsPublicWriteAccess} -> allowsPublicWriteAccess) (\s@AccessControlList' {} a -> s {allowsPublicWriteAccess = a} :: AccessControlList)
 
 instance Core.FromJSON AccessControlList where
@@ -74,10 +75,10 @@ instance Core.FromJSON AccessControlList where
       "AccessControlList"
       ( \x ->
           AccessControlList'
-            Core.<$> (x Core..:? "allowsPublicReadAccess")
-            Core.<*> (x Core..:? "allowsPublicWriteAccess")
+            Prelude.<$> (x Core..:? "allowsPublicReadAccess")
+            Prelude.<*> (x Core..:? "allowsPublicWriteAccess")
       )
 
-instance Core.Hashable AccessControlList
+instance Prelude.Hashable AccessControlList
 
-instance Core.NFData AccessControlList
+instance Prelude.NFData AccessControlList

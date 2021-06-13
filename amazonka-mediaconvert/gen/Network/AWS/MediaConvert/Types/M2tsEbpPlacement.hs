@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.M2tsEbpPlacement
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Selects which PIDs to place EBP markers on. They can either be placed
 -- only on the video PID, or on both the video PID and all audio PIDs. Only
@@ -37,15 +38,15 @@ newtype M2tsEbpPlacement = M2tsEbpPlacement'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

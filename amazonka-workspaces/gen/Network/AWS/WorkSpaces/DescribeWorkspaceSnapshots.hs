@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -49,9 +50,9 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newDescribeWorkspaceSnapshots' smart constructor.
 data DescribeWorkspaceSnapshots = DescribeWorkspaceSnapshots'
   { -- | The identifier of the WorkSpace.
-    workspaceId :: Core.Text
+    workspaceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkspaceSnapshots' with all optional fields omitted.
@@ -64,7 +65,7 @@ data DescribeWorkspaceSnapshots = DescribeWorkspaceSnapshots'
 -- 'workspaceId', 'describeWorkspaceSnapshots_workspaceId' - The identifier of the WorkSpace.
 newDescribeWorkspaceSnapshots ::
   -- | 'workspaceId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeWorkspaceSnapshots
 newDescribeWorkspaceSnapshots pWorkspaceId_ =
   DescribeWorkspaceSnapshots'
@@ -73,7 +74,7 @@ newDescribeWorkspaceSnapshots pWorkspaceId_ =
     }
 
 -- | The identifier of the WorkSpace.
-describeWorkspaceSnapshots_workspaceId :: Lens.Lens' DescribeWorkspaceSnapshots Core.Text
+describeWorkspaceSnapshots_workspaceId :: Lens.Lens' DescribeWorkspaceSnapshots Prelude.Text
 describeWorkspaceSnapshots_workspaceId = Lens.lens (\DescribeWorkspaceSnapshots' {workspaceId} -> workspaceId) (\s@DescribeWorkspaceSnapshots' {} a -> s {workspaceId = a} :: DescribeWorkspaceSnapshots)
 
 instance Core.AWSRequest DescribeWorkspaceSnapshots where
@@ -85,53 +86,59 @@ instance Core.AWSRequest DescribeWorkspaceSnapshots where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkspaceSnapshotsResponse'
-            Core.<$> (x Core..?> "RebuildSnapshots" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "RestoreSnapshots" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "RebuildSnapshots"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..?> "RestoreSnapshots"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeWorkspaceSnapshots
+instance Prelude.Hashable DescribeWorkspaceSnapshots
 
-instance Core.NFData DescribeWorkspaceSnapshots
+instance Prelude.NFData DescribeWorkspaceSnapshots
 
 instance Core.ToHeaders DescribeWorkspaceSnapshots where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.DescribeWorkspaceSnapshots" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeWorkspaceSnapshots where
   toJSON DescribeWorkspaceSnapshots' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("WorkspaceId" Core..= workspaceId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("WorkspaceId" Core..= workspaceId)]
       )
 
 instance Core.ToPath DescribeWorkspaceSnapshots where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeWorkspaceSnapshots where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWorkspaceSnapshotsResponse' smart constructor.
 data DescribeWorkspaceSnapshotsResponse = DescribeWorkspaceSnapshotsResponse'
   { -- | Information about the snapshots that can be used to rebuild a WorkSpace.
     -- These snapshots include the user volume.
-    rebuildSnapshots :: Core.Maybe [Snapshot],
+    rebuildSnapshots :: Prelude.Maybe [Snapshot],
     -- | Information about the snapshots that can be used to restore a WorkSpace.
     -- These snapshots include both the root volume and the user volume.
-    restoreSnapshots :: Core.Maybe [Snapshot],
+    restoreSnapshots :: Prelude.Maybe [Snapshot],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkspaceSnapshotsResponse' with all optional fields omitted.
@@ -150,30 +157,30 @@ data DescribeWorkspaceSnapshotsResponse = DescribeWorkspaceSnapshotsResponse'
 -- 'httpStatus', 'describeWorkspaceSnapshotsResponse_httpStatus' - The response's http status code.
 newDescribeWorkspaceSnapshotsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeWorkspaceSnapshotsResponse
 newDescribeWorkspaceSnapshotsResponse pHttpStatus_ =
   DescribeWorkspaceSnapshotsResponse'
     { rebuildSnapshots =
-        Core.Nothing,
-      restoreSnapshots = Core.Nothing,
+        Prelude.Nothing,
+      restoreSnapshots = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the snapshots that can be used to rebuild a WorkSpace.
 -- These snapshots include the user volume.
-describeWorkspaceSnapshotsResponse_rebuildSnapshots :: Lens.Lens' DescribeWorkspaceSnapshotsResponse (Core.Maybe [Snapshot])
-describeWorkspaceSnapshotsResponse_rebuildSnapshots = Lens.lens (\DescribeWorkspaceSnapshotsResponse' {rebuildSnapshots} -> rebuildSnapshots) (\s@DescribeWorkspaceSnapshotsResponse' {} a -> s {rebuildSnapshots = a} :: DescribeWorkspaceSnapshotsResponse) Core.. Lens.mapping Lens._Coerce
+describeWorkspaceSnapshotsResponse_rebuildSnapshots :: Lens.Lens' DescribeWorkspaceSnapshotsResponse (Prelude.Maybe [Snapshot])
+describeWorkspaceSnapshotsResponse_rebuildSnapshots = Lens.lens (\DescribeWorkspaceSnapshotsResponse' {rebuildSnapshots} -> rebuildSnapshots) (\s@DescribeWorkspaceSnapshotsResponse' {} a -> s {rebuildSnapshots = a} :: DescribeWorkspaceSnapshotsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the snapshots that can be used to restore a WorkSpace.
 -- These snapshots include both the root volume and the user volume.
-describeWorkspaceSnapshotsResponse_restoreSnapshots :: Lens.Lens' DescribeWorkspaceSnapshotsResponse (Core.Maybe [Snapshot])
-describeWorkspaceSnapshotsResponse_restoreSnapshots = Lens.lens (\DescribeWorkspaceSnapshotsResponse' {restoreSnapshots} -> restoreSnapshots) (\s@DescribeWorkspaceSnapshotsResponse' {} a -> s {restoreSnapshots = a} :: DescribeWorkspaceSnapshotsResponse) Core.. Lens.mapping Lens._Coerce
+describeWorkspaceSnapshotsResponse_restoreSnapshots :: Lens.Lens' DescribeWorkspaceSnapshotsResponse (Prelude.Maybe [Snapshot])
+describeWorkspaceSnapshotsResponse_restoreSnapshots = Lens.lens (\DescribeWorkspaceSnapshotsResponse' {restoreSnapshots} -> restoreSnapshots) (\s@DescribeWorkspaceSnapshotsResponse' {} a -> s {restoreSnapshots = a} :: DescribeWorkspaceSnapshotsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeWorkspaceSnapshotsResponse_httpStatus :: Lens.Lens' DescribeWorkspaceSnapshotsResponse Core.Int
+describeWorkspaceSnapshotsResponse_httpStatus :: Lens.Lens' DescribeWorkspaceSnapshotsResponse Prelude.Int
 describeWorkspaceSnapshotsResponse_httpStatus = Lens.lens (\DescribeWorkspaceSnapshotsResponse' {httpStatus} -> httpStatus) (\s@DescribeWorkspaceSnapshotsResponse' {} a -> s {httpStatus = a} :: DescribeWorkspaceSnapshotsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeWorkspaceSnapshotsResponse

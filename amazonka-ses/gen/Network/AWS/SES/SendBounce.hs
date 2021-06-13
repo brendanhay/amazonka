@@ -56,6 +56,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -70,26 +71,26 @@ data SendBounce = SendBounce'
     -- that permits you to use the address in the \"From\" header of the
     -- bounce. For more information about sending authorization, see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-    bounceSenderArn :: Core.Maybe Core.Text,
+    bounceSenderArn :: Prelude.Maybe Prelude.Text,
     -- | Message-related DSN fields. If not specified, Amazon SES will choose the
     -- values.
-    messageDsn :: Core.Maybe MessageDsn,
+    messageDsn :: Prelude.Maybe MessageDsn,
     -- | Human-readable text for the bounce message to explain the failure. If
     -- not specified, the text will be auto-generated based on the bounced
     -- recipient information.
-    explanation :: Core.Maybe Core.Text,
+    explanation :: Prelude.Maybe Prelude.Text,
     -- | The message ID of the message to be bounced.
-    originalMessageId :: Core.Text,
+    originalMessageId :: Prelude.Text,
     -- | The address to use in the \"From\" header of the bounce message. This
     -- must be an identity that you have verified with Amazon SES.
-    bounceSender :: Core.Text,
+    bounceSender :: Prelude.Text,
     -- | A list of recipients of the bounced message, including the information
     -- required to create the Delivery Status Notifications (DSNs) for the
     -- recipients. You must specify at least one @BouncedRecipientInfo@ in the
     -- list.
     bouncedRecipientInfoList :: [BouncedRecipientInfo]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendBounce' with all optional fields omitted.
@@ -123,18 +124,18 @@ data SendBounce = SendBounce'
 -- list.
 newSendBounce ::
   -- | 'originalMessageId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'bounceSender'
-  Core.Text ->
+  Prelude.Text ->
   SendBounce
 newSendBounce pOriginalMessageId_ pBounceSender_ =
   SendBounce'
-    { bounceSenderArn = Core.Nothing,
-      messageDsn = Core.Nothing,
-      explanation = Core.Nothing,
+    { bounceSenderArn = Prelude.Nothing,
+      messageDsn = Prelude.Nothing,
+      explanation = Prelude.Nothing,
       originalMessageId = pOriginalMessageId_,
       bounceSender = pBounceSender_,
-      bouncedRecipientInfoList = Core.mempty
+      bouncedRecipientInfoList = Prelude.mempty
     }
 
 -- | This parameter is used only for sending authorization. It is the ARN of
@@ -142,27 +143,27 @@ newSendBounce pOriginalMessageId_ pBounceSender_ =
 -- that permits you to use the address in the \"From\" header of the
 -- bounce. For more information about sending authorization, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-sendBounce_bounceSenderArn :: Lens.Lens' SendBounce (Core.Maybe Core.Text)
+sendBounce_bounceSenderArn :: Lens.Lens' SendBounce (Prelude.Maybe Prelude.Text)
 sendBounce_bounceSenderArn = Lens.lens (\SendBounce' {bounceSenderArn} -> bounceSenderArn) (\s@SendBounce' {} a -> s {bounceSenderArn = a} :: SendBounce)
 
 -- | Message-related DSN fields. If not specified, Amazon SES will choose the
 -- values.
-sendBounce_messageDsn :: Lens.Lens' SendBounce (Core.Maybe MessageDsn)
+sendBounce_messageDsn :: Lens.Lens' SendBounce (Prelude.Maybe MessageDsn)
 sendBounce_messageDsn = Lens.lens (\SendBounce' {messageDsn} -> messageDsn) (\s@SendBounce' {} a -> s {messageDsn = a} :: SendBounce)
 
 -- | Human-readable text for the bounce message to explain the failure. If
 -- not specified, the text will be auto-generated based on the bounced
 -- recipient information.
-sendBounce_explanation :: Lens.Lens' SendBounce (Core.Maybe Core.Text)
+sendBounce_explanation :: Lens.Lens' SendBounce (Prelude.Maybe Prelude.Text)
 sendBounce_explanation = Lens.lens (\SendBounce' {explanation} -> explanation) (\s@SendBounce' {} a -> s {explanation = a} :: SendBounce)
 
 -- | The message ID of the message to be bounced.
-sendBounce_originalMessageId :: Lens.Lens' SendBounce Core.Text
+sendBounce_originalMessageId :: Lens.Lens' SendBounce Prelude.Text
 sendBounce_originalMessageId = Lens.lens (\SendBounce' {originalMessageId} -> originalMessageId) (\s@SendBounce' {} a -> s {originalMessageId = a} :: SendBounce)
 
 -- | The address to use in the \"From\" header of the bounce message. This
 -- must be an identity that you have verified with Amazon SES.
-sendBounce_bounceSender :: Lens.Lens' SendBounce Core.Text
+sendBounce_bounceSender :: Lens.Lens' SendBounce Prelude.Text
 sendBounce_bounceSender = Lens.lens (\SendBounce' {bounceSender} -> bounceSender) (\s@SendBounce' {} a -> s {bounceSender = a} :: SendBounce)
 
 -- | A list of recipients of the bounced message, including the information
@@ -170,7 +171,7 @@ sendBounce_bounceSender = Lens.lens (\SendBounce' {bounceSender} -> bounceSender
 -- recipients. You must specify at least one @BouncedRecipientInfo@ in the
 -- list.
 sendBounce_bouncedRecipientInfoList :: Lens.Lens' SendBounce [BouncedRecipientInfo]
-sendBounce_bouncedRecipientInfoList = Lens.lens (\SendBounce' {bouncedRecipientInfoList} -> bouncedRecipientInfoList) (\s@SendBounce' {} a -> s {bouncedRecipientInfoList = a} :: SendBounce) Core.. Lens._Coerce
+sendBounce_bouncedRecipientInfoList = Lens.lens (\SendBounce' {bouncedRecipientInfoList} -> bouncedRecipientInfoList) (\s@SendBounce' {} a -> s {bouncedRecipientInfoList = a} :: SendBounce) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest SendBounce where
   type AWSResponse SendBounce = SendBounceResponse
@@ -180,25 +181,27 @@ instance Core.AWSRequest SendBounce where
       "SendBounceResult"
       ( \s h x ->
           SendBounceResponse'
-            Core.<$> (x Core..@? "MessageId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "MessageId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SendBounce
+instance Prelude.Hashable SendBounce
 
-instance Core.NFData SendBounce
+instance Prelude.NFData SendBounce
 
 instance Core.ToHeaders SendBounce where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SendBounce where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SendBounce where
   toQuery SendBounce' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("SendBounce" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("SendBounce" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "BounceSenderArn" Core.=: bounceSenderArn,
         "MessageDsn" Core.=: messageDsn,
         "Explanation" Core.=: explanation,
@@ -213,11 +216,11 @@ instance Core.ToQuery SendBounce where
 -- /See:/ 'newSendBounceResponse' smart constructor.
 data SendBounceResponse = SendBounceResponse'
   { -- | The message ID of the bounce message.
-    messageId :: Core.Maybe Core.Text,
+    messageId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendBounceResponse' with all optional fields omitted.
@@ -232,20 +235,20 @@ data SendBounceResponse = SendBounceResponse'
 -- 'httpStatus', 'sendBounceResponse_httpStatus' - The response's http status code.
 newSendBounceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SendBounceResponse
 newSendBounceResponse pHttpStatus_ =
   SendBounceResponse'
-    { messageId = Core.Nothing,
+    { messageId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The message ID of the bounce message.
-sendBounceResponse_messageId :: Lens.Lens' SendBounceResponse (Core.Maybe Core.Text)
+sendBounceResponse_messageId :: Lens.Lens' SendBounceResponse (Prelude.Maybe Prelude.Text)
 sendBounceResponse_messageId = Lens.lens (\SendBounceResponse' {messageId} -> messageId) (\s@SendBounceResponse' {} a -> s {messageId = a} :: SendBounceResponse)
 
 -- | The response's http status code.
-sendBounceResponse_httpStatus :: Lens.Lens' SendBounceResponse Core.Int
+sendBounceResponse_httpStatus :: Lens.Lens' SendBounceResponse Prelude.Int
 sendBounceResponse_httpStatus = Lens.lens (\SendBounceResponse' {httpStatus} -> httpStatus) (\s@SendBounceResponse' {} a -> s {httpStatus = a} :: SendBounceResponse)
 
-instance Core.NFData SendBounceResponse
+instance Prelude.NFData SendBounceResponse

@@ -21,6 +21,7 @@ module Network.AWS.Kinesis.Types.PutRecordsResultEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the result of an individual record from a @PutRecords@
 -- request. A record that is successfully added to a stream includes
@@ -31,20 +32,20 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPutRecordsResultEntry' smart constructor.
 data PutRecordsResultEntry = PutRecordsResultEntry'
   { -- | The sequence number for an individual record result.
-    sequenceNumber :: Core.Maybe Core.Text,
+    sequenceNumber :: Prelude.Maybe Prelude.Text,
     -- | The shard ID for an individual record result.
-    shardId :: Core.Maybe Core.Text,
+    shardId :: Prelude.Maybe Prelude.Text,
     -- | The error message for an individual record result. An @ErrorCode@ value
     -- of @ProvisionedThroughputExceededException@ has an error message that
     -- includes the account ID, stream name, and shard ID. An @ErrorCode@ value
     -- of @InternalFailure@ has the error message
     -- @\"Internal Service Failure\"@.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error code for an individual record result. @ErrorCodes@ can be
     -- either @ProvisionedThroughputExceededException@ or @InternalFailure@.
-    errorCode :: Core.Maybe Core.Text
+    errorCode :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRecordsResultEntry' with all optional fields omitted.
@@ -71,18 +72,18 @@ newPutRecordsResultEntry ::
 newPutRecordsResultEntry =
   PutRecordsResultEntry'
     { sequenceNumber =
-        Core.Nothing,
-      shardId = Core.Nothing,
-      errorMessage = Core.Nothing,
-      errorCode = Core.Nothing
+        Prelude.Nothing,
+      shardId = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
 
 -- | The sequence number for an individual record result.
-putRecordsResultEntry_sequenceNumber :: Lens.Lens' PutRecordsResultEntry (Core.Maybe Core.Text)
+putRecordsResultEntry_sequenceNumber :: Lens.Lens' PutRecordsResultEntry (Prelude.Maybe Prelude.Text)
 putRecordsResultEntry_sequenceNumber = Lens.lens (\PutRecordsResultEntry' {sequenceNumber} -> sequenceNumber) (\s@PutRecordsResultEntry' {} a -> s {sequenceNumber = a} :: PutRecordsResultEntry)
 
 -- | The shard ID for an individual record result.
-putRecordsResultEntry_shardId :: Lens.Lens' PutRecordsResultEntry (Core.Maybe Core.Text)
+putRecordsResultEntry_shardId :: Lens.Lens' PutRecordsResultEntry (Prelude.Maybe Prelude.Text)
 putRecordsResultEntry_shardId = Lens.lens (\PutRecordsResultEntry' {shardId} -> shardId) (\s@PutRecordsResultEntry' {} a -> s {shardId = a} :: PutRecordsResultEntry)
 
 -- | The error message for an individual record result. An @ErrorCode@ value
@@ -90,12 +91,12 @@ putRecordsResultEntry_shardId = Lens.lens (\PutRecordsResultEntry' {shardId} -> 
 -- includes the account ID, stream name, and shard ID. An @ErrorCode@ value
 -- of @InternalFailure@ has the error message
 -- @\"Internal Service Failure\"@.
-putRecordsResultEntry_errorMessage :: Lens.Lens' PutRecordsResultEntry (Core.Maybe Core.Text)
+putRecordsResultEntry_errorMessage :: Lens.Lens' PutRecordsResultEntry (Prelude.Maybe Prelude.Text)
 putRecordsResultEntry_errorMessage = Lens.lens (\PutRecordsResultEntry' {errorMessage} -> errorMessage) (\s@PutRecordsResultEntry' {} a -> s {errorMessage = a} :: PutRecordsResultEntry)
 
 -- | The error code for an individual record result. @ErrorCodes@ can be
 -- either @ProvisionedThroughputExceededException@ or @InternalFailure@.
-putRecordsResultEntry_errorCode :: Lens.Lens' PutRecordsResultEntry (Core.Maybe Core.Text)
+putRecordsResultEntry_errorCode :: Lens.Lens' PutRecordsResultEntry (Prelude.Maybe Prelude.Text)
 putRecordsResultEntry_errorCode = Lens.lens (\PutRecordsResultEntry' {errorCode} -> errorCode) (\s@PutRecordsResultEntry' {} a -> s {errorCode = a} :: PutRecordsResultEntry)
 
 instance Core.FromJSON PutRecordsResultEntry where
@@ -104,12 +105,12 @@ instance Core.FromJSON PutRecordsResultEntry where
       "PutRecordsResultEntry"
       ( \x ->
           PutRecordsResultEntry'
-            Core.<$> (x Core..:? "SequenceNumber")
-            Core.<*> (x Core..:? "ShardId")
-            Core.<*> (x Core..:? "ErrorMessage")
-            Core.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Core..:? "SequenceNumber")
+            Prelude.<*> (x Core..:? "ShardId")
+            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
-instance Core.Hashable PutRecordsResultEntry
+instance Prelude.Hashable PutRecordsResultEntry
 
-instance Core.NFData PutRecordsResultEntry
+instance Prelude.NFData PutRecordsResultEntry

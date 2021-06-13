@@ -44,6 +44,7 @@ where
 import Network.AWS.Budgets.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,15 +54,15 @@ import qualified Network.AWS.Response as Response
 data UpdateNotification = UpdateNotification'
   { -- | The @accountId@ that is associated with the budget whose notification
     -- you want to update.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of the budget whose notification you want to update.
-    budgetName :: Core.Text,
+    budgetName :: Prelude.Text,
     -- | The previous notification that is associated with a budget.
     oldNotification :: Notification,
     -- | The updated notification to be associated with a budget.
     newNotification' :: Notification
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateNotification' with all optional fields omitted.
@@ -81,9 +82,9 @@ data UpdateNotification = UpdateNotification'
 -- 'newNotification'', 'updateNotification_newNotification' - The updated notification to be associated with a budget.
 newUpdateNotification ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'budgetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'oldNotification'
   Notification ->
   -- | 'newNotification''
@@ -103,11 +104,11 @@ newUpdateNotification
 
 -- | The @accountId@ that is associated with the budget whose notification
 -- you want to update.
-updateNotification_accountId :: Lens.Lens' UpdateNotification Core.Text
+updateNotification_accountId :: Lens.Lens' UpdateNotification Prelude.Text
 updateNotification_accountId = Lens.lens (\UpdateNotification' {accountId} -> accountId) (\s@UpdateNotification' {} a -> s {accountId = a} :: UpdateNotification)
 
 -- | The name of the budget whose notification you want to update.
-updateNotification_budgetName :: Lens.Lens' UpdateNotification Core.Text
+updateNotification_budgetName :: Lens.Lens' UpdateNotification Prelude.Text
 updateNotification_budgetName = Lens.lens (\UpdateNotification' {budgetName} -> budgetName) (\s@UpdateNotification' {} a -> s {budgetName = a} :: UpdateNotification)
 
 -- | The previous notification that is associated with a budget.
@@ -127,53 +128,55 @@ instance Core.AWSRequest UpdateNotification where
     Response.receiveEmpty
       ( \s h x ->
           UpdateNotificationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateNotification
+instance Prelude.Hashable UpdateNotification
 
-instance Core.NFData UpdateNotification
+instance Prelude.NFData UpdateNotification
 
 instance Core.ToHeaders UpdateNotification where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSBudgetServiceGateway.UpdateNotification" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateNotification where
   toJSON UpdateNotification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("AccountId" Core..= accountId),
-            Core.Just ("BudgetName" Core..= budgetName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("AccountId" Core..= accountId),
+            Prelude.Just ("BudgetName" Core..= budgetName),
+            Prelude.Just
               ("OldNotification" Core..= oldNotification),
-            Core.Just
+            Prelude.Just
               ("NewNotification" Core..= newNotification')
           ]
       )
 
 instance Core.ToPath UpdateNotification where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateNotification where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Response of UpdateNotification
 --
 -- /See:/ 'newUpdateNotificationResponse' smart constructor.
 data UpdateNotificationResponse = UpdateNotificationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateNotificationResponse' with all optional fields omitted.
@@ -186,7 +189,7 @@ data UpdateNotificationResponse = UpdateNotificationResponse'
 -- 'httpStatus', 'updateNotificationResponse_httpStatus' - The response's http status code.
 newUpdateNotificationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateNotificationResponse
 newUpdateNotificationResponse pHttpStatus_ =
   UpdateNotificationResponse'
@@ -195,7 +198,7 @@ newUpdateNotificationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateNotificationResponse_httpStatus :: Lens.Lens' UpdateNotificationResponse Core.Int
+updateNotificationResponse_httpStatus :: Lens.Lens' UpdateNotificationResponse Prelude.Int
 updateNotificationResponse_httpStatus = Lens.lens (\UpdateNotificationResponse' {httpStatus} -> httpStatus) (\s@UpdateNotificationResponse' {} a -> s {httpStatus = a} :: UpdateNotificationResponse)
 
-instance Core.NFData UpdateNotificationResponse
+instance Prelude.NFData UpdateNotificationResponse

@@ -41,15 +41,16 @@ where
 import Network.AWS.Athena.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDataCatalog' smart constructor.
 data DeleteDataCatalog = DeleteDataCatalog'
   { -- | The name of the data catalog to delete.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDataCatalog' with all optional fields omitted.
@@ -62,13 +63,13 @@ data DeleteDataCatalog = DeleteDataCatalog'
 -- 'name', 'deleteDataCatalog_name' - The name of the data catalog to delete.
 newDeleteDataCatalog ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDataCatalog
 newDeleteDataCatalog pName_ =
   DeleteDataCatalog' {name = pName_}
 
 -- | The name of the data catalog to delete.
-deleteDataCatalog_name :: Lens.Lens' DeleteDataCatalog Core.Text
+deleteDataCatalog_name :: Lens.Lens' DeleteDataCatalog Prelude.Text
 deleteDataCatalog_name = Lens.lens (\DeleteDataCatalog' {name} -> name) (\s@DeleteDataCatalog' {} a -> s {name = a} :: DeleteDataCatalog)
 
 instance Core.AWSRequest DeleteDataCatalog where
@@ -80,43 +81,47 @@ instance Core.AWSRequest DeleteDataCatalog where
     Response.receiveEmpty
       ( \s h x ->
           DeleteDataCatalogResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteDataCatalog
+instance Prelude.Hashable DeleteDataCatalog
 
-instance Core.NFData DeleteDataCatalog
+instance Prelude.NFData DeleteDataCatalog
 
 instance Core.ToHeaders DeleteDataCatalog where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonAthena.DeleteDataCatalog" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteDataCatalog where
   toJSON DeleteDataCatalog' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath DeleteDataCatalog where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDataCatalog where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDataCatalogResponse' smart constructor.
 data DeleteDataCatalogResponse = DeleteDataCatalogResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDataCatalogResponse' with all optional fields omitted.
@@ -129,7 +134,7 @@ data DeleteDataCatalogResponse = DeleteDataCatalogResponse'
 -- 'httpStatus', 'deleteDataCatalogResponse_httpStatus' - The response's http status code.
 newDeleteDataCatalogResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteDataCatalogResponse
 newDeleteDataCatalogResponse pHttpStatus_ =
   DeleteDataCatalogResponse'
@@ -138,7 +143,7 @@ newDeleteDataCatalogResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteDataCatalogResponse_httpStatus :: Lens.Lens' DeleteDataCatalogResponse Core.Int
+deleteDataCatalogResponse_httpStatus :: Lens.Lens' DeleteDataCatalogResponse Prelude.Int
 deleteDataCatalogResponse_httpStatus = Lens.lens (\DeleteDataCatalogResponse' {httpStatus} -> httpStatus) (\s@DeleteDataCatalogResponse' {} a -> s {httpStatus = a} :: DeleteDataCatalogResponse)
 
-instance Core.NFData DeleteDataCatalogResponse
+instance Prelude.NFData DeleteDataCatalogResponse

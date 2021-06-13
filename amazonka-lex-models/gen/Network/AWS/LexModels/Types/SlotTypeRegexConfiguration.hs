@@ -21,6 +21,7 @@ module Network.AWS.LexModels.Types.SlotTypeRegexConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides a regular expression used to validate the value of a slot.
 --
@@ -45,9 +46,9 @@ data SlotTypeRegexConfiguration = SlotTypeRegexConfiguration'
     -- -   Infinite repeaters: *, +, or {x,} with no upper bound.
     --
     -- -   Wild card (.)
-    pattern' :: Core.Text
+    pattern' :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SlotTypeRegexConfiguration' with all optional fields omitted.
@@ -78,7 +79,7 @@ data SlotTypeRegexConfiguration = SlotTypeRegexConfiguration'
 -- -   Wild card (.)
 newSlotTypeRegexConfiguration ::
   -- | 'pattern''
-  Core.Text ->
+  Prelude.Text ->
   SlotTypeRegexConfiguration
 newSlotTypeRegexConfiguration pPattern_ =
   SlotTypeRegexConfiguration' {pattern' = pPattern_}
@@ -102,7 +103,7 @@ newSlotTypeRegexConfiguration pPattern_ =
 -- -   Infinite repeaters: *, +, or {x,} with no upper bound.
 --
 -- -   Wild card (.)
-slotTypeRegexConfiguration_pattern :: Lens.Lens' SlotTypeRegexConfiguration Core.Text
+slotTypeRegexConfiguration_pattern :: Lens.Lens' SlotTypeRegexConfiguration Prelude.Text
 slotTypeRegexConfiguration_pattern = Lens.lens (\SlotTypeRegexConfiguration' {pattern'} -> pattern') (\s@SlotTypeRegexConfiguration' {} a -> s {pattern' = a} :: SlotTypeRegexConfiguration)
 
 instance Core.FromJSON SlotTypeRegexConfiguration where
@@ -111,16 +112,16 @@ instance Core.FromJSON SlotTypeRegexConfiguration where
       "SlotTypeRegexConfiguration"
       ( \x ->
           SlotTypeRegexConfiguration'
-            Core.<$> (x Core..: "pattern")
+            Prelude.<$> (x Core..: "pattern")
       )
 
-instance Core.Hashable SlotTypeRegexConfiguration
+instance Prelude.Hashable SlotTypeRegexConfiguration
 
-instance Core.NFData SlotTypeRegexConfiguration
+instance Prelude.NFData SlotTypeRegexConfiguration
 
 instance Core.ToJSON SlotTypeRegexConfiguration where
   toJSON SlotTypeRegexConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("pattern" Core..= pattern')]
+      ( Prelude.catMaybes
+          [Prelude.Just ("pattern" Core..= pattern')]
       )

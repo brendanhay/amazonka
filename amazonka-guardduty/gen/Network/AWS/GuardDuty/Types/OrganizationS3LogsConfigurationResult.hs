@@ -21,6 +21,7 @@ module Network.AWS.GuardDuty.Types.OrganizationS3LogsConfigurationResult where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The current configuration of S3 data event logs as a data source for the
 -- organization.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data OrganizationS3LogsConfigurationResult = OrganizationS3LogsConfigurationResult'
   { -- | A value that describes whether S3 data event logs are automatically
     -- enabled for new members of the organization.
-    autoEnable :: Core.Bool
+    autoEnable :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OrganizationS3LogsConfigurationResult' with all optional fields omitted.
@@ -45,7 +46,7 @@ data OrganizationS3LogsConfigurationResult = OrganizationS3LogsConfigurationResu
 -- enabled for new members of the organization.
 newOrganizationS3LogsConfigurationResult ::
   -- | 'autoEnable'
-  Core.Bool ->
+  Prelude.Bool ->
   OrganizationS3LogsConfigurationResult
 newOrganizationS3LogsConfigurationResult pAutoEnable_ =
   OrganizationS3LogsConfigurationResult'
@@ -55,7 +56,7 @@ newOrganizationS3LogsConfigurationResult pAutoEnable_ =
 
 -- | A value that describes whether S3 data event logs are automatically
 -- enabled for new members of the organization.
-organizationS3LogsConfigurationResult_autoEnable :: Lens.Lens' OrganizationS3LogsConfigurationResult Core.Bool
+organizationS3LogsConfigurationResult_autoEnable :: Lens.Lens' OrganizationS3LogsConfigurationResult Prelude.Bool
 organizationS3LogsConfigurationResult_autoEnable = Lens.lens (\OrganizationS3LogsConfigurationResult' {autoEnable} -> autoEnable) (\s@OrganizationS3LogsConfigurationResult' {} a -> s {autoEnable = a} :: OrganizationS3LogsConfigurationResult)
 
 instance
@@ -67,13 +68,13 @@ instance
       "OrganizationS3LogsConfigurationResult"
       ( \x ->
           OrganizationS3LogsConfigurationResult'
-            Core.<$> (x Core..: "autoEnable")
+            Prelude.<$> (x Core..: "autoEnable")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     OrganizationS3LogsConfigurationResult
 
 instance
-  Core.NFData
+  Prelude.NFData
     OrganizationS3LogsConfigurationResult

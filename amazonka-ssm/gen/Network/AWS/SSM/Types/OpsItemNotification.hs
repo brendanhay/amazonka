@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.OpsItemNotification where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A notification about the OpsItem.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data OpsItemNotification = OpsItemNotification'
   { -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
     -- sent when this OpsItem is edited or changed.
-    arn :: Core.Maybe Core.Text
+    arn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OpsItemNotification' with all optional fields omitted.
@@ -45,11 +46,11 @@ data OpsItemNotification = OpsItemNotification'
 newOpsItemNotification ::
   OpsItemNotification
 newOpsItemNotification =
-  OpsItemNotification' {arn = Core.Nothing}
+  OpsItemNotification' {arn = Prelude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
 -- sent when this OpsItem is edited or changed.
-opsItemNotification_arn :: Lens.Lens' OpsItemNotification (Core.Maybe Core.Text)
+opsItemNotification_arn :: Lens.Lens' OpsItemNotification (Prelude.Maybe Prelude.Text)
 opsItemNotification_arn = Lens.lens (\OpsItemNotification' {arn} -> arn) (\s@OpsItemNotification' {} a -> s {arn = a} :: OpsItemNotification)
 
 instance Core.FromJSON OpsItemNotification where
@@ -57,14 +58,14 @@ instance Core.FromJSON OpsItemNotification where
     Core.withObject
       "OpsItemNotification"
       ( \x ->
-          OpsItemNotification' Core.<$> (x Core..:? "Arn")
+          OpsItemNotification' Prelude.<$> (x Core..:? "Arn")
       )
 
-instance Core.Hashable OpsItemNotification
+instance Prelude.Hashable OpsItemNotification
 
-instance Core.NFData OpsItemNotification
+instance Prelude.NFData OpsItemNotification
 
 instance Core.ToJSON OpsItemNotification where
   toJSON OpsItemNotification' {..} =
     Core.object
-      (Core.catMaybes [("Arn" Core..=) Core.<$> arn])
+      (Prelude.catMaybes [("Arn" Core..=) Prelude.<$> arn])

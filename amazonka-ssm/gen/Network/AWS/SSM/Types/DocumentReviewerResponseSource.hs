@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.DocumentReviewerResponseSource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.DocumentReviewCommentSource
 import Network.AWS.SSM.Types.ReviewStatus
 
@@ -30,13 +31,13 @@ import Network.AWS.SSM.Types.ReviewStatus
 data DocumentReviewerResponseSource = DocumentReviewerResponseSource'
   { -- | The comment entered by a reviewer as part of their document review
     -- response.
-    comment :: Core.Maybe [DocumentReviewCommentSource],
+    comment :: Prelude.Maybe [DocumentReviewCommentSource],
     -- | The date and time that a reviewer last updated a response to a document
     -- review request.
-    updatedTime :: Core.Maybe Core.POSIX,
+    updatedTime :: Prelude.Maybe Core.POSIX,
     -- | The date and time that a reviewer entered a response to a document
     -- review request.
-    createTime :: Core.Maybe Core.POSIX,
+    createTime :: Prelude.Maybe Core.POSIX,
     -- | The current review status of a new custom SSM document created by a
     -- member of your organization, or of the latest version of an existing SSM
     -- document.
@@ -46,11 +47,11 @@ data DocumentReviewerResponseSource = DocumentReviewerResponseSource'
     -- changes to REJECTED.
     --
     -- Only one version of a document can be in review, or PENDING, at a time.
-    reviewStatus :: Core.Maybe ReviewStatus,
+    reviewStatus :: Prelude.Maybe ReviewStatus,
     -- | The user in your organization assigned to review a document request.
-    reviewer :: Core.Maybe Core.Text
+    reviewer :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DocumentReviewerResponseSource' with all optional fields omitted.
@@ -85,27 +86,27 @@ newDocumentReviewerResponseSource ::
 newDocumentReviewerResponseSource =
   DocumentReviewerResponseSource'
     { comment =
-        Core.Nothing,
-      updatedTime = Core.Nothing,
-      createTime = Core.Nothing,
-      reviewStatus = Core.Nothing,
-      reviewer = Core.Nothing
+        Prelude.Nothing,
+      updatedTime = Prelude.Nothing,
+      createTime = Prelude.Nothing,
+      reviewStatus = Prelude.Nothing,
+      reviewer = Prelude.Nothing
     }
 
 -- | The comment entered by a reviewer as part of their document review
 -- response.
-documentReviewerResponseSource_comment :: Lens.Lens' DocumentReviewerResponseSource (Core.Maybe [DocumentReviewCommentSource])
-documentReviewerResponseSource_comment = Lens.lens (\DocumentReviewerResponseSource' {comment} -> comment) (\s@DocumentReviewerResponseSource' {} a -> s {comment = a} :: DocumentReviewerResponseSource) Core.. Lens.mapping Lens._Coerce
+documentReviewerResponseSource_comment :: Lens.Lens' DocumentReviewerResponseSource (Prelude.Maybe [DocumentReviewCommentSource])
+documentReviewerResponseSource_comment = Lens.lens (\DocumentReviewerResponseSource' {comment} -> comment) (\s@DocumentReviewerResponseSource' {} a -> s {comment = a} :: DocumentReviewerResponseSource) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The date and time that a reviewer last updated a response to a document
 -- review request.
-documentReviewerResponseSource_updatedTime :: Lens.Lens' DocumentReviewerResponseSource (Core.Maybe Core.UTCTime)
-documentReviewerResponseSource_updatedTime = Lens.lens (\DocumentReviewerResponseSource' {updatedTime} -> updatedTime) (\s@DocumentReviewerResponseSource' {} a -> s {updatedTime = a} :: DocumentReviewerResponseSource) Core.. Lens.mapping Core._Time
+documentReviewerResponseSource_updatedTime :: Lens.Lens' DocumentReviewerResponseSource (Prelude.Maybe Prelude.UTCTime)
+documentReviewerResponseSource_updatedTime = Lens.lens (\DocumentReviewerResponseSource' {updatedTime} -> updatedTime) (\s@DocumentReviewerResponseSource' {} a -> s {updatedTime = a} :: DocumentReviewerResponseSource) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time that a reviewer entered a response to a document
 -- review request.
-documentReviewerResponseSource_createTime :: Lens.Lens' DocumentReviewerResponseSource (Core.Maybe Core.UTCTime)
-documentReviewerResponseSource_createTime = Lens.lens (\DocumentReviewerResponseSource' {createTime} -> createTime) (\s@DocumentReviewerResponseSource' {} a -> s {createTime = a} :: DocumentReviewerResponseSource) Core.. Lens.mapping Core._Time
+documentReviewerResponseSource_createTime :: Lens.Lens' DocumentReviewerResponseSource (Prelude.Maybe Prelude.UTCTime)
+documentReviewerResponseSource_createTime = Lens.lens (\DocumentReviewerResponseSource' {createTime} -> createTime) (\s@DocumentReviewerResponseSource' {} a -> s {createTime = a} :: DocumentReviewerResponseSource) Prelude.. Lens.mapping Core._Time
 
 -- | The current review status of a new custom SSM document created by a
 -- member of your organization, or of the latest version of an existing SSM
@@ -116,11 +117,11 @@ documentReviewerResponseSource_createTime = Lens.lens (\DocumentReviewerResponse
 -- changes to REJECTED.
 --
 -- Only one version of a document can be in review, or PENDING, at a time.
-documentReviewerResponseSource_reviewStatus :: Lens.Lens' DocumentReviewerResponseSource (Core.Maybe ReviewStatus)
+documentReviewerResponseSource_reviewStatus :: Lens.Lens' DocumentReviewerResponseSource (Prelude.Maybe ReviewStatus)
 documentReviewerResponseSource_reviewStatus = Lens.lens (\DocumentReviewerResponseSource' {reviewStatus} -> reviewStatus) (\s@DocumentReviewerResponseSource' {} a -> s {reviewStatus = a} :: DocumentReviewerResponseSource)
 
 -- | The user in your organization assigned to review a document request.
-documentReviewerResponseSource_reviewer :: Lens.Lens' DocumentReviewerResponseSource (Core.Maybe Core.Text)
+documentReviewerResponseSource_reviewer :: Lens.Lens' DocumentReviewerResponseSource (Prelude.Maybe Prelude.Text)
 documentReviewerResponseSource_reviewer = Lens.lens (\DocumentReviewerResponseSource' {reviewer} -> reviewer) (\s@DocumentReviewerResponseSource' {} a -> s {reviewer = a} :: DocumentReviewerResponseSource)
 
 instance Core.FromJSON DocumentReviewerResponseSource where
@@ -129,13 +130,17 @@ instance Core.FromJSON DocumentReviewerResponseSource where
       "DocumentReviewerResponseSource"
       ( \x ->
           DocumentReviewerResponseSource'
-            Core.<$> (x Core..:? "Comment" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "UpdatedTime")
-            Core.<*> (x Core..:? "CreateTime")
-            Core.<*> (x Core..:? "ReviewStatus")
-            Core.<*> (x Core..:? "Reviewer")
+            Prelude.<$> (x Core..:? "Comment" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "UpdatedTime")
+            Prelude.<*> (x Core..:? "CreateTime")
+            Prelude.<*> (x Core..:? "ReviewStatus")
+            Prelude.<*> (x Core..:? "Reviewer")
       )
 
-instance Core.Hashable DocumentReviewerResponseSource
+instance
+  Prelude.Hashable
+    DocumentReviewerResponseSource
 
-instance Core.NFData DocumentReviewerResponseSource
+instance
+  Prelude.NFData
+    DocumentReviewerResponseSource

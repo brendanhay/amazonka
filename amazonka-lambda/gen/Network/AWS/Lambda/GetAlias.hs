@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,11 +67,11 @@ data GetAlias = GetAlias'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
-    functionName :: Core.Text,
+    functionName :: Prelude.Text,
     -- | The name of the alias.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAlias' with all optional fields omitted.
@@ -97,9 +98,9 @@ data GetAlias = GetAlias'
 -- 'name', 'getAlias_name' - The name of the alias.
 newGetAlias ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   GetAlias
 newGetAlias pFunctionName_ pName_ =
   GetAlias'
@@ -120,11 +121,11 @@ newGetAlias pFunctionName_ pName_ =
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
-getAlias_functionName :: Lens.Lens' GetAlias Core.Text
+getAlias_functionName :: Lens.Lens' GetAlias Prelude.Text
 getAlias_functionName = Lens.lens (\GetAlias' {functionName} -> functionName) (\s@GetAlias' {} a -> s {functionName = a} :: GetAlias)
 
 -- | The name of the alias.
-getAlias_name :: Lens.Lens' GetAlias Core.Text
+getAlias_name :: Lens.Lens' GetAlias Prelude.Text
 getAlias_name = Lens.lens (\GetAlias' {name} -> name) (\s@GetAlias' {} a -> s {name = a} :: GetAlias)
 
 instance Core.AWSRequest GetAlias where
@@ -134,16 +135,16 @@ instance Core.AWSRequest GetAlias where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetAlias
+instance Prelude.Hashable GetAlias
 
-instance Core.NFData GetAlias
+instance Prelude.NFData GetAlias
 
 instance Core.ToHeaders GetAlias where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetAlias where
   toPath GetAlias' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-03-31/functions/",
         Core.toBS functionName,
         "/aliases/",
@@ -151,4 +152,4 @@ instance Core.ToPath GetAlias where
       ]
 
 instance Core.ToQuery GetAlias where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

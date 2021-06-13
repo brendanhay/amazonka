@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -56,14 +57,14 @@ data CreateImageVersion = CreateImageVersion'
     -- the following format:
     --
     -- @\<acct-id>.dkr.ecr.\<region>.amazonaws.com\/\<repo-name[:tag] or [\@digest]>@
-    baseImage :: Core.Text,
+    baseImage :: Prelude.Text,
     -- | A unique ID. If not specified, the AWS CLI and AWS SDKs, such as the SDK
     -- for Python (Boto3), add a unique value to the call.
-    clientToken :: Core.Text,
+    clientToken :: Prelude.Text,
     -- | The @ImageName@ of the @Image@ to create a version of.
-    imageName :: Core.Text
+    imageName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateImageVersion' with all optional fields omitted.
@@ -85,11 +86,11 @@ data CreateImageVersion = CreateImageVersion'
 -- 'imageName', 'createImageVersion_imageName' - The @ImageName@ of the @Image@ to create a version of.
 newCreateImageVersion ::
   -- | 'baseImage'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'clientToken'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'imageName'
-  Core.Text ->
+  Prelude.Text ->
   CreateImageVersion
 newCreateImageVersion
   pBaseImage_
@@ -106,16 +107,16 @@ newCreateImageVersion
 -- the following format:
 --
 -- @\<acct-id>.dkr.ecr.\<region>.amazonaws.com\/\<repo-name[:tag] or [\@digest]>@
-createImageVersion_baseImage :: Lens.Lens' CreateImageVersion Core.Text
+createImageVersion_baseImage :: Lens.Lens' CreateImageVersion Prelude.Text
 createImageVersion_baseImage = Lens.lens (\CreateImageVersion' {baseImage} -> baseImage) (\s@CreateImageVersion' {} a -> s {baseImage = a} :: CreateImageVersion)
 
 -- | A unique ID. If not specified, the AWS CLI and AWS SDKs, such as the SDK
 -- for Python (Boto3), add a unique value to the call.
-createImageVersion_clientToken :: Lens.Lens' CreateImageVersion Core.Text
+createImageVersion_clientToken :: Lens.Lens' CreateImageVersion Prelude.Text
 createImageVersion_clientToken = Lens.lens (\CreateImageVersion' {clientToken} -> clientToken) (\s@CreateImageVersion' {} a -> s {clientToken = a} :: CreateImageVersion)
 
 -- | The @ImageName@ of the @Image@ to create a version of.
-createImageVersion_imageName :: Lens.Lens' CreateImageVersion Core.Text
+createImageVersion_imageName :: Lens.Lens' CreateImageVersion Prelude.Text
 createImageVersion_imageName = Lens.lens (\CreateImageVersion' {imageName} -> imageName) (\s@CreateImageVersion' {} a -> s {imageName = a} :: CreateImageVersion)
 
 instance Core.AWSRequest CreateImageVersion where
@@ -127,49 +128,53 @@ instance Core.AWSRequest CreateImageVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateImageVersionResponse'
-            Core.<$> (x Core..?> "ImageVersionArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ImageVersionArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateImageVersion
+instance Prelude.Hashable CreateImageVersion
 
-instance Core.NFData CreateImageVersion
+instance Prelude.NFData CreateImageVersion
 
 instance Core.ToHeaders CreateImageVersion where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateImageVersion" :: Core.ByteString),
+              Core.=# ( "SageMaker.CreateImageVersion" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateImageVersion where
   toJSON CreateImageVersion' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("BaseImage" Core..= baseImage),
-            Core.Just ("ClientToken" Core..= clientToken),
-            Core.Just ("ImageName" Core..= imageName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("BaseImage" Core..= baseImage),
+            Prelude.Just ("ClientToken" Core..= clientToken),
+            Prelude.Just ("ImageName" Core..= imageName)
           ]
       )
 
 instance Core.ToPath CreateImageVersion where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateImageVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateImageVersionResponse' smart constructor.
 data CreateImageVersionResponse = CreateImageVersionResponse'
   { -- | The Amazon Resource Name (ARN) of the image version.
-    imageVersionArn :: Core.Maybe Core.Text,
+    imageVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateImageVersionResponse' with all optional fields omitted.
@@ -184,21 +189,21 @@ data CreateImageVersionResponse = CreateImageVersionResponse'
 -- 'httpStatus', 'createImageVersionResponse_httpStatus' - The response's http status code.
 newCreateImageVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateImageVersionResponse
 newCreateImageVersionResponse pHttpStatus_ =
   CreateImageVersionResponse'
     { imageVersionArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the image version.
-createImageVersionResponse_imageVersionArn :: Lens.Lens' CreateImageVersionResponse (Core.Maybe Core.Text)
+createImageVersionResponse_imageVersionArn :: Lens.Lens' CreateImageVersionResponse (Prelude.Maybe Prelude.Text)
 createImageVersionResponse_imageVersionArn = Lens.lens (\CreateImageVersionResponse' {imageVersionArn} -> imageVersionArn) (\s@CreateImageVersionResponse' {} a -> s {imageVersionArn = a} :: CreateImageVersionResponse)
 
 -- | The response's http status code.
-createImageVersionResponse_httpStatus :: Lens.Lens' CreateImageVersionResponse Core.Int
+createImageVersionResponse_httpStatus :: Lens.Lens' CreateImageVersionResponse Prelude.Int
 createImageVersionResponse_httpStatus = Lens.lens (\CreateImageVersionResponse' {httpStatus} -> httpStatus) (\s@CreateImageVersionResponse' {} a -> s {httpStatus = a} :: CreateImageVersionResponse)
 
-instance Core.NFData CreateImageVersionResponse
+instance Prelude.NFData CreateImageVersionResponse

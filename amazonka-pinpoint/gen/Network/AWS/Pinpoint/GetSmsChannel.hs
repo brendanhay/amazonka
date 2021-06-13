@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data GetSmsChannel = GetSmsChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSmsChannel' with all optional fields omitted.
@@ -66,14 +67,14 @@ data GetSmsChannel = GetSmsChannel'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newGetSmsChannel ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   GetSmsChannel
 newGetSmsChannel pApplicationId_ =
   GetSmsChannel' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getSmsChannel_applicationId :: Lens.Lens' GetSmsChannel Core.Text
+getSmsChannel_applicationId :: Lens.Lens' GetSmsChannel Prelude.Text
 getSmsChannel_applicationId = Lens.lens (\GetSmsChannel' {applicationId} -> applicationId) (\s@GetSmsChannel' {} a -> s {applicationId = a} :: GetSmsChannel)
 
 instance Core.AWSRequest GetSmsChannel where
@@ -85,41 +86,43 @@ instance Core.AWSRequest GetSmsChannel where
     Response.receiveJSON
       ( \s h x ->
           GetSmsChannelResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable GetSmsChannel
+instance Prelude.Hashable GetSmsChannel
 
-instance Core.NFData GetSmsChannel
+instance Prelude.NFData GetSmsChannel
 
 instance Core.ToHeaders GetSmsChannel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetSmsChannel where
   toPath GetSmsChannel' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/channels/sms"
       ]
 
 instance Core.ToQuery GetSmsChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSmsChannelResponse' smart constructor.
 data GetSmsChannelResponse = GetSmsChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     sMSChannelResponse :: SMSChannelResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSmsChannelResponse' with all optional fields omitted.
@@ -134,7 +137,7 @@ data GetSmsChannelResponse = GetSmsChannelResponse'
 -- 'sMSChannelResponse', 'getSmsChannelResponse_sMSChannelResponse' - Undocumented member.
 newGetSmsChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'sMSChannelResponse'
   SMSChannelResponse ->
   GetSmsChannelResponse
@@ -147,11 +150,11 @@ newGetSmsChannelResponse
       }
 
 -- | The response's http status code.
-getSmsChannelResponse_httpStatus :: Lens.Lens' GetSmsChannelResponse Core.Int
+getSmsChannelResponse_httpStatus :: Lens.Lens' GetSmsChannelResponse Prelude.Int
 getSmsChannelResponse_httpStatus = Lens.lens (\GetSmsChannelResponse' {httpStatus} -> httpStatus) (\s@GetSmsChannelResponse' {} a -> s {httpStatus = a} :: GetSmsChannelResponse)
 
 -- | Undocumented member.
 getSmsChannelResponse_sMSChannelResponse :: Lens.Lens' GetSmsChannelResponse SMSChannelResponse
 getSmsChannelResponse_sMSChannelResponse = Lens.lens (\GetSmsChannelResponse' {sMSChannelResponse} -> sMSChannelResponse) (\s@GetSmsChannelResponse' {} a -> s {sMSChannelResponse = a} :: GetSmsChannelResponse)
 
-instance Core.NFData GetSmsChannelResponse
+instance Prelude.NFData GetSmsChannelResponse

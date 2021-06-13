@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,15 +59,15 @@ data ListPolicies = ListPolicies'
     -- objects. For the second and subsequent @ListPolicies@ requests, specify
     -- the value of @NextToken@ from the previous response to get information
     -- about another batch of @PolicySummary@ objects.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the number of @PolicySummary@ objects that you want AWS
     -- Firewall Manager to return for this request. If you have more
     -- @PolicySummary@ objects than the number that you specify for
     -- @MaxResults@, the response includes a @NextToken@ value that you can use
     -- to get another batch of @PolicySummary@ objects.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPolicies' with all optional fields omitted.
@@ -93,8 +94,8 @@ newListPolicies ::
   ListPolicies
 newListPolicies =
   ListPolicies'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | If you specify a value for @MaxResults@ and you have more
@@ -104,7 +105,7 @@ newListPolicies =
 -- objects. For the second and subsequent @ListPolicies@ requests, specify
 -- the value of @NextToken@ from the previous response to get information
 -- about another batch of @PolicySummary@ objects.
-listPolicies_nextToken :: Lens.Lens' ListPolicies (Core.Maybe Core.Text)
+listPolicies_nextToken :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Text)
 listPolicies_nextToken = Lens.lens (\ListPolicies' {nextToken} -> nextToken) (\s@ListPolicies' {} a -> s {nextToken = a} :: ListPolicies)
 
 -- | Specifies the number of @PolicySummary@ objects that you want AWS
@@ -112,27 +113,27 @@ listPolicies_nextToken = Lens.lens (\ListPolicies' {nextToken} -> nextToken) (\s
 -- @PolicySummary@ objects than the number that you specify for
 -- @MaxResults@, the response includes a @NextToken@ value that you can use
 -- to get another batch of @PolicySummary@ objects.
-listPolicies_maxResults :: Lens.Lens' ListPolicies (Core.Maybe Core.Natural)
+listPolicies_maxResults :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Natural)
 listPolicies_maxResults = Lens.lens (\ListPolicies' {maxResults} -> maxResults) (\s@ListPolicies' {} a -> s {maxResults = a} :: ListPolicies)
 
 instance Core.AWSPager ListPolicies where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listPoliciesResponse_nextToken Core.. Lens._Just
+            Lens.^? listPoliciesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listPoliciesResponse_policyList Core.. Lens._Just
+            Lens.^? listPoliciesResponse_policyList Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listPolicies_nextToken
+          Prelude.& listPolicies_nextToken
           Lens..~ rs
-          Lens.^? listPoliciesResponse_nextToken Core.. Lens._Just
+          Lens.^? listPoliciesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPolicies where
   type AWSResponse ListPolicies = ListPoliciesResponse
@@ -141,40 +142,44 @@ instance Core.AWSRequest ListPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListPoliciesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "PolicyList" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "PolicyList" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListPolicies
+instance Prelude.Hashable ListPolicies
 
-instance Core.NFData ListPolicies
+instance Prelude.NFData ListPolicies
 
 instance Core.ToHeaders ListPolicies where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSFMS_20180101.ListPolicies" :: Core.ByteString),
+              Core.=# ( "AWSFMS_20180101.ListPolicies" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListPolicies where
   toJSON ListPolicies' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath ListPolicies where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListPolicies where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPoliciesResponse' smart constructor.
 data ListPoliciesResponse = ListPoliciesResponse'
@@ -183,13 +188,13 @@ data ListPoliciesResponse = ListPoliciesResponse'
     -- @NextToken@ value. To list more @PolicySummary@ objects, submit another
     -- @ListPolicies@ request, and specify the @NextToken@ value from the
     -- response in the @NextToken@ value in the next request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of @PolicySummary@ objects.
-    policyList :: Core.Maybe [PolicySummary],
+    policyList :: Prelude.Maybe [PolicySummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPoliciesResponse' with all optional fields omitted.
@@ -210,12 +215,12 @@ data ListPoliciesResponse = ListPoliciesResponse'
 -- 'httpStatus', 'listPoliciesResponse_httpStatus' - The response's http status code.
 newListPoliciesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListPoliciesResponse
 newListPoliciesResponse pHttpStatus_ =
   ListPoliciesResponse'
-    { nextToken = Core.Nothing,
-      policyList = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      policyList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -224,15 +229,15 @@ newListPoliciesResponse pHttpStatus_ =
 -- @NextToken@ value. To list more @PolicySummary@ objects, submit another
 -- @ListPolicies@ request, and specify the @NextToken@ value from the
 -- response in the @NextToken@ value in the next request.
-listPoliciesResponse_nextToken :: Lens.Lens' ListPoliciesResponse (Core.Maybe Core.Text)
+listPoliciesResponse_nextToken :: Lens.Lens' ListPoliciesResponse (Prelude.Maybe Prelude.Text)
 listPoliciesResponse_nextToken = Lens.lens (\ListPoliciesResponse' {nextToken} -> nextToken) (\s@ListPoliciesResponse' {} a -> s {nextToken = a} :: ListPoliciesResponse)
 
 -- | An array of @PolicySummary@ objects.
-listPoliciesResponse_policyList :: Lens.Lens' ListPoliciesResponse (Core.Maybe [PolicySummary])
-listPoliciesResponse_policyList = Lens.lens (\ListPoliciesResponse' {policyList} -> policyList) (\s@ListPoliciesResponse' {} a -> s {policyList = a} :: ListPoliciesResponse) Core.. Lens.mapping Lens._Coerce
+listPoliciesResponse_policyList :: Lens.Lens' ListPoliciesResponse (Prelude.Maybe [PolicySummary])
+listPoliciesResponse_policyList = Lens.lens (\ListPoliciesResponse' {policyList} -> policyList) (\s@ListPoliciesResponse' {} a -> s {policyList = a} :: ListPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listPoliciesResponse_httpStatus :: Lens.Lens' ListPoliciesResponse Core.Int
+listPoliciesResponse_httpStatus :: Lens.Lens' ListPoliciesResponse Prelude.Int
 listPoliciesResponse_httpStatus = Lens.lens (\ListPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListPoliciesResponse' {} a -> s {httpStatus = a} :: ListPoliciesResponse)
 
-instance Core.NFData ListPoliciesResponse
+instance Prelude.NFData ListPoliciesResponse

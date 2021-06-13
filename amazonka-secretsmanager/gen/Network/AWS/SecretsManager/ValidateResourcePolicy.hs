@@ -66,6 +66,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -94,7 +95,7 @@ data ValidateResourcePolicy = ValidateResourcePolicy'
     -- If you do include the random suffix added by Secrets Manager, you
     -- receive either a /ResourceNotFoundException/ or an
     -- /AccessDeniedException/ error, depending on your permissions.
-    secretId :: Core.Maybe Core.Text,
+    secretId :: Prelude.Maybe Prelude.Text,
     -- | A JSON-formatted string constructed according to the grammar and syntax
     -- for an AWS resource-based policy. The policy in the string identifies
     -- who can access or manage this secret and its versions. For information
@@ -102,9 +103,9 @@ data ValidateResourcePolicy = ValidateResourcePolicy'
     -- environments, see
     -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
     -- in the /AWS CLI User Guide/.publi
-    resourcePolicy :: Core.Text
+    resourcePolicy :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ValidateResourcePolicy' with all optional fields omitted.
@@ -146,11 +147,11 @@ data ValidateResourcePolicy = ValidateResourcePolicy'
 -- in the /AWS CLI User Guide/.publi
 newValidateResourcePolicy ::
   -- | 'resourcePolicy'
-  Core.Text ->
+  Prelude.Text ->
   ValidateResourcePolicy
 newValidateResourcePolicy pResourcePolicy_ =
   ValidateResourcePolicy'
-    { secretId = Core.Nothing,
+    { secretId = Prelude.Nothing,
       resourcePolicy = pResourcePolicy_
     }
 
@@ -176,7 +177,7 @@ newValidateResourcePolicy pResourcePolicy_ =
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-validateResourcePolicy_secretId :: Lens.Lens' ValidateResourcePolicy (Core.Maybe Core.Text)
+validateResourcePolicy_secretId :: Lens.Lens' ValidateResourcePolicy (Prelude.Maybe Prelude.Text)
 validateResourcePolicy_secretId = Lens.lens (\ValidateResourcePolicy' {secretId} -> secretId) (\s@ValidateResourcePolicy' {} a -> s {secretId = a} :: ValidateResourcePolicy)
 
 -- | A JSON-formatted string constructed according to the grammar and syntax
@@ -186,7 +187,7 @@ validateResourcePolicy_secretId = Lens.lens (\ValidateResourcePolicy' {secretId}
 -- environments, see
 -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
 -- in the /AWS CLI User Guide/.publi
-validateResourcePolicy_resourcePolicy :: Lens.Lens' ValidateResourcePolicy Core.Text
+validateResourcePolicy_resourcePolicy :: Lens.Lens' ValidateResourcePolicy Prelude.Text
 validateResourcePolicy_resourcePolicy = Lens.lens (\ValidateResourcePolicy' {resourcePolicy} -> resourcePolicy) (\s@ValidateResourcePolicy' {} a -> s {resourcePolicy = a} :: ValidateResourcePolicy)
 
 instance Core.AWSRequest ValidateResourcePolicy where
@@ -198,53 +199,58 @@ instance Core.AWSRequest ValidateResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           ValidateResourcePolicyResponse'
-            Core.<$> (x Core..?> "PolicyValidationPassed")
-            Core.<*> (x Core..?> "ValidationErrors" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "PolicyValidationPassed")
+            Prelude.<*> ( x Core..?> "ValidationErrors"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ValidateResourcePolicy
+instance Prelude.Hashable ValidateResourcePolicy
 
-instance Core.NFData ValidateResourcePolicy
+instance Prelude.NFData ValidateResourcePolicy
 
 instance Core.ToHeaders ValidateResourcePolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "secretsmanager.ValidateResourcePolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ValidateResourcePolicy where
   toJSON ValidateResourcePolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SecretId" Core..=) Core.<$> secretId,
-            Core.Just ("ResourcePolicy" Core..= resourcePolicy)
+      ( Prelude.catMaybes
+          [ ("SecretId" Core..=) Prelude.<$> secretId,
+            Prelude.Just
+              ("ResourcePolicy" Core..= resourcePolicy)
           ]
       )
 
 instance Core.ToPath ValidateResourcePolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ValidateResourcePolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newValidateResourcePolicyResponse' smart constructor.
 data ValidateResourcePolicyResponse = ValidateResourcePolicyResponse'
   { -- | Returns a message stating that your Reource Policy passed validation.
-    policyValidationPassed :: Core.Maybe Core.Bool,
+    policyValidationPassed :: Prelude.Maybe Prelude.Bool,
     -- | Returns an error message if your policy doesn\'t pass validatation.
-    validationErrors :: Core.Maybe [ValidationErrorsEntry],
+    validationErrors :: Prelude.Maybe [ValidationErrorsEntry],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ValidateResourcePolicyResponse' with all optional fields omitted.
@@ -261,26 +267,28 @@ data ValidateResourcePolicyResponse = ValidateResourcePolicyResponse'
 -- 'httpStatus', 'validateResourcePolicyResponse_httpStatus' - The response's http status code.
 newValidateResourcePolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ValidateResourcePolicyResponse
 newValidateResourcePolicyResponse pHttpStatus_ =
   ValidateResourcePolicyResponse'
     { policyValidationPassed =
-        Core.Nothing,
-      validationErrors = Core.Nothing,
+        Prelude.Nothing,
+      validationErrors = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns a message stating that your Reource Policy passed validation.
-validateResourcePolicyResponse_policyValidationPassed :: Lens.Lens' ValidateResourcePolicyResponse (Core.Maybe Core.Bool)
+validateResourcePolicyResponse_policyValidationPassed :: Lens.Lens' ValidateResourcePolicyResponse (Prelude.Maybe Prelude.Bool)
 validateResourcePolicyResponse_policyValidationPassed = Lens.lens (\ValidateResourcePolicyResponse' {policyValidationPassed} -> policyValidationPassed) (\s@ValidateResourcePolicyResponse' {} a -> s {policyValidationPassed = a} :: ValidateResourcePolicyResponse)
 
 -- | Returns an error message if your policy doesn\'t pass validatation.
-validateResourcePolicyResponse_validationErrors :: Lens.Lens' ValidateResourcePolicyResponse (Core.Maybe [ValidationErrorsEntry])
-validateResourcePolicyResponse_validationErrors = Lens.lens (\ValidateResourcePolicyResponse' {validationErrors} -> validationErrors) (\s@ValidateResourcePolicyResponse' {} a -> s {validationErrors = a} :: ValidateResourcePolicyResponse) Core.. Lens.mapping Lens._Coerce
+validateResourcePolicyResponse_validationErrors :: Lens.Lens' ValidateResourcePolicyResponse (Prelude.Maybe [ValidationErrorsEntry])
+validateResourcePolicyResponse_validationErrors = Lens.lens (\ValidateResourcePolicyResponse' {validationErrors} -> validationErrors) (\s@ValidateResourcePolicyResponse' {} a -> s {validationErrors = a} :: ValidateResourcePolicyResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-validateResourcePolicyResponse_httpStatus :: Lens.Lens' ValidateResourcePolicyResponse Core.Int
+validateResourcePolicyResponse_httpStatus :: Lens.Lens' ValidateResourcePolicyResponse Prelude.Int
 validateResourcePolicyResponse_httpStatus = Lens.lens (\ValidateResourcePolicyResponse' {httpStatus} -> httpStatus) (\s@ValidateResourcePolicyResponse' {} a -> s {httpStatus = a} :: ValidateResourcePolicyResponse)
 
-instance Core.NFData ValidateResourcePolicyResponse
+instance
+  Prelude.NFData
+    ValidateResourcePolicyResponse

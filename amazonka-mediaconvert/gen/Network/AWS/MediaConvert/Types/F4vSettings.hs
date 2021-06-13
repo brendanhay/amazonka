@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.F4vSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.F4vMoovPlacement
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for F4v container
 --
@@ -30,9 +31,9 @@ data F4vSettings = F4vSettings'
   { -- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the
     -- beginning of the archive as required for progressive downloading.
     -- Otherwise it is placed normally at the end.
-    moovPlacement :: Core.Maybe F4vMoovPlacement
+    moovPlacement :: Prelude.Maybe F4vMoovPlacement
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'F4vSettings' with all optional fields omitted.
@@ -48,12 +49,12 @@ data F4vSettings = F4vSettings'
 newF4vSettings ::
   F4vSettings
 newF4vSettings =
-  F4vSettings' {moovPlacement = Core.Nothing}
+  F4vSettings' {moovPlacement = Prelude.Nothing}
 
 -- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the
 -- beginning of the archive as required for progressive downloading.
 -- Otherwise it is placed normally at the end.
-f4vSettings_moovPlacement :: Lens.Lens' F4vSettings (Core.Maybe F4vMoovPlacement)
+f4vSettings_moovPlacement :: Lens.Lens' F4vSettings (Prelude.Maybe F4vMoovPlacement)
 f4vSettings_moovPlacement = Lens.lens (\F4vSettings' {moovPlacement} -> moovPlacement) (\s@F4vSettings' {} a -> s {moovPlacement = a} :: F4vSettings)
 
 instance Core.FromJSON F4vSettings where
@@ -61,16 +62,19 @@ instance Core.FromJSON F4vSettings where
     Core.withObject
       "F4vSettings"
       ( \x ->
-          F4vSettings' Core.<$> (x Core..:? "moovPlacement")
+          F4vSettings'
+            Prelude.<$> (x Core..:? "moovPlacement")
       )
 
-instance Core.Hashable F4vSettings
+instance Prelude.Hashable F4vSettings
 
-instance Core.NFData F4vSettings
+instance Prelude.NFData F4vSettings
 
 instance Core.ToJSON F4vSettings where
   toJSON F4vSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [("moovPlacement" Core..=) Core.<$> moovPlacement]
+      ( Prelude.catMaybes
+          [ ("moovPlacement" Core..=)
+              Prelude.<$> moovPlacement
+          ]
       )

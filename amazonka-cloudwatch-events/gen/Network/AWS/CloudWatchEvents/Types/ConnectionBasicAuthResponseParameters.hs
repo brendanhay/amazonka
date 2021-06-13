@@ -21,6 +21,7 @@ module Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters 
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the authorization parameters for the connection if Basic is
 -- specified as the authorization type.
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newConnectionBasicAuthResponseParameters' smart constructor.
 data ConnectionBasicAuthResponseParameters = ConnectionBasicAuthResponseParameters'
   { -- | The user name to use for Basic authorization.
-    username :: Core.Maybe Core.Text
+    username :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConnectionBasicAuthResponseParameters' with all optional fields omitted.
@@ -46,11 +47,11 @@ newConnectionBasicAuthResponseParameters ::
 newConnectionBasicAuthResponseParameters =
   ConnectionBasicAuthResponseParameters'
     { username =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The user name to use for Basic authorization.
-connectionBasicAuthResponseParameters_username :: Lens.Lens' ConnectionBasicAuthResponseParameters (Core.Maybe Core.Text)
+connectionBasicAuthResponseParameters_username :: Lens.Lens' ConnectionBasicAuthResponseParameters (Prelude.Maybe Prelude.Text)
 connectionBasicAuthResponseParameters_username = Lens.lens (\ConnectionBasicAuthResponseParameters' {username} -> username) (\s@ConnectionBasicAuthResponseParameters' {} a -> s {username = a} :: ConnectionBasicAuthResponseParameters)
 
 instance
@@ -62,13 +63,13 @@ instance
       "ConnectionBasicAuthResponseParameters"
       ( \x ->
           ConnectionBasicAuthResponseParameters'
-            Core.<$> (x Core..:? "Username")
+            Prelude.<$> (x Core..:? "Username")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ConnectionBasicAuthResponseParameters
 
 instance
-  Core.NFData
+  Prelude.NFData
     ConnectionBasicAuthResponseParameters

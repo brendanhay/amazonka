@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.HumanLoopActivationOutput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Shows the results of the human in the loop evaluation. If there is no
 -- HumanLoopArn, the input did not trigger human review.
@@ -28,14 +29,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newHumanLoopActivationOutput' smart constructor.
 data HumanLoopActivationOutput = HumanLoopActivationOutput'
   { -- | Shows if and why human review was needed.
-    humanLoopActivationReasons :: Core.Maybe (Core.NonEmpty Core.Text),
+    humanLoopActivationReasons :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the HumanLoop created.
-    humanLoopArn :: Core.Maybe Core.Text,
+    humanLoopArn :: Prelude.Maybe Prelude.Text,
     -- | Shows the result of condition evaluations, including those conditions
     -- which activated a human review.
-    humanLoopActivationConditionsEvaluationResults :: Core.Maybe Core.Text
+    humanLoopActivationConditionsEvaluationResults :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HumanLoopActivationOutput' with all optional fields omitted.
@@ -56,23 +57,23 @@ newHumanLoopActivationOutput ::
 newHumanLoopActivationOutput =
   HumanLoopActivationOutput'
     { humanLoopActivationReasons =
-        Core.Nothing,
-      humanLoopArn = Core.Nothing,
+        Prelude.Nothing,
+      humanLoopArn = Prelude.Nothing,
       humanLoopActivationConditionsEvaluationResults =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Shows if and why human review was needed.
-humanLoopActivationOutput_humanLoopActivationReasons :: Lens.Lens' HumanLoopActivationOutput (Core.Maybe (Core.NonEmpty Core.Text))
-humanLoopActivationOutput_humanLoopActivationReasons = Lens.lens (\HumanLoopActivationOutput' {humanLoopActivationReasons} -> humanLoopActivationReasons) (\s@HumanLoopActivationOutput' {} a -> s {humanLoopActivationReasons = a} :: HumanLoopActivationOutput) Core.. Lens.mapping Lens._Coerce
+humanLoopActivationOutput_humanLoopActivationReasons :: Lens.Lens' HumanLoopActivationOutput (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+humanLoopActivationOutput_humanLoopActivationReasons = Lens.lens (\HumanLoopActivationOutput' {humanLoopActivationReasons} -> humanLoopActivationReasons) (\s@HumanLoopActivationOutput' {} a -> s {humanLoopActivationReasons = a} :: HumanLoopActivationOutput) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the HumanLoop created.
-humanLoopActivationOutput_humanLoopArn :: Lens.Lens' HumanLoopActivationOutput (Core.Maybe Core.Text)
+humanLoopActivationOutput_humanLoopArn :: Lens.Lens' HumanLoopActivationOutput (Prelude.Maybe Prelude.Text)
 humanLoopActivationOutput_humanLoopArn = Lens.lens (\HumanLoopActivationOutput' {humanLoopArn} -> humanLoopArn) (\s@HumanLoopActivationOutput' {} a -> s {humanLoopArn = a} :: HumanLoopActivationOutput)
 
 -- | Shows the result of condition evaluations, including those conditions
 -- which activated a human review.
-humanLoopActivationOutput_humanLoopActivationConditionsEvaluationResults :: Lens.Lens' HumanLoopActivationOutput (Core.Maybe Core.Text)
+humanLoopActivationOutput_humanLoopActivationConditionsEvaluationResults :: Lens.Lens' HumanLoopActivationOutput (Prelude.Maybe Prelude.Text)
 humanLoopActivationOutput_humanLoopActivationConditionsEvaluationResults = Lens.lens (\HumanLoopActivationOutput' {humanLoopActivationConditionsEvaluationResults} -> humanLoopActivationConditionsEvaluationResults) (\s@HumanLoopActivationOutput' {} a -> s {humanLoopActivationConditionsEvaluationResults = a} :: HumanLoopActivationOutput)
 
 instance Core.FromJSON HumanLoopActivationOutput where
@@ -81,13 +82,13 @@ instance Core.FromJSON HumanLoopActivationOutput where
       "HumanLoopActivationOutput"
       ( \x ->
           HumanLoopActivationOutput'
-            Core.<$> (x Core..:? "HumanLoopActivationReasons")
-            Core.<*> (x Core..:? "HumanLoopArn")
-            Core.<*> ( x
-                         Core..:? "HumanLoopActivationConditionsEvaluationResults"
-                     )
+            Prelude.<$> (x Core..:? "HumanLoopActivationReasons")
+            Prelude.<*> (x Core..:? "HumanLoopArn")
+            Prelude.<*> ( x
+                            Core..:? "HumanLoopActivationConditionsEvaluationResults"
+                        )
       )
 
-instance Core.Hashable HumanLoopActivationOutput
+instance Prelude.Hashable HumanLoopActivationOutput
 
-instance Core.NFData HumanLoopActivationOutput
+instance Prelude.NFData HumanLoopActivationOutput

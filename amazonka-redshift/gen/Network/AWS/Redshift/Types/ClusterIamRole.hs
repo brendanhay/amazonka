@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.ClusterIamRole where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | An AWS Identity and Access Management (IAM) role that can be used by the
@@ -30,7 +31,7 @@ import Network.AWS.Redshift.Internal
 data ClusterIamRole = ClusterIamRole'
   { -- | The Amazon Resource Name (ARN) of the IAM role, for example,
     -- @arn:aws:iam::123456789012:role\/RedshiftCopyUnload@.
-    iamRoleArn :: Core.Maybe Core.Text,
+    iamRoleArn :: Prelude.Maybe Prelude.Text,
     -- | A value that describes the status of the IAM role\'s association with an
     -- Amazon Redshift cluster.
     --
@@ -43,9 +44,9 @@ data ClusterIamRole = ClusterIamRole'
     --
     -- -   @removing@: The role is in the process of being disassociated with
     --     the cluster.
-    applyStatus :: Core.Maybe Core.Text
+    applyStatus :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClusterIamRole' with all optional fields omitted.
@@ -74,13 +75,13 @@ newClusterIamRole ::
   ClusterIamRole
 newClusterIamRole =
   ClusterIamRole'
-    { iamRoleArn = Core.Nothing,
-      applyStatus = Core.Nothing
+    { iamRoleArn = Prelude.Nothing,
+      applyStatus = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM role, for example,
 -- @arn:aws:iam::123456789012:role\/RedshiftCopyUnload@.
-clusterIamRole_iamRoleArn :: Lens.Lens' ClusterIamRole (Core.Maybe Core.Text)
+clusterIamRole_iamRoleArn :: Lens.Lens' ClusterIamRole (Prelude.Maybe Prelude.Text)
 clusterIamRole_iamRoleArn = Lens.lens (\ClusterIamRole' {iamRoleArn} -> iamRoleArn) (\s@ClusterIamRole' {} a -> s {iamRoleArn = a} :: ClusterIamRole)
 
 -- | A value that describes the status of the IAM role\'s association with an
@@ -95,15 +96,15 @@ clusterIamRole_iamRoleArn = Lens.lens (\ClusterIamRole' {iamRoleArn} -> iamRoleA
 --
 -- -   @removing@: The role is in the process of being disassociated with
 --     the cluster.
-clusterIamRole_applyStatus :: Lens.Lens' ClusterIamRole (Core.Maybe Core.Text)
+clusterIamRole_applyStatus :: Lens.Lens' ClusterIamRole (Prelude.Maybe Prelude.Text)
 clusterIamRole_applyStatus = Lens.lens (\ClusterIamRole' {applyStatus} -> applyStatus) (\s@ClusterIamRole' {} a -> s {applyStatus = a} :: ClusterIamRole)
 
 instance Core.FromXML ClusterIamRole where
   parseXML x =
     ClusterIamRole'
-      Core.<$> (x Core..@? "IamRoleArn")
-      Core.<*> (x Core..@? "ApplyStatus")
+      Prelude.<$> (x Core..@? "IamRoleArn")
+      Prelude.<*> (x Core..@? "ApplyStatus")
 
-instance Core.Hashable ClusterIamRole
+instance Prelude.Hashable ClusterIamRole
 
-instance Core.NFData ClusterIamRole
+instance Prelude.NFData ClusterIamRole

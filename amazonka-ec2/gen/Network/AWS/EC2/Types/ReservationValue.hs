@@ -22,20 +22,21 @@ module Network.AWS.EC2.Types.ReservationValue where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The cost associated with the Reserved Instance.
 --
 -- /See:/ 'newReservationValue' smart constructor.
 data ReservationValue = ReservationValue'
   { -- | The remaining upfront cost of the reservation.
-    remainingUpfrontValue :: Core.Maybe Core.Text,
+    remainingUpfrontValue :: Prelude.Maybe Prelude.Text,
     -- | The hourly rate of the reservation.
-    hourlyPrice :: Core.Maybe Core.Text,
+    hourlyPrice :: Prelude.Maybe Prelude.Text,
     -- | The balance of the total value (the sum of remainingUpfrontValue +
     -- hourlyPrice * number of hours remaining).
-    remainingTotalValue :: Core.Maybe Core.Text
+    remainingTotalValue :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReservationValue' with all optional fields omitted.
@@ -56,31 +57,31 @@ newReservationValue ::
 newReservationValue =
   ReservationValue'
     { remainingUpfrontValue =
-        Core.Nothing,
-      hourlyPrice = Core.Nothing,
-      remainingTotalValue = Core.Nothing
+        Prelude.Nothing,
+      hourlyPrice = Prelude.Nothing,
+      remainingTotalValue = Prelude.Nothing
     }
 
 -- | The remaining upfront cost of the reservation.
-reservationValue_remainingUpfrontValue :: Lens.Lens' ReservationValue (Core.Maybe Core.Text)
+reservationValue_remainingUpfrontValue :: Lens.Lens' ReservationValue (Prelude.Maybe Prelude.Text)
 reservationValue_remainingUpfrontValue = Lens.lens (\ReservationValue' {remainingUpfrontValue} -> remainingUpfrontValue) (\s@ReservationValue' {} a -> s {remainingUpfrontValue = a} :: ReservationValue)
 
 -- | The hourly rate of the reservation.
-reservationValue_hourlyPrice :: Lens.Lens' ReservationValue (Core.Maybe Core.Text)
+reservationValue_hourlyPrice :: Lens.Lens' ReservationValue (Prelude.Maybe Prelude.Text)
 reservationValue_hourlyPrice = Lens.lens (\ReservationValue' {hourlyPrice} -> hourlyPrice) (\s@ReservationValue' {} a -> s {hourlyPrice = a} :: ReservationValue)
 
 -- | The balance of the total value (the sum of remainingUpfrontValue +
 -- hourlyPrice * number of hours remaining).
-reservationValue_remainingTotalValue :: Lens.Lens' ReservationValue (Core.Maybe Core.Text)
+reservationValue_remainingTotalValue :: Lens.Lens' ReservationValue (Prelude.Maybe Prelude.Text)
 reservationValue_remainingTotalValue = Lens.lens (\ReservationValue' {remainingTotalValue} -> remainingTotalValue) (\s@ReservationValue' {} a -> s {remainingTotalValue = a} :: ReservationValue)
 
 instance Core.FromXML ReservationValue where
   parseXML x =
     ReservationValue'
-      Core.<$> (x Core..@? "remainingUpfrontValue")
-      Core.<*> (x Core..@? "hourlyPrice")
-      Core.<*> (x Core..@? "remainingTotalValue")
+      Prelude.<$> (x Core..@? "remainingUpfrontValue")
+      Prelude.<*> (x Core..@? "hourlyPrice")
+      Prelude.<*> (x Core..@? "remainingTotalValue")
 
-instance Core.Hashable ReservationValue
+instance Prelude.Hashable ReservationValue
 
-instance Core.NFData ReservationValue
+instance Prelude.NFData ReservationValue

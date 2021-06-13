@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteContainerPolicy' smart constructor.
 data DeleteContainerPolicy = DeleteContainerPolicy'
   { -- | The name of the container that holds the policy.
-    containerName :: Core.Text
+    containerName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteContainerPolicy' with all optional fields omitted.
@@ -63,7 +64,7 @@ data DeleteContainerPolicy = DeleteContainerPolicy'
 -- 'containerName', 'deleteContainerPolicy_containerName' - The name of the container that holds the policy.
 newDeleteContainerPolicy ::
   -- | 'containerName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteContainerPolicy
 newDeleteContainerPolicy pContainerName_ =
   DeleteContainerPolicy'
@@ -72,7 +73,7 @@ newDeleteContainerPolicy pContainerName_ =
     }
 
 -- | The name of the container that holds the policy.
-deleteContainerPolicy_containerName :: Lens.Lens' DeleteContainerPolicy Core.Text
+deleteContainerPolicy_containerName :: Lens.Lens' DeleteContainerPolicy Prelude.Text
 deleteContainerPolicy_containerName = Lens.lens (\DeleteContainerPolicy' {containerName} -> containerName) (\s@DeleteContainerPolicy' {} a -> s {containerName = a} :: DeleteContainerPolicy)
 
 instance Core.AWSRequest DeleteContainerPolicy where
@@ -84,45 +85,49 @@ instance Core.AWSRequest DeleteContainerPolicy where
     Response.receiveEmpty
       ( \s h x ->
           DeleteContainerPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteContainerPolicy
+instance Prelude.Hashable DeleteContainerPolicy
 
-instance Core.NFData DeleteContainerPolicy
+instance Prelude.NFData DeleteContainerPolicy
 
 instance Core.ToHeaders DeleteContainerPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MediaStore_20170901.DeleteContainerPolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteContainerPolicy where
   toJSON DeleteContainerPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ContainerName" Core..= containerName)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ContainerName" Core..= containerName)
+          ]
       )
 
 instance Core.ToPath DeleteContainerPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteContainerPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteContainerPolicyResponse' smart constructor.
 data DeleteContainerPolicyResponse = DeleteContainerPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteContainerPolicyResponse' with all optional fields omitted.
@@ -135,7 +140,7 @@ data DeleteContainerPolicyResponse = DeleteContainerPolicyResponse'
 -- 'httpStatus', 'deleteContainerPolicyResponse_httpStatus' - The response's http status code.
 newDeleteContainerPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteContainerPolicyResponse
 newDeleteContainerPolicyResponse pHttpStatus_ =
   DeleteContainerPolicyResponse'
@@ -144,7 +149,7 @@ newDeleteContainerPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteContainerPolicyResponse_httpStatus :: Lens.Lens' DeleteContainerPolicyResponse Core.Int
+deleteContainerPolicyResponse_httpStatus :: Lens.Lens' DeleteContainerPolicyResponse Prelude.Int
 deleteContainerPolicyResponse_httpStatus = Lens.lens (\DeleteContainerPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteContainerPolicyResponse' {} a -> s {httpStatus = a} :: DeleteContainerPolicyResponse)
 
-instance Core.NFData DeleteContainerPolicyResponse
+instance Prelude.NFData DeleteContainerPolicyResponse

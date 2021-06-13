@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -52,15 +53,15 @@ import Network.AWS.SageMaker.Types
 data UpdateTrainingJob = UpdateTrainingJob'
   { -- | Configuration information for Debugger system monitoring, framework
     -- profiling, and storage paths.
-    profilerConfig :: Core.Maybe ProfilerConfigForUpdate,
+    profilerConfig :: Prelude.Maybe ProfilerConfigForUpdate,
     -- | Configuration information for Debugger rules for profiling system and
     -- framework metrics.
-    profilerRuleConfigurations :: Core.Maybe [ProfilerRuleConfiguration],
+    profilerRuleConfigurations :: Prelude.Maybe [ProfilerRuleConfiguration],
     -- | The name of a training job to update the Debugger profiling
     -- configuration.
-    trainingJobName :: Core.Text
+    trainingJobName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateTrainingJob' with all optional fields omitted.
@@ -80,28 +81,29 @@ data UpdateTrainingJob = UpdateTrainingJob'
 -- configuration.
 newUpdateTrainingJob ::
   -- | 'trainingJobName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateTrainingJob
 newUpdateTrainingJob pTrainingJobName_ =
   UpdateTrainingJob'
-    { profilerConfig = Core.Nothing,
-      profilerRuleConfigurations = Core.Nothing,
+    { profilerConfig =
+        Prelude.Nothing,
+      profilerRuleConfigurations = Prelude.Nothing,
       trainingJobName = pTrainingJobName_
     }
 
 -- | Configuration information for Debugger system monitoring, framework
 -- profiling, and storage paths.
-updateTrainingJob_profilerConfig :: Lens.Lens' UpdateTrainingJob (Core.Maybe ProfilerConfigForUpdate)
+updateTrainingJob_profilerConfig :: Lens.Lens' UpdateTrainingJob (Prelude.Maybe ProfilerConfigForUpdate)
 updateTrainingJob_profilerConfig = Lens.lens (\UpdateTrainingJob' {profilerConfig} -> profilerConfig) (\s@UpdateTrainingJob' {} a -> s {profilerConfig = a} :: UpdateTrainingJob)
 
 -- | Configuration information for Debugger rules for profiling system and
 -- framework metrics.
-updateTrainingJob_profilerRuleConfigurations :: Lens.Lens' UpdateTrainingJob (Core.Maybe [ProfilerRuleConfiguration])
-updateTrainingJob_profilerRuleConfigurations = Lens.lens (\UpdateTrainingJob' {profilerRuleConfigurations} -> profilerRuleConfigurations) (\s@UpdateTrainingJob' {} a -> s {profilerRuleConfigurations = a} :: UpdateTrainingJob) Core.. Lens.mapping Lens._Coerce
+updateTrainingJob_profilerRuleConfigurations :: Lens.Lens' UpdateTrainingJob (Prelude.Maybe [ProfilerRuleConfiguration])
+updateTrainingJob_profilerRuleConfigurations = Lens.lens (\UpdateTrainingJob' {profilerRuleConfigurations} -> profilerRuleConfigurations) (\s@UpdateTrainingJob' {} a -> s {profilerRuleConfigurations = a} :: UpdateTrainingJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of a training job to update the Debugger profiling
 -- configuration.
-updateTrainingJob_trainingJobName :: Lens.Lens' UpdateTrainingJob Core.Text
+updateTrainingJob_trainingJobName :: Lens.Lens' UpdateTrainingJob Prelude.Text
 updateTrainingJob_trainingJobName = Lens.lens (\UpdateTrainingJob' {trainingJobName} -> trainingJobName) (\s@UpdateTrainingJob' {} a -> s {trainingJobName = a} :: UpdateTrainingJob)
 
 instance Core.AWSRequest UpdateTrainingJob where
@@ -113,51 +115,56 @@ instance Core.AWSRequest UpdateTrainingJob where
     Response.receiveJSON
       ( \s h x ->
           UpdateTrainingJobResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "TrainingJobArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "TrainingJobArn")
       )
 
-instance Core.Hashable UpdateTrainingJob
+instance Prelude.Hashable UpdateTrainingJob
 
-instance Core.NFData UpdateTrainingJob
+instance Prelude.NFData UpdateTrainingJob
 
 instance Core.ToHeaders UpdateTrainingJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.UpdateTrainingJob" :: Core.ByteString),
+              Core.=# ( "SageMaker.UpdateTrainingJob" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateTrainingJob where
   toJSON UpdateTrainingJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ProfilerConfig" Core..=) Core.<$> profilerConfig,
+      ( Prelude.catMaybes
+          [ ("ProfilerConfig" Core..=)
+              Prelude.<$> profilerConfig,
             ("ProfilerRuleConfigurations" Core..=)
-              Core.<$> profilerRuleConfigurations,
-            Core.Just
+              Prelude.<$> profilerRuleConfigurations,
+            Prelude.Just
               ("TrainingJobName" Core..= trainingJobName)
           ]
       )
 
 instance Core.ToPath UpdateTrainingJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateTrainingJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTrainingJobResponse' smart constructor.
 data UpdateTrainingJobResponse = UpdateTrainingJobResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the training job.
-    trainingJobArn :: Core.Text
+    trainingJobArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateTrainingJobResponse' with all optional fields omitted.
@@ -172,9 +179,9 @@ data UpdateTrainingJobResponse = UpdateTrainingJobResponse'
 -- 'trainingJobArn', 'updateTrainingJobResponse_trainingJobArn' - The Amazon Resource Name (ARN) of the training job.
 newUpdateTrainingJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'trainingJobArn'
-  Core.Text ->
+  Prelude.Text ->
   UpdateTrainingJobResponse
 newUpdateTrainingJobResponse
   pHttpStatus_
@@ -186,11 +193,11 @@ newUpdateTrainingJobResponse
       }
 
 -- | The response's http status code.
-updateTrainingJobResponse_httpStatus :: Lens.Lens' UpdateTrainingJobResponse Core.Int
+updateTrainingJobResponse_httpStatus :: Lens.Lens' UpdateTrainingJobResponse Prelude.Int
 updateTrainingJobResponse_httpStatus = Lens.lens (\UpdateTrainingJobResponse' {httpStatus} -> httpStatus) (\s@UpdateTrainingJobResponse' {} a -> s {httpStatus = a} :: UpdateTrainingJobResponse)
 
 -- | The Amazon Resource Name (ARN) of the training job.
-updateTrainingJobResponse_trainingJobArn :: Lens.Lens' UpdateTrainingJobResponse Core.Text
+updateTrainingJobResponse_trainingJobArn :: Lens.Lens' UpdateTrainingJobResponse Prelude.Text
 updateTrainingJobResponse_trainingJobArn = Lens.lens (\UpdateTrainingJobResponse' {trainingJobArn} -> trainingJobArn) (\s@UpdateTrainingJobResponse' {} a -> s {trainingJobArn = a} :: UpdateTrainingJobResponse)
 
-instance Core.NFData UpdateTrainingJobResponse
+instance Prelude.NFData UpdateTrainingJobResponse

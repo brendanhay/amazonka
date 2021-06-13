@@ -21,6 +21,7 @@ module Network.AWS.WorkDocs.Types.Participants where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkDocs.Types.GroupMetadata
 import Network.AWS.WorkDocs.Types.UserMetadata
 
@@ -29,11 +30,11 @@ import Network.AWS.WorkDocs.Types.UserMetadata
 -- /See:/ 'newParticipants' smart constructor.
 data Participants = Participants'
   { -- | The list of user groups.
-    groups :: Core.Maybe [GroupMetadata],
+    groups :: Prelude.Maybe [GroupMetadata],
     -- | The list of users.
-    users :: Core.Maybe [UserMetadata]
+    users :: Prelude.Maybe [UserMetadata]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Participants' with all optional fields omitted.
@@ -50,17 +51,17 @@ newParticipants ::
   Participants
 newParticipants =
   Participants'
-    { groups = Core.Nothing,
-      users = Core.Nothing
+    { groups = Prelude.Nothing,
+      users = Prelude.Nothing
     }
 
 -- | The list of user groups.
-participants_groups :: Lens.Lens' Participants (Core.Maybe [GroupMetadata])
-participants_groups = Lens.lens (\Participants' {groups} -> groups) (\s@Participants' {} a -> s {groups = a} :: Participants) Core.. Lens.mapping Lens._Coerce
+participants_groups :: Lens.Lens' Participants (Prelude.Maybe [GroupMetadata])
+participants_groups = Lens.lens (\Participants' {groups} -> groups) (\s@Participants' {} a -> s {groups = a} :: Participants) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The list of users.
-participants_users :: Lens.Lens' Participants (Core.Maybe [UserMetadata])
-participants_users = Lens.lens (\Participants' {users} -> users) (\s@Participants' {} a -> s {users = a} :: Participants) Core.. Lens.mapping Lens._Coerce
+participants_users :: Lens.Lens' Participants (Prelude.Maybe [UserMetadata])
+participants_users = Lens.lens (\Participants' {users} -> users) (\s@Participants' {} a -> s {users = a} :: Participants) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON Participants where
   parseJSON =
@@ -68,10 +69,10 @@ instance Core.FromJSON Participants where
       "Participants"
       ( \x ->
           Participants'
-            Core.<$> (x Core..:? "Groups" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Users" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Groups" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Users" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable Participants
+instance Prelude.Hashable Participants
 
-instance Core.NFData Participants
+instance Prelude.NFData Participants

@@ -21,6 +21,7 @@ module Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3Storage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use this to store data store data in an S3 bucket that you manage. When
 -- customer-managed storage is selected, the @retentionPeriod@ parameter is
@@ -33,14 +34,14 @@ data CustomerManagedDatastoreS3Storage = CustomerManagedDatastoreS3Storage'
     -- objects. Each object in an S3 bucket has a key that is its unique
     -- identifier in the bucket. Each object in a bucket has exactly one key.
     -- The prefix must end with a forward slash (\/).
-    keyPrefix :: Core.Maybe Core.Text,
+    keyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The name of the S3 bucket in which data store data is stored.
-    bucket :: Core.Text,
+    bucket :: Prelude.Text,
     -- | The ARN of the role that grants AWS IoT Analytics permission to interact
     -- with your Amazon S3 resources.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CustomerManagedDatastoreS3Storage' with all optional fields omitted.
@@ -61,16 +62,16 @@ data CustomerManagedDatastoreS3Storage = CustomerManagedDatastoreS3Storage'
 -- with your Amazon S3 resources.
 newCustomerManagedDatastoreS3Storage ::
   -- | 'bucket'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   CustomerManagedDatastoreS3Storage
 newCustomerManagedDatastoreS3Storage
   pBucket_
   pRoleArn_ =
     CustomerManagedDatastoreS3Storage'
       { keyPrefix =
-          Core.Nothing,
+          Prelude.Nothing,
         bucket = pBucket_,
         roleArn = pRoleArn_
       }
@@ -79,16 +80,16 @@ newCustomerManagedDatastoreS3Storage
 -- objects. Each object in an S3 bucket has a key that is its unique
 -- identifier in the bucket. Each object in a bucket has exactly one key.
 -- The prefix must end with a forward slash (\/).
-customerManagedDatastoreS3Storage_keyPrefix :: Lens.Lens' CustomerManagedDatastoreS3Storage (Core.Maybe Core.Text)
+customerManagedDatastoreS3Storage_keyPrefix :: Lens.Lens' CustomerManagedDatastoreS3Storage (Prelude.Maybe Prelude.Text)
 customerManagedDatastoreS3Storage_keyPrefix = Lens.lens (\CustomerManagedDatastoreS3Storage' {keyPrefix} -> keyPrefix) (\s@CustomerManagedDatastoreS3Storage' {} a -> s {keyPrefix = a} :: CustomerManagedDatastoreS3Storage)
 
 -- | The name of the S3 bucket in which data store data is stored.
-customerManagedDatastoreS3Storage_bucket :: Lens.Lens' CustomerManagedDatastoreS3Storage Core.Text
+customerManagedDatastoreS3Storage_bucket :: Lens.Lens' CustomerManagedDatastoreS3Storage Prelude.Text
 customerManagedDatastoreS3Storage_bucket = Lens.lens (\CustomerManagedDatastoreS3Storage' {bucket} -> bucket) (\s@CustomerManagedDatastoreS3Storage' {} a -> s {bucket = a} :: CustomerManagedDatastoreS3Storage)
 
 -- | The ARN of the role that grants AWS IoT Analytics permission to interact
 -- with your Amazon S3 resources.
-customerManagedDatastoreS3Storage_roleArn :: Lens.Lens' CustomerManagedDatastoreS3Storage Core.Text
+customerManagedDatastoreS3Storage_roleArn :: Lens.Lens' CustomerManagedDatastoreS3Storage Prelude.Text
 customerManagedDatastoreS3Storage_roleArn = Lens.lens (\CustomerManagedDatastoreS3Storage' {roleArn} -> roleArn) (\s@CustomerManagedDatastoreS3Storage' {} a -> s {roleArn = a} :: CustomerManagedDatastoreS3Storage)
 
 instance
@@ -100,17 +101,17 @@ instance
       "CustomerManagedDatastoreS3Storage"
       ( \x ->
           CustomerManagedDatastoreS3Storage'
-            Core.<$> (x Core..:? "keyPrefix")
-            Core.<*> (x Core..: "bucket")
-            Core.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Core..:? "keyPrefix")
+            Prelude.<*> (x Core..: "bucket")
+            Prelude.<*> (x Core..: "roleArn")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CustomerManagedDatastoreS3Storage
 
 instance
-  Core.NFData
+  Prelude.NFData
     CustomerManagedDatastoreS3Storage
 
 instance
@@ -119,9 +120,9 @@ instance
   where
   toJSON CustomerManagedDatastoreS3Storage' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("keyPrefix" Core..=) Core.<$> keyPrefix,
-            Core.Just ("bucket" Core..= bucket),
-            Core.Just ("roleArn" Core..= roleArn)
+      ( Prelude.catMaybes
+          [ ("keyPrefix" Core..=) Prelude.<$> keyPrefix,
+            Prelude.Just ("bucket" Core..= bucket),
+            Prelude.Just ("roleArn" Core..= roleArn)
           ]
       )

@@ -22,6 +22,7 @@ module Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionType where
 import Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A map containing a priority as a key, and recovery method name as a
 -- value.
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 data RecoveryOptionType = RecoveryOptionType'
   { -- | A positive integer specifying priority of a method with 1 being the
     -- highest priority.
-    priority :: Core.Natural,
+    priority :: Prelude.Natural,
     -- | Specifies the recovery method for a user.
     name :: RecoveryOptionNameType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RecoveryOptionType' with all optional fields omitted.
@@ -50,7 +51,7 @@ data RecoveryOptionType = RecoveryOptionType'
 -- 'name', 'recoveryOptionType_name' - Specifies the recovery method for a user.
 newRecoveryOptionType ::
   -- | 'priority'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'name'
   RecoveryOptionNameType ->
   RecoveryOptionType
@@ -62,7 +63,7 @@ newRecoveryOptionType pPriority_ pName_ =
 
 -- | A positive integer specifying priority of a method with 1 being the
 -- highest priority.
-recoveryOptionType_priority :: Lens.Lens' RecoveryOptionType Core.Natural
+recoveryOptionType_priority :: Lens.Lens' RecoveryOptionType Prelude.Natural
 recoveryOptionType_priority = Lens.lens (\RecoveryOptionType' {priority} -> priority) (\s@RecoveryOptionType' {} a -> s {priority = a} :: RecoveryOptionType)
 
 -- | Specifies the recovery method for a user.
@@ -75,18 +76,19 @@ instance Core.FromJSON RecoveryOptionType where
       "RecoveryOptionType"
       ( \x ->
           RecoveryOptionType'
-            Core.<$> (x Core..: "Priority") Core.<*> (x Core..: "Name")
+            Prelude.<$> (x Core..: "Priority")
+            Prelude.<*> (x Core..: "Name")
       )
 
-instance Core.Hashable RecoveryOptionType
+instance Prelude.Hashable RecoveryOptionType
 
-instance Core.NFData RecoveryOptionType
+instance Prelude.NFData RecoveryOptionType
 
 instance Core.ToJSON RecoveryOptionType where
   toJSON RecoveryOptionType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Priority" Core..= priority),
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Priority" Core..= priority),
+            Prelude.Just ("Name" Core..= name)
           ]
       )

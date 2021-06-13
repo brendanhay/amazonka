@@ -21,17 +21,18 @@ module Network.AWS.IoT.Types.HttpActionHeader where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The HTTP action header.
 --
 -- /See:/ 'newHttpActionHeader' smart constructor.
 data HttpActionHeader = HttpActionHeader'
   { -- | The HTTP header key.
-    key :: Core.Text,
+    key :: Prelude.Text,
     -- | The HTTP header value. Substitution templates are supported.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HttpActionHeader' with all optional fields omitted.
@@ -46,19 +47,19 @@ data HttpActionHeader = HttpActionHeader'
 -- 'value', 'httpActionHeader_value' - The HTTP header value. Substitution templates are supported.
 newHttpActionHeader ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   HttpActionHeader
 newHttpActionHeader pKey_ pValue_ =
   HttpActionHeader' {key = pKey_, value = pValue_}
 
 -- | The HTTP header key.
-httpActionHeader_key :: Lens.Lens' HttpActionHeader Core.Text
+httpActionHeader_key :: Lens.Lens' HttpActionHeader Prelude.Text
 httpActionHeader_key = Lens.lens (\HttpActionHeader' {key} -> key) (\s@HttpActionHeader' {} a -> s {key = a} :: HttpActionHeader)
 
 -- | The HTTP header value. Substitution templates are supported.
-httpActionHeader_value :: Lens.Lens' HttpActionHeader Core.Text
+httpActionHeader_value :: Lens.Lens' HttpActionHeader Prelude.Text
 httpActionHeader_value = Lens.lens (\HttpActionHeader' {value} -> value) (\s@HttpActionHeader' {} a -> s {value = a} :: HttpActionHeader)
 
 instance Core.FromJSON HttpActionHeader where
@@ -67,18 +68,18 @@ instance Core.FromJSON HttpActionHeader where
       "HttpActionHeader"
       ( \x ->
           HttpActionHeader'
-            Core.<$> (x Core..: "key") Core.<*> (x Core..: "value")
+            Prelude.<$> (x Core..: "key") Prelude.<*> (x Core..: "value")
       )
 
-instance Core.Hashable HttpActionHeader
+instance Prelude.Hashable HttpActionHeader
 
-instance Core.NFData HttpActionHeader
+instance Prelude.NFData HttpActionHeader
 
 instance Core.ToJSON HttpActionHeader where
   toJSON HttpActionHeader' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("key" Core..= key),
-            Core.Just ("value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("key" Core..= key),
+            Prelude.Just ("value" Core..= value)
           ]
       )

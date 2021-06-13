@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -73,20 +74,20 @@ data UpdateChapCredentials = UpdateChapCredentials'
     -- Byte constraints: Minimum bytes of 12. Maximum bytes of 16.
     --
     -- The secret key must be between 12 and 16 bytes when encoded in UTF-8.
-    secretToAuthenticateTarget :: Core.Maybe (Core.Sensitive Core.Text),
+    secretToAuthenticateTarget :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
     -- DescribeStorediSCSIVolumes operation to return the TargetARN for
     -- specified VolumeARN.
-    targetARN :: Core.Text,
+    targetARN :: Prelude.Text,
     -- | The secret key that the initiator (for example, the Windows client) must
     -- provide to participate in mutual CHAP with the target.
     --
     -- The secret key must be between 12 and 16 bytes when encoded in UTF-8.
-    secretToAuthenticateInitiator :: Core.Sensitive Core.Text,
+    secretToAuthenticateInitiator :: Core.Sensitive Prelude.Text,
     -- | The iSCSI initiator that connects to the target.
-    initiatorName :: Core.Text
+    initiatorName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateChapCredentials' with all optional fields omitted.
@@ -115,11 +116,11 @@ data UpdateChapCredentials = UpdateChapCredentials'
 -- 'initiatorName', 'updateChapCredentials_initiatorName' - The iSCSI initiator that connects to the target.
 newUpdateChapCredentials ::
   -- | 'targetARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'secretToAuthenticateInitiator'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'initiatorName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateChapCredentials
 newUpdateChapCredentials
   pTargetARN_
@@ -127,7 +128,7 @@ newUpdateChapCredentials
   pInitiatorName_ =
     UpdateChapCredentials'
       { secretToAuthenticateTarget =
-          Core.Nothing,
+          Prelude.Nothing,
         targetARN = pTargetARN_,
         secretToAuthenticateInitiator =
           Core._Sensitive
@@ -141,24 +142,24 @@ newUpdateChapCredentials
 -- Byte constraints: Minimum bytes of 12. Maximum bytes of 16.
 --
 -- The secret key must be between 12 and 16 bytes when encoded in UTF-8.
-updateChapCredentials_secretToAuthenticateTarget :: Lens.Lens' UpdateChapCredentials (Core.Maybe Core.Text)
-updateChapCredentials_secretToAuthenticateTarget = Lens.lens (\UpdateChapCredentials' {secretToAuthenticateTarget} -> secretToAuthenticateTarget) (\s@UpdateChapCredentials' {} a -> s {secretToAuthenticateTarget = a} :: UpdateChapCredentials) Core.. Lens.mapping Core._Sensitive
+updateChapCredentials_secretToAuthenticateTarget :: Lens.Lens' UpdateChapCredentials (Prelude.Maybe Prelude.Text)
+updateChapCredentials_secretToAuthenticateTarget = Lens.lens (\UpdateChapCredentials' {secretToAuthenticateTarget} -> secretToAuthenticateTarget) (\s@UpdateChapCredentials' {} a -> s {secretToAuthenticateTarget = a} :: UpdateChapCredentials) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return the TargetARN for
 -- specified VolumeARN.
-updateChapCredentials_targetARN :: Lens.Lens' UpdateChapCredentials Core.Text
+updateChapCredentials_targetARN :: Lens.Lens' UpdateChapCredentials Prelude.Text
 updateChapCredentials_targetARN = Lens.lens (\UpdateChapCredentials' {targetARN} -> targetARN) (\s@UpdateChapCredentials' {} a -> s {targetARN = a} :: UpdateChapCredentials)
 
 -- | The secret key that the initiator (for example, the Windows client) must
 -- provide to participate in mutual CHAP with the target.
 --
 -- The secret key must be between 12 and 16 bytes when encoded in UTF-8.
-updateChapCredentials_secretToAuthenticateInitiator :: Lens.Lens' UpdateChapCredentials Core.Text
-updateChapCredentials_secretToAuthenticateInitiator = Lens.lens (\UpdateChapCredentials' {secretToAuthenticateInitiator} -> secretToAuthenticateInitiator) (\s@UpdateChapCredentials' {} a -> s {secretToAuthenticateInitiator = a} :: UpdateChapCredentials) Core.. Core._Sensitive
+updateChapCredentials_secretToAuthenticateInitiator :: Lens.Lens' UpdateChapCredentials Prelude.Text
+updateChapCredentials_secretToAuthenticateInitiator = Lens.lens (\UpdateChapCredentials' {secretToAuthenticateInitiator} -> secretToAuthenticateInitiator) (\s@UpdateChapCredentials' {} a -> s {secretToAuthenticateInitiator = a} :: UpdateChapCredentials) Prelude.. Core._Sensitive
 
 -- | The iSCSI initiator that connects to the target.
-updateChapCredentials_initiatorName :: Lens.Lens' UpdateChapCredentials Core.Text
+updateChapCredentials_initiatorName :: Lens.Lens' UpdateChapCredentials Prelude.Text
 updateChapCredentials_initiatorName = Lens.lens (\UpdateChapCredentials' {initiatorName} -> initiatorName) (\s@UpdateChapCredentials' {} a -> s {initiatorName = a} :: UpdateChapCredentials)
 
 instance Core.AWSRequest UpdateChapCredentials where
@@ -170,48 +171,51 @@ instance Core.AWSRequest UpdateChapCredentials where
     Response.receiveJSON
       ( \s h x ->
           UpdateChapCredentialsResponse'
-            Core.<$> (x Core..?> "InitiatorName")
-            Core.<*> (x Core..?> "TargetARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "InitiatorName")
+            Prelude.<*> (x Core..?> "TargetARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateChapCredentials
+instance Prelude.Hashable UpdateChapCredentials
 
-instance Core.NFData UpdateChapCredentials
+instance Prelude.NFData UpdateChapCredentials
 
 instance Core.ToHeaders UpdateChapCredentials where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.UpdateChapCredentials" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateChapCredentials where
   toJSON UpdateChapCredentials' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SecretToAuthenticateTarget" Core..=)
-              Core.<$> secretToAuthenticateTarget,
-            Core.Just ("TargetARN" Core..= targetARN),
-            Core.Just
+              Prelude.<$> secretToAuthenticateTarget,
+            Prelude.Just ("TargetARN" Core..= targetARN),
+            Prelude.Just
               ( "SecretToAuthenticateInitiator"
                   Core..= secretToAuthenticateInitiator
               ),
-            Core.Just ("InitiatorName" Core..= initiatorName)
+            Prelude.Just
+              ("InitiatorName" Core..= initiatorName)
           ]
       )
 
 instance Core.ToPath UpdateChapCredentials where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateChapCredentials where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the following fields:
 --
@@ -219,14 +223,14 @@ instance Core.ToQuery UpdateChapCredentials where
 data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'
   { -- | The iSCSI initiator that connects to the target. This is the same
     -- initiator name specified in the request.
-    initiatorName :: Core.Maybe Core.Text,
+    initiatorName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the target. This is the same target
     -- specified in the request.
-    targetARN :: Core.Maybe Core.Text,
+    targetARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateChapCredentialsResponse' with all optional fields omitted.
@@ -245,28 +249,28 @@ data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'
 -- 'httpStatus', 'updateChapCredentialsResponse_httpStatus' - The response's http status code.
 newUpdateChapCredentialsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateChapCredentialsResponse
 newUpdateChapCredentialsResponse pHttpStatus_ =
   UpdateChapCredentialsResponse'
     { initiatorName =
-        Core.Nothing,
-      targetARN = Core.Nothing,
+        Prelude.Nothing,
+      targetARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The iSCSI initiator that connects to the target. This is the same
 -- initiator name specified in the request.
-updateChapCredentialsResponse_initiatorName :: Lens.Lens' UpdateChapCredentialsResponse (Core.Maybe Core.Text)
+updateChapCredentialsResponse_initiatorName :: Lens.Lens' UpdateChapCredentialsResponse (Prelude.Maybe Prelude.Text)
 updateChapCredentialsResponse_initiatorName = Lens.lens (\UpdateChapCredentialsResponse' {initiatorName} -> initiatorName) (\s@UpdateChapCredentialsResponse' {} a -> s {initiatorName = a} :: UpdateChapCredentialsResponse)
 
 -- | The Amazon Resource Name (ARN) of the target. This is the same target
 -- specified in the request.
-updateChapCredentialsResponse_targetARN :: Lens.Lens' UpdateChapCredentialsResponse (Core.Maybe Core.Text)
+updateChapCredentialsResponse_targetARN :: Lens.Lens' UpdateChapCredentialsResponse (Prelude.Maybe Prelude.Text)
 updateChapCredentialsResponse_targetARN = Lens.lens (\UpdateChapCredentialsResponse' {targetARN} -> targetARN) (\s@UpdateChapCredentialsResponse' {} a -> s {targetARN = a} :: UpdateChapCredentialsResponse)
 
 -- | The response's http status code.
-updateChapCredentialsResponse_httpStatus :: Lens.Lens' UpdateChapCredentialsResponse Core.Int
+updateChapCredentialsResponse_httpStatus :: Lens.Lens' UpdateChapCredentialsResponse Prelude.Int
 updateChapCredentialsResponse_httpStatus = Lens.lens (\UpdateChapCredentialsResponse' {httpStatus} -> httpStatus) (\s@UpdateChapCredentialsResponse' {} a -> s {httpStatus = a} :: UpdateChapCredentialsResponse)
 
-instance Core.NFData UpdateChapCredentialsResponse
+instance Prelude.NFData UpdateChapCredentialsResponse

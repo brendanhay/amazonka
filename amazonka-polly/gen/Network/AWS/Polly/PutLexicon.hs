@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Polly.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +58,11 @@ data PutLexicon = PutLexicon'
   { -- | Name of the lexicon. The name must follow the regular express format
     -- [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric
     -- string up to 20 characters long.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | Content of the PLS lexicon as string data.
-    content :: Core.Sensitive Core.Text
+    content :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutLexicon' with all optional fields omitted.
@@ -78,9 +79,9 @@ data PutLexicon = PutLexicon'
 -- 'content', 'putLexicon_content' - Content of the PLS lexicon as string data.
 newPutLexicon ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'content'
-  Core.Text ->
+  Prelude.Text ->
   PutLexicon
 newPutLexicon pName_ pContent_ =
   PutLexicon'
@@ -91,12 +92,12 @@ newPutLexicon pName_ pContent_ =
 -- | Name of the lexicon. The name must follow the regular express format
 -- [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric
 -- string up to 20 characters long.
-putLexicon_name :: Lens.Lens' PutLexicon Core.Text
+putLexicon_name :: Lens.Lens' PutLexicon Prelude.Text
 putLexicon_name = Lens.lens (\PutLexicon' {name} -> name) (\s@PutLexicon' {} a -> s {name = a} :: PutLexicon)
 
 -- | Content of the PLS lexicon as string data.
-putLexicon_content :: Lens.Lens' PutLexicon Core.Text
-putLexicon_content = Lens.lens (\PutLexicon' {content} -> content) (\s@PutLexicon' {} a -> s {content = a} :: PutLexicon) Core.. Core._Sensitive
+putLexicon_content :: Lens.Lens' PutLexicon Prelude.Text
+putLexicon_content = Lens.lens (\PutLexicon' {content} -> content) (\s@PutLexicon' {} a -> s {content = a} :: PutLexicon) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest PutLexicon where
   type AWSResponse PutLexicon = PutLexiconResponse
@@ -105,36 +106,36 @@ instance Core.AWSRequest PutLexicon where
     Response.receiveEmpty
       ( \s h x ->
           PutLexiconResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutLexicon
+instance Prelude.Hashable PutLexicon
 
-instance Core.NFData PutLexicon
+instance Prelude.NFData PutLexicon
 
 instance Core.ToHeaders PutLexicon where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON PutLexicon where
   toJSON PutLexicon' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Content" Core..= content)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Content" Core..= content)]
       )
 
 instance Core.ToPath PutLexicon where
   toPath PutLexicon' {..} =
-    Core.mconcat ["/v1/lexicons/", Core.toBS name]
+    Prelude.mconcat ["/v1/lexicons/", Core.toBS name]
 
 instance Core.ToQuery PutLexicon where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutLexiconResponse' smart constructor.
 data PutLexiconResponse = PutLexiconResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutLexiconResponse' with all optional fields omitted.
@@ -147,13 +148,13 @@ data PutLexiconResponse = PutLexiconResponse'
 -- 'httpStatus', 'putLexiconResponse_httpStatus' - The response's http status code.
 newPutLexiconResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutLexiconResponse
 newPutLexiconResponse pHttpStatus_ =
   PutLexiconResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-putLexiconResponse_httpStatus :: Lens.Lens' PutLexiconResponse Core.Int
+putLexiconResponse_httpStatus :: Lens.Lens' PutLexiconResponse Prelude.Int
 putLexiconResponse_httpStatus = Lens.lens (\PutLexiconResponse' {httpStatus} -> httpStatus) (\s@PutLexiconResponse' {} a -> s {httpStatus = a} :: PutLexiconResponse)
 
-instance Core.NFData PutLexiconResponse
+instance Prelude.NFData PutLexiconResponse

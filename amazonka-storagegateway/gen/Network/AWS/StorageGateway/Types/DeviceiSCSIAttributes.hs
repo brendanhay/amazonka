@@ -21,22 +21,23 @@ module Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Lists iSCSI information about a VTL device.
 --
 -- /See:/ 'newDeviceiSCSIAttributes' smart constructor.
 data DeviceiSCSIAttributes = DeviceiSCSIAttributes'
   { -- | Indicates whether mutual CHAP is enabled for the iSCSI target.
-    chapEnabled :: Core.Maybe Core.Bool,
+    chapEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI
     -- qualified name(iqn) of a tape drive or media changer target.
-    targetARN :: Core.Maybe Core.Text,
+    targetARN :: Prelude.Maybe Prelude.Text,
     -- | The network interface identifier of the VTL device.
-    networkInterfaceId :: Core.Maybe Core.Text,
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The port used to communicate with iSCSI VTL device targets.
-    networkInterfacePort :: Core.Maybe Core.Int
+    networkInterfacePort :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeviceiSCSIAttributes' with all optional fields omitted.
@@ -58,27 +59,28 @@ newDeviceiSCSIAttributes ::
   DeviceiSCSIAttributes
 newDeviceiSCSIAttributes =
   DeviceiSCSIAttributes'
-    { chapEnabled = Core.Nothing,
-      targetARN = Core.Nothing,
-      networkInterfaceId = Core.Nothing,
-      networkInterfacePort = Core.Nothing
+    { chapEnabled =
+        Prelude.Nothing,
+      targetARN = Prelude.Nothing,
+      networkInterfaceId = Prelude.Nothing,
+      networkInterfacePort = Prelude.Nothing
     }
 
 -- | Indicates whether mutual CHAP is enabled for the iSCSI target.
-deviceiSCSIAttributes_chapEnabled :: Lens.Lens' DeviceiSCSIAttributes (Core.Maybe Core.Bool)
+deviceiSCSIAttributes_chapEnabled :: Lens.Lens' DeviceiSCSIAttributes (Prelude.Maybe Prelude.Bool)
 deviceiSCSIAttributes_chapEnabled = Lens.lens (\DeviceiSCSIAttributes' {chapEnabled} -> chapEnabled) (\s@DeviceiSCSIAttributes' {} a -> s {chapEnabled = a} :: DeviceiSCSIAttributes)
 
 -- | Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI
 -- qualified name(iqn) of a tape drive or media changer target.
-deviceiSCSIAttributes_targetARN :: Lens.Lens' DeviceiSCSIAttributes (Core.Maybe Core.Text)
+deviceiSCSIAttributes_targetARN :: Lens.Lens' DeviceiSCSIAttributes (Prelude.Maybe Prelude.Text)
 deviceiSCSIAttributes_targetARN = Lens.lens (\DeviceiSCSIAttributes' {targetARN} -> targetARN) (\s@DeviceiSCSIAttributes' {} a -> s {targetARN = a} :: DeviceiSCSIAttributes)
 
 -- | The network interface identifier of the VTL device.
-deviceiSCSIAttributes_networkInterfaceId :: Lens.Lens' DeviceiSCSIAttributes (Core.Maybe Core.Text)
+deviceiSCSIAttributes_networkInterfaceId :: Lens.Lens' DeviceiSCSIAttributes (Prelude.Maybe Prelude.Text)
 deviceiSCSIAttributes_networkInterfaceId = Lens.lens (\DeviceiSCSIAttributes' {networkInterfaceId} -> networkInterfaceId) (\s@DeviceiSCSIAttributes' {} a -> s {networkInterfaceId = a} :: DeviceiSCSIAttributes)
 
 -- | The port used to communicate with iSCSI VTL device targets.
-deviceiSCSIAttributes_networkInterfacePort :: Lens.Lens' DeviceiSCSIAttributes (Core.Maybe Core.Int)
+deviceiSCSIAttributes_networkInterfacePort :: Lens.Lens' DeviceiSCSIAttributes (Prelude.Maybe Prelude.Int)
 deviceiSCSIAttributes_networkInterfacePort = Lens.lens (\DeviceiSCSIAttributes' {networkInterfacePort} -> networkInterfacePort) (\s@DeviceiSCSIAttributes' {} a -> s {networkInterfacePort = a} :: DeviceiSCSIAttributes)
 
 instance Core.FromJSON DeviceiSCSIAttributes where
@@ -87,12 +89,12 @@ instance Core.FromJSON DeviceiSCSIAttributes where
       "DeviceiSCSIAttributes"
       ( \x ->
           DeviceiSCSIAttributes'
-            Core.<$> (x Core..:? "ChapEnabled")
-            Core.<*> (x Core..:? "TargetARN")
-            Core.<*> (x Core..:? "NetworkInterfaceId")
-            Core.<*> (x Core..:? "NetworkInterfacePort")
+            Prelude.<$> (x Core..:? "ChapEnabled")
+            Prelude.<*> (x Core..:? "TargetARN")
+            Prelude.<*> (x Core..:? "NetworkInterfaceId")
+            Prelude.<*> (x Core..:? "NetworkInterfacePort")
       )
 
-instance Core.Hashable DeviceiSCSIAttributes
+instance Prelude.Hashable DeviceiSCSIAttributes
 
-instance Core.NFData DeviceiSCSIAttributes
+instance Prelude.NFData DeviceiSCSIAttributes

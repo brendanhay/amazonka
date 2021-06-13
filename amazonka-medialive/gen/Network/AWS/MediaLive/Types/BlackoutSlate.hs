@@ -24,6 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.BlackoutSlateNetworkEndBlackout
 import Network.AWS.MediaLive.Types.BlackoutSlateState
 import Network.AWS.MediaLive.Types.InputLocation
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Blackout Slate
 --
@@ -31,25 +32,25 @@ import Network.AWS.MediaLive.Types.InputLocation
 data BlackoutSlate = BlackoutSlate'
   { -- | Blackout slate image to be used. Leave empty for solid black. Only bmp
     -- and png images are supported.
-    blackoutSlateImage :: Core.Maybe InputLocation,
+    blackoutSlateImage :: Prelude.Maybe InputLocation,
     -- | Setting to enabled causes the encoder to blackout the video, audio, and
     -- captions, and raise the \"Network Blackout Image\" slate when an
     -- SCTE104\/35 Network End Segmentation Descriptor is encountered. The
     -- blackout will be lifted when the Network Start Segmentation Descriptor
     -- is encountered. The Network End and Network Start descriptors must
     -- contain a network ID that matches the value entered in \"Network ID\".
-    networkEndBlackout :: Core.Maybe BlackoutSlateNetworkEndBlackout,
+    networkEndBlackout :: Prelude.Maybe BlackoutSlateNetworkEndBlackout,
     -- | When set to enabled, causes video, audio and captions to be blanked when
     -- indicated by program metadata.
-    state :: Core.Maybe BlackoutSlateState,
+    state :: Prelude.Maybe BlackoutSlateState,
     -- | Path to local file to use as Network End Blackout image. Image will be
     -- scaled to fill the entire output raster.
-    networkEndBlackoutImage :: Core.Maybe InputLocation,
+    networkEndBlackoutImage :: Prelude.Maybe InputLocation,
     -- | Provides Network ID that matches EIDR ID format (e.g.,
     -- \"10.XXXX\/XXXX-XXXX-XXXX-XXXX-XXXX-C\").
-    networkId :: Core.Maybe Core.Text
+    networkId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BlackoutSlate' with all optional fields omitted.
@@ -81,16 +82,17 @@ newBlackoutSlate ::
   BlackoutSlate
 newBlackoutSlate =
   BlackoutSlate'
-    { blackoutSlateImage = Core.Nothing,
-      networkEndBlackout = Core.Nothing,
-      state = Core.Nothing,
-      networkEndBlackoutImage = Core.Nothing,
-      networkId = Core.Nothing
+    { blackoutSlateImage =
+        Prelude.Nothing,
+      networkEndBlackout = Prelude.Nothing,
+      state = Prelude.Nothing,
+      networkEndBlackoutImage = Prelude.Nothing,
+      networkId = Prelude.Nothing
     }
 
 -- | Blackout slate image to be used. Leave empty for solid black. Only bmp
 -- and png images are supported.
-blackoutSlate_blackoutSlateImage :: Lens.Lens' BlackoutSlate (Core.Maybe InputLocation)
+blackoutSlate_blackoutSlateImage :: Lens.Lens' BlackoutSlate (Prelude.Maybe InputLocation)
 blackoutSlate_blackoutSlateImage = Lens.lens (\BlackoutSlate' {blackoutSlateImage} -> blackoutSlateImage) (\s@BlackoutSlate' {} a -> s {blackoutSlateImage = a} :: BlackoutSlate)
 
 -- | Setting to enabled causes the encoder to blackout the video, audio, and
@@ -99,22 +101,22 @@ blackoutSlate_blackoutSlateImage = Lens.lens (\BlackoutSlate' {blackoutSlateImag
 -- blackout will be lifted when the Network Start Segmentation Descriptor
 -- is encountered. The Network End and Network Start descriptors must
 -- contain a network ID that matches the value entered in \"Network ID\".
-blackoutSlate_networkEndBlackout :: Lens.Lens' BlackoutSlate (Core.Maybe BlackoutSlateNetworkEndBlackout)
+blackoutSlate_networkEndBlackout :: Lens.Lens' BlackoutSlate (Prelude.Maybe BlackoutSlateNetworkEndBlackout)
 blackoutSlate_networkEndBlackout = Lens.lens (\BlackoutSlate' {networkEndBlackout} -> networkEndBlackout) (\s@BlackoutSlate' {} a -> s {networkEndBlackout = a} :: BlackoutSlate)
 
 -- | When set to enabled, causes video, audio and captions to be blanked when
 -- indicated by program metadata.
-blackoutSlate_state :: Lens.Lens' BlackoutSlate (Core.Maybe BlackoutSlateState)
+blackoutSlate_state :: Lens.Lens' BlackoutSlate (Prelude.Maybe BlackoutSlateState)
 blackoutSlate_state = Lens.lens (\BlackoutSlate' {state} -> state) (\s@BlackoutSlate' {} a -> s {state = a} :: BlackoutSlate)
 
 -- | Path to local file to use as Network End Blackout image. Image will be
 -- scaled to fill the entire output raster.
-blackoutSlate_networkEndBlackoutImage :: Lens.Lens' BlackoutSlate (Core.Maybe InputLocation)
+blackoutSlate_networkEndBlackoutImage :: Lens.Lens' BlackoutSlate (Prelude.Maybe InputLocation)
 blackoutSlate_networkEndBlackoutImage = Lens.lens (\BlackoutSlate' {networkEndBlackoutImage} -> networkEndBlackoutImage) (\s@BlackoutSlate' {} a -> s {networkEndBlackoutImage = a} :: BlackoutSlate)
 
 -- | Provides Network ID that matches EIDR ID format (e.g.,
 -- \"10.XXXX\/XXXX-XXXX-XXXX-XXXX-XXXX-C\").
-blackoutSlate_networkId :: Lens.Lens' BlackoutSlate (Core.Maybe Core.Text)
+blackoutSlate_networkId :: Lens.Lens' BlackoutSlate (Prelude.Maybe Prelude.Text)
 blackoutSlate_networkId = Lens.lens (\BlackoutSlate' {networkId} -> networkId) (\s@BlackoutSlate' {} a -> s {networkId = a} :: BlackoutSlate)
 
 instance Core.FromJSON BlackoutSlate where
@@ -123,28 +125,28 @@ instance Core.FromJSON BlackoutSlate where
       "BlackoutSlate"
       ( \x ->
           BlackoutSlate'
-            Core.<$> (x Core..:? "blackoutSlateImage")
-            Core.<*> (x Core..:? "networkEndBlackout")
-            Core.<*> (x Core..:? "state")
-            Core.<*> (x Core..:? "networkEndBlackoutImage")
-            Core.<*> (x Core..:? "networkId")
+            Prelude.<$> (x Core..:? "blackoutSlateImage")
+            Prelude.<*> (x Core..:? "networkEndBlackout")
+            Prelude.<*> (x Core..:? "state")
+            Prelude.<*> (x Core..:? "networkEndBlackoutImage")
+            Prelude.<*> (x Core..:? "networkId")
       )
 
-instance Core.Hashable BlackoutSlate
+instance Prelude.Hashable BlackoutSlate
 
-instance Core.NFData BlackoutSlate
+instance Prelude.NFData BlackoutSlate
 
 instance Core.ToJSON BlackoutSlate where
   toJSON BlackoutSlate' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("blackoutSlateImage" Core..=)
-              Core.<$> blackoutSlateImage,
+              Prelude.<$> blackoutSlateImage,
             ("networkEndBlackout" Core..=)
-              Core.<$> networkEndBlackout,
-            ("state" Core..=) Core.<$> state,
+              Prelude.<$> networkEndBlackout,
+            ("state" Core..=) Prelude.<$> state,
             ("networkEndBlackoutImage" Core..=)
-              Core.<$> networkEndBlackoutImage,
-            ("networkId" Core..=) Core.<$> networkId
+              Prelude.<$> networkEndBlackoutImage,
+            ("networkId" Core..=) Prelude.<$> networkId
           ]
       )

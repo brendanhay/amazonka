@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.PipelineExecutionSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.PipelineExecutionStatus
 
 -- | A pipeline execution summary.
@@ -28,17 +29,17 @@ import Network.AWS.SageMaker.Types.PipelineExecutionStatus
 -- /See:/ 'newPipelineExecutionSummary' smart constructor.
 data PipelineExecutionSummary = PipelineExecutionSummary'
   { -- | The description of the pipeline execution.
-    pipelineExecutionDescription :: Core.Maybe Core.Text,
+    pipelineExecutionDescription :: Prelude.Maybe Prelude.Text,
     -- | The start time of the pipeline execution.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The display name of the pipeline execution.
-    pipelineExecutionDisplayName :: Core.Maybe Core.Text,
+    pipelineExecutionDisplayName :: Prelude.Maybe Prelude.Text,
     -- | The status of the pipeline execution.
-    pipelineExecutionStatus :: Core.Maybe PipelineExecutionStatus,
+    pipelineExecutionStatus :: Prelude.Maybe PipelineExecutionStatus,
     -- | The Amazon Resource Name (ARN) of the pipeline execution.
-    pipelineExecutionArn :: Core.Maybe Core.Text
+    pipelineExecutionArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PipelineExecutionSummary' with all optional fields omitted.
@@ -62,31 +63,31 @@ newPipelineExecutionSummary ::
 newPipelineExecutionSummary =
   PipelineExecutionSummary'
     { pipelineExecutionDescription =
-        Core.Nothing,
-      startTime = Core.Nothing,
-      pipelineExecutionDisplayName = Core.Nothing,
-      pipelineExecutionStatus = Core.Nothing,
-      pipelineExecutionArn = Core.Nothing
+        Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      pipelineExecutionDisplayName = Prelude.Nothing,
+      pipelineExecutionStatus = Prelude.Nothing,
+      pipelineExecutionArn = Prelude.Nothing
     }
 
 -- | The description of the pipeline execution.
-pipelineExecutionSummary_pipelineExecutionDescription :: Lens.Lens' PipelineExecutionSummary (Core.Maybe Core.Text)
+pipelineExecutionSummary_pipelineExecutionDescription :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe Prelude.Text)
 pipelineExecutionSummary_pipelineExecutionDescription = Lens.lens (\PipelineExecutionSummary' {pipelineExecutionDescription} -> pipelineExecutionDescription) (\s@PipelineExecutionSummary' {} a -> s {pipelineExecutionDescription = a} :: PipelineExecutionSummary)
 
 -- | The start time of the pipeline execution.
-pipelineExecutionSummary_startTime :: Lens.Lens' PipelineExecutionSummary (Core.Maybe Core.UTCTime)
-pipelineExecutionSummary_startTime = Lens.lens (\PipelineExecutionSummary' {startTime} -> startTime) (\s@PipelineExecutionSummary' {} a -> s {startTime = a} :: PipelineExecutionSummary) Core.. Lens.mapping Core._Time
+pipelineExecutionSummary_startTime :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe Prelude.UTCTime)
+pipelineExecutionSummary_startTime = Lens.lens (\PipelineExecutionSummary' {startTime} -> startTime) (\s@PipelineExecutionSummary' {} a -> s {startTime = a} :: PipelineExecutionSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The display name of the pipeline execution.
-pipelineExecutionSummary_pipelineExecutionDisplayName :: Lens.Lens' PipelineExecutionSummary (Core.Maybe Core.Text)
+pipelineExecutionSummary_pipelineExecutionDisplayName :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe Prelude.Text)
 pipelineExecutionSummary_pipelineExecutionDisplayName = Lens.lens (\PipelineExecutionSummary' {pipelineExecutionDisplayName} -> pipelineExecutionDisplayName) (\s@PipelineExecutionSummary' {} a -> s {pipelineExecutionDisplayName = a} :: PipelineExecutionSummary)
 
 -- | The status of the pipeline execution.
-pipelineExecutionSummary_pipelineExecutionStatus :: Lens.Lens' PipelineExecutionSummary (Core.Maybe PipelineExecutionStatus)
+pipelineExecutionSummary_pipelineExecutionStatus :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe PipelineExecutionStatus)
 pipelineExecutionSummary_pipelineExecutionStatus = Lens.lens (\PipelineExecutionSummary' {pipelineExecutionStatus} -> pipelineExecutionStatus) (\s@PipelineExecutionSummary' {} a -> s {pipelineExecutionStatus = a} :: PipelineExecutionSummary)
 
 -- | The Amazon Resource Name (ARN) of the pipeline execution.
-pipelineExecutionSummary_pipelineExecutionArn :: Lens.Lens' PipelineExecutionSummary (Core.Maybe Core.Text)
+pipelineExecutionSummary_pipelineExecutionArn :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe Prelude.Text)
 pipelineExecutionSummary_pipelineExecutionArn = Lens.lens (\PipelineExecutionSummary' {pipelineExecutionArn} -> pipelineExecutionArn) (\s@PipelineExecutionSummary' {} a -> s {pipelineExecutionArn = a} :: PipelineExecutionSummary)
 
 instance Core.FromJSON PipelineExecutionSummary where
@@ -95,13 +96,13 @@ instance Core.FromJSON PipelineExecutionSummary where
       "PipelineExecutionSummary"
       ( \x ->
           PipelineExecutionSummary'
-            Core.<$> (x Core..:? "PipelineExecutionDescription")
-            Core.<*> (x Core..:? "StartTime")
-            Core.<*> (x Core..:? "PipelineExecutionDisplayName")
-            Core.<*> (x Core..:? "PipelineExecutionStatus")
-            Core.<*> (x Core..:? "PipelineExecutionArn")
+            Prelude.<$> (x Core..:? "PipelineExecutionDescription")
+            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Core..:? "PipelineExecutionDisplayName")
+            Prelude.<*> (x Core..:? "PipelineExecutionStatus")
+            Prelude.<*> (x Core..:? "PipelineExecutionArn")
       )
 
-instance Core.Hashable PipelineExecutionSummary
+instance Prelude.Hashable PipelineExecutionSummary
 
-instance Core.NFData PipelineExecutionSummary
+instance Prelude.NFData PipelineExecutionSummary

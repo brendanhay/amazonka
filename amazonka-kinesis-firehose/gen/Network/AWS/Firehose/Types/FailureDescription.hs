@@ -22,6 +22,7 @@ module Network.AWS.Firehose.Types.FailureDescription where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types.DeliveryStreamFailureType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides details in case one of the following operations fails due to an
 -- error related to KMS: CreateDeliveryStream, DeleteDeliveryStream,
@@ -32,9 +33,9 @@ data FailureDescription = FailureDescription'
   { -- | The type of error that caused the failure.
     type' :: DeliveryStreamFailureType,
     -- | A message providing details about the error that caused the failure.
-    details :: Core.Text
+    details :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FailureDescription' with all optional fields omitted.
@@ -51,7 +52,7 @@ newFailureDescription ::
   -- | 'type''
   DeliveryStreamFailureType ->
   -- | 'details'
-  Core.Text ->
+  Prelude.Text ->
   FailureDescription
 newFailureDescription pType_ pDetails_ =
   FailureDescription'
@@ -64,7 +65,7 @@ failureDescription_type :: Lens.Lens' FailureDescription DeliveryStreamFailureTy
 failureDescription_type = Lens.lens (\FailureDescription' {type'} -> type') (\s@FailureDescription' {} a -> s {type' = a} :: FailureDescription)
 
 -- | A message providing details about the error that caused the failure.
-failureDescription_details :: Lens.Lens' FailureDescription Core.Text
+failureDescription_details :: Lens.Lens' FailureDescription Prelude.Text
 failureDescription_details = Lens.lens (\FailureDescription' {details} -> details) (\s@FailureDescription' {} a -> s {details = a} :: FailureDescription)
 
 instance Core.FromJSON FailureDescription where
@@ -73,9 +74,9 @@ instance Core.FromJSON FailureDescription where
       "FailureDescription"
       ( \x ->
           FailureDescription'
-            Core.<$> (x Core..: "Type") Core.<*> (x Core..: "Details")
+            Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Details")
       )
 
-instance Core.Hashable FailureDescription
+instance Prelude.Hashable FailureDescription
 
-instance Core.NFData FailureDescription
+instance Prelude.NFData FailureDescription

@@ -21,19 +21,20 @@ module Network.AWS.IoT.Types.KinesisAction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an action to write data to an Amazon Kinesis stream.
 --
 -- /See:/ 'newKinesisAction' smart constructor.
 data KinesisAction = KinesisAction'
   { -- | The partition key.
-    partitionKey :: Core.Maybe Core.Text,
+    partitionKey :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-    roleArn :: Core.Text,
+    roleArn :: Prelude.Text,
     -- | The name of the Amazon Kinesis stream.
-    streamName :: Core.Text
+    streamName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KinesisAction' with all optional fields omitted.
@@ -50,27 +51,27 @@ data KinesisAction = KinesisAction'
 -- 'streamName', 'kinesisAction_streamName' - The name of the Amazon Kinesis stream.
 newKinesisAction ::
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'streamName'
-  Core.Text ->
+  Prelude.Text ->
   KinesisAction
 newKinesisAction pRoleArn_ pStreamName_ =
   KinesisAction'
-    { partitionKey = Core.Nothing,
+    { partitionKey = Prelude.Nothing,
       roleArn = pRoleArn_,
       streamName = pStreamName_
     }
 
 -- | The partition key.
-kinesisAction_partitionKey :: Lens.Lens' KinesisAction (Core.Maybe Core.Text)
+kinesisAction_partitionKey :: Lens.Lens' KinesisAction (Prelude.Maybe Prelude.Text)
 kinesisAction_partitionKey = Lens.lens (\KinesisAction' {partitionKey} -> partitionKey) (\s@KinesisAction' {} a -> s {partitionKey = a} :: KinesisAction)
 
 -- | The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-kinesisAction_roleArn :: Lens.Lens' KinesisAction Core.Text
+kinesisAction_roleArn :: Lens.Lens' KinesisAction Prelude.Text
 kinesisAction_roleArn = Lens.lens (\KinesisAction' {roleArn} -> roleArn) (\s@KinesisAction' {} a -> s {roleArn = a} :: KinesisAction)
 
 -- | The name of the Amazon Kinesis stream.
-kinesisAction_streamName :: Lens.Lens' KinesisAction Core.Text
+kinesisAction_streamName :: Lens.Lens' KinesisAction Prelude.Text
 kinesisAction_streamName = Lens.lens (\KinesisAction' {streamName} -> streamName) (\s@KinesisAction' {} a -> s {streamName = a} :: KinesisAction)
 
 instance Core.FromJSON KinesisAction where
@@ -79,21 +80,21 @@ instance Core.FromJSON KinesisAction where
       "KinesisAction"
       ( \x ->
           KinesisAction'
-            Core.<$> (x Core..:? "partitionKey")
-            Core.<*> (x Core..: "roleArn")
-            Core.<*> (x Core..: "streamName")
+            Prelude.<$> (x Core..:? "partitionKey")
+            Prelude.<*> (x Core..: "roleArn")
+            Prelude.<*> (x Core..: "streamName")
       )
 
-instance Core.Hashable KinesisAction
+instance Prelude.Hashable KinesisAction
 
-instance Core.NFData KinesisAction
+instance Prelude.NFData KinesisAction
 
 instance Core.ToJSON KinesisAction where
   toJSON KinesisAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("partitionKey" Core..=) Core.<$> partitionKey,
-            Core.Just ("roleArn" Core..= roleArn),
-            Core.Just ("streamName" Core..= streamName)
+      ( Prelude.catMaybes
+          [ ("partitionKey" Core..=) Prelude.<$> partitionKey,
+            Prelude.Just ("roleArn" Core..= roleArn),
+            Prelude.Just ("streamName" Core..= streamName)
           ]
       )

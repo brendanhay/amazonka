@@ -51,6 +51,7 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,12 +62,12 @@ data StartPiiEntitiesDetectionJob = StartPiiEntitiesDetectionJob'
     -- This parameter is required if you set the @Mode@ parameter to
     -- @ONLY_REDACTION@. In that case, you must provide a @RedactionConfig@
     -- definition that includes the @PiiEntityTypes@ parameter.
-    redactionConfig :: Core.Maybe RedactionConfig,
+    redactionConfig :: Prelude.Maybe RedactionConfig,
     -- | A unique identifier for the request. If you don\'t set the client
     -- request token, Amazon Comprehend generates one.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the job.
-    jobName :: Core.Maybe Core.Text,
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | The input properties for a PII entities detection job.
     inputDataConfig :: InputDataConfig,
     -- | Provides conﬁguration parameters for the output of PII entity detection
@@ -77,11 +78,11 @@ data StartPiiEntitiesDetectionJob = StartPiiEntitiesDetectionJob'
     mode :: PiiEntitiesDetectionMode,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
     -- (IAM) role that grants Amazon Comprehend read access to your input data.
-    dataAccessRoleArn :: Core.Text,
+    dataAccessRoleArn :: Prelude.Text,
     -- | The language of the input documents.
     languageCode :: LanguageCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartPiiEntitiesDetectionJob' with all optional fields omitted.
@@ -122,7 +123,7 @@ newStartPiiEntitiesDetectionJob ::
   -- | 'mode'
   PiiEntitiesDetectionMode ->
   -- | 'dataAccessRoleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'languageCode'
   LanguageCode ->
   StartPiiEntitiesDetectionJob
@@ -134,9 +135,9 @@ newStartPiiEntitiesDetectionJob
   pLanguageCode_ =
     StartPiiEntitiesDetectionJob'
       { redactionConfig =
-          Core.Nothing,
-        clientRequestToken = Core.Nothing,
-        jobName = Core.Nothing,
+          Prelude.Nothing,
+        clientRequestToken = Prelude.Nothing,
+        jobName = Prelude.Nothing,
         inputDataConfig = pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
         mode = pMode_,
@@ -149,16 +150,16 @@ newStartPiiEntitiesDetectionJob
 -- This parameter is required if you set the @Mode@ parameter to
 -- @ONLY_REDACTION@. In that case, you must provide a @RedactionConfig@
 -- definition that includes the @PiiEntityTypes@ parameter.
-startPiiEntitiesDetectionJob_redactionConfig :: Lens.Lens' StartPiiEntitiesDetectionJob (Core.Maybe RedactionConfig)
+startPiiEntitiesDetectionJob_redactionConfig :: Lens.Lens' StartPiiEntitiesDetectionJob (Prelude.Maybe RedactionConfig)
 startPiiEntitiesDetectionJob_redactionConfig = Lens.lens (\StartPiiEntitiesDetectionJob' {redactionConfig} -> redactionConfig) (\s@StartPiiEntitiesDetectionJob' {} a -> s {redactionConfig = a} :: StartPiiEntitiesDetectionJob)
 
 -- | A unique identifier for the request. If you don\'t set the client
 -- request token, Amazon Comprehend generates one.
-startPiiEntitiesDetectionJob_clientRequestToken :: Lens.Lens' StartPiiEntitiesDetectionJob (Core.Maybe Core.Text)
+startPiiEntitiesDetectionJob_clientRequestToken :: Lens.Lens' StartPiiEntitiesDetectionJob (Prelude.Maybe Prelude.Text)
 startPiiEntitiesDetectionJob_clientRequestToken = Lens.lens (\StartPiiEntitiesDetectionJob' {clientRequestToken} -> clientRequestToken) (\s@StartPiiEntitiesDetectionJob' {} a -> s {clientRequestToken = a} :: StartPiiEntitiesDetectionJob)
 
 -- | The identifier of the job.
-startPiiEntitiesDetectionJob_jobName :: Lens.Lens' StartPiiEntitiesDetectionJob (Core.Maybe Core.Text)
+startPiiEntitiesDetectionJob_jobName :: Lens.Lens' StartPiiEntitiesDetectionJob (Prelude.Maybe Prelude.Text)
 startPiiEntitiesDetectionJob_jobName = Lens.lens (\StartPiiEntitiesDetectionJob' {jobName} -> jobName) (\s@StartPiiEntitiesDetectionJob' {} a -> s {jobName = a} :: StartPiiEntitiesDetectionJob)
 
 -- | The input properties for a PII entities detection job.
@@ -177,7 +178,7 @@ startPiiEntitiesDetectionJob_mode = Lens.lens (\StartPiiEntitiesDetectionJob' {m
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
 -- (IAM) role that grants Amazon Comprehend read access to your input data.
-startPiiEntitiesDetectionJob_dataAccessRoleArn :: Lens.Lens' StartPiiEntitiesDetectionJob Core.Text
+startPiiEntitiesDetectionJob_dataAccessRoleArn :: Lens.Lens' StartPiiEntitiesDetectionJob Prelude.Text
 startPiiEntitiesDetectionJob_dataAccessRoleArn = Lens.lens (\StartPiiEntitiesDetectionJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartPiiEntitiesDetectionJob' {} a -> s {dataAccessRoleArn = a} :: StartPiiEntitiesDetectionJob)
 
 -- | The language of the input documents.
@@ -193,64 +194,68 @@ instance Core.AWSRequest StartPiiEntitiesDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           StartPiiEntitiesDetectionJobResponse'
-            Core.<$> (x Core..?> "JobStatus")
-            Core.<*> (x Core..?> "JobId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "JobId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartPiiEntitiesDetectionJob
+instance
+  Prelude.Hashable
+    StartPiiEntitiesDetectionJob
 
-instance Core.NFData StartPiiEntitiesDetectionJob
+instance Prelude.NFData StartPiiEntitiesDetectionJob
 
 instance Core.ToHeaders StartPiiEntitiesDetectionJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.StartPiiEntitiesDetectionJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartPiiEntitiesDetectionJob where
   toJSON StartPiiEntitiesDetectionJob' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("RedactionConfig" Core..=)
-              Core.<$> redactionConfig,
+              Prelude.<$> redactionConfig,
             ("ClientRequestToken" Core..=)
-              Core.<$> clientRequestToken,
-            ("JobName" Core..=) Core.<$> jobName,
-            Core.Just
+              Prelude.<$> clientRequestToken,
+            ("JobName" Core..=) Prelude.<$> jobName,
+            Prelude.Just
               ("InputDataConfig" Core..= inputDataConfig),
-            Core.Just
+            Prelude.Just
               ("OutputDataConfig" Core..= outputDataConfig),
-            Core.Just ("Mode" Core..= mode),
-            Core.Just
+            Prelude.Just ("Mode" Core..= mode),
+            Prelude.Just
               ("DataAccessRoleArn" Core..= dataAccessRoleArn),
-            Core.Just ("LanguageCode" Core..= languageCode)
+            Prelude.Just ("LanguageCode" Core..= languageCode)
           ]
       )
 
 instance Core.ToPath StartPiiEntitiesDetectionJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartPiiEntitiesDetectionJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartPiiEntitiesDetectionJobResponse' smart constructor.
 data StartPiiEntitiesDetectionJobResponse = StartPiiEntitiesDetectionJobResponse'
   { -- | The status of the job.
-    jobStatus :: Core.Maybe JobStatus,
+    jobStatus :: Prelude.Maybe JobStatus,
     -- | The identifier generated for the job.
-    jobId :: Core.Maybe Core.Text,
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartPiiEntitiesDetectionJobResponse' with all optional fields omitted.
@@ -267,28 +272,28 @@ data StartPiiEntitiesDetectionJobResponse = StartPiiEntitiesDetectionJobResponse
 -- 'httpStatus', 'startPiiEntitiesDetectionJobResponse_httpStatus' - The response's http status code.
 newStartPiiEntitiesDetectionJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartPiiEntitiesDetectionJobResponse
 newStartPiiEntitiesDetectionJobResponse pHttpStatus_ =
   StartPiiEntitiesDetectionJobResponse'
     { jobStatus =
-        Core.Nothing,
-      jobId = Core.Nothing,
+        Prelude.Nothing,
+      jobId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the job.
-startPiiEntitiesDetectionJobResponse_jobStatus :: Lens.Lens' StartPiiEntitiesDetectionJobResponse (Core.Maybe JobStatus)
+startPiiEntitiesDetectionJobResponse_jobStatus :: Lens.Lens' StartPiiEntitiesDetectionJobResponse (Prelude.Maybe JobStatus)
 startPiiEntitiesDetectionJobResponse_jobStatus = Lens.lens (\StartPiiEntitiesDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StartPiiEntitiesDetectionJobResponse' {} a -> s {jobStatus = a} :: StartPiiEntitiesDetectionJobResponse)
 
 -- | The identifier generated for the job.
-startPiiEntitiesDetectionJobResponse_jobId :: Lens.Lens' StartPiiEntitiesDetectionJobResponse (Core.Maybe Core.Text)
+startPiiEntitiesDetectionJobResponse_jobId :: Lens.Lens' StartPiiEntitiesDetectionJobResponse (Prelude.Maybe Prelude.Text)
 startPiiEntitiesDetectionJobResponse_jobId = Lens.lens (\StartPiiEntitiesDetectionJobResponse' {jobId} -> jobId) (\s@StartPiiEntitiesDetectionJobResponse' {} a -> s {jobId = a} :: StartPiiEntitiesDetectionJobResponse)
 
 -- | The response's http status code.
-startPiiEntitiesDetectionJobResponse_httpStatus :: Lens.Lens' StartPiiEntitiesDetectionJobResponse Core.Int
+startPiiEntitiesDetectionJobResponse_httpStatus :: Lens.Lens' StartPiiEntitiesDetectionJobResponse Prelude.Int
 startPiiEntitiesDetectionJobResponse_httpStatus = Lens.lens (\StartPiiEntitiesDetectionJobResponse' {httpStatus} -> httpStatus) (\s@StartPiiEntitiesDetectionJobResponse' {} a -> s {httpStatus = a} :: StartPiiEntitiesDetectionJobResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     StartPiiEntitiesDetectionJobResponse

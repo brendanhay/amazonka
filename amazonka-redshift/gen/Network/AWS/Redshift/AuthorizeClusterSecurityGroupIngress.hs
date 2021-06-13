@@ -65,6 +65,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -74,19 +75,19 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAuthorizeClusterSecurityGroupIngress' smart constructor.
 data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress'
   { -- | The IP range to be added the Amazon Redshift security group.
-    cidrip :: Core.Maybe Core.Text,
+    cidrip :: Prelude.Maybe Prelude.Text,
     -- | The AWS account number of the owner of the security group specified by
     -- the /EC2SecurityGroupName/ parameter. The AWS Access Key ID is not an
     -- acceptable value.
     --
     -- Example: @111122223333@
-    eC2SecurityGroupOwnerId :: Core.Maybe Core.Text,
+    eC2SecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
     -- | The EC2 security group to be added the Amazon Redshift security group.
-    eC2SecurityGroupName :: Core.Maybe Core.Text,
+    eC2SecurityGroupName :: Prelude.Maybe Prelude.Text,
     -- | The name of the security group to which the ingress rule is added.
-    clusterSecurityGroupName :: Core.Text
+    clusterSecurityGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AuthorizeClusterSecurityGroupIngress' with all optional fields omitted.
@@ -109,22 +110,23 @@ data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
 -- 'clusterSecurityGroupName', 'authorizeClusterSecurityGroupIngress_clusterSecurityGroupName' - The name of the security group to which the ingress rule is added.
 newAuthorizeClusterSecurityGroupIngress ::
   -- | 'clusterSecurityGroupName'
-  Core.Text ->
+  Prelude.Text ->
   AuthorizeClusterSecurityGroupIngress
 newAuthorizeClusterSecurityGroupIngress
   pClusterSecurityGroupName_ =
     AuthorizeClusterSecurityGroupIngress'
       { cidrip =
-          Core.Nothing,
+          Prelude.Nothing,
         eC2SecurityGroupOwnerId =
-          Core.Nothing,
-        eC2SecurityGroupName = Core.Nothing,
+          Prelude.Nothing,
+        eC2SecurityGroupName =
+          Prelude.Nothing,
         clusterSecurityGroupName =
           pClusterSecurityGroupName_
       }
 
 -- | The IP range to be added the Amazon Redshift security group.
-authorizeClusterSecurityGroupIngress_cidrip :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Core.Maybe Core.Text)
+authorizeClusterSecurityGroupIngress_cidrip :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 authorizeClusterSecurityGroupIngress_cidrip = Lens.lens (\AuthorizeClusterSecurityGroupIngress' {cidrip} -> cidrip) (\s@AuthorizeClusterSecurityGroupIngress' {} a -> s {cidrip = a} :: AuthorizeClusterSecurityGroupIngress)
 
 -- | The AWS account number of the owner of the security group specified by
@@ -132,15 +134,15 @@ authorizeClusterSecurityGroupIngress_cidrip = Lens.lens (\AuthorizeClusterSecuri
 -- acceptable value.
 --
 -- Example: @111122223333@
-authorizeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Core.Maybe Core.Text)
+authorizeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 authorizeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId = Lens.lens (\AuthorizeClusterSecurityGroupIngress' {eC2SecurityGroupOwnerId} -> eC2SecurityGroupOwnerId) (\s@AuthorizeClusterSecurityGroupIngress' {} a -> s {eC2SecurityGroupOwnerId = a} :: AuthorizeClusterSecurityGroupIngress)
 
 -- | The EC2 security group to be added the Amazon Redshift security group.
-authorizeClusterSecurityGroupIngress_eC2SecurityGroupName :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Core.Maybe Core.Text)
+authorizeClusterSecurityGroupIngress_eC2SecurityGroupName :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 authorizeClusterSecurityGroupIngress_eC2SecurityGroupName = Lens.lens (\AuthorizeClusterSecurityGroupIngress' {eC2SecurityGroupName} -> eC2SecurityGroupName) (\s@AuthorizeClusterSecurityGroupIngress' {} a -> s {eC2SecurityGroupName = a} :: AuthorizeClusterSecurityGroupIngress)
 
 -- | The name of the security group to which the ingress rule is added.
-authorizeClusterSecurityGroupIngress_clusterSecurityGroupName :: Lens.Lens' AuthorizeClusterSecurityGroupIngress Core.Text
+authorizeClusterSecurityGroupIngress_clusterSecurityGroupName :: Lens.Lens' AuthorizeClusterSecurityGroupIngress Prelude.Text
 authorizeClusterSecurityGroupIngress_clusterSecurityGroupName = Lens.lens (\AuthorizeClusterSecurityGroupIngress' {clusterSecurityGroupName} -> clusterSecurityGroupName) (\s@AuthorizeClusterSecurityGroupIngress' {} a -> s {clusterSecurityGroupName = a} :: AuthorizeClusterSecurityGroupIngress)
 
 instance
@@ -156,41 +158,42 @@ instance
       "AuthorizeClusterSecurityGroupIngressResult"
       ( \s h x ->
           AuthorizeClusterSecurityGroupIngressResponse'
-            Core.<$> (x Core..@? "ClusterSecurityGroup")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ClusterSecurityGroup")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AuthorizeClusterSecurityGroupIngress
 
 instance
-  Core.NFData
+  Prelude.NFData
     AuthorizeClusterSecurityGroupIngress
 
 instance
   Core.ToHeaders
     AuthorizeClusterSecurityGroupIngress
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     AuthorizeClusterSecurityGroupIngress
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     AuthorizeClusterSecurityGroupIngress
   where
   toQuery AuthorizeClusterSecurityGroupIngress' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "AuthorizeClusterSecurityGroupIngress" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "CIDRIP" Core.=: cidrip,
         "EC2SecurityGroupOwnerId"
           Core.=: eC2SecurityGroupOwnerId,
@@ -201,11 +204,11 @@ instance
 
 -- | /See:/ 'newAuthorizeClusterSecurityGroupIngressResponse' smart constructor.
 data AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse'
-  { clusterSecurityGroup :: Core.Maybe ClusterSecurityGroup,
+  { clusterSecurityGroup :: Prelude.Maybe ClusterSecurityGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AuthorizeClusterSecurityGroupIngressResponse' with all optional fields omitted.
@@ -220,24 +223,24 @@ data AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGrou
 -- 'httpStatus', 'authorizeClusterSecurityGroupIngressResponse_httpStatus' - The response's http status code.
 newAuthorizeClusterSecurityGroupIngressResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AuthorizeClusterSecurityGroupIngressResponse
 newAuthorizeClusterSecurityGroupIngressResponse
   pHttpStatus_ =
     AuthorizeClusterSecurityGroupIngressResponse'
       { clusterSecurityGroup =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-authorizeClusterSecurityGroupIngressResponse_clusterSecurityGroup :: Lens.Lens' AuthorizeClusterSecurityGroupIngressResponse (Core.Maybe ClusterSecurityGroup)
+authorizeClusterSecurityGroupIngressResponse_clusterSecurityGroup :: Lens.Lens' AuthorizeClusterSecurityGroupIngressResponse (Prelude.Maybe ClusterSecurityGroup)
 authorizeClusterSecurityGroupIngressResponse_clusterSecurityGroup = Lens.lens (\AuthorizeClusterSecurityGroupIngressResponse' {clusterSecurityGroup} -> clusterSecurityGroup) (\s@AuthorizeClusterSecurityGroupIngressResponse' {} a -> s {clusterSecurityGroup = a} :: AuthorizeClusterSecurityGroupIngressResponse)
 
 -- | The response's http status code.
-authorizeClusterSecurityGroupIngressResponse_httpStatus :: Lens.Lens' AuthorizeClusterSecurityGroupIngressResponse Core.Int
+authorizeClusterSecurityGroupIngressResponse_httpStatus :: Lens.Lens' AuthorizeClusterSecurityGroupIngressResponse Prelude.Int
 authorizeClusterSecurityGroupIngressResponse_httpStatus = Lens.lens (\AuthorizeClusterSecurityGroupIngressResponse' {httpStatus} -> httpStatus) (\s@AuthorizeClusterSecurityGroupIngressResponse' {} a -> s {httpStatus = a} :: AuthorizeClusterSecurityGroupIngressResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AuthorizeClusterSecurityGroupIngressResponse

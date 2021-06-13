@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.Scte35DescriptorSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.Scte35SegmentationDescriptor
+import qualified Network.AWS.Prelude as Prelude
 
 -- | SCTE-35 Descriptor settings.
 --
@@ -30,7 +31,7 @@ data Scte35DescriptorSettings = Scte35DescriptorSettings'
   { -- | SCTE-35 Segmentation Descriptor.
     segmentationDescriptorScte35DescriptorSettings :: Scte35SegmentationDescriptor
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Scte35DescriptorSettings' with all optional fields omitted.
@@ -62,20 +63,20 @@ instance Core.FromJSON Scte35DescriptorSettings where
       "Scte35DescriptorSettings"
       ( \x ->
           Scte35DescriptorSettings'
-            Core.<$> ( x
-                         Core..: "segmentationDescriptorScte35DescriptorSettings"
-                     )
+            Prelude.<$> ( x
+                            Core..: "segmentationDescriptorScte35DescriptorSettings"
+                        )
       )
 
-instance Core.Hashable Scte35DescriptorSettings
+instance Prelude.Hashable Scte35DescriptorSettings
 
-instance Core.NFData Scte35DescriptorSettings
+instance Prelude.NFData Scte35DescriptorSettings
 
 instance Core.ToJSON Scte35DescriptorSettings where
   toJSON Scte35DescriptorSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "segmentationDescriptorScte35DescriptorSettings"
                   Core..= segmentationDescriptorScte35DescriptorSettings
               )

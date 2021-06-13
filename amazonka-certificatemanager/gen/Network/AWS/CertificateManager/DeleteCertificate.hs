@@ -46,6 +46,7 @@ where
 import Network.AWS.CertificateManager.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +59,9 @@ data DeleteCertificate = DeleteCertificate'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-    certificateArn :: Core.Text
+    certificateArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCertificate' with all optional fields omitted.
@@ -79,7 +80,7 @@ data DeleteCertificate = DeleteCertificate'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
 newDeleteCertificate ::
   -- | 'certificateArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteCertificate
 newDeleteCertificate pCertificateArn_ =
   DeleteCertificate'
@@ -94,7 +95,7 @@ newDeleteCertificate pCertificateArn_ =
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-deleteCertificate_certificateArn :: Lens.Lens' DeleteCertificate Core.Text
+deleteCertificate_certificateArn :: Lens.Lens' DeleteCertificate Prelude.Text
 deleteCertificate_certificateArn = Lens.lens (\DeleteCertificate' {certificateArn} -> certificateArn) (\s@DeleteCertificate' {} a -> s {certificateArn = a} :: DeleteCertificate)
 
 instance Core.AWSRequest DeleteCertificate where
@@ -105,43 +106,45 @@ instance Core.AWSRequest DeleteCertificate where
   response =
     Response.receiveNull DeleteCertificateResponse'
 
-instance Core.Hashable DeleteCertificate
+instance Prelude.Hashable DeleteCertificate
 
-instance Core.NFData DeleteCertificate
+instance Prelude.NFData DeleteCertificate
 
 instance Core.ToHeaders DeleteCertificate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CertificateManager.DeleteCertificate" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteCertificate where
   toJSON DeleteCertificate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("CertificateArn" Core..= certificateArn)
           ]
       )
 
 instance Core.ToPath DeleteCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteCertificate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCertificateResponse' smart constructor.
 data DeleteCertificateResponse = DeleteCertificateResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCertificateResponse' with all optional fields omitted.
@@ -152,4 +155,4 @@ newDeleteCertificateResponse ::
 newDeleteCertificateResponse =
   DeleteCertificateResponse'
 
-instance Core.NFData DeleteCertificateResponse
+instance Prelude.NFData DeleteCertificateResponse

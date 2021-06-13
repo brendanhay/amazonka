@@ -21,6 +21,7 @@ module Network.AWS.Support.Types.AttachmentDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The file name and ID of an attachment to a case communication. You can
 -- use the ID to retrieve the attachment with the DescribeAttachment
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAttachmentDetails' smart constructor.
 data AttachmentDetails = AttachmentDetails'
   { -- | The ID of the attachment.
-    attachmentId :: Core.Maybe Core.Text,
+    attachmentId :: Prelude.Maybe Prelude.Text,
     -- | The file name of the attachment.
-    fileName :: Core.Maybe Core.Text
+    fileName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachmentDetails' with all optional fields omitted.
@@ -50,16 +51,16 @@ newAttachmentDetails ::
   AttachmentDetails
 newAttachmentDetails =
   AttachmentDetails'
-    { attachmentId = Core.Nothing,
-      fileName = Core.Nothing
+    { attachmentId = Prelude.Nothing,
+      fileName = Prelude.Nothing
     }
 
 -- | The ID of the attachment.
-attachmentDetails_attachmentId :: Lens.Lens' AttachmentDetails (Core.Maybe Core.Text)
+attachmentDetails_attachmentId :: Lens.Lens' AttachmentDetails (Prelude.Maybe Prelude.Text)
 attachmentDetails_attachmentId = Lens.lens (\AttachmentDetails' {attachmentId} -> attachmentId) (\s@AttachmentDetails' {} a -> s {attachmentId = a} :: AttachmentDetails)
 
 -- | The file name of the attachment.
-attachmentDetails_fileName :: Lens.Lens' AttachmentDetails (Core.Maybe Core.Text)
+attachmentDetails_fileName :: Lens.Lens' AttachmentDetails (Prelude.Maybe Prelude.Text)
 attachmentDetails_fileName = Lens.lens (\AttachmentDetails' {fileName} -> fileName) (\s@AttachmentDetails' {} a -> s {fileName = a} :: AttachmentDetails)
 
 instance Core.FromJSON AttachmentDetails where
@@ -68,10 +69,10 @@ instance Core.FromJSON AttachmentDetails where
       "AttachmentDetails"
       ( \x ->
           AttachmentDetails'
-            Core.<$> (x Core..:? "attachmentId")
-            Core.<*> (x Core..:? "fileName")
+            Prelude.<$> (x Core..:? "attachmentId")
+            Prelude.<*> (x Core..:? "fileName")
       )
 
-instance Core.Hashable AttachmentDetails
+instance Prelude.Hashable AttachmentDetails
 
-instance Core.NFData AttachmentDetails
+instance Prelude.NFData AttachmentDetails

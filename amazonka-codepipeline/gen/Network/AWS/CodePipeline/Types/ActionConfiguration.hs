@@ -21,15 +21,16 @@ module Network.AWS.CodePipeline.Types.ActionConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about an action configuration.
 --
 -- /See:/ 'newActionConfiguration' smart constructor.
 data ActionConfiguration = ActionConfiguration'
   { -- | The configuration data for the action.
-    configuration :: Core.Maybe (Core.HashMap Core.Text Core.Text)
+    configuration :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActionConfiguration' with all optional fields omitted.
@@ -43,11 +44,14 @@ data ActionConfiguration = ActionConfiguration'
 newActionConfiguration ::
   ActionConfiguration
 newActionConfiguration =
-  ActionConfiguration' {configuration = Core.Nothing}
+  ActionConfiguration'
+    { configuration =
+        Prelude.Nothing
+    }
 
 -- | The configuration data for the action.
-actionConfiguration_configuration :: Lens.Lens' ActionConfiguration (Core.Maybe (Core.HashMap Core.Text Core.Text))
-actionConfiguration_configuration = Lens.lens (\ActionConfiguration' {configuration} -> configuration) (\s@ActionConfiguration' {} a -> s {configuration = a} :: ActionConfiguration) Core.. Lens.mapping Lens._Coerce
+actionConfiguration_configuration :: Lens.Lens' ActionConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+actionConfiguration_configuration = Lens.lens (\ActionConfiguration' {configuration} -> configuration) (\s@ActionConfiguration' {} a -> s {configuration = a} :: ActionConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ActionConfiguration where
   parseJSON =
@@ -55,9 +59,9 @@ instance Core.FromJSON ActionConfiguration where
       "ActionConfiguration"
       ( \x ->
           ActionConfiguration'
-            Core.<$> (x Core..:? "configuration" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "configuration" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ActionConfiguration
+instance Prelude.Hashable ActionConfiguration
 
-instance Core.NFData ActionConfiguration
+instance Prelude.NFData ActionConfiguration

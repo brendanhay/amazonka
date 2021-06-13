@@ -21,15 +21,16 @@ module Network.AWS.Pinpoint.Types.SegmentCondition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a segment to associate with an activity in a journey.
 --
 -- /See:/ 'newSegmentCondition' smart constructor.
 data SegmentCondition = SegmentCondition'
   { -- | The unique identifier for the segment to associate with the activity.
-    segmentId :: Core.Text
+    segmentId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SegmentCondition' with all optional fields omitted.
@@ -42,13 +43,13 @@ data SegmentCondition = SegmentCondition'
 -- 'segmentId', 'segmentCondition_segmentId' - The unique identifier for the segment to associate with the activity.
 newSegmentCondition ::
   -- | 'segmentId'
-  Core.Text ->
+  Prelude.Text ->
   SegmentCondition
 newSegmentCondition pSegmentId_ =
   SegmentCondition' {segmentId = pSegmentId_}
 
 -- | The unique identifier for the segment to associate with the activity.
-segmentCondition_segmentId :: Lens.Lens' SegmentCondition Core.Text
+segmentCondition_segmentId :: Lens.Lens' SegmentCondition Prelude.Text
 segmentCondition_segmentId = Lens.lens (\SegmentCondition' {segmentId} -> segmentId) (\s@SegmentCondition' {} a -> s {segmentId = a} :: SegmentCondition)
 
 instance Core.FromJSON SegmentCondition where
@@ -56,16 +57,17 @@ instance Core.FromJSON SegmentCondition where
     Core.withObject
       "SegmentCondition"
       ( \x ->
-          SegmentCondition' Core.<$> (x Core..: "SegmentId")
+          SegmentCondition'
+            Prelude.<$> (x Core..: "SegmentId")
       )
 
-instance Core.Hashable SegmentCondition
+instance Prelude.Hashable SegmentCondition
 
-instance Core.NFData SegmentCondition
+instance Prelude.NFData SegmentCondition
 
 instance Core.ToJSON SegmentCondition where
   toJSON SegmentCondition' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("SegmentId" Core..= segmentId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("SegmentId" Core..= segmentId)]
       )

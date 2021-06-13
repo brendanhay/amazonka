@@ -45,13 +45,14 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreatePullRequest' smart constructor.
 data CreatePullRequest = CreatePullRequest'
   { -- | A description of the pull request.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | A unique, client-generated idempotency token that, when provided in a
     -- request, ensures the request cannot be repeated with a changed
     -- parameter. If a request is received with the same parameters and a token
@@ -60,17 +61,17 @@ data CreatePullRequest = CreatePullRequest'
     --
     -- The AWS SDKs prepopulate client request tokens. If you are using an AWS
     -- SDK, an idempotency token is created for you.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The title of the pull request. This title is used to identify the pull
     -- request to other users in the repository.
-    title :: Core.Text,
+    title :: Prelude.Text,
     -- | The targets for the pull request, including the source of the code to be
     -- reviewed (the source branch) and the destination where the creator of
     -- the pull request intends the code to be merged after the pull request is
     -- closed (the destination branch).
     targets :: [Target]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePullRequest' with all optional fields omitted.
@@ -100,18 +101,18 @@ data CreatePullRequest = CreatePullRequest'
 -- closed (the destination branch).
 newCreatePullRequest ::
   -- | 'title'
-  Core.Text ->
+  Prelude.Text ->
   CreatePullRequest
 newCreatePullRequest pTitle_ =
   CreatePullRequest'
-    { description = Core.Nothing,
-      clientRequestToken = Core.Nothing,
+    { description = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
       title = pTitle_,
-      targets = Core.mempty
+      targets = Prelude.mempty
     }
 
 -- | A description of the pull request.
-createPullRequest_description :: Lens.Lens' CreatePullRequest (Core.Maybe Core.Text)
+createPullRequest_description :: Lens.Lens' CreatePullRequest (Prelude.Maybe Prelude.Text)
 createPullRequest_description = Lens.lens (\CreatePullRequest' {description} -> description) (\s@CreatePullRequest' {} a -> s {description = a} :: CreatePullRequest)
 
 -- | A unique, client-generated idempotency token that, when provided in a
@@ -122,12 +123,12 @@ createPullRequest_description = Lens.lens (\CreatePullRequest' {description} -> 
 --
 -- The AWS SDKs prepopulate client request tokens. If you are using an AWS
 -- SDK, an idempotency token is created for you.
-createPullRequest_clientRequestToken :: Lens.Lens' CreatePullRequest (Core.Maybe Core.Text)
+createPullRequest_clientRequestToken :: Lens.Lens' CreatePullRequest (Prelude.Maybe Prelude.Text)
 createPullRequest_clientRequestToken = Lens.lens (\CreatePullRequest' {clientRequestToken} -> clientRequestToken) (\s@CreatePullRequest' {} a -> s {clientRequestToken = a} :: CreatePullRequest)
 
 -- | The title of the pull request. This title is used to identify the pull
 -- request to other users in the repository.
-createPullRequest_title :: Lens.Lens' CreatePullRequest Core.Text
+createPullRequest_title :: Lens.Lens' CreatePullRequest Prelude.Text
 createPullRequest_title = Lens.lens (\CreatePullRequest' {title} -> title) (\s@CreatePullRequest' {} a -> s {title = a} :: CreatePullRequest)
 
 -- | The targets for the pull request, including the source of the code to be
@@ -135,7 +136,7 @@ createPullRequest_title = Lens.lens (\CreatePullRequest' {title} -> title) (\s@C
 -- the pull request intends the code to be merged after the pull request is
 -- closed (the destination branch).
 createPullRequest_targets :: Lens.Lens' CreatePullRequest [Target]
-createPullRequest_targets = Lens.lens (\CreatePullRequest' {targets} -> targets) (\s@CreatePullRequest' {} a -> s {targets = a} :: CreatePullRequest) Core.. Lens._Coerce
+createPullRequest_targets = Lens.lens (\CreatePullRequest' {targets} -> targets) (\s@CreatePullRequest' {} a -> s {targets = a} :: CreatePullRequest) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreatePullRequest where
   type
@@ -146,53 +147,55 @@ instance Core.AWSRequest CreatePullRequest where
     Response.receiveJSON
       ( \s h x ->
           CreatePullRequestResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "pullRequest")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "pullRequest")
       )
 
-instance Core.Hashable CreatePullRequest
+instance Prelude.Hashable CreatePullRequest
 
-instance Core.NFData CreatePullRequest
+instance Prelude.NFData CreatePullRequest
 
 instance Core.ToHeaders CreatePullRequest where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.CreatePullRequest" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreatePullRequest where
   toJSON CreatePullRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("description" Core..=) Core.<$> description,
+      ( Prelude.catMaybes
+          [ ("description" Core..=) Prelude.<$> description,
             ("clientRequestToken" Core..=)
-              Core.<$> clientRequestToken,
-            Core.Just ("title" Core..= title),
-            Core.Just ("targets" Core..= targets)
+              Prelude.<$> clientRequestToken,
+            Prelude.Just ("title" Core..= title),
+            Prelude.Just ("targets" Core..= targets)
           ]
       )
 
 instance Core.ToPath CreatePullRequest where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreatePullRequest where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePullRequestResponse' smart constructor.
 data CreatePullRequestResponse = CreatePullRequestResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Information about the newly created pull request.
     pullRequest :: PullRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePullRequestResponse' with all optional fields omitted.
@@ -207,7 +210,7 @@ data CreatePullRequestResponse = CreatePullRequestResponse'
 -- 'pullRequest', 'createPullRequestResponse_pullRequest' - Information about the newly created pull request.
 newCreatePullRequestResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'pullRequest'
   PullRequest ->
   CreatePullRequestResponse
@@ -221,11 +224,11 @@ newCreatePullRequestResponse
       }
 
 -- | The response's http status code.
-createPullRequestResponse_httpStatus :: Lens.Lens' CreatePullRequestResponse Core.Int
+createPullRequestResponse_httpStatus :: Lens.Lens' CreatePullRequestResponse Prelude.Int
 createPullRequestResponse_httpStatus = Lens.lens (\CreatePullRequestResponse' {httpStatus} -> httpStatus) (\s@CreatePullRequestResponse' {} a -> s {httpStatus = a} :: CreatePullRequestResponse)
 
 -- | Information about the newly created pull request.
 createPullRequestResponse_pullRequest :: Lens.Lens' CreatePullRequestResponse PullRequest
 createPullRequestResponse_pullRequest = Lens.lens (\CreatePullRequestResponse' {pullRequest} -> pullRequest) (\s@CreatePullRequestResponse' {} a -> s {pullRequest = a} :: CreatePullRequestResponse)
 
-instance Core.NFData CreatePullRequestResponse
+instance Prelude.NFData CreatePullRequestResponse

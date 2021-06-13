@@ -22,6 +22,7 @@ module Network.AWS.GameLift.Types.IpPermission where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.IpProtocol
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A range of IP addresses and port settings that allow inbound traffic to
 -- connect to server processes on an Amazon GameLift hosting resource. New
@@ -35,18 +36,18 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newIpPermission' smart constructor.
 data IpPermission = IpPermission'
   { -- | A starting value for a range of allowed port numbers.
-    fromPort :: Core.Natural,
+    fromPort :: Prelude.Natural,
     -- | An ending value for a range of allowed port numbers. Port numbers are
     -- end-inclusive. This value must be higher than @FromPort@.
-    toPort :: Core.Natural,
+    toPort :: Prelude.Natural,
     -- | A range of allowed IP addresses. This value must be expressed in CIDR
     -- notation. Example: \"@000.000.000.000\/[subnet mask]@\" or optionally
     -- the shortened version \"@0.0.0.0\/[subnet mask]@\".
-    ipRange :: Core.Text,
+    ipRange :: Prelude.Text,
     -- | The network communication protocol used by the fleet.
     protocol :: IpProtocol
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IpPermission' with all optional fields omitted.
@@ -68,11 +69,11 @@ data IpPermission = IpPermission'
 -- 'protocol', 'ipPermission_protocol' - The network communication protocol used by the fleet.
 newIpPermission ::
   -- | 'fromPort'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'toPort'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'ipRange'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'protocol'
   IpProtocol ->
   IpPermission
@@ -89,18 +90,18 @@ newIpPermission
       }
 
 -- | A starting value for a range of allowed port numbers.
-ipPermission_fromPort :: Lens.Lens' IpPermission Core.Natural
+ipPermission_fromPort :: Lens.Lens' IpPermission Prelude.Natural
 ipPermission_fromPort = Lens.lens (\IpPermission' {fromPort} -> fromPort) (\s@IpPermission' {} a -> s {fromPort = a} :: IpPermission)
 
 -- | An ending value for a range of allowed port numbers. Port numbers are
 -- end-inclusive. This value must be higher than @FromPort@.
-ipPermission_toPort :: Lens.Lens' IpPermission Core.Natural
+ipPermission_toPort :: Lens.Lens' IpPermission Prelude.Natural
 ipPermission_toPort = Lens.lens (\IpPermission' {toPort} -> toPort) (\s@IpPermission' {} a -> s {toPort = a} :: IpPermission)
 
 -- | A range of allowed IP addresses. This value must be expressed in CIDR
 -- notation. Example: \"@000.000.000.000\/[subnet mask]@\" or optionally
 -- the shortened version \"@0.0.0.0\/[subnet mask]@\".
-ipPermission_ipRange :: Lens.Lens' IpPermission Core.Text
+ipPermission_ipRange :: Lens.Lens' IpPermission Prelude.Text
 ipPermission_ipRange = Lens.lens (\IpPermission' {ipRange} -> ipRange) (\s@IpPermission' {} a -> s {ipRange = a} :: IpPermission)
 
 -- | The network communication protocol used by the fleet.
@@ -113,23 +114,23 @@ instance Core.FromJSON IpPermission where
       "IpPermission"
       ( \x ->
           IpPermission'
-            Core.<$> (x Core..: "FromPort")
-            Core.<*> (x Core..: "ToPort")
-            Core.<*> (x Core..: "IpRange")
-            Core.<*> (x Core..: "Protocol")
+            Prelude.<$> (x Core..: "FromPort")
+            Prelude.<*> (x Core..: "ToPort")
+            Prelude.<*> (x Core..: "IpRange")
+            Prelude.<*> (x Core..: "Protocol")
       )
 
-instance Core.Hashable IpPermission
+instance Prelude.Hashable IpPermission
 
-instance Core.NFData IpPermission
+instance Prelude.NFData IpPermission
 
 instance Core.ToJSON IpPermission where
   toJSON IpPermission' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("FromPort" Core..= fromPort),
-            Core.Just ("ToPort" Core..= toPort),
-            Core.Just ("IpRange" Core..= ipRange),
-            Core.Just ("Protocol" Core..= protocol)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("FromPort" Core..= fromPort),
+            Prelude.Just ("ToPort" Core..= toPort),
+            Prelude.Just ("IpRange" Core..= ipRange),
+            Prelude.Just ("Protocol" Core..= protocol)
           ]
       )

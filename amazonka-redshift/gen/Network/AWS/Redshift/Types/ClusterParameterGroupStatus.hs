@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.ClusterParameterGroupStatus where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.ClusterParameterStatus
 
@@ -33,13 +34,13 @@ data ClusterParameterGroupStatus = ClusterParameterGroupStatus'
     -- For more information about parameters and parameter groups, go to
     -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
     -- in the /Amazon Redshift Cluster Management Guide/.
-    clusterParameterStatusList :: Core.Maybe [ClusterParameterStatus],
+    clusterParameterStatusList :: Prelude.Maybe [ClusterParameterStatus],
     -- | The name of the cluster parameter group.
-    parameterGroupName :: Core.Maybe Core.Text,
+    parameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The status of parameter updates.
-    parameterApplyStatus :: Core.Maybe Core.Text
+    parameterApplyStatus :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClusterParameterGroupStatus' with all optional fields omitted.
@@ -63,9 +64,9 @@ newClusterParameterGroupStatus ::
 newClusterParameterGroupStatus =
   ClusterParameterGroupStatus'
     { clusterParameterStatusList =
-        Core.Nothing,
-      parameterGroupName = Core.Nothing,
-      parameterApplyStatus = Core.Nothing
+        Prelude.Nothing,
+      parameterGroupName = Prelude.Nothing,
+      parameterApplyStatus = Prelude.Nothing
     }
 
 -- | The list of parameter statuses.
@@ -73,27 +74,27 @@ newClusterParameterGroupStatus =
 -- For more information about parameters and parameter groups, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
-clusterParameterGroupStatus_clusterParameterStatusList :: Lens.Lens' ClusterParameterGroupStatus (Core.Maybe [ClusterParameterStatus])
-clusterParameterGroupStatus_clusterParameterStatusList = Lens.lens (\ClusterParameterGroupStatus' {clusterParameterStatusList} -> clusterParameterStatusList) (\s@ClusterParameterGroupStatus' {} a -> s {clusterParameterStatusList = a} :: ClusterParameterGroupStatus) Core.. Lens.mapping Lens._Coerce
+clusterParameterGroupStatus_clusterParameterStatusList :: Lens.Lens' ClusterParameterGroupStatus (Prelude.Maybe [ClusterParameterStatus])
+clusterParameterGroupStatus_clusterParameterStatusList = Lens.lens (\ClusterParameterGroupStatus' {clusterParameterStatusList} -> clusterParameterStatusList) (\s@ClusterParameterGroupStatus' {} a -> s {clusterParameterStatusList = a} :: ClusterParameterGroupStatus) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the cluster parameter group.
-clusterParameterGroupStatus_parameterGroupName :: Lens.Lens' ClusterParameterGroupStatus (Core.Maybe Core.Text)
+clusterParameterGroupStatus_parameterGroupName :: Lens.Lens' ClusterParameterGroupStatus (Prelude.Maybe Prelude.Text)
 clusterParameterGroupStatus_parameterGroupName = Lens.lens (\ClusterParameterGroupStatus' {parameterGroupName} -> parameterGroupName) (\s@ClusterParameterGroupStatus' {} a -> s {parameterGroupName = a} :: ClusterParameterGroupStatus)
 
 -- | The status of parameter updates.
-clusterParameterGroupStatus_parameterApplyStatus :: Lens.Lens' ClusterParameterGroupStatus (Core.Maybe Core.Text)
+clusterParameterGroupStatus_parameterApplyStatus :: Lens.Lens' ClusterParameterGroupStatus (Prelude.Maybe Prelude.Text)
 clusterParameterGroupStatus_parameterApplyStatus = Lens.lens (\ClusterParameterGroupStatus' {parameterApplyStatus} -> parameterApplyStatus) (\s@ClusterParameterGroupStatus' {} a -> s {parameterApplyStatus = a} :: ClusterParameterGroupStatus)
 
 instance Core.FromXML ClusterParameterGroupStatus where
   parseXML x =
     ClusterParameterGroupStatus'
-      Core.<$> ( x Core..@? "ClusterParameterStatusList"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "ParameterGroupName")
-      Core.<*> (x Core..@? "ParameterApplyStatus")
+      Prelude.<$> ( x Core..@? "ClusterParameterStatusList"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "ParameterGroupName")
+      Prelude.<*> (x Core..@? "ParameterApplyStatus")
 
-instance Core.Hashable ClusterParameterGroupStatus
+instance Prelude.Hashable ClusterParameterGroupStatus
 
-instance Core.NFData ClusterParameterGroupStatus
+instance Prelude.NFData ClusterParameterGroupStatus

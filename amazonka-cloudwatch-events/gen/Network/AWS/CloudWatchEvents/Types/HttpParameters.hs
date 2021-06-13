@@ -21,6 +21,7 @@ module Network.AWS.CloudWatchEvents.Types.HttpParameters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | These are custom parameter to be used when the target is an API Gateway
 -- REST APIs or EventBridge ApiDestinations. In the latter case, these are
@@ -31,15 +32,15 @@ import qualified Network.AWS.Lens as Lens
 data HttpParameters = HttpParameters'
   { -- | The query string keys\/values that need to be sent as part of request
     -- invoking the API Gateway REST API or EventBridge ApiDestination.
-    queryStringParameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    queryStringParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The path parameter values to be used to populate API Gateway REST API or
     -- EventBridge ApiDestination path wildcards (\"*\").
-    pathParameterValues :: Core.Maybe [Core.Text],
+    pathParameterValues :: Prelude.Maybe [Prelude.Text],
     -- | The headers that need to be sent as part of request invoking the API
     -- Gateway REST API or EventBridge ApiDestination.
-    headerParameters :: Core.Maybe (Core.HashMap Core.Text Core.Text)
+    headerParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HttpParameters' with all optional fields omitted.
@@ -62,25 +63,25 @@ newHttpParameters ::
 newHttpParameters =
   HttpParameters'
     { queryStringParameters =
-        Core.Nothing,
-      pathParameterValues = Core.Nothing,
-      headerParameters = Core.Nothing
+        Prelude.Nothing,
+      pathParameterValues = Prelude.Nothing,
+      headerParameters = Prelude.Nothing
     }
 
 -- | The query string keys\/values that need to be sent as part of request
 -- invoking the API Gateway REST API or EventBridge ApiDestination.
-httpParameters_queryStringParameters :: Lens.Lens' HttpParameters (Core.Maybe (Core.HashMap Core.Text Core.Text))
-httpParameters_queryStringParameters = Lens.lens (\HttpParameters' {queryStringParameters} -> queryStringParameters) (\s@HttpParameters' {} a -> s {queryStringParameters = a} :: HttpParameters) Core.. Lens.mapping Lens._Coerce
+httpParameters_queryStringParameters :: Lens.Lens' HttpParameters (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+httpParameters_queryStringParameters = Lens.lens (\HttpParameters' {queryStringParameters} -> queryStringParameters) (\s@HttpParameters' {} a -> s {queryStringParameters = a} :: HttpParameters) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The path parameter values to be used to populate API Gateway REST API or
 -- EventBridge ApiDestination path wildcards (\"*\").
-httpParameters_pathParameterValues :: Lens.Lens' HttpParameters (Core.Maybe [Core.Text])
-httpParameters_pathParameterValues = Lens.lens (\HttpParameters' {pathParameterValues} -> pathParameterValues) (\s@HttpParameters' {} a -> s {pathParameterValues = a} :: HttpParameters) Core.. Lens.mapping Lens._Coerce
+httpParameters_pathParameterValues :: Lens.Lens' HttpParameters (Prelude.Maybe [Prelude.Text])
+httpParameters_pathParameterValues = Lens.lens (\HttpParameters' {pathParameterValues} -> pathParameterValues) (\s@HttpParameters' {} a -> s {pathParameterValues = a} :: HttpParameters) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The headers that need to be sent as part of request invoking the API
 -- Gateway REST API or EventBridge ApiDestination.
-httpParameters_headerParameters :: Lens.Lens' HttpParameters (Core.Maybe (Core.HashMap Core.Text Core.Text))
-httpParameters_headerParameters = Lens.lens (\HttpParameters' {headerParameters} -> headerParameters) (\s@HttpParameters' {} a -> s {headerParameters = a} :: HttpParameters) Core.. Lens.mapping Lens._Coerce
+httpParameters_headerParameters :: Lens.Lens' HttpParameters (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+httpParameters_headerParameters = Lens.lens (\HttpParameters' {headerParameters} -> headerParameters) (\s@HttpParameters' {} a -> s {headerParameters = a} :: HttpParameters) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON HttpParameters where
   parseJSON =
@@ -88,28 +89,30 @@ instance Core.FromJSON HttpParameters where
       "HttpParameters"
       ( \x ->
           HttpParameters'
-            Core.<$> ( x Core..:? "QueryStringParameters"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> ( x Core..:? "PathParameterValues"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "HeaderParameters" Core..!= Core.mempty)
+            Prelude.<$> ( x Core..:? "QueryStringParameters"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "PathParameterValues"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "HeaderParameters"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable HttpParameters
+instance Prelude.Hashable HttpParameters
 
-instance Core.NFData HttpParameters
+instance Prelude.NFData HttpParameters
 
 instance Core.ToJSON HttpParameters where
   toJSON HttpParameters' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("QueryStringParameters" Core..=)
-              Core.<$> queryStringParameters,
+              Prelude.<$> queryStringParameters,
             ("PathParameterValues" Core..=)
-              Core.<$> pathParameterValues,
+              Prelude.<$> pathParameterValues,
             ("HeaderParameters" Core..=)
-              Core.<$> headerParameters
+              Prelude.<$> headerParameters
           ]
       )

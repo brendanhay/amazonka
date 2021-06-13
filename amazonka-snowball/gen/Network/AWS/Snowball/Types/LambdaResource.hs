@@ -21,6 +21,7 @@ module Network.AWS.Snowball.Types.LambdaResource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Snowball.Types.EventTriggerDefinition
 
 -- | Identifies
@@ -29,13 +30,13 @@ import Network.AWS.Snowball.Types.EventTriggerDefinition
 data LambdaResource = LambdaResource'
   { -- | The array of ARNs for S3Resource objects to trigger the LambdaResource
     -- objects associated with this job.
-    eventTriggers :: Core.Maybe [EventTriggerDefinition],
+    eventTriggers :: Prelude.Maybe [EventTriggerDefinition],
     -- | An Amazon Resource Name (ARN) that represents an AWS Lambda function to
     -- be triggered by PUT object actions on the associated local Amazon S3
     -- resource.
-    lambdaArn :: Core.Maybe Core.Text
+    lambdaArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LambdaResource' with all optional fields omitted.
@@ -55,19 +56,19 @@ newLambdaResource ::
   LambdaResource
 newLambdaResource =
   LambdaResource'
-    { eventTriggers = Core.Nothing,
-      lambdaArn = Core.Nothing
+    { eventTriggers = Prelude.Nothing,
+      lambdaArn = Prelude.Nothing
     }
 
 -- | The array of ARNs for S3Resource objects to trigger the LambdaResource
 -- objects associated with this job.
-lambdaResource_eventTriggers :: Lens.Lens' LambdaResource (Core.Maybe [EventTriggerDefinition])
-lambdaResource_eventTriggers = Lens.lens (\LambdaResource' {eventTriggers} -> eventTriggers) (\s@LambdaResource' {} a -> s {eventTriggers = a} :: LambdaResource) Core.. Lens.mapping Lens._Coerce
+lambdaResource_eventTriggers :: Lens.Lens' LambdaResource (Prelude.Maybe [EventTriggerDefinition])
+lambdaResource_eventTriggers = Lens.lens (\LambdaResource' {eventTriggers} -> eventTriggers) (\s@LambdaResource' {} a -> s {eventTriggers = a} :: LambdaResource) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An Amazon Resource Name (ARN) that represents an AWS Lambda function to
 -- be triggered by PUT object actions on the associated local Amazon S3
 -- resource.
-lambdaResource_lambdaArn :: Lens.Lens' LambdaResource (Core.Maybe Core.Text)
+lambdaResource_lambdaArn :: Lens.Lens' LambdaResource (Prelude.Maybe Prelude.Text)
 lambdaResource_lambdaArn = Lens.lens (\LambdaResource' {lambdaArn} -> lambdaArn) (\s@LambdaResource' {} a -> s {lambdaArn = a} :: LambdaResource)
 
 instance Core.FromJSON LambdaResource where
@@ -76,19 +77,19 @@ instance Core.FromJSON LambdaResource where
       "LambdaResource"
       ( \x ->
           LambdaResource'
-            Core.<$> (x Core..:? "EventTriggers" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "LambdaArn")
+            Prelude.<$> (x Core..:? "EventTriggers" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "LambdaArn")
       )
 
-instance Core.Hashable LambdaResource
+instance Prelude.Hashable LambdaResource
 
-instance Core.NFData LambdaResource
+instance Prelude.NFData LambdaResource
 
 instance Core.ToJSON LambdaResource where
   toJSON LambdaResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("EventTriggers" Core..=) Core.<$> eventTriggers,
-            ("LambdaArn" Core..=) Core.<$> lambdaArn
+      ( Prelude.catMaybes
+          [ ("EventTriggers" Core..=) Prelude.<$> eventTriggers,
+            ("LambdaArn" Core..=) Prelude.<$> lambdaArn
           ]
       )

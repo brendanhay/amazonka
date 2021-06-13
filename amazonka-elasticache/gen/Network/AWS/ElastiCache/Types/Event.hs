@@ -22,6 +22,7 @@ module Network.AWS.ElastiCache.Types.Event where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.SourceType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a single occurrence of something interesting within the
 -- system. Some examples of events are creating a cluster, adding or
@@ -30,18 +31,18 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEvent' smart constructor.
 data Event = Event'
   { -- | The text of the event.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the event occurred.
-    date :: Core.Maybe Core.ISO8601,
+    date :: Prelude.Maybe Core.ISO8601,
     -- | The identifier for the source of the event. For example, if the event
     -- occurred at the cluster level, the identifier would be the name of the
     -- cluster.
-    sourceIdentifier :: Core.Maybe Core.Text,
+    sourceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Specifies the origin of this event - a cluster, a parameter group, a
     -- security group, etc.
-    sourceType :: Core.Maybe SourceType
+    sourceType :: Prelude.Maybe SourceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Event' with all optional fields omitted.
@@ -65,39 +66,39 @@ newEvent ::
   Event
 newEvent =
   Event'
-    { message = Core.Nothing,
-      date = Core.Nothing,
-      sourceIdentifier = Core.Nothing,
-      sourceType = Core.Nothing
+    { message = Prelude.Nothing,
+      date = Prelude.Nothing,
+      sourceIdentifier = Prelude.Nothing,
+      sourceType = Prelude.Nothing
     }
 
 -- | The text of the event.
-event_message :: Lens.Lens' Event (Core.Maybe Core.Text)
+event_message :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_message = Lens.lens (\Event' {message} -> message) (\s@Event' {} a -> s {message = a} :: Event)
 
 -- | The date and time when the event occurred.
-event_date :: Lens.Lens' Event (Core.Maybe Core.UTCTime)
-event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Core.. Lens.mapping Core._Time
+event_date :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
+event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Prelude.. Lens.mapping Core._Time
 
 -- | The identifier for the source of the event. For example, if the event
 -- occurred at the cluster level, the identifier would be the name of the
 -- cluster.
-event_sourceIdentifier :: Lens.Lens' Event (Core.Maybe Core.Text)
+event_sourceIdentifier :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_sourceIdentifier = Lens.lens (\Event' {sourceIdentifier} -> sourceIdentifier) (\s@Event' {} a -> s {sourceIdentifier = a} :: Event)
 
 -- | Specifies the origin of this event - a cluster, a parameter group, a
 -- security group, etc.
-event_sourceType :: Lens.Lens' Event (Core.Maybe SourceType)
+event_sourceType :: Lens.Lens' Event (Prelude.Maybe SourceType)
 event_sourceType = Lens.lens (\Event' {sourceType} -> sourceType) (\s@Event' {} a -> s {sourceType = a} :: Event)
 
 instance Core.FromXML Event where
   parseXML x =
     Event'
-      Core.<$> (x Core..@? "Message")
-      Core.<*> (x Core..@? "Date")
-      Core.<*> (x Core..@? "SourceIdentifier")
-      Core.<*> (x Core..@? "SourceType")
+      Prelude.<$> (x Core..@? "Message")
+      Prelude.<*> (x Core..@? "Date")
+      Prelude.<*> (x Core..@? "SourceIdentifier")
+      Prelude.<*> (x Core..@? "SourceType")
 
-instance Core.Hashable Event
+instance Prelude.Hashable Event
 
-instance Core.NFData Event
+instance Prelude.NFData Event

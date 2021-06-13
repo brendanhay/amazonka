@@ -43,6 +43,7 @@ where
 import Network.AWS.AutoScaling.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -81,14 +82,14 @@ data EnableMetricsCollection = EnableMetricsCollection'
     -- -   @GroupTotalCapacity@
     --
     -- If you omit this parameter, all metrics are enabled.
-    metrics :: Core.Maybe [Core.Text],
+    metrics :: Prelude.Maybe [Prelude.Text],
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Core.Text,
+    autoScalingGroupName :: Prelude.Text,
     -- | The granularity to associate with the metrics to collect. The only valid
     -- value is @1Minute@.
-    granularity :: Core.Text
+    granularity :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableMetricsCollection' with all optional fields omitted.
@@ -138,15 +139,15 @@ data EnableMetricsCollection = EnableMetricsCollection'
 -- value is @1Minute@.
 newEnableMetricsCollection ::
   -- | 'autoScalingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'granularity'
-  Core.Text ->
+  Prelude.Text ->
   EnableMetricsCollection
 newEnableMetricsCollection
   pAutoScalingGroupName_
   pGranularity_ =
     EnableMetricsCollection'
-      { metrics = Core.Nothing,
+      { metrics = Prelude.Nothing,
         autoScalingGroupName = pAutoScalingGroupName_,
         granularity = pGranularity_
       }
@@ -184,16 +185,16 @@ newEnableMetricsCollection
 -- -   @GroupTotalCapacity@
 --
 -- If you omit this parameter, all metrics are enabled.
-enableMetricsCollection_metrics :: Lens.Lens' EnableMetricsCollection (Core.Maybe [Core.Text])
-enableMetricsCollection_metrics = Lens.lens (\EnableMetricsCollection' {metrics} -> metrics) (\s@EnableMetricsCollection' {} a -> s {metrics = a} :: EnableMetricsCollection) Core.. Lens.mapping Lens._Coerce
+enableMetricsCollection_metrics :: Lens.Lens' EnableMetricsCollection (Prelude.Maybe [Prelude.Text])
+enableMetricsCollection_metrics = Lens.lens (\EnableMetricsCollection' {metrics} -> metrics) (\s@EnableMetricsCollection' {} a -> s {metrics = a} :: EnableMetricsCollection) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the Auto Scaling group.
-enableMetricsCollection_autoScalingGroupName :: Lens.Lens' EnableMetricsCollection Core.Text
+enableMetricsCollection_autoScalingGroupName :: Lens.Lens' EnableMetricsCollection Prelude.Text
 enableMetricsCollection_autoScalingGroupName = Lens.lens (\EnableMetricsCollection' {autoScalingGroupName} -> autoScalingGroupName) (\s@EnableMetricsCollection' {} a -> s {autoScalingGroupName = a} :: EnableMetricsCollection)
 
 -- | The granularity to associate with the metrics to collect. The only valid
 -- value is @1Minute@.
-enableMetricsCollection_granularity :: Lens.Lens' EnableMetricsCollection Core.Text
+enableMetricsCollection_granularity :: Lens.Lens' EnableMetricsCollection Prelude.Text
 enableMetricsCollection_granularity = Lens.lens (\EnableMetricsCollection' {granularity} -> granularity) (\s@EnableMetricsCollection' {} a -> s {granularity = a} :: EnableMetricsCollection)
 
 instance Core.AWSRequest EnableMetricsCollection where
@@ -205,25 +206,26 @@ instance Core.AWSRequest EnableMetricsCollection where
     Response.receiveNull
       EnableMetricsCollectionResponse'
 
-instance Core.Hashable EnableMetricsCollection
+instance Prelude.Hashable EnableMetricsCollection
 
-instance Core.NFData EnableMetricsCollection
+instance Prelude.NFData EnableMetricsCollection
 
 instance Core.ToHeaders EnableMetricsCollection where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath EnableMetricsCollection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery EnableMetricsCollection where
   toQuery EnableMetricsCollection' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("EnableMetricsCollection" :: Core.ByteString),
-        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+          Core.=: ("EnableMetricsCollection" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
         "Metrics"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> metrics),
+            (Core.toQueryList "member" Prelude.<$> metrics),
         "AutoScalingGroupName" Core.=: autoScalingGroupName,
         "Granularity" Core.=: granularity
       ]
@@ -232,7 +234,7 @@ instance Core.ToQuery EnableMetricsCollection where
 data EnableMetricsCollectionResponse = EnableMetricsCollectionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableMetricsCollectionResponse' with all optional fields omitted.
@@ -243,4 +245,6 @@ newEnableMetricsCollectionResponse ::
 newEnableMetricsCollectionResponse =
   EnableMetricsCollectionResponse'
 
-instance Core.NFData EnableMetricsCollectionResponse
+instance
+  Prelude.NFData
+    EnableMetricsCollectionResponse

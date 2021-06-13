@@ -21,6 +21,7 @@ module Network.AWS.XRay.Types.Insight where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.AnomalousService
 import Network.AWS.XRay.Types.InsightCategory
 import Network.AWS.XRay.Types.InsightState
@@ -35,32 +36,32 @@ data Insight = Insight'
   { -- | The impact statistics of the client side service. This includes the
     -- number of requests to the client service and whether the requests were
     -- faults or okay.
-    clientRequestImpactStatistics :: Core.Maybe RequestImpactStatistics,
+    clientRequestImpactStatistics :: Prelude.Maybe RequestImpactStatistics,
     -- | The impact statistics of the root cause service. This includes the
     -- number of requests to the client service and whether the requests were
     -- faults or okay.
-    rootCauseServiceRequestImpactStatistics :: Core.Maybe RequestImpactStatistics,
+    rootCauseServiceRequestImpactStatistics :: Prelude.Maybe RequestImpactStatistics,
     -- | The name of the group that the insight belongs to.
-    groupName :: Core.Maybe Core.Text,
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The time, in Unix seconds, at which the insight began.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The time, in Unix seconds, at which the insight ended.
-    endTime :: Core.Maybe Core.POSIX,
-    rootCauseServiceId :: Core.Maybe ServiceId,
+    endTime :: Prelude.Maybe Core.POSIX,
+    rootCauseServiceId :: Prelude.Maybe ServiceId,
     -- | The current state of the insight.
-    state :: Core.Maybe InsightState,
+    state :: Prelude.Maybe InsightState,
     -- | A brief description of the insight.
-    summary :: Core.Maybe Core.Text,
+    summary :: Prelude.Maybe Prelude.Text,
     -- | The service within the insight that is most impacted by the incident.
-    topAnomalousServices :: Core.Maybe [AnomalousService],
+    topAnomalousServices :: Prelude.Maybe [AnomalousService],
     -- | The categories that label and describe the type of insight.
-    categories :: Core.Maybe [InsightCategory],
+    categories :: Prelude.Maybe [InsightCategory],
     -- | The insights unique identifier.
-    insightId :: Core.Maybe Core.Text,
+    insightId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the group that the insight belongs to.
-    groupARN :: Core.Maybe Core.Text
+    groupARN :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Insight' with all optional fields omitted.
@@ -102,71 +103,71 @@ newInsight ::
 newInsight =
   Insight'
     { clientRequestImpactStatistics =
-        Core.Nothing,
+        Prelude.Nothing,
       rootCauseServiceRequestImpactStatistics =
-        Core.Nothing,
-      groupName = Core.Nothing,
-      startTime = Core.Nothing,
-      endTime = Core.Nothing,
-      rootCauseServiceId = Core.Nothing,
-      state = Core.Nothing,
-      summary = Core.Nothing,
-      topAnomalousServices = Core.Nothing,
-      categories = Core.Nothing,
-      insightId = Core.Nothing,
-      groupARN = Core.Nothing
+        Prelude.Nothing,
+      groupName = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      rootCauseServiceId = Prelude.Nothing,
+      state = Prelude.Nothing,
+      summary = Prelude.Nothing,
+      topAnomalousServices = Prelude.Nothing,
+      categories = Prelude.Nothing,
+      insightId = Prelude.Nothing,
+      groupARN = Prelude.Nothing
     }
 
 -- | The impact statistics of the client side service. This includes the
 -- number of requests to the client service and whether the requests were
 -- faults or okay.
-insight_clientRequestImpactStatistics :: Lens.Lens' Insight (Core.Maybe RequestImpactStatistics)
+insight_clientRequestImpactStatistics :: Lens.Lens' Insight (Prelude.Maybe RequestImpactStatistics)
 insight_clientRequestImpactStatistics = Lens.lens (\Insight' {clientRequestImpactStatistics} -> clientRequestImpactStatistics) (\s@Insight' {} a -> s {clientRequestImpactStatistics = a} :: Insight)
 
 -- | The impact statistics of the root cause service. This includes the
 -- number of requests to the client service and whether the requests were
 -- faults or okay.
-insight_rootCauseServiceRequestImpactStatistics :: Lens.Lens' Insight (Core.Maybe RequestImpactStatistics)
+insight_rootCauseServiceRequestImpactStatistics :: Lens.Lens' Insight (Prelude.Maybe RequestImpactStatistics)
 insight_rootCauseServiceRequestImpactStatistics = Lens.lens (\Insight' {rootCauseServiceRequestImpactStatistics} -> rootCauseServiceRequestImpactStatistics) (\s@Insight' {} a -> s {rootCauseServiceRequestImpactStatistics = a} :: Insight)
 
 -- | The name of the group that the insight belongs to.
-insight_groupName :: Lens.Lens' Insight (Core.Maybe Core.Text)
+insight_groupName :: Lens.Lens' Insight (Prelude.Maybe Prelude.Text)
 insight_groupName = Lens.lens (\Insight' {groupName} -> groupName) (\s@Insight' {} a -> s {groupName = a} :: Insight)
 
 -- | The time, in Unix seconds, at which the insight began.
-insight_startTime :: Lens.Lens' Insight (Core.Maybe Core.UTCTime)
-insight_startTime = Lens.lens (\Insight' {startTime} -> startTime) (\s@Insight' {} a -> s {startTime = a} :: Insight) Core.. Lens.mapping Core._Time
+insight_startTime :: Lens.Lens' Insight (Prelude.Maybe Prelude.UTCTime)
+insight_startTime = Lens.lens (\Insight' {startTime} -> startTime) (\s@Insight' {} a -> s {startTime = a} :: Insight) Prelude.. Lens.mapping Core._Time
 
 -- | The time, in Unix seconds, at which the insight ended.
-insight_endTime :: Lens.Lens' Insight (Core.Maybe Core.UTCTime)
-insight_endTime = Lens.lens (\Insight' {endTime} -> endTime) (\s@Insight' {} a -> s {endTime = a} :: Insight) Core.. Lens.mapping Core._Time
+insight_endTime :: Lens.Lens' Insight (Prelude.Maybe Prelude.UTCTime)
+insight_endTime = Lens.lens (\Insight' {endTime} -> endTime) (\s@Insight' {} a -> s {endTime = a} :: Insight) Prelude.. Lens.mapping Core._Time
 
 -- | Undocumented member.
-insight_rootCauseServiceId :: Lens.Lens' Insight (Core.Maybe ServiceId)
+insight_rootCauseServiceId :: Lens.Lens' Insight (Prelude.Maybe ServiceId)
 insight_rootCauseServiceId = Lens.lens (\Insight' {rootCauseServiceId} -> rootCauseServiceId) (\s@Insight' {} a -> s {rootCauseServiceId = a} :: Insight)
 
 -- | The current state of the insight.
-insight_state :: Lens.Lens' Insight (Core.Maybe InsightState)
+insight_state :: Lens.Lens' Insight (Prelude.Maybe InsightState)
 insight_state = Lens.lens (\Insight' {state} -> state) (\s@Insight' {} a -> s {state = a} :: Insight)
 
 -- | A brief description of the insight.
-insight_summary :: Lens.Lens' Insight (Core.Maybe Core.Text)
+insight_summary :: Lens.Lens' Insight (Prelude.Maybe Prelude.Text)
 insight_summary = Lens.lens (\Insight' {summary} -> summary) (\s@Insight' {} a -> s {summary = a} :: Insight)
 
 -- | The service within the insight that is most impacted by the incident.
-insight_topAnomalousServices :: Lens.Lens' Insight (Core.Maybe [AnomalousService])
-insight_topAnomalousServices = Lens.lens (\Insight' {topAnomalousServices} -> topAnomalousServices) (\s@Insight' {} a -> s {topAnomalousServices = a} :: Insight) Core.. Lens.mapping Lens._Coerce
+insight_topAnomalousServices :: Lens.Lens' Insight (Prelude.Maybe [AnomalousService])
+insight_topAnomalousServices = Lens.lens (\Insight' {topAnomalousServices} -> topAnomalousServices) (\s@Insight' {} a -> s {topAnomalousServices = a} :: Insight) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The categories that label and describe the type of insight.
-insight_categories :: Lens.Lens' Insight (Core.Maybe [InsightCategory])
-insight_categories = Lens.lens (\Insight' {categories} -> categories) (\s@Insight' {} a -> s {categories = a} :: Insight) Core.. Lens.mapping Lens._Coerce
+insight_categories :: Lens.Lens' Insight (Prelude.Maybe [InsightCategory])
+insight_categories = Lens.lens (\Insight' {categories} -> categories) (\s@Insight' {} a -> s {categories = a} :: Insight) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The insights unique identifier.
-insight_insightId :: Lens.Lens' Insight (Core.Maybe Core.Text)
+insight_insightId :: Lens.Lens' Insight (Prelude.Maybe Prelude.Text)
 insight_insightId = Lens.lens (\Insight' {insightId} -> insightId) (\s@Insight' {} a -> s {insightId = a} :: Insight)
 
 -- | The Amazon Resource Name (ARN) of the group that the insight belongs to.
-insight_groupARN :: Lens.Lens' Insight (Core.Maybe Core.Text)
+insight_groupARN :: Lens.Lens' Insight (Prelude.Maybe Prelude.Text)
 insight_groupARN = Lens.lens (\Insight' {groupARN} -> groupARN) (\s@Insight' {} a -> s {groupARN = a} :: Insight)
 
 instance Core.FromJSON Insight where
@@ -175,24 +176,24 @@ instance Core.FromJSON Insight where
       "Insight"
       ( \x ->
           Insight'
-            Core.<$> (x Core..:? "ClientRequestImpactStatistics")
-            Core.<*> ( x
-                         Core..:? "RootCauseServiceRequestImpactStatistics"
-                     )
-            Core.<*> (x Core..:? "GroupName")
-            Core.<*> (x Core..:? "StartTime")
-            Core.<*> (x Core..:? "EndTime")
-            Core.<*> (x Core..:? "RootCauseServiceId")
-            Core.<*> (x Core..:? "State")
-            Core.<*> (x Core..:? "Summary")
-            Core.<*> ( x Core..:? "TopAnomalousServices"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "Categories" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "InsightId")
-            Core.<*> (x Core..:? "GroupARN")
+            Prelude.<$> (x Core..:? "ClientRequestImpactStatistics")
+            Prelude.<*> ( x
+                            Core..:? "RootCauseServiceRequestImpactStatistics"
+                        )
+            Prelude.<*> (x Core..:? "GroupName")
+            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "RootCauseServiceId")
+            Prelude.<*> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "Summary")
+            Prelude.<*> ( x Core..:? "TopAnomalousServices"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "Categories" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "InsightId")
+            Prelude.<*> (x Core..:? "GroupARN")
       )
 
-instance Core.Hashable Insight
+instance Prelude.Hashable Insight
 
-instance Core.NFData Insight
+instance Prelude.NFData Insight

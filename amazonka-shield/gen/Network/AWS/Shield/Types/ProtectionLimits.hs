@@ -21,6 +21,7 @@ module Network.AWS.Shield.Types.ProtectionLimits where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Shield.Types.Limit
 
 -- | Limits settings on protections for your subscription.
@@ -31,7 +32,7 @@ data ProtectionLimits = ProtectionLimits'
     -- protection.
     protectedResourceTypeLimits :: [Limit]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProtectionLimits' with all optional fields omitted.
@@ -48,13 +49,13 @@ newProtectionLimits ::
 newProtectionLimits =
   ProtectionLimits'
     { protectedResourceTypeLimits =
-        Core.mempty
+        Prelude.mempty
     }
 
 -- | The maximum number of resource types that you can specify in a
 -- protection.
 protectionLimits_protectedResourceTypeLimits :: Lens.Lens' ProtectionLimits [Limit]
-protectionLimits_protectedResourceTypeLimits = Lens.lens (\ProtectionLimits' {protectedResourceTypeLimits} -> protectedResourceTypeLimits) (\s@ProtectionLimits' {} a -> s {protectedResourceTypeLimits = a} :: ProtectionLimits) Core.. Lens._Coerce
+protectionLimits_protectedResourceTypeLimits = Lens.lens (\ProtectionLimits' {protectedResourceTypeLimits} -> protectedResourceTypeLimits) (\s@ProtectionLimits' {} a -> s {protectedResourceTypeLimits = a} :: ProtectionLimits) Prelude.. Lens._Coerce
 
 instance Core.FromJSON ProtectionLimits where
   parseJSON =
@@ -62,11 +63,11 @@ instance Core.FromJSON ProtectionLimits where
       "ProtectionLimits"
       ( \x ->
           ProtectionLimits'
-            Core.<$> ( x Core..:? "ProtectedResourceTypeLimits"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> ( x Core..:? "ProtectedResourceTypeLimits"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable ProtectionLimits
+instance Prelude.Hashable ProtectionLimits
 
-instance Core.NFData ProtectionLimits
+instance Prelude.NFData ProtectionLimits

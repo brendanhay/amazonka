@@ -21,6 +21,7 @@ module Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the zone awareness configuration for the domain cluster, such
 -- as the number of availability zones.
@@ -30,9 +31,9 @@ data ZoneAwarenessConfig = ZoneAwarenessConfig'
   { -- | An integer value to indicate the number of availability zones for a
     -- domain when zone awareness is enabled. This should be equal to number of
     -- subnets if VPC endpoints is enabled
-    availabilityZoneCount :: Core.Maybe Core.Int
+    availabilityZoneCount :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ZoneAwarenessConfig' with all optional fields omitted.
@@ -50,13 +51,13 @@ newZoneAwarenessConfig ::
 newZoneAwarenessConfig =
   ZoneAwarenessConfig'
     { availabilityZoneCount =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | An integer value to indicate the number of availability zones for a
 -- domain when zone awareness is enabled. This should be equal to number of
 -- subnets if VPC endpoints is enabled
-zoneAwarenessConfig_availabilityZoneCount :: Lens.Lens' ZoneAwarenessConfig (Core.Maybe Core.Int)
+zoneAwarenessConfig_availabilityZoneCount :: Lens.Lens' ZoneAwarenessConfig (Prelude.Maybe Prelude.Int)
 zoneAwarenessConfig_availabilityZoneCount = Lens.lens (\ZoneAwarenessConfig' {availabilityZoneCount} -> availabilityZoneCount) (\s@ZoneAwarenessConfig' {} a -> s {availabilityZoneCount = a} :: ZoneAwarenessConfig)
 
 instance Core.FromJSON ZoneAwarenessConfig where
@@ -65,18 +66,18 @@ instance Core.FromJSON ZoneAwarenessConfig where
       "ZoneAwarenessConfig"
       ( \x ->
           ZoneAwarenessConfig'
-            Core.<$> (x Core..:? "AvailabilityZoneCount")
+            Prelude.<$> (x Core..:? "AvailabilityZoneCount")
       )
 
-instance Core.Hashable ZoneAwarenessConfig
+instance Prelude.Hashable ZoneAwarenessConfig
 
-instance Core.NFData ZoneAwarenessConfig
+instance Prelude.NFData ZoneAwarenessConfig
 
 instance Core.ToJSON ZoneAwarenessConfig where
   toJSON ZoneAwarenessConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AvailabilityZoneCount" Core..=)
-              Core.<$> availabilityZoneCount
+              Prelude.<$> availabilityZoneCount
           ]
       )

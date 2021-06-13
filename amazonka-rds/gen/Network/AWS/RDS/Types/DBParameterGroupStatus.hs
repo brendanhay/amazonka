@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.DBParameterGroupStatus where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The status of the DB parameter group.
 --
@@ -41,11 +42,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDBParameterGroupStatus' smart constructor.
 data DBParameterGroupStatus = DBParameterGroupStatus'
   { -- | The name of the DB parameter group.
-    dbParameterGroupName :: Core.Maybe Core.Text,
+    dbParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The status of parameter updates.
-    parameterApplyStatus :: Core.Maybe Core.Text
+    parameterApplyStatus :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DBParameterGroupStatus' with all optional fields omitted.
@@ -63,24 +64,24 @@ newDBParameterGroupStatus ::
 newDBParameterGroupStatus =
   DBParameterGroupStatus'
     { dbParameterGroupName =
-        Core.Nothing,
-      parameterApplyStatus = Core.Nothing
+        Prelude.Nothing,
+      parameterApplyStatus = Prelude.Nothing
     }
 
 -- | The name of the DB parameter group.
-dbParameterGroupStatus_dbParameterGroupName :: Lens.Lens' DBParameterGroupStatus (Core.Maybe Core.Text)
+dbParameterGroupStatus_dbParameterGroupName :: Lens.Lens' DBParameterGroupStatus (Prelude.Maybe Prelude.Text)
 dbParameterGroupStatus_dbParameterGroupName = Lens.lens (\DBParameterGroupStatus' {dbParameterGroupName} -> dbParameterGroupName) (\s@DBParameterGroupStatus' {} a -> s {dbParameterGroupName = a} :: DBParameterGroupStatus)
 
 -- | The status of parameter updates.
-dbParameterGroupStatus_parameterApplyStatus :: Lens.Lens' DBParameterGroupStatus (Core.Maybe Core.Text)
+dbParameterGroupStatus_parameterApplyStatus :: Lens.Lens' DBParameterGroupStatus (Prelude.Maybe Prelude.Text)
 dbParameterGroupStatus_parameterApplyStatus = Lens.lens (\DBParameterGroupStatus' {parameterApplyStatus} -> parameterApplyStatus) (\s@DBParameterGroupStatus' {} a -> s {parameterApplyStatus = a} :: DBParameterGroupStatus)
 
 instance Core.FromXML DBParameterGroupStatus where
   parseXML x =
     DBParameterGroupStatus'
-      Core.<$> (x Core..@? "DBParameterGroupName")
-      Core.<*> (x Core..@? "ParameterApplyStatus")
+      Prelude.<$> (x Core..@? "DBParameterGroupName")
+      Prelude.<*> (x Core..@? "ParameterApplyStatus")
 
-instance Core.Hashable DBParameterGroupStatus
+instance Prelude.Hashable DBParameterGroupStatus
 
-instance Core.NFData DBParameterGroupStatus
+instance Prelude.NFData DBParameterGroupStatus

@@ -22,19 +22,20 @@ module Network.AWS.EKS.Types.AddonVersionInfo where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.Compatibility
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an add-on version.
 --
 -- /See:/ 'newAddonVersionInfo' smart constructor.
 data AddonVersionInfo = AddonVersionInfo'
   { -- | An object that represents the compatibilities of a version.
-    compatibilities :: Core.Maybe [Compatibility],
+    compatibilities :: Prelude.Maybe [Compatibility],
     -- | The architectures that the version supports.
-    architecture :: Core.Maybe [Core.Text],
+    architecture :: Prelude.Maybe [Prelude.Text],
     -- | The version of the add-on.
-    addonVersion :: Core.Maybe Core.Text
+    addonVersion :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddonVersionInfo' with all optional fields omitted.
@@ -53,21 +54,22 @@ newAddonVersionInfo ::
   AddonVersionInfo
 newAddonVersionInfo =
   AddonVersionInfo'
-    { compatibilities = Core.Nothing,
-      architecture = Core.Nothing,
-      addonVersion = Core.Nothing
+    { compatibilities =
+        Prelude.Nothing,
+      architecture = Prelude.Nothing,
+      addonVersion = Prelude.Nothing
     }
 
 -- | An object that represents the compatibilities of a version.
-addonVersionInfo_compatibilities :: Lens.Lens' AddonVersionInfo (Core.Maybe [Compatibility])
-addonVersionInfo_compatibilities = Lens.lens (\AddonVersionInfo' {compatibilities} -> compatibilities) (\s@AddonVersionInfo' {} a -> s {compatibilities = a} :: AddonVersionInfo) Core.. Lens.mapping Lens._Coerce
+addonVersionInfo_compatibilities :: Lens.Lens' AddonVersionInfo (Prelude.Maybe [Compatibility])
+addonVersionInfo_compatibilities = Lens.lens (\AddonVersionInfo' {compatibilities} -> compatibilities) (\s@AddonVersionInfo' {} a -> s {compatibilities = a} :: AddonVersionInfo) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The architectures that the version supports.
-addonVersionInfo_architecture :: Lens.Lens' AddonVersionInfo (Core.Maybe [Core.Text])
-addonVersionInfo_architecture = Lens.lens (\AddonVersionInfo' {architecture} -> architecture) (\s@AddonVersionInfo' {} a -> s {architecture = a} :: AddonVersionInfo) Core.. Lens.mapping Lens._Coerce
+addonVersionInfo_architecture :: Lens.Lens' AddonVersionInfo (Prelude.Maybe [Prelude.Text])
+addonVersionInfo_architecture = Lens.lens (\AddonVersionInfo' {architecture} -> architecture) (\s@AddonVersionInfo' {} a -> s {architecture = a} :: AddonVersionInfo) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The version of the add-on.
-addonVersionInfo_addonVersion :: Lens.Lens' AddonVersionInfo (Core.Maybe Core.Text)
+addonVersionInfo_addonVersion :: Lens.Lens' AddonVersionInfo (Prelude.Maybe Prelude.Text)
 addonVersionInfo_addonVersion = Lens.lens (\AddonVersionInfo' {addonVersion} -> addonVersion) (\s@AddonVersionInfo' {} a -> s {addonVersion = a} :: AddonVersionInfo)
 
 instance Core.FromJSON AddonVersionInfo where
@@ -76,11 +78,13 @@ instance Core.FromJSON AddonVersionInfo where
       "AddonVersionInfo"
       ( \x ->
           AddonVersionInfo'
-            Core.<$> (x Core..:? "compatibilities" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "architecture" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "addonVersion")
+            Prelude.<$> ( x Core..:? "compatibilities"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "architecture" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "addonVersion")
       )
 
-instance Core.Hashable AddonVersionInfo
+instance Prelude.Hashable AddonVersionInfo
 
-instance Core.NFData AddonVersionInfo
+instance Prelude.NFData AddonVersionInfo

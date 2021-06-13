@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -53,10 +54,10 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newListServiceActions' smart constructor.
 data ListServiceActions = ListServiceActions'
   { -- | The maximum number of items to return with this call.
-    pageSize :: Core.Maybe Core.Natural,
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The page token for the next set of results. To retrieve the first set of
     -- results, use null.
-    pageToken :: Core.Maybe Core.Text,
+    pageToken :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -64,9 +65,9 @@ data ListServiceActions = ListServiceActions'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListServiceActions' with all optional fields omitted.
@@ -92,18 +93,18 @@ newListServiceActions ::
   ListServiceActions
 newListServiceActions =
   ListServiceActions'
-    { pageSize = Core.Nothing,
-      pageToken = Core.Nothing,
-      acceptLanguage = Core.Nothing
+    { pageSize = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing
     }
 
 -- | The maximum number of items to return with this call.
-listServiceActions_pageSize :: Lens.Lens' ListServiceActions (Core.Maybe Core.Natural)
+listServiceActions_pageSize :: Lens.Lens' ListServiceActions (Prelude.Maybe Prelude.Natural)
 listServiceActions_pageSize = Lens.lens (\ListServiceActions' {pageSize} -> pageSize) (\s@ListServiceActions' {} a -> s {pageSize = a} :: ListServiceActions)
 
 -- | The page token for the next set of results. To retrieve the first set of
 -- results, use null.
-listServiceActions_pageToken :: Lens.Lens' ListServiceActions (Core.Maybe Core.Text)
+listServiceActions_pageToken :: Lens.Lens' ListServiceActions (Prelude.Maybe Prelude.Text)
 listServiceActions_pageToken = Lens.lens (\ListServiceActions' {pageToken} -> pageToken) (\s@ListServiceActions' {} a -> s {pageToken = a} :: ListServiceActions)
 
 -- | The language code.
@@ -113,7 +114,7 @@ listServiceActions_pageToken = Lens.lens (\ListServiceActions' {pageToken} -> pa
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-listServiceActions_acceptLanguage :: Lens.Lens' ListServiceActions (Core.Maybe Core.Text)
+listServiceActions_acceptLanguage :: Lens.Lens' ListServiceActions (Prelude.Maybe Prelude.Text)
 listServiceActions_acceptLanguage = Lens.lens (\ListServiceActions' {acceptLanguage} -> acceptLanguage) (\s@ListServiceActions' {} a -> s {acceptLanguage = a} :: ListServiceActions)
 
 instance Core.AWSPager ListServiceActions where
@@ -121,22 +122,22 @@ instance Core.AWSPager ListServiceActions where
     | Core.stop
         ( rs
             Lens.^? listServiceActionsResponse_nextPageToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listServiceActionsResponse_serviceActionSummaries
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listServiceActions_pageToken
+          Prelude.& listServiceActions_pageToken
           Lens..~ rs
           Lens.^? listServiceActionsResponse_nextPageToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListServiceActions where
   type
@@ -147,58 +148,61 @@ instance Core.AWSRequest ListServiceActions where
     Response.receiveJSON
       ( \s h x ->
           ListServiceActionsResponse'
-            Core.<$> (x Core..?> "NextPageToken")
-            Core.<*> ( x Core..?> "ServiceActionSummaries"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<*> ( x Core..?> "ServiceActionSummaries"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListServiceActions
+instance Prelude.Hashable ListServiceActions
 
-instance Core.NFData ListServiceActions
+instance Prelude.NFData ListServiceActions
 
 instance Core.ToHeaders ListServiceActions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.ListServiceActions" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListServiceActions where
   toJSON ListServiceActions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("PageSize" Core..=) Core.<$> pageSize,
-            ("PageToken" Core..=) Core.<$> pageToken,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage
+      ( Prelude.catMaybes
+          [ ("PageSize" Core..=) Prelude.<$> pageSize,
+            ("PageToken" Core..=) Prelude.<$> pageToken,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage
           ]
       )
 
 instance Core.ToPath ListServiceActions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListServiceActions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListServiceActionsResponse' smart constructor.
 data ListServiceActionsResponse = ListServiceActionsResponse'
   { -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | An object containing information about the service actions associated
     -- with the provisioning artifact.
-    serviceActionSummaries :: Core.Maybe [ServiceActionSummary],
+    serviceActionSummaries :: Prelude.Maybe [ServiceActionSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListServiceActionsResponse' with all optional fields omitted.
@@ -217,28 +221,28 @@ data ListServiceActionsResponse = ListServiceActionsResponse'
 -- 'httpStatus', 'listServiceActionsResponse_httpStatus' - The response's http status code.
 newListServiceActionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListServiceActionsResponse
 newListServiceActionsResponse pHttpStatus_ =
   ListServiceActionsResponse'
     { nextPageToken =
-        Core.Nothing,
-      serviceActionSummaries = Core.Nothing,
+        Prelude.Nothing,
+      serviceActionSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
-listServiceActionsResponse_nextPageToken :: Lens.Lens' ListServiceActionsResponse (Core.Maybe Core.Text)
+listServiceActionsResponse_nextPageToken :: Lens.Lens' ListServiceActionsResponse (Prelude.Maybe Prelude.Text)
 listServiceActionsResponse_nextPageToken = Lens.lens (\ListServiceActionsResponse' {nextPageToken} -> nextPageToken) (\s@ListServiceActionsResponse' {} a -> s {nextPageToken = a} :: ListServiceActionsResponse)
 
 -- | An object containing information about the service actions associated
 -- with the provisioning artifact.
-listServiceActionsResponse_serviceActionSummaries :: Lens.Lens' ListServiceActionsResponse (Core.Maybe [ServiceActionSummary])
-listServiceActionsResponse_serviceActionSummaries = Lens.lens (\ListServiceActionsResponse' {serviceActionSummaries} -> serviceActionSummaries) (\s@ListServiceActionsResponse' {} a -> s {serviceActionSummaries = a} :: ListServiceActionsResponse) Core.. Lens.mapping Lens._Coerce
+listServiceActionsResponse_serviceActionSummaries :: Lens.Lens' ListServiceActionsResponse (Prelude.Maybe [ServiceActionSummary])
+listServiceActionsResponse_serviceActionSummaries = Lens.lens (\ListServiceActionsResponse' {serviceActionSummaries} -> serviceActionSummaries) (\s@ListServiceActionsResponse' {} a -> s {serviceActionSummaries = a} :: ListServiceActionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listServiceActionsResponse_httpStatus :: Lens.Lens' ListServiceActionsResponse Core.Int
+listServiceActionsResponse_httpStatus :: Lens.Lens' ListServiceActionsResponse Prelude.Int
 listServiceActionsResponse_httpStatus = Lens.lens (\ListServiceActionsResponse' {httpStatus} -> httpStatus) (\s@ListServiceActionsResponse' {} a -> s {httpStatus = a} :: ListServiceActionsResponse)
 
-instance Core.NFData ListServiceActionsResponse
+instance Prelude.NFData ListServiceActionsResponse

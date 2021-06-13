@@ -22,6 +22,7 @@ module Network.AWS.CloudSearch.Types.Suggester where
 import Network.AWS.CloudSearch.Types.DocumentSuggesterOptions
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration information for a search suggester. Each suggester has a
 -- unique name and specifies the text field you want to use for
@@ -30,10 +31,10 @@ import qualified Network.AWS.Lens as Lens
 --
 -- /See:/ 'newSuggester' smart constructor.
 data Suggester = Suggester'
-  { suggesterName :: Core.Text,
+  { suggesterName :: Prelude.Text,
     documentSuggesterOptions :: DocumentSuggesterOptions
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Suggester' with all optional fields omitted.
@@ -48,7 +49,7 @@ data Suggester = Suggester'
 -- 'documentSuggesterOptions', 'suggester_documentSuggesterOptions' - Undocumented member.
 newSuggester ::
   -- | 'suggesterName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'documentSuggesterOptions'
   DocumentSuggesterOptions ->
   Suggester
@@ -62,7 +63,7 @@ newSuggester
       }
 
 -- | Undocumented member.
-suggester_suggesterName :: Lens.Lens' Suggester Core.Text
+suggester_suggesterName :: Lens.Lens' Suggester Prelude.Text
 suggester_suggesterName = Lens.lens (\Suggester' {suggesterName} -> suggesterName) (\s@Suggester' {} a -> s {suggesterName = a} :: Suggester)
 
 -- | Undocumented member.
@@ -72,16 +73,16 @@ suggester_documentSuggesterOptions = Lens.lens (\Suggester' {documentSuggesterOp
 instance Core.FromXML Suggester where
   parseXML x =
     Suggester'
-      Core.<$> (x Core..@ "SuggesterName")
-      Core.<*> (x Core..@ "DocumentSuggesterOptions")
+      Prelude.<$> (x Core..@ "SuggesterName")
+      Prelude.<*> (x Core..@ "DocumentSuggesterOptions")
 
-instance Core.Hashable Suggester
+instance Prelude.Hashable Suggester
 
-instance Core.NFData Suggester
+instance Prelude.NFData Suggester
 
 instance Core.ToQuery Suggester where
   toQuery Suggester' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "SuggesterName" Core.=: suggesterName,
         "DocumentSuggesterOptions"
           Core.=: documentSuggesterOptions

@@ -68,22 +68,23 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartInstances' smart constructor.
 data StartInstances = StartInstances'
   { -- | Reserved.
-    additionalInfo :: Core.Maybe Core.Text,
+    additionalInfo :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IDs of the instances.
-    instanceIds :: [Core.Text]
+    instanceIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartInstances' with all optional fields omitted.
@@ -105,25 +106,25 @@ newStartInstances ::
   StartInstances
 newStartInstances =
   StartInstances'
-    { additionalInfo = Core.Nothing,
-      dryRun = Core.Nothing,
-      instanceIds = Core.mempty
+    { additionalInfo = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      instanceIds = Prelude.mempty
     }
 
 -- | Reserved.
-startInstances_additionalInfo :: Lens.Lens' StartInstances (Core.Maybe Core.Text)
+startInstances_additionalInfo :: Lens.Lens' StartInstances (Prelude.Maybe Prelude.Text)
 startInstances_additionalInfo = Lens.lens (\StartInstances' {additionalInfo} -> additionalInfo) (\s@StartInstances' {} a -> s {additionalInfo = a} :: StartInstances)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-startInstances_dryRun :: Lens.Lens' StartInstances (Core.Maybe Core.Bool)
+startInstances_dryRun :: Lens.Lens' StartInstances (Prelude.Maybe Prelude.Bool)
 startInstances_dryRun = Lens.lens (\StartInstances' {dryRun} -> dryRun) (\s@StartInstances' {} a -> s {dryRun = a} :: StartInstances)
 
 -- | The IDs of the instances.
-startInstances_instanceIds :: Lens.Lens' StartInstances [Core.Text]
-startInstances_instanceIds = Lens.lens (\StartInstances' {instanceIds} -> instanceIds) (\s@StartInstances' {} a -> s {instanceIds = a} :: StartInstances) Core.. Lens._Coerce
+startInstances_instanceIds :: Lens.Lens' StartInstances [Prelude.Text]
+startInstances_instanceIds = Lens.lens (\StartInstances' {instanceIds} -> instanceIds) (\s@StartInstances' {} a -> s {instanceIds = a} :: StartInstances) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest StartInstances where
   type
@@ -134,28 +135,29 @@ instance Core.AWSRequest StartInstances where
     Response.receiveXML
       ( \s h x ->
           StartInstancesResponse'
-            Core.<$> ( x Core..@? "instancesSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "instancesSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartInstances
+instance Prelude.Hashable StartInstances
 
-instance Core.NFData StartInstances
+instance Prelude.NFData StartInstances
 
 instance Core.ToHeaders StartInstances where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath StartInstances where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartInstances where
   toQuery StartInstances' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("StartInstances" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("StartInstances" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "AdditionalInfo" Core.=: additionalInfo,
         "DryRun" Core.=: dryRun,
         Core.toQueryList "InstanceId" instanceIds
@@ -164,11 +166,11 @@ instance Core.ToQuery StartInstances where
 -- | /See:/ 'newStartInstancesResponse' smart constructor.
 data StartInstancesResponse = StartInstancesResponse'
   { -- | Information about the started instances.
-    startingInstances :: Core.Maybe [InstanceStateChange],
+    startingInstances :: Prelude.Maybe [InstanceStateChange],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartInstancesResponse' with all optional fields omitted.
@@ -183,21 +185,21 @@ data StartInstancesResponse = StartInstancesResponse'
 -- 'httpStatus', 'startInstancesResponse_httpStatus' - The response's http status code.
 newStartInstancesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartInstancesResponse
 newStartInstancesResponse pHttpStatus_ =
   StartInstancesResponse'
     { startingInstances =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the started instances.
-startInstancesResponse_startingInstances :: Lens.Lens' StartInstancesResponse (Core.Maybe [InstanceStateChange])
-startInstancesResponse_startingInstances = Lens.lens (\StartInstancesResponse' {startingInstances} -> startingInstances) (\s@StartInstancesResponse' {} a -> s {startingInstances = a} :: StartInstancesResponse) Core.. Lens.mapping Lens._Coerce
+startInstancesResponse_startingInstances :: Lens.Lens' StartInstancesResponse (Prelude.Maybe [InstanceStateChange])
+startInstancesResponse_startingInstances = Lens.lens (\StartInstancesResponse' {startingInstances} -> startingInstances) (\s@StartInstancesResponse' {} a -> s {startingInstances = a} :: StartInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-startInstancesResponse_httpStatus :: Lens.Lens' StartInstancesResponse Core.Int
+startInstancesResponse_httpStatus :: Lens.Lens' StartInstancesResponse Prelude.Int
 startInstancesResponse_httpStatus = Lens.lens (\StartInstancesResponse' {httpStatus} -> httpStatus) (\s@StartInstancesResponse' {} a -> s {httpStatus = a} :: StartInstancesResponse)
 
-instance Core.NFData StartInstancesResponse
+instance Prelude.NFData StartInstancesResponse

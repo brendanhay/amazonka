@@ -22,6 +22,7 @@ module Network.AWS.KinesisAnalytics.Types.DestinationSchema where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types.RecordFormatType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the data format when records are written to the destination.
 -- For more information, see
@@ -32,7 +33,7 @@ data DestinationSchema = DestinationSchema'
   { -- | Specifies the format of the records on the output stream.
     recordFormatType :: RecordFormatType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DestinationSchema' with all optional fields omitted.
@@ -63,18 +64,18 @@ instance Core.FromJSON DestinationSchema where
       "DestinationSchema"
       ( \x ->
           DestinationSchema'
-            Core.<$> (x Core..: "RecordFormatType")
+            Prelude.<$> (x Core..: "RecordFormatType")
       )
 
-instance Core.Hashable DestinationSchema
+instance Prelude.Hashable DestinationSchema
 
-instance Core.NFData DestinationSchema
+instance Prelude.NFData DestinationSchema
 
 instance Core.ToJSON DestinationSchema where
   toJSON DestinationSchema' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("RecordFormatType" Core..= recordFormatType)
           ]
       )

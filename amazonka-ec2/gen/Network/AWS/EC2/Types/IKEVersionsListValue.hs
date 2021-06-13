@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.IKEVersionsListValue where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The internet key exchange (IKE) version permitted for the VPN tunnel.
 --
 -- /See:/ 'newIKEVersionsListValue' smart constructor.
 data IKEVersionsListValue = IKEVersionsListValue'
   { -- | The IKE version.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IKEVersionsListValue' with all optional fields omitted.
@@ -44,16 +45,17 @@ data IKEVersionsListValue = IKEVersionsListValue'
 newIKEVersionsListValue ::
   IKEVersionsListValue
 newIKEVersionsListValue =
-  IKEVersionsListValue' {value = Core.Nothing}
+  IKEVersionsListValue' {value = Prelude.Nothing}
 
 -- | The IKE version.
-iKEVersionsListValue_value :: Lens.Lens' IKEVersionsListValue (Core.Maybe Core.Text)
+iKEVersionsListValue_value :: Lens.Lens' IKEVersionsListValue (Prelude.Maybe Prelude.Text)
 iKEVersionsListValue_value = Lens.lens (\IKEVersionsListValue' {value} -> value) (\s@IKEVersionsListValue' {} a -> s {value = a} :: IKEVersionsListValue)
 
 instance Core.FromXML IKEVersionsListValue where
   parseXML x =
-    IKEVersionsListValue' Core.<$> (x Core..@? "value")
+    IKEVersionsListValue'
+      Prelude.<$> (x Core..@? "value")
 
-instance Core.Hashable IKEVersionsListValue
+instance Prelude.Hashable IKEVersionsListValue
 
-instance Core.NFData IKEVersionsListValue
+instance Prelude.NFData IKEVersionsListValue

@@ -21,6 +21,7 @@ module Network.AWS.GuardDuty.Types.Owner where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on the owner of the bucket.
 --
@@ -29,9 +30,9 @@ data Owner = Owner'
   { -- | The canonical user ID of the bucket owner. For information about
     -- locating your canonical user ID see
     -- <https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId Finding Your Account Canonical User ID.>
-    id :: Core.Maybe Core.Text
+    id :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Owner' with all optional fields omitted.
@@ -46,20 +47,20 @@ data Owner = Owner'
 -- <https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId Finding Your Account Canonical User ID.>
 newOwner ::
   Owner
-newOwner = Owner' {id = Core.Nothing}
+newOwner = Owner' {id = Prelude.Nothing}
 
 -- | The canonical user ID of the bucket owner. For information about
 -- locating your canonical user ID see
 -- <https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId Finding Your Account Canonical User ID.>
-owner_id :: Lens.Lens' Owner (Core.Maybe Core.Text)
+owner_id :: Lens.Lens' Owner (Prelude.Maybe Prelude.Text)
 owner_id = Lens.lens (\Owner' {id} -> id) (\s@Owner' {} a -> s {id = a} :: Owner)
 
 instance Core.FromJSON Owner where
   parseJSON =
     Core.withObject
       "Owner"
-      (\x -> Owner' Core.<$> (x Core..:? "id"))
+      (\x -> Owner' Prelude.<$> (x Core..:? "id"))
 
-instance Core.Hashable Owner
+instance Prelude.Hashable Owner
 
-instance Core.NFData Owner
+instance Prelude.NFData Owner

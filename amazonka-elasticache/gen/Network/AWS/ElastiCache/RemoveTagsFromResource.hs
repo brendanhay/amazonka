@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,12 +58,12 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-    resourceName :: Core.Text,
+    resourceName :: Prelude.Text,
     -- | A list of @TagKeys@ identifying the tags you want removed from the named
     -- resource.
-    tagKeys :: [Core.Text]
+    tagKeys :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsFromResource' with all optional fields omitted.
@@ -84,13 +85,13 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
 -- resource.
 newRemoveTagsFromResource ::
   -- | 'resourceName'
-  Core.Text ->
+  Prelude.Text ->
   RemoveTagsFromResource
 newRemoveTagsFromResource pResourceName_ =
   RemoveTagsFromResource'
     { resourceName =
         pResourceName_,
-      tagKeys = Core.mempty
+      tagKeys = Prelude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the resource from which you want the
@@ -100,13 +101,13 @@ newRemoveTagsFromResource pResourceName_ =
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-removeTagsFromResource_resourceName :: Lens.Lens' RemoveTagsFromResource Core.Text
+removeTagsFromResource_resourceName :: Lens.Lens' RemoveTagsFromResource Prelude.Text
 removeTagsFromResource_resourceName = Lens.lens (\RemoveTagsFromResource' {resourceName} -> resourceName) (\s@RemoveTagsFromResource' {} a -> s {resourceName = a} :: RemoveTagsFromResource)
 
 -- | A list of @TagKeys@ identifying the tags you want removed from the named
 -- resource.
-removeTagsFromResource_tagKeys :: Lens.Lens' RemoveTagsFromResource [Core.Text]
-removeTagsFromResource_tagKeys = Lens.lens (\RemoveTagsFromResource' {tagKeys} -> tagKeys) (\s@RemoveTagsFromResource' {} a -> s {tagKeys = a} :: RemoveTagsFromResource) Core.. Lens._Coerce
+removeTagsFromResource_tagKeys :: Lens.Lens' RemoveTagsFromResource [Prelude.Text]
+removeTagsFromResource_tagKeys = Lens.lens (\RemoveTagsFromResource' {tagKeys} -> tagKeys) (\s@RemoveTagsFromResource' {} a -> s {tagKeys = a} :: RemoveTagsFromResource) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest RemoveTagsFromResource where
   type
@@ -118,22 +119,23 @@ instance Core.AWSRequest RemoveTagsFromResource where
       "RemoveTagsFromResourceResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable RemoveTagsFromResource
+instance Prelude.Hashable RemoveTagsFromResource
 
-instance Core.NFData RemoveTagsFromResource
+instance Prelude.NFData RemoveTagsFromResource
 
 instance Core.ToHeaders RemoveTagsFromResource where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath RemoveTagsFromResource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RemoveTagsFromResource where
   toQuery RemoveTagsFromResource' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("RemoveTagsFromResource" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ("RemoveTagsFromResource" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "ResourceName" Core.=: resourceName,
         "TagKeys" Core.=: Core.toQueryList "member" tagKeys
       ]

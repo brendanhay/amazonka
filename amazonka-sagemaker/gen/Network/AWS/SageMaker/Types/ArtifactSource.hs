@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ArtifactSource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ArtifactSourceType
 
 -- | A structure describing the source of an artifact.
@@ -28,11 +29,11 @@ import Network.AWS.SageMaker.Types.ArtifactSourceType
 -- /See:/ 'newArtifactSource' smart constructor.
 data ArtifactSource = ArtifactSource'
   { -- | A list of source types.
-    sourceTypes :: Core.Maybe [ArtifactSourceType],
+    sourceTypes :: Prelude.Maybe [ArtifactSourceType],
     -- | The URI of the source.
-    sourceUri :: Core.Text
+    sourceUri :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ArtifactSource' with all optional fields omitted.
@@ -47,20 +48,20 @@ data ArtifactSource = ArtifactSource'
 -- 'sourceUri', 'artifactSource_sourceUri' - The URI of the source.
 newArtifactSource ::
   -- | 'sourceUri'
-  Core.Text ->
+  Prelude.Text ->
   ArtifactSource
 newArtifactSource pSourceUri_ =
   ArtifactSource'
-    { sourceTypes = Core.Nothing,
+    { sourceTypes = Prelude.Nothing,
       sourceUri = pSourceUri_
     }
 
 -- | A list of source types.
-artifactSource_sourceTypes :: Lens.Lens' ArtifactSource (Core.Maybe [ArtifactSourceType])
-artifactSource_sourceTypes = Lens.lens (\ArtifactSource' {sourceTypes} -> sourceTypes) (\s@ArtifactSource' {} a -> s {sourceTypes = a} :: ArtifactSource) Core.. Lens.mapping Lens._Coerce
+artifactSource_sourceTypes :: Lens.Lens' ArtifactSource (Prelude.Maybe [ArtifactSourceType])
+artifactSource_sourceTypes = Lens.lens (\ArtifactSource' {sourceTypes} -> sourceTypes) (\s@ArtifactSource' {} a -> s {sourceTypes = a} :: ArtifactSource) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The URI of the source.
-artifactSource_sourceUri :: Lens.Lens' ArtifactSource Core.Text
+artifactSource_sourceUri :: Lens.Lens' ArtifactSource Prelude.Text
 artifactSource_sourceUri = Lens.lens (\ArtifactSource' {sourceUri} -> sourceUri) (\s@ArtifactSource' {} a -> s {sourceUri = a} :: ArtifactSource)
 
 instance Core.FromJSON ArtifactSource where
@@ -69,19 +70,19 @@ instance Core.FromJSON ArtifactSource where
       "ArtifactSource"
       ( \x ->
           ArtifactSource'
-            Core.<$> (x Core..:? "SourceTypes" Core..!= Core.mempty)
-            Core.<*> (x Core..: "SourceUri")
+            Prelude.<$> (x Core..:? "SourceTypes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "SourceUri")
       )
 
-instance Core.Hashable ArtifactSource
+instance Prelude.Hashable ArtifactSource
 
-instance Core.NFData ArtifactSource
+instance Prelude.NFData ArtifactSource
 
 instance Core.ToJSON ArtifactSource where
   toJSON ArtifactSource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SourceTypes" Core..=) Core.<$> sourceTypes,
-            Core.Just ("SourceUri" Core..= sourceUri)
+      ( Prelude.catMaybes
+          [ ("SourceTypes" Core..=) Prelude.<$> sourceTypes,
+            Prelude.Just ("SourceUri" Core..= sourceUri)
           ]
       )

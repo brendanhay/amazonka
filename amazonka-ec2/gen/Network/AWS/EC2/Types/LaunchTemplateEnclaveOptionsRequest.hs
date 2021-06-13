@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.LaunchTemplateEnclaveOptionsRequest where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether the instance is enabled for AWS Nitro Enclaves. For
 -- more information, see
@@ -32,9 +33,9 @@ import qualified Network.AWS.Lens as Lens
 data LaunchTemplateEnclaveOptionsRequest = LaunchTemplateEnclaveOptionsRequest'
   { -- | To enable the instance for AWS Nitro Enclaves, set this parameter to
     -- @true@.
-    enabled :: Core.Maybe Core.Bool
+    enabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateEnclaveOptionsRequest' with all optional fields omitted.
@@ -51,20 +52,20 @@ newLaunchTemplateEnclaveOptionsRequest ::
 newLaunchTemplateEnclaveOptionsRequest =
   LaunchTemplateEnclaveOptionsRequest'
     { enabled =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | To enable the instance for AWS Nitro Enclaves, set this parameter to
 -- @true@.
-launchTemplateEnclaveOptionsRequest_enabled :: Lens.Lens' LaunchTemplateEnclaveOptionsRequest (Core.Maybe Core.Bool)
+launchTemplateEnclaveOptionsRequest_enabled :: Lens.Lens' LaunchTemplateEnclaveOptionsRequest (Prelude.Maybe Prelude.Bool)
 launchTemplateEnclaveOptionsRequest_enabled = Lens.lens (\LaunchTemplateEnclaveOptionsRequest' {enabled} -> enabled) (\s@LaunchTemplateEnclaveOptionsRequest' {} a -> s {enabled = a} :: LaunchTemplateEnclaveOptionsRequest)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LaunchTemplateEnclaveOptionsRequest
 
 instance
-  Core.NFData
+  Prelude.NFData
     LaunchTemplateEnclaveOptionsRequest
 
 instance
@@ -72,4 +73,4 @@ instance
     LaunchTemplateEnclaveOptionsRequest
   where
   toQuery LaunchTemplateEnclaveOptionsRequest' {..} =
-    Core.mconcat ["Enabled" Core.=: enabled]
+    Prelude.mconcat ["Enabled" Core.=: enabled]

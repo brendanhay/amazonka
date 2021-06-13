@@ -60,6 +60,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -69,11 +70,11 @@ data GetBucketWebsite = GetBucketWebsite'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket name for which to get the website configuration.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBucketWebsite' with all optional fields omitted.
@@ -95,14 +96,14 @@ newGetBucketWebsite ::
 newGetBucketWebsite pBucket_ =
   GetBucketWebsite'
     { expectedBucketOwner =
-        Core.Nothing,
+        Prelude.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getBucketWebsite_expectedBucketOwner :: Lens.Lens' GetBucketWebsite (Core.Maybe Core.Text)
+getBucketWebsite_expectedBucketOwner :: Lens.Lens' GetBucketWebsite (Prelude.Maybe Prelude.Text)
 getBucketWebsite_expectedBucketOwner = Lens.lens (\GetBucketWebsite' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketWebsite' {} a -> s {expectedBucketOwner = a} :: GetBucketWebsite)
 
 -- | The bucket name for which to get the website configuration.
@@ -118,50 +119,50 @@ instance Core.AWSRequest GetBucketWebsite where
     Response.receiveXML
       ( \s h x ->
           GetBucketWebsiteResponse'
-            Core.<$> (x Core..@? "ErrorDocument")
-            Core.<*> (x Core..@? "IndexDocument")
-            Core.<*> ( x Core..@? "RoutingRules" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "RoutingRule")
-                     )
-            Core.<*> (x Core..@? "RedirectAllRequestsTo")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ErrorDocument")
+            Prelude.<*> (x Core..@? "IndexDocument")
+            Prelude.<*> ( x Core..@? "RoutingRules" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "RoutingRule")
+                        )
+            Prelude.<*> (x Core..@? "RedirectAllRequestsTo")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetBucketWebsite
+instance Prelude.Hashable GetBucketWebsite
 
-instance Core.NFData GetBucketWebsite
+instance Prelude.NFData GetBucketWebsite
 
 instance Core.ToHeaders GetBucketWebsite where
   toHeaders GetBucketWebsite' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath GetBucketWebsite where
   toPath GetBucketWebsite' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery GetBucketWebsite where
-  toQuery = Core.const (Core.mconcat ["website"])
+  toQuery = Prelude.const (Prelude.mconcat ["website"])
 
 -- | /See:/ 'newGetBucketWebsiteResponse' smart constructor.
 data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
   { -- | The object key name of the website error document to use for 4XX class
     -- errors.
-    errorDocument :: Core.Maybe ErrorDocument,
+    errorDocument :: Prelude.Maybe ErrorDocument,
     -- | The name of the index document for the website (for example
     -- @index.html@).
-    indexDocument :: Core.Maybe IndexDocument,
+    indexDocument :: Prelude.Maybe IndexDocument,
     -- | Rules that define when a redirect is applied and the redirect behavior.
-    routingRules :: Core.Maybe [RoutingRule],
+    routingRules :: Prelude.Maybe [RoutingRule],
     -- | Specifies the redirect behavior of all requests to a website endpoint of
     -- an Amazon S3 bucket.
-    redirectAllRequestsTo :: Core.Maybe RedirectAllRequestsTo,
+    redirectAllRequestsTo :: Prelude.Maybe RedirectAllRequestsTo,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBucketWebsiteResponse' with all optional fields omitted.
@@ -185,39 +186,39 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
 -- 'httpStatus', 'getBucketWebsiteResponse_httpStatus' - The response's http status code.
 newGetBucketWebsiteResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetBucketWebsiteResponse
 newGetBucketWebsiteResponse pHttpStatus_ =
   GetBucketWebsiteResponse'
     { errorDocument =
-        Core.Nothing,
-      indexDocument = Core.Nothing,
-      routingRules = Core.Nothing,
-      redirectAllRequestsTo = Core.Nothing,
+        Prelude.Nothing,
+      indexDocument = Prelude.Nothing,
+      routingRules = Prelude.Nothing,
+      redirectAllRequestsTo = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The object key name of the website error document to use for 4XX class
 -- errors.
-getBucketWebsiteResponse_errorDocument :: Lens.Lens' GetBucketWebsiteResponse (Core.Maybe ErrorDocument)
+getBucketWebsiteResponse_errorDocument :: Lens.Lens' GetBucketWebsiteResponse (Prelude.Maybe ErrorDocument)
 getBucketWebsiteResponse_errorDocument = Lens.lens (\GetBucketWebsiteResponse' {errorDocument} -> errorDocument) (\s@GetBucketWebsiteResponse' {} a -> s {errorDocument = a} :: GetBucketWebsiteResponse)
 
 -- | The name of the index document for the website (for example
 -- @index.html@).
-getBucketWebsiteResponse_indexDocument :: Lens.Lens' GetBucketWebsiteResponse (Core.Maybe IndexDocument)
+getBucketWebsiteResponse_indexDocument :: Lens.Lens' GetBucketWebsiteResponse (Prelude.Maybe IndexDocument)
 getBucketWebsiteResponse_indexDocument = Lens.lens (\GetBucketWebsiteResponse' {indexDocument} -> indexDocument) (\s@GetBucketWebsiteResponse' {} a -> s {indexDocument = a} :: GetBucketWebsiteResponse)
 
 -- | Rules that define when a redirect is applied and the redirect behavior.
-getBucketWebsiteResponse_routingRules :: Lens.Lens' GetBucketWebsiteResponse (Core.Maybe [RoutingRule])
-getBucketWebsiteResponse_routingRules = Lens.lens (\GetBucketWebsiteResponse' {routingRules} -> routingRules) (\s@GetBucketWebsiteResponse' {} a -> s {routingRules = a} :: GetBucketWebsiteResponse) Core.. Lens.mapping Lens._Coerce
+getBucketWebsiteResponse_routingRules :: Lens.Lens' GetBucketWebsiteResponse (Prelude.Maybe [RoutingRule])
+getBucketWebsiteResponse_routingRules = Lens.lens (\GetBucketWebsiteResponse' {routingRules} -> routingRules) (\s@GetBucketWebsiteResponse' {} a -> s {routingRules = a} :: GetBucketWebsiteResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the redirect behavior of all requests to a website endpoint of
 -- an Amazon S3 bucket.
-getBucketWebsiteResponse_redirectAllRequestsTo :: Lens.Lens' GetBucketWebsiteResponse (Core.Maybe RedirectAllRequestsTo)
+getBucketWebsiteResponse_redirectAllRequestsTo :: Lens.Lens' GetBucketWebsiteResponse (Prelude.Maybe RedirectAllRequestsTo)
 getBucketWebsiteResponse_redirectAllRequestsTo = Lens.lens (\GetBucketWebsiteResponse' {redirectAllRequestsTo} -> redirectAllRequestsTo) (\s@GetBucketWebsiteResponse' {} a -> s {redirectAllRequestsTo = a} :: GetBucketWebsiteResponse)
 
 -- | The response's http status code.
-getBucketWebsiteResponse_httpStatus :: Lens.Lens' GetBucketWebsiteResponse Core.Int
+getBucketWebsiteResponse_httpStatus :: Lens.Lens' GetBucketWebsiteResponse Prelude.Int
 getBucketWebsiteResponse_httpStatus = Lens.lens (\GetBucketWebsiteResponse' {httpStatus} -> httpStatus) (\s@GetBucketWebsiteResponse' {} a -> s {httpStatus = a} :: GetBucketWebsiteResponse)
 
-instance Core.NFData GetBucketWebsiteResponse
+instance Prelude.NFData GetBucketWebsiteResponse

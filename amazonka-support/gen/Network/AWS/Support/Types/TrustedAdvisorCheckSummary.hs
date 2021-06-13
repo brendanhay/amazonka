@@ -21,6 +21,7 @@ module Network.AWS.Support.Types.TrustedAdvisorCheckSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary
 import Network.AWS.Support.Types.TrustedAdvisorResourcesSummary
 
@@ -30,20 +31,20 @@ import Network.AWS.Support.Types.TrustedAdvisorResourcesSummary
 -- /See:/ 'newTrustedAdvisorCheckSummary' smart constructor.
 data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary'
   { -- | Specifies whether the Trusted Advisor check has flagged resources.
-    hasFlaggedResources :: Core.Maybe Core.Bool,
+    hasFlaggedResources :: Prelude.Maybe Prelude.Bool,
     -- | The unique identifier for the Trusted Advisor check.
-    checkId :: Core.Text,
+    checkId :: Prelude.Text,
     -- | The time of the last refresh of the check.
-    timestamp :: Core.Text,
+    timestamp :: Prelude.Text,
     -- | The alert status of the check: \"ok\" (green), \"warning\" (yellow),
     -- \"error\" (red), or \"not_available\".
-    status :: Core.Text,
+    status :: Prelude.Text,
     resourcesSummary :: TrustedAdvisorResourcesSummary,
     -- | Summary information that relates to the category of the check. Cost
     -- Optimizing is the only category that is currently supported.
     categorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrustedAdvisorCheckSummary' with all optional fields omitted.
@@ -68,11 +69,11 @@ data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary'
 -- Optimizing is the only category that is currently supported.
 newTrustedAdvisorCheckSummary ::
   -- | 'checkId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'timestamp'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourcesSummary'
   TrustedAdvisorResourcesSummary ->
   -- | 'categorySpecificSummary'
@@ -86,7 +87,7 @@ newTrustedAdvisorCheckSummary
   pCategorySpecificSummary_ =
     TrustedAdvisorCheckSummary'
       { hasFlaggedResources =
-          Core.Nothing,
+          Prelude.Nothing,
         checkId = pCheckId_,
         timestamp = pTimestamp_,
         status = pStatus_,
@@ -96,20 +97,20 @@ newTrustedAdvisorCheckSummary
       }
 
 -- | Specifies whether the Trusted Advisor check has flagged resources.
-trustedAdvisorCheckSummary_hasFlaggedResources :: Lens.Lens' TrustedAdvisorCheckSummary (Core.Maybe Core.Bool)
+trustedAdvisorCheckSummary_hasFlaggedResources :: Lens.Lens' TrustedAdvisorCheckSummary (Prelude.Maybe Prelude.Bool)
 trustedAdvisorCheckSummary_hasFlaggedResources = Lens.lens (\TrustedAdvisorCheckSummary' {hasFlaggedResources} -> hasFlaggedResources) (\s@TrustedAdvisorCheckSummary' {} a -> s {hasFlaggedResources = a} :: TrustedAdvisorCheckSummary)
 
 -- | The unique identifier for the Trusted Advisor check.
-trustedAdvisorCheckSummary_checkId :: Lens.Lens' TrustedAdvisorCheckSummary Core.Text
+trustedAdvisorCheckSummary_checkId :: Lens.Lens' TrustedAdvisorCheckSummary Prelude.Text
 trustedAdvisorCheckSummary_checkId = Lens.lens (\TrustedAdvisorCheckSummary' {checkId} -> checkId) (\s@TrustedAdvisorCheckSummary' {} a -> s {checkId = a} :: TrustedAdvisorCheckSummary)
 
 -- | The time of the last refresh of the check.
-trustedAdvisorCheckSummary_timestamp :: Lens.Lens' TrustedAdvisorCheckSummary Core.Text
+trustedAdvisorCheckSummary_timestamp :: Lens.Lens' TrustedAdvisorCheckSummary Prelude.Text
 trustedAdvisorCheckSummary_timestamp = Lens.lens (\TrustedAdvisorCheckSummary' {timestamp} -> timestamp) (\s@TrustedAdvisorCheckSummary' {} a -> s {timestamp = a} :: TrustedAdvisorCheckSummary)
 
 -- | The alert status of the check: \"ok\" (green), \"warning\" (yellow),
 -- \"error\" (red), or \"not_available\".
-trustedAdvisorCheckSummary_status :: Lens.Lens' TrustedAdvisorCheckSummary Core.Text
+trustedAdvisorCheckSummary_status :: Lens.Lens' TrustedAdvisorCheckSummary Prelude.Text
 trustedAdvisorCheckSummary_status = Lens.lens (\TrustedAdvisorCheckSummary' {status} -> status) (\s@TrustedAdvisorCheckSummary' {} a -> s {status = a} :: TrustedAdvisorCheckSummary)
 
 -- | Undocumented member.
@@ -127,14 +128,14 @@ instance Core.FromJSON TrustedAdvisorCheckSummary where
       "TrustedAdvisorCheckSummary"
       ( \x ->
           TrustedAdvisorCheckSummary'
-            Core.<$> (x Core..:? "hasFlaggedResources")
-            Core.<*> (x Core..: "checkId")
-            Core.<*> (x Core..: "timestamp")
-            Core.<*> (x Core..: "status")
-            Core.<*> (x Core..: "resourcesSummary")
-            Core.<*> (x Core..: "categorySpecificSummary")
+            Prelude.<$> (x Core..:? "hasFlaggedResources")
+            Prelude.<*> (x Core..: "checkId")
+            Prelude.<*> (x Core..: "timestamp")
+            Prelude.<*> (x Core..: "status")
+            Prelude.<*> (x Core..: "resourcesSummary")
+            Prelude.<*> (x Core..: "categorySpecificSummary")
       )
 
-instance Core.Hashable TrustedAdvisorCheckSummary
+instance Prelude.Hashable TrustedAdvisorCheckSummary
 
-instance Core.NFData TrustedAdvisorCheckSummary
+instance Prelude.NFData TrustedAdvisorCheckSummary

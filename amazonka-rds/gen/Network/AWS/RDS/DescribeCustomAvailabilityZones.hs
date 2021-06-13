@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -61,14 +62,14 @@ import qualified Network.AWS.Response as Response
 data DescribeCustomAvailabilityZones = DescribeCustomAvailabilityZones'
   { -- | The custom AZ identifier. If this parameter is specified, information
     -- from only the specific custom AZ is returned.
-    customAvailabilityZoneId :: Core.Maybe Core.Text,
+    customAvailabilityZoneId :: Prelude.Maybe Prelude.Text,
     -- | A filter that specifies one or more custom AZs to describe.
-    filters :: Core.Maybe [Filter],
+    filters :: Prelude.Maybe [Filter],
     -- | An optional pagination token provided by a previous
     -- @DescribeCustomAvailabilityZones@ request. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so you can retrieve the
@@ -77,9 +78,9 @@ data DescribeCustomAvailabilityZones = DescribeCustomAvailabilityZones'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Core.Maybe Core.Int
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCustomAvailabilityZones' with all optional fields omitted.
@@ -112,26 +113,26 @@ newDescribeCustomAvailabilityZones ::
 newDescribeCustomAvailabilityZones =
   DescribeCustomAvailabilityZones'
     { customAvailabilityZoneId =
-        Core.Nothing,
-      filters = Core.Nothing,
-      marker = Core.Nothing,
-      maxRecords = Core.Nothing
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | The custom AZ identifier. If this parameter is specified, information
 -- from only the specific custom AZ is returned.
-describeCustomAvailabilityZones_customAvailabilityZoneId :: Lens.Lens' DescribeCustomAvailabilityZones (Core.Maybe Core.Text)
+describeCustomAvailabilityZones_customAvailabilityZoneId :: Lens.Lens' DescribeCustomAvailabilityZones (Prelude.Maybe Prelude.Text)
 describeCustomAvailabilityZones_customAvailabilityZoneId = Lens.lens (\DescribeCustomAvailabilityZones' {customAvailabilityZoneId} -> customAvailabilityZoneId) (\s@DescribeCustomAvailabilityZones' {} a -> s {customAvailabilityZoneId = a} :: DescribeCustomAvailabilityZones)
 
 -- | A filter that specifies one or more custom AZs to describe.
-describeCustomAvailabilityZones_filters :: Lens.Lens' DescribeCustomAvailabilityZones (Core.Maybe [Filter])
-describeCustomAvailabilityZones_filters = Lens.lens (\DescribeCustomAvailabilityZones' {filters} -> filters) (\s@DescribeCustomAvailabilityZones' {} a -> s {filters = a} :: DescribeCustomAvailabilityZones) Core.. Lens.mapping Lens._Coerce
+describeCustomAvailabilityZones_filters :: Lens.Lens' DescribeCustomAvailabilityZones (Prelude.Maybe [Filter])
+describeCustomAvailabilityZones_filters = Lens.lens (\DescribeCustomAvailabilityZones' {filters} -> filters) (\s@DescribeCustomAvailabilityZones' {} a -> s {filters = a} :: DescribeCustomAvailabilityZones) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous
 -- @DescribeCustomAvailabilityZones@ request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
-describeCustomAvailabilityZones_marker :: Lens.Lens' DescribeCustomAvailabilityZones (Core.Maybe Core.Text)
+describeCustomAvailabilityZones_marker :: Lens.Lens' DescribeCustomAvailabilityZones (Prelude.Maybe Prelude.Text)
 describeCustomAvailabilityZones_marker = Lens.lens (\DescribeCustomAvailabilityZones' {marker} -> marker) (\s@DescribeCustomAvailabilityZones' {} a -> s {marker = a} :: DescribeCustomAvailabilityZones)
 
 -- | The maximum number of records to include in the response. If more
@@ -142,7 +143,7 @@ describeCustomAvailabilityZones_marker = Lens.lens (\DescribeCustomAvailabilityZ
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
-describeCustomAvailabilityZones_maxRecords :: Lens.Lens' DescribeCustomAvailabilityZones (Core.Maybe Core.Int)
+describeCustomAvailabilityZones_maxRecords :: Lens.Lens' DescribeCustomAvailabilityZones (Prelude.Maybe Prelude.Int)
 describeCustomAvailabilityZones_maxRecords = Lens.lens (\DescribeCustomAvailabilityZones' {maxRecords} -> maxRecords) (\s@DescribeCustomAvailabilityZones' {} a -> s {maxRecords = a} :: DescribeCustomAvailabilityZones)
 
 instance
@@ -153,22 +154,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeCustomAvailabilityZonesResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeCustomAvailabilityZonesResponse_customAvailabilityZones
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeCustomAvailabilityZones_marker
+          Prelude.& describeCustomAvailabilityZones_marker
           Lens..~ rs
           Lens.^? describeCustomAvailabilityZonesResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -183,43 +184,46 @@ instance
       "DescribeCustomAvailabilityZonesResult"
       ( \s h x ->
           DescribeCustomAvailabilityZonesResponse'
-            Core.<$> ( x Core..@? "CustomAvailabilityZones"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may
-                           (Core.parseXMLList "CustomAvailabilityZone")
-                     )
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "CustomAvailabilityZones"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may
+                              (Core.parseXMLList "CustomAvailabilityZone")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeCustomAvailabilityZones
 
-instance Core.NFData DescribeCustomAvailabilityZones
+instance
+  Prelude.NFData
+    DescribeCustomAvailabilityZones
 
 instance
   Core.ToHeaders
     DescribeCustomAvailabilityZones
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeCustomAvailabilityZones where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeCustomAvailabilityZones where
   toQuery DescribeCustomAvailabilityZones' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DescribeCustomAvailabilityZones" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "CustomAvailabilityZoneId"
           Core.=: customAvailabilityZoneId,
         "Filters"
           Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Core.<$> filters),
+            (Core.toQueryList "Filter" Prelude.<$> filters),
         "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords
       ]
@@ -227,16 +231,16 @@ instance Core.ToQuery DescribeCustomAvailabilityZones where
 -- | /See:/ 'newDescribeCustomAvailabilityZonesResponse' smart constructor.
 data DescribeCustomAvailabilityZonesResponse = DescribeCustomAvailabilityZonesResponse'
   { -- | The list of CustomAvailabilityZone objects for the AWS account.
-    customAvailabilityZones :: Core.Maybe [CustomAvailabilityZone],
+    customAvailabilityZones :: Prelude.Maybe [CustomAvailabilityZone],
     -- | An optional pagination token provided by a previous
     -- @DescribeCustomAvailabilityZones@ request. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCustomAvailabilityZonesResponse' with all optional fields omitted.
@@ -256,32 +260,32 @@ data DescribeCustomAvailabilityZonesResponse = DescribeCustomAvailabilityZonesRe
 -- 'httpStatus', 'describeCustomAvailabilityZonesResponse_httpStatus' - The response's http status code.
 newDescribeCustomAvailabilityZonesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeCustomAvailabilityZonesResponse
 newDescribeCustomAvailabilityZonesResponse
   pHttpStatus_ =
     DescribeCustomAvailabilityZonesResponse'
       { customAvailabilityZones =
-          Core.Nothing,
-        marker = Core.Nothing,
+          Prelude.Nothing,
+        marker = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The list of CustomAvailabilityZone objects for the AWS account.
-describeCustomAvailabilityZonesResponse_customAvailabilityZones :: Lens.Lens' DescribeCustomAvailabilityZonesResponse (Core.Maybe [CustomAvailabilityZone])
-describeCustomAvailabilityZonesResponse_customAvailabilityZones = Lens.lens (\DescribeCustomAvailabilityZonesResponse' {customAvailabilityZones} -> customAvailabilityZones) (\s@DescribeCustomAvailabilityZonesResponse' {} a -> s {customAvailabilityZones = a} :: DescribeCustomAvailabilityZonesResponse) Core.. Lens.mapping Lens._Coerce
+describeCustomAvailabilityZonesResponse_customAvailabilityZones :: Lens.Lens' DescribeCustomAvailabilityZonesResponse (Prelude.Maybe [CustomAvailabilityZone])
+describeCustomAvailabilityZonesResponse_customAvailabilityZones = Lens.lens (\DescribeCustomAvailabilityZonesResponse' {customAvailabilityZones} -> customAvailabilityZones) (\s@DescribeCustomAvailabilityZonesResponse' {} a -> s {customAvailabilityZones = a} :: DescribeCustomAvailabilityZonesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous
 -- @DescribeCustomAvailabilityZones@ request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
-describeCustomAvailabilityZonesResponse_marker :: Lens.Lens' DescribeCustomAvailabilityZonesResponse (Core.Maybe Core.Text)
+describeCustomAvailabilityZonesResponse_marker :: Lens.Lens' DescribeCustomAvailabilityZonesResponse (Prelude.Maybe Prelude.Text)
 describeCustomAvailabilityZonesResponse_marker = Lens.lens (\DescribeCustomAvailabilityZonesResponse' {marker} -> marker) (\s@DescribeCustomAvailabilityZonesResponse' {} a -> s {marker = a} :: DescribeCustomAvailabilityZonesResponse)
 
 -- | The response's http status code.
-describeCustomAvailabilityZonesResponse_httpStatus :: Lens.Lens' DescribeCustomAvailabilityZonesResponse Core.Int
+describeCustomAvailabilityZonesResponse_httpStatus :: Lens.Lens' DescribeCustomAvailabilityZonesResponse Prelude.Int
 describeCustomAvailabilityZonesResponse_httpStatus = Lens.lens (\DescribeCustomAvailabilityZonesResponse' {httpStatus} -> httpStatus) (\s@DescribeCustomAvailabilityZonesResponse' {} a -> s {httpStatus = a} :: DescribeCustomAvailabilityZonesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeCustomAvailabilityZonesResponse

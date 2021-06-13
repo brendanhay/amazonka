@@ -22,6 +22,7 @@ module Network.AWS.EFS.Types.BackupPolicy where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types.BackupStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The backup policy for the file system, showing the curent status. If
 -- @ENABLED@, the file system is being backed up.
@@ -42,7 +43,7 @@ data BackupPolicy = BackupPolicy'
     --     system./
     status :: BackupStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BackupPolicy' with all optional fields omitted.
@@ -90,15 +91,17 @@ instance Core.FromJSON BackupPolicy where
   parseJSON =
     Core.withObject
       "BackupPolicy"
-      (\x -> BackupPolicy' Core.<$> (x Core..: "Status"))
+      ( \x ->
+          BackupPolicy' Prelude.<$> (x Core..: "Status")
+      )
 
-instance Core.Hashable BackupPolicy
+instance Prelude.Hashable BackupPolicy
 
-instance Core.NFData BackupPolicy
+instance Prelude.NFData BackupPolicy
 
 instance Core.ToJSON BackupPolicy where
   toJSON BackupPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Status" Core..= status)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Status" Core..= status)]
       )

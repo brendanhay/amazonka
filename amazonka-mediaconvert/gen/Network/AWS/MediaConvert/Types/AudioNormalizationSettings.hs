@@ -25,6 +25,7 @@ import Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm
 import Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithmControl
 import Network.AWS.MediaConvert.Types.AudioNormalizationLoudnessLogging
 import Network.AWS.MediaConvert.Types.AudioNormalizationPeakCalculation
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Advanced audio normalization settings. Ignore these settings unless you
 -- need to comply with a loudness standard.
@@ -33,7 +34,7 @@ import Network.AWS.MediaConvert.Types.AudioNormalizationPeakCalculation
 data AudioNormalizationSettings = AudioNormalizationSettings'
   { -- | Content measuring above this level will be corrected to the target
     -- level. Content measuring below this level will not be corrected.
-    correctionGateLevel :: Core.Maybe Core.Int,
+    correctionGateLevel :: Prelude.Maybe Prelude.Int,
     -- | Choose one of the following audio normalization algorithms: ITU-R
     -- BS.1770-1: Ungated loudness. A measurement of ungated average loudness
     -- for an entire piece of content, suitable for measurement of short-form
@@ -45,24 +46,24 @@ data AudioNormalizationSettings = AudioNormalizationSettings'
     -- measurement. ITU-R BS.1770-4: Higher channel count. Allows for more
     -- audio channels than the other algorithms, including configurations such
     -- as 7.1.
-    algorithm :: Core.Maybe AudioNormalizationAlgorithm,
+    algorithm :: Prelude.Maybe AudioNormalizationAlgorithm,
     -- | If set to TRUE_PEAK, calculate and log the TruePeak for each output\'s
     -- audio track loudness.
-    peakCalculation :: Core.Maybe AudioNormalizationPeakCalculation,
+    peakCalculation :: Prelude.Maybe AudioNormalizationPeakCalculation,
     -- | When you use Audio normalization (AudioNormalizationSettings),
     -- optionally use this setting to specify a target loudness. If you don\'t
     -- specify a value here, the encoder chooses a value for you, based on the
     -- algorithm that you choose for Algorithm (algorithm). If you choose
     -- algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the
     -- encoder will choose -23 LKFS.
-    targetLkfs :: Core.Maybe Core.Double,
+    targetLkfs :: Prelude.Maybe Prelude.Double,
     -- | When enabled the output audio is corrected using the chosen algorithm.
     -- If disabled, the audio will be measured but not adjusted.
-    algorithmControl :: Core.Maybe AudioNormalizationAlgorithmControl,
+    algorithmControl :: Prelude.Maybe AudioNormalizationAlgorithmControl,
     -- | If set to LOG, log each output\'s audio track loudness to a CSV file.
-    loudnessLogging :: Core.Maybe AudioNormalizationLoudnessLogging
+    loudnessLogging :: Prelude.Maybe AudioNormalizationLoudnessLogging
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AudioNormalizationSettings' with all optional fields omitted.
@@ -106,17 +107,17 @@ newAudioNormalizationSettings ::
 newAudioNormalizationSettings =
   AudioNormalizationSettings'
     { correctionGateLevel =
-        Core.Nothing,
-      algorithm = Core.Nothing,
-      peakCalculation = Core.Nothing,
-      targetLkfs = Core.Nothing,
-      algorithmControl = Core.Nothing,
-      loudnessLogging = Core.Nothing
+        Prelude.Nothing,
+      algorithm = Prelude.Nothing,
+      peakCalculation = Prelude.Nothing,
+      targetLkfs = Prelude.Nothing,
+      algorithmControl = Prelude.Nothing,
+      loudnessLogging = Prelude.Nothing
     }
 
 -- | Content measuring above this level will be corrected to the target
 -- level. Content measuring below this level will not be corrected.
-audioNormalizationSettings_correctionGateLevel :: Lens.Lens' AudioNormalizationSettings (Core.Maybe Core.Int)
+audioNormalizationSettings_correctionGateLevel :: Lens.Lens' AudioNormalizationSettings (Prelude.Maybe Prelude.Int)
 audioNormalizationSettings_correctionGateLevel = Lens.lens (\AudioNormalizationSettings' {correctionGateLevel} -> correctionGateLevel) (\s@AudioNormalizationSettings' {} a -> s {correctionGateLevel = a} :: AudioNormalizationSettings)
 
 -- | Choose one of the following audio normalization algorithms: ITU-R
@@ -130,12 +131,12 @@ audioNormalizationSettings_correctionGateLevel = Lens.lens (\AudioNormalizationS
 -- measurement. ITU-R BS.1770-4: Higher channel count. Allows for more
 -- audio channels than the other algorithms, including configurations such
 -- as 7.1.
-audioNormalizationSettings_algorithm :: Lens.Lens' AudioNormalizationSettings (Core.Maybe AudioNormalizationAlgorithm)
+audioNormalizationSettings_algorithm :: Lens.Lens' AudioNormalizationSettings (Prelude.Maybe AudioNormalizationAlgorithm)
 audioNormalizationSettings_algorithm = Lens.lens (\AudioNormalizationSettings' {algorithm} -> algorithm) (\s@AudioNormalizationSettings' {} a -> s {algorithm = a} :: AudioNormalizationSettings)
 
 -- | If set to TRUE_PEAK, calculate and log the TruePeak for each output\'s
 -- audio track loudness.
-audioNormalizationSettings_peakCalculation :: Lens.Lens' AudioNormalizationSettings (Core.Maybe AudioNormalizationPeakCalculation)
+audioNormalizationSettings_peakCalculation :: Lens.Lens' AudioNormalizationSettings (Prelude.Maybe AudioNormalizationPeakCalculation)
 audioNormalizationSettings_peakCalculation = Lens.lens (\AudioNormalizationSettings' {peakCalculation} -> peakCalculation) (\s@AudioNormalizationSettings' {} a -> s {peakCalculation = a} :: AudioNormalizationSettings)
 
 -- | When you use Audio normalization (AudioNormalizationSettings),
@@ -144,16 +145,16 @@ audioNormalizationSettings_peakCalculation = Lens.lens (\AudioNormalizationSetti
 -- algorithm that you choose for Algorithm (algorithm). If you choose
 -- algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the
 -- encoder will choose -23 LKFS.
-audioNormalizationSettings_targetLkfs :: Lens.Lens' AudioNormalizationSettings (Core.Maybe Core.Double)
+audioNormalizationSettings_targetLkfs :: Lens.Lens' AudioNormalizationSettings (Prelude.Maybe Prelude.Double)
 audioNormalizationSettings_targetLkfs = Lens.lens (\AudioNormalizationSettings' {targetLkfs} -> targetLkfs) (\s@AudioNormalizationSettings' {} a -> s {targetLkfs = a} :: AudioNormalizationSettings)
 
 -- | When enabled the output audio is corrected using the chosen algorithm.
 -- If disabled, the audio will be measured but not adjusted.
-audioNormalizationSettings_algorithmControl :: Lens.Lens' AudioNormalizationSettings (Core.Maybe AudioNormalizationAlgorithmControl)
+audioNormalizationSettings_algorithmControl :: Lens.Lens' AudioNormalizationSettings (Prelude.Maybe AudioNormalizationAlgorithmControl)
 audioNormalizationSettings_algorithmControl = Lens.lens (\AudioNormalizationSettings' {algorithmControl} -> algorithmControl) (\s@AudioNormalizationSettings' {} a -> s {algorithmControl = a} :: AudioNormalizationSettings)
 
 -- | If set to LOG, log each output\'s audio track loudness to a CSV file.
-audioNormalizationSettings_loudnessLogging :: Lens.Lens' AudioNormalizationSettings (Core.Maybe AudioNormalizationLoudnessLogging)
+audioNormalizationSettings_loudnessLogging :: Lens.Lens' AudioNormalizationSettings (Prelude.Maybe AudioNormalizationLoudnessLogging)
 audioNormalizationSettings_loudnessLogging = Lens.lens (\AudioNormalizationSettings' {loudnessLogging} -> loudnessLogging) (\s@AudioNormalizationSettings' {} a -> s {loudnessLogging = a} :: AudioNormalizationSettings)
 
 instance Core.FromJSON AudioNormalizationSettings where
@@ -162,30 +163,31 @@ instance Core.FromJSON AudioNormalizationSettings where
       "AudioNormalizationSettings"
       ( \x ->
           AudioNormalizationSettings'
-            Core.<$> (x Core..:? "correctionGateLevel")
-            Core.<*> (x Core..:? "algorithm")
-            Core.<*> (x Core..:? "peakCalculation")
-            Core.<*> (x Core..:? "targetLkfs")
-            Core.<*> (x Core..:? "algorithmControl")
-            Core.<*> (x Core..:? "loudnessLogging")
+            Prelude.<$> (x Core..:? "correctionGateLevel")
+            Prelude.<*> (x Core..:? "algorithm")
+            Prelude.<*> (x Core..:? "peakCalculation")
+            Prelude.<*> (x Core..:? "targetLkfs")
+            Prelude.<*> (x Core..:? "algorithmControl")
+            Prelude.<*> (x Core..:? "loudnessLogging")
       )
 
-instance Core.Hashable AudioNormalizationSettings
+instance Prelude.Hashable AudioNormalizationSettings
 
-instance Core.NFData AudioNormalizationSettings
+instance Prelude.NFData AudioNormalizationSettings
 
 instance Core.ToJSON AudioNormalizationSettings where
   toJSON AudioNormalizationSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("correctionGateLevel" Core..=)
-              Core.<$> correctionGateLevel,
-            ("algorithm" Core..=) Core.<$> algorithm,
-            ("peakCalculation" Core..=) Core.<$> peakCalculation,
-            ("targetLkfs" Core..=) Core.<$> targetLkfs,
+              Prelude.<$> correctionGateLevel,
+            ("algorithm" Core..=) Prelude.<$> algorithm,
+            ("peakCalculation" Core..=)
+              Prelude.<$> peakCalculation,
+            ("targetLkfs" Core..=) Prelude.<$> targetLkfs,
             ("algorithmControl" Core..=)
-              Core.<$> algorithmControl,
+              Prelude.<$> algorithmControl,
             ("loudnessLogging" Core..=)
-              Core.<$> loudnessLogging
+              Prelude.<$> loudnessLogging
           ]
       )

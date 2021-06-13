@@ -21,22 +21,23 @@ module Network.AWS.Shield.Types.Protection where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that represents a resource that is under DDoS protection.
 --
 -- /See:/ 'newProtection' smart constructor.
 data Protection = Protection'
   { -- | The ARN (Amazon Resource Name) of the AWS resource that is protected.
-    resourceArn :: Core.Maybe Core.Text,
+    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier (ID) of the protection.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the protection. For example, @My CloudFront distributions@.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier (ID) for the Route 53 health check that\'s
     -- associated with the protection.
-    healthCheckIds :: Core.Maybe [Core.Text]
+    healthCheckIds :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Protection' with all optional fields omitted.
@@ -58,28 +59,28 @@ newProtection ::
   Protection
 newProtection =
   Protection'
-    { resourceArn = Core.Nothing,
-      id = Core.Nothing,
-      name = Core.Nothing,
-      healthCheckIds = Core.Nothing
+    { resourceArn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
+      healthCheckIds = Prelude.Nothing
     }
 
 -- | The ARN (Amazon Resource Name) of the AWS resource that is protected.
-protection_resourceArn :: Lens.Lens' Protection (Core.Maybe Core.Text)
+protection_resourceArn :: Lens.Lens' Protection (Prelude.Maybe Prelude.Text)
 protection_resourceArn = Lens.lens (\Protection' {resourceArn} -> resourceArn) (\s@Protection' {} a -> s {resourceArn = a} :: Protection)
 
 -- | The unique identifier (ID) of the protection.
-protection_id :: Lens.Lens' Protection (Core.Maybe Core.Text)
+protection_id :: Lens.Lens' Protection (Prelude.Maybe Prelude.Text)
 protection_id = Lens.lens (\Protection' {id} -> id) (\s@Protection' {} a -> s {id = a} :: Protection)
 
 -- | The name of the protection. For example, @My CloudFront distributions@.
-protection_name :: Lens.Lens' Protection (Core.Maybe Core.Text)
+protection_name :: Lens.Lens' Protection (Prelude.Maybe Prelude.Text)
 protection_name = Lens.lens (\Protection' {name} -> name) (\s@Protection' {} a -> s {name = a} :: Protection)
 
 -- | The unique identifier (ID) for the Route 53 health check that\'s
 -- associated with the protection.
-protection_healthCheckIds :: Lens.Lens' Protection (Core.Maybe [Core.Text])
-protection_healthCheckIds = Lens.lens (\Protection' {healthCheckIds} -> healthCheckIds) (\s@Protection' {} a -> s {healthCheckIds = a} :: Protection) Core.. Lens.mapping Lens._Coerce
+protection_healthCheckIds :: Lens.Lens' Protection (Prelude.Maybe [Prelude.Text])
+protection_healthCheckIds = Lens.lens (\Protection' {healthCheckIds} -> healthCheckIds) (\s@Protection' {} a -> s {healthCheckIds = a} :: Protection) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON Protection where
   parseJSON =
@@ -87,12 +88,14 @@ instance Core.FromJSON Protection where
       "Protection"
       ( \x ->
           Protection'
-            Core.<$> (x Core..:? "ResourceArn")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "HealthCheckIds" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "ResourceArn")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> ( x Core..:? "HealthCheckIds"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable Protection
+instance Prelude.Hashable Protection
 
-instance Core.NFData Protection
+instance Prelude.NFData Protection

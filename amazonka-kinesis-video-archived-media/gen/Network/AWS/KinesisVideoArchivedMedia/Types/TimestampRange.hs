@@ -21,6 +21,7 @@ module Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The range of timestamps for which to return fragments.
 --
@@ -33,7 +34,7 @@ data TimestampRange = TimestampRange'
     -- fragments.
     endTimestamp :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TimestampRange' with all optional fields omitted.
@@ -50,9 +51,9 @@ data TimestampRange = TimestampRange'
 -- fragments.
 newTimestampRange ::
   -- | 'startTimestamp'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'endTimestamp'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   TimestampRange
 newTimestampRange pStartTimestamp_ pEndTimestamp_ =
   TimestampRange'
@@ -63,23 +64,24 @@ newTimestampRange pStartTimestamp_ pEndTimestamp_ =
 
 -- | The starting timestamp in the range of timestamps for which to return
 -- fragments.
-timestampRange_startTimestamp :: Lens.Lens' TimestampRange Core.UTCTime
-timestampRange_startTimestamp = Lens.lens (\TimestampRange' {startTimestamp} -> startTimestamp) (\s@TimestampRange' {} a -> s {startTimestamp = a} :: TimestampRange) Core.. Core._Time
+timestampRange_startTimestamp :: Lens.Lens' TimestampRange Prelude.UTCTime
+timestampRange_startTimestamp = Lens.lens (\TimestampRange' {startTimestamp} -> startTimestamp) (\s@TimestampRange' {} a -> s {startTimestamp = a} :: TimestampRange) Prelude.. Core._Time
 
 -- | The ending timestamp in the range of timestamps for which to return
 -- fragments.
-timestampRange_endTimestamp :: Lens.Lens' TimestampRange Core.UTCTime
-timestampRange_endTimestamp = Lens.lens (\TimestampRange' {endTimestamp} -> endTimestamp) (\s@TimestampRange' {} a -> s {endTimestamp = a} :: TimestampRange) Core.. Core._Time
+timestampRange_endTimestamp :: Lens.Lens' TimestampRange Prelude.UTCTime
+timestampRange_endTimestamp = Lens.lens (\TimestampRange' {endTimestamp} -> endTimestamp) (\s@TimestampRange' {} a -> s {endTimestamp = a} :: TimestampRange) Prelude.. Core._Time
 
-instance Core.Hashable TimestampRange
+instance Prelude.Hashable TimestampRange
 
-instance Core.NFData TimestampRange
+instance Prelude.NFData TimestampRange
 
 instance Core.ToJSON TimestampRange where
   toJSON TimestampRange' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("StartTimestamp" Core..= startTimestamp),
-            Core.Just ("EndTimestamp" Core..= endTimestamp)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("StartTimestamp" Core..= startTimestamp),
+            Prelude.Just ("EndTimestamp" Core..= endTimestamp)
           ]
       )

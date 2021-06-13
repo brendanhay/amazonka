@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,13 +69,13 @@ data SetTerminationProtection = SetTerminationProtection'
   { -- | A list of strings that uniquely identify the clusters to protect. This
     -- identifier is returned by RunJobFlow and can also be obtained from
     -- DescribeJobFlows .
-    jobFlowIds :: [Core.Text],
+    jobFlowIds :: [Prelude.Text],
     -- | A Boolean that indicates whether to protect the cluster and prevent the
     -- Amazon EC2 instances in the cluster from shutting down due to API calls,
     -- user intervention, or job-flow error.
-    terminationProtected :: Core.Bool
+    terminationProtected :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetTerminationProtection' with all optional fields omitted.
@@ -93,24 +94,25 @@ data SetTerminationProtection = SetTerminationProtection'
 -- user intervention, or job-flow error.
 newSetTerminationProtection ::
   -- | 'terminationProtected'
-  Core.Bool ->
+  Prelude.Bool ->
   SetTerminationProtection
 newSetTerminationProtection pTerminationProtected_ =
   SetTerminationProtection'
-    { jobFlowIds = Core.mempty,
+    { jobFlowIds =
+        Prelude.mempty,
       terminationProtected = pTerminationProtected_
     }
 
 -- | A list of strings that uniquely identify the clusters to protect. This
 -- identifier is returned by RunJobFlow and can also be obtained from
 -- DescribeJobFlows .
-setTerminationProtection_jobFlowIds :: Lens.Lens' SetTerminationProtection [Core.Text]
-setTerminationProtection_jobFlowIds = Lens.lens (\SetTerminationProtection' {jobFlowIds} -> jobFlowIds) (\s@SetTerminationProtection' {} a -> s {jobFlowIds = a} :: SetTerminationProtection) Core.. Lens._Coerce
+setTerminationProtection_jobFlowIds :: Lens.Lens' SetTerminationProtection [Prelude.Text]
+setTerminationProtection_jobFlowIds = Lens.lens (\SetTerminationProtection' {jobFlowIds} -> jobFlowIds) (\s@SetTerminationProtection' {} a -> s {jobFlowIds = a} :: SetTerminationProtection) Prelude.. Lens._Coerce
 
 -- | A Boolean that indicates whether to protect the cluster and prevent the
 -- Amazon EC2 instances in the cluster from shutting down due to API calls,
 -- user intervention, or job-flow error.
-setTerminationProtection_terminationProtected :: Lens.Lens' SetTerminationProtection Core.Bool
+setTerminationProtection_terminationProtected :: Lens.Lens' SetTerminationProtection Prelude.Bool
 setTerminationProtection_terminationProtected = Lens.lens (\SetTerminationProtection' {terminationProtected} -> terminationProtected) (\s@SetTerminationProtection' {} a -> s {terminationProtected = a} :: SetTerminationProtection)
 
 instance Core.AWSRequest SetTerminationProtection where
@@ -122,29 +124,31 @@ instance Core.AWSRequest SetTerminationProtection where
     Response.receiveNull
       SetTerminationProtectionResponse'
 
-instance Core.Hashable SetTerminationProtection
+instance Prelude.Hashable SetTerminationProtection
 
-instance Core.NFData SetTerminationProtection
+instance Prelude.NFData SetTerminationProtection
 
 instance Core.ToHeaders SetTerminationProtection where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ElasticMapReduce.SetTerminationProtection" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SetTerminationProtection where
   toJSON SetTerminationProtection' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("JobFlowIds" Core..= jobFlowIds),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("JobFlowIds" Core..= jobFlowIds),
+            Prelude.Just
               ( "TerminationProtected"
                   Core..= terminationProtected
               )
@@ -152,16 +156,16 @@ instance Core.ToJSON SetTerminationProtection where
       )
 
 instance Core.ToPath SetTerminationProtection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetTerminationProtection where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetTerminationProtectionResponse' smart constructor.
 data SetTerminationProtectionResponse = SetTerminationProtectionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetTerminationProtectionResponse' with all optional fields omitted.
@@ -172,4 +176,6 @@ newSetTerminationProtectionResponse ::
 newSetTerminationProtectionResponse =
   SetTerminationProtectionResponse'
 
-instance Core.NFData SetTerminationProtectionResponse
+instance
+  Prelude.NFData
+    SetTerminationProtectionResponse

@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -47,9 +48,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStartMonitoringSchedule' smart constructor.
 data StartMonitoringSchedule = StartMonitoringSchedule'
   { -- | The name of the schedule to start.
-    monitoringScheduleName :: Core.Text
+    monitoringScheduleName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartMonitoringSchedule' with all optional fields omitted.
@@ -62,7 +63,7 @@ data StartMonitoringSchedule = StartMonitoringSchedule'
 -- 'monitoringScheduleName', 'startMonitoringSchedule_monitoringScheduleName' - The name of the schedule to start.
 newStartMonitoringSchedule ::
   -- | 'monitoringScheduleName'
-  Core.Text ->
+  Prelude.Text ->
   StartMonitoringSchedule
 newStartMonitoringSchedule pMonitoringScheduleName_ =
   StartMonitoringSchedule'
@@ -71,7 +72,7 @@ newStartMonitoringSchedule pMonitoringScheduleName_ =
     }
 
 -- | The name of the schedule to start.
-startMonitoringSchedule_monitoringScheduleName :: Lens.Lens' StartMonitoringSchedule Core.Text
+startMonitoringSchedule_monitoringScheduleName :: Lens.Lens' StartMonitoringSchedule Prelude.Text
 startMonitoringSchedule_monitoringScheduleName = Lens.lens (\StartMonitoringSchedule' {monitoringScheduleName} -> monitoringScheduleName) (\s@StartMonitoringSchedule' {} a -> s {monitoringScheduleName = a} :: StartMonitoringSchedule)
 
 instance Core.AWSRequest StartMonitoringSchedule where
@@ -83,28 +84,30 @@ instance Core.AWSRequest StartMonitoringSchedule where
     Response.receiveNull
       StartMonitoringScheduleResponse'
 
-instance Core.Hashable StartMonitoringSchedule
+instance Prelude.Hashable StartMonitoringSchedule
 
-instance Core.NFData StartMonitoringSchedule
+instance Prelude.NFData StartMonitoringSchedule
 
 instance Core.ToHeaders StartMonitoringSchedule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.StartMonitoringSchedule" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartMonitoringSchedule where
   toJSON StartMonitoringSchedule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "MonitoringScheduleName"
                   Core..= monitoringScheduleName
               )
@@ -112,16 +115,16 @@ instance Core.ToJSON StartMonitoringSchedule where
       )
 
 instance Core.ToPath StartMonitoringSchedule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartMonitoringSchedule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartMonitoringScheduleResponse' smart constructor.
 data StartMonitoringScheduleResponse = StartMonitoringScheduleResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartMonitoringScheduleResponse' with all optional fields omitted.
@@ -132,4 +135,6 @@ newStartMonitoringScheduleResponse ::
 newStartMonitoringScheduleResponse =
   StartMonitoringScheduleResponse'
 
-instance Core.NFData StartMonitoringScheduleResponse
+instance
+  Prelude.NFData
+    StartMonitoringScheduleResponse

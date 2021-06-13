@@ -54,6 +54,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,15 +64,15 @@ import qualified Network.AWS.Response as Response
 data UpdateMethod = UpdateMethod'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Core.Maybe [PatchOperation],
+    patchOperations :: Prelude.Maybe [PatchOperation],
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The Resource identifier for the Method resource.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | [Required] The HTTP verb of the Method resource.
-    httpMethod :: Core.Text
+    httpMethod :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateMethod' with all optional fields omitted.
@@ -91,15 +92,15 @@ data UpdateMethod = UpdateMethod'
 -- 'httpMethod', 'updateMethod_httpMethod' - [Required] The HTTP verb of the Method resource.
 newUpdateMethod ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'httpMethod'
-  Core.Text ->
+  Prelude.Text ->
   UpdateMethod
 newUpdateMethod pRestApiId_ pResourceId_ pHttpMethod_ =
   UpdateMethod'
-    { patchOperations = Core.Nothing,
+    { patchOperations = Prelude.Nothing,
       restApiId = pRestApiId_,
       resourceId = pResourceId_,
       httpMethod = pHttpMethod_
@@ -107,19 +108,19 @@ newUpdateMethod pRestApiId_ pResourceId_ pHttpMethod_ =
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateMethod_patchOperations :: Lens.Lens' UpdateMethod (Core.Maybe [PatchOperation])
-updateMethod_patchOperations = Lens.lens (\UpdateMethod' {patchOperations} -> patchOperations) (\s@UpdateMethod' {} a -> s {patchOperations = a} :: UpdateMethod) Core.. Lens.mapping Lens._Coerce
+updateMethod_patchOperations :: Lens.Lens' UpdateMethod (Prelude.Maybe [PatchOperation])
+updateMethod_patchOperations = Lens.lens (\UpdateMethod' {patchOperations} -> patchOperations) (\s@UpdateMethod' {} a -> s {patchOperations = a} :: UpdateMethod) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-updateMethod_restApiId :: Lens.Lens' UpdateMethod Core.Text
+updateMethod_restApiId :: Lens.Lens' UpdateMethod Prelude.Text
 updateMethod_restApiId = Lens.lens (\UpdateMethod' {restApiId} -> restApiId) (\s@UpdateMethod' {} a -> s {restApiId = a} :: UpdateMethod)
 
 -- | [Required] The Resource identifier for the Method resource.
-updateMethod_resourceId :: Lens.Lens' UpdateMethod Core.Text
+updateMethod_resourceId :: Lens.Lens' UpdateMethod Prelude.Text
 updateMethod_resourceId = Lens.lens (\UpdateMethod' {resourceId} -> resourceId) (\s@UpdateMethod' {} a -> s {resourceId = a} :: UpdateMethod)
 
 -- | [Required] The HTTP verb of the Method resource.
-updateMethod_httpMethod :: Lens.Lens' UpdateMethod Core.Text
+updateMethod_httpMethod :: Lens.Lens' UpdateMethod Prelude.Text
 updateMethod_httpMethod = Lens.lens (\UpdateMethod' {httpMethod} -> httpMethod) (\s@UpdateMethod' {} a -> s {httpMethod = a} :: UpdateMethod)
 
 instance Core.AWSRequest UpdateMethod where
@@ -129,31 +130,31 @@ instance Core.AWSRequest UpdateMethod where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable UpdateMethod
+instance Prelude.Hashable UpdateMethod
 
-instance Core.NFData UpdateMethod
+instance Prelude.NFData UpdateMethod
 
 instance Core.ToHeaders UpdateMethod where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToJSON UpdateMethod where
   toJSON UpdateMethod' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("patchOperations" Core..=)
-              Core.<$> patchOperations
+              Prelude.<$> patchOperations
           ]
       )
 
 instance Core.ToPath UpdateMethod where
   toPath UpdateMethod' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/resources/",
@@ -163,4 +164,4 @@ instance Core.ToPath UpdateMethod where
       ]
 
 instance Core.ToQuery UpdateMethod where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

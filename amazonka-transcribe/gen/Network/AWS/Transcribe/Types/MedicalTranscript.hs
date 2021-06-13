@@ -21,6 +21,7 @@ module Network.AWS.Transcribe.Types.MedicalTranscript where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies the location of a medical transcript.
 --
@@ -30,9 +31,9 @@ data MedicalTranscript = MedicalTranscript'
     --
     -- Use this URI to access the medical transcript. This URI points to the S3
     -- bucket you created to store the medical transcript.
-    transcriptFileUri :: Core.Maybe Core.Text
+    transcriptFileUri :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MedicalTranscript' with all optional fields omitted.
@@ -51,14 +52,14 @@ newMedicalTranscript ::
 newMedicalTranscript =
   MedicalTranscript'
     { transcriptFileUri =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The S3 object location of the medical transcript.
 --
 -- Use this URI to access the medical transcript. This URI points to the S3
 -- bucket you created to store the medical transcript.
-medicalTranscript_transcriptFileUri :: Lens.Lens' MedicalTranscript (Core.Maybe Core.Text)
+medicalTranscript_transcriptFileUri :: Lens.Lens' MedicalTranscript (Prelude.Maybe Prelude.Text)
 medicalTranscript_transcriptFileUri = Lens.lens (\MedicalTranscript' {transcriptFileUri} -> transcriptFileUri) (\s@MedicalTranscript' {} a -> s {transcriptFileUri = a} :: MedicalTranscript)
 
 instance Core.FromJSON MedicalTranscript where
@@ -67,9 +68,9 @@ instance Core.FromJSON MedicalTranscript where
       "MedicalTranscript"
       ( \x ->
           MedicalTranscript'
-            Core.<$> (x Core..:? "TranscriptFileUri")
+            Prelude.<$> (x Core..:? "TranscriptFileUri")
       )
 
-instance Core.Hashable MedicalTranscript
+instance Prelude.Hashable MedicalTranscript
 
-instance Core.NFData MedicalTranscript
+instance Prelude.NFData MedicalTranscript

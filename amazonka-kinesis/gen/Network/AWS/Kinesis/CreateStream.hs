@@ -81,6 +81,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -93,13 +94,13 @@ data CreateStream = CreateStream'
     -- scoped by AWS Region. That is, two streams in two different AWS accounts
     -- can have the same name. Two streams in the same AWS account but in two
     -- different Regions can also have the same name.
-    streamName :: Core.Text,
+    streamName :: Prelude.Text,
     -- | The number of shards that the stream will use. The throughput of the
     -- stream is a function of the number of shards; more shards are required
     -- for greater provisioned throughput.
-    shardCount :: Core.Natural
+    shardCount :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateStream' with all optional fields omitted.
@@ -120,9 +121,9 @@ data CreateStream = CreateStream'
 -- for greater provisioned throughput.
 newCreateStream ::
   -- | 'streamName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'shardCount'
-  Core.Natural ->
+  Prelude.Natural ->
   CreateStream
 newCreateStream pStreamName_ pShardCount_ =
   CreateStream'
@@ -135,13 +136,13 @@ newCreateStream pStreamName_ pShardCount_ =
 -- scoped by AWS Region. That is, two streams in two different AWS accounts
 -- can have the same name. Two streams in the same AWS account but in two
 -- different Regions can also have the same name.
-createStream_streamName :: Lens.Lens' CreateStream Core.Text
+createStream_streamName :: Lens.Lens' CreateStream Prelude.Text
 createStream_streamName = Lens.lens (\CreateStream' {streamName} -> streamName) (\s@CreateStream' {} a -> s {streamName = a} :: CreateStream)
 
 -- | The number of shards that the stream will use. The throughput of the
 -- stream is a function of the number of shards; more shards are required
 -- for greater provisioned throughput.
-createStream_shardCount :: Lens.Lens' CreateStream Core.Natural
+createStream_shardCount :: Lens.Lens' CreateStream Prelude.Natural
 createStream_shardCount = Lens.lens (\CreateStream' {shardCount} -> shardCount) (\s@CreateStream' {} a -> s {shardCount = a} :: CreateStream)
 
 instance Core.AWSRequest CreateStream where
@@ -149,41 +150,45 @@ instance Core.AWSRequest CreateStream where
   request = Request.postJSON defaultService
   response = Response.receiveNull CreateStreamResponse'
 
-instance Core.Hashable CreateStream
+instance Prelude.Hashable CreateStream
 
-instance Core.NFData CreateStream
+instance Prelude.NFData CreateStream
 
 instance Core.ToHeaders CreateStream where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Kinesis_20131202.CreateStream" :: Core.ByteString),
+              Core.=# ( "Kinesis_20131202.CreateStream" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateStream where
   toJSON CreateStream' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("StreamName" Core..= streamName),
-            Core.Just ("ShardCount" Core..= shardCount)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("StreamName" Core..= streamName),
+            Prelude.Just ("ShardCount" Core..= shardCount)
           ]
       )
 
 instance Core.ToPath CreateStream where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateStream where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStreamResponse' smart constructor.
 data CreateStreamResponse = CreateStreamResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateStreamResponse' with all optional fields omitted.
@@ -193,4 +198,4 @@ newCreateStreamResponse ::
   CreateStreamResponse
 newCreateStreamResponse = CreateStreamResponse'
 
-instance Core.NFData CreateStreamResponse
+instance Prelude.NFData CreateStreamResponse

@@ -28,24 +28,25 @@ import Network.AWS.EC2.Types.EndDateType
 import Network.AWS.EC2.Types.InstanceMatchCriteria
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Capacity Reservation.
 --
 -- /See:/ 'newCapacityReservation' smart constructor.
 data CapacityReservation = CapacityReservation'
   { -- | The ID of the AWS account that owns the Capacity Reservation.
-    ownerId :: Core.Maybe Core.Text,
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the Capacity Reservation was started.
-    startDate :: Core.Maybe Core.ISO8601,
+    startDate :: Prelude.Maybe Core.ISO8601,
     -- | The type of instance for which the Capacity Reservation reserves
     -- capacity.
-    instanceType :: Core.Maybe Core.Text,
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the Capacity Reservation supports EBS-optimized
     -- instances. This optimization provides dedicated throughput to Amazon EBS
     -- and an optimized configuration stack to provide optimal I\/O
     -- performance. This optimization isn\'t available with all instance types.
     -- Additional usage charges apply when using an EBS- optimized instance.
-    ebsOptimized :: Core.Maybe Core.Bool,
+    ebsOptimized :: Prelude.Maybe Prelude.Bool,
     -- | Indicates the way in which the Capacity Reservation ends. A Capacity
     -- Reservation can have one of the following end types:
     --
@@ -54,12 +55,12 @@ data CapacityReservation = CapacityReservation'
     --
     -- -   @limited@ - The Capacity Reservation expires automatically at a
     --     specified date and time.
-    endDateType :: Core.Maybe EndDateType,
+    endDateType :: Prelude.Maybe EndDateType,
     -- | The remaining capacity. Indicates the number of instances that can be
     -- launched in the Capacity Reservation.
-    availableInstanceCount :: Core.Maybe Core.Int,
+    availableInstanceCount :: Prelude.Maybe Prelude.Int,
     -- | The date and time at which the Capacity Reservation was created.
-    createDate :: Core.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Core.ISO8601,
     -- | Indicates the tenancy of the Capacity Reservation. A Capacity
     -- Reservation can have one of the following tenancy settings:
     --
@@ -68,9 +69,9 @@ data CapacityReservation = CapacityReservation'
     --
     -- -   @dedicated@ - The Capacity Reservation is created on single-tenant
     --     hardware that is dedicated to a single AWS account.
-    tenancy :: Core.Maybe CapacityReservationTenancy,
+    tenancy :: Prelude.Maybe CapacityReservationTenancy,
     -- | The Availability Zone ID of the Capacity Reservation.
-    availabilityZoneId :: Core.Maybe Core.Text,
+    availabilityZoneId :: Prelude.Maybe Prelude.Text,
     -- | The current state of the Capacity Reservation. A Capacity Reservation
     -- can be in one of the following states:
     --
@@ -91,15 +92,15 @@ data CapacityReservation = CapacityReservation'
     --     might fail due to invalid request parameters, capacity constraints,
     --     or instance limit constraints. Failed requests are retained for 60
     --     minutes.
-    state :: Core.Maybe CapacityReservationState,
+    state :: Prelude.Maybe CapacityReservationState,
     -- | The Availability Zone in which the capacity is reserved.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Capacity Reservation.
-    capacityReservationId :: Core.Maybe Core.Text,
+    capacityReservationId :: Prelude.Maybe Prelude.Text,
     -- | Any tags assigned to the Capacity Reservation.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Name (ARN) of the Capacity Reservation.
-    capacityReservationArn :: Core.Maybe Core.Text,
+    capacityReservationArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates the type of instance launches that the Capacity Reservation
     -- accepts. The options include:
     --
@@ -113,23 +114,23 @@ data CapacityReservation = CapacityReservation'
     --     have matching attributes (instance type, platform, and Availability
     --     Zone), and explicitly target the Capacity Reservation. This ensures
     --     that only permitted instances can use the reserved capacity.
-    instanceMatchCriteria :: Core.Maybe InstanceMatchCriteria,
+    instanceMatchCriteria :: Prelude.Maybe InstanceMatchCriteria,
     -- | Indicates whether the Capacity Reservation supports instances with
     -- temporary, block-level storage.
-    ephemeralStorage :: Core.Maybe Core.Bool,
+    ephemeralStorage :: Prelude.Maybe Prelude.Bool,
     -- | The type of operating system for which the Capacity Reservation reserves
     -- capacity.
-    instancePlatform :: Core.Maybe CapacityReservationInstancePlatform,
+    instancePlatform :: Prelude.Maybe CapacityReservationInstancePlatform,
     -- | The date and time at which the Capacity Reservation expires. When a
     -- Capacity Reservation expires, the reserved capacity is released and you
     -- can no longer launch instances into it. The Capacity Reservation\'s
     -- state changes to @expired@ when it reaches its end date and time.
-    endDate :: Core.Maybe Core.ISO8601,
+    endDate :: Prelude.Maybe Core.ISO8601,
     -- | The total number of instances for which the Capacity Reservation
     -- reserves capacity.
-    totalInstanceCount :: Core.Maybe Core.Int
+    totalInstanceCount :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CapacityReservation' with all optional fields omitted.
@@ -237,38 +238,38 @@ newCapacityReservation ::
   CapacityReservation
 newCapacityReservation =
   CapacityReservation'
-    { ownerId = Core.Nothing,
-      startDate = Core.Nothing,
-      instanceType = Core.Nothing,
-      ebsOptimized = Core.Nothing,
-      endDateType = Core.Nothing,
-      availableInstanceCount = Core.Nothing,
-      createDate = Core.Nothing,
-      tenancy = Core.Nothing,
-      availabilityZoneId = Core.Nothing,
-      state = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      capacityReservationId = Core.Nothing,
-      tags = Core.Nothing,
-      capacityReservationArn = Core.Nothing,
-      instanceMatchCriteria = Core.Nothing,
-      ephemeralStorage = Core.Nothing,
-      instancePlatform = Core.Nothing,
-      endDate = Core.Nothing,
-      totalInstanceCount = Core.Nothing
+    { ownerId = Prelude.Nothing,
+      startDate = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      ebsOptimized = Prelude.Nothing,
+      endDateType = Prelude.Nothing,
+      availableInstanceCount = Prelude.Nothing,
+      createDate = Prelude.Nothing,
+      tenancy = Prelude.Nothing,
+      availabilityZoneId = Prelude.Nothing,
+      state = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      capacityReservationId = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      capacityReservationArn = Prelude.Nothing,
+      instanceMatchCriteria = Prelude.Nothing,
+      ephemeralStorage = Prelude.Nothing,
+      instancePlatform = Prelude.Nothing,
+      endDate = Prelude.Nothing,
+      totalInstanceCount = Prelude.Nothing
     }
 
 -- | The ID of the AWS account that owns the Capacity Reservation.
-capacityReservation_ownerId :: Lens.Lens' CapacityReservation (Core.Maybe Core.Text)
+capacityReservation_ownerId :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.Text)
 capacityReservation_ownerId = Lens.lens (\CapacityReservation' {ownerId} -> ownerId) (\s@CapacityReservation' {} a -> s {ownerId = a} :: CapacityReservation)
 
 -- | The date and time at which the Capacity Reservation was started.
-capacityReservation_startDate :: Lens.Lens' CapacityReservation (Core.Maybe Core.UTCTime)
-capacityReservation_startDate = Lens.lens (\CapacityReservation' {startDate} -> startDate) (\s@CapacityReservation' {} a -> s {startDate = a} :: CapacityReservation) Core.. Lens.mapping Core._Time
+capacityReservation_startDate :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.UTCTime)
+capacityReservation_startDate = Lens.lens (\CapacityReservation' {startDate} -> startDate) (\s@CapacityReservation' {} a -> s {startDate = a} :: CapacityReservation) Prelude.. Lens.mapping Core._Time
 
 -- | The type of instance for which the Capacity Reservation reserves
 -- capacity.
-capacityReservation_instanceType :: Lens.Lens' CapacityReservation (Core.Maybe Core.Text)
+capacityReservation_instanceType :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.Text)
 capacityReservation_instanceType = Lens.lens (\CapacityReservation' {instanceType} -> instanceType) (\s@CapacityReservation' {} a -> s {instanceType = a} :: CapacityReservation)
 
 -- | Indicates whether the Capacity Reservation supports EBS-optimized
@@ -276,7 +277,7 @@ capacityReservation_instanceType = Lens.lens (\CapacityReservation' {instanceTyp
 -- and an optimized configuration stack to provide optimal I\/O
 -- performance. This optimization isn\'t available with all instance types.
 -- Additional usage charges apply when using an EBS- optimized instance.
-capacityReservation_ebsOptimized :: Lens.Lens' CapacityReservation (Core.Maybe Core.Bool)
+capacityReservation_ebsOptimized :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.Bool)
 capacityReservation_ebsOptimized = Lens.lens (\CapacityReservation' {ebsOptimized} -> ebsOptimized) (\s@CapacityReservation' {} a -> s {ebsOptimized = a} :: CapacityReservation)
 
 -- | Indicates the way in which the Capacity Reservation ends. A Capacity
@@ -287,17 +288,17 @@ capacityReservation_ebsOptimized = Lens.lens (\CapacityReservation' {ebsOptimize
 --
 -- -   @limited@ - The Capacity Reservation expires automatically at a
 --     specified date and time.
-capacityReservation_endDateType :: Lens.Lens' CapacityReservation (Core.Maybe EndDateType)
+capacityReservation_endDateType :: Lens.Lens' CapacityReservation (Prelude.Maybe EndDateType)
 capacityReservation_endDateType = Lens.lens (\CapacityReservation' {endDateType} -> endDateType) (\s@CapacityReservation' {} a -> s {endDateType = a} :: CapacityReservation)
 
 -- | The remaining capacity. Indicates the number of instances that can be
 -- launched in the Capacity Reservation.
-capacityReservation_availableInstanceCount :: Lens.Lens' CapacityReservation (Core.Maybe Core.Int)
+capacityReservation_availableInstanceCount :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.Int)
 capacityReservation_availableInstanceCount = Lens.lens (\CapacityReservation' {availableInstanceCount} -> availableInstanceCount) (\s@CapacityReservation' {} a -> s {availableInstanceCount = a} :: CapacityReservation)
 
 -- | The date and time at which the Capacity Reservation was created.
-capacityReservation_createDate :: Lens.Lens' CapacityReservation (Core.Maybe Core.UTCTime)
-capacityReservation_createDate = Lens.lens (\CapacityReservation' {createDate} -> createDate) (\s@CapacityReservation' {} a -> s {createDate = a} :: CapacityReservation) Core.. Lens.mapping Core._Time
+capacityReservation_createDate :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.UTCTime)
+capacityReservation_createDate = Lens.lens (\CapacityReservation' {createDate} -> createDate) (\s@CapacityReservation' {} a -> s {createDate = a} :: CapacityReservation) Prelude.. Lens.mapping Core._Time
 
 -- | Indicates the tenancy of the Capacity Reservation. A Capacity
 -- Reservation can have one of the following tenancy settings:
@@ -307,11 +308,11 @@ capacityReservation_createDate = Lens.lens (\CapacityReservation' {createDate} -
 --
 -- -   @dedicated@ - The Capacity Reservation is created on single-tenant
 --     hardware that is dedicated to a single AWS account.
-capacityReservation_tenancy :: Lens.Lens' CapacityReservation (Core.Maybe CapacityReservationTenancy)
+capacityReservation_tenancy :: Lens.Lens' CapacityReservation (Prelude.Maybe CapacityReservationTenancy)
 capacityReservation_tenancy = Lens.lens (\CapacityReservation' {tenancy} -> tenancy) (\s@CapacityReservation' {} a -> s {tenancy = a} :: CapacityReservation)
 
 -- | The Availability Zone ID of the Capacity Reservation.
-capacityReservation_availabilityZoneId :: Lens.Lens' CapacityReservation (Core.Maybe Core.Text)
+capacityReservation_availabilityZoneId :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.Text)
 capacityReservation_availabilityZoneId = Lens.lens (\CapacityReservation' {availabilityZoneId} -> availabilityZoneId) (\s@CapacityReservation' {} a -> s {availabilityZoneId = a} :: CapacityReservation)
 
 -- | The current state of the Capacity Reservation. A Capacity Reservation
@@ -334,23 +335,23 @@ capacityReservation_availabilityZoneId = Lens.lens (\CapacityReservation' {avail
 --     might fail due to invalid request parameters, capacity constraints,
 --     or instance limit constraints. Failed requests are retained for 60
 --     minutes.
-capacityReservation_state :: Lens.Lens' CapacityReservation (Core.Maybe CapacityReservationState)
+capacityReservation_state :: Lens.Lens' CapacityReservation (Prelude.Maybe CapacityReservationState)
 capacityReservation_state = Lens.lens (\CapacityReservation' {state} -> state) (\s@CapacityReservation' {} a -> s {state = a} :: CapacityReservation)
 
 -- | The Availability Zone in which the capacity is reserved.
-capacityReservation_availabilityZone :: Lens.Lens' CapacityReservation (Core.Maybe Core.Text)
+capacityReservation_availabilityZone :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.Text)
 capacityReservation_availabilityZone = Lens.lens (\CapacityReservation' {availabilityZone} -> availabilityZone) (\s@CapacityReservation' {} a -> s {availabilityZone = a} :: CapacityReservation)
 
 -- | The ID of the Capacity Reservation.
-capacityReservation_capacityReservationId :: Lens.Lens' CapacityReservation (Core.Maybe Core.Text)
+capacityReservation_capacityReservationId :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.Text)
 capacityReservation_capacityReservationId = Lens.lens (\CapacityReservation' {capacityReservationId} -> capacityReservationId) (\s@CapacityReservation' {} a -> s {capacityReservationId = a} :: CapacityReservation)
 
 -- | Any tags assigned to the Capacity Reservation.
-capacityReservation_tags :: Lens.Lens' CapacityReservation (Core.Maybe [Tag])
-capacityReservation_tags = Lens.lens (\CapacityReservation' {tags} -> tags) (\s@CapacityReservation' {} a -> s {tags = a} :: CapacityReservation) Core.. Lens.mapping Lens._Coerce
+capacityReservation_tags :: Lens.Lens' CapacityReservation (Prelude.Maybe [Tag])
+capacityReservation_tags = Lens.lens (\CapacityReservation' {tags} -> tags) (\s@CapacityReservation' {} a -> s {tags = a} :: CapacityReservation) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the Capacity Reservation.
-capacityReservation_capacityReservationArn :: Lens.Lens' CapacityReservation (Core.Maybe Core.Text)
+capacityReservation_capacityReservationArn :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.Text)
 capacityReservation_capacityReservationArn = Lens.lens (\CapacityReservation' {capacityReservationArn} -> capacityReservationArn) (\s@CapacityReservation' {} a -> s {capacityReservationArn = a} :: CapacityReservation)
 
 -- | Indicates the type of instance launches that the Capacity Reservation
@@ -366,56 +367,56 @@ capacityReservation_capacityReservationArn = Lens.lens (\CapacityReservation' {c
 --     have matching attributes (instance type, platform, and Availability
 --     Zone), and explicitly target the Capacity Reservation. This ensures
 --     that only permitted instances can use the reserved capacity.
-capacityReservation_instanceMatchCriteria :: Lens.Lens' CapacityReservation (Core.Maybe InstanceMatchCriteria)
+capacityReservation_instanceMatchCriteria :: Lens.Lens' CapacityReservation (Prelude.Maybe InstanceMatchCriteria)
 capacityReservation_instanceMatchCriteria = Lens.lens (\CapacityReservation' {instanceMatchCriteria} -> instanceMatchCriteria) (\s@CapacityReservation' {} a -> s {instanceMatchCriteria = a} :: CapacityReservation)
 
 -- | Indicates whether the Capacity Reservation supports instances with
 -- temporary, block-level storage.
-capacityReservation_ephemeralStorage :: Lens.Lens' CapacityReservation (Core.Maybe Core.Bool)
+capacityReservation_ephemeralStorage :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.Bool)
 capacityReservation_ephemeralStorage = Lens.lens (\CapacityReservation' {ephemeralStorage} -> ephemeralStorage) (\s@CapacityReservation' {} a -> s {ephemeralStorage = a} :: CapacityReservation)
 
 -- | The type of operating system for which the Capacity Reservation reserves
 -- capacity.
-capacityReservation_instancePlatform :: Lens.Lens' CapacityReservation (Core.Maybe CapacityReservationInstancePlatform)
+capacityReservation_instancePlatform :: Lens.Lens' CapacityReservation (Prelude.Maybe CapacityReservationInstancePlatform)
 capacityReservation_instancePlatform = Lens.lens (\CapacityReservation' {instancePlatform} -> instancePlatform) (\s@CapacityReservation' {} a -> s {instancePlatform = a} :: CapacityReservation)
 
 -- | The date and time at which the Capacity Reservation expires. When a
 -- Capacity Reservation expires, the reserved capacity is released and you
 -- can no longer launch instances into it. The Capacity Reservation\'s
 -- state changes to @expired@ when it reaches its end date and time.
-capacityReservation_endDate :: Lens.Lens' CapacityReservation (Core.Maybe Core.UTCTime)
-capacityReservation_endDate = Lens.lens (\CapacityReservation' {endDate} -> endDate) (\s@CapacityReservation' {} a -> s {endDate = a} :: CapacityReservation) Core.. Lens.mapping Core._Time
+capacityReservation_endDate :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.UTCTime)
+capacityReservation_endDate = Lens.lens (\CapacityReservation' {endDate} -> endDate) (\s@CapacityReservation' {} a -> s {endDate = a} :: CapacityReservation) Prelude.. Lens.mapping Core._Time
 
 -- | The total number of instances for which the Capacity Reservation
 -- reserves capacity.
-capacityReservation_totalInstanceCount :: Lens.Lens' CapacityReservation (Core.Maybe Core.Int)
+capacityReservation_totalInstanceCount :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.Int)
 capacityReservation_totalInstanceCount = Lens.lens (\CapacityReservation' {totalInstanceCount} -> totalInstanceCount) (\s@CapacityReservation' {} a -> s {totalInstanceCount = a} :: CapacityReservation)
 
 instance Core.FromXML CapacityReservation where
   parseXML x =
     CapacityReservation'
-      Core.<$> (x Core..@? "ownerId")
-      Core.<*> (x Core..@? "startDate")
-      Core.<*> (x Core..@? "instanceType")
-      Core.<*> (x Core..@? "ebsOptimized")
-      Core.<*> (x Core..@? "endDateType")
-      Core.<*> (x Core..@? "availableInstanceCount")
-      Core.<*> (x Core..@? "createDate")
-      Core.<*> (x Core..@? "tenancy")
-      Core.<*> (x Core..@? "availabilityZoneId")
-      Core.<*> (x Core..@? "state")
-      Core.<*> (x Core..@? "availabilityZone")
-      Core.<*> (x Core..@? "capacityReservationId")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "capacityReservationArn")
-      Core.<*> (x Core..@? "instanceMatchCriteria")
-      Core.<*> (x Core..@? "ephemeralStorage")
-      Core.<*> (x Core..@? "instancePlatform")
-      Core.<*> (x Core..@? "endDate")
-      Core.<*> (x Core..@? "totalInstanceCount")
+      Prelude.<$> (x Core..@? "ownerId")
+      Prelude.<*> (x Core..@? "startDate")
+      Prelude.<*> (x Core..@? "instanceType")
+      Prelude.<*> (x Core..@? "ebsOptimized")
+      Prelude.<*> (x Core..@? "endDateType")
+      Prelude.<*> (x Core..@? "availableInstanceCount")
+      Prelude.<*> (x Core..@? "createDate")
+      Prelude.<*> (x Core..@? "tenancy")
+      Prelude.<*> (x Core..@? "availabilityZoneId")
+      Prelude.<*> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "availabilityZone")
+      Prelude.<*> (x Core..@? "capacityReservationId")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "capacityReservationArn")
+      Prelude.<*> (x Core..@? "instanceMatchCriteria")
+      Prelude.<*> (x Core..@? "ephemeralStorage")
+      Prelude.<*> (x Core..@? "instancePlatform")
+      Prelude.<*> (x Core..@? "endDate")
+      Prelude.<*> (x Core..@? "totalInstanceCount")
 
-instance Core.Hashable CapacityReservation
+instance Prelude.Hashable CapacityReservation
 
-instance Core.NFData CapacityReservation
+instance Prelude.NFData CapacityReservation

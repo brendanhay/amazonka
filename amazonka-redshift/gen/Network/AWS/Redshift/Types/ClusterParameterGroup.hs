@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.ClusterParameterGroup where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.Tag
 
@@ -29,16 +30,16 @@ import Network.AWS.Redshift.Types.Tag
 -- /See:/ 'newClusterParameterGroup' smart constructor.
 data ClusterParameterGroup = ClusterParameterGroup'
   { -- | The list of tags for the cluster parameter group.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the cluster parameter group.
-    parameterGroupName :: Core.Maybe Core.Text,
+    parameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The description of the parameter group.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the cluster parameter group family that this cluster
     -- parameter group is compatible with.
-    parameterGroupFamily :: Core.Maybe Core.Text
+    parameterGroupFamily :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClusterParameterGroup' with all optional fields omitted.
@@ -60,39 +61,39 @@ newClusterParameterGroup ::
   ClusterParameterGroup
 newClusterParameterGroup =
   ClusterParameterGroup'
-    { tags = Core.Nothing,
-      parameterGroupName = Core.Nothing,
-      description = Core.Nothing,
-      parameterGroupFamily = Core.Nothing
+    { tags = Prelude.Nothing,
+      parameterGroupName = Prelude.Nothing,
+      description = Prelude.Nothing,
+      parameterGroupFamily = Prelude.Nothing
     }
 
 -- | The list of tags for the cluster parameter group.
-clusterParameterGroup_tags :: Lens.Lens' ClusterParameterGroup (Core.Maybe [Tag])
-clusterParameterGroup_tags = Lens.lens (\ClusterParameterGroup' {tags} -> tags) (\s@ClusterParameterGroup' {} a -> s {tags = a} :: ClusterParameterGroup) Core.. Lens.mapping Lens._Coerce
+clusterParameterGroup_tags :: Lens.Lens' ClusterParameterGroup (Prelude.Maybe [Tag])
+clusterParameterGroup_tags = Lens.lens (\ClusterParameterGroup' {tags} -> tags) (\s@ClusterParameterGroup' {} a -> s {tags = a} :: ClusterParameterGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the cluster parameter group.
-clusterParameterGroup_parameterGroupName :: Lens.Lens' ClusterParameterGroup (Core.Maybe Core.Text)
+clusterParameterGroup_parameterGroupName :: Lens.Lens' ClusterParameterGroup (Prelude.Maybe Prelude.Text)
 clusterParameterGroup_parameterGroupName = Lens.lens (\ClusterParameterGroup' {parameterGroupName} -> parameterGroupName) (\s@ClusterParameterGroup' {} a -> s {parameterGroupName = a} :: ClusterParameterGroup)
 
 -- | The description of the parameter group.
-clusterParameterGroup_description :: Lens.Lens' ClusterParameterGroup (Core.Maybe Core.Text)
+clusterParameterGroup_description :: Lens.Lens' ClusterParameterGroup (Prelude.Maybe Prelude.Text)
 clusterParameterGroup_description = Lens.lens (\ClusterParameterGroup' {description} -> description) (\s@ClusterParameterGroup' {} a -> s {description = a} :: ClusterParameterGroup)
 
 -- | The name of the cluster parameter group family that this cluster
 -- parameter group is compatible with.
-clusterParameterGroup_parameterGroupFamily :: Lens.Lens' ClusterParameterGroup (Core.Maybe Core.Text)
+clusterParameterGroup_parameterGroupFamily :: Lens.Lens' ClusterParameterGroup (Prelude.Maybe Prelude.Text)
 clusterParameterGroup_parameterGroupFamily = Lens.lens (\ClusterParameterGroup' {parameterGroupFamily} -> parameterGroupFamily) (\s@ClusterParameterGroup' {} a -> s {parameterGroupFamily = a} :: ClusterParameterGroup)
 
 instance Core.FromXML ClusterParameterGroup where
   parseXML x =
     ClusterParameterGroup'
-      Core.<$> ( x Core..@? "Tags" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Tag")
-               )
-      Core.<*> (x Core..@? "ParameterGroupName")
-      Core.<*> (x Core..@? "Description")
-      Core.<*> (x Core..@? "ParameterGroupFamily")
+      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+                  )
+      Prelude.<*> (x Core..@? "ParameterGroupName")
+      Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "ParameterGroupFamily")
 
-instance Core.Hashable ClusterParameterGroup
+instance Prelude.Hashable ClusterParameterGroup
 
-instance Core.NFData ClusterParameterGroup
+instance Prelude.NFData ClusterParameterGroup

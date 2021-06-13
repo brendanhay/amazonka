@@ -48,17 +48,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newConfirmTransitVirtualInterface' smart constructor.
 data ConfirmTransitVirtualInterface = ConfirmTransitVirtualInterface'
   { -- | The ID of the virtual interface.
-    virtualInterfaceId :: Core.Text,
+    virtualInterfaceId :: Prelude.Text,
     -- | The ID of the Direct Connect gateway.
-    directConnectGatewayId :: Core.Text
+    directConnectGatewayId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfirmTransitVirtualInterface' with all optional fields omitted.
@@ -73,9 +74,9 @@ data ConfirmTransitVirtualInterface = ConfirmTransitVirtualInterface'
 -- 'directConnectGatewayId', 'confirmTransitVirtualInterface_directConnectGatewayId' - The ID of the Direct Connect gateway.
 newConfirmTransitVirtualInterface ::
   -- | 'virtualInterfaceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'directConnectGatewayId'
-  Core.Text ->
+  Prelude.Text ->
   ConfirmTransitVirtualInterface
 newConfirmTransitVirtualInterface
   pVirtualInterfaceId_
@@ -88,11 +89,11 @@ newConfirmTransitVirtualInterface
       }
 
 -- | The ID of the virtual interface.
-confirmTransitVirtualInterface_virtualInterfaceId :: Lens.Lens' ConfirmTransitVirtualInterface Core.Text
+confirmTransitVirtualInterface_virtualInterfaceId :: Lens.Lens' ConfirmTransitVirtualInterface Prelude.Text
 confirmTransitVirtualInterface_virtualInterfaceId = Lens.lens (\ConfirmTransitVirtualInterface' {virtualInterfaceId} -> virtualInterfaceId) (\s@ConfirmTransitVirtualInterface' {} a -> s {virtualInterfaceId = a} :: ConfirmTransitVirtualInterface)
 
 -- | The ID of the Direct Connect gateway.
-confirmTransitVirtualInterface_directConnectGatewayId :: Lens.Lens' ConfirmTransitVirtualInterface Core.Text
+confirmTransitVirtualInterface_directConnectGatewayId :: Lens.Lens' ConfirmTransitVirtualInterface Prelude.Text
 confirmTransitVirtualInterface_directConnectGatewayId = Lens.lens (\ConfirmTransitVirtualInterface' {directConnectGatewayId} -> directConnectGatewayId) (\s@ConfirmTransitVirtualInterface' {} a -> s {directConnectGatewayId = a} :: ConfirmTransitVirtualInterface)
 
 instance
@@ -107,37 +108,43 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ConfirmTransitVirtualInterfaceResponse'
-            Core.<$> (x Core..?> "virtualInterfaceState")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "virtualInterfaceState")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ConfirmTransitVirtualInterface
+instance
+  Prelude.Hashable
+    ConfirmTransitVirtualInterface
 
-instance Core.NFData ConfirmTransitVirtualInterface
+instance
+  Prelude.NFData
+    ConfirmTransitVirtualInterface
 
 instance
   Core.ToHeaders
     ConfirmTransitVirtualInterface
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.ConfirmTransitVirtualInterface" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ConfirmTransitVirtualInterface where
   toJSON ConfirmTransitVirtualInterface' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("virtualInterfaceId" Core..= virtualInterfaceId),
-            Core.Just
+            Prelude.Just
               ( "directConnectGatewayId"
                   Core..= directConnectGatewayId
               )
@@ -145,10 +152,10 @@ instance Core.ToJSON ConfirmTransitVirtualInterface where
       )
 
 instance Core.ToPath ConfirmTransitVirtualInterface where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ConfirmTransitVirtualInterface where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newConfirmTransitVirtualInterfaceResponse' smart constructor.
 data ConfirmTransitVirtualInterfaceResponse = ConfirmTransitVirtualInterfaceResponse'
@@ -185,11 +192,11 @@ data ConfirmTransitVirtualInterfaceResponse = ConfirmTransitVirtualInterfaceResp
     --     enters the @Rejected@ state.
     --
     -- -   @unknown@: The state of the virtual interface is not available.
-    virtualInterfaceState :: Core.Maybe VirtualInterfaceState,
+    virtualInterfaceState :: Prelude.Maybe VirtualInterfaceState,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfirmTransitVirtualInterfaceResponse' with all optional fields omitted.
@@ -236,13 +243,13 @@ data ConfirmTransitVirtualInterfaceResponse = ConfirmTransitVirtualInterfaceResp
 -- 'httpStatus', 'confirmTransitVirtualInterfaceResponse_httpStatus' - The response's http status code.
 newConfirmTransitVirtualInterfaceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ConfirmTransitVirtualInterfaceResponse
 newConfirmTransitVirtualInterfaceResponse
   pHttpStatus_ =
     ConfirmTransitVirtualInterfaceResponse'
       { virtualInterfaceState =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -279,13 +286,13 @@ newConfirmTransitVirtualInterfaceResponse
 --     enters the @Rejected@ state.
 --
 -- -   @unknown@: The state of the virtual interface is not available.
-confirmTransitVirtualInterfaceResponse_virtualInterfaceState :: Lens.Lens' ConfirmTransitVirtualInterfaceResponse (Core.Maybe VirtualInterfaceState)
+confirmTransitVirtualInterfaceResponse_virtualInterfaceState :: Lens.Lens' ConfirmTransitVirtualInterfaceResponse (Prelude.Maybe VirtualInterfaceState)
 confirmTransitVirtualInterfaceResponse_virtualInterfaceState = Lens.lens (\ConfirmTransitVirtualInterfaceResponse' {virtualInterfaceState} -> virtualInterfaceState) (\s@ConfirmTransitVirtualInterfaceResponse' {} a -> s {virtualInterfaceState = a} :: ConfirmTransitVirtualInterfaceResponse)
 
 -- | The response's http status code.
-confirmTransitVirtualInterfaceResponse_httpStatus :: Lens.Lens' ConfirmTransitVirtualInterfaceResponse Core.Int
+confirmTransitVirtualInterfaceResponse_httpStatus :: Lens.Lens' ConfirmTransitVirtualInterfaceResponse Prelude.Int
 confirmTransitVirtualInterfaceResponse_httpStatus = Lens.lens (\ConfirmTransitVirtualInterfaceResponse' {httpStatus} -> httpStatus) (\s@ConfirmTransitVirtualInterfaceResponse' {} a -> s {httpStatus = a} :: ConfirmTransitVirtualInterfaceResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ConfirmTransitVirtualInterfaceResponse

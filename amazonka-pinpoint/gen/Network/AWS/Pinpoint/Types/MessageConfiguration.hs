@@ -25,6 +25,7 @@ import Network.AWS.Pinpoint.Types.CampaignCustomMessage
 import Network.AWS.Pinpoint.Types.CampaignEmailMessage
 import Network.AWS.Pinpoint.Types.CampaignSmsMessage
 import Network.AWS.Pinpoint.Types.Message
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the message configuration settings for a campaign.
 --
@@ -33,35 +34,35 @@ data MessageConfiguration = MessageConfiguration'
   { -- | The message that the campaign sends through the ADM (Amazon Device
     -- Messaging) channel. If specified, this message overrides the default
     -- message.
-    aDMMessage :: Core.Maybe Message,
+    aDMMessage :: Prelude.Maybe Message,
     -- | The default message that the campaign sends through all the channels
     -- that are configured for the campaign.
-    defaultMessage :: Core.Maybe Message,
+    defaultMessage :: Prelude.Maybe Message,
     -- | The message that the campaign sends through the GCM channel, which
     -- enables Amazon Pinpoint to send push notifications through the Firebase
     -- Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.
     -- If specified, this message overrides the default message.
-    gCMMessage :: Core.Maybe Message,
+    gCMMessage :: Prelude.Maybe Message,
     -- | The message that the campaign sends through the APNs (Apple Push
     -- Notification service) channel. If specified, this message overrides the
     -- default message.
-    aPNSMessage :: Core.Maybe Message,
+    aPNSMessage :: Prelude.Maybe Message,
     -- | The message that the campaign sends through the email channel. If
     -- specified, this message overrides the default message.
-    emailMessage :: Core.Maybe CampaignEmailMessage,
+    emailMessage :: Prelude.Maybe CampaignEmailMessage,
     -- | The message that the campaign sends through the SMS channel. If
     -- specified, this message overrides the default message.
-    sMSMessage :: Core.Maybe CampaignSmsMessage,
+    sMSMessage :: Prelude.Maybe CampaignSmsMessage,
     -- | The message that the campaign sends through the Baidu (Baidu Cloud Push)
     -- channel. If specified, this message overrides the default message.
-    baiduMessage :: Core.Maybe Message,
+    baiduMessage :: Prelude.Maybe Message,
     -- | The message that the campaign sends through a custom channel, as
     -- specified by the delivery configuration (CustomDeliveryConfiguration)
     -- settings for the campaign. If specified, this message overrides the
     -- default message.
-    customMessage :: Core.Maybe CampaignCustomMessage
+    customMessage :: Prelude.Maybe CampaignCustomMessage
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MessageConfiguration' with all optional fields omitted.
@@ -104,60 +105,60 @@ newMessageConfiguration ::
   MessageConfiguration
 newMessageConfiguration =
   MessageConfiguration'
-    { aDMMessage = Core.Nothing,
-      defaultMessage = Core.Nothing,
-      gCMMessage = Core.Nothing,
-      aPNSMessage = Core.Nothing,
-      emailMessage = Core.Nothing,
-      sMSMessage = Core.Nothing,
-      baiduMessage = Core.Nothing,
-      customMessage = Core.Nothing
+    { aDMMessage = Prelude.Nothing,
+      defaultMessage = Prelude.Nothing,
+      gCMMessage = Prelude.Nothing,
+      aPNSMessage = Prelude.Nothing,
+      emailMessage = Prelude.Nothing,
+      sMSMessage = Prelude.Nothing,
+      baiduMessage = Prelude.Nothing,
+      customMessage = Prelude.Nothing
     }
 
 -- | The message that the campaign sends through the ADM (Amazon Device
 -- Messaging) channel. If specified, this message overrides the default
 -- message.
-messageConfiguration_aDMMessage :: Lens.Lens' MessageConfiguration (Core.Maybe Message)
+messageConfiguration_aDMMessage :: Lens.Lens' MessageConfiguration (Prelude.Maybe Message)
 messageConfiguration_aDMMessage = Lens.lens (\MessageConfiguration' {aDMMessage} -> aDMMessage) (\s@MessageConfiguration' {} a -> s {aDMMessage = a} :: MessageConfiguration)
 
 -- | The default message that the campaign sends through all the channels
 -- that are configured for the campaign.
-messageConfiguration_defaultMessage :: Lens.Lens' MessageConfiguration (Core.Maybe Message)
+messageConfiguration_defaultMessage :: Lens.Lens' MessageConfiguration (Prelude.Maybe Message)
 messageConfiguration_defaultMessage = Lens.lens (\MessageConfiguration' {defaultMessage} -> defaultMessage) (\s@MessageConfiguration' {} a -> s {defaultMessage = a} :: MessageConfiguration)
 
 -- | The message that the campaign sends through the GCM channel, which
 -- enables Amazon Pinpoint to send push notifications through the Firebase
 -- Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.
 -- If specified, this message overrides the default message.
-messageConfiguration_gCMMessage :: Lens.Lens' MessageConfiguration (Core.Maybe Message)
+messageConfiguration_gCMMessage :: Lens.Lens' MessageConfiguration (Prelude.Maybe Message)
 messageConfiguration_gCMMessage = Lens.lens (\MessageConfiguration' {gCMMessage} -> gCMMessage) (\s@MessageConfiguration' {} a -> s {gCMMessage = a} :: MessageConfiguration)
 
 -- | The message that the campaign sends through the APNs (Apple Push
 -- Notification service) channel. If specified, this message overrides the
 -- default message.
-messageConfiguration_aPNSMessage :: Lens.Lens' MessageConfiguration (Core.Maybe Message)
+messageConfiguration_aPNSMessage :: Lens.Lens' MessageConfiguration (Prelude.Maybe Message)
 messageConfiguration_aPNSMessage = Lens.lens (\MessageConfiguration' {aPNSMessage} -> aPNSMessage) (\s@MessageConfiguration' {} a -> s {aPNSMessage = a} :: MessageConfiguration)
 
 -- | The message that the campaign sends through the email channel. If
 -- specified, this message overrides the default message.
-messageConfiguration_emailMessage :: Lens.Lens' MessageConfiguration (Core.Maybe CampaignEmailMessage)
+messageConfiguration_emailMessage :: Lens.Lens' MessageConfiguration (Prelude.Maybe CampaignEmailMessage)
 messageConfiguration_emailMessage = Lens.lens (\MessageConfiguration' {emailMessage} -> emailMessage) (\s@MessageConfiguration' {} a -> s {emailMessage = a} :: MessageConfiguration)
 
 -- | The message that the campaign sends through the SMS channel. If
 -- specified, this message overrides the default message.
-messageConfiguration_sMSMessage :: Lens.Lens' MessageConfiguration (Core.Maybe CampaignSmsMessage)
+messageConfiguration_sMSMessage :: Lens.Lens' MessageConfiguration (Prelude.Maybe CampaignSmsMessage)
 messageConfiguration_sMSMessage = Lens.lens (\MessageConfiguration' {sMSMessage} -> sMSMessage) (\s@MessageConfiguration' {} a -> s {sMSMessage = a} :: MessageConfiguration)
 
 -- | The message that the campaign sends through the Baidu (Baidu Cloud Push)
 -- channel. If specified, this message overrides the default message.
-messageConfiguration_baiduMessage :: Lens.Lens' MessageConfiguration (Core.Maybe Message)
+messageConfiguration_baiduMessage :: Lens.Lens' MessageConfiguration (Prelude.Maybe Message)
 messageConfiguration_baiduMessage = Lens.lens (\MessageConfiguration' {baiduMessage} -> baiduMessage) (\s@MessageConfiguration' {} a -> s {baiduMessage = a} :: MessageConfiguration)
 
 -- | The message that the campaign sends through a custom channel, as
 -- specified by the delivery configuration (CustomDeliveryConfiguration)
 -- settings for the campaign. If specified, this message overrides the
 -- default message.
-messageConfiguration_customMessage :: Lens.Lens' MessageConfiguration (Core.Maybe CampaignCustomMessage)
+messageConfiguration_customMessage :: Lens.Lens' MessageConfiguration (Prelude.Maybe CampaignCustomMessage)
 messageConfiguration_customMessage = Lens.lens (\MessageConfiguration' {customMessage} -> customMessage) (\s@MessageConfiguration' {} a -> s {customMessage = a} :: MessageConfiguration)
 
 instance Core.FromJSON MessageConfiguration where
@@ -166,31 +167,32 @@ instance Core.FromJSON MessageConfiguration where
       "MessageConfiguration"
       ( \x ->
           MessageConfiguration'
-            Core.<$> (x Core..:? "ADMMessage")
-            Core.<*> (x Core..:? "DefaultMessage")
-            Core.<*> (x Core..:? "GCMMessage")
-            Core.<*> (x Core..:? "APNSMessage")
-            Core.<*> (x Core..:? "EmailMessage")
-            Core.<*> (x Core..:? "SMSMessage")
-            Core.<*> (x Core..:? "BaiduMessage")
-            Core.<*> (x Core..:? "CustomMessage")
+            Prelude.<$> (x Core..:? "ADMMessage")
+            Prelude.<*> (x Core..:? "DefaultMessage")
+            Prelude.<*> (x Core..:? "GCMMessage")
+            Prelude.<*> (x Core..:? "APNSMessage")
+            Prelude.<*> (x Core..:? "EmailMessage")
+            Prelude.<*> (x Core..:? "SMSMessage")
+            Prelude.<*> (x Core..:? "BaiduMessage")
+            Prelude.<*> (x Core..:? "CustomMessage")
       )
 
-instance Core.Hashable MessageConfiguration
+instance Prelude.Hashable MessageConfiguration
 
-instance Core.NFData MessageConfiguration
+instance Prelude.NFData MessageConfiguration
 
 instance Core.ToJSON MessageConfiguration where
   toJSON MessageConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ADMMessage" Core..=) Core.<$> aDMMessage,
-            ("DefaultMessage" Core..=) Core.<$> defaultMessage,
-            ("GCMMessage" Core..=) Core.<$> gCMMessage,
-            ("APNSMessage" Core..=) Core.<$> aPNSMessage,
-            ("EmailMessage" Core..=) Core.<$> emailMessage,
-            ("SMSMessage" Core..=) Core.<$> sMSMessage,
-            ("BaiduMessage" Core..=) Core.<$> baiduMessage,
-            ("CustomMessage" Core..=) Core.<$> customMessage
+      ( Prelude.catMaybes
+          [ ("ADMMessage" Core..=) Prelude.<$> aDMMessage,
+            ("DefaultMessage" Core..=)
+              Prelude.<$> defaultMessage,
+            ("GCMMessage" Core..=) Prelude.<$> gCMMessage,
+            ("APNSMessage" Core..=) Prelude.<$> aPNSMessage,
+            ("EmailMessage" Core..=) Prelude.<$> emailMessage,
+            ("SMSMessage" Core..=) Prelude.<$> sMSMessage,
+            ("BaiduMessage" Core..=) Prelude.<$> baiduMessage,
+            ("CustomMessage" Core..=) Prelude.<$> customMessage
           ]
       )

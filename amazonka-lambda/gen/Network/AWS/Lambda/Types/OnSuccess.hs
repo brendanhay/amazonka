@@ -21,15 +21,16 @@ module Network.AWS.Lambda.Types.OnSuccess where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A destination for events that were processed successfully.
 --
 -- /See:/ 'newOnSuccess' smart constructor.
 data OnSuccess = OnSuccess'
   { -- | The Amazon Resource Name (ARN) of the destination resource.
-    destination :: Core.Maybe Core.Text
+    destination :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OnSuccess' with all optional fields omitted.
@@ -42,10 +43,11 @@ data OnSuccess = OnSuccess'
 -- 'destination', 'onSuccess_destination' - The Amazon Resource Name (ARN) of the destination resource.
 newOnSuccess ::
   OnSuccess
-newOnSuccess = OnSuccess' {destination = Core.Nothing}
+newOnSuccess =
+  OnSuccess' {destination = Prelude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the destination resource.
-onSuccess_destination :: Lens.Lens' OnSuccess (Core.Maybe Core.Text)
+onSuccess_destination :: Lens.Lens' OnSuccess (Prelude.Maybe Prelude.Text)
 onSuccess_destination = Lens.lens (\OnSuccess' {destination} -> destination) (\s@OnSuccess' {} a -> s {destination = a} :: OnSuccess)
 
 instance Core.FromJSON OnSuccess where
@@ -53,16 +55,16 @@ instance Core.FromJSON OnSuccess where
     Core.withObject
       "OnSuccess"
       ( \x ->
-          OnSuccess' Core.<$> (x Core..:? "Destination")
+          OnSuccess' Prelude.<$> (x Core..:? "Destination")
       )
 
-instance Core.Hashable OnSuccess
+instance Prelude.Hashable OnSuccess
 
-instance Core.NFData OnSuccess
+instance Prelude.NFData OnSuccess
 
 instance Core.ToJSON OnSuccess where
   toJSON OnSuccess' {..} =
     Core.object
-      ( Core.catMaybes
-          [("Destination" Core..=) Core.<$> destination]
+      ( Prelude.catMaybes
+          [("Destination" Core..=) Prelude.<$> destination]
       )

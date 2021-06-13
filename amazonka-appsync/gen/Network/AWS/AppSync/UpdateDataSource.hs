@@ -51,33 +51,34 @@ where
 import Network.AWS.AppSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDataSource' smart constructor.
 data UpdateDataSource = UpdateDataSource'
   { -- | The new relational database configuration.
-    relationalDatabaseConfig :: Core.Maybe RelationalDatabaseDataSourceConfig,
+    relationalDatabaseConfig :: Prelude.Maybe RelationalDatabaseDataSourceConfig,
     -- | The new service role ARN for the data source.
-    serviceRoleArn :: Core.Maybe Core.Text,
+    serviceRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The new Elasticsearch Service configuration.
-    elasticsearchConfig :: Core.Maybe ElasticsearchDataSourceConfig,
+    elasticsearchConfig :: Prelude.Maybe ElasticsearchDataSourceConfig,
     -- | The new AWS Lambda configuration.
-    lambdaConfig :: Core.Maybe LambdaDataSourceConfig,
+    lambdaConfig :: Prelude.Maybe LambdaDataSourceConfig,
     -- | The new Amazon DynamoDB configuration.
-    dynamodbConfig :: Core.Maybe DynamodbDataSourceConfig,
+    dynamodbConfig :: Prelude.Maybe DynamodbDataSourceConfig,
     -- | The new description for the data source.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The new HTTP endpoint configuration.
-    httpConfig :: Core.Maybe HttpDataSourceConfig,
+    httpConfig :: Prelude.Maybe HttpDataSourceConfig,
     -- | The API ID.
-    apiId :: Core.Text,
+    apiId :: Prelude.Text,
     -- | The new name for the data source.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The new data source type.
     type' :: DataSourceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDataSource' with all optional fields omitted.
@@ -108,61 +109,61 @@ data UpdateDataSource = UpdateDataSource'
 -- 'type'', 'updateDataSource_type' - The new data source type.
 newUpdateDataSource ::
   -- | 'apiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   DataSourceType ->
   UpdateDataSource
 newUpdateDataSource pApiId_ pName_ pType_ =
   UpdateDataSource'
     { relationalDatabaseConfig =
-        Core.Nothing,
-      serviceRoleArn = Core.Nothing,
-      elasticsearchConfig = Core.Nothing,
-      lambdaConfig = Core.Nothing,
-      dynamodbConfig = Core.Nothing,
-      description = Core.Nothing,
-      httpConfig = Core.Nothing,
+        Prelude.Nothing,
+      serviceRoleArn = Prelude.Nothing,
+      elasticsearchConfig = Prelude.Nothing,
+      lambdaConfig = Prelude.Nothing,
+      dynamodbConfig = Prelude.Nothing,
+      description = Prelude.Nothing,
+      httpConfig = Prelude.Nothing,
       apiId = pApiId_,
       name = pName_,
       type' = pType_
     }
 
 -- | The new relational database configuration.
-updateDataSource_relationalDatabaseConfig :: Lens.Lens' UpdateDataSource (Core.Maybe RelationalDatabaseDataSourceConfig)
+updateDataSource_relationalDatabaseConfig :: Lens.Lens' UpdateDataSource (Prelude.Maybe RelationalDatabaseDataSourceConfig)
 updateDataSource_relationalDatabaseConfig = Lens.lens (\UpdateDataSource' {relationalDatabaseConfig} -> relationalDatabaseConfig) (\s@UpdateDataSource' {} a -> s {relationalDatabaseConfig = a} :: UpdateDataSource)
 
 -- | The new service role ARN for the data source.
-updateDataSource_serviceRoleArn :: Lens.Lens' UpdateDataSource (Core.Maybe Core.Text)
+updateDataSource_serviceRoleArn :: Lens.Lens' UpdateDataSource (Prelude.Maybe Prelude.Text)
 updateDataSource_serviceRoleArn = Lens.lens (\UpdateDataSource' {serviceRoleArn} -> serviceRoleArn) (\s@UpdateDataSource' {} a -> s {serviceRoleArn = a} :: UpdateDataSource)
 
 -- | The new Elasticsearch Service configuration.
-updateDataSource_elasticsearchConfig :: Lens.Lens' UpdateDataSource (Core.Maybe ElasticsearchDataSourceConfig)
+updateDataSource_elasticsearchConfig :: Lens.Lens' UpdateDataSource (Prelude.Maybe ElasticsearchDataSourceConfig)
 updateDataSource_elasticsearchConfig = Lens.lens (\UpdateDataSource' {elasticsearchConfig} -> elasticsearchConfig) (\s@UpdateDataSource' {} a -> s {elasticsearchConfig = a} :: UpdateDataSource)
 
 -- | The new AWS Lambda configuration.
-updateDataSource_lambdaConfig :: Lens.Lens' UpdateDataSource (Core.Maybe LambdaDataSourceConfig)
+updateDataSource_lambdaConfig :: Lens.Lens' UpdateDataSource (Prelude.Maybe LambdaDataSourceConfig)
 updateDataSource_lambdaConfig = Lens.lens (\UpdateDataSource' {lambdaConfig} -> lambdaConfig) (\s@UpdateDataSource' {} a -> s {lambdaConfig = a} :: UpdateDataSource)
 
 -- | The new Amazon DynamoDB configuration.
-updateDataSource_dynamodbConfig :: Lens.Lens' UpdateDataSource (Core.Maybe DynamodbDataSourceConfig)
+updateDataSource_dynamodbConfig :: Lens.Lens' UpdateDataSource (Prelude.Maybe DynamodbDataSourceConfig)
 updateDataSource_dynamodbConfig = Lens.lens (\UpdateDataSource' {dynamodbConfig} -> dynamodbConfig) (\s@UpdateDataSource' {} a -> s {dynamodbConfig = a} :: UpdateDataSource)
 
 -- | The new description for the data source.
-updateDataSource_description :: Lens.Lens' UpdateDataSource (Core.Maybe Core.Text)
+updateDataSource_description :: Lens.Lens' UpdateDataSource (Prelude.Maybe Prelude.Text)
 updateDataSource_description = Lens.lens (\UpdateDataSource' {description} -> description) (\s@UpdateDataSource' {} a -> s {description = a} :: UpdateDataSource)
 
 -- | The new HTTP endpoint configuration.
-updateDataSource_httpConfig :: Lens.Lens' UpdateDataSource (Core.Maybe HttpDataSourceConfig)
+updateDataSource_httpConfig :: Lens.Lens' UpdateDataSource (Prelude.Maybe HttpDataSourceConfig)
 updateDataSource_httpConfig = Lens.lens (\UpdateDataSource' {httpConfig} -> httpConfig) (\s@UpdateDataSource' {} a -> s {httpConfig = a} :: UpdateDataSource)
 
 -- | The API ID.
-updateDataSource_apiId :: Lens.Lens' UpdateDataSource Core.Text
+updateDataSource_apiId :: Lens.Lens' UpdateDataSource Prelude.Text
 updateDataSource_apiId = Lens.lens (\UpdateDataSource' {apiId} -> apiId) (\s@UpdateDataSource' {} a -> s {apiId = a} :: UpdateDataSource)
 
 -- | The new name for the data source.
-updateDataSource_name :: Lens.Lens' UpdateDataSource Core.Text
+updateDataSource_name :: Lens.Lens' UpdateDataSource Prelude.Text
 updateDataSource_name = Lens.lens (\UpdateDataSource' {name} -> name) (\s@UpdateDataSource' {} a -> s {name = a} :: UpdateDataSource)
 
 -- | The new data source type.
@@ -178,43 +179,47 @@ instance Core.AWSRequest UpdateDataSource where
     Response.receiveJSON
       ( \s h x ->
           UpdateDataSourceResponse'
-            Core.<$> (x Core..?> "dataSource")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "dataSource")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateDataSource
+instance Prelude.Hashable UpdateDataSource
 
-instance Core.NFData UpdateDataSource
+instance Prelude.NFData UpdateDataSource
 
 instance Core.ToHeaders UpdateDataSource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateDataSource where
   toJSON UpdateDataSource' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("relationalDatabaseConfig" Core..=)
-              Core.<$> relationalDatabaseConfig,
-            ("serviceRoleArn" Core..=) Core.<$> serviceRoleArn,
+              Prelude.<$> relationalDatabaseConfig,
+            ("serviceRoleArn" Core..=)
+              Prelude.<$> serviceRoleArn,
             ("elasticsearchConfig" Core..=)
-              Core.<$> elasticsearchConfig,
-            ("lambdaConfig" Core..=) Core.<$> lambdaConfig,
-            ("dynamodbConfig" Core..=) Core.<$> dynamodbConfig,
-            ("description" Core..=) Core.<$> description,
-            ("httpConfig" Core..=) Core.<$> httpConfig,
-            Core.Just ("type" Core..= type')
+              Prelude.<$> elasticsearchConfig,
+            ("lambdaConfig" Core..=) Prelude.<$> lambdaConfig,
+            ("dynamodbConfig" Core..=)
+              Prelude.<$> dynamodbConfig,
+            ("description" Core..=) Prelude.<$> description,
+            ("httpConfig" Core..=) Prelude.<$> httpConfig,
+            Prelude.Just ("type" Core..= type')
           ]
       )
 
 instance Core.ToPath UpdateDataSource where
   toPath UpdateDataSource' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apis/",
         Core.toBS apiId,
         "/datasources/",
@@ -222,16 +227,16 @@ instance Core.ToPath UpdateDataSource where
       ]
 
 instance Core.ToQuery UpdateDataSource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDataSourceResponse' smart constructor.
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
   { -- | The updated @DataSource@ object.
-    dataSource :: Core.Maybe DataSource,
+    dataSource :: Prelude.Maybe DataSource,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDataSourceResponse' with all optional fields omitted.
@@ -246,21 +251,21 @@ data UpdateDataSourceResponse = UpdateDataSourceResponse'
 -- 'httpStatus', 'updateDataSourceResponse_httpStatus' - The response's http status code.
 newUpdateDataSourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateDataSourceResponse
 newUpdateDataSourceResponse pHttpStatus_ =
   UpdateDataSourceResponse'
     { dataSource =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The updated @DataSource@ object.
-updateDataSourceResponse_dataSource :: Lens.Lens' UpdateDataSourceResponse (Core.Maybe DataSource)
+updateDataSourceResponse_dataSource :: Lens.Lens' UpdateDataSourceResponse (Prelude.Maybe DataSource)
 updateDataSourceResponse_dataSource = Lens.lens (\UpdateDataSourceResponse' {dataSource} -> dataSource) (\s@UpdateDataSourceResponse' {} a -> s {dataSource = a} :: UpdateDataSourceResponse)
 
 -- | The response's http status code.
-updateDataSourceResponse_httpStatus :: Lens.Lens' UpdateDataSourceResponse Core.Int
+updateDataSourceResponse_httpStatus :: Lens.Lens' UpdateDataSourceResponse Prelude.Int
 updateDataSourceResponse_httpStatus = Lens.lens (\UpdateDataSourceResponse' {httpStatus} -> httpStatus) (\s@UpdateDataSourceResponse' {} a -> s {httpStatus = a} :: UpdateDataSourceResponse)
 
-instance Core.NFData UpdateDataSourceResponse
+instance Prelude.NFData UpdateDataSourceResponse

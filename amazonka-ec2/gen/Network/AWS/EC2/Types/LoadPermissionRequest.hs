@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.PermissionGroup
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a load permission.
 --
 -- /See:/ 'newLoadPermissionRequest' smart constructor.
 data LoadPermissionRequest = LoadPermissionRequest'
   { -- | The name of the group.
-    group' :: Core.Maybe PermissionGroup,
+    group' :: Prelude.Maybe PermissionGroup,
     -- | The AWS account ID.
-    userId :: Core.Maybe Core.Text
+    userId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LoadPermissionRequest' with all optional fields omitted.
@@ -50,23 +51,23 @@ newLoadPermissionRequest ::
   LoadPermissionRequest
 newLoadPermissionRequest =
   LoadPermissionRequest'
-    { group' = Core.Nothing,
-      userId = Core.Nothing
+    { group' = Prelude.Nothing,
+      userId = Prelude.Nothing
     }
 
 -- | The name of the group.
-loadPermissionRequest_group :: Lens.Lens' LoadPermissionRequest (Core.Maybe PermissionGroup)
+loadPermissionRequest_group :: Lens.Lens' LoadPermissionRequest (Prelude.Maybe PermissionGroup)
 loadPermissionRequest_group = Lens.lens (\LoadPermissionRequest' {group'} -> group') (\s@LoadPermissionRequest' {} a -> s {group' = a} :: LoadPermissionRequest)
 
 -- | The AWS account ID.
-loadPermissionRequest_userId :: Lens.Lens' LoadPermissionRequest (Core.Maybe Core.Text)
+loadPermissionRequest_userId :: Lens.Lens' LoadPermissionRequest (Prelude.Maybe Prelude.Text)
 loadPermissionRequest_userId = Lens.lens (\LoadPermissionRequest' {userId} -> userId) (\s@LoadPermissionRequest' {} a -> s {userId = a} :: LoadPermissionRequest)
 
-instance Core.Hashable LoadPermissionRequest
+instance Prelude.Hashable LoadPermissionRequest
 
-instance Core.NFData LoadPermissionRequest
+instance Prelude.NFData LoadPermissionRequest
 
 instance Core.ToQuery LoadPermissionRequest where
   toQuery LoadPermissionRequest' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Group" Core.=: group', "UserId" Core.=: userId]

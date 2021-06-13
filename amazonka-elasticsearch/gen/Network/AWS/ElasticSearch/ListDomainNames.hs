@@ -40,6 +40,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,7 +48,7 @@ import qualified Network.AWS.Response as Response
 data ListDomainNames = ListDomainNames'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDomainNames' with all optional fields omitted.
@@ -66,22 +67,22 @@ instance Core.AWSRequest ListDomainNames where
     Response.receiveJSON
       ( \s h x ->
           ListDomainNamesResponse'
-            Core.<$> (x Core..?> "DomainNames" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DomainNames" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListDomainNames
+instance Prelude.Hashable ListDomainNames
 
-instance Core.NFData ListDomainNames
+instance Prelude.NFData ListDomainNames
 
 instance Core.ToHeaders ListDomainNames where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListDomainNames where
-  toPath = Core.const "/2015-01-01/domain"
+  toPath = Prelude.const "/2015-01-01/domain"
 
 instance Core.ToQuery ListDomainNames where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a @ListDomainNames@ operation. Contains the names of all
 -- Elasticsearch domains owned by this account.
@@ -89,11 +90,11 @@ instance Core.ToQuery ListDomainNames where
 -- /See:/ 'newListDomainNamesResponse' smart constructor.
 data ListDomainNamesResponse = ListDomainNamesResponse'
   { -- | List of Elasticsearch domain names.
-    domainNames :: Core.Maybe [DomainInfo],
+    domainNames :: Prelude.Maybe [DomainInfo],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDomainNamesResponse' with all optional fields omitted.
@@ -108,21 +109,21 @@ data ListDomainNamesResponse = ListDomainNamesResponse'
 -- 'httpStatus', 'listDomainNamesResponse_httpStatus' - The response's http status code.
 newListDomainNamesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListDomainNamesResponse
 newListDomainNamesResponse pHttpStatus_ =
   ListDomainNamesResponse'
     { domainNames =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | List of Elasticsearch domain names.
-listDomainNamesResponse_domainNames :: Lens.Lens' ListDomainNamesResponse (Core.Maybe [DomainInfo])
-listDomainNamesResponse_domainNames = Lens.lens (\ListDomainNamesResponse' {domainNames} -> domainNames) (\s@ListDomainNamesResponse' {} a -> s {domainNames = a} :: ListDomainNamesResponse) Core.. Lens.mapping Lens._Coerce
+listDomainNamesResponse_domainNames :: Lens.Lens' ListDomainNamesResponse (Prelude.Maybe [DomainInfo])
+listDomainNamesResponse_domainNames = Lens.lens (\ListDomainNamesResponse' {domainNames} -> domainNames) (\s@ListDomainNamesResponse' {} a -> s {domainNames = a} :: ListDomainNamesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listDomainNamesResponse_httpStatus :: Lens.Lens' ListDomainNamesResponse Core.Int
+listDomainNamesResponse_httpStatus :: Lens.Lens' ListDomainNamesResponse Prelude.Int
 listDomainNamesResponse_httpStatus = Lens.lens (\ListDomainNamesResponse' {httpStatus} -> httpStatus) (\s@ListDomainNamesResponse' {} a -> s {httpStatus = a} :: ListDomainNamesResponse)
 
-instance Core.NFData ListDomainNamesResponse
+instance Prelude.NFData ListDomainNamesResponse

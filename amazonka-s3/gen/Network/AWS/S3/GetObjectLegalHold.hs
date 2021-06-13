@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -57,11 +58,11 @@ data GetObjectLegalHold = GetObjectLegalHold'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The version ID of the object whose Legal Hold status you want to
     -- retrieve.
-    versionId :: Core.Maybe ObjectVersionId,
-    requestPayer :: Core.Maybe RequestPayer,
+    versionId :: Prelude.Maybe ObjectVersionId,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The bucket name containing the object whose Legal Hold status you want
     -- to retrieve.
     --
@@ -78,7 +79,7 @@ data GetObjectLegalHold = GetObjectLegalHold'
     -- retrieve.
     key :: ObjectKey
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetObjectLegalHold' with all optional fields omitted.
@@ -120,9 +121,9 @@ newGetObjectLegalHold ::
 newGetObjectLegalHold pBucket_ pKey_ =
   GetObjectLegalHold'
     { expectedBucketOwner =
-        Core.Nothing,
-      versionId = Core.Nothing,
-      requestPayer = Core.Nothing,
+        Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
@@ -130,16 +131,16 @@ newGetObjectLegalHold pBucket_ pKey_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getObjectLegalHold_expectedBucketOwner :: Lens.Lens' GetObjectLegalHold (Core.Maybe Core.Text)
+getObjectLegalHold_expectedBucketOwner :: Lens.Lens' GetObjectLegalHold (Prelude.Maybe Prelude.Text)
 getObjectLegalHold_expectedBucketOwner = Lens.lens (\GetObjectLegalHold' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetObjectLegalHold' {} a -> s {expectedBucketOwner = a} :: GetObjectLegalHold)
 
 -- | The version ID of the object whose Legal Hold status you want to
 -- retrieve.
-getObjectLegalHold_versionId :: Lens.Lens' GetObjectLegalHold (Core.Maybe ObjectVersionId)
+getObjectLegalHold_versionId :: Lens.Lens' GetObjectLegalHold (Prelude.Maybe ObjectVersionId)
 getObjectLegalHold_versionId = Lens.lens (\GetObjectLegalHold' {versionId} -> versionId) (\s@GetObjectLegalHold' {} a -> s {versionId = a} :: GetObjectLegalHold)
 
 -- | Undocumented member.
-getObjectLegalHold_requestPayer :: Lens.Lens' GetObjectLegalHold (Core.Maybe RequestPayer)
+getObjectLegalHold_requestPayer :: Lens.Lens' GetObjectLegalHold (Prelude.Maybe RequestPayer)
 getObjectLegalHold_requestPayer = Lens.lens (\GetObjectLegalHold' {requestPayer} -> requestPayer) (\s@GetObjectLegalHold' {} a -> s {requestPayer = a} :: GetObjectLegalHold)
 
 -- | The bucket name containing the object whose Legal Hold status you want
@@ -170,17 +171,17 @@ instance Core.AWSRequest GetObjectLegalHold where
     Response.receiveXML
       ( \s h x ->
           GetObjectLegalHoldResponse'
-            Core.<$> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetObjectLegalHold
+instance Prelude.Hashable GetObjectLegalHold
 
-instance Core.NFData GetObjectLegalHold
+instance Prelude.NFData GetObjectLegalHold
 
 instance Core.ToHeaders GetObjectLegalHold where
   toHeaders GetObjectLegalHold' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "x-amz-request-payer" Core.=# requestPayer
@@ -188,22 +189,22 @@ instance Core.ToHeaders GetObjectLegalHold where
 
 instance Core.ToPath GetObjectLegalHold where
   toPath GetObjectLegalHold' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/", Core.toBS bucket, "/", Core.toBS key]
 
 instance Core.ToQuery GetObjectLegalHold where
   toQuery GetObjectLegalHold' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["versionId" Core.=: versionId, "legal-hold"]
 
 -- | /See:/ 'newGetObjectLegalHoldResponse' smart constructor.
 data GetObjectLegalHoldResponse = GetObjectLegalHoldResponse'
   { -- | The current Legal Hold status for the specified object.
-    legalHold :: Core.Maybe ObjectLockLegalHold,
+    legalHold :: Prelude.Maybe ObjectLockLegalHold,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetObjectLegalHoldResponse' with all optional fields omitted.
@@ -218,21 +219,21 @@ data GetObjectLegalHoldResponse = GetObjectLegalHoldResponse'
 -- 'httpStatus', 'getObjectLegalHoldResponse_httpStatus' - The response's http status code.
 newGetObjectLegalHoldResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetObjectLegalHoldResponse
 newGetObjectLegalHoldResponse pHttpStatus_ =
   GetObjectLegalHoldResponse'
     { legalHold =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current Legal Hold status for the specified object.
-getObjectLegalHoldResponse_legalHold :: Lens.Lens' GetObjectLegalHoldResponse (Core.Maybe ObjectLockLegalHold)
+getObjectLegalHoldResponse_legalHold :: Lens.Lens' GetObjectLegalHoldResponse (Prelude.Maybe ObjectLockLegalHold)
 getObjectLegalHoldResponse_legalHold = Lens.lens (\GetObjectLegalHoldResponse' {legalHold} -> legalHold) (\s@GetObjectLegalHoldResponse' {} a -> s {legalHold = a} :: GetObjectLegalHoldResponse)
 
 -- | The response's http status code.
-getObjectLegalHoldResponse_httpStatus :: Lens.Lens' GetObjectLegalHoldResponse Core.Int
+getObjectLegalHoldResponse_httpStatus :: Lens.Lens' GetObjectLegalHoldResponse Prelude.Int
 getObjectLegalHoldResponse_httpStatus = Lens.lens (\GetObjectLegalHoldResponse' {httpStatus} -> httpStatus) (\s@GetObjectLegalHoldResponse' {} a -> s {httpStatus = a} :: GetObjectLegalHoldResponse)
 
-instance Core.NFData GetObjectLegalHoldResponse
+instance Prelude.NFData GetObjectLegalHoldResponse

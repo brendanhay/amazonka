@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +56,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeMultiplexProgram' smart constructor.
 data DescribeMultiplexProgram = DescribeMultiplexProgram'
   { -- | The ID of the multiplex that the program belongs to.
-    multiplexId :: Core.Text,
+    multiplexId :: Prelude.Text,
     -- | The name of the program.
-    programName :: Core.Text
+    programName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeMultiplexProgram' with all optional fields omitted.
@@ -74,9 +75,9 @@ data DescribeMultiplexProgram = DescribeMultiplexProgram'
 -- 'programName', 'describeMultiplexProgram_programName' - The name of the program.
 newDescribeMultiplexProgram ::
   -- | 'multiplexId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'programName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeMultiplexProgram
 newDescribeMultiplexProgram
   pMultiplexId_
@@ -88,11 +89,11 @@ newDescribeMultiplexProgram
       }
 
 -- | The ID of the multiplex that the program belongs to.
-describeMultiplexProgram_multiplexId :: Lens.Lens' DescribeMultiplexProgram Core.Text
+describeMultiplexProgram_multiplexId :: Lens.Lens' DescribeMultiplexProgram Prelude.Text
 describeMultiplexProgram_multiplexId = Lens.lens (\DescribeMultiplexProgram' {multiplexId} -> multiplexId) (\s@DescribeMultiplexProgram' {} a -> s {multiplexId = a} :: DescribeMultiplexProgram)
 
 -- | The name of the program.
-describeMultiplexProgram_programName :: Lens.Lens' DescribeMultiplexProgram Core.Text
+describeMultiplexProgram_programName :: Lens.Lens' DescribeMultiplexProgram Prelude.Text
 describeMultiplexProgram_programName = Lens.lens (\DescribeMultiplexProgram' {programName} -> programName) (\s@DescribeMultiplexProgram' {} a -> s {programName = a} :: DescribeMultiplexProgram)
 
 instance Core.AWSRequest DescribeMultiplexProgram where
@@ -104,30 +105,34 @@ instance Core.AWSRequest DescribeMultiplexProgram where
     Response.receiveJSON
       ( \s h x ->
           DescribeMultiplexProgramResponse'
-            Core.<$> (x Core..?> "packetIdentifiersMap")
-            Core.<*> (x Core..?> "multiplexProgramSettings")
-            Core.<*> (x Core..?> "channelId")
-            Core.<*> (x Core..?> "programName")
-            Core.<*> (x Core..?> "pipelineDetails" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "packetIdentifiersMap")
+            Prelude.<*> (x Core..?> "multiplexProgramSettings")
+            Prelude.<*> (x Core..?> "channelId")
+            Prelude.<*> (x Core..?> "programName")
+            Prelude.<*> ( x Core..?> "pipelineDetails"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeMultiplexProgram
+instance Prelude.Hashable DescribeMultiplexProgram
 
-instance Core.NFData DescribeMultiplexProgram
+instance Prelude.NFData DescribeMultiplexProgram
 
 instance Core.ToHeaders DescribeMultiplexProgram where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeMultiplexProgram where
   toPath DescribeMultiplexProgram' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/prod/multiplexes/",
         Core.toBS multiplexId,
         "/programs/",
@@ -135,30 +140,30 @@ instance Core.ToPath DescribeMultiplexProgram where
       ]
 
 instance Core.ToQuery DescribeMultiplexProgram where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for DescribeMultiplexProgramResponse
 --
 -- /See:/ 'newDescribeMultiplexProgramResponse' smart constructor.
 data DescribeMultiplexProgramResponse = DescribeMultiplexProgramResponse'
   { -- | The packet identifier map for this multiplex program.
-    packetIdentifiersMap :: Core.Maybe MultiplexProgramPacketIdentifiersMap,
+    packetIdentifiersMap :: Prelude.Maybe MultiplexProgramPacketIdentifiersMap,
     -- | The settings for this multiplex program.
-    multiplexProgramSettings :: Core.Maybe MultiplexProgramSettings,
+    multiplexProgramSettings :: Prelude.Maybe MultiplexProgramSettings,
     -- | The MediaLive channel associated with the program.
-    channelId :: Core.Maybe Core.Text,
+    channelId :: Prelude.Maybe Prelude.Text,
     -- | The name of the multiplex program.
-    programName :: Core.Maybe Core.Text,
+    programName :: Prelude.Maybe Prelude.Text,
     -- | Contains information about the current sources for the specified program
     -- in the specified multiplex. Keep in mind that each multiplex pipeline
     -- connects to both pipelines in a given source channel (the channel
     -- identified by the program). But only one of those channel pipelines is
     -- ever active at one time.
-    pipelineDetails :: Core.Maybe [MultiplexProgramPipelineDetail],
+    pipelineDetails :: Prelude.Maybe [MultiplexProgramPipelineDetail],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeMultiplexProgramResponse' with all optional fields omitted.
@@ -185,33 +190,34 @@ data DescribeMultiplexProgramResponse = DescribeMultiplexProgramResponse'
 -- 'httpStatus', 'describeMultiplexProgramResponse_httpStatus' - The response's http status code.
 newDescribeMultiplexProgramResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeMultiplexProgramResponse
 newDescribeMultiplexProgramResponse pHttpStatus_ =
   DescribeMultiplexProgramResponse'
     { packetIdentifiersMap =
-        Core.Nothing,
-      multiplexProgramSettings = Core.Nothing,
-      channelId = Core.Nothing,
-      programName = Core.Nothing,
-      pipelineDetails = Core.Nothing,
+        Prelude.Nothing,
+      multiplexProgramSettings =
+        Prelude.Nothing,
+      channelId = Prelude.Nothing,
+      programName = Prelude.Nothing,
+      pipelineDetails = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The packet identifier map for this multiplex program.
-describeMultiplexProgramResponse_packetIdentifiersMap :: Lens.Lens' DescribeMultiplexProgramResponse (Core.Maybe MultiplexProgramPacketIdentifiersMap)
+describeMultiplexProgramResponse_packetIdentifiersMap :: Lens.Lens' DescribeMultiplexProgramResponse (Prelude.Maybe MultiplexProgramPacketIdentifiersMap)
 describeMultiplexProgramResponse_packetIdentifiersMap = Lens.lens (\DescribeMultiplexProgramResponse' {packetIdentifiersMap} -> packetIdentifiersMap) (\s@DescribeMultiplexProgramResponse' {} a -> s {packetIdentifiersMap = a} :: DescribeMultiplexProgramResponse)
 
 -- | The settings for this multiplex program.
-describeMultiplexProgramResponse_multiplexProgramSettings :: Lens.Lens' DescribeMultiplexProgramResponse (Core.Maybe MultiplexProgramSettings)
+describeMultiplexProgramResponse_multiplexProgramSettings :: Lens.Lens' DescribeMultiplexProgramResponse (Prelude.Maybe MultiplexProgramSettings)
 describeMultiplexProgramResponse_multiplexProgramSettings = Lens.lens (\DescribeMultiplexProgramResponse' {multiplexProgramSettings} -> multiplexProgramSettings) (\s@DescribeMultiplexProgramResponse' {} a -> s {multiplexProgramSettings = a} :: DescribeMultiplexProgramResponse)
 
 -- | The MediaLive channel associated with the program.
-describeMultiplexProgramResponse_channelId :: Lens.Lens' DescribeMultiplexProgramResponse (Core.Maybe Core.Text)
+describeMultiplexProgramResponse_channelId :: Lens.Lens' DescribeMultiplexProgramResponse (Prelude.Maybe Prelude.Text)
 describeMultiplexProgramResponse_channelId = Lens.lens (\DescribeMultiplexProgramResponse' {channelId} -> channelId) (\s@DescribeMultiplexProgramResponse' {} a -> s {channelId = a} :: DescribeMultiplexProgramResponse)
 
 -- | The name of the multiplex program.
-describeMultiplexProgramResponse_programName :: Lens.Lens' DescribeMultiplexProgramResponse (Core.Maybe Core.Text)
+describeMultiplexProgramResponse_programName :: Lens.Lens' DescribeMultiplexProgramResponse (Prelude.Maybe Prelude.Text)
 describeMultiplexProgramResponse_programName = Lens.lens (\DescribeMultiplexProgramResponse' {programName} -> programName) (\s@DescribeMultiplexProgramResponse' {} a -> s {programName = a} :: DescribeMultiplexProgramResponse)
 
 -- | Contains information about the current sources for the specified program
@@ -219,11 +225,13 @@ describeMultiplexProgramResponse_programName = Lens.lens (\DescribeMultiplexProg
 -- connects to both pipelines in a given source channel (the channel
 -- identified by the program). But only one of those channel pipelines is
 -- ever active at one time.
-describeMultiplexProgramResponse_pipelineDetails :: Lens.Lens' DescribeMultiplexProgramResponse (Core.Maybe [MultiplexProgramPipelineDetail])
-describeMultiplexProgramResponse_pipelineDetails = Lens.lens (\DescribeMultiplexProgramResponse' {pipelineDetails} -> pipelineDetails) (\s@DescribeMultiplexProgramResponse' {} a -> s {pipelineDetails = a} :: DescribeMultiplexProgramResponse) Core.. Lens.mapping Lens._Coerce
+describeMultiplexProgramResponse_pipelineDetails :: Lens.Lens' DescribeMultiplexProgramResponse (Prelude.Maybe [MultiplexProgramPipelineDetail])
+describeMultiplexProgramResponse_pipelineDetails = Lens.lens (\DescribeMultiplexProgramResponse' {pipelineDetails} -> pipelineDetails) (\s@DescribeMultiplexProgramResponse' {} a -> s {pipelineDetails = a} :: DescribeMultiplexProgramResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeMultiplexProgramResponse_httpStatus :: Lens.Lens' DescribeMultiplexProgramResponse Core.Int
+describeMultiplexProgramResponse_httpStatus :: Lens.Lens' DescribeMultiplexProgramResponse Prelude.Int
 describeMultiplexProgramResponse_httpStatus = Lens.lens (\DescribeMultiplexProgramResponse' {httpStatus} -> httpStatus) (\s@DescribeMultiplexProgramResponse' {} a -> s {httpStatus = a} :: DescribeMultiplexProgramResponse)
 
-instance Core.NFData DescribeMultiplexProgramResponse
+instance
+  Prelude.NFData
+    DescribeMultiplexProgramResponse

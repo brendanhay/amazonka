@@ -42,6 +42,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data GetDeploymentConfig = GetDeploymentConfig'
   { -- | The name of a deployment configuration associated with the IAM user or
     -- AWS account.
-    deploymentConfigName :: Core.Text
+    deploymentConfigName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDeploymentConfig' with all optional fields omitted.
@@ -67,7 +68,7 @@ data GetDeploymentConfig = GetDeploymentConfig'
 -- AWS account.
 newGetDeploymentConfig ::
   -- | 'deploymentConfigName'
-  Core.Text ->
+  Prelude.Text ->
   GetDeploymentConfig
 newGetDeploymentConfig pDeploymentConfigName_ =
   GetDeploymentConfig'
@@ -77,7 +78,7 @@ newGetDeploymentConfig pDeploymentConfigName_ =
 
 -- | The name of a deployment configuration associated with the IAM user or
 -- AWS account.
-getDeploymentConfig_deploymentConfigName :: Lens.Lens' GetDeploymentConfig Core.Text
+getDeploymentConfig_deploymentConfigName :: Lens.Lens' GetDeploymentConfig Prelude.Text
 getDeploymentConfig_deploymentConfigName = Lens.lens (\GetDeploymentConfig' {deploymentConfigName} -> deploymentConfigName) (\s@GetDeploymentConfig' {} a -> s {deploymentConfigName = a} :: GetDeploymentConfig)
 
 instance Core.AWSRequest GetDeploymentConfig where
@@ -89,32 +90,34 @@ instance Core.AWSRequest GetDeploymentConfig where
     Response.receiveJSON
       ( \s h x ->
           GetDeploymentConfigResponse'
-            Core.<$> (x Core..?> "deploymentConfigInfo")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "deploymentConfigInfo")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDeploymentConfig
+instance Prelude.Hashable GetDeploymentConfig
 
-instance Core.NFData GetDeploymentConfig
+instance Prelude.NFData GetDeploymentConfig
 
 instance Core.ToHeaders GetDeploymentConfig where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.GetDeploymentConfig" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetDeploymentConfig where
   toJSON GetDeploymentConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "deploymentConfigName"
                   Core..= deploymentConfigName
               )
@@ -122,21 +125,21 @@ instance Core.ToJSON GetDeploymentConfig where
       )
 
 instance Core.ToPath GetDeploymentConfig where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetDeploymentConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetDeploymentConfig@ operation.
 --
 -- /See:/ 'newGetDeploymentConfigResponse' smart constructor.
 data GetDeploymentConfigResponse = GetDeploymentConfigResponse'
   { -- | Information about the deployment configuration.
-    deploymentConfigInfo :: Core.Maybe DeploymentConfigInfo,
+    deploymentConfigInfo :: Prelude.Maybe DeploymentConfigInfo,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDeploymentConfigResponse' with all optional fields omitted.
@@ -151,21 +154,21 @@ data GetDeploymentConfigResponse = GetDeploymentConfigResponse'
 -- 'httpStatus', 'getDeploymentConfigResponse_httpStatus' - The response's http status code.
 newGetDeploymentConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDeploymentConfigResponse
 newGetDeploymentConfigResponse pHttpStatus_ =
   GetDeploymentConfigResponse'
     { deploymentConfigInfo =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the deployment configuration.
-getDeploymentConfigResponse_deploymentConfigInfo :: Lens.Lens' GetDeploymentConfigResponse (Core.Maybe DeploymentConfigInfo)
+getDeploymentConfigResponse_deploymentConfigInfo :: Lens.Lens' GetDeploymentConfigResponse (Prelude.Maybe DeploymentConfigInfo)
 getDeploymentConfigResponse_deploymentConfigInfo = Lens.lens (\GetDeploymentConfigResponse' {deploymentConfigInfo} -> deploymentConfigInfo) (\s@GetDeploymentConfigResponse' {} a -> s {deploymentConfigInfo = a} :: GetDeploymentConfigResponse)
 
 -- | The response's http status code.
-getDeploymentConfigResponse_httpStatus :: Lens.Lens' GetDeploymentConfigResponse Core.Int
+getDeploymentConfigResponse_httpStatus :: Lens.Lens' GetDeploymentConfigResponse Prelude.Int
 getDeploymentConfigResponse_httpStatus = Lens.lens (\GetDeploymentConfigResponse' {httpStatus} -> httpStatus) (\s@GetDeploymentConfigResponse' {} a -> s {httpStatus = a} :: GetDeploymentConfigResponse)
 
-instance Core.NFData GetDeploymentConfigResponse
+instance Prelude.NFData GetDeploymentConfigResponse

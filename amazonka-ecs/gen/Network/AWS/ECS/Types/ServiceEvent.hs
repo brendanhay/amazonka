@@ -21,19 +21,20 @@ module Network.AWS.ECS.Types.ServiceEvent where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details on an event associated with a service.
 --
 -- /See:/ 'newServiceEvent' smart constructor.
 data ServiceEvent = ServiceEvent'
   { -- | The event message.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The Unix timestamp for when the event was triggered.
-    createdAt :: Core.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The ID string of the event.
-    id :: Core.Maybe Core.Text
+    id :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServiceEvent' with all optional fields omitted.
@@ -52,21 +53,21 @@ newServiceEvent ::
   ServiceEvent
 newServiceEvent =
   ServiceEvent'
-    { message = Core.Nothing,
-      createdAt = Core.Nothing,
-      id = Core.Nothing
+    { message = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      id = Prelude.Nothing
     }
 
 -- | The event message.
-serviceEvent_message :: Lens.Lens' ServiceEvent (Core.Maybe Core.Text)
+serviceEvent_message :: Lens.Lens' ServiceEvent (Prelude.Maybe Prelude.Text)
 serviceEvent_message = Lens.lens (\ServiceEvent' {message} -> message) (\s@ServiceEvent' {} a -> s {message = a} :: ServiceEvent)
 
 -- | The Unix timestamp for when the event was triggered.
-serviceEvent_createdAt :: Lens.Lens' ServiceEvent (Core.Maybe Core.UTCTime)
-serviceEvent_createdAt = Lens.lens (\ServiceEvent' {createdAt} -> createdAt) (\s@ServiceEvent' {} a -> s {createdAt = a} :: ServiceEvent) Core.. Lens.mapping Core._Time
+serviceEvent_createdAt :: Lens.Lens' ServiceEvent (Prelude.Maybe Prelude.UTCTime)
+serviceEvent_createdAt = Lens.lens (\ServiceEvent' {createdAt} -> createdAt) (\s@ServiceEvent' {} a -> s {createdAt = a} :: ServiceEvent) Prelude.. Lens.mapping Core._Time
 
 -- | The ID string of the event.
-serviceEvent_id :: Lens.Lens' ServiceEvent (Core.Maybe Core.Text)
+serviceEvent_id :: Lens.Lens' ServiceEvent (Prelude.Maybe Prelude.Text)
 serviceEvent_id = Lens.lens (\ServiceEvent' {id} -> id) (\s@ServiceEvent' {} a -> s {id = a} :: ServiceEvent)
 
 instance Core.FromJSON ServiceEvent where
@@ -75,11 +76,11 @@ instance Core.FromJSON ServiceEvent where
       "ServiceEvent"
       ( \x ->
           ServiceEvent'
-            Core.<$> (x Core..:? "message")
-            Core.<*> (x Core..:? "createdAt")
-            Core.<*> (x Core..:? "id")
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "id")
       )
 
-instance Core.Hashable ServiceEvent
+instance Prelude.Hashable ServiceEvent
 
-instance Core.NFData ServiceEvent
+instance Prelude.NFData ServiceEvent

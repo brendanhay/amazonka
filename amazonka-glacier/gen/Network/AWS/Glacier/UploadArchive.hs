@@ -87,6 +87,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -95,21 +96,21 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUploadArchive' smart constructor.
 data UploadArchive = UploadArchive'
   { -- | The optional description of the archive you are uploading.
-    archiveDescription :: Core.Maybe Core.Text,
+    archiveDescription :: Prelude.Maybe Prelude.Text,
     -- | The SHA256 tree hash of the data being uploaded.
-    checksum :: Core.Maybe Core.Text,
+    checksum :: Prelude.Maybe Prelude.Text,
     -- | The name of the vault.
-    vaultName :: Core.Text,
+    vaultName :: Prelude.Text,
     -- | The @AccountId@ value is the AWS account ID of the account that owns the
     -- vault. You can either specify an AWS account ID or optionally a single
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The data to upload.
     body :: Core.HashedBody
   }
-  deriving (Core.Show, Core.Generic)
+  deriving (Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UploadArchive' with all optional fields omitted.
@@ -134,31 +135,32 @@ data UploadArchive = UploadArchive'
 -- 'body', 'uploadArchive_body' - The data to upload.
 newUploadArchive ::
   -- | 'vaultName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'body'
   Core.HashedBody ->
   UploadArchive
 newUploadArchive pVaultName_ pAccountId_ pBody_ =
   UploadArchive'
-    { archiveDescription = Core.Nothing,
-      checksum = Core.Nothing,
+    { archiveDescription =
+        Prelude.Nothing,
+      checksum = Prelude.Nothing,
       vaultName = pVaultName_,
       accountId = pAccountId_,
       body = pBody_
     }
 
 -- | The optional description of the archive you are uploading.
-uploadArchive_archiveDescription :: Lens.Lens' UploadArchive (Core.Maybe Core.Text)
+uploadArchive_archiveDescription :: Lens.Lens' UploadArchive (Prelude.Maybe Prelude.Text)
 uploadArchive_archiveDescription = Lens.lens (\UploadArchive' {archiveDescription} -> archiveDescription) (\s@UploadArchive' {} a -> s {archiveDescription = a} :: UploadArchive)
 
 -- | The SHA256 tree hash of the data being uploaded.
-uploadArchive_checksum :: Lens.Lens' UploadArchive (Core.Maybe Core.Text)
+uploadArchive_checksum :: Lens.Lens' UploadArchive (Prelude.Maybe Prelude.Text)
 uploadArchive_checksum = Lens.lens (\UploadArchive' {checksum} -> checksum) (\s@UploadArchive' {} a -> s {checksum = a} :: UploadArchive)
 
 -- | The name of the vault.
-uploadArchive_vaultName :: Lens.Lens' UploadArchive Core.Text
+uploadArchive_vaultName :: Lens.Lens' UploadArchive Prelude.Text
 uploadArchive_vaultName = Lens.lens (\UploadArchive' {vaultName} -> vaultName) (\s@UploadArchive' {} a -> s {vaultName = a} :: UploadArchive)
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -166,7 +168,7 @@ uploadArchive_vaultName = Lens.lens (\UploadArchive' {vaultName} -> vaultName) (
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-uploadArchive_accountId :: Lens.Lens' UploadArchive Core.Text
+uploadArchive_accountId :: Lens.Lens' UploadArchive Prelude.Text
 uploadArchive_accountId = Lens.lens (\UploadArchive' {accountId} -> accountId) (\s@UploadArchive' {} a -> s {accountId = a} :: UploadArchive)
 
 -- | The data to upload.
@@ -179,14 +181,14 @@ instance Core.AWSRequest UploadArchive where
       ArchiveCreationOutput
   request =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Core.. Request.postBody defaultService
+      Prelude.. Request.postBody defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           ArchiveCreationOutput'
-            Core.<$> (h Core..#? "x-amz-archive-id")
-            Core.<*> (h Core..#? "Location")
-            Core.<*> (h Core..#? "x-amz-sha256-tree-hash")
+            Prelude.<$> (h Core..#? "x-amz-archive-id")
+            Prelude.<*> (h Core..#? "Location")
+            Prelude.<*> (h Core..#? "x-amz-sha256-tree-hash")
       )
 
 instance Core.ToBody UploadArchive where
@@ -194,7 +196,7 @@ instance Core.ToBody UploadArchive where
 
 instance Core.ToHeaders UploadArchive where
   toHeaders UploadArchive' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-archive-description"
           Core.=# archiveDescription,
         "x-amz-sha256-tree-hash" Core.=# checksum
@@ -202,7 +204,7 @@ instance Core.ToHeaders UploadArchive where
 
 instance Core.ToPath UploadArchive where
   toPath UploadArchive' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/",
         Core.toBS accountId,
         "/vaults/",
@@ -211,4 +213,4 @@ instance Core.ToPath UploadArchive where
       ]
 
 instance Core.ToQuery UploadArchive where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

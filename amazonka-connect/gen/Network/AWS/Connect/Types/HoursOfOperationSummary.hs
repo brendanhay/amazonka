@@ -21,6 +21,7 @@ module Network.AWS.Connect.Types.HoursOfOperationSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains summary information about hours of operation for a contact
 -- center.
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newHoursOfOperationSummary' smart constructor.
 data HoursOfOperationSummary = HoursOfOperationSummary'
   { -- | The Amazon Resource Name (ARN) of the hours of operation.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the hours of operation.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the hours of operation.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HoursOfOperationSummary' with all optional fields omitted.
@@ -53,21 +54,21 @@ newHoursOfOperationSummary ::
   HoursOfOperationSummary
 newHoursOfOperationSummary =
   HoursOfOperationSummary'
-    { arn = Core.Nothing,
-      id = Core.Nothing,
-      name = Core.Nothing
+    { arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the hours of operation.
-hoursOfOperationSummary_arn :: Lens.Lens' HoursOfOperationSummary (Core.Maybe Core.Text)
+hoursOfOperationSummary_arn :: Lens.Lens' HoursOfOperationSummary (Prelude.Maybe Prelude.Text)
 hoursOfOperationSummary_arn = Lens.lens (\HoursOfOperationSummary' {arn} -> arn) (\s@HoursOfOperationSummary' {} a -> s {arn = a} :: HoursOfOperationSummary)
 
 -- | The identifier of the hours of operation.
-hoursOfOperationSummary_id :: Lens.Lens' HoursOfOperationSummary (Core.Maybe Core.Text)
+hoursOfOperationSummary_id :: Lens.Lens' HoursOfOperationSummary (Prelude.Maybe Prelude.Text)
 hoursOfOperationSummary_id = Lens.lens (\HoursOfOperationSummary' {id} -> id) (\s@HoursOfOperationSummary' {} a -> s {id = a} :: HoursOfOperationSummary)
 
 -- | The name of the hours of operation.
-hoursOfOperationSummary_name :: Lens.Lens' HoursOfOperationSummary (Core.Maybe Core.Text)
+hoursOfOperationSummary_name :: Lens.Lens' HoursOfOperationSummary (Prelude.Maybe Prelude.Text)
 hoursOfOperationSummary_name = Lens.lens (\HoursOfOperationSummary' {name} -> name) (\s@HoursOfOperationSummary' {} a -> s {name = a} :: HoursOfOperationSummary)
 
 instance Core.FromJSON HoursOfOperationSummary where
@@ -76,11 +77,11 @@ instance Core.FromJSON HoursOfOperationSummary where
       "HoursOfOperationSummary"
       ( \x ->
           HoursOfOperationSummary'
-            Core.<$> (x Core..:? "Arn")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable HoursOfOperationSummary
+instance Prelude.Hashable HoursOfOperationSummary
 
-instance Core.NFData HoursOfOperationSummary
+instance Prelude.NFData HoursOfOperationSummary

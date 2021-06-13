@@ -21,6 +21,7 @@ module Network.AWS.MediaPackage.Types.Authorization where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | CDN Authorization credentials
 --
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 data Authorization = Authorization'
   { -- | The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage
     -- to communicate with AWS Secrets Manager.
-    secretsRoleArn :: Core.Text,
+    secretsRoleArn :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the secret in Secrets Manager that
     -- your Content Distribution Network (CDN) uses for authorization to access
     -- your endpoint.
-    cdnIdentifierSecret :: Core.Text
+    cdnIdentifierSecret :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Authorization' with all optional fields omitted.
@@ -52,9 +53,9 @@ data Authorization = Authorization'
 -- your endpoint.
 newAuthorization ::
   -- | 'secretsRoleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'cdnIdentifierSecret'
-  Core.Text ->
+  Prelude.Text ->
   Authorization
 newAuthorization
   pSecretsRoleArn_
@@ -66,13 +67,13 @@ newAuthorization
 
 -- | The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage
 -- to communicate with AWS Secrets Manager.
-authorization_secretsRoleArn :: Lens.Lens' Authorization Core.Text
+authorization_secretsRoleArn :: Lens.Lens' Authorization Prelude.Text
 authorization_secretsRoleArn = Lens.lens (\Authorization' {secretsRoleArn} -> secretsRoleArn) (\s@Authorization' {} a -> s {secretsRoleArn = a} :: Authorization)
 
 -- | The Amazon Resource Name (ARN) for the secret in Secrets Manager that
 -- your Content Distribution Network (CDN) uses for authorization to access
 -- your endpoint.
-authorization_cdnIdentifierSecret :: Lens.Lens' Authorization Core.Text
+authorization_cdnIdentifierSecret :: Lens.Lens' Authorization Prelude.Text
 authorization_cdnIdentifierSecret = Lens.lens (\Authorization' {cdnIdentifierSecret} -> cdnIdentifierSecret) (\s@Authorization' {} a -> s {cdnIdentifierSecret = a} :: Authorization)
 
 instance Core.FromJSON Authorization where
@@ -81,20 +82,21 @@ instance Core.FromJSON Authorization where
       "Authorization"
       ( \x ->
           Authorization'
-            Core.<$> (x Core..: "secretsRoleArn")
-            Core.<*> (x Core..: "cdnIdentifierSecret")
+            Prelude.<$> (x Core..: "secretsRoleArn")
+            Prelude.<*> (x Core..: "cdnIdentifierSecret")
       )
 
-instance Core.Hashable Authorization
+instance Prelude.Hashable Authorization
 
-instance Core.NFData Authorization
+instance Prelude.NFData Authorization
 
 instance Core.ToJSON Authorization where
   toJSON Authorization' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("secretsRoleArn" Core..= secretsRoleArn),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("secretsRoleArn" Core..= secretsRoleArn),
+            Prelude.Just
               ("cdnIdentifierSecret" Core..= cdnIdentifierSecret)
           ]
       )

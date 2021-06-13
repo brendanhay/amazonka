@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -56,9 +57,9 @@ import Network.AWS.SES.Types
 -- /See:/ 'newVerifyEmailIdentity' smart constructor.
 data VerifyEmailIdentity = VerifyEmailIdentity'
   { -- | The email address to be verified.
-    emailAddress :: Core.Text
+    emailAddress :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VerifyEmailIdentity' with all optional fields omitted.
@@ -71,13 +72,13 @@ data VerifyEmailIdentity = VerifyEmailIdentity'
 -- 'emailAddress', 'verifyEmailIdentity_emailAddress' - The email address to be verified.
 newVerifyEmailIdentity ::
   -- | 'emailAddress'
-  Core.Text ->
+  Prelude.Text ->
   VerifyEmailIdentity
 newVerifyEmailIdentity pEmailAddress_ =
   VerifyEmailIdentity' {emailAddress = pEmailAddress_}
 
 -- | The email address to be verified.
-verifyEmailIdentity_emailAddress :: Lens.Lens' VerifyEmailIdentity Core.Text
+verifyEmailIdentity_emailAddress :: Lens.Lens' VerifyEmailIdentity Prelude.Text
 verifyEmailIdentity_emailAddress = Lens.lens (\VerifyEmailIdentity' {emailAddress} -> emailAddress) (\s@VerifyEmailIdentity' {} a -> s {emailAddress = a} :: VerifyEmailIdentity)
 
 instance Core.AWSRequest VerifyEmailIdentity where
@@ -90,25 +91,26 @@ instance Core.AWSRequest VerifyEmailIdentity where
       "VerifyEmailIdentityResult"
       ( \s h x ->
           VerifyEmailIdentityResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable VerifyEmailIdentity
+instance Prelude.Hashable VerifyEmailIdentity
 
-instance Core.NFData VerifyEmailIdentity
+instance Prelude.NFData VerifyEmailIdentity
 
 instance Core.ToHeaders VerifyEmailIdentity where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath VerifyEmailIdentity where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery VerifyEmailIdentity where
   toQuery VerifyEmailIdentity' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("VerifyEmailIdentity" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("VerifyEmailIdentity" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "EmailAddress" Core.=: emailAddress
       ]
 
@@ -117,9 +119,9 @@ instance Core.ToQuery VerifyEmailIdentity where
 -- /See:/ 'newVerifyEmailIdentityResponse' smart constructor.
 data VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VerifyEmailIdentityResponse' with all optional fields omitted.
@@ -132,7 +134,7 @@ data VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
 -- 'httpStatus', 'verifyEmailIdentityResponse_httpStatus' - The response's http status code.
 newVerifyEmailIdentityResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   VerifyEmailIdentityResponse
 newVerifyEmailIdentityResponse pHttpStatus_ =
   VerifyEmailIdentityResponse'
@@ -141,7 +143,7 @@ newVerifyEmailIdentityResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-verifyEmailIdentityResponse_httpStatus :: Lens.Lens' VerifyEmailIdentityResponse Core.Int
+verifyEmailIdentityResponse_httpStatus :: Lens.Lens' VerifyEmailIdentityResponse Prelude.Int
 verifyEmailIdentityResponse_httpStatus = Lens.lens (\VerifyEmailIdentityResponse' {httpStatus} -> httpStatus) (\s@VerifyEmailIdentityResponse' {} a -> s {httpStatus = a} :: VerifyEmailIdentityResponse)
 
-instance Core.NFData VerifyEmailIdentityResponse
+instance Prelude.NFData VerifyEmailIdentityResponse

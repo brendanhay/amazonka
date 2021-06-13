@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -56,9 +57,9 @@ import Network.AWS.SNS.Types
 -- | /See:/ 'newListTopics' smart constructor.
 data ListTopics = ListTopics'
   { -- | Token returned by the previous @ListTopics@ request.
-    nextToken :: Core.Maybe Core.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTopics' with all optional fields omitted.
@@ -71,30 +72,31 @@ data ListTopics = ListTopics'
 -- 'nextToken', 'listTopics_nextToken' - Token returned by the previous @ListTopics@ request.
 newListTopics ::
   ListTopics
-newListTopics = ListTopics' {nextToken = Core.Nothing}
+newListTopics =
+  ListTopics' {nextToken = Prelude.Nothing}
 
 -- | Token returned by the previous @ListTopics@ request.
-listTopics_nextToken :: Lens.Lens' ListTopics (Core.Maybe Core.Text)
+listTopics_nextToken :: Lens.Lens' ListTopics (Prelude.Maybe Prelude.Text)
 listTopics_nextToken = Lens.lens (\ListTopics' {nextToken} -> nextToken) (\s@ListTopics' {} a -> s {nextToken = a} :: ListTopics)
 
 instance Core.AWSPager ListTopics where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listTopicsResponse_nextToken Core.. Lens._Just
+            Lens.^? listTopicsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listTopicsResponse_topics Core.. Lens._Just
+            Lens.^? listTopicsResponse_topics Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listTopics_nextToken
+          Prelude.& listTopics_nextToken
           Lens..~ rs
-          Lens.^? listTopicsResponse_nextToken Core.. Lens._Just
+          Lens.^? listTopicsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTopics where
   type AWSResponse ListTopics = ListTopicsResponse
@@ -104,28 +106,30 @@ instance Core.AWSRequest ListTopics where
       "ListTopicsResult"
       ( \s h x ->
           ListTopicsResponse'
-            Core.<$> (x Core..@? "NextToken")
-            Core.<*> ( x Core..@? "Topics" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "Topics" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTopics
+instance Prelude.Hashable ListTopics
 
-instance Core.NFData ListTopics
+instance Prelude.NFData ListTopics
 
 instance Core.ToHeaders ListTopics where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListTopics where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTopics where
   toQuery ListTopics' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("ListTopics" :: Core.ByteString),
-        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ListTopics" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken
       ]
 
@@ -135,13 +139,13 @@ instance Core.ToQuery ListTopics where
 data ListTopicsResponse = ListTopicsResponse'
   { -- | Token to pass along to the next @ListTopics@ request. This element is
     -- returned if there are additional topics to retrieve.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of topic ARNs.
-    topics :: Core.Maybe [Topic],
+    topics :: Prelude.Maybe [Topic],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTopicsResponse' with all optional fields omitted.
@@ -159,26 +163,26 @@ data ListTopicsResponse = ListTopicsResponse'
 -- 'httpStatus', 'listTopicsResponse_httpStatus' - The response's http status code.
 newListTopicsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTopicsResponse
 newListTopicsResponse pHttpStatus_ =
   ListTopicsResponse'
-    { nextToken = Core.Nothing,
-      topics = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      topics = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Token to pass along to the next @ListTopics@ request. This element is
 -- returned if there are additional topics to retrieve.
-listTopicsResponse_nextToken :: Lens.Lens' ListTopicsResponse (Core.Maybe Core.Text)
+listTopicsResponse_nextToken :: Lens.Lens' ListTopicsResponse (Prelude.Maybe Prelude.Text)
 listTopicsResponse_nextToken = Lens.lens (\ListTopicsResponse' {nextToken} -> nextToken) (\s@ListTopicsResponse' {} a -> s {nextToken = a} :: ListTopicsResponse)
 
 -- | A list of topic ARNs.
-listTopicsResponse_topics :: Lens.Lens' ListTopicsResponse (Core.Maybe [Topic])
-listTopicsResponse_topics = Lens.lens (\ListTopicsResponse' {topics} -> topics) (\s@ListTopicsResponse' {} a -> s {topics = a} :: ListTopicsResponse) Core.. Lens.mapping Lens._Coerce
+listTopicsResponse_topics :: Lens.Lens' ListTopicsResponse (Prelude.Maybe [Topic])
+listTopicsResponse_topics = Lens.lens (\ListTopicsResponse' {topics} -> topics) (\s@ListTopicsResponse' {} a -> s {topics = a} :: ListTopicsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTopicsResponse_httpStatus :: Lens.Lens' ListTopicsResponse Core.Int
+listTopicsResponse_httpStatus :: Lens.Lens' ListTopicsResponse Prelude.Int
 listTopicsResponse_httpStatus = Lens.lens (\ListTopicsResponse' {httpStatus} -> httpStatus) (\s@ListTopicsResponse' {} a -> s {httpStatus = a} :: ListTopicsResponse)
 
-instance Core.NFData ListTopicsResponse
+instance Prelude.NFData ListTopicsResponse

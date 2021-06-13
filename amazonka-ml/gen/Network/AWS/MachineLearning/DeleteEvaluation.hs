@@ -50,15 +50,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteEvaluation' smart constructor.
 data DeleteEvaluation = DeleteEvaluation'
   { -- | A user-supplied ID that uniquely identifies the @Evaluation@ to delete.
-    evaluationId :: Core.Text
+    evaluationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEvaluation' with all optional fields omitted.
@@ -71,13 +72,13 @@ data DeleteEvaluation = DeleteEvaluation'
 -- 'evaluationId', 'deleteEvaluation_evaluationId' - A user-supplied ID that uniquely identifies the @Evaluation@ to delete.
 newDeleteEvaluation ::
   -- | 'evaluationId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteEvaluation
 newDeleteEvaluation pEvaluationId_ =
   DeleteEvaluation' {evaluationId = pEvaluationId_}
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@ to delete.
-deleteEvaluation_evaluationId :: Lens.Lens' DeleteEvaluation Core.Text
+deleteEvaluation_evaluationId :: Lens.Lens' DeleteEvaluation Prelude.Text
 deleteEvaluation_evaluationId = Lens.lens (\DeleteEvaluation' {evaluationId} -> evaluationId) (\s@DeleteEvaluation' {} a -> s {evaluationId = a} :: DeleteEvaluation)
 
 instance Core.AWSRequest DeleteEvaluation where
@@ -89,39 +90,41 @@ instance Core.AWSRequest DeleteEvaluation where
     Response.receiveJSON
       ( \s h x ->
           DeleteEvaluationResponse'
-            Core.<$> (x Core..?> "EvaluationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "EvaluationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteEvaluation
+instance Prelude.Hashable DeleteEvaluation
 
-instance Core.NFData DeleteEvaluation
+instance Prelude.NFData DeleteEvaluation
 
 instance Core.ToHeaders DeleteEvaluation where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonML_20141212.DeleteEvaluation" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteEvaluation where
   toJSON DeleteEvaluation' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("EvaluationId" Core..= evaluationId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("EvaluationId" Core..= evaluationId)]
       )
 
 instance Core.ToPath DeleteEvaluation where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteEvaluation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @DeleteEvaluation@ operation. The output
 -- indicates that Amazon Machine Learning (Amazon ML) received the request.
@@ -134,11 +137,11 @@ instance Core.ToQuery DeleteEvaluation where
 data DeleteEvaluationResponse = DeleteEvaluationResponse'
   { -- | A user-supplied ID that uniquely identifies the @Evaluation@. This value
     -- should be identical to the value of the @EvaluationId@ in the request.
-    evaluationId :: Core.Maybe Core.Text,
+    evaluationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEvaluationResponse' with all optional fields omitted.
@@ -154,22 +157,22 @@ data DeleteEvaluationResponse = DeleteEvaluationResponse'
 -- 'httpStatus', 'deleteEvaluationResponse_httpStatus' - The response's http status code.
 newDeleteEvaluationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteEvaluationResponse
 newDeleteEvaluationResponse pHttpStatus_ =
   DeleteEvaluationResponse'
     { evaluationId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@. This value
 -- should be identical to the value of the @EvaluationId@ in the request.
-deleteEvaluationResponse_evaluationId :: Lens.Lens' DeleteEvaluationResponse (Core.Maybe Core.Text)
+deleteEvaluationResponse_evaluationId :: Lens.Lens' DeleteEvaluationResponse (Prelude.Maybe Prelude.Text)
 deleteEvaluationResponse_evaluationId = Lens.lens (\DeleteEvaluationResponse' {evaluationId} -> evaluationId) (\s@DeleteEvaluationResponse' {} a -> s {evaluationId = a} :: DeleteEvaluationResponse)
 
 -- | The response's http status code.
-deleteEvaluationResponse_httpStatus :: Lens.Lens' DeleteEvaluationResponse Core.Int
+deleteEvaluationResponse_httpStatus :: Lens.Lens' DeleteEvaluationResponse Prelude.Int
 deleteEvaluationResponse_httpStatus = Lens.lens (\DeleteEvaluationResponse' {httpStatus} -> httpStatus) (\s@DeleteEvaluationResponse' {} a -> s {httpStatus = a} :: DeleteEvaluationResponse)
 
-instance Core.NFData DeleteEvaluationResponse
+instance Prelude.NFData DeleteEvaluationResponse

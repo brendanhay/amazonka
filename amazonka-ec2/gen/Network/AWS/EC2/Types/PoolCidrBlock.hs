@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.PoolCidrBlock where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a CIDR block for an address pool.
 --
 -- /See:/ 'newPoolCidrBlock' smart constructor.
 data PoolCidrBlock = PoolCidrBlock'
   { -- | The CIDR block.
-    cidr :: Core.Maybe Core.Text
+    cidr :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PoolCidrBlock' with all optional fields omitted.
@@ -44,17 +45,17 @@ data PoolCidrBlock = PoolCidrBlock'
 newPoolCidrBlock ::
   PoolCidrBlock
 newPoolCidrBlock =
-  PoolCidrBlock' {cidr = Core.Nothing}
+  PoolCidrBlock' {cidr = Prelude.Nothing}
 
 -- | The CIDR block.
-poolCidrBlock_cidr :: Lens.Lens' PoolCidrBlock (Core.Maybe Core.Text)
+poolCidrBlock_cidr :: Lens.Lens' PoolCidrBlock (Prelude.Maybe Prelude.Text)
 poolCidrBlock_cidr = Lens.lens (\PoolCidrBlock' {cidr} -> cidr) (\s@PoolCidrBlock' {} a -> s {cidr = a} :: PoolCidrBlock)
 
 instance Core.FromXML PoolCidrBlock where
   parseXML x =
     PoolCidrBlock'
-      Core.<$> (x Core..@? "poolCidrBlock")
+      Prelude.<$> (x Core..@? "poolCidrBlock")
 
-instance Core.Hashable PoolCidrBlock
+instance Prelude.Hashable PoolCidrBlock
 
-instance Core.NFData PoolCidrBlock
+instance Prelude.NFData PoolCidrBlock

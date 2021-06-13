@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,7 +58,7 @@ import qualified Network.AWS.Response as Response
 data RegisterContainerImage = RegisterContainerImage'
   { -- | The name of the container service for which to register a container
     -- image.
-    serviceName :: Core.Text,
+    serviceName :: Prelude.Text,
     -- | The label for the container image when it\'s registered to the container
     -- service.
     --
@@ -81,11 +82,11 @@ data RegisterContainerImage = RegisterContainerImage'
     -- the same label, then the version number for the new registered container
     -- image will be @2@. If you push and register another container image, the
     -- version number will be @3@, and so on.
-    label :: Core.Text,
+    label :: Prelude.Text,
     -- | The digest of the container image to be registered.
-    digest :: Core.Text
+    digest :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterContainerImage' with all optional fields omitted.
@@ -125,11 +126,11 @@ data RegisterContainerImage = RegisterContainerImage'
 -- 'digest', 'registerContainerImage_digest' - The digest of the container image to be registered.
 newRegisterContainerImage ::
   -- | 'serviceName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'label'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'digest'
-  Core.Text ->
+  Prelude.Text ->
   RegisterContainerImage
 newRegisterContainerImage
   pServiceName_
@@ -144,7 +145,7 @@ newRegisterContainerImage
 
 -- | The name of the container service for which to register a container
 -- image.
-registerContainerImage_serviceName :: Lens.Lens' RegisterContainerImage Core.Text
+registerContainerImage_serviceName :: Lens.Lens' RegisterContainerImage Prelude.Text
 registerContainerImage_serviceName = Lens.lens (\RegisterContainerImage' {serviceName} -> serviceName) (\s@RegisterContainerImage' {} a -> s {serviceName = a} :: RegisterContainerImage)
 
 -- | The label for the container image when it\'s registered to the container
@@ -170,11 +171,11 @@ registerContainerImage_serviceName = Lens.lens (\RegisterContainerImage' {servic
 -- the same label, then the version number for the new registered container
 -- image will be @2@. If you push and register another container image, the
 -- version number will be @3@, and so on.
-registerContainerImage_label :: Lens.Lens' RegisterContainerImage Core.Text
+registerContainerImage_label :: Lens.Lens' RegisterContainerImage Prelude.Text
 registerContainerImage_label = Lens.lens (\RegisterContainerImage' {label} -> label) (\s@RegisterContainerImage' {} a -> s {label = a} :: RegisterContainerImage)
 
 -- | The digest of the container image to be registered.
-registerContainerImage_digest :: Lens.Lens' RegisterContainerImage Core.Text
+registerContainerImage_digest :: Lens.Lens' RegisterContainerImage Prelude.Text
 registerContainerImage_digest = Lens.lens (\RegisterContainerImage' {digest} -> digest) (\s@RegisterContainerImage' {} a -> s {digest = a} :: RegisterContainerImage)
 
 instance Core.AWSRequest RegisterContainerImage where
@@ -186,50 +187,52 @@ instance Core.AWSRequest RegisterContainerImage where
     Response.receiveJSON
       ( \s h x ->
           RegisterContainerImageResponse'
-            Core.<$> (x Core..?> "containerImage")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "containerImage")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RegisterContainerImage
+instance Prelude.Hashable RegisterContainerImage
 
-instance Core.NFData RegisterContainerImage
+instance Prelude.NFData RegisterContainerImage
 
 instance Core.ToHeaders RegisterContainerImage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.RegisterContainerImage" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RegisterContainerImage where
   toJSON RegisterContainerImage' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("serviceName" Core..= serviceName),
-            Core.Just ("label" Core..= label),
-            Core.Just ("digest" Core..= digest)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("serviceName" Core..= serviceName),
+            Prelude.Just ("label" Core..= label),
+            Prelude.Just ("digest" Core..= digest)
           ]
       )
 
 instance Core.ToPath RegisterContainerImage where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RegisterContainerImage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterContainerImageResponse' smart constructor.
 data RegisterContainerImageResponse = RegisterContainerImageResponse'
-  { containerImage :: Core.Maybe ContainerImage,
+  { containerImage :: Prelude.Maybe ContainerImage,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterContainerImageResponse' with all optional fields omitted.
@@ -244,21 +247,23 @@ data RegisterContainerImageResponse = RegisterContainerImageResponse'
 -- 'httpStatus', 'registerContainerImageResponse_httpStatus' - The response's http status code.
 newRegisterContainerImageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RegisterContainerImageResponse
 newRegisterContainerImageResponse pHttpStatus_ =
   RegisterContainerImageResponse'
     { containerImage =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-registerContainerImageResponse_containerImage :: Lens.Lens' RegisterContainerImageResponse (Core.Maybe ContainerImage)
+registerContainerImageResponse_containerImage :: Lens.Lens' RegisterContainerImageResponse (Prelude.Maybe ContainerImage)
 registerContainerImageResponse_containerImage = Lens.lens (\RegisterContainerImageResponse' {containerImage} -> containerImage) (\s@RegisterContainerImageResponse' {} a -> s {containerImage = a} :: RegisterContainerImageResponse)
 
 -- | The response's http status code.
-registerContainerImageResponse_httpStatus :: Lens.Lens' RegisterContainerImageResponse Core.Int
+registerContainerImageResponse_httpStatus :: Lens.Lens' RegisterContainerImageResponse Prelude.Int
 registerContainerImageResponse_httpStatus = Lens.lens (\RegisterContainerImageResponse' {httpStatus} -> httpStatus) (\s@RegisterContainerImageResponse' {} a -> s {httpStatus = a} :: RegisterContainerImageResponse)
 
-instance Core.NFData RegisterContainerImageResponse
+instance
+  Prelude.NFData
+    RegisterContainerImageResponse

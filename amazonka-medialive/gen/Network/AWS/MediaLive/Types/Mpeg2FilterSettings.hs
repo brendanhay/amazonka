@@ -22,14 +22,15 @@ module Network.AWS.MediaLive.Types.Mpeg2FilterSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.TemporalFilterSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Mpeg2 Filter Settings
 --
 -- /See:/ 'newMpeg2FilterSettings' smart constructor.
 data Mpeg2FilterSettings = Mpeg2FilterSettings'
-  { temporalFilterSettings :: Core.Maybe TemporalFilterSettings
+  { temporalFilterSettings :: Prelude.Maybe TemporalFilterSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Mpeg2FilterSettings' with all optional fields omitted.
@@ -45,11 +46,11 @@ newMpeg2FilterSettings ::
 newMpeg2FilterSettings =
   Mpeg2FilterSettings'
     { temporalFilterSettings =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Undocumented member.
-mpeg2FilterSettings_temporalFilterSettings :: Lens.Lens' Mpeg2FilterSettings (Core.Maybe TemporalFilterSettings)
+mpeg2FilterSettings_temporalFilterSettings :: Lens.Lens' Mpeg2FilterSettings (Prelude.Maybe TemporalFilterSettings)
 mpeg2FilterSettings_temporalFilterSettings = Lens.lens (\Mpeg2FilterSettings' {temporalFilterSettings} -> temporalFilterSettings) (\s@Mpeg2FilterSettings' {} a -> s {temporalFilterSettings = a} :: Mpeg2FilterSettings)
 
 instance Core.FromJSON Mpeg2FilterSettings where
@@ -58,18 +59,18 @@ instance Core.FromJSON Mpeg2FilterSettings where
       "Mpeg2FilterSettings"
       ( \x ->
           Mpeg2FilterSettings'
-            Core.<$> (x Core..:? "temporalFilterSettings")
+            Prelude.<$> (x Core..:? "temporalFilterSettings")
       )
 
-instance Core.Hashable Mpeg2FilterSettings
+instance Prelude.Hashable Mpeg2FilterSettings
 
-instance Core.NFData Mpeg2FilterSettings
+instance Prelude.NFData Mpeg2FilterSettings
 
 instance Core.ToJSON Mpeg2FilterSettings where
   toJSON Mpeg2FilterSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("temporalFilterSettings" Core..=)
-              Core.<$> temporalFilterSettings
+              Prelude.<$> temporalFilterSettings
           ]
       )

@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.HlsAudioOnlyHeader
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Ignore this setting unless you are using FairPlay DRM with Verimatrix
 -- and you encounter playback issues. Keep the default value, Include
@@ -37,15 +38,15 @@ newtype HlsAudioOnlyHeader = HlsAudioOnlyHeader'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

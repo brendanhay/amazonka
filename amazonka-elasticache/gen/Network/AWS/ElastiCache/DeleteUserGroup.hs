@@ -50,15 +50,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteUserGroup' smart constructor.
 data DeleteUserGroup = DeleteUserGroup'
   { -- | The ID of the user group.
-    userGroupId :: Core.Text
+    userGroupId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserGroup' with all optional fields omitted.
@@ -71,13 +72,13 @@ data DeleteUserGroup = DeleteUserGroup'
 -- 'userGroupId', 'deleteUserGroup_userGroupId' - The ID of the user group.
 newDeleteUserGroup ::
   -- | 'userGroupId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteUserGroup
 newDeleteUserGroup pUserGroupId_ =
   DeleteUserGroup' {userGroupId = pUserGroupId_}
 
 -- | The ID of the user group.
-deleteUserGroup_userGroupId :: Lens.Lens' DeleteUserGroup Core.Text
+deleteUserGroup_userGroupId :: Lens.Lens' DeleteUserGroup Prelude.Text
 deleteUserGroup_userGroupId = Lens.lens (\DeleteUserGroup' {userGroupId} -> userGroupId) (\s@DeleteUserGroup' {} a -> s {userGroupId = a} :: DeleteUserGroup)
 
 instance Core.AWSRequest DeleteUserGroup where
@@ -88,21 +89,22 @@ instance Core.AWSRequest DeleteUserGroup where
       "DeleteUserGroupResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable DeleteUserGroup
+instance Prelude.Hashable DeleteUserGroup
 
-instance Core.NFData DeleteUserGroup
+instance Prelude.NFData DeleteUserGroup
 
 instance Core.ToHeaders DeleteUserGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteUserGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteUserGroup where
   toQuery DeleteUserGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteUserGroup" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ("DeleteUserGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "UserGroupId" Core.=: userGroupId
       ]

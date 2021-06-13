@@ -21,15 +21,16 @@ module Network.AWS.QLDB.Types.ValueHolder where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that can contain a value in multiple encoding formats.
 --
 -- /See:/ 'newValueHolder' smart constructor.
 data ValueHolder = ValueHolder'
   { -- | An Amazon Ion plaintext value contained in a @ValueHolder@ structure.
-    ionText :: Core.Maybe (Core.Sensitive Core.Text)
+    ionText :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ValueHolder' with all optional fields omitted.
@@ -42,25 +43,28 @@ data ValueHolder = ValueHolder'
 -- 'ionText', 'valueHolder_ionText' - An Amazon Ion plaintext value contained in a @ValueHolder@ structure.
 newValueHolder ::
   ValueHolder
-newValueHolder = ValueHolder' {ionText = Core.Nothing}
+newValueHolder =
+  ValueHolder' {ionText = Prelude.Nothing}
 
 -- | An Amazon Ion plaintext value contained in a @ValueHolder@ structure.
-valueHolder_ionText :: Lens.Lens' ValueHolder (Core.Maybe Core.Text)
-valueHolder_ionText = Lens.lens (\ValueHolder' {ionText} -> ionText) (\s@ValueHolder' {} a -> s {ionText = a} :: ValueHolder) Core.. Lens.mapping Core._Sensitive
+valueHolder_ionText :: Lens.Lens' ValueHolder (Prelude.Maybe Prelude.Text)
+valueHolder_ionText = Lens.lens (\ValueHolder' {ionText} -> ionText) (\s@ValueHolder' {} a -> s {ionText = a} :: ValueHolder) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON ValueHolder where
   parseJSON =
     Core.withObject
       "ValueHolder"
-      (\x -> ValueHolder' Core.<$> (x Core..:? "IonText"))
+      ( \x ->
+          ValueHolder' Prelude.<$> (x Core..:? "IonText")
+      )
 
-instance Core.Hashable ValueHolder
+instance Prelude.Hashable ValueHolder
 
-instance Core.NFData ValueHolder
+instance Prelude.NFData ValueHolder
 
 instance Core.ToJSON ValueHolder where
   toJSON ValueHolder' {..} =
     Core.object
-      ( Core.catMaybes
-          [("IonText" Core..=) Core.<$> ionText]
+      ( Prelude.catMaybes
+          [("IonText" Core..=) Prelude.<$> ionText]
       )

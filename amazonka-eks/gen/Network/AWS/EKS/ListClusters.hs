@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,7 +61,7 @@ data ListClusters = ListClusters'
     -- This token should be treated as an opaque identifier that is used only
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of cluster results returned by @ListClusters@ in
     -- paginated output. When you use this parameter, @ListClusters@ returns
     -- only @maxResults@ results in a single page along with a @nextToken@
@@ -69,9 +70,9 @@ data ListClusters = ListClusters'
     -- @nextToken@ value. This value can be between 1 and 100. If you don\'t
     -- use this parameter, @ListClusters@ returns up to 100 results and a
     -- @nextToken@ value if applicable.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListClusters' with all optional fields omitted.
@@ -102,8 +103,8 @@ newListClusters ::
   ListClusters
 newListClusters =
   ListClusters'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The @nextToken@ value returned from a previous paginated @ListClusters@
@@ -114,7 +115,7 @@ newListClusters =
 -- This token should be treated as an opaque identifier that is used only
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-listClusters_nextToken :: Lens.Lens' ListClusters (Core.Maybe Core.Text)
+listClusters_nextToken :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Text)
 listClusters_nextToken = Lens.lens (\ListClusters' {nextToken} -> nextToken) (\s@ListClusters' {} a -> s {nextToken = a} :: ListClusters)
 
 -- | The maximum number of cluster results returned by @ListClusters@ in
@@ -125,27 +126,27 @@ listClusters_nextToken = Lens.lens (\ListClusters' {nextToken} -> nextToken) (\s
 -- @nextToken@ value. This value can be between 1 and 100. If you don\'t
 -- use this parameter, @ListClusters@ returns up to 100 results and a
 -- @nextToken@ value if applicable.
-listClusters_maxResults :: Lens.Lens' ListClusters (Core.Maybe Core.Natural)
+listClusters_maxResults :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Natural)
 listClusters_maxResults = Lens.lens (\ListClusters' {maxResults} -> maxResults) (\s@ListClusters' {} a -> s {maxResults = a} :: ListClusters)
 
 instance Core.AWSPager ListClusters where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listClustersResponse_nextToken Core.. Lens._Just
+            Lens.^? listClustersResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listClustersResponse_clusters Core.. Lens._Just
+            Lens.^? listClustersResponse_clusters Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listClusters_nextToken
+          Prelude.& listClusters_nextToken
           Lens..~ rs
-          Lens.^? listClustersResponse_nextToken Core.. Lens._Just
+          Lens.^? listClustersResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListClusters where
   type AWSResponse ListClusters = ListClustersResponse
@@ -154,30 +155,32 @@ instance Core.AWSRequest ListClusters where
     Response.receiveJSON
       ( \s h x ->
           ListClustersResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "clusters" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "clusters" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListClusters
+instance Prelude.Hashable ListClusters
 
-instance Core.NFData ListClusters
+instance Prelude.NFData ListClusters
 
 instance Core.ToHeaders ListClusters where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListClusters where
-  toPath = Core.const "/clusters"
+  toPath = Prelude.const "/clusters"
 
 instance Core.ToQuery ListClusters where
   toQuery ListClusters' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -188,13 +191,13 @@ data ListClustersResponse = ListClustersResponse'
     -- When the results of a @ListClusters@ request exceed @maxResults@, you
     -- can use this value to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of all of the clusters for your account in the specified Region.
-    clusters :: Core.Maybe [Core.Text],
+    clusters :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListClustersResponse' with all optional fields omitted.
@@ -214,12 +217,12 @@ data ListClustersResponse = ListClustersResponse'
 -- 'httpStatus', 'listClustersResponse_httpStatus' - The response's http status code.
 newListClustersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListClustersResponse
 newListClustersResponse pHttpStatus_ =
   ListClustersResponse'
-    { nextToken = Core.Nothing,
-      clusters = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      clusters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -227,15 +230,15 @@ newListClustersResponse pHttpStatus_ =
 -- When the results of a @ListClusters@ request exceed @maxResults@, you
 -- can use this value to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-listClustersResponse_nextToken :: Lens.Lens' ListClustersResponse (Core.Maybe Core.Text)
+listClustersResponse_nextToken :: Lens.Lens' ListClustersResponse (Prelude.Maybe Prelude.Text)
 listClustersResponse_nextToken = Lens.lens (\ListClustersResponse' {nextToken} -> nextToken) (\s@ListClustersResponse' {} a -> s {nextToken = a} :: ListClustersResponse)
 
 -- | A list of all of the clusters for your account in the specified Region.
-listClustersResponse_clusters :: Lens.Lens' ListClustersResponse (Core.Maybe [Core.Text])
-listClustersResponse_clusters = Lens.lens (\ListClustersResponse' {clusters} -> clusters) (\s@ListClustersResponse' {} a -> s {clusters = a} :: ListClustersResponse) Core.. Lens.mapping Lens._Coerce
+listClustersResponse_clusters :: Lens.Lens' ListClustersResponse (Prelude.Maybe [Prelude.Text])
+listClustersResponse_clusters = Lens.lens (\ListClustersResponse' {clusters} -> clusters) (\s@ListClustersResponse' {} a -> s {clusters = a} :: ListClustersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listClustersResponse_httpStatus :: Lens.Lens' ListClustersResponse Core.Int
+listClustersResponse_httpStatus :: Lens.Lens' ListClustersResponse Prelude.Int
 listClustersResponse_httpStatus = Lens.lens (\ListClustersResponse' {httpStatus} -> httpStatus) (\s@ListClustersResponse' {} a -> s {httpStatus = a} :: ListClustersResponse)
 
-instance Core.NFData ListClustersResponse
+instance Prelude.NFData ListClustersResponse

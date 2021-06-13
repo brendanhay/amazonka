@@ -38,6 +38,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,9 +48,9 @@ import qualified Network.AWS.Response as Response
 data DeleteClientCertificate = DeleteClientCertificate'
   { -- | [Required] The identifier of the ClientCertificate resource to be
     -- deleted.
-    clientCertificateId :: Core.Text
+    clientCertificateId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteClientCertificate' with all optional fields omitted.
@@ -63,7 +64,7 @@ data DeleteClientCertificate = DeleteClientCertificate'
 -- deleted.
 newDeleteClientCertificate ::
   -- | 'clientCertificateId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteClientCertificate
 newDeleteClientCertificate pClientCertificateId_ =
   DeleteClientCertificate'
@@ -73,7 +74,7 @@ newDeleteClientCertificate pClientCertificateId_ =
 
 -- | [Required] The identifier of the ClientCertificate resource to be
 -- deleted.
-deleteClientCertificate_clientCertificateId :: Lens.Lens' DeleteClientCertificate Core.Text
+deleteClientCertificate_clientCertificateId :: Lens.Lens' DeleteClientCertificate Prelude.Text
 deleteClientCertificate_clientCertificateId = Lens.lens (\DeleteClientCertificate' {clientCertificateId} -> clientCertificateId) (\s@DeleteClientCertificate' {} a -> s {clientCertificateId = a} :: DeleteClientCertificate)
 
 instance Core.AWSRequest DeleteClientCertificate where
@@ -85,34 +86,34 @@ instance Core.AWSRequest DeleteClientCertificate where
     Response.receiveNull
       DeleteClientCertificateResponse'
 
-instance Core.Hashable DeleteClientCertificate
+instance Prelude.Hashable DeleteClientCertificate
 
-instance Core.NFData DeleteClientCertificate
+instance Prelude.NFData DeleteClientCertificate
 
 instance Core.ToHeaders DeleteClientCertificate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath DeleteClientCertificate where
   toPath DeleteClientCertificate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/clientcertificates/",
         Core.toBS clientCertificateId
       ]
 
 instance Core.ToQuery DeleteClientCertificate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteClientCertificateResponse' smart constructor.
 data DeleteClientCertificateResponse = DeleteClientCertificateResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteClientCertificateResponse' with all optional fields omitted.
@@ -123,4 +124,6 @@ newDeleteClientCertificateResponse ::
 newDeleteClientCertificateResponse =
   DeleteClientCertificateResponse'
 
-instance Core.NFData DeleteClientCertificateResponse
+instance
+  Prelude.NFData
+    DeleteClientCertificateResponse

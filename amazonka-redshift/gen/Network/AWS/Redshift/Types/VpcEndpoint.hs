@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.VpcEndpoint where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | The connection endpoint for connecting an Amazon Redshift cluster
@@ -30,9 +31,9 @@ import Network.AWS.Redshift.Internal
 data VpcEndpoint = VpcEndpoint'
   { -- | The connection endpoint ID for connecting an Amazon Redshift cluster
     -- through the proxy.
-    vpcEndpointId :: Core.Maybe Core.Text
+    vpcEndpointId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpcEndpoint' with all optional fields omitted.
@@ -47,17 +48,18 @@ data VpcEndpoint = VpcEndpoint'
 newVpcEndpoint ::
   VpcEndpoint
 newVpcEndpoint =
-  VpcEndpoint' {vpcEndpointId = Core.Nothing}
+  VpcEndpoint' {vpcEndpointId = Prelude.Nothing}
 
 -- | The connection endpoint ID for connecting an Amazon Redshift cluster
 -- through the proxy.
-vpcEndpoint_vpcEndpointId :: Lens.Lens' VpcEndpoint (Core.Maybe Core.Text)
+vpcEndpoint_vpcEndpointId :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.Text)
 vpcEndpoint_vpcEndpointId = Lens.lens (\VpcEndpoint' {vpcEndpointId} -> vpcEndpointId) (\s@VpcEndpoint' {} a -> s {vpcEndpointId = a} :: VpcEndpoint)
 
 instance Core.FromXML VpcEndpoint where
   parseXML x =
-    VpcEndpoint' Core.<$> (x Core..@? "VpcEndpointId")
+    VpcEndpoint'
+      Prelude.<$> (x Core..@? "VpcEndpointId")
 
-instance Core.Hashable VpcEndpoint
+instance Prelude.Hashable VpcEndpoint
 
-instance Core.NFData VpcEndpoint
+instance Prelude.NFData VpcEndpoint

@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.UnsuccessfulItemError
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about items that were not successfully processed in a batch
 -- call.
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newUnsuccessfulItem' smart constructor.
 data UnsuccessfulItem = UnsuccessfulItem'
   { -- | The ID of the resource.
-    resourceId :: Core.Maybe Core.Text,
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | Information about the error.
-    error :: Core.Maybe UnsuccessfulItemError
+    error :: Prelude.Maybe UnsuccessfulItemError
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnsuccessfulItem' with all optional fields omitted.
@@ -51,24 +52,24 @@ newUnsuccessfulItem ::
   UnsuccessfulItem
 newUnsuccessfulItem =
   UnsuccessfulItem'
-    { resourceId = Core.Nothing,
-      error = Core.Nothing
+    { resourceId = Prelude.Nothing,
+      error = Prelude.Nothing
     }
 
 -- | The ID of the resource.
-unsuccessfulItem_resourceId :: Lens.Lens' UnsuccessfulItem (Core.Maybe Core.Text)
+unsuccessfulItem_resourceId :: Lens.Lens' UnsuccessfulItem (Prelude.Maybe Prelude.Text)
 unsuccessfulItem_resourceId = Lens.lens (\UnsuccessfulItem' {resourceId} -> resourceId) (\s@UnsuccessfulItem' {} a -> s {resourceId = a} :: UnsuccessfulItem)
 
 -- | Information about the error.
-unsuccessfulItem_error :: Lens.Lens' UnsuccessfulItem (Core.Maybe UnsuccessfulItemError)
+unsuccessfulItem_error :: Lens.Lens' UnsuccessfulItem (Prelude.Maybe UnsuccessfulItemError)
 unsuccessfulItem_error = Lens.lens (\UnsuccessfulItem' {error} -> error) (\s@UnsuccessfulItem' {} a -> s {error = a} :: UnsuccessfulItem)
 
 instance Core.FromXML UnsuccessfulItem where
   parseXML x =
     UnsuccessfulItem'
-      Core.<$> (x Core..@? "resourceId")
-      Core.<*> (x Core..@? "error")
+      Prelude.<$> (x Core..@? "resourceId")
+      Prelude.<*> (x Core..@? "error")
 
-instance Core.Hashable UnsuccessfulItem
+instance Prelude.Hashable UnsuccessfulItem
 
-instance Core.NFData UnsuccessfulItem
+instance Prelude.NFData UnsuccessfulItem

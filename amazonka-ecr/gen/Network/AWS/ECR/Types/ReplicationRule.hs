@@ -22,6 +22,7 @@ module Network.AWS.ECR.Types.ReplicationRule where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.ReplicationDestination
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An array of objects representing the replication destinations for a
 -- replication configuration. A replication configuration may contain only
@@ -34,7 +35,7 @@ data ReplicationRule = ReplicationRule'
     -- destination.
     destinations :: [ReplicationDestination]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicationRule' with all optional fields omitted.
@@ -49,12 +50,12 @@ data ReplicationRule = ReplicationRule'
 newReplicationRule ::
   ReplicationRule
 newReplicationRule =
-  ReplicationRule' {destinations = Core.mempty}
+  ReplicationRule' {destinations = Prelude.mempty}
 
 -- | An array of objects representing the details of a replication
 -- destination.
 replicationRule_destinations :: Lens.Lens' ReplicationRule [ReplicationDestination]
-replicationRule_destinations = Lens.lens (\ReplicationRule' {destinations} -> destinations) (\s@ReplicationRule' {} a -> s {destinations = a} :: ReplicationRule) Core.. Lens._Coerce
+replicationRule_destinations = Lens.lens (\ReplicationRule' {destinations} -> destinations) (\s@ReplicationRule' {} a -> s {destinations = a} :: ReplicationRule) Prelude.. Lens._Coerce
 
 instance Core.FromJSON ReplicationRule where
   parseJSON =
@@ -62,16 +63,16 @@ instance Core.FromJSON ReplicationRule where
       "ReplicationRule"
       ( \x ->
           ReplicationRule'
-            Core.<$> (x Core..:? "destinations" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "destinations" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ReplicationRule
+instance Prelude.Hashable ReplicationRule
 
-instance Core.NFData ReplicationRule
+instance Prelude.NFData ReplicationRule
 
 instance Core.ToJSON ReplicationRule where
   toJSON ReplicationRule' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("destinations" Core..= destinations)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("destinations" Core..= destinations)]
       )

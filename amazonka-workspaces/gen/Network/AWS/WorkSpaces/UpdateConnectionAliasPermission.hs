@@ -59,6 +59,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -67,12 +68,12 @@ import Network.AWS.WorkSpaces.Types
 data UpdateConnectionAliasPermission = UpdateConnectionAliasPermission'
   { -- | The identifier of the connection alias that you want to update
     -- permissions for.
-    aliasId :: Core.Text,
+    aliasId :: Prelude.Text,
     -- | Indicates whether to share or unshare the connection alias with the
     -- specified AWS account.
     connectionAliasPermission :: ConnectionAliasPermission
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateConnectionAliasPermission' with all optional fields omitted.
@@ -89,7 +90,7 @@ data UpdateConnectionAliasPermission = UpdateConnectionAliasPermission'
 -- specified AWS account.
 newUpdateConnectionAliasPermission ::
   -- | 'aliasId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'connectionAliasPermission'
   ConnectionAliasPermission ->
   UpdateConnectionAliasPermission
@@ -105,7 +106,7 @@ newUpdateConnectionAliasPermission
 
 -- | The identifier of the connection alias that you want to update
 -- permissions for.
-updateConnectionAliasPermission_aliasId :: Lens.Lens' UpdateConnectionAliasPermission Core.Text
+updateConnectionAliasPermission_aliasId :: Lens.Lens' UpdateConnectionAliasPermission Prelude.Text
 updateConnectionAliasPermission_aliasId = Lens.lens (\UpdateConnectionAliasPermission' {aliasId} -> aliasId) (\s@UpdateConnectionAliasPermission' {} a -> s {aliasId = a} :: UpdateConnectionAliasPermission)
 
 -- | Indicates whether to share or unshare the connection alias with the
@@ -125,37 +126,41 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           UpdateConnectionAliasPermissionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdateConnectionAliasPermission
 
-instance Core.NFData UpdateConnectionAliasPermission
+instance
+  Prelude.NFData
+    UpdateConnectionAliasPermission
 
 instance
   Core.ToHeaders
     UpdateConnectionAliasPermission
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.UpdateConnectionAliasPermission" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateConnectionAliasPermission where
   toJSON UpdateConnectionAliasPermission' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("AliasId" Core..= aliasId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("AliasId" Core..= aliasId),
+            Prelude.Just
               ( "ConnectionAliasPermission"
                   Core..= connectionAliasPermission
               )
@@ -163,17 +168,17 @@ instance Core.ToJSON UpdateConnectionAliasPermission where
       )
 
 instance Core.ToPath UpdateConnectionAliasPermission where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateConnectionAliasPermission where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateConnectionAliasPermissionResponse' smart constructor.
 data UpdateConnectionAliasPermissionResponse = UpdateConnectionAliasPermissionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateConnectionAliasPermissionResponse' with all optional fields omitted.
@@ -186,7 +191,7 @@ data UpdateConnectionAliasPermissionResponse = UpdateConnectionAliasPermissionRe
 -- 'httpStatus', 'updateConnectionAliasPermissionResponse_httpStatus' - The response's http status code.
 newUpdateConnectionAliasPermissionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateConnectionAliasPermissionResponse
 newUpdateConnectionAliasPermissionResponse
   pHttpStatus_ =
@@ -196,9 +201,9 @@ newUpdateConnectionAliasPermissionResponse
       }
 
 -- | The response's http status code.
-updateConnectionAliasPermissionResponse_httpStatus :: Lens.Lens' UpdateConnectionAliasPermissionResponse Core.Int
+updateConnectionAliasPermissionResponse_httpStatus :: Lens.Lens' UpdateConnectionAliasPermissionResponse Prelude.Int
 updateConnectionAliasPermissionResponse_httpStatus = Lens.lens (\UpdateConnectionAliasPermissionResponse' {httpStatus} -> httpStatus) (\s@UpdateConnectionAliasPermissionResponse' {} a -> s {httpStatus = a} :: UpdateConnectionAliasPermissionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateConnectionAliasPermissionResponse

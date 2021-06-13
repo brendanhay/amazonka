@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -55,17 +56,17 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newSearchProducts' smart constructor.
 data SearchProducts = SearchProducts'
   { -- | The sort order. If no value is specified, the results are not sorted.
-    sortOrder :: Core.Maybe SortOrder,
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | The maximum number of items to return with this call.
-    pageSize :: Core.Maybe Core.Natural,
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The page token for the next set of results. To retrieve the first set of
     -- results, use null.
-    pageToken :: Core.Maybe Core.Text,
+    pageToken :: Prelude.Maybe Prelude.Text,
     -- | The sort field. If no value is specified, the results are not sorted.
-    sortBy :: Core.Maybe ProductViewSortBy,
+    sortBy :: Prelude.Maybe ProductViewSortBy,
     -- | The search filters. If no search filters are specified, the output
     -- includes all products to which the caller has access.
-    filters :: Core.Maybe (Core.HashMap ProductViewFilterBy [Core.Text]),
+    filters :: Prelude.Maybe (Prelude.HashMap ProductViewFilterBy [Prelude.Text]),
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -73,9 +74,9 @@ data SearchProducts = SearchProducts'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SearchProducts' with all optional fields omitted.
@@ -108,35 +109,35 @@ newSearchProducts ::
   SearchProducts
 newSearchProducts =
   SearchProducts'
-    { sortOrder = Core.Nothing,
-      pageSize = Core.Nothing,
-      pageToken = Core.Nothing,
-      sortBy = Core.Nothing,
-      filters = Core.Nothing,
-      acceptLanguage = Core.Nothing
+    { sortOrder = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing
     }
 
 -- | The sort order. If no value is specified, the results are not sorted.
-searchProducts_sortOrder :: Lens.Lens' SearchProducts (Core.Maybe SortOrder)
+searchProducts_sortOrder :: Lens.Lens' SearchProducts (Prelude.Maybe SortOrder)
 searchProducts_sortOrder = Lens.lens (\SearchProducts' {sortOrder} -> sortOrder) (\s@SearchProducts' {} a -> s {sortOrder = a} :: SearchProducts)
 
 -- | The maximum number of items to return with this call.
-searchProducts_pageSize :: Lens.Lens' SearchProducts (Core.Maybe Core.Natural)
+searchProducts_pageSize :: Lens.Lens' SearchProducts (Prelude.Maybe Prelude.Natural)
 searchProducts_pageSize = Lens.lens (\SearchProducts' {pageSize} -> pageSize) (\s@SearchProducts' {} a -> s {pageSize = a} :: SearchProducts)
 
 -- | The page token for the next set of results. To retrieve the first set of
 -- results, use null.
-searchProducts_pageToken :: Lens.Lens' SearchProducts (Core.Maybe Core.Text)
+searchProducts_pageToken :: Lens.Lens' SearchProducts (Prelude.Maybe Prelude.Text)
 searchProducts_pageToken = Lens.lens (\SearchProducts' {pageToken} -> pageToken) (\s@SearchProducts' {} a -> s {pageToken = a} :: SearchProducts)
 
 -- | The sort field. If no value is specified, the results are not sorted.
-searchProducts_sortBy :: Lens.Lens' SearchProducts (Core.Maybe ProductViewSortBy)
+searchProducts_sortBy :: Lens.Lens' SearchProducts (Prelude.Maybe ProductViewSortBy)
 searchProducts_sortBy = Lens.lens (\SearchProducts' {sortBy} -> sortBy) (\s@SearchProducts' {} a -> s {sortBy = a} :: SearchProducts)
 
 -- | The search filters. If no search filters are specified, the output
 -- includes all products to which the caller has access.
-searchProducts_filters :: Lens.Lens' SearchProducts (Core.Maybe (Core.HashMap ProductViewFilterBy [Core.Text]))
-searchProducts_filters = Lens.lens (\SearchProducts' {filters} -> filters) (\s@SearchProducts' {} a -> s {filters = a} :: SearchProducts) Core.. Lens.mapping Lens._Coerce
+searchProducts_filters :: Lens.Lens' SearchProducts (Prelude.Maybe (Prelude.HashMap ProductViewFilterBy [Prelude.Text]))
+searchProducts_filters = Lens.lens (\SearchProducts' {filters} -> filters) (\s@SearchProducts' {} a -> s {filters = a} :: SearchProducts) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The language code.
 --
@@ -145,7 +146,7 @@ searchProducts_filters = Lens.lens (\SearchProducts' {filters} -> filters) (\s@S
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-searchProducts_acceptLanguage :: Lens.Lens' SearchProducts (Core.Maybe Core.Text)
+searchProducts_acceptLanguage :: Lens.Lens' SearchProducts (Prelude.Maybe Prelude.Text)
 searchProducts_acceptLanguage = Lens.lens (\SearchProducts' {acceptLanguage} -> acceptLanguage) (\s@SearchProducts' {} a -> s {acceptLanguage = a} :: SearchProducts)
 
 instance Core.AWSRequest SearchProducts where
@@ -157,65 +158,68 @@ instance Core.AWSRequest SearchProducts where
     Response.receiveJSON
       ( \s h x ->
           SearchProductsResponse'
-            Core.<$> (x Core..?> "NextPageToken")
-            Core.<*> ( x Core..?> "ProductViewSummaries"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> ( x Core..?> "ProductViewAggregations"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<*> ( x Core..?> "ProductViewSummaries"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..?> "ProductViewAggregations"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SearchProducts
+instance Prelude.Hashable SearchProducts
 
-instance Core.NFData SearchProducts
+instance Prelude.NFData SearchProducts
 
 instance Core.ToHeaders SearchProducts where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.SearchProducts" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SearchProducts where
   toJSON SearchProducts' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SortOrder" Core..=) Core.<$> sortOrder,
-            ("PageSize" Core..=) Core.<$> pageSize,
-            ("PageToken" Core..=) Core.<$> pageToken,
-            ("SortBy" Core..=) Core.<$> sortBy,
-            ("Filters" Core..=) Core.<$> filters,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage
+      ( Prelude.catMaybes
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("PageSize" Core..=) Prelude.<$> pageSize,
+            ("PageToken" Core..=) Prelude.<$> pageToken,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("Filters" Core..=) Prelude.<$> filters,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage
           ]
       )
 
 instance Core.ToPath SearchProducts where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SearchProducts where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchProductsResponse' smart constructor.
 data SearchProductsResponse = SearchProductsResponse'
   { -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the product views.
-    productViewSummaries :: Core.Maybe [ProductViewSummary],
+    productViewSummaries :: Prelude.Maybe [ProductViewSummary],
     -- | The product view aggregations.
-    productViewAggregations :: Core.Maybe (Core.HashMap Core.Text [ProductViewAggregationValue]),
+    productViewAggregations :: Prelude.Maybe (Prelude.HashMap Prelude.Text [ProductViewAggregationValue]),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SearchProductsResponse' with all optional fields omitted.
@@ -235,32 +239,32 @@ data SearchProductsResponse = SearchProductsResponse'
 -- 'httpStatus', 'searchProductsResponse_httpStatus' - The response's http status code.
 newSearchProductsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SearchProductsResponse
 newSearchProductsResponse pHttpStatus_ =
   SearchProductsResponse'
     { nextPageToken =
-        Core.Nothing,
-      productViewSummaries = Core.Nothing,
-      productViewAggregations = Core.Nothing,
+        Prelude.Nothing,
+      productViewSummaries = Prelude.Nothing,
+      productViewAggregations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
-searchProductsResponse_nextPageToken :: Lens.Lens' SearchProductsResponse (Core.Maybe Core.Text)
+searchProductsResponse_nextPageToken :: Lens.Lens' SearchProductsResponse (Prelude.Maybe Prelude.Text)
 searchProductsResponse_nextPageToken = Lens.lens (\SearchProductsResponse' {nextPageToken} -> nextPageToken) (\s@SearchProductsResponse' {} a -> s {nextPageToken = a} :: SearchProductsResponse)
 
 -- | Information about the product views.
-searchProductsResponse_productViewSummaries :: Lens.Lens' SearchProductsResponse (Core.Maybe [ProductViewSummary])
-searchProductsResponse_productViewSummaries = Lens.lens (\SearchProductsResponse' {productViewSummaries} -> productViewSummaries) (\s@SearchProductsResponse' {} a -> s {productViewSummaries = a} :: SearchProductsResponse) Core.. Lens.mapping Lens._Coerce
+searchProductsResponse_productViewSummaries :: Lens.Lens' SearchProductsResponse (Prelude.Maybe [ProductViewSummary])
+searchProductsResponse_productViewSummaries = Lens.lens (\SearchProductsResponse' {productViewSummaries} -> productViewSummaries) (\s@SearchProductsResponse' {} a -> s {productViewSummaries = a} :: SearchProductsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The product view aggregations.
-searchProductsResponse_productViewAggregations :: Lens.Lens' SearchProductsResponse (Core.Maybe (Core.HashMap Core.Text [ProductViewAggregationValue]))
-searchProductsResponse_productViewAggregations = Lens.lens (\SearchProductsResponse' {productViewAggregations} -> productViewAggregations) (\s@SearchProductsResponse' {} a -> s {productViewAggregations = a} :: SearchProductsResponse) Core.. Lens.mapping Lens._Coerce
+searchProductsResponse_productViewAggregations :: Lens.Lens' SearchProductsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [ProductViewAggregationValue]))
+searchProductsResponse_productViewAggregations = Lens.lens (\SearchProductsResponse' {productViewAggregations} -> productViewAggregations) (\s@SearchProductsResponse' {} a -> s {productViewAggregations = a} :: SearchProductsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-searchProductsResponse_httpStatus :: Lens.Lens' SearchProductsResponse Core.Int
+searchProductsResponse_httpStatus :: Lens.Lens' SearchProductsResponse Prelude.Int
 searchProductsResponse_httpStatus = Lens.lens (\SearchProductsResponse' {httpStatus} -> httpStatus) (\s@SearchProductsResponse' {} a -> s {httpStatus = a} :: SearchProductsResponse)
 
-instance Core.NFData SearchProductsResponse
+instance Prelude.NFData SearchProductsResponse

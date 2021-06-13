@@ -48,6 +48,7 @@ where
 import Network.AWS.CodePipeline.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,13 +56,13 @@ import qualified Network.AWS.Response as Response
 data ListWebhooks = ListWebhooks'
   { -- | The token that was returned from the previous ListWebhooks call, which
     -- can be used to return the next set of webhooks in the list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another call with the returned nextToken
     -- value.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListWebhooks' with all optional fields omitted.
@@ -81,39 +82,39 @@ newListWebhooks ::
   ListWebhooks
 newListWebhooks =
   ListWebhooks'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The token that was returned from the previous ListWebhooks call, which
 -- can be used to return the next set of webhooks in the list.
-listWebhooks_nextToken :: Lens.Lens' ListWebhooks (Core.Maybe Core.Text)
+listWebhooks_nextToken :: Lens.Lens' ListWebhooks (Prelude.Maybe Prelude.Text)
 listWebhooks_nextToken = Lens.lens (\ListWebhooks' {nextToken} -> nextToken) (\s@ListWebhooks' {} a -> s {nextToken = a} :: ListWebhooks)
 
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned nextToken
 -- value.
-listWebhooks_maxResults :: Lens.Lens' ListWebhooks (Core.Maybe Core.Natural)
+listWebhooks_maxResults :: Lens.Lens' ListWebhooks (Prelude.Maybe Prelude.Natural)
 listWebhooks_maxResults = Lens.lens (\ListWebhooks' {maxResults} -> maxResults) (\s@ListWebhooks' {} a -> s {maxResults = a} :: ListWebhooks)
 
 instance Core.AWSPager ListWebhooks where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listWebhooksResponse_nextToken Core.. Lens._Just
+            Lens.^? listWebhooksResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listWebhooksResponse_webhooks Core.. Lens._Just
+            Lens.^? listWebhooksResponse_webhooks Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listWebhooks_nextToken
+          Prelude.& listWebhooks_nextToken
           Lens..~ rs
-          Lens.^? listWebhooksResponse_nextToken Core.. Lens._Just
+          Lens.^? listWebhooksResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWebhooks where
   type AWSResponse ListWebhooks = ListWebhooksResponse
@@ -122,56 +123,58 @@ instance Core.AWSRequest ListWebhooks where
     Response.receiveJSON
       ( \s h x ->
           ListWebhooksResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "webhooks" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "webhooks" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListWebhooks
+instance Prelude.Hashable ListWebhooks
 
-instance Core.NFData ListWebhooks
+instance Prelude.NFData ListWebhooks
 
 instance Core.ToHeaders ListWebhooks where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodePipeline_20150709.ListWebhooks" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListWebhooks where
   toJSON ListWebhooks' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath ListWebhooks where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListWebhooks where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListWebhooksResponse' smart constructor.
 data ListWebhooksResponse = ListWebhooksResponse'
   { -- | If the amount of returned information is significantly large, an
     -- identifier is also returned and can be used in a subsequent ListWebhooks
     -- call to return the next set of webhooks in the list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The JSON detail returned for each webhook in the list output for the
     -- ListWebhooks call.
-    webhooks :: Core.Maybe [ListWebhookItem],
+    webhooks :: Prelude.Maybe [ListWebhookItem],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListWebhooksResponse' with all optional fields omitted.
@@ -191,28 +194,28 @@ data ListWebhooksResponse = ListWebhooksResponse'
 -- 'httpStatus', 'listWebhooksResponse_httpStatus' - The response's http status code.
 newListWebhooksResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListWebhooksResponse
 newListWebhooksResponse pHttpStatus_ =
   ListWebhooksResponse'
-    { nextToken = Core.Nothing,
-      webhooks = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      webhooks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the amount of returned information is significantly large, an
 -- identifier is also returned and can be used in a subsequent ListWebhooks
 -- call to return the next set of webhooks in the list.
-listWebhooksResponse_nextToken :: Lens.Lens' ListWebhooksResponse (Core.Maybe Core.Text)
+listWebhooksResponse_nextToken :: Lens.Lens' ListWebhooksResponse (Prelude.Maybe Prelude.Text)
 listWebhooksResponse_nextToken = Lens.lens (\ListWebhooksResponse' {nextToken} -> nextToken) (\s@ListWebhooksResponse' {} a -> s {nextToken = a} :: ListWebhooksResponse)
 
 -- | The JSON detail returned for each webhook in the list output for the
 -- ListWebhooks call.
-listWebhooksResponse_webhooks :: Lens.Lens' ListWebhooksResponse (Core.Maybe [ListWebhookItem])
-listWebhooksResponse_webhooks = Lens.lens (\ListWebhooksResponse' {webhooks} -> webhooks) (\s@ListWebhooksResponse' {} a -> s {webhooks = a} :: ListWebhooksResponse) Core.. Lens.mapping Lens._Coerce
+listWebhooksResponse_webhooks :: Lens.Lens' ListWebhooksResponse (Prelude.Maybe [ListWebhookItem])
+listWebhooksResponse_webhooks = Lens.lens (\ListWebhooksResponse' {webhooks} -> webhooks) (\s@ListWebhooksResponse' {} a -> s {webhooks = a} :: ListWebhooksResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listWebhooksResponse_httpStatus :: Lens.Lens' ListWebhooksResponse Core.Int
+listWebhooksResponse_httpStatus :: Lens.Lens' ListWebhooksResponse Prelude.Int
 listWebhooksResponse_httpStatus = Lens.lens (\ListWebhooksResponse' {httpStatus} -> httpStatus) (\s@ListWebhooksResponse' {} a -> s {httpStatus = a} :: ListWebhooksResponse)
 
-instance Core.NFData ListWebhooksResponse
+instance Prelude.NFData ListWebhooksResponse

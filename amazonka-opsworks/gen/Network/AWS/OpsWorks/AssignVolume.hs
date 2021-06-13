@@ -50,17 +50,18 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssignVolume' smart constructor.
 data AssignVolume = AssignVolume'
   { -- | The instance ID.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The volume ID.
-    volumeId :: Core.Text
+    volumeId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssignVolume' with all optional fields omitted.
@@ -75,20 +76,20 @@ data AssignVolume = AssignVolume'
 -- 'volumeId', 'assignVolume_volumeId' - The volume ID.
 newAssignVolume ::
   -- | 'volumeId'
-  Core.Text ->
+  Prelude.Text ->
   AssignVolume
 newAssignVolume pVolumeId_ =
   AssignVolume'
-    { instanceId = Core.Nothing,
+    { instanceId = Prelude.Nothing,
       volumeId = pVolumeId_
     }
 
 -- | The instance ID.
-assignVolume_instanceId :: Lens.Lens' AssignVolume (Core.Maybe Core.Text)
+assignVolume_instanceId :: Lens.Lens' AssignVolume (Prelude.Maybe Prelude.Text)
 assignVolume_instanceId = Lens.lens (\AssignVolume' {instanceId} -> instanceId) (\s@AssignVolume' {} a -> s {instanceId = a} :: AssignVolume)
 
 -- | The volume ID.
-assignVolume_volumeId :: Lens.Lens' AssignVolume Core.Text
+assignVolume_volumeId :: Lens.Lens' AssignVolume Prelude.Text
 assignVolume_volumeId = Lens.lens (\AssignVolume' {volumeId} -> volumeId) (\s@AssignVolume' {} a -> s {volumeId = a} :: AssignVolume)
 
 instance Core.AWSRequest AssignVolume where
@@ -96,43 +97,45 @@ instance Core.AWSRequest AssignVolume where
   request = Request.postJSON defaultService
   response = Response.receiveNull AssignVolumeResponse'
 
-instance Core.Hashable AssignVolume
+instance Prelude.Hashable AssignVolume
 
-instance Core.NFData AssignVolume
+instance Prelude.NFData AssignVolume
 
 instance Core.ToHeaders AssignVolume where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.AssignVolume" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssignVolume where
   toJSON AssignVolume' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("InstanceId" Core..=) Core.<$> instanceId,
-            Core.Just ("VolumeId" Core..= volumeId)
+      ( Prelude.catMaybes
+          [ ("InstanceId" Core..=) Prelude.<$> instanceId,
+            Prelude.Just ("VolumeId" Core..= volumeId)
           ]
       )
 
 instance Core.ToPath AssignVolume where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AssignVolume where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssignVolumeResponse' smart constructor.
 data AssignVolumeResponse = AssignVolumeResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssignVolumeResponse' with all optional fields omitted.
@@ -142,4 +145,4 @@ newAssignVolumeResponse ::
   AssignVolumeResponse
 newAssignVolumeResponse = AssignVolumeResponse'
 
-instance Core.NFData AssignVolumeResponse
+instance Prelude.NFData AssignVolumeResponse

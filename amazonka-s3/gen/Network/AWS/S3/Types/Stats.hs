@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.Stats where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Container for the stats details.
@@ -28,13 +29,13 @@ import Network.AWS.S3.Internal
 -- /See:/ 'newStats' smart constructor.
 data Stats = Stats'
   { -- | The total number of object bytes scanned.
-    bytesScanned :: Core.Maybe Core.Integer,
+    bytesScanned :: Prelude.Maybe Prelude.Integer,
     -- | The total number of uncompressed object bytes processed.
-    bytesProcessed :: Core.Maybe Core.Integer,
+    bytesProcessed :: Prelude.Maybe Prelude.Integer,
     -- | The total number of bytes of records payload data returned.
-    bytesReturned :: Core.Maybe Core.Integer
+    bytesReturned :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Stats' with all optional fields omitted.
@@ -53,30 +54,30 @@ newStats ::
   Stats
 newStats =
   Stats'
-    { bytesScanned = Core.Nothing,
-      bytesProcessed = Core.Nothing,
-      bytesReturned = Core.Nothing
+    { bytesScanned = Prelude.Nothing,
+      bytesProcessed = Prelude.Nothing,
+      bytesReturned = Prelude.Nothing
     }
 
 -- | The total number of object bytes scanned.
-stats_bytesScanned :: Lens.Lens' Stats (Core.Maybe Core.Integer)
+stats_bytesScanned :: Lens.Lens' Stats (Prelude.Maybe Prelude.Integer)
 stats_bytesScanned = Lens.lens (\Stats' {bytesScanned} -> bytesScanned) (\s@Stats' {} a -> s {bytesScanned = a} :: Stats)
 
 -- | The total number of uncompressed object bytes processed.
-stats_bytesProcessed :: Lens.Lens' Stats (Core.Maybe Core.Integer)
+stats_bytesProcessed :: Lens.Lens' Stats (Prelude.Maybe Prelude.Integer)
 stats_bytesProcessed = Lens.lens (\Stats' {bytesProcessed} -> bytesProcessed) (\s@Stats' {} a -> s {bytesProcessed = a} :: Stats)
 
 -- | The total number of bytes of records payload data returned.
-stats_bytesReturned :: Lens.Lens' Stats (Core.Maybe Core.Integer)
+stats_bytesReturned :: Lens.Lens' Stats (Prelude.Maybe Prelude.Integer)
 stats_bytesReturned = Lens.lens (\Stats' {bytesReturned} -> bytesReturned) (\s@Stats' {} a -> s {bytesReturned = a} :: Stats)
 
 instance Core.FromXML Stats where
   parseXML x =
     Stats'
-      Core.<$> (x Core..@? "BytesScanned")
-      Core.<*> (x Core..@? "BytesProcessed")
-      Core.<*> (x Core..@? "BytesReturned")
+      Prelude.<$> (x Core..@? "BytesScanned")
+      Prelude.<*> (x Core..@? "BytesProcessed")
+      Prelude.<*> (x Core..@? "BytesReturned")
 
-instance Core.Hashable Stats
+instance Prelude.Hashable Stats
 
-instance Core.NFData Stats
+instance Prelude.NFData Stats

@@ -21,6 +21,7 @@ module Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a WorkSpace that could not be rebooted. (RebootWorkspaces),
 -- rebuilt (RebuildWorkspaces), restored (RestoreWorkspace), terminated
@@ -30,14 +31,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newFailedWorkspaceChangeRequest' smart constructor.
 data FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'
   { -- | The identifier of the WorkSpace.
-    workspaceId :: Core.Maybe Core.Text,
+    workspaceId :: Prelude.Maybe Prelude.Text,
     -- | The text of the error message that is returned if the WorkSpace cannot
     -- be rebooted.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error code that is returned if the WorkSpace cannot be rebooted.
-    errorCode :: Core.Maybe Core.Text
+    errorCode :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FailedWorkspaceChangeRequest' with all optional fields omitted.
@@ -58,22 +59,22 @@ newFailedWorkspaceChangeRequest ::
 newFailedWorkspaceChangeRequest =
   FailedWorkspaceChangeRequest'
     { workspaceId =
-        Core.Nothing,
-      errorMessage = Core.Nothing,
-      errorCode = Core.Nothing
+        Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
 
 -- | The identifier of the WorkSpace.
-failedWorkspaceChangeRequest_workspaceId :: Lens.Lens' FailedWorkspaceChangeRequest (Core.Maybe Core.Text)
+failedWorkspaceChangeRequest_workspaceId :: Lens.Lens' FailedWorkspaceChangeRequest (Prelude.Maybe Prelude.Text)
 failedWorkspaceChangeRequest_workspaceId = Lens.lens (\FailedWorkspaceChangeRequest' {workspaceId} -> workspaceId) (\s@FailedWorkspaceChangeRequest' {} a -> s {workspaceId = a} :: FailedWorkspaceChangeRequest)
 
 -- | The text of the error message that is returned if the WorkSpace cannot
 -- be rebooted.
-failedWorkspaceChangeRequest_errorMessage :: Lens.Lens' FailedWorkspaceChangeRequest (Core.Maybe Core.Text)
+failedWorkspaceChangeRequest_errorMessage :: Lens.Lens' FailedWorkspaceChangeRequest (Prelude.Maybe Prelude.Text)
 failedWorkspaceChangeRequest_errorMessage = Lens.lens (\FailedWorkspaceChangeRequest' {errorMessage} -> errorMessage) (\s@FailedWorkspaceChangeRequest' {} a -> s {errorMessage = a} :: FailedWorkspaceChangeRequest)
 
 -- | The error code that is returned if the WorkSpace cannot be rebooted.
-failedWorkspaceChangeRequest_errorCode :: Lens.Lens' FailedWorkspaceChangeRequest (Core.Maybe Core.Text)
+failedWorkspaceChangeRequest_errorCode :: Lens.Lens' FailedWorkspaceChangeRequest (Prelude.Maybe Prelude.Text)
 failedWorkspaceChangeRequest_errorCode = Lens.lens (\FailedWorkspaceChangeRequest' {errorCode} -> errorCode) (\s@FailedWorkspaceChangeRequest' {} a -> s {errorCode = a} :: FailedWorkspaceChangeRequest)
 
 instance Core.FromJSON FailedWorkspaceChangeRequest where
@@ -82,11 +83,13 @@ instance Core.FromJSON FailedWorkspaceChangeRequest where
       "FailedWorkspaceChangeRequest"
       ( \x ->
           FailedWorkspaceChangeRequest'
-            Core.<$> (x Core..:? "WorkspaceId")
-            Core.<*> (x Core..:? "ErrorMessage")
-            Core.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Core..:? "WorkspaceId")
+            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
-instance Core.Hashable FailedWorkspaceChangeRequest
+instance
+  Prelude.Hashable
+    FailedWorkspaceChangeRequest
 
-instance Core.NFData FailedWorkspaceChangeRequest
+instance Prelude.NFData FailedWorkspaceChangeRequest

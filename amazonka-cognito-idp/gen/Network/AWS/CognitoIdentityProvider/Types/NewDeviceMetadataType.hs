@@ -21,17 +21,18 @@ module Network.AWS.CognitoIdentityProvider.Types.NewDeviceMetadataType where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The new device metadata type.
 --
 -- /See:/ 'newNewDeviceMetadataType' smart constructor.
 data NewDeviceMetadataType = NewDeviceMetadataType'
   { -- | The device key.
-    deviceKey :: Core.Maybe Core.Text,
+    deviceKey :: Prelude.Maybe Prelude.Text,
     -- | The device group key.
-    deviceGroupKey :: Core.Maybe Core.Text
+    deviceGroupKey :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NewDeviceMetadataType' with all optional fields omitted.
@@ -48,16 +49,16 @@ newNewDeviceMetadataType ::
   NewDeviceMetadataType
 newNewDeviceMetadataType =
   NewDeviceMetadataType'
-    { deviceKey = Core.Nothing,
-      deviceGroupKey = Core.Nothing
+    { deviceKey = Prelude.Nothing,
+      deviceGroupKey = Prelude.Nothing
     }
 
 -- | The device key.
-newDeviceMetadataType_deviceKey :: Lens.Lens' NewDeviceMetadataType (Core.Maybe Core.Text)
+newDeviceMetadataType_deviceKey :: Lens.Lens' NewDeviceMetadataType (Prelude.Maybe Prelude.Text)
 newDeviceMetadataType_deviceKey = Lens.lens (\NewDeviceMetadataType' {deviceKey} -> deviceKey) (\s@NewDeviceMetadataType' {} a -> s {deviceKey = a} :: NewDeviceMetadataType)
 
 -- | The device group key.
-newDeviceMetadataType_deviceGroupKey :: Lens.Lens' NewDeviceMetadataType (Core.Maybe Core.Text)
+newDeviceMetadataType_deviceGroupKey :: Lens.Lens' NewDeviceMetadataType (Prelude.Maybe Prelude.Text)
 newDeviceMetadataType_deviceGroupKey = Lens.lens (\NewDeviceMetadataType' {deviceGroupKey} -> deviceGroupKey) (\s@NewDeviceMetadataType' {} a -> s {deviceGroupKey = a} :: NewDeviceMetadataType)
 
 instance Core.FromJSON NewDeviceMetadataType where
@@ -66,10 +67,10 @@ instance Core.FromJSON NewDeviceMetadataType where
       "NewDeviceMetadataType"
       ( \x ->
           NewDeviceMetadataType'
-            Core.<$> (x Core..:? "DeviceKey")
-            Core.<*> (x Core..:? "DeviceGroupKey")
+            Prelude.<$> (x Core..:? "DeviceKey")
+            Prelude.<*> (x Core..:? "DeviceGroupKey")
       )
 
-instance Core.Hashable NewDeviceMetadataType
+instance Prelude.Hashable NewDeviceMetadataType
 
-instance Core.NFData NewDeviceMetadataType
+instance Prelude.NFData NewDeviceMetadataType

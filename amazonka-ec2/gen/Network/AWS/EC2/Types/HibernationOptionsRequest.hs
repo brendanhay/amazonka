@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.HibernationOptionsRequest where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether your instance is configured for hibernation. This
 -- parameter is valid only if the instance meets the
@@ -36,9 +37,9 @@ data HibernationOptionsRequest = HibernationOptionsRequest'
     -- hibernation.
     --
     -- Default: @false@
-    configured :: Core.Maybe Core.Bool
+    configured :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HibernationOptionsRequest' with all optional fields omitted.
@@ -57,20 +58,20 @@ newHibernationOptionsRequest ::
 newHibernationOptionsRequest =
   HibernationOptionsRequest'
     { configured =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | If you set this parameter to @true@, your instance is enabled for
 -- hibernation.
 --
 -- Default: @false@
-hibernationOptionsRequest_configured :: Lens.Lens' HibernationOptionsRequest (Core.Maybe Core.Bool)
+hibernationOptionsRequest_configured :: Lens.Lens' HibernationOptionsRequest (Prelude.Maybe Prelude.Bool)
 hibernationOptionsRequest_configured = Lens.lens (\HibernationOptionsRequest' {configured} -> configured) (\s@HibernationOptionsRequest' {} a -> s {configured = a} :: HibernationOptionsRequest)
 
-instance Core.Hashable HibernationOptionsRequest
+instance Prelude.Hashable HibernationOptionsRequest
 
-instance Core.NFData HibernationOptionsRequest
+instance Prelude.NFData HibernationOptionsRequest
 
 instance Core.ToQuery HibernationOptionsRequest where
   toQuery HibernationOptionsRequest' {..} =
-    Core.mconcat ["Configured" Core.=: configured]
+    Prelude.mconcat ["Configured" Core.=: configured]

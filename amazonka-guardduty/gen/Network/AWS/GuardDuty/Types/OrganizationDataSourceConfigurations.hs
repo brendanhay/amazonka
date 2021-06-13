@@ -22,6 +22,7 @@ module Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that contains information on which data sources will be
 -- configured to be automatically enabled for new members within the
@@ -31,9 +32,9 @@ import qualified Network.AWS.Lens as Lens
 data OrganizationDataSourceConfigurations = OrganizationDataSourceConfigurations'
   { -- | Describes whether S3 data event logs are enabled for new members of the
     -- organization.
-    s3Logs :: Core.Maybe OrganizationS3LogsConfiguration
+    s3Logs :: Prelude.Maybe OrganizationS3LogsConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OrganizationDataSourceConfigurations' with all optional fields omitted.
@@ -50,20 +51,20 @@ newOrganizationDataSourceConfigurations ::
 newOrganizationDataSourceConfigurations =
   OrganizationDataSourceConfigurations'
     { s3Logs =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Describes whether S3 data event logs are enabled for new members of the
 -- organization.
-organizationDataSourceConfigurations_s3Logs :: Lens.Lens' OrganizationDataSourceConfigurations (Core.Maybe OrganizationS3LogsConfiguration)
+organizationDataSourceConfigurations_s3Logs :: Lens.Lens' OrganizationDataSourceConfigurations (Prelude.Maybe OrganizationS3LogsConfiguration)
 organizationDataSourceConfigurations_s3Logs = Lens.lens (\OrganizationDataSourceConfigurations' {s3Logs} -> s3Logs) (\s@OrganizationDataSourceConfigurations' {} a -> s {s3Logs = a} :: OrganizationDataSourceConfigurations)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     OrganizationDataSourceConfigurations
 
 instance
-  Core.NFData
+  Prelude.NFData
     OrganizationDataSourceConfigurations
 
 instance
@@ -72,4 +73,6 @@ instance
   where
   toJSON OrganizationDataSourceConfigurations' {..} =
     Core.object
-      (Core.catMaybes [("s3Logs" Core..=) Core.<$> s3Logs])
+      ( Prelude.catMaybes
+          [("s3Logs" Core..=) Prelude.<$> s3Logs]
+      )

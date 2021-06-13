@@ -22,6 +22,7 @@ import Network.AWS.CertificateManagerPCA.Lens
 import Network.AWS.CertificateManagerPCA.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newAuditReportCreated :: Core.Wait DescribeCertificateAuthorityAuditReport
@@ -35,15 +36,15 @@ newAuditReportCreated =
             "SUCCESS"
             Core.AcceptSuccess
             ( describeCertificateAuthorityAuditReportResponse_auditReportStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
             ( describeCertificateAuthorityAuditReportResponse_auditReportStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

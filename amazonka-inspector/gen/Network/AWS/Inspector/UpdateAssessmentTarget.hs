@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,13 +52,13 @@ import qualified Network.AWS.Response as Response
 data UpdateAssessmentTarget = UpdateAssessmentTarget'
   { -- | The ARN of the resource group that is used to specify the new resource
     -- group to associate with the assessment target.
-    resourceGroupArn :: Core.Maybe Core.Text,
+    resourceGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the assessment target that you want to update.
-    assessmentTargetArn :: Core.Text,
+    assessmentTargetArn :: Prelude.Text,
     -- | The name of the assessment target that you want to update.
-    assessmentTargetName :: Core.Text
+    assessmentTargetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAssessmentTarget' with all optional fields omitted.
@@ -75,31 +76,31 @@ data UpdateAssessmentTarget = UpdateAssessmentTarget'
 -- 'assessmentTargetName', 'updateAssessmentTarget_assessmentTargetName' - The name of the assessment target that you want to update.
 newUpdateAssessmentTarget ::
   -- | 'assessmentTargetArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'assessmentTargetName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateAssessmentTarget
 newUpdateAssessmentTarget
   pAssessmentTargetArn_
   pAssessmentTargetName_ =
     UpdateAssessmentTarget'
       { resourceGroupArn =
-          Core.Nothing,
+          Prelude.Nothing,
         assessmentTargetArn = pAssessmentTargetArn_,
         assessmentTargetName = pAssessmentTargetName_
       }
 
 -- | The ARN of the resource group that is used to specify the new resource
 -- group to associate with the assessment target.
-updateAssessmentTarget_resourceGroupArn :: Lens.Lens' UpdateAssessmentTarget (Core.Maybe Core.Text)
+updateAssessmentTarget_resourceGroupArn :: Lens.Lens' UpdateAssessmentTarget (Prelude.Maybe Prelude.Text)
 updateAssessmentTarget_resourceGroupArn = Lens.lens (\UpdateAssessmentTarget' {resourceGroupArn} -> resourceGroupArn) (\s@UpdateAssessmentTarget' {} a -> s {resourceGroupArn = a} :: UpdateAssessmentTarget)
 
 -- | The ARN of the assessment target that you want to update.
-updateAssessmentTarget_assessmentTargetArn :: Lens.Lens' UpdateAssessmentTarget Core.Text
+updateAssessmentTarget_assessmentTargetArn :: Lens.Lens' UpdateAssessmentTarget Prelude.Text
 updateAssessmentTarget_assessmentTargetArn = Lens.lens (\UpdateAssessmentTarget' {assessmentTargetArn} -> assessmentTargetArn) (\s@UpdateAssessmentTarget' {} a -> s {assessmentTargetArn = a} :: UpdateAssessmentTarget)
 
 -- | The name of the assessment target that you want to update.
-updateAssessmentTarget_assessmentTargetName :: Lens.Lens' UpdateAssessmentTarget Core.Text
+updateAssessmentTarget_assessmentTargetName :: Lens.Lens' UpdateAssessmentTarget Prelude.Text
 updateAssessmentTarget_assessmentTargetName = Lens.lens (\UpdateAssessmentTarget' {assessmentTargetName} -> assessmentTargetName) (\s@UpdateAssessmentTarget' {} a -> s {assessmentTargetName = a} :: UpdateAssessmentTarget)
 
 instance Core.AWSRequest UpdateAssessmentTarget where
@@ -111,32 +112,34 @@ instance Core.AWSRequest UpdateAssessmentTarget where
     Response.receiveNull
       UpdateAssessmentTargetResponse'
 
-instance Core.Hashable UpdateAssessmentTarget
+instance Prelude.Hashable UpdateAssessmentTarget
 
-instance Core.NFData UpdateAssessmentTarget
+instance Prelude.NFData UpdateAssessmentTarget
 
 instance Core.ToHeaders UpdateAssessmentTarget where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "InspectorService.UpdateAssessmentTarget" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateAssessmentTarget where
   toJSON UpdateAssessmentTarget' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("resourceGroupArn" Core..=)
-              Core.<$> resourceGroupArn,
-            Core.Just
+              Prelude.<$> resourceGroupArn,
+            Prelude.Just
               ("assessmentTargetArn" Core..= assessmentTargetArn),
-            Core.Just
+            Prelude.Just
               ( "assessmentTargetName"
                   Core..= assessmentTargetName
               )
@@ -144,16 +147,16 @@ instance Core.ToJSON UpdateAssessmentTarget where
       )
 
 instance Core.ToPath UpdateAssessmentTarget where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateAssessmentTarget where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAssessmentTargetResponse' smart constructor.
 data UpdateAssessmentTargetResponse = UpdateAssessmentTargetResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAssessmentTargetResponse' with all optional fields omitted.
@@ -164,4 +167,6 @@ newUpdateAssessmentTargetResponse ::
 newUpdateAssessmentTargetResponse =
   UpdateAssessmentTargetResponse'
 
-instance Core.NFData UpdateAssessmentTargetResponse
+instance
+  Prelude.NFData
+    UpdateAssessmentTargetResponse

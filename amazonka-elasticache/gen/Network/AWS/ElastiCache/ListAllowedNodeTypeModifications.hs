@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,7 +66,7 @@ data ListAllowedNodeTypeModifications = ListAllowedNodeTypeModifications'
     --
     -- You must provide a value for either the @CacheClusterId@ or the
     -- @ReplicationGroupId@.
-    replicationGroupId :: Core.Maybe Core.Text,
+    replicationGroupId :: Prelude.Maybe Prelude.Text,
     -- | The name of the cluster you want to scale up to a larger node instanced
     -- type. ElastiCache uses the cluster id to identify the current node type
     -- of this cluster and from that to create a list of node types you can
@@ -73,9 +74,9 @@ data ListAllowedNodeTypeModifications = ListAllowedNodeTypeModifications'
     --
     -- You must provide a value for either the @CacheClusterId@ or the
     -- @ReplicationGroupId@.
-    cacheClusterId :: Core.Maybe Core.Text
+    cacheClusterId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAllowedNodeTypeModifications' with all optional fields omitted.
@@ -105,8 +106,8 @@ newListAllowedNodeTypeModifications ::
 newListAllowedNodeTypeModifications =
   ListAllowedNodeTypeModifications'
     { replicationGroupId =
-        Core.Nothing,
-      cacheClusterId = Core.Nothing
+        Prelude.Nothing,
+      cacheClusterId = Prelude.Nothing
     }
 
 -- | The name of the replication group want to scale up to a larger node
@@ -116,7 +117,7 @@ newListAllowedNodeTypeModifications =
 --
 -- You must provide a value for either the @CacheClusterId@ or the
 -- @ReplicationGroupId@.
-listAllowedNodeTypeModifications_replicationGroupId :: Lens.Lens' ListAllowedNodeTypeModifications (Core.Maybe Core.Text)
+listAllowedNodeTypeModifications_replicationGroupId :: Lens.Lens' ListAllowedNodeTypeModifications (Prelude.Maybe Prelude.Text)
 listAllowedNodeTypeModifications_replicationGroupId = Lens.lens (\ListAllowedNodeTypeModifications' {replicationGroupId} -> replicationGroupId) (\s@ListAllowedNodeTypeModifications' {} a -> s {replicationGroupId = a} :: ListAllowedNodeTypeModifications)
 
 -- | The name of the cluster you want to scale up to a larger node instanced
@@ -126,7 +127,7 @@ listAllowedNodeTypeModifications_replicationGroupId = Lens.lens (\ListAllowedNod
 --
 -- You must provide a value for either the @CacheClusterId@ or the
 -- @ReplicationGroupId@.
-listAllowedNodeTypeModifications_cacheClusterId :: Lens.Lens' ListAllowedNodeTypeModifications (Core.Maybe Core.Text)
+listAllowedNodeTypeModifications_cacheClusterId :: Lens.Lens' ListAllowedNodeTypeModifications (Prelude.Maybe Prelude.Text)
 listAllowedNodeTypeModifications_cacheClusterId = Lens.lens (\ListAllowedNodeTypeModifications' {cacheClusterId} -> cacheClusterId) (\s@ListAllowedNodeTypeModifications' {} a -> s {cacheClusterId = a} :: ListAllowedNodeTypeModifications)
 
 instance
@@ -142,43 +143,46 @@ instance
       "ListAllowedNodeTypeModificationsResult"
       ( \s h x ->
           ListAllowedNodeTypeModificationsResponse'
-            Core.<$> ( x Core..@? "ScaleUpModifications"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> ( x Core..@? "ScaleDownModifications"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "ScaleUpModifications"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> ( x Core..@? "ScaleDownModifications"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ListAllowedNodeTypeModifications
 
-instance Core.NFData ListAllowedNodeTypeModifications
+instance
+  Prelude.NFData
+    ListAllowedNodeTypeModifications
 
 instance
   Core.ToHeaders
     ListAllowedNodeTypeModifications
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListAllowedNodeTypeModifications where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     ListAllowedNodeTypeModifications
   where
   toQuery ListAllowedNodeTypeModifications' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "ListAllowedNodeTypeModifications" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "ReplicationGroupId" Core.=: replicationGroupId,
         "CacheClusterId" Core.=: cacheClusterId
       ]
@@ -194,17 +198,17 @@ data ListAllowedNodeTypeModificationsResponse = ListAllowedNodeTypeModifications
     -- When scaling up a Redis cluster or replication group using
     -- @ModifyCacheCluster@ or @ModifyReplicationGroup@, use a value from this
     -- list for the @CacheNodeType@ parameter.
-    scaleUpModifications :: Core.Maybe [Core.Text],
+    scaleUpModifications :: Prelude.Maybe [Prelude.Text],
     -- | A string list, each element of which specifies a cache node type which
     -- you can use to scale your cluster or replication group. When scaling
     -- down a Redis cluster or replication group using ModifyCacheCluster or
     -- ModifyReplicationGroup, use a value from this list for the CacheNodeType
     -- parameter.
-    scaleDownModifications :: Core.Maybe [Core.Text],
+    scaleDownModifications :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAllowedNodeTypeModificationsResponse' with all optional fields omitted.
@@ -230,15 +234,15 @@ data ListAllowedNodeTypeModificationsResponse = ListAllowedNodeTypeModifications
 -- 'httpStatus', 'listAllowedNodeTypeModificationsResponse_httpStatus' - The response's http status code.
 newListAllowedNodeTypeModificationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListAllowedNodeTypeModificationsResponse
 newListAllowedNodeTypeModificationsResponse
   pHttpStatus_ =
     ListAllowedNodeTypeModificationsResponse'
       { scaleUpModifications =
-          Core.Nothing,
+          Prelude.Nothing,
         scaleDownModifications =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -248,21 +252,21 @@ newListAllowedNodeTypeModificationsResponse
 -- When scaling up a Redis cluster or replication group using
 -- @ModifyCacheCluster@ or @ModifyReplicationGroup@, use a value from this
 -- list for the @CacheNodeType@ parameter.
-listAllowedNodeTypeModificationsResponse_scaleUpModifications :: Lens.Lens' ListAllowedNodeTypeModificationsResponse (Core.Maybe [Core.Text])
-listAllowedNodeTypeModificationsResponse_scaleUpModifications = Lens.lens (\ListAllowedNodeTypeModificationsResponse' {scaleUpModifications} -> scaleUpModifications) (\s@ListAllowedNodeTypeModificationsResponse' {} a -> s {scaleUpModifications = a} :: ListAllowedNodeTypeModificationsResponse) Core.. Lens.mapping Lens._Coerce
+listAllowedNodeTypeModificationsResponse_scaleUpModifications :: Lens.Lens' ListAllowedNodeTypeModificationsResponse (Prelude.Maybe [Prelude.Text])
+listAllowedNodeTypeModificationsResponse_scaleUpModifications = Lens.lens (\ListAllowedNodeTypeModificationsResponse' {scaleUpModifications} -> scaleUpModifications) (\s@ListAllowedNodeTypeModificationsResponse' {} a -> s {scaleUpModifications = a} :: ListAllowedNodeTypeModificationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A string list, each element of which specifies a cache node type which
 -- you can use to scale your cluster or replication group. When scaling
 -- down a Redis cluster or replication group using ModifyCacheCluster or
 -- ModifyReplicationGroup, use a value from this list for the CacheNodeType
 -- parameter.
-listAllowedNodeTypeModificationsResponse_scaleDownModifications :: Lens.Lens' ListAllowedNodeTypeModificationsResponse (Core.Maybe [Core.Text])
-listAllowedNodeTypeModificationsResponse_scaleDownModifications = Lens.lens (\ListAllowedNodeTypeModificationsResponse' {scaleDownModifications} -> scaleDownModifications) (\s@ListAllowedNodeTypeModificationsResponse' {} a -> s {scaleDownModifications = a} :: ListAllowedNodeTypeModificationsResponse) Core.. Lens.mapping Lens._Coerce
+listAllowedNodeTypeModificationsResponse_scaleDownModifications :: Lens.Lens' ListAllowedNodeTypeModificationsResponse (Prelude.Maybe [Prelude.Text])
+listAllowedNodeTypeModificationsResponse_scaleDownModifications = Lens.lens (\ListAllowedNodeTypeModificationsResponse' {scaleDownModifications} -> scaleDownModifications) (\s@ListAllowedNodeTypeModificationsResponse' {} a -> s {scaleDownModifications = a} :: ListAllowedNodeTypeModificationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAllowedNodeTypeModificationsResponse_httpStatus :: Lens.Lens' ListAllowedNodeTypeModificationsResponse Core.Int
+listAllowedNodeTypeModificationsResponse_httpStatus :: Lens.Lens' ListAllowedNodeTypeModificationsResponse Prelude.Int
 listAllowedNodeTypeModificationsResponse_httpStatus = Lens.lens (\ListAllowedNodeTypeModificationsResponse' {httpStatus} -> httpStatus) (\s@ListAllowedNodeTypeModificationsResponse' {} a -> s {httpStatus = a} :: ListAllowedNodeTypeModificationsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListAllowedNodeTypeModificationsResponse

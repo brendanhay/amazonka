@@ -24,18 +24,19 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.FleetLaunchTemplateOverrides
 import Network.AWS.EC2.Types.FleetLaunchTemplateSpecification
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a launch template and overrides.
 --
 -- /See:/ 'newLaunchTemplateAndOverridesResponse' smart constructor.
 data LaunchTemplateAndOverridesResponse = LaunchTemplateAndOverridesResponse'
   { -- | The launch template.
-    launchTemplateSpecification :: Core.Maybe FleetLaunchTemplateSpecification,
+    launchTemplateSpecification :: Prelude.Maybe FleetLaunchTemplateSpecification,
     -- | Any parameters that you specify override the same parameters in the
     -- launch template.
-    overrides :: Core.Maybe FleetLaunchTemplateOverrides
+    overrides :: Prelude.Maybe FleetLaunchTemplateOverrides
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateAndOverridesResponse' with all optional fields omitted.
@@ -54,17 +55,17 @@ newLaunchTemplateAndOverridesResponse ::
 newLaunchTemplateAndOverridesResponse =
   LaunchTemplateAndOverridesResponse'
     { launchTemplateSpecification =
-        Core.Nothing,
-      overrides = Core.Nothing
+        Prelude.Nothing,
+      overrides = Prelude.Nothing
     }
 
 -- | The launch template.
-launchTemplateAndOverridesResponse_launchTemplateSpecification :: Lens.Lens' LaunchTemplateAndOverridesResponse (Core.Maybe FleetLaunchTemplateSpecification)
+launchTemplateAndOverridesResponse_launchTemplateSpecification :: Lens.Lens' LaunchTemplateAndOverridesResponse (Prelude.Maybe FleetLaunchTemplateSpecification)
 launchTemplateAndOverridesResponse_launchTemplateSpecification = Lens.lens (\LaunchTemplateAndOverridesResponse' {launchTemplateSpecification} -> launchTemplateSpecification) (\s@LaunchTemplateAndOverridesResponse' {} a -> s {launchTemplateSpecification = a} :: LaunchTemplateAndOverridesResponse)
 
 -- | Any parameters that you specify override the same parameters in the
 -- launch template.
-launchTemplateAndOverridesResponse_overrides :: Lens.Lens' LaunchTemplateAndOverridesResponse (Core.Maybe FleetLaunchTemplateOverrides)
+launchTemplateAndOverridesResponse_overrides :: Lens.Lens' LaunchTemplateAndOverridesResponse (Prelude.Maybe FleetLaunchTemplateOverrides)
 launchTemplateAndOverridesResponse_overrides = Lens.lens (\LaunchTemplateAndOverridesResponse' {overrides} -> overrides) (\s@LaunchTemplateAndOverridesResponse' {} a -> s {overrides = a} :: LaunchTemplateAndOverridesResponse)
 
 instance
@@ -73,13 +74,13 @@ instance
   where
   parseXML x =
     LaunchTemplateAndOverridesResponse'
-      Core.<$> (x Core..@? "launchTemplateSpecification")
-      Core.<*> (x Core..@? "overrides")
+      Prelude.<$> (x Core..@? "launchTemplateSpecification")
+      Prelude.<*> (x Core..@? "overrides")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LaunchTemplateAndOverridesResponse
 
 instance
-  Core.NFData
+  Prelude.NFData
     LaunchTemplateAndOverridesResponse

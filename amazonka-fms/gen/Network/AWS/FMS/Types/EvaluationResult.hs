@@ -22,6 +22,7 @@ module Network.AWS.FMS.Types.EvaluationResult where
 import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types.PolicyComplianceStatusType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the compliance status for the account. An account is
 -- considered noncompliant if it includes resources that are not protected
@@ -31,19 +32,19 @@ import qualified Network.AWS.Lens as Lens
 data EvaluationResult = EvaluationResult'
   { -- | Describes an AWS account\'s compliance with the AWS Firewall Manager
     -- policy.
-    complianceStatus :: Core.Maybe PolicyComplianceStatusType,
+    complianceStatus :: Prelude.Maybe PolicyComplianceStatusType,
     -- | Indicates that over 100 resources are noncompliant with the AWS Firewall
     -- Manager policy.
-    evaluationLimitExceeded :: Core.Maybe Core.Bool,
+    evaluationLimitExceeded :: Prelude.Maybe Prelude.Bool,
     -- | The number of resources that are noncompliant with the specified policy.
     -- For AWS WAF and Shield Advanced policies, a resource is considered
     -- noncompliant if it is not associated with the policy. For security group
     -- policies, a resource is considered noncompliant if it doesn\'t comply
     -- with the rules of the policy and remediation is disabled or not
     -- possible.
-    violatorCount :: Core.Maybe Core.Natural
+    violatorCount :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EvaluationResult' with all optional fields omitted.
@@ -69,19 +70,20 @@ newEvaluationResult ::
   EvaluationResult
 newEvaluationResult =
   EvaluationResult'
-    { complianceStatus = Core.Nothing,
-      evaluationLimitExceeded = Core.Nothing,
-      violatorCount = Core.Nothing
+    { complianceStatus =
+        Prelude.Nothing,
+      evaluationLimitExceeded = Prelude.Nothing,
+      violatorCount = Prelude.Nothing
     }
 
 -- | Describes an AWS account\'s compliance with the AWS Firewall Manager
 -- policy.
-evaluationResult_complianceStatus :: Lens.Lens' EvaluationResult (Core.Maybe PolicyComplianceStatusType)
+evaluationResult_complianceStatus :: Lens.Lens' EvaluationResult (Prelude.Maybe PolicyComplianceStatusType)
 evaluationResult_complianceStatus = Lens.lens (\EvaluationResult' {complianceStatus} -> complianceStatus) (\s@EvaluationResult' {} a -> s {complianceStatus = a} :: EvaluationResult)
 
 -- | Indicates that over 100 resources are noncompliant with the AWS Firewall
 -- Manager policy.
-evaluationResult_evaluationLimitExceeded :: Lens.Lens' EvaluationResult (Core.Maybe Core.Bool)
+evaluationResult_evaluationLimitExceeded :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.Bool)
 evaluationResult_evaluationLimitExceeded = Lens.lens (\EvaluationResult' {evaluationLimitExceeded} -> evaluationLimitExceeded) (\s@EvaluationResult' {} a -> s {evaluationLimitExceeded = a} :: EvaluationResult)
 
 -- | The number of resources that are noncompliant with the specified policy.
@@ -90,7 +92,7 @@ evaluationResult_evaluationLimitExceeded = Lens.lens (\EvaluationResult' {evalua
 -- policies, a resource is considered noncompliant if it doesn\'t comply
 -- with the rules of the policy and remediation is disabled or not
 -- possible.
-evaluationResult_violatorCount :: Lens.Lens' EvaluationResult (Core.Maybe Core.Natural)
+evaluationResult_violatorCount :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.Natural)
 evaluationResult_violatorCount = Lens.lens (\EvaluationResult' {violatorCount} -> violatorCount) (\s@EvaluationResult' {} a -> s {violatorCount = a} :: EvaluationResult)
 
 instance Core.FromJSON EvaluationResult where
@@ -99,11 +101,11 @@ instance Core.FromJSON EvaluationResult where
       "EvaluationResult"
       ( \x ->
           EvaluationResult'
-            Core.<$> (x Core..:? "ComplianceStatus")
-            Core.<*> (x Core..:? "EvaluationLimitExceeded")
-            Core.<*> (x Core..:? "ViolatorCount")
+            Prelude.<$> (x Core..:? "ComplianceStatus")
+            Prelude.<*> (x Core..:? "EvaluationLimitExceeded")
+            Prelude.<*> (x Core..:? "ViolatorCount")
       )
 
-instance Core.Hashable EvaluationResult
+instance Prelude.Hashable EvaluationResult
 
-instance Core.NFData EvaluationResult
+instance Prelude.NFData EvaluationResult

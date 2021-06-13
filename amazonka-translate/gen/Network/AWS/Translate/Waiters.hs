@@ -17,5 +17,6 @@ module Network.AWS.Translate.Waiters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Translate.Lens
 import Network.AWS.Translate.Types

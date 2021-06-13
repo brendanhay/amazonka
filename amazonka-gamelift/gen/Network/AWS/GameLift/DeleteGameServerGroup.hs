@@ -91,6 +91,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -108,12 +109,12 @@ data DeleteGameServerGroup = DeleteGameServerGroup'
     --
     -- -   @RETAIN@ – Does a safe delete of the game server group but retains
     --     the EC2 Auto Scaling group as is.
-    deleteOption :: Core.Maybe GameServerGroupDeleteOption,
+    deleteOption :: Prelude.Maybe GameServerGroupDeleteOption,
     -- | A unique identifier for the game server group. Use either the
     -- GameServerGroup name or ARN value.
-    gameServerGroupName :: Core.Text
+    gameServerGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGameServerGroup' with all optional fields omitted.
@@ -140,11 +141,12 @@ data DeleteGameServerGroup = DeleteGameServerGroup'
 -- GameServerGroup name or ARN value.
 newDeleteGameServerGroup ::
   -- | 'gameServerGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteGameServerGroup
 newDeleteGameServerGroup pGameServerGroupName_ =
   DeleteGameServerGroup'
-    { deleteOption = Core.Nothing,
+    { deleteOption =
+        Prelude.Nothing,
       gameServerGroupName = pGameServerGroupName_
     }
 
@@ -160,12 +162,12 @@ newDeleteGameServerGroup pGameServerGroupName_ =
 --
 -- -   @RETAIN@ – Does a safe delete of the game server group but retains
 --     the EC2 Auto Scaling group as is.
-deleteGameServerGroup_deleteOption :: Lens.Lens' DeleteGameServerGroup (Core.Maybe GameServerGroupDeleteOption)
+deleteGameServerGroup_deleteOption :: Lens.Lens' DeleteGameServerGroup (Prelude.Maybe GameServerGroupDeleteOption)
 deleteGameServerGroup_deleteOption = Lens.lens (\DeleteGameServerGroup' {deleteOption} -> deleteOption) (\s@DeleteGameServerGroup' {} a -> s {deleteOption = a} :: DeleteGameServerGroup)
 
 -- | A unique identifier for the game server group. Use either the
 -- GameServerGroup name or ARN value.
-deleteGameServerGroup_gameServerGroupName :: Lens.Lens' DeleteGameServerGroup Core.Text
+deleteGameServerGroup_gameServerGroupName :: Lens.Lens' DeleteGameServerGroup Prelude.Text
 deleteGameServerGroup_gameServerGroupName = Lens.lens (\DeleteGameServerGroup' {gameServerGroupName} -> gameServerGroupName) (\s@DeleteGameServerGroup' {} a -> s {gameServerGroupName = a} :: DeleteGameServerGroup)
 
 instance Core.AWSRequest DeleteGameServerGroup where
@@ -177,52 +179,54 @@ instance Core.AWSRequest DeleteGameServerGroup where
     Response.receiveJSON
       ( \s h x ->
           DeleteGameServerGroupResponse'
-            Core.<$> (x Core..?> "GameServerGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GameServerGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteGameServerGroup
+instance Prelude.Hashable DeleteGameServerGroup
 
-instance Core.NFData DeleteGameServerGroup
+instance Prelude.NFData DeleteGameServerGroup
 
 instance Core.ToHeaders DeleteGameServerGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.DeleteGameServerGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteGameServerGroup where
   toJSON DeleteGameServerGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("DeleteOption" Core..=) Core.<$> deleteOption,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("DeleteOption" Core..=) Prelude.<$> deleteOption,
+            Prelude.Just
               ("GameServerGroupName" Core..= gameServerGroupName)
           ]
       )
 
 instance Core.ToPath DeleteGameServerGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteGameServerGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGameServerGroupResponse' smart constructor.
 data DeleteGameServerGroupResponse = DeleteGameServerGroupResponse'
   { -- | An object that describes the deleted game server group resource, with
     -- status updated to @DELETE_SCHEDULED@.
-    gameServerGroup :: Core.Maybe GameServerGroup,
+    gameServerGroup :: Prelude.Maybe GameServerGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGameServerGroupResponse' with all optional fields omitted.
@@ -238,22 +242,22 @@ data DeleteGameServerGroupResponse = DeleteGameServerGroupResponse'
 -- 'httpStatus', 'deleteGameServerGroupResponse_httpStatus' - The response's http status code.
 newDeleteGameServerGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteGameServerGroupResponse
 newDeleteGameServerGroupResponse pHttpStatus_ =
   DeleteGameServerGroupResponse'
     { gameServerGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that describes the deleted game server group resource, with
 -- status updated to @DELETE_SCHEDULED@.
-deleteGameServerGroupResponse_gameServerGroup :: Lens.Lens' DeleteGameServerGroupResponse (Core.Maybe GameServerGroup)
+deleteGameServerGroupResponse_gameServerGroup :: Lens.Lens' DeleteGameServerGroupResponse (Prelude.Maybe GameServerGroup)
 deleteGameServerGroupResponse_gameServerGroup = Lens.lens (\DeleteGameServerGroupResponse' {gameServerGroup} -> gameServerGroup) (\s@DeleteGameServerGroupResponse' {} a -> s {gameServerGroup = a} :: DeleteGameServerGroupResponse)
 
 -- | The response's http status code.
-deleteGameServerGroupResponse_httpStatus :: Lens.Lens' DeleteGameServerGroupResponse Core.Int
+deleteGameServerGroupResponse_httpStatus :: Lens.Lens' DeleteGameServerGroupResponse Prelude.Int
 deleteGameServerGroupResponse_httpStatus = Lens.lens (\DeleteGameServerGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteGameServerGroupResponse' {} a -> s {httpStatus = a} :: DeleteGameServerGroupResponse)
 
-instance Core.NFData DeleteGameServerGroupResponse
+instance Prelude.NFData DeleteGameServerGroupResponse

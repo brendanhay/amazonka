@@ -40,6 +40,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,7 +50,7 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteGatewayResponse' smart constructor.
 data DeleteGatewayResponse = DeleteGatewayResponse'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required]
     --
     -- The response type of the associated GatewayResponse. Valid values are
@@ -76,7 +77,7 @@ data DeleteGatewayResponse = DeleteGatewayResponse'
     -- -   UNSUPPORTED_MEDIA_TYPE
     responseType :: GatewayResponseType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGatewayResponse' with all optional fields omitted.
@@ -114,7 +115,7 @@ data DeleteGatewayResponse = DeleteGatewayResponse'
 -- -   UNSUPPORTED_MEDIA_TYPE
 newDeleteGatewayResponse ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'responseType'
   GatewayResponseType ->
   DeleteGatewayResponse
@@ -125,7 +126,7 @@ newDeleteGatewayResponse pRestApiId_ pResponseType_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-deleteGatewayResponse_restApiId :: Lens.Lens' DeleteGatewayResponse Core.Text
+deleteGatewayResponse_restApiId :: Lens.Lens' DeleteGatewayResponse Prelude.Text
 deleteGatewayResponse_restApiId = Lens.lens (\DeleteGatewayResponse' {restApiId} -> restApiId) (\s@DeleteGatewayResponse' {} a -> s {restApiId = a} :: DeleteGatewayResponse)
 
 -- | [Required]
@@ -163,22 +164,22 @@ instance Core.AWSRequest DeleteGatewayResponse where
   response =
     Response.receiveNull DeleteGatewayResponseResponse'
 
-instance Core.Hashable DeleteGatewayResponse
+instance Prelude.Hashable DeleteGatewayResponse
 
-instance Core.NFData DeleteGatewayResponse
+instance Prelude.NFData DeleteGatewayResponse
 
 instance Core.ToHeaders DeleteGatewayResponse where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath DeleteGatewayResponse where
   toPath DeleteGatewayResponse' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/gatewayresponses/",
@@ -186,13 +187,13 @@ instance Core.ToPath DeleteGatewayResponse where
       ]
 
 instance Core.ToQuery DeleteGatewayResponse where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGatewayResponseResponse' smart constructor.
 data DeleteGatewayResponseResponse = DeleteGatewayResponseResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGatewayResponseResponse' with all optional fields omitted.
@@ -203,4 +204,4 @@ newDeleteGatewayResponseResponse ::
 newDeleteGatewayResponseResponse =
   DeleteGatewayResponseResponse'
 
-instance Core.NFData DeleteGatewayResponseResponse
+instance Prelude.NFData DeleteGatewayResponseResponse

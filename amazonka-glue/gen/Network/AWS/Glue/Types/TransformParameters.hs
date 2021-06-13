@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.FindMatchesParameters
 import Network.AWS.Glue.Types.TransformType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The algorithm-specific parameters that are associated with the machine
 -- learning transform.
@@ -30,14 +31,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTransformParameters' smart constructor.
 data TransformParameters = TransformParameters'
   { -- | The parameters for the find matches algorithm.
-    findMatchesParameters :: Core.Maybe FindMatchesParameters,
+    findMatchesParameters :: Prelude.Maybe FindMatchesParameters,
     -- | The type of machine learning transform.
     --
     -- For information about the types of machine learning transforms, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html Creating Machine Learning Transforms>.
     transformType :: TransformType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransformParameters' with all optional fields omitted.
@@ -60,12 +61,12 @@ newTransformParameters ::
 newTransformParameters pTransformType_ =
   TransformParameters'
     { findMatchesParameters =
-        Core.Nothing,
+        Prelude.Nothing,
       transformType = pTransformType_
     }
 
 -- | The parameters for the find matches algorithm.
-transformParameters_findMatchesParameters :: Lens.Lens' TransformParameters (Core.Maybe FindMatchesParameters)
+transformParameters_findMatchesParameters :: Lens.Lens' TransformParameters (Prelude.Maybe FindMatchesParameters)
 transformParameters_findMatchesParameters = Lens.lens (\TransformParameters' {findMatchesParameters} -> findMatchesParameters) (\s@TransformParameters' {} a -> s {findMatchesParameters = a} :: TransformParameters)
 
 -- | The type of machine learning transform.
@@ -81,20 +82,21 @@ instance Core.FromJSON TransformParameters where
       "TransformParameters"
       ( \x ->
           TransformParameters'
-            Core.<$> (x Core..:? "FindMatchesParameters")
-            Core.<*> (x Core..: "TransformType")
+            Prelude.<$> (x Core..:? "FindMatchesParameters")
+            Prelude.<*> (x Core..: "TransformType")
       )
 
-instance Core.Hashable TransformParameters
+instance Prelude.Hashable TransformParameters
 
-instance Core.NFData TransformParameters
+instance Prelude.NFData TransformParameters
 
 instance Core.ToJSON TransformParameters where
   toJSON TransformParameters' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("FindMatchesParameters" Core..=)
-              Core.<$> findMatchesParameters,
-            Core.Just ("TransformType" Core..= transformType)
+              Prelude.<$> findMatchesParameters,
+            Prelude.Just
+              ("TransformType" Core..= transformType)
           ]
       )

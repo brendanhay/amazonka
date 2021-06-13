@@ -21,6 +21,7 @@ module Network.AWS.Lightsail.Types.QueryStringObject where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the query string parameters that an Amazon Lightsail content
 -- delivery network (CDN) distribution to bases caching on.
@@ -39,12 +40,12 @@ data QueryStringObject = QueryStringObject'
     -- If the @option@ parameter is true, then your distribution forwards all
     -- query strings, regardless of what you specify using the
     -- @queryStringsAllowList@ parameter.
-    queryStringsAllowList :: Core.Maybe [Core.Text],
+    queryStringsAllowList :: Prelude.Maybe [Prelude.Text],
     -- | Indicates whether the distribution forwards and caches based on query
     -- strings.
-    option :: Core.Maybe Core.Bool
+    option :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QueryStringObject' with all optional fields omitted.
@@ -70,8 +71,8 @@ newQueryStringObject ::
 newQueryStringObject =
   QueryStringObject'
     { queryStringsAllowList =
-        Core.Nothing,
-      option = Core.Nothing
+        Prelude.Nothing,
+      option = Prelude.Nothing
     }
 
 -- | The specific query strings that the distribution forwards to the origin.
@@ -82,12 +83,12 @@ newQueryStringObject =
 -- If the @option@ parameter is true, then your distribution forwards all
 -- query strings, regardless of what you specify using the
 -- @queryStringsAllowList@ parameter.
-queryStringObject_queryStringsAllowList :: Lens.Lens' QueryStringObject (Core.Maybe [Core.Text])
-queryStringObject_queryStringsAllowList = Lens.lens (\QueryStringObject' {queryStringsAllowList} -> queryStringsAllowList) (\s@QueryStringObject' {} a -> s {queryStringsAllowList = a} :: QueryStringObject) Core.. Lens.mapping Lens._Coerce
+queryStringObject_queryStringsAllowList :: Lens.Lens' QueryStringObject (Prelude.Maybe [Prelude.Text])
+queryStringObject_queryStringsAllowList = Lens.lens (\QueryStringObject' {queryStringsAllowList} -> queryStringsAllowList) (\s@QueryStringObject' {} a -> s {queryStringsAllowList = a} :: QueryStringObject) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether the distribution forwards and caches based on query
 -- strings.
-queryStringObject_option :: Lens.Lens' QueryStringObject (Core.Maybe Core.Bool)
+queryStringObject_option :: Lens.Lens' QueryStringObject (Prelude.Maybe Prelude.Bool)
 queryStringObject_option = Lens.lens (\QueryStringObject' {option} -> option) (\s@QueryStringObject' {} a -> s {option = a} :: QueryStringObject)
 
 instance Core.FromJSON QueryStringObject where
@@ -96,22 +97,22 @@ instance Core.FromJSON QueryStringObject where
       "QueryStringObject"
       ( \x ->
           QueryStringObject'
-            Core.<$> ( x Core..:? "queryStringsAllowList"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "option")
+            Prelude.<$> ( x Core..:? "queryStringsAllowList"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "option")
       )
 
-instance Core.Hashable QueryStringObject
+instance Prelude.Hashable QueryStringObject
 
-instance Core.NFData QueryStringObject
+instance Prelude.NFData QueryStringObject
 
 instance Core.ToJSON QueryStringObject where
   toJSON QueryStringObject' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("queryStringsAllowList" Core..=)
-              Core.<$> queryStringsAllowList,
-            ("option" Core..=) Core.<$> option
+              Prelude.<$> queryStringsAllowList,
+            ("option" Core..=) Prelude.<$> option
           ]
       )

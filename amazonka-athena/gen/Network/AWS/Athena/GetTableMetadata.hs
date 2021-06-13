@@ -44,6 +44,7 @@ where
 import Network.AWS.Athena.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,13 +52,13 @@ import qualified Network.AWS.Response as Response
 data GetTableMetadata = GetTableMetadata'
   { -- | The name of the data catalog that contains the database and table
     -- metadata to return.
-    catalogName :: Core.Text,
+    catalogName :: Prelude.Text,
     -- | The name of the database that contains the table metadata to return.
-    databaseName :: Core.Text,
+    databaseName :: Prelude.Text,
     -- | The name of the table for which metadata is returned.
-    tableName :: Core.Text
+    tableName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTableMetadata' with all optional fields omitted.
@@ -75,11 +76,11 @@ data GetTableMetadata = GetTableMetadata'
 -- 'tableName', 'getTableMetadata_tableName' - The name of the table for which metadata is returned.
 newGetTableMetadata ::
   -- | 'catalogName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   GetTableMetadata
 newGetTableMetadata
   pCatalogName_
@@ -93,15 +94,15 @@ newGetTableMetadata
 
 -- | The name of the data catalog that contains the database and table
 -- metadata to return.
-getTableMetadata_catalogName :: Lens.Lens' GetTableMetadata Core.Text
+getTableMetadata_catalogName :: Lens.Lens' GetTableMetadata Prelude.Text
 getTableMetadata_catalogName = Lens.lens (\GetTableMetadata' {catalogName} -> catalogName) (\s@GetTableMetadata' {} a -> s {catalogName = a} :: GetTableMetadata)
 
 -- | The name of the database that contains the table metadata to return.
-getTableMetadata_databaseName :: Lens.Lens' GetTableMetadata Core.Text
+getTableMetadata_databaseName :: Lens.Lens' GetTableMetadata Prelude.Text
 getTableMetadata_databaseName = Lens.lens (\GetTableMetadata' {databaseName} -> databaseName) (\s@GetTableMetadata' {} a -> s {databaseName = a} :: GetTableMetadata)
 
 -- | The name of the table for which metadata is returned.
-getTableMetadata_tableName :: Lens.Lens' GetTableMetadata Core.Text
+getTableMetadata_tableName :: Lens.Lens' GetTableMetadata Prelude.Text
 getTableMetadata_tableName = Lens.lens (\GetTableMetadata' {tableName} -> tableName) (\s@GetTableMetadata' {} a -> s {tableName = a} :: GetTableMetadata)
 
 instance Core.AWSRequest GetTableMetadata where
@@ -113,49 +114,53 @@ instance Core.AWSRequest GetTableMetadata where
     Response.receiveJSON
       ( \s h x ->
           GetTableMetadataResponse'
-            Core.<$> (x Core..?> "TableMetadata")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TableMetadata")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetTableMetadata
+instance Prelude.Hashable GetTableMetadata
 
-instance Core.NFData GetTableMetadata
+instance Prelude.NFData GetTableMetadata
 
 instance Core.ToHeaders GetTableMetadata where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonAthena.GetTableMetadata" :: Core.ByteString),
+              Core.=# ( "AmazonAthena.GetTableMetadata" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetTableMetadata where
   toJSON GetTableMetadata' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("CatalogName" Core..= catalogName),
-            Core.Just ("DatabaseName" Core..= databaseName),
-            Core.Just ("TableName" Core..= tableName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("CatalogName" Core..= catalogName),
+            Prelude.Just ("DatabaseName" Core..= databaseName),
+            Prelude.Just ("TableName" Core..= tableName)
           ]
       )
 
 instance Core.ToPath GetTableMetadata where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetTableMetadata where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTableMetadataResponse' smart constructor.
 data GetTableMetadataResponse = GetTableMetadataResponse'
   { -- | An object that contains table metadata.
-    tableMetadata :: Core.Maybe TableMetadata,
+    tableMetadata :: Prelude.Maybe TableMetadata,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTableMetadataResponse' with all optional fields omitted.
@@ -170,21 +175,21 @@ data GetTableMetadataResponse = GetTableMetadataResponse'
 -- 'httpStatus', 'getTableMetadataResponse_httpStatus' - The response's http status code.
 newGetTableMetadataResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetTableMetadataResponse
 newGetTableMetadataResponse pHttpStatus_ =
   GetTableMetadataResponse'
     { tableMetadata =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains table metadata.
-getTableMetadataResponse_tableMetadata :: Lens.Lens' GetTableMetadataResponse (Core.Maybe TableMetadata)
+getTableMetadataResponse_tableMetadata :: Lens.Lens' GetTableMetadataResponse (Prelude.Maybe TableMetadata)
 getTableMetadataResponse_tableMetadata = Lens.lens (\GetTableMetadataResponse' {tableMetadata} -> tableMetadata) (\s@GetTableMetadataResponse' {} a -> s {tableMetadata = a} :: GetTableMetadataResponse)
 
 -- | The response's http status code.
-getTableMetadataResponse_httpStatus :: Lens.Lens' GetTableMetadataResponse Core.Int
+getTableMetadataResponse_httpStatus :: Lens.Lens' GetTableMetadataResponse Prelude.Int
 getTableMetadataResponse_httpStatus = Lens.lens (\GetTableMetadataResponse' {httpStatus} -> httpStatus) (\s@GetTableMetadataResponse' {} a -> s {httpStatus = a} :: GetTableMetadataResponse)
 
-instance Core.NFData GetTableMetadataResponse
+instance Prelude.NFData GetTableMetadataResponse

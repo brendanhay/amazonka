@@ -21,15 +21,16 @@ module Network.AWS.SageMaker.Types.CaptureContentTypeHeader where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- |
 --
 -- /See:/ 'newCaptureContentTypeHeader' smart constructor.
 data CaptureContentTypeHeader = CaptureContentTypeHeader'
-  { csvContentTypes :: Core.Maybe (Core.NonEmpty Core.Text),
-    jsonContentTypes :: Core.Maybe (Core.NonEmpty Core.Text)
+  { csvContentTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    jsonContentTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CaptureContentTypeHeader' with all optional fields omitted.
@@ -47,17 +48,17 @@ newCaptureContentTypeHeader ::
 newCaptureContentTypeHeader =
   CaptureContentTypeHeader'
     { csvContentTypes =
-        Core.Nothing,
-      jsonContentTypes = Core.Nothing
+        Prelude.Nothing,
+      jsonContentTypes = Prelude.Nothing
     }
 
 -- |
-captureContentTypeHeader_csvContentTypes :: Lens.Lens' CaptureContentTypeHeader (Core.Maybe (Core.NonEmpty Core.Text))
-captureContentTypeHeader_csvContentTypes = Lens.lens (\CaptureContentTypeHeader' {csvContentTypes} -> csvContentTypes) (\s@CaptureContentTypeHeader' {} a -> s {csvContentTypes = a} :: CaptureContentTypeHeader) Core.. Lens.mapping Lens._Coerce
+captureContentTypeHeader_csvContentTypes :: Lens.Lens' CaptureContentTypeHeader (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+captureContentTypeHeader_csvContentTypes = Lens.lens (\CaptureContentTypeHeader' {csvContentTypes} -> csvContentTypes) (\s@CaptureContentTypeHeader' {} a -> s {csvContentTypes = a} :: CaptureContentTypeHeader) Prelude.. Lens.mapping Lens._Coerce
 
 -- |
-captureContentTypeHeader_jsonContentTypes :: Lens.Lens' CaptureContentTypeHeader (Core.Maybe (Core.NonEmpty Core.Text))
-captureContentTypeHeader_jsonContentTypes = Lens.lens (\CaptureContentTypeHeader' {jsonContentTypes} -> jsonContentTypes) (\s@CaptureContentTypeHeader' {} a -> s {jsonContentTypes = a} :: CaptureContentTypeHeader) Core.. Lens.mapping Lens._Coerce
+captureContentTypeHeader_jsonContentTypes :: Lens.Lens' CaptureContentTypeHeader (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+captureContentTypeHeader_jsonContentTypes = Lens.lens (\CaptureContentTypeHeader' {jsonContentTypes} -> jsonContentTypes) (\s@CaptureContentTypeHeader' {} a -> s {jsonContentTypes = a} :: CaptureContentTypeHeader) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON CaptureContentTypeHeader where
   parseJSON =
@@ -65,21 +66,21 @@ instance Core.FromJSON CaptureContentTypeHeader where
       "CaptureContentTypeHeader"
       ( \x ->
           CaptureContentTypeHeader'
-            Core.<$> (x Core..:? "CsvContentTypes")
-            Core.<*> (x Core..:? "JsonContentTypes")
+            Prelude.<$> (x Core..:? "CsvContentTypes")
+            Prelude.<*> (x Core..:? "JsonContentTypes")
       )
 
-instance Core.Hashable CaptureContentTypeHeader
+instance Prelude.Hashable CaptureContentTypeHeader
 
-instance Core.NFData CaptureContentTypeHeader
+instance Prelude.NFData CaptureContentTypeHeader
 
 instance Core.ToJSON CaptureContentTypeHeader where
   toJSON CaptureContentTypeHeader' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("CsvContentTypes" Core..=)
-              Core.<$> csvContentTypes,
+              Prelude.<$> csvContentTypes,
             ("JsonContentTypes" Core..=)
-              Core.<$> jsonContentTypes
+              Prelude.<$> jsonContentTypes
           ]
       )

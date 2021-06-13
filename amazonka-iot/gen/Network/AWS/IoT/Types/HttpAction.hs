@@ -23,15 +23,16 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.HttpActionHeader
 import Network.AWS.IoT.Types.HttpAuthorization
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Send data to an HTTPS endpoint.
 --
 -- /See:/ 'newHttpAction' smart constructor.
 data HttpAction = HttpAction'
   { -- | The HTTP headers to send with the message data.
-    headers :: Core.Maybe [HttpActionHeader],
+    headers :: Prelude.Maybe [HttpActionHeader],
     -- | The authentication method to use when sending data to an HTTPS endpoint.
-    auth :: Core.Maybe HttpAuthorization,
+    auth :: Prelude.Maybe HttpAuthorization,
     -- | The URL to which AWS IoT sends a confirmation message. The value of the
     -- confirmation URL must be a prefix of the endpoint URL. If you do not
     -- specify a confirmation URL AWS IoT uses the endpoint URL as the
@@ -39,13 +40,13 @@ data HttpAction = HttpAction'
     -- confirmationUrl, you must create and enable topic rule destinations that
     -- match each possible value of the substitution template before traffic is
     -- allowed to your endpoint URL.
-    confirmationUrl :: Core.Maybe Core.Text,
+    confirmationUrl :: Prelude.Maybe Prelude.Text,
     -- | The endpoint URL. If substitution templates are used in the URL, you
     -- must also specify a @confirmationUrl@. If this is a new destination, a
     -- new @TopicRuleDestination@ is created if possible.
-    url :: Core.Text
+    url :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HttpAction' with all optional fields omitted.
@@ -72,22 +73,22 @@ data HttpAction = HttpAction'
 -- new @TopicRuleDestination@ is created if possible.
 newHttpAction ::
   -- | 'url'
-  Core.Text ->
+  Prelude.Text ->
   HttpAction
 newHttpAction pUrl_ =
   HttpAction'
-    { headers = Core.Nothing,
-      auth = Core.Nothing,
-      confirmationUrl = Core.Nothing,
+    { headers = Prelude.Nothing,
+      auth = Prelude.Nothing,
+      confirmationUrl = Prelude.Nothing,
       url = pUrl_
     }
 
 -- | The HTTP headers to send with the message data.
-httpAction_headers :: Lens.Lens' HttpAction (Core.Maybe [HttpActionHeader])
-httpAction_headers = Lens.lens (\HttpAction' {headers} -> headers) (\s@HttpAction' {} a -> s {headers = a} :: HttpAction) Core.. Lens.mapping Lens._Coerce
+httpAction_headers :: Lens.Lens' HttpAction (Prelude.Maybe [HttpActionHeader])
+httpAction_headers = Lens.lens (\HttpAction' {headers} -> headers) (\s@HttpAction' {} a -> s {headers = a} :: HttpAction) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The authentication method to use when sending data to an HTTPS endpoint.
-httpAction_auth :: Lens.Lens' HttpAction (Core.Maybe HttpAuthorization)
+httpAction_auth :: Lens.Lens' HttpAction (Prelude.Maybe HttpAuthorization)
 httpAction_auth = Lens.lens (\HttpAction' {auth} -> auth) (\s@HttpAction' {} a -> s {auth = a} :: HttpAction)
 
 -- | The URL to which AWS IoT sends a confirmation message. The value of the
@@ -97,13 +98,13 @@ httpAction_auth = Lens.lens (\HttpAction' {auth} -> auth) (\s@HttpAction' {} a -
 -- confirmationUrl, you must create and enable topic rule destinations that
 -- match each possible value of the substitution template before traffic is
 -- allowed to your endpoint URL.
-httpAction_confirmationUrl :: Lens.Lens' HttpAction (Core.Maybe Core.Text)
+httpAction_confirmationUrl :: Lens.Lens' HttpAction (Prelude.Maybe Prelude.Text)
 httpAction_confirmationUrl = Lens.lens (\HttpAction' {confirmationUrl} -> confirmationUrl) (\s@HttpAction' {} a -> s {confirmationUrl = a} :: HttpAction)
 
 -- | The endpoint URL. If substitution templates are used in the URL, you
 -- must also specify a @confirmationUrl@. If this is a new destination, a
 -- new @TopicRuleDestination@ is created if possible.
-httpAction_url :: Lens.Lens' HttpAction Core.Text
+httpAction_url :: Lens.Lens' HttpAction Prelude.Text
 httpAction_url = Lens.lens (\HttpAction' {url} -> url) (\s@HttpAction' {} a -> s {url = a} :: HttpAction)
 
 instance Core.FromJSON HttpAction where
@@ -112,23 +113,24 @@ instance Core.FromJSON HttpAction where
       "HttpAction"
       ( \x ->
           HttpAction'
-            Core.<$> (x Core..:? "headers" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "auth")
-            Core.<*> (x Core..:? "confirmationUrl")
-            Core.<*> (x Core..: "url")
+            Prelude.<$> (x Core..:? "headers" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "auth")
+            Prelude.<*> (x Core..:? "confirmationUrl")
+            Prelude.<*> (x Core..: "url")
       )
 
-instance Core.Hashable HttpAction
+instance Prelude.Hashable HttpAction
 
-instance Core.NFData HttpAction
+instance Prelude.NFData HttpAction
 
 instance Core.ToJSON HttpAction where
   toJSON HttpAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("headers" Core..=) Core.<$> headers,
-            ("auth" Core..=) Core.<$> auth,
-            ("confirmationUrl" Core..=) Core.<$> confirmationUrl,
-            Core.Just ("url" Core..= url)
+      ( Prelude.catMaybes
+          [ ("headers" Core..=) Prelude.<$> headers,
+            ("auth" Core..=) Prelude.<$> auth,
+            ("confirmationUrl" Core..=)
+              Prelude.<$> confirmationUrl,
+            Prelude.Just ("url" Core..= url)
           ]
       )

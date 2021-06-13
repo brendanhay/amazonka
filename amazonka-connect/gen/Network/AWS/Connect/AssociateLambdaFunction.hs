@@ -43,18 +43,19 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateLambdaFunction' smart constructor.
 data AssociateLambdaFunction = AssociateLambdaFunction'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the Lambda function being associated.
     -- Maximum number of characters allowed is 140.
-    functionArn :: Core.Text
+    functionArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateLambdaFunction' with all optional fields omitted.
@@ -70,9 +71,9 @@ data AssociateLambdaFunction = AssociateLambdaFunction'
 -- Maximum number of characters allowed is 140.
 newAssociateLambdaFunction ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'functionArn'
-  Core.Text ->
+  Prelude.Text ->
   AssociateLambdaFunction
 newAssociateLambdaFunction pInstanceId_ pFunctionArn_ =
   AssociateLambdaFunction'
@@ -81,12 +82,12 @@ newAssociateLambdaFunction pInstanceId_ pFunctionArn_ =
     }
 
 -- | The identifier of the Amazon Connect instance.
-associateLambdaFunction_instanceId :: Lens.Lens' AssociateLambdaFunction Core.Text
+associateLambdaFunction_instanceId :: Lens.Lens' AssociateLambdaFunction Prelude.Text
 associateLambdaFunction_instanceId = Lens.lens (\AssociateLambdaFunction' {instanceId} -> instanceId) (\s@AssociateLambdaFunction' {} a -> s {instanceId = a} :: AssociateLambdaFunction)
 
 -- | The Amazon Resource Name (ARN) for the Lambda function being associated.
 -- Maximum number of characters allowed is 140.
-associateLambdaFunction_functionArn :: Lens.Lens' AssociateLambdaFunction Core.Text
+associateLambdaFunction_functionArn :: Lens.Lens' AssociateLambdaFunction Prelude.Text
 associateLambdaFunction_functionArn = Lens.lens (\AssociateLambdaFunction' {functionArn} -> functionArn) (\s@AssociateLambdaFunction' {} a -> s {functionArn = a} :: AssociateLambdaFunction)
 
 instance Core.AWSRequest AssociateLambdaFunction where
@@ -98,42 +99,44 @@ instance Core.AWSRequest AssociateLambdaFunction where
     Response.receiveNull
       AssociateLambdaFunctionResponse'
 
-instance Core.Hashable AssociateLambdaFunction
+instance Prelude.Hashable AssociateLambdaFunction
 
-instance Core.NFData AssociateLambdaFunction
+instance Prelude.NFData AssociateLambdaFunction
 
 instance Core.ToHeaders AssociateLambdaFunction where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateLambdaFunction where
   toJSON AssociateLambdaFunction' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("FunctionArn" Core..= functionArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("FunctionArn" Core..= functionArn)]
       )
 
 instance Core.ToPath AssociateLambdaFunction where
   toPath AssociateLambdaFunction' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/instance/",
         Core.toBS instanceId,
         "/lambda-function"
       ]
 
 instance Core.ToQuery AssociateLambdaFunction where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateLambdaFunctionResponse' smart constructor.
 data AssociateLambdaFunctionResponse = AssociateLambdaFunctionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateLambdaFunctionResponse' with all optional fields omitted.
@@ -144,4 +147,6 @@ newAssociateLambdaFunctionResponse ::
 newAssociateLambdaFunctionResponse =
   AssociateLambdaFunctionResponse'
 
-instance Core.NFData AssociateLambdaFunctionResponse
+instance
+  Prelude.NFData
+    AssociateLambdaFunctionResponse

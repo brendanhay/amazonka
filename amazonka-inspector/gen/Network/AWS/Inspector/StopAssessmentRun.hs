@@ -40,6 +40,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +51,11 @@ data StopAssessmentRun = StopAssessmentRun'
     -- agent from collecting data and begins the results evaluation and the
     -- findings generation process. SKIP_EVALUATION cancels the assessment run
     -- immediately, after which no findings are generated.
-    stopAction :: Core.Maybe StopAction,
+    stopAction :: Prelude.Maybe StopAction,
     -- | The ARN of the assessment run that you want to stop.
-    assessmentRunArn :: Core.Text
+    assessmentRunArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopAssessmentRun' with all optional fields omitted.
@@ -73,11 +74,11 @@ data StopAssessmentRun = StopAssessmentRun'
 -- 'assessmentRunArn', 'stopAssessmentRun_assessmentRunArn' - The ARN of the assessment run that you want to stop.
 newStopAssessmentRun ::
   -- | 'assessmentRunArn'
-  Core.Text ->
+  Prelude.Text ->
   StopAssessmentRun
 newStopAssessmentRun pAssessmentRunArn_ =
   StopAssessmentRun'
-    { stopAction = Core.Nothing,
+    { stopAction = Prelude.Nothing,
       assessmentRunArn = pAssessmentRunArn_
     }
 
@@ -86,11 +87,11 @@ newStopAssessmentRun pAssessmentRunArn_ =
 -- agent from collecting data and begins the results evaluation and the
 -- findings generation process. SKIP_EVALUATION cancels the assessment run
 -- immediately, after which no findings are generated.
-stopAssessmentRun_stopAction :: Lens.Lens' StopAssessmentRun (Core.Maybe StopAction)
+stopAssessmentRun_stopAction :: Lens.Lens' StopAssessmentRun (Prelude.Maybe StopAction)
 stopAssessmentRun_stopAction = Lens.lens (\StopAssessmentRun' {stopAction} -> stopAction) (\s@StopAssessmentRun' {} a -> s {stopAction = a} :: StopAssessmentRun)
 
 -- | The ARN of the assessment run that you want to stop.
-stopAssessmentRun_assessmentRunArn :: Lens.Lens' StopAssessmentRun Core.Text
+stopAssessmentRun_assessmentRunArn :: Lens.Lens' StopAssessmentRun Prelude.Text
 stopAssessmentRun_assessmentRunArn = Lens.lens (\StopAssessmentRun' {assessmentRunArn} -> assessmentRunArn) (\s@StopAssessmentRun' {} a -> s {assessmentRunArn = a} :: StopAssessmentRun)
 
 instance Core.AWSRequest StopAssessmentRun where
@@ -101,44 +102,46 @@ instance Core.AWSRequest StopAssessmentRun where
   response =
     Response.receiveNull StopAssessmentRunResponse'
 
-instance Core.Hashable StopAssessmentRun
+instance Prelude.Hashable StopAssessmentRun
 
-instance Core.NFData StopAssessmentRun
+instance Prelude.NFData StopAssessmentRun
 
 instance Core.ToHeaders StopAssessmentRun where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "InspectorService.StopAssessmentRun" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopAssessmentRun where
   toJSON StopAssessmentRun' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("stopAction" Core..=) Core.<$> stopAction,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("stopAction" Core..=) Prelude.<$> stopAction,
+            Prelude.Just
               ("assessmentRunArn" Core..= assessmentRunArn)
           ]
       )
 
 instance Core.ToPath StopAssessmentRun where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopAssessmentRun where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopAssessmentRunResponse' smart constructor.
 data StopAssessmentRunResponse = StopAssessmentRunResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopAssessmentRunResponse' with all optional fields omitted.
@@ -149,4 +152,4 @@ newStopAssessmentRunResponse ::
 newStopAssessmentRunResponse =
   StopAssessmentRunResponse'
 
-instance Core.NFData StopAssessmentRunResponse
+instance Prelude.NFData StopAssessmentRunResponse

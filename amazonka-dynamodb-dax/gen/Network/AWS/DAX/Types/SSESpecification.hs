@@ -21,6 +21,7 @@ module Network.AWS.DAX.Types.SSESpecification where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the settings used to enable server-side encryption.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data SSESpecification = SSESpecification'
   { -- | Indicates whether server-side encryption is enabled (true) or disabled
     -- (false) on the cluster.
-    enabled :: Core.Bool
+    enabled :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SSESpecification' with all optional fields omitted.
@@ -44,23 +45,23 @@ data SSESpecification = SSESpecification'
 -- (false) on the cluster.
 newSSESpecification ::
   -- | 'enabled'
-  Core.Bool ->
+  Prelude.Bool ->
   SSESpecification
 newSSESpecification pEnabled_ =
   SSESpecification' {enabled = pEnabled_}
 
 -- | Indicates whether server-side encryption is enabled (true) or disabled
 -- (false) on the cluster.
-sSESpecification_enabled :: Lens.Lens' SSESpecification Core.Bool
+sSESpecification_enabled :: Lens.Lens' SSESpecification Prelude.Bool
 sSESpecification_enabled = Lens.lens (\SSESpecification' {enabled} -> enabled) (\s@SSESpecification' {} a -> s {enabled = a} :: SSESpecification)
 
-instance Core.Hashable SSESpecification
+instance Prelude.Hashable SSESpecification
 
-instance Core.NFData SSESpecification
+instance Prelude.NFData SSESpecification
 
 instance Core.ToJSON SSESpecification where
   toJSON SSESpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Enabled" Core..= enabled)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Enabled" Core..= enabled)]
       )

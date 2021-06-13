@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DeleteInvitations = DeleteInvitations'
   { -- | A list of account IDs of the AWS accounts that sent invitations to the
     -- current member account that you want to delete invitations from.
-    accountIds :: Core.NonEmpty Core.Text
+    accountIds :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInvitations' with all optional fields omitted.
@@ -66,7 +67,7 @@ data DeleteInvitations = DeleteInvitations'
 -- current member account that you want to delete invitations from.
 newDeleteInvitations ::
   -- | 'accountIds'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   DeleteInvitations
 newDeleteInvitations pAccountIds_ =
   DeleteInvitations'
@@ -76,8 +77,8 @@ newDeleteInvitations pAccountIds_ =
 
 -- | A list of account IDs of the AWS accounts that sent invitations to the
 -- current member account that you want to delete invitations from.
-deleteInvitations_accountIds :: Lens.Lens' DeleteInvitations (Core.NonEmpty Core.Text)
-deleteInvitations_accountIds = Lens.lens (\DeleteInvitations' {accountIds} -> accountIds) (\s@DeleteInvitations' {} a -> s {accountIds = a} :: DeleteInvitations) Core.. Lens._Coerce
+deleteInvitations_accountIds :: Lens.Lens' DeleteInvitations (Prelude.NonEmpty Prelude.Text)
+deleteInvitations_accountIds = Lens.lens (\DeleteInvitations' {accountIds} -> accountIds) (\s@DeleteInvitations' {} a -> s {accountIds = a} :: DeleteInvitations) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DeleteInvitations where
   type
@@ -88,47 +89,49 @@ instance Core.AWSRequest DeleteInvitations where
     Response.receiveJSON
       ( \s h x ->
           DeleteInvitationsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..?> "unprocessedAccounts"
-                         Core..!@ Core.mempty
-                     )
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "unprocessedAccounts"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
-instance Core.Hashable DeleteInvitations
+instance Prelude.Hashable DeleteInvitations
 
-instance Core.NFData DeleteInvitations
+instance Prelude.NFData DeleteInvitations
 
 instance Core.ToHeaders DeleteInvitations where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteInvitations where
   toJSON DeleteInvitations' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("accountIds" Core..= accountIds)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("accountIds" Core..= accountIds)]
       )
 
 instance Core.ToPath DeleteInvitations where
-  toPath = Core.const "/invitation/delete"
+  toPath = Prelude.const "/invitation/delete"
 
 instance Core.ToQuery DeleteInvitations where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteInvitationsResponse' smart constructor.
 data DeleteInvitationsResponse = DeleteInvitationsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of objects that contain the unprocessed account and a result
     -- string that explains why it was unprocessed.
     unprocessedAccounts :: [UnprocessedAccount]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteInvitationsResponse' with all optional fields omitted.
@@ -144,22 +147,22 @@ data DeleteInvitationsResponse = DeleteInvitationsResponse'
 -- string that explains why it was unprocessed.
 newDeleteInvitationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteInvitationsResponse
 newDeleteInvitationsResponse pHttpStatus_ =
   DeleteInvitationsResponse'
     { httpStatus =
         pHttpStatus_,
-      unprocessedAccounts = Core.mempty
+      unprocessedAccounts = Prelude.mempty
     }
 
 -- | The response's http status code.
-deleteInvitationsResponse_httpStatus :: Lens.Lens' DeleteInvitationsResponse Core.Int
+deleteInvitationsResponse_httpStatus :: Lens.Lens' DeleteInvitationsResponse Prelude.Int
 deleteInvitationsResponse_httpStatus = Lens.lens (\DeleteInvitationsResponse' {httpStatus} -> httpStatus) (\s@DeleteInvitationsResponse' {} a -> s {httpStatus = a} :: DeleteInvitationsResponse)
 
 -- | A list of objects that contain the unprocessed account and a result
 -- string that explains why it was unprocessed.
 deleteInvitationsResponse_unprocessedAccounts :: Lens.Lens' DeleteInvitationsResponse [UnprocessedAccount]
-deleteInvitationsResponse_unprocessedAccounts = Lens.lens (\DeleteInvitationsResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DeleteInvitationsResponse' {} a -> s {unprocessedAccounts = a} :: DeleteInvitationsResponse) Core.. Lens._Coerce
+deleteInvitationsResponse_unprocessedAccounts = Lens.lens (\DeleteInvitationsResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DeleteInvitationsResponse' {} a -> s {unprocessedAccounts = a} :: DeleteInvitationsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData DeleteInvitationsResponse
+instance Prelude.NFData DeleteInvitationsResponse

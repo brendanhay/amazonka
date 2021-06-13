@@ -21,17 +21,18 @@ module Network.AWS.GuardDuty.Types.ProductCode where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the product code for the EC2 instance.
 --
 -- /See:/ 'newProductCode' smart constructor.
 data ProductCode = ProductCode'
   { -- | The product code information.
-    code :: Core.Maybe Core.Text,
+    code :: Prelude.Maybe Prelude.Text,
     -- | The product code type.
-    productType :: Core.Maybe Core.Text
+    productType :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProductCode' with all optional fields omitted.
@@ -48,16 +49,16 @@ newProductCode ::
   ProductCode
 newProductCode =
   ProductCode'
-    { code = Core.Nothing,
-      productType = Core.Nothing
+    { code = Prelude.Nothing,
+      productType = Prelude.Nothing
     }
 
 -- | The product code information.
-productCode_code :: Lens.Lens' ProductCode (Core.Maybe Core.Text)
+productCode_code :: Lens.Lens' ProductCode (Prelude.Maybe Prelude.Text)
 productCode_code = Lens.lens (\ProductCode' {code} -> code) (\s@ProductCode' {} a -> s {code = a} :: ProductCode)
 
 -- | The product code type.
-productCode_productType :: Lens.Lens' ProductCode (Core.Maybe Core.Text)
+productCode_productType :: Lens.Lens' ProductCode (Prelude.Maybe Prelude.Text)
 productCode_productType = Lens.lens (\ProductCode' {productType} -> productType) (\s@ProductCode' {} a -> s {productType = a} :: ProductCode)
 
 instance Core.FromJSON ProductCode where
@@ -66,10 +67,10 @@ instance Core.FromJSON ProductCode where
       "ProductCode"
       ( \x ->
           ProductCode'
-            Core.<$> (x Core..:? "code")
-            Core.<*> (x Core..:? "productType")
+            Prelude.<$> (x Core..:? "code")
+            Prelude.<*> (x Core..:? "productType")
       )
 
-instance Core.Hashable ProductCode
+instance Prelude.Hashable ProductCode
 
-instance Core.NFData ProductCode
+instance Prelude.NFData ProductCode

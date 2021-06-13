@@ -43,6 +43,7 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DescribePiiEntitiesDetectionJob = DescribePiiEntitiesDetectionJob'
   { -- | The identifier that Amazon Comprehend generated for the job. The
     -- operation returns this identifier in its response.
-    jobId :: Core.Text
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePiiEntitiesDetectionJob' with all optional fields omitted.
@@ -66,14 +67,14 @@ data DescribePiiEntitiesDetectionJob = DescribePiiEntitiesDetectionJob'
 -- operation returns this identifier in its response.
 newDescribePiiEntitiesDetectionJob ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   DescribePiiEntitiesDetectionJob
 newDescribePiiEntitiesDetectionJob pJobId_ =
   DescribePiiEntitiesDetectionJob' {jobId = pJobId_}
 
 -- | The identifier that Amazon Comprehend generated for the job. The
 -- operation returns this identifier in its response.
-describePiiEntitiesDetectionJob_jobId :: Lens.Lens' DescribePiiEntitiesDetectionJob Core.Text
+describePiiEntitiesDetectionJob_jobId :: Lens.Lens' DescribePiiEntitiesDetectionJob Prelude.Text
 describePiiEntitiesDetectionJob_jobId = Lens.lens (\DescribePiiEntitiesDetectionJob' {jobId} -> jobId) (\s@DescribePiiEntitiesDetectionJob' {} a -> s {jobId = a} :: DescribePiiEntitiesDetectionJob)
 
 instance
@@ -88,50 +89,56 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribePiiEntitiesDetectionJobResponse'
-            Core.<$> (x Core..?> "PiiEntitiesDetectionJobProperties")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "PiiEntitiesDetectionJobProperties")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribePiiEntitiesDetectionJob
 
-instance Core.NFData DescribePiiEntitiesDetectionJob
+instance
+  Prelude.NFData
+    DescribePiiEntitiesDetectionJob
 
 instance
   Core.ToHeaders
     DescribePiiEntitiesDetectionJob
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.DescribePiiEntitiesDetectionJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribePiiEntitiesDetectionJob where
   toJSON DescribePiiEntitiesDetectionJob' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("JobId" Core..= jobId)]
+      )
 
 instance Core.ToPath DescribePiiEntitiesDetectionJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribePiiEntitiesDetectionJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePiiEntitiesDetectionJobResponse' smart constructor.
 data DescribePiiEntitiesDetectionJobResponse = DescribePiiEntitiesDetectionJobResponse'
-  { piiEntitiesDetectionJobProperties :: Core.Maybe PiiEntitiesDetectionJobProperties,
+  { piiEntitiesDetectionJobProperties :: Prelude.Maybe PiiEntitiesDetectionJobProperties,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePiiEntitiesDetectionJobResponse' with all optional fields omitted.
@@ -146,24 +153,24 @@ data DescribePiiEntitiesDetectionJobResponse = DescribePiiEntitiesDetectionJobRe
 -- 'httpStatus', 'describePiiEntitiesDetectionJobResponse_httpStatus' - The response's http status code.
 newDescribePiiEntitiesDetectionJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribePiiEntitiesDetectionJobResponse
 newDescribePiiEntitiesDetectionJobResponse
   pHttpStatus_ =
     DescribePiiEntitiesDetectionJobResponse'
       { piiEntitiesDetectionJobProperties =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-describePiiEntitiesDetectionJobResponse_piiEntitiesDetectionJobProperties :: Lens.Lens' DescribePiiEntitiesDetectionJobResponse (Core.Maybe PiiEntitiesDetectionJobProperties)
+describePiiEntitiesDetectionJobResponse_piiEntitiesDetectionJobProperties :: Lens.Lens' DescribePiiEntitiesDetectionJobResponse (Prelude.Maybe PiiEntitiesDetectionJobProperties)
 describePiiEntitiesDetectionJobResponse_piiEntitiesDetectionJobProperties = Lens.lens (\DescribePiiEntitiesDetectionJobResponse' {piiEntitiesDetectionJobProperties} -> piiEntitiesDetectionJobProperties) (\s@DescribePiiEntitiesDetectionJobResponse' {} a -> s {piiEntitiesDetectionJobProperties = a} :: DescribePiiEntitiesDetectionJobResponse)
 
 -- | The response's http status code.
-describePiiEntitiesDetectionJobResponse_httpStatus :: Lens.Lens' DescribePiiEntitiesDetectionJobResponse Core.Int
+describePiiEntitiesDetectionJobResponse_httpStatus :: Lens.Lens' DescribePiiEntitiesDetectionJobResponse Prelude.Int
 describePiiEntitiesDetectionJobResponse_httpStatus = Lens.lens (\DescribePiiEntitiesDetectionJobResponse' {httpStatus} -> httpStatus) (\s@DescribePiiEntitiesDetectionJobResponse' {} a -> s {httpStatus = a} :: DescribePiiEntitiesDetectionJobResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribePiiEntitiesDetectionJobResponse

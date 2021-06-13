@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.AssociationStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a target network associated with a Client VPN endpoint.
 --
@@ -30,20 +31,20 @@ import qualified Network.AWS.Lens as Lens
 data TargetNetwork = TargetNetwork'
   { -- | The ID of the Client VPN endpoint with which the target network is
     -- associated.
-    clientVpnEndpointId :: Core.Maybe Core.Text,
+    clientVpnEndpointId :: Prelude.Maybe Prelude.Text,
     -- | The current state of the target network association.
-    status :: Core.Maybe AssociationStatus,
+    status :: Prelude.Maybe AssociationStatus,
     -- | The IDs of the security groups applied to the target network
     -- association.
-    securityGroups :: Core.Maybe [Core.Text],
+    securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the association.
-    associationId :: Core.Maybe Core.Text,
+    associationId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC in which the target network (subnet) is located.
-    vpcId :: Core.Maybe Core.Text,
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the subnet specified as the target network.
-    targetNetworkId :: Core.Maybe Core.Text
+    targetNetworkId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TargetNetwork' with all optional fields omitted.
@@ -70,52 +71,53 @@ newTargetNetwork ::
   TargetNetwork
 newTargetNetwork =
   TargetNetwork'
-    { clientVpnEndpointId = Core.Nothing,
-      status = Core.Nothing,
-      securityGroups = Core.Nothing,
-      associationId = Core.Nothing,
-      vpcId = Core.Nothing,
-      targetNetworkId = Core.Nothing
+    { clientVpnEndpointId =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      securityGroups = Prelude.Nothing,
+      associationId = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      targetNetworkId = Prelude.Nothing
     }
 
 -- | The ID of the Client VPN endpoint with which the target network is
 -- associated.
-targetNetwork_clientVpnEndpointId :: Lens.Lens' TargetNetwork (Core.Maybe Core.Text)
+targetNetwork_clientVpnEndpointId :: Lens.Lens' TargetNetwork (Prelude.Maybe Prelude.Text)
 targetNetwork_clientVpnEndpointId = Lens.lens (\TargetNetwork' {clientVpnEndpointId} -> clientVpnEndpointId) (\s@TargetNetwork' {} a -> s {clientVpnEndpointId = a} :: TargetNetwork)
 
 -- | The current state of the target network association.
-targetNetwork_status :: Lens.Lens' TargetNetwork (Core.Maybe AssociationStatus)
+targetNetwork_status :: Lens.Lens' TargetNetwork (Prelude.Maybe AssociationStatus)
 targetNetwork_status = Lens.lens (\TargetNetwork' {status} -> status) (\s@TargetNetwork' {} a -> s {status = a} :: TargetNetwork)
 
 -- | The IDs of the security groups applied to the target network
 -- association.
-targetNetwork_securityGroups :: Lens.Lens' TargetNetwork (Core.Maybe [Core.Text])
-targetNetwork_securityGroups = Lens.lens (\TargetNetwork' {securityGroups} -> securityGroups) (\s@TargetNetwork' {} a -> s {securityGroups = a} :: TargetNetwork) Core.. Lens.mapping Lens._Coerce
+targetNetwork_securityGroups :: Lens.Lens' TargetNetwork (Prelude.Maybe [Prelude.Text])
+targetNetwork_securityGroups = Lens.lens (\TargetNetwork' {securityGroups} -> securityGroups) (\s@TargetNetwork' {} a -> s {securityGroups = a} :: TargetNetwork) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the association.
-targetNetwork_associationId :: Lens.Lens' TargetNetwork (Core.Maybe Core.Text)
+targetNetwork_associationId :: Lens.Lens' TargetNetwork (Prelude.Maybe Prelude.Text)
 targetNetwork_associationId = Lens.lens (\TargetNetwork' {associationId} -> associationId) (\s@TargetNetwork' {} a -> s {associationId = a} :: TargetNetwork)
 
 -- | The ID of the VPC in which the target network (subnet) is located.
-targetNetwork_vpcId :: Lens.Lens' TargetNetwork (Core.Maybe Core.Text)
+targetNetwork_vpcId :: Lens.Lens' TargetNetwork (Prelude.Maybe Prelude.Text)
 targetNetwork_vpcId = Lens.lens (\TargetNetwork' {vpcId} -> vpcId) (\s@TargetNetwork' {} a -> s {vpcId = a} :: TargetNetwork)
 
 -- | The ID of the subnet specified as the target network.
-targetNetwork_targetNetworkId :: Lens.Lens' TargetNetwork (Core.Maybe Core.Text)
+targetNetwork_targetNetworkId :: Lens.Lens' TargetNetwork (Prelude.Maybe Prelude.Text)
 targetNetwork_targetNetworkId = Lens.lens (\TargetNetwork' {targetNetworkId} -> targetNetworkId) (\s@TargetNetwork' {} a -> s {targetNetworkId = a} :: TargetNetwork)
 
 instance Core.FromXML TargetNetwork where
   parseXML x =
     TargetNetwork'
-      Core.<$> (x Core..@? "clientVpnEndpointId")
-      Core.<*> (x Core..@? "status")
-      Core.<*> ( x Core..@? "securityGroups" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "associationId")
-      Core.<*> (x Core..@? "vpcId")
-      Core.<*> (x Core..@? "targetNetworkId")
+      Prelude.<$> (x Core..@? "clientVpnEndpointId")
+      Prelude.<*> (x Core..@? "status")
+      Prelude.<*> ( x Core..@? "securityGroups" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "associationId")
+      Prelude.<*> (x Core..@? "vpcId")
+      Prelude.<*> (x Core..@? "targetNetworkId")
 
-instance Core.Hashable TargetNetwork
+instance Prelude.Hashable TargetNetwork
 
-instance Core.NFData TargetNetwork
+instance Prelude.NFData TargetNetwork

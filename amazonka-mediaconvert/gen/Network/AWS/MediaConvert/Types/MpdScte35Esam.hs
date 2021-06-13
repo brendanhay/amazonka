@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.MpdScte35Esam
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose
 -- INSERT to put SCTE-35 markers in this output at the insertion points
@@ -37,15 +38,15 @@ newtype MpdScte35Esam = MpdScte35Esam'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

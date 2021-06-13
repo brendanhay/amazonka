@@ -21,15 +21,16 @@ module Network.AWS.XRay.Types.InstanceIdDetail where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of EC2 instance IDs corresponding to the segments in a trace.
 --
 -- /See:/ 'newInstanceIdDetail' smart constructor.
 data InstanceIdDetail = InstanceIdDetail'
   { -- | The ID of a corresponding EC2 instance.
-    id :: Core.Maybe Core.Text
+    id :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceIdDetail' with all optional fields omitted.
@@ -43,18 +44,20 @@ data InstanceIdDetail = InstanceIdDetail'
 newInstanceIdDetail ::
   InstanceIdDetail
 newInstanceIdDetail =
-  InstanceIdDetail' {id = Core.Nothing}
+  InstanceIdDetail' {id = Prelude.Nothing}
 
 -- | The ID of a corresponding EC2 instance.
-instanceIdDetail_id :: Lens.Lens' InstanceIdDetail (Core.Maybe Core.Text)
+instanceIdDetail_id :: Lens.Lens' InstanceIdDetail (Prelude.Maybe Prelude.Text)
 instanceIdDetail_id = Lens.lens (\InstanceIdDetail' {id} -> id) (\s@InstanceIdDetail' {} a -> s {id = a} :: InstanceIdDetail)
 
 instance Core.FromJSON InstanceIdDetail where
   parseJSON =
     Core.withObject
       "InstanceIdDetail"
-      (\x -> InstanceIdDetail' Core.<$> (x Core..:? "Id"))
+      ( \x ->
+          InstanceIdDetail' Prelude.<$> (x Core..:? "Id")
+      )
 
-instance Core.Hashable InstanceIdDetail
+instance Prelude.Hashable InstanceIdDetail
 
-instance Core.NFData InstanceIdDetail
+instance Prelude.NFData InstanceIdDetail

@@ -22,18 +22,19 @@ module Network.AWS.Glue.Types.CloudWatchEncryption where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.CloudWatchEncryptionMode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies how Amazon CloudWatch data should be encrypted.
 --
 -- /See:/ 'newCloudWatchEncryption' smart constructor.
 data CloudWatchEncryption = CloudWatchEncryption'
   { -- | The encryption mode to use for CloudWatch data.
-    cloudWatchEncryptionMode :: Core.Maybe CloudWatchEncryptionMode,
+    cloudWatchEncryptionMode :: Prelude.Maybe CloudWatchEncryptionMode,
     -- | The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the
     -- data.
-    kmsKeyArn :: Core.Maybe Core.Text
+    kmsKeyArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CloudWatchEncryption' with all optional fields omitted.
@@ -52,17 +53,17 @@ newCloudWatchEncryption ::
 newCloudWatchEncryption =
   CloudWatchEncryption'
     { cloudWatchEncryptionMode =
-        Core.Nothing,
-      kmsKeyArn = Core.Nothing
+        Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing
     }
 
 -- | The encryption mode to use for CloudWatch data.
-cloudWatchEncryption_cloudWatchEncryptionMode :: Lens.Lens' CloudWatchEncryption (Core.Maybe CloudWatchEncryptionMode)
+cloudWatchEncryption_cloudWatchEncryptionMode :: Lens.Lens' CloudWatchEncryption (Prelude.Maybe CloudWatchEncryptionMode)
 cloudWatchEncryption_cloudWatchEncryptionMode = Lens.lens (\CloudWatchEncryption' {cloudWatchEncryptionMode} -> cloudWatchEncryptionMode) (\s@CloudWatchEncryption' {} a -> s {cloudWatchEncryptionMode = a} :: CloudWatchEncryption)
 
 -- | The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the
 -- data.
-cloudWatchEncryption_kmsKeyArn :: Lens.Lens' CloudWatchEncryption (Core.Maybe Core.Text)
+cloudWatchEncryption_kmsKeyArn :: Lens.Lens' CloudWatchEncryption (Prelude.Maybe Prelude.Text)
 cloudWatchEncryption_kmsKeyArn = Lens.lens (\CloudWatchEncryption' {kmsKeyArn} -> kmsKeyArn) (\s@CloudWatchEncryption' {} a -> s {kmsKeyArn = a} :: CloudWatchEncryption)
 
 instance Core.FromJSON CloudWatchEncryption where
@@ -71,20 +72,20 @@ instance Core.FromJSON CloudWatchEncryption where
       "CloudWatchEncryption"
       ( \x ->
           CloudWatchEncryption'
-            Core.<$> (x Core..:? "CloudWatchEncryptionMode")
-            Core.<*> (x Core..:? "KmsKeyArn")
+            Prelude.<$> (x Core..:? "CloudWatchEncryptionMode")
+            Prelude.<*> (x Core..:? "KmsKeyArn")
       )
 
-instance Core.Hashable CloudWatchEncryption
+instance Prelude.Hashable CloudWatchEncryption
 
-instance Core.NFData CloudWatchEncryption
+instance Prelude.NFData CloudWatchEncryption
 
 instance Core.ToJSON CloudWatchEncryption where
   toJSON CloudWatchEncryption' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("CloudWatchEncryptionMode" Core..=)
-              Core.<$> cloudWatchEncryptionMode,
-            ("KmsKeyArn" Core..=) Core.<$> kmsKeyArn
+              Prelude.<$> cloudWatchEncryptionMode,
+            ("KmsKeyArn" Core..=) Prelude.<$> kmsKeyArn
           ]
       )

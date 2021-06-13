@@ -22,19 +22,20 @@ module Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverActionsType wher
 import Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverActionType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Account takeover actions type.
 --
 -- /See:/ 'newAccountTakeoverActionsType' smart constructor.
 data AccountTakeoverActionsType = AccountTakeoverActionsType'
   { -- | Action to take for a low risk.
-    lowAction :: Core.Maybe AccountTakeoverActionType,
+    lowAction :: Prelude.Maybe AccountTakeoverActionType,
     -- | Action to take for a medium risk.
-    mediumAction :: Core.Maybe AccountTakeoverActionType,
+    mediumAction :: Prelude.Maybe AccountTakeoverActionType,
     -- | Action to take for a high risk.
-    highAction :: Core.Maybe AccountTakeoverActionType
+    highAction :: Prelude.Maybe AccountTakeoverActionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccountTakeoverActionsType' with all optional fields omitted.
@@ -54,21 +55,21 @@ newAccountTakeoverActionsType ::
 newAccountTakeoverActionsType =
   AccountTakeoverActionsType'
     { lowAction =
-        Core.Nothing,
-      mediumAction = Core.Nothing,
-      highAction = Core.Nothing
+        Prelude.Nothing,
+      mediumAction = Prelude.Nothing,
+      highAction = Prelude.Nothing
     }
 
 -- | Action to take for a low risk.
-accountTakeoverActionsType_lowAction :: Lens.Lens' AccountTakeoverActionsType (Core.Maybe AccountTakeoverActionType)
+accountTakeoverActionsType_lowAction :: Lens.Lens' AccountTakeoverActionsType (Prelude.Maybe AccountTakeoverActionType)
 accountTakeoverActionsType_lowAction = Lens.lens (\AccountTakeoverActionsType' {lowAction} -> lowAction) (\s@AccountTakeoverActionsType' {} a -> s {lowAction = a} :: AccountTakeoverActionsType)
 
 -- | Action to take for a medium risk.
-accountTakeoverActionsType_mediumAction :: Lens.Lens' AccountTakeoverActionsType (Core.Maybe AccountTakeoverActionType)
+accountTakeoverActionsType_mediumAction :: Lens.Lens' AccountTakeoverActionsType (Prelude.Maybe AccountTakeoverActionType)
 accountTakeoverActionsType_mediumAction = Lens.lens (\AccountTakeoverActionsType' {mediumAction} -> mediumAction) (\s@AccountTakeoverActionsType' {} a -> s {mediumAction = a} :: AccountTakeoverActionsType)
 
 -- | Action to take for a high risk.
-accountTakeoverActionsType_highAction :: Lens.Lens' AccountTakeoverActionsType (Core.Maybe AccountTakeoverActionType)
+accountTakeoverActionsType_highAction :: Lens.Lens' AccountTakeoverActionsType (Prelude.Maybe AccountTakeoverActionType)
 accountTakeoverActionsType_highAction = Lens.lens (\AccountTakeoverActionsType' {highAction} -> highAction) (\s@AccountTakeoverActionsType' {} a -> s {highAction = a} :: AccountTakeoverActionsType)
 
 instance Core.FromJSON AccountTakeoverActionsType where
@@ -77,21 +78,21 @@ instance Core.FromJSON AccountTakeoverActionsType where
       "AccountTakeoverActionsType"
       ( \x ->
           AccountTakeoverActionsType'
-            Core.<$> (x Core..:? "LowAction")
-            Core.<*> (x Core..:? "MediumAction")
-            Core.<*> (x Core..:? "HighAction")
+            Prelude.<$> (x Core..:? "LowAction")
+            Prelude.<*> (x Core..:? "MediumAction")
+            Prelude.<*> (x Core..:? "HighAction")
       )
 
-instance Core.Hashable AccountTakeoverActionsType
+instance Prelude.Hashable AccountTakeoverActionsType
 
-instance Core.NFData AccountTakeoverActionsType
+instance Prelude.NFData AccountTakeoverActionsType
 
 instance Core.ToJSON AccountTakeoverActionsType where
   toJSON AccountTakeoverActionsType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("LowAction" Core..=) Core.<$> lowAction,
-            ("MediumAction" Core..=) Core.<$> mediumAction,
-            ("HighAction" Core..=) Core.<$> highAction
+      ( Prelude.catMaybes
+          [ ("LowAction" Core..=) Prelude.<$> lowAction,
+            ("MediumAction" Core..=) Prelude.<$> mediumAction,
+            ("HighAction" Core..=) Prelude.<$> highAction
           ]
       )

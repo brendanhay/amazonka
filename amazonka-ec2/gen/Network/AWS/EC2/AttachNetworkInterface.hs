@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,19 +59,19 @@ data AttachNetworkInterface = AttachNetworkInterface'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The index of the network card. Some instance types support multiple
     -- network cards. The primary network interface must be assigned to network
     -- card index 0. The default is network card index 0.
-    networkCardIndex :: Core.Maybe Core.Int,
+    networkCardIndex :: Prelude.Maybe Prelude.Int,
     -- | The index of the device for the network interface attachment.
-    deviceIndex :: Core.Int,
+    deviceIndex :: Prelude.Int,
     -- | The ID of the instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The ID of the network interface.
-    networkInterfaceId :: Core.Text
+    networkInterfaceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachNetworkInterface' with all optional fields omitted.
@@ -96,19 +97,19 @@ data AttachNetworkInterface = AttachNetworkInterface'
 -- 'networkInterfaceId', 'attachNetworkInterface_networkInterfaceId' - The ID of the network interface.
 newAttachNetworkInterface ::
   -- | 'deviceIndex'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'networkInterfaceId'
-  Core.Text ->
+  Prelude.Text ->
   AttachNetworkInterface
 newAttachNetworkInterface
   pDeviceIndex_
   pInstanceId_
   pNetworkInterfaceId_ =
     AttachNetworkInterface'
-      { dryRun = Core.Nothing,
-        networkCardIndex = Core.Nothing,
+      { dryRun = Prelude.Nothing,
+        networkCardIndex = Prelude.Nothing,
         deviceIndex = pDeviceIndex_,
         instanceId = pInstanceId_,
         networkInterfaceId = pNetworkInterfaceId_
@@ -118,25 +119,25 @@ newAttachNetworkInterface
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-attachNetworkInterface_dryRun :: Lens.Lens' AttachNetworkInterface (Core.Maybe Core.Bool)
+attachNetworkInterface_dryRun :: Lens.Lens' AttachNetworkInterface (Prelude.Maybe Prelude.Bool)
 attachNetworkInterface_dryRun = Lens.lens (\AttachNetworkInterface' {dryRun} -> dryRun) (\s@AttachNetworkInterface' {} a -> s {dryRun = a} :: AttachNetworkInterface)
 
 -- | The index of the network card. Some instance types support multiple
 -- network cards. The primary network interface must be assigned to network
 -- card index 0. The default is network card index 0.
-attachNetworkInterface_networkCardIndex :: Lens.Lens' AttachNetworkInterface (Core.Maybe Core.Int)
+attachNetworkInterface_networkCardIndex :: Lens.Lens' AttachNetworkInterface (Prelude.Maybe Prelude.Int)
 attachNetworkInterface_networkCardIndex = Lens.lens (\AttachNetworkInterface' {networkCardIndex} -> networkCardIndex) (\s@AttachNetworkInterface' {} a -> s {networkCardIndex = a} :: AttachNetworkInterface)
 
 -- | The index of the device for the network interface attachment.
-attachNetworkInterface_deviceIndex :: Lens.Lens' AttachNetworkInterface Core.Int
+attachNetworkInterface_deviceIndex :: Lens.Lens' AttachNetworkInterface Prelude.Int
 attachNetworkInterface_deviceIndex = Lens.lens (\AttachNetworkInterface' {deviceIndex} -> deviceIndex) (\s@AttachNetworkInterface' {} a -> s {deviceIndex = a} :: AttachNetworkInterface)
 
 -- | The ID of the instance.
-attachNetworkInterface_instanceId :: Lens.Lens' AttachNetworkInterface Core.Text
+attachNetworkInterface_instanceId :: Lens.Lens' AttachNetworkInterface Prelude.Text
 attachNetworkInterface_instanceId = Lens.lens (\AttachNetworkInterface' {instanceId} -> instanceId) (\s@AttachNetworkInterface' {} a -> s {instanceId = a} :: AttachNetworkInterface)
 
 -- | The ID of the network interface.
-attachNetworkInterface_networkInterfaceId :: Lens.Lens' AttachNetworkInterface Core.Text
+attachNetworkInterface_networkInterfaceId :: Lens.Lens' AttachNetworkInterface Prelude.Text
 attachNetworkInterface_networkInterfaceId = Lens.lens (\AttachNetworkInterface' {networkInterfaceId} -> networkInterfaceId) (\s@AttachNetworkInterface' {} a -> s {networkInterfaceId = a} :: AttachNetworkInterface)
 
 instance Core.AWSRequest AttachNetworkInterface where
@@ -148,27 +149,28 @@ instance Core.AWSRequest AttachNetworkInterface where
     Response.receiveXML
       ( \s h x ->
           AttachNetworkInterfaceResponse'
-            Core.<$> (x Core..@? "attachmentId")
-            Core.<*> (x Core..@? "networkCardIndex")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "attachmentId")
+            Prelude.<*> (x Core..@? "networkCardIndex")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AttachNetworkInterface
+instance Prelude.Hashable AttachNetworkInterface
 
-instance Core.NFData AttachNetworkInterface
+instance Prelude.NFData AttachNetworkInterface
 
 instance Core.ToHeaders AttachNetworkInterface where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AttachNetworkInterface where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AttachNetworkInterface where
   toQuery AttachNetworkInterface' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("AttachNetworkInterface" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("AttachNetworkInterface" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "NetworkCardIndex" Core.=: networkCardIndex,
         "DeviceIndex" Core.=: deviceIndex,
@@ -181,13 +183,13 @@ instance Core.ToQuery AttachNetworkInterface where
 -- /See:/ 'newAttachNetworkInterfaceResponse' smart constructor.
 data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
   { -- | The ID of the network interface attachment.
-    attachmentId :: Core.Maybe Core.Text,
+    attachmentId :: Prelude.Maybe Prelude.Text,
     -- | The index of the network card.
-    networkCardIndex :: Core.Maybe Core.Int,
+    networkCardIndex :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachNetworkInterfaceResponse' with all optional fields omitted.
@@ -204,26 +206,28 @@ data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
 -- 'httpStatus', 'attachNetworkInterfaceResponse_httpStatus' - The response's http status code.
 newAttachNetworkInterfaceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AttachNetworkInterfaceResponse
 newAttachNetworkInterfaceResponse pHttpStatus_ =
   AttachNetworkInterfaceResponse'
     { attachmentId =
-        Core.Nothing,
-      networkCardIndex = Core.Nothing,
+        Prelude.Nothing,
+      networkCardIndex = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the network interface attachment.
-attachNetworkInterfaceResponse_attachmentId :: Lens.Lens' AttachNetworkInterfaceResponse (Core.Maybe Core.Text)
+attachNetworkInterfaceResponse_attachmentId :: Lens.Lens' AttachNetworkInterfaceResponse (Prelude.Maybe Prelude.Text)
 attachNetworkInterfaceResponse_attachmentId = Lens.lens (\AttachNetworkInterfaceResponse' {attachmentId} -> attachmentId) (\s@AttachNetworkInterfaceResponse' {} a -> s {attachmentId = a} :: AttachNetworkInterfaceResponse)
 
 -- | The index of the network card.
-attachNetworkInterfaceResponse_networkCardIndex :: Lens.Lens' AttachNetworkInterfaceResponse (Core.Maybe Core.Int)
+attachNetworkInterfaceResponse_networkCardIndex :: Lens.Lens' AttachNetworkInterfaceResponse (Prelude.Maybe Prelude.Int)
 attachNetworkInterfaceResponse_networkCardIndex = Lens.lens (\AttachNetworkInterfaceResponse' {networkCardIndex} -> networkCardIndex) (\s@AttachNetworkInterfaceResponse' {} a -> s {networkCardIndex = a} :: AttachNetworkInterfaceResponse)
 
 -- | The response's http status code.
-attachNetworkInterfaceResponse_httpStatus :: Lens.Lens' AttachNetworkInterfaceResponse Core.Int
+attachNetworkInterfaceResponse_httpStatus :: Lens.Lens' AttachNetworkInterfaceResponse Prelude.Int
 attachNetworkInterfaceResponse_httpStatus = Lens.lens (\AttachNetworkInterfaceResponse' {httpStatus} -> httpStatus) (\s@AttachNetworkInterfaceResponse' {} a -> s {httpStatus = a} :: AttachNetworkInterfaceResponse)
 
-instance Core.NFData AttachNetworkInterfaceResponse
+instance
+  Prelude.NFData
+    AttachNetworkInterfaceResponse

@@ -76,6 +76,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -85,18 +86,18 @@ import qualified Network.AWS.Response as Response
 data InitiateVaultLock = InitiateVaultLock'
   { -- | The vault lock policy as a JSON string, which uses \"\\\" as an escape
     -- character.
-    policy :: Core.Maybe VaultLockPolicy,
+    policy :: Prelude.Maybe VaultLockPolicy,
     -- | The @AccountId@ value is the AWS account ID. This value must match the
     -- AWS account ID associated with the credentials used to sign the request.
     -- You can either specify an AWS account ID or optionally a single \'@-@\'
     -- (hyphen), in which case Amazon Glacier uses the AWS account ID
     -- associated with the credentials used to sign the request. If you specify
     -- your account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of the vault.
-    vaultName :: Core.Text
+    vaultName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InitiateVaultLock' with all optional fields omitted.
@@ -119,20 +120,20 @@ data InitiateVaultLock = InitiateVaultLock'
 -- 'vaultName', 'initiateVaultLock_vaultName' - The name of the vault.
 newInitiateVaultLock ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vaultName'
-  Core.Text ->
+  Prelude.Text ->
   InitiateVaultLock
 newInitiateVaultLock pAccountId_ pVaultName_ =
   InitiateVaultLock'
-    { policy = Core.Nothing,
+    { policy = Prelude.Nothing,
       accountId = pAccountId_,
       vaultName = pVaultName_
     }
 
 -- | The vault lock policy as a JSON string, which uses \"\\\" as an escape
 -- character.
-initiateVaultLock_policy :: Lens.Lens' InitiateVaultLock (Core.Maybe VaultLockPolicy)
+initiateVaultLock_policy :: Lens.Lens' InitiateVaultLock (Prelude.Maybe VaultLockPolicy)
 initiateVaultLock_policy = Lens.lens (\InitiateVaultLock' {policy} -> policy) (\s@InitiateVaultLock' {} a -> s {policy = a} :: InitiateVaultLock)
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the
@@ -141,11 +142,11 @@ initiateVaultLock_policy = Lens.lens (\InitiateVaultLock' {policy} -> policy) (\
 -- (hyphen), in which case Amazon Glacier uses the AWS account ID
 -- associated with the credentials used to sign the request. If you specify
 -- your account ID, do not include any hyphens (\'-\') in the ID.
-initiateVaultLock_accountId :: Lens.Lens' InitiateVaultLock Core.Text
+initiateVaultLock_accountId :: Lens.Lens' InitiateVaultLock Prelude.Text
 initiateVaultLock_accountId = Lens.lens (\InitiateVaultLock' {accountId} -> accountId) (\s@InitiateVaultLock' {} a -> s {accountId = a} :: InitiateVaultLock)
 
 -- | The name of the vault.
-initiateVaultLock_vaultName :: Lens.Lens' InitiateVaultLock Core.Text
+initiateVaultLock_vaultName :: Lens.Lens' InitiateVaultLock Prelude.Text
 initiateVaultLock_vaultName = Lens.lens (\InitiateVaultLock' {vaultName} -> vaultName) (\s@InitiateVaultLock' {} a -> s {vaultName = a} :: InitiateVaultLock)
 
 instance Core.AWSRequest InitiateVaultLock where
@@ -154,30 +155,32 @@ instance Core.AWSRequest InitiateVaultLock where
       InitiateVaultLockResponse
   request =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Core.. Request.postJSON defaultService
+      Prelude.. Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           InitiateVaultLockResponse'
-            Core.<$> (h Core..#? "x-amz-lock-id")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "x-amz-lock-id")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable InitiateVaultLock
+instance Prelude.Hashable InitiateVaultLock
 
-instance Core.NFData InitiateVaultLock
+instance Prelude.NFData InitiateVaultLock
 
 instance Core.ToHeaders InitiateVaultLock where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON InitiateVaultLock where
   toJSON InitiateVaultLock' {..} =
     Core.object
-      (Core.catMaybes [("policy" Core..=) Core.<$> policy])
+      ( Prelude.catMaybes
+          [("policy" Core..=) Prelude.<$> policy]
+      )
 
 instance Core.ToPath InitiateVaultLock where
   toPath InitiateVaultLock' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/",
         Core.toBS accountId,
         "/vaults/",
@@ -186,18 +189,18 @@ instance Core.ToPath InitiateVaultLock where
       ]
 
 instance Core.ToQuery InitiateVaultLock where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
 -- /See:/ 'newInitiateVaultLockResponse' smart constructor.
 data InitiateVaultLockResponse = InitiateVaultLockResponse'
   { -- | The lock ID, which is used to complete the vault locking process.
-    lockId :: Core.Maybe Core.Text,
+    lockId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InitiateVaultLockResponse' with all optional fields omitted.
@@ -212,20 +215,21 @@ data InitiateVaultLockResponse = InitiateVaultLockResponse'
 -- 'httpStatus', 'initiateVaultLockResponse_httpStatus' - The response's http status code.
 newInitiateVaultLockResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   InitiateVaultLockResponse
 newInitiateVaultLockResponse pHttpStatus_ =
   InitiateVaultLockResponse'
-    { lockId = Core.Nothing,
+    { lockId =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The lock ID, which is used to complete the vault locking process.
-initiateVaultLockResponse_lockId :: Lens.Lens' InitiateVaultLockResponse (Core.Maybe Core.Text)
+initiateVaultLockResponse_lockId :: Lens.Lens' InitiateVaultLockResponse (Prelude.Maybe Prelude.Text)
 initiateVaultLockResponse_lockId = Lens.lens (\InitiateVaultLockResponse' {lockId} -> lockId) (\s@InitiateVaultLockResponse' {} a -> s {lockId = a} :: InitiateVaultLockResponse)
 
 -- | The response's http status code.
-initiateVaultLockResponse_httpStatus :: Lens.Lens' InitiateVaultLockResponse Core.Int
+initiateVaultLockResponse_httpStatus :: Lens.Lens' InitiateVaultLockResponse Prelude.Int
 initiateVaultLockResponse_httpStatus = Lens.lens (\InitiateVaultLockResponse' {httpStatus} -> httpStatus) (\s@InitiateVaultLockResponse' {} a -> s {httpStatus = a} :: InitiateVaultLockResponse)
 
-instance Core.NFData InitiateVaultLockResponse
+instance Prelude.NFData InitiateVaultLockResponse

@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.WorkflowExecutionCompletedEventAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @WorkflowExecutionCompleted@ event.
 --
@@ -28,15 +29,15 @@ import qualified Network.AWS.Lens as Lens
 data WorkflowExecutionCompletedEventAttributes = WorkflowExecutionCompletedEventAttributes'
   { -- | The result produced by the workflow execution upon successful
     -- completion.
-    result :: Core.Maybe Core.Text,
+    result :: Prelude.Maybe Prelude.Text,
     -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
     -- decision task that resulted in the @CompleteWorkflowExecution@ decision
     -- to complete this execution. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    decisionTaskCompletedEventId :: Core.Integer
+    decisionTaskCompletedEventId :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WorkflowExecutionCompletedEventAttributes' with all optional fields omitted.
@@ -56,20 +57,20 @@ data WorkflowExecutionCompletedEventAttributes = WorkflowExecutionCompletedEvent
 -- this event.
 newWorkflowExecutionCompletedEventAttributes ::
   -- | 'decisionTaskCompletedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   WorkflowExecutionCompletedEventAttributes
 newWorkflowExecutionCompletedEventAttributes
   pDecisionTaskCompletedEventId_ =
     WorkflowExecutionCompletedEventAttributes'
       { result =
-          Core.Nothing,
+          Prelude.Nothing,
         decisionTaskCompletedEventId =
           pDecisionTaskCompletedEventId_
       }
 
 -- | The result produced by the workflow execution upon successful
 -- completion.
-workflowExecutionCompletedEventAttributes_result :: Lens.Lens' WorkflowExecutionCompletedEventAttributes (Core.Maybe Core.Text)
+workflowExecutionCompletedEventAttributes_result :: Lens.Lens' WorkflowExecutionCompletedEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionCompletedEventAttributes_result = Lens.lens (\WorkflowExecutionCompletedEventAttributes' {result} -> result) (\s@WorkflowExecutionCompletedEventAttributes' {} a -> s {result = a} :: WorkflowExecutionCompletedEventAttributes)
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
@@ -77,7 +78,7 @@ workflowExecutionCompletedEventAttributes_result = Lens.lens (\WorkflowExecution
 -- to complete this execution. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-workflowExecutionCompletedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' WorkflowExecutionCompletedEventAttributes Core.Integer
+workflowExecutionCompletedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' WorkflowExecutionCompletedEventAttributes Prelude.Integer
 workflowExecutionCompletedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\WorkflowExecutionCompletedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@WorkflowExecutionCompletedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: WorkflowExecutionCompletedEventAttributes)
 
 instance
@@ -89,14 +90,14 @@ instance
       "WorkflowExecutionCompletedEventAttributes"
       ( \x ->
           WorkflowExecutionCompletedEventAttributes'
-            Core.<$> (x Core..:? "result")
-            Core.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Core..:? "result")
+              Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     WorkflowExecutionCompletedEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     WorkflowExecutionCompletedEventAttributes

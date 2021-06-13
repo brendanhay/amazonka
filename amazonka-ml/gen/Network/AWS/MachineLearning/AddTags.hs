@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,11 +59,11 @@ data AddTags = AddTags'
     -- value of null.
     tags :: [Tag],
     -- | The ID of the ML object to tag. For example, @exampleModelId@.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The type of the ML object to tag.
     resourceType :: TaggableResourceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTags' with all optional fields omitted.
@@ -81,13 +82,13 @@ data AddTags = AddTags'
 -- 'resourceType', 'addTags_resourceType' - The type of the ML object to tag.
 newAddTags ::
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceType'
   TaggableResourceType ->
   AddTags
 newAddTags pResourceId_ pResourceType_ =
   AddTags'
-    { tags = Core.mempty,
+    { tags = Prelude.mempty,
       resourceId = pResourceId_,
       resourceType = pResourceType_
     }
@@ -96,10 +97,10 @@ newAddTags pResourceId_ pResourceType_ =
 -- specifying a value, Amazon ML creates a tag with the specified key and a
 -- value of null.
 addTags_tags :: Lens.Lens' AddTags [Tag]
-addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Core.. Lens._Coerce
+addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens._Coerce
 
 -- | The ID of the ML object to tag. For example, @exampleModelId@.
-addTags_resourceId :: Lens.Lens' AddTags Core.Text
+addTags_resourceId :: Lens.Lens' AddTags Prelude.Text
 addTags_resourceId = Lens.lens (\AddTags' {resourceId} -> resourceId) (\s@AddTags' {} a -> s {resourceId = a} :: AddTags)
 
 -- | The type of the ML object to tag.
@@ -113,54 +114,56 @@ instance Core.AWSRequest AddTags where
     Response.receiveJSON
       ( \s h x ->
           AddTagsResponse'
-            Core.<$> (x Core..?> "ResourceId")
-            Core.<*> (x Core..?> "ResourceType")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ResourceId")
+            Prelude.<*> (x Core..?> "ResourceType")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AddTags
+instance Prelude.Hashable AddTags
 
-instance Core.NFData AddTags
+instance Prelude.NFData AddTags
 
 instance Core.ToHeaders AddTags where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonML_20141212.AddTags" :: Core.ByteString),
+              Core.=# ("AmazonML_20141212.AddTags" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AddTags where
   toJSON AddTags' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Tags" Core..= tags),
-            Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just ("ResourceType" Core..= resourceType)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Tags" Core..= tags),
+            Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just ("ResourceType" Core..= resourceType)
           ]
       )
 
 instance Core.ToPath AddTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AddTags where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Amazon ML returns the following elements.
 --
 -- /See:/ 'newAddTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'
   { -- | The ID of the ML object that was tagged.
-    resourceId :: Core.Maybe Core.Text,
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | The type of the ML object that was tagged.
-    resourceType :: Core.Maybe TaggableResourceType,
+    resourceType :: Prelude.Maybe TaggableResourceType,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddTagsResponse' with all optional fields omitted.
@@ -177,25 +180,25 @@ data AddTagsResponse = AddTagsResponse'
 -- 'httpStatus', 'addTagsResponse_httpStatus' - The response's http status code.
 newAddTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AddTagsResponse
 newAddTagsResponse pHttpStatus_ =
   AddTagsResponse'
-    { resourceId = Core.Nothing,
-      resourceType = Core.Nothing,
+    { resourceId = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the ML object that was tagged.
-addTagsResponse_resourceId :: Lens.Lens' AddTagsResponse (Core.Maybe Core.Text)
+addTagsResponse_resourceId :: Lens.Lens' AddTagsResponse (Prelude.Maybe Prelude.Text)
 addTagsResponse_resourceId = Lens.lens (\AddTagsResponse' {resourceId} -> resourceId) (\s@AddTagsResponse' {} a -> s {resourceId = a} :: AddTagsResponse)
 
 -- | The type of the ML object that was tagged.
-addTagsResponse_resourceType :: Lens.Lens' AddTagsResponse (Core.Maybe TaggableResourceType)
+addTagsResponse_resourceType :: Lens.Lens' AddTagsResponse (Prelude.Maybe TaggableResourceType)
 addTagsResponse_resourceType = Lens.lens (\AddTagsResponse' {resourceType} -> resourceType) (\s@AddTagsResponse' {} a -> s {resourceType = a} :: AddTagsResponse)
 
 -- | The response's http status code.
-addTagsResponse_httpStatus :: Lens.Lens' AddTagsResponse Core.Int
+addTagsResponse_httpStatus :: Lens.Lens' AddTagsResponse Prelude.Int
 addTagsResponse_httpStatus = Lens.lens (\AddTagsResponse' {httpStatus} -> httpStatus) (\s@AddTagsResponse' {} a -> s {httpStatus = a} :: AddTagsResponse)
 
-instance Core.NFData AddTagsResponse
+instance Prelude.NFData AddTagsResponse

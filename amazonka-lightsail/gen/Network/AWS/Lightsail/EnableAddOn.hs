@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ import qualified Network.AWS.Response as Response
 data EnableAddOn = EnableAddOn'
   { -- | The name of the source resource for which to enable or modify the
     -- add-on.
-    resourceName :: Core.Text,
+    resourceName :: Prelude.Text,
     -- | An array of strings representing the add-on to enable or modify.
     addOnRequest :: AddOnRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableAddOn' with all optional fields omitted.
@@ -72,7 +73,7 @@ data EnableAddOn = EnableAddOn'
 -- 'addOnRequest', 'enableAddOn_addOnRequest' - An array of strings representing the add-on to enable or modify.
 newEnableAddOn ::
   -- | 'resourceName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'addOnRequest'
   AddOnRequest ->
   EnableAddOn
@@ -84,7 +85,7 @@ newEnableAddOn pResourceName_ pAddOnRequest_ =
 
 -- | The name of the source resource for which to enable or modify the
 -- add-on.
-enableAddOn_resourceName :: Lens.Lens' EnableAddOn Core.Text
+enableAddOn_resourceName :: Lens.Lens' EnableAddOn Prelude.Text
 enableAddOn_resourceName = Lens.lens (\EnableAddOn' {resourceName} -> resourceName) (\s@EnableAddOn' {} a -> s {resourceName = a} :: EnableAddOn)
 
 -- | An array of strings representing the add-on to enable or modify.
@@ -98,52 +99,54 @@ instance Core.AWSRequest EnableAddOn where
     Response.receiveJSON
       ( \s h x ->
           EnableAddOnResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable EnableAddOn
+instance Prelude.Hashable EnableAddOn
 
-instance Core.NFData EnableAddOn
+instance Prelude.NFData EnableAddOn
 
 instance Core.ToHeaders EnableAddOn where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.EnableAddOn" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON EnableAddOn where
   toJSON EnableAddOn' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("resourceName" Core..= resourceName),
-            Core.Just ("addOnRequest" Core..= addOnRequest)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("resourceName" Core..= resourceName),
+            Prelude.Just ("addOnRequest" Core..= addOnRequest)
           ]
       )
 
 instance Core.ToPath EnableAddOn where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery EnableAddOn where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableAddOnResponse' smart constructor.
 data EnableAddOnResponse = EnableAddOnResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableAddOnResponse' with all optional fields omitted.
@@ -160,22 +163,22 @@ data EnableAddOnResponse = EnableAddOnResponse'
 -- 'httpStatus', 'enableAddOnResponse_httpStatus' - The response's http status code.
 newEnableAddOnResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   EnableAddOnResponse
 newEnableAddOnResponse pHttpStatus_ =
   EnableAddOnResponse'
-    { operations = Core.Nothing,
+    { operations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-enableAddOnResponse_operations :: Lens.Lens' EnableAddOnResponse (Core.Maybe [Operation])
-enableAddOnResponse_operations = Lens.lens (\EnableAddOnResponse' {operations} -> operations) (\s@EnableAddOnResponse' {} a -> s {operations = a} :: EnableAddOnResponse) Core.. Lens.mapping Lens._Coerce
+enableAddOnResponse_operations :: Lens.Lens' EnableAddOnResponse (Prelude.Maybe [Operation])
+enableAddOnResponse_operations = Lens.lens (\EnableAddOnResponse' {operations} -> operations) (\s@EnableAddOnResponse' {} a -> s {operations = a} :: EnableAddOnResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-enableAddOnResponse_httpStatus :: Lens.Lens' EnableAddOnResponse Core.Int
+enableAddOnResponse_httpStatus :: Lens.Lens' EnableAddOnResponse Prelude.Int
 enableAddOnResponse_httpStatus = Lens.lens (\EnableAddOnResponse' {httpStatus} -> httpStatus) (\s@EnableAddOnResponse' {} a -> s {httpStatus = a} :: EnableAddOnResponse)
 
-instance Core.NFData EnableAddOnResponse
+instance Prelude.NFData EnableAddOnResponse

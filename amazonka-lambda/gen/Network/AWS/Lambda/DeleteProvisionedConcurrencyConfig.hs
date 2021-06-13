@@ -39,6 +39,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +58,11 @@ data DeleteProvisionedConcurrencyConfig = DeleteProvisionedConcurrencyConfig'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
-    functionName :: Core.Text,
+    functionName :: Prelude.Text,
     -- | The version number or alias name.
-    qualifier :: Core.Text
+    qualifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteProvisionedConcurrencyConfig' with all optional fields omitted.
@@ -88,9 +89,9 @@ data DeleteProvisionedConcurrencyConfig = DeleteProvisionedConcurrencyConfig'
 -- 'qualifier', 'deleteProvisionedConcurrencyConfig_qualifier' - The version number or alias name.
 newDeleteProvisionedConcurrencyConfig ::
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'qualifier'
-  Core.Text ->
+  Prelude.Text ->
   DeleteProvisionedConcurrencyConfig
 newDeleteProvisionedConcurrencyConfig
   pFunctionName_
@@ -114,11 +115,11 @@ newDeleteProvisionedConcurrencyConfig
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
-deleteProvisionedConcurrencyConfig_functionName :: Lens.Lens' DeleteProvisionedConcurrencyConfig Core.Text
+deleteProvisionedConcurrencyConfig_functionName :: Lens.Lens' DeleteProvisionedConcurrencyConfig Prelude.Text
 deleteProvisionedConcurrencyConfig_functionName = Lens.lens (\DeleteProvisionedConcurrencyConfig' {functionName} -> functionName) (\s@DeleteProvisionedConcurrencyConfig' {} a -> s {functionName = a} :: DeleteProvisionedConcurrencyConfig)
 
 -- | The version number or alias name.
-deleteProvisionedConcurrencyConfig_qualifier :: Lens.Lens' DeleteProvisionedConcurrencyConfig Core.Text
+deleteProvisionedConcurrencyConfig_qualifier :: Lens.Lens' DeleteProvisionedConcurrencyConfig Prelude.Text
 deleteProvisionedConcurrencyConfig_qualifier = Lens.lens (\DeleteProvisionedConcurrencyConfig' {qualifier} -> qualifier) (\s@DeleteProvisionedConcurrencyConfig' {} a -> s {qualifier = a} :: DeleteProvisionedConcurrencyConfig)
 
 instance
@@ -134,25 +135,25 @@ instance
       DeleteProvisionedConcurrencyConfigResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteProvisionedConcurrencyConfig
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteProvisionedConcurrencyConfig
 
 instance
   Core.ToHeaders
     DeleteProvisionedConcurrencyConfig
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     DeleteProvisionedConcurrencyConfig
   where
   toPath DeleteProvisionedConcurrencyConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2019-09-30/functions/",
         Core.toBS functionName,
         "/provisioned-concurrency"
@@ -163,13 +164,13 @@ instance
     DeleteProvisionedConcurrencyConfig
   where
   toQuery DeleteProvisionedConcurrencyConfig' {..} =
-    Core.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Core.=: qualifier]
 
 -- | /See:/ 'newDeleteProvisionedConcurrencyConfigResponse' smart constructor.
 data DeleteProvisionedConcurrencyConfigResponse = DeleteProvisionedConcurrencyConfigResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteProvisionedConcurrencyConfigResponse' with all optional fields omitted.
@@ -181,5 +182,5 @@ newDeleteProvisionedConcurrencyConfigResponse =
   DeleteProvisionedConcurrencyConfigResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteProvisionedConcurrencyConfigResponse

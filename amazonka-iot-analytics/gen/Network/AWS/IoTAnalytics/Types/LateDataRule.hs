@@ -22,6 +22,7 @@ module Network.AWS.IoTAnalytics.Types.LateDataRule where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.LateDataRuleConfiguration
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that contains the name and configuration information of a
 -- late data rule.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newLateDataRule' smart constructor.
 data LateDataRule = LateDataRule'
   { -- | The name of the late data rule.
-    ruleName :: Core.Maybe Core.Text,
+    ruleName :: Prelude.Maybe Prelude.Text,
     -- | The information needed to configure the late data rule.
     ruleConfiguration :: LateDataRuleConfiguration
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LateDataRule' with all optional fields omitted.
@@ -52,12 +53,12 @@ newLateDataRule ::
   LateDataRule
 newLateDataRule pRuleConfiguration_ =
   LateDataRule'
-    { ruleName = Core.Nothing,
+    { ruleName = Prelude.Nothing,
       ruleConfiguration = pRuleConfiguration_
     }
 
 -- | The name of the late data rule.
-lateDataRule_ruleName :: Lens.Lens' LateDataRule (Core.Maybe Core.Text)
+lateDataRule_ruleName :: Lens.Lens' LateDataRule (Prelude.Maybe Prelude.Text)
 lateDataRule_ruleName = Lens.lens (\LateDataRule' {ruleName} -> ruleName) (\s@LateDataRule' {} a -> s {ruleName = a} :: LateDataRule)
 
 -- | The information needed to configure the late data rule.
@@ -70,20 +71,20 @@ instance Core.FromJSON LateDataRule where
       "LateDataRule"
       ( \x ->
           LateDataRule'
-            Core.<$> (x Core..:? "ruleName")
-            Core.<*> (x Core..: "ruleConfiguration")
+            Prelude.<$> (x Core..:? "ruleName")
+            Prelude.<*> (x Core..: "ruleConfiguration")
       )
 
-instance Core.Hashable LateDataRule
+instance Prelude.Hashable LateDataRule
 
-instance Core.NFData LateDataRule
+instance Prelude.NFData LateDataRule
 
 instance Core.ToJSON LateDataRule where
   toJSON LateDataRule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ruleName" Core..=) Core.<$> ruleName,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("ruleName" Core..=) Prelude.<$> ruleName,
+            Prelude.Just
               ("ruleConfiguration" Core..= ruleConfiguration)
           ]
       )

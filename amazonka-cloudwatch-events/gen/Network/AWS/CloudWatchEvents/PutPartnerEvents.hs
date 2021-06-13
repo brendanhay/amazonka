@@ -44,15 +44,16 @@ where
 import Network.AWS.CloudWatchEvents.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutPartnerEvents' smart constructor.
 data PutPartnerEvents = PutPartnerEvents'
   { -- | The list of events to write to the event bus.
-    entries :: Core.NonEmpty PutPartnerEventsRequestEntry
+    entries :: Prelude.NonEmpty PutPartnerEventsRequestEntry
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutPartnerEvents' with all optional fields omitted.
@@ -65,7 +66,7 @@ data PutPartnerEvents = PutPartnerEvents'
 -- 'entries', 'putPartnerEvents_entries' - The list of events to write to the event bus.
 newPutPartnerEvents ::
   -- | 'entries'
-  Core.NonEmpty PutPartnerEventsRequestEntry ->
+  Prelude.NonEmpty PutPartnerEventsRequestEntry ->
   PutPartnerEvents
 newPutPartnerEvents pEntries_ =
   PutPartnerEvents'
@@ -74,8 +75,8 @@ newPutPartnerEvents pEntries_ =
     }
 
 -- | The list of events to write to the event bus.
-putPartnerEvents_entries :: Lens.Lens' PutPartnerEvents (Core.NonEmpty PutPartnerEventsRequestEntry)
-putPartnerEvents_entries = Lens.lens (\PutPartnerEvents' {entries} -> entries) (\s@PutPartnerEvents' {} a -> s {entries = a} :: PutPartnerEvents) Core.. Lens._Coerce
+putPartnerEvents_entries :: Lens.Lens' PutPartnerEvents (Prelude.NonEmpty PutPartnerEventsRequestEntry)
+putPartnerEvents_entries = Lens.lens (\PutPartnerEvents' {entries} -> entries) (\s@PutPartnerEvents' {} a -> s {entries = a} :: PutPartnerEvents) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest PutPartnerEvents where
   type
@@ -86,51 +87,53 @@ instance Core.AWSRequest PutPartnerEvents where
     Response.receiveJSON
       ( \s h x ->
           PutPartnerEventsResponse'
-            Core.<$> (x Core..?> "FailedEntryCount")
-            Core.<*> (x Core..?> "Entries" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "FailedEntryCount")
+            Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutPartnerEvents
+instance Prelude.Hashable PutPartnerEvents
 
-instance Core.NFData PutPartnerEvents
+instance Prelude.NFData PutPartnerEvents
 
 instance Core.ToHeaders PutPartnerEvents where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSEvents.PutPartnerEvents" :: Core.ByteString),
+              Core.=# ("AWSEvents.PutPartnerEvents" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutPartnerEvents where
   toJSON PutPartnerEvents' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Entries" Core..= entries)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Entries" Core..= entries)]
       )
 
 instance Core.ToPath PutPartnerEvents where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutPartnerEvents where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutPartnerEventsResponse' smart constructor.
 data PutPartnerEventsResponse = PutPartnerEventsResponse'
   { -- | The number of events from this operation that could not be written to
     -- the partner event bus.
-    failedEntryCount :: Core.Maybe Core.Int,
+    failedEntryCount :: Prelude.Maybe Prelude.Int,
     -- | The list of events from this operation that were successfully written to
     -- the partner event bus.
-    entries :: Core.Maybe [PutPartnerEventsResultEntry],
+    entries :: Prelude.Maybe [PutPartnerEventsResultEntry],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutPartnerEventsResponse' with all optional fields omitted.
@@ -149,28 +152,28 @@ data PutPartnerEventsResponse = PutPartnerEventsResponse'
 -- 'httpStatus', 'putPartnerEventsResponse_httpStatus' - The response's http status code.
 newPutPartnerEventsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutPartnerEventsResponse
 newPutPartnerEventsResponse pHttpStatus_ =
   PutPartnerEventsResponse'
     { failedEntryCount =
-        Core.Nothing,
-      entries = Core.Nothing,
+        Prelude.Nothing,
+      entries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The number of events from this operation that could not be written to
 -- the partner event bus.
-putPartnerEventsResponse_failedEntryCount :: Lens.Lens' PutPartnerEventsResponse (Core.Maybe Core.Int)
+putPartnerEventsResponse_failedEntryCount :: Lens.Lens' PutPartnerEventsResponse (Prelude.Maybe Prelude.Int)
 putPartnerEventsResponse_failedEntryCount = Lens.lens (\PutPartnerEventsResponse' {failedEntryCount} -> failedEntryCount) (\s@PutPartnerEventsResponse' {} a -> s {failedEntryCount = a} :: PutPartnerEventsResponse)
 
 -- | The list of events from this operation that were successfully written to
 -- the partner event bus.
-putPartnerEventsResponse_entries :: Lens.Lens' PutPartnerEventsResponse (Core.Maybe [PutPartnerEventsResultEntry])
-putPartnerEventsResponse_entries = Lens.lens (\PutPartnerEventsResponse' {entries} -> entries) (\s@PutPartnerEventsResponse' {} a -> s {entries = a} :: PutPartnerEventsResponse) Core.. Lens.mapping Lens._Coerce
+putPartnerEventsResponse_entries :: Lens.Lens' PutPartnerEventsResponse (Prelude.Maybe [PutPartnerEventsResultEntry])
+putPartnerEventsResponse_entries = Lens.lens (\PutPartnerEventsResponse' {entries} -> entries) (\s@PutPartnerEventsResponse' {} a -> s {entries = a} :: PutPartnerEventsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-putPartnerEventsResponse_httpStatus :: Lens.Lens' PutPartnerEventsResponse Core.Int
+putPartnerEventsResponse_httpStatus :: Lens.Lens' PutPartnerEventsResponse Prelude.Int
 putPartnerEventsResponse_httpStatus = Lens.lens (\PutPartnerEventsResponse' {httpStatus} -> httpStatus) (\s@PutPartnerEventsResponse' {} a -> s {httpStatus = a} :: PutPartnerEventsResponse)
 
-instance Core.NFData PutPartnerEventsResponse
+instance Prelude.NFData PutPartnerEventsResponse

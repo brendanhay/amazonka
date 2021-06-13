@@ -28,6 +28,7 @@ module Network.AWS.MediaConvert.Types.H265RateControlMode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use this setting to specify whether this output has a variable bitrate
 -- (VBR), constant bitrate (CBR) or quality-defined variable bitrate
@@ -37,15 +38,15 @@ newtype H265RateControlMode = H265RateControlMode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

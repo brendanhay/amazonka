@@ -22,6 +22,7 @@ module Network.AWS.DMS.Types.Event where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types.SourceType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an identifiable significant activity that affects a
 -- replication instance or task. This object can provide the message, the
@@ -31,19 +32,19 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEvent' smart constructor.
 data Event = Event'
   { -- | The event message.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The event categories available for the specified source type.
-    eventCategories :: Core.Maybe [Core.Text],
+    eventCategories :: Prelude.Maybe [Prelude.Text],
     -- | The date of the event.
-    date :: Core.Maybe Core.POSIX,
+    date :: Prelude.Maybe Core.POSIX,
     -- | The identifier of an event source.
-    sourceIdentifier :: Core.Maybe Core.Text,
+    sourceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The type of AWS DMS resource that generates events.
     --
     -- Valid values: replication-instance | endpoint | replication-task
-    sourceType :: Core.Maybe SourceType
+    sourceType :: Prelude.Maybe SourceType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Event' with all optional fields omitted.
@@ -68,33 +69,33 @@ newEvent ::
   Event
 newEvent =
   Event'
-    { message = Core.Nothing,
-      eventCategories = Core.Nothing,
-      date = Core.Nothing,
-      sourceIdentifier = Core.Nothing,
-      sourceType = Core.Nothing
+    { message = Prelude.Nothing,
+      eventCategories = Prelude.Nothing,
+      date = Prelude.Nothing,
+      sourceIdentifier = Prelude.Nothing,
+      sourceType = Prelude.Nothing
     }
 
 -- | The event message.
-event_message :: Lens.Lens' Event (Core.Maybe Core.Text)
+event_message :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_message = Lens.lens (\Event' {message} -> message) (\s@Event' {} a -> s {message = a} :: Event)
 
 -- | The event categories available for the specified source type.
-event_eventCategories :: Lens.Lens' Event (Core.Maybe [Core.Text])
-event_eventCategories = Lens.lens (\Event' {eventCategories} -> eventCategories) (\s@Event' {} a -> s {eventCategories = a} :: Event) Core.. Lens.mapping Lens._Coerce
+event_eventCategories :: Lens.Lens' Event (Prelude.Maybe [Prelude.Text])
+event_eventCategories = Lens.lens (\Event' {eventCategories} -> eventCategories) (\s@Event' {} a -> s {eventCategories = a} :: Event) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The date of the event.
-event_date :: Lens.Lens' Event (Core.Maybe Core.UTCTime)
-event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Core.. Lens.mapping Core._Time
+event_date :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
+event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Prelude.. Lens.mapping Core._Time
 
 -- | The identifier of an event source.
-event_sourceIdentifier :: Lens.Lens' Event (Core.Maybe Core.Text)
+event_sourceIdentifier :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_sourceIdentifier = Lens.lens (\Event' {sourceIdentifier} -> sourceIdentifier) (\s@Event' {} a -> s {sourceIdentifier = a} :: Event)
 
 -- | The type of AWS DMS resource that generates events.
 --
 -- Valid values: replication-instance | endpoint | replication-task
-event_sourceType :: Lens.Lens' Event (Core.Maybe SourceType)
+event_sourceType :: Lens.Lens' Event (Prelude.Maybe SourceType)
 event_sourceType = Lens.lens (\Event' {sourceType} -> sourceType) (\s@Event' {} a -> s {sourceType = a} :: Event)
 
 instance Core.FromJSON Event where
@@ -103,13 +104,15 @@ instance Core.FromJSON Event where
       "Event"
       ( \x ->
           Event'
-            Core.<$> (x Core..:? "Message")
-            Core.<*> (x Core..:? "EventCategories" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Date")
-            Core.<*> (x Core..:? "SourceIdentifier")
-            Core.<*> (x Core..:? "SourceType")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> ( x Core..:? "EventCategories"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "Date")
+            Prelude.<*> (x Core..:? "SourceIdentifier")
+            Prelude.<*> (x Core..:? "SourceType")
       )
 
-instance Core.Hashable Event
+instance Prelude.Hashable Event
 
-instance Core.NFData Event
+instance Prelude.NFData Event

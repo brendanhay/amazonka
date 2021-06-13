@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.LabelingJobResourceConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides configuration information for labeling jobs.
 --
@@ -38,9 +39,9 @@ data LabelingJobResourceConfig = LabelingJobResourceConfig'
     -- -   \/\/ Amazon Resource Name (ARN) of a KMS Key
     --
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-    volumeKmsKeyId :: Core.Maybe Core.Text
+    volumeKmsKeyId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LabelingJobResourceConfig' with all optional fields omitted.
@@ -67,7 +68,7 @@ newLabelingJobResourceConfig ::
 newLabelingJobResourceConfig =
   LabelingJobResourceConfig'
     { volumeKmsKeyId =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
@@ -82,7 +83,7 @@ newLabelingJobResourceConfig =
 -- -   \/\/ Amazon Resource Name (ARN) of a KMS Key
 --
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-labelingJobResourceConfig_volumeKmsKeyId :: Lens.Lens' LabelingJobResourceConfig (Core.Maybe Core.Text)
+labelingJobResourceConfig_volumeKmsKeyId :: Lens.Lens' LabelingJobResourceConfig (Prelude.Maybe Prelude.Text)
 labelingJobResourceConfig_volumeKmsKeyId = Lens.lens (\LabelingJobResourceConfig' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@LabelingJobResourceConfig' {} a -> s {volumeKmsKeyId = a} :: LabelingJobResourceConfig)
 
 instance Core.FromJSON LabelingJobResourceConfig where
@@ -91,16 +92,18 @@ instance Core.FromJSON LabelingJobResourceConfig where
       "LabelingJobResourceConfig"
       ( \x ->
           LabelingJobResourceConfig'
-            Core.<$> (x Core..:? "VolumeKmsKeyId")
+            Prelude.<$> (x Core..:? "VolumeKmsKeyId")
       )
 
-instance Core.Hashable LabelingJobResourceConfig
+instance Prelude.Hashable LabelingJobResourceConfig
 
-instance Core.NFData LabelingJobResourceConfig
+instance Prelude.NFData LabelingJobResourceConfig
 
 instance Core.ToJSON LabelingJobResourceConfig where
   toJSON LabelingJobResourceConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [("VolumeKmsKeyId" Core..=) Core.<$> volumeKmsKeyId]
+      ( Prelude.catMaybes
+          [ ("VolumeKmsKeyId" Core..=)
+              Prelude.<$> volumeKmsKeyId
+          ]
       )

@@ -48,21 +48,22 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRemoveThingFromThingGroup' smart constructor.
 data RemoveThingFromThingGroup = RemoveThingFromThingGroup'
   { -- | The ARN of the thing to remove from the group.
-    thingArn :: Core.Maybe Core.Text,
+    thingArn :: Prelude.Maybe Prelude.Text,
     -- | The group ARN.
-    thingGroupArn :: Core.Maybe Core.Text,
+    thingGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the thing to remove from the group.
-    thingName :: Core.Maybe Core.Text,
+    thingName :: Prelude.Maybe Prelude.Text,
     -- | The group name.
-    thingGroupName :: Core.Maybe Core.Text
+    thingGroupName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveThingFromThingGroup' with all optional fields omitted.
@@ -83,26 +84,27 @@ newRemoveThingFromThingGroup ::
   RemoveThingFromThingGroup
 newRemoveThingFromThingGroup =
   RemoveThingFromThingGroup'
-    { thingArn = Core.Nothing,
-      thingGroupArn = Core.Nothing,
-      thingName = Core.Nothing,
-      thingGroupName = Core.Nothing
+    { thingArn =
+        Prelude.Nothing,
+      thingGroupArn = Prelude.Nothing,
+      thingName = Prelude.Nothing,
+      thingGroupName = Prelude.Nothing
     }
 
 -- | The ARN of the thing to remove from the group.
-removeThingFromThingGroup_thingArn :: Lens.Lens' RemoveThingFromThingGroup (Core.Maybe Core.Text)
+removeThingFromThingGroup_thingArn :: Lens.Lens' RemoveThingFromThingGroup (Prelude.Maybe Prelude.Text)
 removeThingFromThingGroup_thingArn = Lens.lens (\RemoveThingFromThingGroup' {thingArn} -> thingArn) (\s@RemoveThingFromThingGroup' {} a -> s {thingArn = a} :: RemoveThingFromThingGroup)
 
 -- | The group ARN.
-removeThingFromThingGroup_thingGroupArn :: Lens.Lens' RemoveThingFromThingGroup (Core.Maybe Core.Text)
+removeThingFromThingGroup_thingGroupArn :: Lens.Lens' RemoveThingFromThingGroup (Prelude.Maybe Prelude.Text)
 removeThingFromThingGroup_thingGroupArn = Lens.lens (\RemoveThingFromThingGroup' {thingGroupArn} -> thingGroupArn) (\s@RemoveThingFromThingGroup' {} a -> s {thingGroupArn = a} :: RemoveThingFromThingGroup)
 
 -- | The name of the thing to remove from the group.
-removeThingFromThingGroup_thingName :: Lens.Lens' RemoveThingFromThingGroup (Core.Maybe Core.Text)
+removeThingFromThingGroup_thingName :: Lens.Lens' RemoveThingFromThingGroup (Prelude.Maybe Prelude.Text)
 removeThingFromThingGroup_thingName = Lens.lens (\RemoveThingFromThingGroup' {thingName} -> thingName) (\s@RemoveThingFromThingGroup' {} a -> s {thingName = a} :: RemoveThingFromThingGroup)
 
 -- | The group name.
-removeThingFromThingGroup_thingGroupName :: Lens.Lens' RemoveThingFromThingGroup (Core.Maybe Core.Text)
+removeThingFromThingGroup_thingGroupName :: Lens.Lens' RemoveThingFromThingGroup (Prelude.Maybe Prelude.Text)
 removeThingFromThingGroup_thingGroupName = Lens.lens (\RemoveThingFromThingGroup' {thingGroupName} -> thingGroupName) (\s@RemoveThingFromThingGroup' {} a -> s {thingGroupName = a} :: RemoveThingFromThingGroup)
 
 instance Core.AWSRequest RemoveThingFromThingGroup where
@@ -114,41 +116,42 @@ instance Core.AWSRequest RemoveThingFromThingGroup where
     Response.receiveEmpty
       ( \s h x ->
           RemoveThingFromThingGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RemoveThingFromThingGroup
+instance Prelude.Hashable RemoveThingFromThingGroup
 
-instance Core.NFData RemoveThingFromThingGroup
+instance Prelude.NFData RemoveThingFromThingGroup
 
 instance Core.ToHeaders RemoveThingFromThingGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON RemoveThingFromThingGroup where
   toJSON RemoveThingFromThingGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("thingArn" Core..=) Core.<$> thingArn,
-            ("thingGroupArn" Core..=) Core.<$> thingGroupArn,
-            ("thingName" Core..=) Core.<$> thingName,
-            ("thingGroupName" Core..=) Core.<$> thingGroupName
+      ( Prelude.catMaybes
+          [ ("thingArn" Core..=) Prelude.<$> thingArn,
+            ("thingGroupArn" Core..=) Prelude.<$> thingGroupArn,
+            ("thingName" Core..=) Prelude.<$> thingName,
+            ("thingGroupName" Core..=)
+              Prelude.<$> thingGroupName
           ]
       )
 
 instance Core.ToPath RemoveThingFromThingGroup where
   toPath =
-    Core.const
+    Prelude.const
       "/thing-groups/removeThingFromThingGroup"
 
 instance Core.ToQuery RemoveThingFromThingGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveThingFromThingGroupResponse' smart constructor.
 data RemoveThingFromThingGroupResponse = RemoveThingFromThingGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveThingFromThingGroupResponse' with all optional fields omitted.
@@ -161,7 +164,7 @@ data RemoveThingFromThingGroupResponse = RemoveThingFromThingGroupResponse'
 -- 'httpStatus', 'removeThingFromThingGroupResponse_httpStatus' - The response's http status code.
 newRemoveThingFromThingGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RemoveThingFromThingGroupResponse
 newRemoveThingFromThingGroupResponse pHttpStatus_ =
   RemoveThingFromThingGroupResponse'
@@ -170,9 +173,9 @@ newRemoveThingFromThingGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-removeThingFromThingGroupResponse_httpStatus :: Lens.Lens' RemoveThingFromThingGroupResponse Core.Int
+removeThingFromThingGroupResponse_httpStatus :: Lens.Lens' RemoveThingFromThingGroupResponse Prelude.Int
 removeThingFromThingGroupResponse_httpStatus = Lens.lens (\RemoveThingFromThingGroupResponse' {httpStatus} -> httpStatus) (\s@RemoveThingFromThingGroupResponse' {} a -> s {httpStatus = a} :: RemoveThingFromThingGroupResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     RemoveThingFromThingGroupResponse

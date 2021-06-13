@@ -21,17 +21,18 @@ module Network.AWS.Glue.Types.ErrorDetail where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about an error.
 --
 -- /See:/ 'newErrorDetail' smart constructor.
 data ErrorDetail = ErrorDetail'
   { -- | A message describing the error.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The code associated with this error.
-    errorCode :: Core.Maybe Core.Text
+    errorCode :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ErrorDetail' with all optional fields omitted.
@@ -48,16 +49,16 @@ newErrorDetail ::
   ErrorDetail
 newErrorDetail =
   ErrorDetail'
-    { errorMessage = Core.Nothing,
-      errorCode = Core.Nothing
+    { errorMessage = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
 
 -- | A message describing the error.
-errorDetail_errorMessage :: Lens.Lens' ErrorDetail (Core.Maybe Core.Text)
+errorDetail_errorMessage :: Lens.Lens' ErrorDetail (Prelude.Maybe Prelude.Text)
 errorDetail_errorMessage = Lens.lens (\ErrorDetail' {errorMessage} -> errorMessage) (\s@ErrorDetail' {} a -> s {errorMessage = a} :: ErrorDetail)
 
 -- | The code associated with this error.
-errorDetail_errorCode :: Lens.Lens' ErrorDetail (Core.Maybe Core.Text)
+errorDetail_errorCode :: Lens.Lens' ErrorDetail (Prelude.Maybe Prelude.Text)
 errorDetail_errorCode = Lens.lens (\ErrorDetail' {errorCode} -> errorCode) (\s@ErrorDetail' {} a -> s {errorCode = a} :: ErrorDetail)
 
 instance Core.FromJSON ErrorDetail where
@@ -66,10 +67,10 @@ instance Core.FromJSON ErrorDetail where
       "ErrorDetail"
       ( \x ->
           ErrorDetail'
-            Core.<$> (x Core..:? "ErrorMessage")
-            Core.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
-instance Core.Hashable ErrorDetail
+instance Prelude.Hashable ErrorDetail
 
-instance Core.NFData ErrorDetail
+instance Prelude.NFData ErrorDetail

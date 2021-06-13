@@ -69,6 +69,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -82,32 +83,32 @@ data CreateTrialComponent = CreateTrialComponent'
     -- -   Completed
     --
     -- -   Failed
-    status :: Core.Maybe TrialComponentStatus,
-    metadataProperties :: Core.Maybe MetadataProperties,
+    status :: Prelude.Maybe TrialComponentStatus,
+    metadataProperties :: Prelude.Maybe MetadataProperties,
     -- | When the component started.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | When the component ended.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | A list of tags to associate with the component. You can use Search API
     -- to search on the tags.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The input artifacts for the component. Examples of input artifacts are
     -- datasets, algorithms, hyperparameters, source code, and instance types.
-    inputArtifacts :: Core.Maybe (Core.HashMap Core.Text TrialComponentArtifact),
+    inputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
     -- | The name of the component as displayed. The name doesn\'t need to be
     -- unique. If @DisplayName@ isn\'t specified, @TrialComponentName@ is
     -- displayed.
-    displayName :: Core.Maybe Core.Text,
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | The hyperparameters for the component.
-    parameters :: Core.Maybe (Core.HashMap Core.Text TrialComponentParameterValue),
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue),
     -- | The output artifacts for the component. Examples of output artifacts are
     -- metrics, snapshots, logs, and images.
-    outputArtifacts :: Core.Maybe (Core.HashMap Core.Text TrialComponentArtifact),
+    outputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
     -- | The name of the component. The name must be unique in your AWS account
     -- and is not case-sensitive.
-    trialComponentName :: Core.Text
+    trialComponentName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTrialComponent' with all optional fields omitted.
@@ -150,19 +151,19 @@ data CreateTrialComponent = CreateTrialComponent'
 -- and is not case-sensitive.
 newCreateTrialComponent ::
   -- | 'trialComponentName'
-  Core.Text ->
+  Prelude.Text ->
   CreateTrialComponent
 newCreateTrialComponent pTrialComponentName_ =
   CreateTrialComponent'
-    { status = Core.Nothing,
-      metadataProperties = Core.Nothing,
-      startTime = Core.Nothing,
-      endTime = Core.Nothing,
-      tags = Core.Nothing,
-      inputArtifacts = Core.Nothing,
-      displayName = Core.Nothing,
-      parameters = Core.Nothing,
-      outputArtifacts = Core.Nothing,
+    { status = Prelude.Nothing,
+      metadataProperties = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      inputArtifacts = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      outputArtifacts = Prelude.Nothing,
       trialComponentName = pTrialComponentName_
     }
 
@@ -173,49 +174,49 @@ newCreateTrialComponent pTrialComponentName_ =
 -- -   Completed
 --
 -- -   Failed
-createTrialComponent_status :: Lens.Lens' CreateTrialComponent (Core.Maybe TrialComponentStatus)
+createTrialComponent_status :: Lens.Lens' CreateTrialComponent (Prelude.Maybe TrialComponentStatus)
 createTrialComponent_status = Lens.lens (\CreateTrialComponent' {status} -> status) (\s@CreateTrialComponent' {} a -> s {status = a} :: CreateTrialComponent)
 
 -- | Undocumented member.
-createTrialComponent_metadataProperties :: Lens.Lens' CreateTrialComponent (Core.Maybe MetadataProperties)
+createTrialComponent_metadataProperties :: Lens.Lens' CreateTrialComponent (Prelude.Maybe MetadataProperties)
 createTrialComponent_metadataProperties = Lens.lens (\CreateTrialComponent' {metadataProperties} -> metadataProperties) (\s@CreateTrialComponent' {} a -> s {metadataProperties = a} :: CreateTrialComponent)
 
 -- | When the component started.
-createTrialComponent_startTime :: Lens.Lens' CreateTrialComponent (Core.Maybe Core.UTCTime)
-createTrialComponent_startTime = Lens.lens (\CreateTrialComponent' {startTime} -> startTime) (\s@CreateTrialComponent' {} a -> s {startTime = a} :: CreateTrialComponent) Core.. Lens.mapping Core._Time
+createTrialComponent_startTime :: Lens.Lens' CreateTrialComponent (Prelude.Maybe Prelude.UTCTime)
+createTrialComponent_startTime = Lens.lens (\CreateTrialComponent' {startTime} -> startTime) (\s@CreateTrialComponent' {} a -> s {startTime = a} :: CreateTrialComponent) Prelude.. Lens.mapping Core._Time
 
 -- | When the component ended.
-createTrialComponent_endTime :: Lens.Lens' CreateTrialComponent (Core.Maybe Core.UTCTime)
-createTrialComponent_endTime = Lens.lens (\CreateTrialComponent' {endTime} -> endTime) (\s@CreateTrialComponent' {} a -> s {endTime = a} :: CreateTrialComponent) Core.. Lens.mapping Core._Time
+createTrialComponent_endTime :: Lens.Lens' CreateTrialComponent (Prelude.Maybe Prelude.UTCTime)
+createTrialComponent_endTime = Lens.lens (\CreateTrialComponent' {endTime} -> endTime) (\s@CreateTrialComponent' {} a -> s {endTime = a} :: CreateTrialComponent) Prelude.. Lens.mapping Core._Time
 
 -- | A list of tags to associate with the component. You can use Search API
 -- to search on the tags.
-createTrialComponent_tags :: Lens.Lens' CreateTrialComponent (Core.Maybe [Tag])
-createTrialComponent_tags = Lens.lens (\CreateTrialComponent' {tags} -> tags) (\s@CreateTrialComponent' {} a -> s {tags = a} :: CreateTrialComponent) Core.. Lens.mapping Lens._Coerce
+createTrialComponent_tags :: Lens.Lens' CreateTrialComponent (Prelude.Maybe [Tag])
+createTrialComponent_tags = Lens.lens (\CreateTrialComponent' {tags} -> tags) (\s@CreateTrialComponent' {} a -> s {tags = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The input artifacts for the component. Examples of input artifacts are
 -- datasets, algorithms, hyperparameters, source code, and instance types.
-createTrialComponent_inputArtifacts :: Lens.Lens' CreateTrialComponent (Core.Maybe (Core.HashMap Core.Text TrialComponentArtifact))
-createTrialComponent_inputArtifacts = Lens.lens (\CreateTrialComponent' {inputArtifacts} -> inputArtifacts) (\s@CreateTrialComponent' {} a -> s {inputArtifacts = a} :: CreateTrialComponent) Core.. Lens.mapping Lens._Coerce
+createTrialComponent_inputArtifacts :: Lens.Lens' CreateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
+createTrialComponent_inputArtifacts = Lens.lens (\CreateTrialComponent' {inputArtifacts} -> inputArtifacts) (\s@CreateTrialComponent' {} a -> s {inputArtifacts = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the component as displayed. The name doesn\'t need to be
 -- unique. If @DisplayName@ isn\'t specified, @TrialComponentName@ is
 -- displayed.
-createTrialComponent_displayName :: Lens.Lens' CreateTrialComponent (Core.Maybe Core.Text)
+createTrialComponent_displayName :: Lens.Lens' CreateTrialComponent (Prelude.Maybe Prelude.Text)
 createTrialComponent_displayName = Lens.lens (\CreateTrialComponent' {displayName} -> displayName) (\s@CreateTrialComponent' {} a -> s {displayName = a} :: CreateTrialComponent)
 
 -- | The hyperparameters for the component.
-createTrialComponent_parameters :: Lens.Lens' CreateTrialComponent (Core.Maybe (Core.HashMap Core.Text TrialComponentParameterValue))
-createTrialComponent_parameters = Lens.lens (\CreateTrialComponent' {parameters} -> parameters) (\s@CreateTrialComponent' {} a -> s {parameters = a} :: CreateTrialComponent) Core.. Lens.mapping Lens._Coerce
+createTrialComponent_parameters :: Lens.Lens' CreateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue))
+createTrialComponent_parameters = Lens.lens (\CreateTrialComponent' {parameters} -> parameters) (\s@CreateTrialComponent' {} a -> s {parameters = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The output artifacts for the component. Examples of output artifacts are
 -- metrics, snapshots, logs, and images.
-createTrialComponent_outputArtifacts :: Lens.Lens' CreateTrialComponent (Core.Maybe (Core.HashMap Core.Text TrialComponentArtifact))
-createTrialComponent_outputArtifacts = Lens.lens (\CreateTrialComponent' {outputArtifacts} -> outputArtifacts) (\s@CreateTrialComponent' {} a -> s {outputArtifacts = a} :: CreateTrialComponent) Core.. Lens.mapping Lens._Coerce
+createTrialComponent_outputArtifacts :: Lens.Lens' CreateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
+createTrialComponent_outputArtifacts = Lens.lens (\CreateTrialComponent' {outputArtifacts} -> outputArtifacts) (\s@CreateTrialComponent' {} a -> s {outputArtifacts = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the component. The name must be unique in your AWS account
 -- and is not case-sensitive.
-createTrialComponent_trialComponentName :: Lens.Lens' CreateTrialComponent Core.Text
+createTrialComponent_trialComponentName :: Lens.Lens' CreateTrialComponent Prelude.Text
 createTrialComponent_trialComponentName = Lens.lens (\CreateTrialComponent' {trialComponentName} -> trialComponentName) (\s@CreateTrialComponent' {} a -> s {trialComponentName = a} :: CreateTrialComponent)
 
 instance Core.AWSRequest CreateTrialComponent where
@@ -227,60 +228,64 @@ instance Core.AWSRequest CreateTrialComponent where
     Response.receiveJSON
       ( \s h x ->
           CreateTrialComponentResponse'
-            Core.<$> (x Core..?> "TrialComponentArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TrialComponentArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateTrialComponent
+instance Prelude.Hashable CreateTrialComponent
 
-instance Core.NFData CreateTrialComponent
+instance Prelude.NFData CreateTrialComponent
 
 instance Core.ToHeaders CreateTrialComponent where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.CreateTrialComponent" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateTrialComponent where
   toJSON CreateTrialComponent' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Status" Core..=) Core.<$> status,
+      ( Prelude.catMaybes
+          [ ("Status" Core..=) Prelude.<$> status,
             ("MetadataProperties" Core..=)
-              Core.<$> metadataProperties,
-            ("StartTime" Core..=) Core.<$> startTime,
-            ("EndTime" Core..=) Core.<$> endTime,
-            ("Tags" Core..=) Core.<$> tags,
-            ("InputArtifacts" Core..=) Core.<$> inputArtifacts,
-            ("DisplayName" Core..=) Core.<$> displayName,
-            ("Parameters" Core..=) Core.<$> parameters,
-            ("OutputArtifacts" Core..=) Core.<$> outputArtifacts,
-            Core.Just
+              Prelude.<$> metadataProperties,
+            ("StartTime" Core..=) Prelude.<$> startTime,
+            ("EndTime" Core..=) Prelude.<$> endTime,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("InputArtifacts" Core..=)
+              Prelude.<$> inputArtifacts,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
+            ("Parameters" Core..=) Prelude.<$> parameters,
+            ("OutputArtifacts" Core..=)
+              Prelude.<$> outputArtifacts,
+            Prelude.Just
               ("TrialComponentName" Core..= trialComponentName)
           ]
       )
 
 instance Core.ToPath CreateTrialComponent where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateTrialComponent where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTrialComponentResponse' smart constructor.
 data CreateTrialComponentResponse = CreateTrialComponentResponse'
   { -- | The Amazon Resource Name (ARN) of the trial component.
-    trialComponentArn :: Core.Maybe Core.Text,
+    trialComponentArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTrialComponentResponse' with all optional fields omitted.
@@ -295,21 +300,21 @@ data CreateTrialComponentResponse = CreateTrialComponentResponse'
 -- 'httpStatus', 'createTrialComponentResponse_httpStatus' - The response's http status code.
 newCreateTrialComponentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateTrialComponentResponse
 newCreateTrialComponentResponse pHttpStatus_ =
   CreateTrialComponentResponse'
     { trialComponentArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the trial component.
-createTrialComponentResponse_trialComponentArn :: Lens.Lens' CreateTrialComponentResponse (Core.Maybe Core.Text)
+createTrialComponentResponse_trialComponentArn :: Lens.Lens' CreateTrialComponentResponse (Prelude.Maybe Prelude.Text)
 createTrialComponentResponse_trialComponentArn = Lens.lens (\CreateTrialComponentResponse' {trialComponentArn} -> trialComponentArn) (\s@CreateTrialComponentResponse' {} a -> s {trialComponentArn = a} :: CreateTrialComponentResponse)
 
 -- | The response's http status code.
-createTrialComponentResponse_httpStatus :: Lens.Lens' CreateTrialComponentResponse Core.Int
+createTrialComponentResponse_httpStatus :: Lens.Lens' CreateTrialComponentResponse Prelude.Int
 createTrialComponentResponse_httpStatus = Lens.lens (\CreateTrialComponentResponse' {httpStatus} -> httpStatus) (\s@CreateTrialComponentResponse' {} a -> s {httpStatus = a} :: CreateTrialComponentResponse)
 
-instance Core.NFData CreateTrialComponentResponse
+instance Prelude.NFData CreateTrialComponentResponse

@@ -21,6 +21,7 @@ module Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3Storage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use this to store channel data in an S3 bucket that you manage. If
 -- customer managed storage is selected, the @retentionPeriod@ parameter is
@@ -33,14 +34,14 @@ data CustomerManagedChannelS3Storage = CustomerManagedChannelS3Storage'
     -- objects. Each object in an S3 bucket has a key that is its unique
     -- identifier in the bucket. Each object in a bucket has exactly one key.
     -- The prefix must end with a forward slash (\/).
-    keyPrefix :: Core.Maybe Core.Text,
+    keyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The name of the S3 bucket in which channel data is stored.
-    bucket :: Core.Text,
+    bucket :: Prelude.Text,
     -- | The ARN of the role that grants AWS IoT Analytics permission to interact
     -- with your Amazon S3 resources.
-    roleArn :: Core.Text
+    roleArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CustomerManagedChannelS3Storage' with all optional fields omitted.
@@ -61,14 +62,14 @@ data CustomerManagedChannelS3Storage = CustomerManagedChannelS3Storage'
 -- with your Amazon S3 resources.
 newCustomerManagedChannelS3Storage ::
   -- | 'bucket'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleArn'
-  Core.Text ->
+  Prelude.Text ->
   CustomerManagedChannelS3Storage
 newCustomerManagedChannelS3Storage pBucket_ pRoleArn_ =
   CustomerManagedChannelS3Storage'
     { keyPrefix =
-        Core.Nothing,
+        Prelude.Nothing,
       bucket = pBucket_,
       roleArn = pRoleArn_
     }
@@ -77,16 +78,16 @@ newCustomerManagedChannelS3Storage pBucket_ pRoleArn_ =
 -- objects. Each object in an S3 bucket has a key that is its unique
 -- identifier in the bucket. Each object in a bucket has exactly one key.
 -- The prefix must end with a forward slash (\/).
-customerManagedChannelS3Storage_keyPrefix :: Lens.Lens' CustomerManagedChannelS3Storage (Core.Maybe Core.Text)
+customerManagedChannelS3Storage_keyPrefix :: Lens.Lens' CustomerManagedChannelS3Storage (Prelude.Maybe Prelude.Text)
 customerManagedChannelS3Storage_keyPrefix = Lens.lens (\CustomerManagedChannelS3Storage' {keyPrefix} -> keyPrefix) (\s@CustomerManagedChannelS3Storage' {} a -> s {keyPrefix = a} :: CustomerManagedChannelS3Storage)
 
 -- | The name of the S3 bucket in which channel data is stored.
-customerManagedChannelS3Storage_bucket :: Lens.Lens' CustomerManagedChannelS3Storage Core.Text
+customerManagedChannelS3Storage_bucket :: Lens.Lens' CustomerManagedChannelS3Storage Prelude.Text
 customerManagedChannelS3Storage_bucket = Lens.lens (\CustomerManagedChannelS3Storage' {bucket} -> bucket) (\s@CustomerManagedChannelS3Storage' {} a -> s {bucket = a} :: CustomerManagedChannelS3Storage)
 
 -- | The ARN of the role that grants AWS IoT Analytics permission to interact
 -- with your Amazon S3 resources.
-customerManagedChannelS3Storage_roleArn :: Lens.Lens' CustomerManagedChannelS3Storage Core.Text
+customerManagedChannelS3Storage_roleArn :: Lens.Lens' CustomerManagedChannelS3Storage Prelude.Text
 customerManagedChannelS3Storage_roleArn = Lens.lens (\CustomerManagedChannelS3Storage' {roleArn} -> roleArn) (\s@CustomerManagedChannelS3Storage' {} a -> s {roleArn = a} :: CustomerManagedChannelS3Storage)
 
 instance
@@ -98,23 +99,25 @@ instance
       "CustomerManagedChannelS3Storage"
       ( \x ->
           CustomerManagedChannelS3Storage'
-            Core.<$> (x Core..:? "keyPrefix")
-            Core.<*> (x Core..: "bucket")
-            Core.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Core..:? "keyPrefix")
+            Prelude.<*> (x Core..: "bucket")
+            Prelude.<*> (x Core..: "roleArn")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CustomerManagedChannelS3Storage
 
-instance Core.NFData CustomerManagedChannelS3Storage
+instance
+  Prelude.NFData
+    CustomerManagedChannelS3Storage
 
 instance Core.ToJSON CustomerManagedChannelS3Storage where
   toJSON CustomerManagedChannelS3Storage' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("keyPrefix" Core..=) Core.<$> keyPrefix,
-            Core.Just ("bucket" Core..= bucket),
-            Core.Just ("roleArn" Core..= roleArn)
+      ( Prelude.catMaybes
+          [ ("keyPrefix" Core..=) Prelude.<$> keyPrefix,
+            Prelude.Just ("bucket" Core..= bucket),
+            Prelude.Just ("roleArn" Core..= roleArn)
           ]
       )

@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.H265FlickerAdaptiveQuantization
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Enable this setting to have the encoder reduce I-frame pop. I-frame pop
 -- appears as a visual flicker that can arise when the encoder saves bits
@@ -41,15 +42,15 @@ newtype H265FlickerAdaptiveQuantization = H265FlickerAdaptiveQuantization'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

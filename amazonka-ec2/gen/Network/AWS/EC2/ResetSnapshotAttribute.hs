@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,14 +54,14 @@ data ResetSnapshotAttribute = ResetSnapshotAttribute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The attribute to reset. Currently, only the attribute for permission to
     -- create volumes can be reset.
     attribute :: SnapshotAttributeName,
     -- | The ID of the snapshot.
-    snapshotId :: Core.Text
+    snapshotId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResetSnapshotAttribute' with all optional fields omitted.
@@ -83,11 +84,11 @@ newResetSnapshotAttribute ::
   -- | 'attribute'
   SnapshotAttributeName ->
   -- | 'snapshotId'
-  Core.Text ->
+  Prelude.Text ->
   ResetSnapshotAttribute
 newResetSnapshotAttribute pAttribute_ pSnapshotId_ =
   ResetSnapshotAttribute'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       attribute = pAttribute_,
       snapshotId = pSnapshotId_
     }
@@ -96,7 +97,7 @@ newResetSnapshotAttribute pAttribute_ pSnapshotId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-resetSnapshotAttribute_dryRun :: Lens.Lens' ResetSnapshotAttribute (Core.Maybe Core.Bool)
+resetSnapshotAttribute_dryRun :: Lens.Lens' ResetSnapshotAttribute (Prelude.Maybe Prelude.Bool)
 resetSnapshotAttribute_dryRun = Lens.lens (\ResetSnapshotAttribute' {dryRun} -> dryRun) (\s@ResetSnapshotAttribute' {} a -> s {dryRun = a} :: ResetSnapshotAttribute)
 
 -- | The attribute to reset. Currently, only the attribute for permission to
@@ -105,7 +106,7 @@ resetSnapshotAttribute_attribute :: Lens.Lens' ResetSnapshotAttribute SnapshotAt
 resetSnapshotAttribute_attribute = Lens.lens (\ResetSnapshotAttribute' {attribute} -> attribute) (\s@ResetSnapshotAttribute' {} a -> s {attribute = a} :: ResetSnapshotAttribute)
 
 -- | The ID of the snapshot.
-resetSnapshotAttribute_snapshotId :: Lens.Lens' ResetSnapshotAttribute Core.Text
+resetSnapshotAttribute_snapshotId :: Lens.Lens' ResetSnapshotAttribute Prelude.Text
 resetSnapshotAttribute_snapshotId = Lens.lens (\ResetSnapshotAttribute' {snapshotId} -> snapshotId) (\s@ResetSnapshotAttribute' {} a -> s {snapshotId = a} :: ResetSnapshotAttribute)
 
 instance Core.AWSRequest ResetSnapshotAttribute where
@@ -117,22 +118,23 @@ instance Core.AWSRequest ResetSnapshotAttribute where
     Response.receiveNull
       ResetSnapshotAttributeResponse'
 
-instance Core.Hashable ResetSnapshotAttribute
+instance Prelude.Hashable ResetSnapshotAttribute
 
-instance Core.NFData ResetSnapshotAttribute
+instance Prelude.NFData ResetSnapshotAttribute
 
 instance Core.ToHeaders ResetSnapshotAttribute where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ResetSnapshotAttribute where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ResetSnapshotAttribute where
   toQuery ResetSnapshotAttribute' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ResetSnapshotAttribute" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ResetSnapshotAttribute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "Attribute" Core.=: attribute,
         "SnapshotId" Core.=: snapshotId
@@ -142,7 +144,7 @@ instance Core.ToQuery ResetSnapshotAttribute where
 data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResetSnapshotAttributeResponse' with all optional fields omitted.
@@ -153,4 +155,6 @@ newResetSnapshotAttributeResponse ::
 newResetSnapshotAttributeResponse =
   ResetSnapshotAttributeResponse'
 
-instance Core.NFData ResetSnapshotAttributeResponse
+instance
+  Prelude.NFData
+    ResetSnapshotAttributeResponse

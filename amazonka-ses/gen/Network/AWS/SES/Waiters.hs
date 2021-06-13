@@ -17,5 +17,6 @@ module Network.AWS.SES.Waiters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Lens
 import Network.AWS.SES.Types

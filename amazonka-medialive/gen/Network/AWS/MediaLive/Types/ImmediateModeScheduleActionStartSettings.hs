@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings wher
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings to configure an action so that it occurs as soon as possible.
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data ImmediateModeScheduleActionStartSettings = ImmediateModeScheduleActionStartSettings'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImmediateModeScheduleActionStartSettings' with all optional fields omitted.
@@ -47,19 +48,20 @@ instance
     Core.withObject
       "ImmediateModeScheduleActionStartSettings"
       ( \x ->
-          Core.pure ImmediateModeScheduleActionStartSettings'
+          Prelude.pure
+            ImmediateModeScheduleActionStartSettings'
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ImmediateModeScheduleActionStartSettings
 
 instance
-  Core.NFData
+  Prelude.NFData
     ImmediateModeScheduleActionStartSettings
 
 instance
   Core.ToJSON
     ImmediateModeScheduleActionStartSettings
   where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)

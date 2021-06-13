@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.EngineDefaults where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types.Parameter
 
 -- | Contains the result of a successful invocation of the
@@ -30,15 +31,15 @@ import Network.AWS.RDS.Types.Parameter
 data EngineDefaults = EngineDefaults'
   { -- | Specifies the name of the DB parameter group family that the engine
     -- default parameters apply to.
-    dbParameterGroupFamily :: Core.Maybe Core.Text,
+    dbParameterGroupFamily :: Prelude.Maybe Prelude.Text,
     -- | Contains a list of engine default parameters.
-    parameters :: Core.Maybe [Parameter],
+    parameters :: Prelude.Maybe [Parameter],
     -- | An optional pagination token provided by a previous EngineDefaults
     -- request. If this parameter is specified, the response includes only
     -- records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EngineDefaults' with all optional fields omitted.
@@ -61,35 +62,35 @@ newEngineDefaults ::
 newEngineDefaults =
   EngineDefaults'
     { dbParameterGroupFamily =
-        Core.Nothing,
-      parameters = Core.Nothing,
-      marker = Core.Nothing
+        Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | Specifies the name of the DB parameter group family that the engine
 -- default parameters apply to.
-engineDefaults_dbParameterGroupFamily :: Lens.Lens' EngineDefaults (Core.Maybe Core.Text)
+engineDefaults_dbParameterGroupFamily :: Lens.Lens' EngineDefaults (Prelude.Maybe Prelude.Text)
 engineDefaults_dbParameterGroupFamily = Lens.lens (\EngineDefaults' {dbParameterGroupFamily} -> dbParameterGroupFamily) (\s@EngineDefaults' {} a -> s {dbParameterGroupFamily = a} :: EngineDefaults)
 
 -- | Contains a list of engine default parameters.
-engineDefaults_parameters :: Lens.Lens' EngineDefaults (Core.Maybe [Parameter])
-engineDefaults_parameters = Lens.lens (\EngineDefaults' {parameters} -> parameters) (\s@EngineDefaults' {} a -> s {parameters = a} :: EngineDefaults) Core.. Lens.mapping Lens._Coerce
+engineDefaults_parameters :: Lens.Lens' EngineDefaults (Prelude.Maybe [Parameter])
+engineDefaults_parameters = Lens.lens (\EngineDefaults' {parameters} -> parameters) (\s@EngineDefaults' {} a -> s {parameters = a} :: EngineDefaults) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous EngineDefaults
 -- request. If this parameter is specified, the response includes only
 -- records beyond the marker, up to the value specified by @MaxRecords@ .
-engineDefaults_marker :: Lens.Lens' EngineDefaults (Core.Maybe Core.Text)
+engineDefaults_marker :: Lens.Lens' EngineDefaults (Prelude.Maybe Prelude.Text)
 engineDefaults_marker = Lens.lens (\EngineDefaults' {marker} -> marker) (\s@EngineDefaults' {} a -> s {marker = a} :: EngineDefaults)
 
 instance Core.FromXML EngineDefaults where
   parseXML x =
     EngineDefaults'
-      Core.<$> (x Core..@? "DBParameterGroupFamily")
-      Core.<*> ( x Core..@? "Parameters" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Parameter")
-               )
-      Core.<*> (x Core..@? "Marker")
+      Prelude.<$> (x Core..@? "DBParameterGroupFamily")
+      Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Parameter")
+                  )
+      Prelude.<*> (x Core..@? "Marker")
 
-instance Core.Hashable EngineDefaults
+instance Prelude.Hashable EngineDefaults
 
-instance Core.NFData EngineDefaults
+instance Prelude.NFData EngineDefaults

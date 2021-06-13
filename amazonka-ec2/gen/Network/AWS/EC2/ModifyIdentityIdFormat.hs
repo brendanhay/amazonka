@@ -66,6 +66,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,7 +75,7 @@ data ModifyIdentityIdFormat = ModifyIdentityIdFormat'
   { -- | The ARN of the principal, which can be an IAM user, IAM role, or the
     -- root user. Specify @all@ to modify the ID format for all IAM users, IAM
     -- roles, and the root user of the account.
-    principalArn :: Core.Text,
+    principalArn :: Prelude.Text,
     -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
     -- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |
     -- @export-task@ | @flow-log@ | @image@ | @import-task@ |
@@ -87,11 +88,11 @@ data ModifyIdentityIdFormat = ModifyIdentityIdFormat'
     --
     -- Alternatively, use the @all-current@ option to include all resource
     -- types that are currently within their opt-in period for longer IDs.
-    resource :: Core.Text,
+    resource :: Prelude.Text,
     -- | Indicates whether the resource should use longer IDs (17-character IDs)
-    useLongIds :: Core.Bool
+    useLongIds :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyIdentityIdFormat' with all optional fields omitted.
@@ -121,11 +122,11 @@ data ModifyIdentityIdFormat = ModifyIdentityIdFormat'
 -- 'useLongIds', 'modifyIdentityIdFormat_useLongIds' - Indicates whether the resource should use longer IDs (17-character IDs)
 newModifyIdentityIdFormat ::
   -- | 'principalArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resource'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'useLongIds'
-  Core.Bool ->
+  Prelude.Bool ->
   ModifyIdentityIdFormat
 newModifyIdentityIdFormat
   pPrincipalArn_
@@ -141,7 +142,7 @@ newModifyIdentityIdFormat
 -- | The ARN of the principal, which can be an IAM user, IAM role, or the
 -- root user. Specify @all@ to modify the ID format for all IAM users, IAM
 -- roles, and the root user of the account.
-modifyIdentityIdFormat_principalArn :: Lens.Lens' ModifyIdentityIdFormat Core.Text
+modifyIdentityIdFormat_principalArn :: Lens.Lens' ModifyIdentityIdFormat Prelude.Text
 modifyIdentityIdFormat_principalArn = Lens.lens (\ModifyIdentityIdFormat' {principalArn} -> principalArn) (\s@ModifyIdentityIdFormat' {} a -> s {principalArn = a} :: ModifyIdentityIdFormat)
 
 -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
@@ -156,11 +157,11 @@ modifyIdentityIdFormat_principalArn = Lens.lens (\ModifyIdentityIdFormat' {princ
 --
 -- Alternatively, use the @all-current@ option to include all resource
 -- types that are currently within their opt-in period for longer IDs.
-modifyIdentityIdFormat_resource :: Lens.Lens' ModifyIdentityIdFormat Core.Text
+modifyIdentityIdFormat_resource :: Lens.Lens' ModifyIdentityIdFormat Prelude.Text
 modifyIdentityIdFormat_resource = Lens.lens (\ModifyIdentityIdFormat' {resource} -> resource) (\s@ModifyIdentityIdFormat' {} a -> s {resource = a} :: ModifyIdentityIdFormat)
 
 -- | Indicates whether the resource should use longer IDs (17-character IDs)
-modifyIdentityIdFormat_useLongIds :: Lens.Lens' ModifyIdentityIdFormat Core.Bool
+modifyIdentityIdFormat_useLongIds :: Lens.Lens' ModifyIdentityIdFormat Prelude.Bool
 modifyIdentityIdFormat_useLongIds = Lens.lens (\ModifyIdentityIdFormat' {useLongIds} -> useLongIds) (\s@ModifyIdentityIdFormat' {} a -> s {useLongIds = a} :: ModifyIdentityIdFormat)
 
 instance Core.AWSRequest ModifyIdentityIdFormat where
@@ -172,22 +173,23 @@ instance Core.AWSRequest ModifyIdentityIdFormat where
     Response.receiveNull
       ModifyIdentityIdFormatResponse'
 
-instance Core.Hashable ModifyIdentityIdFormat
+instance Prelude.Hashable ModifyIdentityIdFormat
 
-instance Core.NFData ModifyIdentityIdFormat
+instance Prelude.NFData ModifyIdentityIdFormat
 
 instance Core.ToHeaders ModifyIdentityIdFormat where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyIdentityIdFormat where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyIdentityIdFormat where
   toQuery ModifyIdentityIdFormat' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyIdentityIdFormat" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ModifyIdentityIdFormat" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "PrincipalArn" Core.=: principalArn,
         "Resource" Core.=: resource,
         "UseLongIds" Core.=: useLongIds
@@ -197,7 +199,7 @@ instance Core.ToQuery ModifyIdentityIdFormat where
 data ModifyIdentityIdFormatResponse = ModifyIdentityIdFormatResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyIdentityIdFormatResponse' with all optional fields omitted.
@@ -208,4 +210,6 @@ newModifyIdentityIdFormatResponse ::
 newModifyIdentityIdFormatResponse =
   ModifyIdentityIdFormatResponse'
 
-instance Core.NFData ModifyIdentityIdFormatResponse
+instance
+  Prelude.NFData
+    ModifyIdentityIdFormatResponse

@@ -21,6 +21,7 @@ module Network.AWS.CloudWatchLogs.Types.ExportTaskExecutionInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the status of an export task.
 --
@@ -28,12 +29,12 @@ import qualified Network.AWS.Lens as Lens
 data ExportTaskExecutionInfo = ExportTaskExecutionInfo'
   { -- | The creation time of the export task, expressed as the number of
     -- milliseconds after Jan 1, 1970 00:00:00 UTC.
-    creationTime :: Core.Maybe Core.Natural,
+    creationTime :: Prelude.Maybe Prelude.Natural,
     -- | The completion time of the export task, expressed as the number of
     -- milliseconds after Jan 1, 1970 00:00:00 UTC.
-    completionTime :: Core.Maybe Core.Natural
+    completionTime :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExportTaskExecutionInfo' with all optional fields omitted.
@@ -53,18 +54,18 @@ newExportTaskExecutionInfo ::
 newExportTaskExecutionInfo =
   ExportTaskExecutionInfo'
     { creationTime =
-        Core.Nothing,
-      completionTime = Core.Nothing
+        Prelude.Nothing,
+      completionTime = Prelude.Nothing
     }
 
 -- | The creation time of the export task, expressed as the number of
 -- milliseconds after Jan 1, 1970 00:00:00 UTC.
-exportTaskExecutionInfo_creationTime :: Lens.Lens' ExportTaskExecutionInfo (Core.Maybe Core.Natural)
+exportTaskExecutionInfo_creationTime :: Lens.Lens' ExportTaskExecutionInfo (Prelude.Maybe Prelude.Natural)
 exportTaskExecutionInfo_creationTime = Lens.lens (\ExportTaskExecutionInfo' {creationTime} -> creationTime) (\s@ExportTaskExecutionInfo' {} a -> s {creationTime = a} :: ExportTaskExecutionInfo)
 
 -- | The completion time of the export task, expressed as the number of
 -- milliseconds after Jan 1, 1970 00:00:00 UTC.
-exportTaskExecutionInfo_completionTime :: Lens.Lens' ExportTaskExecutionInfo (Core.Maybe Core.Natural)
+exportTaskExecutionInfo_completionTime :: Lens.Lens' ExportTaskExecutionInfo (Prelude.Maybe Prelude.Natural)
 exportTaskExecutionInfo_completionTime = Lens.lens (\ExportTaskExecutionInfo' {completionTime} -> completionTime) (\s@ExportTaskExecutionInfo' {} a -> s {completionTime = a} :: ExportTaskExecutionInfo)
 
 instance Core.FromJSON ExportTaskExecutionInfo where
@@ -73,10 +74,10 @@ instance Core.FromJSON ExportTaskExecutionInfo where
       "ExportTaskExecutionInfo"
       ( \x ->
           ExportTaskExecutionInfo'
-            Core.<$> (x Core..:? "creationTime")
-            Core.<*> (x Core..:? "completionTime")
+            Prelude.<$> (x Core..:? "creationTime")
+            Prelude.<*> (x Core..:? "completionTime")
       )
 
-instance Core.Hashable ExportTaskExecutionInfo
+instance Prelude.Hashable ExportTaskExecutionInfo
 
-instance Core.NFData ExportTaskExecutionInfo
+instance Prelude.NFData ExportTaskExecutionInfo

@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.HlsEncryptionType
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Encrypts the segments with the given encryption scheme. Leave blank to
 -- disable. Selecting \'Disabled\' in the web interface also disables
@@ -36,15 +37,15 @@ newtype HlsEncryptionType = HlsEncryptionType'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

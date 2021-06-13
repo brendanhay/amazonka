@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,21 +66,21 @@ data ListRoleTags = ListRoleTags'
     -- that case, the @IsTruncated@ response element returns @true@, and
     -- @Marker@ contains a value to include in the subsequent call that tells
     -- the service where to continue from.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The name of the IAM role for which you want to see the list of tags.
     --
     -- This parameter accepts (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    roleName :: Core.Text
+    roleName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRoleTags' with all optional fields omitted.
@@ -113,12 +114,12 @@ data ListRoleTags = ListRoleTags'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newListRoleTags ::
   -- | 'roleName'
-  Core.Text ->
+  Prelude.Text ->
   ListRoleTags
 newListRoleTags pRoleName_ =
   ListRoleTags'
-    { maxItems = Core.Nothing,
-      marker = Core.Nothing,
+    { maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing,
       roleName = pRoleName_
     }
 
@@ -132,14 +133,14 @@ newListRoleTags pRoleName_ =
 -- that case, the @IsTruncated@ response element returns @true@, and
 -- @Marker@ contains a value to include in the subsequent call that tells
 -- the service where to continue from.
-listRoleTags_maxItems :: Lens.Lens' ListRoleTags (Core.Maybe Core.Natural)
+listRoleTags_maxItems :: Lens.Lens' ListRoleTags (Prelude.Maybe Prelude.Natural)
 listRoleTags_maxItems = Lens.lens (\ListRoleTags' {maxItems} -> maxItems) (\s@ListRoleTags' {} a -> s {maxItems = a} :: ListRoleTags)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listRoleTags_marker :: Lens.Lens' ListRoleTags (Core.Maybe Core.Text)
+listRoleTags_marker :: Lens.Lens' ListRoleTags (Prelude.Maybe Prelude.Text)
 listRoleTags_marker = Lens.lens (\ListRoleTags' {marker} -> marker) (\s@ListRoleTags' {} a -> s {marker = a} :: ListRoleTags)
 
 -- | The name of the IAM role for which you want to see the list of tags.
@@ -148,7 +149,7 @@ listRoleTags_marker = Lens.lens (\ListRoleTags' {marker} -> marker) (\s@ListRole
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-listRoleTags_roleName :: Lens.Lens' ListRoleTags Core.Text
+listRoleTags_roleName :: Lens.Lens' ListRoleTags Prelude.Text
 listRoleTags_roleName = Lens.lens (\ListRoleTags' {roleName} -> roleName) (\s@ListRoleTags' {} a -> s {roleName = a} :: ListRoleTags)
 
 instance Core.AWSRequest ListRoleTags where
@@ -159,30 +160,31 @@ instance Core.AWSRequest ListRoleTags where
       "ListRoleTagsResult"
       ( \s h x ->
           ListRoleTagsResponse'
-            Core.<$> (x Core..@? "IsTruncated")
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "Tags" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "member"
-                     )
+            Prelude.<$> (x Core..@? "IsTruncated")
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
       )
 
-instance Core.Hashable ListRoleTags
+instance Prelude.Hashable ListRoleTags
 
-instance Core.NFData ListRoleTags
+instance Prelude.NFData ListRoleTags
 
 instance Core.ToHeaders ListRoleTags where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListRoleTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListRoleTags where
   toQuery ListRoleTags' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListRoleTags" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("ListRoleTags" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker,
         "RoleName" Core.=: roleName
@@ -196,19 +198,19 @@ data ListRoleTagsResponse = ListRoleTagsResponse'
     -- that IAM might return fewer than the @MaxItems@ number of results even
     -- when more results are available. Check @IsTruncated@ after every call to
     -- ensure that you receive all of your results.
-    isTruncated :: Core.Maybe Core.Bool,
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The list of tags that are currently attached to the role. Each tag
     -- consists of a key name and an associated value. If no tags are attached
     -- to the specified resource, the response contains an empty list.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRoleTagsResponse' with all optional fields omitted.
@@ -236,14 +238,15 @@ data ListRoleTagsResponse = ListRoleTagsResponse'
 -- to the specified resource, the response contains an empty list.
 newListRoleTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListRoleTagsResponse
 newListRoleTagsResponse pHttpStatus_ =
   ListRoleTagsResponse'
-    { isTruncated = Core.Nothing,
-      marker = Core.Nothing,
+    { isTruncated =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -252,23 +255,23 @@ newListRoleTagsResponse pHttpStatus_ =
 -- that IAM might return fewer than the @MaxItems@ number of results even
 -- when more results are available. Check @IsTruncated@ after every call to
 -- ensure that you receive all of your results.
-listRoleTagsResponse_isTruncated :: Lens.Lens' ListRoleTagsResponse (Core.Maybe Core.Bool)
+listRoleTagsResponse_isTruncated :: Lens.Lens' ListRoleTagsResponse (Prelude.Maybe Prelude.Bool)
 listRoleTagsResponse_isTruncated = Lens.lens (\ListRoleTagsResponse' {isTruncated} -> isTruncated) (\s@ListRoleTagsResponse' {} a -> s {isTruncated = a} :: ListRoleTagsResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listRoleTagsResponse_marker :: Lens.Lens' ListRoleTagsResponse (Core.Maybe Core.Text)
+listRoleTagsResponse_marker :: Lens.Lens' ListRoleTagsResponse (Prelude.Maybe Prelude.Text)
 listRoleTagsResponse_marker = Lens.lens (\ListRoleTagsResponse' {marker} -> marker) (\s@ListRoleTagsResponse' {} a -> s {marker = a} :: ListRoleTagsResponse)
 
 -- | The response's http status code.
-listRoleTagsResponse_httpStatus :: Lens.Lens' ListRoleTagsResponse Core.Int
+listRoleTagsResponse_httpStatus :: Lens.Lens' ListRoleTagsResponse Prelude.Int
 listRoleTagsResponse_httpStatus = Lens.lens (\ListRoleTagsResponse' {httpStatus} -> httpStatus) (\s@ListRoleTagsResponse' {} a -> s {httpStatus = a} :: ListRoleTagsResponse)
 
 -- | The list of tags that are currently attached to the role. Each tag
 -- consists of a key name and an associated value. If no tags are attached
 -- to the specified resource, the response contains an empty list.
 listRoleTagsResponse_tags :: Lens.Lens' ListRoleTagsResponse [Tag]
-listRoleTagsResponse_tags = Lens.lens (\ListRoleTagsResponse' {tags} -> tags) (\s@ListRoleTagsResponse' {} a -> s {tags = a} :: ListRoleTagsResponse) Core.. Lens._Coerce
+listRoleTagsResponse_tags = Lens.lens (\ListRoleTagsResponse' {tags} -> tags) (\s@ListRoleTagsResponse' {} a -> s {tags = a} :: ListRoleTagsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListRoleTagsResponse
+instance Prelude.NFData ListRoleTagsResponse

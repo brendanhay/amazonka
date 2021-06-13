@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.AssociationSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AssociationEdgeType
 import Network.AWS.SageMaker.Types.UserContext
 
@@ -31,24 +32,24 @@ import Network.AWS.SageMaker.Types.UserContext
 -- /See:/ 'newAssociationSummary' smart constructor.
 data AssociationSummary = AssociationSummary'
   { -- | The destination type.
-    destinationType :: Core.Maybe Core.Text,
+    destinationType :: Prelude.Maybe Prelude.Text,
     -- | When the association was created.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the destination.
-    destinationArn :: Core.Maybe Core.Text,
+    destinationArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the destination.
-    destinationName :: Core.Maybe Core.Text,
+    destinationName :: Prelude.Maybe Prelude.Text,
     -- | The name of the source.
-    sourceName :: Core.Maybe Core.Text,
+    sourceName :: Prelude.Maybe Prelude.Text,
     -- | The type of the association.
-    associationType :: Core.Maybe AssociationEdgeType,
-    createdBy :: Core.Maybe UserContext,
+    associationType :: Prelude.Maybe AssociationEdgeType,
+    createdBy :: Prelude.Maybe UserContext,
     -- | The ARN of the source.
-    sourceArn :: Core.Maybe Core.Text,
+    sourceArn :: Prelude.Maybe Prelude.Text,
     -- | The source type.
-    sourceType :: Core.Maybe Core.Text
+    sourceType :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociationSummary' with all optional fields omitted.
@@ -79,51 +80,52 @@ newAssociationSummary ::
   AssociationSummary
 newAssociationSummary =
   AssociationSummary'
-    { destinationType = Core.Nothing,
-      creationTime = Core.Nothing,
-      destinationArn = Core.Nothing,
-      destinationName = Core.Nothing,
-      sourceName = Core.Nothing,
-      associationType = Core.Nothing,
-      createdBy = Core.Nothing,
-      sourceArn = Core.Nothing,
-      sourceType = Core.Nothing
+    { destinationType =
+        Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      destinationArn = Prelude.Nothing,
+      destinationName = Prelude.Nothing,
+      sourceName = Prelude.Nothing,
+      associationType = Prelude.Nothing,
+      createdBy = Prelude.Nothing,
+      sourceArn = Prelude.Nothing,
+      sourceType = Prelude.Nothing
     }
 
 -- | The destination type.
-associationSummary_destinationType :: Lens.Lens' AssociationSummary (Core.Maybe Core.Text)
+associationSummary_destinationType :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
 associationSummary_destinationType = Lens.lens (\AssociationSummary' {destinationType} -> destinationType) (\s@AssociationSummary' {} a -> s {destinationType = a} :: AssociationSummary)
 
 -- | When the association was created.
-associationSummary_creationTime :: Lens.Lens' AssociationSummary (Core.Maybe Core.UTCTime)
-associationSummary_creationTime = Lens.lens (\AssociationSummary' {creationTime} -> creationTime) (\s@AssociationSummary' {} a -> s {creationTime = a} :: AssociationSummary) Core.. Lens.mapping Core._Time
+associationSummary_creationTime :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.UTCTime)
+associationSummary_creationTime = Lens.lens (\AssociationSummary' {creationTime} -> creationTime) (\s@AssociationSummary' {} a -> s {creationTime = a} :: AssociationSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the destination.
-associationSummary_destinationArn :: Lens.Lens' AssociationSummary (Core.Maybe Core.Text)
+associationSummary_destinationArn :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
 associationSummary_destinationArn = Lens.lens (\AssociationSummary' {destinationArn} -> destinationArn) (\s@AssociationSummary' {} a -> s {destinationArn = a} :: AssociationSummary)
 
 -- | The name of the destination.
-associationSummary_destinationName :: Lens.Lens' AssociationSummary (Core.Maybe Core.Text)
+associationSummary_destinationName :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
 associationSummary_destinationName = Lens.lens (\AssociationSummary' {destinationName} -> destinationName) (\s@AssociationSummary' {} a -> s {destinationName = a} :: AssociationSummary)
 
 -- | The name of the source.
-associationSummary_sourceName :: Lens.Lens' AssociationSummary (Core.Maybe Core.Text)
+associationSummary_sourceName :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
 associationSummary_sourceName = Lens.lens (\AssociationSummary' {sourceName} -> sourceName) (\s@AssociationSummary' {} a -> s {sourceName = a} :: AssociationSummary)
 
 -- | The type of the association.
-associationSummary_associationType :: Lens.Lens' AssociationSummary (Core.Maybe AssociationEdgeType)
+associationSummary_associationType :: Lens.Lens' AssociationSummary (Prelude.Maybe AssociationEdgeType)
 associationSummary_associationType = Lens.lens (\AssociationSummary' {associationType} -> associationType) (\s@AssociationSummary' {} a -> s {associationType = a} :: AssociationSummary)
 
 -- | Undocumented member.
-associationSummary_createdBy :: Lens.Lens' AssociationSummary (Core.Maybe UserContext)
+associationSummary_createdBy :: Lens.Lens' AssociationSummary (Prelude.Maybe UserContext)
 associationSummary_createdBy = Lens.lens (\AssociationSummary' {createdBy} -> createdBy) (\s@AssociationSummary' {} a -> s {createdBy = a} :: AssociationSummary)
 
 -- | The ARN of the source.
-associationSummary_sourceArn :: Lens.Lens' AssociationSummary (Core.Maybe Core.Text)
+associationSummary_sourceArn :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
 associationSummary_sourceArn = Lens.lens (\AssociationSummary' {sourceArn} -> sourceArn) (\s@AssociationSummary' {} a -> s {sourceArn = a} :: AssociationSummary)
 
 -- | The source type.
-associationSummary_sourceType :: Lens.Lens' AssociationSummary (Core.Maybe Core.Text)
+associationSummary_sourceType :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
 associationSummary_sourceType = Lens.lens (\AssociationSummary' {sourceType} -> sourceType) (\s@AssociationSummary' {} a -> s {sourceType = a} :: AssociationSummary)
 
 instance Core.FromJSON AssociationSummary where
@@ -132,17 +134,17 @@ instance Core.FromJSON AssociationSummary where
       "AssociationSummary"
       ( \x ->
           AssociationSummary'
-            Core.<$> (x Core..:? "DestinationType")
-            Core.<*> (x Core..:? "CreationTime")
-            Core.<*> (x Core..:? "DestinationArn")
-            Core.<*> (x Core..:? "DestinationName")
-            Core.<*> (x Core..:? "SourceName")
-            Core.<*> (x Core..:? "AssociationType")
-            Core.<*> (x Core..:? "CreatedBy")
-            Core.<*> (x Core..:? "SourceArn")
-            Core.<*> (x Core..:? "SourceType")
+            Prelude.<$> (x Core..:? "DestinationType")
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "DestinationArn")
+            Prelude.<*> (x Core..:? "DestinationName")
+            Prelude.<*> (x Core..:? "SourceName")
+            Prelude.<*> (x Core..:? "AssociationType")
+            Prelude.<*> (x Core..:? "CreatedBy")
+            Prelude.<*> (x Core..:? "SourceArn")
+            Prelude.<*> (x Core..:? "SourceType")
       )
 
-instance Core.Hashable AssociationSummary
+instance Prelude.Hashable AssociationSummary
 
-instance Core.NFData AssociationSummary
+instance Prelude.NFData AssociationSummary

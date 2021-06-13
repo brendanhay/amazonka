@@ -21,6 +21,7 @@ module Network.AWS.MarketplaceMetering.Types.Tag where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata assigned to an allocation. Each tag is made up of a key and a
 -- value.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data Tag = Tag'
   { -- | One part of a key-value pair that makes up a tag. A key is a label that
     -- acts like a category for the specific tag values.
-    key :: Core.Text,
+    key :: Prelude.Text,
     -- | One part of a key-value pair that makes up a tag. A value acts as a
     -- descriptor within a tag category (key). The value can be empty or null.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -51,21 +52,21 @@ data Tag = Tag'
 -- descriptor within a tag category (key). The value can be empty or null.
 newTag ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   Tag
 newTag pKey_ pValue_ =
   Tag' {key = pKey_, value = pValue_}
 
 -- | One part of a key-value pair that makes up a tag. A key is a label that
 -- acts like a category for the specific tag values.
-tag_key :: Lens.Lens' Tag Core.Text
+tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | One part of a key-value pair that makes up a tag. A value acts as a
 -- descriptor within a tag category (key). The value can be empty or null.
-tag_value :: Lens.Lens' Tag Core.Text
+tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 instance Core.FromJSON Tag where
@@ -74,18 +75,18 @@ instance Core.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Core.<$> (x Core..: "Key") Core.<*> (x Core..: "Value")
+            Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Value")
       )
 
-instance Core.Hashable Tag
+instance Prelude.Hashable Tag
 
-instance Core.NFData Tag
+instance Prelude.NFData Tag
 
 instance Core.ToJSON Tag where
   toJSON Tag' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Key" Core..= key),
-            Core.Just ("Value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Value" Core..= value)
           ]
       )

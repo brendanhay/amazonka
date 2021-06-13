@@ -21,6 +21,7 @@ module Network.AWS.SMS.Types.ServerReplicationConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.Server
 import Network.AWS.SMS.Types.ServerReplicationParameters
 
@@ -30,11 +31,11 @@ import Network.AWS.SMS.Types.ServerReplicationParameters
 data ServerReplicationConfiguration = ServerReplicationConfiguration'
   { -- | The ID of the server with which this replication configuration is
     -- associated.
-    server :: Core.Maybe Server,
+    server :: Prelude.Maybe Server,
     -- | The parameters for replicating the server.
-    serverReplicationParameters :: Core.Maybe ServerReplicationParameters
+    serverReplicationParameters :: Prelude.Maybe ServerReplicationParameters
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServerReplicationConfiguration' with all optional fields omitted.
@@ -53,17 +54,18 @@ newServerReplicationConfiguration ::
 newServerReplicationConfiguration =
   ServerReplicationConfiguration'
     { server =
-        Core.Nothing,
-      serverReplicationParameters = Core.Nothing
+        Prelude.Nothing,
+      serverReplicationParameters =
+        Prelude.Nothing
     }
 
 -- | The ID of the server with which this replication configuration is
 -- associated.
-serverReplicationConfiguration_server :: Lens.Lens' ServerReplicationConfiguration (Core.Maybe Server)
+serverReplicationConfiguration_server :: Lens.Lens' ServerReplicationConfiguration (Prelude.Maybe Server)
 serverReplicationConfiguration_server = Lens.lens (\ServerReplicationConfiguration' {server} -> server) (\s@ServerReplicationConfiguration' {} a -> s {server = a} :: ServerReplicationConfiguration)
 
 -- | The parameters for replicating the server.
-serverReplicationConfiguration_serverReplicationParameters :: Lens.Lens' ServerReplicationConfiguration (Core.Maybe ServerReplicationParameters)
+serverReplicationConfiguration_serverReplicationParameters :: Lens.Lens' ServerReplicationConfiguration (Prelude.Maybe ServerReplicationParameters)
 serverReplicationConfiguration_serverReplicationParameters = Lens.lens (\ServerReplicationConfiguration' {serverReplicationParameters} -> serverReplicationParameters) (\s@ServerReplicationConfiguration' {} a -> s {serverReplicationParameters = a} :: ServerReplicationConfiguration)
 
 instance Core.FromJSON ServerReplicationConfiguration where
@@ -72,20 +74,24 @@ instance Core.FromJSON ServerReplicationConfiguration where
       "ServerReplicationConfiguration"
       ( \x ->
           ServerReplicationConfiguration'
-            Core.<$> (x Core..:? "server")
-            Core.<*> (x Core..:? "serverReplicationParameters")
+            Prelude.<$> (x Core..:? "server")
+            Prelude.<*> (x Core..:? "serverReplicationParameters")
       )
 
-instance Core.Hashable ServerReplicationConfiguration
+instance
+  Prelude.Hashable
+    ServerReplicationConfiguration
 
-instance Core.NFData ServerReplicationConfiguration
+instance
+  Prelude.NFData
+    ServerReplicationConfiguration
 
 instance Core.ToJSON ServerReplicationConfiguration where
   toJSON ServerReplicationConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("server" Core..=) Core.<$> server,
+      ( Prelude.catMaybes
+          [ ("server" Core..=) Prelude.<$> server,
             ("serverReplicationParameters" Core..=)
-              Core.<$> serverReplicationParameters
+              Prelude.<$> serverReplicationParameters
           ]
       )

@@ -87,6 +87,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -98,17 +99,17 @@ data StartMatchBackfill = StartMatchBackfill'
     -- specified here, Amazon GameLift will generate one in the form of a UUID.
     -- Use this identifier to track the match backfill ticket status and
     -- retrieve match results.
-    ticketId :: Core.Maybe Core.Text,
+    ticketId :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Name
     -- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
     -- that is assigned to a game session and uniquely identifies it. This is
     -- the same as the game session ID.
-    gameSessionArn :: Core.Maybe Core.Text,
+    gameSessionArn :: Prelude.Maybe Prelude.Text,
     -- | Name of the matchmaker to use for this request. You can use either the
     -- configuration name or ARN value. The ARN of the matchmaker that was used
     -- with the original game session is listed in the GameSession object,
     -- @MatchmakerData@ property.
-    configurationName :: Core.Text,
+    configurationName :: Prelude.Text,
     -- | Match information on all players that are currently assigned to the game
     -- session. This information is used by the matchmaker to find new players
     -- and add them to the existing game.
@@ -125,7 +126,7 @@ data StartMatchBackfill = StartMatchBackfill'
     --     is currently in. Do not include latency values for any other Region.
     players :: [Player]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartMatchBackfill' with all optional fields omitted.
@@ -166,35 +167,35 @@ data StartMatchBackfill = StartMatchBackfill'
 --     is currently in. Do not include latency values for any other Region.
 newStartMatchBackfill ::
   -- | 'configurationName'
-  Core.Text ->
+  Prelude.Text ->
   StartMatchBackfill
 newStartMatchBackfill pConfigurationName_ =
   StartMatchBackfill'
-    { ticketId = Core.Nothing,
-      gameSessionArn = Core.Nothing,
+    { ticketId = Prelude.Nothing,
+      gameSessionArn = Prelude.Nothing,
       configurationName = pConfigurationName_,
-      players = Core.mempty
+      players = Prelude.mempty
     }
 
 -- | A unique identifier for a matchmaking ticket. If no ticket ID is
 -- specified here, Amazon GameLift will generate one in the form of a UUID.
 -- Use this identifier to track the match backfill ticket status and
 -- retrieve match results.
-startMatchBackfill_ticketId :: Lens.Lens' StartMatchBackfill (Core.Maybe Core.Text)
+startMatchBackfill_ticketId :: Lens.Lens' StartMatchBackfill (Prelude.Maybe Prelude.Text)
 startMatchBackfill_ticketId = Lens.lens (\StartMatchBackfill' {ticketId} -> ticketId) (\s@StartMatchBackfill' {} a -> s {ticketId = a} :: StartMatchBackfill)
 
 -- | Amazon Resource Name
 -- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
 -- that is assigned to a game session and uniquely identifies it. This is
 -- the same as the game session ID.
-startMatchBackfill_gameSessionArn :: Lens.Lens' StartMatchBackfill (Core.Maybe Core.Text)
+startMatchBackfill_gameSessionArn :: Lens.Lens' StartMatchBackfill (Prelude.Maybe Prelude.Text)
 startMatchBackfill_gameSessionArn = Lens.lens (\StartMatchBackfill' {gameSessionArn} -> gameSessionArn) (\s@StartMatchBackfill' {} a -> s {gameSessionArn = a} :: StartMatchBackfill)
 
 -- | Name of the matchmaker to use for this request. You can use either the
 -- configuration name or ARN value. The ARN of the matchmaker that was used
 -- with the original game session is listed in the GameSession object,
 -- @MatchmakerData@ property.
-startMatchBackfill_configurationName :: Lens.Lens' StartMatchBackfill Core.Text
+startMatchBackfill_configurationName :: Lens.Lens' StartMatchBackfill Prelude.Text
 startMatchBackfill_configurationName = Lens.lens (\StartMatchBackfill' {configurationName} -> configurationName) (\s@StartMatchBackfill' {} a -> s {configurationName = a} :: StartMatchBackfill)
 
 -- | Match information on all players that are currently assigned to the game
@@ -212,7 +213,7 @@ startMatchBackfill_configurationName = Lens.lens (\StartMatchBackfill' {configur
 --     latency value, in milliseconds, for the Region that the game session
 --     is currently in. Do not include latency values for any other Region.
 startMatchBackfill_players :: Lens.Lens' StartMatchBackfill [Player]
-startMatchBackfill_players = Lens.lens (\StartMatchBackfill' {players} -> players) (\s@StartMatchBackfill' {} a -> s {players = a} :: StartMatchBackfill) Core.. Lens._Coerce
+startMatchBackfill_players = Lens.lens (\StartMatchBackfill' {players} -> players) (\s@StartMatchBackfill' {} a -> s {players = a} :: StartMatchBackfill) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest StartMatchBackfill where
   type
@@ -223,42 +224,47 @@ instance Core.AWSRequest StartMatchBackfill where
     Response.receiveJSON
       ( \s h x ->
           StartMatchBackfillResponse'
-            Core.<$> (x Core..?> "MatchmakingTicket")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "MatchmakingTicket")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartMatchBackfill
+instance Prelude.Hashable StartMatchBackfill
 
-instance Core.NFData StartMatchBackfill
+instance Prelude.NFData StartMatchBackfill
 
 instance Core.ToHeaders StartMatchBackfill where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.StartMatchBackfill" :: Core.ByteString),
+              Core.=# ( "GameLift.StartMatchBackfill" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartMatchBackfill where
   toJSON StartMatchBackfill' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TicketId" Core..=) Core.<$> ticketId,
-            ("GameSessionArn" Core..=) Core.<$> gameSessionArn,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("TicketId" Core..=) Prelude.<$> ticketId,
+            ("GameSessionArn" Core..=)
+              Prelude.<$> gameSessionArn,
+            Prelude.Just
               ("ConfigurationName" Core..= configurationName),
-            Core.Just ("Players" Core..= players)
+            Prelude.Just ("Players" Core..= players)
           ]
       )
 
 instance Core.ToPath StartMatchBackfill where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartMatchBackfill where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -267,11 +273,11 @@ data StartMatchBackfillResponse = StartMatchBackfillResponse'
   { -- | Ticket representing the backfill matchmaking request. This object
     -- includes the information in the request, ticket status, and match
     -- results as generated during the matchmaking process.
-    matchmakingTicket :: Core.Maybe MatchmakingTicket,
+    matchmakingTicket :: Prelude.Maybe MatchmakingTicket,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartMatchBackfillResponse' with all optional fields omitted.
@@ -288,23 +294,23 @@ data StartMatchBackfillResponse = StartMatchBackfillResponse'
 -- 'httpStatus', 'startMatchBackfillResponse_httpStatus' - The response's http status code.
 newStartMatchBackfillResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartMatchBackfillResponse
 newStartMatchBackfillResponse pHttpStatus_ =
   StartMatchBackfillResponse'
     { matchmakingTicket =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Ticket representing the backfill matchmaking request. This object
 -- includes the information in the request, ticket status, and match
 -- results as generated during the matchmaking process.
-startMatchBackfillResponse_matchmakingTicket :: Lens.Lens' StartMatchBackfillResponse (Core.Maybe MatchmakingTicket)
+startMatchBackfillResponse_matchmakingTicket :: Lens.Lens' StartMatchBackfillResponse (Prelude.Maybe MatchmakingTicket)
 startMatchBackfillResponse_matchmakingTicket = Lens.lens (\StartMatchBackfillResponse' {matchmakingTicket} -> matchmakingTicket) (\s@StartMatchBackfillResponse' {} a -> s {matchmakingTicket = a} :: StartMatchBackfillResponse)
 
 -- | The response's http status code.
-startMatchBackfillResponse_httpStatus :: Lens.Lens' StartMatchBackfillResponse Core.Int
+startMatchBackfillResponse_httpStatus :: Lens.Lens' StartMatchBackfillResponse Prelude.Int
 startMatchBackfillResponse_httpStatus = Lens.lens (\StartMatchBackfillResponse' {httpStatus} -> httpStatus) (\s@StartMatchBackfillResponse' {} a -> s {httpStatus = a} :: StartMatchBackfillResponse)
 
-instance Core.NFData StartMatchBackfillResponse
+instance Prelude.NFData StartMatchBackfillResponse

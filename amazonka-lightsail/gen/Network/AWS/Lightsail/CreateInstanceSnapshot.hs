@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,13 +59,13 @@ data CreateInstanceSnapshot = CreateInstanceSnapshot'
   { -- | The tag keys and optional values to add to the resource during create.
     --
     -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name for your new snapshot.
-    instanceSnapshotName :: Core.Text,
+    instanceSnapshotName :: Prelude.Text,
     -- | The Lightsail instance on which to base your snapshot.
-    instanceName :: Core.Text
+    instanceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateInstanceSnapshot' with all optional fields omitted.
@@ -83,15 +84,15 @@ data CreateInstanceSnapshot = CreateInstanceSnapshot'
 -- 'instanceName', 'createInstanceSnapshot_instanceName' - The Lightsail instance on which to base your snapshot.
 newCreateInstanceSnapshot ::
   -- | 'instanceSnapshotName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceName'
-  Core.Text ->
+  Prelude.Text ->
   CreateInstanceSnapshot
 newCreateInstanceSnapshot
   pInstanceSnapshotName_
   pInstanceName_ =
     CreateInstanceSnapshot'
-      { tags = Core.Nothing,
+      { tags = Prelude.Nothing,
         instanceSnapshotName = pInstanceSnapshotName_,
         instanceName = pInstanceName_
       }
@@ -99,15 +100,15 @@ newCreateInstanceSnapshot
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
-createInstanceSnapshot_tags :: Lens.Lens' CreateInstanceSnapshot (Core.Maybe [Tag])
-createInstanceSnapshot_tags = Lens.lens (\CreateInstanceSnapshot' {tags} -> tags) (\s@CreateInstanceSnapshot' {} a -> s {tags = a} :: CreateInstanceSnapshot) Core.. Lens.mapping Lens._Coerce
+createInstanceSnapshot_tags :: Lens.Lens' CreateInstanceSnapshot (Prelude.Maybe [Tag])
+createInstanceSnapshot_tags = Lens.lens (\CreateInstanceSnapshot' {tags} -> tags) (\s@CreateInstanceSnapshot' {} a -> s {tags = a} :: CreateInstanceSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name for your new snapshot.
-createInstanceSnapshot_instanceSnapshotName :: Lens.Lens' CreateInstanceSnapshot Core.Text
+createInstanceSnapshot_instanceSnapshotName :: Lens.Lens' CreateInstanceSnapshot Prelude.Text
 createInstanceSnapshot_instanceSnapshotName = Lens.lens (\CreateInstanceSnapshot' {instanceSnapshotName} -> instanceSnapshotName) (\s@CreateInstanceSnapshot' {} a -> s {instanceSnapshotName = a} :: CreateInstanceSnapshot)
 
 -- | The Lightsail instance on which to base your snapshot.
-createInstanceSnapshot_instanceName :: Lens.Lens' CreateInstanceSnapshot Core.Text
+createInstanceSnapshot_instanceName :: Lens.Lens' CreateInstanceSnapshot Prelude.Text
 createInstanceSnapshot_instanceName = Lens.lens (\CreateInstanceSnapshot' {instanceName} -> instanceName) (\s@CreateInstanceSnapshot' {} a -> s {instanceName = a} :: CreateInstanceSnapshot)
 
 instance Core.AWSRequest CreateInstanceSnapshot where
@@ -119,56 +120,58 @@ instance Core.AWSRequest CreateInstanceSnapshot where
     Response.receiveJSON
       ( \s h x ->
           CreateInstanceSnapshotResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateInstanceSnapshot
+instance Prelude.Hashable CreateInstanceSnapshot
 
-instance Core.NFData CreateInstanceSnapshot
+instance Prelude.NFData CreateInstanceSnapshot
 
 instance Core.ToHeaders CreateInstanceSnapshot where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.CreateInstanceSnapshot" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateInstanceSnapshot where
   toJSON CreateInstanceSnapshot' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("tags" Core..=) Core.<$> tags,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just
               ( "instanceSnapshotName"
                   Core..= instanceSnapshotName
               ),
-            Core.Just ("instanceName" Core..= instanceName)
+            Prelude.Just ("instanceName" Core..= instanceName)
           ]
       )
 
 instance Core.ToPath CreateInstanceSnapshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateInstanceSnapshot where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateInstanceSnapshotResponse' smart constructor.
 data CreateInstanceSnapshotResponse = CreateInstanceSnapshotResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateInstanceSnapshotResponse' with all optional fields omitted.
@@ -185,23 +188,25 @@ data CreateInstanceSnapshotResponse = CreateInstanceSnapshotResponse'
 -- 'httpStatus', 'createInstanceSnapshotResponse_httpStatus' - The response's http status code.
 newCreateInstanceSnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateInstanceSnapshotResponse
 newCreateInstanceSnapshotResponse pHttpStatus_ =
   CreateInstanceSnapshotResponse'
     { operations =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-createInstanceSnapshotResponse_operations :: Lens.Lens' CreateInstanceSnapshotResponse (Core.Maybe [Operation])
-createInstanceSnapshotResponse_operations = Lens.lens (\CreateInstanceSnapshotResponse' {operations} -> operations) (\s@CreateInstanceSnapshotResponse' {} a -> s {operations = a} :: CreateInstanceSnapshotResponse) Core.. Lens.mapping Lens._Coerce
+createInstanceSnapshotResponse_operations :: Lens.Lens' CreateInstanceSnapshotResponse (Prelude.Maybe [Operation])
+createInstanceSnapshotResponse_operations = Lens.lens (\CreateInstanceSnapshotResponse' {operations} -> operations) (\s@CreateInstanceSnapshotResponse' {} a -> s {operations = a} :: CreateInstanceSnapshotResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createInstanceSnapshotResponse_httpStatus :: Lens.Lens' CreateInstanceSnapshotResponse Core.Int
+createInstanceSnapshotResponse_httpStatus :: Lens.Lens' CreateInstanceSnapshotResponse Prelude.Int
 createInstanceSnapshotResponse_httpStatus = Lens.lens (\CreateInstanceSnapshotResponse' {httpStatus} -> httpStatus) (\s@CreateInstanceSnapshotResponse' {} a -> s {httpStatus = a} :: CreateInstanceSnapshotResponse)
 
-instance Core.NFData CreateInstanceSnapshotResponse
+instance
+  Prelude.NFData
+    CreateInstanceSnapshotResponse

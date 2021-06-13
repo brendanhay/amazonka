@@ -41,6 +41,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +50,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteReplicationSubnetGroup' smart constructor.
 data DeleteReplicationSubnetGroup = DeleteReplicationSubnetGroup'
   { -- | The subnet group name of the replication instance.
-    replicationSubnetGroupIdentifier :: Core.Text
+    replicationSubnetGroupIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteReplicationSubnetGroup' with all optional fields omitted.
@@ -64,7 +65,7 @@ data DeleteReplicationSubnetGroup = DeleteReplicationSubnetGroup'
 -- 'replicationSubnetGroupIdentifier', 'deleteReplicationSubnetGroup_replicationSubnetGroupIdentifier' - The subnet group name of the replication instance.
 newDeleteReplicationSubnetGroup ::
   -- | 'replicationSubnetGroupIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   DeleteReplicationSubnetGroup
 newDeleteReplicationSubnetGroup
   pReplicationSubnetGroupIdentifier_ =
@@ -74,7 +75,7 @@ newDeleteReplicationSubnetGroup
       }
 
 -- | The subnet group name of the replication instance.
-deleteReplicationSubnetGroup_replicationSubnetGroupIdentifier :: Lens.Lens' DeleteReplicationSubnetGroup Core.Text
+deleteReplicationSubnetGroup_replicationSubnetGroupIdentifier :: Lens.Lens' DeleteReplicationSubnetGroup Prelude.Text
 deleteReplicationSubnetGroup_replicationSubnetGroupIdentifier = Lens.lens (\DeleteReplicationSubnetGroup' {replicationSubnetGroupIdentifier} -> replicationSubnetGroupIdentifier) (\s@DeleteReplicationSubnetGroup' {} a -> s {replicationSubnetGroupIdentifier = a} :: DeleteReplicationSubnetGroup)
 
 instance Core.AWSRequest DeleteReplicationSubnetGroup where
@@ -86,31 +87,35 @@ instance Core.AWSRequest DeleteReplicationSubnetGroup where
     Response.receiveEmpty
       ( \s h x ->
           DeleteReplicationSubnetGroupResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteReplicationSubnetGroup
+instance
+  Prelude.Hashable
+    DeleteReplicationSubnetGroup
 
-instance Core.NFData DeleteReplicationSubnetGroup
+instance Prelude.NFData DeleteReplicationSubnetGroup
 
 instance Core.ToHeaders DeleteReplicationSubnetGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonDMSv20160101.DeleteReplicationSubnetGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteReplicationSubnetGroup where
   toJSON DeleteReplicationSubnetGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "ReplicationSubnetGroupIdentifier"
                   Core..= replicationSubnetGroupIdentifier
               )
@@ -118,19 +123,19 @@ instance Core.ToJSON DeleteReplicationSubnetGroup where
       )
 
 instance Core.ToPath DeleteReplicationSubnetGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteReplicationSubnetGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
 -- /See:/ 'newDeleteReplicationSubnetGroupResponse' smart constructor.
 data DeleteReplicationSubnetGroupResponse = DeleteReplicationSubnetGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteReplicationSubnetGroupResponse' with all optional fields omitted.
@@ -143,7 +148,7 @@ data DeleteReplicationSubnetGroupResponse = DeleteReplicationSubnetGroupResponse
 -- 'httpStatus', 'deleteReplicationSubnetGroupResponse_httpStatus' - The response's http status code.
 newDeleteReplicationSubnetGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteReplicationSubnetGroupResponse
 newDeleteReplicationSubnetGroupResponse pHttpStatus_ =
   DeleteReplicationSubnetGroupResponse'
@@ -152,9 +157,9 @@ newDeleteReplicationSubnetGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteReplicationSubnetGroupResponse_httpStatus :: Lens.Lens' DeleteReplicationSubnetGroupResponse Core.Int
+deleteReplicationSubnetGroupResponse_httpStatus :: Lens.Lens' DeleteReplicationSubnetGroupResponse Prelude.Int
 deleteReplicationSubnetGroupResponse_httpStatus = Lens.lens (\DeleteReplicationSubnetGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteReplicationSubnetGroupResponse' {} a -> s {httpStatus = a} :: DeleteReplicationSubnetGroupResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteReplicationSubnetGroupResponse

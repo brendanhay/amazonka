@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ import qualified Network.AWS.Response as Response
 data DeleteConnection = DeleteConnection'
   { -- | The Amazon Resource Name (ARN) string that uniquely identifies the
     -- endpoint.
-    endpointArn :: Core.Text,
+    endpointArn :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the replication instance.
-    replicationInstanceArn :: Core.Text
+    replicationInstanceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConnection' with all optional fields omitted.
@@ -72,9 +73,9 @@ data DeleteConnection = DeleteConnection'
 -- 'replicationInstanceArn', 'deleteConnection_replicationInstanceArn' - The Amazon Resource Name (ARN) of the replication instance.
 newDeleteConnection ::
   -- | 'endpointArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'replicationInstanceArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteConnection
 newDeleteConnection
   pEndpointArn_
@@ -86,11 +87,11 @@ newDeleteConnection
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the
 -- endpoint.
-deleteConnection_endpointArn :: Lens.Lens' DeleteConnection Core.Text
+deleteConnection_endpointArn :: Lens.Lens' DeleteConnection Prelude.Text
 deleteConnection_endpointArn = Lens.lens (\DeleteConnection' {endpointArn} -> endpointArn) (\s@DeleteConnection' {} a -> s {endpointArn = a} :: DeleteConnection)
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
-deleteConnection_replicationInstanceArn :: Lens.Lens' DeleteConnection Core.Text
+deleteConnection_replicationInstanceArn :: Lens.Lens' DeleteConnection Prelude.Text
 deleteConnection_replicationInstanceArn = Lens.lens (\DeleteConnection' {replicationInstanceArn} -> replicationInstanceArn) (\s@DeleteConnection' {} a -> s {replicationInstanceArn = a} :: DeleteConnection)
 
 instance Core.AWSRequest DeleteConnection where
@@ -102,33 +103,35 @@ instance Core.AWSRequest DeleteConnection where
     Response.receiveJSON
       ( \s h x ->
           DeleteConnectionResponse'
-            Core.<$> (x Core..?> "Connection")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Connection")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteConnection
+instance Prelude.Hashable DeleteConnection
 
-instance Core.NFData DeleteConnection
+instance Prelude.NFData DeleteConnection
 
 instance Core.ToHeaders DeleteConnection where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonDMSv20160101.DeleteConnection" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteConnection where
   toJSON DeleteConnection' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("EndpointArn" Core..= endpointArn),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("EndpointArn" Core..= endpointArn),
+            Prelude.Just
               ( "ReplicationInstanceArn"
                   Core..= replicationInstanceArn
               )
@@ -136,21 +139,21 @@ instance Core.ToJSON DeleteConnection where
       )
 
 instance Core.ToPath DeleteConnection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteConnection where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
 -- /See:/ 'newDeleteConnectionResponse' smart constructor.
 data DeleteConnectionResponse = DeleteConnectionResponse'
   { -- | The connection that is being deleted.
-    connection :: Core.Maybe Connection,
+    connection :: Prelude.Maybe Connection,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConnectionResponse' with all optional fields omitted.
@@ -165,21 +168,21 @@ data DeleteConnectionResponse = DeleteConnectionResponse'
 -- 'httpStatus', 'deleteConnectionResponse_httpStatus' - The response's http status code.
 newDeleteConnectionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteConnectionResponse
 newDeleteConnectionResponse pHttpStatus_ =
   DeleteConnectionResponse'
     { connection =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The connection that is being deleted.
-deleteConnectionResponse_connection :: Lens.Lens' DeleteConnectionResponse (Core.Maybe Connection)
+deleteConnectionResponse_connection :: Lens.Lens' DeleteConnectionResponse (Prelude.Maybe Connection)
 deleteConnectionResponse_connection = Lens.lens (\DeleteConnectionResponse' {connection} -> connection) (\s@DeleteConnectionResponse' {} a -> s {connection = a} :: DeleteConnectionResponse)
 
 -- | The response's http status code.
-deleteConnectionResponse_httpStatus :: Lens.Lens' DeleteConnectionResponse Core.Int
+deleteConnectionResponse_httpStatus :: Lens.Lens' DeleteConnectionResponse Prelude.Int
 deleteConnectionResponse_httpStatus = Lens.lens (\DeleteConnectionResponse' {httpStatus} -> httpStatus) (\s@DeleteConnectionResponse' {} a -> s {httpStatus = a} :: DeleteConnectionResponse)
 
-instance Core.NFData DeleteConnectionResponse
+instance Prelude.NFData DeleteConnectionResponse

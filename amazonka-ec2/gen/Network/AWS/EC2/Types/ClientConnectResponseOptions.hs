@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ClientVpnEndpointAttributeStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The options for managing connection authorization for new client
 -- connections.
@@ -30,14 +31,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newClientConnectResponseOptions' smart constructor.
 data ClientConnectResponseOptions = ClientConnectResponseOptions'
   { -- | The status of any updates to the client connect options.
-    status :: Core.Maybe ClientVpnEndpointAttributeStatus,
+    status :: Prelude.Maybe ClientVpnEndpointAttributeStatus,
     -- | Indicates whether client connect options are enabled.
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the AWS Lambda function used for
     -- connection authorization.
-    lambdaFunctionArn :: Core.Maybe Core.Text
+    lambdaFunctionArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClientConnectResponseOptions' with all optional fields omitted.
@@ -58,31 +59,33 @@ newClientConnectResponseOptions ::
 newClientConnectResponseOptions =
   ClientConnectResponseOptions'
     { status =
-        Core.Nothing,
-      enabled = Core.Nothing,
-      lambdaFunctionArn = Core.Nothing
+        Prelude.Nothing,
+      enabled = Prelude.Nothing,
+      lambdaFunctionArn = Prelude.Nothing
     }
 
 -- | The status of any updates to the client connect options.
-clientConnectResponseOptions_status :: Lens.Lens' ClientConnectResponseOptions (Core.Maybe ClientVpnEndpointAttributeStatus)
+clientConnectResponseOptions_status :: Lens.Lens' ClientConnectResponseOptions (Prelude.Maybe ClientVpnEndpointAttributeStatus)
 clientConnectResponseOptions_status = Lens.lens (\ClientConnectResponseOptions' {status} -> status) (\s@ClientConnectResponseOptions' {} a -> s {status = a} :: ClientConnectResponseOptions)
 
 -- | Indicates whether client connect options are enabled.
-clientConnectResponseOptions_enabled :: Lens.Lens' ClientConnectResponseOptions (Core.Maybe Core.Bool)
+clientConnectResponseOptions_enabled :: Lens.Lens' ClientConnectResponseOptions (Prelude.Maybe Prelude.Bool)
 clientConnectResponseOptions_enabled = Lens.lens (\ClientConnectResponseOptions' {enabled} -> enabled) (\s@ClientConnectResponseOptions' {} a -> s {enabled = a} :: ClientConnectResponseOptions)
 
 -- | The Amazon Resource Name (ARN) of the AWS Lambda function used for
 -- connection authorization.
-clientConnectResponseOptions_lambdaFunctionArn :: Lens.Lens' ClientConnectResponseOptions (Core.Maybe Core.Text)
+clientConnectResponseOptions_lambdaFunctionArn :: Lens.Lens' ClientConnectResponseOptions (Prelude.Maybe Prelude.Text)
 clientConnectResponseOptions_lambdaFunctionArn = Lens.lens (\ClientConnectResponseOptions' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@ClientConnectResponseOptions' {} a -> s {lambdaFunctionArn = a} :: ClientConnectResponseOptions)
 
 instance Core.FromXML ClientConnectResponseOptions where
   parseXML x =
     ClientConnectResponseOptions'
-      Core.<$> (x Core..@? "status")
-      Core.<*> (x Core..@? "enabled")
-      Core.<*> (x Core..@? "lambdaFunctionArn")
+      Prelude.<$> (x Core..@? "status")
+      Prelude.<*> (x Core..@? "enabled")
+      Prelude.<*> (x Core..@? "lambdaFunctionArn")
 
-instance Core.Hashable ClientConnectResponseOptions
+instance
+  Prelude.Hashable
+    ClientConnectResponseOptions
 
-instance Core.NFData ClientConnectResponseOptions
+instance Prelude.NFData ClientConnectResponseOptions

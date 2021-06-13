@@ -22,6 +22,7 @@ module Network.AWS.Athena.Types.QueryExecutionStatus where
 import Network.AWS.Athena.Types.QueryExecutionState
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The completion date, current state, submission time, and state change
 -- reason (if applicable) for the query execution.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newQueryExecutionStatus' smart constructor.
 data QueryExecutionStatus = QueryExecutionStatus'
   { -- | The date and time that the query was submitted.
-    submissionDateTime :: Core.Maybe Core.POSIX,
+    submissionDateTime :: Prelude.Maybe Core.POSIX,
     -- | Further detail about the status of the query.
-    stateChangeReason :: Core.Maybe Core.Text,
+    stateChangeReason :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the query completed.
-    completionDateTime :: Core.Maybe Core.POSIX,
+    completionDateTime :: Prelude.Maybe Core.POSIX,
     -- | The state of query execution. @QUEUED@ indicates that the query has been
     -- submitted to the service, and Athena will execute the query as soon as
     -- resources are available. @RUNNING@ indicates that the query is in
@@ -45,9 +46,9 @@ data QueryExecutionStatus = QueryExecutionStatus'
     -- Athena automatically retries your queries in cases of certain transient
     -- errors. As a result, you may see the query state transition from
     -- @RUNNING@ or @FAILED@ to @QUEUED@.
-    state :: Core.Maybe QueryExecutionState
+    state :: Prelude.Maybe QueryExecutionState
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QueryExecutionStatus' with all optional fields omitted.
@@ -79,23 +80,23 @@ newQueryExecutionStatus ::
 newQueryExecutionStatus =
   QueryExecutionStatus'
     { submissionDateTime =
-        Core.Nothing,
-      stateChangeReason = Core.Nothing,
-      completionDateTime = Core.Nothing,
-      state = Core.Nothing
+        Prelude.Nothing,
+      stateChangeReason = Prelude.Nothing,
+      completionDateTime = Prelude.Nothing,
+      state = Prelude.Nothing
     }
 
 -- | The date and time that the query was submitted.
-queryExecutionStatus_submissionDateTime :: Lens.Lens' QueryExecutionStatus (Core.Maybe Core.UTCTime)
-queryExecutionStatus_submissionDateTime = Lens.lens (\QueryExecutionStatus' {submissionDateTime} -> submissionDateTime) (\s@QueryExecutionStatus' {} a -> s {submissionDateTime = a} :: QueryExecutionStatus) Core.. Lens.mapping Core._Time
+queryExecutionStatus_submissionDateTime :: Lens.Lens' QueryExecutionStatus (Prelude.Maybe Prelude.UTCTime)
+queryExecutionStatus_submissionDateTime = Lens.lens (\QueryExecutionStatus' {submissionDateTime} -> submissionDateTime) (\s@QueryExecutionStatus' {} a -> s {submissionDateTime = a} :: QueryExecutionStatus) Prelude.. Lens.mapping Core._Time
 
 -- | Further detail about the status of the query.
-queryExecutionStatus_stateChangeReason :: Lens.Lens' QueryExecutionStatus (Core.Maybe Core.Text)
+queryExecutionStatus_stateChangeReason :: Lens.Lens' QueryExecutionStatus (Prelude.Maybe Prelude.Text)
 queryExecutionStatus_stateChangeReason = Lens.lens (\QueryExecutionStatus' {stateChangeReason} -> stateChangeReason) (\s@QueryExecutionStatus' {} a -> s {stateChangeReason = a} :: QueryExecutionStatus)
 
 -- | The date and time that the query completed.
-queryExecutionStatus_completionDateTime :: Lens.Lens' QueryExecutionStatus (Core.Maybe Core.UTCTime)
-queryExecutionStatus_completionDateTime = Lens.lens (\QueryExecutionStatus' {completionDateTime} -> completionDateTime) (\s@QueryExecutionStatus' {} a -> s {completionDateTime = a} :: QueryExecutionStatus) Core.. Lens.mapping Core._Time
+queryExecutionStatus_completionDateTime :: Lens.Lens' QueryExecutionStatus (Prelude.Maybe Prelude.UTCTime)
+queryExecutionStatus_completionDateTime = Lens.lens (\QueryExecutionStatus' {completionDateTime} -> completionDateTime) (\s@QueryExecutionStatus' {} a -> s {completionDateTime = a} :: QueryExecutionStatus) Prelude.. Lens.mapping Core._Time
 
 -- | The state of query execution. @QUEUED@ indicates that the query has been
 -- submitted to the service, and Athena will execute the query as soon as
@@ -108,7 +109,7 @@ queryExecutionStatus_completionDateTime = Lens.lens (\QueryExecutionStatus' {com
 -- Athena automatically retries your queries in cases of certain transient
 -- errors. As a result, you may see the query state transition from
 -- @RUNNING@ or @FAILED@ to @QUEUED@.
-queryExecutionStatus_state :: Lens.Lens' QueryExecutionStatus (Core.Maybe QueryExecutionState)
+queryExecutionStatus_state :: Lens.Lens' QueryExecutionStatus (Prelude.Maybe QueryExecutionState)
 queryExecutionStatus_state = Lens.lens (\QueryExecutionStatus' {state} -> state) (\s@QueryExecutionStatus' {} a -> s {state = a} :: QueryExecutionStatus)
 
 instance Core.FromJSON QueryExecutionStatus where
@@ -117,12 +118,12 @@ instance Core.FromJSON QueryExecutionStatus where
       "QueryExecutionStatus"
       ( \x ->
           QueryExecutionStatus'
-            Core.<$> (x Core..:? "SubmissionDateTime")
-            Core.<*> (x Core..:? "StateChangeReason")
-            Core.<*> (x Core..:? "CompletionDateTime")
-            Core.<*> (x Core..:? "State")
+            Prelude.<$> (x Core..:? "SubmissionDateTime")
+            Prelude.<*> (x Core..:? "StateChangeReason")
+            Prelude.<*> (x Core..:? "CompletionDateTime")
+            Prelude.<*> (x Core..:? "State")
       )
 
-instance Core.Hashable QueryExecutionStatus
+instance Prelude.Hashable QueryExecutionStatus
 
-instance Core.NFData QueryExecutionStatus
+instance Prelude.NFData QueryExecutionStatus

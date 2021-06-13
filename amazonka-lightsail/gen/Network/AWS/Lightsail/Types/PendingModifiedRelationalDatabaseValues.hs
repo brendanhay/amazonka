@@ -21,20 +21,21 @@ module Network.AWS.Lightsail.Types.PendingModifiedRelationalDatabaseValues where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a pending database value modification.
 --
 -- /See:/ 'newPendingModifiedRelationalDatabaseValues' smart constructor.
 data PendingModifiedRelationalDatabaseValues = PendingModifiedRelationalDatabaseValues'
   { -- | The password for the master user of the database.
-    masterUserPassword :: Core.Maybe Core.Text,
+    masterUserPassword :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value indicating whether automated backup retention is
     -- enabled.
-    backupRetentionEnabled :: Core.Maybe Core.Bool,
+    backupRetentionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The database engine version.
-    engineVersion :: Core.Maybe Core.Text
+    engineVersion :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PendingModifiedRelationalDatabaseValues' with all optional fields omitted.
@@ -55,23 +56,23 @@ newPendingModifiedRelationalDatabaseValues ::
 newPendingModifiedRelationalDatabaseValues =
   PendingModifiedRelationalDatabaseValues'
     { masterUserPassword =
-        Core.Nothing,
+        Prelude.Nothing,
       backupRetentionEnabled =
-        Core.Nothing,
-      engineVersion = Core.Nothing
+        Prelude.Nothing,
+      engineVersion = Prelude.Nothing
     }
 
 -- | The password for the master user of the database.
-pendingModifiedRelationalDatabaseValues_masterUserPassword :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Core.Maybe Core.Text)
+pendingModifiedRelationalDatabaseValues_masterUserPassword :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Prelude.Maybe Prelude.Text)
 pendingModifiedRelationalDatabaseValues_masterUserPassword = Lens.lens (\PendingModifiedRelationalDatabaseValues' {masterUserPassword} -> masterUserPassword) (\s@PendingModifiedRelationalDatabaseValues' {} a -> s {masterUserPassword = a} :: PendingModifiedRelationalDatabaseValues)
 
 -- | A Boolean value indicating whether automated backup retention is
 -- enabled.
-pendingModifiedRelationalDatabaseValues_backupRetentionEnabled :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Core.Maybe Core.Bool)
+pendingModifiedRelationalDatabaseValues_backupRetentionEnabled :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Prelude.Maybe Prelude.Bool)
 pendingModifiedRelationalDatabaseValues_backupRetentionEnabled = Lens.lens (\PendingModifiedRelationalDatabaseValues' {backupRetentionEnabled} -> backupRetentionEnabled) (\s@PendingModifiedRelationalDatabaseValues' {} a -> s {backupRetentionEnabled = a} :: PendingModifiedRelationalDatabaseValues)
 
 -- | The database engine version.
-pendingModifiedRelationalDatabaseValues_engineVersion :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Core.Maybe Core.Text)
+pendingModifiedRelationalDatabaseValues_engineVersion :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Prelude.Maybe Prelude.Text)
 pendingModifiedRelationalDatabaseValues_engineVersion = Lens.lens (\PendingModifiedRelationalDatabaseValues' {engineVersion} -> engineVersion) (\s@PendingModifiedRelationalDatabaseValues' {} a -> s {engineVersion = a} :: PendingModifiedRelationalDatabaseValues)
 
 instance
@@ -83,15 +84,15 @@ instance
       "PendingModifiedRelationalDatabaseValues"
       ( \x ->
           PendingModifiedRelationalDatabaseValues'
-            Core.<$> (x Core..:? "masterUserPassword")
-            Core.<*> (x Core..:? "backupRetentionEnabled")
-            Core.<*> (x Core..:? "engineVersion")
+            Prelude.<$> (x Core..:? "masterUserPassword")
+            Prelude.<*> (x Core..:? "backupRetentionEnabled")
+            Prelude.<*> (x Core..:? "engineVersion")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     PendingModifiedRelationalDatabaseValues
 
 instance
-  Core.NFData
+  Prelude.NFData
     PendingModifiedRelationalDatabaseValues

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.VariantProperty where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.VariantPropertyType
 
 -- | Specifies a production variant property type for an Endpoint.
@@ -46,7 +47,7 @@ data VariantProperty = VariantProperty'
     -- -   @DataCaptureConfig@: (Not currently supported.)
     variantPropertyType :: VariantPropertyType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VariantProperty' with all optional fields omitted.
@@ -91,15 +92,15 @@ newVariantProperty pVariantPropertyType_ =
 variantProperty_variantPropertyType :: Lens.Lens' VariantProperty VariantPropertyType
 variantProperty_variantPropertyType = Lens.lens (\VariantProperty' {variantPropertyType} -> variantPropertyType) (\s@VariantProperty' {} a -> s {variantPropertyType = a} :: VariantProperty)
 
-instance Core.Hashable VariantProperty
+instance Prelude.Hashable VariantProperty
 
-instance Core.NFData VariantProperty
+instance Prelude.NFData VariantProperty
 
 instance Core.ToJSON VariantProperty where
   toJSON VariantProperty' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("VariantPropertyType" Core..= variantPropertyType)
           ]
       )

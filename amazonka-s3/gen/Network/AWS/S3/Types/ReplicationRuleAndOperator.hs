@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.ReplicationRuleAndOperator where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Tag
 
@@ -40,11 +41,11 @@ import Network.AWS.S3.Types.Tag
 data ReplicationRuleAndOperator = ReplicationRuleAndOperator'
   { -- | An object key name prefix that identifies the subset of objects to which
     -- the rule applies.
-    prefix :: Core.Maybe Core.Text,
+    prefix :: Prelude.Maybe Prelude.Text,
     -- | An array of tags containing key and value pairs.
-    tags :: Core.Maybe [Tag]
+    tags :: Prelude.Maybe [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicationRuleAndOperator' with all optional fields omitted.
@@ -62,35 +63,36 @@ newReplicationRuleAndOperator ::
   ReplicationRuleAndOperator
 newReplicationRuleAndOperator =
   ReplicationRuleAndOperator'
-    { prefix = Core.Nothing,
-      tags = Core.Nothing
+    { prefix =
+        Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | An object key name prefix that identifies the subset of objects to which
 -- the rule applies.
-replicationRuleAndOperator_prefix :: Lens.Lens' ReplicationRuleAndOperator (Core.Maybe Core.Text)
+replicationRuleAndOperator_prefix :: Lens.Lens' ReplicationRuleAndOperator (Prelude.Maybe Prelude.Text)
 replicationRuleAndOperator_prefix = Lens.lens (\ReplicationRuleAndOperator' {prefix} -> prefix) (\s@ReplicationRuleAndOperator' {} a -> s {prefix = a} :: ReplicationRuleAndOperator)
 
 -- | An array of tags containing key and value pairs.
-replicationRuleAndOperator_tags :: Lens.Lens' ReplicationRuleAndOperator (Core.Maybe [Tag])
-replicationRuleAndOperator_tags = Lens.lens (\ReplicationRuleAndOperator' {tags} -> tags) (\s@ReplicationRuleAndOperator' {} a -> s {tags = a} :: ReplicationRuleAndOperator) Core.. Lens.mapping Lens._Coerce
+replicationRuleAndOperator_tags :: Lens.Lens' ReplicationRuleAndOperator (Prelude.Maybe [Tag])
+replicationRuleAndOperator_tags = Lens.lens (\ReplicationRuleAndOperator' {tags} -> tags) (\s@ReplicationRuleAndOperator' {} a -> s {tags = a} :: ReplicationRuleAndOperator) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML ReplicationRuleAndOperator where
   parseXML x =
     ReplicationRuleAndOperator'
-      Core.<$> (x Core..@? "Prefix")
-      Core.<*> ( x Core..@? "Tag" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Tag")
-               )
+      Prelude.<$> (x Core..@? "Prefix")
+      Prelude.<*> ( x Core..@? "Tag" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+                  )
 
-instance Core.Hashable ReplicationRuleAndOperator
+instance Prelude.Hashable ReplicationRuleAndOperator
 
-instance Core.NFData ReplicationRuleAndOperator
+instance Prelude.NFData ReplicationRuleAndOperator
 
 instance Core.ToXML ReplicationRuleAndOperator where
   toXML ReplicationRuleAndOperator' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Prefix" Core.@= prefix,
         "Tag"
-          Core.@= Core.toXML (Core.toXMLList "Tag" Core.<$> tags)
+          Core.@= Core.toXML (Core.toXMLList "Tag" Prelude.<$> tags)
       ]

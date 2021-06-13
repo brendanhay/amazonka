@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -57,7 +58,7 @@ data ExecuteProvisionedProductServiceAction = ExecuteProvisionedProductServiceAc
     -- If the parameters field is not provided, no additional parameters are
     -- passed and default values will be used for any special parameters such
     -- as @TARGET@.
-    parameters :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -65,15 +66,15 @@ data ExecuteProvisionedProductServiceAction = ExecuteProvisionedProductServiceAc
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the provisioned product.
-    provisionedProductId :: Core.Text,
+    provisionedProductId :: Prelude.Text,
     -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.
-    serviceActionId :: Core.Text,
+    serviceActionId :: Prelude.Text,
     -- | An idempotency token that uniquely identifies the execute request.
-    executeToken :: Core.Text
+    executeToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExecuteProvisionedProductServiceAction' with all optional fields omitted.
@@ -105,11 +106,11 @@ data ExecuteProvisionedProductServiceAction = ExecuteProvisionedProductServiceAc
 -- 'executeToken', 'executeProvisionedProductServiceAction_executeToken' - An idempotency token that uniquely identifies the execute request.
 newExecuteProvisionedProductServiceAction ::
   -- | 'provisionedProductId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'serviceActionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'executeToken'
-  Core.Text ->
+  Prelude.Text ->
   ExecuteProvisionedProductServiceAction
 newExecuteProvisionedProductServiceAction
   pProvisionedProductId_
@@ -117,8 +118,8 @@ newExecuteProvisionedProductServiceAction
   pExecuteToken_ =
     ExecuteProvisionedProductServiceAction'
       { parameters =
-          Core.Nothing,
-        acceptLanguage = Core.Nothing,
+          Prelude.Nothing,
+        acceptLanguage = Prelude.Nothing,
         provisionedProductId =
           pProvisionedProductId_,
         serviceActionId = pServiceActionId_,
@@ -131,8 +132,8 @@ newExecuteProvisionedProductServiceAction
 -- If the parameters field is not provided, no additional parameters are
 -- passed and default values will be used for any special parameters such
 -- as @TARGET@.
-executeProvisionedProductServiceAction_parameters :: Lens.Lens' ExecuteProvisionedProductServiceAction (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
-executeProvisionedProductServiceAction_parameters = Lens.lens (\ExecuteProvisionedProductServiceAction' {parameters} -> parameters) (\s@ExecuteProvisionedProductServiceAction' {} a -> s {parameters = a} :: ExecuteProvisionedProductServiceAction) Core.. Lens.mapping Lens._Coerce
+executeProvisionedProductServiceAction_parameters :: Lens.Lens' ExecuteProvisionedProductServiceAction (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+executeProvisionedProductServiceAction_parameters = Lens.lens (\ExecuteProvisionedProductServiceAction' {parameters} -> parameters) (\s@ExecuteProvisionedProductServiceAction' {} a -> s {parameters = a} :: ExecuteProvisionedProductServiceAction) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The language code.
 --
@@ -141,19 +142,19 @@ executeProvisionedProductServiceAction_parameters = Lens.lens (\ExecuteProvision
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-executeProvisionedProductServiceAction_acceptLanguage :: Lens.Lens' ExecuteProvisionedProductServiceAction (Core.Maybe Core.Text)
+executeProvisionedProductServiceAction_acceptLanguage :: Lens.Lens' ExecuteProvisionedProductServiceAction (Prelude.Maybe Prelude.Text)
 executeProvisionedProductServiceAction_acceptLanguage = Lens.lens (\ExecuteProvisionedProductServiceAction' {acceptLanguage} -> acceptLanguage) (\s@ExecuteProvisionedProductServiceAction' {} a -> s {acceptLanguage = a} :: ExecuteProvisionedProductServiceAction)
 
 -- | The identifier of the provisioned product.
-executeProvisionedProductServiceAction_provisionedProductId :: Lens.Lens' ExecuteProvisionedProductServiceAction Core.Text
+executeProvisionedProductServiceAction_provisionedProductId :: Lens.Lens' ExecuteProvisionedProductServiceAction Prelude.Text
 executeProvisionedProductServiceAction_provisionedProductId = Lens.lens (\ExecuteProvisionedProductServiceAction' {provisionedProductId} -> provisionedProductId) (\s@ExecuteProvisionedProductServiceAction' {} a -> s {provisionedProductId = a} :: ExecuteProvisionedProductServiceAction)
 
 -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.
-executeProvisionedProductServiceAction_serviceActionId :: Lens.Lens' ExecuteProvisionedProductServiceAction Core.Text
+executeProvisionedProductServiceAction_serviceActionId :: Lens.Lens' ExecuteProvisionedProductServiceAction Prelude.Text
 executeProvisionedProductServiceAction_serviceActionId = Lens.lens (\ExecuteProvisionedProductServiceAction' {serviceActionId} -> serviceActionId) (\s@ExecuteProvisionedProductServiceAction' {} a -> s {serviceActionId = a} :: ExecuteProvisionedProductServiceAction)
 
 -- | An idempotency token that uniquely identifies the execute request.
-executeProvisionedProductServiceAction_executeToken :: Lens.Lens' ExecuteProvisionedProductServiceAction Core.Text
+executeProvisionedProductServiceAction_executeToken :: Lens.Lens' ExecuteProvisionedProductServiceAction Prelude.Text
 executeProvisionedProductServiceAction_executeToken = Lens.lens (\ExecuteProvisionedProductServiceAction' {executeToken} -> executeToken) (\s@ExecuteProvisionedProductServiceAction' {} a -> s {executeToken = a} :: ExecuteProvisionedProductServiceAction)
 
 instance
@@ -169,16 +170,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ExecuteProvisionedProductServiceActionResponse'
-            Core.<$> (x Core..?> "RecordDetail")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RecordDetail")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ExecuteProvisionedProductServiceAction
 
 instance
-  Core.NFData
+  Prelude.NFData
     ExecuteProvisionedProductServiceAction
 
 instance
@@ -186,14 +187,16 @@ instance
     ExecuteProvisionedProductServiceAction
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.ExecuteProvisionedProductServiceAction" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -203,16 +206,17 @@ instance
   where
   toJSON ExecuteProvisionedProductServiceAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Parameters" Core..=) Core.<$> parameters,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Parameters" Core..=) Prelude.<$> parameters,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just
               ( "ProvisionedProductId"
                   Core..= provisionedProductId
               ),
-            Core.Just
+            Prelude.Just
               ("ServiceActionId" Core..= serviceActionId),
-            Core.Just ("ExecuteToken" Core..= executeToken)
+            Prelude.Just ("ExecuteToken" Core..= executeToken)
           ]
       )
 
@@ -220,23 +224,23 @@ instance
   Core.ToPath
     ExecuteProvisionedProductServiceAction
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     ExecuteProvisionedProductServiceAction
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExecuteProvisionedProductServiceActionResponse' smart constructor.
 data ExecuteProvisionedProductServiceActionResponse = ExecuteProvisionedProductServiceActionResponse'
   { -- | An object containing detailed information about the result of
     -- provisioning the product.
-    recordDetail :: Core.Maybe RecordDetail,
+    recordDetail :: Prelude.Maybe RecordDetail,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExecuteProvisionedProductServiceActionResponse' with all optional fields omitted.
@@ -252,25 +256,25 @@ data ExecuteProvisionedProductServiceActionResponse = ExecuteProvisionedProductS
 -- 'httpStatus', 'executeProvisionedProductServiceActionResponse_httpStatus' - The response's http status code.
 newExecuteProvisionedProductServiceActionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ExecuteProvisionedProductServiceActionResponse
 newExecuteProvisionedProductServiceActionResponse
   pHttpStatus_ =
     ExecuteProvisionedProductServiceActionResponse'
       { recordDetail =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An object containing detailed information about the result of
 -- provisioning the product.
-executeProvisionedProductServiceActionResponse_recordDetail :: Lens.Lens' ExecuteProvisionedProductServiceActionResponse (Core.Maybe RecordDetail)
+executeProvisionedProductServiceActionResponse_recordDetail :: Lens.Lens' ExecuteProvisionedProductServiceActionResponse (Prelude.Maybe RecordDetail)
 executeProvisionedProductServiceActionResponse_recordDetail = Lens.lens (\ExecuteProvisionedProductServiceActionResponse' {recordDetail} -> recordDetail) (\s@ExecuteProvisionedProductServiceActionResponse' {} a -> s {recordDetail = a} :: ExecuteProvisionedProductServiceActionResponse)
 
 -- | The response's http status code.
-executeProvisionedProductServiceActionResponse_httpStatus :: Lens.Lens' ExecuteProvisionedProductServiceActionResponse Core.Int
+executeProvisionedProductServiceActionResponse_httpStatus :: Lens.Lens' ExecuteProvisionedProductServiceActionResponse Prelude.Int
 executeProvisionedProductServiceActionResponse_httpStatus = Lens.lens (\ExecuteProvisionedProductServiceActionResponse' {httpStatus} -> httpStatus) (\s@ExecuteProvisionedProductServiceActionResponse' {} a -> s {httpStatus = a} :: ExecuteProvisionedProductServiceActionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ExecuteProvisionedProductServiceActionResponse

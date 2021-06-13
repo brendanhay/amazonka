@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.VpcPeeringConnectionStateReasonCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the status of a VPC peering connection.
 --
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 data VpcPeeringConnectionStateReason = VpcPeeringConnectionStateReason'
   { -- | A message that provides more information about the status, if
     -- applicable.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The status of the VPC peering connection.
-    code :: Core.Maybe VpcPeeringConnectionStateReasonCode
+    code :: Prelude.Maybe VpcPeeringConnectionStateReasonCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpcPeeringConnectionStateReason' with all optional fields omitted.
@@ -53,26 +54,29 @@ newVpcPeeringConnectionStateReason ::
 newVpcPeeringConnectionStateReason =
   VpcPeeringConnectionStateReason'
     { message =
-        Core.Nothing,
-      code = Core.Nothing
+        Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | A message that provides more information about the status, if
 -- applicable.
-vpcPeeringConnectionStateReason_message :: Lens.Lens' VpcPeeringConnectionStateReason (Core.Maybe Core.Text)
+vpcPeeringConnectionStateReason_message :: Lens.Lens' VpcPeeringConnectionStateReason (Prelude.Maybe Prelude.Text)
 vpcPeeringConnectionStateReason_message = Lens.lens (\VpcPeeringConnectionStateReason' {message} -> message) (\s@VpcPeeringConnectionStateReason' {} a -> s {message = a} :: VpcPeeringConnectionStateReason)
 
 -- | The status of the VPC peering connection.
-vpcPeeringConnectionStateReason_code :: Lens.Lens' VpcPeeringConnectionStateReason (Core.Maybe VpcPeeringConnectionStateReasonCode)
+vpcPeeringConnectionStateReason_code :: Lens.Lens' VpcPeeringConnectionStateReason (Prelude.Maybe VpcPeeringConnectionStateReasonCode)
 vpcPeeringConnectionStateReason_code = Lens.lens (\VpcPeeringConnectionStateReason' {code} -> code) (\s@VpcPeeringConnectionStateReason' {} a -> s {code = a} :: VpcPeeringConnectionStateReason)
 
 instance Core.FromXML VpcPeeringConnectionStateReason where
   parseXML x =
     VpcPeeringConnectionStateReason'
-      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     VpcPeeringConnectionStateReason
 
-instance Core.NFData VpcPeeringConnectionStateReason
+instance
+  Prelude.NFData
+    VpcPeeringConnectionStateReason

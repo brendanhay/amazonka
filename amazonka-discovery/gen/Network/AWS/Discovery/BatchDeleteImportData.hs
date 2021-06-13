@@ -52,15 +52,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newBatchDeleteImportData' smart constructor.
 data BatchDeleteImportData = BatchDeleteImportData'
   { -- | The IDs for the import tasks that you want to delete.
-    importTaskIds :: Core.NonEmpty Core.Text
+    importTaskIds :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteImportData' with all optional fields omitted.
@@ -73,7 +74,7 @@ data BatchDeleteImportData = BatchDeleteImportData'
 -- 'importTaskIds', 'batchDeleteImportData_importTaskIds' - The IDs for the import tasks that you want to delete.
 newBatchDeleteImportData ::
   -- | 'importTaskIds'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   BatchDeleteImportData
 newBatchDeleteImportData pImportTaskIds_ =
   BatchDeleteImportData'
@@ -82,8 +83,8 @@ newBatchDeleteImportData pImportTaskIds_ =
     }
 
 -- | The IDs for the import tasks that you want to delete.
-batchDeleteImportData_importTaskIds :: Lens.Lens' BatchDeleteImportData (Core.NonEmpty Core.Text)
-batchDeleteImportData_importTaskIds = Lens.lens (\BatchDeleteImportData' {importTaskIds} -> importTaskIds) (\s@BatchDeleteImportData' {} a -> s {importTaskIds = a} :: BatchDeleteImportData) Core.. Lens._Coerce
+batchDeleteImportData_importTaskIds :: Lens.Lens' BatchDeleteImportData (Prelude.NonEmpty Prelude.Text)
+batchDeleteImportData_importTaskIds = Lens.lens (\BatchDeleteImportData' {importTaskIds} -> importTaskIds) (\s@BatchDeleteImportData' {} a -> s {importTaskIds = a} :: BatchDeleteImportData) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchDeleteImportData where
   type
@@ -94,49 +95,53 @@ instance Core.AWSRequest BatchDeleteImportData where
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteImportDataResponse'
-            Core.<$> (x Core..?> "errors" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchDeleteImportData
+instance Prelude.Hashable BatchDeleteImportData
 
-instance Core.NFData BatchDeleteImportData
+instance Prelude.NFData BatchDeleteImportData
 
 instance Core.ToHeaders BatchDeleteImportData where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSPoseidonService_V2015_11_01.BatchDeleteImportData" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchDeleteImportData where
   toJSON BatchDeleteImportData' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("importTaskIds" Core..= importTaskIds)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("importTaskIds" Core..= importTaskIds)
+          ]
       )
 
 instance Core.ToPath BatchDeleteImportData where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchDeleteImportData where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDeleteImportDataResponse' smart constructor.
 data BatchDeleteImportDataResponse = BatchDeleteImportDataResponse'
   { -- | Error messages returned for each import task that you deleted as a
     -- response for this command.
-    errors :: Core.Maybe [BatchDeleteImportDataError],
+    errors :: Prelude.Maybe [BatchDeleteImportDataError],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteImportDataResponse' with all optional fields omitted.
@@ -152,22 +157,22 @@ data BatchDeleteImportDataResponse = BatchDeleteImportDataResponse'
 -- 'httpStatus', 'batchDeleteImportDataResponse_httpStatus' - The response's http status code.
 newBatchDeleteImportDataResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchDeleteImportDataResponse
 newBatchDeleteImportDataResponse pHttpStatus_ =
   BatchDeleteImportDataResponse'
     { errors =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Error messages returned for each import task that you deleted as a
 -- response for this command.
-batchDeleteImportDataResponse_errors :: Lens.Lens' BatchDeleteImportDataResponse (Core.Maybe [BatchDeleteImportDataError])
-batchDeleteImportDataResponse_errors = Lens.lens (\BatchDeleteImportDataResponse' {errors} -> errors) (\s@BatchDeleteImportDataResponse' {} a -> s {errors = a} :: BatchDeleteImportDataResponse) Core.. Lens.mapping Lens._Coerce
+batchDeleteImportDataResponse_errors :: Lens.Lens' BatchDeleteImportDataResponse (Prelude.Maybe [BatchDeleteImportDataError])
+batchDeleteImportDataResponse_errors = Lens.lens (\BatchDeleteImportDataResponse' {errors} -> errors) (\s@BatchDeleteImportDataResponse' {} a -> s {errors = a} :: BatchDeleteImportDataResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchDeleteImportDataResponse_httpStatus :: Lens.Lens' BatchDeleteImportDataResponse Core.Int
+batchDeleteImportDataResponse_httpStatus :: Lens.Lens' BatchDeleteImportDataResponse Prelude.Int
 batchDeleteImportDataResponse_httpStatus = Lens.lens (\BatchDeleteImportDataResponse' {httpStatus} -> httpStatus) (\s@BatchDeleteImportDataResponse' {} a -> s {httpStatus = a} :: BatchDeleteImportDataResponse)
 
-instance Core.NFData BatchDeleteImportDataResponse
+instance Prelude.NFData BatchDeleteImportDataResponse

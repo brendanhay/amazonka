@@ -108,6 +108,7 @@ where
 import Network.AWS.CertificateManager.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -117,19 +118,19 @@ data ImportCertificate = ImportCertificate'
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of an imported certificate to replace. To import a new certificate, omit
     -- this field.
-    certificateArn :: Core.Maybe Core.Text,
+    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | One or more resource tags to associate with the imported certificate.
     --
     -- Note: You cannot apply tags when reimporting a certificate.
-    tags :: Core.Maybe (Core.NonEmpty Tag),
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The PEM encoded certificate chain.
-    certificateChain :: Core.Maybe Core.Base64,
+    certificateChain :: Prelude.Maybe Core.Base64,
     -- | The certificate to import.
     certificate :: Core.Base64,
     -- | The private key that matches the public key in the certificate.
     privateKey :: Core.Sensitive Core.Base64
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportCertificate' with all optional fields omitted.
@@ -167,18 +168,19 @@ data ImportCertificate = ImportCertificate'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 newImportCertificate ::
   -- | 'certificate'
-  Core.ByteString ->
+  Prelude.ByteString ->
   -- | 'privateKey'
-  Core.ByteString ->
+  Prelude.ByteString ->
   ImportCertificate
 newImportCertificate pCertificate_ pPrivateKey_ =
   ImportCertificate'
-    { certificateArn = Core.Nothing,
-      tags = Core.Nothing,
-      certificateChain = Core.Nothing,
+    { certificateArn =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
+      certificateChain = Prelude.Nothing,
       certificate = Core._Base64 Lens.# pCertificate_,
       privateKey =
-        Core._Sensitive Core.. Core._Base64
+        Core._Sensitive Prelude.. Core._Base64
           Lens.# pPrivateKey_
     }
 
@@ -186,38 +188,38 @@ newImportCertificate pCertificate_ pPrivateKey_ =
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of an imported certificate to replace. To import a new certificate, omit
 -- this field.
-importCertificate_certificateArn :: Lens.Lens' ImportCertificate (Core.Maybe Core.Text)
+importCertificate_certificateArn :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.Text)
 importCertificate_certificateArn = Lens.lens (\ImportCertificate' {certificateArn} -> certificateArn) (\s@ImportCertificate' {} a -> s {certificateArn = a} :: ImportCertificate)
 
 -- | One or more resource tags to associate with the imported certificate.
 --
 -- Note: You cannot apply tags when reimporting a certificate.
-importCertificate_tags :: Lens.Lens' ImportCertificate (Core.Maybe (Core.NonEmpty Tag))
-importCertificate_tags = Lens.lens (\ImportCertificate' {tags} -> tags) (\s@ImportCertificate' {} a -> s {tags = a} :: ImportCertificate) Core.. Lens.mapping Lens._Coerce
+importCertificate_tags :: Lens.Lens' ImportCertificate (Prelude.Maybe (Prelude.NonEmpty Tag))
+importCertificate_tags = Lens.lens (\ImportCertificate' {tags} -> tags) (\s@ImportCertificate' {} a -> s {tags = a} :: ImportCertificate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The PEM encoded certificate chain.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-importCertificate_certificateChain :: Lens.Lens' ImportCertificate (Core.Maybe Core.ByteString)
-importCertificate_certificateChain = Lens.lens (\ImportCertificate' {certificateChain} -> certificateChain) (\s@ImportCertificate' {} a -> s {certificateChain = a} :: ImportCertificate) Core.. Lens.mapping Core._Base64
+importCertificate_certificateChain :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.ByteString)
+importCertificate_certificateChain = Lens.lens (\ImportCertificate' {certificateChain} -> certificateChain) (\s@ImportCertificate' {} a -> s {certificateChain = a} :: ImportCertificate) Prelude.. Lens.mapping Core._Base64
 
 -- | The certificate to import.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-importCertificate_certificate :: Lens.Lens' ImportCertificate Core.ByteString
-importCertificate_certificate = Lens.lens (\ImportCertificate' {certificate} -> certificate) (\s@ImportCertificate' {} a -> s {certificate = a} :: ImportCertificate) Core.. Core._Base64
+importCertificate_certificate :: Lens.Lens' ImportCertificate Prelude.ByteString
+importCertificate_certificate = Lens.lens (\ImportCertificate' {certificate} -> certificate) (\s@ImportCertificate' {} a -> s {certificate = a} :: ImportCertificate) Prelude.. Core._Base64
 
 -- | The private key that matches the public key in the certificate.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-importCertificate_privateKey :: Lens.Lens' ImportCertificate Core.ByteString
-importCertificate_privateKey = Lens.lens (\ImportCertificate' {privateKey} -> privateKey) (\s@ImportCertificate' {} a -> s {privateKey = a} :: ImportCertificate) Core.. Core._Sensitive Core.. Core._Base64
+importCertificate_privateKey :: Lens.Lens' ImportCertificate Prelude.ByteString
+importCertificate_privateKey = Lens.lens (\ImportCertificate' {privateKey} -> privateKey) (\s@ImportCertificate' {} a -> s {privateKey = a} :: ImportCertificate) Prelude.. Core._Sensitive Prelude.. Core._Base64
 
 instance Core.AWSRequest ImportCertificate where
   type
@@ -228,56 +230,59 @@ instance Core.AWSRequest ImportCertificate where
     Response.receiveJSON
       ( \s h x ->
           ImportCertificateResponse'
-            Core.<$> (x Core..?> "CertificateArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CertificateArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ImportCertificate
+instance Prelude.Hashable ImportCertificate
 
-instance Core.NFData ImportCertificate
+instance Prelude.NFData ImportCertificate
 
 instance Core.ToHeaders ImportCertificate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CertificateManager.ImportCertificate" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ImportCertificate where
   toJSON ImportCertificate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CertificateArn" Core..=) Core.<$> certificateArn,
-            ("Tags" Core..=) Core.<$> tags,
+      ( Prelude.catMaybes
+          [ ("CertificateArn" Core..=)
+              Prelude.<$> certificateArn,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("CertificateChain" Core..=)
-              Core.<$> certificateChain,
-            Core.Just ("Certificate" Core..= certificate),
-            Core.Just ("PrivateKey" Core..= privateKey)
+              Prelude.<$> certificateChain,
+            Prelude.Just ("Certificate" Core..= certificate),
+            Prelude.Just ("PrivateKey" Core..= privateKey)
           ]
       )
 
 instance Core.ToPath ImportCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ImportCertificate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportCertificateResponse' smart constructor.
 data ImportCertificateResponse = ImportCertificateResponse'
   { -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of the imported certificate.
-    certificateArn :: Core.Maybe Core.Text,
+    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportCertificateResponse' with all optional fields omitted.
@@ -294,23 +299,23 @@ data ImportCertificateResponse = ImportCertificateResponse'
 -- 'httpStatus', 'importCertificateResponse_httpStatus' - The response's http status code.
 newImportCertificateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ImportCertificateResponse
 newImportCertificateResponse pHttpStatus_ =
   ImportCertificateResponse'
     { certificateArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of the imported certificate.
-importCertificateResponse_certificateArn :: Lens.Lens' ImportCertificateResponse (Core.Maybe Core.Text)
+importCertificateResponse_certificateArn :: Lens.Lens' ImportCertificateResponse (Prelude.Maybe Prelude.Text)
 importCertificateResponse_certificateArn = Lens.lens (\ImportCertificateResponse' {certificateArn} -> certificateArn) (\s@ImportCertificateResponse' {} a -> s {certificateArn = a} :: ImportCertificateResponse)
 
 -- | The response's http status code.
-importCertificateResponse_httpStatus :: Lens.Lens' ImportCertificateResponse Core.Int
+importCertificateResponse_httpStatus :: Lens.Lens' ImportCertificateResponse Prelude.Int
 importCertificateResponse_httpStatus = Lens.lens (\ImportCertificateResponse' {httpStatus} -> httpStatus) (\s@ImportCertificateResponse' {} a -> s {httpStatus = a} :: ImportCertificateResponse)
 
-instance Core.NFData ImportCertificateResponse
+instance Prelude.NFData ImportCertificateResponse

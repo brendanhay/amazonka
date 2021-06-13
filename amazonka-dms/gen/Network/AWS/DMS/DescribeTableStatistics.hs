@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,11 +68,11 @@ data DescribeTableStatistics = DescribeTableStatistics'
     --
     -- A combination of filters creates an AND condition where each record
     -- matches all specified filters.
-    filters :: Core.Maybe [Filter],
+    filters :: Prelude.Maybe [Filter],
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -80,11 +81,11 @@ data DescribeTableStatistics = DescribeTableStatistics'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 500.
-    maxRecords :: Core.Maybe Core.Int,
+    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the replication task.
-    replicationTaskArn :: Core.Text
+    replicationTaskArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTableStatistics' with all optional fields omitted.
@@ -117,13 +118,13 @@ data DescribeTableStatistics = DescribeTableStatistics'
 -- 'replicationTaskArn', 'describeTableStatistics_replicationTaskArn' - The Amazon Resource Name (ARN) of the replication task.
 newDescribeTableStatistics ::
   -- | 'replicationTaskArn'
-  Core.Text ->
+  Prelude.Text ->
   DescribeTableStatistics
 newDescribeTableStatistics pReplicationTaskArn_ =
   DescribeTableStatistics'
-    { filters = Core.Nothing,
-      marker = Core.Nothing,
-      maxRecords = Core.Nothing,
+    { filters = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
       replicationTaskArn = pReplicationTaskArn_
     }
 
@@ -133,13 +134,13 @@ newDescribeTableStatistics pReplicationTaskArn_ =
 --
 -- A combination of filters creates an AND condition where each record
 -- matches all specified filters.
-describeTableStatistics_filters :: Lens.Lens' DescribeTableStatistics (Core.Maybe [Filter])
-describeTableStatistics_filters = Lens.lens (\DescribeTableStatistics' {filters} -> filters) (\s@DescribeTableStatistics' {} a -> s {filters = a} :: DescribeTableStatistics) Core.. Lens.mapping Lens._Coerce
+describeTableStatistics_filters :: Lens.Lens' DescribeTableStatistics (Prelude.Maybe [Filter])
+describeTableStatistics_filters = Lens.lens (\DescribeTableStatistics' {filters} -> filters) (\s@DescribeTableStatistics' {} a -> s {filters = a} :: DescribeTableStatistics) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeTableStatistics_marker :: Lens.Lens' DescribeTableStatistics (Core.Maybe Core.Text)
+describeTableStatistics_marker :: Lens.Lens' DescribeTableStatistics (Prelude.Maybe Prelude.Text)
 describeTableStatistics_marker = Lens.lens (\DescribeTableStatistics' {marker} -> marker) (\s@DescribeTableStatistics' {} a -> s {marker = a} :: DescribeTableStatistics)
 
 -- | The maximum number of records to include in the response. If more
@@ -150,11 +151,11 @@ describeTableStatistics_marker = Lens.lens (\DescribeTableStatistics' {marker} -
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 500.
-describeTableStatistics_maxRecords :: Lens.Lens' DescribeTableStatistics (Core.Maybe Core.Int)
+describeTableStatistics_maxRecords :: Lens.Lens' DescribeTableStatistics (Prelude.Maybe Prelude.Int)
 describeTableStatistics_maxRecords = Lens.lens (\DescribeTableStatistics' {maxRecords} -> maxRecords) (\s@DescribeTableStatistics' {} a -> s {maxRecords = a} :: DescribeTableStatistics)
 
 -- | The Amazon Resource Name (ARN) of the replication task.
-describeTableStatistics_replicationTaskArn :: Lens.Lens' DescribeTableStatistics Core.Text
+describeTableStatistics_replicationTaskArn :: Lens.Lens' DescribeTableStatistics Prelude.Text
 describeTableStatistics_replicationTaskArn = Lens.lens (\DescribeTableStatistics' {replicationTaskArn} -> replicationTaskArn) (\s@DescribeTableStatistics' {} a -> s {replicationTaskArn = a} :: DescribeTableStatistics)
 
 instance Core.AWSPager DescribeTableStatistics where
@@ -162,22 +163,22 @@ instance Core.AWSPager DescribeTableStatistics where
     | Core.stop
         ( rs
             Lens.^? describeTableStatisticsResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeTableStatisticsResponse_tableStatistics
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeTableStatistics_marker
+          Prelude.& describeTableStatistics_marker
           Lens..~ rs
           Lens.^? describeTableStatisticsResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTableStatistics where
   type
@@ -188,63 +189,67 @@ instance Core.AWSRequest DescribeTableStatistics where
     Response.receiveJSON
       ( \s h x ->
           DescribeTableStatisticsResponse'
-            Core.<$> (x Core..?> "TableStatistics" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "ReplicationTaskArn")
-            Core.<*> (x Core..?> "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "TableStatistics"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "ReplicationTaskArn")
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeTableStatistics
+instance Prelude.Hashable DescribeTableStatistics
 
-instance Core.NFData DescribeTableStatistics
+instance Prelude.NFData DescribeTableStatistics
 
 instance Core.ToHeaders DescribeTableStatistics where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonDMSv20160101.DescribeTableStatistics" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeTableStatistics where
   toJSON DescribeTableStatistics' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Filters" Core..=) Core.<$> filters,
-            ("Marker" Core..=) Core.<$> marker,
-            ("MaxRecords" Core..=) Core.<$> maxRecords,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("Marker" Core..=) Prelude.<$> marker,
+            ("MaxRecords" Core..=) Prelude.<$> maxRecords,
+            Prelude.Just
               ("ReplicationTaskArn" Core..= replicationTaskArn)
           ]
       )
 
 instance Core.ToPath DescribeTableStatistics where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeTableStatistics where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
 -- /See:/ 'newDescribeTableStatisticsResponse' smart constructor.
 data DescribeTableStatisticsResponse = DescribeTableStatisticsResponse'
   { -- | The table statistics.
-    tableStatistics :: Core.Maybe [TableStatistics],
+    tableStatistics :: Prelude.Maybe [TableStatistics],
     -- | The Amazon Resource Name (ARN) of the replication task.
-    replicationTaskArn :: Core.Maybe Core.Text,
+    replicationTaskArn :: Prelude.Maybe Prelude.Text,
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeTableStatisticsResponse' with all optional fields omitted.
@@ -265,33 +270,35 @@ data DescribeTableStatisticsResponse = DescribeTableStatisticsResponse'
 -- 'httpStatus', 'describeTableStatisticsResponse_httpStatus' - The response's http status code.
 newDescribeTableStatisticsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeTableStatisticsResponse
 newDescribeTableStatisticsResponse pHttpStatus_ =
   DescribeTableStatisticsResponse'
     { tableStatistics =
-        Core.Nothing,
-      replicationTaskArn = Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      replicationTaskArn = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The table statistics.
-describeTableStatisticsResponse_tableStatistics :: Lens.Lens' DescribeTableStatisticsResponse (Core.Maybe [TableStatistics])
-describeTableStatisticsResponse_tableStatistics = Lens.lens (\DescribeTableStatisticsResponse' {tableStatistics} -> tableStatistics) (\s@DescribeTableStatisticsResponse' {} a -> s {tableStatistics = a} :: DescribeTableStatisticsResponse) Core.. Lens.mapping Lens._Coerce
+describeTableStatisticsResponse_tableStatistics :: Lens.Lens' DescribeTableStatisticsResponse (Prelude.Maybe [TableStatistics])
+describeTableStatisticsResponse_tableStatistics = Lens.lens (\DescribeTableStatisticsResponse' {tableStatistics} -> tableStatistics) (\s@DescribeTableStatisticsResponse' {} a -> s {tableStatistics = a} :: DescribeTableStatisticsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the replication task.
-describeTableStatisticsResponse_replicationTaskArn :: Lens.Lens' DescribeTableStatisticsResponse (Core.Maybe Core.Text)
+describeTableStatisticsResponse_replicationTaskArn :: Lens.Lens' DescribeTableStatisticsResponse (Prelude.Maybe Prelude.Text)
 describeTableStatisticsResponse_replicationTaskArn = Lens.lens (\DescribeTableStatisticsResponse' {replicationTaskArn} -> replicationTaskArn) (\s@DescribeTableStatisticsResponse' {} a -> s {replicationTaskArn = a} :: DescribeTableStatisticsResponse)
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeTableStatisticsResponse_marker :: Lens.Lens' DescribeTableStatisticsResponse (Core.Maybe Core.Text)
+describeTableStatisticsResponse_marker :: Lens.Lens' DescribeTableStatisticsResponse (Prelude.Maybe Prelude.Text)
 describeTableStatisticsResponse_marker = Lens.lens (\DescribeTableStatisticsResponse' {marker} -> marker) (\s@DescribeTableStatisticsResponse' {} a -> s {marker = a} :: DescribeTableStatisticsResponse)
 
 -- | The response's http status code.
-describeTableStatisticsResponse_httpStatus :: Lens.Lens' DescribeTableStatisticsResponse Core.Int
+describeTableStatisticsResponse_httpStatus :: Lens.Lens' DescribeTableStatisticsResponse Prelude.Int
 describeTableStatisticsResponse_httpStatus = Lens.lens (\DescribeTableStatisticsResponse' {httpStatus} -> httpStatus) (\s@DescribeTableStatisticsResponse' {} a -> s {httpStatus = a} :: DescribeTableStatisticsResponse)
 
-instance Core.NFData DescribeTableStatisticsResponse
+instance
+  Prelude.NFData
+    DescribeTableStatisticsResponse

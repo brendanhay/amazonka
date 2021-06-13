@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data DescribeApplications = DescribeApplications'
   { -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
     -- to only include those with the specified names.
-    applicationNames :: Core.Maybe [Core.Text]
+    applicationNames :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeApplications' with all optional fields omitted.
@@ -70,13 +71,13 @@ newDescribeApplications ::
 newDescribeApplications =
   DescribeApplications'
     { applicationNames =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to only include those with the specified names.
-describeApplications_applicationNames :: Lens.Lens' DescribeApplications (Core.Maybe [Core.Text])
-describeApplications_applicationNames = Lens.lens (\DescribeApplications' {applicationNames} -> applicationNames) (\s@DescribeApplications' {} a -> s {applicationNames = a} :: DescribeApplications) Core.. Lens.mapping Lens._Coerce
+describeApplications_applicationNames :: Lens.Lens' DescribeApplications (Prelude.Maybe [Prelude.Text])
+describeApplications_applicationNames = Lens.lens (\DescribeApplications' {applicationNames} -> applicationNames) (\s@DescribeApplications' {} a -> s {applicationNames = a} :: DescribeApplications) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest DescribeApplications where
   type
@@ -88,32 +89,33 @@ instance Core.AWSRequest DescribeApplications where
       "DescribeApplicationsResult"
       ( \s h x ->
           DescribeApplicationsResponse'
-            Core.<$> ( x Core..@? "Applications" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Applications" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeApplications
+instance Prelude.Hashable DescribeApplications
 
-instance Core.NFData DescribeApplications
+instance Prelude.NFData DescribeApplications
 
 instance Core.ToHeaders DescribeApplications where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeApplications where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeApplications where
   toQuery DescribeApplications' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeApplications" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("DescribeApplications" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "ApplicationNames"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> applicationNames
+                Prelude.<$> applicationNames
             )
       ]
 
@@ -122,11 +124,11 @@ instance Core.ToQuery DescribeApplications where
 -- /See:/ 'newDescribeApplicationsResponse' smart constructor.
 data DescribeApplicationsResponse = DescribeApplicationsResponse'
   { -- | This parameter contains a list of ApplicationDescription.
-    applications :: Core.Maybe [ApplicationDescription],
+    applications :: Prelude.Maybe [ApplicationDescription],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeApplicationsResponse' with all optional fields omitted.
@@ -141,21 +143,21 @@ data DescribeApplicationsResponse = DescribeApplicationsResponse'
 -- 'httpStatus', 'describeApplicationsResponse_httpStatus' - The response's http status code.
 newDescribeApplicationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeApplicationsResponse
 newDescribeApplicationsResponse pHttpStatus_ =
   DescribeApplicationsResponse'
     { applications =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | This parameter contains a list of ApplicationDescription.
-describeApplicationsResponse_applications :: Lens.Lens' DescribeApplicationsResponse (Core.Maybe [ApplicationDescription])
-describeApplicationsResponse_applications = Lens.lens (\DescribeApplicationsResponse' {applications} -> applications) (\s@DescribeApplicationsResponse' {} a -> s {applications = a} :: DescribeApplicationsResponse) Core.. Lens.mapping Lens._Coerce
+describeApplicationsResponse_applications :: Lens.Lens' DescribeApplicationsResponse (Prelude.Maybe [ApplicationDescription])
+describeApplicationsResponse_applications = Lens.lens (\DescribeApplicationsResponse' {applications} -> applications) (\s@DescribeApplicationsResponse' {} a -> s {applications = a} :: DescribeApplicationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeApplicationsResponse_httpStatus :: Lens.Lens' DescribeApplicationsResponse Core.Int
+describeApplicationsResponse_httpStatus :: Lens.Lens' DescribeApplicationsResponse Prelude.Int
 describeApplicationsResponse_httpStatus = Lens.lens (\DescribeApplicationsResponse' {httpStatus} -> httpStatus) (\s@DescribeApplicationsResponse' {} a -> s {httpStatus = a} :: DescribeApplicationsResponse)
 
-instance Core.NFData DescribeApplicationsResponse
+instance Prelude.NFData DescribeApplicationsResponse

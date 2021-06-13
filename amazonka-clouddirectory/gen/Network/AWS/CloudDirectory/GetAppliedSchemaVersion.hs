@@ -43,15 +43,16 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetAppliedSchemaVersion' smart constructor.
 data GetAppliedSchemaVersion = GetAppliedSchemaVersion'
   { -- | The ARN of the applied schema.
-    schemaArn :: Core.Text
+    schemaArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAppliedSchemaVersion' with all optional fields omitted.
@@ -64,13 +65,13 @@ data GetAppliedSchemaVersion = GetAppliedSchemaVersion'
 -- 'schemaArn', 'getAppliedSchemaVersion_schemaArn' - The ARN of the applied schema.
 newGetAppliedSchemaVersion ::
   -- | 'schemaArn'
-  Core.Text ->
+  Prelude.Text ->
   GetAppliedSchemaVersion
 newGetAppliedSchemaVersion pSchemaArn_ =
   GetAppliedSchemaVersion' {schemaArn = pSchemaArn_}
 
 -- | The ARN of the applied schema.
-getAppliedSchemaVersion_schemaArn :: Lens.Lens' GetAppliedSchemaVersion Core.Text
+getAppliedSchemaVersion_schemaArn :: Lens.Lens' GetAppliedSchemaVersion Prelude.Text
 getAppliedSchemaVersion_schemaArn = Lens.lens (\GetAppliedSchemaVersion' {schemaArn} -> schemaArn) (\s@GetAppliedSchemaVersion' {} a -> s {schemaArn = a} :: GetAppliedSchemaVersion)
 
 instance Core.AWSRequest GetAppliedSchemaVersion where
@@ -82,41 +83,41 @@ instance Core.AWSRequest GetAppliedSchemaVersion where
     Response.receiveJSON
       ( \s h x ->
           GetAppliedSchemaVersionResponse'
-            Core.<$> (x Core..?> "AppliedSchemaArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AppliedSchemaArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetAppliedSchemaVersion
+instance Prelude.Hashable GetAppliedSchemaVersion
 
-instance Core.NFData GetAppliedSchemaVersion
+instance Prelude.NFData GetAppliedSchemaVersion
 
 instance Core.ToHeaders GetAppliedSchemaVersion where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON GetAppliedSchemaVersion where
   toJSON GetAppliedSchemaVersion' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("SchemaArn" Core..= schemaArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("SchemaArn" Core..= schemaArn)]
       )
 
 instance Core.ToPath GetAppliedSchemaVersion where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/schema/getappliedschema"
 
 instance Core.ToQuery GetAppliedSchemaVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAppliedSchemaVersionResponse' smart constructor.
 data GetAppliedSchemaVersionResponse = GetAppliedSchemaVersionResponse'
   { -- | Current applied schema ARN, including the minor version in use if one
     -- was provided.
-    appliedSchemaArn :: Core.Maybe Core.Text,
+    appliedSchemaArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAppliedSchemaVersionResponse' with all optional fields omitted.
@@ -132,22 +133,24 @@ data GetAppliedSchemaVersionResponse = GetAppliedSchemaVersionResponse'
 -- 'httpStatus', 'getAppliedSchemaVersionResponse_httpStatus' - The response's http status code.
 newGetAppliedSchemaVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetAppliedSchemaVersionResponse
 newGetAppliedSchemaVersionResponse pHttpStatus_ =
   GetAppliedSchemaVersionResponse'
     { appliedSchemaArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Current applied schema ARN, including the minor version in use if one
 -- was provided.
-getAppliedSchemaVersionResponse_appliedSchemaArn :: Lens.Lens' GetAppliedSchemaVersionResponse (Core.Maybe Core.Text)
+getAppliedSchemaVersionResponse_appliedSchemaArn :: Lens.Lens' GetAppliedSchemaVersionResponse (Prelude.Maybe Prelude.Text)
 getAppliedSchemaVersionResponse_appliedSchemaArn = Lens.lens (\GetAppliedSchemaVersionResponse' {appliedSchemaArn} -> appliedSchemaArn) (\s@GetAppliedSchemaVersionResponse' {} a -> s {appliedSchemaArn = a} :: GetAppliedSchemaVersionResponse)
 
 -- | The response's http status code.
-getAppliedSchemaVersionResponse_httpStatus :: Lens.Lens' GetAppliedSchemaVersionResponse Core.Int
+getAppliedSchemaVersionResponse_httpStatus :: Lens.Lens' GetAppliedSchemaVersionResponse Prelude.Int
 getAppliedSchemaVersionResponse_httpStatus = Lens.lens (\GetAppliedSchemaVersionResponse' {httpStatus} -> httpStatus) (\s@GetAppliedSchemaVersionResponse' {} a -> s {httpStatus = a} :: GetAppliedSchemaVersionResponse)
 
-instance Core.NFData GetAppliedSchemaVersionResponse
+instance
+  Prelude.NFData
+    GetAppliedSchemaVersionResponse

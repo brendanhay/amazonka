@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.APNSChannelResponse where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the status and settings of the APNs (Apple
 -- Push Notification service) channel for an application.
@@ -28,37 +29,37 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAPNSChannelResponse' smart constructor.
 data APNSChannelResponse = APNSChannelResponse'
   { -- | The date and time when the APNs channel was last modified.
-    lastModifiedDate :: Core.Maybe Core.Text,
+    lastModifiedDate :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the application that the APNs channel applies
     -- to.
-    applicationId :: Core.Maybe Core.Text,
+    applicationId :: Prelude.Maybe Prelude.Text,
     -- | The default authentication method that Amazon Pinpoint uses to
     -- authenticate with APNs for this channel, key or certificate.
-    defaultAuthenticationMethod :: Core.Maybe Core.Text,
+    defaultAuthenticationMethod :: Prelude.Maybe Prelude.Text,
     -- | (Not used) This property is retained only for backward compatibility.
-    hasCredential :: Core.Maybe Core.Bool,
+    hasCredential :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether the APNs channel is configured to communicate with
     -- APNs by using APNs tokens. To provide an authentication key for APNs
     -- tokens, set the TokenKey property of the channel.
-    hasTokenKey :: Core.Maybe Core.Bool,
+    hasTokenKey :: Prelude.Maybe Prelude.Bool,
     -- | (Deprecated) An identifier for the APNs channel. This property is
     -- retained only for backward compatibility.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the APNs channel was enabled.
-    creationDate :: Core.Maybe Core.Text,
+    creationDate :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the APNs channel is enabled for the application.
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The current version of the APNs channel.
-    version :: Core.Maybe Core.Int,
+    version :: Prelude.Maybe Prelude.Int,
     -- | Specifies whether the APNs channel is archived.
-    isArchived :: Core.Maybe Core.Bool,
+    isArchived :: Prelude.Maybe Prelude.Bool,
     -- | The user who last modified the APNs channel.
-    lastModifiedBy :: Core.Maybe Core.Text,
+    lastModifiedBy :: Prelude.Maybe Prelude.Text,
     -- | The type of messaging or notification platform for the channel. For the
     -- APNs channel, this value is APNS.
-    platform :: Core.Text
+    platform :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'APNSChannelResponse' with all optional fields omitted.
@@ -99,77 +100,77 @@ data APNSChannelResponse = APNSChannelResponse'
 -- APNs channel, this value is APNS.
 newAPNSChannelResponse ::
   -- | 'platform'
-  Core.Text ->
+  Prelude.Text ->
   APNSChannelResponse
 newAPNSChannelResponse pPlatform_ =
   APNSChannelResponse'
     { lastModifiedDate =
-        Core.Nothing,
-      applicationId = Core.Nothing,
-      defaultAuthenticationMethod = Core.Nothing,
-      hasCredential = Core.Nothing,
-      hasTokenKey = Core.Nothing,
-      id = Core.Nothing,
-      creationDate = Core.Nothing,
-      enabled = Core.Nothing,
-      version = Core.Nothing,
-      isArchived = Core.Nothing,
-      lastModifiedBy = Core.Nothing,
+        Prelude.Nothing,
+      applicationId = Prelude.Nothing,
+      defaultAuthenticationMethod = Prelude.Nothing,
+      hasCredential = Prelude.Nothing,
+      hasTokenKey = Prelude.Nothing,
+      id = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      enabled = Prelude.Nothing,
+      version = Prelude.Nothing,
+      isArchived = Prelude.Nothing,
+      lastModifiedBy = Prelude.Nothing,
       platform = pPlatform_
     }
 
 -- | The date and time when the APNs channel was last modified.
-aPNSChannelResponse_lastModifiedDate :: Lens.Lens' APNSChannelResponse (Core.Maybe Core.Text)
+aPNSChannelResponse_lastModifiedDate :: Lens.Lens' APNSChannelResponse (Prelude.Maybe Prelude.Text)
 aPNSChannelResponse_lastModifiedDate = Lens.lens (\APNSChannelResponse' {lastModifiedDate} -> lastModifiedDate) (\s@APNSChannelResponse' {} a -> s {lastModifiedDate = a} :: APNSChannelResponse)
 
 -- | The unique identifier for the application that the APNs channel applies
 -- to.
-aPNSChannelResponse_applicationId :: Lens.Lens' APNSChannelResponse (Core.Maybe Core.Text)
+aPNSChannelResponse_applicationId :: Lens.Lens' APNSChannelResponse (Prelude.Maybe Prelude.Text)
 aPNSChannelResponse_applicationId = Lens.lens (\APNSChannelResponse' {applicationId} -> applicationId) (\s@APNSChannelResponse' {} a -> s {applicationId = a} :: APNSChannelResponse)
 
 -- | The default authentication method that Amazon Pinpoint uses to
 -- authenticate with APNs for this channel, key or certificate.
-aPNSChannelResponse_defaultAuthenticationMethod :: Lens.Lens' APNSChannelResponse (Core.Maybe Core.Text)
+aPNSChannelResponse_defaultAuthenticationMethod :: Lens.Lens' APNSChannelResponse (Prelude.Maybe Prelude.Text)
 aPNSChannelResponse_defaultAuthenticationMethod = Lens.lens (\APNSChannelResponse' {defaultAuthenticationMethod} -> defaultAuthenticationMethod) (\s@APNSChannelResponse' {} a -> s {defaultAuthenticationMethod = a} :: APNSChannelResponse)
 
 -- | (Not used) This property is retained only for backward compatibility.
-aPNSChannelResponse_hasCredential :: Lens.Lens' APNSChannelResponse (Core.Maybe Core.Bool)
+aPNSChannelResponse_hasCredential :: Lens.Lens' APNSChannelResponse (Prelude.Maybe Prelude.Bool)
 aPNSChannelResponse_hasCredential = Lens.lens (\APNSChannelResponse' {hasCredential} -> hasCredential) (\s@APNSChannelResponse' {} a -> s {hasCredential = a} :: APNSChannelResponse)
 
 -- | Specifies whether the APNs channel is configured to communicate with
 -- APNs by using APNs tokens. To provide an authentication key for APNs
 -- tokens, set the TokenKey property of the channel.
-aPNSChannelResponse_hasTokenKey :: Lens.Lens' APNSChannelResponse (Core.Maybe Core.Bool)
+aPNSChannelResponse_hasTokenKey :: Lens.Lens' APNSChannelResponse (Prelude.Maybe Prelude.Bool)
 aPNSChannelResponse_hasTokenKey = Lens.lens (\APNSChannelResponse' {hasTokenKey} -> hasTokenKey) (\s@APNSChannelResponse' {} a -> s {hasTokenKey = a} :: APNSChannelResponse)
 
 -- | (Deprecated) An identifier for the APNs channel. This property is
 -- retained only for backward compatibility.
-aPNSChannelResponse_id :: Lens.Lens' APNSChannelResponse (Core.Maybe Core.Text)
+aPNSChannelResponse_id :: Lens.Lens' APNSChannelResponse (Prelude.Maybe Prelude.Text)
 aPNSChannelResponse_id = Lens.lens (\APNSChannelResponse' {id} -> id) (\s@APNSChannelResponse' {} a -> s {id = a} :: APNSChannelResponse)
 
 -- | The date and time when the APNs channel was enabled.
-aPNSChannelResponse_creationDate :: Lens.Lens' APNSChannelResponse (Core.Maybe Core.Text)
+aPNSChannelResponse_creationDate :: Lens.Lens' APNSChannelResponse (Prelude.Maybe Prelude.Text)
 aPNSChannelResponse_creationDate = Lens.lens (\APNSChannelResponse' {creationDate} -> creationDate) (\s@APNSChannelResponse' {} a -> s {creationDate = a} :: APNSChannelResponse)
 
 -- | Specifies whether the APNs channel is enabled for the application.
-aPNSChannelResponse_enabled :: Lens.Lens' APNSChannelResponse (Core.Maybe Core.Bool)
+aPNSChannelResponse_enabled :: Lens.Lens' APNSChannelResponse (Prelude.Maybe Prelude.Bool)
 aPNSChannelResponse_enabled = Lens.lens (\APNSChannelResponse' {enabled} -> enabled) (\s@APNSChannelResponse' {} a -> s {enabled = a} :: APNSChannelResponse)
 
 -- | The current version of the APNs channel.
-aPNSChannelResponse_version :: Lens.Lens' APNSChannelResponse (Core.Maybe Core.Int)
+aPNSChannelResponse_version :: Lens.Lens' APNSChannelResponse (Prelude.Maybe Prelude.Int)
 aPNSChannelResponse_version = Lens.lens (\APNSChannelResponse' {version} -> version) (\s@APNSChannelResponse' {} a -> s {version = a} :: APNSChannelResponse)
 
 -- | Specifies whether the APNs channel is archived.
-aPNSChannelResponse_isArchived :: Lens.Lens' APNSChannelResponse (Core.Maybe Core.Bool)
+aPNSChannelResponse_isArchived :: Lens.Lens' APNSChannelResponse (Prelude.Maybe Prelude.Bool)
 aPNSChannelResponse_isArchived = Lens.lens (\APNSChannelResponse' {isArchived} -> isArchived) (\s@APNSChannelResponse' {} a -> s {isArchived = a} :: APNSChannelResponse)
 
 -- | The user who last modified the APNs channel.
-aPNSChannelResponse_lastModifiedBy :: Lens.Lens' APNSChannelResponse (Core.Maybe Core.Text)
+aPNSChannelResponse_lastModifiedBy :: Lens.Lens' APNSChannelResponse (Prelude.Maybe Prelude.Text)
 aPNSChannelResponse_lastModifiedBy = Lens.lens (\APNSChannelResponse' {lastModifiedBy} -> lastModifiedBy) (\s@APNSChannelResponse' {} a -> s {lastModifiedBy = a} :: APNSChannelResponse)
 
 -- | The type of messaging or notification platform for the channel. For the
 -- APNs channel, this value is APNS.
-aPNSChannelResponse_platform :: Lens.Lens' APNSChannelResponse Core.Text
+aPNSChannelResponse_platform :: Lens.Lens' APNSChannelResponse Prelude.Text
 aPNSChannelResponse_platform = Lens.lens (\APNSChannelResponse' {platform} -> platform) (\s@APNSChannelResponse' {} a -> s {platform = a} :: APNSChannelResponse)
 
 instance Core.FromJSON APNSChannelResponse where
@@ -178,20 +179,20 @@ instance Core.FromJSON APNSChannelResponse where
       "APNSChannelResponse"
       ( \x ->
           APNSChannelResponse'
-            Core.<$> (x Core..:? "LastModifiedDate")
-            Core.<*> (x Core..:? "ApplicationId")
-            Core.<*> (x Core..:? "DefaultAuthenticationMethod")
-            Core.<*> (x Core..:? "HasCredential")
-            Core.<*> (x Core..:? "HasTokenKey")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "CreationDate")
-            Core.<*> (x Core..:? "Enabled")
-            Core.<*> (x Core..:? "Version")
-            Core.<*> (x Core..:? "IsArchived")
-            Core.<*> (x Core..:? "LastModifiedBy")
-            Core.<*> (x Core..: "Platform")
+            Prelude.<$> (x Core..:? "LastModifiedDate")
+            Prelude.<*> (x Core..:? "ApplicationId")
+            Prelude.<*> (x Core..:? "DefaultAuthenticationMethod")
+            Prelude.<*> (x Core..:? "HasCredential")
+            Prelude.<*> (x Core..:? "HasTokenKey")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "CreationDate")
+            Prelude.<*> (x Core..:? "Enabled")
+            Prelude.<*> (x Core..:? "Version")
+            Prelude.<*> (x Core..:? "IsArchived")
+            Prelude.<*> (x Core..:? "LastModifiedBy")
+            Prelude.<*> (x Core..: "Platform")
       )
 
-instance Core.Hashable APNSChannelResponse
+instance Prelude.Hashable APNSChannelResponse
 
-instance Core.NFData APNSChannelResponse
+instance Prelude.NFData APNSChannelResponse

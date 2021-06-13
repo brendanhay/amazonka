@@ -21,6 +21,7 @@ module Network.AWS.CodePipeline.Types.AWSSessionCredentials where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an AWS session credentials object. These credentials are
 -- temporary credentials that are issued by AWS Secure Token Service (STS).
@@ -30,13 +31,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAWSSessionCredentials' smart constructor.
 data AWSSessionCredentials = AWSSessionCredentials'
   { -- | The access key for the session.
-    accessKeyId :: Core.Sensitive Core.Text,
+    accessKeyId :: Core.Sensitive Prelude.Text,
     -- | The secret access key for the session.
-    secretAccessKey :: Core.Sensitive Core.Text,
+    secretAccessKey :: Core.Sensitive Prelude.Text,
     -- | The token for the session.
-    sessionToken :: Core.Sensitive Core.Text
+    sessionToken :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AWSSessionCredentials' with all optional fields omitted.
@@ -53,11 +54,11 @@ data AWSSessionCredentials = AWSSessionCredentials'
 -- 'sessionToken', 'aWSSessionCredentials_sessionToken' - The token for the session.
 newAWSSessionCredentials ::
   -- | 'accessKeyId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'secretAccessKey'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sessionToken'
-  Core.Text ->
+  Prelude.Text ->
   AWSSessionCredentials
 newAWSSessionCredentials
   pAccessKeyId_
@@ -72,16 +73,16 @@ newAWSSessionCredentials
       }
 
 -- | The access key for the session.
-aWSSessionCredentials_accessKeyId :: Lens.Lens' AWSSessionCredentials Core.Text
-aWSSessionCredentials_accessKeyId = Lens.lens (\AWSSessionCredentials' {accessKeyId} -> accessKeyId) (\s@AWSSessionCredentials' {} a -> s {accessKeyId = a} :: AWSSessionCredentials) Core.. Core._Sensitive
+aWSSessionCredentials_accessKeyId :: Lens.Lens' AWSSessionCredentials Prelude.Text
+aWSSessionCredentials_accessKeyId = Lens.lens (\AWSSessionCredentials' {accessKeyId} -> accessKeyId) (\s@AWSSessionCredentials' {} a -> s {accessKeyId = a} :: AWSSessionCredentials) Prelude.. Core._Sensitive
 
 -- | The secret access key for the session.
-aWSSessionCredentials_secretAccessKey :: Lens.Lens' AWSSessionCredentials Core.Text
-aWSSessionCredentials_secretAccessKey = Lens.lens (\AWSSessionCredentials' {secretAccessKey} -> secretAccessKey) (\s@AWSSessionCredentials' {} a -> s {secretAccessKey = a} :: AWSSessionCredentials) Core.. Core._Sensitive
+aWSSessionCredentials_secretAccessKey :: Lens.Lens' AWSSessionCredentials Prelude.Text
+aWSSessionCredentials_secretAccessKey = Lens.lens (\AWSSessionCredentials' {secretAccessKey} -> secretAccessKey) (\s@AWSSessionCredentials' {} a -> s {secretAccessKey = a} :: AWSSessionCredentials) Prelude.. Core._Sensitive
 
 -- | The token for the session.
-aWSSessionCredentials_sessionToken :: Lens.Lens' AWSSessionCredentials Core.Text
-aWSSessionCredentials_sessionToken = Lens.lens (\AWSSessionCredentials' {sessionToken} -> sessionToken) (\s@AWSSessionCredentials' {} a -> s {sessionToken = a} :: AWSSessionCredentials) Core.. Core._Sensitive
+aWSSessionCredentials_sessionToken :: Lens.Lens' AWSSessionCredentials Prelude.Text
+aWSSessionCredentials_sessionToken = Lens.lens (\AWSSessionCredentials' {sessionToken} -> sessionToken) (\s@AWSSessionCredentials' {} a -> s {sessionToken = a} :: AWSSessionCredentials) Prelude.. Core._Sensitive
 
 instance Core.FromJSON AWSSessionCredentials where
   parseJSON =
@@ -89,11 +90,11 @@ instance Core.FromJSON AWSSessionCredentials where
       "AWSSessionCredentials"
       ( \x ->
           AWSSessionCredentials'
-            Core.<$> (x Core..: "accessKeyId")
-            Core.<*> (x Core..: "secretAccessKey")
-            Core.<*> (x Core..: "sessionToken")
+            Prelude.<$> (x Core..: "accessKeyId")
+            Prelude.<*> (x Core..: "secretAccessKey")
+            Prelude.<*> (x Core..: "sessionToken")
       )
 
-instance Core.Hashable AWSSessionCredentials
+instance Prelude.Hashable AWSSessionCredentials
 
-instance Core.NFData AWSSessionCredentials
+instance Prelude.NFData AWSSessionCredentials

@@ -22,6 +22,7 @@ module Network.AWS.ECS.Types.Ulimit where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.UlimitName
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The @ulimit@ settings to pass to the container.
 --
@@ -30,11 +31,11 @@ data Ulimit = Ulimit'
   { -- | The @type@ of the @ulimit@.
     name :: UlimitName,
     -- | The soft limit for the ulimit type.
-    softLimit :: Core.Int,
+    softLimit :: Prelude.Int,
     -- | The hard limit for the ulimit type.
-    hardLimit :: Core.Int
+    hardLimit :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Ulimit' with all optional fields omitted.
@@ -53,9 +54,9 @@ newUlimit ::
   -- | 'name'
   UlimitName ->
   -- | 'softLimit'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'hardLimit'
-  Core.Int ->
+  Prelude.Int ->
   Ulimit
 newUlimit pName_ pSoftLimit_ pHardLimit_ =
   Ulimit'
@@ -69,11 +70,11 @@ ulimit_name :: Lens.Lens' Ulimit UlimitName
 ulimit_name = Lens.lens (\Ulimit' {name} -> name) (\s@Ulimit' {} a -> s {name = a} :: Ulimit)
 
 -- | The soft limit for the ulimit type.
-ulimit_softLimit :: Lens.Lens' Ulimit Core.Int
+ulimit_softLimit :: Lens.Lens' Ulimit Prelude.Int
 ulimit_softLimit = Lens.lens (\Ulimit' {softLimit} -> softLimit) (\s@Ulimit' {} a -> s {softLimit = a} :: Ulimit)
 
 -- | The hard limit for the ulimit type.
-ulimit_hardLimit :: Lens.Lens' Ulimit Core.Int
+ulimit_hardLimit :: Lens.Lens' Ulimit Prelude.Int
 ulimit_hardLimit = Lens.lens (\Ulimit' {hardLimit} -> hardLimit) (\s@Ulimit' {} a -> s {hardLimit = a} :: Ulimit)
 
 instance Core.FromJSON Ulimit where
@@ -82,21 +83,21 @@ instance Core.FromJSON Ulimit where
       "Ulimit"
       ( \x ->
           Ulimit'
-            Core.<$> (x Core..: "name")
-            Core.<*> (x Core..: "softLimit")
-            Core.<*> (x Core..: "hardLimit")
+            Prelude.<$> (x Core..: "name")
+            Prelude.<*> (x Core..: "softLimit")
+            Prelude.<*> (x Core..: "hardLimit")
       )
 
-instance Core.Hashable Ulimit
+instance Prelude.Hashable Ulimit
 
-instance Core.NFData Ulimit
+instance Prelude.NFData Ulimit
 
 instance Core.ToJSON Ulimit where
   toJSON Ulimit' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("name" Core..= name),
-            Core.Just ("softLimit" Core..= softLimit),
-            Core.Just ("hardLimit" Core..= hardLimit)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("name" Core..= name),
+            Prelude.Just ("softLimit" Core..= softLimit),
+            Prelude.Just ("hardLimit" Core..= hardLimit)
           ]
       )

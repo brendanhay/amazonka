@@ -21,25 +21,26 @@ module Network.AWS.CloudWatchLogs.Types.FilteredLogEvent where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a matched event.
 --
 -- /See:/ 'newFilteredLogEvent' smart constructor.
 data FilteredLogEvent = FilteredLogEvent'
   { -- | The name of the log stream to which this event belongs.
-    logStreamName :: Core.Maybe Core.Text,
+    logStreamName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the event.
-    eventId :: Core.Maybe Core.Text,
+    eventId :: Prelude.Maybe Prelude.Text,
     -- | The data contained in the log event.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The time the event was ingested, expressed as the number of milliseconds
     -- after Jan 1, 1970 00:00:00 UTC.
-    ingestionTime :: Core.Maybe Core.Natural,
+    ingestionTime :: Prelude.Maybe Prelude.Natural,
     -- | The time the event occurred, expressed as the number of milliseconds
     -- after Jan 1, 1970 00:00:00 UTC.
-    timestamp :: Core.Maybe Core.Natural
+    timestamp :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FilteredLogEvent' with all optional fields omitted.
@@ -64,33 +65,33 @@ newFilteredLogEvent ::
   FilteredLogEvent
 newFilteredLogEvent =
   FilteredLogEvent'
-    { logStreamName = Core.Nothing,
-      eventId = Core.Nothing,
-      message = Core.Nothing,
-      ingestionTime = Core.Nothing,
-      timestamp = Core.Nothing
+    { logStreamName = Prelude.Nothing,
+      eventId = Prelude.Nothing,
+      message = Prelude.Nothing,
+      ingestionTime = Prelude.Nothing,
+      timestamp = Prelude.Nothing
     }
 
 -- | The name of the log stream to which this event belongs.
-filteredLogEvent_logStreamName :: Lens.Lens' FilteredLogEvent (Core.Maybe Core.Text)
+filteredLogEvent_logStreamName :: Lens.Lens' FilteredLogEvent (Prelude.Maybe Prelude.Text)
 filteredLogEvent_logStreamName = Lens.lens (\FilteredLogEvent' {logStreamName} -> logStreamName) (\s@FilteredLogEvent' {} a -> s {logStreamName = a} :: FilteredLogEvent)
 
 -- | The ID of the event.
-filteredLogEvent_eventId :: Lens.Lens' FilteredLogEvent (Core.Maybe Core.Text)
+filteredLogEvent_eventId :: Lens.Lens' FilteredLogEvent (Prelude.Maybe Prelude.Text)
 filteredLogEvent_eventId = Lens.lens (\FilteredLogEvent' {eventId} -> eventId) (\s@FilteredLogEvent' {} a -> s {eventId = a} :: FilteredLogEvent)
 
 -- | The data contained in the log event.
-filteredLogEvent_message :: Lens.Lens' FilteredLogEvent (Core.Maybe Core.Text)
+filteredLogEvent_message :: Lens.Lens' FilteredLogEvent (Prelude.Maybe Prelude.Text)
 filteredLogEvent_message = Lens.lens (\FilteredLogEvent' {message} -> message) (\s@FilteredLogEvent' {} a -> s {message = a} :: FilteredLogEvent)
 
 -- | The time the event was ingested, expressed as the number of milliseconds
 -- after Jan 1, 1970 00:00:00 UTC.
-filteredLogEvent_ingestionTime :: Lens.Lens' FilteredLogEvent (Core.Maybe Core.Natural)
+filteredLogEvent_ingestionTime :: Lens.Lens' FilteredLogEvent (Prelude.Maybe Prelude.Natural)
 filteredLogEvent_ingestionTime = Lens.lens (\FilteredLogEvent' {ingestionTime} -> ingestionTime) (\s@FilteredLogEvent' {} a -> s {ingestionTime = a} :: FilteredLogEvent)
 
 -- | The time the event occurred, expressed as the number of milliseconds
 -- after Jan 1, 1970 00:00:00 UTC.
-filteredLogEvent_timestamp :: Lens.Lens' FilteredLogEvent (Core.Maybe Core.Natural)
+filteredLogEvent_timestamp :: Lens.Lens' FilteredLogEvent (Prelude.Maybe Prelude.Natural)
 filteredLogEvent_timestamp = Lens.lens (\FilteredLogEvent' {timestamp} -> timestamp) (\s@FilteredLogEvent' {} a -> s {timestamp = a} :: FilteredLogEvent)
 
 instance Core.FromJSON FilteredLogEvent where
@@ -99,13 +100,13 @@ instance Core.FromJSON FilteredLogEvent where
       "FilteredLogEvent"
       ( \x ->
           FilteredLogEvent'
-            Core.<$> (x Core..:? "logStreamName")
-            Core.<*> (x Core..:? "eventId")
-            Core.<*> (x Core..:? "message")
-            Core.<*> (x Core..:? "ingestionTime")
-            Core.<*> (x Core..:? "timestamp")
+            Prelude.<$> (x Core..:? "logStreamName")
+            Prelude.<*> (x Core..:? "eventId")
+            Prelude.<*> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "ingestionTime")
+            Prelude.<*> (x Core..:? "timestamp")
       )
 
-instance Core.Hashable FilteredLogEvent
+instance Prelude.Hashable FilteredLogEvent
 
-instance Core.NFData FilteredLogEvent
+instance Prelude.NFData FilteredLogEvent

@@ -23,6 +23,7 @@ import Network.AWS.CodeBuild.Types.AuthType
 import Network.AWS.CodeBuild.Types.ServerType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the credentials for a GitHub, GitHub Enterprise, or
 -- Bitbucket repository.
@@ -30,15 +31,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSourceCredentialsInfo' smart constructor.
 data SourceCredentialsInfo = SourceCredentialsInfo'
   { -- | The Amazon Resource Name (ARN) of the token.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The type of authentication used by the credentials. Valid options are
     -- OAUTH, BASIC_AUTH, or PERSONAL_ACCESS_TOKEN.
-    authType :: Core.Maybe AuthType,
+    authType :: Prelude.Maybe AuthType,
     -- | The type of source provider. The valid options are GITHUB,
     -- GITHUB_ENTERPRISE, or BITBUCKET.
-    serverType :: Core.Maybe ServerType
+    serverType :: Prelude.Maybe ServerType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SourceCredentialsInfo' with all optional fields omitted.
@@ -59,23 +60,23 @@ newSourceCredentialsInfo ::
   SourceCredentialsInfo
 newSourceCredentialsInfo =
   SourceCredentialsInfo'
-    { arn = Core.Nothing,
-      authType = Core.Nothing,
-      serverType = Core.Nothing
+    { arn = Prelude.Nothing,
+      authType = Prelude.Nothing,
+      serverType = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the token.
-sourceCredentialsInfo_arn :: Lens.Lens' SourceCredentialsInfo (Core.Maybe Core.Text)
+sourceCredentialsInfo_arn :: Lens.Lens' SourceCredentialsInfo (Prelude.Maybe Prelude.Text)
 sourceCredentialsInfo_arn = Lens.lens (\SourceCredentialsInfo' {arn} -> arn) (\s@SourceCredentialsInfo' {} a -> s {arn = a} :: SourceCredentialsInfo)
 
 -- | The type of authentication used by the credentials. Valid options are
 -- OAUTH, BASIC_AUTH, or PERSONAL_ACCESS_TOKEN.
-sourceCredentialsInfo_authType :: Lens.Lens' SourceCredentialsInfo (Core.Maybe AuthType)
+sourceCredentialsInfo_authType :: Lens.Lens' SourceCredentialsInfo (Prelude.Maybe AuthType)
 sourceCredentialsInfo_authType = Lens.lens (\SourceCredentialsInfo' {authType} -> authType) (\s@SourceCredentialsInfo' {} a -> s {authType = a} :: SourceCredentialsInfo)
 
 -- | The type of source provider. The valid options are GITHUB,
 -- GITHUB_ENTERPRISE, or BITBUCKET.
-sourceCredentialsInfo_serverType :: Lens.Lens' SourceCredentialsInfo (Core.Maybe ServerType)
+sourceCredentialsInfo_serverType :: Lens.Lens' SourceCredentialsInfo (Prelude.Maybe ServerType)
 sourceCredentialsInfo_serverType = Lens.lens (\SourceCredentialsInfo' {serverType} -> serverType) (\s@SourceCredentialsInfo' {} a -> s {serverType = a} :: SourceCredentialsInfo)
 
 instance Core.FromJSON SourceCredentialsInfo where
@@ -84,11 +85,11 @@ instance Core.FromJSON SourceCredentialsInfo where
       "SourceCredentialsInfo"
       ( \x ->
           SourceCredentialsInfo'
-            Core.<$> (x Core..:? "arn")
-            Core.<*> (x Core..:? "authType")
-            Core.<*> (x Core..:? "serverType")
+            Prelude.<$> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "authType")
+            Prelude.<*> (x Core..:? "serverType")
       )
 
-instance Core.Hashable SourceCredentialsInfo
+instance Prelude.Hashable SourceCredentialsInfo
 
-instance Core.NFData SourceCredentialsInfo
+instance Prelude.NFData SourceCredentialsInfo

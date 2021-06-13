@@ -26,6 +26,7 @@ import Network.AWS.EC2.Types.ClientVpnAuthenticationType
 import Network.AWS.EC2.Types.DirectoryServiceAuthentication
 import Network.AWS.EC2.Types.FederatedAuthentication
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the authentication methods used by a Client VPN endpoint. For
 -- more information, see
@@ -35,15 +36,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newClientVpnAuthentication' smart constructor.
 data ClientVpnAuthentication = ClientVpnAuthentication'
   { -- | Information about the IAM SAML identity provider, if applicable.
-    federatedAuthentication :: Core.Maybe FederatedAuthentication,
+    federatedAuthentication :: Prelude.Maybe FederatedAuthentication,
     -- | Information about the Active Directory, if applicable.
-    activeDirectory :: Core.Maybe DirectoryServiceAuthentication,
+    activeDirectory :: Prelude.Maybe DirectoryServiceAuthentication,
     -- | Information about the authentication certificates, if applicable.
-    mutualAuthentication :: Core.Maybe CertificateAuthentication,
+    mutualAuthentication :: Prelude.Maybe CertificateAuthentication,
     -- | The authentication type used.
-    type' :: Core.Maybe ClientVpnAuthenticationType
+    type' :: Prelude.Maybe ClientVpnAuthenticationType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClientVpnAuthentication' with all optional fields omitted.
@@ -65,36 +66,36 @@ newClientVpnAuthentication ::
 newClientVpnAuthentication =
   ClientVpnAuthentication'
     { federatedAuthentication =
-        Core.Nothing,
-      activeDirectory = Core.Nothing,
-      mutualAuthentication = Core.Nothing,
-      type' = Core.Nothing
+        Prelude.Nothing,
+      activeDirectory = Prelude.Nothing,
+      mutualAuthentication = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | Information about the IAM SAML identity provider, if applicable.
-clientVpnAuthentication_federatedAuthentication :: Lens.Lens' ClientVpnAuthentication (Core.Maybe FederatedAuthentication)
+clientVpnAuthentication_federatedAuthentication :: Lens.Lens' ClientVpnAuthentication (Prelude.Maybe FederatedAuthentication)
 clientVpnAuthentication_federatedAuthentication = Lens.lens (\ClientVpnAuthentication' {federatedAuthentication} -> federatedAuthentication) (\s@ClientVpnAuthentication' {} a -> s {federatedAuthentication = a} :: ClientVpnAuthentication)
 
 -- | Information about the Active Directory, if applicable.
-clientVpnAuthentication_activeDirectory :: Lens.Lens' ClientVpnAuthentication (Core.Maybe DirectoryServiceAuthentication)
+clientVpnAuthentication_activeDirectory :: Lens.Lens' ClientVpnAuthentication (Prelude.Maybe DirectoryServiceAuthentication)
 clientVpnAuthentication_activeDirectory = Lens.lens (\ClientVpnAuthentication' {activeDirectory} -> activeDirectory) (\s@ClientVpnAuthentication' {} a -> s {activeDirectory = a} :: ClientVpnAuthentication)
 
 -- | Information about the authentication certificates, if applicable.
-clientVpnAuthentication_mutualAuthentication :: Lens.Lens' ClientVpnAuthentication (Core.Maybe CertificateAuthentication)
+clientVpnAuthentication_mutualAuthentication :: Lens.Lens' ClientVpnAuthentication (Prelude.Maybe CertificateAuthentication)
 clientVpnAuthentication_mutualAuthentication = Lens.lens (\ClientVpnAuthentication' {mutualAuthentication} -> mutualAuthentication) (\s@ClientVpnAuthentication' {} a -> s {mutualAuthentication = a} :: ClientVpnAuthentication)
 
 -- | The authentication type used.
-clientVpnAuthentication_type :: Lens.Lens' ClientVpnAuthentication (Core.Maybe ClientVpnAuthenticationType)
+clientVpnAuthentication_type :: Lens.Lens' ClientVpnAuthentication (Prelude.Maybe ClientVpnAuthenticationType)
 clientVpnAuthentication_type = Lens.lens (\ClientVpnAuthentication' {type'} -> type') (\s@ClientVpnAuthentication' {} a -> s {type' = a} :: ClientVpnAuthentication)
 
 instance Core.FromXML ClientVpnAuthentication where
   parseXML x =
     ClientVpnAuthentication'
-      Core.<$> (x Core..@? "federatedAuthentication")
-      Core.<*> (x Core..@? "activeDirectory")
-      Core.<*> (x Core..@? "mutualAuthentication")
-      Core.<*> (x Core..@? "type")
+      Prelude.<$> (x Core..@? "federatedAuthentication")
+      Prelude.<*> (x Core..@? "activeDirectory")
+      Prelude.<*> (x Core..@? "mutualAuthentication")
+      Prelude.<*> (x Core..@? "type")
 
-instance Core.Hashable ClientVpnAuthentication
+instance Prelude.Hashable ClientVpnAuthentication
 
-instance Core.NFData ClientVpnAuthentication
+instance Prelude.NFData ClientVpnAuthentication

@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,7 +65,7 @@ data DescribeRepositories = DescribeRepositories'
     -- This token should be treated as an opaque identifier that is only used
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of repository results returned by
     -- @DescribeRepositories@ in paginated output. When this parameter is used,
     -- @DescribeRepositories@ only returns @maxResults@ results in a single
@@ -75,16 +76,16 @@ data DescribeRepositories = DescribeRepositories'
     -- @DescribeRepositories@ returns up to 100 results and a @nextToken@
     -- value, if applicable. This option cannot be used when you specify
     -- repositories with @repositoryNames@.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A list of repositories to describe. If this parameter is omitted, then
     -- all repositories in a registry are described.
-    repositoryNames :: Core.Maybe (Core.NonEmpty Core.Text),
+    repositoryNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The AWS account ID associated with the registry that contains the
     -- repositories to be described. If you do not specify a registry, the
     -- default registry is assumed.
-    registryId :: Core.Maybe Core.Text
+    registryId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRepositories' with all optional fields omitted.
@@ -127,10 +128,10 @@ newDescribeRepositories ::
   DescribeRepositories
 newDescribeRepositories =
   DescribeRepositories'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      repositoryNames = Core.Nothing,
-      registryId = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      repositoryNames = Prelude.Nothing,
+      registryId = Prelude.Nothing
     }
 
 -- | The @nextToken@ value returned from a previous paginated
@@ -144,7 +145,7 @@ newDescribeRepositories =
 -- This token should be treated as an opaque identifier that is only used
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-describeRepositories_nextToken :: Lens.Lens' DescribeRepositories (Core.Maybe Core.Text)
+describeRepositories_nextToken :: Lens.Lens' DescribeRepositories (Prelude.Maybe Prelude.Text)
 describeRepositories_nextToken = Lens.lens (\DescribeRepositories' {nextToken} -> nextToken) (\s@DescribeRepositories' {} a -> s {nextToken = a} :: DescribeRepositories)
 
 -- | The maximum number of repository results returned by
@@ -157,18 +158,18 @@ describeRepositories_nextToken = Lens.lens (\DescribeRepositories' {nextToken} -
 -- @DescribeRepositories@ returns up to 100 results and a @nextToken@
 -- value, if applicable. This option cannot be used when you specify
 -- repositories with @repositoryNames@.
-describeRepositories_maxResults :: Lens.Lens' DescribeRepositories (Core.Maybe Core.Natural)
+describeRepositories_maxResults :: Lens.Lens' DescribeRepositories (Prelude.Maybe Prelude.Natural)
 describeRepositories_maxResults = Lens.lens (\DescribeRepositories' {maxResults} -> maxResults) (\s@DescribeRepositories' {} a -> s {maxResults = a} :: DescribeRepositories)
 
 -- | A list of repositories to describe. If this parameter is omitted, then
 -- all repositories in a registry are described.
-describeRepositories_repositoryNames :: Lens.Lens' DescribeRepositories (Core.Maybe (Core.NonEmpty Core.Text))
-describeRepositories_repositoryNames = Lens.lens (\DescribeRepositories' {repositoryNames} -> repositoryNames) (\s@DescribeRepositories' {} a -> s {repositoryNames = a} :: DescribeRepositories) Core.. Lens.mapping Lens._Coerce
+describeRepositories_repositoryNames :: Lens.Lens' DescribeRepositories (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeRepositories_repositoryNames = Lens.lens (\DescribeRepositories' {repositoryNames} -> repositoryNames) (\s@DescribeRepositories' {} a -> s {repositoryNames = a} :: DescribeRepositories) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The AWS account ID associated with the registry that contains the
 -- repositories to be described. If you do not specify a registry, the
 -- default registry is assumed.
-describeRepositories_registryId :: Lens.Lens' DescribeRepositories (Core.Maybe Core.Text)
+describeRepositories_registryId :: Lens.Lens' DescribeRepositories (Prelude.Maybe Prelude.Text)
 describeRepositories_registryId = Lens.lens (\DescribeRepositories' {registryId} -> registryId) (\s@DescribeRepositories' {} a -> s {registryId = a} :: DescribeRepositories)
 
 instance Core.AWSPager DescribeRepositories where
@@ -176,22 +177,22 @@ instance Core.AWSPager DescribeRepositories where
     | Core.stop
         ( rs
             Lens.^? describeRepositoriesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeRepositoriesResponse_repositories
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeRepositories_nextToken
+          Prelude.& describeRepositories_nextToken
           Lens..~ rs
           Lens.^? describeRepositoriesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRepositories where
   type
@@ -202,44 +203,47 @@ instance Core.AWSRequest DescribeRepositories where
     Response.receiveJSON
       ( \s h x ->
           DescribeRepositoriesResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "repositories" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "repositories" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeRepositories
+instance Prelude.Hashable DescribeRepositories
 
-instance Core.NFData DescribeRepositories
+instance Prelude.NFData DescribeRepositories
 
 instance Core.ToHeaders DescribeRepositories where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerRegistry_V20150921.DescribeRepositories" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeRepositories where
   toJSON DescribeRepositories' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResults" Core..=) Core.<$> maxResults,
-            ("repositoryNames" Core..=) Core.<$> repositoryNames,
-            ("registryId" Core..=) Core.<$> registryId
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("repositoryNames" Core..=)
+              Prelude.<$> repositoryNames,
+            ("registryId" Core..=) Prelude.<$> registryId
           ]
       )
 
 instance Core.ToPath DescribeRepositories where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeRepositories where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRepositoriesResponse' smart constructor.
 data DescribeRepositoriesResponse = DescribeRepositoriesResponse'
@@ -247,13 +251,13 @@ data DescribeRepositoriesResponse = DescribeRepositoriesResponse'
     -- request. When the results of a @DescribeRepositories@ request exceed
     -- @maxResults@, this value can be used to retrieve the next page of
     -- results. This value is @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of repository objects corresponding to valid repositories.
-    repositories :: Core.Maybe [Repository],
+    repositories :: Prelude.Maybe [Repository],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRepositoriesResponse' with all optional fields omitted.
@@ -273,13 +277,13 @@ data DescribeRepositoriesResponse = DescribeRepositoriesResponse'
 -- 'httpStatus', 'describeRepositoriesResponse_httpStatus' - The response's http status code.
 newDescribeRepositoriesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeRepositoriesResponse
 newDescribeRepositoriesResponse pHttpStatus_ =
   DescribeRepositoriesResponse'
     { nextToken =
-        Core.Nothing,
-      repositories = Core.Nothing,
+        Prelude.Nothing,
+      repositories = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -287,15 +291,15 @@ newDescribeRepositoriesResponse pHttpStatus_ =
 -- request. When the results of a @DescribeRepositories@ request exceed
 -- @maxResults@, this value can be used to retrieve the next page of
 -- results. This value is @null@ when there are no more results to return.
-describeRepositoriesResponse_nextToken :: Lens.Lens' DescribeRepositoriesResponse (Core.Maybe Core.Text)
+describeRepositoriesResponse_nextToken :: Lens.Lens' DescribeRepositoriesResponse (Prelude.Maybe Prelude.Text)
 describeRepositoriesResponse_nextToken = Lens.lens (\DescribeRepositoriesResponse' {nextToken} -> nextToken) (\s@DescribeRepositoriesResponse' {} a -> s {nextToken = a} :: DescribeRepositoriesResponse)
 
 -- | A list of repository objects corresponding to valid repositories.
-describeRepositoriesResponse_repositories :: Lens.Lens' DescribeRepositoriesResponse (Core.Maybe [Repository])
-describeRepositoriesResponse_repositories = Lens.lens (\DescribeRepositoriesResponse' {repositories} -> repositories) (\s@DescribeRepositoriesResponse' {} a -> s {repositories = a} :: DescribeRepositoriesResponse) Core.. Lens.mapping Lens._Coerce
+describeRepositoriesResponse_repositories :: Lens.Lens' DescribeRepositoriesResponse (Prelude.Maybe [Repository])
+describeRepositoriesResponse_repositories = Lens.lens (\DescribeRepositoriesResponse' {repositories} -> repositories) (\s@DescribeRepositoriesResponse' {} a -> s {repositories = a} :: DescribeRepositoriesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeRepositoriesResponse_httpStatus :: Lens.Lens' DescribeRepositoriesResponse Core.Int
+describeRepositoriesResponse_httpStatus :: Lens.Lens' DescribeRepositoriesResponse Prelude.Int
 describeRepositoriesResponse_httpStatus = Lens.lens (\DescribeRepositoriesResponse' {httpStatus} -> httpStatus) (\s@DescribeRepositoriesResponse' {} a -> s {httpStatus = a} :: DescribeRepositoriesResponse)
 
-instance Core.NFData DescribeRepositoriesResponse
+instance Prelude.NFData DescribeRepositoriesResponse

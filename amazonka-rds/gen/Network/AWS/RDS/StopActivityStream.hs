@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -58,13 +59,13 @@ import qualified Network.AWS.Response as Response
 data StopActivityStream = StopActivityStream'
   { -- | Specifies whether or not the database activity stream is to stop as soon
     -- as possible, regardless of the maintenance window for the database.
-    applyImmediately :: Core.Maybe Core.Bool,
+    applyImmediately :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the DB cluster for the database
     -- activity stream. For example,
     -- @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@.
-    resourceArn :: Core.Text
+    resourceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopActivityStream' with all optional fields omitted.
@@ -82,24 +83,24 @@ data StopActivityStream = StopActivityStream'
 -- @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@.
 newStopActivityStream ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   StopActivityStream
 newStopActivityStream pResourceArn_ =
   StopActivityStream'
     { applyImmediately =
-        Core.Nothing,
+        Prelude.Nothing,
       resourceArn = pResourceArn_
     }
 
 -- | Specifies whether or not the database activity stream is to stop as soon
 -- as possible, regardless of the maintenance window for the database.
-stopActivityStream_applyImmediately :: Lens.Lens' StopActivityStream (Core.Maybe Core.Bool)
+stopActivityStream_applyImmediately :: Lens.Lens' StopActivityStream (Prelude.Maybe Prelude.Bool)
 stopActivityStream_applyImmediately = Lens.lens (\StopActivityStream' {applyImmediately} -> applyImmediately) (\s@StopActivityStream' {} a -> s {applyImmediately = a} :: StopActivityStream)
 
 -- | The Amazon Resource Name (ARN) of the DB cluster for the database
 -- activity stream. For example,
 -- @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@.
-stopActivityStream_resourceArn :: Lens.Lens' StopActivityStream Core.Text
+stopActivityStream_resourceArn :: Lens.Lens' StopActivityStream Prelude.Text
 stopActivityStream_resourceArn = Lens.lens (\StopActivityStream' {resourceArn} -> resourceArn) (\s@StopActivityStream' {} a -> s {resourceArn = a} :: StopActivityStream)
 
 instance Core.AWSRequest StopActivityStream where
@@ -112,28 +113,29 @@ instance Core.AWSRequest StopActivityStream where
       "StopActivityStreamResult"
       ( \s h x ->
           StopActivityStreamResponse'
-            Core.<$> (x Core..@? "Status")
-            Core.<*> (x Core..@? "KmsKeyId")
-            Core.<*> (x Core..@? "KinesisStreamName")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Status")
+            Prelude.<*> (x Core..@? "KmsKeyId")
+            Prelude.<*> (x Core..@? "KinesisStreamName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopActivityStream
+instance Prelude.Hashable StopActivityStream
 
-instance Core.NFData StopActivityStream
+instance Prelude.NFData StopActivityStream
 
 instance Core.ToHeaders StopActivityStream where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath StopActivityStream where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopActivityStream where
   toQuery StopActivityStream' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("StopActivityStream" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("StopActivityStream" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "ApplyImmediately" Core.=: applyImmediately,
         "ResourceArn" Core.=: resourceArn
       ]
@@ -141,20 +143,20 @@ instance Core.ToQuery StopActivityStream where
 -- | /See:/ 'newStopActivityStreamResponse' smart constructor.
 data StopActivityStreamResponse = StopActivityStreamResponse'
   { -- | The status of the database activity stream.
-    status :: Core.Maybe ActivityStreamStatus,
+    status :: Prelude.Maybe ActivityStreamStatus,
     -- | The AWS KMS key identifier used for encrypting messages in the database
     -- activity stream.
     --
     -- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
     -- name for the AWS KMS customer master key (CMK).
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon Kinesis data stream used for the database
     -- activity stream.
-    kinesisStreamName :: Core.Maybe Core.Text,
+    kinesisStreamName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopActivityStreamResponse' with all optional fields omitted.
@@ -178,18 +180,19 @@ data StopActivityStreamResponse = StopActivityStreamResponse'
 -- 'httpStatus', 'stopActivityStreamResponse_httpStatus' - The response's http status code.
 newStopActivityStreamResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopActivityStreamResponse
 newStopActivityStreamResponse pHttpStatus_ =
   StopActivityStreamResponse'
-    { status = Core.Nothing,
-      kmsKeyId = Core.Nothing,
-      kinesisStreamName = Core.Nothing,
+    { status =
+        Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      kinesisStreamName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the database activity stream.
-stopActivityStreamResponse_status :: Lens.Lens' StopActivityStreamResponse (Core.Maybe ActivityStreamStatus)
+stopActivityStreamResponse_status :: Lens.Lens' StopActivityStreamResponse (Prelude.Maybe ActivityStreamStatus)
 stopActivityStreamResponse_status = Lens.lens (\StopActivityStreamResponse' {status} -> status) (\s@StopActivityStreamResponse' {} a -> s {status = a} :: StopActivityStreamResponse)
 
 -- | The AWS KMS key identifier used for encrypting messages in the database
@@ -197,16 +200,16 @@ stopActivityStreamResponse_status = Lens.lens (\StopActivityStreamResponse' {sta
 --
 -- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
 -- name for the AWS KMS customer master key (CMK).
-stopActivityStreamResponse_kmsKeyId :: Lens.Lens' StopActivityStreamResponse (Core.Maybe Core.Text)
+stopActivityStreamResponse_kmsKeyId :: Lens.Lens' StopActivityStreamResponse (Prelude.Maybe Prelude.Text)
 stopActivityStreamResponse_kmsKeyId = Lens.lens (\StopActivityStreamResponse' {kmsKeyId} -> kmsKeyId) (\s@StopActivityStreamResponse' {} a -> s {kmsKeyId = a} :: StopActivityStreamResponse)
 
 -- | The name of the Amazon Kinesis data stream used for the database
 -- activity stream.
-stopActivityStreamResponse_kinesisStreamName :: Lens.Lens' StopActivityStreamResponse (Core.Maybe Core.Text)
+stopActivityStreamResponse_kinesisStreamName :: Lens.Lens' StopActivityStreamResponse (Prelude.Maybe Prelude.Text)
 stopActivityStreamResponse_kinesisStreamName = Lens.lens (\StopActivityStreamResponse' {kinesisStreamName} -> kinesisStreamName) (\s@StopActivityStreamResponse' {} a -> s {kinesisStreamName = a} :: StopActivityStreamResponse)
 
 -- | The response's http status code.
-stopActivityStreamResponse_httpStatus :: Lens.Lens' StopActivityStreamResponse Core.Int
+stopActivityStreamResponse_httpStatus :: Lens.Lens' StopActivityStreamResponse Prelude.Int
 stopActivityStreamResponse_httpStatus = Lens.lens (\StopActivityStreamResponse' {httpStatus} -> httpStatus) (\s@StopActivityStreamResponse' {} a -> s {httpStatus = a} :: StopActivityStreamResponse)
 
-instance Core.NFData StopActivityStreamResponse
+instance Prelude.NFData StopActivityStreamResponse

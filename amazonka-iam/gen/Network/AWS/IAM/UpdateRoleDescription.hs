@@ -47,17 +47,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateRoleDescription' smart constructor.
 data UpdateRoleDescription = UpdateRoleDescription'
   { -- | The name of the role that you want to modify.
-    roleName :: Core.Text,
+    roleName :: Prelude.Text,
     -- | The new description that you want to apply to the specified role.
-    description :: Core.Text
+    description :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRoleDescription' with all optional fields omitted.
@@ -72,9 +73,9 @@ data UpdateRoleDescription = UpdateRoleDescription'
 -- 'description', 'updateRoleDescription_description' - The new description that you want to apply to the specified role.
 newUpdateRoleDescription ::
   -- | 'roleName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'description'
-  Core.Text ->
+  Prelude.Text ->
   UpdateRoleDescription
 newUpdateRoleDescription pRoleName_ pDescription_ =
   UpdateRoleDescription'
@@ -83,11 +84,11 @@ newUpdateRoleDescription pRoleName_ pDescription_ =
     }
 
 -- | The name of the role that you want to modify.
-updateRoleDescription_roleName :: Lens.Lens' UpdateRoleDescription Core.Text
+updateRoleDescription_roleName :: Lens.Lens' UpdateRoleDescription Prelude.Text
 updateRoleDescription_roleName = Lens.lens (\UpdateRoleDescription' {roleName} -> roleName) (\s@UpdateRoleDescription' {} a -> s {roleName = a} :: UpdateRoleDescription)
 
 -- | The new description that you want to apply to the specified role.
-updateRoleDescription_description :: Lens.Lens' UpdateRoleDescription Core.Text
+updateRoleDescription_description :: Lens.Lens' UpdateRoleDescription Prelude.Text
 updateRoleDescription_description = Lens.lens (\UpdateRoleDescription' {description} -> description) (\s@UpdateRoleDescription' {} a -> s {description = a} :: UpdateRoleDescription)
 
 instance Core.AWSRequest UpdateRoleDescription where
@@ -100,26 +101,27 @@ instance Core.AWSRequest UpdateRoleDescription where
       "UpdateRoleDescriptionResult"
       ( \s h x ->
           UpdateRoleDescriptionResponse'
-            Core.<$> (x Core..@? "Role")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Role")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateRoleDescription
+instance Prelude.Hashable UpdateRoleDescription
 
-instance Core.NFData UpdateRoleDescription
+instance Prelude.NFData UpdateRoleDescription
 
 instance Core.ToHeaders UpdateRoleDescription where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateRoleDescription where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateRoleDescription where
   toQuery UpdateRoleDescription' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateRoleDescription" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("UpdateRoleDescription" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "RoleName" Core.=: roleName,
         "Description" Core.=: description
       ]
@@ -127,11 +129,11 @@ instance Core.ToQuery UpdateRoleDescription where
 -- | /See:/ 'newUpdateRoleDescriptionResponse' smart constructor.
 data UpdateRoleDescriptionResponse = UpdateRoleDescriptionResponse'
   { -- | A structure that contains details about the modified role.
-    role' :: Core.Maybe Role,
+    role' :: Prelude.Maybe Role,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRoleDescriptionResponse' with all optional fields omitted.
@@ -146,21 +148,21 @@ data UpdateRoleDescriptionResponse = UpdateRoleDescriptionResponse'
 -- 'httpStatus', 'updateRoleDescriptionResponse_httpStatus' - The response's http status code.
 newUpdateRoleDescriptionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateRoleDescriptionResponse
 newUpdateRoleDescriptionResponse pHttpStatus_ =
   UpdateRoleDescriptionResponse'
     { role' =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains details about the modified role.
-updateRoleDescriptionResponse_role :: Lens.Lens' UpdateRoleDescriptionResponse (Core.Maybe Role)
+updateRoleDescriptionResponse_role :: Lens.Lens' UpdateRoleDescriptionResponse (Prelude.Maybe Role)
 updateRoleDescriptionResponse_role = Lens.lens (\UpdateRoleDescriptionResponse' {role'} -> role') (\s@UpdateRoleDescriptionResponse' {} a -> s {role' = a} :: UpdateRoleDescriptionResponse)
 
 -- | The response's http status code.
-updateRoleDescriptionResponse_httpStatus :: Lens.Lens' UpdateRoleDescriptionResponse Core.Int
+updateRoleDescriptionResponse_httpStatus :: Lens.Lens' UpdateRoleDescriptionResponse Prelude.Int
 updateRoleDescriptionResponse_httpStatus = Lens.lens (\UpdateRoleDescriptionResponse' {httpStatus} -> httpStatus) (\s@UpdateRoleDescriptionResponse' {} a -> s {httpStatus = a} :: UpdateRoleDescriptionResponse)
 
-instance Core.NFData UpdateRoleDescriptionResponse
+instance Prelude.NFData UpdateRoleDescriptionResponse

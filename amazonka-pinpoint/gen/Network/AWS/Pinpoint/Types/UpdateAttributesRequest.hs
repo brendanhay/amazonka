@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.UpdateAttributesRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies one or more attributes to remove from all the endpoints that
 -- are associated with an application.
@@ -32,9 +33,9 @@ data UpdateAttributesRequest = UpdateAttributesRequest'
     -- exact name of each attribute to remove or it can specify a glob pattern
     -- that an attribute name must match in order for the attribute to be
     -- removed.
-    blacklist :: Core.Maybe [Core.Text]
+    blacklist :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAttributesRequest' with all optional fields omitted.
@@ -52,23 +53,26 @@ data UpdateAttributesRequest = UpdateAttributesRequest'
 newUpdateAttributesRequest ::
   UpdateAttributesRequest
 newUpdateAttributesRequest =
-  UpdateAttributesRequest' {blacklist = Core.Nothing}
+  UpdateAttributesRequest'
+    { blacklist =
+        Prelude.Nothing
+    }
 
 -- | An array of the attributes to remove from all the endpoints that are
 -- associated with the application. The array can specify the complete,
 -- exact name of each attribute to remove or it can specify a glob pattern
 -- that an attribute name must match in order for the attribute to be
 -- removed.
-updateAttributesRequest_blacklist :: Lens.Lens' UpdateAttributesRequest (Core.Maybe [Core.Text])
-updateAttributesRequest_blacklist = Lens.lens (\UpdateAttributesRequest' {blacklist} -> blacklist) (\s@UpdateAttributesRequest' {} a -> s {blacklist = a} :: UpdateAttributesRequest) Core.. Lens.mapping Lens._Coerce
+updateAttributesRequest_blacklist :: Lens.Lens' UpdateAttributesRequest (Prelude.Maybe [Prelude.Text])
+updateAttributesRequest_blacklist = Lens.lens (\UpdateAttributesRequest' {blacklist} -> blacklist) (\s@UpdateAttributesRequest' {} a -> s {blacklist = a} :: UpdateAttributesRequest) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable UpdateAttributesRequest
+instance Prelude.Hashable UpdateAttributesRequest
 
-instance Core.NFData UpdateAttributesRequest
+instance Prelude.NFData UpdateAttributesRequest
 
 instance Core.ToJSON UpdateAttributesRequest where
   toJSON UpdateAttributesRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [("Blacklist" Core..=) Core.<$> blacklist]
+      ( Prelude.catMaybes
+          [("Blacklist" Core..=) Prelude.<$> blacklist]
       )

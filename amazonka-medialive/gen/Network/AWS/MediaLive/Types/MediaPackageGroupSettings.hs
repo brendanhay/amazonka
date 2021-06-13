@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.MediaPackageGroupSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.OutputLocationRef
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Media Package Group Settings
 --
@@ -30,7 +31,7 @@ data MediaPackageGroupSettings = MediaPackageGroupSettings'
   { -- | MediaPackage channel destination.
     destination :: OutputLocationRef
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MediaPackageGroupSettings' with all optional fields omitted.
@@ -61,16 +62,16 @@ instance Core.FromJSON MediaPackageGroupSettings where
       "MediaPackageGroupSettings"
       ( \x ->
           MediaPackageGroupSettings'
-            Core.<$> (x Core..: "destination")
+            Prelude.<$> (x Core..: "destination")
       )
 
-instance Core.Hashable MediaPackageGroupSettings
+instance Prelude.Hashable MediaPackageGroupSettings
 
-instance Core.NFData MediaPackageGroupSettings
+instance Prelude.NFData MediaPackageGroupSettings
 
 instance Core.ToJSON MediaPackageGroupSettings where
   toJSON MediaPackageGroupSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("destination" Core..= destination)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("destination" Core..= destination)]
       )

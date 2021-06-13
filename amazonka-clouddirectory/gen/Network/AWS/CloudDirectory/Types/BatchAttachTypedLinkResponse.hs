@@ -22,15 +22,16 @@ module Network.AWS.CloudDirectory.Types.BatchAttachTypedLinkResponse where
 import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a AttachTypedLink response operation.
 --
 -- /See:/ 'newBatchAttachTypedLinkResponse' smart constructor.
 data BatchAttachTypedLinkResponse = BatchAttachTypedLinkResponse'
   { -- | Returns a typed link specifier as output.
-    typedLinkSpecifier :: Core.Maybe TypedLinkSpecifier
+    typedLinkSpecifier :: Prelude.Maybe TypedLinkSpecifier
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchAttachTypedLinkResponse' with all optional fields omitted.
@@ -46,11 +47,11 @@ newBatchAttachTypedLinkResponse ::
 newBatchAttachTypedLinkResponse =
   BatchAttachTypedLinkResponse'
     { typedLinkSpecifier =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Returns a typed link specifier as output.
-batchAttachTypedLinkResponse_typedLinkSpecifier :: Lens.Lens' BatchAttachTypedLinkResponse (Core.Maybe TypedLinkSpecifier)
+batchAttachTypedLinkResponse_typedLinkSpecifier :: Lens.Lens' BatchAttachTypedLinkResponse (Prelude.Maybe TypedLinkSpecifier)
 batchAttachTypedLinkResponse_typedLinkSpecifier = Lens.lens (\BatchAttachTypedLinkResponse' {typedLinkSpecifier} -> typedLinkSpecifier) (\s@BatchAttachTypedLinkResponse' {} a -> s {typedLinkSpecifier = a} :: BatchAttachTypedLinkResponse)
 
 instance Core.FromJSON BatchAttachTypedLinkResponse where
@@ -59,9 +60,11 @@ instance Core.FromJSON BatchAttachTypedLinkResponse where
       "BatchAttachTypedLinkResponse"
       ( \x ->
           BatchAttachTypedLinkResponse'
-            Core.<$> (x Core..:? "TypedLinkSpecifier")
+            Prelude.<$> (x Core..:? "TypedLinkSpecifier")
       )
 
-instance Core.Hashable BatchAttachTypedLinkResponse
+instance
+  Prelude.Hashable
+    BatchAttachTypedLinkResponse
 
-instance Core.NFData BatchAttachTypedLinkResponse
+instance Prelude.NFData BatchAttachTypedLinkResponse

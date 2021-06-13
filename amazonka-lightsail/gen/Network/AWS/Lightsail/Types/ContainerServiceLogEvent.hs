@@ -21,6 +21,7 @@ module Network.AWS.Lightsail.Types.ContainerServiceLogEvent where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the log events of a container of an Amazon Lightsail container
 -- service.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newContainerServiceLogEvent' smart constructor.
 data ContainerServiceLogEvent = ContainerServiceLogEvent'
   { -- | The message of the container service log event.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the container service log event was created.
-    createdAt :: Core.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ContainerServiceLogEvent' with all optional fields omitted.
@@ -49,17 +50,18 @@ newContainerServiceLogEvent ::
   ContainerServiceLogEvent
 newContainerServiceLogEvent =
   ContainerServiceLogEvent'
-    { message = Core.Nothing,
-      createdAt = Core.Nothing
+    { message =
+        Prelude.Nothing,
+      createdAt = Prelude.Nothing
     }
 
 -- | The message of the container service log event.
-containerServiceLogEvent_message :: Lens.Lens' ContainerServiceLogEvent (Core.Maybe Core.Text)
+containerServiceLogEvent_message :: Lens.Lens' ContainerServiceLogEvent (Prelude.Maybe Prelude.Text)
 containerServiceLogEvent_message = Lens.lens (\ContainerServiceLogEvent' {message} -> message) (\s@ContainerServiceLogEvent' {} a -> s {message = a} :: ContainerServiceLogEvent)
 
 -- | The timestamp when the container service log event was created.
-containerServiceLogEvent_createdAt :: Lens.Lens' ContainerServiceLogEvent (Core.Maybe Core.UTCTime)
-containerServiceLogEvent_createdAt = Lens.lens (\ContainerServiceLogEvent' {createdAt} -> createdAt) (\s@ContainerServiceLogEvent' {} a -> s {createdAt = a} :: ContainerServiceLogEvent) Core.. Lens.mapping Core._Time
+containerServiceLogEvent_createdAt :: Lens.Lens' ContainerServiceLogEvent (Prelude.Maybe Prelude.UTCTime)
+containerServiceLogEvent_createdAt = Lens.lens (\ContainerServiceLogEvent' {createdAt} -> createdAt) (\s@ContainerServiceLogEvent' {} a -> s {createdAt = a} :: ContainerServiceLogEvent) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ContainerServiceLogEvent where
   parseJSON =
@@ -67,10 +69,10 @@ instance Core.FromJSON ContainerServiceLogEvent where
       "ContainerServiceLogEvent"
       ( \x ->
           ContainerServiceLogEvent'
-            Core.<$> (x Core..:? "message")
-            Core.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "createdAt")
       )
 
-instance Core.Hashable ContainerServiceLogEvent
+instance Prelude.Hashable ContainerServiceLogEvent
 
-instance Core.NFData ContainerServiceLogEvent
+instance Prelude.NFData ContainerServiceLogEvent

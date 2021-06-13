@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.PatchRule where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.PatchComplianceLevel
 import Network.AWS.SSM.Types.PatchFilterGroup
 
@@ -32,25 +33,25 @@ data PatchRule = PatchRule'
     -- rule that the patch is marked as approved in the patch baseline. For
     -- example, a value of @7@ means that patches are approved seven days after
     -- they are released. Not supported on Debian Server or Ubuntu Server.
-    approveAfterDays :: Core.Maybe Core.Natural,
+    approveAfterDays :: Prelude.Maybe Prelude.Natural,
     -- | The cutoff date for auto approval of released patches. Any patches
     -- released on or before this date are installed automatically. Not
     -- supported on Debian Server or Ubuntu Server.
     --
     -- Enter dates in the format @YYYY-MM-DD@. For example, @2020-12-31@.
-    approveUntilDate :: Core.Maybe Core.Text,
+    approveUntilDate :: Prelude.Maybe Prelude.Text,
     -- | A compliance severity level for all approved patches in a patch
     -- baseline.
-    complianceLevel :: Core.Maybe PatchComplianceLevel,
+    complianceLevel :: Prelude.Maybe PatchComplianceLevel,
     -- | For instances identified by the approval rule filters, enables a patch
     -- baseline to apply non-security updates available in the specified
     -- repository. The default value is \'false\'. Applies to Linux instances
     -- only.
-    enableNonSecurity :: Core.Maybe Core.Bool,
+    enableNonSecurity :: Prelude.Maybe Prelude.Bool,
     -- | The patch filter group that defines the criteria for the rule.
     patchFilterGroup :: PatchFilterGroup
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PatchRule' with all optional fields omitted.
@@ -86,10 +87,10 @@ newPatchRule ::
   PatchRule
 newPatchRule pPatchFilterGroup_ =
   PatchRule'
-    { approveAfterDays = Core.Nothing,
-      approveUntilDate = Core.Nothing,
-      complianceLevel = Core.Nothing,
-      enableNonSecurity = Core.Nothing,
+    { approveAfterDays = Prelude.Nothing,
+      approveUntilDate = Prelude.Nothing,
+      complianceLevel = Prelude.Nothing,
+      enableNonSecurity = Prelude.Nothing,
       patchFilterGroup = pPatchFilterGroup_
     }
 
@@ -97,7 +98,7 @@ newPatchRule pPatchFilterGroup_ =
 -- rule that the patch is marked as approved in the patch baseline. For
 -- example, a value of @7@ means that patches are approved seven days after
 -- they are released. Not supported on Debian Server or Ubuntu Server.
-patchRule_approveAfterDays :: Lens.Lens' PatchRule (Core.Maybe Core.Natural)
+patchRule_approveAfterDays :: Lens.Lens' PatchRule (Prelude.Maybe Prelude.Natural)
 patchRule_approveAfterDays = Lens.lens (\PatchRule' {approveAfterDays} -> approveAfterDays) (\s@PatchRule' {} a -> s {approveAfterDays = a} :: PatchRule)
 
 -- | The cutoff date for auto approval of released patches. Any patches
@@ -105,19 +106,19 @@ patchRule_approveAfterDays = Lens.lens (\PatchRule' {approveAfterDays} -> approv
 -- supported on Debian Server or Ubuntu Server.
 --
 -- Enter dates in the format @YYYY-MM-DD@. For example, @2020-12-31@.
-patchRule_approveUntilDate :: Lens.Lens' PatchRule (Core.Maybe Core.Text)
+patchRule_approveUntilDate :: Lens.Lens' PatchRule (Prelude.Maybe Prelude.Text)
 patchRule_approveUntilDate = Lens.lens (\PatchRule' {approveUntilDate} -> approveUntilDate) (\s@PatchRule' {} a -> s {approveUntilDate = a} :: PatchRule)
 
 -- | A compliance severity level for all approved patches in a patch
 -- baseline.
-patchRule_complianceLevel :: Lens.Lens' PatchRule (Core.Maybe PatchComplianceLevel)
+patchRule_complianceLevel :: Lens.Lens' PatchRule (Prelude.Maybe PatchComplianceLevel)
 patchRule_complianceLevel = Lens.lens (\PatchRule' {complianceLevel} -> complianceLevel) (\s@PatchRule' {} a -> s {complianceLevel = a} :: PatchRule)
 
 -- | For instances identified by the approval rule filters, enables a patch
 -- baseline to apply non-security updates available in the specified
 -- repository. The default value is \'false\'. Applies to Linux instances
 -- only.
-patchRule_enableNonSecurity :: Lens.Lens' PatchRule (Core.Maybe Core.Bool)
+patchRule_enableNonSecurity :: Lens.Lens' PatchRule (Prelude.Maybe Prelude.Bool)
 patchRule_enableNonSecurity = Lens.lens (\PatchRule' {enableNonSecurity} -> enableNonSecurity) (\s@PatchRule' {} a -> s {enableNonSecurity = a} :: PatchRule)
 
 -- | The patch filter group that defines the criteria for the rule.
@@ -130,29 +131,30 @@ instance Core.FromJSON PatchRule where
       "PatchRule"
       ( \x ->
           PatchRule'
-            Core.<$> (x Core..:? "ApproveAfterDays")
-            Core.<*> (x Core..:? "ApproveUntilDate")
-            Core.<*> (x Core..:? "ComplianceLevel")
-            Core.<*> (x Core..:? "EnableNonSecurity")
-            Core.<*> (x Core..: "PatchFilterGroup")
+            Prelude.<$> (x Core..:? "ApproveAfterDays")
+            Prelude.<*> (x Core..:? "ApproveUntilDate")
+            Prelude.<*> (x Core..:? "ComplianceLevel")
+            Prelude.<*> (x Core..:? "EnableNonSecurity")
+            Prelude.<*> (x Core..: "PatchFilterGroup")
       )
 
-instance Core.Hashable PatchRule
+instance Prelude.Hashable PatchRule
 
-instance Core.NFData PatchRule
+instance Prelude.NFData PatchRule
 
 instance Core.ToJSON PatchRule where
   toJSON PatchRule' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ApproveAfterDays" Core..=)
-              Core.<$> approveAfterDays,
+              Prelude.<$> approveAfterDays,
             ("ApproveUntilDate" Core..=)
-              Core.<$> approveUntilDate,
-            ("ComplianceLevel" Core..=) Core.<$> complianceLevel,
+              Prelude.<$> approveUntilDate,
+            ("ComplianceLevel" Core..=)
+              Prelude.<$> complianceLevel,
             ("EnableNonSecurity" Core..=)
-              Core.<$> enableNonSecurity,
-            Core.Just
+              Prelude.<$> enableNonSecurity,
+            Prelude.Just
               ("PatchFilterGroup" Core..= patchFilterGroup)
           ]
       )

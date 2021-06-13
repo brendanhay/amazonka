@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -50,9 +51,9 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newGetSubscriptionAttributes' smart constructor.
 data GetSubscriptionAttributes = GetSubscriptionAttributes'
   { -- | The ARN of the subscription whose properties you want to get.
-    subscriptionArn :: Core.Text
+    subscriptionArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSubscriptionAttributes' with all optional fields omitted.
@@ -65,7 +66,7 @@ data GetSubscriptionAttributes = GetSubscriptionAttributes'
 -- 'subscriptionArn', 'getSubscriptionAttributes_subscriptionArn' - The ARN of the subscription whose properties you want to get.
 newGetSubscriptionAttributes ::
   -- | 'subscriptionArn'
-  Core.Text ->
+  Prelude.Text ->
   GetSubscriptionAttributes
 newGetSubscriptionAttributes pSubscriptionArn_ =
   GetSubscriptionAttributes'
@@ -74,7 +75,7 @@ newGetSubscriptionAttributes pSubscriptionArn_ =
     }
 
 -- | The ARN of the subscription whose properties you want to get.
-getSubscriptionAttributes_subscriptionArn :: Lens.Lens' GetSubscriptionAttributes Core.Text
+getSubscriptionAttributes_subscriptionArn :: Lens.Lens' GetSubscriptionAttributes Prelude.Text
 getSubscriptionAttributes_subscriptionArn = Lens.lens (\GetSubscriptionAttributes' {subscriptionArn} -> subscriptionArn) (\s@GetSubscriptionAttributes' {} a -> s {subscriptionArn = a} :: GetSubscriptionAttributes)
 
 instance Core.AWSRequest GetSubscriptionAttributes where
@@ -87,28 +88,29 @@ instance Core.AWSRequest GetSubscriptionAttributes where
       "GetSubscriptionAttributesResult"
       ( \s h x ->
           GetSubscriptionAttributesResponse'
-            Core.<$> ( x Core..@? "Attributes" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Attributes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSubscriptionAttributes
+instance Prelude.Hashable GetSubscriptionAttributes
 
-instance Core.NFData GetSubscriptionAttributes
+instance Prelude.NFData GetSubscriptionAttributes
 
 instance Core.ToHeaders GetSubscriptionAttributes where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetSubscriptionAttributes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSubscriptionAttributes where
   toQuery GetSubscriptionAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetSubscriptionAttributes" :: Core.ByteString),
-        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+          Core.=: ("GetSubscriptionAttributes" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
         "SubscriptionArn" Core.=: subscriptionArn
       ]
 
@@ -170,11 +172,11 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
     --     see
     --     <https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
     --     in the /Amazon SNS Developer Guide/.
-    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSubscriptionAttributesResponse' with all optional fields omitted.
@@ -242,12 +244,12 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
 -- 'httpStatus', 'getSubscriptionAttributesResponse_httpStatus' - The response's http status code.
 newGetSubscriptionAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSubscriptionAttributesResponse
 newGetSubscriptionAttributesResponse pHttpStatus_ =
   GetSubscriptionAttributesResponse'
     { attributes =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -305,13 +307,13 @@ newGetSubscriptionAttributesResponse pHttpStatus_ =
 --     see
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
 --     in the /Amazon SNS Developer Guide/.
-getSubscriptionAttributesResponse_attributes :: Lens.Lens' GetSubscriptionAttributesResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-getSubscriptionAttributesResponse_attributes = Lens.lens (\GetSubscriptionAttributesResponse' {attributes} -> attributes) (\s@GetSubscriptionAttributesResponse' {} a -> s {attributes = a} :: GetSubscriptionAttributesResponse) Core.. Lens.mapping Lens._Coerce
+getSubscriptionAttributesResponse_attributes :: Lens.Lens' GetSubscriptionAttributesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getSubscriptionAttributesResponse_attributes = Lens.lens (\GetSubscriptionAttributesResponse' {attributes} -> attributes) (\s@GetSubscriptionAttributesResponse' {} a -> s {attributes = a} :: GetSubscriptionAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getSubscriptionAttributesResponse_httpStatus :: Lens.Lens' GetSubscriptionAttributesResponse Core.Int
+getSubscriptionAttributesResponse_httpStatus :: Lens.Lens' GetSubscriptionAttributesResponse Prelude.Int
 getSubscriptionAttributesResponse_httpStatus = Lens.lens (\GetSubscriptionAttributesResponse' {httpStatus} -> httpStatus) (\s@GetSubscriptionAttributesResponse' {} a -> s {httpStatus = a} :: GetSubscriptionAttributesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetSubscriptionAttributesResponse

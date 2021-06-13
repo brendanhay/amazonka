@@ -28,6 +28,7 @@ module Network.AWS.MediaConvert.Types.HlsCaptionLanguageSetting
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Applies only to 608 Embedded output captions. Insert: Include
 -- CLOSED-CAPTIONS lines in the manifest. Specify at least one language in
@@ -44,15 +45,15 @@ newtype HlsCaptionLanguageSetting = HlsCaptionLanguageSetting'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

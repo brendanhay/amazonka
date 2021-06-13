@@ -22,6 +22,7 @@ module Network.AWS.DirectoryService.Types.RadiusSettings where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types.RadiusAuthenticationProtocol
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a Remote Authentication Dial In User Service
 -- (RADIUS) server.
@@ -29,29 +30,29 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newRadiusSettings' smart constructor.
 data RadiusSettings = RadiusSettings'
   { -- | Not currently used.
-    useSameUsername :: Core.Maybe Core.Bool,
+    useSameUsername :: Prelude.Maybe Prelude.Bool,
     -- | Not currently used.
-    displayLabel :: Core.Maybe Core.Text,
+    displayLabel :: Prelude.Maybe Prelude.Text,
     -- | An array of strings that contains the fully qualified domain name (FQDN)
     -- or IP addresses of the RADIUS server endpoints, or the FQDN or IP
     -- addresses of your RADIUS server load balancer.
-    radiusServers :: Core.Maybe [Core.Text],
+    radiusServers :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of times that communication with the RADIUS server is
     -- attempted.
-    radiusRetries :: Core.Maybe Core.Natural,
+    radiusRetries :: Prelude.Maybe Prelude.Natural,
     -- | The amount of time, in seconds, to wait for the RADIUS server to
     -- respond.
-    radiusTimeout :: Core.Maybe Core.Natural,
+    radiusTimeout :: Prelude.Maybe Prelude.Natural,
     -- | Required for enabling RADIUS on the directory.
-    sharedSecret :: Core.Maybe (Core.Sensitive Core.Text),
+    sharedSecret :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The port that your RADIUS server is using for communications. Your
     -- on-premises network must allow inbound traffic over this port from the
     -- AWS Directory Service servers.
-    radiusPort :: Core.Maybe Core.Natural,
+    radiusPort :: Prelude.Maybe Prelude.Natural,
     -- | The protocol specified for your RADIUS endpoints.
-    authenticationProtocol :: Core.Maybe RadiusAuthenticationProtocol
+    authenticationProtocol :: Prelude.Maybe RadiusAuthenticationProtocol
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RadiusSettings' with all optional fields omitted.
@@ -86,52 +87,52 @@ newRadiusSettings ::
   RadiusSettings
 newRadiusSettings =
   RadiusSettings'
-    { useSameUsername = Core.Nothing,
-      displayLabel = Core.Nothing,
-      radiusServers = Core.Nothing,
-      radiusRetries = Core.Nothing,
-      radiusTimeout = Core.Nothing,
-      sharedSecret = Core.Nothing,
-      radiusPort = Core.Nothing,
-      authenticationProtocol = Core.Nothing
+    { useSameUsername = Prelude.Nothing,
+      displayLabel = Prelude.Nothing,
+      radiusServers = Prelude.Nothing,
+      radiusRetries = Prelude.Nothing,
+      radiusTimeout = Prelude.Nothing,
+      sharedSecret = Prelude.Nothing,
+      radiusPort = Prelude.Nothing,
+      authenticationProtocol = Prelude.Nothing
     }
 
 -- | Not currently used.
-radiusSettings_useSameUsername :: Lens.Lens' RadiusSettings (Core.Maybe Core.Bool)
+radiusSettings_useSameUsername :: Lens.Lens' RadiusSettings (Prelude.Maybe Prelude.Bool)
 radiusSettings_useSameUsername = Lens.lens (\RadiusSettings' {useSameUsername} -> useSameUsername) (\s@RadiusSettings' {} a -> s {useSameUsername = a} :: RadiusSettings)
 
 -- | Not currently used.
-radiusSettings_displayLabel :: Lens.Lens' RadiusSettings (Core.Maybe Core.Text)
+radiusSettings_displayLabel :: Lens.Lens' RadiusSettings (Prelude.Maybe Prelude.Text)
 radiusSettings_displayLabel = Lens.lens (\RadiusSettings' {displayLabel} -> displayLabel) (\s@RadiusSettings' {} a -> s {displayLabel = a} :: RadiusSettings)
 
 -- | An array of strings that contains the fully qualified domain name (FQDN)
 -- or IP addresses of the RADIUS server endpoints, or the FQDN or IP
 -- addresses of your RADIUS server load balancer.
-radiusSettings_radiusServers :: Lens.Lens' RadiusSettings (Core.Maybe [Core.Text])
-radiusSettings_radiusServers = Lens.lens (\RadiusSettings' {radiusServers} -> radiusServers) (\s@RadiusSettings' {} a -> s {radiusServers = a} :: RadiusSettings) Core.. Lens.mapping Lens._Coerce
+radiusSettings_radiusServers :: Lens.Lens' RadiusSettings (Prelude.Maybe [Prelude.Text])
+radiusSettings_radiusServers = Lens.lens (\RadiusSettings' {radiusServers} -> radiusServers) (\s@RadiusSettings' {} a -> s {radiusServers = a} :: RadiusSettings) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of times that communication with the RADIUS server is
 -- attempted.
-radiusSettings_radiusRetries :: Lens.Lens' RadiusSettings (Core.Maybe Core.Natural)
+radiusSettings_radiusRetries :: Lens.Lens' RadiusSettings (Prelude.Maybe Prelude.Natural)
 radiusSettings_radiusRetries = Lens.lens (\RadiusSettings' {radiusRetries} -> radiusRetries) (\s@RadiusSettings' {} a -> s {radiusRetries = a} :: RadiusSettings)
 
 -- | The amount of time, in seconds, to wait for the RADIUS server to
 -- respond.
-radiusSettings_radiusTimeout :: Lens.Lens' RadiusSettings (Core.Maybe Core.Natural)
+radiusSettings_radiusTimeout :: Lens.Lens' RadiusSettings (Prelude.Maybe Prelude.Natural)
 radiusSettings_radiusTimeout = Lens.lens (\RadiusSettings' {radiusTimeout} -> radiusTimeout) (\s@RadiusSettings' {} a -> s {radiusTimeout = a} :: RadiusSettings)
 
 -- | Required for enabling RADIUS on the directory.
-radiusSettings_sharedSecret :: Lens.Lens' RadiusSettings (Core.Maybe Core.Text)
-radiusSettings_sharedSecret = Lens.lens (\RadiusSettings' {sharedSecret} -> sharedSecret) (\s@RadiusSettings' {} a -> s {sharedSecret = a} :: RadiusSettings) Core.. Lens.mapping Core._Sensitive
+radiusSettings_sharedSecret :: Lens.Lens' RadiusSettings (Prelude.Maybe Prelude.Text)
+radiusSettings_sharedSecret = Lens.lens (\RadiusSettings' {sharedSecret} -> sharedSecret) (\s@RadiusSettings' {} a -> s {sharedSecret = a} :: RadiusSettings) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The port that your RADIUS server is using for communications. Your
 -- on-premises network must allow inbound traffic over this port from the
 -- AWS Directory Service servers.
-radiusSettings_radiusPort :: Lens.Lens' RadiusSettings (Core.Maybe Core.Natural)
+radiusSettings_radiusPort :: Lens.Lens' RadiusSettings (Prelude.Maybe Prelude.Natural)
 radiusSettings_radiusPort = Lens.lens (\RadiusSettings' {radiusPort} -> radiusPort) (\s@RadiusSettings' {} a -> s {radiusPort = a} :: RadiusSettings)
 
 -- | The protocol specified for your RADIUS endpoints.
-radiusSettings_authenticationProtocol :: Lens.Lens' RadiusSettings (Core.Maybe RadiusAuthenticationProtocol)
+radiusSettings_authenticationProtocol :: Lens.Lens' RadiusSettings (Prelude.Maybe RadiusAuthenticationProtocol)
 radiusSettings_authenticationProtocol = Lens.lens (\RadiusSettings' {authenticationProtocol} -> authenticationProtocol) (\s@RadiusSettings' {} a -> s {authenticationProtocol = a} :: RadiusSettings)
 
 instance Core.FromJSON RadiusSettings where
@@ -140,33 +141,33 @@ instance Core.FromJSON RadiusSettings where
       "RadiusSettings"
       ( \x ->
           RadiusSettings'
-            Core.<$> (x Core..:? "UseSameUsername")
-            Core.<*> (x Core..:? "DisplayLabel")
-            Core.<*> (x Core..:? "RadiusServers" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "RadiusRetries")
-            Core.<*> (x Core..:? "RadiusTimeout")
-            Core.<*> (x Core..:? "SharedSecret")
-            Core.<*> (x Core..:? "RadiusPort")
-            Core.<*> (x Core..:? "AuthenticationProtocol")
+            Prelude.<$> (x Core..:? "UseSameUsername")
+            Prelude.<*> (x Core..:? "DisplayLabel")
+            Prelude.<*> (x Core..:? "RadiusServers" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "RadiusRetries")
+            Prelude.<*> (x Core..:? "RadiusTimeout")
+            Prelude.<*> (x Core..:? "SharedSecret")
+            Prelude.<*> (x Core..:? "RadiusPort")
+            Prelude.<*> (x Core..:? "AuthenticationProtocol")
       )
 
-instance Core.Hashable RadiusSettings
+instance Prelude.Hashable RadiusSettings
 
-instance Core.NFData RadiusSettings
+instance Prelude.NFData RadiusSettings
 
 instance Core.ToJSON RadiusSettings where
   toJSON RadiusSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("UseSameUsername" Core..=)
-              Core.<$> useSameUsername,
-            ("DisplayLabel" Core..=) Core.<$> displayLabel,
-            ("RadiusServers" Core..=) Core.<$> radiusServers,
-            ("RadiusRetries" Core..=) Core.<$> radiusRetries,
-            ("RadiusTimeout" Core..=) Core.<$> radiusTimeout,
-            ("SharedSecret" Core..=) Core.<$> sharedSecret,
-            ("RadiusPort" Core..=) Core.<$> radiusPort,
+              Prelude.<$> useSameUsername,
+            ("DisplayLabel" Core..=) Prelude.<$> displayLabel,
+            ("RadiusServers" Core..=) Prelude.<$> radiusServers,
+            ("RadiusRetries" Core..=) Prelude.<$> radiusRetries,
+            ("RadiusTimeout" Core..=) Prelude.<$> radiusTimeout,
+            ("SharedSecret" Core..=) Prelude.<$> sharedSecret,
+            ("RadiusPort" Core..=) Prelude.<$> radiusPort,
             ("AuthenticationProtocol" Core..=)
-              Core.<$> authenticationProtocol
+              Prelude.<$> authenticationProtocol
           ]
       )

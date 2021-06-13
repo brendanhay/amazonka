@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.ChangeInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.ChangeStatus
 
@@ -35,7 +36,7 @@ data ChangeInfo = ChangeInfo'
     -- This element contains an ID that you use when performing a
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange>
     -- action to get detailed information about the change.
-    comment :: Core.Maybe Core.Text,
+    comment :: Prelude.Maybe Prelude.Text,
     -- | The ID of the request.
     id :: ResourceId,
     -- | The current state of the request. @PENDING@ indicates that this request
@@ -47,7 +48,7 @@ data ChangeInfo = ChangeInfo'
     -- represents March 27, 2017 at 17:48:16.751 UTC.
     submittedAt :: Core.ISO8601
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChangeInfo' with all optional fields omitted.
@@ -79,11 +80,11 @@ newChangeInfo ::
   -- | 'status'
   ChangeStatus ->
   -- | 'submittedAt'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   ChangeInfo
 newChangeInfo pId_ pStatus_ pSubmittedAt_ =
   ChangeInfo'
-    { comment = Core.Nothing,
+    { comment = Prelude.Nothing,
       id = pId_,
       status = pStatus_,
       submittedAt = Core._Time Lens.# pSubmittedAt_
@@ -95,7 +96,7 @@ newChangeInfo pId_ pStatus_ pSubmittedAt_ =
 -- This element contains an ID that you use when performing a
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange>
 -- action to get detailed information about the change.
-changeInfo_comment :: Lens.Lens' ChangeInfo (Core.Maybe Core.Text)
+changeInfo_comment :: Lens.Lens' ChangeInfo (Prelude.Maybe Prelude.Text)
 changeInfo_comment = Lens.lens (\ChangeInfo' {comment} -> comment) (\s@ChangeInfo' {} a -> s {comment = a} :: ChangeInfo)
 
 -- | The ID of the request.
@@ -111,17 +112,17 @@ changeInfo_status = Lens.lens (\ChangeInfo' {status} -> status) (\s@ChangeInfo' 
 -- <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format> and Coordinated
 -- Universal Time (UTC). For example, the value @2017-03-27T17:48:16.751Z@
 -- represents March 27, 2017 at 17:48:16.751 UTC.
-changeInfo_submittedAt :: Lens.Lens' ChangeInfo Core.UTCTime
-changeInfo_submittedAt = Lens.lens (\ChangeInfo' {submittedAt} -> submittedAt) (\s@ChangeInfo' {} a -> s {submittedAt = a} :: ChangeInfo) Core.. Core._Time
+changeInfo_submittedAt :: Lens.Lens' ChangeInfo Prelude.UTCTime
+changeInfo_submittedAt = Lens.lens (\ChangeInfo' {submittedAt} -> submittedAt) (\s@ChangeInfo' {} a -> s {submittedAt = a} :: ChangeInfo) Prelude.. Core._Time
 
 instance Core.FromXML ChangeInfo where
   parseXML x =
     ChangeInfo'
-      Core.<$> (x Core..@? "Comment")
-      Core.<*> (x Core..@ "Id")
-      Core.<*> (x Core..@ "Status")
-      Core.<*> (x Core..@ "SubmittedAt")
+      Prelude.<$> (x Core..@? "Comment")
+      Prelude.<*> (x Core..@ "Id")
+      Prelude.<*> (x Core..@ "Status")
+      Prelude.<*> (x Core..@ "SubmittedAt")
 
-instance Core.Hashable ChangeInfo
+instance Prelude.Hashable ChangeInfo
 
-instance Core.NFData ChangeInfo
+instance Prelude.NFData ChangeInfo

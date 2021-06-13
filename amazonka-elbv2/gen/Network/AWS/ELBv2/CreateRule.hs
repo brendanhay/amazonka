@@ -55,24 +55,25 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateRule' smart constructor.
 data CreateRule = CreateRule'
   { -- | The tags to assign to the rule.
-    tags :: Core.Maybe (Core.NonEmpty Tag),
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The Amazon Resource Name (ARN) of the listener.
-    listenerArn :: Core.Text,
+    listenerArn :: Prelude.Text,
     -- | The conditions.
     conditions :: [RuleCondition],
     -- | The rule priority. A listener can\'t have multiple rules with the same
     -- priority.
-    priority :: Core.Natural,
+    priority :: Prelude.Natural,
     -- | The actions.
     actions :: [Action]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateRule' with all optional fields omitted.
@@ -94,39 +95,39 @@ data CreateRule = CreateRule'
 -- 'actions', 'createRule_actions' - The actions.
 newCreateRule ::
   -- | 'listenerArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'priority'
-  Core.Natural ->
+  Prelude.Natural ->
   CreateRule
 newCreateRule pListenerArn_ pPriority_ =
   CreateRule'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       listenerArn = pListenerArn_,
-      conditions = Core.mempty,
+      conditions = Prelude.mempty,
       priority = pPriority_,
-      actions = Core.mempty
+      actions = Prelude.mempty
     }
 
 -- | The tags to assign to the rule.
-createRule_tags :: Lens.Lens' CreateRule (Core.Maybe (Core.NonEmpty Tag))
-createRule_tags = Lens.lens (\CreateRule' {tags} -> tags) (\s@CreateRule' {} a -> s {tags = a} :: CreateRule) Core.. Lens.mapping Lens._Coerce
+createRule_tags :: Lens.Lens' CreateRule (Prelude.Maybe (Prelude.NonEmpty Tag))
+createRule_tags = Lens.lens (\CreateRule' {tags} -> tags) (\s@CreateRule' {} a -> s {tags = a} :: CreateRule) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the listener.
-createRule_listenerArn :: Lens.Lens' CreateRule Core.Text
+createRule_listenerArn :: Lens.Lens' CreateRule Prelude.Text
 createRule_listenerArn = Lens.lens (\CreateRule' {listenerArn} -> listenerArn) (\s@CreateRule' {} a -> s {listenerArn = a} :: CreateRule)
 
 -- | The conditions.
 createRule_conditions :: Lens.Lens' CreateRule [RuleCondition]
-createRule_conditions = Lens.lens (\CreateRule' {conditions} -> conditions) (\s@CreateRule' {} a -> s {conditions = a} :: CreateRule) Core.. Lens._Coerce
+createRule_conditions = Lens.lens (\CreateRule' {conditions} -> conditions) (\s@CreateRule' {} a -> s {conditions = a} :: CreateRule) Prelude.. Lens._Coerce
 
 -- | The rule priority. A listener can\'t have multiple rules with the same
 -- priority.
-createRule_priority :: Lens.Lens' CreateRule Core.Natural
+createRule_priority :: Lens.Lens' CreateRule Prelude.Natural
 createRule_priority = Lens.lens (\CreateRule' {priority} -> priority) (\s@CreateRule' {} a -> s {priority = a} :: CreateRule)
 
 -- | The actions.
 createRule_actions :: Lens.Lens' CreateRule [Action]
-createRule_actions = Lens.lens (\CreateRule' {actions} -> actions) (\s@CreateRule' {} a -> s {actions = a} :: CreateRule) Core.. Lens._Coerce
+createRule_actions = Lens.lens (\CreateRule' {actions} -> actions) (\s@CreateRule' {} a -> s {actions = a} :: CreateRule) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateRule where
   type AWSResponse CreateRule = CreateRuleResponse
@@ -136,30 +137,32 @@ instance Core.AWSRequest CreateRule where
       "CreateRuleResult"
       ( \s h x ->
           CreateRuleResponse'
-            Core.<$> ( x Core..@? "Rules" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Rules" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateRule
+instance Prelude.Hashable CreateRule
 
-instance Core.NFData CreateRule
+instance Prelude.NFData CreateRule
 
 instance Core.ToHeaders CreateRule where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateRule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateRule where
   toQuery CreateRule' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("CreateRule" :: Core.ByteString),
-        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CreateRule" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
         "Tags"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> tags),
+            (Core.toQueryList "member" Prelude.<$> tags),
         "ListenerArn" Core.=: listenerArn,
         "Conditions"
           Core.=: Core.toQueryList "member" conditions,
@@ -170,11 +173,11 @@ instance Core.ToQuery CreateRule where
 -- | /See:/ 'newCreateRuleResponse' smart constructor.
 data CreateRuleResponse = CreateRuleResponse'
   { -- | Information about the rule.
-    rules :: Core.Maybe [Rule],
+    rules :: Prelude.Maybe [Rule],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateRuleResponse' with all optional fields omitted.
@@ -189,20 +192,20 @@ data CreateRuleResponse = CreateRuleResponse'
 -- 'httpStatus', 'createRuleResponse_httpStatus' - The response's http status code.
 newCreateRuleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateRuleResponse
 newCreateRuleResponse pHttpStatus_ =
   CreateRuleResponse'
-    { rules = Core.Nothing,
+    { rules = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the rule.
-createRuleResponse_rules :: Lens.Lens' CreateRuleResponse (Core.Maybe [Rule])
-createRuleResponse_rules = Lens.lens (\CreateRuleResponse' {rules} -> rules) (\s@CreateRuleResponse' {} a -> s {rules = a} :: CreateRuleResponse) Core.. Lens.mapping Lens._Coerce
+createRuleResponse_rules :: Lens.Lens' CreateRuleResponse (Prelude.Maybe [Rule])
+createRuleResponse_rules = Lens.lens (\CreateRuleResponse' {rules} -> rules) (\s@CreateRuleResponse' {} a -> s {rules = a} :: CreateRuleResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createRuleResponse_httpStatus :: Lens.Lens' CreateRuleResponse Core.Int
+createRuleResponse_httpStatus :: Lens.Lens' CreateRuleResponse Prelude.Int
 createRuleResponse_httpStatus = Lens.lens (\CreateRuleResponse' {httpStatus} -> httpStatus) (\s@CreateRuleResponse' {} a -> s {httpStatus = a} :: CreateRuleResponse)
 
-instance Core.NFData CreateRuleResponse
+instance Prelude.NFData CreateRuleResponse

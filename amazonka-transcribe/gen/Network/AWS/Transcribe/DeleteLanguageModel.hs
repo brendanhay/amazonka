@@ -37,6 +37,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -44,9 +45,9 @@ import Network.AWS.Transcribe.Types
 -- | /See:/ 'newDeleteLanguageModel' smart constructor.
 data DeleteLanguageModel = DeleteLanguageModel'
   { -- | The name of the model you\'re choosing to delete.
-    modelName :: Core.Text
+    modelName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLanguageModel' with all optional fields omitted.
@@ -59,13 +60,13 @@ data DeleteLanguageModel = DeleteLanguageModel'
 -- 'modelName', 'deleteLanguageModel_modelName' - The name of the model you\'re choosing to delete.
 newDeleteLanguageModel ::
   -- | 'modelName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteLanguageModel
 newDeleteLanguageModel pModelName_ =
   DeleteLanguageModel' {modelName = pModelName_}
 
 -- | The name of the model you\'re choosing to delete.
-deleteLanguageModel_modelName :: Lens.Lens' DeleteLanguageModel Core.Text
+deleteLanguageModel_modelName :: Lens.Lens' DeleteLanguageModel Prelude.Text
 deleteLanguageModel_modelName = Lens.lens (\DeleteLanguageModel' {modelName} -> modelName) (\s@DeleteLanguageModel' {} a -> s {modelName = a} :: DeleteLanguageModel)
 
 instance Core.AWSRequest DeleteLanguageModel where
@@ -76,41 +77,43 @@ instance Core.AWSRequest DeleteLanguageModel where
   response =
     Response.receiveNull DeleteLanguageModelResponse'
 
-instance Core.Hashable DeleteLanguageModel
+instance Prelude.Hashable DeleteLanguageModel
 
-instance Core.NFData DeleteLanguageModel
+instance Prelude.NFData DeleteLanguageModel
 
 instance Core.ToHeaders DeleteLanguageModel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Transcribe.DeleteLanguageModel" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteLanguageModel where
   toJSON DeleteLanguageModel' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("ModelName" Core..= modelName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("ModelName" Core..= modelName)]
       )
 
 instance Core.ToPath DeleteLanguageModel where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteLanguageModel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLanguageModelResponse' smart constructor.
 data DeleteLanguageModelResponse = DeleteLanguageModelResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLanguageModelResponse' with all optional fields omitted.
@@ -121,4 +124,4 @@ newDeleteLanguageModelResponse ::
 newDeleteLanguageModelResponse =
   DeleteLanguageModelResponse'
 
-instance Core.NFData DeleteLanguageModelResponse
+instance Prelude.NFData DeleteLanguageModelResponse

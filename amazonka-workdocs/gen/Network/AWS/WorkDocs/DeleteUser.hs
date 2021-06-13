@@ -38,6 +38,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -47,11 +48,11 @@ data DeleteUser = DeleteUser'
   { -- | Amazon WorkDocs authentication token. Do not set this field when using
     -- administrative API actions, as in accessing the API using AWS
     -- credentials.
-    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ID of the user.
-    userId :: Core.Text
+    userId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUser' with all optional fields omitted.
@@ -68,22 +69,22 @@ data DeleteUser = DeleteUser'
 -- 'userId', 'deleteUser_userId' - The ID of the user.
 newDeleteUser ::
   -- | 'userId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteUser
 newDeleteUser pUserId_ =
   DeleteUser'
-    { authenticationToken = Core.Nothing,
+    { authenticationToken = Prelude.Nothing,
       userId = pUserId_
     }
 
 -- | Amazon WorkDocs authentication token. Do not set this field when using
 -- administrative API actions, as in accessing the API using AWS
 -- credentials.
-deleteUser_authenticationToken :: Lens.Lens' DeleteUser (Core.Maybe Core.Text)
-deleteUser_authenticationToken = Lens.lens (\DeleteUser' {authenticationToken} -> authenticationToken) (\s@DeleteUser' {} a -> s {authenticationToken = a} :: DeleteUser) Core.. Lens.mapping Core._Sensitive
+deleteUser_authenticationToken :: Lens.Lens' DeleteUser (Prelude.Maybe Prelude.Text)
+deleteUser_authenticationToken = Lens.lens (\DeleteUser' {authenticationToken} -> authenticationToken) (\s@DeleteUser' {} a -> s {authenticationToken = a} :: DeleteUser) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the user.
-deleteUser_userId :: Lens.Lens' DeleteUser Core.Text
+deleteUser_userId :: Lens.Lens' DeleteUser Prelude.Text
 deleteUser_userId = Lens.lens (\DeleteUser' {userId} -> userId) (\s@DeleteUser' {} a -> s {userId = a} :: DeleteUser)
 
 instance Core.AWSRequest DeleteUser where
@@ -91,30 +92,31 @@ instance Core.AWSRequest DeleteUser where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteUserResponse'
 
-instance Core.Hashable DeleteUser
+instance Prelude.Hashable DeleteUser
 
-instance Core.NFData DeleteUser
+instance Prelude.NFData DeleteUser
 
 instance Core.ToHeaders DeleteUser where
   toHeaders DeleteUser' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance Core.ToPath DeleteUser where
   toPath DeleteUser' {..} =
-    Core.mconcat ["/api/v1/users/", Core.toBS userId]
+    Prelude.mconcat
+      ["/api/v1/users/", Core.toBS userId]
 
 instance Core.ToQuery DeleteUser where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserResponse' smart constructor.
 data DeleteUserResponse = DeleteUserResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserResponse' with all optional fields omitted.
@@ -124,4 +126,4 @@ newDeleteUserResponse ::
   DeleteUserResponse
 newDeleteUserResponse = DeleteUserResponse'
 
-instance Core.NFData DeleteUserResponse
+instance Prelude.NFData DeleteUserResponse

@@ -47,15 +47,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newConfirmConnection' smart constructor.
 data ConfirmConnection = ConfirmConnection'
   { -- | The ID of the hosted connection.
-    connectionId :: Core.Text
+    connectionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfirmConnection' with all optional fields omitted.
@@ -68,13 +69,13 @@ data ConfirmConnection = ConfirmConnection'
 -- 'connectionId', 'confirmConnection_connectionId' - The ID of the hosted connection.
 newConfirmConnection ::
   -- | 'connectionId'
-  Core.Text ->
+  Prelude.Text ->
   ConfirmConnection
 newConfirmConnection pConnectionId_ =
   ConfirmConnection' {connectionId = pConnectionId_}
 
 -- | The ID of the hosted connection.
-confirmConnection_connectionId :: Lens.Lens' ConfirmConnection Core.Text
+confirmConnection_connectionId :: Lens.Lens' ConfirmConnection Prelude.Text
 confirmConnection_connectionId = Lens.lens (\ConfirmConnection' {connectionId} -> connectionId) (\s@ConfirmConnection' {} a -> s {connectionId = a} :: ConfirmConnection)
 
 instance Core.AWSRequest ConfirmConnection where
@@ -86,39 +87,41 @@ instance Core.AWSRequest ConfirmConnection where
     Response.receiveJSON
       ( \s h x ->
           ConfirmConnectionResponse'
-            Core.<$> (x Core..?> "connectionState")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "connectionState")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ConfirmConnection
+instance Prelude.Hashable ConfirmConnection
 
-instance Core.NFData ConfirmConnection
+instance Prelude.NFData ConfirmConnection
 
 instance Core.ToHeaders ConfirmConnection where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.ConfirmConnection" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ConfirmConnection where
   toJSON ConfirmConnection' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("connectionId" Core..= connectionId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("connectionId" Core..= connectionId)]
       )
 
 instance Core.ToPath ConfirmConnection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ConfirmConnection where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newConfirmConnectionResponse' smart constructor.
 data ConfirmConnectionResponse = ConfirmConnectionResponse'
@@ -149,11 +152,11 @@ data ConfirmConnectionResponse = ConfirmConnectionResponse'
     --     @rejected@ state if it is deleted by the customer.
     --
     -- -   @unknown@: The state of the connection is not available.
-    connectionState :: Core.Maybe ConnectionState,
+    connectionState :: Prelude.Maybe ConnectionState,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfirmConnectionResponse' with all optional fields omitted.
@@ -194,12 +197,12 @@ data ConfirmConnectionResponse = ConfirmConnectionResponse'
 -- 'httpStatus', 'confirmConnectionResponse_httpStatus' - The response's http status code.
 newConfirmConnectionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ConfirmConnectionResponse
 newConfirmConnectionResponse pHttpStatus_ =
   ConfirmConnectionResponse'
     { connectionState =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -230,11 +233,11 @@ newConfirmConnectionResponse pHttpStatus_ =
 --     @rejected@ state if it is deleted by the customer.
 --
 -- -   @unknown@: The state of the connection is not available.
-confirmConnectionResponse_connectionState :: Lens.Lens' ConfirmConnectionResponse (Core.Maybe ConnectionState)
+confirmConnectionResponse_connectionState :: Lens.Lens' ConfirmConnectionResponse (Prelude.Maybe ConnectionState)
 confirmConnectionResponse_connectionState = Lens.lens (\ConfirmConnectionResponse' {connectionState} -> connectionState) (\s@ConfirmConnectionResponse' {} a -> s {connectionState = a} :: ConfirmConnectionResponse)
 
 -- | The response's http status code.
-confirmConnectionResponse_httpStatus :: Lens.Lens' ConfirmConnectionResponse Core.Int
+confirmConnectionResponse_httpStatus :: Lens.Lens' ConfirmConnectionResponse Prelude.Int
 confirmConnectionResponse_httpStatus = Lens.lens (\ConfirmConnectionResponse' {httpStatus} -> httpStatus) (\s@ConfirmConnectionResponse' {} a -> s {httpStatus = a} :: ConfirmConnectionResponse)
 
-instance Core.NFData ConfirmConnectionResponse
+instance Prelude.NFData ConfirmConnectionResponse

@@ -39,6 +39,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -46,9 +47,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStopLabelingJob' smart constructor.
 data StopLabelingJob = StopLabelingJob'
   { -- | The name of the labeling job to stop.
-    labelingJobName :: Core.Text
+    labelingJobName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopLabelingJob' with all optional fields omitted.
@@ -61,7 +62,7 @@ data StopLabelingJob = StopLabelingJob'
 -- 'labelingJobName', 'stopLabelingJob_labelingJobName' - The name of the labeling job to stop.
 newStopLabelingJob ::
   -- | 'labelingJobName'
-  Core.Text ->
+  Prelude.Text ->
   StopLabelingJob
 newStopLabelingJob pLabelingJobName_ =
   StopLabelingJob'
@@ -70,7 +71,7 @@ newStopLabelingJob pLabelingJobName_ =
     }
 
 -- | The name of the labeling job to stop.
-stopLabelingJob_labelingJobName :: Lens.Lens' StopLabelingJob Core.Text
+stopLabelingJob_labelingJobName :: Lens.Lens' StopLabelingJob Prelude.Text
 stopLabelingJob_labelingJobName = Lens.lens (\StopLabelingJob' {labelingJobName} -> labelingJobName) (\s@StopLabelingJob' {} a -> s {labelingJobName = a} :: StopLabelingJob)
 
 instance Core.AWSRequest StopLabelingJob where
@@ -81,41 +82,43 @@ instance Core.AWSRequest StopLabelingJob where
   response =
     Response.receiveNull StopLabelingJobResponse'
 
-instance Core.Hashable StopLabelingJob
+instance Prelude.Hashable StopLabelingJob
 
-instance Core.NFData StopLabelingJob
+instance Prelude.NFData StopLabelingJob
 
 instance Core.ToHeaders StopLabelingJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.StopLabelingJob" :: Core.ByteString),
+              Core.=# ("SageMaker.StopLabelingJob" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopLabelingJob where
   toJSON StopLabelingJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("LabelingJobName" Core..= labelingJobName)
           ]
       )
 
 instance Core.ToPath StopLabelingJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopLabelingJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopLabelingJobResponse' smart constructor.
 data StopLabelingJobResponse = StopLabelingJobResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopLabelingJobResponse' with all optional fields omitted.
@@ -125,4 +128,4 @@ newStopLabelingJobResponse ::
   StopLabelingJobResponse
 newStopLabelingJobResponse = StopLabelingJobResponse'
 
-instance Core.NFData StopLabelingJobResponse
+instance Prelude.NFData StopLabelingJobResponse

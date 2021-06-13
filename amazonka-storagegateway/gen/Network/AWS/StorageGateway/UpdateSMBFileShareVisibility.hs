@@ -43,17 +43,18 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'newUpdateSMBFileShareVisibility' smart constructor.
 data UpdateSMBFileShareVisibility = UpdateSMBFileShareVisibility'
-  { gatewayARN :: Core.Text,
+  { gatewayARN :: Prelude.Text,
     -- | The shares on this gateway appear when listing shares.
-    fileSharesVisible :: Core.Bool
+    fileSharesVisible :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSMBFileShareVisibility' with all optional fields omitted.
@@ -68,9 +69,9 @@ data UpdateSMBFileShareVisibility = UpdateSMBFileShareVisibility'
 -- 'fileSharesVisible', 'updateSMBFileShareVisibility_fileSharesVisible' - The shares on this gateway appear when listing shares.
 newUpdateSMBFileShareVisibility ::
   -- | 'gatewayARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'fileSharesVisible'
-  Core.Bool ->
+  Prelude.Bool ->
   UpdateSMBFileShareVisibility
 newUpdateSMBFileShareVisibility
   pGatewayARN_
@@ -82,11 +83,11 @@ newUpdateSMBFileShareVisibility
       }
 
 -- | Undocumented member.
-updateSMBFileShareVisibility_gatewayARN :: Lens.Lens' UpdateSMBFileShareVisibility Core.Text
+updateSMBFileShareVisibility_gatewayARN :: Lens.Lens' UpdateSMBFileShareVisibility Prelude.Text
 updateSMBFileShareVisibility_gatewayARN = Lens.lens (\UpdateSMBFileShareVisibility' {gatewayARN} -> gatewayARN) (\s@UpdateSMBFileShareVisibility' {} a -> s {gatewayARN = a} :: UpdateSMBFileShareVisibility)
 
 -- | The shares on this gateway appear when listing shares.
-updateSMBFileShareVisibility_fileSharesVisible :: Lens.Lens' UpdateSMBFileShareVisibility Core.Bool
+updateSMBFileShareVisibility_fileSharesVisible :: Lens.Lens' UpdateSMBFileShareVisibility Prelude.Bool
 updateSMBFileShareVisibility_fileSharesVisible = Lens.lens (\UpdateSMBFileShareVisibility' {fileSharesVisible} -> fileSharesVisible) (\s@UpdateSMBFileShareVisibility' {} a -> s {fileSharesVisible = a} :: UpdateSMBFileShareVisibility)
 
 instance Core.AWSRequest UpdateSMBFileShareVisibility where
@@ -98,50 +99,54 @@ instance Core.AWSRequest UpdateSMBFileShareVisibility where
     Response.receiveJSON
       ( \s h x ->
           UpdateSMBFileShareVisibilityResponse'
-            Core.<$> (x Core..?> "GatewayARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateSMBFileShareVisibility
+instance
+  Prelude.Hashable
+    UpdateSMBFileShareVisibility
 
-instance Core.NFData UpdateSMBFileShareVisibility
+instance Prelude.NFData UpdateSMBFileShareVisibility
 
 instance Core.ToHeaders UpdateSMBFileShareVisibility where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.UpdateSMBFileShareVisibility" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateSMBFileShareVisibility where
   toJSON UpdateSMBFileShareVisibility' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("GatewayARN" Core..= gatewayARN),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("GatewayARN" Core..= gatewayARN),
+            Prelude.Just
               ("FileSharesVisible" Core..= fileSharesVisible)
           ]
       )
 
 instance Core.ToPath UpdateSMBFileShareVisibility where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateSMBFileShareVisibility where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSMBFileShareVisibilityResponse' smart constructor.
 data UpdateSMBFileShareVisibilityResponse = UpdateSMBFileShareVisibilityResponse'
-  { gatewayARN :: Core.Maybe Core.Text,
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSMBFileShareVisibilityResponse' with all optional fields omitted.
@@ -156,23 +161,23 @@ data UpdateSMBFileShareVisibilityResponse = UpdateSMBFileShareVisibilityResponse
 -- 'httpStatus', 'updateSMBFileShareVisibilityResponse_httpStatus' - The response's http status code.
 newUpdateSMBFileShareVisibilityResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateSMBFileShareVisibilityResponse
 newUpdateSMBFileShareVisibilityResponse pHttpStatus_ =
   UpdateSMBFileShareVisibilityResponse'
     { gatewayARN =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-updateSMBFileShareVisibilityResponse_gatewayARN :: Lens.Lens' UpdateSMBFileShareVisibilityResponse (Core.Maybe Core.Text)
+updateSMBFileShareVisibilityResponse_gatewayARN :: Lens.Lens' UpdateSMBFileShareVisibilityResponse (Prelude.Maybe Prelude.Text)
 updateSMBFileShareVisibilityResponse_gatewayARN = Lens.lens (\UpdateSMBFileShareVisibilityResponse' {gatewayARN} -> gatewayARN) (\s@UpdateSMBFileShareVisibilityResponse' {} a -> s {gatewayARN = a} :: UpdateSMBFileShareVisibilityResponse)
 
 -- | The response's http status code.
-updateSMBFileShareVisibilityResponse_httpStatus :: Lens.Lens' UpdateSMBFileShareVisibilityResponse Core.Int
+updateSMBFileShareVisibilityResponse_httpStatus :: Lens.Lens' UpdateSMBFileShareVisibilityResponse Prelude.Int
 updateSMBFileShareVisibilityResponse_httpStatus = Lens.lens (\UpdateSMBFileShareVisibilityResponse' {httpStatus} -> httpStatus) (\s@UpdateSMBFileShareVisibilityResponse' {} a -> s {httpStatus = a} :: UpdateSMBFileShareVisibilityResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateSMBFileShareVisibilityResponse

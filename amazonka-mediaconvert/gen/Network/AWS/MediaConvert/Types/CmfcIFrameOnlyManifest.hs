@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Choose Include (INCLUDE) to have MediaConvert generate an HLS child
 -- manifest that lists only the I-frames for this rendition, in addition to
@@ -40,15 +41,15 @@ newtype CmfcIFrameOnlyManifest = CmfcIFrameOnlyManifest'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

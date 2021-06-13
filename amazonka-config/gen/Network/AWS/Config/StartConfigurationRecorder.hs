@@ -42,6 +42,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data StartConfigurationRecorder = StartConfigurationRecorder'
   { -- | The name of the recorder object that records each configuration change
     -- made to the resources.
-    configurationRecorderName :: Core.Text
+    configurationRecorderName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartConfigurationRecorder' with all optional fields omitted.
@@ -67,7 +68,7 @@ data StartConfigurationRecorder = StartConfigurationRecorder'
 -- made to the resources.
 newStartConfigurationRecorder ::
   -- | 'configurationRecorderName'
-  Core.Text ->
+  Prelude.Text ->
   StartConfigurationRecorder
 newStartConfigurationRecorder
   pConfigurationRecorderName_ =
@@ -78,7 +79,7 @@ newStartConfigurationRecorder
 
 -- | The name of the recorder object that records each configuration change
 -- made to the resources.
-startConfigurationRecorder_configurationRecorderName :: Lens.Lens' StartConfigurationRecorder Core.Text
+startConfigurationRecorder_configurationRecorderName :: Lens.Lens' StartConfigurationRecorder Prelude.Text
 startConfigurationRecorder_configurationRecorderName = Lens.lens (\StartConfigurationRecorder' {configurationRecorderName} -> configurationRecorderName) (\s@StartConfigurationRecorder' {} a -> s {configurationRecorderName = a} :: StartConfigurationRecorder)
 
 instance Core.AWSRequest StartConfigurationRecorder where
@@ -90,28 +91,30 @@ instance Core.AWSRequest StartConfigurationRecorder where
     Response.receiveNull
       StartConfigurationRecorderResponse'
 
-instance Core.Hashable StartConfigurationRecorder
+instance Prelude.Hashable StartConfigurationRecorder
 
-instance Core.NFData StartConfigurationRecorder
+instance Prelude.NFData StartConfigurationRecorder
 
 instance Core.ToHeaders StartConfigurationRecorder where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.StartConfigurationRecorder" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartConfigurationRecorder where
   toJSON StartConfigurationRecorder' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "ConfigurationRecorderName"
                   Core..= configurationRecorderName
               )
@@ -119,16 +122,16 @@ instance Core.ToJSON StartConfigurationRecorder where
       )
 
 instance Core.ToPath StartConfigurationRecorder where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartConfigurationRecorder where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartConfigurationRecorderResponse' smart constructor.
 data StartConfigurationRecorderResponse = StartConfigurationRecorderResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartConfigurationRecorderResponse' with all optional fields omitted.
@@ -140,5 +143,5 @@ newStartConfigurationRecorderResponse =
   StartConfigurationRecorderResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     StartConfigurationRecorderResponse

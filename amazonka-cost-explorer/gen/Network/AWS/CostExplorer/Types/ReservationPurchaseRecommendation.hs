@@ -28,6 +28,7 @@ import Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationSummary
 import Network.AWS.CostExplorer.Types.ServiceSpecification
 import Network.AWS.CostExplorer.Types.TermInYears
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A specific reservation that AWS recommends for purchase.
 --
@@ -35,25 +36,25 @@ import qualified Network.AWS.Lens as Lens
 data ReservationPurchaseRecommendation = ReservationPurchaseRecommendation'
   { -- | The payment option for the reservation. For example, @AllUpfront@ or
     -- @NoUpfront@.
-    paymentOption :: Core.Maybe PaymentOption,
+    paymentOption :: Prelude.Maybe PaymentOption,
     -- | The account scope that AWS recommends that you purchase this instance
     -- for. For example, you can purchase this reservation for an entire
     -- organization in AWS Organizations.
-    accountScope :: Core.Maybe AccountScope,
+    accountScope :: Prelude.Maybe AccountScope,
     -- | Details about the recommended purchases.
-    recommendationDetails :: Core.Maybe [ReservationPurchaseRecommendationDetail],
+    recommendationDetails :: Prelude.Maybe [ReservationPurchaseRecommendationDetail],
     -- | Hardware specifications for the service that you want recommendations
     -- for.
-    serviceSpecification :: Core.Maybe ServiceSpecification,
+    serviceSpecification :: Prelude.Maybe ServiceSpecification,
     -- | The term of the reservation that you want recommendations for, in years.
-    termInYears :: Core.Maybe TermInYears,
+    termInYears :: Prelude.Maybe TermInYears,
     -- | A summary about the recommended purchase.
-    recommendationSummary :: Core.Maybe ReservationPurchaseRecommendationSummary,
+    recommendationSummary :: Prelude.Maybe ReservationPurchaseRecommendationSummary,
     -- | How many days of previous usage that AWS considers when making this
     -- recommendation.
-    lookbackPeriodInDays :: Core.Maybe LookbackPeriodInDays
+    lookbackPeriodInDays :: Prelude.Maybe LookbackPeriodInDays
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReservationPurchaseRecommendation' with all optional fields omitted.
@@ -86,46 +87,46 @@ newReservationPurchaseRecommendation ::
 newReservationPurchaseRecommendation =
   ReservationPurchaseRecommendation'
     { paymentOption =
-        Core.Nothing,
-      accountScope = Core.Nothing,
-      recommendationDetails = Core.Nothing,
-      serviceSpecification = Core.Nothing,
-      termInYears = Core.Nothing,
-      recommendationSummary = Core.Nothing,
-      lookbackPeriodInDays = Core.Nothing
+        Prelude.Nothing,
+      accountScope = Prelude.Nothing,
+      recommendationDetails = Prelude.Nothing,
+      serviceSpecification = Prelude.Nothing,
+      termInYears = Prelude.Nothing,
+      recommendationSummary = Prelude.Nothing,
+      lookbackPeriodInDays = Prelude.Nothing
     }
 
 -- | The payment option for the reservation. For example, @AllUpfront@ or
 -- @NoUpfront@.
-reservationPurchaseRecommendation_paymentOption :: Lens.Lens' ReservationPurchaseRecommendation (Core.Maybe PaymentOption)
+reservationPurchaseRecommendation_paymentOption :: Lens.Lens' ReservationPurchaseRecommendation (Prelude.Maybe PaymentOption)
 reservationPurchaseRecommendation_paymentOption = Lens.lens (\ReservationPurchaseRecommendation' {paymentOption} -> paymentOption) (\s@ReservationPurchaseRecommendation' {} a -> s {paymentOption = a} :: ReservationPurchaseRecommendation)
 
 -- | The account scope that AWS recommends that you purchase this instance
 -- for. For example, you can purchase this reservation for an entire
 -- organization in AWS Organizations.
-reservationPurchaseRecommendation_accountScope :: Lens.Lens' ReservationPurchaseRecommendation (Core.Maybe AccountScope)
+reservationPurchaseRecommendation_accountScope :: Lens.Lens' ReservationPurchaseRecommendation (Prelude.Maybe AccountScope)
 reservationPurchaseRecommendation_accountScope = Lens.lens (\ReservationPurchaseRecommendation' {accountScope} -> accountScope) (\s@ReservationPurchaseRecommendation' {} a -> s {accountScope = a} :: ReservationPurchaseRecommendation)
 
 -- | Details about the recommended purchases.
-reservationPurchaseRecommendation_recommendationDetails :: Lens.Lens' ReservationPurchaseRecommendation (Core.Maybe [ReservationPurchaseRecommendationDetail])
-reservationPurchaseRecommendation_recommendationDetails = Lens.lens (\ReservationPurchaseRecommendation' {recommendationDetails} -> recommendationDetails) (\s@ReservationPurchaseRecommendation' {} a -> s {recommendationDetails = a} :: ReservationPurchaseRecommendation) Core.. Lens.mapping Lens._Coerce
+reservationPurchaseRecommendation_recommendationDetails :: Lens.Lens' ReservationPurchaseRecommendation (Prelude.Maybe [ReservationPurchaseRecommendationDetail])
+reservationPurchaseRecommendation_recommendationDetails = Lens.lens (\ReservationPurchaseRecommendation' {recommendationDetails} -> recommendationDetails) (\s@ReservationPurchaseRecommendation' {} a -> s {recommendationDetails = a} :: ReservationPurchaseRecommendation) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Hardware specifications for the service that you want recommendations
 -- for.
-reservationPurchaseRecommendation_serviceSpecification :: Lens.Lens' ReservationPurchaseRecommendation (Core.Maybe ServiceSpecification)
+reservationPurchaseRecommendation_serviceSpecification :: Lens.Lens' ReservationPurchaseRecommendation (Prelude.Maybe ServiceSpecification)
 reservationPurchaseRecommendation_serviceSpecification = Lens.lens (\ReservationPurchaseRecommendation' {serviceSpecification} -> serviceSpecification) (\s@ReservationPurchaseRecommendation' {} a -> s {serviceSpecification = a} :: ReservationPurchaseRecommendation)
 
 -- | The term of the reservation that you want recommendations for, in years.
-reservationPurchaseRecommendation_termInYears :: Lens.Lens' ReservationPurchaseRecommendation (Core.Maybe TermInYears)
+reservationPurchaseRecommendation_termInYears :: Lens.Lens' ReservationPurchaseRecommendation (Prelude.Maybe TermInYears)
 reservationPurchaseRecommendation_termInYears = Lens.lens (\ReservationPurchaseRecommendation' {termInYears} -> termInYears) (\s@ReservationPurchaseRecommendation' {} a -> s {termInYears = a} :: ReservationPurchaseRecommendation)
 
 -- | A summary about the recommended purchase.
-reservationPurchaseRecommendation_recommendationSummary :: Lens.Lens' ReservationPurchaseRecommendation (Core.Maybe ReservationPurchaseRecommendationSummary)
+reservationPurchaseRecommendation_recommendationSummary :: Lens.Lens' ReservationPurchaseRecommendation (Prelude.Maybe ReservationPurchaseRecommendationSummary)
 reservationPurchaseRecommendation_recommendationSummary = Lens.lens (\ReservationPurchaseRecommendation' {recommendationSummary} -> recommendationSummary) (\s@ReservationPurchaseRecommendation' {} a -> s {recommendationSummary = a} :: ReservationPurchaseRecommendation)
 
 -- | How many days of previous usage that AWS considers when making this
 -- recommendation.
-reservationPurchaseRecommendation_lookbackPeriodInDays :: Lens.Lens' ReservationPurchaseRecommendation (Core.Maybe LookbackPeriodInDays)
+reservationPurchaseRecommendation_lookbackPeriodInDays :: Lens.Lens' ReservationPurchaseRecommendation (Prelude.Maybe LookbackPeriodInDays)
 reservationPurchaseRecommendation_lookbackPeriodInDays = Lens.lens (\ReservationPurchaseRecommendation' {lookbackPeriodInDays} -> lookbackPeriodInDays) (\s@ReservationPurchaseRecommendation' {} a -> s {lookbackPeriodInDays = a} :: ReservationPurchaseRecommendation)
 
 instance
@@ -137,21 +138,21 @@ instance
       "ReservationPurchaseRecommendation"
       ( \x ->
           ReservationPurchaseRecommendation'
-            Core.<$> (x Core..:? "PaymentOption")
-            Core.<*> (x Core..:? "AccountScope")
-            Core.<*> ( x Core..:? "RecommendationDetails"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "ServiceSpecification")
-            Core.<*> (x Core..:? "TermInYears")
-            Core.<*> (x Core..:? "RecommendationSummary")
-            Core.<*> (x Core..:? "LookbackPeriodInDays")
+            Prelude.<$> (x Core..:? "PaymentOption")
+            Prelude.<*> (x Core..:? "AccountScope")
+            Prelude.<*> ( x Core..:? "RecommendationDetails"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "ServiceSpecification")
+            Prelude.<*> (x Core..:? "TermInYears")
+            Prelude.<*> (x Core..:? "RecommendationSummary")
+            Prelude.<*> (x Core..:? "LookbackPeriodInDays")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ReservationPurchaseRecommendation
 
 instance
-  Core.NFData
+  Prelude.NFData
     ReservationPurchaseRecommendation

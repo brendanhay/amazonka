@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.KafkaAction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon
 -- MSK) or self-managed Apache Kafka cluster.
@@ -28,17 +29,17 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newKafkaAction' smart constructor.
 data KafkaAction = KafkaAction'
   { -- | The Kafka message key.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | The Kafka message partition.
-    partition :: Core.Maybe Core.Text,
+    partition :: Prelude.Maybe Prelude.Text,
     -- | The ARN of Kafka action\'s VPC @TopicRuleDestination@.
-    destinationArn :: Core.Text,
+    destinationArn :: Prelude.Text,
     -- | The Kafka topic for messages to be sent to the Kafka broker.
-    topic :: Core.Text,
+    topic :: Prelude.Text,
     -- | Properties of the Apache Kafka producer client.
-    clientProperties :: Core.HashMap Core.Text Core.Text
+    clientProperties :: Prelude.HashMap Prelude.Text Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KafkaAction' with all optional fields omitted.
@@ -59,38 +60,38 @@ data KafkaAction = KafkaAction'
 -- 'clientProperties', 'kafkaAction_clientProperties' - Properties of the Apache Kafka producer client.
 newKafkaAction ::
   -- | 'destinationArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'topic'
-  Core.Text ->
+  Prelude.Text ->
   KafkaAction
 newKafkaAction pDestinationArn_ pTopic_ =
   KafkaAction'
-    { key = Core.Nothing,
-      partition = Core.Nothing,
+    { key = Prelude.Nothing,
+      partition = Prelude.Nothing,
       destinationArn = pDestinationArn_,
       topic = pTopic_,
-      clientProperties = Core.mempty
+      clientProperties = Prelude.mempty
     }
 
 -- | The Kafka message key.
-kafkaAction_key :: Lens.Lens' KafkaAction (Core.Maybe Core.Text)
+kafkaAction_key :: Lens.Lens' KafkaAction (Prelude.Maybe Prelude.Text)
 kafkaAction_key = Lens.lens (\KafkaAction' {key} -> key) (\s@KafkaAction' {} a -> s {key = a} :: KafkaAction)
 
 -- | The Kafka message partition.
-kafkaAction_partition :: Lens.Lens' KafkaAction (Core.Maybe Core.Text)
+kafkaAction_partition :: Lens.Lens' KafkaAction (Prelude.Maybe Prelude.Text)
 kafkaAction_partition = Lens.lens (\KafkaAction' {partition} -> partition) (\s@KafkaAction' {} a -> s {partition = a} :: KafkaAction)
 
 -- | The ARN of Kafka action\'s VPC @TopicRuleDestination@.
-kafkaAction_destinationArn :: Lens.Lens' KafkaAction Core.Text
+kafkaAction_destinationArn :: Lens.Lens' KafkaAction Prelude.Text
 kafkaAction_destinationArn = Lens.lens (\KafkaAction' {destinationArn} -> destinationArn) (\s@KafkaAction' {} a -> s {destinationArn = a} :: KafkaAction)
 
 -- | The Kafka topic for messages to be sent to the Kafka broker.
-kafkaAction_topic :: Lens.Lens' KafkaAction Core.Text
+kafkaAction_topic :: Lens.Lens' KafkaAction Prelude.Text
 kafkaAction_topic = Lens.lens (\KafkaAction' {topic} -> topic) (\s@KafkaAction' {} a -> s {topic = a} :: KafkaAction)
 
 -- | Properties of the Apache Kafka producer client.
-kafkaAction_clientProperties :: Lens.Lens' KafkaAction (Core.HashMap Core.Text Core.Text)
-kafkaAction_clientProperties = Lens.lens (\KafkaAction' {clientProperties} -> clientProperties) (\s@KafkaAction' {} a -> s {clientProperties = a} :: KafkaAction) Core.. Lens._Coerce
+kafkaAction_clientProperties :: Lens.Lens' KafkaAction (Prelude.HashMap Prelude.Text Prelude.Text)
+kafkaAction_clientProperties = Lens.lens (\KafkaAction' {clientProperties} -> clientProperties) (\s@KafkaAction' {} a -> s {clientProperties = a} :: KafkaAction) Prelude.. Lens._Coerce
 
 instance Core.FromJSON KafkaAction where
   parseJSON =
@@ -98,26 +99,29 @@ instance Core.FromJSON KafkaAction where
       "KafkaAction"
       ( \x ->
           KafkaAction'
-            Core.<$> (x Core..:? "key")
-            Core.<*> (x Core..:? "partition")
-            Core.<*> (x Core..: "destinationArn")
-            Core.<*> (x Core..: "topic")
-            Core.<*> (x Core..:? "clientProperties" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "key")
+            Prelude.<*> (x Core..:? "partition")
+            Prelude.<*> (x Core..: "destinationArn")
+            Prelude.<*> (x Core..: "topic")
+            Prelude.<*> ( x Core..:? "clientProperties"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable KafkaAction
+instance Prelude.Hashable KafkaAction
 
-instance Core.NFData KafkaAction
+instance Prelude.NFData KafkaAction
 
 instance Core.ToJSON KafkaAction where
   toJSON KafkaAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("key" Core..=) Core.<$> key,
-            ("partition" Core..=) Core.<$> partition,
-            Core.Just ("destinationArn" Core..= destinationArn),
-            Core.Just ("topic" Core..= topic),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("key" Core..=) Prelude.<$> key,
+            ("partition" Core..=) Prelude.<$> partition,
+            Prelude.Just
+              ("destinationArn" Core..= destinationArn),
+            Prelude.Just ("topic" Core..= topic),
+            Prelude.Just
               ("clientProperties" Core..= clientProperties)
           ]
       )

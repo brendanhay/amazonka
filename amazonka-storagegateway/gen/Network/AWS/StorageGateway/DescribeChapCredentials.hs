@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -56,9 +57,9 @@ data DescribeChapCredentials = DescribeChapCredentials'
   { -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
     -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
     -- for specified VolumeARN.
-    targetARN :: Core.Text
+    targetARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeChapCredentials' with all optional fields omitted.
@@ -73,7 +74,7 @@ data DescribeChapCredentials = DescribeChapCredentials'
 -- for specified VolumeARN.
 newDescribeChapCredentials ::
   -- | 'targetARN'
-  Core.Text ->
+  Prelude.Text ->
   DescribeChapCredentials
 newDescribeChapCredentials pTargetARN_ =
   DescribeChapCredentials' {targetARN = pTargetARN_}
@@ -81,7 +82,7 @@ newDescribeChapCredentials pTargetARN_ =
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
-describeChapCredentials_targetARN :: Lens.Lens' DescribeChapCredentials Core.Text
+describeChapCredentials_targetARN :: Lens.Lens' DescribeChapCredentials Prelude.Text
 describeChapCredentials_targetARN = Lens.lens (\DescribeChapCredentials' {targetARN} -> targetARN) (\s@DescribeChapCredentials' {} a -> s {targetARN = a} :: DescribeChapCredentials)
 
 instance Core.AWSRequest DescribeChapCredentials where
@@ -93,39 +94,43 @@ instance Core.AWSRequest DescribeChapCredentials where
     Response.receiveJSON
       ( \s h x ->
           DescribeChapCredentialsResponse'
-            Core.<$> (x Core..?> "ChapCredentials" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "ChapCredentials"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeChapCredentials
+instance Prelude.Hashable DescribeChapCredentials
 
-instance Core.NFData DescribeChapCredentials
+instance Prelude.NFData DescribeChapCredentials
 
 instance Core.ToHeaders DescribeChapCredentials where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.DescribeChapCredentials" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeChapCredentials where
   toJSON DescribeChapCredentials' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("TargetARN" Core..= targetARN)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("TargetARN" Core..= targetARN)]
       )
 
 instance Core.ToPath DescribeChapCredentials where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeChapCredentials where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the following fields:
 --
@@ -148,11 +153,11 @@ data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'
     --     Windows client).
     --
     -- -   __TargetARN__: The Amazon Resource Name (ARN) of the storage volume.
-    chapCredentials :: Core.Maybe [ChapInfo],
+    chapCredentials :: Prelude.Maybe [ChapInfo],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeChapCredentialsResponse' with all optional fields omitted.
@@ -183,12 +188,12 @@ data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'
 -- 'httpStatus', 'describeChapCredentialsResponse_httpStatus' - The response's http status code.
 newDescribeChapCredentialsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeChapCredentialsResponse
 newDescribeChapCredentialsResponse pHttpStatus_ =
   DescribeChapCredentialsResponse'
     { chapCredentials =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -209,11 +214,13 @@ newDescribeChapCredentialsResponse pHttpStatus_ =
 --     Windows client).
 --
 -- -   __TargetARN__: The Amazon Resource Name (ARN) of the storage volume.
-describeChapCredentialsResponse_chapCredentials :: Lens.Lens' DescribeChapCredentialsResponse (Core.Maybe [ChapInfo])
-describeChapCredentialsResponse_chapCredentials = Lens.lens (\DescribeChapCredentialsResponse' {chapCredentials} -> chapCredentials) (\s@DescribeChapCredentialsResponse' {} a -> s {chapCredentials = a} :: DescribeChapCredentialsResponse) Core.. Lens.mapping Lens._Coerce
+describeChapCredentialsResponse_chapCredentials :: Lens.Lens' DescribeChapCredentialsResponse (Prelude.Maybe [ChapInfo])
+describeChapCredentialsResponse_chapCredentials = Lens.lens (\DescribeChapCredentialsResponse' {chapCredentials} -> chapCredentials) (\s@DescribeChapCredentialsResponse' {} a -> s {chapCredentials = a} :: DescribeChapCredentialsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeChapCredentialsResponse_httpStatus :: Lens.Lens' DescribeChapCredentialsResponse Core.Int
+describeChapCredentialsResponse_httpStatus :: Lens.Lens' DescribeChapCredentialsResponse Prelude.Int
 describeChapCredentialsResponse_httpStatus = Lens.lens (\DescribeChapCredentialsResponse' {httpStatus} -> httpStatus) (\s@DescribeChapCredentialsResponse' {} a -> s {httpStatus = a} :: DescribeChapCredentialsResponse)
 
-instance Core.NFData DescribeChapCredentialsResponse
+instance
+  Prelude.NFData
+    DescribeChapCredentialsResponse

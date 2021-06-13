@@ -39,6 +39,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -87,11 +88,11 @@ import qualified Network.AWS.Response as Response
 data DeleteDistribution = DeleteDistribution'
   { -- | The value of the @ETag@ header that you received when you disabled the
     -- distribution. For example: @E2QWRUHAPOMQZL@.
-    ifMatch :: Core.Maybe Core.Text,
+    ifMatch :: Prelude.Maybe Prelude.Text,
     -- | The distribution ID.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDistribution' with all optional fields omitted.
@@ -107,21 +108,21 @@ data DeleteDistribution = DeleteDistribution'
 -- 'id', 'deleteDistribution_id' - The distribution ID.
 newDeleteDistribution ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDistribution
 newDeleteDistribution pId_ =
   DeleteDistribution'
-    { ifMatch = Core.Nothing,
+    { ifMatch = Prelude.Nothing,
       id = pId_
     }
 
 -- | The value of the @ETag@ header that you received when you disabled the
 -- distribution. For example: @E2QWRUHAPOMQZL@.
-deleteDistribution_ifMatch :: Lens.Lens' DeleteDistribution (Core.Maybe Core.Text)
+deleteDistribution_ifMatch :: Lens.Lens' DeleteDistribution (Prelude.Maybe Prelude.Text)
 deleteDistribution_ifMatch = Lens.lens (\DeleteDistribution' {ifMatch} -> ifMatch) (\s@DeleteDistribution' {} a -> s {ifMatch = a} :: DeleteDistribution)
 
 -- | The distribution ID.
-deleteDistribution_id :: Lens.Lens' DeleteDistribution Core.Text
+deleteDistribution_id :: Lens.Lens' DeleteDistribution Prelude.Text
 deleteDistribution_id = Lens.lens (\DeleteDistribution' {id} -> id) (\s@DeleteDistribution' {} a -> s {id = a} :: DeleteDistribution)
 
 instance Core.AWSRequest DeleteDistribution where
@@ -132,27 +133,27 @@ instance Core.AWSRequest DeleteDistribution where
   response =
     Response.receiveNull DeleteDistributionResponse'
 
-instance Core.Hashable DeleteDistribution
+instance Prelude.Hashable DeleteDistribution
 
-instance Core.NFData DeleteDistribution
+instance Prelude.NFData DeleteDistribution
 
 instance Core.ToHeaders DeleteDistribution where
   toHeaders DeleteDistribution' {..} =
-    Core.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Core.=# ifMatch]
 
 instance Core.ToPath DeleteDistribution where
   toPath DeleteDistribution' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2020-05-31/distribution/", Core.toBS id]
 
 instance Core.ToQuery DeleteDistribution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDistributionResponse' smart constructor.
 data DeleteDistributionResponse = DeleteDistributionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDistributionResponse' with all optional fields omitted.
@@ -163,4 +164,4 @@ newDeleteDistributionResponse ::
 newDeleteDistributionResponse =
   DeleteDistributionResponse'
 
-instance Core.NFData DeleteDistributionResponse
+instance Prelude.NFData DeleteDistributionResponse

@@ -41,6 +41,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,7 +49,7 @@ import qualified Network.AWS.Response as Response
 data GetAccountBalance = GetAccountBalance'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccountBalance' with all optional fields omitted.
@@ -67,45 +68,47 @@ instance Core.AWSRequest GetAccountBalance where
     Response.receiveJSON
       ( \s h x ->
           GetAccountBalanceResponse'
-            Core.<$> (x Core..?> "OnHoldBalance")
-            Core.<*> (x Core..?> "AvailableBalance")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "OnHoldBalance")
+            Prelude.<*> (x Core..?> "AvailableBalance")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetAccountBalance
+instance Prelude.Hashable GetAccountBalance
 
-instance Core.NFData GetAccountBalance
+instance Prelude.NFData GetAccountBalance
 
 instance Core.ToHeaders GetAccountBalance where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MTurkRequesterServiceV20170117.GetAccountBalance" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetAccountBalance where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath GetAccountBalance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetAccountBalance where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAccountBalanceResponse' smart constructor.
 data GetAccountBalanceResponse = GetAccountBalanceResponse'
-  { onHoldBalance :: Core.Maybe Core.Text,
-    availableBalance :: Core.Maybe Core.Text,
+  { onHoldBalance :: Prelude.Maybe Prelude.Text,
+    availableBalance :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccountBalanceResponse' with all optional fields omitted.
@@ -122,26 +125,26 @@ data GetAccountBalanceResponse = GetAccountBalanceResponse'
 -- 'httpStatus', 'getAccountBalanceResponse_httpStatus' - The response's http status code.
 newGetAccountBalanceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetAccountBalanceResponse
 newGetAccountBalanceResponse pHttpStatus_ =
   GetAccountBalanceResponse'
     { onHoldBalance =
-        Core.Nothing,
-      availableBalance = Core.Nothing,
+        Prelude.Nothing,
+      availableBalance = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-getAccountBalanceResponse_onHoldBalance :: Lens.Lens' GetAccountBalanceResponse (Core.Maybe Core.Text)
+getAccountBalanceResponse_onHoldBalance :: Lens.Lens' GetAccountBalanceResponse (Prelude.Maybe Prelude.Text)
 getAccountBalanceResponse_onHoldBalance = Lens.lens (\GetAccountBalanceResponse' {onHoldBalance} -> onHoldBalance) (\s@GetAccountBalanceResponse' {} a -> s {onHoldBalance = a} :: GetAccountBalanceResponse)
 
 -- | Undocumented member.
-getAccountBalanceResponse_availableBalance :: Lens.Lens' GetAccountBalanceResponse (Core.Maybe Core.Text)
+getAccountBalanceResponse_availableBalance :: Lens.Lens' GetAccountBalanceResponse (Prelude.Maybe Prelude.Text)
 getAccountBalanceResponse_availableBalance = Lens.lens (\GetAccountBalanceResponse' {availableBalance} -> availableBalance) (\s@GetAccountBalanceResponse' {} a -> s {availableBalance = a} :: GetAccountBalanceResponse)
 
 -- | The response's http status code.
-getAccountBalanceResponse_httpStatus :: Lens.Lens' GetAccountBalanceResponse Core.Int
+getAccountBalanceResponse_httpStatus :: Lens.Lens' GetAccountBalanceResponse Prelude.Int
 getAccountBalanceResponse_httpStatus = Lens.lens (\GetAccountBalanceResponse' {httpStatus} -> httpStatus) (\s@GetAccountBalanceResponse' {} a -> s {httpStatus = a} :: GetAccountBalanceResponse)
 
-instance Core.NFData GetAccountBalanceResponse
+instance Prelude.NFData GetAccountBalanceResponse

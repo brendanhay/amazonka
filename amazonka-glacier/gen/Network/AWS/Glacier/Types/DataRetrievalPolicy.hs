@@ -22,6 +22,7 @@ module Network.AWS.Glacier.Types.DataRetrievalPolicy where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types.DataRetrievalRule
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Data retrieval policy.
 --
@@ -30,9 +31,9 @@ data DataRetrievalPolicy = DataRetrievalPolicy'
   { -- | The policy rule. Although this is a list type, currently there must be
     -- only one rule, which contains a Strategy field and optionally a
     -- BytesPerHour field.
-    rules :: Core.Maybe [DataRetrievalRule]
+    rules :: Prelude.Maybe [DataRetrievalRule]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DataRetrievalPolicy' with all optional fields omitted.
@@ -48,13 +49,13 @@ data DataRetrievalPolicy = DataRetrievalPolicy'
 newDataRetrievalPolicy ::
   DataRetrievalPolicy
 newDataRetrievalPolicy =
-  DataRetrievalPolicy' {rules = Core.Nothing}
+  DataRetrievalPolicy' {rules = Prelude.Nothing}
 
 -- | The policy rule. Although this is a list type, currently there must be
 -- only one rule, which contains a Strategy field and optionally a
 -- BytesPerHour field.
-dataRetrievalPolicy_rules :: Lens.Lens' DataRetrievalPolicy (Core.Maybe [DataRetrievalRule])
-dataRetrievalPolicy_rules = Lens.lens (\DataRetrievalPolicy' {rules} -> rules) (\s@DataRetrievalPolicy' {} a -> s {rules = a} :: DataRetrievalPolicy) Core.. Lens.mapping Lens._Coerce
+dataRetrievalPolicy_rules :: Lens.Lens' DataRetrievalPolicy (Prelude.Maybe [DataRetrievalRule])
+dataRetrievalPolicy_rules = Lens.lens (\DataRetrievalPolicy' {rules} -> rules) (\s@DataRetrievalPolicy' {} a -> s {rules = a} :: DataRetrievalPolicy) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON DataRetrievalPolicy where
   parseJSON =
@@ -62,14 +63,16 @@ instance Core.FromJSON DataRetrievalPolicy where
       "DataRetrievalPolicy"
       ( \x ->
           DataRetrievalPolicy'
-            Core.<$> (x Core..:? "Rules" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Rules" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable DataRetrievalPolicy
+instance Prelude.Hashable DataRetrievalPolicy
 
-instance Core.NFData DataRetrievalPolicy
+instance Prelude.NFData DataRetrievalPolicy
 
 instance Core.ToJSON DataRetrievalPolicy where
   toJSON DataRetrievalPolicy' {..} =
     Core.object
-      (Core.catMaybes [("Rules" Core..=) Core.<$> rules])
+      ( Prelude.catMaybes
+          [("Rules" Core..=) Prelude.<$> rules]
+      )

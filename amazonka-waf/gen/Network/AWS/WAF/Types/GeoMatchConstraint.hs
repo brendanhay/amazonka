@@ -21,6 +21,7 @@ module Network.AWS.WAF.Types.GeoMatchConstraint where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.GeoMatchConstraintType
 import Network.AWS.WAF.Types.GeoMatchConstraintValue
 
@@ -44,7 +45,7 @@ data GeoMatchConstraint = GeoMatchConstraint'
     -- | The country that you want AWS WAF to search for.
     value :: GeoMatchConstraintValue
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GeoMatchConstraint' with all optional fields omitted.
@@ -85,18 +86,18 @@ instance Core.FromJSON GeoMatchConstraint where
       "GeoMatchConstraint"
       ( \x ->
           GeoMatchConstraint'
-            Core.<$> (x Core..: "Type") Core.<*> (x Core..: "Value")
+            Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Value")
       )
 
-instance Core.Hashable GeoMatchConstraint
+instance Prelude.Hashable GeoMatchConstraint
 
-instance Core.NFData GeoMatchConstraint
+instance Prelude.NFData GeoMatchConstraint
 
 instance Core.ToJSON GeoMatchConstraint where
   toJSON GeoMatchConstraint' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Type" Core..= type'),
-            Core.Just ("Value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Type" Core..= type'),
+            Prelude.Just ("Value" Core..= value)
           ]
       )

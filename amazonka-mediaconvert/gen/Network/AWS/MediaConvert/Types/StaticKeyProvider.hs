@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.StaticKeyProvider where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Use these settings to set up encryption with a static key provider.
 --
@@ -29,18 +30,18 @@ data StaticKeyProvider = StaticKeyProvider'
   { -- | Relates to DRM implementation. Sets the value of the KEYFORMAT
     -- attribute. Must be \'identity\' or a reverse DNS string. May be omitted
     -- to indicate an implicit value of \'identity\'.
-    keyFormat :: Core.Maybe Core.Text,
+    keyFormat :: Prelude.Maybe Prelude.Text,
     -- | Relates to DRM implementation. Use a 32-character hexidecimal string to
     -- specify Key Value (StaticKeyValue).
-    staticKeyValue :: Core.Maybe Core.Text,
+    staticKeyValue :: Prelude.Maybe Prelude.Text,
     -- | Relates to DRM implementation. The location of the license server used
     -- for protecting content.
-    url :: Core.Maybe Core.Text,
+    url :: Prelude.Maybe Prelude.Text,
     -- | Relates to DRM implementation. Either a single positive integer version
     -- value or a slash delimited list of version values (1\/2\/3).
-    keyFormatVersions :: Core.Maybe Core.Text
+    keyFormatVersions :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StaticKeyProvider' with all optional fields omitted.
@@ -66,31 +67,31 @@ newStaticKeyProvider ::
   StaticKeyProvider
 newStaticKeyProvider =
   StaticKeyProvider'
-    { keyFormat = Core.Nothing,
-      staticKeyValue = Core.Nothing,
-      url = Core.Nothing,
-      keyFormatVersions = Core.Nothing
+    { keyFormat = Prelude.Nothing,
+      staticKeyValue = Prelude.Nothing,
+      url = Prelude.Nothing,
+      keyFormatVersions = Prelude.Nothing
     }
 
 -- | Relates to DRM implementation. Sets the value of the KEYFORMAT
 -- attribute. Must be \'identity\' or a reverse DNS string. May be omitted
 -- to indicate an implicit value of \'identity\'.
-staticKeyProvider_keyFormat :: Lens.Lens' StaticKeyProvider (Core.Maybe Core.Text)
+staticKeyProvider_keyFormat :: Lens.Lens' StaticKeyProvider (Prelude.Maybe Prelude.Text)
 staticKeyProvider_keyFormat = Lens.lens (\StaticKeyProvider' {keyFormat} -> keyFormat) (\s@StaticKeyProvider' {} a -> s {keyFormat = a} :: StaticKeyProvider)
 
 -- | Relates to DRM implementation. Use a 32-character hexidecimal string to
 -- specify Key Value (StaticKeyValue).
-staticKeyProvider_staticKeyValue :: Lens.Lens' StaticKeyProvider (Core.Maybe Core.Text)
+staticKeyProvider_staticKeyValue :: Lens.Lens' StaticKeyProvider (Prelude.Maybe Prelude.Text)
 staticKeyProvider_staticKeyValue = Lens.lens (\StaticKeyProvider' {staticKeyValue} -> staticKeyValue) (\s@StaticKeyProvider' {} a -> s {staticKeyValue = a} :: StaticKeyProvider)
 
 -- | Relates to DRM implementation. The location of the license server used
 -- for protecting content.
-staticKeyProvider_url :: Lens.Lens' StaticKeyProvider (Core.Maybe Core.Text)
+staticKeyProvider_url :: Lens.Lens' StaticKeyProvider (Prelude.Maybe Prelude.Text)
 staticKeyProvider_url = Lens.lens (\StaticKeyProvider' {url} -> url) (\s@StaticKeyProvider' {} a -> s {url = a} :: StaticKeyProvider)
 
 -- | Relates to DRM implementation. Either a single positive integer version
 -- value or a slash delimited list of version values (1\/2\/3).
-staticKeyProvider_keyFormatVersions :: Lens.Lens' StaticKeyProvider (Core.Maybe Core.Text)
+staticKeyProvider_keyFormatVersions :: Lens.Lens' StaticKeyProvider (Prelude.Maybe Prelude.Text)
 staticKeyProvider_keyFormatVersions = Lens.lens (\StaticKeyProvider' {keyFormatVersions} -> keyFormatVersions) (\s@StaticKeyProvider' {} a -> s {keyFormatVersions = a} :: StaticKeyProvider)
 
 instance Core.FromJSON StaticKeyProvider where
@@ -99,24 +100,25 @@ instance Core.FromJSON StaticKeyProvider where
       "StaticKeyProvider"
       ( \x ->
           StaticKeyProvider'
-            Core.<$> (x Core..:? "keyFormat")
-            Core.<*> (x Core..:? "staticKeyValue")
-            Core.<*> (x Core..:? "url")
-            Core.<*> (x Core..:? "keyFormatVersions")
+            Prelude.<$> (x Core..:? "keyFormat")
+            Prelude.<*> (x Core..:? "staticKeyValue")
+            Prelude.<*> (x Core..:? "url")
+            Prelude.<*> (x Core..:? "keyFormatVersions")
       )
 
-instance Core.Hashable StaticKeyProvider
+instance Prelude.Hashable StaticKeyProvider
 
-instance Core.NFData StaticKeyProvider
+instance Prelude.NFData StaticKeyProvider
 
 instance Core.ToJSON StaticKeyProvider where
   toJSON StaticKeyProvider' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("keyFormat" Core..=) Core.<$> keyFormat,
-            ("staticKeyValue" Core..=) Core.<$> staticKeyValue,
-            ("url" Core..=) Core.<$> url,
+      ( Prelude.catMaybes
+          [ ("keyFormat" Core..=) Prelude.<$> keyFormat,
+            ("staticKeyValue" Core..=)
+              Prelude.<$> staticKeyValue,
+            ("url" Core..=) Prelude.<$> url,
             ("keyFormatVersions" Core..=)
-              Core.<$> keyFormatVersions
+              Prelude.<$> keyFormatVersions
           ]
       )

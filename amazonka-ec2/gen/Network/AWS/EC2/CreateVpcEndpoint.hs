@@ -75,6 +75,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,29 +85,29 @@ import qualified Network.AWS.Response as Response
 data CreateVpcEndpoint = CreateVpcEndpoint'
   { -- | (Interface endpoint) The ID of one or more security groups to associate
     -- with the endpoint network interface.
-    securityGroupIds :: Core.Maybe [Core.Text],
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | (Interface and gateway endpoints) A policy to attach to the endpoint
     -- that controls access to the service. The policy must be in valid JSON
     -- format. If this parameter is not specified, we attach a default policy
     -- that allows full access to the service.
-    policyDocument :: Core.Maybe Core.Text,
+    policyDocument :: Prelude.Maybe Prelude.Text,
     -- | The tags to associate with the endpoint.
-    tagSpecifications :: Core.Maybe [TagSpecification],
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | (Gateway endpoint) One or more route table IDs.
-    routeTableIds :: Core.Maybe [Core.Text],
+    routeTableIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The type of endpoint.
     --
     -- Default: Gateway
-    vpcEndpointType :: Core.Maybe VpcEndpointType,
+    vpcEndpointType :: Prelude.Maybe VpcEndpointType,
     -- | (Interface and Gateway Load Balancer endpoints) The ID of one or more
     -- subnets in which to create an endpoint network interface. For a Gateway
     -- Load Balancer endpoint, you can specify one subnet only.
-    subnetIds :: Core.Maybe [Core.Text],
+    subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | (Interface endpoint) Indicates whether to associate a private hosted
     -- zone with the specified VPC. The private hosted zone contains a record
     -- set for the default public DNS name for the service for the Region (for
@@ -121,19 +122,19 @@ data CreateVpcEndpoint = CreateVpcEndpoint'
     -- ModifyVpcAttribute to set the VPC attributes.
     --
     -- Default: @true@
-    privateDnsEnabled :: Core.Maybe Core.Bool,
+    privateDnsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-    clientToken :: Core.Maybe Core.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC in which the endpoint will be used.
-    vpcId :: Core.Text,
+    vpcId :: Prelude.Text,
     -- | The service name. To get a list of available services, use the
     -- DescribeVpcEndpointServices request, or get the name from the service
     -- provider.
-    serviceName :: Core.Text
+    serviceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVpcEndpoint' with all optional fields omitted.
@@ -194,63 +195,64 @@ data CreateVpcEndpoint = CreateVpcEndpoint'
 -- provider.
 newCreateVpcEndpoint ::
   -- | 'vpcId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'serviceName'
-  Core.Text ->
+  Prelude.Text ->
   CreateVpcEndpoint
 newCreateVpcEndpoint pVpcId_ pServiceName_ =
   CreateVpcEndpoint'
-    { securityGroupIds = Core.Nothing,
-      policyDocument = Core.Nothing,
-      tagSpecifications = Core.Nothing,
-      routeTableIds = Core.Nothing,
-      dryRun = Core.Nothing,
-      vpcEndpointType = Core.Nothing,
-      subnetIds = Core.Nothing,
-      privateDnsEnabled = Core.Nothing,
-      clientToken = Core.Nothing,
+    { securityGroupIds =
+        Prelude.Nothing,
+      policyDocument = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
+      routeTableIds = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      vpcEndpointType = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
+      privateDnsEnabled = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       vpcId = pVpcId_,
       serviceName = pServiceName_
     }
 
 -- | (Interface endpoint) The ID of one or more security groups to associate
 -- with the endpoint network interface.
-createVpcEndpoint_securityGroupIds :: Lens.Lens' CreateVpcEndpoint (Core.Maybe [Core.Text])
-createVpcEndpoint_securityGroupIds = Lens.lens (\CreateVpcEndpoint' {securityGroupIds} -> securityGroupIds) (\s@CreateVpcEndpoint' {} a -> s {securityGroupIds = a} :: CreateVpcEndpoint) Core.. Lens.mapping Lens._Coerce
+createVpcEndpoint_securityGroupIds :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe [Prelude.Text])
+createVpcEndpoint_securityGroupIds = Lens.lens (\CreateVpcEndpoint' {securityGroupIds} -> securityGroupIds) (\s@CreateVpcEndpoint' {} a -> s {securityGroupIds = a} :: CreateVpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | (Interface and gateway endpoints) A policy to attach to the endpoint
 -- that controls access to the service. The policy must be in valid JSON
 -- format. If this parameter is not specified, we attach a default policy
 -- that allows full access to the service.
-createVpcEndpoint_policyDocument :: Lens.Lens' CreateVpcEndpoint (Core.Maybe Core.Text)
+createVpcEndpoint_policyDocument :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe Prelude.Text)
 createVpcEndpoint_policyDocument = Lens.lens (\CreateVpcEndpoint' {policyDocument} -> policyDocument) (\s@CreateVpcEndpoint' {} a -> s {policyDocument = a} :: CreateVpcEndpoint)
 
 -- | The tags to associate with the endpoint.
-createVpcEndpoint_tagSpecifications :: Lens.Lens' CreateVpcEndpoint (Core.Maybe [TagSpecification])
-createVpcEndpoint_tagSpecifications = Lens.lens (\CreateVpcEndpoint' {tagSpecifications} -> tagSpecifications) (\s@CreateVpcEndpoint' {} a -> s {tagSpecifications = a} :: CreateVpcEndpoint) Core.. Lens.mapping Lens._Coerce
+createVpcEndpoint_tagSpecifications :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe [TagSpecification])
+createVpcEndpoint_tagSpecifications = Lens.lens (\CreateVpcEndpoint' {tagSpecifications} -> tagSpecifications) (\s@CreateVpcEndpoint' {} a -> s {tagSpecifications = a} :: CreateVpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | (Gateway endpoint) One or more route table IDs.
-createVpcEndpoint_routeTableIds :: Lens.Lens' CreateVpcEndpoint (Core.Maybe [Core.Text])
-createVpcEndpoint_routeTableIds = Lens.lens (\CreateVpcEndpoint' {routeTableIds} -> routeTableIds) (\s@CreateVpcEndpoint' {} a -> s {routeTableIds = a} :: CreateVpcEndpoint) Core.. Lens.mapping Lens._Coerce
+createVpcEndpoint_routeTableIds :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe [Prelude.Text])
+createVpcEndpoint_routeTableIds = Lens.lens (\CreateVpcEndpoint' {routeTableIds} -> routeTableIds) (\s@CreateVpcEndpoint' {} a -> s {routeTableIds = a} :: CreateVpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createVpcEndpoint_dryRun :: Lens.Lens' CreateVpcEndpoint (Core.Maybe Core.Bool)
+createVpcEndpoint_dryRun :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe Prelude.Bool)
 createVpcEndpoint_dryRun = Lens.lens (\CreateVpcEndpoint' {dryRun} -> dryRun) (\s@CreateVpcEndpoint' {} a -> s {dryRun = a} :: CreateVpcEndpoint)
 
 -- | The type of endpoint.
 --
 -- Default: Gateway
-createVpcEndpoint_vpcEndpointType :: Lens.Lens' CreateVpcEndpoint (Core.Maybe VpcEndpointType)
+createVpcEndpoint_vpcEndpointType :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe VpcEndpointType)
 createVpcEndpoint_vpcEndpointType = Lens.lens (\CreateVpcEndpoint' {vpcEndpointType} -> vpcEndpointType) (\s@CreateVpcEndpoint' {} a -> s {vpcEndpointType = a} :: CreateVpcEndpoint)
 
 -- | (Interface and Gateway Load Balancer endpoints) The ID of one or more
 -- subnets in which to create an endpoint network interface. For a Gateway
 -- Load Balancer endpoint, you can specify one subnet only.
-createVpcEndpoint_subnetIds :: Lens.Lens' CreateVpcEndpoint (Core.Maybe [Core.Text])
-createVpcEndpoint_subnetIds = Lens.lens (\CreateVpcEndpoint' {subnetIds} -> subnetIds) (\s@CreateVpcEndpoint' {} a -> s {subnetIds = a} :: CreateVpcEndpoint) Core.. Lens.mapping Lens._Coerce
+createVpcEndpoint_subnetIds :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe [Prelude.Text])
+createVpcEndpoint_subnetIds = Lens.lens (\CreateVpcEndpoint' {subnetIds} -> subnetIds) (\s@CreateVpcEndpoint' {} a -> s {subnetIds = a} :: CreateVpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | (Interface endpoint) Indicates whether to associate a private hosted
 -- zone with the specified VPC. The private hosted zone contains a record
@@ -266,23 +268,23 @@ createVpcEndpoint_subnetIds = Lens.lens (\CreateVpcEndpoint' {subnetIds} -> subn
 -- ModifyVpcAttribute to set the VPC attributes.
 --
 -- Default: @true@
-createVpcEndpoint_privateDnsEnabled :: Lens.Lens' CreateVpcEndpoint (Core.Maybe Core.Bool)
+createVpcEndpoint_privateDnsEnabled :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe Prelude.Bool)
 createVpcEndpoint_privateDnsEnabled = Lens.lens (\CreateVpcEndpoint' {privateDnsEnabled} -> privateDnsEnabled) (\s@CreateVpcEndpoint' {} a -> s {privateDnsEnabled = a} :: CreateVpcEndpoint)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-createVpcEndpoint_clientToken :: Lens.Lens' CreateVpcEndpoint (Core.Maybe Core.Text)
+createVpcEndpoint_clientToken :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe Prelude.Text)
 createVpcEndpoint_clientToken = Lens.lens (\CreateVpcEndpoint' {clientToken} -> clientToken) (\s@CreateVpcEndpoint' {} a -> s {clientToken = a} :: CreateVpcEndpoint)
 
 -- | The ID of the VPC in which the endpoint will be used.
-createVpcEndpoint_vpcId :: Lens.Lens' CreateVpcEndpoint Core.Text
+createVpcEndpoint_vpcId :: Lens.Lens' CreateVpcEndpoint Prelude.Text
 createVpcEndpoint_vpcId = Lens.lens (\CreateVpcEndpoint' {vpcId} -> vpcId) (\s@CreateVpcEndpoint' {} a -> s {vpcId = a} :: CreateVpcEndpoint)
 
 -- | The service name. To get a list of available services, use the
 -- DescribeVpcEndpointServices request, or get the name from the service
 -- provider.
-createVpcEndpoint_serviceName :: Lens.Lens' CreateVpcEndpoint Core.Text
+createVpcEndpoint_serviceName :: Lens.Lens' CreateVpcEndpoint Prelude.Text
 createVpcEndpoint_serviceName = Lens.lens (\CreateVpcEndpoint' {serviceName} -> serviceName) (\s@CreateVpcEndpoint' {} a -> s {serviceName = a} :: CreateVpcEndpoint)
 
 instance Core.AWSRequest CreateVpcEndpoint where
@@ -294,44 +296,45 @@ instance Core.AWSRequest CreateVpcEndpoint where
     Response.receiveXML
       ( \s h x ->
           CreateVpcEndpointResponse'
-            Core.<$> (x Core..@? "vpcEndpoint")
-            Core.<*> (x Core..@? "clientToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "vpcEndpoint")
+            Prelude.<*> (x Core..@? "clientToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateVpcEndpoint
+instance Prelude.Hashable CreateVpcEndpoint
 
-instance Core.NFData CreateVpcEndpoint
+instance Prelude.NFData CreateVpcEndpoint
 
 instance Core.ToHeaders CreateVpcEndpoint where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateVpcEndpoint where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateVpcEndpoint where
   toQuery CreateVpcEndpoint' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateVpcEndpoint" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("CreateVpcEndpoint" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "SecurityGroupId"
-              Core.<$> securityGroupIds
+              Prelude.<$> securityGroupIds
           ),
         "PolicyDocument" Core.=: policyDocument,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
-              Core.<$> tagSpecifications
+              Prelude.<$> tagSpecifications
           ),
         Core.toQuery
           ( Core.toQueryList "RouteTableId"
-              Core.<$> routeTableIds
+              Prelude.<$> routeTableIds
           ),
         "DryRun" Core.=: dryRun,
         "VpcEndpointType" Core.=: vpcEndpointType,
         Core.toQuery
-          (Core.toQueryList "SubnetId" Core.<$> subnetIds),
+          (Core.toQueryList "SubnetId" Prelude.<$> subnetIds),
         "PrivateDnsEnabled" Core.=: privateDnsEnabled,
         "ClientToken" Core.=: clientToken,
         "VpcId" Core.=: vpcId,
@@ -343,14 +346,14 @@ instance Core.ToQuery CreateVpcEndpoint where
 -- /See:/ 'newCreateVpcEndpointResponse' smart constructor.
 data CreateVpcEndpointResponse = CreateVpcEndpointResponse'
   { -- | Information about the endpoint.
-    vpcEndpoint :: Core.Maybe VpcEndpoint,
+    vpcEndpoint :: Prelude.Maybe VpcEndpoint,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
-    clientToken :: Core.Maybe Core.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVpcEndpointResponse' with all optional fields omitted.
@@ -368,27 +371,27 @@ data CreateVpcEndpointResponse = CreateVpcEndpointResponse'
 -- 'httpStatus', 'createVpcEndpointResponse_httpStatus' - The response's http status code.
 newCreateVpcEndpointResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateVpcEndpointResponse
 newCreateVpcEndpointResponse pHttpStatus_ =
   CreateVpcEndpointResponse'
     { vpcEndpoint =
-        Core.Nothing,
-      clientToken = Core.Nothing,
+        Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the endpoint.
-createVpcEndpointResponse_vpcEndpoint :: Lens.Lens' CreateVpcEndpointResponse (Core.Maybe VpcEndpoint)
+createVpcEndpointResponse_vpcEndpoint :: Lens.Lens' CreateVpcEndpointResponse (Prelude.Maybe VpcEndpoint)
 createVpcEndpointResponse_vpcEndpoint = Lens.lens (\CreateVpcEndpointResponse' {vpcEndpoint} -> vpcEndpoint) (\s@CreateVpcEndpointResponse' {} a -> s {vpcEndpoint = a} :: CreateVpcEndpointResponse)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
-createVpcEndpointResponse_clientToken :: Lens.Lens' CreateVpcEndpointResponse (Core.Maybe Core.Text)
+createVpcEndpointResponse_clientToken :: Lens.Lens' CreateVpcEndpointResponse (Prelude.Maybe Prelude.Text)
 createVpcEndpointResponse_clientToken = Lens.lens (\CreateVpcEndpointResponse' {clientToken} -> clientToken) (\s@CreateVpcEndpointResponse' {} a -> s {clientToken = a} :: CreateVpcEndpointResponse)
 
 -- | The response's http status code.
-createVpcEndpointResponse_httpStatus :: Lens.Lens' CreateVpcEndpointResponse Core.Int
+createVpcEndpointResponse_httpStatus :: Lens.Lens' CreateVpcEndpointResponse Prelude.Int
 createVpcEndpointResponse_httpStatus = Lens.lens (\CreateVpcEndpointResponse' {httpStatus} -> httpStatus) (\s@CreateVpcEndpointResponse' {} a -> s {httpStatus = a} :: CreateVpcEndpointResponse)
 
-instance Core.NFData CreateVpcEndpointResponse
+instance Prelude.NFData CreateVpcEndpointResponse

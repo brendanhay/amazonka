@@ -21,6 +21,7 @@ module Network.AWS.AWSHealth.Types.EntityAggregate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The number of entities that are affected by one or more events. Returned
 -- by the
@@ -33,11 +34,11 @@ data EntityAggregate = EntityAggregate'
     -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
     -- Example:
     -- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-    eventArn :: Core.Maybe Core.Text,
+    eventArn :: Prelude.Maybe Prelude.Text,
     -- | The number of entities that match the criteria for the specified events.
-    count :: Core.Maybe Core.Int
+    count :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EntityAggregate' with all optional fields omitted.
@@ -57,19 +58,19 @@ newEntityAggregate ::
   EntityAggregate
 newEntityAggregate =
   EntityAggregate'
-    { eventArn = Core.Nothing,
-      count = Core.Nothing
+    { eventArn = Prelude.Nothing,
+      count = Prelude.Nothing
     }
 
 -- | The unique identifier for the event. Format:
 -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
 -- Example:
 -- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-entityAggregate_eventArn :: Lens.Lens' EntityAggregate (Core.Maybe Core.Text)
+entityAggregate_eventArn :: Lens.Lens' EntityAggregate (Prelude.Maybe Prelude.Text)
 entityAggregate_eventArn = Lens.lens (\EntityAggregate' {eventArn} -> eventArn) (\s@EntityAggregate' {} a -> s {eventArn = a} :: EntityAggregate)
 
 -- | The number of entities that match the criteria for the specified events.
-entityAggregate_count :: Lens.Lens' EntityAggregate (Core.Maybe Core.Int)
+entityAggregate_count :: Lens.Lens' EntityAggregate (Prelude.Maybe Prelude.Int)
 entityAggregate_count = Lens.lens (\EntityAggregate' {count} -> count) (\s@EntityAggregate' {} a -> s {count = a} :: EntityAggregate)
 
 instance Core.FromJSON EntityAggregate where
@@ -78,10 +79,10 @@ instance Core.FromJSON EntityAggregate where
       "EntityAggregate"
       ( \x ->
           EntityAggregate'
-            Core.<$> (x Core..:? "eventArn")
-            Core.<*> (x Core..:? "count")
+            Prelude.<$> (x Core..:? "eventArn")
+            Prelude.<*> (x Core..:? "count")
       )
 
-instance Core.Hashable EntityAggregate
+instance Prelude.Hashable EntityAggregate
 
-instance Core.NFData EntityAggregate
+instance Prelude.NFData EntityAggregate

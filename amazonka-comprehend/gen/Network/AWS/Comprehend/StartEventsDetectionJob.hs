@@ -50,6 +50,7 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,22 +58,22 @@ import qualified Network.AWS.Response as Response
 data StartEventsDetectionJob = StartEventsDetectionJob'
   { -- | An unique identifier for the request. If you don\'t set the client
     -- request token, Amazon Comprehend generates one.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the events detection job.
-    jobName :: Core.Maybe Core.Text,
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the format and location of the input data for the job.
     inputDataConfig :: InputDataConfig,
     -- | Specifies where to send the output files.
     outputDataConfig :: OutputDataConfig,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
     -- (IAM) role that grants Amazon Comprehend read access to your input data.
-    dataAccessRoleArn :: Core.Text,
+    dataAccessRoleArn :: Prelude.Text,
     -- | The language code of the input documents.
     languageCode :: LanguageCode,
     -- | The types of events to detect in the input documents.
-    targetEventTypes :: Core.NonEmpty Core.Text
+    targetEventTypes :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartEventsDetectionJob' with all optional fields omitted.
@@ -103,11 +104,11 @@ newStartEventsDetectionJob ::
   -- | 'outputDataConfig'
   OutputDataConfig ->
   -- | 'dataAccessRoleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'languageCode'
   LanguageCode ->
   -- | 'targetEventTypes'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   StartEventsDetectionJob
 newStartEventsDetectionJob
   pInputDataConfig_
@@ -117,8 +118,8 @@ newStartEventsDetectionJob
   pTargetEventTypes_ =
     StartEventsDetectionJob'
       { clientRequestToken =
-          Core.Nothing,
-        jobName = Core.Nothing,
+          Prelude.Nothing,
+        jobName = Prelude.Nothing,
         inputDataConfig = pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
         dataAccessRoleArn = pDataAccessRoleArn_,
@@ -129,11 +130,11 @@ newStartEventsDetectionJob
 
 -- | An unique identifier for the request. If you don\'t set the client
 -- request token, Amazon Comprehend generates one.
-startEventsDetectionJob_clientRequestToken :: Lens.Lens' StartEventsDetectionJob (Core.Maybe Core.Text)
+startEventsDetectionJob_clientRequestToken :: Lens.Lens' StartEventsDetectionJob (Prelude.Maybe Prelude.Text)
 startEventsDetectionJob_clientRequestToken = Lens.lens (\StartEventsDetectionJob' {clientRequestToken} -> clientRequestToken) (\s@StartEventsDetectionJob' {} a -> s {clientRequestToken = a} :: StartEventsDetectionJob)
 
 -- | The identifier of the events detection job.
-startEventsDetectionJob_jobName :: Lens.Lens' StartEventsDetectionJob (Core.Maybe Core.Text)
+startEventsDetectionJob_jobName :: Lens.Lens' StartEventsDetectionJob (Prelude.Maybe Prelude.Text)
 startEventsDetectionJob_jobName = Lens.lens (\StartEventsDetectionJob' {jobName} -> jobName) (\s@StartEventsDetectionJob' {} a -> s {jobName = a} :: StartEventsDetectionJob)
 
 -- | Specifies the format and location of the input data for the job.
@@ -146,7 +147,7 @@ startEventsDetectionJob_outputDataConfig = Lens.lens (\StartEventsDetectionJob' 
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
 -- (IAM) role that grants Amazon Comprehend read access to your input data.
-startEventsDetectionJob_dataAccessRoleArn :: Lens.Lens' StartEventsDetectionJob Core.Text
+startEventsDetectionJob_dataAccessRoleArn :: Lens.Lens' StartEventsDetectionJob Prelude.Text
 startEventsDetectionJob_dataAccessRoleArn = Lens.lens (\StartEventsDetectionJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartEventsDetectionJob' {} a -> s {dataAccessRoleArn = a} :: StartEventsDetectionJob)
 
 -- | The language code of the input documents.
@@ -154,8 +155,8 @@ startEventsDetectionJob_languageCode :: Lens.Lens' StartEventsDetectionJob Langu
 startEventsDetectionJob_languageCode = Lens.lens (\StartEventsDetectionJob' {languageCode} -> languageCode) (\s@StartEventsDetectionJob' {} a -> s {languageCode = a} :: StartEventsDetectionJob)
 
 -- | The types of events to detect in the input documents.
-startEventsDetectionJob_targetEventTypes :: Lens.Lens' StartEventsDetectionJob (Core.NonEmpty Core.Text)
-startEventsDetectionJob_targetEventTypes = Lens.lens (\StartEventsDetectionJob' {targetEventTypes} -> targetEventTypes) (\s@StartEventsDetectionJob' {} a -> s {targetEventTypes = a} :: StartEventsDetectionJob) Core.. Lens._Coerce
+startEventsDetectionJob_targetEventTypes :: Lens.Lens' StartEventsDetectionJob (Prelude.NonEmpty Prelude.Text)
+startEventsDetectionJob_targetEventTypes = Lens.lens (\StartEventsDetectionJob' {targetEventTypes} -> targetEventTypes) (\s@StartEventsDetectionJob' {} a -> s {targetEventTypes = a} :: StartEventsDetectionJob) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest StartEventsDetectionJob where
   type
@@ -166,64 +167,66 @@ instance Core.AWSRequest StartEventsDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           StartEventsDetectionJobResponse'
-            Core.<$> (x Core..?> "JobStatus")
-            Core.<*> (x Core..?> "JobId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "JobId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartEventsDetectionJob
+instance Prelude.Hashable StartEventsDetectionJob
 
-instance Core.NFData StartEventsDetectionJob
+instance Prelude.NFData StartEventsDetectionJob
 
 instance Core.ToHeaders StartEventsDetectionJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.StartEventsDetectionJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartEventsDetectionJob where
   toJSON StartEventsDetectionJob' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ClientRequestToken" Core..=)
-              Core.<$> clientRequestToken,
-            ("JobName" Core..=) Core.<$> jobName,
-            Core.Just
+              Prelude.<$> clientRequestToken,
+            ("JobName" Core..=) Prelude.<$> jobName,
+            Prelude.Just
               ("InputDataConfig" Core..= inputDataConfig),
-            Core.Just
+            Prelude.Just
               ("OutputDataConfig" Core..= outputDataConfig),
-            Core.Just
+            Prelude.Just
               ("DataAccessRoleArn" Core..= dataAccessRoleArn),
-            Core.Just ("LanguageCode" Core..= languageCode),
-            Core.Just
+            Prelude.Just ("LanguageCode" Core..= languageCode),
+            Prelude.Just
               ("TargetEventTypes" Core..= targetEventTypes)
           ]
       )
 
 instance Core.ToPath StartEventsDetectionJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartEventsDetectionJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartEventsDetectionJobResponse' smart constructor.
 data StartEventsDetectionJobResponse = StartEventsDetectionJobResponse'
   { -- | The status of the events detection job.
-    jobStatus :: Core.Maybe JobStatus,
+    jobStatus :: Prelude.Maybe JobStatus,
     -- | An unique identifier for the request. If you don\'t set the client
     -- request token, Amazon Comprehend generates one.
-    jobId :: Core.Maybe Core.Text,
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartEventsDetectionJobResponse' with all optional fields omitted.
@@ -241,27 +244,29 @@ data StartEventsDetectionJobResponse = StartEventsDetectionJobResponse'
 -- 'httpStatus', 'startEventsDetectionJobResponse_httpStatus' - The response's http status code.
 newStartEventsDetectionJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartEventsDetectionJobResponse
 newStartEventsDetectionJobResponse pHttpStatus_ =
   StartEventsDetectionJobResponse'
     { jobStatus =
-        Core.Nothing,
-      jobId = Core.Nothing,
+        Prelude.Nothing,
+      jobId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the events detection job.
-startEventsDetectionJobResponse_jobStatus :: Lens.Lens' StartEventsDetectionJobResponse (Core.Maybe JobStatus)
+startEventsDetectionJobResponse_jobStatus :: Lens.Lens' StartEventsDetectionJobResponse (Prelude.Maybe JobStatus)
 startEventsDetectionJobResponse_jobStatus = Lens.lens (\StartEventsDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StartEventsDetectionJobResponse' {} a -> s {jobStatus = a} :: StartEventsDetectionJobResponse)
 
 -- | An unique identifier for the request. If you don\'t set the client
 -- request token, Amazon Comprehend generates one.
-startEventsDetectionJobResponse_jobId :: Lens.Lens' StartEventsDetectionJobResponse (Core.Maybe Core.Text)
+startEventsDetectionJobResponse_jobId :: Lens.Lens' StartEventsDetectionJobResponse (Prelude.Maybe Prelude.Text)
 startEventsDetectionJobResponse_jobId = Lens.lens (\StartEventsDetectionJobResponse' {jobId} -> jobId) (\s@StartEventsDetectionJobResponse' {} a -> s {jobId = a} :: StartEventsDetectionJobResponse)
 
 -- | The response's http status code.
-startEventsDetectionJobResponse_httpStatus :: Lens.Lens' StartEventsDetectionJobResponse Core.Int
+startEventsDetectionJobResponse_httpStatus :: Lens.Lens' StartEventsDetectionJobResponse Prelude.Int
 startEventsDetectionJobResponse_httpStatus = Lens.lens (\StartEventsDetectionJobResponse' {httpStatus} -> httpStatus) (\s@StartEventsDetectionJobResponse' {} a -> s {httpStatus = a} :: StartEventsDetectionJobResponse)
 
-instance Core.NFData StartEventsDetectionJobResponse
+instance
+  Prelude.NFData
+    StartEventsDetectionJobResponse

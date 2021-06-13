@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,7 +57,7 @@ data DeactivateMFADevice = DeactivateMFADevice'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Core.Text,
+    userName :: Prelude.Text,
     -- | The serial number that uniquely identifies the MFA device. For virtual
     -- MFA devices, the serial number is the device ARN.
     --
@@ -64,9 +65,9 @@ data DeactivateMFADevice = DeactivateMFADevice'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@:\/-
-    serialNumber :: Core.Text
+    serialNumber :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeactivateMFADevice' with all optional fields omitted.
@@ -92,9 +93,9 @@ data DeactivateMFADevice = DeactivateMFADevice'
 -- spaces. You can also include any of the following characters: =,.\@:\/-
 newDeactivateMFADevice ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'serialNumber'
-  Core.Text ->
+  Prelude.Text ->
   DeactivateMFADevice
 newDeactivateMFADevice pUserName_ pSerialNumber_ =
   DeactivateMFADevice'
@@ -108,7 +109,7 @@ newDeactivateMFADevice pUserName_ pSerialNumber_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deactivateMFADevice_userName :: Lens.Lens' DeactivateMFADevice Core.Text
+deactivateMFADevice_userName :: Lens.Lens' DeactivateMFADevice Prelude.Text
 deactivateMFADevice_userName = Lens.lens (\DeactivateMFADevice' {userName} -> userName) (\s@DeactivateMFADevice' {} a -> s {userName = a} :: DeactivateMFADevice)
 
 -- | The serial number that uniquely identifies the MFA device. For virtual
@@ -118,7 +119,7 @@ deactivateMFADevice_userName = Lens.lens (\DeactivateMFADevice' {userName} -> us
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@:\/-
-deactivateMFADevice_serialNumber :: Lens.Lens' DeactivateMFADevice Core.Text
+deactivateMFADevice_serialNumber :: Lens.Lens' DeactivateMFADevice Prelude.Text
 deactivateMFADevice_serialNumber = Lens.lens (\DeactivateMFADevice' {serialNumber} -> serialNumber) (\s@DeactivateMFADevice' {} a -> s {serialNumber = a} :: DeactivateMFADevice)
 
 instance Core.AWSRequest DeactivateMFADevice where
@@ -129,22 +130,23 @@ instance Core.AWSRequest DeactivateMFADevice where
   response =
     Response.receiveNull DeactivateMFADeviceResponse'
 
-instance Core.Hashable DeactivateMFADevice
+instance Prelude.Hashable DeactivateMFADevice
 
-instance Core.NFData DeactivateMFADevice
+instance Prelude.NFData DeactivateMFADevice
 
 instance Core.ToHeaders DeactivateMFADevice where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeactivateMFADevice where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeactivateMFADevice where
   toQuery DeactivateMFADevice' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeactivateMFADevice" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("DeactivateMFADevice" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "UserName" Core.=: userName,
         "SerialNumber" Core.=: serialNumber
       ]
@@ -153,7 +155,7 @@ instance Core.ToQuery DeactivateMFADevice where
 data DeactivateMFADeviceResponse = DeactivateMFADeviceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeactivateMFADeviceResponse' with all optional fields omitted.
@@ -164,4 +166,4 @@ newDeactivateMFADeviceResponse ::
 newDeactivateMFADeviceResponse =
   DeactivateMFADeviceResponse'
 
-instance Core.NFData DeactivateMFADeviceResponse
+instance Prelude.NFData DeactivateMFADeviceResponse

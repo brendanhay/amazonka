@@ -21,15 +21,16 @@ module Network.AWS.IoT.Types.LambdaAction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an action to invoke a Lambda function.
 --
 -- /See:/ 'newLambdaAction' smart constructor.
 data LambdaAction = LambdaAction'
   { -- | The ARN of the Lambda function.
-    functionArn :: Core.Text
+    functionArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LambdaAction' with all optional fields omitted.
@@ -42,13 +43,13 @@ data LambdaAction = LambdaAction'
 -- 'functionArn', 'lambdaAction_functionArn' - The ARN of the Lambda function.
 newLambdaAction ::
   -- | 'functionArn'
-  Core.Text ->
+  Prelude.Text ->
   LambdaAction
 newLambdaAction pFunctionArn_ =
   LambdaAction' {functionArn = pFunctionArn_}
 
 -- | The ARN of the Lambda function.
-lambdaAction_functionArn :: Lens.Lens' LambdaAction Core.Text
+lambdaAction_functionArn :: Lens.Lens' LambdaAction Prelude.Text
 lambdaAction_functionArn = Lens.lens (\LambdaAction' {functionArn} -> functionArn) (\s@LambdaAction' {} a -> s {functionArn = a} :: LambdaAction)
 
 instance Core.FromJSON LambdaAction where
@@ -56,16 +57,16 @@ instance Core.FromJSON LambdaAction where
     Core.withObject
       "LambdaAction"
       ( \x ->
-          LambdaAction' Core.<$> (x Core..: "functionArn")
+          LambdaAction' Prelude.<$> (x Core..: "functionArn")
       )
 
-instance Core.Hashable LambdaAction
+instance Prelude.Hashable LambdaAction
 
-instance Core.NFData LambdaAction
+instance Prelude.NFData LambdaAction
 
 instance Core.ToJSON LambdaAction where
   toJSON LambdaAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("functionArn" Core..= functionArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("functionArn" Core..= functionArn)]
       )

@@ -22,21 +22,22 @@ module Network.AWS.CostExplorer.Types.ReservationUtilizationGroup where
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.ReservationAggregates
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A group of reservations that share a set of attributes.
 --
 -- /See:/ 'newReservationUtilizationGroup' smart constructor.
 data ReservationUtilizationGroup = ReservationUtilizationGroup'
   { -- | The key for a specific reservation attribute.
-    key :: Core.Maybe Core.Text,
+    key :: Prelude.Maybe Prelude.Text,
     -- | How much you used this group of reservations.
-    utilization :: Core.Maybe ReservationAggregates,
+    utilization :: Prelude.Maybe ReservationAggregates,
     -- | The attributes for this group of reservations.
-    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The value of a specific reservation attribute.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReservationUtilizationGroup' with all optional fields omitted.
@@ -57,26 +58,26 @@ newReservationUtilizationGroup ::
   ReservationUtilizationGroup
 newReservationUtilizationGroup =
   ReservationUtilizationGroup'
-    { key = Core.Nothing,
-      utilization = Core.Nothing,
-      attributes = Core.Nothing,
-      value = Core.Nothing
+    { key = Prelude.Nothing,
+      utilization = Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The key for a specific reservation attribute.
-reservationUtilizationGroup_key :: Lens.Lens' ReservationUtilizationGroup (Core.Maybe Core.Text)
+reservationUtilizationGroup_key :: Lens.Lens' ReservationUtilizationGroup (Prelude.Maybe Prelude.Text)
 reservationUtilizationGroup_key = Lens.lens (\ReservationUtilizationGroup' {key} -> key) (\s@ReservationUtilizationGroup' {} a -> s {key = a} :: ReservationUtilizationGroup)
 
 -- | How much you used this group of reservations.
-reservationUtilizationGroup_utilization :: Lens.Lens' ReservationUtilizationGroup (Core.Maybe ReservationAggregates)
+reservationUtilizationGroup_utilization :: Lens.Lens' ReservationUtilizationGroup (Prelude.Maybe ReservationAggregates)
 reservationUtilizationGroup_utilization = Lens.lens (\ReservationUtilizationGroup' {utilization} -> utilization) (\s@ReservationUtilizationGroup' {} a -> s {utilization = a} :: ReservationUtilizationGroup)
 
 -- | The attributes for this group of reservations.
-reservationUtilizationGroup_attributes :: Lens.Lens' ReservationUtilizationGroup (Core.Maybe (Core.HashMap Core.Text Core.Text))
-reservationUtilizationGroup_attributes = Lens.lens (\ReservationUtilizationGroup' {attributes} -> attributes) (\s@ReservationUtilizationGroup' {} a -> s {attributes = a} :: ReservationUtilizationGroup) Core.. Lens.mapping Lens._Coerce
+reservationUtilizationGroup_attributes :: Lens.Lens' ReservationUtilizationGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+reservationUtilizationGroup_attributes = Lens.lens (\ReservationUtilizationGroup' {attributes} -> attributes) (\s@ReservationUtilizationGroup' {} a -> s {attributes = a} :: ReservationUtilizationGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The value of a specific reservation attribute.
-reservationUtilizationGroup_value :: Lens.Lens' ReservationUtilizationGroup (Core.Maybe Core.Text)
+reservationUtilizationGroup_value :: Lens.Lens' ReservationUtilizationGroup (Prelude.Maybe Prelude.Text)
 reservationUtilizationGroup_value = Lens.lens (\ReservationUtilizationGroup' {value} -> value) (\s@ReservationUtilizationGroup' {} a -> s {value = a} :: ReservationUtilizationGroup)
 
 instance Core.FromJSON ReservationUtilizationGroup where
@@ -85,12 +86,12 @@ instance Core.FromJSON ReservationUtilizationGroup where
       "ReservationUtilizationGroup"
       ( \x ->
           ReservationUtilizationGroup'
-            Core.<$> (x Core..:? "Key")
-            Core.<*> (x Core..:? "Utilization")
-            Core.<*> (x Core..:? "Attributes" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "Utilization")
+            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable ReservationUtilizationGroup
+instance Prelude.Hashable ReservationUtilizationGroup
 
-instance Core.NFData ReservationUtilizationGroup
+instance Prelude.NFData ReservationUtilizationGroup

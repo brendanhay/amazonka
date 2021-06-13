@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.AvcIntraTelecine
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When you do frame rate conversion from 23.976 frames per second (fps) to
 -- 29.97 fps, and your output scan type is interlaced, you can optionally
@@ -39,15 +40,15 @@ newtype AvcIntraTelecine = AvcIntraTelecine'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

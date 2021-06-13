@@ -22,15 +22,16 @@ module Network.AWS.MediaLive.Types.AvailConfiguration where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AvailSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Avail Configuration
 --
 -- /See:/ 'newAvailConfiguration' smart constructor.
 data AvailConfiguration = AvailConfiguration'
   { -- | Ad avail settings.
-    availSettings :: Core.Maybe AvailSettings
+    availSettings :: Prelude.Maybe AvailSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AvailConfiguration' with all optional fields omitted.
@@ -44,10 +45,13 @@ data AvailConfiguration = AvailConfiguration'
 newAvailConfiguration ::
   AvailConfiguration
 newAvailConfiguration =
-  AvailConfiguration' {availSettings = Core.Nothing}
+  AvailConfiguration'
+    { availSettings =
+        Prelude.Nothing
+    }
 
 -- | Ad avail settings.
-availConfiguration_availSettings :: Lens.Lens' AvailConfiguration (Core.Maybe AvailSettings)
+availConfiguration_availSettings :: Lens.Lens' AvailConfiguration (Prelude.Maybe AvailSettings)
 availConfiguration_availSettings = Lens.lens (\AvailConfiguration' {availSettings} -> availSettings) (\s@AvailConfiguration' {} a -> s {availSettings = a} :: AvailConfiguration)
 
 instance Core.FromJSON AvailConfiguration where
@@ -56,16 +60,18 @@ instance Core.FromJSON AvailConfiguration where
       "AvailConfiguration"
       ( \x ->
           AvailConfiguration'
-            Core.<$> (x Core..:? "availSettings")
+            Prelude.<$> (x Core..:? "availSettings")
       )
 
-instance Core.Hashable AvailConfiguration
+instance Prelude.Hashable AvailConfiguration
 
-instance Core.NFData AvailConfiguration
+instance Prelude.NFData AvailConfiguration
 
 instance Core.ToJSON AvailConfiguration where
   toJSON AvailConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [("availSettings" Core..=) Core.<$> availSettings]
+      ( Prelude.catMaybes
+          [ ("availSettings" Core..=)
+              Prelude.<$> availSettings
+          ]
       )

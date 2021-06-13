@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.SlotDateTimeRangeRequest where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the time period for a Scheduled Instance to start its first
 -- schedule. The time period must span less than one day.
@@ -35,7 +36,7 @@ data SlotDateTimeRangeRequest = SlotDateTimeRangeRequest'
     -- three months in the future.
     latestTime :: Core.ISO8601
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SlotDateTimeRangeRequest' with all optional fields omitted.
@@ -52,9 +53,9 @@ data SlotDateTimeRangeRequest = SlotDateTimeRangeRequest'
 -- three months in the future.
 newSlotDateTimeRangeRequest ::
   -- | 'earliestTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'latestTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   SlotDateTimeRangeRequest
 newSlotDateTimeRangeRequest
   pEarliestTime_
@@ -66,22 +67,22 @@ newSlotDateTimeRangeRequest
       }
 
 -- | The earliest date and time, in UTC, for the Scheduled Instance to start.
-slotDateTimeRangeRequest_earliestTime :: Lens.Lens' SlotDateTimeRangeRequest Core.UTCTime
-slotDateTimeRangeRequest_earliestTime = Lens.lens (\SlotDateTimeRangeRequest' {earliestTime} -> earliestTime) (\s@SlotDateTimeRangeRequest' {} a -> s {earliestTime = a} :: SlotDateTimeRangeRequest) Core.. Core._Time
+slotDateTimeRangeRequest_earliestTime :: Lens.Lens' SlotDateTimeRangeRequest Prelude.UTCTime
+slotDateTimeRangeRequest_earliestTime = Lens.lens (\SlotDateTimeRangeRequest' {earliestTime} -> earliestTime) (\s@SlotDateTimeRangeRequest' {} a -> s {earliestTime = a} :: SlotDateTimeRangeRequest) Prelude.. Core._Time
 
 -- | The latest date and time, in UTC, for the Scheduled Instance to start.
 -- This value must be later than or equal to the earliest date and at most
 -- three months in the future.
-slotDateTimeRangeRequest_latestTime :: Lens.Lens' SlotDateTimeRangeRequest Core.UTCTime
-slotDateTimeRangeRequest_latestTime = Lens.lens (\SlotDateTimeRangeRequest' {latestTime} -> latestTime) (\s@SlotDateTimeRangeRequest' {} a -> s {latestTime = a} :: SlotDateTimeRangeRequest) Core.. Core._Time
+slotDateTimeRangeRequest_latestTime :: Lens.Lens' SlotDateTimeRangeRequest Prelude.UTCTime
+slotDateTimeRangeRequest_latestTime = Lens.lens (\SlotDateTimeRangeRequest' {latestTime} -> latestTime) (\s@SlotDateTimeRangeRequest' {} a -> s {latestTime = a} :: SlotDateTimeRangeRequest) Prelude.. Core._Time
 
-instance Core.Hashable SlotDateTimeRangeRequest
+instance Prelude.Hashable SlotDateTimeRangeRequest
 
-instance Core.NFData SlotDateTimeRangeRequest
+instance Prelude.NFData SlotDateTimeRangeRequest
 
 instance Core.ToQuery SlotDateTimeRangeRequest where
   toQuery SlotDateTimeRangeRequest' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "EarliestTime" Core.=: earliestTime,
         "LatestTime" Core.=: latestTime
       ]

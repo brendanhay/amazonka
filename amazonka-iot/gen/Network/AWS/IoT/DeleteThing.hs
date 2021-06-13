@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +55,11 @@ data DeleteThing = DeleteThing'
     -- of the record in the registry does not match the expected version
     -- specified in the request, the @DeleteThing@ request is rejected with a
     -- @VersionConflictException@.
-    expectedVersion :: Core.Maybe Core.Integer,
+    expectedVersion :: Prelude.Maybe Prelude.Integer,
     -- | The name of the thing to delete.
-    thingName :: Core.Text
+    thingName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteThing' with all optional fields omitted.
@@ -76,11 +77,11 @@ data DeleteThing = DeleteThing'
 -- 'thingName', 'deleteThing_thingName' - The name of the thing to delete.
 newDeleteThing ::
   -- | 'thingName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteThing
 newDeleteThing pThingName_ =
   DeleteThing'
-    { expectedVersion = Core.Nothing,
+    { expectedVersion = Prelude.Nothing,
       thingName = pThingName_
     }
 
@@ -88,11 +89,11 @@ newDeleteThing pThingName_ =
 -- of the record in the registry does not match the expected version
 -- specified in the request, the @DeleteThing@ request is rejected with a
 -- @VersionConflictException@.
-deleteThing_expectedVersion :: Lens.Lens' DeleteThing (Core.Maybe Core.Integer)
+deleteThing_expectedVersion :: Lens.Lens' DeleteThing (Prelude.Maybe Prelude.Integer)
 deleteThing_expectedVersion = Lens.lens (\DeleteThing' {expectedVersion} -> expectedVersion) (\s@DeleteThing' {} a -> s {expectedVersion = a} :: DeleteThing)
 
 -- | The name of the thing to delete.
-deleteThing_thingName :: Lens.Lens' DeleteThing Core.Text
+deleteThing_thingName :: Lens.Lens' DeleteThing Prelude.Text
 deleteThing_thingName = Lens.lens (\DeleteThing' {thingName} -> thingName) (\s@DeleteThing' {} a -> s {thingName = a} :: DeleteThing)
 
 instance Core.AWSRequest DeleteThing where
@@ -102,23 +103,23 @@ instance Core.AWSRequest DeleteThing where
     Response.receiveEmpty
       ( \s h x ->
           DeleteThingResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteThing
+instance Prelude.Hashable DeleteThing
 
-instance Core.NFData DeleteThing
+instance Prelude.NFData DeleteThing
 
 instance Core.ToHeaders DeleteThing where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteThing where
   toPath DeleteThing' {..} =
-    Core.mconcat ["/things/", Core.toBS thingName]
+    Prelude.mconcat ["/things/", Core.toBS thingName]
 
 instance Core.ToQuery DeleteThing where
   toQuery DeleteThing' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["expectedVersion" Core.=: expectedVersion]
 
 -- | The output of the DeleteThing operation.
@@ -126,9 +127,9 @@ instance Core.ToQuery DeleteThing where
 -- /See:/ 'newDeleteThingResponse' smart constructor.
 data DeleteThingResponse = DeleteThingResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteThingResponse' with all optional fields omitted.
@@ -141,13 +142,13 @@ data DeleteThingResponse = DeleteThingResponse'
 -- 'httpStatus', 'deleteThingResponse_httpStatus' - The response's http status code.
 newDeleteThingResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteThingResponse
 newDeleteThingResponse pHttpStatus_ =
   DeleteThingResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteThingResponse_httpStatus :: Lens.Lens' DeleteThingResponse Core.Int
+deleteThingResponse_httpStatus :: Lens.Lens' DeleteThingResponse Prelude.Int
 deleteThingResponse_httpStatus = Lens.lens (\DeleteThingResponse' {httpStatus} -> httpStatus) (\s@DeleteThingResponse' {} a -> s {httpStatus = a} :: DeleteThingResponse)
 
-instance Core.NFData DeleteThingResponse
+instance Prelude.NFData DeleteThingResponse

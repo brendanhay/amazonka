@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DeleteVoiceChannel = DeleteVoiceChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVoiceChannel' with all optional fields omitted.
@@ -66,7 +67,7 @@ data DeleteVoiceChannel = DeleteVoiceChannel'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newDeleteVoiceChannel ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteVoiceChannel
 newDeleteVoiceChannel pApplicationId_ =
   DeleteVoiceChannel'
@@ -76,7 +77,7 @@ newDeleteVoiceChannel pApplicationId_ =
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-deleteVoiceChannel_applicationId :: Lens.Lens' DeleteVoiceChannel Core.Text
+deleteVoiceChannel_applicationId :: Lens.Lens' DeleteVoiceChannel Prelude.Text
 deleteVoiceChannel_applicationId = Lens.lens (\DeleteVoiceChannel' {applicationId} -> applicationId) (\s@DeleteVoiceChannel' {} a -> s {applicationId = a} :: DeleteVoiceChannel)
 
 instance Core.AWSRequest DeleteVoiceChannel where
@@ -88,41 +89,43 @@ instance Core.AWSRequest DeleteVoiceChannel where
     Response.receiveJSON
       ( \s h x ->
           DeleteVoiceChannelResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable DeleteVoiceChannel
+instance Prelude.Hashable DeleteVoiceChannel
 
-instance Core.NFData DeleteVoiceChannel
+instance Prelude.NFData DeleteVoiceChannel
 
 instance Core.ToHeaders DeleteVoiceChannel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteVoiceChannel where
   toPath DeleteVoiceChannel' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/channels/voice"
       ]
 
 instance Core.ToQuery DeleteVoiceChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVoiceChannelResponse' smart constructor.
 data DeleteVoiceChannelResponse = DeleteVoiceChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     voiceChannelResponse :: VoiceChannelResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVoiceChannelResponse' with all optional fields omitted.
@@ -137,7 +140,7 @@ data DeleteVoiceChannelResponse = DeleteVoiceChannelResponse'
 -- 'voiceChannelResponse', 'deleteVoiceChannelResponse_voiceChannelResponse' - Undocumented member.
 newDeleteVoiceChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'voiceChannelResponse'
   VoiceChannelResponse ->
   DeleteVoiceChannelResponse
@@ -151,11 +154,11 @@ newDeleteVoiceChannelResponse
       }
 
 -- | The response's http status code.
-deleteVoiceChannelResponse_httpStatus :: Lens.Lens' DeleteVoiceChannelResponse Core.Int
+deleteVoiceChannelResponse_httpStatus :: Lens.Lens' DeleteVoiceChannelResponse Prelude.Int
 deleteVoiceChannelResponse_httpStatus = Lens.lens (\DeleteVoiceChannelResponse' {httpStatus} -> httpStatus) (\s@DeleteVoiceChannelResponse' {} a -> s {httpStatus = a} :: DeleteVoiceChannelResponse)
 
 -- | Undocumented member.
 deleteVoiceChannelResponse_voiceChannelResponse :: Lens.Lens' DeleteVoiceChannelResponse VoiceChannelResponse
 deleteVoiceChannelResponse_voiceChannelResponse = Lens.lens (\DeleteVoiceChannelResponse' {voiceChannelResponse} -> voiceChannelResponse) (\s@DeleteVoiceChannelResponse' {} a -> s {voiceChannelResponse = a} :: DeleteVoiceChannelResponse)
 
-instance Core.NFData DeleteVoiceChannelResponse
+instance Prelude.NFData DeleteVoiceChannelResponse

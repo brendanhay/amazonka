@@ -39,6 +39,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -46,9 +47,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteMonitoringSchedule' smart constructor.
 data DeleteMonitoringSchedule = DeleteMonitoringSchedule'
   { -- | The name of the monitoring schedule to delete.
-    monitoringScheduleName :: Core.Text
+    monitoringScheduleName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMonitoringSchedule' with all optional fields omitted.
@@ -61,7 +62,7 @@ data DeleteMonitoringSchedule = DeleteMonitoringSchedule'
 -- 'monitoringScheduleName', 'deleteMonitoringSchedule_monitoringScheduleName' - The name of the monitoring schedule to delete.
 newDeleteMonitoringSchedule ::
   -- | 'monitoringScheduleName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteMonitoringSchedule
 newDeleteMonitoringSchedule pMonitoringScheduleName_ =
   DeleteMonitoringSchedule'
@@ -70,7 +71,7 @@ newDeleteMonitoringSchedule pMonitoringScheduleName_ =
     }
 
 -- | The name of the monitoring schedule to delete.
-deleteMonitoringSchedule_monitoringScheduleName :: Lens.Lens' DeleteMonitoringSchedule Core.Text
+deleteMonitoringSchedule_monitoringScheduleName :: Lens.Lens' DeleteMonitoringSchedule Prelude.Text
 deleteMonitoringSchedule_monitoringScheduleName = Lens.lens (\DeleteMonitoringSchedule' {monitoringScheduleName} -> monitoringScheduleName) (\s@DeleteMonitoringSchedule' {} a -> s {monitoringScheduleName = a} :: DeleteMonitoringSchedule)
 
 instance Core.AWSRequest DeleteMonitoringSchedule where
@@ -82,28 +83,30 @@ instance Core.AWSRequest DeleteMonitoringSchedule where
     Response.receiveNull
       DeleteMonitoringScheduleResponse'
 
-instance Core.Hashable DeleteMonitoringSchedule
+instance Prelude.Hashable DeleteMonitoringSchedule
 
-instance Core.NFData DeleteMonitoringSchedule
+instance Prelude.NFData DeleteMonitoringSchedule
 
 instance Core.ToHeaders DeleteMonitoringSchedule where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "SageMaker.DeleteMonitoringSchedule" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteMonitoringSchedule where
   toJSON DeleteMonitoringSchedule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "MonitoringScheduleName"
                   Core..= monitoringScheduleName
               )
@@ -111,16 +114,16 @@ instance Core.ToJSON DeleteMonitoringSchedule where
       )
 
 instance Core.ToPath DeleteMonitoringSchedule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteMonitoringSchedule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMonitoringScheduleResponse' smart constructor.
 data DeleteMonitoringScheduleResponse = DeleteMonitoringScheduleResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteMonitoringScheduleResponse' with all optional fields omitted.
@@ -131,4 +134,6 @@ newDeleteMonitoringScheduleResponse ::
 newDeleteMonitoringScheduleResponse =
   DeleteMonitoringScheduleResponse'
 
-instance Core.NFData DeleteMonitoringScheduleResponse
+instance
+  Prelude.NFData
+    DeleteMonitoringScheduleResponse

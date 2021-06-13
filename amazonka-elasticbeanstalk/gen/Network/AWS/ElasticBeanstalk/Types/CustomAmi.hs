@@ -21,17 +21,18 @@ module Network.AWS.ElasticBeanstalk.Types.CustomAmi where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A custom AMI available to platforms.
 --
 -- /See:/ 'newCustomAmi' smart constructor.
 data CustomAmi = CustomAmi'
   { -- | The type of virtualization used to create the custom AMI.
-    virtualizationType :: Core.Maybe Core.Text,
+    virtualizationType :: Prelude.Maybe Prelude.Text,
     -- | THe ID of the image used to create the custom AMI.
-    imageId :: Core.Maybe Core.Text
+    imageId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CustomAmi' with all optional fields omitted.
@@ -48,24 +49,24 @@ newCustomAmi ::
   CustomAmi
 newCustomAmi =
   CustomAmi'
-    { virtualizationType = Core.Nothing,
-      imageId = Core.Nothing
+    { virtualizationType = Prelude.Nothing,
+      imageId = Prelude.Nothing
     }
 
 -- | The type of virtualization used to create the custom AMI.
-customAmi_virtualizationType :: Lens.Lens' CustomAmi (Core.Maybe Core.Text)
+customAmi_virtualizationType :: Lens.Lens' CustomAmi (Prelude.Maybe Prelude.Text)
 customAmi_virtualizationType = Lens.lens (\CustomAmi' {virtualizationType} -> virtualizationType) (\s@CustomAmi' {} a -> s {virtualizationType = a} :: CustomAmi)
 
 -- | THe ID of the image used to create the custom AMI.
-customAmi_imageId :: Lens.Lens' CustomAmi (Core.Maybe Core.Text)
+customAmi_imageId :: Lens.Lens' CustomAmi (Prelude.Maybe Prelude.Text)
 customAmi_imageId = Lens.lens (\CustomAmi' {imageId} -> imageId) (\s@CustomAmi' {} a -> s {imageId = a} :: CustomAmi)
 
 instance Core.FromXML CustomAmi where
   parseXML x =
     CustomAmi'
-      Core.<$> (x Core..@? "VirtualizationType")
-      Core.<*> (x Core..@? "ImageId")
+      Prelude.<$> (x Core..@? "VirtualizationType")
+      Prelude.<*> (x Core..@? "ImageId")
 
-instance Core.Hashable CustomAmi
+instance Prelude.Hashable CustomAmi
 
-instance Core.NFData CustomAmi
+instance Prelude.NFData CustomAmi

@@ -45,6 +45,7 @@ where
 import Network.AWS.CertificateManager.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +58,9 @@ data ListTagsForCertificate = ListTagsForCertificate'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-    certificateArn :: Core.Text
+    certificateArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForCertificate' with all optional fields omitted.
@@ -78,7 +79,7 @@ data ListTagsForCertificate = ListTagsForCertificate'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
 newListTagsForCertificate ::
   -- | 'certificateArn'
-  Core.Text ->
+  Prelude.Text ->
   ListTagsForCertificate
 newListTagsForCertificate pCertificateArn_ =
   ListTagsForCertificate'
@@ -93,7 +94,7 @@ newListTagsForCertificate pCertificateArn_ =
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-listTagsForCertificate_certificateArn :: Lens.Lens' ListTagsForCertificate Core.Text
+listTagsForCertificate_certificateArn :: Lens.Lens' ListTagsForCertificate Prelude.Text
 listTagsForCertificate_certificateArn = Lens.lens (\ListTagsForCertificate' {certificateArn} -> certificateArn) (\s@ListTagsForCertificate' {} a -> s {certificateArn = a} :: ListTagsForCertificate)
 
 instance Core.AWSRequest ListTagsForCertificate where
@@ -105,50 +106,52 @@ instance Core.AWSRequest ListTagsForCertificate where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForCertificateResponse'
-            Core.<$> (x Core..?> "Tags")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Tags")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTagsForCertificate
+instance Prelude.Hashable ListTagsForCertificate
 
-instance Core.NFData ListTagsForCertificate
+instance Prelude.NFData ListTagsForCertificate
 
 instance Core.ToHeaders ListTagsForCertificate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CertificateManager.ListTagsForCertificate" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListTagsForCertificate where
   toJSON ListTagsForCertificate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("CertificateArn" Core..= certificateArn)
           ]
       )
 
 instance Core.ToPath ListTagsForCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTagsForCertificate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTagsForCertificateResponse' smart constructor.
 data ListTagsForCertificateResponse = ListTagsForCertificateResponse'
   { -- | The key-value pairs that define the applied tags.
-    tags :: Core.Maybe (Core.NonEmpty Tag),
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForCertificateResponse' with all optional fields omitted.
@@ -163,21 +166,23 @@ data ListTagsForCertificateResponse = ListTagsForCertificateResponse'
 -- 'httpStatus', 'listTagsForCertificateResponse_httpStatus' - The response's http status code.
 newListTagsForCertificateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTagsForCertificateResponse
 newListTagsForCertificateResponse pHttpStatus_ =
   ListTagsForCertificateResponse'
     { tags =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The key-value pairs that define the applied tags.
-listTagsForCertificateResponse_tags :: Lens.Lens' ListTagsForCertificateResponse (Core.Maybe (Core.NonEmpty Tag))
-listTagsForCertificateResponse_tags = Lens.lens (\ListTagsForCertificateResponse' {tags} -> tags) (\s@ListTagsForCertificateResponse' {} a -> s {tags = a} :: ListTagsForCertificateResponse) Core.. Lens.mapping Lens._Coerce
+listTagsForCertificateResponse_tags :: Lens.Lens' ListTagsForCertificateResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
+listTagsForCertificateResponse_tags = Lens.lens (\ListTagsForCertificateResponse' {tags} -> tags) (\s@ListTagsForCertificateResponse' {} a -> s {tags = a} :: ListTagsForCertificateResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTagsForCertificateResponse_httpStatus :: Lens.Lens' ListTagsForCertificateResponse Core.Int
+listTagsForCertificateResponse_httpStatus :: Lens.Lens' ListTagsForCertificateResponse Prelude.Int
 listTagsForCertificateResponse_httpStatus = Lens.lens (\ListTagsForCertificateResponse' {httpStatus} -> httpStatus) (\s@ListTagsForCertificateResponse' {} a -> s {httpStatus = a} :: ListTagsForCertificateResponse)
 
-instance Core.NFData ListTagsForCertificateResponse
+instance
+  Prelude.NFData
+    ListTagsForCertificateResponse

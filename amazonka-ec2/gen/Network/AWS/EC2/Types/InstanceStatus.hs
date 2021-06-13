@@ -25,31 +25,32 @@ import Network.AWS.EC2.Types.InstanceState
 import Network.AWS.EC2.Types.InstanceStatusEvent
 import Network.AWS.EC2.Types.InstanceStatusSummary
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the status of an instance.
 --
 -- /See:/ 'newInstanceStatus' smart constructor.
 data InstanceStatus = InstanceStatus'
   { -- | The ID of the instance.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | Reports impaired functionality that stems from issues related to the
     -- systems that support an instance, such as hardware failures and network
     -- connectivity problems.
-    systemStatus :: Core.Maybe InstanceStatusSummary,
+    systemStatus :: Prelude.Maybe InstanceStatusSummary,
     -- | The Amazon Resource Name (ARN) of the Outpost.
-    outpostArn :: Core.Maybe Core.Text,
+    outpostArn :: Prelude.Maybe Prelude.Text,
     -- | Reports impaired functionality that stems from issues internal to the
     -- instance, such as impaired reachability.
-    instanceStatus :: Core.Maybe InstanceStatusSummary,
+    instanceStatus :: Prelude.Maybe InstanceStatusSummary,
     -- | Any scheduled events associated with the instance.
-    events :: Core.Maybe [InstanceStatusEvent],
+    events :: Prelude.Maybe [InstanceStatusEvent],
     -- | The Availability Zone of the instance.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The intended state of the instance. DescribeInstanceStatus requires that
     -- an instance be in the @running@ state.
-    instanceState :: Core.Maybe InstanceState
+    instanceState :: Prelude.Maybe InstanceState
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceStatus' with all optional fields omitted.
@@ -80,60 +81,60 @@ newInstanceStatus ::
   InstanceStatus
 newInstanceStatus =
   InstanceStatus'
-    { instanceId = Core.Nothing,
-      systemStatus = Core.Nothing,
-      outpostArn = Core.Nothing,
-      instanceStatus = Core.Nothing,
-      events = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      instanceState = Core.Nothing
+    { instanceId = Prelude.Nothing,
+      systemStatus = Prelude.Nothing,
+      outpostArn = Prelude.Nothing,
+      instanceStatus = Prelude.Nothing,
+      events = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      instanceState = Prelude.Nothing
     }
 
 -- | The ID of the instance.
-instanceStatus_instanceId :: Lens.Lens' InstanceStatus (Core.Maybe Core.Text)
+instanceStatus_instanceId :: Lens.Lens' InstanceStatus (Prelude.Maybe Prelude.Text)
 instanceStatus_instanceId = Lens.lens (\InstanceStatus' {instanceId} -> instanceId) (\s@InstanceStatus' {} a -> s {instanceId = a} :: InstanceStatus)
 
 -- | Reports impaired functionality that stems from issues related to the
 -- systems that support an instance, such as hardware failures and network
 -- connectivity problems.
-instanceStatus_systemStatus :: Lens.Lens' InstanceStatus (Core.Maybe InstanceStatusSummary)
+instanceStatus_systemStatus :: Lens.Lens' InstanceStatus (Prelude.Maybe InstanceStatusSummary)
 instanceStatus_systemStatus = Lens.lens (\InstanceStatus' {systemStatus} -> systemStatus) (\s@InstanceStatus' {} a -> s {systemStatus = a} :: InstanceStatus)
 
 -- | The Amazon Resource Name (ARN) of the Outpost.
-instanceStatus_outpostArn :: Lens.Lens' InstanceStatus (Core.Maybe Core.Text)
+instanceStatus_outpostArn :: Lens.Lens' InstanceStatus (Prelude.Maybe Prelude.Text)
 instanceStatus_outpostArn = Lens.lens (\InstanceStatus' {outpostArn} -> outpostArn) (\s@InstanceStatus' {} a -> s {outpostArn = a} :: InstanceStatus)
 
 -- | Reports impaired functionality that stems from issues internal to the
 -- instance, such as impaired reachability.
-instanceStatus_instanceStatus :: Lens.Lens' InstanceStatus (Core.Maybe InstanceStatusSummary)
+instanceStatus_instanceStatus :: Lens.Lens' InstanceStatus (Prelude.Maybe InstanceStatusSummary)
 instanceStatus_instanceStatus = Lens.lens (\InstanceStatus' {instanceStatus} -> instanceStatus) (\s@InstanceStatus' {} a -> s {instanceStatus = a} :: InstanceStatus)
 
 -- | Any scheduled events associated with the instance.
-instanceStatus_events :: Lens.Lens' InstanceStatus (Core.Maybe [InstanceStatusEvent])
-instanceStatus_events = Lens.lens (\InstanceStatus' {events} -> events) (\s@InstanceStatus' {} a -> s {events = a} :: InstanceStatus) Core.. Lens.mapping Lens._Coerce
+instanceStatus_events :: Lens.Lens' InstanceStatus (Prelude.Maybe [InstanceStatusEvent])
+instanceStatus_events = Lens.lens (\InstanceStatus' {events} -> events) (\s@InstanceStatus' {} a -> s {events = a} :: InstanceStatus) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Availability Zone of the instance.
-instanceStatus_availabilityZone :: Lens.Lens' InstanceStatus (Core.Maybe Core.Text)
+instanceStatus_availabilityZone :: Lens.Lens' InstanceStatus (Prelude.Maybe Prelude.Text)
 instanceStatus_availabilityZone = Lens.lens (\InstanceStatus' {availabilityZone} -> availabilityZone) (\s@InstanceStatus' {} a -> s {availabilityZone = a} :: InstanceStatus)
 
 -- | The intended state of the instance. DescribeInstanceStatus requires that
 -- an instance be in the @running@ state.
-instanceStatus_instanceState :: Lens.Lens' InstanceStatus (Core.Maybe InstanceState)
+instanceStatus_instanceState :: Lens.Lens' InstanceStatus (Prelude.Maybe InstanceState)
 instanceStatus_instanceState = Lens.lens (\InstanceStatus' {instanceState} -> instanceState) (\s@InstanceStatus' {} a -> s {instanceState = a} :: InstanceStatus)
 
 instance Core.FromXML InstanceStatus where
   parseXML x =
     InstanceStatus'
-      Core.<$> (x Core..@? "instanceId")
-      Core.<*> (x Core..@? "systemStatus")
-      Core.<*> (x Core..@? "outpostArn")
-      Core.<*> (x Core..@? "instanceStatus")
-      Core.<*> ( x Core..@? "eventsSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "availabilityZone")
-      Core.<*> (x Core..@? "instanceState")
+      Prelude.<$> (x Core..@? "instanceId")
+      Prelude.<*> (x Core..@? "systemStatus")
+      Prelude.<*> (x Core..@? "outpostArn")
+      Prelude.<*> (x Core..@? "instanceStatus")
+      Prelude.<*> ( x Core..@? "eventsSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "availabilityZone")
+      Prelude.<*> (x Core..@? "instanceState")
 
-instance Core.Hashable InstanceStatus
+instance Prelude.Hashable InstanceStatus
 
-instance Core.NFData InstanceStatus
+instance Prelude.NFData InstanceStatus

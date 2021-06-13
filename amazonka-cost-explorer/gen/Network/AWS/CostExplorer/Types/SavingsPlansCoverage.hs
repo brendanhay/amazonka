@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.DateInterval
 import Network.AWS.CostExplorer.Types.SavingsPlansCoverageData
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The amount of Savings Plans eligible usage that is covered by Savings
 -- Plans. All calculations consider the On-Demand equivalent of your
@@ -30,14 +31,14 @@ import qualified Network.AWS.Lens as Lens
 --
 -- /See:/ 'newSavingsPlansCoverage' smart constructor.
 data SavingsPlansCoverage = SavingsPlansCoverage'
-  { timePeriod :: Core.Maybe DateInterval,
+  { timePeriod :: Prelude.Maybe DateInterval,
     -- | The attribute that applies to a specific @Dimension@.
-    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The amount of Savings Plans eligible usage that the Savings Plans
     -- covered.
-    coverage :: Core.Maybe SavingsPlansCoverageData
+    coverage :: Prelude.Maybe SavingsPlansCoverageData
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SavingsPlansCoverage' with all optional fields omitted.
@@ -57,22 +58,22 @@ newSavingsPlansCoverage ::
   SavingsPlansCoverage
 newSavingsPlansCoverage =
   SavingsPlansCoverage'
-    { timePeriod = Core.Nothing,
-      attributes = Core.Nothing,
-      coverage = Core.Nothing
+    { timePeriod = Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      coverage = Prelude.Nothing
     }
 
 -- | Undocumented member.
-savingsPlansCoverage_timePeriod :: Lens.Lens' SavingsPlansCoverage (Core.Maybe DateInterval)
+savingsPlansCoverage_timePeriod :: Lens.Lens' SavingsPlansCoverage (Prelude.Maybe DateInterval)
 savingsPlansCoverage_timePeriod = Lens.lens (\SavingsPlansCoverage' {timePeriod} -> timePeriod) (\s@SavingsPlansCoverage' {} a -> s {timePeriod = a} :: SavingsPlansCoverage)
 
 -- | The attribute that applies to a specific @Dimension@.
-savingsPlansCoverage_attributes :: Lens.Lens' SavingsPlansCoverage (Core.Maybe (Core.HashMap Core.Text Core.Text))
-savingsPlansCoverage_attributes = Lens.lens (\SavingsPlansCoverage' {attributes} -> attributes) (\s@SavingsPlansCoverage' {} a -> s {attributes = a} :: SavingsPlansCoverage) Core.. Lens.mapping Lens._Coerce
+savingsPlansCoverage_attributes :: Lens.Lens' SavingsPlansCoverage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+savingsPlansCoverage_attributes = Lens.lens (\SavingsPlansCoverage' {attributes} -> attributes) (\s@SavingsPlansCoverage' {} a -> s {attributes = a} :: SavingsPlansCoverage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The amount of Savings Plans eligible usage that the Savings Plans
 -- covered.
-savingsPlansCoverage_coverage :: Lens.Lens' SavingsPlansCoverage (Core.Maybe SavingsPlansCoverageData)
+savingsPlansCoverage_coverage :: Lens.Lens' SavingsPlansCoverage (Prelude.Maybe SavingsPlansCoverageData)
 savingsPlansCoverage_coverage = Lens.lens (\SavingsPlansCoverage' {coverage} -> coverage) (\s@SavingsPlansCoverage' {} a -> s {coverage = a} :: SavingsPlansCoverage)
 
 instance Core.FromJSON SavingsPlansCoverage where
@@ -81,11 +82,11 @@ instance Core.FromJSON SavingsPlansCoverage where
       "SavingsPlansCoverage"
       ( \x ->
           SavingsPlansCoverage'
-            Core.<$> (x Core..:? "TimePeriod")
-            Core.<*> (x Core..:? "Attributes" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Coverage")
+            Prelude.<$> (x Core..:? "TimePeriod")
+            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Coverage")
       )
 
-instance Core.Hashable SavingsPlansCoverage
+instance Prelude.Hashable SavingsPlansCoverage
 
-instance Core.NFData SavingsPlansCoverage
+instance Prelude.NFData SavingsPlansCoverage

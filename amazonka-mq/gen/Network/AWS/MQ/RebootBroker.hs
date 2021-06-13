@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRebootBroker' smart constructor.
 data RebootBroker = RebootBroker'
   { -- | The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Core.Text
+    brokerId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RebootBroker' with all optional fields omitted.
@@ -62,13 +63,13 @@ data RebootBroker = RebootBroker'
 -- 'brokerId', 'rebootBroker_brokerId' - The unique ID that Amazon MQ generates for the broker.
 newRebootBroker ::
   -- | 'brokerId'
-  Core.Text ->
+  Prelude.Text ->
   RebootBroker
 newRebootBroker pBrokerId_ =
   RebootBroker' {brokerId = pBrokerId_}
 
 -- | The unique ID that Amazon MQ generates for the broker.
-rebootBroker_brokerId :: Lens.Lens' RebootBroker Core.Text
+rebootBroker_brokerId :: Lens.Lens' RebootBroker Prelude.Text
 rebootBroker_brokerId = Lens.lens (\RebootBroker' {brokerId} -> brokerId) (\s@RebootBroker' {} a -> s {brokerId = a} :: RebootBroker)
 
 instance Core.AWSRequest RebootBroker where
@@ -78,39 +79,41 @@ instance Core.AWSRequest RebootBroker where
     Response.receiveEmpty
       ( \s h x ->
           RebootBrokerResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RebootBroker
+instance Prelude.Hashable RebootBroker
 
-instance Core.NFData RebootBroker
+instance Prelude.NFData RebootBroker
 
 instance Core.ToHeaders RebootBroker where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RebootBroker where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath RebootBroker where
   toPath RebootBroker' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/brokers/", Core.toBS brokerId, "/reboot"]
 
 instance Core.ToQuery RebootBroker where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRebootBrokerResponse' smart constructor.
 data RebootBrokerResponse = RebootBrokerResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RebootBrokerResponse' with all optional fields omitted.
@@ -123,13 +126,13 @@ data RebootBrokerResponse = RebootBrokerResponse'
 -- 'httpStatus', 'rebootBrokerResponse_httpStatus' - The response's http status code.
 newRebootBrokerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RebootBrokerResponse
 newRebootBrokerResponse pHttpStatus_ =
   RebootBrokerResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-rebootBrokerResponse_httpStatus :: Lens.Lens' RebootBrokerResponse Core.Int
+rebootBrokerResponse_httpStatus :: Lens.Lens' RebootBrokerResponse Prelude.Int
 rebootBrokerResponse_httpStatus = Lens.lens (\RebootBrokerResponse' {httpStatus} -> httpStatus) (\s@RebootBrokerResponse' {} a -> s {httpStatus = a} :: RebootBrokerResponse)
 
-instance Core.NFData RebootBrokerResponse
+instance Prelude.NFData RebootBrokerResponse

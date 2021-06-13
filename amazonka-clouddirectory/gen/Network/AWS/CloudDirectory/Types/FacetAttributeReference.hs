@@ -21,6 +21,7 @@ module Network.AWS.CloudDirectory.Types.FacetAttributeReference where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The facet attribute reference that specifies the attribute definition
 -- that contains the attribute facet name and attribute name.
@@ -30,14 +31,14 @@ data FacetAttributeReference = FacetAttributeReference'
   { -- | The target facet name that is associated with the facet reference. See
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
     -- for more information.
-    targetFacetName :: Core.Text,
+    targetFacetName :: Prelude.Text,
     -- | The target attribute name that is associated with the facet reference.
     -- See
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
     -- for more information.
-    targetAttributeName :: Core.Text
+    targetAttributeName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FacetAttributeReference' with all optional fields omitted.
@@ -57,9 +58,9 @@ data FacetAttributeReference = FacetAttributeReference'
 -- for more information.
 newFacetAttributeReference ::
   -- | 'targetFacetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'targetAttributeName'
-  Core.Text ->
+  Prelude.Text ->
   FacetAttributeReference
 newFacetAttributeReference
   pTargetFacetName_
@@ -73,14 +74,14 @@ newFacetAttributeReference
 -- | The target facet name that is associated with the facet reference. See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
 -- for more information.
-facetAttributeReference_targetFacetName :: Lens.Lens' FacetAttributeReference Core.Text
+facetAttributeReference_targetFacetName :: Lens.Lens' FacetAttributeReference Prelude.Text
 facetAttributeReference_targetFacetName = Lens.lens (\FacetAttributeReference' {targetFacetName} -> targetFacetName) (\s@FacetAttributeReference' {} a -> s {targetFacetName = a} :: FacetAttributeReference)
 
 -- | The target attribute name that is associated with the facet reference.
 -- See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
 -- for more information.
-facetAttributeReference_targetAttributeName :: Lens.Lens' FacetAttributeReference Core.Text
+facetAttributeReference_targetAttributeName :: Lens.Lens' FacetAttributeReference Prelude.Text
 facetAttributeReference_targetAttributeName = Lens.lens (\FacetAttributeReference' {targetAttributeName} -> targetAttributeName) (\s@FacetAttributeReference' {} a -> s {targetAttributeName = a} :: FacetAttributeReference)
 
 instance Core.FromJSON FacetAttributeReference where
@@ -89,21 +90,21 @@ instance Core.FromJSON FacetAttributeReference where
       "FacetAttributeReference"
       ( \x ->
           FacetAttributeReference'
-            Core.<$> (x Core..: "TargetFacetName")
-            Core.<*> (x Core..: "TargetAttributeName")
+            Prelude.<$> (x Core..: "TargetFacetName")
+            Prelude.<*> (x Core..: "TargetAttributeName")
       )
 
-instance Core.Hashable FacetAttributeReference
+instance Prelude.Hashable FacetAttributeReference
 
-instance Core.NFData FacetAttributeReference
+instance Prelude.NFData FacetAttributeReference
 
 instance Core.ToJSON FacetAttributeReference where
   toJSON FacetAttributeReference' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("TargetFacetName" Core..= targetFacetName),
-            Core.Just
+            Prelude.Just
               ("TargetAttributeName" Core..= targetAttributeName)
           ]
       )

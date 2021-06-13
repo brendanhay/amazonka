@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.Tagging where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Tag
 
@@ -31,7 +32,7 @@ data Tagging = Tagging'
   { -- | A collection for a set of tags
     tagSet :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tagging' with all optional fields omitted.
@@ -44,17 +45,17 @@ data Tagging = Tagging'
 -- 'tagSet', 'tagging_tagSet' - A collection for a set of tags
 newTagging ::
   Tagging
-newTagging = Tagging' {tagSet = Core.mempty}
+newTagging = Tagging' {tagSet = Prelude.mempty}
 
 -- | A collection for a set of tags
 tagging_tagSet :: Lens.Lens' Tagging [Tag]
-tagging_tagSet = Lens.lens (\Tagging' {tagSet} -> tagSet) (\s@Tagging' {} a -> s {tagSet = a} :: Tagging) Core.. Lens._Coerce
+tagging_tagSet = Lens.lens (\Tagging' {tagSet} -> tagSet) (\s@Tagging' {} a -> s {tagSet = a} :: Tagging) Prelude.. Lens._Coerce
 
-instance Core.Hashable Tagging
+instance Prelude.Hashable Tagging
 
-instance Core.NFData Tagging
+instance Prelude.NFData Tagging
 
 instance Core.ToXML Tagging where
   toXML Tagging' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["TagSet" Core.@= Core.toXMLList "Tag" tagSet]

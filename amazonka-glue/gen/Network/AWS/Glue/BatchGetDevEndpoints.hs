@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +55,9 @@ import qualified Network.AWS.Response as Response
 data BatchGetDevEndpoints = BatchGetDevEndpoints'
   { -- | The list of @DevEndpoint@ names, which might be the names returned from
     -- the @ListDevEndpoint@ operation.
-    devEndpointNames :: Core.NonEmpty Core.Text
+    devEndpointNames :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetDevEndpoints' with all optional fields omitted.
@@ -70,7 +71,7 @@ data BatchGetDevEndpoints = BatchGetDevEndpoints'
 -- the @ListDevEndpoint@ operation.
 newBatchGetDevEndpoints ::
   -- | 'devEndpointNames'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   BatchGetDevEndpoints
 newBatchGetDevEndpoints pDevEndpointNames_ =
   BatchGetDevEndpoints'
@@ -80,8 +81,8 @@ newBatchGetDevEndpoints pDevEndpointNames_ =
 
 -- | The list of @DevEndpoint@ names, which might be the names returned from
 -- the @ListDevEndpoint@ operation.
-batchGetDevEndpoints_devEndpointNames :: Lens.Lens' BatchGetDevEndpoints (Core.NonEmpty Core.Text)
-batchGetDevEndpoints_devEndpointNames = Lens.lens (\BatchGetDevEndpoints' {devEndpointNames} -> devEndpointNames) (\s@BatchGetDevEndpoints' {} a -> s {devEndpointNames = a} :: BatchGetDevEndpoints) Core.. Lens._Coerce
+batchGetDevEndpoints_devEndpointNames :: Lens.Lens' BatchGetDevEndpoints (Prelude.NonEmpty Prelude.Text)
+batchGetDevEndpoints_devEndpointNames = Lens.lens (\BatchGetDevEndpoints' {devEndpointNames} -> devEndpointNames) (\s@BatchGetDevEndpoints' {} a -> s {devEndpointNames = a} :: BatchGetDevEndpoints) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchGetDevEndpoints where
   type
@@ -92,51 +93,55 @@ instance Core.AWSRequest BatchGetDevEndpoints where
     Response.receiveJSON
       ( \s h x ->
           BatchGetDevEndpointsResponse'
-            Core.<$> (x Core..?> "DevEndpoints" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "DevEndpointsNotFound")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DevEndpoints" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "DevEndpointsNotFound")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchGetDevEndpoints
+instance Prelude.Hashable BatchGetDevEndpoints
 
-instance Core.NFData BatchGetDevEndpoints
+instance Prelude.NFData BatchGetDevEndpoints
 
 instance Core.ToHeaders BatchGetDevEndpoints where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.BatchGetDevEndpoints" :: Core.ByteString),
+              Core.=# ( "AWSGlue.BatchGetDevEndpoints" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchGetDevEndpoints where
   toJSON BatchGetDevEndpoints' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("DevEndpointNames" Core..= devEndpointNames)
           ]
       )
 
 instance Core.ToPath BatchGetDevEndpoints where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchGetDevEndpoints where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetDevEndpointsResponse' smart constructor.
 data BatchGetDevEndpointsResponse = BatchGetDevEndpointsResponse'
   { -- | A list of @DevEndpoint@ definitions.
-    devEndpoints :: Core.Maybe [DevEndpoint],
+    devEndpoints :: Prelude.Maybe [DevEndpoint],
     -- | A list of @DevEndpoints@ not found.
-    devEndpointsNotFound :: Core.Maybe (Core.NonEmpty Core.Text),
+    devEndpointsNotFound :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetDevEndpointsResponse' with all optional fields omitted.
@@ -153,26 +158,26 @@ data BatchGetDevEndpointsResponse = BatchGetDevEndpointsResponse'
 -- 'httpStatus', 'batchGetDevEndpointsResponse_httpStatus' - The response's http status code.
 newBatchGetDevEndpointsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchGetDevEndpointsResponse
 newBatchGetDevEndpointsResponse pHttpStatus_ =
   BatchGetDevEndpointsResponse'
     { devEndpoints =
-        Core.Nothing,
-      devEndpointsNotFound = Core.Nothing,
+        Prelude.Nothing,
+      devEndpointsNotFound = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of @DevEndpoint@ definitions.
-batchGetDevEndpointsResponse_devEndpoints :: Lens.Lens' BatchGetDevEndpointsResponse (Core.Maybe [DevEndpoint])
-batchGetDevEndpointsResponse_devEndpoints = Lens.lens (\BatchGetDevEndpointsResponse' {devEndpoints} -> devEndpoints) (\s@BatchGetDevEndpointsResponse' {} a -> s {devEndpoints = a} :: BatchGetDevEndpointsResponse) Core.. Lens.mapping Lens._Coerce
+batchGetDevEndpointsResponse_devEndpoints :: Lens.Lens' BatchGetDevEndpointsResponse (Prelude.Maybe [DevEndpoint])
+batchGetDevEndpointsResponse_devEndpoints = Lens.lens (\BatchGetDevEndpointsResponse' {devEndpoints} -> devEndpoints) (\s@BatchGetDevEndpointsResponse' {} a -> s {devEndpoints = a} :: BatchGetDevEndpointsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of @DevEndpoints@ not found.
-batchGetDevEndpointsResponse_devEndpointsNotFound :: Lens.Lens' BatchGetDevEndpointsResponse (Core.Maybe (Core.NonEmpty Core.Text))
-batchGetDevEndpointsResponse_devEndpointsNotFound = Lens.lens (\BatchGetDevEndpointsResponse' {devEndpointsNotFound} -> devEndpointsNotFound) (\s@BatchGetDevEndpointsResponse' {} a -> s {devEndpointsNotFound = a} :: BatchGetDevEndpointsResponse) Core.. Lens.mapping Lens._Coerce
+batchGetDevEndpointsResponse_devEndpointsNotFound :: Lens.Lens' BatchGetDevEndpointsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+batchGetDevEndpointsResponse_devEndpointsNotFound = Lens.lens (\BatchGetDevEndpointsResponse' {devEndpointsNotFound} -> devEndpointsNotFound) (\s@BatchGetDevEndpointsResponse' {} a -> s {devEndpointsNotFound = a} :: BatchGetDevEndpointsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchGetDevEndpointsResponse_httpStatus :: Lens.Lens' BatchGetDevEndpointsResponse Core.Int
+batchGetDevEndpointsResponse_httpStatus :: Lens.Lens' BatchGetDevEndpointsResponse Prelude.Int
 batchGetDevEndpointsResponse_httpStatus = Lens.lens (\BatchGetDevEndpointsResponse' {httpStatus} -> httpStatus) (\s@BatchGetDevEndpointsResponse' {} a -> s {httpStatus = a} :: BatchGetDevEndpointsResponse)
 
-instance Core.NFData BatchGetDevEndpointsResponse
+instance Prelude.NFData BatchGetDevEndpointsResponse

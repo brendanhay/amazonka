@@ -22,6 +22,7 @@ module Network.AWS.EFS.Types.RootDirectory where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types.CreationInfo
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the directory on the Amazon EFS file system that the access
 -- point provides access to. The access point exposes the specified file
@@ -42,14 +43,14 @@ data RootDirectory = RootDirectory'
     -- If you do not provide @CreationInfo@ and the specified @RootDirectory@ >
     -- @Path@ does not exist, attempts to mount the file system using the
     -- access point will fail.
-    creationInfo :: Core.Maybe CreationInfo,
+    creationInfo :: Prelude.Maybe CreationInfo,
     -- | Specifies the path on the EFS file system to expose as the root
     -- directory to NFS clients using the access point to access the EFS file
     -- system. A path can have up to four subdirectories. If the specified path
     -- does not exist, you are required to provide the @CreationInfo@.
-    path :: Core.Maybe Core.Text
+    path :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RootDirectory' with all optional fields omitted.
@@ -78,8 +79,8 @@ newRootDirectory ::
   RootDirectory
 newRootDirectory =
   RootDirectory'
-    { creationInfo = Core.Nothing,
-      path = Core.Nothing
+    { creationInfo = Prelude.Nothing,
+      path = Prelude.Nothing
     }
 
 -- | (Optional) Specifies the POSIX IDs and permissions to apply to the
@@ -92,14 +93,14 @@ newRootDirectory =
 -- If you do not provide @CreationInfo@ and the specified @RootDirectory@ >
 -- @Path@ does not exist, attempts to mount the file system using the
 -- access point will fail.
-rootDirectory_creationInfo :: Lens.Lens' RootDirectory (Core.Maybe CreationInfo)
+rootDirectory_creationInfo :: Lens.Lens' RootDirectory (Prelude.Maybe CreationInfo)
 rootDirectory_creationInfo = Lens.lens (\RootDirectory' {creationInfo} -> creationInfo) (\s@RootDirectory' {} a -> s {creationInfo = a} :: RootDirectory)
 
 -- | Specifies the path on the EFS file system to expose as the root
 -- directory to NFS clients using the access point to access the EFS file
 -- system. A path can have up to four subdirectories. If the specified path
 -- does not exist, you are required to provide the @CreationInfo@.
-rootDirectory_path :: Lens.Lens' RootDirectory (Core.Maybe Core.Text)
+rootDirectory_path :: Lens.Lens' RootDirectory (Prelude.Maybe Prelude.Text)
 rootDirectory_path = Lens.lens (\RootDirectory' {path} -> path) (\s@RootDirectory' {} a -> s {path = a} :: RootDirectory)
 
 instance Core.FromJSON RootDirectory where
@@ -108,19 +109,19 @@ instance Core.FromJSON RootDirectory where
       "RootDirectory"
       ( \x ->
           RootDirectory'
-            Core.<$> (x Core..:? "CreationInfo")
-            Core.<*> (x Core..:? "Path")
+            Prelude.<$> (x Core..:? "CreationInfo")
+            Prelude.<*> (x Core..:? "Path")
       )
 
-instance Core.Hashable RootDirectory
+instance Prelude.Hashable RootDirectory
 
-instance Core.NFData RootDirectory
+instance Prelude.NFData RootDirectory
 
 instance Core.ToJSON RootDirectory where
   toJSON RootDirectory' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CreationInfo" Core..=) Core.<$> creationInfo,
-            ("Path" Core..=) Core.<$> path
+      ( Prelude.catMaybes
+          [ ("CreationInfo" Core..=) Prelude.<$> creationInfo,
+            ("Path" Core..=) Prelude.<$> path
           ]
       )

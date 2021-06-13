@@ -39,6 +39,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,11 +48,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newFlushStageAuthorizersCache' smart constructor.
 data FlushStageAuthorizersCache = FlushStageAuthorizersCache'
   { -- | The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | The name of the stage to flush.
-    stageName :: Core.Text
+    stageName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FlushStageAuthorizersCache' with all optional fields omitted.
@@ -66,9 +67,9 @@ data FlushStageAuthorizersCache = FlushStageAuthorizersCache'
 -- 'stageName', 'flushStageAuthorizersCache_stageName' - The name of the stage to flush.
 newFlushStageAuthorizersCache ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'stageName'
-  Core.Text ->
+  Prelude.Text ->
   FlushStageAuthorizersCache
 newFlushStageAuthorizersCache pRestApiId_ pStageName_ =
   FlushStageAuthorizersCache'
@@ -78,11 +79,11 @@ newFlushStageAuthorizersCache pRestApiId_ pStageName_ =
     }
 
 -- | The string identifier of the associated RestApi.
-flushStageAuthorizersCache_restApiId :: Lens.Lens' FlushStageAuthorizersCache Core.Text
+flushStageAuthorizersCache_restApiId :: Lens.Lens' FlushStageAuthorizersCache Prelude.Text
 flushStageAuthorizersCache_restApiId = Lens.lens (\FlushStageAuthorizersCache' {restApiId} -> restApiId) (\s@FlushStageAuthorizersCache' {} a -> s {restApiId = a} :: FlushStageAuthorizersCache)
 
 -- | The name of the stage to flush.
-flushStageAuthorizersCache_stageName :: Lens.Lens' FlushStageAuthorizersCache Core.Text
+flushStageAuthorizersCache_stageName :: Lens.Lens' FlushStageAuthorizersCache Prelude.Text
 flushStageAuthorizersCache_stageName = Lens.lens (\FlushStageAuthorizersCache' {stageName} -> stageName) (\s@FlushStageAuthorizersCache' {} a -> s {stageName = a} :: FlushStageAuthorizersCache)
 
 instance Core.AWSRequest FlushStageAuthorizersCache where
@@ -94,22 +95,22 @@ instance Core.AWSRequest FlushStageAuthorizersCache where
     Response.receiveNull
       FlushStageAuthorizersCacheResponse'
 
-instance Core.Hashable FlushStageAuthorizersCache
+instance Prelude.Hashable FlushStageAuthorizersCache
 
-instance Core.NFData FlushStageAuthorizersCache
+instance Prelude.NFData FlushStageAuthorizersCache
 
 instance Core.ToHeaders FlushStageAuthorizersCache where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath FlushStageAuthorizersCache where
   toPath FlushStageAuthorizersCache' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/stages/",
@@ -118,13 +119,13 @@ instance Core.ToPath FlushStageAuthorizersCache where
       ]
 
 instance Core.ToQuery FlushStageAuthorizersCache where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newFlushStageAuthorizersCacheResponse' smart constructor.
 data FlushStageAuthorizersCacheResponse = FlushStageAuthorizersCacheResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FlushStageAuthorizersCacheResponse' with all optional fields omitted.
@@ -136,5 +137,5 @@ newFlushStageAuthorizersCacheResponse =
   FlushStageAuthorizersCacheResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     FlushStageAuthorizersCacheResponse

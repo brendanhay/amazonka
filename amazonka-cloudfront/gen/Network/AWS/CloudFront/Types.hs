@@ -1204,6 +1204,7 @@ import Network.AWS.CloudFront.Types.ViewerCertificate
 import Network.AWS.CloudFront.Types.ViewerProtocolPolicy
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2020-05-31@ of the Amazon CloudFront SDK configuration.
@@ -1217,7 +1218,7 @@ defaultService =
       Core._serviceVersion = "2020-05-31",
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Core.Just 70,
+      Core._serviceTimeout = Prelude.Just 70,
       Core._serviceCheck = Core.statusSuccess,
       Core._serviceError = Core.parseXMLError "CloudFront",
       Core._serviceRetry = retry
@@ -1232,1020 +1233,1022 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 504) e =
-        Core.Just "gateway_timeout"
+        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throughput_exceeded"
+        Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 503) e =
-        Core.Just "service_unavailable"
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 502) e =
-        Core.Just "bad_gateway"
+        Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 429) e =
-        Core.Just "too_many_requests"
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "request_throttled_exception"
+        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttled_exception"
+        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 509) e =
-        Core.Just "limit_exceeded"
+        Prelude.Just "limit_exceeded"
       | Lens.has (Core.hasStatus 500) e =
-        Core.Just "general_server_error"
+        Prelude.Just "general_server_error"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttling_exception"
+        Prelude.Just "throttling_exception"
       | Lens.has
-          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
           e =
-        Core.Just "throttling"
-      | Core.otherwise = Core.Nothing
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | A real-time log configuration with this name already exists. You must
 -- provide a unique name. To modify an existing real-time log
 -- configuration, use @UpdateRealtimeLogConfig@.
-_RealtimeLogConfigAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_RealtimeLogConfigAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _RealtimeLogConfigAlreadyExists =
   Core._MatchServiceError
     defaultService
     "RealtimeLogConfigAlreadyExists"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | The specified configuration for field-level encryption already exists.
-_FieldLevelEncryptionConfigAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_FieldLevelEncryptionConfigAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _FieldLevelEncryptionConfigAlreadyExists =
   Core._MatchServiceError
     defaultService
     "FieldLevelEncryptionConfigAlreadyExists"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | You cannot delete a managed policy.
-_IllegalDelete :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_IllegalDelete :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _IllegalDelete =
   Core._MatchServiceError
     defaultService
     "IllegalDelete"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | A response code is not valid.
-_InvalidResponseCode :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidResponseCode :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidResponseCode =
   Core._MatchServiceError
     defaultService
     "InvalidResponseCode"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The update contains modifications that are not allowed.
-_IllegalUpdate :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_IllegalUpdate :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _IllegalUpdate =
   Core._MatchServiceError
     defaultService
     "IllegalUpdate"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The @If-Match@ version is missing or not valid.
-_InvalidIfMatchVersion :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidIfMatchVersion :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidIfMatchVersion =
   Core._MatchServiceError
     defaultService
     "InvalidIfMatchVersion"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The caller reference you attempted to create the distribution with is
 -- associated with another distribution.
-_DistributionAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DistributionAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DistributionAlreadyExists =
   Core._MatchServiceError
     defaultService
     "DistributionAlreadyExists"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | The specified configuration for field-level encryption can\'t be
 -- associated with the specified cache behavior.
-_IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior =
   Core._MatchServiceError
     defaultService
     "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | An invalid error code was specified.
-_InvalidErrorCode :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidErrorCode :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidErrorCode =
   Core._MatchServiceError
     defaultService
     "InvalidErrorCode"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The tagging specified is not valid.
-_InvalidTagging :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidTagging :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidTagging =
   Core._MatchServiceError
     defaultService
     "InvalidTagging"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Your request contains too many origin custom headers.
-_TooManyOriginCustomHeaders :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyOriginCustomHeaders :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyOriginCustomHeaders =
   Core._MatchServiceError
     defaultService
     "TooManyOriginCustomHeaders"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The read timeout specified for the origin is not valid.
-_InvalidOriginReadTimeout :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidOriginReadTimeout :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidOriginReadTimeout =
   Core._MatchServiceError
     defaultService
     "InvalidOriginReadTimeout"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | This operation requires a body. Ensure that the body is present and the
 -- @Content-Type@ header is set.
-_MissingBody :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_MissingBody :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MissingBody =
   Core._MatchServiceError
     defaultService
     "MissingBody"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified profile for field-level encryption is in use.
-_FieldLevelEncryptionProfileInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_FieldLevelEncryptionProfileInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _FieldLevelEncryptionProfileInUse =
   Core._MatchServiceError
     defaultService
     "FieldLevelEncryptionProfileInUse"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | The maximum number of distributions have been associated with the
 -- specified cache policy. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
-_TooManyDistributionsAssociatedToCachePolicy :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyDistributionsAssociatedToCachePolicy :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyDistributionsAssociatedToCachePolicy =
   Core._MatchServiceError
     defaultService
     "TooManyDistributionsAssociatedToCachePolicy"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The location code specified is not valid.
-_InvalidLocationCode :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidLocationCode :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidLocationCode =
   Core._MatchServiceError
     defaultService
     "InvalidLocationCode"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | A key group with this name already exists. You must provide a unique
 -- name. To modify an existing key group, use @UpdateKeyGroup@.
-_KeyGroupAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_KeyGroupAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KeyGroupAlreadyExists =
   Core._MatchServiceError
     defaultService
     "KeyGroupAlreadyExists"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | The specified key group does not exist.
-_TrustedKeyGroupDoesNotExist :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TrustedKeyGroupDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TrustedKeyGroupDoesNotExist =
   Core._MatchServiceError
     defaultService
     "TrustedKeyGroupDoesNotExist"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | This operation requires the HTTPS protocol. Ensure that you specify the
 -- HTTPS protocol in your request, or omit the @RequiredProtocols@ element
 -- from your distribution configuration.
-_InvalidRequiredProtocol :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidRequiredProtocol :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidRequiredProtocol =
   Core._MatchServiceError
     defaultService
     "InvalidRequiredProtocol"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Your request contains too many headers in forwarded values.
-_TooManyHeadersInForwardedValues :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyHeadersInForwardedValues :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyHeadersInForwardedValues =
   Core._MatchServiceError
     defaultService
     "TooManyHeadersInForwardedValues"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The maximum number of encryption entities for field-level encryption
 -- have been created.
-_TooManyFieldLevelEncryptionEncryptionEntities :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyFieldLevelEncryptionEncryptionEntities :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyFieldLevelEncryptionEncryptionEntities =
   Core._MatchServiceError
     defaultService
     "TooManyFieldLevelEncryptionEncryptionEntities"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Cannot delete this resource because it is in use.
-_ResourceInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceInUse =
   Core._MatchServiceError
     defaultService
     "ResourceInUse"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | A viewer certificate specified is not valid.
-_InvalidViewerCertificate :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidViewerCertificate :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidViewerCertificate =
   Core._MatchServiceError
     defaultService
     "InvalidViewerCertificate"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified distribution does not exist.
-_NoSuchDistribution :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoSuchDistribution :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoSuchDistribution =
   Core._MatchServiceError
     defaultService
     "NoSuchDistribution"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | The minimum protocol version specified is not valid.
-_InvalidMinimumProtocolVersion :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidMinimumProtocolVersion :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidMinimumProtocolVersion =
   Core._MatchServiceError
     defaultService
     "InvalidMinimumProtocolVersion"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified CloudFront distribution is not disabled. You must disable
 -- the distribution before you can delete it.
-_StreamingDistributionNotDisabled :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_StreamingDistributionNotDisabled :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _StreamingDistributionNotDisabled =
   Core._MatchServiceError
     defaultService
     "StreamingDistributionNotDisabled"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | An origin request policy with this name already exists. You must provide
 -- a unique name. To modify an existing origin request policy, use
 -- @UpdateOriginRequestPolicy@.
-_OriginRequestPolicyAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_OriginRequestPolicyAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _OriginRequestPolicyAlreadyExists =
   Core._MatchServiceError
     defaultService
     "OriginRequestPolicyAlreadyExists"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | The number of cookies in the cache policy exceeds the maximum. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
-_TooManyCookiesInCachePolicy :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyCookiesInCachePolicy :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyCookiesInCachePolicy =
   Core._MatchServiceError
     defaultService
     "TooManyCookiesInCachePolicy"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Cannot delete the cache policy because it is attached to one or more
 -- cache behaviors.
-_CachePolicyInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CachePolicyInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CachePolicyInUse =
   Core._MatchServiceError
     defaultService
     "CachePolicyInUse"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | Your request contains more Lambda function associations than are allowed
 -- per distribution.
-_TooManyLambdaFunctionAssociations :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyLambdaFunctionAssociations :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyLambdaFunctionAssociations =
   Core._MatchServiceError
     defaultService
     "TooManyLambdaFunctionAssociations"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | If the @CallerReference@ is a value you already sent in a previous
 -- request to create an identity but the content of the
 -- @CloudFrontOriginAccessIdentityConfig@ is different from the original
 -- request, CloudFront returns a
 -- @CloudFrontOriginAccessIdentityAlreadyExists@ error.
-_CloudFrontOriginAccessIdentityAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CloudFrontOriginAccessIdentityAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CloudFrontOriginAccessIdentityAlreadyExists =
   Core._MatchServiceError
     defaultService
     "CloudFrontOriginAccessIdentityAlreadyExists"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | The relative path is too big, is not URL-encoded, or does not begin with
 -- a slash (\/).
-_InvalidRelativePath :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidRelativePath :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidRelativePath =
   Core._MatchServiceError
     defaultService
     "InvalidRelativePath"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | No origin exists with the specified @Origin Id@.
-_NoSuchOrigin :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoSuchOrigin :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoSuchOrigin =
   Core._MatchServiceError
     defaultService
     "NoSuchOrigin"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | The specified invalidation does not exist.
-_NoSuchInvalidation :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoSuchInvalidation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoSuchInvalidation =
   Core._MatchServiceError
     defaultService
     "NoSuchInvalidation"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | The specified public key already exists.
-_PublicKeyAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PublicKeyAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PublicKeyAlreadyExists =
   Core._MatchServiceError
     defaultService
     "PublicKeyAlreadyExists"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | The maximum number of distributions have been associated with the
 -- specified origin request policy. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
-_TooManyDistributionsAssociatedToOriginRequestPolicy :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyDistributionsAssociatedToOriginRequestPolicy :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyDistributionsAssociatedToOriginRequestPolicy =
   Core._MatchServiceError
     defaultService
     "TooManyDistributionsAssociatedToOriginRequestPolicy"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The maximum number of configurations for field-level encryption have
 -- been created.
-_TooManyFieldLevelEncryptionConfigs :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyFieldLevelEncryptionConfigs :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyFieldLevelEncryptionConfigs =
   Core._MatchServiceError
     defaultService
     "TooManyFieldLevelEncryptionConfigs"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The maximum number of field patterns for field-level encryption have
 -- been created.
-_TooManyFieldLevelEncryptionFieldPatterns :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyFieldLevelEncryptionFieldPatterns :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyFieldLevelEncryptionFieldPatterns =
   Core._MatchServiceError
     defaultService
     "TooManyFieldLevelEncryptionFieldPatterns"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The maximum number of content type profiles for field-level encryption
 -- have been created.
-_TooManyFieldLevelEncryptionContentTypeProfiles :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyFieldLevelEncryptionContentTypeProfiles :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyFieldLevelEncryptionContentTypeProfiles =
   Core._MatchServiceError
     defaultService
     "TooManyFieldLevelEncryptionContentTypeProfiles"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Invalidation batch specified is too large.
-_BatchTooLarge :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_BatchTooLarge :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _BatchTooLarge =
   Core._MatchServiceError
     defaultService
     "BatchTooLarge"
-    Core.. Core.hasStatus 413
+    Prelude.. Core.hasStatus 413
 
 -- | The real-time log configuration does not exist.
-_NoSuchRealtimeLogConfig :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoSuchRealtimeLogConfig :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoSuchRealtimeLogConfig =
   Core._MatchServiceError
     defaultService
     "NoSuchRealtimeLogConfig"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | The Amazon S3 origin server specified does not refer to a valid Amazon
 -- S3 bucket.
-_InvalidOrigin :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidOrigin :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidOrigin =
   Core._MatchServiceError
     defaultService
     "InvalidOrigin"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | You have reached the maximum number of cache policies for this AWS
 -- account. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
-_TooManyCachePolicies :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyCachePolicies :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyCachePolicies =
   Core._MatchServiceError
     defaultService
     "TooManyCachePolicies"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The number of public keys in this key group is more than the maximum
 -- allowed. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
-_TooManyPublicKeysInKeyGroup :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyPublicKeysInKeyGroup :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyPublicKeysInKeyGroup =
   Core._MatchServiceError
     defaultService
     "TooManyPublicKeysInKeyGroup"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified configuration for field-level encryption doesn\'t exist.
-_NoSuchFieldLevelEncryptionConfig :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoSuchFieldLevelEncryptionConfig :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoSuchFieldLevelEncryptionConfig =
   Core._MatchServiceError
     defaultService
     "NoSuchFieldLevelEncryptionConfig"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | Your request contains more cookie names in the whitelist than are
 -- allowed per cache behavior.
-_TooManyCookieNamesInWhiteList :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyCookieNamesInWhiteList :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyCookieNamesInWhiteList =
   Core._MatchServiceError
     defaultService
     "TooManyCookieNamesInWhiteList"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Cannot delete the real-time log configuration because it is attached to
 -- one or more cache behaviors.
-_RealtimeLogConfigInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_RealtimeLogConfigInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _RealtimeLogConfigInUse =
   Core._MatchServiceError
     defaultService
     "RealtimeLogConfigInUse"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Your request contains forward cookies option which doesn\'t match with
 -- the expectation for the @whitelisted@ list of cookie names. Either list
 -- of cookie names has been specified when not allowed or list of cookie
 -- names is missing when expected.
-_InvalidForwardCookies :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidForwardCookies :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidForwardCookies =
   Core._MatchServiceError
     defaultService
     "InvalidForwardCookies"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified configuration for field-level encryption is in use.
-_FieldLevelEncryptionConfigInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_FieldLevelEncryptionConfigInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _FieldLevelEncryptionConfigInUse =
   Core._MatchServiceError
     defaultService
     "FieldLevelEncryptionConfigInUse"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | Your request contains more trusted signers than are allowed per
 -- distribution.
-_TooManyTrustedSigners :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyTrustedSigners :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyTrustedSigners =
   Core._MatchServiceError
     defaultService
     "TooManyTrustedSigners"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The headers specified are not valid for an Amazon S3 origin.
-_InvalidHeadersForS3Origin :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidHeadersForS3Origin :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidHeadersForS3Origin =
   Core._MatchServiceError
     defaultService
     "InvalidHeadersForS3Origin"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The value of @Quantity@ and the size of @Items@ don\'t match.
-_InconsistentQuantities :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InconsistentQuantities :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InconsistentQuantities =
   Core._MatchServiceError
     defaultService
     "InconsistentQuantities"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The number of cookies in the origin request policy exceeds the maximum.
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
-_TooManyCookiesInOriginRequestPolicy :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyCookiesInOriginRequestPolicy :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyCookiesInOriginRequestPolicy =
   Core._MatchServiceError
     defaultService
     "TooManyCookiesInOriginRequestPolicy"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | You cannot specify SSLv3 as the minimum protocol version if you only
 -- want to support only clients that support Server Name Indication (SNI).
-_InvalidProtocolSettings :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidProtocolSettings :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidProtocolSettings =
   Core._MatchServiceError
     defaultService
     "InvalidProtocolSettings"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Your request contains too many query string parameters.
-_TooManyQueryStringParameters :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyQueryStringParameters :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyQueryStringParameters =
   Core._MatchServiceError
     defaultService
     "TooManyQueryStringParameters"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | You can\'t change the value of a public key.
-_CannotChangeImmutablePublicKeyFields :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CannotChangeImmutablePublicKeyFields :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CannotChangeImmutablePublicKeyFields =
   Core._MatchServiceError
     defaultService
     "CannotChangeImmutablePublicKeyFields"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified origin access identity does not exist.
-_NoSuchCloudFrontOriginAccessIdentity :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoSuchCloudFrontOriginAccessIdentity :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoSuchCloudFrontOriginAccessIdentity =
   Core._MatchServiceError
     defaultService
     "NoSuchCloudFrontOriginAccessIdentity"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | The maximum number of public keys for field-level encryption have been
 -- created. To create a new public key, delete one of the existing keys.
-_TooManyPublicKeys :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyPublicKeys :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyPublicKeys =
   Core._MatchServiceError
     defaultService
     "TooManyPublicKeys"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | One or more of your trusted signers don\'t exist.
-_TrustedSignerDoesNotExist :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TrustedSignerDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TrustedSignerDoesNotExist =
   Core._MatchServiceError
     defaultService
     "TrustedSignerDoesNotExist"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | You have exceeded the maximum number of allowable InProgress
 -- invalidation batch requests, or invalidation objects.
-_TooManyInvalidationsInProgress :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyInvalidationsInProgress :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyInvalidationsInProgress =
   Core._MatchServiceError
     defaultService
     "TooManyInvalidationsInProgress"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified public key doesn\'t exist.
-_NoSuchPublicKey :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoSuchPublicKey :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoSuchPublicKey =
   Core._MatchServiceError
     defaultService
     "NoSuchPublicKey"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | The specified CloudFront distribution is not disabled. You must disable
 -- the distribution before you can delete it.
-_DistributionNotDisabled :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DistributionNotDisabled :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DistributionNotDisabled =
   Core._MatchServiceError
     defaultService
     "DistributionNotDisabled"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | Processing your request would cause you to exceed the maximum number of
 -- origin access identities allowed.
-_TooManyCloudFrontOriginAccessIdentities :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyCloudFrontOriginAccessIdentities :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyCloudFrontOriginAccessIdentities =
   Core._MatchServiceError
     defaultService
     "TooManyCloudFrontOriginAccessIdentities"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The origin access identity is not valid or doesn\'t exist.
-_InvalidOriginAccessIdentity :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidOriginAccessIdentity :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidOriginAccessIdentity =
   Core._MatchServiceError
     defaultService
     "InvalidOriginAccessIdentity"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The precondition given in one or more of the request header fields
 -- evaluated to @false@.
-_PreconditionFailed :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PreconditionFailed :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PreconditionFailed =
   Core._MatchServiceError
     defaultService
     "PreconditionFailed"
-    Core.. Core.hasStatus 412
+    Prelude.. Core.hasStatus 412
 
 -- | The maximum number of profiles for field-level encryption have been
 -- created.
-_TooManyFieldLevelEncryptionProfiles :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyFieldLevelEncryptionProfiles :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyFieldLevelEncryptionProfiles =
   Core._MatchServiceError
     defaultService
     "TooManyFieldLevelEncryptionProfiles"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The query string parameters specified are not valid.
-_InvalidQueryStringParameters :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidQueryStringParameters :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidQueryStringParameters =
   Core._MatchServiceError
     defaultService
     "InvalidQueryStringParameters"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | You cannot create more cache behaviors for the distribution.
-_TooManyCacheBehaviors :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyCacheBehaviors :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyCacheBehaviors =
   Core._MatchServiceError
     defaultService
     "TooManyCacheBehaviors"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | You have reached the maximum number of origin request policies for this
 -- AWS account. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
-_TooManyOriginRequestPolicies :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyOriginRequestPolicies :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyOriginRequestPolicies =
   Core._MatchServiceError
     defaultService
     "TooManyOriginRequestPolicies"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified profile for field-level encryption doesn\'t exist.
-_NoSuchFieldLevelEncryptionProfile :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoSuchFieldLevelEncryptionProfile :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoSuchFieldLevelEncryptionProfile =
   Core._MatchServiceError
     defaultService
     "NoSuchFieldLevelEncryptionProfile"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | You have reached the maximum number of key groups for this AWS account.
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
-_TooManyKeyGroups :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyKeyGroups :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyKeyGroups =
   Core._MatchServiceError
     defaultService
     "TooManyKeyGroups"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The maximum number of distributions have been associated with the
 -- specified configuration for field-level encryption.
-_TooManyDistributionsAssociatedToFieldLevelEncryptionConfig :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyDistributionsAssociatedToFieldLevelEncryptionConfig :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyDistributionsAssociatedToFieldLevelEncryptionConfig =
   Core._MatchServiceError
     defaultService
     "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The number of query strings in the origin request policy exceeds the
 -- maximum. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
-_TooManyQueryStringsInOriginRequestPolicy :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyQueryStringsInOriginRequestPolicy :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyQueryStringsInOriginRequestPolicy =
   Core._MatchServiceError
     defaultService
     "TooManyQueryStringsInOriginRequestPolicy"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The maximum number of distributions have been associated with the
 -- specified Lambda function.
-_TooManyDistributionsWithSingleFunctionARN :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyDistributionsWithSingleFunctionARN :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyDistributionsWithSingleFunctionARN =
   Core._MatchServiceError
     defaultService
     "TooManyDistributionsWithSingleFunctionARN"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified geo restriction parameter is not valid.
-_InvalidGeoRestrictionParameter :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidGeoRestrictionParameter :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidGeoRestrictionParameter =
   Core._MatchServiceError
     defaultService
     "InvalidGeoRestrictionParameter"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The number of headers in the origin request policy exceeds the maximum.
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
-_TooManyHeadersInOriginRequestPolicy :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyHeadersInOriginRequestPolicy :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyHeadersInOriginRequestPolicy =
   Core._MatchServiceError
     defaultService
     "TooManyHeadersInOriginRequestPolicy"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | You cannot create anymore custom SSL\/TLS certificates.
-_TooManyCertificates :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyCertificates :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyCertificates =
   Core._MatchServiceError
     defaultService
     "TooManyCertificates"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The origin request policy does not exist.
-_NoSuchOriginRequestPolicy :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoSuchOriginRequestPolicy :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoSuchOriginRequestPolicy =
   Core._MatchServiceError
     defaultService
     "NoSuchOriginRequestPolicy"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | Processing your request would cause the maximum number of distributions
 -- with Lambda function associations per owner to be exceeded.
-_TooManyDistributionsWithLambdaAssociations :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyDistributionsWithLambdaAssociations :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyDistributionsWithLambdaAssociations =
   Core._MatchServiceError
     defaultService
     "TooManyDistributionsWithLambdaAssociations"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The default root object file name is too big or contains an invalid
 -- character.
-_InvalidDefaultRootObject :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidDefaultRootObject :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidDefaultRootObject =
   Core._MatchServiceError
     defaultService
     "InvalidDefaultRootObject"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Cannot delete the origin request policy because it is attached to one or
 -- more cache behaviors.
-_OriginRequestPolicyInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_OriginRequestPolicyInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _OriginRequestPolicyInUse =
   Core._MatchServiceError
     defaultService
     "OriginRequestPolicyInUse"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | Your request contains more CNAMEs than are allowed per distribution.
-_TooManyStreamingDistributionCNAMEs :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyStreamingDistributionCNAMEs :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyStreamingDistributionCNAMEs =
   Core._MatchServiceError
     defaultService
     "TooManyStreamingDistributionCNAMEs"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The maximum size of a profile for field-level encryption was exceeded.
-_FieldLevelEncryptionProfileSizeExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_FieldLevelEncryptionProfileSizeExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _FieldLevelEncryptionProfileSizeExceeded =
   Core._MatchServiceError
     defaultService
     "FieldLevelEncryptionProfileSizeExceeded"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | A resource that was specified is not valid.
-_NoSuchResource :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoSuchResource :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoSuchResource =
   Core._MatchServiceError
     defaultService
     "NoSuchResource"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | The specified profile for field-level encryption already exists.
-_FieldLevelEncryptionProfileAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_FieldLevelEncryptionProfileAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _FieldLevelEncryptionProfileAlreadyExists =
   Core._MatchServiceError
     defaultService
     "FieldLevelEncryptionProfileAlreadyExists"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | Processing your request would cause you to exceed the maximum number of
 -- distributions allowed.
-_TooManyDistributions :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyDistributions :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyDistributions =
   Core._MatchServiceError
     defaultService
     "TooManyDistributions"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The TTL order specified is not valid.
-_InvalidTTLOrder :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidTTLOrder :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidTTLOrder =
   Core._MatchServiceError
     defaultService
     "InvalidTTLOrder"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Access denied.
-_AccessDenied :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AccessDenied :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDenied =
   Core._MatchServiceError
     defaultService
     "AccessDenied"
-    Core.. Core.hasStatus 403
+    Prelude.. Core.hasStatus 403
 
 -- | No profile specified for the field-level encryption query argument.
-_QueryArgProfileEmpty :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_QueryArgProfileEmpty :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _QueryArgProfileEmpty =
   Core._MatchServiceError
     defaultService
     "QueryArgProfileEmpty"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The number of query strings in the cache policy exceeds the maximum. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
-_TooManyQueryStringsInCachePolicy :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyQueryStringsInCachePolicy :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyQueryStringsInCachePolicy =
   Core._MatchServiceError
     defaultService
     "TooManyQueryStringsInCachePolicy"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | You cannot create more origins for the distribution.
-_TooManyOrigins :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyOrigins :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyOrigins =
   Core._MatchServiceError
     defaultService
     "TooManyOrigins"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The number of headers in the cache policy exceeds the maximum. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
-_TooManyHeadersInCachePolicy :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyHeadersInCachePolicy :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyHeadersInCachePolicy =
   Core._MatchServiceError
     defaultService
     "TooManyHeadersInCachePolicy"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The caller reference you attempted to create the streaming distribution
 -- with is associated with another distribution
-_StreamingDistributionAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_StreamingDistributionAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _StreamingDistributionAlreadyExists =
   Core._MatchServiceError
     defaultService
     "StreamingDistributionAlreadyExists"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | The cache policy does not exist.
-_NoSuchCachePolicy :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoSuchCachePolicy :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoSuchCachePolicy =
   Core._MatchServiceError
     defaultService
     "NoSuchCachePolicy"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | The number of key groups referenced by this distribution is more than
 -- the maximum allowed. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
-_TooManyKeyGroupsAssociatedToDistribution :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyKeyGroupsAssociatedToDistribution :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyKeyGroupsAssociatedToDistribution =
   Core._MatchServiceError
     defaultService
     "TooManyKeyGroupsAssociatedToDistribution"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | You have reached the maximum number of real-time log configurations for
 -- this AWS account. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
-_TooManyRealtimeLogConfigs :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyRealtimeLogConfigs :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyRealtimeLogConfigs =
   Core._MatchServiceError
     defaultService
     "TooManyRealtimeLogConfigs"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The number of distributions that reference this key group is more than
 -- the maximum allowed. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html Quotas>
 -- (formerly known as limits) in the /Amazon CloudFront Developer Guide/.
-_TooManyDistributionsAssociatedToKeyGroup :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyDistributionsAssociatedToKeyGroup :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyDistributionsAssociatedToKeyGroup =
   Core._MatchServiceError
     defaultService
     "TooManyDistributionsAssociatedToKeyGroup"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified Lambda function association is invalid.
-_InvalidLambdaFunctionAssociation :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidLambdaFunctionAssociation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidLambdaFunctionAssociation =
   Core._MatchServiceError
     defaultService
     "InvalidLambdaFunctionAssociation"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | A cache policy with this name already exists. You must provide a unique
 -- name. To modify an existing cache policy, use @UpdateCachePolicy@.
-_CachePolicyAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CachePolicyAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CachePolicyAlreadyExists =
   Core._MatchServiceError
     defaultService
     "CachePolicyAlreadyExists"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | The maximum number of query arg profiles for field-level encryption have
 -- been created.
-_TooManyFieldLevelEncryptionQueryArgProfiles :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyFieldLevelEncryptionQueryArgProfiles :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyFieldLevelEncryptionQueryArgProfiles =
   Core._MatchServiceError
     defaultService
     "TooManyFieldLevelEncryptionQueryArgProfiles"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified public key is in use.
-_PublicKeyInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PublicKeyInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PublicKeyInUse =
   Core._MatchServiceError
     defaultService
     "PublicKeyInUse"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | The CNAME specified is already defined for CloudFront.
-_CNAMEAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CNAMEAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CNAMEAlreadyExists =
   Core._MatchServiceError
     defaultService
     "CNAMEAlreadyExists"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | A web ACL ID specified is not valid. To specify a web ACL created using
 -- the latest version of AWS WAF, use the ACL ARN, for example
 -- @arn:aws:wafv2:us-east-1:123456789012:global\/webacl\/ExampleWebACL\/473e64fd-f30b-4765-81a0-62ad96dd167a@.
 -- To specify a web ACL created using AWS WAF Classic, use the ACL ID, for
 -- example @473e64fd-f30b-4765-81a0-62ad96dd167a@.
-_InvalidWebACLId :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidWebACLId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidWebACLId =
   Core._MatchServiceError
     defaultService
     "InvalidWebACLId"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The Origin Access Identity specified is already in use.
-_CloudFrontOriginAccessIdentityInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CloudFrontOriginAccessIdentityInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CloudFrontOriginAccessIdentityInUse =
   Core._MatchServiceError
     defaultService
     "CloudFrontOriginAccessIdentityInUse"
-    Core.. Core.hasStatus 409
+    Prelude.. Core.hasStatus 409
 
 -- | Processing your request would cause you to exceed the maximum number of
 -- origin groups allowed.
-_TooManyOriginGroupsPerDistribution :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyOriginGroupsPerDistribution :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyOriginGroupsPerDistribution =
   Core._MatchServiceError
     defaultService
     "TooManyOriginGroupsPerDistribution"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Your request contains more CNAMEs than are allowed per distribution.
-_TooManyDistributionCNAMEs :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyDistributionCNAMEs :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyDistributionCNAMEs =
   Core._MatchServiceError
     defaultService
     "TooManyDistributionCNAMEs"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | The specified streaming distribution does not exist.
-_NoSuchStreamingDistribution :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoSuchStreamingDistribution :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoSuchStreamingDistribution =
   Core._MatchServiceError
     defaultService
     "NoSuchStreamingDistribution"
-    Core.. Core.hasStatus 404
+    Prelude.. Core.hasStatus 404
 
 -- | The keep alive timeout specified for the origin is not valid.
-_InvalidOriginKeepaliveTimeout :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidOriginKeepaliveTimeout :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidOriginKeepaliveTimeout =
   Core._MatchServiceError
     defaultService
     "InvalidOriginKeepaliveTimeout"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | Processing your request would cause you to exceed the maximum number of
 -- streaming distributions allowed.
-_TooManyStreamingDistributions :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyStreamingDistributions :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyStreamingDistributions =
   Core._MatchServiceError
     defaultService
     "TooManyStreamingDistributions"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400
 
 -- | An argument is invalid.
-_InvalidArgument :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidArgument :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidArgument =
   Core._MatchServiceError
     defaultService
     "InvalidArgument"
-    Core.. Core.hasStatus 400
+    Prelude.. Core.hasStatus 400

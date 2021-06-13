@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.ColorSpacePassthroughSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Passthrough applies no color space conversion to the output
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data ColorSpacePassthroughSettings = ColorSpacePassthroughSettings'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ColorSpacePassthroughSettings' with all optional fields omitted.
@@ -43,11 +44,13 @@ instance Core.FromJSON ColorSpacePassthroughSettings where
   parseJSON =
     Core.withObject
       "ColorSpacePassthroughSettings"
-      (\x -> Core.pure ColorSpacePassthroughSettings')
+      (\x -> Prelude.pure ColorSpacePassthroughSettings')
 
-instance Core.Hashable ColorSpacePassthroughSettings
+instance
+  Prelude.Hashable
+    ColorSpacePassthroughSettings
 
-instance Core.NFData ColorSpacePassthroughSettings
+instance Prelude.NFData ColorSpacePassthroughSettings
 
 instance Core.ToJSON ColorSpacePassthroughSettings where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)

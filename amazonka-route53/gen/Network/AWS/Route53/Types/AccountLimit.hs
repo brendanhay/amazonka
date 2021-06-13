@@ -21,6 +21,7 @@ module Network.AWS.Route53.Types.AccountLimit where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.AccountLimitType
 
@@ -51,9 +52,9 @@ data AccountLimit = AccountLimit'
     type' :: AccountLimitType,
     -- | The current value for the limit that is specified by
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_AccountLimit.html#Route53-Type-AccountLimit-Type Type>.
-    value :: Core.Natural
+    value :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccountLimit' with all optional fields omitted.
@@ -89,7 +90,7 @@ newAccountLimit ::
   -- | 'type''
   AccountLimitType ->
   -- | 'value'
-  Core.Natural ->
+  Prelude.Natural ->
   AccountLimit
 newAccountLimit pType_ pValue_ =
   AccountLimit' {type' = pType_, value = pValue_}
@@ -118,14 +119,14 @@ accountLimit_type = Lens.lens (\AccountLimit' {type'} -> type') (\s@AccountLimit
 
 -- | The current value for the limit that is specified by
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_AccountLimit.html#Route53-Type-AccountLimit-Type Type>.
-accountLimit_value :: Lens.Lens' AccountLimit Core.Natural
+accountLimit_value :: Lens.Lens' AccountLimit Prelude.Natural
 accountLimit_value = Lens.lens (\AccountLimit' {value} -> value) (\s@AccountLimit' {} a -> s {value = a} :: AccountLimit)
 
 instance Core.FromXML AccountLimit where
   parseXML x =
     AccountLimit'
-      Core.<$> (x Core..@ "Type") Core.<*> (x Core..@ "Value")
+      Prelude.<$> (x Core..@ "Type") Prelude.<*> (x Core..@ "Value")
 
-instance Core.Hashable AccountLimit
+instance Prelude.Hashable AccountLimit
 
-instance Core.NFData AccountLimit
+instance Prelude.NFData AccountLimit

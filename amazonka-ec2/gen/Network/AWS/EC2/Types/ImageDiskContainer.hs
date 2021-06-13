@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.UserBucket
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the disk container object for an import image task.
 --
@@ -31,20 +32,20 @@ data ImageDiskContainer = ImageDiskContainer'
   { -- | The format of the disk image being imported.
     --
     -- Valid values: @OVA@ | @VHD@ | @VHDX@ | @VMDK@ | @RAW@
-    format :: Core.Maybe Core.Text,
+    format :: Prelude.Maybe Prelude.Text,
     -- | The S3 bucket for the disk image.
-    userBucket :: Core.Maybe UserBucket,
+    userBucket :: Prelude.Maybe UserBucket,
     -- | The block device mapping for the disk.
-    deviceName :: Core.Maybe Core.Text,
+    deviceName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the EBS snapshot to be used for importing the snapshot.
-    snapshotId :: Core.Maybe Core.Text,
+    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The description of the disk image.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The URL to the Amazon S3-based disk image being imported. The URL can
     -- either be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..)
-    url :: Core.Maybe Core.Text
+    url :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImageDiskContainer' with all optional fields omitted.
@@ -72,48 +73,48 @@ newImageDiskContainer ::
   ImageDiskContainer
 newImageDiskContainer =
   ImageDiskContainer'
-    { format = Core.Nothing,
-      userBucket = Core.Nothing,
-      deviceName = Core.Nothing,
-      snapshotId = Core.Nothing,
-      description = Core.Nothing,
-      url = Core.Nothing
+    { format = Prelude.Nothing,
+      userBucket = Prelude.Nothing,
+      deviceName = Prelude.Nothing,
+      snapshotId = Prelude.Nothing,
+      description = Prelude.Nothing,
+      url = Prelude.Nothing
     }
 
 -- | The format of the disk image being imported.
 --
 -- Valid values: @OVA@ | @VHD@ | @VHDX@ | @VMDK@ | @RAW@
-imageDiskContainer_format :: Lens.Lens' ImageDiskContainer (Core.Maybe Core.Text)
+imageDiskContainer_format :: Lens.Lens' ImageDiskContainer (Prelude.Maybe Prelude.Text)
 imageDiskContainer_format = Lens.lens (\ImageDiskContainer' {format} -> format) (\s@ImageDiskContainer' {} a -> s {format = a} :: ImageDiskContainer)
 
 -- | The S3 bucket for the disk image.
-imageDiskContainer_userBucket :: Lens.Lens' ImageDiskContainer (Core.Maybe UserBucket)
+imageDiskContainer_userBucket :: Lens.Lens' ImageDiskContainer (Prelude.Maybe UserBucket)
 imageDiskContainer_userBucket = Lens.lens (\ImageDiskContainer' {userBucket} -> userBucket) (\s@ImageDiskContainer' {} a -> s {userBucket = a} :: ImageDiskContainer)
 
 -- | The block device mapping for the disk.
-imageDiskContainer_deviceName :: Lens.Lens' ImageDiskContainer (Core.Maybe Core.Text)
+imageDiskContainer_deviceName :: Lens.Lens' ImageDiskContainer (Prelude.Maybe Prelude.Text)
 imageDiskContainer_deviceName = Lens.lens (\ImageDiskContainer' {deviceName} -> deviceName) (\s@ImageDiskContainer' {} a -> s {deviceName = a} :: ImageDiskContainer)
 
 -- | The ID of the EBS snapshot to be used for importing the snapshot.
-imageDiskContainer_snapshotId :: Lens.Lens' ImageDiskContainer (Core.Maybe Core.Text)
+imageDiskContainer_snapshotId :: Lens.Lens' ImageDiskContainer (Prelude.Maybe Prelude.Text)
 imageDiskContainer_snapshotId = Lens.lens (\ImageDiskContainer' {snapshotId} -> snapshotId) (\s@ImageDiskContainer' {} a -> s {snapshotId = a} :: ImageDiskContainer)
 
 -- | The description of the disk image.
-imageDiskContainer_description :: Lens.Lens' ImageDiskContainer (Core.Maybe Core.Text)
+imageDiskContainer_description :: Lens.Lens' ImageDiskContainer (Prelude.Maybe Prelude.Text)
 imageDiskContainer_description = Lens.lens (\ImageDiskContainer' {description} -> description) (\s@ImageDiskContainer' {} a -> s {description = a} :: ImageDiskContainer)
 
 -- | The URL to the Amazon S3-based disk image being imported. The URL can
 -- either be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..)
-imageDiskContainer_url :: Lens.Lens' ImageDiskContainer (Core.Maybe Core.Text)
+imageDiskContainer_url :: Lens.Lens' ImageDiskContainer (Prelude.Maybe Prelude.Text)
 imageDiskContainer_url = Lens.lens (\ImageDiskContainer' {url} -> url) (\s@ImageDiskContainer' {} a -> s {url = a} :: ImageDiskContainer)
 
-instance Core.Hashable ImageDiskContainer
+instance Prelude.Hashable ImageDiskContainer
 
-instance Core.NFData ImageDiskContainer
+instance Prelude.NFData ImageDiskContainer
 
 instance Core.ToQuery ImageDiskContainer where
   toQuery ImageDiskContainer' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Format" Core.=: format,
         "UserBucket" Core.=: userBucket,
         "DeviceName" Core.=: deviceName,

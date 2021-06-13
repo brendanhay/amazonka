@@ -69,6 +69,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -77,7 +78,7 @@ data CreateOriginRequestPolicy = CreateOriginRequestPolicy'
   { -- | An origin request policy configuration.
     originRequestPolicyConfig :: OriginRequestPolicyConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateOriginRequestPolicy' with all optional fields omitted.
@@ -112,15 +113,15 @@ instance Core.AWSRequest CreateOriginRequestPolicy where
     Response.receiveXML
       ( \s h x ->
           CreateOriginRequestPolicyResponse'
-            Core.<$> (h Core..#? "ETag")
-            Core.<*> (Core.parseXML x)
-            Core.<*> (h Core..#? "Location")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (h Core..#? "Location")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateOriginRequestPolicy
+instance Prelude.Hashable CreateOriginRequestPolicy
 
-instance Core.NFData CreateOriginRequestPolicy
+instance Prelude.NFData CreateOriginRequestPolicy
 
 instance Core.ToElement CreateOriginRequestPolicy where
   toElement CreateOriginRequestPolicy' {..} =
@@ -129,27 +130,27 @@ instance Core.ToElement CreateOriginRequestPolicy where
       originRequestPolicyConfig
 
 instance Core.ToHeaders CreateOriginRequestPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateOriginRequestPolicy where
   toPath =
-    Core.const "/2020-05-31/origin-request-policy"
+    Prelude.const "/2020-05-31/origin-request-policy"
 
 instance Core.ToQuery CreateOriginRequestPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateOriginRequestPolicyResponse' smart constructor.
 data CreateOriginRequestPolicyResponse = CreateOriginRequestPolicyResponse'
   { -- | The current version of the origin request policy.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | An origin request policy.
-    originRequestPolicy :: Core.Maybe OriginRequestPolicy,
+    originRequestPolicy :: Prelude.Maybe OriginRequestPolicy,
     -- | The fully qualified URI of the origin request policy just created.
-    location :: Core.Maybe Core.Text,
+    location :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateOriginRequestPolicyResponse' with all optional fields omitted.
@@ -168,33 +169,33 @@ data CreateOriginRequestPolicyResponse = CreateOriginRequestPolicyResponse'
 -- 'httpStatus', 'createOriginRequestPolicyResponse_httpStatus' - The response's http status code.
 newCreateOriginRequestPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateOriginRequestPolicyResponse
 newCreateOriginRequestPolicyResponse pHttpStatus_ =
   CreateOriginRequestPolicyResponse'
     { eTag =
-        Core.Nothing,
-      originRequestPolicy = Core.Nothing,
-      location = Core.Nothing,
+        Prelude.Nothing,
+      originRequestPolicy = Prelude.Nothing,
+      location = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current version of the origin request policy.
-createOriginRequestPolicyResponse_eTag :: Lens.Lens' CreateOriginRequestPolicyResponse (Core.Maybe Core.Text)
+createOriginRequestPolicyResponse_eTag :: Lens.Lens' CreateOriginRequestPolicyResponse (Prelude.Maybe Prelude.Text)
 createOriginRequestPolicyResponse_eTag = Lens.lens (\CreateOriginRequestPolicyResponse' {eTag} -> eTag) (\s@CreateOriginRequestPolicyResponse' {} a -> s {eTag = a} :: CreateOriginRequestPolicyResponse)
 
 -- | An origin request policy.
-createOriginRequestPolicyResponse_originRequestPolicy :: Lens.Lens' CreateOriginRequestPolicyResponse (Core.Maybe OriginRequestPolicy)
+createOriginRequestPolicyResponse_originRequestPolicy :: Lens.Lens' CreateOriginRequestPolicyResponse (Prelude.Maybe OriginRequestPolicy)
 createOriginRequestPolicyResponse_originRequestPolicy = Lens.lens (\CreateOriginRequestPolicyResponse' {originRequestPolicy} -> originRequestPolicy) (\s@CreateOriginRequestPolicyResponse' {} a -> s {originRequestPolicy = a} :: CreateOriginRequestPolicyResponse)
 
 -- | The fully qualified URI of the origin request policy just created.
-createOriginRequestPolicyResponse_location :: Lens.Lens' CreateOriginRequestPolicyResponse (Core.Maybe Core.Text)
+createOriginRequestPolicyResponse_location :: Lens.Lens' CreateOriginRequestPolicyResponse (Prelude.Maybe Prelude.Text)
 createOriginRequestPolicyResponse_location = Lens.lens (\CreateOriginRequestPolicyResponse' {location} -> location) (\s@CreateOriginRequestPolicyResponse' {} a -> s {location = a} :: CreateOriginRequestPolicyResponse)
 
 -- | The response's http status code.
-createOriginRequestPolicyResponse_httpStatus :: Lens.Lens' CreateOriginRequestPolicyResponse Core.Int
+createOriginRequestPolicyResponse_httpStatus :: Lens.Lens' CreateOriginRequestPolicyResponse Prelude.Int
 createOriginRequestPolicyResponse_httpStatus = Lens.lens (\CreateOriginRequestPolicyResponse' {httpStatus} -> httpStatus) (\s@CreateOriginRequestPolicyResponse' {} a -> s {httpStatus = a} :: CreateOriginRequestPolicyResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateOriginRequestPolicyResponse

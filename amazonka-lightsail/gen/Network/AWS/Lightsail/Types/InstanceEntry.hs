@@ -22,6 +22,7 @@ module Network.AWS.Lightsail.Types.InstanceEntry where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.PortInfoSourceType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Amazon Elastic Compute Cloud instance and related
 -- resources to be created using the @create cloud formation stack@
@@ -35,17 +36,17 @@ data InstanceEntry = InstanceEntry'
     -- Depending on the machine image you choose, the command to get software
     -- on your instance varies. Amazon Linux and CentOS use @yum@, Debian and
     -- Ubuntu use @apt-get@, and FreeBSD uses @pkg@.
-    userData :: Core.Maybe Core.Text,
+    userData :: Prelude.Maybe Prelude.Text,
     -- | The name of the export snapshot record, which contains the exported
     -- Lightsail instance snapshot that will be used as the source of the new
     -- Amazon EC2 instance.
     --
     -- Use the @get export snapshot records@ operation to get a list of export
     -- snapshot records that you can use to create a CloudFormation stack.
-    sourceName :: Core.Text,
+    sourceName :: Prelude.Text,
     -- | The instance type (e.g., @t2.micro@) to use for the new Amazon EC2
     -- instance.
-    instanceType :: Core.Text,
+    instanceType :: Prelude.Text,
     -- | The port configuration to use for the new Amazon EC2 instance.
     --
     -- The following configuration options are available:
@@ -78,9 +79,9 @@ data InstanceEntry = InstanceEntry'
     -- carried over to your new Amazon EC2 instance.
     portInfoSource :: PortInfoSourceType,
     -- | The Availability Zone for the new Amazon EC2 instance.
-    availabilityZone :: Core.Text
+    availabilityZone :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceEntry' with all optional fields omitted.
@@ -141,13 +142,13 @@ data InstanceEntry = InstanceEntry'
 -- 'availabilityZone', 'instanceEntry_availabilityZone' - The Availability Zone for the new Amazon EC2 instance.
 newInstanceEntry ::
   -- | 'sourceName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceType'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'portInfoSource'
   PortInfoSourceType ->
   -- | 'availabilityZone'
-  Core.Text ->
+  Prelude.Text ->
   InstanceEntry
 newInstanceEntry
   pSourceName_
@@ -155,7 +156,7 @@ newInstanceEntry
   pPortInfoSource_
   pAvailabilityZone_ =
     InstanceEntry'
-      { userData = Core.Nothing,
+      { userData = Prelude.Nothing,
         sourceName = pSourceName_,
         instanceType = pInstanceType_,
         portInfoSource = pPortInfoSource_,
@@ -168,7 +169,7 @@ newInstanceEntry
 -- Depending on the machine image you choose, the command to get software
 -- on your instance varies. Amazon Linux and CentOS use @yum@, Debian and
 -- Ubuntu use @apt-get@, and FreeBSD uses @pkg@.
-instanceEntry_userData :: Lens.Lens' InstanceEntry (Core.Maybe Core.Text)
+instanceEntry_userData :: Lens.Lens' InstanceEntry (Prelude.Maybe Prelude.Text)
 instanceEntry_userData = Lens.lens (\InstanceEntry' {userData} -> userData) (\s@InstanceEntry' {} a -> s {userData = a} :: InstanceEntry)
 
 -- | The name of the export snapshot record, which contains the exported
@@ -177,12 +178,12 @@ instanceEntry_userData = Lens.lens (\InstanceEntry' {userData} -> userData) (\s@
 --
 -- Use the @get export snapshot records@ operation to get a list of export
 -- snapshot records that you can use to create a CloudFormation stack.
-instanceEntry_sourceName :: Lens.Lens' InstanceEntry Core.Text
+instanceEntry_sourceName :: Lens.Lens' InstanceEntry Prelude.Text
 instanceEntry_sourceName = Lens.lens (\InstanceEntry' {sourceName} -> sourceName) (\s@InstanceEntry' {} a -> s {sourceName = a} :: InstanceEntry)
 
 -- | The instance type (e.g., @t2.micro@) to use for the new Amazon EC2
 -- instance.
-instanceEntry_instanceType :: Lens.Lens' InstanceEntry Core.Text
+instanceEntry_instanceType :: Lens.Lens' InstanceEntry Prelude.Text
 instanceEntry_instanceType = Lens.lens (\InstanceEntry' {instanceType} -> instanceType) (\s@InstanceEntry' {} a -> s {instanceType = a} :: InstanceEntry)
 
 -- | The port configuration to use for the new Amazon EC2 instance.
@@ -219,22 +220,23 @@ instanceEntry_portInfoSource :: Lens.Lens' InstanceEntry PortInfoSourceType
 instanceEntry_portInfoSource = Lens.lens (\InstanceEntry' {portInfoSource} -> portInfoSource) (\s@InstanceEntry' {} a -> s {portInfoSource = a} :: InstanceEntry)
 
 -- | The Availability Zone for the new Amazon EC2 instance.
-instanceEntry_availabilityZone :: Lens.Lens' InstanceEntry Core.Text
+instanceEntry_availabilityZone :: Lens.Lens' InstanceEntry Prelude.Text
 instanceEntry_availabilityZone = Lens.lens (\InstanceEntry' {availabilityZone} -> availabilityZone) (\s@InstanceEntry' {} a -> s {availabilityZone = a} :: InstanceEntry)
 
-instance Core.Hashable InstanceEntry
+instance Prelude.Hashable InstanceEntry
 
-instance Core.NFData InstanceEntry
+instance Prelude.NFData InstanceEntry
 
 instance Core.ToJSON InstanceEntry where
   toJSON InstanceEntry' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("userData" Core..=) Core.<$> userData,
-            Core.Just ("sourceName" Core..= sourceName),
-            Core.Just ("instanceType" Core..= instanceType),
-            Core.Just ("portInfoSource" Core..= portInfoSource),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("userData" Core..=) Prelude.<$> userData,
+            Prelude.Just ("sourceName" Core..= sourceName),
+            Prelude.Just ("instanceType" Core..= instanceType),
+            Prelude.Just
+              ("portInfoSource" Core..= portInfoSource),
+            Prelude.Just
               ("availabilityZone" Core..= availabilityZone)
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.AlexaBusiness.Types.UpdateRequireCheckIn where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Updates settings for the require check in feature that are applied to a
 -- room profile. Require check in allows a meeting room’s Alexa or AVS
@@ -31,11 +32,11 @@ import qualified Network.AWS.Lens as Lens
 data UpdateRequireCheckIn = UpdateRequireCheckIn'
   { -- | Duration between 5 and 20 minutes to determine when to release the room
     -- if it\'s not checked into.
-    releaseAfterMinutes :: Core.Maybe Core.Int,
+    releaseAfterMinutes :: Prelude.Maybe Prelude.Int,
     -- | Whether require check in is enabled or not.
-    enabled :: Core.Maybe Core.Bool
+    enabled :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRequireCheckIn' with all optional fields omitted.
@@ -54,29 +55,29 @@ newUpdateRequireCheckIn ::
 newUpdateRequireCheckIn =
   UpdateRequireCheckIn'
     { releaseAfterMinutes =
-        Core.Nothing,
-      enabled = Core.Nothing
+        Prelude.Nothing,
+      enabled = Prelude.Nothing
     }
 
 -- | Duration between 5 and 20 minutes to determine when to release the room
 -- if it\'s not checked into.
-updateRequireCheckIn_releaseAfterMinutes :: Lens.Lens' UpdateRequireCheckIn (Core.Maybe Core.Int)
+updateRequireCheckIn_releaseAfterMinutes :: Lens.Lens' UpdateRequireCheckIn (Prelude.Maybe Prelude.Int)
 updateRequireCheckIn_releaseAfterMinutes = Lens.lens (\UpdateRequireCheckIn' {releaseAfterMinutes} -> releaseAfterMinutes) (\s@UpdateRequireCheckIn' {} a -> s {releaseAfterMinutes = a} :: UpdateRequireCheckIn)
 
 -- | Whether require check in is enabled or not.
-updateRequireCheckIn_enabled :: Lens.Lens' UpdateRequireCheckIn (Core.Maybe Core.Bool)
+updateRequireCheckIn_enabled :: Lens.Lens' UpdateRequireCheckIn (Prelude.Maybe Prelude.Bool)
 updateRequireCheckIn_enabled = Lens.lens (\UpdateRequireCheckIn' {enabled} -> enabled) (\s@UpdateRequireCheckIn' {} a -> s {enabled = a} :: UpdateRequireCheckIn)
 
-instance Core.Hashable UpdateRequireCheckIn
+instance Prelude.Hashable UpdateRequireCheckIn
 
-instance Core.NFData UpdateRequireCheckIn
+instance Prelude.NFData UpdateRequireCheckIn
 
 instance Core.ToJSON UpdateRequireCheckIn where
   toJSON UpdateRequireCheckIn' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ReleaseAfterMinutes" Core..=)
-              Core.<$> releaseAfterMinutes,
-            ("Enabled" Core..=) Core.<$> enabled
+              Prelude.<$> releaseAfterMinutes,
+            ("Enabled" Core..=) Prelude.<$> enabled
           ]
       )

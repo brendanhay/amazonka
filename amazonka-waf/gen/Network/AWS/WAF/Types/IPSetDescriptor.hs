@@ -21,6 +21,7 @@ module Network.AWS.WAF.Types.IPSetDescriptor where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.IPSetDescriptorType
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -62,9 +63,9 @@ data IPSetDescriptor = IPSetDescriptor'
     --     originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000
     --     to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify
     --     @1111:0000:0000:0000:0000:0000:0000:0000\/64@.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IPSetDescriptor' with all optional fields omitted.
@@ -103,7 +104,7 @@ newIPSetDescriptor ::
   -- | 'type''
   IPSetDescriptorType ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   IPSetDescriptor
 newIPSetDescriptor pType_ pValue_ =
   IPSetDescriptor' {type' = pType_, value = pValue_}
@@ -135,7 +136,7 @@ iPSetDescriptor_type = Lens.lens (\IPSetDescriptor' {type'} -> type') (\s@IPSetD
 --     originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000
 --     to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify
 --     @1111:0000:0000:0000:0000:0000:0000:0000\/64@.
-iPSetDescriptor_value :: Lens.Lens' IPSetDescriptor Core.Text
+iPSetDescriptor_value :: Lens.Lens' IPSetDescriptor Prelude.Text
 iPSetDescriptor_value = Lens.lens (\IPSetDescriptor' {value} -> value) (\s@IPSetDescriptor' {} a -> s {value = a} :: IPSetDescriptor)
 
 instance Core.FromJSON IPSetDescriptor where
@@ -144,18 +145,18 @@ instance Core.FromJSON IPSetDescriptor where
       "IPSetDescriptor"
       ( \x ->
           IPSetDescriptor'
-            Core.<$> (x Core..: "Type") Core.<*> (x Core..: "Value")
+            Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Value")
       )
 
-instance Core.Hashable IPSetDescriptor
+instance Prelude.Hashable IPSetDescriptor
 
-instance Core.NFData IPSetDescriptor
+instance Prelude.NFData IPSetDescriptor
 
 instance Core.ToJSON IPSetDescriptor where
   toJSON IPSetDescriptor' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Type" Core..= type'),
-            Core.Just ("Value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Type" Core..= type'),
+            Prelude.Just ("Value" Core..= value)
           ]
       )

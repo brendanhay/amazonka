@@ -62,15 +62,16 @@ where
 import Network.AWS.CodeBuild.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateProject' smart constructor.
 data CreateProject = CreateProject'
   { -- | VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.
-    vpcConfig :: Core.Maybe VpcConfig,
+    vpcConfig :: Prelude.Maybe VpcConfig,
     -- | An array of @ProjectArtifacts@ objects.
-    secondaryArtifacts :: Core.Maybe [ProjectArtifacts],
+    secondaryArtifacts :: Prelude.Maybe [ProjectArtifacts],
     -- | A version of the build input to be built for this project. If not
     -- specified, the latest version is used. If specified, it must be one of:
     --
@@ -97,14 +98,14 @@ data CreateProject = CreateProject'
     -- For more information, see
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
     -- in the /AWS CodeBuild User Guide/.
-    sourceVersion :: Core.Maybe Core.Text,
+    sourceVersion :: Prelude.Maybe Prelude.Text,
     -- | Stores recently used information so that it can be quickly accessed at a
     -- later time.
-    cache :: Core.Maybe ProjectCache,
+    cache :: Prelude.Maybe ProjectCache,
     -- | An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@
     -- is specified at the build level, then they take precedence over these
     -- @secondarySourceVersions@ (at the project level).
-    secondarySourceVersions :: Core.Maybe [ProjectSourceVersion],
+    secondarySourceVersions :: Prelude.Maybe [ProjectSourceVersion],
     -- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be
     -- used for encrypting the build output artifacts.
     --
@@ -113,46 +114,46 @@ data CreateProject = CreateProject'
     --
     -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
     -- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
-    encryptionKey :: Core.Maybe Core.Text,
+    encryptionKey :: Prelude.Maybe Prelude.Text,
     -- | Set this to true to generate a publicly accessible URL for your
     -- project\'s build badge.
-    badgeEnabled :: Core.Maybe Core.Bool,
+    badgeEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of concurrent builds that are allowed for this
     -- project.
     --
     -- New builds are only started if the current number of builds is less than
     -- or equal to this limit. If the current build count meets this limit, new
     -- builds are throttled and are not run.
-    concurrentBuildLimit :: Core.Maybe Core.Int,
+    concurrentBuildLimit :: Prelude.Maybe Prelude.Int,
     -- | Information about logs for the build project. These can be logs in
     -- Amazon CloudWatch Logs, logs uploaded to a specified S3 bucket, or both.
-    logsConfig :: Core.Maybe LogsConfig,
+    logsConfig :: Prelude.Maybe LogsConfig,
     -- | The number of minutes a build is allowed to be queued before it times
     -- out.
-    queuedTimeoutInMinutes :: Core.Maybe Core.Natural,
+    queuedTimeoutInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | An array of @ProjectSource@ objects.
-    secondarySources :: Core.Maybe [ProjectSource],
+    secondarySources :: Prelude.Maybe [ProjectSource],
     -- | A list of tag key and value pairs associated with this build project.
     --
     -- These tags are available for use by AWS services that support AWS
     -- CodeBuild build project tags.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait
     -- before it times out any build that has not been marked as completed. The
     -- default is 60 minutes.
-    timeoutInMinutes :: Core.Maybe Core.Natural,
+    timeoutInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | A description that makes the build project easy to identify.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | A ProjectBuildBatchConfig object that defines the batch build options
     -- for the project.
-    buildBatchConfig :: Core.Maybe ProjectBuildBatchConfig,
+    buildBatchConfig :: Prelude.Maybe ProjectBuildBatchConfig,
     -- | An array of @ProjectFileSystemLocation@ objects for a CodeBuild build
     -- project. A @ProjectFileSystemLocation@ object specifies the
     -- @identifier@, @location@, @mountOptions@, @mountPoint@, and @type@ of a
     -- file system created using Amazon Elastic File System.
-    fileSystemLocations :: Core.Maybe [ProjectFileSystemLocation],
+    fileSystemLocations :: Prelude.Maybe [ProjectFileSystemLocation],
     -- | The name of the build project.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | Information about the build input source code for the build project.
     source :: ProjectSource,
     -- | Information about the build output artifacts for the build project.
@@ -162,9 +163,9 @@ data CreateProject = CreateProject'
     -- | The ARN of the AWS Identity and Access Management (IAM) role that
     -- enables AWS CodeBuild to interact with dependent AWS services on behalf
     -- of the AWS account.
-    serviceRole :: Core.Text
+    serviceRole :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateProject' with all optional fields omitted.
@@ -271,7 +272,7 @@ data CreateProject = CreateProject'
 -- of the AWS account.
 newCreateProject ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'source'
   ProjectSource ->
   -- | 'artifacts'
@@ -279,7 +280,7 @@ newCreateProject ::
   -- | 'environment'
   ProjectEnvironment ->
   -- | 'serviceRole'
-  Core.Text ->
+  Prelude.Text ->
   CreateProject
 newCreateProject
   pName_
@@ -288,22 +289,22 @@ newCreateProject
   pEnvironment_
   pServiceRole_ =
     CreateProject'
-      { vpcConfig = Core.Nothing,
-        secondaryArtifacts = Core.Nothing,
-        sourceVersion = Core.Nothing,
-        cache = Core.Nothing,
-        secondarySourceVersions = Core.Nothing,
-        encryptionKey = Core.Nothing,
-        badgeEnabled = Core.Nothing,
-        concurrentBuildLimit = Core.Nothing,
-        logsConfig = Core.Nothing,
-        queuedTimeoutInMinutes = Core.Nothing,
-        secondarySources = Core.Nothing,
-        tags = Core.Nothing,
-        timeoutInMinutes = Core.Nothing,
-        description = Core.Nothing,
-        buildBatchConfig = Core.Nothing,
-        fileSystemLocations = Core.Nothing,
+      { vpcConfig = Prelude.Nothing,
+        secondaryArtifacts = Prelude.Nothing,
+        sourceVersion = Prelude.Nothing,
+        cache = Prelude.Nothing,
+        secondarySourceVersions = Prelude.Nothing,
+        encryptionKey = Prelude.Nothing,
+        badgeEnabled = Prelude.Nothing,
+        concurrentBuildLimit = Prelude.Nothing,
+        logsConfig = Prelude.Nothing,
+        queuedTimeoutInMinutes = Prelude.Nothing,
+        secondarySources = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        timeoutInMinutes = Prelude.Nothing,
+        description = Prelude.Nothing,
+        buildBatchConfig = Prelude.Nothing,
+        fileSystemLocations = Prelude.Nothing,
         name = pName_,
         source = pSource_,
         artifacts = pArtifacts_,
@@ -312,12 +313,12 @@ newCreateProject
       }
 
 -- | VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.
-createProject_vpcConfig :: Lens.Lens' CreateProject (Core.Maybe VpcConfig)
+createProject_vpcConfig :: Lens.Lens' CreateProject (Prelude.Maybe VpcConfig)
 createProject_vpcConfig = Lens.lens (\CreateProject' {vpcConfig} -> vpcConfig) (\s@CreateProject' {} a -> s {vpcConfig = a} :: CreateProject)
 
 -- | An array of @ProjectArtifacts@ objects.
-createProject_secondaryArtifacts :: Lens.Lens' CreateProject (Core.Maybe [ProjectArtifacts])
-createProject_secondaryArtifacts = Lens.lens (\CreateProject' {secondaryArtifacts} -> secondaryArtifacts) (\s@CreateProject' {} a -> s {secondaryArtifacts = a} :: CreateProject) Core.. Lens.mapping Lens._Coerce
+createProject_secondaryArtifacts :: Lens.Lens' CreateProject (Prelude.Maybe [ProjectArtifacts])
+createProject_secondaryArtifacts = Lens.lens (\CreateProject' {secondaryArtifacts} -> secondaryArtifacts) (\s@CreateProject' {} a -> s {secondaryArtifacts = a} :: CreateProject) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A version of the build input to be built for this project. If not
 -- specified, the latest version is used. If specified, it must be one of:
@@ -345,19 +346,19 @@ createProject_secondaryArtifacts = Lens.lens (\CreateProject' {secondaryArtifact
 -- For more information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
 -- in the /AWS CodeBuild User Guide/.
-createProject_sourceVersion :: Lens.Lens' CreateProject (Core.Maybe Core.Text)
+createProject_sourceVersion :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
 createProject_sourceVersion = Lens.lens (\CreateProject' {sourceVersion} -> sourceVersion) (\s@CreateProject' {} a -> s {sourceVersion = a} :: CreateProject)
 
 -- | Stores recently used information so that it can be quickly accessed at a
 -- later time.
-createProject_cache :: Lens.Lens' CreateProject (Core.Maybe ProjectCache)
+createProject_cache :: Lens.Lens' CreateProject (Prelude.Maybe ProjectCache)
 createProject_cache = Lens.lens (\CreateProject' {cache} -> cache) (\s@CreateProject' {} a -> s {cache = a} :: CreateProject)
 
 -- | An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@
 -- is specified at the build level, then they take precedence over these
 -- @secondarySourceVersions@ (at the project level).
-createProject_secondarySourceVersions :: Lens.Lens' CreateProject (Core.Maybe [ProjectSourceVersion])
-createProject_secondarySourceVersions = Lens.lens (\CreateProject' {secondarySourceVersions} -> secondarySourceVersions) (\s@CreateProject' {} a -> s {secondarySourceVersions = a} :: CreateProject) Core.. Lens.mapping Lens._Coerce
+createProject_secondarySourceVersions :: Lens.Lens' CreateProject (Prelude.Maybe [ProjectSourceVersion])
+createProject_secondarySourceVersions = Lens.lens (\CreateProject' {secondarySourceVersions} -> secondarySourceVersions) (\s@CreateProject' {} a -> s {secondarySourceVersions = a} :: CreateProject) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be
 -- used for encrypting the build output artifacts.
@@ -367,12 +368,12 @@ createProject_secondarySourceVersions = Lens.lens (\CreateProject' {secondarySou
 --
 -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
 -- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
-createProject_encryptionKey :: Lens.Lens' CreateProject (Core.Maybe Core.Text)
+createProject_encryptionKey :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
 createProject_encryptionKey = Lens.lens (\CreateProject' {encryptionKey} -> encryptionKey) (\s@CreateProject' {} a -> s {encryptionKey = a} :: CreateProject)
 
 -- | Set this to true to generate a publicly accessible URL for your
 -- project\'s build badge.
-createProject_badgeEnabled :: Lens.Lens' CreateProject (Core.Maybe Core.Bool)
+createProject_badgeEnabled :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Bool)
 createProject_badgeEnabled = Lens.lens (\CreateProject' {badgeEnabled} -> badgeEnabled) (\s@CreateProject' {} a -> s {badgeEnabled = a} :: CreateProject)
 
 -- | The maximum number of concurrent builds that are allowed for this
@@ -381,54 +382,54 @@ createProject_badgeEnabled = Lens.lens (\CreateProject' {badgeEnabled} -> badgeE
 -- New builds are only started if the current number of builds is less than
 -- or equal to this limit. If the current build count meets this limit, new
 -- builds are throttled and are not run.
-createProject_concurrentBuildLimit :: Lens.Lens' CreateProject (Core.Maybe Core.Int)
+createProject_concurrentBuildLimit :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Int)
 createProject_concurrentBuildLimit = Lens.lens (\CreateProject' {concurrentBuildLimit} -> concurrentBuildLimit) (\s@CreateProject' {} a -> s {concurrentBuildLimit = a} :: CreateProject)
 
 -- | Information about logs for the build project. These can be logs in
 -- Amazon CloudWatch Logs, logs uploaded to a specified S3 bucket, or both.
-createProject_logsConfig :: Lens.Lens' CreateProject (Core.Maybe LogsConfig)
+createProject_logsConfig :: Lens.Lens' CreateProject (Prelude.Maybe LogsConfig)
 createProject_logsConfig = Lens.lens (\CreateProject' {logsConfig} -> logsConfig) (\s@CreateProject' {} a -> s {logsConfig = a} :: CreateProject)
 
 -- | The number of minutes a build is allowed to be queued before it times
 -- out.
-createProject_queuedTimeoutInMinutes :: Lens.Lens' CreateProject (Core.Maybe Core.Natural)
+createProject_queuedTimeoutInMinutes :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Natural)
 createProject_queuedTimeoutInMinutes = Lens.lens (\CreateProject' {queuedTimeoutInMinutes} -> queuedTimeoutInMinutes) (\s@CreateProject' {} a -> s {queuedTimeoutInMinutes = a} :: CreateProject)
 
 -- | An array of @ProjectSource@ objects.
-createProject_secondarySources :: Lens.Lens' CreateProject (Core.Maybe [ProjectSource])
-createProject_secondarySources = Lens.lens (\CreateProject' {secondarySources} -> secondarySources) (\s@CreateProject' {} a -> s {secondarySources = a} :: CreateProject) Core.. Lens.mapping Lens._Coerce
+createProject_secondarySources :: Lens.Lens' CreateProject (Prelude.Maybe [ProjectSource])
+createProject_secondarySources = Lens.lens (\CreateProject' {secondarySources} -> secondarySources) (\s@CreateProject' {} a -> s {secondarySources = a} :: CreateProject) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of tag key and value pairs associated with this build project.
 --
 -- These tags are available for use by AWS services that support AWS
 -- CodeBuild build project tags.
-createProject_tags :: Lens.Lens' CreateProject (Core.Maybe [Tag])
-createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Core.. Lens.mapping Lens._Coerce
+createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe [Tag])
+createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens._Coerce
 
 -- | How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait
 -- before it times out any build that has not been marked as completed. The
 -- default is 60 minutes.
-createProject_timeoutInMinutes :: Lens.Lens' CreateProject (Core.Maybe Core.Natural)
+createProject_timeoutInMinutes :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Natural)
 createProject_timeoutInMinutes = Lens.lens (\CreateProject' {timeoutInMinutes} -> timeoutInMinutes) (\s@CreateProject' {} a -> s {timeoutInMinutes = a} :: CreateProject)
 
 -- | A description that makes the build project easy to identify.
-createProject_description :: Lens.Lens' CreateProject (Core.Maybe Core.Text)
+createProject_description :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
 createProject_description = Lens.lens (\CreateProject' {description} -> description) (\s@CreateProject' {} a -> s {description = a} :: CreateProject)
 
 -- | A ProjectBuildBatchConfig object that defines the batch build options
 -- for the project.
-createProject_buildBatchConfig :: Lens.Lens' CreateProject (Core.Maybe ProjectBuildBatchConfig)
+createProject_buildBatchConfig :: Lens.Lens' CreateProject (Prelude.Maybe ProjectBuildBatchConfig)
 createProject_buildBatchConfig = Lens.lens (\CreateProject' {buildBatchConfig} -> buildBatchConfig) (\s@CreateProject' {} a -> s {buildBatchConfig = a} :: CreateProject)
 
 -- | An array of @ProjectFileSystemLocation@ objects for a CodeBuild build
 -- project. A @ProjectFileSystemLocation@ object specifies the
 -- @identifier@, @location@, @mountOptions@, @mountPoint@, and @type@ of a
 -- file system created using Amazon Elastic File System.
-createProject_fileSystemLocations :: Lens.Lens' CreateProject (Core.Maybe [ProjectFileSystemLocation])
-createProject_fileSystemLocations = Lens.lens (\CreateProject' {fileSystemLocations} -> fileSystemLocations) (\s@CreateProject' {} a -> s {fileSystemLocations = a} :: CreateProject) Core.. Lens.mapping Lens._Coerce
+createProject_fileSystemLocations :: Lens.Lens' CreateProject (Prelude.Maybe [ProjectFileSystemLocation])
+createProject_fileSystemLocations = Lens.lens (\CreateProject' {fileSystemLocations} -> fileSystemLocations) (\s@CreateProject' {} a -> s {fileSystemLocations = a} :: CreateProject) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the build project.
-createProject_name :: Lens.Lens' CreateProject Core.Text
+createProject_name :: Lens.Lens' CreateProject Prelude.Text
 createProject_name = Lens.lens (\CreateProject' {name} -> name) (\s@CreateProject' {} a -> s {name = a} :: CreateProject)
 
 -- | Information about the build input source code for the build project.
@@ -446,7 +447,7 @@ createProject_environment = Lens.lens (\CreateProject' {environment} -> environm
 -- | The ARN of the AWS Identity and Access Management (IAM) role that
 -- enables AWS CodeBuild to interact with dependent AWS services on behalf
 -- of the AWS account.
-createProject_serviceRole :: Lens.Lens' CreateProject Core.Text
+createProject_serviceRole :: Lens.Lens' CreateProject Prelude.Text
 createProject_serviceRole = Lens.lens (\CreateProject' {serviceRole} -> serviceRole) (\s@CreateProject' {} a -> s {serviceRole = a} :: CreateProject)
 
 instance Core.AWSRequest CreateProject where
@@ -458,77 +459,79 @@ instance Core.AWSRequest CreateProject where
     Response.receiveJSON
       ( \s h x ->
           CreateProjectResponse'
-            Core.<$> (x Core..?> "project")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "project")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateProject
+instance Prelude.Hashable CreateProject
 
-instance Core.NFData CreateProject
+instance Prelude.NFData CreateProject
 
 instance Core.ToHeaders CreateProject where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeBuild_20161006.CreateProject" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateProject where
   toJSON CreateProject' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("vpcConfig" Core..=) Core.<$> vpcConfig,
+      ( Prelude.catMaybes
+          [ ("vpcConfig" Core..=) Prelude.<$> vpcConfig,
             ("secondaryArtifacts" Core..=)
-              Core.<$> secondaryArtifacts,
-            ("sourceVersion" Core..=) Core.<$> sourceVersion,
-            ("cache" Core..=) Core.<$> cache,
+              Prelude.<$> secondaryArtifacts,
+            ("sourceVersion" Core..=) Prelude.<$> sourceVersion,
+            ("cache" Core..=) Prelude.<$> cache,
             ("secondarySourceVersions" Core..=)
-              Core.<$> secondarySourceVersions,
-            ("encryptionKey" Core..=) Core.<$> encryptionKey,
-            ("badgeEnabled" Core..=) Core.<$> badgeEnabled,
+              Prelude.<$> secondarySourceVersions,
+            ("encryptionKey" Core..=) Prelude.<$> encryptionKey,
+            ("badgeEnabled" Core..=) Prelude.<$> badgeEnabled,
             ("concurrentBuildLimit" Core..=)
-              Core.<$> concurrentBuildLimit,
-            ("logsConfig" Core..=) Core.<$> logsConfig,
+              Prelude.<$> concurrentBuildLimit,
+            ("logsConfig" Core..=) Prelude.<$> logsConfig,
             ("queuedTimeoutInMinutes" Core..=)
-              Core.<$> queuedTimeoutInMinutes,
+              Prelude.<$> queuedTimeoutInMinutes,
             ("secondarySources" Core..=)
-              Core.<$> secondarySources,
-            ("tags" Core..=) Core.<$> tags,
+              Prelude.<$> secondarySources,
+            ("tags" Core..=) Prelude.<$> tags,
             ("timeoutInMinutes" Core..=)
-              Core.<$> timeoutInMinutes,
-            ("description" Core..=) Core.<$> description,
+              Prelude.<$> timeoutInMinutes,
+            ("description" Core..=) Prelude.<$> description,
             ("buildBatchConfig" Core..=)
-              Core.<$> buildBatchConfig,
+              Prelude.<$> buildBatchConfig,
             ("fileSystemLocations" Core..=)
-              Core.<$> fileSystemLocations,
-            Core.Just ("name" Core..= name),
-            Core.Just ("source" Core..= source),
-            Core.Just ("artifacts" Core..= artifacts),
-            Core.Just ("environment" Core..= environment),
-            Core.Just ("serviceRole" Core..= serviceRole)
+              Prelude.<$> fileSystemLocations,
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("source" Core..= source),
+            Prelude.Just ("artifacts" Core..= artifacts),
+            Prelude.Just ("environment" Core..= environment),
+            Prelude.Just ("serviceRole" Core..= serviceRole)
           ]
       )
 
 instance Core.ToPath CreateProject where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateProject where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
   { -- | Information about the build project that was created.
-    project :: Core.Maybe Project,
+    project :: Prelude.Maybe Project,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateProjectResponse' with all optional fields omitted.
@@ -543,20 +546,20 @@ data CreateProjectResponse = CreateProjectResponse'
 -- 'httpStatus', 'createProjectResponse_httpStatus' - The response's http status code.
 newCreateProjectResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateProjectResponse
 newCreateProjectResponse pHttpStatus_ =
   CreateProjectResponse'
-    { project = Core.Nothing,
+    { project = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the build project that was created.
-createProjectResponse_project :: Lens.Lens' CreateProjectResponse (Core.Maybe Project)
+createProjectResponse_project :: Lens.Lens' CreateProjectResponse (Prelude.Maybe Project)
 createProjectResponse_project = Lens.lens (\CreateProjectResponse' {project} -> project) (\s@CreateProjectResponse' {} a -> s {project = a} :: CreateProjectResponse)
 
 -- | The response's http status code.
-createProjectResponse_httpStatus :: Lens.Lens' CreateProjectResponse Core.Int
+createProjectResponse_httpStatus :: Lens.Lens' CreateProjectResponse Prelude.Int
 createProjectResponse_httpStatus = Lens.lens (\CreateProjectResponse' {httpStatus} -> httpStatus) (\s@CreateProjectResponse' {} a -> s {httpStatus = a} :: CreateProjectResponse)
 
-instance Core.NFData CreateProjectResponse
+instance Prelude.NFData CreateProjectResponse

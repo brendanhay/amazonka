@@ -22,14 +22,15 @@ module Network.AWS.Kinesis.Types.ChildShard where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types.HashKeyRange
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newChildShard' smart constructor.
 data ChildShard = ChildShard'
-  { shardId :: Core.Text,
-    parentShards :: [Core.Text],
+  { shardId :: Prelude.Text,
+    parentShards :: [Prelude.Text],
     hashKeyRange :: HashKeyRange
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChildShard' with all optional fields omitted.
@@ -46,24 +47,24 @@ data ChildShard = ChildShard'
 -- 'hashKeyRange', 'childShard_hashKeyRange' - Undocumented member.
 newChildShard ::
   -- | 'shardId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'hashKeyRange'
   HashKeyRange ->
   ChildShard
 newChildShard pShardId_ pHashKeyRange_ =
   ChildShard'
     { shardId = pShardId_,
-      parentShards = Core.mempty,
+      parentShards = Prelude.mempty,
       hashKeyRange = pHashKeyRange_
     }
 
 -- | Undocumented member.
-childShard_shardId :: Lens.Lens' ChildShard Core.Text
+childShard_shardId :: Lens.Lens' ChildShard Prelude.Text
 childShard_shardId = Lens.lens (\ChildShard' {shardId} -> shardId) (\s@ChildShard' {} a -> s {shardId = a} :: ChildShard)
 
 -- | Undocumented member.
-childShard_parentShards :: Lens.Lens' ChildShard [Core.Text]
-childShard_parentShards = Lens.lens (\ChildShard' {parentShards} -> parentShards) (\s@ChildShard' {} a -> s {parentShards = a} :: ChildShard) Core.. Lens._Coerce
+childShard_parentShards :: Lens.Lens' ChildShard [Prelude.Text]
+childShard_parentShards = Lens.lens (\ChildShard' {parentShards} -> parentShards) (\s@ChildShard' {} a -> s {parentShards = a} :: ChildShard) Prelude.. Lens._Coerce
 
 -- | Undocumented member.
 childShard_hashKeyRange :: Lens.Lens' ChildShard HashKeyRange
@@ -75,11 +76,11 @@ instance Core.FromJSON ChildShard where
       "ChildShard"
       ( \x ->
           ChildShard'
-            Core.<$> (x Core..: "ShardId")
-            Core.<*> (x Core..:? "ParentShards" Core..!= Core.mempty)
-            Core.<*> (x Core..: "HashKeyRange")
+            Prelude.<$> (x Core..: "ShardId")
+            Prelude.<*> (x Core..:? "ParentShards" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "HashKeyRange")
       )
 
-instance Core.Hashable ChildShard
+instance Prelude.Hashable ChildShard
 
-instance Core.NFData ChildShard
+instance Prelude.NFData ChildShard

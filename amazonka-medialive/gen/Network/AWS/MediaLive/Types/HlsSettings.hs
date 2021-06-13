@@ -25,17 +25,18 @@ import Network.AWS.MediaLive.Types.AudioOnlyHlsSettings
 import Network.AWS.MediaLive.Types.Fmp4HlsSettings
 import Network.AWS.MediaLive.Types.FrameCaptureHlsSettings
 import Network.AWS.MediaLive.Types.StandardHlsSettings
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Hls Settings
 --
 -- /See:/ 'newHlsSettings' smart constructor.
 data HlsSettings = HlsSettings'
-  { standardHlsSettings :: Core.Maybe StandardHlsSettings,
-    frameCaptureHlsSettings :: Core.Maybe FrameCaptureHlsSettings,
-    audioOnlyHlsSettings :: Core.Maybe AudioOnlyHlsSettings,
-    fmp4HlsSettings :: Core.Maybe Fmp4HlsSettings
+  { standardHlsSettings :: Prelude.Maybe StandardHlsSettings,
+    frameCaptureHlsSettings :: Prelude.Maybe FrameCaptureHlsSettings,
+    audioOnlyHlsSettings :: Prelude.Maybe AudioOnlyHlsSettings,
+    fmp4HlsSettings :: Prelude.Maybe Fmp4HlsSettings
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HlsSettings' with all optional fields omitted.
@@ -56,26 +57,26 @@ newHlsSettings ::
   HlsSettings
 newHlsSettings =
   HlsSettings'
-    { standardHlsSettings = Core.Nothing,
-      frameCaptureHlsSettings = Core.Nothing,
-      audioOnlyHlsSettings = Core.Nothing,
-      fmp4HlsSettings = Core.Nothing
+    { standardHlsSettings = Prelude.Nothing,
+      frameCaptureHlsSettings = Prelude.Nothing,
+      audioOnlyHlsSettings = Prelude.Nothing,
+      fmp4HlsSettings = Prelude.Nothing
     }
 
 -- | Undocumented member.
-hlsSettings_standardHlsSettings :: Lens.Lens' HlsSettings (Core.Maybe StandardHlsSettings)
+hlsSettings_standardHlsSettings :: Lens.Lens' HlsSettings (Prelude.Maybe StandardHlsSettings)
 hlsSettings_standardHlsSettings = Lens.lens (\HlsSettings' {standardHlsSettings} -> standardHlsSettings) (\s@HlsSettings' {} a -> s {standardHlsSettings = a} :: HlsSettings)
 
 -- | Undocumented member.
-hlsSettings_frameCaptureHlsSettings :: Lens.Lens' HlsSettings (Core.Maybe FrameCaptureHlsSettings)
+hlsSettings_frameCaptureHlsSettings :: Lens.Lens' HlsSettings (Prelude.Maybe FrameCaptureHlsSettings)
 hlsSettings_frameCaptureHlsSettings = Lens.lens (\HlsSettings' {frameCaptureHlsSettings} -> frameCaptureHlsSettings) (\s@HlsSettings' {} a -> s {frameCaptureHlsSettings = a} :: HlsSettings)
 
 -- | Undocumented member.
-hlsSettings_audioOnlyHlsSettings :: Lens.Lens' HlsSettings (Core.Maybe AudioOnlyHlsSettings)
+hlsSettings_audioOnlyHlsSettings :: Lens.Lens' HlsSettings (Prelude.Maybe AudioOnlyHlsSettings)
 hlsSettings_audioOnlyHlsSettings = Lens.lens (\HlsSettings' {audioOnlyHlsSettings} -> audioOnlyHlsSettings) (\s@HlsSettings' {} a -> s {audioOnlyHlsSettings = a} :: HlsSettings)
 
 -- | Undocumented member.
-hlsSettings_fmp4HlsSettings :: Lens.Lens' HlsSettings (Core.Maybe Fmp4HlsSettings)
+hlsSettings_fmp4HlsSettings :: Lens.Lens' HlsSettings (Prelude.Maybe Fmp4HlsSettings)
 hlsSettings_fmp4HlsSettings = Lens.lens (\HlsSettings' {fmp4HlsSettings} -> fmp4HlsSettings) (\s@HlsSettings' {} a -> s {fmp4HlsSettings = a} :: HlsSettings)
 
 instance Core.FromJSON HlsSettings where
@@ -84,27 +85,27 @@ instance Core.FromJSON HlsSettings where
       "HlsSettings"
       ( \x ->
           HlsSettings'
-            Core.<$> (x Core..:? "standardHlsSettings")
-            Core.<*> (x Core..:? "frameCaptureHlsSettings")
-            Core.<*> (x Core..:? "audioOnlyHlsSettings")
-            Core.<*> (x Core..:? "fmp4HlsSettings")
+            Prelude.<$> (x Core..:? "standardHlsSettings")
+            Prelude.<*> (x Core..:? "frameCaptureHlsSettings")
+            Prelude.<*> (x Core..:? "audioOnlyHlsSettings")
+            Prelude.<*> (x Core..:? "fmp4HlsSettings")
       )
 
-instance Core.Hashable HlsSettings
+instance Prelude.Hashable HlsSettings
 
-instance Core.NFData HlsSettings
+instance Prelude.NFData HlsSettings
 
 instance Core.ToJSON HlsSettings where
   toJSON HlsSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("standardHlsSettings" Core..=)
-              Core.<$> standardHlsSettings,
+              Prelude.<$> standardHlsSettings,
             ("frameCaptureHlsSettings" Core..=)
-              Core.<$> frameCaptureHlsSettings,
+              Prelude.<$> frameCaptureHlsSettings,
             ("audioOnlyHlsSettings" Core..=)
-              Core.<$> audioOnlyHlsSettings,
+              Prelude.<$> audioOnlyHlsSettings,
             ("fmp4HlsSettings" Core..=)
-              Core.<$> fmp4HlsSettings
+              Prelude.<$> fmp4HlsSettings
           ]
       )

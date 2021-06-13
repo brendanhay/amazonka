@@ -53,41 +53,42 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateProfile' smart constructor.
 data UpdateProfile = UpdateProfile'
   { -- | The updated name for the room profile.
-    profileName :: Core.Maybe Core.Text,
+    profileName :: Prelude.Maybe Prelude.Text,
     -- | Sets the profile as default if selected. If this is missing, no update
     -- is done to the default status.
-    isDefault :: Core.Maybe Core.Bool,
+    isDefault :: Prelude.Maybe Prelude.Bool,
     -- | The updated address for the room profile.
-    address :: Core.Maybe Core.Text,
+    address :: Prelude.Maybe Prelude.Text,
     -- | The updated locale for the room profile. (This is currently only
     -- available to a limited preview audience.)
-    locale :: Core.Maybe Core.Text,
+    locale :: Prelude.Maybe Prelude.Text,
     -- | The updated temperature unit for the room profile.
-    temperatureUnit :: Core.Maybe TemperatureUnit,
+    temperatureUnit :: Prelude.Maybe TemperatureUnit,
     -- | Whether the setup mode of the profile is enabled.
-    setupModeDisabled :: Core.Maybe Core.Bool,
+    setupModeDisabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the PSTN setting of the room profile is enabled.
-    pSTNEnabled :: Core.Maybe Core.Bool,
+    pSTNEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The updated maximum volume limit for the room profile.
-    maxVolumeLimit :: Core.Maybe Core.Int,
+    maxVolumeLimit :: Prelude.Maybe Prelude.Int,
     -- | The updated meeting room settings of a room profile.
-    meetingRoomConfiguration :: Core.Maybe UpdateMeetingRoomConfiguration,
+    meetingRoomConfiguration :: Prelude.Maybe UpdateMeetingRoomConfiguration,
     -- | The updated wake word for the room profile.
-    wakeWord :: Core.Maybe WakeWord,
+    wakeWord :: Prelude.Maybe WakeWord,
     -- | The ARN of the room profile to update. Required.
-    profileArn :: Core.Maybe Core.Text,
+    profileArn :: Prelude.Maybe Prelude.Text,
     -- | The updated timezone for the room profile.
-    timezone :: Core.Maybe Core.Text,
+    timezone :: Prelude.Maybe Prelude.Text,
     -- | The updated distance unit for the room profile.
-    distanceUnit :: Core.Maybe DistanceUnit
+    distanceUnit :: Prelude.Maybe DistanceUnit
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateProfile' with all optional fields omitted.
@@ -128,73 +129,73 @@ newUpdateProfile ::
   UpdateProfile
 newUpdateProfile =
   UpdateProfile'
-    { profileName = Core.Nothing,
-      isDefault = Core.Nothing,
-      address = Core.Nothing,
-      locale = Core.Nothing,
-      temperatureUnit = Core.Nothing,
-      setupModeDisabled = Core.Nothing,
-      pSTNEnabled = Core.Nothing,
-      maxVolumeLimit = Core.Nothing,
-      meetingRoomConfiguration = Core.Nothing,
-      wakeWord = Core.Nothing,
-      profileArn = Core.Nothing,
-      timezone = Core.Nothing,
-      distanceUnit = Core.Nothing
+    { profileName = Prelude.Nothing,
+      isDefault = Prelude.Nothing,
+      address = Prelude.Nothing,
+      locale = Prelude.Nothing,
+      temperatureUnit = Prelude.Nothing,
+      setupModeDisabled = Prelude.Nothing,
+      pSTNEnabled = Prelude.Nothing,
+      maxVolumeLimit = Prelude.Nothing,
+      meetingRoomConfiguration = Prelude.Nothing,
+      wakeWord = Prelude.Nothing,
+      profileArn = Prelude.Nothing,
+      timezone = Prelude.Nothing,
+      distanceUnit = Prelude.Nothing
     }
 
 -- | The updated name for the room profile.
-updateProfile_profileName :: Lens.Lens' UpdateProfile (Core.Maybe Core.Text)
+updateProfile_profileName :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
 updateProfile_profileName = Lens.lens (\UpdateProfile' {profileName} -> profileName) (\s@UpdateProfile' {} a -> s {profileName = a} :: UpdateProfile)
 
 -- | Sets the profile as default if selected. If this is missing, no update
 -- is done to the default status.
-updateProfile_isDefault :: Lens.Lens' UpdateProfile (Core.Maybe Core.Bool)
+updateProfile_isDefault :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Bool)
 updateProfile_isDefault = Lens.lens (\UpdateProfile' {isDefault} -> isDefault) (\s@UpdateProfile' {} a -> s {isDefault = a} :: UpdateProfile)
 
 -- | The updated address for the room profile.
-updateProfile_address :: Lens.Lens' UpdateProfile (Core.Maybe Core.Text)
+updateProfile_address :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
 updateProfile_address = Lens.lens (\UpdateProfile' {address} -> address) (\s@UpdateProfile' {} a -> s {address = a} :: UpdateProfile)
 
 -- | The updated locale for the room profile. (This is currently only
 -- available to a limited preview audience.)
-updateProfile_locale :: Lens.Lens' UpdateProfile (Core.Maybe Core.Text)
+updateProfile_locale :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
 updateProfile_locale = Lens.lens (\UpdateProfile' {locale} -> locale) (\s@UpdateProfile' {} a -> s {locale = a} :: UpdateProfile)
 
 -- | The updated temperature unit for the room profile.
-updateProfile_temperatureUnit :: Lens.Lens' UpdateProfile (Core.Maybe TemperatureUnit)
+updateProfile_temperatureUnit :: Lens.Lens' UpdateProfile (Prelude.Maybe TemperatureUnit)
 updateProfile_temperatureUnit = Lens.lens (\UpdateProfile' {temperatureUnit} -> temperatureUnit) (\s@UpdateProfile' {} a -> s {temperatureUnit = a} :: UpdateProfile)
 
 -- | Whether the setup mode of the profile is enabled.
-updateProfile_setupModeDisabled :: Lens.Lens' UpdateProfile (Core.Maybe Core.Bool)
+updateProfile_setupModeDisabled :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Bool)
 updateProfile_setupModeDisabled = Lens.lens (\UpdateProfile' {setupModeDisabled} -> setupModeDisabled) (\s@UpdateProfile' {} a -> s {setupModeDisabled = a} :: UpdateProfile)
 
 -- | Whether the PSTN setting of the room profile is enabled.
-updateProfile_pSTNEnabled :: Lens.Lens' UpdateProfile (Core.Maybe Core.Bool)
+updateProfile_pSTNEnabled :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Bool)
 updateProfile_pSTNEnabled = Lens.lens (\UpdateProfile' {pSTNEnabled} -> pSTNEnabled) (\s@UpdateProfile' {} a -> s {pSTNEnabled = a} :: UpdateProfile)
 
 -- | The updated maximum volume limit for the room profile.
-updateProfile_maxVolumeLimit :: Lens.Lens' UpdateProfile (Core.Maybe Core.Int)
+updateProfile_maxVolumeLimit :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Int)
 updateProfile_maxVolumeLimit = Lens.lens (\UpdateProfile' {maxVolumeLimit} -> maxVolumeLimit) (\s@UpdateProfile' {} a -> s {maxVolumeLimit = a} :: UpdateProfile)
 
 -- | The updated meeting room settings of a room profile.
-updateProfile_meetingRoomConfiguration :: Lens.Lens' UpdateProfile (Core.Maybe UpdateMeetingRoomConfiguration)
+updateProfile_meetingRoomConfiguration :: Lens.Lens' UpdateProfile (Prelude.Maybe UpdateMeetingRoomConfiguration)
 updateProfile_meetingRoomConfiguration = Lens.lens (\UpdateProfile' {meetingRoomConfiguration} -> meetingRoomConfiguration) (\s@UpdateProfile' {} a -> s {meetingRoomConfiguration = a} :: UpdateProfile)
 
 -- | The updated wake word for the room profile.
-updateProfile_wakeWord :: Lens.Lens' UpdateProfile (Core.Maybe WakeWord)
+updateProfile_wakeWord :: Lens.Lens' UpdateProfile (Prelude.Maybe WakeWord)
 updateProfile_wakeWord = Lens.lens (\UpdateProfile' {wakeWord} -> wakeWord) (\s@UpdateProfile' {} a -> s {wakeWord = a} :: UpdateProfile)
 
 -- | The ARN of the room profile to update. Required.
-updateProfile_profileArn :: Lens.Lens' UpdateProfile (Core.Maybe Core.Text)
+updateProfile_profileArn :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
 updateProfile_profileArn = Lens.lens (\UpdateProfile' {profileArn} -> profileArn) (\s@UpdateProfile' {} a -> s {profileArn = a} :: UpdateProfile)
 
 -- | The updated timezone for the room profile.
-updateProfile_timezone :: Lens.Lens' UpdateProfile (Core.Maybe Core.Text)
+updateProfile_timezone :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
 updateProfile_timezone = Lens.lens (\UpdateProfile' {timezone} -> timezone) (\s@UpdateProfile' {} a -> s {timezone = a} :: UpdateProfile)
 
 -- | The updated distance unit for the room profile.
-updateProfile_distanceUnit :: Lens.Lens' UpdateProfile (Core.Maybe DistanceUnit)
+updateProfile_distanceUnit :: Lens.Lens' UpdateProfile (Prelude.Maybe DistanceUnit)
 updateProfile_distanceUnit = Lens.lens (\UpdateProfile' {distanceUnit} -> distanceUnit) (\s@UpdateProfile' {} a -> s {distanceUnit = a} :: UpdateProfile)
 
 instance Core.AWSRequest UpdateProfile where
@@ -206,60 +207,64 @@ instance Core.AWSRequest UpdateProfile where
     Response.receiveEmpty
       ( \s h x ->
           UpdateProfileResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateProfile
+instance Prelude.Hashable UpdateProfile
 
-instance Core.NFData UpdateProfile
+instance Prelude.NFData UpdateProfile
 
 instance Core.ToHeaders UpdateProfile where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.UpdateProfile" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateProfile where
   toJSON UpdateProfile' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ProfileName" Core..=) Core.<$> profileName,
-            ("IsDefault" Core..=) Core.<$> isDefault,
-            ("Address" Core..=) Core.<$> address,
-            ("Locale" Core..=) Core.<$> locale,
-            ("TemperatureUnit" Core..=) Core.<$> temperatureUnit,
+      ( Prelude.catMaybes
+          [ ("ProfileName" Core..=) Prelude.<$> profileName,
+            ("IsDefault" Core..=) Prelude.<$> isDefault,
+            ("Address" Core..=) Prelude.<$> address,
+            ("Locale" Core..=) Prelude.<$> locale,
+            ("TemperatureUnit" Core..=)
+              Prelude.<$> temperatureUnit,
             ("SetupModeDisabled" Core..=)
-              Core.<$> setupModeDisabled,
-            ("PSTNEnabled" Core..=) Core.<$> pSTNEnabled,
-            ("MaxVolumeLimit" Core..=) Core.<$> maxVolumeLimit,
+              Prelude.<$> setupModeDisabled,
+            ("PSTNEnabled" Core..=) Prelude.<$> pSTNEnabled,
+            ("MaxVolumeLimit" Core..=)
+              Prelude.<$> maxVolumeLimit,
             ("MeetingRoomConfiguration" Core..=)
-              Core.<$> meetingRoomConfiguration,
-            ("WakeWord" Core..=) Core.<$> wakeWord,
-            ("ProfileArn" Core..=) Core.<$> profileArn,
-            ("Timezone" Core..=) Core.<$> timezone,
-            ("DistanceUnit" Core..=) Core.<$> distanceUnit
+              Prelude.<$> meetingRoomConfiguration,
+            ("WakeWord" Core..=) Prelude.<$> wakeWord,
+            ("ProfileArn" Core..=) Prelude.<$> profileArn,
+            ("Timezone" Core..=) Prelude.<$> timezone,
+            ("DistanceUnit" Core..=) Prelude.<$> distanceUnit
           ]
       )
 
 instance Core.ToPath UpdateProfile where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateProfile where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProfileResponse' smart constructor.
 data UpdateProfileResponse = UpdateProfileResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateProfileResponse' with all optional fields omitted.
@@ -272,13 +277,13 @@ data UpdateProfileResponse = UpdateProfileResponse'
 -- 'httpStatus', 'updateProfileResponse_httpStatus' - The response's http status code.
 newUpdateProfileResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateProfileResponse
 newUpdateProfileResponse pHttpStatus_ =
   UpdateProfileResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateProfileResponse_httpStatus :: Lens.Lens' UpdateProfileResponse Core.Int
+updateProfileResponse_httpStatus :: Lens.Lens' UpdateProfileResponse Prelude.Int
 updateProfileResponse_httpStatus = Lens.lens (\UpdateProfileResponse' {httpStatus} -> httpStatus) (\s@UpdateProfileResponse' {} a -> s {httpStatus = a} :: UpdateProfileResponse)
 
-instance Core.NFData UpdateProfileResponse
+instance Prelude.NFData UpdateProfileResponse

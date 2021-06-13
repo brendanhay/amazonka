@@ -23,17 +23,18 @@ import Network.AWS.CloudDirectory.Types.FacetAttribute
 import Network.AWS.CloudDirectory.Types.UpdateActionType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that contains information used to update an attribute.
 --
 -- /See:/ 'newFacetAttributeUpdate' smart constructor.
 data FacetAttributeUpdate = FacetAttributeUpdate'
   { -- | The attribute to update.
-    attribute :: Core.Maybe FacetAttribute,
+    attribute :: Prelude.Maybe FacetAttribute,
     -- | The action to perform when updating the attribute.
-    action :: Core.Maybe UpdateActionType
+    action :: Prelude.Maybe UpdateActionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FacetAttributeUpdate' with all optional fields omitted.
@@ -50,27 +51,27 @@ newFacetAttributeUpdate ::
   FacetAttributeUpdate
 newFacetAttributeUpdate =
   FacetAttributeUpdate'
-    { attribute = Core.Nothing,
-      action = Core.Nothing
+    { attribute = Prelude.Nothing,
+      action = Prelude.Nothing
     }
 
 -- | The attribute to update.
-facetAttributeUpdate_attribute :: Lens.Lens' FacetAttributeUpdate (Core.Maybe FacetAttribute)
+facetAttributeUpdate_attribute :: Lens.Lens' FacetAttributeUpdate (Prelude.Maybe FacetAttribute)
 facetAttributeUpdate_attribute = Lens.lens (\FacetAttributeUpdate' {attribute} -> attribute) (\s@FacetAttributeUpdate' {} a -> s {attribute = a} :: FacetAttributeUpdate)
 
 -- | The action to perform when updating the attribute.
-facetAttributeUpdate_action :: Lens.Lens' FacetAttributeUpdate (Core.Maybe UpdateActionType)
+facetAttributeUpdate_action :: Lens.Lens' FacetAttributeUpdate (Prelude.Maybe UpdateActionType)
 facetAttributeUpdate_action = Lens.lens (\FacetAttributeUpdate' {action} -> action) (\s@FacetAttributeUpdate' {} a -> s {action = a} :: FacetAttributeUpdate)
 
-instance Core.Hashable FacetAttributeUpdate
+instance Prelude.Hashable FacetAttributeUpdate
 
-instance Core.NFData FacetAttributeUpdate
+instance Prelude.NFData FacetAttributeUpdate
 
 instance Core.ToJSON FacetAttributeUpdate where
   toJSON FacetAttributeUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Attribute" Core..=) Core.<$> attribute,
-            ("Action" Core..=) Core.<$> action
+      ( Prelude.catMaybes
+          [ ("Attribute" Core..=) Prelude.<$> attribute,
+            ("Action" Core..=) Prelude.<$> action
           ]
       )

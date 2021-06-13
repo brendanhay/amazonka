@@ -21,6 +21,7 @@ module Network.AWS.APIGateway.Types.ThrottleSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The API request rate limits.
 --
@@ -29,11 +30,11 @@ data ThrottleSettings = ThrottleSettings'
   { -- | The API request burst limit, the maximum rate limit over a time ranging
     -- from one to a few seconds, depending upon whether the underlying token
     -- bucket is at its full capacity.
-    burstLimit :: Core.Maybe Core.Int,
+    burstLimit :: Prelude.Maybe Prelude.Int,
     -- | The API request steady-state rate limit.
-    rateLimit :: Core.Maybe Core.Double
+    rateLimit :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ThrottleSettings' with all optional fields omitted.
@@ -52,18 +53,18 @@ newThrottleSettings ::
   ThrottleSettings
 newThrottleSettings =
   ThrottleSettings'
-    { burstLimit = Core.Nothing,
-      rateLimit = Core.Nothing
+    { burstLimit = Prelude.Nothing,
+      rateLimit = Prelude.Nothing
     }
 
 -- | The API request burst limit, the maximum rate limit over a time ranging
 -- from one to a few seconds, depending upon whether the underlying token
 -- bucket is at its full capacity.
-throttleSettings_burstLimit :: Lens.Lens' ThrottleSettings (Core.Maybe Core.Int)
+throttleSettings_burstLimit :: Lens.Lens' ThrottleSettings (Prelude.Maybe Prelude.Int)
 throttleSettings_burstLimit = Lens.lens (\ThrottleSettings' {burstLimit} -> burstLimit) (\s@ThrottleSettings' {} a -> s {burstLimit = a} :: ThrottleSettings)
 
 -- | The API request steady-state rate limit.
-throttleSettings_rateLimit :: Lens.Lens' ThrottleSettings (Core.Maybe Core.Double)
+throttleSettings_rateLimit :: Lens.Lens' ThrottleSettings (Prelude.Maybe Prelude.Double)
 throttleSettings_rateLimit = Lens.lens (\ThrottleSettings' {rateLimit} -> rateLimit) (\s@ThrottleSettings' {} a -> s {rateLimit = a} :: ThrottleSettings)
 
 instance Core.FromJSON ThrottleSettings where
@@ -72,19 +73,19 @@ instance Core.FromJSON ThrottleSettings where
       "ThrottleSettings"
       ( \x ->
           ThrottleSettings'
-            Core.<$> (x Core..:? "burstLimit")
-            Core.<*> (x Core..:? "rateLimit")
+            Prelude.<$> (x Core..:? "burstLimit")
+            Prelude.<*> (x Core..:? "rateLimit")
       )
 
-instance Core.Hashable ThrottleSettings
+instance Prelude.Hashable ThrottleSettings
 
-instance Core.NFData ThrottleSettings
+instance Prelude.NFData ThrottleSettings
 
 instance Core.ToJSON ThrottleSettings where
   toJSON ThrottleSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("burstLimit" Core..=) Core.<$> burstLimit,
-            ("rateLimit" Core..=) Core.<$> rateLimit
+      ( Prelude.catMaybes
+          [ ("burstLimit" Core..=) Prelude.<$> burstLimit,
+            ("rateLimit" Core..=) Prelude.<$> rateLimit
           ]
       )

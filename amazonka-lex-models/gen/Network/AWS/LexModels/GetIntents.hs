@@ -55,6 +55,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,16 +65,16 @@ data GetIntents = GetIntents'
     -- response to this API call is truncated, Amazon Lex returns a pagination
     -- token in the response. To fetch the next page of intents, specify the
     -- pagination token in the next request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Substring to match in intent names. An intent will be returned if any
     -- part of its name matches the substring. For example, \"xyz\" matches
     -- both \"xyzabc\" and \"abcxyz.\"
-    nameContains :: Core.Maybe Core.Text,
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of intents to return in the response. The default is
     -- 10.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetIntents' with all optional fields omitted.
@@ -98,47 +99,47 @@ newGetIntents ::
   GetIntents
 newGetIntents =
   GetIntents'
-    { nextToken = Core.Nothing,
-      nameContains = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | A pagination token that fetches the next page of intents. If the
 -- response to this API call is truncated, Amazon Lex returns a pagination
 -- token in the response. To fetch the next page of intents, specify the
 -- pagination token in the next request.
-getIntents_nextToken :: Lens.Lens' GetIntents (Core.Maybe Core.Text)
+getIntents_nextToken :: Lens.Lens' GetIntents (Prelude.Maybe Prelude.Text)
 getIntents_nextToken = Lens.lens (\GetIntents' {nextToken} -> nextToken) (\s@GetIntents' {} a -> s {nextToken = a} :: GetIntents)
 
 -- | Substring to match in intent names. An intent will be returned if any
 -- part of its name matches the substring. For example, \"xyz\" matches
 -- both \"xyzabc\" and \"abcxyz.\"
-getIntents_nameContains :: Lens.Lens' GetIntents (Core.Maybe Core.Text)
+getIntents_nameContains :: Lens.Lens' GetIntents (Prelude.Maybe Prelude.Text)
 getIntents_nameContains = Lens.lens (\GetIntents' {nameContains} -> nameContains) (\s@GetIntents' {} a -> s {nameContains = a} :: GetIntents)
 
 -- | The maximum number of intents to return in the response. The default is
 -- 10.
-getIntents_maxResults :: Lens.Lens' GetIntents (Core.Maybe Core.Natural)
+getIntents_maxResults :: Lens.Lens' GetIntents (Prelude.Maybe Prelude.Natural)
 getIntents_maxResults = Lens.lens (\GetIntents' {maxResults} -> maxResults) (\s@GetIntents' {} a -> s {maxResults = a} :: GetIntents)
 
 instance Core.AWSPager GetIntents where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getIntentsResponse_nextToken Core.. Lens._Just
+            Lens.^? getIntentsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getIntentsResponse_intents Core.. Lens._Just
+            Lens.^? getIntentsResponse_intents Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getIntents_nextToken
+          Prelude.& getIntents_nextToken
           Lens..~ rs
-          Lens.^? getIntentsResponse_nextToken Core.. Lens._Just
+          Lens.^? getIntentsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest GetIntents where
   type AWSResponse GetIntents = GetIntentsResponse
@@ -147,30 +148,32 @@ instance Core.AWSRequest GetIntents where
     Response.receiveJSON
       ( \s h x ->
           GetIntentsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "intents" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "intents" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetIntents
+instance Prelude.Hashable GetIntents
 
-instance Core.NFData GetIntents
+instance Prelude.NFData GetIntents
 
 instance Core.ToHeaders GetIntents where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetIntents where
-  toPath = Core.const "/intents/"
+  toPath = Prelude.const "/intents/"
 
 instance Core.ToQuery GetIntents where
   toQuery GetIntents' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "nameContains" Core.=: nameContains,
         "maxResults" Core.=: maxResults
@@ -181,13 +184,13 @@ data GetIntentsResponse = GetIntentsResponse'
   { -- | If the response is truncated, the response includes a pagination token
     -- that you can specify in your next request to fetch the next page of
     -- intents.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of @Intent@ objects. For more information, see PutBot.
-    intents :: Core.Maybe [IntentMetadata],
+    intents :: Prelude.Maybe [IntentMetadata],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetIntentsResponse' with all optional fields omitted.
@@ -206,27 +209,27 @@ data GetIntentsResponse = GetIntentsResponse'
 -- 'httpStatus', 'getIntentsResponse_httpStatus' - The response's http status code.
 newGetIntentsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetIntentsResponse
 newGetIntentsResponse pHttpStatus_ =
   GetIntentsResponse'
-    { nextToken = Core.Nothing,
-      intents = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      intents = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the response is truncated, the response includes a pagination token
 -- that you can specify in your next request to fetch the next page of
 -- intents.
-getIntentsResponse_nextToken :: Lens.Lens' GetIntentsResponse (Core.Maybe Core.Text)
+getIntentsResponse_nextToken :: Lens.Lens' GetIntentsResponse (Prelude.Maybe Prelude.Text)
 getIntentsResponse_nextToken = Lens.lens (\GetIntentsResponse' {nextToken} -> nextToken) (\s@GetIntentsResponse' {} a -> s {nextToken = a} :: GetIntentsResponse)
 
 -- | An array of @Intent@ objects. For more information, see PutBot.
-getIntentsResponse_intents :: Lens.Lens' GetIntentsResponse (Core.Maybe [IntentMetadata])
-getIntentsResponse_intents = Lens.lens (\GetIntentsResponse' {intents} -> intents) (\s@GetIntentsResponse' {} a -> s {intents = a} :: GetIntentsResponse) Core.. Lens.mapping Lens._Coerce
+getIntentsResponse_intents :: Lens.Lens' GetIntentsResponse (Prelude.Maybe [IntentMetadata])
+getIntentsResponse_intents = Lens.lens (\GetIntentsResponse' {intents} -> intents) (\s@GetIntentsResponse' {} a -> s {intents = a} :: GetIntentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getIntentsResponse_httpStatus :: Lens.Lens' GetIntentsResponse Core.Int
+getIntentsResponse_httpStatus :: Lens.Lens' GetIntentsResponse Prelude.Int
 getIntentsResponse_httpStatus = Lens.lens (\GetIntentsResponse' {httpStatus} -> httpStatus) (\s@GetIntentsResponse' {} a -> s {httpStatus = a} :: GetIntentsResponse)
 
-instance Core.NFData GetIntentsResponse
+instance Prelude.NFData GetIntentsResponse

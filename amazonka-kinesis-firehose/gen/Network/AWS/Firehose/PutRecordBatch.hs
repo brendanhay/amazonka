@@ -109,17 +109,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutRecordBatch' smart constructor.
 data PutRecordBatch = PutRecordBatch'
   { -- | The name of the delivery stream.
-    deliveryStreamName :: Core.Text,
+    deliveryStreamName :: Prelude.Text,
     -- | One or more records.
-    records :: Core.NonEmpty Record
+    records :: Prelude.NonEmpty Record
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRecordBatch' with all optional fields omitted.
@@ -134,9 +135,9 @@ data PutRecordBatch = PutRecordBatch'
 -- 'records', 'putRecordBatch_records' - One or more records.
 newPutRecordBatch ::
   -- | 'deliveryStreamName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'records'
-  Core.NonEmpty Record ->
+  Prelude.NonEmpty Record ->
   PutRecordBatch
 newPutRecordBatch pDeliveryStreamName_ pRecords_ =
   PutRecordBatch'
@@ -146,12 +147,12 @@ newPutRecordBatch pDeliveryStreamName_ pRecords_ =
     }
 
 -- | The name of the delivery stream.
-putRecordBatch_deliveryStreamName :: Lens.Lens' PutRecordBatch Core.Text
+putRecordBatch_deliveryStreamName :: Lens.Lens' PutRecordBatch Prelude.Text
 putRecordBatch_deliveryStreamName = Lens.lens (\PutRecordBatch' {deliveryStreamName} -> deliveryStreamName) (\s@PutRecordBatch' {} a -> s {deliveryStreamName = a} :: PutRecordBatch)
 
 -- | One or more records.
-putRecordBatch_records :: Lens.Lens' PutRecordBatch (Core.NonEmpty Record)
-putRecordBatch_records = Lens.lens (\PutRecordBatch' {records} -> records) (\s@PutRecordBatch' {} a -> s {records = a} :: PutRecordBatch) Core.. Lens._Coerce
+putRecordBatch_records :: Lens.Lens' PutRecordBatch (Prelude.NonEmpty Record)
+putRecordBatch_records = Lens.lens (\PutRecordBatch' {records} -> records) (\s@PutRecordBatch' {} a -> s {records = a} :: PutRecordBatch) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest PutRecordBatch where
   type
@@ -162,62 +163,64 @@ instance Core.AWSRequest PutRecordBatch where
     Response.receiveJSON
       ( \s h x ->
           PutRecordBatchResponse'
-            Core.<$> (x Core..?> "Encrypted")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "FailedPutCount")
-            Core.<*> (x Core..:> "RequestResponses")
+            Prelude.<$> (x Core..?> "Encrypted")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "FailedPutCount")
+            Prelude.<*> (x Core..:> "RequestResponses")
       )
 
-instance Core.Hashable PutRecordBatch
+instance Prelude.Hashable PutRecordBatch
 
-instance Core.NFData PutRecordBatch
+instance Prelude.NFData PutRecordBatch
 
 instance Core.ToHeaders PutRecordBatch where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Firehose_20150804.PutRecordBatch" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutRecordBatch where
   toJSON PutRecordBatch' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("DeliveryStreamName" Core..= deliveryStreamName),
-            Core.Just ("Records" Core..= records)
+            Prelude.Just ("Records" Core..= records)
           ]
       )
 
 instance Core.ToPath PutRecordBatch where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutRecordBatch where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRecordBatchResponse' smart constructor.
 data PutRecordBatchResponse = PutRecordBatchResponse'
   { -- | Indicates whether server-side encryption (SSE) was enabled during this
     -- operation.
-    encrypted :: Core.Maybe Core.Bool,
+    encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The number of records that might have failed processing. This number
     -- might be greater than 0 even if the PutRecordBatch call succeeds. Check
     -- @FailedPutCount@ to determine whether there are records that you need to
     -- resend.
-    failedPutCount :: Core.Natural,
+    failedPutCount :: Prelude.Natural,
     -- | The results array. For each record, the index of the response element is
     -- the same as the index used in the request array.
-    requestResponses :: Core.NonEmpty PutRecordBatchResponseEntry
+    requestResponses :: Prelude.NonEmpty PutRecordBatchResponseEntry
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRecordBatchResponse' with all optional fields omitted.
@@ -241,18 +244,19 @@ data PutRecordBatchResponse = PutRecordBatchResponse'
 -- the same as the index used in the request array.
 newPutRecordBatchResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'failedPutCount'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'requestResponses'
-  Core.NonEmpty PutRecordBatchResponseEntry ->
+  Prelude.NonEmpty PutRecordBatchResponseEntry ->
   PutRecordBatchResponse
 newPutRecordBatchResponse
   pHttpStatus_
   pFailedPutCount_
   pRequestResponses_ =
     PutRecordBatchResponse'
-      { encrypted = Core.Nothing,
+      { encrypted =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_,
         failedPutCount = pFailedPutCount_,
         requestResponses =
@@ -261,23 +265,23 @@ newPutRecordBatchResponse
 
 -- | Indicates whether server-side encryption (SSE) was enabled during this
 -- operation.
-putRecordBatchResponse_encrypted :: Lens.Lens' PutRecordBatchResponse (Core.Maybe Core.Bool)
+putRecordBatchResponse_encrypted :: Lens.Lens' PutRecordBatchResponse (Prelude.Maybe Prelude.Bool)
 putRecordBatchResponse_encrypted = Lens.lens (\PutRecordBatchResponse' {encrypted} -> encrypted) (\s@PutRecordBatchResponse' {} a -> s {encrypted = a} :: PutRecordBatchResponse)
 
 -- | The response's http status code.
-putRecordBatchResponse_httpStatus :: Lens.Lens' PutRecordBatchResponse Core.Int
+putRecordBatchResponse_httpStatus :: Lens.Lens' PutRecordBatchResponse Prelude.Int
 putRecordBatchResponse_httpStatus = Lens.lens (\PutRecordBatchResponse' {httpStatus} -> httpStatus) (\s@PutRecordBatchResponse' {} a -> s {httpStatus = a} :: PutRecordBatchResponse)
 
 -- | The number of records that might have failed processing. This number
 -- might be greater than 0 even if the PutRecordBatch call succeeds. Check
 -- @FailedPutCount@ to determine whether there are records that you need to
 -- resend.
-putRecordBatchResponse_failedPutCount :: Lens.Lens' PutRecordBatchResponse Core.Natural
+putRecordBatchResponse_failedPutCount :: Lens.Lens' PutRecordBatchResponse Prelude.Natural
 putRecordBatchResponse_failedPutCount = Lens.lens (\PutRecordBatchResponse' {failedPutCount} -> failedPutCount) (\s@PutRecordBatchResponse' {} a -> s {failedPutCount = a} :: PutRecordBatchResponse)
 
 -- | The results array. For each record, the index of the response element is
 -- the same as the index used in the request array.
-putRecordBatchResponse_requestResponses :: Lens.Lens' PutRecordBatchResponse (Core.NonEmpty PutRecordBatchResponseEntry)
-putRecordBatchResponse_requestResponses = Lens.lens (\PutRecordBatchResponse' {requestResponses} -> requestResponses) (\s@PutRecordBatchResponse' {} a -> s {requestResponses = a} :: PutRecordBatchResponse) Core.. Lens._Coerce
+putRecordBatchResponse_requestResponses :: Lens.Lens' PutRecordBatchResponse (Prelude.NonEmpty PutRecordBatchResponseEntry)
+putRecordBatchResponse_requestResponses = Lens.lens (\PutRecordBatchResponse' {requestResponses} -> requestResponses) (\s@PutRecordBatchResponse' {} a -> s {requestResponses = a} :: PutRecordBatchResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData PutRecordBatchResponse
+instance Prelude.NFData PutRecordBatchResponse

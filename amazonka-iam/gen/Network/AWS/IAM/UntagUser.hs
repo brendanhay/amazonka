@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,12 +54,12 @@ data UntagUser = UntagUser'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    userName :: Core.Text,
+    userName :: Prelude.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified user.
-    tagKeys :: [Core.Text]
+    tagKeys :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagUser' with all optional fields omitted.
@@ -79,12 +80,12 @@ data UntagUser = UntagUser'
 -- keys are removed from the specified user.
 newUntagUser ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   UntagUser
 newUntagUser pUserName_ =
   UntagUser'
     { userName = pUserName_,
-      tagKeys = Core.mempty
+      tagKeys = Prelude.mempty
     }
 
 -- | The name of the IAM user from which you want to remove tags.
@@ -93,34 +94,36 @@ newUntagUser pUserName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-untagUser_userName :: Lens.Lens' UntagUser Core.Text
+untagUser_userName :: Lens.Lens' UntagUser Prelude.Text
 untagUser_userName = Lens.lens (\UntagUser' {userName} -> userName) (\s@UntagUser' {} a -> s {userName = a} :: UntagUser)
 
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified user.
-untagUser_tagKeys :: Lens.Lens' UntagUser [Core.Text]
-untagUser_tagKeys = Lens.lens (\UntagUser' {tagKeys} -> tagKeys) (\s@UntagUser' {} a -> s {tagKeys = a} :: UntagUser) Core.. Lens._Coerce
+untagUser_tagKeys :: Lens.Lens' UntagUser [Prelude.Text]
+untagUser_tagKeys = Lens.lens (\UntagUser' {tagKeys} -> tagKeys) (\s@UntagUser' {} a -> s {tagKeys = a} :: UntagUser) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UntagUser where
   type AWSResponse UntagUser = UntagUserResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull UntagUserResponse'
 
-instance Core.Hashable UntagUser
+instance Prelude.Hashable UntagUser
 
-instance Core.NFData UntagUser
+instance Prelude.NFData UntagUser
 
 instance Core.ToHeaders UntagUser where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UntagUser where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UntagUser where
   toQuery UntagUser' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("UntagUser" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("UntagUser" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "UserName" Core.=: userName,
         "TagKeys" Core.=: Core.toQueryList "member" tagKeys
       ]
@@ -129,7 +132,7 @@ instance Core.ToQuery UntagUser where
 data UntagUserResponse = UntagUserResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagUserResponse' with all optional fields omitted.
@@ -139,4 +142,4 @@ newUntagUserResponse ::
   UntagUserResponse
 newUntagUserResponse = UntagUserResponse'
 
-instance Core.NFData UntagUserResponse
+instance Prelude.NFData UntagUserResponse

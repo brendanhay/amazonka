@@ -21,6 +21,7 @@ module Network.AWS.ELBv2.Types.HttpRequestMethodConditionConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an HTTP method condition.
 --
@@ -40,9 +41,9 @@ data HttpRequestMethodConditionConfig = HttpRequestMethodConditionConfig'
     -- the strings matches the HTTP request method. We recommend that you route
     -- GET and HEAD requests in the same way, because the response to a HEAD
     -- request may be cached.
-    values :: Core.Maybe [Core.Text]
+    values :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HttpRequestMethodConditionConfig' with all optional fields omitted.
@@ -66,7 +67,7 @@ newHttpRequestMethodConditionConfig ::
 newHttpRequestMethodConditionConfig =
   HttpRequestMethodConditionConfig'
     { values =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The name of the request method. The maximum size is 40 characters. The
@@ -78,8 +79,8 @@ newHttpRequestMethodConditionConfig =
 -- the strings matches the HTTP request method. We recommend that you route
 -- GET and HEAD requests in the same way, because the response to a HEAD
 -- request may be cached.
-httpRequestMethodConditionConfig_values :: Lens.Lens' HttpRequestMethodConditionConfig (Core.Maybe [Core.Text])
-httpRequestMethodConditionConfig_values = Lens.lens (\HttpRequestMethodConditionConfig' {values} -> values) (\s@HttpRequestMethodConditionConfig' {} a -> s {values = a} :: HttpRequestMethodConditionConfig) Core.. Lens.mapping Lens._Coerce
+httpRequestMethodConditionConfig_values :: Lens.Lens' HttpRequestMethodConditionConfig (Prelude.Maybe [Prelude.Text])
+httpRequestMethodConditionConfig_values = Lens.lens (\HttpRequestMethodConditionConfig' {values} -> values) (\s@HttpRequestMethodConditionConfig' {} a -> s {values = a} :: HttpRequestMethodConditionConfig) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromXML
@@ -87,23 +88,25 @@ instance
   where
   parseXML x =
     HttpRequestMethodConditionConfig'
-      Core.<$> ( x Core..@? "Values" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
+      Prelude.<$> ( x Core..@? "Values" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     HttpRequestMethodConditionConfig
 
-instance Core.NFData HttpRequestMethodConditionConfig
+instance
+  Prelude.NFData
+    HttpRequestMethodConditionConfig
 
 instance
   Core.ToQuery
     HttpRequestMethodConditionConfig
   where
   toQuery HttpRequestMethodConditionConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Values"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> values)
+            (Core.toQueryList "member" Prelude.<$> values)
       ]

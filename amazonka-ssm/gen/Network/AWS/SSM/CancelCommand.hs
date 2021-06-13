@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -54,11 +55,11 @@ data CancelCommand = CancelCommand'
   { -- | (Optional) A list of instance IDs on which you want to cancel the
     -- command. If not provided, the command is canceled on every instance on
     -- which it was requested.
-    instanceIds :: Core.Maybe [Core.Text],
+    instanceIds :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the command you want to cancel.
-    commandId :: Core.Text
+    commandId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelCommand' with all optional fields omitted.
@@ -75,22 +76,22 @@ data CancelCommand = CancelCommand'
 -- 'commandId', 'cancelCommand_commandId' - The ID of the command you want to cancel.
 newCancelCommand ::
   -- | 'commandId'
-  Core.Text ->
+  Prelude.Text ->
   CancelCommand
 newCancelCommand pCommandId_ =
   CancelCommand'
-    { instanceIds = Core.Nothing,
+    { instanceIds = Prelude.Nothing,
       commandId = pCommandId_
     }
 
 -- | (Optional) A list of instance IDs on which you want to cancel the
 -- command. If not provided, the command is canceled on every instance on
 -- which it was requested.
-cancelCommand_instanceIds :: Lens.Lens' CancelCommand (Core.Maybe [Core.Text])
-cancelCommand_instanceIds = Lens.lens (\CancelCommand' {instanceIds} -> instanceIds) (\s@CancelCommand' {} a -> s {instanceIds = a} :: CancelCommand) Core.. Lens.mapping Lens._Coerce
+cancelCommand_instanceIds :: Lens.Lens' CancelCommand (Prelude.Maybe [Prelude.Text])
+cancelCommand_instanceIds = Lens.lens (\CancelCommand' {instanceIds} -> instanceIds) (\s@CancelCommand' {} a -> s {instanceIds = a} :: CancelCommand) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the command you want to cancel.
-cancelCommand_commandId :: Lens.Lens' CancelCommand Core.Text
+cancelCommand_commandId :: Lens.Lens' CancelCommand Prelude.Text
 cancelCommand_commandId = Lens.lens (\CancelCommand' {commandId} -> commandId) (\s@CancelCommand' {} a -> s {commandId = a} :: CancelCommand)
 
 instance Core.AWSRequest CancelCommand where
@@ -102,38 +103,40 @@ instance Core.AWSRequest CancelCommand where
     Response.receiveEmpty
       ( \s h x ->
           CancelCommandResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CancelCommand
+instance Prelude.Hashable CancelCommand
 
-instance Core.NFData CancelCommand
+instance Prelude.NFData CancelCommand
 
 instance Core.ToHeaders CancelCommand where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.CancelCommand" :: Core.ByteString),
+              Core.=# ("AmazonSSM.CancelCommand" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CancelCommand where
   toJSON CancelCommand' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("InstanceIds" Core..=) Core.<$> instanceIds,
-            Core.Just ("CommandId" Core..= commandId)
+      ( Prelude.catMaybes
+          [ ("InstanceIds" Core..=) Prelude.<$> instanceIds,
+            Prelude.Just ("CommandId" Core..= commandId)
           ]
       )
 
 instance Core.ToPath CancelCommand where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CancelCommand where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Whether or not the command was successfully canceled. There is no
 -- guarantee that a request can be canceled.
@@ -141,9 +144,9 @@ instance Core.ToQuery CancelCommand where
 -- /See:/ 'newCancelCommandResponse' smart constructor.
 data CancelCommandResponse = CancelCommandResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelCommandResponse' with all optional fields omitted.
@@ -156,13 +159,13 @@ data CancelCommandResponse = CancelCommandResponse'
 -- 'httpStatus', 'cancelCommandResponse_httpStatus' - The response's http status code.
 newCancelCommandResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CancelCommandResponse
 newCancelCommandResponse pHttpStatus_ =
   CancelCommandResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-cancelCommandResponse_httpStatus :: Lens.Lens' CancelCommandResponse Core.Int
+cancelCommandResponse_httpStatus :: Lens.Lens' CancelCommandResponse Prelude.Int
 cancelCommandResponse_httpStatus = Lens.lens (\CancelCommandResponse' {httpStatus} -> httpStatus) (\s@CancelCommandResponse' {} a -> s {httpStatus = a} :: CancelCommandResponse)
 
-instance Core.NFData CancelCommandResponse
+instance Prelude.NFData CancelCommandResponse

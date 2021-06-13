@@ -26,6 +26,7 @@ module Network.AWS.APIGateway.Types.CacheClusterSize
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns the size of the __CacheCluster__.
 newtype CacheClusterSize = CacheClusterSize'
@@ -33,15 +34,15 @@ newtype CacheClusterSize = CacheClusterSize'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

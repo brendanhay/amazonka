@@ -22,6 +22,7 @@ module Network.AWS.ElastiCache.Types.TagListMessage where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output from the @AddTagsToResource@,
 -- @ListTagsForResource@, and @RemoveTagsFromResource@ operations.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTagListMessage' smart constructor.
 data TagListMessage = TagListMessage'
   { -- | A list of cost allocation tags as key-value pairs.
-    tagList :: Core.Maybe [Tag]
+    tagList :: Prelude.Maybe [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagListMessage' with all optional fields omitted.
@@ -45,19 +46,19 @@ data TagListMessage = TagListMessage'
 newTagListMessage ::
   TagListMessage
 newTagListMessage =
-  TagListMessage' {tagList = Core.Nothing}
+  TagListMessage' {tagList = Prelude.Nothing}
 
 -- | A list of cost allocation tags as key-value pairs.
-tagListMessage_tagList :: Lens.Lens' TagListMessage (Core.Maybe [Tag])
-tagListMessage_tagList = Lens.lens (\TagListMessage' {tagList} -> tagList) (\s@TagListMessage' {} a -> s {tagList = a} :: TagListMessage) Core.. Lens.mapping Lens._Coerce
+tagListMessage_tagList :: Lens.Lens' TagListMessage (Prelude.Maybe [Tag])
+tagListMessage_tagList = Lens.lens (\TagListMessage' {tagList} -> tagList) (\s@TagListMessage' {} a -> s {tagList = a} :: TagListMessage) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML TagListMessage where
   parseXML x =
     TagListMessage'
-      Core.<$> ( x Core..@? "TagList" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Tag")
-               )
+      Prelude.<$> ( x Core..@? "TagList" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+                  )
 
-instance Core.Hashable TagListMessage
+instance Prelude.Hashable TagListMessage
 
-instance Core.NFData TagListMessage
+instance Prelude.NFData TagListMessage

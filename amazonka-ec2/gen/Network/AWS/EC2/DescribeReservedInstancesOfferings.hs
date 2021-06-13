@@ -71,6 +71,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -82,32 +83,32 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
     -- offerings.
     --
     -- Default: 2592000 (1 month)
-    minDuration :: Core.Maybe Core.Integer,
+    minDuration :: Prelude.Maybe Prelude.Integer,
     -- | The token to retrieve the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The instance type that the reservation will cover (for example,
     -- @m1.small@). For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
     -- in the /Amazon EC2 User Guide/.
-    instanceType :: Core.Maybe InstanceType,
+    instanceType :: Prelude.Maybe InstanceType,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of instances to filter when searching for offerings.
     --
     -- Default: 20
-    maxInstanceCount :: Core.Maybe Core.Int,
+    maxInstanceCount :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results of the initial request can be seen by
     -- sending another request with the returned @NextToken@ value. The maximum
     -- is 100.
     --
     -- Default: 100
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Include Reserved Instance Marketplace offerings in the response.
-    includeMarketplace :: Core.Maybe Core.Bool,
+    includeMarketplace :: Prelude.Maybe Prelude.Bool,
     -- | The tenancy of the instances covered by the reservation. A Reserved
     -- Instance with a tenancy of @dedicated@ is applied to instances that run
     -- in a VPC on single-tenant hardware (i.e., Dedicated Instances).
@@ -116,12 +117,12 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
     -- the @default@ or @dedicated@ values only.
     --
     -- Default: @default@
-    instanceTenancy :: Core.Maybe Tenancy,
+    instanceTenancy :: Prelude.Maybe Tenancy,
     -- | The Availability Zone in which the Reserved Instance can be used.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The offering class of the Reserved Instance. Can be @standard@ or
     -- @convertible@.
-    offeringClass :: Core.Maybe OfferingClassType,
+    offeringClass :: Prelude.Maybe OfferingClassType,
     -- | One or more filters.
     --
     -- -   @availability-zone@ - The Availability Zone where the Reserved
@@ -163,23 +164,23 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
     --
     -- -   @usage-price@ - The usage price of the Reserved Instance, per hour
     --     (for example, 0.84).
-    filters :: Core.Maybe [Filter],
+    filters :: Prelude.Maybe [Filter],
     -- | The Reserved Instance offering type. If you are using tools that predate
     -- the 2011-11-01 API version, you only have access to the
     -- @Medium Utilization@ Reserved Instance offering type.
-    offeringType :: Core.Maybe OfferingTypeValues,
+    offeringType :: Prelude.Maybe OfferingTypeValues,
     -- | One or more Reserved Instances offering IDs.
-    reservedInstancesOfferingIds :: Core.Maybe [Core.Text],
+    reservedInstancesOfferingIds :: Prelude.Maybe [Prelude.Text],
     -- | The Reserved Instance product platform description. Instances that
     -- include @(Amazon VPC)@ in the description are for use with Amazon VPC.
-    productDescription :: Core.Maybe RIProductDescription,
+    productDescription :: Prelude.Maybe RIProductDescription,
     -- | The maximum duration (in seconds) to filter when searching for
     -- offerings.
     --
     -- Default: 94608000 (3 years)
-    maxDuration :: Core.Maybe Core.Integer
+    maxDuration :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeReservedInstancesOfferings' with all optional fields omitted.
@@ -293,53 +294,53 @@ newDescribeReservedInstancesOfferings ::
 newDescribeReservedInstancesOfferings =
   DescribeReservedInstancesOfferings'
     { minDuration =
-        Core.Nothing,
-      nextToken = Core.Nothing,
-      instanceType = Core.Nothing,
-      dryRun = Core.Nothing,
-      maxInstanceCount = Core.Nothing,
-      maxResults = Core.Nothing,
-      includeMarketplace = Core.Nothing,
-      instanceTenancy = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      offeringClass = Core.Nothing,
-      filters = Core.Nothing,
-      offeringType = Core.Nothing,
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxInstanceCount = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      includeMarketplace = Prelude.Nothing,
+      instanceTenancy = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      offeringClass = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      offeringType = Prelude.Nothing,
       reservedInstancesOfferingIds =
-        Core.Nothing,
-      productDescription = Core.Nothing,
-      maxDuration = Core.Nothing
+        Prelude.Nothing,
+      productDescription = Prelude.Nothing,
+      maxDuration = Prelude.Nothing
     }
 
 -- | The minimum duration (in seconds) to filter when searching for
 -- offerings.
 --
 -- Default: 2592000 (1 month)
-describeReservedInstancesOfferings_minDuration :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Core.Integer)
+describeReservedInstancesOfferings_minDuration :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Prelude.Integer)
 describeReservedInstancesOfferings_minDuration = Lens.lens (\DescribeReservedInstancesOfferings' {minDuration} -> minDuration) (\s@DescribeReservedInstancesOfferings' {} a -> s {minDuration = a} :: DescribeReservedInstancesOfferings)
 
 -- | The token to retrieve the next page of results.
-describeReservedInstancesOfferings_nextToken :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Core.Text)
+describeReservedInstancesOfferings_nextToken :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Prelude.Text)
 describeReservedInstancesOfferings_nextToken = Lens.lens (\DescribeReservedInstancesOfferings' {nextToken} -> nextToken) (\s@DescribeReservedInstancesOfferings' {} a -> s {nextToken = a} :: DescribeReservedInstancesOfferings)
 
 -- | The instance type that the reservation will cover (for example,
 -- @m1.small@). For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon EC2 User Guide/.
-describeReservedInstancesOfferings_instanceType :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe InstanceType)
+describeReservedInstancesOfferings_instanceType :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe InstanceType)
 describeReservedInstancesOfferings_instanceType = Lens.lens (\DescribeReservedInstancesOfferings' {instanceType} -> instanceType) (\s@DescribeReservedInstancesOfferings' {} a -> s {instanceType = a} :: DescribeReservedInstancesOfferings)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeReservedInstancesOfferings_dryRun :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Core.Bool)
+describeReservedInstancesOfferings_dryRun :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Prelude.Bool)
 describeReservedInstancesOfferings_dryRun = Lens.lens (\DescribeReservedInstancesOfferings' {dryRun} -> dryRun) (\s@DescribeReservedInstancesOfferings' {} a -> s {dryRun = a} :: DescribeReservedInstancesOfferings)
 
 -- | The maximum number of instances to filter when searching for offerings.
 --
 -- Default: 20
-describeReservedInstancesOfferings_maxInstanceCount :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Core.Int)
+describeReservedInstancesOfferings_maxInstanceCount :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Prelude.Int)
 describeReservedInstancesOfferings_maxInstanceCount = Lens.lens (\DescribeReservedInstancesOfferings' {maxInstanceCount} -> maxInstanceCount) (\s@DescribeReservedInstancesOfferings' {} a -> s {maxInstanceCount = a} :: DescribeReservedInstancesOfferings)
 
 -- | The maximum number of results to return for the request in a single
@@ -348,11 +349,11 @@ describeReservedInstancesOfferings_maxInstanceCount = Lens.lens (\DescribeReserv
 -- is 100.
 --
 -- Default: 100
-describeReservedInstancesOfferings_maxResults :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Core.Int)
+describeReservedInstancesOfferings_maxResults :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Prelude.Int)
 describeReservedInstancesOfferings_maxResults = Lens.lens (\DescribeReservedInstancesOfferings' {maxResults} -> maxResults) (\s@DescribeReservedInstancesOfferings' {} a -> s {maxResults = a} :: DescribeReservedInstancesOfferings)
 
 -- | Include Reserved Instance Marketplace offerings in the response.
-describeReservedInstancesOfferings_includeMarketplace :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Core.Bool)
+describeReservedInstancesOfferings_includeMarketplace :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Prelude.Bool)
 describeReservedInstancesOfferings_includeMarketplace = Lens.lens (\DescribeReservedInstancesOfferings' {includeMarketplace} -> includeMarketplace) (\s@DescribeReservedInstancesOfferings' {} a -> s {includeMarketplace = a} :: DescribeReservedInstancesOfferings)
 
 -- | The tenancy of the instances covered by the reservation. A Reserved
@@ -363,16 +364,16 @@ describeReservedInstancesOfferings_includeMarketplace = Lens.lens (\DescribeRese
 -- the @default@ or @dedicated@ values only.
 --
 -- Default: @default@
-describeReservedInstancesOfferings_instanceTenancy :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Tenancy)
+describeReservedInstancesOfferings_instanceTenancy :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Tenancy)
 describeReservedInstancesOfferings_instanceTenancy = Lens.lens (\DescribeReservedInstancesOfferings' {instanceTenancy} -> instanceTenancy) (\s@DescribeReservedInstancesOfferings' {} a -> s {instanceTenancy = a} :: DescribeReservedInstancesOfferings)
 
 -- | The Availability Zone in which the Reserved Instance can be used.
-describeReservedInstancesOfferings_availabilityZone :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Core.Text)
+describeReservedInstancesOfferings_availabilityZone :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Prelude.Text)
 describeReservedInstancesOfferings_availabilityZone = Lens.lens (\DescribeReservedInstancesOfferings' {availabilityZone} -> availabilityZone) (\s@DescribeReservedInstancesOfferings' {} a -> s {availabilityZone = a} :: DescribeReservedInstancesOfferings)
 
 -- | The offering class of the Reserved Instance. Can be @standard@ or
 -- @convertible@.
-describeReservedInstancesOfferings_offeringClass :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe OfferingClassType)
+describeReservedInstancesOfferings_offeringClass :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe OfferingClassType)
 describeReservedInstancesOfferings_offeringClass = Lens.lens (\DescribeReservedInstancesOfferings' {offeringClass} -> offeringClass) (\s@DescribeReservedInstancesOfferings' {} a -> s {offeringClass = a} :: DescribeReservedInstancesOfferings)
 
 -- | One or more filters.
@@ -416,29 +417,29 @@ describeReservedInstancesOfferings_offeringClass = Lens.lens (\DescribeReservedI
 --
 -- -   @usage-price@ - The usage price of the Reserved Instance, per hour
 --     (for example, 0.84).
-describeReservedInstancesOfferings_filters :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe [Filter])
-describeReservedInstancesOfferings_filters = Lens.lens (\DescribeReservedInstancesOfferings' {filters} -> filters) (\s@DescribeReservedInstancesOfferings' {} a -> s {filters = a} :: DescribeReservedInstancesOfferings) Core.. Lens.mapping Lens._Coerce
+describeReservedInstancesOfferings_filters :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe [Filter])
+describeReservedInstancesOfferings_filters = Lens.lens (\DescribeReservedInstancesOfferings' {filters} -> filters) (\s@DescribeReservedInstancesOfferings' {} a -> s {filters = a} :: DescribeReservedInstancesOfferings) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Reserved Instance offering type. If you are using tools that predate
 -- the 2011-11-01 API version, you only have access to the
 -- @Medium Utilization@ Reserved Instance offering type.
-describeReservedInstancesOfferings_offeringType :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe OfferingTypeValues)
+describeReservedInstancesOfferings_offeringType :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe OfferingTypeValues)
 describeReservedInstancesOfferings_offeringType = Lens.lens (\DescribeReservedInstancesOfferings' {offeringType} -> offeringType) (\s@DescribeReservedInstancesOfferings' {} a -> s {offeringType = a} :: DescribeReservedInstancesOfferings)
 
 -- | One or more Reserved Instances offering IDs.
-describeReservedInstancesOfferings_reservedInstancesOfferingIds :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe [Core.Text])
-describeReservedInstancesOfferings_reservedInstancesOfferingIds = Lens.lens (\DescribeReservedInstancesOfferings' {reservedInstancesOfferingIds} -> reservedInstancesOfferingIds) (\s@DescribeReservedInstancesOfferings' {} a -> s {reservedInstancesOfferingIds = a} :: DescribeReservedInstancesOfferings) Core.. Lens.mapping Lens._Coerce
+describeReservedInstancesOfferings_reservedInstancesOfferingIds :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe [Prelude.Text])
+describeReservedInstancesOfferings_reservedInstancesOfferingIds = Lens.lens (\DescribeReservedInstancesOfferings' {reservedInstancesOfferingIds} -> reservedInstancesOfferingIds) (\s@DescribeReservedInstancesOfferings' {} a -> s {reservedInstancesOfferingIds = a} :: DescribeReservedInstancesOfferings) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Reserved Instance product platform description. Instances that
 -- include @(Amazon VPC)@ in the description are for use with Amazon VPC.
-describeReservedInstancesOfferings_productDescription :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe RIProductDescription)
+describeReservedInstancesOfferings_productDescription :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe RIProductDescription)
 describeReservedInstancesOfferings_productDescription = Lens.lens (\DescribeReservedInstancesOfferings' {productDescription} -> productDescription) (\s@DescribeReservedInstancesOfferings' {} a -> s {productDescription = a} :: DescribeReservedInstancesOfferings)
 
 -- | The maximum duration (in seconds) to filter when searching for
 -- offerings.
 --
 -- Default: 94608000 (3 years)
-describeReservedInstancesOfferings_maxDuration :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Core.Integer)
+describeReservedInstancesOfferings_maxDuration :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Prelude.Integer)
 describeReservedInstancesOfferings_maxDuration = Lens.lens (\DescribeReservedInstancesOfferings' {maxDuration} -> maxDuration) (\s@DescribeReservedInstancesOfferings' {} a -> s {maxDuration = a} :: DescribeReservedInstancesOfferings)
 
 instance
@@ -449,22 +450,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeReservedInstancesOfferingsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeReservedInstancesOfferingsResponse_reservedInstancesOfferings
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeReservedInstancesOfferings_nextToken
+          Prelude.& describeReservedInstancesOfferings_nextToken
           Lens..~ rs
           Lens.^? describeReservedInstancesOfferingsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -478,45 +479,46 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeReservedInstancesOfferingsResponse'
-            Core.<$> (x Core..@? "nextToken")
-            Core.<*> ( x Core..@? "reservedInstancesOfferingsSet"
-                         Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+              Prelude.<*> ( x Core..@? "reservedInstancesOfferingsSet"
+                              Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                          )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeReservedInstancesOfferings
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeReservedInstancesOfferings
 
 instance
   Core.ToHeaders
     DescribeReservedInstancesOfferings
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     DescribeReservedInstancesOfferings
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeReservedInstancesOfferings
   where
   toQuery DescribeReservedInstancesOfferings' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DescribeReservedInstancesOfferings" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "MinDuration" Core.=: minDuration,
         "NextToken" Core.=: nextToken,
         "InstanceType" Core.=: instanceType,
@@ -528,11 +530,11 @@ instance
         "AvailabilityZone" Core.=: availabilityZone,
         "OfferingClass" Core.=: offeringClass,
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters),
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         "OfferingType" Core.=: offeringType,
         Core.toQuery
           ( Core.toQueryList "ReservedInstancesOfferingId"
-              Core.<$> reservedInstancesOfferingIds
+              Prelude.<$> reservedInstancesOfferingIds
           ),
         "ProductDescription" Core.=: productDescription,
         "MaxDuration" Core.=: maxDuration
@@ -544,13 +546,13 @@ instance
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of Reserved Instances offerings.
-    reservedInstancesOfferings :: Core.Maybe [ReservedInstancesOffering],
+    reservedInstancesOfferings :: Prelude.Maybe [ReservedInstancesOffering],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeReservedInstancesOfferingsResponse' with all optional fields omitted.
@@ -568,31 +570,31 @@ data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOffer
 -- 'httpStatus', 'describeReservedInstancesOfferingsResponse_httpStatus' - The response's http status code.
 newDescribeReservedInstancesOfferingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeReservedInstancesOfferingsResponse
 newDescribeReservedInstancesOfferingsResponse
   pHttpStatus_ =
     DescribeReservedInstancesOfferingsResponse'
       { nextToken =
-          Core.Nothing,
+          Prelude.Nothing,
         reservedInstancesOfferings =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeReservedInstancesOfferingsResponse_nextToken :: Lens.Lens' DescribeReservedInstancesOfferingsResponse (Core.Maybe Core.Text)
+describeReservedInstancesOfferingsResponse_nextToken :: Lens.Lens' DescribeReservedInstancesOfferingsResponse (Prelude.Maybe Prelude.Text)
 describeReservedInstancesOfferingsResponse_nextToken = Lens.lens (\DescribeReservedInstancesOfferingsResponse' {nextToken} -> nextToken) (\s@DescribeReservedInstancesOfferingsResponse' {} a -> s {nextToken = a} :: DescribeReservedInstancesOfferingsResponse)
 
 -- | A list of Reserved Instances offerings.
-describeReservedInstancesOfferingsResponse_reservedInstancesOfferings :: Lens.Lens' DescribeReservedInstancesOfferingsResponse (Core.Maybe [ReservedInstancesOffering])
-describeReservedInstancesOfferingsResponse_reservedInstancesOfferings = Lens.lens (\DescribeReservedInstancesOfferingsResponse' {reservedInstancesOfferings} -> reservedInstancesOfferings) (\s@DescribeReservedInstancesOfferingsResponse' {} a -> s {reservedInstancesOfferings = a} :: DescribeReservedInstancesOfferingsResponse) Core.. Lens.mapping Lens._Coerce
+describeReservedInstancesOfferingsResponse_reservedInstancesOfferings :: Lens.Lens' DescribeReservedInstancesOfferingsResponse (Prelude.Maybe [ReservedInstancesOffering])
+describeReservedInstancesOfferingsResponse_reservedInstancesOfferings = Lens.lens (\DescribeReservedInstancesOfferingsResponse' {reservedInstancesOfferings} -> reservedInstancesOfferings) (\s@DescribeReservedInstancesOfferingsResponse' {} a -> s {reservedInstancesOfferings = a} :: DescribeReservedInstancesOfferingsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeReservedInstancesOfferingsResponse_httpStatus :: Lens.Lens' DescribeReservedInstancesOfferingsResponse Core.Int
+describeReservedInstancesOfferingsResponse_httpStatus :: Lens.Lens' DescribeReservedInstancesOfferingsResponse Prelude.Int
 describeReservedInstancesOfferingsResponse_httpStatus = Lens.lens (\DescribeReservedInstancesOfferingsResponse' {httpStatus} -> httpStatus) (\s@DescribeReservedInstancesOfferingsResponse' {} a -> s {httpStatus = a} :: DescribeReservedInstancesOfferingsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeReservedInstancesOfferingsResponse

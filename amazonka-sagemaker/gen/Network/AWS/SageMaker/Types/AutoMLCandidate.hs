@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.AutoMLCandidate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AutoMLCandidateStep
 import Network.AWS.SageMaker.Types.AutoMLContainerDefinition
 import Network.AWS.SageMaker.Types.CandidateStatus
@@ -33,14 +34,14 @@ import Network.AWS.SageMaker.Types.ObjectiveStatus
 -- /See:/ 'newAutoMLCandidate' smart constructor.
 data AutoMLCandidate = AutoMLCandidate'
   { -- | The end time.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The inference containers.
-    inferenceContainers :: Core.Maybe [AutoMLContainerDefinition],
+    inferenceContainers :: Prelude.Maybe [AutoMLContainerDefinition],
     -- | The failure reason.
-    failureReason :: Core.Maybe Core.Text,
-    finalAutoMLJobObjectiveMetric :: Core.Maybe FinalAutoMLJobObjectiveMetric,
+    failureReason :: Prelude.Maybe Prelude.Text,
+    finalAutoMLJobObjectiveMetric :: Prelude.Maybe FinalAutoMLJobObjectiveMetric,
     -- | The candidate name.
-    candidateName :: Core.Text,
+    candidateName :: Prelude.Text,
     -- | The objective status.
     objectiveStatus :: ObjectiveStatus,
     -- | The candidate\'s steps.
@@ -52,7 +53,7 @@ data AutoMLCandidate = AutoMLCandidate'
     -- | The last modified time.
     lastModifiedTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AutoMLCandidate' with all optional fields omitted.
@@ -83,15 +84,15 @@ data AutoMLCandidate = AutoMLCandidate'
 -- 'lastModifiedTime', 'autoMLCandidate_lastModifiedTime' - The last modified time.
 newAutoMLCandidate ::
   -- | 'candidateName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'objectiveStatus'
   ObjectiveStatus ->
   -- | 'candidateStatus'
   CandidateStatus ->
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'lastModifiedTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   AutoMLCandidate
 newAutoMLCandidate
   pCandidateName_
@@ -100,13 +101,13 @@ newAutoMLCandidate
   pCreationTime_
   pLastModifiedTime_ =
     AutoMLCandidate'
-      { endTime = Core.Nothing,
-        inferenceContainers = Core.Nothing,
-        failureReason = Core.Nothing,
-        finalAutoMLJobObjectiveMetric = Core.Nothing,
+      { endTime = Prelude.Nothing,
+        inferenceContainers = Prelude.Nothing,
+        failureReason = Prelude.Nothing,
+        finalAutoMLJobObjectiveMetric = Prelude.Nothing,
         candidateName = pCandidateName_,
         objectiveStatus = pObjectiveStatus_,
-        candidateSteps = Core.mempty,
+        candidateSteps = Prelude.mempty,
         candidateStatus = pCandidateStatus_,
         creationTime = Core._Time Lens.# pCreationTime_,
         lastModifiedTime =
@@ -114,23 +115,23 @@ newAutoMLCandidate
       }
 
 -- | The end time.
-autoMLCandidate_endTime :: Lens.Lens' AutoMLCandidate (Core.Maybe Core.UTCTime)
-autoMLCandidate_endTime = Lens.lens (\AutoMLCandidate' {endTime} -> endTime) (\s@AutoMLCandidate' {} a -> s {endTime = a} :: AutoMLCandidate) Core.. Lens.mapping Core._Time
+autoMLCandidate_endTime :: Lens.Lens' AutoMLCandidate (Prelude.Maybe Prelude.UTCTime)
+autoMLCandidate_endTime = Lens.lens (\AutoMLCandidate' {endTime} -> endTime) (\s@AutoMLCandidate' {} a -> s {endTime = a} :: AutoMLCandidate) Prelude.. Lens.mapping Core._Time
 
 -- | The inference containers.
-autoMLCandidate_inferenceContainers :: Lens.Lens' AutoMLCandidate (Core.Maybe [AutoMLContainerDefinition])
-autoMLCandidate_inferenceContainers = Lens.lens (\AutoMLCandidate' {inferenceContainers} -> inferenceContainers) (\s@AutoMLCandidate' {} a -> s {inferenceContainers = a} :: AutoMLCandidate) Core.. Lens.mapping Lens._Coerce
+autoMLCandidate_inferenceContainers :: Lens.Lens' AutoMLCandidate (Prelude.Maybe [AutoMLContainerDefinition])
+autoMLCandidate_inferenceContainers = Lens.lens (\AutoMLCandidate' {inferenceContainers} -> inferenceContainers) (\s@AutoMLCandidate' {} a -> s {inferenceContainers = a} :: AutoMLCandidate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The failure reason.
-autoMLCandidate_failureReason :: Lens.Lens' AutoMLCandidate (Core.Maybe Core.Text)
+autoMLCandidate_failureReason :: Lens.Lens' AutoMLCandidate (Prelude.Maybe Prelude.Text)
 autoMLCandidate_failureReason = Lens.lens (\AutoMLCandidate' {failureReason} -> failureReason) (\s@AutoMLCandidate' {} a -> s {failureReason = a} :: AutoMLCandidate)
 
 -- | Undocumented member.
-autoMLCandidate_finalAutoMLJobObjectiveMetric :: Lens.Lens' AutoMLCandidate (Core.Maybe FinalAutoMLJobObjectiveMetric)
+autoMLCandidate_finalAutoMLJobObjectiveMetric :: Lens.Lens' AutoMLCandidate (Prelude.Maybe FinalAutoMLJobObjectiveMetric)
 autoMLCandidate_finalAutoMLJobObjectiveMetric = Lens.lens (\AutoMLCandidate' {finalAutoMLJobObjectiveMetric} -> finalAutoMLJobObjectiveMetric) (\s@AutoMLCandidate' {} a -> s {finalAutoMLJobObjectiveMetric = a} :: AutoMLCandidate)
 
 -- | The candidate name.
-autoMLCandidate_candidateName :: Lens.Lens' AutoMLCandidate Core.Text
+autoMLCandidate_candidateName :: Lens.Lens' AutoMLCandidate Prelude.Text
 autoMLCandidate_candidateName = Lens.lens (\AutoMLCandidate' {candidateName} -> candidateName) (\s@AutoMLCandidate' {} a -> s {candidateName = a} :: AutoMLCandidate)
 
 -- | The objective status.
@@ -139,19 +140,19 @@ autoMLCandidate_objectiveStatus = Lens.lens (\AutoMLCandidate' {objectiveStatus}
 
 -- | The candidate\'s steps.
 autoMLCandidate_candidateSteps :: Lens.Lens' AutoMLCandidate [AutoMLCandidateStep]
-autoMLCandidate_candidateSteps = Lens.lens (\AutoMLCandidate' {candidateSteps} -> candidateSteps) (\s@AutoMLCandidate' {} a -> s {candidateSteps = a} :: AutoMLCandidate) Core.. Lens._Coerce
+autoMLCandidate_candidateSteps = Lens.lens (\AutoMLCandidate' {candidateSteps} -> candidateSteps) (\s@AutoMLCandidate' {} a -> s {candidateSteps = a} :: AutoMLCandidate) Prelude.. Lens._Coerce
 
 -- | The candidate\'s status.
 autoMLCandidate_candidateStatus :: Lens.Lens' AutoMLCandidate CandidateStatus
 autoMLCandidate_candidateStatus = Lens.lens (\AutoMLCandidate' {candidateStatus} -> candidateStatus) (\s@AutoMLCandidate' {} a -> s {candidateStatus = a} :: AutoMLCandidate)
 
 -- | The creation time.
-autoMLCandidate_creationTime :: Lens.Lens' AutoMLCandidate Core.UTCTime
-autoMLCandidate_creationTime = Lens.lens (\AutoMLCandidate' {creationTime} -> creationTime) (\s@AutoMLCandidate' {} a -> s {creationTime = a} :: AutoMLCandidate) Core.. Core._Time
+autoMLCandidate_creationTime :: Lens.Lens' AutoMLCandidate Prelude.UTCTime
+autoMLCandidate_creationTime = Lens.lens (\AutoMLCandidate' {creationTime} -> creationTime) (\s@AutoMLCandidate' {} a -> s {creationTime = a} :: AutoMLCandidate) Prelude.. Core._Time
 
 -- | The last modified time.
-autoMLCandidate_lastModifiedTime :: Lens.Lens' AutoMLCandidate Core.UTCTime
-autoMLCandidate_lastModifiedTime = Lens.lens (\AutoMLCandidate' {lastModifiedTime} -> lastModifiedTime) (\s@AutoMLCandidate' {} a -> s {lastModifiedTime = a} :: AutoMLCandidate) Core.. Core._Time
+autoMLCandidate_lastModifiedTime :: Lens.Lens' AutoMLCandidate Prelude.UTCTime
+autoMLCandidate_lastModifiedTime = Lens.lens (\AutoMLCandidate' {lastModifiedTime} -> lastModifiedTime) (\s@AutoMLCandidate' {} a -> s {lastModifiedTime = a} :: AutoMLCandidate) Prelude.. Core._Time
 
 instance Core.FromJSON AutoMLCandidate where
   parseJSON =
@@ -159,20 +160,20 @@ instance Core.FromJSON AutoMLCandidate where
       "AutoMLCandidate"
       ( \x ->
           AutoMLCandidate'
-            Core.<$> (x Core..:? "EndTime")
-            Core.<*> ( x Core..:? "InferenceContainers"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "FailureReason")
-            Core.<*> (x Core..:? "FinalAutoMLJobObjectiveMetric")
-            Core.<*> (x Core..: "CandidateName")
-            Core.<*> (x Core..: "ObjectiveStatus")
-            Core.<*> (x Core..:? "CandidateSteps" Core..!= Core.mempty)
-            Core.<*> (x Core..: "CandidateStatus")
-            Core.<*> (x Core..: "CreationTime")
-            Core.<*> (x Core..: "LastModifiedTime")
+            Prelude.<$> (x Core..:? "EndTime")
+            Prelude.<*> ( x Core..:? "InferenceContainers"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<*> (x Core..:? "FinalAutoMLJobObjectiveMetric")
+            Prelude.<*> (x Core..: "CandidateName")
+            Prelude.<*> (x Core..: "ObjectiveStatus")
+            Prelude.<*> (x Core..:? "CandidateSteps" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "CandidateStatus")
+            Prelude.<*> (x Core..: "CreationTime")
+            Prelude.<*> (x Core..: "LastModifiedTime")
       )
 
-instance Core.Hashable AutoMLCandidate
+instance Prelude.Hashable AutoMLCandidate
 
-instance Core.NFData AutoMLCandidate
+instance Prelude.NFData AutoMLCandidate

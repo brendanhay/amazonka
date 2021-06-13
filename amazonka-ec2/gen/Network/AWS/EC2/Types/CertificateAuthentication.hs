@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.CertificateAuthentication where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the client certificate used for authentication.
 --
 -- /See:/ 'newCertificateAuthentication' smart constructor.
 data CertificateAuthentication = CertificateAuthentication'
   { -- | The ARN of the client certificate.
-    clientRootCertificateChain :: Core.Maybe Core.Text
+    clientRootCertificateChain :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CertificateAuthentication' with all optional fields omitted.
@@ -46,18 +47,18 @@ newCertificateAuthentication ::
 newCertificateAuthentication =
   CertificateAuthentication'
     { clientRootCertificateChain =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The ARN of the client certificate.
-certificateAuthentication_clientRootCertificateChain :: Lens.Lens' CertificateAuthentication (Core.Maybe Core.Text)
+certificateAuthentication_clientRootCertificateChain :: Lens.Lens' CertificateAuthentication (Prelude.Maybe Prelude.Text)
 certificateAuthentication_clientRootCertificateChain = Lens.lens (\CertificateAuthentication' {clientRootCertificateChain} -> clientRootCertificateChain) (\s@CertificateAuthentication' {} a -> s {clientRootCertificateChain = a} :: CertificateAuthentication)
 
 instance Core.FromXML CertificateAuthentication where
   parseXML x =
     CertificateAuthentication'
-      Core.<$> (x Core..@? "clientRootCertificateChain")
+      Prelude.<$> (x Core..@? "clientRootCertificateChain")
 
-instance Core.Hashable CertificateAuthentication
+instance Prelude.Hashable CertificateAuthentication
 
-instance Core.NFData CertificateAuthentication
+instance Prelude.NFData CertificateAuthentication

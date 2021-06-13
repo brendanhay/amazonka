@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.Pose where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates the pose of the face as determined by its pitch, roll, and
 -- yaw.
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPose' smart constructor.
 data Pose = Pose'
   { -- | Value representing the face rotation on the yaw axis.
-    yaw :: Core.Maybe Core.Double,
+    yaw :: Prelude.Maybe Prelude.Double,
     -- | Value representing the face rotation on the pitch axis.
-    pitch :: Core.Maybe Core.Double,
+    pitch :: Prelude.Maybe Prelude.Double,
     -- | Value representing the face rotation on the roll axis.
-    roll :: Core.Maybe Core.Double
+    roll :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Pose' with all optional fields omitted.
@@ -53,21 +54,21 @@ newPose ::
   Pose
 newPose =
   Pose'
-    { yaw = Core.Nothing,
-      pitch = Core.Nothing,
-      roll = Core.Nothing
+    { yaw = Prelude.Nothing,
+      pitch = Prelude.Nothing,
+      roll = Prelude.Nothing
     }
 
 -- | Value representing the face rotation on the yaw axis.
-pose_yaw :: Lens.Lens' Pose (Core.Maybe Core.Double)
+pose_yaw :: Lens.Lens' Pose (Prelude.Maybe Prelude.Double)
 pose_yaw = Lens.lens (\Pose' {yaw} -> yaw) (\s@Pose' {} a -> s {yaw = a} :: Pose)
 
 -- | Value representing the face rotation on the pitch axis.
-pose_pitch :: Lens.Lens' Pose (Core.Maybe Core.Double)
+pose_pitch :: Lens.Lens' Pose (Prelude.Maybe Prelude.Double)
 pose_pitch = Lens.lens (\Pose' {pitch} -> pitch) (\s@Pose' {} a -> s {pitch = a} :: Pose)
 
 -- | Value representing the face rotation on the roll axis.
-pose_roll :: Lens.Lens' Pose (Core.Maybe Core.Double)
+pose_roll :: Lens.Lens' Pose (Prelude.Maybe Prelude.Double)
 pose_roll = Lens.lens (\Pose' {roll} -> roll) (\s@Pose' {} a -> s {roll = a} :: Pose)
 
 instance Core.FromJSON Pose where
@@ -76,11 +77,11 @@ instance Core.FromJSON Pose where
       "Pose"
       ( \x ->
           Pose'
-            Core.<$> (x Core..:? "Yaw")
-            Core.<*> (x Core..:? "Pitch")
-            Core.<*> (x Core..:? "Roll")
+            Prelude.<$> (x Core..:? "Yaw")
+            Prelude.<*> (x Core..:? "Pitch")
+            Prelude.<*> (x Core..:? "Roll")
       )
 
-instance Core.Hashable Pose
+instance Prelude.Hashable Pose
 
-instance Core.NFData Pose
+instance Prelude.NFData Pose

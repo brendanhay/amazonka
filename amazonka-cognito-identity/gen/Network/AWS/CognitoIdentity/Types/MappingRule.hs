@@ -22,6 +22,7 @@ module Network.AWS.CognitoIdentity.Types.MappingRule where
 import Network.AWS.CognitoIdentity.Types.MappingRuleMatchType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A rule that maps a claim name, a claim value, and a match type to a role
 -- ARN.
@@ -30,17 +31,17 @@ import qualified Network.AWS.Lens as Lens
 data MappingRule = MappingRule'
   { -- | The claim name that must be present in the token, for example,
     -- \"isAdmin\" or \"paid\".
-    claim :: Core.Text,
+    claim :: Prelude.Text,
     -- | The match condition that specifies how closely the claim value in the
     -- IdP token must match @Value@.
     matchType :: MappingRuleMatchType,
     -- | A brief string that the claim must match, for example, \"paid\" or
     -- \"yes\".
-    value :: Core.Text,
+    value :: Prelude.Text,
     -- | The role ARN.
-    roleARN :: Core.Text
+    roleARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MappingRule' with all optional fields omitted.
@@ -62,13 +63,13 @@ data MappingRule = MappingRule'
 -- 'roleARN', 'mappingRule_roleARN' - The role ARN.
 newMappingRule ::
   -- | 'claim'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'matchType'
   MappingRuleMatchType ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleARN'
-  Core.Text ->
+  Prelude.Text ->
   MappingRule
 newMappingRule pClaim_ pMatchType_ pValue_ pRoleARN_ =
   MappingRule'
@@ -80,7 +81,7 @@ newMappingRule pClaim_ pMatchType_ pValue_ pRoleARN_ =
 
 -- | The claim name that must be present in the token, for example,
 -- \"isAdmin\" or \"paid\".
-mappingRule_claim :: Lens.Lens' MappingRule Core.Text
+mappingRule_claim :: Lens.Lens' MappingRule Prelude.Text
 mappingRule_claim = Lens.lens (\MappingRule' {claim} -> claim) (\s@MappingRule' {} a -> s {claim = a} :: MappingRule)
 
 -- | The match condition that specifies how closely the claim value in the
@@ -90,11 +91,11 @@ mappingRule_matchType = Lens.lens (\MappingRule' {matchType} -> matchType) (\s@M
 
 -- | A brief string that the claim must match, for example, \"paid\" or
 -- \"yes\".
-mappingRule_value :: Lens.Lens' MappingRule Core.Text
+mappingRule_value :: Lens.Lens' MappingRule Prelude.Text
 mappingRule_value = Lens.lens (\MappingRule' {value} -> value) (\s@MappingRule' {} a -> s {value = a} :: MappingRule)
 
 -- | The role ARN.
-mappingRule_roleARN :: Lens.Lens' MappingRule Core.Text
+mappingRule_roleARN :: Lens.Lens' MappingRule Prelude.Text
 mappingRule_roleARN = Lens.lens (\MappingRule' {roleARN} -> roleARN) (\s@MappingRule' {} a -> s {roleARN = a} :: MappingRule)
 
 instance Core.FromJSON MappingRule where
@@ -103,23 +104,23 @@ instance Core.FromJSON MappingRule where
       "MappingRule"
       ( \x ->
           MappingRule'
-            Core.<$> (x Core..: "Claim")
-            Core.<*> (x Core..: "MatchType")
-            Core.<*> (x Core..: "Value")
-            Core.<*> (x Core..: "RoleARN")
+            Prelude.<$> (x Core..: "Claim")
+            Prelude.<*> (x Core..: "MatchType")
+            Prelude.<*> (x Core..: "Value")
+            Prelude.<*> (x Core..: "RoleARN")
       )
 
-instance Core.Hashable MappingRule
+instance Prelude.Hashable MappingRule
 
-instance Core.NFData MappingRule
+instance Prelude.NFData MappingRule
 
 instance Core.ToJSON MappingRule where
   toJSON MappingRule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Claim" Core..= claim),
-            Core.Just ("MatchType" Core..= matchType),
-            Core.Just ("Value" Core..= value),
-            Core.Just ("RoleARN" Core..= roleARN)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Claim" Core..= claim),
+            Prelude.Just ("MatchType" Core..= matchType),
+            Prelude.Just ("Value" Core..= value),
+            Prelude.Just ("RoleARN" Core..= roleARN)
           ]
       )

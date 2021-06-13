@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.DataSource
 import Network.AWS.GuardDuty.Types.Total
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on the result of usage based on data source type.
 --
 -- /See:/ 'newUsageDataSourceResult' smart constructor.
 data UsageDataSourceResult = UsageDataSourceResult'
   { -- | The data source type that generated usage.
-    dataSource :: Core.Maybe DataSource,
+    dataSource :: Prelude.Maybe DataSource,
     -- | Represents the total of usage for the specified data source.
-    total :: Core.Maybe Total
+    total :: Prelude.Maybe Total
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UsageDataSourceResult' with all optional fields omitted.
@@ -50,16 +51,17 @@ newUsageDataSourceResult ::
   UsageDataSourceResult
 newUsageDataSourceResult =
   UsageDataSourceResult'
-    { dataSource = Core.Nothing,
-      total = Core.Nothing
+    { dataSource =
+        Prelude.Nothing,
+      total = Prelude.Nothing
     }
 
 -- | The data source type that generated usage.
-usageDataSourceResult_dataSource :: Lens.Lens' UsageDataSourceResult (Core.Maybe DataSource)
+usageDataSourceResult_dataSource :: Lens.Lens' UsageDataSourceResult (Prelude.Maybe DataSource)
 usageDataSourceResult_dataSource = Lens.lens (\UsageDataSourceResult' {dataSource} -> dataSource) (\s@UsageDataSourceResult' {} a -> s {dataSource = a} :: UsageDataSourceResult)
 
 -- | Represents the total of usage for the specified data source.
-usageDataSourceResult_total :: Lens.Lens' UsageDataSourceResult (Core.Maybe Total)
+usageDataSourceResult_total :: Lens.Lens' UsageDataSourceResult (Prelude.Maybe Total)
 usageDataSourceResult_total = Lens.lens (\UsageDataSourceResult' {total} -> total) (\s@UsageDataSourceResult' {} a -> s {total = a} :: UsageDataSourceResult)
 
 instance Core.FromJSON UsageDataSourceResult where
@@ -68,10 +70,10 @@ instance Core.FromJSON UsageDataSourceResult where
       "UsageDataSourceResult"
       ( \x ->
           UsageDataSourceResult'
-            Core.<$> (x Core..:? "dataSource")
-            Core.<*> (x Core..:? "total")
+            Prelude.<$> (x Core..:? "dataSource")
+            Prelude.<*> (x Core..:? "total")
       )
 
-instance Core.Hashable UsageDataSourceResult
+instance Prelude.Hashable UsageDataSourceResult
 
-instance Core.NFData UsageDataSourceResult
+instance Prelude.NFData UsageDataSourceResult

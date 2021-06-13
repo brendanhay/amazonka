@@ -59,6 +59,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -68,11 +69,11 @@ data DeleteBucketLifecycle = DeleteBucketLifecycle'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket name of the lifecycle to delete.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketLifecycle' with all optional fields omitted.
@@ -94,14 +95,14 @@ newDeleteBucketLifecycle ::
 newDeleteBucketLifecycle pBucket_ =
   DeleteBucketLifecycle'
     { expectedBucketOwner =
-        Core.Nothing,
+        Prelude.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-deleteBucketLifecycle_expectedBucketOwner :: Lens.Lens' DeleteBucketLifecycle (Core.Maybe Core.Text)
+deleteBucketLifecycle_expectedBucketOwner :: Lens.Lens' DeleteBucketLifecycle (Prelude.Maybe Prelude.Text)
 deleteBucketLifecycle_expectedBucketOwner = Lens.lens (\DeleteBucketLifecycle' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteBucketLifecycle' {} a -> s {expectedBucketOwner = a} :: DeleteBucketLifecycle)
 
 -- | The bucket name of the lifecycle to delete.
@@ -116,29 +117,30 @@ instance Core.AWSRequest DeleteBucketLifecycle where
   response =
     Response.receiveNull DeleteBucketLifecycleResponse'
 
-instance Core.Hashable DeleteBucketLifecycle
+instance Prelude.Hashable DeleteBucketLifecycle
 
-instance Core.NFData DeleteBucketLifecycle
+instance Prelude.NFData DeleteBucketLifecycle
 
 instance Core.ToHeaders DeleteBucketLifecycle where
   toHeaders DeleteBucketLifecycle' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath DeleteBucketLifecycle where
   toPath DeleteBucketLifecycle' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery DeleteBucketLifecycle where
-  toQuery = Core.const (Core.mconcat ["lifecycle"])
+  toQuery =
+    Prelude.const (Prelude.mconcat ["lifecycle"])
 
 -- | /See:/ 'newDeleteBucketLifecycleResponse' smart constructor.
 data DeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketLifecycleResponse' with all optional fields omitted.
@@ -149,4 +151,4 @@ newDeleteBucketLifecycleResponse ::
 newDeleteBucketLifecycleResponse =
   DeleteBucketLifecycleResponse'
 
-instance Core.NFData DeleteBucketLifecycleResponse
+instance Prelude.NFData DeleteBucketLifecycleResponse

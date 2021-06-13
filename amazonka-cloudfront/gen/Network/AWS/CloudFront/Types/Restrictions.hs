@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.Restrictions where
 import Network.AWS.CloudFront.Types.GeoRestriction
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that identifies ways in which you want to restrict
 -- distribution of your content.
@@ -33,7 +34,7 @@ data Restrictions = Restrictions'
     -- @MaxMind@ GeoIP databases.
     geoRestriction :: GeoRestriction
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Restrictions' with all optional fields omitted.
@@ -61,13 +62,14 @@ restrictions_geoRestriction = Lens.lens (\Restrictions' {geoRestriction} -> geoR
 
 instance Core.FromXML Restrictions where
   parseXML x =
-    Restrictions' Core.<$> (x Core..@ "GeoRestriction")
+    Restrictions'
+      Prelude.<$> (x Core..@ "GeoRestriction")
 
-instance Core.Hashable Restrictions
+instance Prelude.Hashable Restrictions
 
-instance Core.NFData Restrictions
+instance Prelude.NFData Restrictions
 
 instance Core.ToXML Restrictions where
   toXML Restrictions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["GeoRestriction" Core.@= geoRestriction]

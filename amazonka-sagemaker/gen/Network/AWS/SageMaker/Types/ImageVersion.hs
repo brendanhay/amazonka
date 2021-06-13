@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ImageVersion where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ImageVersionStatus
 
 -- | A version of a SageMaker @Image@. A version represents an existing
@@ -29,21 +30,21 @@ import Network.AWS.SageMaker.Types.ImageVersionStatus
 -- /See:/ 'newImageVersion' smart constructor.
 data ImageVersion = ImageVersion'
   { -- | When a create or delete operation fails, the reason for the failure.
-    failureReason :: Core.Maybe Core.Text,
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | When the version was created.
     creationTime :: Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the image the version is based on.
-    imageArn :: Core.Text,
+    imageArn :: Prelude.Text,
     -- | The ARN of the version.
-    imageVersionArn :: Core.Text,
+    imageVersionArn :: Prelude.Text,
     -- | The status of the version.
     imageVersionStatus :: ImageVersionStatus,
     -- | When the version was last modified.
     lastModifiedTime :: Core.POSIX,
     -- | The version number.
-    version :: Core.Natural
+    version :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImageVersion' with all optional fields omitted.
@@ -68,17 +69,17 @@ data ImageVersion = ImageVersion'
 -- 'version', 'imageVersion_version' - The version number.
 newImageVersion ::
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'imageArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'imageVersionArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'imageVersionStatus'
   ImageVersionStatus ->
   -- | 'lastModifiedTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'version'
-  Core.Natural ->
+  Prelude.Natural ->
   ImageVersion
 newImageVersion
   pCreationTime_
@@ -88,7 +89,7 @@ newImageVersion
   pLastModifiedTime_
   pVersion_ =
     ImageVersion'
-      { failureReason = Core.Nothing,
+      { failureReason = Prelude.Nothing,
         creationTime = Core._Time Lens.# pCreationTime_,
         imageArn = pImageArn_,
         imageVersionArn = pImageVersionArn_,
@@ -99,19 +100,19 @@ newImageVersion
       }
 
 -- | When a create or delete operation fails, the reason for the failure.
-imageVersion_failureReason :: Lens.Lens' ImageVersion (Core.Maybe Core.Text)
+imageVersion_failureReason :: Lens.Lens' ImageVersion (Prelude.Maybe Prelude.Text)
 imageVersion_failureReason = Lens.lens (\ImageVersion' {failureReason} -> failureReason) (\s@ImageVersion' {} a -> s {failureReason = a} :: ImageVersion)
 
 -- | When the version was created.
-imageVersion_creationTime :: Lens.Lens' ImageVersion Core.UTCTime
-imageVersion_creationTime = Lens.lens (\ImageVersion' {creationTime} -> creationTime) (\s@ImageVersion' {} a -> s {creationTime = a} :: ImageVersion) Core.. Core._Time
+imageVersion_creationTime :: Lens.Lens' ImageVersion Prelude.UTCTime
+imageVersion_creationTime = Lens.lens (\ImageVersion' {creationTime} -> creationTime) (\s@ImageVersion' {} a -> s {creationTime = a} :: ImageVersion) Prelude.. Core._Time
 
 -- | The Amazon Resource Name (ARN) of the image the version is based on.
-imageVersion_imageArn :: Lens.Lens' ImageVersion Core.Text
+imageVersion_imageArn :: Lens.Lens' ImageVersion Prelude.Text
 imageVersion_imageArn = Lens.lens (\ImageVersion' {imageArn} -> imageArn) (\s@ImageVersion' {} a -> s {imageArn = a} :: ImageVersion)
 
 -- | The ARN of the version.
-imageVersion_imageVersionArn :: Lens.Lens' ImageVersion Core.Text
+imageVersion_imageVersionArn :: Lens.Lens' ImageVersion Prelude.Text
 imageVersion_imageVersionArn = Lens.lens (\ImageVersion' {imageVersionArn} -> imageVersionArn) (\s@ImageVersion' {} a -> s {imageVersionArn = a} :: ImageVersion)
 
 -- | The status of the version.
@@ -119,11 +120,11 @@ imageVersion_imageVersionStatus :: Lens.Lens' ImageVersion ImageVersionStatus
 imageVersion_imageVersionStatus = Lens.lens (\ImageVersion' {imageVersionStatus} -> imageVersionStatus) (\s@ImageVersion' {} a -> s {imageVersionStatus = a} :: ImageVersion)
 
 -- | When the version was last modified.
-imageVersion_lastModifiedTime :: Lens.Lens' ImageVersion Core.UTCTime
-imageVersion_lastModifiedTime = Lens.lens (\ImageVersion' {lastModifiedTime} -> lastModifiedTime) (\s@ImageVersion' {} a -> s {lastModifiedTime = a} :: ImageVersion) Core.. Core._Time
+imageVersion_lastModifiedTime :: Lens.Lens' ImageVersion Prelude.UTCTime
+imageVersion_lastModifiedTime = Lens.lens (\ImageVersion' {lastModifiedTime} -> lastModifiedTime) (\s@ImageVersion' {} a -> s {lastModifiedTime = a} :: ImageVersion) Prelude.. Core._Time
 
 -- | The version number.
-imageVersion_version :: Lens.Lens' ImageVersion Core.Natural
+imageVersion_version :: Lens.Lens' ImageVersion Prelude.Natural
 imageVersion_version = Lens.lens (\ImageVersion' {version} -> version) (\s@ImageVersion' {} a -> s {version = a} :: ImageVersion)
 
 instance Core.FromJSON ImageVersion where
@@ -132,15 +133,15 @@ instance Core.FromJSON ImageVersion where
       "ImageVersion"
       ( \x ->
           ImageVersion'
-            Core.<$> (x Core..:? "FailureReason")
-            Core.<*> (x Core..: "CreationTime")
-            Core.<*> (x Core..: "ImageArn")
-            Core.<*> (x Core..: "ImageVersionArn")
-            Core.<*> (x Core..: "ImageVersionStatus")
-            Core.<*> (x Core..: "LastModifiedTime")
-            Core.<*> (x Core..: "Version")
+            Prelude.<$> (x Core..:? "FailureReason")
+            Prelude.<*> (x Core..: "CreationTime")
+            Prelude.<*> (x Core..: "ImageArn")
+            Prelude.<*> (x Core..: "ImageVersionArn")
+            Prelude.<*> (x Core..: "ImageVersionStatus")
+            Prelude.<*> (x Core..: "LastModifiedTime")
+            Prelude.<*> (x Core..: "Version")
       )
 
-instance Core.Hashable ImageVersion
+instance Prelude.Hashable ImageVersion
 
-instance Core.NFData ImageVersion
+instance Prelude.NFData ImageVersion

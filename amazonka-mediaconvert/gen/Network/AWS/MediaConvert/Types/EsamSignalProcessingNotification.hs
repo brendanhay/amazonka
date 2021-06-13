@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.EsamSignalProcessingNotification where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | ESAM SignalProcessingNotification data defined by
 -- OC-SP-ESAM-API-I03-131025.
@@ -37,9 +38,9 @@ data EsamSignalProcessingNotification = EsamSignalProcessingNotification'
     -- must also enable SCTE-35 ESAM (scte35Esam). Note that you can either
     -- specify an ESAM XML document or enable SCTE-35 passthrough. You can\'t
     -- do both.
-    sccXml :: Core.Maybe Core.Text
+    sccXml :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EsamSignalProcessingNotification' with all optional fields omitted.
@@ -64,7 +65,7 @@ newEsamSignalProcessingNotification ::
 newEsamSignalProcessingNotification =
   EsamSignalProcessingNotification'
     { sccXml =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Provide your ESAM SignalProcessingNotification XML document inside your
@@ -77,7 +78,7 @@ newEsamSignalProcessingNotification =
 -- must also enable SCTE-35 ESAM (scte35Esam). Note that you can either
 -- specify an ESAM XML document or enable SCTE-35 passthrough. You can\'t
 -- do both.
-esamSignalProcessingNotification_sccXml :: Lens.Lens' EsamSignalProcessingNotification (Core.Maybe Core.Text)
+esamSignalProcessingNotification_sccXml :: Lens.Lens' EsamSignalProcessingNotification (Prelude.Maybe Prelude.Text)
 esamSignalProcessingNotification_sccXml = Lens.lens (\EsamSignalProcessingNotification' {sccXml} -> sccXml) (\s@EsamSignalProcessingNotification' {} a -> s {sccXml = a} :: EsamSignalProcessingNotification)
 
 instance
@@ -89,16 +90,20 @@ instance
       "EsamSignalProcessingNotification"
       ( \x ->
           EsamSignalProcessingNotification'
-            Core.<$> (x Core..:? "sccXml")
+            Prelude.<$> (x Core..:? "sccXml")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     EsamSignalProcessingNotification
 
-instance Core.NFData EsamSignalProcessingNotification
+instance
+  Prelude.NFData
+    EsamSignalProcessingNotification
 
 instance Core.ToJSON EsamSignalProcessingNotification where
   toJSON EsamSignalProcessingNotification' {..} =
     Core.object
-      (Core.catMaybes [("sccXml" Core..=) Core.<$> sccXml])
+      ( Prelude.catMaybes
+          [("sccXml" Core..=) Prelude.<$> sccXml]
+      )

@@ -29,6 +29,7 @@ import Network.AWS.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionRf
 import Network.AWS.MediaConvert.Types.Eac3AtmosMeteringMode
 import Network.AWS.MediaConvert.Types.Eac3AtmosStereoDownmix
 import Network.AWS.MediaConvert.Types.Eac3AtmosSurroundExMode
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
 -- to the value EAC3_ATMOS.
@@ -40,59 +41,59 @@ data Eac3AtmosSettings = Eac3AtmosSettings'
     -- downmixing. How the service uses this value depends on the value that
     -- you choose for Stereo downmix (Eac3AtmosStereoDownmix). Valid values:
     -- 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, and -6.0.
-    loRoCenterMixLevel :: Core.Maybe Core.Double,
+    loRoCenterMixLevel :: Prelude.Maybe Prelude.Double,
     -- | Specify a value for the following Dolby Atmos setting: Left total\/Right
     -- total center mix (Lt\/Rt center). MediaConvert uses this value for
     -- downmixing. How the service uses this value depends on the value that
     -- you choose for Stereo downmix (Eac3AtmosStereoDownmix). Valid values:
     -- 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, and -6.0.
-    ltRtCenterMixLevel :: Core.Maybe Core.Double,
+    ltRtCenterMixLevel :: Prelude.Maybe Prelude.Double,
     -- | Specify the percentage of audio content that must be speech before the
     -- encoder uses the measured speech loudness as the overall program
     -- loudness.
-    speechThreshold :: Core.Maybe Core.Natural,
+    speechThreshold :: Prelude.Maybe Prelude.Natural,
     -- | The coding mode for Dolby Digital Plus JOC (Atmos) is always 9.1.6
     -- (CODING_MODE_9_1_6).
-    codingMode :: Core.Maybe Eac3AtmosCodingMode,
+    codingMode :: Prelude.Maybe Eac3AtmosCodingMode,
     -- | Enable Dolby Dialogue Intelligence to adjust loudness based on dialogue
     -- analysis.
-    dialogueIntelligence :: Core.Maybe Eac3AtmosDialogueIntelligence,
+    dialogueIntelligence :: Prelude.Maybe Eac3AtmosDialogueIntelligence,
     -- | Specify a value for the following Dolby Atmos setting: Left only\/Right
     -- only (Lo\/Ro surround). MediaConvert uses this value for downmixing. How
     -- the service uses this value depends on the value that you choose for
     -- Stereo downmix (Eac3AtmosStereoDownmix). Valid values: -1.5, -3.0, -4.5,
     -- -6.0, and -60. The value -60 mutes the channel.
-    loRoSurroundMixLevel :: Core.Maybe Core.Double,
+    loRoSurroundMixLevel :: Prelude.Maybe Prelude.Double,
     -- | Specify a value for the following Dolby Atmos setting: Left total\/Right
     -- total surround mix (Lt\/Rt surround). MediaConvert uses this value for
     -- downmixing. How the service uses this value depends on the value that
     -- you choose for Stereo downmix (Eac3AtmosStereoDownmix). Valid values:
     -- -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel.
-    ltRtSurroundMixLevel :: Core.Maybe Core.Double,
+    ltRtSurroundMixLevel :: Prelude.Maybe Prelude.Double,
     -- | This value is always 48000. It represents the sample rate in Hz.
-    sampleRate :: Core.Maybe Core.Natural,
+    sampleRate :: Prelude.Maybe Prelude.Natural,
     -- | Choose how the service does stereo downmixing.
-    stereoDownmix :: Core.Maybe Eac3AtmosStereoDownmix,
+    stereoDownmix :: Prelude.Maybe Eac3AtmosStereoDownmix,
     -- | Choose how the service meters the loudness of your audio.
-    meteringMode :: Core.Maybe Eac3AtmosMeteringMode,
+    meteringMode :: Prelude.Maybe Eac3AtmosMeteringMode,
     -- | Specify the bitstream mode for the E-AC-3 stream that the encoder emits.
     -- For more information about the EAC3 bitstream mode, see ATSC A\/52-2012
     -- (Annex E).
-    bitstreamMode :: Core.Maybe Eac3AtmosBitstreamMode,
+    bitstreamMode :: Prelude.Maybe Eac3AtmosBitstreamMode,
     -- | Specify whether your input audio has an additional center rear surround
     -- channel matrix encoded into your left and right surround channels.
-    surroundExMode :: Core.Maybe Eac3AtmosSurroundExMode,
+    surroundExMode :: Prelude.Maybe Eac3AtmosSurroundExMode,
     -- | Specify how the service limits the audio dynamic range when compressing
     -- the audio.
-    dynamicRangeCompressionRf :: Core.Maybe Eac3AtmosDynamicRangeCompressionRf,
+    dynamicRangeCompressionRf :: Prelude.Maybe Eac3AtmosDynamicRangeCompressionRf,
     -- | Specify the average bitrate in bits per second. Valid values: 384k,
     -- 448k, 640k, 768k
-    bitrate :: Core.Maybe Core.Natural,
+    bitrate :: Prelude.Maybe Prelude.Natural,
     -- | Specify the absolute peak level for a signal with dynamic range
     -- compression.
-    dynamicRangeCompressionLine :: Core.Maybe Eac3AtmosDynamicRangeCompressionLine
+    dynamicRangeCompressionLine :: Prelude.Maybe Eac3AtmosDynamicRangeCompressionLine
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Eac3AtmosSettings' with all optional fields omitted.
@@ -162,21 +163,21 @@ newEac3AtmosSettings ::
 newEac3AtmosSettings =
   Eac3AtmosSettings'
     { loRoCenterMixLevel =
-        Core.Nothing,
-      ltRtCenterMixLevel = Core.Nothing,
-      speechThreshold = Core.Nothing,
-      codingMode = Core.Nothing,
-      dialogueIntelligence = Core.Nothing,
-      loRoSurroundMixLevel = Core.Nothing,
-      ltRtSurroundMixLevel = Core.Nothing,
-      sampleRate = Core.Nothing,
-      stereoDownmix = Core.Nothing,
-      meteringMode = Core.Nothing,
-      bitstreamMode = Core.Nothing,
-      surroundExMode = Core.Nothing,
-      dynamicRangeCompressionRf = Core.Nothing,
-      bitrate = Core.Nothing,
-      dynamicRangeCompressionLine = Core.Nothing
+        Prelude.Nothing,
+      ltRtCenterMixLevel = Prelude.Nothing,
+      speechThreshold = Prelude.Nothing,
+      codingMode = Prelude.Nothing,
+      dialogueIntelligence = Prelude.Nothing,
+      loRoSurroundMixLevel = Prelude.Nothing,
+      ltRtSurroundMixLevel = Prelude.Nothing,
+      sampleRate = Prelude.Nothing,
+      stereoDownmix = Prelude.Nothing,
+      meteringMode = Prelude.Nothing,
+      bitstreamMode = Prelude.Nothing,
+      surroundExMode = Prelude.Nothing,
+      dynamicRangeCompressionRf = Prelude.Nothing,
+      bitrate = Prelude.Nothing,
+      dynamicRangeCompressionLine = Prelude.Nothing
     }
 
 -- | Specify a value for the following Dolby Atmos setting: Left only\/Right
@@ -184,7 +185,7 @@ newEac3AtmosSettings =
 -- downmixing. How the service uses this value depends on the value that
 -- you choose for Stereo downmix (Eac3AtmosStereoDownmix). Valid values:
 -- 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, and -6.0.
-eac3AtmosSettings_loRoCenterMixLevel :: Lens.Lens' Eac3AtmosSettings (Core.Maybe Core.Double)
+eac3AtmosSettings_loRoCenterMixLevel :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Prelude.Double)
 eac3AtmosSettings_loRoCenterMixLevel = Lens.lens (\Eac3AtmosSettings' {loRoCenterMixLevel} -> loRoCenterMixLevel) (\s@Eac3AtmosSettings' {} a -> s {loRoCenterMixLevel = a} :: Eac3AtmosSettings)
 
 -- | Specify a value for the following Dolby Atmos setting: Left total\/Right
@@ -192,23 +193,23 @@ eac3AtmosSettings_loRoCenterMixLevel = Lens.lens (\Eac3AtmosSettings' {loRoCente
 -- downmixing. How the service uses this value depends on the value that
 -- you choose for Stereo downmix (Eac3AtmosStereoDownmix). Valid values:
 -- 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, and -6.0.
-eac3AtmosSettings_ltRtCenterMixLevel :: Lens.Lens' Eac3AtmosSettings (Core.Maybe Core.Double)
+eac3AtmosSettings_ltRtCenterMixLevel :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Prelude.Double)
 eac3AtmosSettings_ltRtCenterMixLevel = Lens.lens (\Eac3AtmosSettings' {ltRtCenterMixLevel} -> ltRtCenterMixLevel) (\s@Eac3AtmosSettings' {} a -> s {ltRtCenterMixLevel = a} :: Eac3AtmosSettings)
 
 -- | Specify the percentage of audio content that must be speech before the
 -- encoder uses the measured speech loudness as the overall program
 -- loudness.
-eac3AtmosSettings_speechThreshold :: Lens.Lens' Eac3AtmosSettings (Core.Maybe Core.Natural)
+eac3AtmosSettings_speechThreshold :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Prelude.Natural)
 eac3AtmosSettings_speechThreshold = Lens.lens (\Eac3AtmosSettings' {speechThreshold} -> speechThreshold) (\s@Eac3AtmosSettings' {} a -> s {speechThreshold = a} :: Eac3AtmosSettings)
 
 -- | The coding mode for Dolby Digital Plus JOC (Atmos) is always 9.1.6
 -- (CODING_MODE_9_1_6).
-eac3AtmosSettings_codingMode :: Lens.Lens' Eac3AtmosSettings (Core.Maybe Eac3AtmosCodingMode)
+eac3AtmosSettings_codingMode :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Eac3AtmosCodingMode)
 eac3AtmosSettings_codingMode = Lens.lens (\Eac3AtmosSettings' {codingMode} -> codingMode) (\s@Eac3AtmosSettings' {} a -> s {codingMode = a} :: Eac3AtmosSettings)
 
 -- | Enable Dolby Dialogue Intelligence to adjust loudness based on dialogue
 -- analysis.
-eac3AtmosSettings_dialogueIntelligence :: Lens.Lens' Eac3AtmosSettings (Core.Maybe Eac3AtmosDialogueIntelligence)
+eac3AtmosSettings_dialogueIntelligence :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Eac3AtmosDialogueIntelligence)
 eac3AtmosSettings_dialogueIntelligence = Lens.lens (\Eac3AtmosSettings' {dialogueIntelligence} -> dialogueIntelligence) (\s@Eac3AtmosSettings' {} a -> s {dialogueIntelligence = a} :: Eac3AtmosSettings)
 
 -- | Specify a value for the following Dolby Atmos setting: Left only\/Right
@@ -216,7 +217,7 @@ eac3AtmosSettings_dialogueIntelligence = Lens.lens (\Eac3AtmosSettings' {dialogu
 -- the service uses this value depends on the value that you choose for
 -- Stereo downmix (Eac3AtmosStereoDownmix). Valid values: -1.5, -3.0, -4.5,
 -- -6.0, and -60. The value -60 mutes the channel.
-eac3AtmosSettings_loRoSurroundMixLevel :: Lens.Lens' Eac3AtmosSettings (Core.Maybe Core.Double)
+eac3AtmosSettings_loRoSurroundMixLevel :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Prelude.Double)
 eac3AtmosSettings_loRoSurroundMixLevel = Lens.lens (\Eac3AtmosSettings' {loRoSurroundMixLevel} -> loRoSurroundMixLevel) (\s@Eac3AtmosSettings' {} a -> s {loRoSurroundMixLevel = a} :: Eac3AtmosSettings)
 
 -- | Specify a value for the following Dolby Atmos setting: Left total\/Right
@@ -224,45 +225,45 @@ eac3AtmosSettings_loRoSurroundMixLevel = Lens.lens (\Eac3AtmosSettings' {loRoSur
 -- downmixing. How the service uses this value depends on the value that
 -- you choose for Stereo downmix (Eac3AtmosStereoDownmix). Valid values:
 -- -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel.
-eac3AtmosSettings_ltRtSurroundMixLevel :: Lens.Lens' Eac3AtmosSettings (Core.Maybe Core.Double)
+eac3AtmosSettings_ltRtSurroundMixLevel :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Prelude.Double)
 eac3AtmosSettings_ltRtSurroundMixLevel = Lens.lens (\Eac3AtmosSettings' {ltRtSurroundMixLevel} -> ltRtSurroundMixLevel) (\s@Eac3AtmosSettings' {} a -> s {ltRtSurroundMixLevel = a} :: Eac3AtmosSettings)
 
 -- | This value is always 48000. It represents the sample rate in Hz.
-eac3AtmosSettings_sampleRate :: Lens.Lens' Eac3AtmosSettings (Core.Maybe Core.Natural)
+eac3AtmosSettings_sampleRate :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Prelude.Natural)
 eac3AtmosSettings_sampleRate = Lens.lens (\Eac3AtmosSettings' {sampleRate} -> sampleRate) (\s@Eac3AtmosSettings' {} a -> s {sampleRate = a} :: Eac3AtmosSettings)
 
 -- | Choose how the service does stereo downmixing.
-eac3AtmosSettings_stereoDownmix :: Lens.Lens' Eac3AtmosSettings (Core.Maybe Eac3AtmosStereoDownmix)
+eac3AtmosSettings_stereoDownmix :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Eac3AtmosStereoDownmix)
 eac3AtmosSettings_stereoDownmix = Lens.lens (\Eac3AtmosSettings' {stereoDownmix} -> stereoDownmix) (\s@Eac3AtmosSettings' {} a -> s {stereoDownmix = a} :: Eac3AtmosSettings)
 
 -- | Choose how the service meters the loudness of your audio.
-eac3AtmosSettings_meteringMode :: Lens.Lens' Eac3AtmosSettings (Core.Maybe Eac3AtmosMeteringMode)
+eac3AtmosSettings_meteringMode :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Eac3AtmosMeteringMode)
 eac3AtmosSettings_meteringMode = Lens.lens (\Eac3AtmosSettings' {meteringMode} -> meteringMode) (\s@Eac3AtmosSettings' {} a -> s {meteringMode = a} :: Eac3AtmosSettings)
 
 -- | Specify the bitstream mode for the E-AC-3 stream that the encoder emits.
 -- For more information about the EAC3 bitstream mode, see ATSC A\/52-2012
 -- (Annex E).
-eac3AtmosSettings_bitstreamMode :: Lens.Lens' Eac3AtmosSettings (Core.Maybe Eac3AtmosBitstreamMode)
+eac3AtmosSettings_bitstreamMode :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Eac3AtmosBitstreamMode)
 eac3AtmosSettings_bitstreamMode = Lens.lens (\Eac3AtmosSettings' {bitstreamMode} -> bitstreamMode) (\s@Eac3AtmosSettings' {} a -> s {bitstreamMode = a} :: Eac3AtmosSettings)
 
 -- | Specify whether your input audio has an additional center rear surround
 -- channel matrix encoded into your left and right surround channels.
-eac3AtmosSettings_surroundExMode :: Lens.Lens' Eac3AtmosSettings (Core.Maybe Eac3AtmosSurroundExMode)
+eac3AtmosSettings_surroundExMode :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Eac3AtmosSurroundExMode)
 eac3AtmosSettings_surroundExMode = Lens.lens (\Eac3AtmosSettings' {surroundExMode} -> surroundExMode) (\s@Eac3AtmosSettings' {} a -> s {surroundExMode = a} :: Eac3AtmosSettings)
 
 -- | Specify how the service limits the audio dynamic range when compressing
 -- the audio.
-eac3AtmosSettings_dynamicRangeCompressionRf :: Lens.Lens' Eac3AtmosSettings (Core.Maybe Eac3AtmosDynamicRangeCompressionRf)
+eac3AtmosSettings_dynamicRangeCompressionRf :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Eac3AtmosDynamicRangeCompressionRf)
 eac3AtmosSettings_dynamicRangeCompressionRf = Lens.lens (\Eac3AtmosSettings' {dynamicRangeCompressionRf} -> dynamicRangeCompressionRf) (\s@Eac3AtmosSettings' {} a -> s {dynamicRangeCompressionRf = a} :: Eac3AtmosSettings)
 
 -- | Specify the average bitrate in bits per second. Valid values: 384k,
 -- 448k, 640k, 768k
-eac3AtmosSettings_bitrate :: Lens.Lens' Eac3AtmosSettings (Core.Maybe Core.Natural)
+eac3AtmosSettings_bitrate :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Prelude.Natural)
 eac3AtmosSettings_bitrate = Lens.lens (\Eac3AtmosSettings' {bitrate} -> bitrate) (\s@Eac3AtmosSettings' {} a -> s {bitrate = a} :: Eac3AtmosSettings)
 
 -- | Specify the absolute peak level for a signal with dynamic range
 -- compression.
-eac3AtmosSettings_dynamicRangeCompressionLine :: Lens.Lens' Eac3AtmosSettings (Core.Maybe Eac3AtmosDynamicRangeCompressionLine)
+eac3AtmosSettings_dynamicRangeCompressionLine :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Eac3AtmosDynamicRangeCompressionLine)
 eac3AtmosSettings_dynamicRangeCompressionLine = Lens.lens (\Eac3AtmosSettings' {dynamicRangeCompressionLine} -> dynamicRangeCompressionLine) (\s@Eac3AtmosSettings' {} a -> s {dynamicRangeCompressionLine = a} :: Eac3AtmosSettings)
 
 instance Core.FromJSON Eac3AtmosSettings where
@@ -271,52 +272,54 @@ instance Core.FromJSON Eac3AtmosSettings where
       "Eac3AtmosSettings"
       ( \x ->
           Eac3AtmosSettings'
-            Core.<$> (x Core..:? "loRoCenterMixLevel")
-            Core.<*> (x Core..:? "ltRtCenterMixLevel")
-            Core.<*> (x Core..:? "speechThreshold")
-            Core.<*> (x Core..:? "codingMode")
-            Core.<*> (x Core..:? "dialogueIntelligence")
-            Core.<*> (x Core..:? "loRoSurroundMixLevel")
-            Core.<*> (x Core..:? "ltRtSurroundMixLevel")
-            Core.<*> (x Core..:? "sampleRate")
-            Core.<*> (x Core..:? "stereoDownmix")
-            Core.<*> (x Core..:? "meteringMode")
-            Core.<*> (x Core..:? "bitstreamMode")
-            Core.<*> (x Core..:? "surroundExMode")
-            Core.<*> (x Core..:? "dynamicRangeCompressionRf")
-            Core.<*> (x Core..:? "bitrate")
-            Core.<*> (x Core..:? "dynamicRangeCompressionLine")
+            Prelude.<$> (x Core..:? "loRoCenterMixLevel")
+            Prelude.<*> (x Core..:? "ltRtCenterMixLevel")
+            Prelude.<*> (x Core..:? "speechThreshold")
+            Prelude.<*> (x Core..:? "codingMode")
+            Prelude.<*> (x Core..:? "dialogueIntelligence")
+            Prelude.<*> (x Core..:? "loRoSurroundMixLevel")
+            Prelude.<*> (x Core..:? "ltRtSurroundMixLevel")
+            Prelude.<*> (x Core..:? "sampleRate")
+            Prelude.<*> (x Core..:? "stereoDownmix")
+            Prelude.<*> (x Core..:? "meteringMode")
+            Prelude.<*> (x Core..:? "bitstreamMode")
+            Prelude.<*> (x Core..:? "surroundExMode")
+            Prelude.<*> (x Core..:? "dynamicRangeCompressionRf")
+            Prelude.<*> (x Core..:? "bitrate")
+            Prelude.<*> (x Core..:? "dynamicRangeCompressionLine")
       )
 
-instance Core.Hashable Eac3AtmosSettings
+instance Prelude.Hashable Eac3AtmosSettings
 
-instance Core.NFData Eac3AtmosSettings
+instance Prelude.NFData Eac3AtmosSettings
 
 instance Core.ToJSON Eac3AtmosSettings where
   toJSON Eac3AtmosSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("loRoCenterMixLevel" Core..=)
-              Core.<$> loRoCenterMixLevel,
+              Prelude.<$> loRoCenterMixLevel,
             ("ltRtCenterMixLevel" Core..=)
-              Core.<$> ltRtCenterMixLevel,
-            ("speechThreshold" Core..=) Core.<$> speechThreshold,
-            ("codingMode" Core..=) Core.<$> codingMode,
+              Prelude.<$> ltRtCenterMixLevel,
+            ("speechThreshold" Core..=)
+              Prelude.<$> speechThreshold,
+            ("codingMode" Core..=) Prelude.<$> codingMode,
             ("dialogueIntelligence" Core..=)
-              Core.<$> dialogueIntelligence,
+              Prelude.<$> dialogueIntelligence,
             ("loRoSurroundMixLevel" Core..=)
-              Core.<$> loRoSurroundMixLevel,
+              Prelude.<$> loRoSurroundMixLevel,
             ("ltRtSurroundMixLevel" Core..=)
-              Core.<$> ltRtSurroundMixLevel,
-            ("sampleRate" Core..=) Core.<$> sampleRate,
-            ("stereoDownmix" Core..=) Core.<$> stereoDownmix,
-            ("meteringMode" Core..=) Core.<$> meteringMode,
-            ("bitstreamMode" Core..=) Core.<$> bitstreamMode,
-            ("surroundExMode" Core..=) Core.<$> surroundExMode,
+              Prelude.<$> ltRtSurroundMixLevel,
+            ("sampleRate" Core..=) Prelude.<$> sampleRate,
+            ("stereoDownmix" Core..=) Prelude.<$> stereoDownmix,
+            ("meteringMode" Core..=) Prelude.<$> meteringMode,
+            ("bitstreamMode" Core..=) Prelude.<$> bitstreamMode,
+            ("surroundExMode" Core..=)
+              Prelude.<$> surroundExMode,
             ("dynamicRangeCompressionRf" Core..=)
-              Core.<$> dynamicRangeCompressionRf,
-            ("bitrate" Core..=) Core.<$> bitrate,
+              Prelude.<$> dynamicRangeCompressionRf,
+            ("bitrate" Core..=) Prelude.<$> bitrate,
             ("dynamicRangeCompressionLine" Core..=)
-              Core.<$> dynamicRangeCompressionLine
+              Prelude.<$> dynamicRangeCompressionLine
           ]
       )

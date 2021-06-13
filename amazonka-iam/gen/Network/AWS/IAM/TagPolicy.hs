@@ -68,6 +68,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -80,12 +81,12 @@ data TagPolicy = TagPolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    policyArn :: Core.Text,
+    policyArn :: Prelude.Text,
     -- | The list of tags that you want to attach to the IAM customer managed
     -- policy. Each tag consists of a key name and an associated value.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagPolicy' with all optional fields omitted.
@@ -107,12 +108,12 @@ data TagPolicy = TagPolicy'
 -- policy. Each tag consists of a key name and an associated value.
 newTagPolicy ::
   -- | 'policyArn'
-  Core.Text ->
+  Prelude.Text ->
   TagPolicy
 newTagPolicy pPolicyArn_ =
   TagPolicy'
     { policyArn = pPolicyArn_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | The ARN of the IAM customer managed policy to which you want to add
@@ -122,34 +123,36 @@ newTagPolicy pPolicyArn_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-tagPolicy_policyArn :: Lens.Lens' TagPolicy Core.Text
+tagPolicy_policyArn :: Lens.Lens' TagPolicy Prelude.Text
 tagPolicy_policyArn = Lens.lens (\TagPolicy' {policyArn} -> policyArn) (\s@TagPolicy' {} a -> s {policyArn = a} :: TagPolicy)
 
 -- | The list of tags that you want to attach to the IAM customer managed
 -- policy. Each tag consists of a key name and an associated value.
 tagPolicy_tags :: Lens.Lens' TagPolicy [Tag]
-tagPolicy_tags = Lens.lens (\TagPolicy' {tags} -> tags) (\s@TagPolicy' {} a -> s {tags = a} :: TagPolicy) Core.. Lens._Coerce
+tagPolicy_tags = Lens.lens (\TagPolicy' {tags} -> tags) (\s@TagPolicy' {} a -> s {tags = a} :: TagPolicy) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest TagPolicy where
   type AWSResponse TagPolicy = TagPolicyResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull TagPolicyResponse'
 
-instance Core.Hashable TagPolicy
+instance Prelude.Hashable TagPolicy
 
-instance Core.NFData TagPolicy
+instance Prelude.NFData TagPolicy
 
 instance Core.ToHeaders TagPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath TagPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TagPolicy where
   toQuery TagPolicy' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("TagPolicy" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("TagPolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "PolicyArn" Core.=: policyArn,
         "Tags" Core.=: Core.toQueryList "member" tags
       ]
@@ -158,7 +161,7 @@ instance Core.ToQuery TagPolicy where
 data TagPolicyResponse = TagPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagPolicyResponse' with all optional fields omitted.
@@ -168,4 +171,4 @@ newTagPolicyResponse ::
   TagPolicyResponse
 newTagPolicyResponse = TagPolicyResponse'
 
-instance Core.NFData TagPolicyResponse
+instance Prelude.NFData TagPolicyResponse

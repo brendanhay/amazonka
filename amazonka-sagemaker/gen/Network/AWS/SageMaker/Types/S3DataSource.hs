@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.S3DataSource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.S3DataDistribution
 import Network.AWS.SageMaker.Types.S3DataType
 
@@ -48,10 +49,10 @@ data S3DataSource = S3DataSource'
     -- instances, you might choose @ShardedByS3Key@. If the algorithm requires
     -- copying training data to the ML storage volume (when @TrainingInputMode@
     -- is set to @File@), this copies 1\//n/ of the number of objects.
-    s3DataDistributionType :: Core.Maybe S3DataDistribution,
+    s3DataDistributionType :: Prelude.Maybe S3DataDistribution,
     -- | A list of one or more attribute names to use that are found in a
     -- specified augmented manifest file.
-    attributeNames :: Core.Maybe [Core.Text],
+    attributeNames :: Prelude.Maybe [Prelude.Text],
     -- | If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix. Amazon
     -- SageMaker uses all objects that match the specified key name prefix for
     -- model training.
@@ -110,9 +111,9 @@ data S3DataSource = S3DataSource'
     --     the channel for this data source. The object that each @S3Uri@
     --     points to must be readable by the IAM role that Amazon SageMaker
     --     uses to perform tasks on your behalf.
-    s3Uri :: Core.Text
+    s3Uri :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3DataSource' with all optional fields omitted.
@@ -208,13 +209,13 @@ newS3DataSource ::
   -- | 's3DataType'
   S3DataType ->
   -- | 's3Uri'
-  Core.Text ->
+  Prelude.Text ->
   S3DataSource
 newS3DataSource pS3DataType_ pS3Uri_ =
   S3DataSource'
     { s3DataDistributionType =
-        Core.Nothing,
-      attributeNames = Core.Nothing,
+        Prelude.Nothing,
+      attributeNames = Prelude.Nothing,
       s3DataType = pS3DataType_,
       s3Uri = pS3Uri_
     }
@@ -239,13 +240,13 @@ newS3DataSource pS3DataType_ pS3Uri_ =
 -- instances, you might choose @ShardedByS3Key@. If the algorithm requires
 -- copying training data to the ML storage volume (when @TrainingInputMode@
 -- is set to @File@), this copies 1\//n/ of the number of objects.
-s3DataSource_s3DataDistributionType :: Lens.Lens' S3DataSource (Core.Maybe S3DataDistribution)
+s3DataSource_s3DataDistributionType :: Lens.Lens' S3DataSource (Prelude.Maybe S3DataDistribution)
 s3DataSource_s3DataDistributionType = Lens.lens (\S3DataSource' {s3DataDistributionType} -> s3DataDistributionType) (\s@S3DataSource' {} a -> s {s3DataDistributionType = a} :: S3DataSource)
 
 -- | A list of one or more attribute names to use that are found in a
 -- specified augmented manifest file.
-s3DataSource_attributeNames :: Lens.Lens' S3DataSource (Core.Maybe [Core.Text])
-s3DataSource_attributeNames = Lens.lens (\S3DataSource' {attributeNames} -> attributeNames) (\s@S3DataSource' {} a -> s {attributeNames = a} :: S3DataSource) Core.. Lens.mapping Lens._Coerce
+s3DataSource_attributeNames :: Lens.Lens' S3DataSource (Prelude.Maybe [Prelude.Text])
+s3DataSource_attributeNames = Lens.lens (\S3DataSource' {attributeNames} -> attributeNames) (\s@S3DataSource' {} a -> s {attributeNames = a} :: S3DataSource) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix. Amazon
 -- SageMaker uses all objects that match the specified key name prefix for
@@ -307,7 +308,7 @@ s3DataSource_s3DataType = Lens.lens (\S3DataSource' {s3DataType} -> s3DataType) 
 --     the channel for this data source. The object that each @S3Uri@
 --     points to must be readable by the IAM role that Amazon SageMaker
 --     uses to perform tasks on your behalf.
-s3DataSource_s3Uri :: Lens.Lens' S3DataSource Core.Text
+s3DataSource_s3Uri :: Lens.Lens' S3DataSource Prelude.Text
 s3DataSource_s3Uri = Lens.lens (\S3DataSource' {s3Uri} -> s3Uri) (\s@S3DataSource' {} a -> s {s3Uri = a} :: S3DataSource)
 
 instance Core.FromJSON S3DataSource where
@@ -316,24 +317,25 @@ instance Core.FromJSON S3DataSource where
       "S3DataSource"
       ( \x ->
           S3DataSource'
-            Core.<$> (x Core..:? "S3DataDistributionType")
-            Core.<*> (x Core..:? "AttributeNames" Core..!= Core.mempty)
-            Core.<*> (x Core..: "S3DataType")
-            Core.<*> (x Core..: "S3Uri")
+            Prelude.<$> (x Core..:? "S3DataDistributionType")
+            Prelude.<*> (x Core..:? "AttributeNames" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "S3DataType")
+            Prelude.<*> (x Core..: "S3Uri")
       )
 
-instance Core.Hashable S3DataSource
+instance Prelude.Hashable S3DataSource
 
-instance Core.NFData S3DataSource
+instance Prelude.NFData S3DataSource
 
 instance Core.ToJSON S3DataSource where
   toJSON S3DataSource' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("S3DataDistributionType" Core..=)
-              Core.<$> s3DataDistributionType,
-            ("AttributeNames" Core..=) Core.<$> attributeNames,
-            Core.Just ("S3DataType" Core..= s3DataType),
-            Core.Just ("S3Uri" Core..= s3Uri)
+              Prelude.<$> s3DataDistributionType,
+            ("AttributeNames" Core..=)
+              Prelude.<$> attributeNames,
+            Prelude.Just ("S3DataType" Core..= s3DataType),
+            Prelude.Just ("S3Uri" Core..= s3Uri)
           ]
       )

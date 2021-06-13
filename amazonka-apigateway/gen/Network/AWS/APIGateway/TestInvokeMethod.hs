@@ -56,6 +56,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,31 +65,31 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newTestInvokeMethod' smart constructor.
 data TestInvokeMethod = TestInvokeMethod'
   { -- | A key-value map of headers to simulate an incoming invocation request.
-    headers :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    headers :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A key-value map of stage variables to simulate an invocation on a
     -- deployed Stage.
-    stageVariables :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    stageVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The simulated request body of an incoming invocation request.
-    body :: Core.Maybe Core.Text,
+    body :: Prelude.Maybe Prelude.Text,
     -- | A ClientCertificate identifier to use in the test invocation. API
     -- Gateway will use the certificate when making the HTTPS request to the
     -- defined back-end endpoint.
-    clientCertificateId :: Core.Maybe Core.Text,
+    clientCertificateId :: Prelude.Maybe Prelude.Text,
     -- | The headers as a map from string to list of values to simulate an
     -- incoming invocation request.
-    multiValueHeaders :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
+    multiValueHeaders :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The URI path, including query string, of the simulated invocation
     -- request. Use this to specify path parameters and query string
     -- parameters.
-    pathWithQueryString :: Core.Maybe Core.Text,
+    pathWithQueryString :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] Specifies a test invoke method request\'s resource ID.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | [Required] Specifies a test invoke method request\'s HTTP method.
-    httpMethod :: Core.Text
+    httpMethod :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TestInvokeMethod' with all optional fields omitted.
@@ -123,68 +124,68 @@ data TestInvokeMethod = TestInvokeMethod'
 -- 'httpMethod', 'testInvokeMethod_httpMethod' - [Required] Specifies a test invoke method request\'s HTTP method.
 newTestInvokeMethod ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'httpMethod'
-  Core.Text ->
+  Prelude.Text ->
   TestInvokeMethod
 newTestInvokeMethod
   pRestApiId_
   pResourceId_
   pHttpMethod_ =
     TestInvokeMethod'
-      { headers = Core.Nothing,
-        stageVariables = Core.Nothing,
-        body = Core.Nothing,
-        clientCertificateId = Core.Nothing,
-        multiValueHeaders = Core.Nothing,
-        pathWithQueryString = Core.Nothing,
+      { headers = Prelude.Nothing,
+        stageVariables = Prelude.Nothing,
+        body = Prelude.Nothing,
+        clientCertificateId = Prelude.Nothing,
+        multiValueHeaders = Prelude.Nothing,
+        pathWithQueryString = Prelude.Nothing,
         restApiId = pRestApiId_,
         resourceId = pResourceId_,
         httpMethod = pHttpMethod_
       }
 
 -- | A key-value map of headers to simulate an incoming invocation request.
-testInvokeMethod_headers :: Lens.Lens' TestInvokeMethod (Core.Maybe (Core.HashMap Core.Text Core.Text))
-testInvokeMethod_headers = Lens.lens (\TestInvokeMethod' {headers} -> headers) (\s@TestInvokeMethod' {} a -> s {headers = a} :: TestInvokeMethod) Core.. Lens.mapping Lens._Coerce
+testInvokeMethod_headers :: Lens.Lens' TestInvokeMethod (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+testInvokeMethod_headers = Lens.lens (\TestInvokeMethod' {headers} -> headers) (\s@TestInvokeMethod' {} a -> s {headers = a} :: TestInvokeMethod) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A key-value map of stage variables to simulate an invocation on a
 -- deployed Stage.
-testInvokeMethod_stageVariables :: Lens.Lens' TestInvokeMethod (Core.Maybe (Core.HashMap Core.Text Core.Text))
-testInvokeMethod_stageVariables = Lens.lens (\TestInvokeMethod' {stageVariables} -> stageVariables) (\s@TestInvokeMethod' {} a -> s {stageVariables = a} :: TestInvokeMethod) Core.. Lens.mapping Lens._Coerce
+testInvokeMethod_stageVariables :: Lens.Lens' TestInvokeMethod (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+testInvokeMethod_stageVariables = Lens.lens (\TestInvokeMethod' {stageVariables} -> stageVariables) (\s@TestInvokeMethod' {} a -> s {stageVariables = a} :: TestInvokeMethod) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The simulated request body of an incoming invocation request.
-testInvokeMethod_body :: Lens.Lens' TestInvokeMethod (Core.Maybe Core.Text)
+testInvokeMethod_body :: Lens.Lens' TestInvokeMethod (Prelude.Maybe Prelude.Text)
 testInvokeMethod_body = Lens.lens (\TestInvokeMethod' {body} -> body) (\s@TestInvokeMethod' {} a -> s {body = a} :: TestInvokeMethod)
 
 -- | A ClientCertificate identifier to use in the test invocation. API
 -- Gateway will use the certificate when making the HTTPS request to the
 -- defined back-end endpoint.
-testInvokeMethod_clientCertificateId :: Lens.Lens' TestInvokeMethod (Core.Maybe Core.Text)
+testInvokeMethod_clientCertificateId :: Lens.Lens' TestInvokeMethod (Prelude.Maybe Prelude.Text)
 testInvokeMethod_clientCertificateId = Lens.lens (\TestInvokeMethod' {clientCertificateId} -> clientCertificateId) (\s@TestInvokeMethod' {} a -> s {clientCertificateId = a} :: TestInvokeMethod)
 
 -- | The headers as a map from string to list of values to simulate an
 -- incoming invocation request.
-testInvokeMethod_multiValueHeaders :: Lens.Lens' TestInvokeMethod (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
-testInvokeMethod_multiValueHeaders = Lens.lens (\TestInvokeMethod' {multiValueHeaders} -> multiValueHeaders) (\s@TestInvokeMethod' {} a -> s {multiValueHeaders = a} :: TestInvokeMethod) Core.. Lens.mapping Lens._Coerce
+testInvokeMethod_multiValueHeaders :: Lens.Lens' TestInvokeMethod (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+testInvokeMethod_multiValueHeaders = Lens.lens (\TestInvokeMethod' {multiValueHeaders} -> multiValueHeaders) (\s@TestInvokeMethod' {} a -> s {multiValueHeaders = a} :: TestInvokeMethod) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The URI path, including query string, of the simulated invocation
 -- request. Use this to specify path parameters and query string
 -- parameters.
-testInvokeMethod_pathWithQueryString :: Lens.Lens' TestInvokeMethod (Core.Maybe Core.Text)
+testInvokeMethod_pathWithQueryString :: Lens.Lens' TestInvokeMethod (Prelude.Maybe Prelude.Text)
 testInvokeMethod_pathWithQueryString = Lens.lens (\TestInvokeMethod' {pathWithQueryString} -> pathWithQueryString) (\s@TestInvokeMethod' {} a -> s {pathWithQueryString = a} :: TestInvokeMethod)
 
 -- | [Required] The string identifier of the associated RestApi.
-testInvokeMethod_restApiId :: Lens.Lens' TestInvokeMethod Core.Text
+testInvokeMethod_restApiId :: Lens.Lens' TestInvokeMethod Prelude.Text
 testInvokeMethod_restApiId = Lens.lens (\TestInvokeMethod' {restApiId} -> restApiId) (\s@TestInvokeMethod' {} a -> s {restApiId = a} :: TestInvokeMethod)
 
 -- | [Required] Specifies a test invoke method request\'s resource ID.
-testInvokeMethod_resourceId :: Lens.Lens' TestInvokeMethod Core.Text
+testInvokeMethod_resourceId :: Lens.Lens' TestInvokeMethod Prelude.Text
 testInvokeMethod_resourceId = Lens.lens (\TestInvokeMethod' {resourceId} -> resourceId) (\s@TestInvokeMethod' {} a -> s {resourceId = a} :: TestInvokeMethod)
 
 -- | [Required] Specifies a test invoke method request\'s HTTP method.
-testInvokeMethod_httpMethod :: Lens.Lens' TestInvokeMethod Core.Text
+testInvokeMethod_httpMethod :: Lens.Lens' TestInvokeMethod Prelude.Text
 testInvokeMethod_httpMethod = Lens.lens (\TestInvokeMethod' {httpMethod} -> httpMethod) (\s@TestInvokeMethod' {} a -> s {httpMethod = a} :: TestInvokeMethod)
 
 instance Core.AWSRequest TestInvokeMethod where
@@ -196,47 +197,50 @@ instance Core.AWSRequest TestInvokeMethod where
     Response.receiveJSON
       ( \s h x ->
           TestInvokeMethodResponse'
-            Core.<$> (x Core..?> "status")
-            Core.<*> (x Core..?> "headers" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "body")
-            Core.<*> (x Core..?> "log")
-            Core.<*> (x Core..?> "multiValueHeaders" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "latency")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "status")
+            Prelude.<*> (x Core..?> "headers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "body")
+            Prelude.<*> (x Core..?> "log")
+            Prelude.<*> ( x Core..?> "multiValueHeaders"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "latency")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable TestInvokeMethod
+instance Prelude.Hashable TestInvokeMethod
 
-instance Core.NFData TestInvokeMethod
+instance Prelude.NFData TestInvokeMethod
 
 instance Core.ToHeaders TestInvokeMethod where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToJSON TestInvokeMethod where
   toJSON TestInvokeMethod' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("headers" Core..=) Core.<$> headers,
-            ("stageVariables" Core..=) Core.<$> stageVariables,
-            ("body" Core..=) Core.<$> body,
+      ( Prelude.catMaybes
+          [ ("headers" Core..=) Prelude.<$> headers,
+            ("stageVariables" Core..=)
+              Prelude.<$> stageVariables,
+            ("body" Core..=) Prelude.<$> body,
             ("clientCertificateId" Core..=)
-              Core.<$> clientCertificateId,
+              Prelude.<$> clientCertificateId,
             ("multiValueHeaders" Core..=)
-              Core.<$> multiValueHeaders,
+              Prelude.<$> multiValueHeaders,
             ("pathWithQueryString" Core..=)
-              Core.<$> pathWithQueryString
+              Prelude.<$> pathWithQueryString
           ]
       )
 
 instance Core.ToPath TestInvokeMethod where
   toPath TestInvokeMethod' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/resources/",
@@ -246,7 +250,7 @@ instance Core.ToPath TestInvokeMethod where
       ]
 
 instance Core.ToQuery TestInvokeMethod where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response of the test invoke request in the HTTP method.
 --
@@ -255,21 +259,21 @@ instance Core.ToQuery TestInvokeMethod where
 -- /See:/ 'newTestInvokeMethodResponse' smart constructor.
 data TestInvokeMethodResponse = TestInvokeMethodResponse'
   { -- | The HTTP status code.
-    status :: Core.Maybe Core.Int,
+    status :: Prelude.Maybe Prelude.Int,
     -- | The headers of the HTTP response.
-    headers :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    headers :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The body of the HTTP response.
-    body :: Core.Maybe Core.Text,
+    body :: Prelude.Maybe Prelude.Text,
     -- | The API Gateway execution log for the test invoke request.
-    log :: Core.Maybe Core.Text,
+    log :: Prelude.Maybe Prelude.Text,
     -- | The headers of the HTTP response as a map from string to list of values.
-    multiValueHeaders :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
+    multiValueHeaders :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The execution latency of the test invoke request.
-    latency :: Core.Maybe Core.Integer,
+    latency :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TestInvokeMethodResponse' with all optional fields omitted.
@@ -294,45 +298,45 @@ data TestInvokeMethodResponse = TestInvokeMethodResponse'
 -- 'httpStatus', 'testInvokeMethodResponse_httpStatus' - The response's http status code.
 newTestInvokeMethodResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   TestInvokeMethodResponse
 newTestInvokeMethodResponse pHttpStatus_ =
   TestInvokeMethodResponse'
-    { status = Core.Nothing,
-      headers = Core.Nothing,
-      body = Core.Nothing,
-      log = Core.Nothing,
-      multiValueHeaders = Core.Nothing,
-      latency = Core.Nothing,
+    { status = Prelude.Nothing,
+      headers = Prelude.Nothing,
+      body = Prelude.Nothing,
+      log = Prelude.Nothing,
+      multiValueHeaders = Prelude.Nothing,
+      latency = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The HTTP status code.
-testInvokeMethodResponse_status :: Lens.Lens' TestInvokeMethodResponse (Core.Maybe Core.Int)
+testInvokeMethodResponse_status :: Lens.Lens' TestInvokeMethodResponse (Prelude.Maybe Prelude.Int)
 testInvokeMethodResponse_status = Lens.lens (\TestInvokeMethodResponse' {status} -> status) (\s@TestInvokeMethodResponse' {} a -> s {status = a} :: TestInvokeMethodResponse)
 
 -- | The headers of the HTTP response.
-testInvokeMethodResponse_headers :: Lens.Lens' TestInvokeMethodResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-testInvokeMethodResponse_headers = Lens.lens (\TestInvokeMethodResponse' {headers} -> headers) (\s@TestInvokeMethodResponse' {} a -> s {headers = a} :: TestInvokeMethodResponse) Core.. Lens.mapping Lens._Coerce
+testInvokeMethodResponse_headers :: Lens.Lens' TestInvokeMethodResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+testInvokeMethodResponse_headers = Lens.lens (\TestInvokeMethodResponse' {headers} -> headers) (\s@TestInvokeMethodResponse' {} a -> s {headers = a} :: TestInvokeMethodResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The body of the HTTP response.
-testInvokeMethodResponse_body :: Lens.Lens' TestInvokeMethodResponse (Core.Maybe Core.Text)
+testInvokeMethodResponse_body :: Lens.Lens' TestInvokeMethodResponse (Prelude.Maybe Prelude.Text)
 testInvokeMethodResponse_body = Lens.lens (\TestInvokeMethodResponse' {body} -> body) (\s@TestInvokeMethodResponse' {} a -> s {body = a} :: TestInvokeMethodResponse)
 
 -- | The API Gateway execution log for the test invoke request.
-testInvokeMethodResponse_log :: Lens.Lens' TestInvokeMethodResponse (Core.Maybe Core.Text)
+testInvokeMethodResponse_log :: Lens.Lens' TestInvokeMethodResponse (Prelude.Maybe Prelude.Text)
 testInvokeMethodResponse_log = Lens.lens (\TestInvokeMethodResponse' {log} -> log) (\s@TestInvokeMethodResponse' {} a -> s {log = a} :: TestInvokeMethodResponse)
 
 -- | The headers of the HTTP response as a map from string to list of values.
-testInvokeMethodResponse_multiValueHeaders :: Lens.Lens' TestInvokeMethodResponse (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
-testInvokeMethodResponse_multiValueHeaders = Lens.lens (\TestInvokeMethodResponse' {multiValueHeaders} -> multiValueHeaders) (\s@TestInvokeMethodResponse' {} a -> s {multiValueHeaders = a} :: TestInvokeMethodResponse) Core.. Lens.mapping Lens._Coerce
+testInvokeMethodResponse_multiValueHeaders :: Lens.Lens' TestInvokeMethodResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+testInvokeMethodResponse_multiValueHeaders = Lens.lens (\TestInvokeMethodResponse' {multiValueHeaders} -> multiValueHeaders) (\s@TestInvokeMethodResponse' {} a -> s {multiValueHeaders = a} :: TestInvokeMethodResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The execution latency of the test invoke request.
-testInvokeMethodResponse_latency :: Lens.Lens' TestInvokeMethodResponse (Core.Maybe Core.Integer)
+testInvokeMethodResponse_latency :: Lens.Lens' TestInvokeMethodResponse (Prelude.Maybe Prelude.Integer)
 testInvokeMethodResponse_latency = Lens.lens (\TestInvokeMethodResponse' {latency} -> latency) (\s@TestInvokeMethodResponse' {} a -> s {latency = a} :: TestInvokeMethodResponse)
 
 -- | The response's http status code.
-testInvokeMethodResponse_httpStatus :: Lens.Lens' TestInvokeMethodResponse Core.Int
+testInvokeMethodResponse_httpStatus :: Lens.Lens' TestInvokeMethodResponse Prelude.Int
 testInvokeMethodResponse_httpStatus = Lens.lens (\TestInvokeMethodResponse' {httpStatus} -> httpStatus) (\s@TestInvokeMethodResponse' {} a -> s {httpStatus = a} :: TestInvokeMethodResponse)
 
-instance Core.NFData TestInvokeMethodResponse
+instance Prelude.NFData TestInvokeMethodResponse

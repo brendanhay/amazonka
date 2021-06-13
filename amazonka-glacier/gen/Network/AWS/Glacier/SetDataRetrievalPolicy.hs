@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,16 +56,16 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newSetDataRetrievalPolicy' smart constructor.
 data SetDataRetrievalPolicy = SetDataRetrievalPolicy'
   { -- | The data retrieval policy in JSON format.
-    policy :: Core.Maybe DataRetrievalPolicy,
+    policy :: Prelude.Maybe DataRetrievalPolicy,
     -- | The @AccountId@ value is the AWS account ID. This value must match the
     -- AWS account ID associated with the credentials used to sign the request.
     -- You can either specify an AWS account ID or optionally a single \'@-@\'
     -- (hyphen), in which case Amazon Glacier uses the AWS account ID
     -- associated with the credentials used to sign the request. If you specify
     -- your account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Core.Text
+    accountId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetDataRetrievalPolicy' with all optional fields omitted.
@@ -84,16 +85,16 @@ data SetDataRetrievalPolicy = SetDataRetrievalPolicy'
 -- your account ID, do not include any hyphens (\'-\') in the ID.
 newSetDataRetrievalPolicy ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   SetDataRetrievalPolicy
 newSetDataRetrievalPolicy pAccountId_ =
   SetDataRetrievalPolicy'
-    { policy = Core.Nothing,
+    { policy = Prelude.Nothing,
       accountId = pAccountId_
     }
 
 -- | The data retrieval policy in JSON format.
-setDataRetrievalPolicy_policy :: Lens.Lens' SetDataRetrievalPolicy (Core.Maybe DataRetrievalPolicy)
+setDataRetrievalPolicy_policy :: Lens.Lens' SetDataRetrievalPolicy (Prelude.Maybe DataRetrievalPolicy)
 setDataRetrievalPolicy_policy = Lens.lens (\SetDataRetrievalPolicy' {policy} -> policy) (\s@SetDataRetrievalPolicy' {} a -> s {policy = a} :: SetDataRetrievalPolicy)
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the
@@ -102,7 +103,7 @@ setDataRetrievalPolicy_policy = Lens.lens (\SetDataRetrievalPolicy' {policy} -> 
 -- (hyphen), in which case Amazon Glacier uses the AWS account ID
 -- associated with the credentials used to sign the request. If you specify
 -- your account ID, do not include any hyphens (\'-\') in the ID.
-setDataRetrievalPolicy_accountId :: Lens.Lens' SetDataRetrievalPolicy Core.Text
+setDataRetrievalPolicy_accountId :: Lens.Lens' SetDataRetrievalPolicy Prelude.Text
 setDataRetrievalPolicy_accountId = Lens.lens (\SetDataRetrievalPolicy' {accountId} -> accountId) (\s@SetDataRetrievalPolicy' {} a -> s {accountId = a} :: SetDataRetrievalPolicy)
 
 instance Core.AWSRequest SetDataRetrievalPolicy where
@@ -111,39 +112,41 @@ instance Core.AWSRequest SetDataRetrievalPolicy where
       SetDataRetrievalPolicyResponse
   request =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Core.. Request.putJSON defaultService
+      Prelude.. Request.putJSON defaultService
   response =
     Response.receiveNull
       SetDataRetrievalPolicyResponse'
 
-instance Core.Hashable SetDataRetrievalPolicy
+instance Prelude.Hashable SetDataRetrievalPolicy
 
-instance Core.NFData SetDataRetrievalPolicy
+instance Prelude.NFData SetDataRetrievalPolicy
 
 instance Core.ToHeaders SetDataRetrievalPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON SetDataRetrievalPolicy where
   toJSON SetDataRetrievalPolicy' {..} =
     Core.object
-      (Core.catMaybes [("Policy" Core..=) Core.<$> policy])
+      ( Prelude.catMaybes
+          [("Policy" Core..=) Prelude.<$> policy]
+      )
 
 instance Core.ToPath SetDataRetrievalPolicy where
   toPath SetDataRetrievalPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/",
         Core.toBS accountId,
         "/policies/data-retrieval"
       ]
 
 instance Core.ToQuery SetDataRetrievalPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetDataRetrievalPolicyResponse' smart constructor.
 data SetDataRetrievalPolicyResponse = SetDataRetrievalPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetDataRetrievalPolicyResponse' with all optional fields omitted.
@@ -154,4 +157,6 @@ newSetDataRetrievalPolicyResponse ::
 newSetDataRetrievalPolicyResponse =
   SetDataRetrievalPolicyResponse'
 
-instance Core.NFData SetDataRetrievalPolicyResponse
+instance
+  Prelude.NFData
+    SetDataRetrievalPolicyResponse

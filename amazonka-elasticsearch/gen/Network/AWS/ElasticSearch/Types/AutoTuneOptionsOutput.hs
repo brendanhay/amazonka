@@ -22,6 +22,7 @@ module Network.AWS.ElasticSearch.Types.AutoTuneOptionsOutput where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.AutoTuneState
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the Auto-Tune options: the Auto-Tune desired state for the
 -- domain and list of maintenance schedules.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAutoTuneOptionsOutput' smart constructor.
 data AutoTuneOptionsOutput = AutoTuneOptionsOutput'
   { -- | Specifies the @AutoTuneState@ for the Elasticsearch domain.
-    state :: Core.Maybe AutoTuneState,
+    state :: Prelude.Maybe AutoTuneState,
     -- | Specifies the error message while enabling or disabling the Auto-Tune.
-    errorMessage :: Core.Maybe Core.Text
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AutoTuneOptionsOutput' with all optional fields omitted.
@@ -50,16 +51,16 @@ newAutoTuneOptionsOutput ::
   AutoTuneOptionsOutput
 newAutoTuneOptionsOutput =
   AutoTuneOptionsOutput'
-    { state = Core.Nothing,
-      errorMessage = Core.Nothing
+    { state = Prelude.Nothing,
+      errorMessage = Prelude.Nothing
     }
 
 -- | Specifies the @AutoTuneState@ for the Elasticsearch domain.
-autoTuneOptionsOutput_state :: Lens.Lens' AutoTuneOptionsOutput (Core.Maybe AutoTuneState)
+autoTuneOptionsOutput_state :: Lens.Lens' AutoTuneOptionsOutput (Prelude.Maybe AutoTuneState)
 autoTuneOptionsOutput_state = Lens.lens (\AutoTuneOptionsOutput' {state} -> state) (\s@AutoTuneOptionsOutput' {} a -> s {state = a} :: AutoTuneOptionsOutput)
 
 -- | Specifies the error message while enabling or disabling the Auto-Tune.
-autoTuneOptionsOutput_errorMessage :: Lens.Lens' AutoTuneOptionsOutput (Core.Maybe Core.Text)
+autoTuneOptionsOutput_errorMessage :: Lens.Lens' AutoTuneOptionsOutput (Prelude.Maybe Prelude.Text)
 autoTuneOptionsOutput_errorMessage = Lens.lens (\AutoTuneOptionsOutput' {errorMessage} -> errorMessage) (\s@AutoTuneOptionsOutput' {} a -> s {errorMessage = a} :: AutoTuneOptionsOutput)
 
 instance Core.FromJSON AutoTuneOptionsOutput where
@@ -68,10 +69,10 @@ instance Core.FromJSON AutoTuneOptionsOutput where
       "AutoTuneOptionsOutput"
       ( \x ->
           AutoTuneOptionsOutput'
-            Core.<$> (x Core..:? "State")
-            Core.<*> (x Core..:? "ErrorMessage")
+            Prelude.<$> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Core.Hashable AutoTuneOptionsOutput
+instance Prelude.Hashable AutoTuneOptionsOutput
 
-instance Core.NFData AutoTuneOptionsOutput
+instance Prelude.NFData AutoTuneOptionsOutput

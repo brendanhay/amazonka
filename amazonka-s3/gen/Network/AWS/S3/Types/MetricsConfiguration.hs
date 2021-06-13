@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.MetricsConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.MetricsFilter
 
@@ -38,11 +39,11 @@ data MetricsConfiguration = MetricsConfiguration'
   { -- | Specifies a metrics configuration filter. The metrics configuration will
     -- only include objects that meet the filter\'s criteria. A filter must be
     -- a prefix, a tag, or a conjunction (MetricsAndOperator).
-    filter' :: Core.Maybe MetricsFilter,
+    filter' :: Prelude.Maybe MetricsFilter,
     -- | The ID used to identify the metrics configuration.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetricsConfiguration' with all optional fields omitted.
@@ -59,34 +60,34 @@ data MetricsConfiguration = MetricsConfiguration'
 -- 'id', 'metricsConfiguration_id' - The ID used to identify the metrics configuration.
 newMetricsConfiguration ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   MetricsConfiguration
 newMetricsConfiguration pId_ =
   MetricsConfiguration'
-    { filter' = Core.Nothing,
+    { filter' = Prelude.Nothing,
       id = pId_
     }
 
 -- | Specifies a metrics configuration filter. The metrics configuration will
 -- only include objects that meet the filter\'s criteria. A filter must be
 -- a prefix, a tag, or a conjunction (MetricsAndOperator).
-metricsConfiguration_filter :: Lens.Lens' MetricsConfiguration (Core.Maybe MetricsFilter)
+metricsConfiguration_filter :: Lens.Lens' MetricsConfiguration (Prelude.Maybe MetricsFilter)
 metricsConfiguration_filter = Lens.lens (\MetricsConfiguration' {filter'} -> filter') (\s@MetricsConfiguration' {} a -> s {filter' = a} :: MetricsConfiguration)
 
 -- | The ID used to identify the metrics configuration.
-metricsConfiguration_id :: Lens.Lens' MetricsConfiguration Core.Text
+metricsConfiguration_id :: Lens.Lens' MetricsConfiguration Prelude.Text
 metricsConfiguration_id = Lens.lens (\MetricsConfiguration' {id} -> id) (\s@MetricsConfiguration' {} a -> s {id = a} :: MetricsConfiguration)
 
 instance Core.FromXML MetricsConfiguration where
   parseXML x =
     MetricsConfiguration'
-      Core.<$> (x Core..@? "Filter") Core.<*> (x Core..@ "Id")
+      Prelude.<$> (x Core..@? "Filter") Prelude.<*> (x Core..@ "Id")
 
-instance Core.Hashable MetricsConfiguration
+instance Prelude.Hashable MetricsConfiguration
 
-instance Core.NFData MetricsConfiguration
+instance Prelude.NFData MetricsConfiguration
 
 instance Core.ToXML MetricsConfiguration where
   toXML MetricsConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Filter" Core.@= filter', "Id" Core.@= id]

@@ -23,19 +23,20 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.CustomCodeSigning
 import Network.AWS.IoT.Types.StartSigningJobParameter
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the method to use when code signing a file.
 --
 -- /See:/ 'newCodeSigning' smart constructor.
 data CodeSigning = CodeSigning'
   { -- | Describes the code-signing job.
-    startSigningJobParameter :: Core.Maybe StartSigningJobParameter,
+    startSigningJobParameter :: Prelude.Maybe StartSigningJobParameter,
     -- | The ID of the AWSSignerJob which was created to sign the file.
-    awsSignerJobId :: Core.Maybe Core.Text,
+    awsSignerJobId :: Prelude.Maybe Prelude.Text,
     -- | A custom method for code signing a file.
-    customCodeSigning :: Core.Maybe CustomCodeSigning
+    customCodeSigning :: Prelude.Maybe CustomCodeSigning
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CodeSigning' with all optional fields omitted.
@@ -55,21 +56,21 @@ newCodeSigning ::
 newCodeSigning =
   CodeSigning'
     { startSigningJobParameter =
-        Core.Nothing,
-      awsSignerJobId = Core.Nothing,
-      customCodeSigning = Core.Nothing
+        Prelude.Nothing,
+      awsSignerJobId = Prelude.Nothing,
+      customCodeSigning = Prelude.Nothing
     }
 
 -- | Describes the code-signing job.
-codeSigning_startSigningJobParameter :: Lens.Lens' CodeSigning (Core.Maybe StartSigningJobParameter)
+codeSigning_startSigningJobParameter :: Lens.Lens' CodeSigning (Prelude.Maybe StartSigningJobParameter)
 codeSigning_startSigningJobParameter = Lens.lens (\CodeSigning' {startSigningJobParameter} -> startSigningJobParameter) (\s@CodeSigning' {} a -> s {startSigningJobParameter = a} :: CodeSigning)
 
 -- | The ID of the AWSSignerJob which was created to sign the file.
-codeSigning_awsSignerJobId :: Lens.Lens' CodeSigning (Core.Maybe Core.Text)
+codeSigning_awsSignerJobId :: Lens.Lens' CodeSigning (Prelude.Maybe Prelude.Text)
 codeSigning_awsSignerJobId = Lens.lens (\CodeSigning' {awsSignerJobId} -> awsSignerJobId) (\s@CodeSigning' {} a -> s {awsSignerJobId = a} :: CodeSigning)
 
 -- | A custom method for code signing a file.
-codeSigning_customCodeSigning :: Lens.Lens' CodeSigning (Core.Maybe CustomCodeSigning)
+codeSigning_customCodeSigning :: Lens.Lens' CodeSigning (Prelude.Maybe CustomCodeSigning)
 codeSigning_customCodeSigning = Lens.lens (\CodeSigning' {customCodeSigning} -> customCodeSigning) (\s@CodeSigning' {} a -> s {customCodeSigning = a} :: CodeSigning)
 
 instance Core.FromJSON CodeSigning where
@@ -78,23 +79,24 @@ instance Core.FromJSON CodeSigning where
       "CodeSigning"
       ( \x ->
           CodeSigning'
-            Core.<$> (x Core..:? "startSigningJobParameter")
-            Core.<*> (x Core..:? "awsSignerJobId")
-            Core.<*> (x Core..:? "customCodeSigning")
+            Prelude.<$> (x Core..:? "startSigningJobParameter")
+            Prelude.<*> (x Core..:? "awsSignerJobId")
+            Prelude.<*> (x Core..:? "customCodeSigning")
       )
 
-instance Core.Hashable CodeSigning
+instance Prelude.Hashable CodeSigning
 
-instance Core.NFData CodeSigning
+instance Prelude.NFData CodeSigning
 
 instance Core.ToJSON CodeSigning where
   toJSON CodeSigning' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("startSigningJobParameter" Core..=)
-              Core.<$> startSigningJobParameter,
-            ("awsSignerJobId" Core..=) Core.<$> awsSignerJobId,
+              Prelude.<$> startSigningJobParameter,
+            ("awsSignerJobId" Core..=)
+              Prelude.<$> awsSignerJobId,
             ("customCodeSigning" Core..=)
-              Core.<$> customCodeSigning
+              Prelude.<$> customCodeSigning
           ]
       )

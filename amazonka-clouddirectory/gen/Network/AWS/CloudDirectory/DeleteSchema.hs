@@ -43,6 +43,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DeleteSchema = DeleteSchema'
   { -- | The Amazon Resource Name (ARN) of the development schema. For more
     -- information, see arns.
-    schemaArn :: Core.Text
+    schemaArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSchema' with all optional fields omitted.
@@ -66,14 +67,14 @@ data DeleteSchema = DeleteSchema'
 -- information, see arns.
 newDeleteSchema ::
   -- | 'schemaArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteSchema
 newDeleteSchema pSchemaArn_ =
   DeleteSchema' {schemaArn = pSchemaArn_}
 
 -- | The Amazon Resource Name (ARN) of the development schema. For more
 -- information, see arns.
-deleteSchema_schemaArn :: Lens.Lens' DeleteSchema Core.Text
+deleteSchema_schemaArn :: Lens.Lens' DeleteSchema Prelude.Text
 deleteSchema_schemaArn = Lens.lens (\DeleteSchema' {schemaArn} -> schemaArn) (\s@DeleteSchema' {} a -> s {schemaArn = a} :: DeleteSchema)
 
 instance Core.AWSRequest DeleteSchema where
@@ -83,39 +84,39 @@ instance Core.AWSRequest DeleteSchema where
     Response.receiveJSON
       ( \s h x ->
           DeleteSchemaResponse'
-            Core.<$> (x Core..?> "SchemaArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SchemaArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteSchema
+instance Prelude.Hashable DeleteSchema
 
-instance Core.NFData DeleteSchema
+instance Prelude.NFData DeleteSchema
 
 instance Core.ToHeaders DeleteSchema where
   toHeaders DeleteSchema' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# schemaArn]
 
 instance Core.ToJSON DeleteSchema where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DeleteSchema where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/schema"
 
 instance Core.ToQuery DeleteSchema where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSchemaResponse' smart constructor.
 data DeleteSchemaResponse = DeleteSchemaResponse'
   { -- | The input ARN that is returned as part of the response. For more
     -- information, see arns.
-    schemaArn :: Core.Maybe Core.Text,
+    schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSchemaResponse' with all optional fields omitted.
@@ -131,21 +132,21 @@ data DeleteSchemaResponse = DeleteSchemaResponse'
 -- 'httpStatus', 'deleteSchemaResponse_httpStatus' - The response's http status code.
 newDeleteSchemaResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteSchemaResponse
 newDeleteSchemaResponse pHttpStatus_ =
   DeleteSchemaResponse'
-    { schemaArn = Core.Nothing,
+    { schemaArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The input ARN that is returned as part of the response. For more
 -- information, see arns.
-deleteSchemaResponse_schemaArn :: Lens.Lens' DeleteSchemaResponse (Core.Maybe Core.Text)
+deleteSchemaResponse_schemaArn :: Lens.Lens' DeleteSchemaResponse (Prelude.Maybe Prelude.Text)
 deleteSchemaResponse_schemaArn = Lens.lens (\DeleteSchemaResponse' {schemaArn} -> schemaArn) (\s@DeleteSchemaResponse' {} a -> s {schemaArn = a} :: DeleteSchemaResponse)
 
 -- | The response's http status code.
-deleteSchemaResponse_httpStatus :: Lens.Lens' DeleteSchemaResponse Core.Int
+deleteSchemaResponse_httpStatus :: Lens.Lens' DeleteSchemaResponse Prelude.Int
 deleteSchemaResponse_httpStatus = Lens.lens (\DeleteSchemaResponse' {httpStatus} -> httpStatus) (\s@DeleteSchemaResponse' {} a -> s {httpStatus = a} :: DeleteSchemaResponse)
 
-instance Core.NFData DeleteSchemaResponse
+instance Prelude.NFData DeleteSchemaResponse

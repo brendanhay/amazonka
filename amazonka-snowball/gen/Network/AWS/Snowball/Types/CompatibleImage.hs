@@ -21,6 +21,7 @@ module Network.AWS.Snowball.Types.CompatibleImage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A JSON-formatted object that describes a compatible Amazon Machine Image
 -- (AMI), including the ID and name for a Snow device AMI. This AMI is
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newCompatibleImage' smart constructor.
 data CompatibleImage = CompatibleImage'
   { -- | The unique identifier for an individual Snow device AMI.
-    amiId :: Core.Maybe Core.Text,
+    amiId :: Prelude.Maybe Prelude.Text,
     -- | The optional name of a compatible image.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CompatibleImage' with all optional fields omitted.
@@ -51,16 +52,16 @@ newCompatibleImage ::
   CompatibleImage
 newCompatibleImage =
   CompatibleImage'
-    { amiId = Core.Nothing,
-      name = Core.Nothing
+    { amiId = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The unique identifier for an individual Snow device AMI.
-compatibleImage_amiId :: Lens.Lens' CompatibleImage (Core.Maybe Core.Text)
+compatibleImage_amiId :: Lens.Lens' CompatibleImage (Prelude.Maybe Prelude.Text)
 compatibleImage_amiId = Lens.lens (\CompatibleImage' {amiId} -> amiId) (\s@CompatibleImage' {} a -> s {amiId = a} :: CompatibleImage)
 
 -- | The optional name of a compatible image.
-compatibleImage_name :: Lens.Lens' CompatibleImage (Core.Maybe Core.Text)
+compatibleImage_name :: Lens.Lens' CompatibleImage (Prelude.Maybe Prelude.Text)
 compatibleImage_name = Lens.lens (\CompatibleImage' {name} -> name) (\s@CompatibleImage' {} a -> s {name = a} :: CompatibleImage)
 
 instance Core.FromJSON CompatibleImage where
@@ -69,9 +70,9 @@ instance Core.FromJSON CompatibleImage where
       "CompatibleImage"
       ( \x ->
           CompatibleImage'
-            Core.<$> (x Core..:? "AmiId") Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "AmiId") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable CompatibleImage
+instance Prelude.Hashable CompatibleImage
 
-instance Core.NFData CompatibleImage
+instance Prelude.NFData CompatibleImage

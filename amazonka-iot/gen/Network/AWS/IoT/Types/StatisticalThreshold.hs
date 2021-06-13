@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.StatisticalThreshold where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A statistical ranking (percentile) that indicates a threshold value by
 -- which a behavior is determined to be in compliance or in violation of
@@ -37,9 +38,9 @@ data StatisticalThreshold = StatisticalThreshold'
     -- the value associated with the percentile specified, then the device is
     -- considered to be in compliance with the behavior, otherwise a violation
     -- occurs.
-    statistic :: Core.Maybe Core.Text
+    statistic :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StatisticalThreshold' with all optional fields omitted.
@@ -61,7 +62,7 @@ data StatisticalThreshold = StatisticalThreshold'
 newStatisticalThreshold ::
   StatisticalThreshold
 newStatisticalThreshold =
-  StatisticalThreshold' {statistic = Core.Nothing}
+  StatisticalThreshold' {statistic = Prelude.Nothing}
 
 -- | The percentile that resolves to a threshold value by which compliance
 -- with a behavior is determined. Metrics are collected over the specified
@@ -72,7 +73,7 @@ newStatisticalThreshold =
 -- the value associated with the percentile specified, then the device is
 -- considered to be in compliance with the behavior, otherwise a violation
 -- occurs.
-statisticalThreshold_statistic :: Lens.Lens' StatisticalThreshold (Core.Maybe Core.Text)
+statisticalThreshold_statistic :: Lens.Lens' StatisticalThreshold (Prelude.Maybe Prelude.Text)
 statisticalThreshold_statistic = Lens.lens (\StatisticalThreshold' {statistic} -> statistic) (\s@StatisticalThreshold' {} a -> s {statistic = a} :: StatisticalThreshold)
 
 instance Core.FromJSON StatisticalThreshold where
@@ -81,16 +82,16 @@ instance Core.FromJSON StatisticalThreshold where
       "StatisticalThreshold"
       ( \x ->
           StatisticalThreshold'
-            Core.<$> (x Core..:? "statistic")
+            Prelude.<$> (x Core..:? "statistic")
       )
 
-instance Core.Hashable StatisticalThreshold
+instance Prelude.Hashable StatisticalThreshold
 
-instance Core.NFData StatisticalThreshold
+instance Prelude.NFData StatisticalThreshold
 
 instance Core.ToJSON StatisticalThreshold where
   toJSON StatisticalThreshold' {..} =
     Core.object
-      ( Core.catMaybes
-          [("statistic" Core..=) Core.<$> statistic]
+      ( Prelude.catMaybes
+          [("statistic" Core..=) Prelude.<$> statistic]
       )

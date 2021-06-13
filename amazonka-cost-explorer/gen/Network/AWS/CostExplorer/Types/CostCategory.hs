@@ -24,6 +24,7 @@ import Network.AWS.CostExplorer.Types.CostCategoryProcessingStatus
 import Network.AWS.CostExplorer.Types.CostCategoryRule
 import Network.AWS.CostExplorer.Types.CostCategoryRuleVersion
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The structure of Cost Categories. This includes detailed metadata and
 -- the set of rules for the @CostCategory@ object.
@@ -32,21 +33,21 @@ import qualified Network.AWS.Lens as Lens
 data CostCategory = CostCategory'
   { -- | The list of processing statuses for Cost Management products for a
     -- specific cost category.
-    processingStatus :: Core.Maybe [CostCategoryProcessingStatus],
+    processingStatus :: Prelude.Maybe [CostCategoryProcessingStatus],
     -- | The Cost Category\'s effective end date.
-    effectiveEnd :: Core.Maybe Core.Text,
+    effectiveEnd :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for your Cost Category.
-    costCategoryArn :: Core.Text,
+    costCategoryArn :: Prelude.Text,
     -- | The Cost Category\'s effective start date.
-    effectiveStart :: Core.Text,
-    name :: Core.Text,
+    effectiveStart :: Prelude.Text,
+    name :: Prelude.Text,
     ruleVersion :: CostCategoryRuleVersion,
     -- | Rules are processed in order. If there are multiple rules that match the
     -- line item, then the first rule to match is used to determine that Cost
     -- Category value.
-    rules :: Core.NonEmpty CostCategoryRule
+    rules :: Prelude.NonEmpty CostCategoryRule
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CostCategory' with all optional fields omitted.
@@ -74,15 +75,15 @@ data CostCategory = CostCategory'
 -- Category value.
 newCostCategory ::
   -- | 'costCategoryArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'effectiveStart'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'ruleVersion'
   CostCategoryRuleVersion ->
   -- | 'rules'
-  Core.NonEmpty CostCategoryRule ->
+  Prelude.NonEmpty CostCategoryRule ->
   CostCategory
 newCostCategory
   pCostCategoryArn_
@@ -91,8 +92,8 @@ newCostCategory
   pRuleVersion_
   pRules_ =
     CostCategory'
-      { processingStatus = Core.Nothing,
-        effectiveEnd = Core.Nothing,
+      { processingStatus = Prelude.Nothing,
+        effectiveEnd = Prelude.Nothing,
         costCategoryArn = pCostCategoryArn_,
         effectiveStart = pEffectiveStart_,
         name = pName_,
@@ -102,23 +103,23 @@ newCostCategory
 
 -- | The list of processing statuses for Cost Management products for a
 -- specific cost category.
-costCategory_processingStatus :: Lens.Lens' CostCategory (Core.Maybe [CostCategoryProcessingStatus])
-costCategory_processingStatus = Lens.lens (\CostCategory' {processingStatus} -> processingStatus) (\s@CostCategory' {} a -> s {processingStatus = a} :: CostCategory) Core.. Lens.mapping Lens._Coerce
+costCategory_processingStatus :: Lens.Lens' CostCategory (Prelude.Maybe [CostCategoryProcessingStatus])
+costCategory_processingStatus = Lens.lens (\CostCategory' {processingStatus} -> processingStatus) (\s@CostCategory' {} a -> s {processingStatus = a} :: CostCategory) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Cost Category\'s effective end date.
-costCategory_effectiveEnd :: Lens.Lens' CostCategory (Core.Maybe Core.Text)
+costCategory_effectiveEnd :: Lens.Lens' CostCategory (Prelude.Maybe Prelude.Text)
 costCategory_effectiveEnd = Lens.lens (\CostCategory' {effectiveEnd} -> effectiveEnd) (\s@CostCategory' {} a -> s {effectiveEnd = a} :: CostCategory)
 
 -- | The unique identifier for your Cost Category.
-costCategory_costCategoryArn :: Lens.Lens' CostCategory Core.Text
+costCategory_costCategoryArn :: Lens.Lens' CostCategory Prelude.Text
 costCategory_costCategoryArn = Lens.lens (\CostCategory' {costCategoryArn} -> costCategoryArn) (\s@CostCategory' {} a -> s {costCategoryArn = a} :: CostCategory)
 
 -- | The Cost Category\'s effective start date.
-costCategory_effectiveStart :: Lens.Lens' CostCategory Core.Text
+costCategory_effectiveStart :: Lens.Lens' CostCategory Prelude.Text
 costCategory_effectiveStart = Lens.lens (\CostCategory' {effectiveStart} -> effectiveStart) (\s@CostCategory' {} a -> s {effectiveStart = a} :: CostCategory)
 
 -- | Undocumented member.
-costCategory_name :: Lens.Lens' CostCategory Core.Text
+costCategory_name :: Lens.Lens' CostCategory Prelude.Text
 costCategory_name = Lens.lens (\CostCategory' {name} -> name) (\s@CostCategory' {} a -> s {name = a} :: CostCategory)
 
 -- | Undocumented member.
@@ -128,8 +129,8 @@ costCategory_ruleVersion = Lens.lens (\CostCategory' {ruleVersion} -> ruleVersio
 -- | Rules are processed in order. If there are multiple rules that match the
 -- line item, then the first rule to match is used to determine that Cost
 -- Category value.
-costCategory_rules :: Lens.Lens' CostCategory (Core.NonEmpty CostCategoryRule)
-costCategory_rules = Lens.lens (\CostCategory' {rules} -> rules) (\s@CostCategory' {} a -> s {rules = a} :: CostCategory) Core.. Lens._Coerce
+costCategory_rules :: Lens.Lens' CostCategory (Prelude.NonEmpty CostCategoryRule)
+costCategory_rules = Lens.lens (\CostCategory' {rules} -> rules) (\s@CostCategory' {} a -> s {rules = a} :: CostCategory) Prelude.. Lens._Coerce
 
 instance Core.FromJSON CostCategory where
   parseJSON =
@@ -137,15 +138,17 @@ instance Core.FromJSON CostCategory where
       "CostCategory"
       ( \x ->
           CostCategory'
-            Core.<$> (x Core..:? "ProcessingStatus" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "EffectiveEnd")
-            Core.<*> (x Core..: "CostCategoryArn")
-            Core.<*> (x Core..: "EffectiveStart")
-            Core.<*> (x Core..: "Name")
-            Core.<*> (x Core..: "RuleVersion")
-            Core.<*> (x Core..: "Rules")
+            Prelude.<$> ( x Core..:? "ProcessingStatus"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "EffectiveEnd")
+            Prelude.<*> (x Core..: "CostCategoryArn")
+            Prelude.<*> (x Core..: "EffectiveStart")
+            Prelude.<*> (x Core..: "Name")
+            Prelude.<*> (x Core..: "RuleVersion")
+            Prelude.<*> (x Core..: "Rules")
       )
 
-instance Core.Hashable CostCategory
+instance Prelude.Hashable CostCategory
 
-instance Core.NFData CostCategory
+instance Prelude.NFData CostCategory

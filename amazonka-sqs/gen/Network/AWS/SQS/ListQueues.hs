@@ -62,6 +62,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -71,18 +72,18 @@ import Network.AWS.SQS.Types
 -- /See:/ 'newListQueues' smart constructor.
 data ListQueues = ListQueues'
   { -- | Pagination token to request the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of results to include in the response. Value range is 1
     -- to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in
     -- the response.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | A string to use for filtering the list results. Only those queues whose
     -- name begins with the specified string are returned.
     --
     -- Queue URLs and names are case-sensitive.
-    queueNamePrefix :: Core.Maybe Core.Text
+    queueNamePrefix :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListQueues' with all optional fields omitted.
@@ -106,46 +107,46 @@ newListQueues ::
   ListQueues
 newListQueues =
   ListQueues'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      queueNamePrefix = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      queueNamePrefix = Prelude.Nothing
     }
 
 -- | Pagination token to request the next set of results.
-listQueues_nextToken :: Lens.Lens' ListQueues (Core.Maybe Core.Text)
+listQueues_nextToken :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Text)
 listQueues_nextToken = Lens.lens (\ListQueues' {nextToken} -> nextToken) (\s@ListQueues' {} a -> s {nextToken = a} :: ListQueues)
 
 -- | Maximum number of results to include in the response. Value range is 1
 -- to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in
 -- the response.
-listQueues_maxResults :: Lens.Lens' ListQueues (Core.Maybe Core.Int)
+listQueues_maxResults :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Int)
 listQueues_maxResults = Lens.lens (\ListQueues' {maxResults} -> maxResults) (\s@ListQueues' {} a -> s {maxResults = a} :: ListQueues)
 
 -- | A string to use for filtering the list results. Only those queues whose
 -- name begins with the specified string are returned.
 --
 -- Queue URLs and names are case-sensitive.
-listQueues_queueNamePrefix :: Lens.Lens' ListQueues (Core.Maybe Core.Text)
+listQueues_queueNamePrefix :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Text)
 listQueues_queueNamePrefix = Lens.lens (\ListQueues' {queueNamePrefix} -> queueNamePrefix) (\s@ListQueues' {} a -> s {queueNamePrefix = a} :: ListQueues)
 
 instance Core.AWSPager ListQueues where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listQueuesResponse_nextToken Core.. Lens._Just
+            Lens.^? listQueuesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listQueuesResponse_queueUrls Core.. Lens._Just
+            Lens.^? listQueuesResponse_queueUrls Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listQueues_nextToken
+          Prelude.& listQueues_nextToken
           Lens..~ rs
-          Lens.^? listQueuesResponse_nextToken Core.. Lens._Just
+          Lens.^? listQueuesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListQueues where
   type AWSResponse ListQueues = ListQueuesResponse
@@ -155,26 +156,28 @@ instance Core.AWSRequest ListQueues where
       "ListQueuesResult"
       ( \s h x ->
           ListQueuesResponse'
-            Core.<$> (x Core..@? "NextToken")
-            Core.<*> (Core.may (Core.parseXMLList "QueueUrl") x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> (Core.may (Core.parseXMLList "QueueUrl") x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListQueues
+instance Prelude.Hashable ListQueues
 
-instance Core.NFData ListQueues
+instance Prelude.NFData ListQueues
 
 instance Core.ToHeaders ListQueues where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListQueues where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListQueues where
   toQuery ListQueues' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("ListQueues" :: Core.ByteString),
-        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ListQueues" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-11-05" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "MaxResults" Core.=: maxResults,
         "QueueNamePrefix" Core.=: queueNamePrefix
@@ -187,14 +190,14 @@ data ListQueuesResponse = ListQueuesResponse'
   { -- | Pagination token to include in the next request. Token value is @null@
     -- if there are no additional results to request, or if you did not set
     -- @MaxResults@ in the request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of queue URLs, up to 1,000 entries, or the value of MaxResults
     -- that you sent in the request.
-    queueUrls :: Core.Maybe [Core.Text],
+    queueUrls :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListQueuesResponse' with all optional fields omitted.
@@ -214,28 +217,28 @@ data ListQueuesResponse = ListQueuesResponse'
 -- 'httpStatus', 'listQueuesResponse_httpStatus' - The response's http status code.
 newListQueuesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListQueuesResponse
 newListQueuesResponse pHttpStatus_ =
   ListQueuesResponse'
-    { nextToken = Core.Nothing,
-      queueUrls = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      queueUrls = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Pagination token to include in the next request. Token value is @null@
 -- if there are no additional results to request, or if you did not set
 -- @MaxResults@ in the request.
-listQueuesResponse_nextToken :: Lens.Lens' ListQueuesResponse (Core.Maybe Core.Text)
+listQueuesResponse_nextToken :: Lens.Lens' ListQueuesResponse (Prelude.Maybe Prelude.Text)
 listQueuesResponse_nextToken = Lens.lens (\ListQueuesResponse' {nextToken} -> nextToken) (\s@ListQueuesResponse' {} a -> s {nextToken = a} :: ListQueuesResponse)
 
 -- | A list of queue URLs, up to 1,000 entries, or the value of MaxResults
 -- that you sent in the request.
-listQueuesResponse_queueUrls :: Lens.Lens' ListQueuesResponse (Core.Maybe [Core.Text])
-listQueuesResponse_queueUrls = Lens.lens (\ListQueuesResponse' {queueUrls} -> queueUrls) (\s@ListQueuesResponse' {} a -> s {queueUrls = a} :: ListQueuesResponse) Core.. Lens.mapping Lens._Coerce
+listQueuesResponse_queueUrls :: Lens.Lens' ListQueuesResponse (Prelude.Maybe [Prelude.Text])
+listQueuesResponse_queueUrls = Lens.lens (\ListQueuesResponse' {queueUrls} -> queueUrls) (\s@ListQueuesResponse' {} a -> s {queueUrls = a} :: ListQueuesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listQueuesResponse_httpStatus :: Lens.Lens' ListQueuesResponse Core.Int
+listQueuesResponse_httpStatus :: Lens.Lens' ListQueuesResponse Prelude.Int
 listQueuesResponse_httpStatus = Lens.lens (\ListQueuesResponse' {httpStatus} -> httpStatus) (\s@ListQueuesResponse' {} a -> s {httpStatus = a} :: ListQueuesResponse)
 
-instance Core.NFData ListQueuesResponse
+instance Prelude.NFData ListQueuesResponse

@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +58,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateLoadBalancerListeners' smart constructor.
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners'
   { -- | The name of the load balancer.
-    loadBalancerName :: Core.Text,
+    loadBalancerName :: Prelude.Text,
     -- | The listeners.
     listeners :: [Listener]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLoadBalancerListeners' with all optional fields omitted.
@@ -76,22 +77,22 @@ data CreateLoadBalancerListeners = CreateLoadBalancerListeners'
 -- 'listeners', 'createLoadBalancerListeners_listeners' - The listeners.
 newCreateLoadBalancerListeners ::
   -- | 'loadBalancerName'
-  Core.Text ->
+  Prelude.Text ->
   CreateLoadBalancerListeners
 newCreateLoadBalancerListeners pLoadBalancerName_ =
   CreateLoadBalancerListeners'
     { loadBalancerName =
         pLoadBalancerName_,
-      listeners = Core.mempty
+      listeners = Prelude.mempty
     }
 
 -- | The name of the load balancer.
-createLoadBalancerListeners_loadBalancerName :: Lens.Lens' CreateLoadBalancerListeners Core.Text
+createLoadBalancerListeners_loadBalancerName :: Lens.Lens' CreateLoadBalancerListeners Prelude.Text
 createLoadBalancerListeners_loadBalancerName = Lens.lens (\CreateLoadBalancerListeners' {loadBalancerName} -> loadBalancerName) (\s@CreateLoadBalancerListeners' {} a -> s {loadBalancerName = a} :: CreateLoadBalancerListeners)
 
 -- | The listeners.
 createLoadBalancerListeners_listeners :: Lens.Lens' CreateLoadBalancerListeners [Listener]
-createLoadBalancerListeners_listeners = Lens.lens (\CreateLoadBalancerListeners' {listeners} -> listeners) (\s@CreateLoadBalancerListeners' {} a -> s {listeners = a} :: CreateLoadBalancerListeners) Core.. Lens._Coerce
+createLoadBalancerListeners_listeners = Lens.lens (\CreateLoadBalancerListeners' {listeners} -> listeners) (\s@CreateLoadBalancerListeners' {} a -> s {listeners = a} :: CreateLoadBalancerListeners) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateLoadBalancerListeners where
   type
@@ -103,25 +104,28 @@ instance Core.AWSRequest CreateLoadBalancerListeners where
       "CreateLoadBalancerListenersResult"
       ( \s h x ->
           CreateLoadBalancerListenersResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateLoadBalancerListeners
+instance Prelude.Hashable CreateLoadBalancerListeners
 
-instance Core.NFData CreateLoadBalancerListeners
+instance Prelude.NFData CreateLoadBalancerListeners
 
 instance Core.ToHeaders CreateLoadBalancerListeners where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateLoadBalancerListeners where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateLoadBalancerListeners where
   toQuery CreateLoadBalancerListeners' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateLoadBalancerListeners" :: Core.ByteString),
-        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+          Core.=: ( "CreateLoadBalancerListeners" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2012-06-01" :: Prelude.ByteString),
         "LoadBalancerName" Core.=: loadBalancerName,
         "Listeners"
           Core.=: Core.toQueryList "member" listeners
@@ -132,9 +136,9 @@ instance Core.ToQuery CreateLoadBalancerListeners where
 -- /See:/ 'newCreateLoadBalancerListenersResponse' smart constructor.
 data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLoadBalancerListenersResponse' with all optional fields omitted.
@@ -147,7 +151,7 @@ data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse'
 -- 'httpStatus', 'createLoadBalancerListenersResponse_httpStatus' - The response's http status code.
 newCreateLoadBalancerListenersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateLoadBalancerListenersResponse
 newCreateLoadBalancerListenersResponse pHttpStatus_ =
   CreateLoadBalancerListenersResponse'
@@ -156,9 +160,9 @@ newCreateLoadBalancerListenersResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createLoadBalancerListenersResponse_httpStatus :: Lens.Lens' CreateLoadBalancerListenersResponse Core.Int
+createLoadBalancerListenersResponse_httpStatus :: Lens.Lens' CreateLoadBalancerListenersResponse Prelude.Int
 createLoadBalancerListenersResponse_httpStatus = Lens.lens (\CreateLoadBalancerListenersResponse' {httpStatus} -> httpStatus) (\s@CreateLoadBalancerListenersResponse' {} a -> s {httpStatus = a} :: CreateLoadBalancerListenersResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateLoadBalancerListenersResponse

@@ -58,12 +58,13 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateTaskSet' smart constructor.
 data CreateTaskSet = CreateTaskSet'
-  { networkConfiguration :: Core.Maybe NetworkConfiguration,
+  { networkConfiguration :: Prelude.Maybe NetworkConfiguration,
     -- | The capacity provider strategy to use for the task set.
     --
     -- A capacity provider strategy consists of one or more capacity providers
@@ -90,7 +91,7 @@ data CreateTaskSet = CreateTaskSet'
     -- The PutClusterCapacityProviders API operation is used to update the list
     -- of available capacity providers for a cluster after the cluster is
     -- created.
-    capacityProviderStrategy :: Core.Maybe [CapacityProviderStrategyItem],
+    capacityProviderStrategy :: Prelude.Maybe [CapacityProviderStrategyItem],
     -- | The launch type that new tasks in the task set will use. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types>
@@ -98,16 +99,16 @@ data CreateTaskSet = CreateTaskSet'
     --
     -- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
     -- must be omitted.
-    launchType :: Core.Maybe LaunchType,
+    launchType :: Prelude.Maybe LaunchType,
     -- | The platform version that the tasks in the task set should use. A
     -- platform version is specified only for tasks using the Fargate launch
     -- type. If one isn\'t specified, the @LATEST@ platform version is used by
     -- default.
-    platformVersion :: Core.Maybe Core.Text,
+    platformVersion :: Prelude.Maybe Prelude.Text,
     -- | A load balancer object representing the load balancer to use with the
     -- task set. The supported load balancer types are either an Application
     -- Load Balancer or a Network Load Balancer.
-    loadBalancers :: Core.Maybe [LoadBalancer],
+    loadBalancers :: Prelude.Maybe [LoadBalancer],
     -- | The metadata that you apply to the task set to help you categorize and
     -- organize them. Each tag consists of a key and an optional value, both of
     -- which you define. When a service is deleted, the tags are deleted as
@@ -137,31 +138,31 @@ data CreateTaskSet = CreateTaskSet'
     --     use. You cannot edit or delete tag keys or values with this prefix.
     --     Tags with this prefix do not count against your tags per resource
     --     limit.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The details of the service discovery registries to assign to this task
     -- set. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
-    serviceRegistries :: Core.Maybe [ServiceRegistry],
+    serviceRegistries :: Prelude.Maybe [ServiceRegistry],
     -- | An optional non-unique tag that identifies this task set in external
     -- systems. If the task set is associated with a service discovery
     -- registry, the tasks in this task set will have the
     -- @ECS_TASK_SET_EXTERNAL_ID@ AWS Cloud Map attribute set to the provided
     -- value.
-    externalId :: Core.Maybe Core.Text,
-    scale :: Core.Maybe Scale,
+    externalId :: Prelude.Maybe Prelude.Text,
+    scale :: Prelude.Maybe Scale,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Up to 32 ASCII characters are allowed.
-    clientToken :: Core.Maybe Core.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the service to
     -- create the task set in.
-    service :: Core.Text,
+    service :: Prelude.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the service to create the task set in.
-    cluster :: Core.Text,
+    cluster :: Prelude.Text,
     -- | The task definition for the tasks in the task set to use.
-    taskDefinition :: Core.Text
+    taskDefinition :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTaskSet' with all optional fields omitted.
@@ -271,31 +272,32 @@ data CreateTaskSet = CreateTaskSet'
 -- 'taskDefinition', 'createTaskSet_taskDefinition' - The task definition for the tasks in the task set to use.
 newCreateTaskSet ::
   -- | 'service'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'cluster'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'taskDefinition'
-  Core.Text ->
+  Prelude.Text ->
   CreateTaskSet
 newCreateTaskSet pService_ pCluster_ pTaskDefinition_ =
   CreateTaskSet'
-    { networkConfiguration = Core.Nothing,
-      capacityProviderStrategy = Core.Nothing,
-      launchType = Core.Nothing,
-      platformVersion = Core.Nothing,
-      loadBalancers = Core.Nothing,
-      tags = Core.Nothing,
-      serviceRegistries = Core.Nothing,
-      externalId = Core.Nothing,
-      scale = Core.Nothing,
-      clientToken = Core.Nothing,
+    { networkConfiguration =
+        Prelude.Nothing,
+      capacityProviderStrategy = Prelude.Nothing,
+      launchType = Prelude.Nothing,
+      platformVersion = Prelude.Nothing,
+      loadBalancers = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      serviceRegistries = Prelude.Nothing,
+      externalId = Prelude.Nothing,
+      scale = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       service = pService_,
       cluster = pCluster_,
       taskDefinition = pTaskDefinition_
     }
 
 -- | Undocumented member.
-createTaskSet_networkConfiguration :: Lens.Lens' CreateTaskSet (Core.Maybe NetworkConfiguration)
+createTaskSet_networkConfiguration :: Lens.Lens' CreateTaskSet (Prelude.Maybe NetworkConfiguration)
 createTaskSet_networkConfiguration = Lens.lens (\CreateTaskSet' {networkConfiguration} -> networkConfiguration) (\s@CreateTaskSet' {} a -> s {networkConfiguration = a} :: CreateTaskSet)
 
 -- | The capacity provider strategy to use for the task set.
@@ -324,8 +326,8 @@ createTaskSet_networkConfiguration = Lens.lens (\CreateTaskSet' {networkConfigur
 -- The PutClusterCapacityProviders API operation is used to update the list
 -- of available capacity providers for a cluster after the cluster is
 -- created.
-createTaskSet_capacityProviderStrategy :: Lens.Lens' CreateTaskSet (Core.Maybe [CapacityProviderStrategyItem])
-createTaskSet_capacityProviderStrategy = Lens.lens (\CreateTaskSet' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@CreateTaskSet' {} a -> s {capacityProviderStrategy = a} :: CreateTaskSet) Core.. Lens.mapping Lens._Coerce
+createTaskSet_capacityProviderStrategy :: Lens.Lens' CreateTaskSet (Prelude.Maybe [CapacityProviderStrategyItem])
+createTaskSet_capacityProviderStrategy = Lens.lens (\CreateTaskSet' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@CreateTaskSet' {} a -> s {capacityProviderStrategy = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The launch type that new tasks in the task set will use. For more
 -- information, see
@@ -334,21 +336,21 @@ createTaskSet_capacityProviderStrategy = Lens.lens (\CreateTaskSet' {capacityPro
 --
 -- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
 -- must be omitted.
-createTaskSet_launchType :: Lens.Lens' CreateTaskSet (Core.Maybe LaunchType)
+createTaskSet_launchType :: Lens.Lens' CreateTaskSet (Prelude.Maybe LaunchType)
 createTaskSet_launchType = Lens.lens (\CreateTaskSet' {launchType} -> launchType) (\s@CreateTaskSet' {} a -> s {launchType = a} :: CreateTaskSet)
 
 -- | The platform version that the tasks in the task set should use. A
 -- platform version is specified only for tasks using the Fargate launch
 -- type. If one isn\'t specified, the @LATEST@ platform version is used by
 -- default.
-createTaskSet_platformVersion :: Lens.Lens' CreateTaskSet (Core.Maybe Core.Text)
+createTaskSet_platformVersion :: Lens.Lens' CreateTaskSet (Prelude.Maybe Prelude.Text)
 createTaskSet_platformVersion = Lens.lens (\CreateTaskSet' {platformVersion} -> platformVersion) (\s@CreateTaskSet' {} a -> s {platformVersion = a} :: CreateTaskSet)
 
 -- | A load balancer object representing the load balancer to use with the
 -- task set. The supported load balancer types are either an Application
 -- Load Balancer or a Network Load Balancer.
-createTaskSet_loadBalancers :: Lens.Lens' CreateTaskSet (Core.Maybe [LoadBalancer])
-createTaskSet_loadBalancers = Lens.lens (\CreateTaskSet' {loadBalancers} -> loadBalancers) (\s@CreateTaskSet' {} a -> s {loadBalancers = a} :: CreateTaskSet) Core.. Lens.mapping Lens._Coerce
+createTaskSet_loadBalancers :: Lens.Lens' CreateTaskSet (Prelude.Maybe [LoadBalancer])
+createTaskSet_loadBalancers = Lens.lens (\CreateTaskSet' {loadBalancers} -> loadBalancers) (\s@CreateTaskSet' {} a -> s {loadBalancers = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The metadata that you apply to the task set to help you categorize and
 -- organize them. Each tag consists of a key and an optional value, both of
@@ -379,44 +381,44 @@ createTaskSet_loadBalancers = Lens.lens (\CreateTaskSet' {loadBalancers} -> load
 --     use. You cannot edit or delete tag keys or values with this prefix.
 --     Tags with this prefix do not count against your tags per resource
 --     limit.
-createTaskSet_tags :: Lens.Lens' CreateTaskSet (Core.Maybe [Tag])
-createTaskSet_tags = Lens.lens (\CreateTaskSet' {tags} -> tags) (\s@CreateTaskSet' {} a -> s {tags = a} :: CreateTaskSet) Core.. Lens.mapping Lens._Coerce
+createTaskSet_tags :: Lens.Lens' CreateTaskSet (Prelude.Maybe [Tag])
+createTaskSet_tags = Lens.lens (\CreateTaskSet' {tags} -> tags) (\s@CreateTaskSet' {} a -> s {tags = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The details of the service discovery registries to assign to this task
 -- set. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
-createTaskSet_serviceRegistries :: Lens.Lens' CreateTaskSet (Core.Maybe [ServiceRegistry])
-createTaskSet_serviceRegistries = Lens.lens (\CreateTaskSet' {serviceRegistries} -> serviceRegistries) (\s@CreateTaskSet' {} a -> s {serviceRegistries = a} :: CreateTaskSet) Core.. Lens.mapping Lens._Coerce
+createTaskSet_serviceRegistries :: Lens.Lens' CreateTaskSet (Prelude.Maybe [ServiceRegistry])
+createTaskSet_serviceRegistries = Lens.lens (\CreateTaskSet' {serviceRegistries} -> serviceRegistries) (\s@CreateTaskSet' {} a -> s {serviceRegistries = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional non-unique tag that identifies this task set in external
 -- systems. If the task set is associated with a service discovery
 -- registry, the tasks in this task set will have the
 -- @ECS_TASK_SET_EXTERNAL_ID@ AWS Cloud Map attribute set to the provided
 -- value.
-createTaskSet_externalId :: Lens.Lens' CreateTaskSet (Core.Maybe Core.Text)
+createTaskSet_externalId :: Lens.Lens' CreateTaskSet (Prelude.Maybe Prelude.Text)
 createTaskSet_externalId = Lens.lens (\CreateTaskSet' {externalId} -> externalId) (\s@CreateTaskSet' {} a -> s {externalId = a} :: CreateTaskSet)
 
 -- | Undocumented member.
-createTaskSet_scale :: Lens.Lens' CreateTaskSet (Core.Maybe Scale)
+createTaskSet_scale :: Lens.Lens' CreateTaskSet (Prelude.Maybe Scale)
 createTaskSet_scale = Lens.lens (\CreateTaskSet' {scale} -> scale) (\s@CreateTaskSet' {} a -> s {scale = a} :: CreateTaskSet)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Up to 32 ASCII characters are allowed.
-createTaskSet_clientToken :: Lens.Lens' CreateTaskSet (Core.Maybe Core.Text)
+createTaskSet_clientToken :: Lens.Lens' CreateTaskSet (Prelude.Maybe Prelude.Text)
 createTaskSet_clientToken = Lens.lens (\CreateTaskSet' {clientToken} -> clientToken) (\s@CreateTaskSet' {} a -> s {clientToken = a} :: CreateTaskSet)
 
 -- | The short name or full Amazon Resource Name (ARN) of the service to
 -- create the task set in.
-createTaskSet_service :: Lens.Lens' CreateTaskSet Core.Text
+createTaskSet_service :: Lens.Lens' CreateTaskSet Prelude.Text
 createTaskSet_service = Lens.lens (\CreateTaskSet' {service} -> service) (\s@CreateTaskSet' {} a -> s {service = a} :: CreateTaskSet)
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the service to create the task set in.
-createTaskSet_cluster :: Lens.Lens' CreateTaskSet Core.Text
+createTaskSet_cluster :: Lens.Lens' CreateTaskSet Prelude.Text
 createTaskSet_cluster = Lens.lens (\CreateTaskSet' {cluster} -> cluster) (\s@CreateTaskSet' {} a -> s {cluster = a} :: CreateTaskSet)
 
 -- | The task definition for the tasks in the task set to use.
-createTaskSet_taskDefinition :: Lens.Lens' CreateTaskSet Core.Text
+createTaskSet_taskDefinition :: Lens.Lens' CreateTaskSet Prelude.Text
 createTaskSet_taskDefinition = Lens.lens (\CreateTaskSet' {taskDefinition} -> taskDefinition) (\s@CreateTaskSet' {} a -> s {taskDefinition = a} :: CreateTaskSet)
 
 instance Core.AWSRequest CreateTaskSet where
@@ -428,63 +430,67 @@ instance Core.AWSRequest CreateTaskSet where
     Response.receiveJSON
       ( \s h x ->
           CreateTaskSetResponse'
-            Core.<$> (x Core..?> "taskSet")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "taskSet")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateTaskSet
+instance Prelude.Hashable CreateTaskSet
 
-instance Core.NFData CreateTaskSet
+instance Prelude.NFData CreateTaskSet
 
 instance Core.ToHeaders CreateTaskSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerServiceV20141113.CreateTaskSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateTaskSet where
   toJSON CreateTaskSet' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("networkConfiguration" Core..=)
-              Core.<$> networkConfiguration,
+              Prelude.<$> networkConfiguration,
             ("capacityProviderStrategy" Core..=)
-              Core.<$> capacityProviderStrategy,
-            ("launchType" Core..=) Core.<$> launchType,
-            ("platformVersion" Core..=) Core.<$> platformVersion,
-            ("loadBalancers" Core..=) Core.<$> loadBalancers,
-            ("tags" Core..=) Core.<$> tags,
+              Prelude.<$> capacityProviderStrategy,
+            ("launchType" Core..=) Prelude.<$> launchType,
+            ("platformVersion" Core..=)
+              Prelude.<$> platformVersion,
+            ("loadBalancers" Core..=) Prelude.<$> loadBalancers,
+            ("tags" Core..=) Prelude.<$> tags,
             ("serviceRegistries" Core..=)
-              Core.<$> serviceRegistries,
-            ("externalId" Core..=) Core.<$> externalId,
-            ("scale" Core..=) Core.<$> scale,
-            ("clientToken" Core..=) Core.<$> clientToken,
-            Core.Just ("service" Core..= service),
-            Core.Just ("cluster" Core..= cluster),
-            Core.Just ("taskDefinition" Core..= taskDefinition)
+              Prelude.<$> serviceRegistries,
+            ("externalId" Core..=) Prelude.<$> externalId,
+            ("scale" Core..=) Prelude.<$> scale,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
+            Prelude.Just ("service" Core..= service),
+            Prelude.Just ("cluster" Core..= cluster),
+            Prelude.Just
+              ("taskDefinition" Core..= taskDefinition)
           ]
       )
 
 instance Core.ToPath CreateTaskSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateTaskSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTaskSetResponse' smart constructor.
 data CreateTaskSetResponse = CreateTaskSetResponse'
-  { taskSet :: Core.Maybe TaskSet,
+  { taskSet :: Prelude.Maybe TaskSet,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTaskSetResponse' with all optional fields omitted.
@@ -499,20 +505,20 @@ data CreateTaskSetResponse = CreateTaskSetResponse'
 -- 'httpStatus', 'createTaskSetResponse_httpStatus' - The response's http status code.
 newCreateTaskSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateTaskSetResponse
 newCreateTaskSetResponse pHttpStatus_ =
   CreateTaskSetResponse'
-    { taskSet = Core.Nothing,
+    { taskSet = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createTaskSetResponse_taskSet :: Lens.Lens' CreateTaskSetResponse (Core.Maybe TaskSet)
+createTaskSetResponse_taskSet :: Lens.Lens' CreateTaskSetResponse (Prelude.Maybe TaskSet)
 createTaskSetResponse_taskSet = Lens.lens (\CreateTaskSetResponse' {taskSet} -> taskSet) (\s@CreateTaskSetResponse' {} a -> s {taskSet = a} :: CreateTaskSetResponse)
 
 -- | The response's http status code.
-createTaskSetResponse_httpStatus :: Lens.Lens' CreateTaskSetResponse Core.Int
+createTaskSetResponse_httpStatus :: Lens.Lens' CreateTaskSetResponse Prelude.Int
 createTaskSetResponse_httpStatus = Lens.lens (\CreateTaskSetResponse' {httpStatus} -> httpStatus) (\s@CreateTaskSetResponse' {} a -> s {httpStatus = a} :: CreateTaskSetResponse)
 
-instance Core.NFData CreateTaskSetResponse
+instance Prelude.NFData CreateTaskSetResponse

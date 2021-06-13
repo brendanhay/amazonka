@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.Parent where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The trial that a trial component is associated with and the experiment
 -- the trial is part of. A component might not be associated with a trial.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newParent' smart constructor.
 data Parent = Parent'
   { -- | The name of the experiment.
-    experimentName :: Core.Maybe Core.Text,
+    experimentName :: Prelude.Maybe Prelude.Text,
     -- | The name of the trial.
-    trialName :: Core.Maybe Core.Text
+    trialName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Parent' with all optional fields omitted.
@@ -50,16 +51,16 @@ newParent ::
   Parent
 newParent =
   Parent'
-    { experimentName = Core.Nothing,
-      trialName = Core.Nothing
+    { experimentName = Prelude.Nothing,
+      trialName = Prelude.Nothing
     }
 
 -- | The name of the experiment.
-parent_experimentName :: Lens.Lens' Parent (Core.Maybe Core.Text)
+parent_experimentName :: Lens.Lens' Parent (Prelude.Maybe Prelude.Text)
 parent_experimentName = Lens.lens (\Parent' {experimentName} -> experimentName) (\s@Parent' {} a -> s {experimentName = a} :: Parent)
 
 -- | The name of the trial.
-parent_trialName :: Lens.Lens' Parent (Core.Maybe Core.Text)
+parent_trialName :: Lens.Lens' Parent (Prelude.Maybe Prelude.Text)
 parent_trialName = Lens.lens (\Parent' {trialName} -> trialName) (\s@Parent' {} a -> s {trialName = a} :: Parent)
 
 instance Core.FromJSON Parent where
@@ -68,10 +69,10 @@ instance Core.FromJSON Parent where
       "Parent"
       ( \x ->
           Parent'
-            Core.<$> (x Core..:? "ExperimentName")
-            Core.<*> (x Core..:? "TrialName")
+            Prelude.<$> (x Core..:? "ExperimentName")
+            Prelude.<*> (x Core..:? "TrialName")
       )
 
-instance Core.Hashable Parent
+instance Prelude.Hashable Parent
 
-instance Core.NFData Parent
+instance Prelude.NFData Parent

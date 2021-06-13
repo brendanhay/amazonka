@@ -21,6 +21,7 @@ module Network.AWS.Firehose.Types.HttpEndpointConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the configuration of the HTTP endpoint to which Kinesis
 -- Firehose delivers data.
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 data HttpEndpointConfiguration = HttpEndpointConfiguration'
   { -- | The access key required for Kinesis Firehose to authenticate with the
     -- HTTP endpoint selected as the destination.
-    accessKey :: Core.Maybe (Core.Sensitive Core.Text),
+    accessKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The name of the HTTP endpoint selected as the destination.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The URL of the HTTP endpoint selected as the destination.
-    url :: Core.Sensitive Core.Text
+    url :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HttpEndpointConfiguration' with all optional fields omitted.
@@ -53,39 +54,39 @@ data HttpEndpointConfiguration = HttpEndpointConfiguration'
 -- 'url', 'httpEndpointConfiguration_url' - The URL of the HTTP endpoint selected as the destination.
 newHttpEndpointConfiguration ::
   -- | 'url'
-  Core.Text ->
+  Prelude.Text ->
   HttpEndpointConfiguration
 newHttpEndpointConfiguration pUrl_ =
   HttpEndpointConfiguration'
     { accessKey =
-        Core.Nothing,
-      name = Core.Nothing,
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       url = Core._Sensitive Lens.# pUrl_
     }
 
 -- | The access key required for Kinesis Firehose to authenticate with the
 -- HTTP endpoint selected as the destination.
-httpEndpointConfiguration_accessKey :: Lens.Lens' HttpEndpointConfiguration (Core.Maybe Core.Text)
-httpEndpointConfiguration_accessKey = Lens.lens (\HttpEndpointConfiguration' {accessKey} -> accessKey) (\s@HttpEndpointConfiguration' {} a -> s {accessKey = a} :: HttpEndpointConfiguration) Core.. Lens.mapping Core._Sensitive
+httpEndpointConfiguration_accessKey :: Lens.Lens' HttpEndpointConfiguration (Prelude.Maybe Prelude.Text)
+httpEndpointConfiguration_accessKey = Lens.lens (\HttpEndpointConfiguration' {accessKey} -> accessKey) (\s@HttpEndpointConfiguration' {} a -> s {accessKey = a} :: HttpEndpointConfiguration) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the HTTP endpoint selected as the destination.
-httpEndpointConfiguration_name :: Lens.Lens' HttpEndpointConfiguration (Core.Maybe Core.Text)
+httpEndpointConfiguration_name :: Lens.Lens' HttpEndpointConfiguration (Prelude.Maybe Prelude.Text)
 httpEndpointConfiguration_name = Lens.lens (\HttpEndpointConfiguration' {name} -> name) (\s@HttpEndpointConfiguration' {} a -> s {name = a} :: HttpEndpointConfiguration)
 
 -- | The URL of the HTTP endpoint selected as the destination.
-httpEndpointConfiguration_url :: Lens.Lens' HttpEndpointConfiguration Core.Text
-httpEndpointConfiguration_url = Lens.lens (\HttpEndpointConfiguration' {url} -> url) (\s@HttpEndpointConfiguration' {} a -> s {url = a} :: HttpEndpointConfiguration) Core.. Core._Sensitive
+httpEndpointConfiguration_url :: Lens.Lens' HttpEndpointConfiguration Prelude.Text
+httpEndpointConfiguration_url = Lens.lens (\HttpEndpointConfiguration' {url} -> url) (\s@HttpEndpointConfiguration' {} a -> s {url = a} :: HttpEndpointConfiguration) Prelude.. Core._Sensitive
 
-instance Core.Hashable HttpEndpointConfiguration
+instance Prelude.Hashable HttpEndpointConfiguration
 
-instance Core.NFData HttpEndpointConfiguration
+instance Prelude.NFData HttpEndpointConfiguration
 
 instance Core.ToJSON HttpEndpointConfiguration where
   toJSON HttpEndpointConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AccessKey" Core..=) Core.<$> accessKey,
-            ("Name" Core..=) Core.<$> name,
-            Core.Just ("Url" Core..= url)
+      ( Prelude.catMaybes
+          [ ("AccessKey" Core..=) Prelude.<$> accessKey,
+            ("Name" Core..=) Prelude.<$> name,
+            Prelude.Just ("Url" Core..= url)
           ]
       )

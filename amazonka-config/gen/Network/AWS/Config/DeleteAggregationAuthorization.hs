@@ -40,17 +40,18 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteAggregationAuthorization' smart constructor.
 data DeleteAggregationAuthorization = DeleteAggregationAuthorization'
   { -- | The 12-digit account ID of the account authorized to aggregate data.
-    authorizedAccountId :: Core.Text,
+    authorizedAccountId :: Prelude.Text,
     -- | The region authorized to collect aggregated data.
-    authorizedAwsRegion :: Core.Text
+    authorizedAwsRegion :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAggregationAuthorization' with all optional fields omitted.
@@ -65,9 +66,9 @@ data DeleteAggregationAuthorization = DeleteAggregationAuthorization'
 -- 'authorizedAwsRegion', 'deleteAggregationAuthorization_authorizedAwsRegion' - The region authorized to collect aggregated data.
 newDeleteAggregationAuthorization ::
   -- | 'authorizedAccountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'authorizedAwsRegion'
-  Core.Text ->
+  Prelude.Text ->
   DeleteAggregationAuthorization
 newDeleteAggregationAuthorization
   pAuthorizedAccountId_
@@ -79,11 +80,11 @@ newDeleteAggregationAuthorization
       }
 
 -- | The 12-digit account ID of the account authorized to aggregate data.
-deleteAggregationAuthorization_authorizedAccountId :: Lens.Lens' DeleteAggregationAuthorization Core.Text
+deleteAggregationAuthorization_authorizedAccountId :: Lens.Lens' DeleteAggregationAuthorization Prelude.Text
 deleteAggregationAuthorization_authorizedAccountId = Lens.lens (\DeleteAggregationAuthorization' {authorizedAccountId} -> authorizedAccountId) (\s@DeleteAggregationAuthorization' {} a -> s {authorizedAccountId = a} :: DeleteAggregationAuthorization)
 
 -- | The region authorized to collect aggregated data.
-deleteAggregationAuthorization_authorizedAwsRegion :: Lens.Lens' DeleteAggregationAuthorization Core.Text
+deleteAggregationAuthorization_authorizedAwsRegion :: Lens.Lens' DeleteAggregationAuthorization Prelude.Text
 deleteAggregationAuthorization_authorizedAwsRegion = Lens.lens (\DeleteAggregationAuthorization' {authorizedAwsRegion} -> authorizedAwsRegion) (\s@DeleteAggregationAuthorization' {} a -> s {authorizedAwsRegion = a} :: DeleteAggregationAuthorization)
 
 instance
@@ -98,48 +99,54 @@ instance
     Response.receiveNull
       DeleteAggregationAuthorizationResponse'
 
-instance Core.Hashable DeleteAggregationAuthorization
+instance
+  Prelude.Hashable
+    DeleteAggregationAuthorization
 
-instance Core.NFData DeleteAggregationAuthorization
+instance
+  Prelude.NFData
+    DeleteAggregationAuthorization
 
 instance
   Core.ToHeaders
     DeleteAggregationAuthorization
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.DeleteAggregationAuthorization" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteAggregationAuthorization where
   toJSON DeleteAggregationAuthorization' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("AuthorizedAccountId" Core..= authorizedAccountId),
-            Core.Just
+            Prelude.Just
               ("AuthorizedAwsRegion" Core..= authorizedAwsRegion)
           ]
       )
 
 instance Core.ToPath DeleteAggregationAuthorization where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteAggregationAuthorization where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAggregationAuthorizationResponse' smart constructor.
 data DeleteAggregationAuthorizationResponse = DeleteAggregationAuthorizationResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteAggregationAuthorizationResponse' with all optional fields omitted.
@@ -151,5 +158,5 @@ newDeleteAggregationAuthorizationResponse =
   DeleteAggregationAuthorizationResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteAggregationAuthorizationResponse

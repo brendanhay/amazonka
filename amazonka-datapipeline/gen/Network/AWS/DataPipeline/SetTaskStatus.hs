@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,25 +61,25 @@ data SetTaskStatus = SetTaskStatus'
     -- trace associated with the error. This value is set on the physical
     -- attempt object. It is used to display error information to the user. The
     -- web service does not parse this value.
-    errorStackTrace :: Core.Maybe Core.Text,
+    errorStackTrace :: Prelude.Maybe Prelude.Text,
     -- | If an error occurred during the task, this value specifies a text
     -- description of the error. This value is set on the physical attempt
     -- object. It is used to display error information to the user. The web
     -- service does not parse this value.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | If an error occurred during the task, this value specifies the error
     -- code. This value is set on the physical attempt object. It is used to
     -- display error information to the user. It should not start with string
     -- \"Service_\" which is reserved by the system.
-    errorId :: Core.Maybe Core.Text,
+    errorId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the task assigned to the task runner. This value is provided
     -- in the response for PollForTask.
-    taskId :: Core.Text,
+    taskId :: Prelude.Text,
     -- | If @FINISHED@, the task successfully completed. If @FAILED@, the task
     -- ended unsuccessfully. Preconditions use false.
     taskStatus :: TaskStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetTaskStatus' with all optional fields omitted.
@@ -110,15 +111,15 @@ data SetTaskStatus = SetTaskStatus'
 -- ended unsuccessfully. Preconditions use false.
 newSetTaskStatus ::
   -- | 'taskId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'taskStatus'
   TaskStatus ->
   SetTaskStatus
 newSetTaskStatus pTaskId_ pTaskStatus_ =
   SetTaskStatus'
-    { errorStackTrace = Core.Nothing,
-      errorMessage = Core.Nothing,
-      errorId = Core.Nothing,
+    { errorStackTrace = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      errorId = Prelude.Nothing,
       taskId = pTaskId_,
       taskStatus = pTaskStatus_
     }
@@ -127,26 +128,26 @@ newSetTaskStatus pTaskId_ pTaskStatus_ =
 -- trace associated with the error. This value is set on the physical
 -- attempt object. It is used to display error information to the user. The
 -- web service does not parse this value.
-setTaskStatus_errorStackTrace :: Lens.Lens' SetTaskStatus (Core.Maybe Core.Text)
+setTaskStatus_errorStackTrace :: Lens.Lens' SetTaskStatus (Prelude.Maybe Prelude.Text)
 setTaskStatus_errorStackTrace = Lens.lens (\SetTaskStatus' {errorStackTrace} -> errorStackTrace) (\s@SetTaskStatus' {} a -> s {errorStackTrace = a} :: SetTaskStatus)
 
 -- | If an error occurred during the task, this value specifies a text
 -- description of the error. This value is set on the physical attempt
 -- object. It is used to display error information to the user. The web
 -- service does not parse this value.
-setTaskStatus_errorMessage :: Lens.Lens' SetTaskStatus (Core.Maybe Core.Text)
+setTaskStatus_errorMessage :: Lens.Lens' SetTaskStatus (Prelude.Maybe Prelude.Text)
 setTaskStatus_errorMessage = Lens.lens (\SetTaskStatus' {errorMessage} -> errorMessage) (\s@SetTaskStatus' {} a -> s {errorMessage = a} :: SetTaskStatus)
 
 -- | If an error occurred during the task, this value specifies the error
 -- code. This value is set on the physical attempt object. It is used to
 -- display error information to the user. It should not start with string
 -- \"Service_\" which is reserved by the system.
-setTaskStatus_errorId :: Lens.Lens' SetTaskStatus (Core.Maybe Core.Text)
+setTaskStatus_errorId :: Lens.Lens' SetTaskStatus (Prelude.Maybe Prelude.Text)
 setTaskStatus_errorId = Lens.lens (\SetTaskStatus' {errorId} -> errorId) (\s@SetTaskStatus' {} a -> s {errorId = a} :: SetTaskStatus)
 
 -- | The ID of the task assigned to the task runner. This value is provided
 -- in the response for PollForTask.
-setTaskStatus_taskId :: Lens.Lens' SetTaskStatus Core.Text
+setTaskStatus_taskId :: Lens.Lens' SetTaskStatus Prelude.Text
 setTaskStatus_taskId = Lens.lens (\SetTaskStatus' {taskId} -> taskId) (\s@SetTaskStatus' {} a -> s {taskId = a} :: SetTaskStatus)
 
 -- | If @FINISHED@, the task successfully completed. If @FAILED@, the task
@@ -163,51 +164,53 @@ instance Core.AWSRequest SetTaskStatus where
     Response.receiveEmpty
       ( \s h x ->
           SetTaskStatusResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SetTaskStatus
+instance Prelude.Hashable SetTaskStatus
 
-instance Core.NFData SetTaskStatus
+instance Prelude.NFData SetTaskStatus
 
 instance Core.ToHeaders SetTaskStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DataPipeline.SetTaskStatus" :: Core.ByteString),
+              Core.=# ("DataPipeline.SetTaskStatus" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SetTaskStatus where
   toJSON SetTaskStatus' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("errorStackTrace" Core..=)
-              Core.<$> errorStackTrace,
-            ("errorMessage" Core..=) Core.<$> errorMessage,
-            ("errorId" Core..=) Core.<$> errorId,
-            Core.Just ("taskId" Core..= taskId),
-            Core.Just ("taskStatus" Core..= taskStatus)
+              Prelude.<$> errorStackTrace,
+            ("errorMessage" Core..=) Prelude.<$> errorMessage,
+            ("errorId" Core..=) Prelude.<$> errorId,
+            Prelude.Just ("taskId" Core..= taskId),
+            Prelude.Just ("taskStatus" Core..= taskStatus)
           ]
       )
 
 instance Core.ToPath SetTaskStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetTaskStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of SetTaskStatus.
 --
 -- /See:/ 'newSetTaskStatusResponse' smart constructor.
 data SetTaskStatusResponse = SetTaskStatusResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetTaskStatusResponse' with all optional fields omitted.
@@ -220,13 +223,13 @@ data SetTaskStatusResponse = SetTaskStatusResponse'
 -- 'httpStatus', 'setTaskStatusResponse_httpStatus' - The response's http status code.
 newSetTaskStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SetTaskStatusResponse
 newSetTaskStatusResponse pHttpStatus_ =
   SetTaskStatusResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-setTaskStatusResponse_httpStatus :: Lens.Lens' SetTaskStatusResponse Core.Int
+setTaskStatusResponse_httpStatus :: Lens.Lens' SetTaskStatusResponse Prelude.Int
 setTaskStatusResponse_httpStatus = Lens.lens (\SetTaskStatusResponse' {httpStatus} -> httpStatus) (\s@SetTaskStatusResponse' {} a -> s {httpStatus = a} :: SetTaskStatusResponse)
 
-instance Core.NFData SetTaskStatusResponse
+instance Prelude.NFData SetTaskStatusResponse

@@ -56,6 +56,7 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,17 +66,17 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
     -- (VPC) containing the resources you are using for your custom classifier.
     -- For more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-    vpcConfig :: Core.Maybe VpcConfig,
+    vpcConfig :: Prelude.Maybe VpcConfig,
     -- | Indicates the mode in which the classifier will be trained. The
     -- classifier can be trained in multi-class mode, which identifies one and
     -- only one class for each document, or multi-label mode, which identifies
     -- one or more labels for each document. In multi-label mode, multiple
     -- labels for an individual document are separated by a delimiter. The
     -- default delimiter between labels is a pipe (|).
-    mode :: Core.Maybe DocumentClassifierMode,
+    mode :: Prelude.Maybe DocumentClassifierMode,
     -- | Enables the addition of output results configuration parameters for
     -- custom classifier jobs.
-    outputDataConfig :: Core.Maybe DocumentClassifierOutputDataConfig,
+    outputDataConfig :: Prelude.Maybe DocumentClassifierOutputDataConfig,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -85,20 +86,20 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
     --
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-    volumeKmsKeyId :: Core.Maybe Core.Text,
+    volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Tags to be associated with the document classifier being created. A tag
     -- is a key-value pair that adds as a metadata to a resource used by Amazon
     -- Comprehend. For example, a tag with \"Sales\" as the key might be added
     -- to a resource to indicate its use by the sales department.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | A unique identifier for the request. If you don\'t set the client
     -- request token, Amazon Comprehend generates one.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the document classifier.
-    documentClassifierName :: Core.Text,
+    documentClassifierName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
     -- role that grants Amazon Comprehend read access to your input data.
-    dataAccessRoleArn :: Core.Text,
+    dataAccessRoleArn :: Prelude.Text,
     -- | Specifies the format and location of the input data for the job.
     inputDataConfig :: DocumentClassifierInputDataConfig,
     -- | The language of the input documents. You can specify any of the
@@ -107,7 +108,7 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
     -- or Portuguese (\"pt\"). All documents must be in the same language.
     languageCode :: LanguageCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDocumentClassifier' with all optional fields omitted.
@@ -163,9 +164,9 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
 -- or Portuguese (\"pt\"). All documents must be in the same language.
 newCreateDocumentClassifier ::
   -- | 'documentClassifierName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'dataAccessRoleArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'inputDataConfig'
   DocumentClassifierInputDataConfig ->
   -- | 'languageCode'
@@ -177,12 +178,13 @@ newCreateDocumentClassifier
   pInputDataConfig_
   pLanguageCode_ =
     CreateDocumentClassifier'
-      { vpcConfig = Core.Nothing,
-        mode = Core.Nothing,
-        outputDataConfig = Core.Nothing,
-        volumeKmsKeyId = Core.Nothing,
-        tags = Core.Nothing,
-        clientRequestToken = Core.Nothing,
+      { vpcConfig =
+          Prelude.Nothing,
+        mode = Prelude.Nothing,
+        outputDataConfig = Prelude.Nothing,
+        volumeKmsKeyId = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        clientRequestToken = Prelude.Nothing,
         documentClassifierName = pDocumentClassifierName_,
         dataAccessRoleArn = pDataAccessRoleArn_,
         inputDataConfig = pInputDataConfig_,
@@ -193,7 +195,7 @@ newCreateDocumentClassifier
 -- (VPC) containing the resources you are using for your custom classifier.
 -- For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-createDocumentClassifier_vpcConfig :: Lens.Lens' CreateDocumentClassifier (Core.Maybe VpcConfig)
+createDocumentClassifier_vpcConfig :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe VpcConfig)
 createDocumentClassifier_vpcConfig = Lens.lens (\CreateDocumentClassifier' {vpcConfig} -> vpcConfig) (\s@CreateDocumentClassifier' {} a -> s {vpcConfig = a} :: CreateDocumentClassifier)
 
 -- | Indicates the mode in which the classifier will be trained. The
@@ -202,12 +204,12 @@ createDocumentClassifier_vpcConfig = Lens.lens (\CreateDocumentClassifier' {vpcC
 -- one or more labels for each document. In multi-label mode, multiple
 -- labels for an individual document are separated by a delimiter. The
 -- default delimiter between labels is a pipe (|).
-createDocumentClassifier_mode :: Lens.Lens' CreateDocumentClassifier (Core.Maybe DocumentClassifierMode)
+createDocumentClassifier_mode :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe DocumentClassifierMode)
 createDocumentClassifier_mode = Lens.lens (\CreateDocumentClassifier' {mode} -> mode) (\s@CreateDocumentClassifier' {} a -> s {mode = a} :: CreateDocumentClassifier)
 
 -- | Enables the addition of output results configuration parameters for
 -- custom classifier jobs.
-createDocumentClassifier_outputDataConfig :: Lens.Lens' CreateDocumentClassifier (Core.Maybe DocumentClassifierOutputDataConfig)
+createDocumentClassifier_outputDataConfig :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe DocumentClassifierOutputDataConfig)
 createDocumentClassifier_outputDataConfig = Lens.lens (\CreateDocumentClassifier' {outputDataConfig} -> outputDataConfig) (\s@CreateDocumentClassifier' {} a -> s {outputDataConfig = a} :: CreateDocumentClassifier)
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
@@ -219,28 +221,28 @@ createDocumentClassifier_outputDataConfig = Lens.lens (\CreateDocumentClassifier
 --
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-createDocumentClassifier_volumeKmsKeyId :: Lens.Lens' CreateDocumentClassifier (Core.Maybe Core.Text)
+createDocumentClassifier_volumeKmsKeyId :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
 createDocumentClassifier_volumeKmsKeyId = Lens.lens (\CreateDocumentClassifier' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@CreateDocumentClassifier' {} a -> s {volumeKmsKeyId = a} :: CreateDocumentClassifier)
 
 -- | Tags to be associated with the document classifier being created. A tag
 -- is a key-value pair that adds as a metadata to a resource used by Amazon
 -- Comprehend. For example, a tag with \"Sales\" as the key might be added
 -- to a resource to indicate its use by the sales department.
-createDocumentClassifier_tags :: Lens.Lens' CreateDocumentClassifier (Core.Maybe [Tag])
-createDocumentClassifier_tags = Lens.lens (\CreateDocumentClassifier' {tags} -> tags) (\s@CreateDocumentClassifier' {} a -> s {tags = a} :: CreateDocumentClassifier) Core.. Lens.mapping Lens._Coerce
+createDocumentClassifier_tags :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe [Tag])
+createDocumentClassifier_tags = Lens.lens (\CreateDocumentClassifier' {tags} -> tags) (\s@CreateDocumentClassifier' {} a -> s {tags = a} :: CreateDocumentClassifier) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier for the request. If you don\'t set the client
 -- request token, Amazon Comprehend generates one.
-createDocumentClassifier_clientRequestToken :: Lens.Lens' CreateDocumentClassifier (Core.Maybe Core.Text)
+createDocumentClassifier_clientRequestToken :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
 createDocumentClassifier_clientRequestToken = Lens.lens (\CreateDocumentClassifier' {clientRequestToken} -> clientRequestToken) (\s@CreateDocumentClassifier' {} a -> s {clientRequestToken = a} :: CreateDocumentClassifier)
 
 -- | The name of the document classifier.
-createDocumentClassifier_documentClassifierName :: Lens.Lens' CreateDocumentClassifier Core.Text
+createDocumentClassifier_documentClassifierName :: Lens.Lens' CreateDocumentClassifier Prelude.Text
 createDocumentClassifier_documentClassifierName = Lens.lens (\CreateDocumentClassifier' {documentClassifierName} -> documentClassifierName) (\s@CreateDocumentClassifier' {} a -> s {documentClassifierName = a} :: CreateDocumentClassifier)
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
 -- role that grants Amazon Comprehend read access to your input data.
-createDocumentClassifier_dataAccessRoleArn :: Lens.Lens' CreateDocumentClassifier Core.Text
+createDocumentClassifier_dataAccessRoleArn :: Lens.Lens' CreateDocumentClassifier Prelude.Text
 createDocumentClassifier_dataAccessRoleArn = Lens.lens (\CreateDocumentClassifier' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@CreateDocumentClassifier' {} a -> s {dataAccessRoleArn = a} :: CreateDocumentClassifier)
 
 -- | Specifies the format and location of the input data for the job.
@@ -263,65 +265,68 @@ instance Core.AWSRequest CreateDocumentClassifier where
     Response.receiveJSON
       ( \s h x ->
           CreateDocumentClassifierResponse'
-            Core.<$> (x Core..?> "DocumentClassifierArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DocumentClassifierArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateDocumentClassifier
+instance Prelude.Hashable CreateDocumentClassifier
 
-instance Core.NFData CreateDocumentClassifier
+instance Prelude.NFData CreateDocumentClassifier
 
 instance Core.ToHeaders CreateDocumentClassifier where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.CreateDocumentClassifier" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateDocumentClassifier where
   toJSON CreateDocumentClassifier' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("VpcConfig" Core..=) Core.<$> vpcConfig,
-            ("Mode" Core..=) Core.<$> mode,
+      ( Prelude.catMaybes
+          [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("Mode" Core..=) Prelude.<$> mode,
             ("OutputDataConfig" Core..=)
-              Core.<$> outputDataConfig,
-            ("VolumeKmsKeyId" Core..=) Core.<$> volumeKmsKeyId,
-            ("Tags" Core..=) Core.<$> tags,
+              Prelude.<$> outputDataConfig,
+            ("VolumeKmsKeyId" Core..=)
+              Prelude.<$> volumeKmsKeyId,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("ClientRequestToken" Core..=)
-              Core.<$> clientRequestToken,
-            Core.Just
+              Prelude.<$> clientRequestToken,
+            Prelude.Just
               ( "DocumentClassifierName"
                   Core..= documentClassifierName
               ),
-            Core.Just
+            Prelude.Just
               ("DataAccessRoleArn" Core..= dataAccessRoleArn),
-            Core.Just
+            Prelude.Just
               ("InputDataConfig" Core..= inputDataConfig),
-            Core.Just ("LanguageCode" Core..= languageCode)
+            Prelude.Just ("LanguageCode" Core..= languageCode)
           ]
       )
 
 instance Core.ToPath CreateDocumentClassifier where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateDocumentClassifier where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDocumentClassifierResponse' smart constructor.
 data CreateDocumentClassifierResponse = CreateDocumentClassifierResponse'
   { -- | The Amazon Resource Name (ARN) that identifies the document classifier.
-    documentClassifierArn :: Core.Maybe Core.Text,
+    documentClassifierArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDocumentClassifierResponse' with all optional fields omitted.
@@ -336,21 +341,23 @@ data CreateDocumentClassifierResponse = CreateDocumentClassifierResponse'
 -- 'httpStatus', 'createDocumentClassifierResponse_httpStatus' - The response's http status code.
 newCreateDocumentClassifierResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateDocumentClassifierResponse
 newCreateDocumentClassifierResponse pHttpStatus_ =
   CreateDocumentClassifierResponse'
     { documentClassifierArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the document classifier.
-createDocumentClassifierResponse_documentClassifierArn :: Lens.Lens' CreateDocumentClassifierResponse (Core.Maybe Core.Text)
+createDocumentClassifierResponse_documentClassifierArn :: Lens.Lens' CreateDocumentClassifierResponse (Prelude.Maybe Prelude.Text)
 createDocumentClassifierResponse_documentClassifierArn = Lens.lens (\CreateDocumentClassifierResponse' {documentClassifierArn} -> documentClassifierArn) (\s@CreateDocumentClassifierResponse' {} a -> s {documentClassifierArn = a} :: CreateDocumentClassifierResponse)
 
 -- | The response's http status code.
-createDocumentClassifierResponse_httpStatus :: Lens.Lens' CreateDocumentClassifierResponse Core.Int
+createDocumentClassifierResponse_httpStatus :: Lens.Lens' CreateDocumentClassifierResponse Prelude.Int
 createDocumentClassifierResponse_httpStatus = Lens.lens (\CreateDocumentClassifierResponse' {httpStatus} -> httpStatus) (\s@CreateDocumentClassifierResponse' {} a -> s {httpStatus = a} :: CreateDocumentClassifierResponse)
 
-instance Core.NFData CreateDocumentClassifierResponse
+instance
+  Prelude.NFData
+    CreateDocumentClassifierResponse

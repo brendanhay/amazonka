@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +53,9 @@ import qualified Network.AWS.Response as Response
 data DisassociateEnvironmentOperationsRole = DisassociateEnvironmentOperationsRole'
   { -- | The name of the environment from which to disassociate the operations
     -- role.
-    environmentName :: Core.Text
+    environmentName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateEnvironmentOperationsRole' with all optional fields omitted.
@@ -68,7 +69,7 @@ data DisassociateEnvironmentOperationsRole = DisassociateEnvironmentOperationsRo
 -- role.
 newDisassociateEnvironmentOperationsRole ::
   -- | 'environmentName'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateEnvironmentOperationsRole
 newDisassociateEnvironmentOperationsRole
   pEnvironmentName_ =
@@ -79,7 +80,7 @@ newDisassociateEnvironmentOperationsRole
 
 -- | The name of the environment from which to disassociate the operations
 -- role.
-disassociateEnvironmentOperationsRole_environmentName :: Lens.Lens' DisassociateEnvironmentOperationsRole Core.Text
+disassociateEnvironmentOperationsRole_environmentName :: Lens.Lens' DisassociateEnvironmentOperationsRole Prelude.Text
 disassociateEnvironmentOperationsRole_environmentName = Lens.lens (\DisassociateEnvironmentOperationsRole' {environmentName} -> environmentName) (\s@DisassociateEnvironmentOperationsRole' {} a -> s {environmentName = a} :: DisassociateEnvironmentOperationsRole)
 
 instance
@@ -96,36 +97,37 @@ instance
       DisassociateEnvironmentOperationsRoleResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DisassociateEnvironmentOperationsRole
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateEnvironmentOperationsRole
 
 instance
   Core.ToHeaders
     DisassociateEnvironmentOperationsRole
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     DisassociateEnvironmentOperationsRole
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DisassociateEnvironmentOperationsRole
   where
   toQuery DisassociateEnvironmentOperationsRole' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DisassociateEnvironmentOperationsRole" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "EnvironmentName" Core.=: environmentName
       ]
 
@@ -133,7 +135,7 @@ instance
 data DisassociateEnvironmentOperationsRoleResponse = DisassociateEnvironmentOperationsRoleResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateEnvironmentOperationsRoleResponse' with all optional fields omitted.
@@ -145,5 +147,5 @@ newDisassociateEnvironmentOperationsRoleResponse =
   DisassociateEnvironmentOperationsRoleResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisassociateEnvironmentOperationsRoleResponse

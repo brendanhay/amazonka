@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.HyperParameterAlgorithmSpecification where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MetricDefinition
 import Network.AWS.SageMaker.Types.TrainingInputMode
 
@@ -37,14 +38,14 @@ data HyperParameterAlgorithmSpecification = HyperParameterAlgorithmSpecification
     -- @registry\/repository[\@digest]@ image path formats. For more
     -- information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
-    trainingImage :: Core.Maybe Core.Text,
+    trainingImage :: Prelude.Maybe Prelude.Text,
     -- | An array of MetricDefinition objects that specify the metrics that the
     -- algorithm emits.
-    metricDefinitions :: Core.Maybe [MetricDefinition],
+    metricDefinitions :: Prelude.Maybe [MetricDefinition],
     -- | The name of the resource algorithm to use for the hyperparameter tuning
     -- job. If you specify a value for this parameter, do not specify a value
     -- for @TrainingImage@.
-    algorithmName :: Core.Maybe Core.Text,
+    algorithmName :: Prelude.Maybe Prelude.Text,
     -- | The input mode that the algorithm supports: File or Pipe. In File input
     -- mode, Amazon SageMaker downloads the training data from Amazon S3 to the
     -- storage volume that is attached to the training instance and mounts the
@@ -61,7 +62,7 @@ data HyperParameterAlgorithmSpecification = HyperParameterAlgorithmSpecification
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms>.
     trainingInputMode :: TrainingInputMode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HyperParameterAlgorithmSpecification' with all optional fields omitted.
@@ -109,9 +110,9 @@ newHyperParameterAlgorithmSpecification
   pTrainingInputMode_ =
     HyperParameterAlgorithmSpecification'
       { trainingImage =
-          Core.Nothing,
-        metricDefinitions = Core.Nothing,
-        algorithmName = Core.Nothing,
+          Prelude.Nothing,
+        metricDefinitions = Prelude.Nothing,
+        algorithmName = Prelude.Nothing,
         trainingInputMode =
           pTrainingInputMode_
       }
@@ -124,18 +125,18 @@ newHyperParameterAlgorithmSpecification
 -- @registry\/repository[\@digest]@ image path formats. For more
 -- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
-hyperParameterAlgorithmSpecification_trainingImage :: Lens.Lens' HyperParameterAlgorithmSpecification (Core.Maybe Core.Text)
+hyperParameterAlgorithmSpecification_trainingImage :: Lens.Lens' HyperParameterAlgorithmSpecification (Prelude.Maybe Prelude.Text)
 hyperParameterAlgorithmSpecification_trainingImage = Lens.lens (\HyperParameterAlgorithmSpecification' {trainingImage} -> trainingImage) (\s@HyperParameterAlgorithmSpecification' {} a -> s {trainingImage = a} :: HyperParameterAlgorithmSpecification)
 
 -- | An array of MetricDefinition objects that specify the metrics that the
 -- algorithm emits.
-hyperParameterAlgorithmSpecification_metricDefinitions :: Lens.Lens' HyperParameterAlgorithmSpecification (Core.Maybe [MetricDefinition])
-hyperParameterAlgorithmSpecification_metricDefinitions = Lens.lens (\HyperParameterAlgorithmSpecification' {metricDefinitions} -> metricDefinitions) (\s@HyperParameterAlgorithmSpecification' {} a -> s {metricDefinitions = a} :: HyperParameterAlgorithmSpecification) Core.. Lens.mapping Lens._Coerce
+hyperParameterAlgorithmSpecification_metricDefinitions :: Lens.Lens' HyperParameterAlgorithmSpecification (Prelude.Maybe [MetricDefinition])
+hyperParameterAlgorithmSpecification_metricDefinitions = Lens.lens (\HyperParameterAlgorithmSpecification' {metricDefinitions} -> metricDefinitions) (\s@HyperParameterAlgorithmSpecification' {} a -> s {metricDefinitions = a} :: HyperParameterAlgorithmSpecification) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the resource algorithm to use for the hyperparameter tuning
 -- job. If you specify a value for this parameter, do not specify a value
 -- for @TrainingImage@.
-hyperParameterAlgorithmSpecification_algorithmName :: Lens.Lens' HyperParameterAlgorithmSpecification (Core.Maybe Core.Text)
+hyperParameterAlgorithmSpecification_algorithmName :: Lens.Lens' HyperParameterAlgorithmSpecification (Prelude.Maybe Prelude.Text)
 hyperParameterAlgorithmSpecification_algorithmName = Lens.lens (\HyperParameterAlgorithmSpecification' {algorithmName} -> algorithmName) (\s@HyperParameterAlgorithmSpecification' {} a -> s {algorithmName = a} :: HyperParameterAlgorithmSpecification)
 
 -- | The input mode that the algorithm supports: File or Pipe. In File input
@@ -164,18 +165,20 @@ instance
       "HyperParameterAlgorithmSpecification"
       ( \x ->
           HyperParameterAlgorithmSpecification'
-            Core.<$> (x Core..:? "TrainingImage")
-            Core.<*> (x Core..:? "MetricDefinitions" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "AlgorithmName")
-            Core.<*> (x Core..: "TrainingInputMode")
+            Prelude.<$> (x Core..:? "TrainingImage")
+            Prelude.<*> ( x Core..:? "MetricDefinitions"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "AlgorithmName")
+            Prelude.<*> (x Core..: "TrainingInputMode")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     HyperParameterAlgorithmSpecification
 
 instance
-  Core.NFData
+  Prelude.NFData
     HyperParameterAlgorithmSpecification
 
 instance
@@ -184,12 +187,12 @@ instance
   where
   toJSON HyperParameterAlgorithmSpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("TrainingImage" Core..=) Core.<$> trainingImage,
+      ( Prelude.catMaybes
+          [ ("TrainingImage" Core..=) Prelude.<$> trainingImage,
             ("MetricDefinitions" Core..=)
-              Core.<$> metricDefinitions,
-            ("AlgorithmName" Core..=) Core.<$> algorithmName,
-            Core.Just
+              Prelude.<$> metricDefinitions,
+            ("AlgorithmName" Core..=) Prelude.<$> algorithmName,
+            Prelude.Just
               ("TrainingInputMode" Core..= trainingInputMode)
           ]
       )

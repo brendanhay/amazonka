@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MarketplaceMetering.Types.UsageRecord
 import Network.AWS.MarketplaceMetering.Types.UsageRecordResultStatus
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A UsageRecordResult indicates the status of a given UsageRecord
 -- processed by BatchMeterUsage.
@@ -43,13 +44,13 @@ data UsageRecordResult = UsageRecordResult'
     -- -   /DuplicateRecord/- Indicates that the UsageRecord was invalid and
     --     not honored. A previously metered UsageRecord had the same customer,
     --     dimension, and time, but a different quantity.
-    status :: Core.Maybe UsageRecordResultStatus,
+    status :: Prelude.Maybe UsageRecordResultStatus,
     -- | The MeteringRecordId is a unique identifier for this metering event.
-    meteringRecordId :: Core.Maybe Core.Text,
+    meteringRecordId :: Prelude.Maybe Prelude.Text,
     -- | The UsageRecord that was part of the BatchMeterUsage request.
-    usageRecord :: Core.Maybe UsageRecord
+    usageRecord :: Prelude.Maybe UsageRecord
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UsageRecordResult' with all optional fields omitted.
@@ -81,9 +82,9 @@ newUsageRecordResult ::
   UsageRecordResult
 newUsageRecordResult =
   UsageRecordResult'
-    { status = Core.Nothing,
-      meteringRecordId = Core.Nothing,
-      usageRecord = Core.Nothing
+    { status = Prelude.Nothing,
+      meteringRecordId = Prelude.Nothing,
+      usageRecord = Prelude.Nothing
     }
 
 -- | The UsageRecordResult Status indicates the status of an individual
@@ -100,15 +101,15 @@ newUsageRecordResult =
 -- -   /DuplicateRecord/- Indicates that the UsageRecord was invalid and
 --     not honored. A previously metered UsageRecord had the same customer,
 --     dimension, and time, but a different quantity.
-usageRecordResult_status :: Lens.Lens' UsageRecordResult (Core.Maybe UsageRecordResultStatus)
+usageRecordResult_status :: Lens.Lens' UsageRecordResult (Prelude.Maybe UsageRecordResultStatus)
 usageRecordResult_status = Lens.lens (\UsageRecordResult' {status} -> status) (\s@UsageRecordResult' {} a -> s {status = a} :: UsageRecordResult)
 
 -- | The MeteringRecordId is a unique identifier for this metering event.
-usageRecordResult_meteringRecordId :: Lens.Lens' UsageRecordResult (Core.Maybe Core.Text)
+usageRecordResult_meteringRecordId :: Lens.Lens' UsageRecordResult (Prelude.Maybe Prelude.Text)
 usageRecordResult_meteringRecordId = Lens.lens (\UsageRecordResult' {meteringRecordId} -> meteringRecordId) (\s@UsageRecordResult' {} a -> s {meteringRecordId = a} :: UsageRecordResult)
 
 -- | The UsageRecord that was part of the BatchMeterUsage request.
-usageRecordResult_usageRecord :: Lens.Lens' UsageRecordResult (Core.Maybe UsageRecord)
+usageRecordResult_usageRecord :: Lens.Lens' UsageRecordResult (Prelude.Maybe UsageRecord)
 usageRecordResult_usageRecord = Lens.lens (\UsageRecordResult' {usageRecord} -> usageRecord) (\s@UsageRecordResult' {} a -> s {usageRecord = a} :: UsageRecordResult)
 
 instance Core.FromJSON UsageRecordResult where
@@ -117,11 +118,11 @@ instance Core.FromJSON UsageRecordResult where
       "UsageRecordResult"
       ( \x ->
           UsageRecordResult'
-            Core.<$> (x Core..:? "Status")
-            Core.<*> (x Core..:? "MeteringRecordId")
-            Core.<*> (x Core..:? "UsageRecord")
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "MeteringRecordId")
+            Prelude.<*> (x Core..:? "UsageRecord")
       )
 
-instance Core.Hashable UsageRecordResult
+instance Prelude.Hashable UsageRecordResult
 
-instance Core.NFData UsageRecordResult
+instance Prelude.NFData UsageRecordResult

@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -62,18 +63,18 @@ data PutObjectLegalHold = PutObjectLegalHold'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The MD5 hash for the request body.
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Core.Maybe Core.Text,
+    contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The version ID of the object that you want to place a Legal Hold on.
-    versionId :: Core.Maybe ObjectVersionId,
+    versionId :: Prelude.Maybe ObjectVersionId,
     -- | Container element for the Legal Hold configuration you want to apply to
     -- the specified object.
-    legalHold :: Core.Maybe ObjectLockLegalHold,
-    requestPayer :: Core.Maybe RequestPayer,
+    legalHold :: Prelude.Maybe ObjectLockLegalHold,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The bucket name containing the object that you want to place a Legal
     -- Hold on.
     --
@@ -89,7 +90,7 @@ data PutObjectLegalHold = PutObjectLegalHold'
     -- | The key name for the object that you want to place a Legal Hold on.
     key :: ObjectKey
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutObjectLegalHold' with all optional fields omitted.
@@ -137,11 +138,11 @@ newPutObjectLegalHold ::
 newPutObjectLegalHold pBucket_ pKey_ =
   PutObjectLegalHold'
     { expectedBucketOwner =
-        Core.Nothing,
-      contentMD5 = Core.Nothing,
-      versionId = Core.Nothing,
-      legalHold = Core.Nothing,
-      requestPayer = Core.Nothing,
+        Prelude.Nothing,
+      contentMD5 = Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      legalHold = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
@@ -149,27 +150,27 @@ newPutObjectLegalHold pBucket_ pKey_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putObjectLegalHold_expectedBucketOwner :: Lens.Lens' PutObjectLegalHold (Core.Maybe Core.Text)
+putObjectLegalHold_expectedBucketOwner :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe Prelude.Text)
 putObjectLegalHold_expectedBucketOwner = Lens.lens (\PutObjectLegalHold' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectLegalHold' {} a -> s {expectedBucketOwner = a} :: PutObjectLegalHold)
 
 -- | The MD5 hash for the request body.
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putObjectLegalHold_contentMD5 :: Lens.Lens' PutObjectLegalHold (Core.Maybe Core.Text)
+putObjectLegalHold_contentMD5 :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe Prelude.Text)
 putObjectLegalHold_contentMD5 = Lens.lens (\PutObjectLegalHold' {contentMD5} -> contentMD5) (\s@PutObjectLegalHold' {} a -> s {contentMD5 = a} :: PutObjectLegalHold)
 
 -- | The version ID of the object that you want to place a Legal Hold on.
-putObjectLegalHold_versionId :: Lens.Lens' PutObjectLegalHold (Core.Maybe ObjectVersionId)
+putObjectLegalHold_versionId :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe ObjectVersionId)
 putObjectLegalHold_versionId = Lens.lens (\PutObjectLegalHold' {versionId} -> versionId) (\s@PutObjectLegalHold' {} a -> s {versionId = a} :: PutObjectLegalHold)
 
 -- | Container element for the Legal Hold configuration you want to apply to
 -- the specified object.
-putObjectLegalHold_legalHold :: Lens.Lens' PutObjectLegalHold (Core.Maybe ObjectLockLegalHold)
+putObjectLegalHold_legalHold :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe ObjectLockLegalHold)
 putObjectLegalHold_legalHold = Lens.lens (\PutObjectLegalHold' {legalHold} -> legalHold) (\s@PutObjectLegalHold' {} a -> s {legalHold = a} :: PutObjectLegalHold)
 
 -- | Undocumented member.
-putObjectLegalHold_requestPayer :: Lens.Lens' PutObjectLegalHold (Core.Maybe RequestPayer)
+putObjectLegalHold_requestPayer :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe RequestPayer)
 putObjectLegalHold_requestPayer = Lens.lens (\PutObjectLegalHold' {requestPayer} -> requestPayer) (\s@PutObjectLegalHold' {} a -> s {requestPayer = a} :: PutObjectLegalHold)
 
 -- | The bucket name containing the object that you want to place a Legal
@@ -199,13 +200,13 @@ instance Core.AWSRequest PutObjectLegalHold where
     Response.receiveEmpty
       ( \s h x ->
           PutObjectLegalHoldResponse'
-            Core.<$> (h Core..#? "x-amz-request-charged")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "x-amz-request-charged")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutObjectLegalHold
+instance Prelude.Hashable PutObjectLegalHold
 
-instance Core.NFData PutObjectLegalHold
+instance Prelude.NFData PutObjectLegalHold
 
 instance Core.ToElement PutObjectLegalHold where
   toElement PutObjectLegalHold' {..} =
@@ -215,7 +216,7 @@ instance Core.ToElement PutObjectLegalHold where
 
 instance Core.ToHeaders PutObjectLegalHold where
   toHeaders PutObjectLegalHold' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "Content-MD5" Core.=# contentMD5,
@@ -224,21 +225,21 @@ instance Core.ToHeaders PutObjectLegalHold where
 
 instance Core.ToPath PutObjectLegalHold where
   toPath PutObjectLegalHold' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/", Core.toBS bucket, "/", Core.toBS key]
 
 instance Core.ToQuery PutObjectLegalHold where
   toQuery PutObjectLegalHold' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["versionId" Core.=: versionId, "legal-hold"]
 
 -- | /See:/ 'newPutObjectLegalHoldResponse' smart constructor.
 data PutObjectLegalHoldResponse = PutObjectLegalHoldResponse'
-  { requestCharged :: Core.Maybe RequestCharged,
+  { requestCharged :: Prelude.Maybe RequestCharged,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutObjectLegalHoldResponse' with all optional fields omitted.
@@ -253,21 +254,21 @@ data PutObjectLegalHoldResponse = PutObjectLegalHoldResponse'
 -- 'httpStatus', 'putObjectLegalHoldResponse_httpStatus' - The response's http status code.
 newPutObjectLegalHoldResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutObjectLegalHoldResponse
 newPutObjectLegalHoldResponse pHttpStatus_ =
   PutObjectLegalHoldResponse'
     { requestCharged =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-putObjectLegalHoldResponse_requestCharged :: Lens.Lens' PutObjectLegalHoldResponse (Core.Maybe RequestCharged)
+putObjectLegalHoldResponse_requestCharged :: Lens.Lens' PutObjectLegalHoldResponse (Prelude.Maybe RequestCharged)
 putObjectLegalHoldResponse_requestCharged = Lens.lens (\PutObjectLegalHoldResponse' {requestCharged} -> requestCharged) (\s@PutObjectLegalHoldResponse' {} a -> s {requestCharged = a} :: PutObjectLegalHoldResponse)
 
 -- | The response's http status code.
-putObjectLegalHoldResponse_httpStatus :: Lens.Lens' PutObjectLegalHoldResponse Core.Int
+putObjectLegalHoldResponse_httpStatus :: Lens.Lens' PutObjectLegalHoldResponse Prelude.Int
 putObjectLegalHoldResponse_httpStatus = Lens.lens (\PutObjectLegalHoldResponse' {httpStatus} -> httpStatus) (\s@PutObjectLegalHoldResponse' {} a -> s {httpStatus = a} :: PutObjectLegalHoldResponse)
 
-instance Core.NFData PutObjectLegalHoldResponse
+instance Prelude.NFData PutObjectLegalHoldResponse

@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.ImageInserter where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.InsertableImage
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Enable the image inserter feature to include a graphic overlay on your
 -- video. Enable or disable this feature for each input or output
@@ -31,9 +32,9 @@ import Network.AWS.MediaConvert.Types.InsertableImage
 data ImageInserter = ImageInserter'
   { -- | Specify the images that you want to overlay on your video. The images
     -- must be PNG or TGA files.
-    insertableImages :: Core.Maybe [InsertableImage]
+    insertableImages :: Prelude.Maybe [InsertableImage]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImageInserter' with all optional fields omitted.
@@ -48,12 +49,12 @@ data ImageInserter = ImageInserter'
 newImageInserter ::
   ImageInserter
 newImageInserter =
-  ImageInserter' {insertableImages = Core.Nothing}
+  ImageInserter' {insertableImages = Prelude.Nothing}
 
 -- | Specify the images that you want to overlay on your video. The images
 -- must be PNG or TGA files.
-imageInserter_insertableImages :: Lens.Lens' ImageInserter (Core.Maybe [InsertableImage])
-imageInserter_insertableImages = Lens.lens (\ImageInserter' {insertableImages} -> insertableImages) (\s@ImageInserter' {} a -> s {insertableImages = a} :: ImageInserter) Core.. Lens.mapping Lens._Coerce
+imageInserter_insertableImages :: Lens.Lens' ImageInserter (Prelude.Maybe [InsertableImage])
+imageInserter_insertableImages = Lens.lens (\ImageInserter' {insertableImages} -> insertableImages) (\s@ImageInserter' {} a -> s {insertableImages = a} :: ImageInserter) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ImageInserter where
   parseJSON =
@@ -61,18 +62,20 @@ instance Core.FromJSON ImageInserter where
       "ImageInserter"
       ( \x ->
           ImageInserter'
-            Core.<$> (x Core..:? "insertableImages" Core..!= Core.mempty)
+            Prelude.<$> ( x Core..:? "insertableImages"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable ImageInserter
+instance Prelude.Hashable ImageInserter
 
-instance Core.NFData ImageInserter
+instance Prelude.NFData ImageInserter
 
 instance Core.ToJSON ImageInserter where
   toJSON ImageInserter' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("insertableImages" Core..=)
-              Core.<$> insertableImages
+              Prelude.<$> insertableImages
           ]
       )

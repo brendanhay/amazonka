@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +52,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteRun' smart constructor.
 data DeleteRun = DeleteRun'
   { -- | The Amazon Resource Name (ARN) for the run to delete.
-    arn :: Core.Text
+    arn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRun' with all optional fields omitted.
@@ -66,12 +67,12 @@ data DeleteRun = DeleteRun'
 -- 'arn', 'deleteRun_arn' - The Amazon Resource Name (ARN) for the run to delete.
 newDeleteRun ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRun
 newDeleteRun pArn_ = DeleteRun' {arn = pArn_}
 
 -- | The Amazon Resource Name (ARN) for the run to delete.
-deleteRun_arn :: Lens.Lens' DeleteRun Core.Text
+deleteRun_arn :: Lens.Lens' DeleteRun Prelude.Text
 deleteRun_arn = Lens.lens (\DeleteRun' {arn} -> arn) (\s@DeleteRun' {} a -> s {arn = a} :: DeleteRun)
 
 instance Core.AWSRequest DeleteRun where
@@ -81,43 +82,49 @@ instance Core.AWSRequest DeleteRun where
     Response.receiveEmpty
       ( \s h x ->
           DeleteRunResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteRun
+instance Prelude.Hashable DeleteRun
 
-instance Core.NFData DeleteRun
+instance Prelude.NFData DeleteRun
 
 instance Core.ToHeaders DeleteRun where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DeviceFarm_20150623.DeleteRun" :: Core.ByteString),
+              Core.=# ( "DeviceFarm_20150623.DeleteRun" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteRun where
   toJSON DeleteRun' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("arn" Core..= arn)]
+      )
 
 instance Core.ToPath DeleteRun where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteRun where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a delete run request.
 --
 -- /See:/ 'newDeleteRunResponse' smart constructor.
 data DeleteRunResponse = DeleteRunResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRunResponse' with all optional fields omitted.
@@ -130,13 +137,13 @@ data DeleteRunResponse = DeleteRunResponse'
 -- 'httpStatus', 'deleteRunResponse_httpStatus' - The response's http status code.
 newDeleteRunResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteRunResponse
 newDeleteRunResponse pHttpStatus_ =
   DeleteRunResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteRunResponse_httpStatus :: Lens.Lens' DeleteRunResponse Core.Int
+deleteRunResponse_httpStatus :: Lens.Lens' DeleteRunResponse Prelude.Int
 deleteRunResponse_httpStatus = Lens.lens (\DeleteRunResponse' {httpStatus} -> httpStatus) (\s@DeleteRunResponse' {} a -> s {httpStatus = a} :: DeleteRunResponse)
 
-instance Core.NFData DeleteRunResponse
+instance Prelude.NFData DeleteRunResponse

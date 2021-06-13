@@ -46,6 +46,7 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,7 +54,7 @@ import qualified Network.AWS.Response as Response
 data SendAnnouncement = SendAnnouncement'
   { -- | The time to live for an announcement. Default is 300. If delivery
     -- doesn\'t occur within this time, the announcement is not delivered.
-    timeToLiveInSeconds :: Core.Maybe Core.Natural,
+    timeToLiveInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The filters to use to send an announcement to a specified list of rooms.
     -- The supported filter keys are RoomName, ProfileName, RoomArn, and
     -- ProfileArn. To send to all rooms, specify an empty RoomFilters list.
@@ -63,9 +64,9 @@ data SendAnnouncement = SendAnnouncement'
     content :: Content,
     -- | The unique, user-specified identifier for the request that ensures
     -- idempotency.
-    clientRequestToken :: Core.Text
+    clientRequestToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendAnnouncement' with all optional fields omitted.
@@ -91,27 +92,27 @@ newSendAnnouncement ::
   -- | 'content'
   Content ->
   -- | 'clientRequestToken'
-  Core.Text ->
+  Prelude.Text ->
   SendAnnouncement
 newSendAnnouncement pContent_ pClientRequestToken_ =
   SendAnnouncement'
     { timeToLiveInSeconds =
-        Core.Nothing,
-      roomFilters = Core.mempty,
+        Prelude.Nothing,
+      roomFilters = Prelude.mempty,
       content = pContent_,
       clientRequestToken = pClientRequestToken_
     }
 
 -- | The time to live for an announcement. Default is 300. If delivery
 -- doesn\'t occur within this time, the announcement is not delivered.
-sendAnnouncement_timeToLiveInSeconds :: Lens.Lens' SendAnnouncement (Core.Maybe Core.Natural)
+sendAnnouncement_timeToLiveInSeconds :: Lens.Lens' SendAnnouncement (Prelude.Maybe Prelude.Natural)
 sendAnnouncement_timeToLiveInSeconds = Lens.lens (\SendAnnouncement' {timeToLiveInSeconds} -> timeToLiveInSeconds) (\s@SendAnnouncement' {} a -> s {timeToLiveInSeconds = a} :: SendAnnouncement)
 
 -- | The filters to use to send an announcement to a specified list of rooms.
 -- The supported filter keys are RoomName, ProfileName, RoomArn, and
 -- ProfileArn. To send to all rooms, specify an empty RoomFilters list.
 sendAnnouncement_roomFilters :: Lens.Lens' SendAnnouncement [Filter]
-sendAnnouncement_roomFilters = Lens.lens (\SendAnnouncement' {roomFilters} -> roomFilters) (\s@SendAnnouncement' {} a -> s {roomFilters = a} :: SendAnnouncement) Core.. Lens._Coerce
+sendAnnouncement_roomFilters = Lens.lens (\SendAnnouncement' {roomFilters} -> roomFilters) (\s@SendAnnouncement' {} a -> s {roomFilters = a} :: SendAnnouncement) Prelude.. Lens._Coerce
 
 -- | The announcement content. This can contain only one of the three
 -- possible announcement types (text, SSML or audio).
@@ -120,7 +121,7 @@ sendAnnouncement_content = Lens.lens (\SendAnnouncement' {content} -> content) (
 
 -- | The unique, user-specified identifier for the request that ensures
 -- idempotency.
-sendAnnouncement_clientRequestToken :: Lens.Lens' SendAnnouncement Core.Text
+sendAnnouncement_clientRequestToken :: Lens.Lens' SendAnnouncement Prelude.Text
 sendAnnouncement_clientRequestToken = Lens.lens (\SendAnnouncement' {clientRequestToken} -> clientRequestToken) (\s@SendAnnouncement' {} a -> s {clientRequestToken = a} :: SendAnnouncement)
 
 instance Core.AWSRequest SendAnnouncement where
@@ -132,54 +133,56 @@ instance Core.AWSRequest SendAnnouncement where
     Response.receiveJSON
       ( \s h x ->
           SendAnnouncementResponse'
-            Core.<$> (x Core..?> "AnnouncementArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AnnouncementArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SendAnnouncement
+instance Prelude.Hashable SendAnnouncement
 
-instance Core.NFData SendAnnouncement
+instance Prelude.NFData SendAnnouncement
 
 instance Core.ToHeaders SendAnnouncement where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.SendAnnouncement" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SendAnnouncement where
   toJSON SendAnnouncement' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("TimeToLiveInSeconds" Core..=)
-              Core.<$> timeToLiveInSeconds,
-            Core.Just ("RoomFilters" Core..= roomFilters),
-            Core.Just ("Content" Core..= content),
-            Core.Just
+              Prelude.<$> timeToLiveInSeconds,
+            Prelude.Just ("RoomFilters" Core..= roomFilters),
+            Prelude.Just ("Content" Core..= content),
+            Prelude.Just
               ("ClientRequestToken" Core..= clientRequestToken)
           ]
       )
 
 instance Core.ToPath SendAnnouncement where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SendAnnouncement where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSendAnnouncementResponse' smart constructor.
 data SendAnnouncementResponse = SendAnnouncementResponse'
   { -- | The identifier of the announcement.
-    announcementArn :: Core.Maybe Core.Text,
+    announcementArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendAnnouncementResponse' with all optional fields omitted.
@@ -194,21 +197,21 @@ data SendAnnouncementResponse = SendAnnouncementResponse'
 -- 'httpStatus', 'sendAnnouncementResponse_httpStatus' - The response's http status code.
 newSendAnnouncementResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SendAnnouncementResponse
 newSendAnnouncementResponse pHttpStatus_ =
   SendAnnouncementResponse'
     { announcementArn =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier of the announcement.
-sendAnnouncementResponse_announcementArn :: Lens.Lens' SendAnnouncementResponse (Core.Maybe Core.Text)
+sendAnnouncementResponse_announcementArn :: Lens.Lens' SendAnnouncementResponse (Prelude.Maybe Prelude.Text)
 sendAnnouncementResponse_announcementArn = Lens.lens (\SendAnnouncementResponse' {announcementArn} -> announcementArn) (\s@SendAnnouncementResponse' {} a -> s {announcementArn = a} :: SendAnnouncementResponse)
 
 -- | The response's http status code.
-sendAnnouncementResponse_httpStatus :: Lens.Lens' SendAnnouncementResponse Core.Int
+sendAnnouncementResponse_httpStatus :: Lens.Lens' SendAnnouncementResponse Prelude.Int
 sendAnnouncementResponse_httpStatus = Lens.lens (\SendAnnouncementResponse' {httpStatus} -> httpStatus) (\s@SendAnnouncementResponse' {} a -> s {httpStatus = a} :: SendAnnouncementResponse)
 
-instance Core.NFData SendAnnouncementResponse
+instance Prelude.NFData SendAnnouncementResponse

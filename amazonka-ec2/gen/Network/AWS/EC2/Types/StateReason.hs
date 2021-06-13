@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.StateReason where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a state change.
 --
@@ -69,11 +70,11 @@ data StateReason = StateReason'
     -- -   @Client.VolumeLimitExceeded@: The limit on the number of EBS volumes
     --     or total storage was exceeded. Decrease usage or request an increase
     --     in your account limits.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The reason code for the state change.
-    code :: Core.Maybe Core.Text
+    code :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StateReason' with all optional fields omitted.
@@ -131,8 +132,8 @@ newStateReason ::
   StateReason
 newStateReason =
   StateReason'
-    { message = Core.Nothing,
-      code = Core.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The message for the state change.
@@ -177,18 +178,19 @@ newStateReason =
 -- -   @Client.VolumeLimitExceeded@: The limit on the number of EBS volumes
 --     or total storage was exceeded. Decrease usage or request an increase
 --     in your account limits.
-stateReason_message :: Lens.Lens' StateReason (Core.Maybe Core.Text)
+stateReason_message :: Lens.Lens' StateReason (Prelude.Maybe Prelude.Text)
 stateReason_message = Lens.lens (\StateReason' {message} -> message) (\s@StateReason' {} a -> s {message = a} :: StateReason)
 
 -- | The reason code for the state change.
-stateReason_code :: Lens.Lens' StateReason (Core.Maybe Core.Text)
+stateReason_code :: Lens.Lens' StateReason (Prelude.Maybe Prelude.Text)
 stateReason_code = Lens.lens (\StateReason' {code} -> code) (\s@StateReason' {} a -> s {code = a} :: StateReason)
 
 instance Core.FromXML StateReason where
   parseXML x =
     StateReason'
-      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
-instance Core.Hashable StateReason
+instance Prelude.Hashable StateReason
 
-instance Core.NFData StateReason
+instance Prelude.NFData StateReason

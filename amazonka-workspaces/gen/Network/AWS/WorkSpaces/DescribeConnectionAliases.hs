@@ -47,6 +47,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -54,16 +55,16 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newDescribeConnectionAliases' smart constructor.
 data DescribeConnectionAliases = DescribeConnectionAliases'
   { -- | The identifier of the directory associated with the connection alias.
-    resourceId :: Core.Maybe Core.Text,
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | If you received a @NextToken@ from a previous call that was paginated,
     -- provide this token to receive the next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The identifiers of the connection aliases to describe.
-    aliasIds :: Core.Maybe (Core.NonEmpty Core.Text),
+    aliasIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The maximum number of connection aliases to return.
-    limit :: Core.Maybe Core.Natural
+    limit :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeConnectionAliases' with all optional fields omitted.
@@ -86,27 +87,27 @@ newDescribeConnectionAliases ::
 newDescribeConnectionAliases =
   DescribeConnectionAliases'
     { resourceId =
-        Core.Nothing,
-      nextToken = Core.Nothing,
-      aliasIds = Core.Nothing,
-      limit = Core.Nothing
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      aliasIds = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | The identifier of the directory associated with the connection alias.
-describeConnectionAliases_resourceId :: Lens.Lens' DescribeConnectionAliases (Core.Maybe Core.Text)
+describeConnectionAliases_resourceId :: Lens.Lens' DescribeConnectionAliases (Prelude.Maybe Prelude.Text)
 describeConnectionAliases_resourceId = Lens.lens (\DescribeConnectionAliases' {resourceId} -> resourceId) (\s@DescribeConnectionAliases' {} a -> s {resourceId = a} :: DescribeConnectionAliases)
 
 -- | If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
-describeConnectionAliases_nextToken :: Lens.Lens' DescribeConnectionAliases (Core.Maybe Core.Text)
+describeConnectionAliases_nextToken :: Lens.Lens' DescribeConnectionAliases (Prelude.Maybe Prelude.Text)
 describeConnectionAliases_nextToken = Lens.lens (\DescribeConnectionAliases' {nextToken} -> nextToken) (\s@DescribeConnectionAliases' {} a -> s {nextToken = a} :: DescribeConnectionAliases)
 
 -- | The identifiers of the connection aliases to describe.
-describeConnectionAliases_aliasIds :: Lens.Lens' DescribeConnectionAliases (Core.Maybe (Core.NonEmpty Core.Text))
-describeConnectionAliases_aliasIds = Lens.lens (\DescribeConnectionAliases' {aliasIds} -> aliasIds) (\s@DescribeConnectionAliases' {} a -> s {aliasIds = a} :: DescribeConnectionAliases) Core.. Lens.mapping Lens._Coerce
+describeConnectionAliases_aliasIds :: Lens.Lens' DescribeConnectionAliases (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeConnectionAliases_aliasIds = Lens.lens (\DescribeConnectionAliases' {aliasIds} -> aliasIds) (\s@DescribeConnectionAliases' {} a -> s {aliasIds = a} :: DescribeConnectionAliases) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of connection aliases to return.
-describeConnectionAliases_limit :: Lens.Lens' DescribeConnectionAliases (Core.Maybe Core.Natural)
+describeConnectionAliases_limit :: Lens.Lens' DescribeConnectionAliases (Prelude.Maybe Prelude.Natural)
 describeConnectionAliases_limit = Lens.lens (\DescribeConnectionAliases' {limit} -> limit) (\s@DescribeConnectionAliases' {} a -> s {limit = a} :: DescribeConnectionAliases)
 
 instance Core.AWSRequest DescribeConnectionAliases where
@@ -118,56 +119,58 @@ instance Core.AWSRequest DescribeConnectionAliases where
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectionAliasesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "ConnectionAliases")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "ConnectionAliases")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeConnectionAliases
+instance Prelude.Hashable DescribeConnectionAliases
 
-instance Core.NFData DescribeConnectionAliases
+instance Prelude.NFData DescribeConnectionAliases
 
 instance Core.ToHeaders DescribeConnectionAliases where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkspacesService.DescribeConnectionAliases" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeConnectionAliases where
   toJSON DescribeConnectionAliases' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ResourceId" Core..=) Core.<$> resourceId,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("AliasIds" Core..=) Core.<$> aliasIds,
-            ("Limit" Core..=) Core.<$> limit
+      ( Prelude.catMaybes
+          [ ("ResourceId" Core..=) Prelude.<$> resourceId,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("AliasIds" Core..=) Prelude.<$> aliasIds,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
 instance Core.ToPath DescribeConnectionAliases where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeConnectionAliases where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeConnectionAliasesResponse' smart constructor.
 data DescribeConnectionAliasesResponse = DescribeConnectionAliasesResponse'
   { -- | The token to use to retrieve the next set of results, or null if no more
     -- results are available.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the specified connection aliases.
-    connectionAliases :: Core.Maybe (Core.NonEmpty ConnectionAlias),
+    connectionAliases :: Prelude.Maybe (Prelude.NonEmpty ConnectionAlias),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeConnectionAliasesResponse' with all optional fields omitted.
@@ -185,29 +188,29 @@ data DescribeConnectionAliasesResponse = DescribeConnectionAliasesResponse'
 -- 'httpStatus', 'describeConnectionAliasesResponse_httpStatus' - The response's http status code.
 newDescribeConnectionAliasesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeConnectionAliasesResponse
 newDescribeConnectionAliasesResponse pHttpStatus_ =
   DescribeConnectionAliasesResponse'
     { nextToken =
-        Core.Nothing,
-      connectionAliases = Core.Nothing,
+        Prelude.Nothing,
+      connectionAliases = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next set of results, or null if no more
 -- results are available.
-describeConnectionAliasesResponse_nextToken :: Lens.Lens' DescribeConnectionAliasesResponse (Core.Maybe Core.Text)
+describeConnectionAliasesResponse_nextToken :: Lens.Lens' DescribeConnectionAliasesResponse (Prelude.Maybe Prelude.Text)
 describeConnectionAliasesResponse_nextToken = Lens.lens (\DescribeConnectionAliasesResponse' {nextToken} -> nextToken) (\s@DescribeConnectionAliasesResponse' {} a -> s {nextToken = a} :: DescribeConnectionAliasesResponse)
 
 -- | Information about the specified connection aliases.
-describeConnectionAliasesResponse_connectionAliases :: Lens.Lens' DescribeConnectionAliasesResponse (Core.Maybe (Core.NonEmpty ConnectionAlias))
-describeConnectionAliasesResponse_connectionAliases = Lens.lens (\DescribeConnectionAliasesResponse' {connectionAliases} -> connectionAliases) (\s@DescribeConnectionAliasesResponse' {} a -> s {connectionAliases = a} :: DescribeConnectionAliasesResponse) Core.. Lens.mapping Lens._Coerce
+describeConnectionAliasesResponse_connectionAliases :: Lens.Lens' DescribeConnectionAliasesResponse (Prelude.Maybe (Prelude.NonEmpty ConnectionAlias))
+describeConnectionAliasesResponse_connectionAliases = Lens.lens (\DescribeConnectionAliasesResponse' {connectionAliases} -> connectionAliases) (\s@DescribeConnectionAliasesResponse' {} a -> s {connectionAliases = a} :: DescribeConnectionAliasesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeConnectionAliasesResponse_httpStatus :: Lens.Lens' DescribeConnectionAliasesResponse Core.Int
+describeConnectionAliasesResponse_httpStatus :: Lens.Lens' DescribeConnectionAliasesResponse Prelude.Int
 describeConnectionAliasesResponse_httpStatus = Lens.lens (\DescribeConnectionAliasesResponse' {httpStatus} -> httpStatus) (\s@DescribeConnectionAliasesResponse' {} a -> s {httpStatus = a} :: DescribeConnectionAliasesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeConnectionAliasesResponse

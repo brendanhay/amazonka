@@ -21,6 +21,7 @@ module Network.AWS.ElasticSearch.Types.RecurringCharge where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the specific price and frequency of a recurring charges for a
 -- reserved Elasticsearch instance, or for a reserved Elasticsearch
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newRecurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
   { -- | The frequency of the recurring charge.
-    recurringChargeFrequency :: Core.Maybe Core.Text,
+    recurringChargeFrequency :: Prelude.Maybe Prelude.Text,
     -- | The monetary amount of the recurring charge.
-    recurringChargeAmount :: Core.Maybe Core.Double
+    recurringChargeAmount :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RecurringCharge' with all optional fields omitted.
@@ -51,16 +52,16 @@ newRecurringCharge ::
 newRecurringCharge =
   RecurringCharge'
     { recurringChargeFrequency =
-        Core.Nothing,
-      recurringChargeAmount = Core.Nothing
+        Prelude.Nothing,
+      recurringChargeAmount = Prelude.Nothing
     }
 
 -- | The frequency of the recurring charge.
-recurringCharge_recurringChargeFrequency :: Lens.Lens' RecurringCharge (Core.Maybe Core.Text)
+recurringCharge_recurringChargeFrequency :: Lens.Lens' RecurringCharge (Prelude.Maybe Prelude.Text)
 recurringCharge_recurringChargeFrequency = Lens.lens (\RecurringCharge' {recurringChargeFrequency} -> recurringChargeFrequency) (\s@RecurringCharge' {} a -> s {recurringChargeFrequency = a} :: RecurringCharge)
 
 -- | The monetary amount of the recurring charge.
-recurringCharge_recurringChargeAmount :: Lens.Lens' RecurringCharge (Core.Maybe Core.Double)
+recurringCharge_recurringChargeAmount :: Lens.Lens' RecurringCharge (Prelude.Maybe Prelude.Double)
 recurringCharge_recurringChargeAmount = Lens.lens (\RecurringCharge' {recurringChargeAmount} -> recurringChargeAmount) (\s@RecurringCharge' {} a -> s {recurringChargeAmount = a} :: RecurringCharge)
 
 instance Core.FromJSON RecurringCharge where
@@ -69,10 +70,10 @@ instance Core.FromJSON RecurringCharge where
       "RecurringCharge"
       ( \x ->
           RecurringCharge'
-            Core.<$> (x Core..:? "RecurringChargeFrequency")
-            Core.<*> (x Core..:? "RecurringChargeAmount")
+            Prelude.<$> (x Core..:? "RecurringChargeFrequency")
+            Prelude.<*> (x Core..:? "RecurringChargeAmount")
       )
 
-instance Core.Hashable RecurringCharge
+instance Prelude.Hashable RecurringCharge
 
-instance Core.NFData RecurringCharge
+instance Prelude.NFData RecurringCharge

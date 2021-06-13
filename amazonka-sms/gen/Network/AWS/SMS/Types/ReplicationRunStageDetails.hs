@@ -21,17 +21,18 @@ module Network.AWS.SMS.Types.ReplicationRunStageDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details of the current stage of a replication run.
 --
 -- /See:/ 'newReplicationRunStageDetails' smart constructor.
 data ReplicationRunStageDetails = ReplicationRunStageDetails'
   { -- | The current stage of a replication run.
-    stage :: Core.Maybe Core.Text,
+    stage :: Prelude.Maybe Prelude.Text,
     -- | The progress of the current stage of a replication run.
-    stageProgress :: Core.Maybe Core.Text
+    stageProgress :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicationRunStageDetails' with all optional fields omitted.
@@ -48,16 +49,17 @@ newReplicationRunStageDetails ::
   ReplicationRunStageDetails
 newReplicationRunStageDetails =
   ReplicationRunStageDetails'
-    { stage = Core.Nothing,
-      stageProgress = Core.Nothing
+    { stage =
+        Prelude.Nothing,
+      stageProgress = Prelude.Nothing
     }
 
 -- | The current stage of a replication run.
-replicationRunStageDetails_stage :: Lens.Lens' ReplicationRunStageDetails (Core.Maybe Core.Text)
+replicationRunStageDetails_stage :: Lens.Lens' ReplicationRunStageDetails (Prelude.Maybe Prelude.Text)
 replicationRunStageDetails_stage = Lens.lens (\ReplicationRunStageDetails' {stage} -> stage) (\s@ReplicationRunStageDetails' {} a -> s {stage = a} :: ReplicationRunStageDetails)
 
 -- | The progress of the current stage of a replication run.
-replicationRunStageDetails_stageProgress :: Lens.Lens' ReplicationRunStageDetails (Core.Maybe Core.Text)
+replicationRunStageDetails_stageProgress :: Lens.Lens' ReplicationRunStageDetails (Prelude.Maybe Prelude.Text)
 replicationRunStageDetails_stageProgress = Lens.lens (\ReplicationRunStageDetails' {stageProgress} -> stageProgress) (\s@ReplicationRunStageDetails' {} a -> s {stageProgress = a} :: ReplicationRunStageDetails)
 
 instance Core.FromJSON ReplicationRunStageDetails where
@@ -66,10 +68,10 @@ instance Core.FromJSON ReplicationRunStageDetails where
       "ReplicationRunStageDetails"
       ( \x ->
           ReplicationRunStageDetails'
-            Core.<$> (x Core..:? "stage")
-            Core.<*> (x Core..:? "stageProgress")
+            Prelude.<$> (x Core..:? "stage")
+            Prelude.<*> (x Core..:? "stageProgress")
       )
 
-instance Core.Hashable ReplicationRunStageDetails
+instance Prelude.Hashable ReplicationRunStageDetails
 
-instance Core.NFData ReplicationRunStageDetails
+instance Prelude.NFData ReplicationRunStageDetails

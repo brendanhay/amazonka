@@ -21,21 +21,22 @@ module Network.AWS.MediaPackage.Types.IngestEndpoint where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An endpoint for ingesting source content for a Channel.
 --
 -- /See:/ 'newIngestEndpoint' smart constructor.
 data IngestEndpoint = IngestEndpoint'
   { -- | The system generated unique identifier for the IngestEndpoint
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The system generated password for ingest authentication.
-    password :: Core.Maybe Core.Text,
+    password :: Prelude.Maybe Prelude.Text,
     -- | The system generated username for ingest authentication.
-    username :: Core.Maybe Core.Text,
+    username :: Prelude.Maybe Prelude.Text,
     -- | The ingest URL to which the source stream should be sent.
-    url :: Core.Maybe Core.Text
+    url :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IngestEndpoint' with all optional fields omitted.
@@ -56,26 +57,26 @@ newIngestEndpoint ::
   IngestEndpoint
 newIngestEndpoint =
   IngestEndpoint'
-    { id = Core.Nothing,
-      password = Core.Nothing,
-      username = Core.Nothing,
-      url = Core.Nothing
+    { id = Prelude.Nothing,
+      password = Prelude.Nothing,
+      username = Prelude.Nothing,
+      url = Prelude.Nothing
     }
 
 -- | The system generated unique identifier for the IngestEndpoint
-ingestEndpoint_id :: Lens.Lens' IngestEndpoint (Core.Maybe Core.Text)
+ingestEndpoint_id :: Lens.Lens' IngestEndpoint (Prelude.Maybe Prelude.Text)
 ingestEndpoint_id = Lens.lens (\IngestEndpoint' {id} -> id) (\s@IngestEndpoint' {} a -> s {id = a} :: IngestEndpoint)
 
 -- | The system generated password for ingest authentication.
-ingestEndpoint_password :: Lens.Lens' IngestEndpoint (Core.Maybe Core.Text)
+ingestEndpoint_password :: Lens.Lens' IngestEndpoint (Prelude.Maybe Prelude.Text)
 ingestEndpoint_password = Lens.lens (\IngestEndpoint' {password} -> password) (\s@IngestEndpoint' {} a -> s {password = a} :: IngestEndpoint)
 
 -- | The system generated username for ingest authentication.
-ingestEndpoint_username :: Lens.Lens' IngestEndpoint (Core.Maybe Core.Text)
+ingestEndpoint_username :: Lens.Lens' IngestEndpoint (Prelude.Maybe Prelude.Text)
 ingestEndpoint_username = Lens.lens (\IngestEndpoint' {username} -> username) (\s@IngestEndpoint' {} a -> s {username = a} :: IngestEndpoint)
 
 -- | The ingest URL to which the source stream should be sent.
-ingestEndpoint_url :: Lens.Lens' IngestEndpoint (Core.Maybe Core.Text)
+ingestEndpoint_url :: Lens.Lens' IngestEndpoint (Prelude.Maybe Prelude.Text)
 ingestEndpoint_url = Lens.lens (\IngestEndpoint' {url} -> url) (\s@IngestEndpoint' {} a -> s {url = a} :: IngestEndpoint)
 
 instance Core.FromJSON IngestEndpoint where
@@ -84,12 +85,12 @@ instance Core.FromJSON IngestEndpoint where
       "IngestEndpoint"
       ( \x ->
           IngestEndpoint'
-            Core.<$> (x Core..:? "id")
-            Core.<*> (x Core..:? "password")
-            Core.<*> (x Core..:? "username")
-            Core.<*> (x Core..:? "url")
+            Prelude.<$> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "password")
+            Prelude.<*> (x Core..:? "username")
+            Prelude.<*> (x Core..:? "url")
       )
 
-instance Core.Hashable IngestEndpoint
+instance Prelude.Hashable IngestEndpoint
 
-instance Core.NFData IngestEndpoint
+instance Prelude.NFData IngestEndpoint

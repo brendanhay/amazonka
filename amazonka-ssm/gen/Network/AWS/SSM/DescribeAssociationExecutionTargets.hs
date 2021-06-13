@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -57,11 +58,11 @@ import Network.AWS.SSM.Types
 data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
   { -- | A token to start the list. Use this token to get the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filters for the request. You can specify the following filters and
     -- values.
     --
@@ -70,14 +71,14 @@ data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
     -- ResourceId (EQUAL)
     --
     -- ResourceType (EQUAL)
-    filters :: Core.Maybe (Core.NonEmpty AssociationExecutionTargetsFilter),
+    filters :: Prelude.Maybe (Prelude.NonEmpty AssociationExecutionTargetsFilter),
     -- | The association ID that includes the execution for which you want to
     -- view details.
-    associationId :: Core.Text,
+    associationId :: Prelude.Text,
     -- | The execution ID for which you want to view details.
-    executionId :: Core.Text
+    executionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAssociationExecutionTargets' with all optional fields omitted.
@@ -109,31 +110,31 @@ data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
 -- 'executionId', 'describeAssociationExecutionTargets_executionId' - The execution ID for which you want to view details.
 newDescribeAssociationExecutionTargets ::
   -- | 'associationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'executionId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeAssociationExecutionTargets
 newDescribeAssociationExecutionTargets
   pAssociationId_
   pExecutionId_ =
     DescribeAssociationExecutionTargets'
       { nextToken =
-          Core.Nothing,
-        maxResults = Core.Nothing,
-        filters = Core.Nothing,
+          Prelude.Nothing,
+        maxResults = Prelude.Nothing,
+        filters = Prelude.Nothing,
         associationId = pAssociationId_,
         executionId = pExecutionId_
       }
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
-describeAssociationExecutionTargets_nextToken :: Lens.Lens' DescribeAssociationExecutionTargets (Core.Maybe Core.Text)
+describeAssociationExecutionTargets_nextToken :: Lens.Lens' DescribeAssociationExecutionTargets (Prelude.Maybe Prelude.Text)
 describeAssociationExecutionTargets_nextToken = Lens.lens (\DescribeAssociationExecutionTargets' {nextToken} -> nextToken) (\s@DescribeAssociationExecutionTargets' {} a -> s {nextToken = a} :: DescribeAssociationExecutionTargets)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-describeAssociationExecutionTargets_maxResults :: Lens.Lens' DescribeAssociationExecutionTargets (Core.Maybe Core.Natural)
+describeAssociationExecutionTargets_maxResults :: Lens.Lens' DescribeAssociationExecutionTargets (Prelude.Maybe Prelude.Natural)
 describeAssociationExecutionTargets_maxResults = Lens.lens (\DescribeAssociationExecutionTargets' {maxResults} -> maxResults) (\s@DescribeAssociationExecutionTargets' {} a -> s {maxResults = a} :: DescribeAssociationExecutionTargets)
 
 -- | Filters for the request. You can specify the following filters and
@@ -144,16 +145,16 @@ describeAssociationExecutionTargets_maxResults = Lens.lens (\DescribeAssociation
 -- ResourceId (EQUAL)
 --
 -- ResourceType (EQUAL)
-describeAssociationExecutionTargets_filters :: Lens.Lens' DescribeAssociationExecutionTargets (Core.Maybe (Core.NonEmpty AssociationExecutionTargetsFilter))
-describeAssociationExecutionTargets_filters = Lens.lens (\DescribeAssociationExecutionTargets' {filters} -> filters) (\s@DescribeAssociationExecutionTargets' {} a -> s {filters = a} :: DescribeAssociationExecutionTargets) Core.. Lens.mapping Lens._Coerce
+describeAssociationExecutionTargets_filters :: Lens.Lens' DescribeAssociationExecutionTargets (Prelude.Maybe (Prelude.NonEmpty AssociationExecutionTargetsFilter))
+describeAssociationExecutionTargets_filters = Lens.lens (\DescribeAssociationExecutionTargets' {filters} -> filters) (\s@DescribeAssociationExecutionTargets' {} a -> s {filters = a} :: DescribeAssociationExecutionTargets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The association ID that includes the execution for which you want to
 -- view details.
-describeAssociationExecutionTargets_associationId :: Lens.Lens' DescribeAssociationExecutionTargets Core.Text
+describeAssociationExecutionTargets_associationId :: Lens.Lens' DescribeAssociationExecutionTargets Prelude.Text
 describeAssociationExecutionTargets_associationId = Lens.lens (\DescribeAssociationExecutionTargets' {associationId} -> associationId) (\s@DescribeAssociationExecutionTargets' {} a -> s {associationId = a} :: DescribeAssociationExecutionTargets)
 
 -- | The execution ID for which you want to view details.
-describeAssociationExecutionTargets_executionId :: Lens.Lens' DescribeAssociationExecutionTargets Core.Text
+describeAssociationExecutionTargets_executionId :: Lens.Lens' DescribeAssociationExecutionTargets Prelude.Text
 describeAssociationExecutionTargets_executionId = Lens.lens (\DescribeAssociationExecutionTargets' {executionId} -> executionId) (\s@DescribeAssociationExecutionTargets' {} a -> s {executionId = a} :: DescribeAssociationExecutionTargets)
 
 instance
@@ -164,22 +165,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeAssociationExecutionTargetsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAssociationExecutionTargetsResponse_associationExecutionTargets
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeAssociationExecutionTargets_nextToken
+          Prelude.& describeAssociationExecutionTargets_nextToken
           Lens..~ rs
           Lens.^? describeAssociationExecutionTargetsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -193,19 +194,19 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAssociationExecutionTargetsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "AssociationExecutionTargets"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x Core..?> "AssociationExecutionTargets"
+                              Core..!@ Prelude.mempty
+                          )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeAssociationExecutionTargets
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeAssociationExecutionTargets
 
 instance
@@ -213,14 +214,16 @@ instance
     DescribeAssociationExecutionTargets
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonSSM.DescribeAssociationExecutionTargets" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -230,12 +233,12 @@ instance
   where
   toJSON DescribeAssociationExecutionTargets' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Filters" Core..=) Core.<$> filters,
-            Core.Just ("AssociationId" Core..= associationId),
-            Core.Just ("ExecutionId" Core..= executionId)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Filters" Core..=) Prelude.<$> filters,
+            Prelude.Just ("AssociationId" Core..= associationId),
+            Prelude.Just ("ExecutionId" Core..= executionId)
           ]
       )
 
@@ -243,25 +246,25 @@ instance
   Core.ToPath
     DescribeAssociationExecutionTargets
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeAssociationExecutionTargets
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAssociationExecutionTargetsResponse' smart constructor.
 data DescribeAssociationExecutionTargetsResponse = DescribeAssociationExecutionTargetsResponse'
   { -- | The token for the next set of items to return. Use this token to get the
     -- next set of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the execution.
-    associationExecutionTargets :: Core.Maybe [AssociationExecutionTarget],
+    associationExecutionTargets :: Prelude.Maybe [AssociationExecutionTarget],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAssociationExecutionTargetsResponse' with all optional fields omitted.
@@ -279,31 +282,31 @@ data DescribeAssociationExecutionTargetsResponse = DescribeAssociationExecutionT
 -- 'httpStatus', 'describeAssociationExecutionTargetsResponse_httpStatus' - The response's http status code.
 newDescribeAssociationExecutionTargetsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeAssociationExecutionTargetsResponse
 newDescribeAssociationExecutionTargetsResponse
   pHttpStatus_ =
     DescribeAssociationExecutionTargetsResponse'
       { nextToken =
-          Core.Nothing,
+          Prelude.Nothing,
         associationExecutionTargets =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token for the next set of items to return. Use this token to get the
 -- next set of results.
-describeAssociationExecutionTargetsResponse_nextToken :: Lens.Lens' DescribeAssociationExecutionTargetsResponse (Core.Maybe Core.Text)
+describeAssociationExecutionTargetsResponse_nextToken :: Lens.Lens' DescribeAssociationExecutionTargetsResponse (Prelude.Maybe Prelude.Text)
 describeAssociationExecutionTargetsResponse_nextToken = Lens.lens (\DescribeAssociationExecutionTargetsResponse' {nextToken} -> nextToken) (\s@DescribeAssociationExecutionTargetsResponse' {} a -> s {nextToken = a} :: DescribeAssociationExecutionTargetsResponse)
 
 -- | Information about the execution.
-describeAssociationExecutionTargetsResponse_associationExecutionTargets :: Lens.Lens' DescribeAssociationExecutionTargetsResponse (Core.Maybe [AssociationExecutionTarget])
-describeAssociationExecutionTargetsResponse_associationExecutionTargets = Lens.lens (\DescribeAssociationExecutionTargetsResponse' {associationExecutionTargets} -> associationExecutionTargets) (\s@DescribeAssociationExecutionTargetsResponse' {} a -> s {associationExecutionTargets = a} :: DescribeAssociationExecutionTargetsResponse) Core.. Lens.mapping Lens._Coerce
+describeAssociationExecutionTargetsResponse_associationExecutionTargets :: Lens.Lens' DescribeAssociationExecutionTargetsResponse (Prelude.Maybe [AssociationExecutionTarget])
+describeAssociationExecutionTargetsResponse_associationExecutionTargets = Lens.lens (\DescribeAssociationExecutionTargetsResponse' {associationExecutionTargets} -> associationExecutionTargets) (\s@DescribeAssociationExecutionTargetsResponse' {} a -> s {associationExecutionTargets = a} :: DescribeAssociationExecutionTargetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAssociationExecutionTargetsResponse_httpStatus :: Lens.Lens' DescribeAssociationExecutionTargetsResponse Core.Int
+describeAssociationExecutionTargetsResponse_httpStatus :: Lens.Lens' DescribeAssociationExecutionTargetsResponse Prelude.Int
 describeAssociationExecutionTargetsResponse_httpStatus = Lens.lens (\DescribeAssociationExecutionTargetsResponse' {httpStatus} -> httpStatus) (\s@DescribeAssociationExecutionTargetsResponse' {} a -> s {httpStatus = a} :: DescribeAssociationExecutionTargetsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeAssociationExecutionTargetsResponse

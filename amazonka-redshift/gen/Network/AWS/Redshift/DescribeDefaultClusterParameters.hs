@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -65,7 +66,7 @@ data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
     -- You can retrieve the next set of response records by providing the
     -- returned marker value in the @Marker@ parameter and retrying the
     -- request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -75,11 +76,11 @@ data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Core.Maybe Core.Int,
+    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | The name of the cluster parameter group family.
-    parameterGroupFamily :: Core.Text
+    parameterGroupFamily :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDefaultClusterParameters' with all optional fields omitted.
@@ -110,14 +111,14 @@ data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
 -- 'parameterGroupFamily', 'describeDefaultClusterParameters_parameterGroupFamily' - The name of the cluster parameter group family.
 newDescribeDefaultClusterParameters ::
   -- | 'parameterGroupFamily'
-  Core.Text ->
+  Prelude.Text ->
   DescribeDefaultClusterParameters
 newDescribeDefaultClusterParameters
   pParameterGroupFamily_ =
     DescribeDefaultClusterParameters'
       { marker =
-          Core.Nothing,
-        maxRecords = Core.Nothing,
+          Prelude.Nothing,
+        maxRecords = Prelude.Nothing,
         parameterGroupFamily =
           pParameterGroupFamily_
       }
@@ -129,7 +130,7 @@ newDescribeDefaultClusterParameters
 -- You can retrieve the next set of response records by providing the
 -- returned marker value in the @Marker@ parameter and retrying the
 -- request.
-describeDefaultClusterParameters_marker :: Lens.Lens' DescribeDefaultClusterParameters (Core.Maybe Core.Text)
+describeDefaultClusterParameters_marker :: Lens.Lens' DescribeDefaultClusterParameters (Prelude.Maybe Prelude.Text)
 describeDefaultClusterParameters_marker = Lens.lens (\DescribeDefaultClusterParameters' {marker} -> marker) (\s@DescribeDefaultClusterParameters' {} a -> s {marker = a} :: DescribeDefaultClusterParameters)
 
 -- | The maximum number of response records to return in each call. If the
@@ -141,11 +142,11 @@ describeDefaultClusterParameters_marker = Lens.lens (\DescribeDefaultClusterPara
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-describeDefaultClusterParameters_maxRecords :: Lens.Lens' DescribeDefaultClusterParameters (Core.Maybe Core.Int)
+describeDefaultClusterParameters_maxRecords :: Lens.Lens' DescribeDefaultClusterParameters (Prelude.Maybe Prelude.Int)
 describeDefaultClusterParameters_maxRecords = Lens.lens (\DescribeDefaultClusterParameters' {maxRecords} -> maxRecords) (\s@DescribeDefaultClusterParameters' {} a -> s {maxRecords = a} :: DescribeDefaultClusterParameters)
 
 -- | The name of the cluster parameter group family.
-describeDefaultClusterParameters_parameterGroupFamily :: Lens.Lens' DescribeDefaultClusterParameters Core.Text
+describeDefaultClusterParameters_parameterGroupFamily :: Lens.Lens' DescribeDefaultClusterParameters Prelude.Text
 describeDefaultClusterParameters_parameterGroupFamily = Lens.lens (\DescribeDefaultClusterParameters' {parameterGroupFamily} -> parameterGroupFamily) (\s@DescribeDefaultClusterParameters' {} a -> s {parameterGroupFamily = a} :: DescribeDefaultClusterParameters)
 
 instance
@@ -156,25 +157,25 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeDefaultClusterParametersResponse_defaultClusterParameters
-              Core.. defaultClusterParameters_marker
-              Core.. Lens._Just
+              Prelude.. defaultClusterParameters_marker
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDefaultClusterParametersResponse_defaultClusterParameters
-              Core.. defaultClusterParameters_parameters
-              Core.. Lens._Just
+              Prelude.. defaultClusterParameters_parameters
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeDefaultClusterParameters_marker
+          Prelude.& describeDefaultClusterParameters_marker
           Lens..~ rs
           Lens.^? describeDefaultClusterParametersResponse_defaultClusterParameters
-            Core.. defaultClusterParameters_marker
-            Core.. Lens._Just
+            Prelude.. defaultClusterParameters_marker
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -189,36 +190,39 @@ instance
       "DescribeDefaultClusterParametersResult"
       ( \s h x ->
           DescribeDefaultClusterParametersResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "DefaultClusterParameters")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "DefaultClusterParameters")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeDefaultClusterParameters
 
-instance Core.NFData DescribeDefaultClusterParameters
+instance
+  Prelude.NFData
+    DescribeDefaultClusterParameters
 
 instance
   Core.ToHeaders
     DescribeDefaultClusterParameters
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeDefaultClusterParameters where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeDefaultClusterParameters
   where
   toQuery DescribeDefaultClusterParameters' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DescribeDefaultClusterParameters" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
         "ParameterGroupFamily" Core.=: parameterGroupFamily
@@ -227,10 +231,10 @@ instance
 -- | /See:/ 'newDescribeDefaultClusterParametersResponse' smart constructor.
 data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     defaultClusterParameters :: DefaultClusterParameters
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDefaultClusterParametersResponse' with all optional fields omitted.
@@ -245,7 +249,7 @@ data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParameters
 -- 'defaultClusterParameters', 'describeDefaultClusterParametersResponse_defaultClusterParameters' - Undocumented member.
 newDescribeDefaultClusterParametersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'defaultClusterParameters'
   DefaultClusterParameters ->
   DescribeDefaultClusterParametersResponse
@@ -260,7 +264,7 @@ newDescribeDefaultClusterParametersResponse
       }
 
 -- | The response's http status code.
-describeDefaultClusterParametersResponse_httpStatus :: Lens.Lens' DescribeDefaultClusterParametersResponse Core.Int
+describeDefaultClusterParametersResponse_httpStatus :: Lens.Lens' DescribeDefaultClusterParametersResponse Prelude.Int
 describeDefaultClusterParametersResponse_httpStatus = Lens.lens (\DescribeDefaultClusterParametersResponse' {httpStatus} -> httpStatus) (\s@DescribeDefaultClusterParametersResponse' {} a -> s {httpStatus = a} :: DescribeDefaultClusterParametersResponse)
 
 -- | Undocumented member.
@@ -268,5 +272,5 @@ describeDefaultClusterParametersResponse_defaultClusterParameters :: Lens.Lens' 
 describeDefaultClusterParametersResponse_defaultClusterParameters = Lens.lens (\DescribeDefaultClusterParametersResponse' {defaultClusterParameters} -> defaultClusterParameters) (\s@DescribeDefaultClusterParametersResponse' {} a -> s {defaultClusterParameters = a} :: DescribeDefaultClusterParametersResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeDefaultClusterParametersResponse

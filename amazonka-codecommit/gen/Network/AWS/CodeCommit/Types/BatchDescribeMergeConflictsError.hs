@@ -21,6 +21,7 @@ module Network.AWS.CodeCommit.Types.BatchDescribeMergeConflictsError where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about errors in a BatchDescribeMergeConflicts
 -- operation.
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newBatchDescribeMergeConflictsError' smart constructor.
 data BatchDescribeMergeConflictsError = BatchDescribeMergeConflictsError'
   { -- | The path to the file.
-    filePath :: Core.Text,
+    filePath :: Prelude.Text,
     -- | The name of the exception.
-    exceptionName :: Core.Text,
+    exceptionName :: Prelude.Text,
     -- | The message provided by the exception.
-    message :: Core.Text
+    message :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDescribeMergeConflictsError' with all optional fields omitted.
@@ -51,11 +52,11 @@ data BatchDescribeMergeConflictsError = BatchDescribeMergeConflictsError'
 -- 'message', 'batchDescribeMergeConflictsError_message' - The message provided by the exception.
 newBatchDescribeMergeConflictsError ::
   -- | 'filePath'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'exceptionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'message'
-  Core.Text ->
+  Prelude.Text ->
   BatchDescribeMergeConflictsError
 newBatchDescribeMergeConflictsError
   pFilePath_
@@ -69,15 +70,15 @@ newBatchDescribeMergeConflictsError
       }
 
 -- | The path to the file.
-batchDescribeMergeConflictsError_filePath :: Lens.Lens' BatchDescribeMergeConflictsError Core.Text
+batchDescribeMergeConflictsError_filePath :: Lens.Lens' BatchDescribeMergeConflictsError Prelude.Text
 batchDescribeMergeConflictsError_filePath = Lens.lens (\BatchDescribeMergeConflictsError' {filePath} -> filePath) (\s@BatchDescribeMergeConflictsError' {} a -> s {filePath = a} :: BatchDescribeMergeConflictsError)
 
 -- | The name of the exception.
-batchDescribeMergeConflictsError_exceptionName :: Lens.Lens' BatchDescribeMergeConflictsError Core.Text
+batchDescribeMergeConflictsError_exceptionName :: Lens.Lens' BatchDescribeMergeConflictsError Prelude.Text
 batchDescribeMergeConflictsError_exceptionName = Lens.lens (\BatchDescribeMergeConflictsError' {exceptionName} -> exceptionName) (\s@BatchDescribeMergeConflictsError' {} a -> s {exceptionName = a} :: BatchDescribeMergeConflictsError)
 
 -- | The message provided by the exception.
-batchDescribeMergeConflictsError_message :: Lens.Lens' BatchDescribeMergeConflictsError Core.Text
+batchDescribeMergeConflictsError_message :: Lens.Lens' BatchDescribeMergeConflictsError Prelude.Text
 batchDescribeMergeConflictsError_message = Lens.lens (\BatchDescribeMergeConflictsError' {message} -> message) (\s@BatchDescribeMergeConflictsError' {} a -> s {message = a} :: BatchDescribeMergeConflictsError)
 
 instance
@@ -89,13 +90,15 @@ instance
       "BatchDescribeMergeConflictsError"
       ( \x ->
           BatchDescribeMergeConflictsError'
-            Core.<$> (x Core..: "filePath")
-            Core.<*> (x Core..: "exceptionName")
-            Core.<*> (x Core..: "message")
+            Prelude.<$> (x Core..: "filePath")
+            Prelude.<*> (x Core..: "exceptionName")
+            Prelude.<*> (x Core..: "message")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     BatchDescribeMergeConflictsError
 
-instance Core.NFData BatchDescribeMergeConflictsError
+instance
+  Prelude.NFData
+    BatchDescribeMergeConflictsError

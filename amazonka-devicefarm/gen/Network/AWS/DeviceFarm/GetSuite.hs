@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetSuite' smart constructor.
 data GetSuite = GetSuite'
   { -- | The suite\'s ARN.
-    arn :: Core.Text
+    arn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSuite' with all optional fields omitted.
@@ -65,12 +66,12 @@ data GetSuite = GetSuite'
 -- 'arn', 'getSuite_arn' - The suite\'s ARN.
 newGetSuite ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   GetSuite
 newGetSuite pArn_ = GetSuite' {arn = pArn_}
 
 -- | The suite\'s ARN.
-getSuite_arn :: Lens.Lens' GetSuite Core.Text
+getSuite_arn :: Lens.Lens' GetSuite Prelude.Text
 getSuite_arn = Lens.lens (\GetSuite' {arn} -> arn) (\s@GetSuite' {} a -> s {arn = a} :: GetSuite)
 
 instance Core.AWSRequest GetSuite where
@@ -80,46 +81,52 @@ instance Core.AWSRequest GetSuite where
     Response.receiveJSON
       ( \s h x ->
           GetSuiteResponse'
-            Core.<$> (x Core..?> "suite")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "suite")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetSuite
+instance Prelude.Hashable GetSuite
 
-instance Core.NFData GetSuite
+instance Prelude.NFData GetSuite
 
 instance Core.ToHeaders GetSuite where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DeviceFarm_20150623.GetSuite" :: Core.ByteString),
+              Core.=# ( "DeviceFarm_20150623.GetSuite" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetSuite where
   toJSON GetSuite' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("arn" Core..= arn)]
+      )
 
 instance Core.ToPath GetSuite where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetSuite where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a get suite request.
 --
 -- /See:/ 'newGetSuiteResponse' smart constructor.
 data GetSuiteResponse = GetSuiteResponse'
   { -- | A collection of one or more tests.
-    suite :: Core.Maybe Suite,
+    suite :: Prelude.Maybe Suite,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetSuiteResponse' with all optional fields omitted.
@@ -134,20 +141,20 @@ data GetSuiteResponse = GetSuiteResponse'
 -- 'httpStatus', 'getSuiteResponse_httpStatus' - The response's http status code.
 newGetSuiteResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetSuiteResponse
 newGetSuiteResponse pHttpStatus_ =
   GetSuiteResponse'
-    { suite = Core.Nothing,
+    { suite = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A collection of one or more tests.
-getSuiteResponse_suite :: Lens.Lens' GetSuiteResponse (Core.Maybe Suite)
+getSuiteResponse_suite :: Lens.Lens' GetSuiteResponse (Prelude.Maybe Suite)
 getSuiteResponse_suite = Lens.lens (\GetSuiteResponse' {suite} -> suite) (\s@GetSuiteResponse' {} a -> s {suite = a} :: GetSuiteResponse)
 
 -- | The response's http status code.
-getSuiteResponse_httpStatus :: Lens.Lens' GetSuiteResponse Core.Int
+getSuiteResponse_httpStatus :: Lens.Lens' GetSuiteResponse Prelude.Int
 getSuiteResponse_httpStatus = Lens.lens (\GetSuiteResponse' {httpStatus} -> httpStatus) (\s@GetSuiteResponse' {} a -> s {httpStatus = a} :: GetSuiteResponse)
 
-instance Core.NFData GetSuiteResponse
+instance Prelude.NFData GetSuiteResponse

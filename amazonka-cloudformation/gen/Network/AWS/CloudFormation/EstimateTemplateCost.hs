@@ -46,6 +46,7 @@ where
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,7 +62,7 @@ data EstimateTemplateCost = EstimateTemplateCost'
     --
     -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
     -- passed, only @TemplateBody@ is used.
-    templateURL :: Core.Maybe Core.Text,
+    templateURL :: Prelude.Maybe Prelude.Text,
     -- | Structure containing the template body with a minimum length of 1 byte
     -- and a maximum length of 51,200 bytes. (For more information, go to
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
@@ -69,11 +70,11 @@ data EstimateTemplateCost = EstimateTemplateCost'
     --
     -- Conditional: You must pass @TemplateBody@ or @TemplateURL@. If both are
     -- passed, only @TemplateBody@ is used.
-    templateBody :: Core.Maybe Core.Text,
+    templateBody :: Prelude.Maybe Prelude.Text,
     -- | A list of @Parameter@ structures that specify input parameters.
-    parameters :: Core.Maybe [Parameter]
+    parameters :: Prelude.Maybe [Parameter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EstimateTemplateCost' with all optional fields omitted.
@@ -105,9 +106,10 @@ newEstimateTemplateCost ::
   EstimateTemplateCost
 newEstimateTemplateCost =
   EstimateTemplateCost'
-    { templateURL = Core.Nothing,
-      templateBody = Core.Nothing,
-      parameters = Core.Nothing
+    { templateURL =
+        Prelude.Nothing,
+      templateBody = Prelude.Nothing,
+      parameters = Prelude.Nothing
     }
 
 -- | Location of file containing the template body. The URL must point to a
@@ -118,7 +120,7 @@ newEstimateTemplateCost =
 --
 -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
 -- passed, only @TemplateBody@ is used.
-estimateTemplateCost_templateURL :: Lens.Lens' EstimateTemplateCost (Core.Maybe Core.Text)
+estimateTemplateCost_templateURL :: Lens.Lens' EstimateTemplateCost (Prelude.Maybe Prelude.Text)
 estimateTemplateCost_templateURL = Lens.lens (\EstimateTemplateCost' {templateURL} -> templateURL) (\s@EstimateTemplateCost' {} a -> s {templateURL = a} :: EstimateTemplateCost)
 
 -- | Structure containing the template body with a minimum length of 1 byte
@@ -128,12 +130,12 @@ estimateTemplateCost_templateURL = Lens.lens (\EstimateTemplateCost' {templateUR
 --
 -- Conditional: You must pass @TemplateBody@ or @TemplateURL@. If both are
 -- passed, only @TemplateBody@ is used.
-estimateTemplateCost_templateBody :: Lens.Lens' EstimateTemplateCost (Core.Maybe Core.Text)
+estimateTemplateCost_templateBody :: Lens.Lens' EstimateTemplateCost (Prelude.Maybe Prelude.Text)
 estimateTemplateCost_templateBody = Lens.lens (\EstimateTemplateCost' {templateBody} -> templateBody) (\s@EstimateTemplateCost' {} a -> s {templateBody = a} :: EstimateTemplateCost)
 
 -- | A list of @Parameter@ structures that specify input parameters.
-estimateTemplateCost_parameters :: Lens.Lens' EstimateTemplateCost (Core.Maybe [Parameter])
-estimateTemplateCost_parameters = Lens.lens (\EstimateTemplateCost' {parameters} -> parameters) (\s@EstimateTemplateCost' {} a -> s {parameters = a} :: EstimateTemplateCost) Core.. Lens.mapping Lens._Coerce
+estimateTemplateCost_parameters :: Lens.Lens' EstimateTemplateCost (Prelude.Maybe [Parameter])
+estimateTemplateCost_parameters = Lens.lens (\EstimateTemplateCost' {parameters} -> parameters) (\s@EstimateTemplateCost' {} a -> s {parameters = a} :: EstimateTemplateCost) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest EstimateTemplateCost where
   type
@@ -145,31 +147,32 @@ instance Core.AWSRequest EstimateTemplateCost where
       "EstimateTemplateCostResult"
       ( \s h x ->
           EstimateTemplateCostResponse'
-            Core.<$> (x Core..@? "Url")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Url")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable EstimateTemplateCost
+instance Prelude.Hashable EstimateTemplateCost
 
-instance Core.NFData EstimateTemplateCost
+instance Prelude.NFData EstimateTemplateCost
 
 instance Core.ToHeaders EstimateTemplateCost where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath EstimateTemplateCost where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery EstimateTemplateCost where
   toQuery EstimateTemplateCost' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("EstimateTemplateCost" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+          Core.=: ("EstimateTemplateCost" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-15" :: Prelude.ByteString),
         "TemplateURL" Core.=: templateURL,
         "TemplateBody" Core.=: templateBody,
         "Parameters"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> parameters)
+            (Core.toQueryList "member" Prelude.<$> parameters)
       ]
 
 -- | The output for a EstimateTemplateCost action.
@@ -178,11 +181,11 @@ instance Core.ToQuery EstimateTemplateCost where
 data EstimateTemplateCostResponse = EstimateTemplateCostResponse'
   { -- | An AWS Simple Monthly Calculator URL with a query string that describes
     -- the resources required to run the template.
-    url :: Core.Maybe Core.Text,
+    url :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EstimateTemplateCostResponse' with all optional fields omitted.
@@ -198,21 +201,22 @@ data EstimateTemplateCostResponse = EstimateTemplateCostResponse'
 -- 'httpStatus', 'estimateTemplateCostResponse_httpStatus' - The response's http status code.
 newEstimateTemplateCostResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   EstimateTemplateCostResponse
 newEstimateTemplateCostResponse pHttpStatus_ =
   EstimateTemplateCostResponse'
-    { url = Core.Nothing,
+    { url =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An AWS Simple Monthly Calculator URL with a query string that describes
 -- the resources required to run the template.
-estimateTemplateCostResponse_url :: Lens.Lens' EstimateTemplateCostResponse (Core.Maybe Core.Text)
+estimateTemplateCostResponse_url :: Lens.Lens' EstimateTemplateCostResponse (Prelude.Maybe Prelude.Text)
 estimateTemplateCostResponse_url = Lens.lens (\EstimateTemplateCostResponse' {url} -> url) (\s@EstimateTemplateCostResponse' {} a -> s {url = a} :: EstimateTemplateCostResponse)
 
 -- | The response's http status code.
-estimateTemplateCostResponse_httpStatus :: Lens.Lens' EstimateTemplateCostResponse Core.Int
+estimateTemplateCostResponse_httpStatus :: Lens.Lens' EstimateTemplateCostResponse Prelude.Int
 estimateTemplateCostResponse_httpStatus = Lens.lens (\EstimateTemplateCostResponse' {httpStatus} -> httpStatus) (\s@EstimateTemplateCostResponse' {} a -> s {httpStatus = a} :: EstimateTemplateCostResponse)
 
-instance Core.NFData EstimateTemplateCostResponse
+instance Prelude.NFData EstimateTemplateCostResponse

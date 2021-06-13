@@ -22,6 +22,7 @@ module Network.AWS.LexModels.Types.UtteranceList where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.UtteranceData
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides a list of utterances that have been made to a specific version
 -- of your bot. The list contains a maximum of 100 utterances.
@@ -29,13 +30,13 @@ import Network.AWS.LexModels.Types.UtteranceData
 -- /See:/ 'newUtteranceList' smart constructor.
 data UtteranceList = UtteranceList'
   { -- | The version of the bot that processed the list.
-    botVersion :: Core.Maybe Core.Text,
+    botVersion :: Prelude.Maybe Prelude.Text,
     -- | One or more UtteranceData objects that contain information about the
     -- utterances that have been made to a bot. The maximum number of object is
     -- 100.
-    utterances :: Core.Maybe [UtteranceData]
+    utterances :: Prelude.Maybe [UtteranceData]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UtteranceList' with all optional fields omitted.
@@ -54,19 +55,19 @@ newUtteranceList ::
   UtteranceList
 newUtteranceList =
   UtteranceList'
-    { botVersion = Core.Nothing,
-      utterances = Core.Nothing
+    { botVersion = Prelude.Nothing,
+      utterances = Prelude.Nothing
     }
 
 -- | The version of the bot that processed the list.
-utteranceList_botVersion :: Lens.Lens' UtteranceList (Core.Maybe Core.Text)
+utteranceList_botVersion :: Lens.Lens' UtteranceList (Prelude.Maybe Prelude.Text)
 utteranceList_botVersion = Lens.lens (\UtteranceList' {botVersion} -> botVersion) (\s@UtteranceList' {} a -> s {botVersion = a} :: UtteranceList)
 
 -- | One or more UtteranceData objects that contain information about the
 -- utterances that have been made to a bot. The maximum number of object is
 -- 100.
-utteranceList_utterances :: Lens.Lens' UtteranceList (Core.Maybe [UtteranceData])
-utteranceList_utterances = Lens.lens (\UtteranceList' {utterances} -> utterances) (\s@UtteranceList' {} a -> s {utterances = a} :: UtteranceList) Core.. Lens.mapping Lens._Coerce
+utteranceList_utterances :: Lens.Lens' UtteranceList (Prelude.Maybe [UtteranceData])
+utteranceList_utterances = Lens.lens (\UtteranceList' {utterances} -> utterances) (\s@UtteranceList' {} a -> s {utterances = a} :: UtteranceList) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON UtteranceList where
   parseJSON =
@@ -74,10 +75,10 @@ instance Core.FromJSON UtteranceList where
       "UtteranceList"
       ( \x ->
           UtteranceList'
-            Core.<$> (x Core..:? "botVersion")
-            Core.<*> (x Core..:? "utterances" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "botVersion")
+            Prelude.<*> (x Core..:? "utterances" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable UtteranceList
+instance Prelude.Hashable UtteranceList
 
-instance Core.NFData UtteranceList
+instance Prelude.NFData UtteranceList

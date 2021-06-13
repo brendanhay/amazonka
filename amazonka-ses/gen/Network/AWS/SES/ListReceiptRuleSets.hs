@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -65,9 +66,9 @@ import Network.AWS.SES.Types
 data ListReceiptRuleSets = ListReceiptRuleSets'
   { -- | A token returned from a previous call to @ListReceiptRuleSets@ to
     -- indicate the position in the receipt rule set list.
-    nextToken :: Core.Maybe Core.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListReceiptRuleSets' with all optional fields omitted.
@@ -82,11 +83,11 @@ data ListReceiptRuleSets = ListReceiptRuleSets'
 newListReceiptRuleSets ::
   ListReceiptRuleSets
 newListReceiptRuleSets =
-  ListReceiptRuleSets' {nextToken = Core.Nothing}
+  ListReceiptRuleSets' {nextToken = Prelude.Nothing}
 
 -- | A token returned from a previous call to @ListReceiptRuleSets@ to
 -- indicate the position in the receipt rule set list.
-listReceiptRuleSets_nextToken :: Lens.Lens' ListReceiptRuleSets (Core.Maybe Core.Text)
+listReceiptRuleSets_nextToken :: Lens.Lens' ListReceiptRuleSets (Prelude.Maybe Prelude.Text)
 listReceiptRuleSets_nextToken = Lens.lens (\ListReceiptRuleSets' {nextToken} -> nextToken) (\s@ListReceiptRuleSets' {} a -> s {nextToken = a} :: ListReceiptRuleSets)
 
 instance Core.AWSPager ListReceiptRuleSets where
@@ -94,22 +95,22 @@ instance Core.AWSPager ListReceiptRuleSets where
     | Core.stop
         ( rs
             Lens.^? listReceiptRuleSetsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listReceiptRuleSetsResponse_ruleSets
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listReceiptRuleSets_nextToken
+          Prelude.& listReceiptRuleSets_nextToken
           Lens..~ rs
           Lens.^? listReceiptRuleSetsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListReceiptRuleSets where
   type
@@ -121,29 +122,30 @@ instance Core.AWSRequest ListReceiptRuleSets where
       "ListReceiptRuleSetsResult"
       ( \s h x ->
           ListReceiptRuleSetsResponse'
-            Core.<$> ( x Core..@? "RuleSets" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (x Core..@? "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "RuleSets" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListReceiptRuleSets
+instance Prelude.Hashable ListReceiptRuleSets
 
-instance Core.NFData ListReceiptRuleSets
+instance Prelude.NFData ListReceiptRuleSets
 
 instance Core.ToHeaders ListReceiptRuleSets where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListReceiptRuleSets where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListReceiptRuleSets where
   toQuery ListReceiptRuleSets' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListReceiptRuleSets" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("ListReceiptRuleSets" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken
       ]
 
@@ -154,15 +156,15 @@ data ListReceiptRuleSetsResponse = ListReceiptRuleSetsResponse'
   { -- | The metadata for the currently active receipt rule set. The metadata
     -- consists of the rule set name and the timestamp of when the rule set was
     -- created.
-    ruleSets :: Core.Maybe [ReceiptRuleSetMetadata],
+    ruleSets :: Prelude.Maybe [ReceiptRuleSetMetadata],
     -- | A token indicating that there are additional receipt rule sets available
     -- to be listed. Pass this token to successive calls of
     -- @ListReceiptRuleSets@ to retrieve up to 100 receipt rule sets at a time.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListReceiptRuleSetsResponse' with all optional fields omitted.
@@ -183,30 +185,30 @@ data ListReceiptRuleSetsResponse = ListReceiptRuleSetsResponse'
 -- 'httpStatus', 'listReceiptRuleSetsResponse_httpStatus' - The response's http status code.
 newListReceiptRuleSetsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListReceiptRuleSetsResponse
 newListReceiptRuleSetsResponse pHttpStatus_ =
   ListReceiptRuleSetsResponse'
     { ruleSets =
-        Core.Nothing,
-      nextToken = Core.Nothing,
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The metadata for the currently active receipt rule set. The metadata
 -- consists of the rule set name and the timestamp of when the rule set was
 -- created.
-listReceiptRuleSetsResponse_ruleSets :: Lens.Lens' ListReceiptRuleSetsResponse (Core.Maybe [ReceiptRuleSetMetadata])
-listReceiptRuleSetsResponse_ruleSets = Lens.lens (\ListReceiptRuleSetsResponse' {ruleSets} -> ruleSets) (\s@ListReceiptRuleSetsResponse' {} a -> s {ruleSets = a} :: ListReceiptRuleSetsResponse) Core.. Lens.mapping Lens._Coerce
+listReceiptRuleSetsResponse_ruleSets :: Lens.Lens' ListReceiptRuleSetsResponse (Prelude.Maybe [ReceiptRuleSetMetadata])
+listReceiptRuleSetsResponse_ruleSets = Lens.lens (\ListReceiptRuleSetsResponse' {ruleSets} -> ruleSets) (\s@ListReceiptRuleSetsResponse' {} a -> s {ruleSets = a} :: ListReceiptRuleSetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A token indicating that there are additional receipt rule sets available
 -- to be listed. Pass this token to successive calls of
 -- @ListReceiptRuleSets@ to retrieve up to 100 receipt rule sets at a time.
-listReceiptRuleSetsResponse_nextToken :: Lens.Lens' ListReceiptRuleSetsResponse (Core.Maybe Core.Text)
+listReceiptRuleSetsResponse_nextToken :: Lens.Lens' ListReceiptRuleSetsResponse (Prelude.Maybe Prelude.Text)
 listReceiptRuleSetsResponse_nextToken = Lens.lens (\ListReceiptRuleSetsResponse' {nextToken} -> nextToken) (\s@ListReceiptRuleSetsResponse' {} a -> s {nextToken = a} :: ListReceiptRuleSetsResponse)
 
 -- | The response's http status code.
-listReceiptRuleSetsResponse_httpStatus :: Lens.Lens' ListReceiptRuleSetsResponse Core.Int
+listReceiptRuleSetsResponse_httpStatus :: Lens.Lens' ListReceiptRuleSetsResponse Prelude.Int
 listReceiptRuleSetsResponse_httpStatus = Lens.lens (\ListReceiptRuleSetsResponse' {httpStatus} -> httpStatus) (\s@ListReceiptRuleSetsResponse' {} a -> s {httpStatus = a} :: ListReceiptRuleSetsResponse)
 
-instance Core.NFData ListReceiptRuleSetsResponse
+instance Prelude.NFData ListReceiptRuleSetsResponse

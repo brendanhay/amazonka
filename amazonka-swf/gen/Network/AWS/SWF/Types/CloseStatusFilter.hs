@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.CloseStatusFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.CloseStatus
 
 -- | Used to filter the closed workflow executions in visibility APIs by
@@ -32,7 +33,7 @@ data CloseStatusFilter = CloseStatusFilter'
     -- to meet the criteria of this filter.
     status :: CloseStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CloseStatusFilter' with all optional fields omitted.
@@ -56,13 +57,13 @@ newCloseStatusFilter pStatus_ =
 closeStatusFilter_status :: Lens.Lens' CloseStatusFilter CloseStatus
 closeStatusFilter_status = Lens.lens (\CloseStatusFilter' {status} -> status) (\s@CloseStatusFilter' {} a -> s {status = a} :: CloseStatusFilter)
 
-instance Core.Hashable CloseStatusFilter
+instance Prelude.Hashable CloseStatusFilter
 
-instance Core.NFData CloseStatusFilter
+instance Prelude.NFData CloseStatusFilter
 
 instance Core.ToJSON CloseStatusFilter where
   toJSON CloseStatusFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("status" Core..= status)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("status" Core..= status)]
       )

@@ -22,6 +22,7 @@ module Network.AWS.IoT.Types.UpdateCACertificateParams where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.CACertificateUpdateAction
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Parameters to define a mitigation action that changes the state of the
 -- CA certificate to inactive.
@@ -32,7 +33,7 @@ data UpdateCACertificateParams = UpdateCACertificateParams'
     -- supported value is @DEACTIVATE@.
     action :: CACertificateUpdateAction
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateCACertificateParams' with all optional fields omitted.
@@ -62,16 +63,16 @@ instance Core.FromJSON UpdateCACertificateParams where
       "UpdateCACertificateParams"
       ( \x ->
           UpdateCACertificateParams'
-            Core.<$> (x Core..: "action")
+            Prelude.<$> (x Core..: "action")
       )
 
-instance Core.Hashable UpdateCACertificateParams
+instance Prelude.Hashable UpdateCACertificateParams
 
-instance Core.NFData UpdateCACertificateParams
+instance Prelude.NFData UpdateCACertificateParams
 
 instance Core.ToJSON UpdateCACertificateParams where
   toJSON UpdateCACertificateParams' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("action" Core..= action)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("action" Core..= action)]
       )

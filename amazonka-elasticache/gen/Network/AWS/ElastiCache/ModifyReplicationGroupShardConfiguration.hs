@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,7 +65,7 @@ data ModifyReplicationGroupShardConfiguration = ModifyReplicationGroupShardConfi
     --
     -- ElastiCache for Redis will attempt to remove all node groups except
     -- those listed by @NodeGroupsToRetain@ from the cluster.
-    nodeGroupsToRetain :: Core.Maybe [Core.Text],
+    nodeGroupsToRetain :: Prelude.Maybe [Prelude.Text],
     -- | If the value of @NodeGroupCount@ is less than the current number of node
     -- groups (shards), then either @NodeGroupsToRemove@ or
     -- @NodeGroupsToRetain@ is required. @NodeGroupsToRemove@ is a list of
@@ -72,7 +73,7 @@ data ModifyReplicationGroupShardConfiguration = ModifyReplicationGroupShardConfi
     --
     -- ElastiCache for Redis will attempt to remove all node groups listed by
     -- @NodeGroupsToRemove@ from the cluster.
-    nodeGroupsToRemove :: Core.Maybe [Core.Text],
+    nodeGroupsToRemove :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the preferred availability zones for each node group in the
     -- cluster. If the value of @NodeGroupCount@ is greater than the current
     -- number of node groups (shards), you can use this parameter to specify
@@ -81,20 +82,20 @@ data ModifyReplicationGroupShardConfiguration = ModifyReplicationGroupShardConfi
     --
     -- You can specify this parameter only if the value of @NodeGroupCount@ is
     -- greater than the current number of node groups (shards).
-    reshardingConfiguration :: Core.Maybe [ReshardingConfiguration],
+    reshardingConfiguration :: Prelude.Maybe [ReshardingConfiguration],
     -- | The name of the Redis (cluster mode enabled) cluster (replication group)
     -- on which the shards are to be configured.
-    replicationGroupId :: Core.Text,
+    replicationGroupId :: Prelude.Text,
     -- | The number of node groups (shards) that results from the modification of
     -- the shard configuration.
-    nodeGroupCount :: Core.Int,
+    nodeGroupCount :: Prelude.Int,
     -- | Indicates that the shard reconfiguration process begins immediately. At
     -- present, the only permitted value for this parameter is @true@.
     --
     -- Value: true
-    applyImmediately :: Core.Bool
+    applyImmediately :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyReplicationGroupShardConfiguration' with all optional fields omitted.
@@ -141,11 +142,11 @@ data ModifyReplicationGroupShardConfiguration = ModifyReplicationGroupShardConfi
 -- Value: true
 newModifyReplicationGroupShardConfiguration ::
   -- | 'replicationGroupId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'nodeGroupCount'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'applyImmediately'
-  Core.Bool ->
+  Prelude.Bool ->
   ModifyReplicationGroupShardConfiguration
 newModifyReplicationGroupShardConfiguration
   pReplicationGroupId_
@@ -153,10 +154,11 @@ newModifyReplicationGroupShardConfiguration
   pApplyImmediately_ =
     ModifyReplicationGroupShardConfiguration'
       { nodeGroupsToRetain =
-          Core.Nothing,
-        nodeGroupsToRemove = Core.Nothing,
+          Prelude.Nothing,
+        nodeGroupsToRemove =
+          Prelude.Nothing,
         reshardingConfiguration =
-          Core.Nothing,
+          Prelude.Nothing,
         replicationGroupId =
           pReplicationGroupId_,
         nodeGroupCount = pNodeGroupCount_,
@@ -171,8 +173,8 @@ newModifyReplicationGroupShardConfiguration
 --
 -- ElastiCache for Redis will attempt to remove all node groups except
 -- those listed by @NodeGroupsToRetain@ from the cluster.
-modifyReplicationGroupShardConfiguration_nodeGroupsToRetain :: Lens.Lens' ModifyReplicationGroupShardConfiguration (Core.Maybe [Core.Text])
-modifyReplicationGroupShardConfiguration_nodeGroupsToRetain = Lens.lens (\ModifyReplicationGroupShardConfiguration' {nodeGroupsToRetain} -> nodeGroupsToRetain) (\s@ModifyReplicationGroupShardConfiguration' {} a -> s {nodeGroupsToRetain = a} :: ModifyReplicationGroupShardConfiguration) Core.. Lens.mapping Lens._Coerce
+modifyReplicationGroupShardConfiguration_nodeGroupsToRetain :: Lens.Lens' ModifyReplicationGroupShardConfiguration (Prelude.Maybe [Prelude.Text])
+modifyReplicationGroupShardConfiguration_nodeGroupsToRetain = Lens.lens (\ModifyReplicationGroupShardConfiguration' {nodeGroupsToRetain} -> nodeGroupsToRetain) (\s@ModifyReplicationGroupShardConfiguration' {} a -> s {nodeGroupsToRetain = a} :: ModifyReplicationGroupShardConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If the value of @NodeGroupCount@ is less than the current number of node
 -- groups (shards), then either @NodeGroupsToRemove@ or
@@ -181,8 +183,8 @@ modifyReplicationGroupShardConfiguration_nodeGroupsToRetain = Lens.lens (\Modify
 --
 -- ElastiCache for Redis will attempt to remove all node groups listed by
 -- @NodeGroupsToRemove@ from the cluster.
-modifyReplicationGroupShardConfiguration_nodeGroupsToRemove :: Lens.Lens' ModifyReplicationGroupShardConfiguration (Core.Maybe [Core.Text])
-modifyReplicationGroupShardConfiguration_nodeGroupsToRemove = Lens.lens (\ModifyReplicationGroupShardConfiguration' {nodeGroupsToRemove} -> nodeGroupsToRemove) (\s@ModifyReplicationGroupShardConfiguration' {} a -> s {nodeGroupsToRemove = a} :: ModifyReplicationGroupShardConfiguration) Core.. Lens.mapping Lens._Coerce
+modifyReplicationGroupShardConfiguration_nodeGroupsToRemove :: Lens.Lens' ModifyReplicationGroupShardConfiguration (Prelude.Maybe [Prelude.Text])
+modifyReplicationGroupShardConfiguration_nodeGroupsToRemove = Lens.lens (\ModifyReplicationGroupShardConfiguration' {nodeGroupsToRemove} -> nodeGroupsToRemove) (\s@ModifyReplicationGroupShardConfiguration' {} a -> s {nodeGroupsToRemove = a} :: ModifyReplicationGroupShardConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the preferred availability zones for each node group in the
 -- cluster. If the value of @NodeGroupCount@ is greater than the current
@@ -192,24 +194,24 @@ modifyReplicationGroupShardConfiguration_nodeGroupsToRemove = Lens.lens (\Modify
 --
 -- You can specify this parameter only if the value of @NodeGroupCount@ is
 -- greater than the current number of node groups (shards).
-modifyReplicationGroupShardConfiguration_reshardingConfiguration :: Lens.Lens' ModifyReplicationGroupShardConfiguration (Core.Maybe [ReshardingConfiguration])
-modifyReplicationGroupShardConfiguration_reshardingConfiguration = Lens.lens (\ModifyReplicationGroupShardConfiguration' {reshardingConfiguration} -> reshardingConfiguration) (\s@ModifyReplicationGroupShardConfiguration' {} a -> s {reshardingConfiguration = a} :: ModifyReplicationGroupShardConfiguration) Core.. Lens.mapping Lens._Coerce
+modifyReplicationGroupShardConfiguration_reshardingConfiguration :: Lens.Lens' ModifyReplicationGroupShardConfiguration (Prelude.Maybe [ReshardingConfiguration])
+modifyReplicationGroupShardConfiguration_reshardingConfiguration = Lens.lens (\ModifyReplicationGroupShardConfiguration' {reshardingConfiguration} -> reshardingConfiguration) (\s@ModifyReplicationGroupShardConfiguration' {} a -> s {reshardingConfiguration = a} :: ModifyReplicationGroupShardConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the Redis (cluster mode enabled) cluster (replication group)
 -- on which the shards are to be configured.
-modifyReplicationGroupShardConfiguration_replicationGroupId :: Lens.Lens' ModifyReplicationGroupShardConfiguration Core.Text
+modifyReplicationGroupShardConfiguration_replicationGroupId :: Lens.Lens' ModifyReplicationGroupShardConfiguration Prelude.Text
 modifyReplicationGroupShardConfiguration_replicationGroupId = Lens.lens (\ModifyReplicationGroupShardConfiguration' {replicationGroupId} -> replicationGroupId) (\s@ModifyReplicationGroupShardConfiguration' {} a -> s {replicationGroupId = a} :: ModifyReplicationGroupShardConfiguration)
 
 -- | The number of node groups (shards) that results from the modification of
 -- the shard configuration.
-modifyReplicationGroupShardConfiguration_nodeGroupCount :: Lens.Lens' ModifyReplicationGroupShardConfiguration Core.Int
+modifyReplicationGroupShardConfiguration_nodeGroupCount :: Lens.Lens' ModifyReplicationGroupShardConfiguration Prelude.Int
 modifyReplicationGroupShardConfiguration_nodeGroupCount = Lens.lens (\ModifyReplicationGroupShardConfiguration' {nodeGroupCount} -> nodeGroupCount) (\s@ModifyReplicationGroupShardConfiguration' {} a -> s {nodeGroupCount = a} :: ModifyReplicationGroupShardConfiguration)
 
 -- | Indicates that the shard reconfiguration process begins immediately. At
 -- present, the only permitted value for this parameter is @true@.
 --
 -- Value: true
-modifyReplicationGroupShardConfiguration_applyImmediately :: Lens.Lens' ModifyReplicationGroupShardConfiguration Core.Bool
+modifyReplicationGroupShardConfiguration_applyImmediately :: Lens.Lens' ModifyReplicationGroupShardConfiguration Prelude.Bool
 modifyReplicationGroupShardConfiguration_applyImmediately = Lens.lens (\ModifyReplicationGroupShardConfiguration' {applyImmediately} -> applyImmediately) (\s@ModifyReplicationGroupShardConfiguration' {} a -> s {applyImmediately = a} :: ModifyReplicationGroupShardConfiguration)
 
 instance
@@ -226,55 +228,56 @@ instance
       "ModifyReplicationGroupShardConfigurationResult"
       ( \s h x ->
           ModifyReplicationGroupShardConfigurationResponse'
-            Core.<$> (x Core..@? "ReplicationGroup")
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ReplicationGroup")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ModifyReplicationGroupShardConfiguration
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifyReplicationGroupShardConfiguration
 
 instance
   Core.ToHeaders
     ModifyReplicationGroupShardConfiguration
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     ModifyReplicationGroupShardConfiguration
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     ModifyReplicationGroupShardConfiguration
   where
   toQuery ModifyReplicationGroupShardConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "ModifyReplicationGroupShardConfiguration" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "NodeGroupsToRetain"
           Core.=: Core.toQuery
             ( Core.toQueryList "NodeGroupToRetain"
-                Core.<$> nodeGroupsToRetain
+                Prelude.<$> nodeGroupsToRetain
             ),
         "NodeGroupsToRemove"
           Core.=: Core.toQuery
             ( Core.toQueryList "NodeGroupToRemove"
-                Core.<$> nodeGroupsToRemove
+                Prelude.<$> nodeGroupsToRemove
             ),
         "ReshardingConfiguration"
           Core.=: Core.toQuery
             ( Core.toQueryList "ReshardingConfiguration"
-                Core.<$> reshardingConfiguration
+                Prelude.<$> reshardingConfiguration
             ),
         "ReplicationGroupId" Core.=: replicationGroupId,
         "NodeGroupCount" Core.=: nodeGroupCount,
@@ -283,11 +286,11 @@ instance
 
 -- | /See:/ 'newModifyReplicationGroupShardConfigurationResponse' smart constructor.
 data ModifyReplicationGroupShardConfigurationResponse = ModifyReplicationGroupShardConfigurationResponse'
-  { replicationGroup :: Core.Maybe ReplicationGroup,
+  { replicationGroup :: Prelude.Maybe ReplicationGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyReplicationGroupShardConfigurationResponse' with all optional fields omitted.
@@ -302,24 +305,24 @@ data ModifyReplicationGroupShardConfigurationResponse = ModifyReplicationGroupSh
 -- 'httpStatus', 'modifyReplicationGroupShardConfigurationResponse_httpStatus' - The response's http status code.
 newModifyReplicationGroupShardConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyReplicationGroupShardConfigurationResponse
 newModifyReplicationGroupShardConfigurationResponse
   pHttpStatus_ =
     ModifyReplicationGroupShardConfigurationResponse'
       { replicationGroup =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-modifyReplicationGroupShardConfigurationResponse_replicationGroup :: Lens.Lens' ModifyReplicationGroupShardConfigurationResponse (Core.Maybe ReplicationGroup)
+modifyReplicationGroupShardConfigurationResponse_replicationGroup :: Lens.Lens' ModifyReplicationGroupShardConfigurationResponse (Prelude.Maybe ReplicationGroup)
 modifyReplicationGroupShardConfigurationResponse_replicationGroup = Lens.lens (\ModifyReplicationGroupShardConfigurationResponse' {replicationGroup} -> replicationGroup) (\s@ModifyReplicationGroupShardConfigurationResponse' {} a -> s {replicationGroup = a} :: ModifyReplicationGroupShardConfigurationResponse)
 
 -- | The response's http status code.
-modifyReplicationGroupShardConfigurationResponse_httpStatus :: Lens.Lens' ModifyReplicationGroupShardConfigurationResponse Core.Int
+modifyReplicationGroupShardConfigurationResponse_httpStatus :: Lens.Lens' ModifyReplicationGroupShardConfigurationResponse Prelude.Int
 modifyReplicationGroupShardConfigurationResponse_httpStatus = Lens.lens (\ModifyReplicationGroupShardConfigurationResponse' {httpStatus} -> httpStatus) (\s@ModifyReplicationGroupShardConfigurationResponse' {} a -> s {httpStatus = a} :: ModifyReplicationGroupShardConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifyReplicationGroupShardConfigurationResponse

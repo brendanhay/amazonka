@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -53,10 +54,10 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newDescribeProvisionedProductPlan' smart constructor.
 data DescribeProvisionedProductPlan = DescribeProvisionedProductPlan'
   { -- | The maximum number of items to return with this call.
-    pageSize :: Core.Maybe Core.Natural,
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The page token for the next set of results. To retrieve the first set of
     -- results, use null.
-    pageToken :: Core.Maybe Core.Text,
+    pageToken :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -64,11 +65,11 @@ data DescribeProvisionedProductPlan = DescribeProvisionedProductPlan'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The plan identifier.
-    planId :: Core.Text
+    planId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeProvisionedProductPlan' with all optional fields omitted.
@@ -94,24 +95,24 @@ data DescribeProvisionedProductPlan = DescribeProvisionedProductPlan'
 -- 'planId', 'describeProvisionedProductPlan_planId' - The plan identifier.
 newDescribeProvisionedProductPlan ::
   -- | 'planId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeProvisionedProductPlan
 newDescribeProvisionedProductPlan pPlanId_ =
   DescribeProvisionedProductPlan'
     { pageSize =
-        Core.Nothing,
-      pageToken = Core.Nothing,
-      acceptLanguage = Core.Nothing,
+        Prelude.Nothing,
+      pageToken = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
       planId = pPlanId_
     }
 
 -- | The maximum number of items to return with this call.
-describeProvisionedProductPlan_pageSize :: Lens.Lens' DescribeProvisionedProductPlan (Core.Maybe Core.Natural)
+describeProvisionedProductPlan_pageSize :: Lens.Lens' DescribeProvisionedProductPlan (Prelude.Maybe Prelude.Natural)
 describeProvisionedProductPlan_pageSize = Lens.lens (\DescribeProvisionedProductPlan' {pageSize} -> pageSize) (\s@DescribeProvisionedProductPlan' {} a -> s {pageSize = a} :: DescribeProvisionedProductPlan)
 
 -- | The page token for the next set of results. To retrieve the first set of
 -- results, use null.
-describeProvisionedProductPlan_pageToken :: Lens.Lens' DescribeProvisionedProductPlan (Core.Maybe Core.Text)
+describeProvisionedProductPlan_pageToken :: Lens.Lens' DescribeProvisionedProductPlan (Prelude.Maybe Prelude.Text)
 describeProvisionedProductPlan_pageToken = Lens.lens (\DescribeProvisionedProductPlan' {pageToken} -> pageToken) (\s@DescribeProvisionedProductPlan' {} a -> s {pageToken = a} :: DescribeProvisionedProductPlan)
 
 -- | The language code.
@@ -121,11 +122,11 @@ describeProvisionedProductPlan_pageToken = Lens.lens (\DescribeProvisionedProduc
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-describeProvisionedProductPlan_acceptLanguage :: Lens.Lens' DescribeProvisionedProductPlan (Core.Maybe Core.Text)
+describeProvisionedProductPlan_acceptLanguage :: Lens.Lens' DescribeProvisionedProductPlan (Prelude.Maybe Prelude.Text)
 describeProvisionedProductPlan_acceptLanguage = Lens.lens (\DescribeProvisionedProductPlan' {acceptLanguage} -> acceptLanguage) (\s@DescribeProvisionedProductPlan' {} a -> s {acceptLanguage = a} :: DescribeProvisionedProductPlan)
 
 -- | The plan identifier.
-describeProvisionedProductPlan_planId :: Lens.Lens' DescribeProvisionedProductPlan Core.Text
+describeProvisionedProductPlan_planId :: Lens.Lens' DescribeProvisionedProductPlan Prelude.Text
 describeProvisionedProductPlan_planId = Lens.lens (\DescribeProvisionedProductPlan' {planId} -> planId) (\s@DescribeProvisionedProductPlan' {} a -> s {planId = a} :: DescribeProvisionedProductPlan)
 
 instance
@@ -140,63 +141,72 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeProvisionedProductPlanResponse'
-            Core.<$> (x Core..?> "ResourceChanges" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "NextPageToken")
-            Core.<*> (x Core..?> "ProvisionedProductPlanDetails")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "ResourceChanges"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "NextPageToken")
+            Prelude.<*> (x Core..?> "ProvisionedProductPlanDetails")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeProvisionedProductPlan
+instance
+  Prelude.Hashable
+    DescribeProvisionedProductPlan
 
-instance Core.NFData DescribeProvisionedProductPlan
+instance
+  Prelude.NFData
+    DescribeProvisionedProductPlan
 
 instance
   Core.ToHeaders
     DescribeProvisionedProductPlan
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.DescribeProvisionedProductPlan" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeProvisionedProductPlan where
   toJSON DescribeProvisionedProductPlan' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("PageSize" Core..=) Core.<$> pageSize,
-            ("PageToken" Core..=) Core.<$> pageToken,
-            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just ("PlanId" Core..= planId)
+      ( Prelude.catMaybes
+          [ ("PageSize" Core..=) Prelude.<$> pageSize,
+            ("PageToken" Core..=) Prelude.<$> pageToken,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("PlanId" Core..= planId)
           ]
       )
 
 instance Core.ToPath DescribeProvisionedProductPlan where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeProvisionedProductPlan where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeProvisionedProductPlanResponse' smart constructor.
 data DescribeProvisionedProductPlanResponse = DescribeProvisionedProductPlanResponse'
   { -- | Information about the resource changes that will occur when the plan is
     -- executed.
-    resourceChanges :: Core.Maybe [ResourceChange],
+    resourceChanges :: Prelude.Maybe [ResourceChange],
     -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the plan.
-    provisionedProductPlanDetails :: Core.Maybe ProvisionedProductPlanDetails,
+    provisionedProductPlanDetails :: Prelude.Maybe ProvisionedProductPlanDetails,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeProvisionedProductPlanResponse' with all optional fields omitted.
@@ -217,37 +227,37 @@ data DescribeProvisionedProductPlanResponse = DescribeProvisionedProductPlanResp
 -- 'httpStatus', 'describeProvisionedProductPlanResponse_httpStatus' - The response's http status code.
 newDescribeProvisionedProductPlanResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeProvisionedProductPlanResponse
 newDescribeProvisionedProductPlanResponse
   pHttpStatus_ =
     DescribeProvisionedProductPlanResponse'
       { resourceChanges =
-          Core.Nothing,
-        nextPageToken = Core.Nothing,
+          Prelude.Nothing,
+        nextPageToken = Prelude.Nothing,
         provisionedProductPlanDetails =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the resource changes that will occur when the plan is
 -- executed.
-describeProvisionedProductPlanResponse_resourceChanges :: Lens.Lens' DescribeProvisionedProductPlanResponse (Core.Maybe [ResourceChange])
-describeProvisionedProductPlanResponse_resourceChanges = Lens.lens (\DescribeProvisionedProductPlanResponse' {resourceChanges} -> resourceChanges) (\s@DescribeProvisionedProductPlanResponse' {} a -> s {resourceChanges = a} :: DescribeProvisionedProductPlanResponse) Core.. Lens.mapping Lens._Coerce
+describeProvisionedProductPlanResponse_resourceChanges :: Lens.Lens' DescribeProvisionedProductPlanResponse (Prelude.Maybe [ResourceChange])
+describeProvisionedProductPlanResponse_resourceChanges = Lens.lens (\DescribeProvisionedProductPlanResponse' {resourceChanges} -> resourceChanges) (\s@DescribeProvisionedProductPlanResponse' {} a -> s {resourceChanges = a} :: DescribeProvisionedProductPlanResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
-describeProvisionedProductPlanResponse_nextPageToken :: Lens.Lens' DescribeProvisionedProductPlanResponse (Core.Maybe Core.Text)
+describeProvisionedProductPlanResponse_nextPageToken :: Lens.Lens' DescribeProvisionedProductPlanResponse (Prelude.Maybe Prelude.Text)
 describeProvisionedProductPlanResponse_nextPageToken = Lens.lens (\DescribeProvisionedProductPlanResponse' {nextPageToken} -> nextPageToken) (\s@DescribeProvisionedProductPlanResponse' {} a -> s {nextPageToken = a} :: DescribeProvisionedProductPlanResponse)
 
 -- | Information about the plan.
-describeProvisionedProductPlanResponse_provisionedProductPlanDetails :: Lens.Lens' DescribeProvisionedProductPlanResponse (Core.Maybe ProvisionedProductPlanDetails)
+describeProvisionedProductPlanResponse_provisionedProductPlanDetails :: Lens.Lens' DescribeProvisionedProductPlanResponse (Prelude.Maybe ProvisionedProductPlanDetails)
 describeProvisionedProductPlanResponse_provisionedProductPlanDetails = Lens.lens (\DescribeProvisionedProductPlanResponse' {provisionedProductPlanDetails} -> provisionedProductPlanDetails) (\s@DescribeProvisionedProductPlanResponse' {} a -> s {provisionedProductPlanDetails = a} :: DescribeProvisionedProductPlanResponse)
 
 -- | The response's http status code.
-describeProvisionedProductPlanResponse_httpStatus :: Lens.Lens' DescribeProvisionedProductPlanResponse Core.Int
+describeProvisionedProductPlanResponse_httpStatus :: Lens.Lens' DescribeProvisionedProductPlanResponse Prelude.Int
 describeProvisionedProductPlanResponse_httpStatus = Lens.lens (\DescribeProvisionedProductPlanResponse' {httpStatus} -> httpStatus) (\s@DescribeProvisionedProductPlanResponse' {} a -> s {httpStatus = a} :: DescribeProvisionedProductPlanResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeProvisionedProductPlanResponse

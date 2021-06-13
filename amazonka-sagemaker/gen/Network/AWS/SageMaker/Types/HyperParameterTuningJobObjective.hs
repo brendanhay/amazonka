@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.HyperParameterTuningJobObjective where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.HyperParameterTuningJobObjectiveType
 
 -- | Defines the objective metric for a hyperparameter tuning job.
@@ -34,9 +35,9 @@ data HyperParameterTuningJobObjective = HyperParameterTuningJobObjective'
   { -- | Whether to minimize or maximize the objective metric.
     type' :: HyperParameterTuningJobObjectiveType,
     -- | The name of the metric to use for the objective metric.
-    metricName :: Core.Text
+    metricName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HyperParameterTuningJobObjective' with all optional fields omitted.
@@ -53,7 +54,7 @@ newHyperParameterTuningJobObjective ::
   -- | 'type''
   HyperParameterTuningJobObjectiveType ->
   -- | 'metricName'
-  Core.Text ->
+  Prelude.Text ->
   HyperParameterTuningJobObjective
 newHyperParameterTuningJobObjective
   pType_
@@ -68,7 +69,7 @@ hyperParameterTuningJobObjective_type :: Lens.Lens' HyperParameterTuningJobObjec
 hyperParameterTuningJobObjective_type = Lens.lens (\HyperParameterTuningJobObjective' {type'} -> type') (\s@HyperParameterTuningJobObjective' {} a -> s {type' = a} :: HyperParameterTuningJobObjective)
 
 -- | The name of the metric to use for the objective metric.
-hyperParameterTuningJobObjective_metricName :: Lens.Lens' HyperParameterTuningJobObjective Core.Text
+hyperParameterTuningJobObjective_metricName :: Lens.Lens' HyperParameterTuningJobObjective Prelude.Text
 hyperParameterTuningJobObjective_metricName = Lens.lens (\HyperParameterTuningJobObjective' {metricName} -> metricName) (\s@HyperParameterTuningJobObjective' {} a -> s {metricName = a} :: HyperParameterTuningJobObjective)
 
 instance
@@ -80,20 +81,23 @@ instance
       "HyperParameterTuningJobObjective"
       ( \x ->
           HyperParameterTuningJobObjective'
-            Core.<$> (x Core..: "Type") Core.<*> (x Core..: "MetricName")
+            Prelude.<$> (x Core..: "Type")
+            Prelude.<*> (x Core..: "MetricName")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     HyperParameterTuningJobObjective
 
-instance Core.NFData HyperParameterTuningJobObjective
+instance
+  Prelude.NFData
+    HyperParameterTuningJobObjective
 
 instance Core.ToJSON HyperParameterTuningJobObjective where
   toJSON HyperParameterTuningJobObjective' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Type" Core..= type'),
-            Core.Just ("MetricName" Core..= metricName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Type" Core..= type'),
+            Prelude.Just ("MetricName" Core..= metricName)
           ]
       )

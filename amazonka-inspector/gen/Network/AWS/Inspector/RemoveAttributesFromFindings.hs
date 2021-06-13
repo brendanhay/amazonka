@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,12 +53,12 @@ import qualified Network.AWS.Response as Response
 data RemoveAttributesFromFindings = RemoveAttributesFromFindings'
   { -- | The ARNs that specify the findings that you want to remove attributes
     -- from.
-    findingArns :: Core.NonEmpty Core.Text,
+    findingArns :: Prelude.NonEmpty Prelude.Text,
     -- | The array of attribute keys that you want to remove from specified
     -- findings.
-    attributeKeys :: [Core.Text]
+    attributeKeys :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveAttributesFromFindings' with all optional fields omitted.
@@ -74,24 +75,24 @@ data RemoveAttributesFromFindings = RemoveAttributesFromFindings'
 -- findings.
 newRemoveAttributesFromFindings ::
   -- | 'findingArns'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   RemoveAttributesFromFindings
 newRemoveAttributesFromFindings pFindingArns_ =
   RemoveAttributesFromFindings'
     { findingArns =
         Lens._Coerce Lens.# pFindingArns_,
-      attributeKeys = Core.mempty
+      attributeKeys = Prelude.mempty
     }
 
 -- | The ARNs that specify the findings that you want to remove attributes
 -- from.
-removeAttributesFromFindings_findingArns :: Lens.Lens' RemoveAttributesFromFindings (Core.NonEmpty Core.Text)
-removeAttributesFromFindings_findingArns = Lens.lens (\RemoveAttributesFromFindings' {findingArns} -> findingArns) (\s@RemoveAttributesFromFindings' {} a -> s {findingArns = a} :: RemoveAttributesFromFindings) Core.. Lens._Coerce
+removeAttributesFromFindings_findingArns :: Lens.Lens' RemoveAttributesFromFindings (Prelude.NonEmpty Prelude.Text)
+removeAttributesFromFindings_findingArns = Lens.lens (\RemoveAttributesFromFindings' {findingArns} -> findingArns) (\s@RemoveAttributesFromFindings' {} a -> s {findingArns = a} :: RemoveAttributesFromFindings) Prelude.. Lens._Coerce
 
 -- | The array of attribute keys that you want to remove from specified
 -- findings.
-removeAttributesFromFindings_attributeKeys :: Lens.Lens' RemoveAttributesFromFindings [Core.Text]
-removeAttributesFromFindings_attributeKeys = Lens.lens (\RemoveAttributesFromFindings' {attributeKeys} -> attributeKeys) (\s@RemoveAttributesFromFindings' {} a -> s {attributeKeys = a} :: RemoveAttributesFromFindings) Core.. Lens._Coerce
+removeAttributesFromFindings_attributeKeys :: Lens.Lens' RemoveAttributesFromFindings [Prelude.Text]
+removeAttributesFromFindings_attributeKeys = Lens.lens (\RemoveAttributesFromFindings' {attributeKeys} -> attributeKeys) (\s@RemoveAttributesFromFindings' {} a -> s {attributeKeys = a} :: RemoveAttributesFromFindings) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest RemoveAttributesFromFindings where
   type
@@ -102,51 +103,56 @@ instance Core.AWSRequest RemoveAttributesFromFindings where
     Response.receiveJSON
       ( \s h x ->
           RemoveAttributesFromFindingsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "failedItems" Core..!@ Core.mempty)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable RemoveAttributesFromFindings
+instance
+  Prelude.Hashable
+    RemoveAttributesFromFindings
 
-instance Core.NFData RemoveAttributesFromFindings
+instance Prelude.NFData RemoveAttributesFromFindings
 
 instance Core.ToHeaders RemoveAttributesFromFindings where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "InspectorService.RemoveAttributesFromFindings" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RemoveAttributesFromFindings where
   toJSON RemoveAttributesFromFindings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("findingArns" Core..= findingArns),
-            Core.Just ("attributeKeys" Core..= attributeKeys)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("findingArns" Core..= findingArns),
+            Prelude.Just
+              ("attributeKeys" Core..= attributeKeys)
           ]
       )
 
 instance Core.ToPath RemoveAttributesFromFindings where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RemoveAttributesFromFindings where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveAttributesFromFindingsResponse' smart constructor.
 data RemoveAttributesFromFindingsResponse = RemoveAttributesFromFindingsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Attributes details that cannot be described. An error code is provided
     -- for each failed item.
-    failedItems :: Core.HashMap Core.Text FailedItemDetails
+    failedItems :: Prelude.HashMap Prelude.Text FailedItemDetails
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RemoveAttributesFromFindingsResponse' with all optional fields omitted.
@@ -162,24 +168,24 @@ data RemoveAttributesFromFindingsResponse = RemoveAttributesFromFindingsResponse
 -- for each failed item.
 newRemoveAttributesFromFindingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RemoveAttributesFromFindingsResponse
 newRemoveAttributesFromFindingsResponse pHttpStatus_ =
   RemoveAttributesFromFindingsResponse'
     { httpStatus =
         pHttpStatus_,
-      failedItems = Core.mempty
+      failedItems = Prelude.mempty
     }
 
 -- | The response's http status code.
-removeAttributesFromFindingsResponse_httpStatus :: Lens.Lens' RemoveAttributesFromFindingsResponse Core.Int
+removeAttributesFromFindingsResponse_httpStatus :: Lens.Lens' RemoveAttributesFromFindingsResponse Prelude.Int
 removeAttributesFromFindingsResponse_httpStatus = Lens.lens (\RemoveAttributesFromFindingsResponse' {httpStatus} -> httpStatus) (\s@RemoveAttributesFromFindingsResponse' {} a -> s {httpStatus = a} :: RemoveAttributesFromFindingsResponse)
 
 -- | Attributes details that cannot be described. An error code is provided
 -- for each failed item.
-removeAttributesFromFindingsResponse_failedItems :: Lens.Lens' RemoveAttributesFromFindingsResponse (Core.HashMap Core.Text FailedItemDetails)
-removeAttributesFromFindingsResponse_failedItems = Lens.lens (\RemoveAttributesFromFindingsResponse' {failedItems} -> failedItems) (\s@RemoveAttributesFromFindingsResponse' {} a -> s {failedItems = a} :: RemoveAttributesFromFindingsResponse) Core.. Lens._Coerce
+removeAttributesFromFindingsResponse_failedItems :: Lens.Lens' RemoveAttributesFromFindingsResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
+removeAttributesFromFindingsResponse_failedItems = Lens.lens (\RemoveAttributesFromFindingsResponse' {failedItems} -> failedItems) (\s@RemoveAttributesFromFindingsResponse' {} a -> s {failedItems = a} :: RemoveAttributesFromFindingsResponse) Prelude.. Lens._Coerce
 
 instance
-  Core.NFData
+  Prelude.NFData
     RemoveAttributesFromFindingsResponse

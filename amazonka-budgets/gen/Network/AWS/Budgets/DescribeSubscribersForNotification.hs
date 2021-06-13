@@ -49,6 +49,7 @@ where
 import Network.AWS.Budgets.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,19 +59,19 @@ import qualified Network.AWS.Response as Response
 data DescribeSubscribersForNotification = DescribeSubscribersForNotification'
   { -- | The pagination token that you include in your request to indicate the
     -- next set of results that you want to retrieve.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An optional integer that represents how many entries a paginated
     -- response contains. The maximum is 100.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The @accountId@ that is associated with the budget whose subscribers you
     -- want descriptions of.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of the budget whose subscribers you want descriptions of.
-    budgetName :: Core.Text,
+    budgetName :: Prelude.Text,
     -- | The notification whose subscribers you want to list.
     notification :: Notification
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSubscribersForNotification' with all optional fields omitted.
@@ -94,9 +95,9 @@ data DescribeSubscribersForNotification = DescribeSubscribersForNotification'
 -- 'notification', 'describeSubscribersForNotification_notification' - The notification whose subscribers you want to list.
 newDescribeSubscribersForNotification ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'budgetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'notification'
   Notification ->
   DescribeSubscribersForNotification
@@ -106,8 +107,8 @@ newDescribeSubscribersForNotification
   pNotification_ =
     DescribeSubscribersForNotification'
       { nextToken =
-          Core.Nothing,
-        maxResults = Core.Nothing,
+          Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         accountId = pAccountId_,
         budgetName = pBudgetName_,
         notification = pNotification_
@@ -115,21 +116,21 @@ newDescribeSubscribersForNotification
 
 -- | The pagination token that you include in your request to indicate the
 -- next set of results that you want to retrieve.
-describeSubscribersForNotification_nextToken :: Lens.Lens' DescribeSubscribersForNotification (Core.Maybe Core.Text)
+describeSubscribersForNotification_nextToken :: Lens.Lens' DescribeSubscribersForNotification (Prelude.Maybe Prelude.Text)
 describeSubscribersForNotification_nextToken = Lens.lens (\DescribeSubscribersForNotification' {nextToken} -> nextToken) (\s@DescribeSubscribersForNotification' {} a -> s {nextToken = a} :: DescribeSubscribersForNotification)
 
 -- | An optional integer that represents how many entries a paginated
 -- response contains. The maximum is 100.
-describeSubscribersForNotification_maxResults :: Lens.Lens' DescribeSubscribersForNotification (Core.Maybe Core.Natural)
+describeSubscribersForNotification_maxResults :: Lens.Lens' DescribeSubscribersForNotification (Prelude.Maybe Prelude.Natural)
 describeSubscribersForNotification_maxResults = Lens.lens (\DescribeSubscribersForNotification' {maxResults} -> maxResults) (\s@DescribeSubscribersForNotification' {} a -> s {maxResults = a} :: DescribeSubscribersForNotification)
 
 -- | The @accountId@ that is associated with the budget whose subscribers you
 -- want descriptions of.
-describeSubscribersForNotification_accountId :: Lens.Lens' DescribeSubscribersForNotification Core.Text
+describeSubscribersForNotification_accountId :: Lens.Lens' DescribeSubscribersForNotification Prelude.Text
 describeSubscribersForNotification_accountId = Lens.lens (\DescribeSubscribersForNotification' {accountId} -> accountId) (\s@DescribeSubscribersForNotification' {} a -> s {accountId = a} :: DescribeSubscribersForNotification)
 
 -- | The name of the budget whose subscribers you want descriptions of.
-describeSubscribersForNotification_budgetName :: Lens.Lens' DescribeSubscribersForNotification Core.Text
+describeSubscribersForNotification_budgetName :: Lens.Lens' DescribeSubscribersForNotification Prelude.Text
 describeSubscribersForNotification_budgetName = Lens.lens (\DescribeSubscribersForNotification' {budgetName} -> budgetName) (\s@DescribeSubscribersForNotification' {} a -> s {budgetName = a} :: DescribeSubscribersForNotification)
 
 -- | The notification whose subscribers you want to list.
@@ -144,23 +145,23 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeSubscribersForNotificationResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSubscribersForNotificationResponse_subscribers
-              Core.. Lens._Just
-              Core.. Lens.to Core.toList
+              Prelude.. Lens._Just
+              Prelude.. Lens.to Prelude.toList
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeSubscribersForNotification_nextToken
+          Prelude.& describeSubscribersForNotification_nextToken
           Lens..~ rs
           Lens.^? describeSubscribersForNotificationResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -174,17 +175,17 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeSubscribersForNotificationResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Subscribers")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> (x Core..?> "Subscribers")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeSubscribersForNotification
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeSubscribersForNotification
 
 instance
@@ -192,14 +193,16 @@ instance
     DescribeSubscribersForNotification
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSBudgetServiceGateway.DescribeSubscribersForNotification" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -209,12 +212,12 @@ instance
   where
   toJSON DescribeSubscribersForNotification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("AccountId" Core..= accountId),
-            Core.Just ("BudgetName" Core..= budgetName),
-            Core.Just ("Notification" Core..= notification)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("AccountId" Core..= accountId),
+            Prelude.Just ("BudgetName" Core..= budgetName),
+            Prelude.Just ("Notification" Core..= notification)
           ]
       )
 
@@ -222,13 +225,13 @@ instance
   Core.ToPath
     DescribeSubscribersForNotification
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeSubscribersForNotification
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Response of DescribeSubscribersForNotification
 --
@@ -236,13 +239,13 @@ instance
 data DescribeSubscribersForNotificationResponse = DescribeSubscribersForNotificationResponse'
   { -- | The pagination token in the service response that indicates the next set
     -- of results that you can retrieve.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of subscribers that are associated with a notification.
-    subscribers :: Core.Maybe (Core.NonEmpty Subscriber),
+    subscribers :: Prelude.Maybe (Prelude.NonEmpty Subscriber),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSubscribersForNotificationResponse' with all optional fields omitted.
@@ -260,30 +263,30 @@ data DescribeSubscribersForNotificationResponse = DescribeSubscribersForNotifica
 -- 'httpStatus', 'describeSubscribersForNotificationResponse_httpStatus' - The response's http status code.
 newDescribeSubscribersForNotificationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeSubscribersForNotificationResponse
 newDescribeSubscribersForNotificationResponse
   pHttpStatus_ =
     DescribeSubscribersForNotificationResponse'
       { nextToken =
-          Core.Nothing,
-        subscribers = Core.Nothing,
+          Prelude.Nothing,
+        subscribers = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The pagination token in the service response that indicates the next set
 -- of results that you can retrieve.
-describeSubscribersForNotificationResponse_nextToken :: Lens.Lens' DescribeSubscribersForNotificationResponse (Core.Maybe Core.Text)
+describeSubscribersForNotificationResponse_nextToken :: Lens.Lens' DescribeSubscribersForNotificationResponse (Prelude.Maybe Prelude.Text)
 describeSubscribersForNotificationResponse_nextToken = Lens.lens (\DescribeSubscribersForNotificationResponse' {nextToken} -> nextToken) (\s@DescribeSubscribersForNotificationResponse' {} a -> s {nextToken = a} :: DescribeSubscribersForNotificationResponse)
 
 -- | A list of subscribers that are associated with a notification.
-describeSubscribersForNotificationResponse_subscribers :: Lens.Lens' DescribeSubscribersForNotificationResponse (Core.Maybe (Core.NonEmpty Subscriber))
-describeSubscribersForNotificationResponse_subscribers = Lens.lens (\DescribeSubscribersForNotificationResponse' {subscribers} -> subscribers) (\s@DescribeSubscribersForNotificationResponse' {} a -> s {subscribers = a} :: DescribeSubscribersForNotificationResponse) Core.. Lens.mapping Lens._Coerce
+describeSubscribersForNotificationResponse_subscribers :: Lens.Lens' DescribeSubscribersForNotificationResponse (Prelude.Maybe (Prelude.NonEmpty Subscriber))
+describeSubscribersForNotificationResponse_subscribers = Lens.lens (\DescribeSubscribersForNotificationResponse' {subscribers} -> subscribers) (\s@DescribeSubscribersForNotificationResponse' {} a -> s {subscribers = a} :: DescribeSubscribersForNotificationResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeSubscribersForNotificationResponse_httpStatus :: Lens.Lens' DescribeSubscribersForNotificationResponse Core.Int
+describeSubscribersForNotificationResponse_httpStatus :: Lens.Lens' DescribeSubscribersForNotificationResponse Prelude.Int
 describeSubscribersForNotificationResponse_httpStatus = Lens.lens (\DescribeSubscribersForNotificationResponse' {httpStatus} -> httpStatus) (\s@DescribeSubscribersForNotificationResponse' {} a -> s {httpStatus = a} :: DescribeSubscribersForNotificationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeSubscribersForNotificationResponse

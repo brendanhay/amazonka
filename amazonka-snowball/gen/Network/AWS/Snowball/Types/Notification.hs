@@ -21,6 +21,7 @@ module Network.AWS.Snowball.Types.Notification where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Snowball.Types.JobState
 
 -- | The Amazon Simple Notification Service (Amazon SNS) notification
@@ -37,9 +38,9 @@ import Network.AWS.Snowball.Types.JobState
 -- /See:/ 'newNotification' smart constructor.
 data Notification = Notification'
   { -- | The list of job states that will trigger a notification for this job.
-    jobStatesToNotify :: Core.Maybe [JobState],
+    jobStatesToNotify :: Prelude.Maybe [JobState],
     -- | Any change in job state will trigger a notification for this job.
-    notifyAll :: Core.Maybe Core.Bool,
+    notifyAll :: Prelude.Maybe Prelude.Bool,
     -- | The new SNS @TopicArn@ that you want to associate with this job. You can
     -- create Amazon Resource Names (ARNs) for topics by using the
     -- <https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html CreateTopic>
@@ -49,9 +50,9 @@ data Notification = Notification'
     -- Management Console, or by using the
     -- <https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html Subscribe>
     -- AWS Simple Notification Service (SNS) API action.
-    snsTopicARN :: Core.Maybe Core.Text
+    snsTopicARN :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Notification' with all optional fields omitted.
@@ -78,17 +79,17 @@ newNotification ::
   Notification
 newNotification =
   Notification'
-    { jobStatesToNotify = Core.Nothing,
-      notifyAll = Core.Nothing,
-      snsTopicARN = Core.Nothing
+    { jobStatesToNotify = Prelude.Nothing,
+      notifyAll = Prelude.Nothing,
+      snsTopicARN = Prelude.Nothing
     }
 
 -- | The list of job states that will trigger a notification for this job.
-notification_jobStatesToNotify :: Lens.Lens' Notification (Core.Maybe [JobState])
-notification_jobStatesToNotify = Lens.lens (\Notification' {jobStatesToNotify} -> jobStatesToNotify) (\s@Notification' {} a -> s {jobStatesToNotify = a} :: Notification) Core.. Lens.mapping Lens._Coerce
+notification_jobStatesToNotify :: Lens.Lens' Notification (Prelude.Maybe [JobState])
+notification_jobStatesToNotify = Lens.lens (\Notification' {jobStatesToNotify} -> jobStatesToNotify) (\s@Notification' {} a -> s {jobStatesToNotify = a} :: Notification) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Any change in job state will trigger a notification for this job.
-notification_notifyAll :: Lens.Lens' Notification (Core.Maybe Core.Bool)
+notification_notifyAll :: Lens.Lens' Notification (Prelude.Maybe Prelude.Bool)
 notification_notifyAll = Lens.lens (\Notification' {notifyAll} -> notifyAll) (\s@Notification' {} a -> s {notifyAll = a} :: Notification)
 
 -- | The new SNS @TopicArn@ that you want to associate with this job. You can
@@ -100,7 +101,7 @@ notification_notifyAll = Lens.lens (\Notification' {notifyAll} -> notifyAll) (\s
 -- Management Console, or by using the
 -- <https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html Subscribe>
 -- AWS Simple Notification Service (SNS) API action.
-notification_snsTopicARN :: Lens.Lens' Notification (Core.Maybe Core.Text)
+notification_snsTopicARN :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
 notification_snsTopicARN = Lens.lens (\Notification' {snsTopicARN} -> snsTopicARN) (\s@Notification' {} a -> s {snsTopicARN = a} :: Notification)
 
 instance Core.FromJSON Notification where
@@ -109,22 +110,24 @@ instance Core.FromJSON Notification where
       "Notification"
       ( \x ->
           Notification'
-            Core.<$> (x Core..:? "JobStatesToNotify" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "NotifyAll")
-            Core.<*> (x Core..:? "SnsTopicARN")
+            Prelude.<$> ( x Core..:? "JobStatesToNotify"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "NotifyAll")
+            Prelude.<*> (x Core..:? "SnsTopicARN")
       )
 
-instance Core.Hashable Notification
+instance Prelude.Hashable Notification
 
-instance Core.NFData Notification
+instance Prelude.NFData Notification
 
 instance Core.ToJSON Notification where
   toJSON Notification' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("JobStatesToNotify" Core..=)
-              Core.<$> jobStatesToNotify,
-            ("NotifyAll" Core..=) Core.<$> notifyAll,
-            ("SnsTopicARN" Core..=) Core.<$> snsTopicARN
+              Prelude.<$> jobStatesToNotify,
+            ("NotifyAll" Core..=) Prelude.<$> notifyAll,
+            ("SnsTopicARN" Core..=) Prelude.<$> snsTopicARN
           ]
       )

@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -51,9 +52,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStopTrainingJob' smart constructor.
 data StopTrainingJob = StopTrainingJob'
   { -- | The name of the training job to stop.
-    trainingJobName :: Core.Text
+    trainingJobName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopTrainingJob' with all optional fields omitted.
@@ -66,7 +67,7 @@ data StopTrainingJob = StopTrainingJob'
 -- 'trainingJobName', 'stopTrainingJob_trainingJobName' - The name of the training job to stop.
 newStopTrainingJob ::
   -- | 'trainingJobName'
-  Core.Text ->
+  Prelude.Text ->
   StopTrainingJob
 newStopTrainingJob pTrainingJobName_ =
   StopTrainingJob'
@@ -75,7 +76,7 @@ newStopTrainingJob pTrainingJobName_ =
     }
 
 -- | The name of the training job to stop.
-stopTrainingJob_trainingJobName :: Lens.Lens' StopTrainingJob Core.Text
+stopTrainingJob_trainingJobName :: Lens.Lens' StopTrainingJob Prelude.Text
 stopTrainingJob_trainingJobName = Lens.lens (\StopTrainingJob' {trainingJobName} -> trainingJobName) (\s@StopTrainingJob' {} a -> s {trainingJobName = a} :: StopTrainingJob)
 
 instance Core.AWSRequest StopTrainingJob where
@@ -86,41 +87,43 @@ instance Core.AWSRequest StopTrainingJob where
   response =
     Response.receiveNull StopTrainingJobResponse'
 
-instance Core.Hashable StopTrainingJob
+instance Prelude.Hashable StopTrainingJob
 
-instance Core.NFData StopTrainingJob
+instance Prelude.NFData StopTrainingJob
 
 instance Core.ToHeaders StopTrainingJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.StopTrainingJob" :: Core.ByteString),
+              Core.=# ("SageMaker.StopTrainingJob" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopTrainingJob where
   toJSON StopTrainingJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("TrainingJobName" Core..= trainingJobName)
           ]
       )
 
 instance Core.ToPath StopTrainingJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopTrainingJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopTrainingJobResponse' smart constructor.
 data StopTrainingJobResponse = StopTrainingJobResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopTrainingJobResponse' with all optional fields omitted.
@@ -130,4 +133,4 @@ newStopTrainingJobResponse ::
   StopTrainingJobResponse
 newStopTrainingJobResponse = StopTrainingJobResponse'
 
-instance Core.NFData StopTrainingJobResponse
+instance Prelude.NFData StopTrainingJobResponse

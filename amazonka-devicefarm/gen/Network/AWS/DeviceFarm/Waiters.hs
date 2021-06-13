@@ -19,3 +19,4 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Lens
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude

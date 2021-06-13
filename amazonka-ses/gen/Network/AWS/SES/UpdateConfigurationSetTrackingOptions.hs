@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -59,10 +60,10 @@ import Network.AWS.SES.Types
 data UpdateConfigurationSetTrackingOptions = UpdateConfigurationSetTrackingOptions'
   { -- | The name of the configuration set for which you want to update the
     -- custom tracking domain.
-    configurationSetName :: Core.Text,
+    configurationSetName :: Prelude.Text,
     trackingOptions :: TrackingOptions
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateConfigurationSetTrackingOptions' with all optional fields omitted.
@@ -78,7 +79,7 @@ data UpdateConfigurationSetTrackingOptions = UpdateConfigurationSetTrackingOptio
 -- 'trackingOptions', 'updateConfigurationSetTrackingOptions_trackingOptions' - Undocumented member.
 newUpdateConfigurationSetTrackingOptions ::
   -- | 'configurationSetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'trackingOptions'
   TrackingOptions ->
   UpdateConfigurationSetTrackingOptions
@@ -93,7 +94,7 @@ newUpdateConfigurationSetTrackingOptions
 
 -- | The name of the configuration set for which you want to update the
 -- custom tracking domain.
-updateConfigurationSetTrackingOptions_configurationSetName :: Lens.Lens' UpdateConfigurationSetTrackingOptions Core.Text
+updateConfigurationSetTrackingOptions_configurationSetName :: Lens.Lens' UpdateConfigurationSetTrackingOptions Prelude.Text
 updateConfigurationSetTrackingOptions_configurationSetName = Lens.lens (\UpdateConfigurationSetTrackingOptions' {configurationSetName} -> configurationSetName) (\s@UpdateConfigurationSetTrackingOptions' {} a -> s {configurationSetName = a} :: UpdateConfigurationSetTrackingOptions)
 
 -- | Undocumented member.
@@ -114,40 +115,41 @@ instance
       "UpdateConfigurationSetTrackingOptionsResult"
       ( \s h x ->
           UpdateConfigurationSetTrackingOptionsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdateConfigurationSetTrackingOptions
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateConfigurationSetTrackingOptions
 
 instance
   Core.ToHeaders
     UpdateConfigurationSetTrackingOptions
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     UpdateConfigurationSetTrackingOptions
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     UpdateConfigurationSetTrackingOptions
   where
   toQuery UpdateConfigurationSetTrackingOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "UpdateConfigurationSetTrackingOptions" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "ConfigurationSetName" Core.=: configurationSetName,
         "TrackingOptions" Core.=: trackingOptions
       ]
@@ -157,9 +159,9 @@ instance
 -- /See:/ 'newUpdateConfigurationSetTrackingOptionsResponse' smart constructor.
 data UpdateConfigurationSetTrackingOptionsResponse = UpdateConfigurationSetTrackingOptionsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateConfigurationSetTrackingOptionsResponse' with all optional fields omitted.
@@ -172,7 +174,7 @@ data UpdateConfigurationSetTrackingOptionsResponse = UpdateConfigurationSetTrack
 -- 'httpStatus', 'updateConfigurationSetTrackingOptionsResponse_httpStatus' - The response's http status code.
 newUpdateConfigurationSetTrackingOptionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateConfigurationSetTrackingOptionsResponse
 newUpdateConfigurationSetTrackingOptionsResponse
   pHttpStatus_ =
@@ -182,9 +184,9 @@ newUpdateConfigurationSetTrackingOptionsResponse
       }
 
 -- | The response's http status code.
-updateConfigurationSetTrackingOptionsResponse_httpStatus :: Lens.Lens' UpdateConfigurationSetTrackingOptionsResponse Core.Int
+updateConfigurationSetTrackingOptionsResponse_httpStatus :: Lens.Lens' UpdateConfigurationSetTrackingOptionsResponse Prelude.Int
 updateConfigurationSetTrackingOptionsResponse_httpStatus = Lens.lens (\UpdateConfigurationSetTrackingOptionsResponse' {httpStatus} -> httpStatus) (\s@UpdateConfigurationSetTrackingOptionsResponse' {} a -> s {httpStatus = a} :: UpdateConfigurationSetTrackingOptionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateConfigurationSetTrackingOptionsResponse

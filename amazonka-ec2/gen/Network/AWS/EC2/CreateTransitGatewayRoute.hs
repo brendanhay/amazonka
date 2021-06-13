@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,18 +56,18 @@ data CreateTransitGatewayRoute = CreateTransitGatewayRoute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether to drop traffic that matches this route.
-    blackhole :: Core.Maybe Core.Bool,
+    blackhole :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the attachment.
-    transitGatewayAttachmentId :: Core.Maybe Core.Text,
+    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
     -- | The CIDR range used for destination matches. Routing decisions are based
     -- on the most specific match.
-    destinationCidrBlock :: Core.Text,
+    destinationCidrBlock :: Prelude.Text,
     -- | The ID of the transit gateway route table.
-    transitGatewayRouteTableId :: Core.Text
+    transitGatewayRouteTableId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTransitGatewayRoute' with all optional fields omitted.
@@ -91,17 +92,18 @@ data CreateTransitGatewayRoute = CreateTransitGatewayRoute'
 -- 'transitGatewayRouteTableId', 'createTransitGatewayRoute_transitGatewayRouteTableId' - The ID of the transit gateway route table.
 newCreateTransitGatewayRoute ::
   -- | 'destinationCidrBlock'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'transitGatewayRouteTableId'
-  Core.Text ->
+  Prelude.Text ->
   CreateTransitGatewayRoute
 newCreateTransitGatewayRoute
   pDestinationCidrBlock_
   pTransitGatewayRouteTableId_ =
     CreateTransitGatewayRoute'
-      { dryRun = Core.Nothing,
-        blackhole = Core.Nothing,
-        transitGatewayAttachmentId = Core.Nothing,
+      { dryRun =
+          Prelude.Nothing,
+        blackhole = Prelude.Nothing,
+        transitGatewayAttachmentId = Prelude.Nothing,
         destinationCidrBlock = pDestinationCidrBlock_,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_
@@ -111,24 +113,24 @@ newCreateTransitGatewayRoute
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createTransitGatewayRoute_dryRun :: Lens.Lens' CreateTransitGatewayRoute (Core.Maybe Core.Bool)
+createTransitGatewayRoute_dryRun :: Lens.Lens' CreateTransitGatewayRoute (Prelude.Maybe Prelude.Bool)
 createTransitGatewayRoute_dryRun = Lens.lens (\CreateTransitGatewayRoute' {dryRun} -> dryRun) (\s@CreateTransitGatewayRoute' {} a -> s {dryRun = a} :: CreateTransitGatewayRoute)
 
 -- | Indicates whether to drop traffic that matches this route.
-createTransitGatewayRoute_blackhole :: Lens.Lens' CreateTransitGatewayRoute (Core.Maybe Core.Bool)
+createTransitGatewayRoute_blackhole :: Lens.Lens' CreateTransitGatewayRoute (Prelude.Maybe Prelude.Bool)
 createTransitGatewayRoute_blackhole = Lens.lens (\CreateTransitGatewayRoute' {blackhole} -> blackhole) (\s@CreateTransitGatewayRoute' {} a -> s {blackhole = a} :: CreateTransitGatewayRoute)
 
 -- | The ID of the attachment.
-createTransitGatewayRoute_transitGatewayAttachmentId :: Lens.Lens' CreateTransitGatewayRoute (Core.Maybe Core.Text)
+createTransitGatewayRoute_transitGatewayAttachmentId :: Lens.Lens' CreateTransitGatewayRoute (Prelude.Maybe Prelude.Text)
 createTransitGatewayRoute_transitGatewayAttachmentId = Lens.lens (\CreateTransitGatewayRoute' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@CreateTransitGatewayRoute' {} a -> s {transitGatewayAttachmentId = a} :: CreateTransitGatewayRoute)
 
 -- | The CIDR range used for destination matches. Routing decisions are based
 -- on the most specific match.
-createTransitGatewayRoute_destinationCidrBlock :: Lens.Lens' CreateTransitGatewayRoute Core.Text
+createTransitGatewayRoute_destinationCidrBlock :: Lens.Lens' CreateTransitGatewayRoute Prelude.Text
 createTransitGatewayRoute_destinationCidrBlock = Lens.lens (\CreateTransitGatewayRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@CreateTransitGatewayRoute' {} a -> s {destinationCidrBlock = a} :: CreateTransitGatewayRoute)
 
 -- | The ID of the transit gateway route table.
-createTransitGatewayRoute_transitGatewayRouteTableId :: Lens.Lens' CreateTransitGatewayRoute Core.Text
+createTransitGatewayRoute_transitGatewayRouteTableId :: Lens.Lens' CreateTransitGatewayRoute Prelude.Text
 createTransitGatewayRoute_transitGatewayRouteTableId = Lens.lens (\CreateTransitGatewayRoute' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@CreateTransitGatewayRoute' {} a -> s {transitGatewayRouteTableId = a} :: CreateTransitGatewayRoute)
 
 instance Core.AWSRequest CreateTransitGatewayRoute where
@@ -140,26 +142,27 @@ instance Core.AWSRequest CreateTransitGatewayRoute where
     Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayRouteResponse'
-            Core.<$> (x Core..@? "route")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "route")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateTransitGatewayRoute
+instance Prelude.Hashable CreateTransitGatewayRoute
 
-instance Core.NFData CreateTransitGatewayRoute
+instance Prelude.NFData CreateTransitGatewayRoute
 
 instance Core.ToHeaders CreateTransitGatewayRoute where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateTransitGatewayRoute where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateTransitGatewayRoute where
   toQuery CreateTransitGatewayRoute' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateTransitGatewayRoute" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("CreateTransitGatewayRoute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "Blackhole" Core.=: blackhole,
         "TransitGatewayAttachmentId"
@@ -172,11 +175,11 @@ instance Core.ToQuery CreateTransitGatewayRoute where
 -- | /See:/ 'newCreateTransitGatewayRouteResponse' smart constructor.
 data CreateTransitGatewayRouteResponse = CreateTransitGatewayRouteResponse'
   { -- | Information about the route.
-    route :: Core.Maybe TransitGatewayRoute,
+    route :: Prelude.Maybe TransitGatewayRoute,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTransitGatewayRouteResponse' with all optional fields omitted.
@@ -191,23 +194,23 @@ data CreateTransitGatewayRouteResponse = CreateTransitGatewayRouteResponse'
 -- 'httpStatus', 'createTransitGatewayRouteResponse_httpStatus' - The response's http status code.
 newCreateTransitGatewayRouteResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateTransitGatewayRouteResponse
 newCreateTransitGatewayRouteResponse pHttpStatus_ =
   CreateTransitGatewayRouteResponse'
     { route =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the route.
-createTransitGatewayRouteResponse_route :: Lens.Lens' CreateTransitGatewayRouteResponse (Core.Maybe TransitGatewayRoute)
+createTransitGatewayRouteResponse_route :: Lens.Lens' CreateTransitGatewayRouteResponse (Prelude.Maybe TransitGatewayRoute)
 createTransitGatewayRouteResponse_route = Lens.lens (\CreateTransitGatewayRouteResponse' {route} -> route) (\s@CreateTransitGatewayRouteResponse' {} a -> s {route = a} :: CreateTransitGatewayRouteResponse)
 
 -- | The response's http status code.
-createTransitGatewayRouteResponse_httpStatus :: Lens.Lens' CreateTransitGatewayRouteResponse Core.Int
+createTransitGatewayRouteResponse_httpStatus :: Lens.Lens' CreateTransitGatewayRouteResponse Prelude.Int
 createTransitGatewayRouteResponse_httpStatus = Lens.lens (\CreateTransitGatewayRouteResponse' {httpStatus} -> httpStatus) (\s@CreateTransitGatewayRouteResponse' {} a -> s {httpStatus = a} :: CreateTransitGatewayRouteResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateTransitGatewayRouteResponse

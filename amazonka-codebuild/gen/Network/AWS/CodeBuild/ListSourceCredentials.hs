@@ -39,6 +39,7 @@ where
 import Network.AWS.CodeBuild.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -46,7 +47,7 @@ import qualified Network.AWS.Response as Response
 data ListSourceCredentials = ListSourceCredentials'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListSourceCredentials' with all optional fields omitted.
@@ -65,48 +66,50 @@ instance Core.AWSRequest ListSourceCredentials where
     Response.receiveJSON
       ( \s h x ->
           ListSourceCredentialsResponse'
-            Core.<$> ( x Core..?> "sourceCredentialsInfos"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "sourceCredentialsInfos"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListSourceCredentials
+instance Prelude.Hashable ListSourceCredentials
 
-instance Core.NFData ListSourceCredentials
+instance Prelude.NFData ListSourceCredentials
 
 instance Core.ToHeaders ListSourceCredentials where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeBuild_20161006.ListSourceCredentials" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListSourceCredentials where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath ListSourceCredentials where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListSourceCredentials where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSourceCredentialsResponse' smart constructor.
 data ListSourceCredentialsResponse = ListSourceCredentialsResponse'
   { -- | A list of @SourceCredentialsInfo@ objects. Each @SourceCredentialsInfo@
     -- object includes the authentication type, token ARN, and type of source
     -- provider for one set of credentials.
-    sourceCredentialsInfos :: Core.Maybe [SourceCredentialsInfo],
+    sourceCredentialsInfos :: Prelude.Maybe [SourceCredentialsInfo],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListSourceCredentialsResponse' with all optional fields omitted.
@@ -123,23 +126,23 @@ data ListSourceCredentialsResponse = ListSourceCredentialsResponse'
 -- 'httpStatus', 'listSourceCredentialsResponse_httpStatus' - The response's http status code.
 newListSourceCredentialsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListSourceCredentialsResponse
 newListSourceCredentialsResponse pHttpStatus_ =
   ListSourceCredentialsResponse'
     { sourceCredentialsInfos =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of @SourceCredentialsInfo@ objects. Each @SourceCredentialsInfo@
 -- object includes the authentication type, token ARN, and type of source
 -- provider for one set of credentials.
-listSourceCredentialsResponse_sourceCredentialsInfos :: Lens.Lens' ListSourceCredentialsResponse (Core.Maybe [SourceCredentialsInfo])
-listSourceCredentialsResponse_sourceCredentialsInfos = Lens.lens (\ListSourceCredentialsResponse' {sourceCredentialsInfos} -> sourceCredentialsInfos) (\s@ListSourceCredentialsResponse' {} a -> s {sourceCredentialsInfos = a} :: ListSourceCredentialsResponse) Core.. Lens.mapping Lens._Coerce
+listSourceCredentialsResponse_sourceCredentialsInfos :: Lens.Lens' ListSourceCredentialsResponse (Prelude.Maybe [SourceCredentialsInfo])
+listSourceCredentialsResponse_sourceCredentialsInfos = Lens.lens (\ListSourceCredentialsResponse' {sourceCredentialsInfos} -> sourceCredentialsInfos) (\s@ListSourceCredentialsResponse' {} a -> s {sourceCredentialsInfos = a} :: ListSourceCredentialsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listSourceCredentialsResponse_httpStatus :: Lens.Lens' ListSourceCredentialsResponse Core.Int
+listSourceCredentialsResponse_httpStatus :: Lens.Lens' ListSourceCredentialsResponse Prelude.Int
 listSourceCredentialsResponse_httpStatus = Lens.lens (\ListSourceCredentialsResponse' {httpStatus} -> httpStatus) (\s@ListSourceCredentialsResponse' {} a -> s {httpStatus = a} :: ListSourceCredentialsResponse)
 
-instance Core.NFData ListSourceCredentialsResponse
+instance Prelude.NFData ListSourceCredentialsResponse

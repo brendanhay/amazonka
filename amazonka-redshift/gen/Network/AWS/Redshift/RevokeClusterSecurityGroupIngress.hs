@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -61,7 +62,7 @@ data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress'
     -- Classless Inter-Domain Routing (CIDR) block of IP addresses. If @CIDRIP@
     -- is specified, @EC2SecurityGroupName@ and @EC2SecurityGroupOwnerId@
     -- cannot be provided.
-    cidrip :: Core.Maybe Core.Text,
+    cidrip :: Prelude.Maybe Prelude.Text,
     -- | The AWS account number of the owner of the security group specified in
     -- the @EC2SecurityGroupName@ parameter. The AWS access key ID is not an
     -- acceptable value. If @EC2SecurityGroupOwnerId@ is specified,
@@ -69,15 +70,15 @@ data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress'
     -- provided.
     --
     -- Example: @111122223333@
-    eC2SecurityGroupOwnerId :: Core.Maybe Core.Text,
+    eC2SecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
     -- | The name of the EC2 Security Group whose access is to be revoked. If
     -- @EC2SecurityGroupName@ is specified, @EC2SecurityGroupOwnerId@ must also
     -- be provided and @CIDRIP@ cannot be provided.
-    eC2SecurityGroupName :: Core.Maybe Core.Text,
+    eC2SecurityGroupName :: Prelude.Maybe Prelude.Text,
     -- | The name of the security Group from which to revoke the ingress rule.
-    clusterSecurityGroupName :: Core.Text
+    clusterSecurityGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RevokeClusterSecurityGroupIngress' with all optional fields omitted.
@@ -107,15 +108,16 @@ data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress'
 -- 'clusterSecurityGroupName', 'revokeClusterSecurityGroupIngress_clusterSecurityGroupName' - The name of the security Group from which to revoke the ingress rule.
 newRevokeClusterSecurityGroupIngress ::
   -- | 'clusterSecurityGroupName'
-  Core.Text ->
+  Prelude.Text ->
   RevokeClusterSecurityGroupIngress
 newRevokeClusterSecurityGroupIngress
   pClusterSecurityGroupName_ =
     RevokeClusterSecurityGroupIngress'
       { cidrip =
-          Core.Nothing,
-        eC2SecurityGroupOwnerId = Core.Nothing,
-        eC2SecurityGroupName = Core.Nothing,
+          Prelude.Nothing,
+        eC2SecurityGroupOwnerId =
+          Prelude.Nothing,
+        eC2SecurityGroupName = Prelude.Nothing,
         clusterSecurityGroupName =
           pClusterSecurityGroupName_
       }
@@ -124,7 +126,7 @@ newRevokeClusterSecurityGroupIngress
 -- Classless Inter-Domain Routing (CIDR) block of IP addresses. If @CIDRIP@
 -- is specified, @EC2SecurityGroupName@ and @EC2SecurityGroupOwnerId@
 -- cannot be provided.
-revokeClusterSecurityGroupIngress_cidrip :: Lens.Lens' RevokeClusterSecurityGroupIngress (Core.Maybe Core.Text)
+revokeClusterSecurityGroupIngress_cidrip :: Lens.Lens' RevokeClusterSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 revokeClusterSecurityGroupIngress_cidrip = Lens.lens (\RevokeClusterSecurityGroupIngress' {cidrip} -> cidrip) (\s@RevokeClusterSecurityGroupIngress' {} a -> s {cidrip = a} :: RevokeClusterSecurityGroupIngress)
 
 -- | The AWS account number of the owner of the security group specified in
@@ -134,17 +136,17 @@ revokeClusterSecurityGroupIngress_cidrip = Lens.lens (\RevokeClusterSecurityGrou
 -- provided.
 --
 -- Example: @111122223333@
-revokeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' RevokeClusterSecurityGroupIngress (Core.Maybe Core.Text)
+revokeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' RevokeClusterSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 revokeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId = Lens.lens (\RevokeClusterSecurityGroupIngress' {eC2SecurityGroupOwnerId} -> eC2SecurityGroupOwnerId) (\s@RevokeClusterSecurityGroupIngress' {} a -> s {eC2SecurityGroupOwnerId = a} :: RevokeClusterSecurityGroupIngress)
 
 -- | The name of the EC2 Security Group whose access is to be revoked. If
 -- @EC2SecurityGroupName@ is specified, @EC2SecurityGroupOwnerId@ must also
 -- be provided and @CIDRIP@ cannot be provided.
-revokeClusterSecurityGroupIngress_eC2SecurityGroupName :: Lens.Lens' RevokeClusterSecurityGroupIngress (Core.Maybe Core.Text)
+revokeClusterSecurityGroupIngress_eC2SecurityGroupName :: Lens.Lens' RevokeClusterSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 revokeClusterSecurityGroupIngress_eC2SecurityGroupName = Lens.lens (\RevokeClusterSecurityGroupIngress' {eC2SecurityGroupName} -> eC2SecurityGroupName) (\s@RevokeClusterSecurityGroupIngress' {} a -> s {eC2SecurityGroupName = a} :: RevokeClusterSecurityGroupIngress)
 
 -- | The name of the security Group from which to revoke the ingress rule.
-revokeClusterSecurityGroupIngress_clusterSecurityGroupName :: Lens.Lens' RevokeClusterSecurityGroupIngress Core.Text
+revokeClusterSecurityGroupIngress_clusterSecurityGroupName :: Lens.Lens' RevokeClusterSecurityGroupIngress Prelude.Text
 revokeClusterSecurityGroupIngress_clusterSecurityGroupName = Lens.lens (\RevokeClusterSecurityGroupIngress' {clusterSecurityGroupName} -> clusterSecurityGroupName) (\s@RevokeClusterSecurityGroupIngress' {} a -> s {clusterSecurityGroupName = a} :: RevokeClusterSecurityGroupIngress)
 
 instance
@@ -160,41 +162,42 @@ instance
       "RevokeClusterSecurityGroupIngressResult"
       ( \s h x ->
           RevokeClusterSecurityGroupIngressResponse'
-            Core.<$> (x Core..@? "ClusterSecurityGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ClusterSecurityGroup")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     RevokeClusterSecurityGroupIngress
 
 instance
-  Core.NFData
+  Prelude.NFData
     RevokeClusterSecurityGroupIngress
 
 instance
   Core.ToHeaders
     RevokeClusterSecurityGroupIngress
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     RevokeClusterSecurityGroupIngress
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     RevokeClusterSecurityGroupIngress
   where
   toQuery RevokeClusterSecurityGroupIngress' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "RevokeClusterSecurityGroupIngress" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "CIDRIP" Core.=: cidrip,
         "EC2SecurityGroupOwnerId"
           Core.=: eC2SecurityGroupOwnerId,
@@ -205,11 +208,11 @@ instance
 
 -- | /See:/ 'newRevokeClusterSecurityGroupIngressResponse' smart constructor.
 data RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse'
-  { clusterSecurityGroup :: Core.Maybe ClusterSecurityGroup,
+  { clusterSecurityGroup :: Prelude.Maybe ClusterSecurityGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RevokeClusterSecurityGroupIngressResponse' with all optional fields omitted.
@@ -224,24 +227,24 @@ data RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngre
 -- 'httpStatus', 'revokeClusterSecurityGroupIngressResponse_httpStatus' - The response's http status code.
 newRevokeClusterSecurityGroupIngressResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RevokeClusterSecurityGroupIngressResponse
 newRevokeClusterSecurityGroupIngressResponse
   pHttpStatus_ =
     RevokeClusterSecurityGroupIngressResponse'
       { clusterSecurityGroup =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-revokeClusterSecurityGroupIngressResponse_clusterSecurityGroup :: Lens.Lens' RevokeClusterSecurityGroupIngressResponse (Core.Maybe ClusterSecurityGroup)
+revokeClusterSecurityGroupIngressResponse_clusterSecurityGroup :: Lens.Lens' RevokeClusterSecurityGroupIngressResponse (Prelude.Maybe ClusterSecurityGroup)
 revokeClusterSecurityGroupIngressResponse_clusterSecurityGroup = Lens.lens (\RevokeClusterSecurityGroupIngressResponse' {clusterSecurityGroup} -> clusterSecurityGroup) (\s@RevokeClusterSecurityGroupIngressResponse' {} a -> s {clusterSecurityGroup = a} :: RevokeClusterSecurityGroupIngressResponse)
 
 -- | The response's http status code.
-revokeClusterSecurityGroupIngressResponse_httpStatus :: Lens.Lens' RevokeClusterSecurityGroupIngressResponse Core.Int
+revokeClusterSecurityGroupIngressResponse_httpStatus :: Lens.Lens' RevokeClusterSecurityGroupIngressResponse Prelude.Int
 revokeClusterSecurityGroupIngressResponse_httpStatus = Lens.lens (\RevokeClusterSecurityGroupIngressResponse' {httpStatus} -> httpStatus) (\s@RevokeClusterSecurityGroupIngressResponse' {} a -> s {httpStatus = a} :: RevokeClusterSecurityGroupIngressResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     RevokeClusterSecurityGroupIngressResponse

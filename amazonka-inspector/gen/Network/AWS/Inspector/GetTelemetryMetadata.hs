@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data GetTelemetryMetadata = GetTelemetryMetadata'
   { -- | The ARN that specifies the assessment run that has the telemetry data
     -- that you want to obtain.
-    assessmentRunArn :: Core.Text
+    assessmentRunArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTelemetryMetadata' with all optional fields omitted.
@@ -66,7 +67,7 @@ data GetTelemetryMetadata = GetTelemetryMetadata'
 -- that you want to obtain.
 newGetTelemetryMetadata ::
   -- | 'assessmentRunArn'
-  Core.Text ->
+  Prelude.Text ->
   GetTelemetryMetadata
 newGetTelemetryMetadata pAssessmentRunArn_ =
   GetTelemetryMetadata'
@@ -76,7 +77,7 @@ newGetTelemetryMetadata pAssessmentRunArn_ =
 
 -- | The ARN that specifies the assessment run that has the telemetry data
 -- that you want to obtain.
-getTelemetryMetadata_assessmentRunArn :: Lens.Lens' GetTelemetryMetadata Core.Text
+getTelemetryMetadata_assessmentRunArn :: Lens.Lens' GetTelemetryMetadata Prelude.Text
 getTelemetryMetadata_assessmentRunArn = Lens.lens (\GetTelemetryMetadata' {assessmentRunArn} -> assessmentRunArn) (\s@GetTelemetryMetadata' {} a -> s {assessmentRunArn = a} :: GetTelemetryMetadata)
 
 instance Core.AWSRequest GetTelemetryMetadata where
@@ -88,52 +89,54 @@ instance Core.AWSRequest GetTelemetryMetadata where
     Response.receiveJSON
       ( \s h x ->
           GetTelemetryMetadataResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..?> "telemetryMetadata"
-                         Core..!@ Core.mempty
-                     )
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "telemetryMetadata"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
-instance Core.Hashable GetTelemetryMetadata
+instance Prelude.Hashable GetTelemetryMetadata
 
-instance Core.NFData GetTelemetryMetadata
+instance Prelude.NFData GetTelemetryMetadata
 
 instance Core.ToHeaders GetTelemetryMetadata where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "InspectorService.GetTelemetryMetadata" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetTelemetryMetadata where
   toJSON GetTelemetryMetadata' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("assessmentRunArn" Core..= assessmentRunArn)
           ]
       )
 
 instance Core.ToPath GetTelemetryMetadata where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetTelemetryMetadata where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTelemetryMetadataResponse' smart constructor.
 data GetTelemetryMetadataResponse = GetTelemetryMetadataResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Telemetry details.
     telemetryMetadata :: [TelemetryMetadata]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTelemetryMetadataResponse' with all optional fields omitted.
@@ -148,21 +151,21 @@ data GetTelemetryMetadataResponse = GetTelemetryMetadataResponse'
 -- 'telemetryMetadata', 'getTelemetryMetadataResponse_telemetryMetadata' - Telemetry details.
 newGetTelemetryMetadataResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetTelemetryMetadataResponse
 newGetTelemetryMetadataResponse pHttpStatus_ =
   GetTelemetryMetadataResponse'
     { httpStatus =
         pHttpStatus_,
-      telemetryMetadata = Core.mempty
+      telemetryMetadata = Prelude.mempty
     }
 
 -- | The response's http status code.
-getTelemetryMetadataResponse_httpStatus :: Lens.Lens' GetTelemetryMetadataResponse Core.Int
+getTelemetryMetadataResponse_httpStatus :: Lens.Lens' GetTelemetryMetadataResponse Prelude.Int
 getTelemetryMetadataResponse_httpStatus = Lens.lens (\GetTelemetryMetadataResponse' {httpStatus} -> httpStatus) (\s@GetTelemetryMetadataResponse' {} a -> s {httpStatus = a} :: GetTelemetryMetadataResponse)
 
 -- | Telemetry details.
 getTelemetryMetadataResponse_telemetryMetadata :: Lens.Lens' GetTelemetryMetadataResponse [TelemetryMetadata]
-getTelemetryMetadataResponse_telemetryMetadata = Lens.lens (\GetTelemetryMetadataResponse' {telemetryMetadata} -> telemetryMetadata) (\s@GetTelemetryMetadataResponse' {} a -> s {telemetryMetadata = a} :: GetTelemetryMetadataResponse) Core.. Lens._Coerce
+getTelemetryMetadataResponse_telemetryMetadata = Lens.lens (\GetTelemetryMetadataResponse' {telemetryMetadata} -> telemetryMetadata) (\s@GetTelemetryMetadataResponse' {} a -> s {telemetryMetadata = a} :: GetTelemetryMetadataResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData GetTelemetryMetadataResponse
+instance Prelude.NFData GetTelemetryMetadataResponse

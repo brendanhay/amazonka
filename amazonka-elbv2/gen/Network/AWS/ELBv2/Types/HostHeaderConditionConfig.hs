@@ -21,6 +21,7 @@ module Network.AWS.ELBv2.Types.HostHeaderConditionConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a host header condition.
 --
@@ -33,9 +34,9 @@ data HostHeaderConditionConfig = HostHeaderConditionConfig'
     --
     -- If you specify multiple strings, the condition is satisfied if one of
     -- the strings matches the host name.
-    values :: Core.Maybe [Core.Text]
+    values :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HostHeaderConditionConfig' with all optional fields omitted.
@@ -55,7 +56,10 @@ data HostHeaderConditionConfig = HostHeaderConditionConfig'
 newHostHeaderConditionConfig ::
   HostHeaderConditionConfig
 newHostHeaderConditionConfig =
-  HostHeaderConditionConfig' {values = Core.Nothing}
+  HostHeaderConditionConfig'
+    { values =
+        Prelude.Nothing
+    }
 
 -- | One or more host names. The maximum size of each name is 128 characters.
 -- The comparison is case insensitive. The following wildcard characters
@@ -64,24 +68,24 @@ newHostHeaderConditionConfig =
 --
 -- If you specify multiple strings, the condition is satisfied if one of
 -- the strings matches the host name.
-hostHeaderConditionConfig_values :: Lens.Lens' HostHeaderConditionConfig (Core.Maybe [Core.Text])
-hostHeaderConditionConfig_values = Lens.lens (\HostHeaderConditionConfig' {values} -> values) (\s@HostHeaderConditionConfig' {} a -> s {values = a} :: HostHeaderConditionConfig) Core.. Lens.mapping Lens._Coerce
+hostHeaderConditionConfig_values :: Lens.Lens' HostHeaderConditionConfig (Prelude.Maybe [Prelude.Text])
+hostHeaderConditionConfig_values = Lens.lens (\HostHeaderConditionConfig' {values} -> values) (\s@HostHeaderConditionConfig' {} a -> s {values = a} :: HostHeaderConditionConfig) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML HostHeaderConditionConfig where
   parseXML x =
     HostHeaderConditionConfig'
-      Core.<$> ( x Core..@? "Values" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
+      Prelude.<$> ( x Core..@? "Values" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
 
-instance Core.Hashable HostHeaderConditionConfig
+instance Prelude.Hashable HostHeaderConditionConfig
 
-instance Core.NFData HostHeaderConditionConfig
+instance Prelude.NFData HostHeaderConditionConfig
 
 instance Core.ToQuery HostHeaderConditionConfig where
   toQuery HostHeaderConditionConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Values"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> values)
+            (Core.toQueryList "member" Prelude.<$> values)
       ]

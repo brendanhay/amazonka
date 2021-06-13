@@ -21,15 +21,16 @@ module Network.AWS.CloudDirectory.Types.BatchCreateIndexResponse where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a CreateIndex response operation.
 --
 -- /See:/ 'newBatchCreateIndexResponse' smart constructor.
 data BatchCreateIndexResponse = BatchCreateIndexResponse'
   { -- | The @ObjectIdentifier@ of the index created by this operation.
-    objectIdentifier :: Core.Maybe Core.Text
+    objectIdentifier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchCreateIndexResponse' with all optional fields omitted.
@@ -45,11 +46,11 @@ newBatchCreateIndexResponse ::
 newBatchCreateIndexResponse =
   BatchCreateIndexResponse'
     { objectIdentifier =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The @ObjectIdentifier@ of the index created by this operation.
-batchCreateIndexResponse_objectIdentifier :: Lens.Lens' BatchCreateIndexResponse (Core.Maybe Core.Text)
+batchCreateIndexResponse_objectIdentifier :: Lens.Lens' BatchCreateIndexResponse (Prelude.Maybe Prelude.Text)
 batchCreateIndexResponse_objectIdentifier = Lens.lens (\BatchCreateIndexResponse' {objectIdentifier} -> objectIdentifier) (\s@BatchCreateIndexResponse' {} a -> s {objectIdentifier = a} :: BatchCreateIndexResponse)
 
 instance Core.FromJSON BatchCreateIndexResponse where
@@ -58,9 +59,9 @@ instance Core.FromJSON BatchCreateIndexResponse where
       "BatchCreateIndexResponse"
       ( \x ->
           BatchCreateIndexResponse'
-            Core.<$> (x Core..:? "ObjectIdentifier")
+            Prelude.<$> (x Core..:? "ObjectIdentifier")
       )
 
-instance Core.Hashable BatchCreateIndexResponse
+instance Prelude.Hashable BatchCreateIndexResponse
 
-instance Core.NFData BatchCreateIndexResponse
+instance Prelude.NFData BatchCreateIndexResponse

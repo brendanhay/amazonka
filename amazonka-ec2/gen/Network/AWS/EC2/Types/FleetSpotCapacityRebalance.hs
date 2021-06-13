@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.FleetReplacementStrategy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The strategy to use when Amazon EC2 emits a signal that your Spot
 -- Instance is at an elevated risk of being interrupted.
@@ -38,9 +39,9 @@ data FleetSpotCapacityRebalance = FleetSpotCapacityRebalance'
     -- rebalance is not automatically terminated. You can terminate it, or you
     -- can leave it running. You are charged for both instances while they are
     -- running.
-    replacementStrategy :: Core.Maybe FleetReplacementStrategy
+    replacementStrategy :: Prelude.Maybe FleetReplacementStrategy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FleetSpotCapacityRebalance' with all optional fields omitted.
@@ -64,7 +65,7 @@ newFleetSpotCapacityRebalance ::
 newFleetSpotCapacityRebalance =
   FleetSpotCapacityRebalance'
     { replacementStrategy =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | To allow EC2 Fleet to launch a replacement Spot Instance when an
@@ -76,14 +77,14 @@ newFleetSpotCapacityRebalance =
 -- rebalance is not automatically terminated. You can terminate it, or you
 -- can leave it running. You are charged for both instances while they are
 -- running.
-fleetSpotCapacityRebalance_replacementStrategy :: Lens.Lens' FleetSpotCapacityRebalance (Core.Maybe FleetReplacementStrategy)
+fleetSpotCapacityRebalance_replacementStrategy :: Lens.Lens' FleetSpotCapacityRebalance (Prelude.Maybe FleetReplacementStrategy)
 fleetSpotCapacityRebalance_replacementStrategy = Lens.lens (\FleetSpotCapacityRebalance' {replacementStrategy} -> replacementStrategy) (\s@FleetSpotCapacityRebalance' {} a -> s {replacementStrategy = a} :: FleetSpotCapacityRebalance)
 
 instance Core.FromXML FleetSpotCapacityRebalance where
   parseXML x =
     FleetSpotCapacityRebalance'
-      Core.<$> (x Core..@? "replacementStrategy")
+      Prelude.<$> (x Core..@? "replacementStrategy")
 
-instance Core.Hashable FleetSpotCapacityRebalance
+instance Prelude.Hashable FleetSpotCapacityRebalance
 
-instance Core.NFData FleetSpotCapacityRebalance
+instance Prelude.NFData FleetSpotCapacityRebalance

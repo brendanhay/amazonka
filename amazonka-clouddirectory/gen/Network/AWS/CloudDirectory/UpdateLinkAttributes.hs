@@ -45,6 +45,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,13 +54,13 @@ data UpdateLinkAttributes = UpdateLinkAttributes'
   { -- | The Amazon Resource Name (ARN) that is associated with the Directory
     -- where the updated typed link resides. For more information, see arns or
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
-    directoryArn :: Core.Text,
+    directoryArn :: Prelude.Text,
     -- | Allows a typed link specifier to be accepted as input.
     typedLinkSpecifier :: TypedLinkSpecifier,
     -- | The attributes update structure.
     attributeUpdates :: [LinkAttributeUpdate]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateLinkAttributes' with all optional fields omitted.
@@ -78,7 +79,7 @@ data UpdateLinkAttributes = UpdateLinkAttributes'
 -- 'attributeUpdates', 'updateLinkAttributes_attributeUpdates' - The attributes update structure.
 newUpdateLinkAttributes ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'typedLinkSpecifier'
   TypedLinkSpecifier ->
   UpdateLinkAttributes
@@ -89,13 +90,13 @@ newUpdateLinkAttributes
       { directoryArn =
           pDirectoryArn_,
         typedLinkSpecifier = pTypedLinkSpecifier_,
-        attributeUpdates = Core.mempty
+        attributeUpdates = Prelude.mempty
       }
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory
 -- where the updated typed link resides. For more information, see arns or
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
-updateLinkAttributes_directoryArn :: Lens.Lens' UpdateLinkAttributes Core.Text
+updateLinkAttributes_directoryArn :: Lens.Lens' UpdateLinkAttributes Prelude.Text
 updateLinkAttributes_directoryArn = Lens.lens (\UpdateLinkAttributes' {directoryArn} -> directoryArn) (\s@UpdateLinkAttributes' {} a -> s {directoryArn = a} :: UpdateLinkAttributes)
 
 -- | Allows a typed link specifier to be accepted as input.
@@ -104,7 +105,7 @@ updateLinkAttributes_typedLinkSpecifier = Lens.lens (\UpdateLinkAttributes' {typ
 
 -- | The attributes update structure.
 updateLinkAttributes_attributeUpdates :: Lens.Lens' UpdateLinkAttributes [LinkAttributeUpdate]
-updateLinkAttributes_attributeUpdates = Lens.lens (\UpdateLinkAttributes' {attributeUpdates} -> attributeUpdates) (\s@UpdateLinkAttributes' {} a -> s {attributeUpdates = a} :: UpdateLinkAttributes) Core.. Lens._Coerce
+updateLinkAttributes_attributeUpdates = Lens.lens (\UpdateLinkAttributes' {attributeUpdates} -> attributeUpdates) (\s@UpdateLinkAttributes' {} a -> s {attributeUpdates = a} :: UpdateLinkAttributes) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UpdateLinkAttributes where
   type
@@ -115,43 +116,43 @@ instance Core.AWSRequest UpdateLinkAttributes where
     Response.receiveEmpty
       ( \s h x ->
           UpdateLinkAttributesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateLinkAttributes
+instance Prelude.Hashable UpdateLinkAttributes
 
-instance Core.NFData UpdateLinkAttributes
+instance Prelude.NFData UpdateLinkAttributes
 
 instance Core.ToHeaders UpdateLinkAttributes where
   toHeaders UpdateLinkAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# directoryArn]
 
 instance Core.ToJSON UpdateLinkAttributes where
   toJSON UpdateLinkAttributes' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("TypedLinkSpecifier" Core..= typedLinkSpecifier),
-            Core.Just
+            Prelude.Just
               ("AttributeUpdates" Core..= attributeUpdates)
           ]
       )
 
 instance Core.ToPath UpdateLinkAttributes where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/typedlink/attributes/update"
 
 instance Core.ToQuery UpdateLinkAttributes where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLinkAttributesResponse' smart constructor.
 data UpdateLinkAttributesResponse = UpdateLinkAttributesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateLinkAttributesResponse' with all optional fields omitted.
@@ -164,7 +165,7 @@ data UpdateLinkAttributesResponse = UpdateLinkAttributesResponse'
 -- 'httpStatus', 'updateLinkAttributesResponse_httpStatus' - The response's http status code.
 newUpdateLinkAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateLinkAttributesResponse
 newUpdateLinkAttributesResponse pHttpStatus_ =
   UpdateLinkAttributesResponse'
@@ -173,7 +174,7 @@ newUpdateLinkAttributesResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateLinkAttributesResponse_httpStatus :: Lens.Lens' UpdateLinkAttributesResponse Core.Int
+updateLinkAttributesResponse_httpStatus :: Lens.Lens' UpdateLinkAttributesResponse Prelude.Int
 updateLinkAttributesResponse_httpStatus = Lens.lens (\UpdateLinkAttributesResponse' {httpStatus} -> httpStatus) (\s@UpdateLinkAttributesResponse' {} a -> s {httpStatus = a} :: UpdateLinkAttributesResponse)
 
-instance Core.NFData UpdateLinkAttributesResponse
+instance Prelude.NFData UpdateLinkAttributesResponse

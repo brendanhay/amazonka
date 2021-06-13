@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,7 +73,7 @@ data CreateOrganizationalUnit = CreateOrganizationalUnit'
     --
     -- If any one of the tags is invalid or if you exceed the allowed number of
     -- tags for an OU, then the entire request fails and the OU is not created.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The unique identifier (ID) of the parent root or OU that you want to
     -- create the new OU in.
     --
@@ -86,11 +87,11 @@ data CreateOrganizationalUnit = CreateOrganizationalUnit'
     --     followed by from 4 to 32 lowercase letters or digits (the ID of the
     --     root that the OU is in). This string is followed by a second \"-\"
     --     dash and from 8 to 32 additional lowercase letters or digits.
-    parentId :: Core.Text,
+    parentId :: Prelude.Text,
     -- | The friendly name to assign to the new OU.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateOrganizationalUnit' with all optional fields omitted.
@@ -127,13 +128,13 @@ data CreateOrganizationalUnit = CreateOrganizationalUnit'
 -- 'name', 'createOrganizationalUnit_name' - The friendly name to assign to the new OU.
 newCreateOrganizationalUnit ::
   -- | 'parentId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateOrganizationalUnit
 newCreateOrganizationalUnit pParentId_ pName_ =
   CreateOrganizationalUnit'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       parentId = pParentId_,
       name = pName_
     }
@@ -147,8 +148,8 @@ newCreateOrganizationalUnit pParentId_ pName_ =
 --
 -- If any one of the tags is invalid or if you exceed the allowed number of
 -- tags for an OU, then the entire request fails and the OU is not created.
-createOrganizationalUnit_tags :: Lens.Lens' CreateOrganizationalUnit (Core.Maybe [Tag])
-createOrganizationalUnit_tags = Lens.lens (\CreateOrganizationalUnit' {tags} -> tags) (\s@CreateOrganizationalUnit' {} a -> s {tags = a} :: CreateOrganizationalUnit) Core.. Lens.mapping Lens._Coerce
+createOrganizationalUnit_tags :: Lens.Lens' CreateOrganizationalUnit (Prelude.Maybe [Tag])
+createOrganizationalUnit_tags = Lens.lens (\CreateOrganizationalUnit' {tags} -> tags) (\s@CreateOrganizationalUnit' {} a -> s {tags = a} :: CreateOrganizationalUnit) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique identifier (ID) of the parent root or OU that you want to
 -- create the new OU in.
@@ -163,11 +164,11 @@ createOrganizationalUnit_tags = Lens.lens (\CreateOrganizationalUnit' {tags} -> 
 --     followed by from 4 to 32 lowercase letters or digits (the ID of the
 --     root that the OU is in). This string is followed by a second \"-\"
 --     dash and from 8 to 32 additional lowercase letters or digits.
-createOrganizationalUnit_parentId :: Lens.Lens' CreateOrganizationalUnit Core.Text
+createOrganizationalUnit_parentId :: Lens.Lens' CreateOrganizationalUnit Prelude.Text
 createOrganizationalUnit_parentId = Lens.lens (\CreateOrganizationalUnit' {parentId} -> parentId) (\s@CreateOrganizationalUnit' {} a -> s {parentId = a} :: CreateOrganizationalUnit)
 
 -- | The friendly name to assign to the new OU.
-createOrganizationalUnit_name :: Lens.Lens' CreateOrganizationalUnit Core.Text
+createOrganizationalUnit_name :: Lens.Lens' CreateOrganizationalUnit Prelude.Text
 createOrganizationalUnit_name = Lens.lens (\CreateOrganizationalUnit' {name} -> name) (\s@CreateOrganizationalUnit' {} a -> s {name = a} :: CreateOrganizationalUnit)
 
 instance Core.AWSRequest CreateOrganizationalUnit where
@@ -179,51 +180,53 @@ instance Core.AWSRequest CreateOrganizationalUnit where
     Response.receiveJSON
       ( \s h x ->
           CreateOrganizationalUnitResponse'
-            Core.<$> (x Core..?> "OrganizationalUnit")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "OrganizationalUnit")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateOrganizationalUnit
+instance Prelude.Hashable CreateOrganizationalUnit
 
-instance Core.NFData CreateOrganizationalUnit
+instance Prelude.NFData CreateOrganizationalUnit
 
 instance Core.ToHeaders CreateOrganizationalUnit where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.CreateOrganizationalUnit" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateOrganizationalUnit where
   toJSON CreateOrganizationalUnit' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("ParentId" Core..= parentId),
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("ParentId" Core..= parentId),
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath CreateOrganizationalUnit where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateOrganizationalUnit where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateOrganizationalUnitResponse' smart constructor.
 data CreateOrganizationalUnitResponse = CreateOrganizationalUnitResponse'
   { -- | A structure that contains details about the newly created OU.
-    organizationalUnit :: Core.Maybe OrganizationalUnit,
+    organizationalUnit :: Prelude.Maybe OrganizationalUnit,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateOrganizationalUnitResponse' with all optional fields omitted.
@@ -238,21 +241,23 @@ data CreateOrganizationalUnitResponse = CreateOrganizationalUnitResponse'
 -- 'httpStatus', 'createOrganizationalUnitResponse_httpStatus' - The response's http status code.
 newCreateOrganizationalUnitResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateOrganizationalUnitResponse
 newCreateOrganizationalUnitResponse pHttpStatus_ =
   CreateOrganizationalUnitResponse'
     { organizationalUnit =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains details about the newly created OU.
-createOrganizationalUnitResponse_organizationalUnit :: Lens.Lens' CreateOrganizationalUnitResponse (Core.Maybe OrganizationalUnit)
+createOrganizationalUnitResponse_organizationalUnit :: Lens.Lens' CreateOrganizationalUnitResponse (Prelude.Maybe OrganizationalUnit)
 createOrganizationalUnitResponse_organizationalUnit = Lens.lens (\CreateOrganizationalUnitResponse' {organizationalUnit} -> organizationalUnit) (\s@CreateOrganizationalUnitResponse' {} a -> s {organizationalUnit = a} :: CreateOrganizationalUnitResponse)
 
 -- | The response's http status code.
-createOrganizationalUnitResponse_httpStatus :: Lens.Lens' CreateOrganizationalUnitResponse Core.Int
+createOrganizationalUnitResponse_httpStatus :: Lens.Lens' CreateOrganizationalUnitResponse Prelude.Int
 createOrganizationalUnitResponse_httpStatus = Lens.lens (\CreateOrganizationalUnitResponse' {httpStatus} -> httpStatus) (\s@CreateOrganizationalUnitResponse' {} a -> s {httpStatus = a} :: CreateOrganizationalUnitResponse)
 
-instance Core.NFData CreateOrganizationalUnitResponse
+instance
+  Prelude.NFData
+    CreateOrganizationalUnitResponse

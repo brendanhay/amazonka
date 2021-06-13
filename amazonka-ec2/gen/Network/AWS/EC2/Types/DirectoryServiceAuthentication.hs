@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.DirectoryServiceAuthentication where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Active Directory.
 --
 -- /See:/ 'newDirectoryServiceAuthentication' smart constructor.
 data DirectoryServiceAuthentication = DirectoryServiceAuthentication'
   { -- | The ID of the Active Directory used for authentication.
-    directoryId :: Core.Maybe Core.Text
+    directoryId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DirectoryServiceAuthentication' with all optional fields omitted.
@@ -46,18 +47,22 @@ newDirectoryServiceAuthentication ::
 newDirectoryServiceAuthentication =
   DirectoryServiceAuthentication'
     { directoryId =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The ID of the Active Directory used for authentication.
-directoryServiceAuthentication_directoryId :: Lens.Lens' DirectoryServiceAuthentication (Core.Maybe Core.Text)
+directoryServiceAuthentication_directoryId :: Lens.Lens' DirectoryServiceAuthentication (Prelude.Maybe Prelude.Text)
 directoryServiceAuthentication_directoryId = Lens.lens (\DirectoryServiceAuthentication' {directoryId} -> directoryId) (\s@DirectoryServiceAuthentication' {} a -> s {directoryId = a} :: DirectoryServiceAuthentication)
 
 instance Core.FromXML DirectoryServiceAuthentication where
   parseXML x =
     DirectoryServiceAuthentication'
-      Core.<$> (x Core..@? "directoryId")
+      Prelude.<$> (x Core..@? "directoryId")
 
-instance Core.Hashable DirectoryServiceAuthentication
+instance
+  Prelude.Hashable
+    DirectoryServiceAuthentication
 
-instance Core.NFData DirectoryServiceAuthentication
+instance
+  Prelude.NFData
+    DirectoryServiceAuthentication

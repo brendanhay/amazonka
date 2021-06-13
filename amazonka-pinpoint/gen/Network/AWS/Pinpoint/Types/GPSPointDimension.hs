@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.GPSPointDimension where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.GPSCoordinates
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies GPS-based criteria for including or excluding endpoints from a
 -- segment.
@@ -29,11 +30,11 @@ import Network.AWS.Pinpoint.Types.GPSCoordinates
 -- /See:/ 'newGPSPointDimension' smart constructor.
 data GPSPointDimension = GPSPointDimension'
   { -- | The range, in kilometers, from the GPS coordinates.
-    rangeInKilometers :: Core.Maybe Core.Double,
+    rangeInKilometers :: Prelude.Maybe Prelude.Double,
     -- | The GPS coordinates to measure distance from.
     coordinates :: GPSCoordinates
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GPSPointDimension' with all optional fields omitted.
@@ -53,12 +54,12 @@ newGPSPointDimension ::
 newGPSPointDimension pCoordinates_ =
   GPSPointDimension'
     { rangeInKilometers =
-        Core.Nothing,
+        Prelude.Nothing,
       coordinates = pCoordinates_
     }
 
 -- | The range, in kilometers, from the GPS coordinates.
-gPSPointDimension_rangeInKilometers :: Lens.Lens' GPSPointDimension (Core.Maybe Core.Double)
+gPSPointDimension_rangeInKilometers :: Lens.Lens' GPSPointDimension (Prelude.Maybe Prelude.Double)
 gPSPointDimension_rangeInKilometers = Lens.lens (\GPSPointDimension' {rangeInKilometers} -> rangeInKilometers) (\s@GPSPointDimension' {} a -> s {rangeInKilometers = a} :: GPSPointDimension)
 
 -- | The GPS coordinates to measure distance from.
@@ -71,20 +72,20 @@ instance Core.FromJSON GPSPointDimension where
       "GPSPointDimension"
       ( \x ->
           GPSPointDimension'
-            Core.<$> (x Core..:? "RangeInKilometers")
-            Core.<*> (x Core..: "Coordinates")
+            Prelude.<$> (x Core..:? "RangeInKilometers")
+            Prelude.<*> (x Core..: "Coordinates")
       )
 
-instance Core.Hashable GPSPointDimension
+instance Prelude.Hashable GPSPointDimension
 
-instance Core.NFData GPSPointDimension
+instance Prelude.NFData GPSPointDimension
 
 instance Core.ToJSON GPSPointDimension where
   toJSON GPSPointDimension' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("RangeInKilometers" Core..=)
-              Core.<$> rangeInKilometers,
-            Core.Just ("Coordinates" Core..= coordinates)
+              Prelude.<$> rangeInKilometers,
+            Prelude.Just ("Coordinates" Core..= coordinates)
           ]
       )

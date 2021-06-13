@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.WorkflowTypeInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.RegistrationStatus
 import Network.AWS.SWF.Types.WorkflowType
 
@@ -30,9 +31,9 @@ import Network.AWS.SWF.Types.WorkflowType
 data WorkflowTypeInfo = WorkflowTypeInfo'
   { -- | If the type is in deprecated state, then it is set to the date when the
     -- type was deprecated.
-    deprecationDate :: Core.Maybe Core.POSIX,
+    deprecationDate :: Prelude.Maybe Core.POSIX,
     -- | The description of the type registered through RegisterWorkflowType.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The workflow type this information is about.
     workflowType :: WorkflowType,
     -- | The current status of the workflow type.
@@ -40,7 +41,7 @@ data WorkflowTypeInfo = WorkflowTypeInfo'
     -- | The date when this type was registered.
     creationDate :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WorkflowTypeInfo' with all optional fields omitted.
@@ -66,15 +67,16 @@ newWorkflowTypeInfo ::
   -- | 'status'
   RegistrationStatus ->
   -- | 'creationDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   WorkflowTypeInfo
 newWorkflowTypeInfo
   pWorkflowType_
   pStatus_
   pCreationDate_ =
     WorkflowTypeInfo'
-      { deprecationDate = Core.Nothing,
-        description = Core.Nothing,
+      { deprecationDate =
+          Prelude.Nothing,
+        description = Prelude.Nothing,
         workflowType = pWorkflowType_,
         status = pStatus_,
         creationDate = Core._Time Lens.# pCreationDate_
@@ -82,11 +84,11 @@ newWorkflowTypeInfo
 
 -- | If the type is in deprecated state, then it is set to the date when the
 -- type was deprecated.
-workflowTypeInfo_deprecationDate :: Lens.Lens' WorkflowTypeInfo (Core.Maybe Core.UTCTime)
-workflowTypeInfo_deprecationDate = Lens.lens (\WorkflowTypeInfo' {deprecationDate} -> deprecationDate) (\s@WorkflowTypeInfo' {} a -> s {deprecationDate = a} :: WorkflowTypeInfo) Core.. Lens.mapping Core._Time
+workflowTypeInfo_deprecationDate :: Lens.Lens' WorkflowTypeInfo (Prelude.Maybe Prelude.UTCTime)
+workflowTypeInfo_deprecationDate = Lens.lens (\WorkflowTypeInfo' {deprecationDate} -> deprecationDate) (\s@WorkflowTypeInfo' {} a -> s {deprecationDate = a} :: WorkflowTypeInfo) Prelude.. Lens.mapping Core._Time
 
 -- | The description of the type registered through RegisterWorkflowType.
-workflowTypeInfo_description :: Lens.Lens' WorkflowTypeInfo (Core.Maybe Core.Text)
+workflowTypeInfo_description :: Lens.Lens' WorkflowTypeInfo (Prelude.Maybe Prelude.Text)
 workflowTypeInfo_description = Lens.lens (\WorkflowTypeInfo' {description} -> description) (\s@WorkflowTypeInfo' {} a -> s {description = a} :: WorkflowTypeInfo)
 
 -- | The workflow type this information is about.
@@ -98,8 +100,8 @@ workflowTypeInfo_status :: Lens.Lens' WorkflowTypeInfo RegistrationStatus
 workflowTypeInfo_status = Lens.lens (\WorkflowTypeInfo' {status} -> status) (\s@WorkflowTypeInfo' {} a -> s {status = a} :: WorkflowTypeInfo)
 
 -- | The date when this type was registered.
-workflowTypeInfo_creationDate :: Lens.Lens' WorkflowTypeInfo Core.UTCTime
-workflowTypeInfo_creationDate = Lens.lens (\WorkflowTypeInfo' {creationDate} -> creationDate) (\s@WorkflowTypeInfo' {} a -> s {creationDate = a} :: WorkflowTypeInfo) Core.. Core._Time
+workflowTypeInfo_creationDate :: Lens.Lens' WorkflowTypeInfo Prelude.UTCTime
+workflowTypeInfo_creationDate = Lens.lens (\WorkflowTypeInfo' {creationDate} -> creationDate) (\s@WorkflowTypeInfo' {} a -> s {creationDate = a} :: WorkflowTypeInfo) Prelude.. Core._Time
 
 instance Core.FromJSON WorkflowTypeInfo where
   parseJSON =
@@ -107,13 +109,13 @@ instance Core.FromJSON WorkflowTypeInfo where
       "WorkflowTypeInfo"
       ( \x ->
           WorkflowTypeInfo'
-            Core.<$> (x Core..:? "deprecationDate")
-            Core.<*> (x Core..:? "description")
-            Core.<*> (x Core..: "workflowType")
-            Core.<*> (x Core..: "status")
-            Core.<*> (x Core..: "creationDate")
+            Prelude.<$> (x Core..:? "deprecationDate")
+            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..: "workflowType")
+            Prelude.<*> (x Core..: "status")
+            Prelude.<*> (x Core..: "creationDate")
       )
 
-instance Core.Hashable WorkflowTypeInfo
+instance Prelude.Hashable WorkflowTypeInfo
 
-instance Core.NFData WorkflowTypeInfo
+instance Prelude.NFData WorkflowTypeInfo

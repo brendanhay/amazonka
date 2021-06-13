@@ -22,6 +22,7 @@ module Network.AWS.Glue.Types.Action where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.NotificationProperty
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines an action to be initiated by a trigger.
 --
@@ -29,18 +30,18 @@ import qualified Network.AWS.Lens as Lens
 data Action = Action'
   { -- | The name of the @SecurityConfiguration@ structure to be used with this
     -- action.
-    securityConfiguration :: Core.Maybe Core.Text,
+    securityConfiguration :: Prelude.Maybe Prelude.Text,
     -- | The name of the crawler to be used with this action.
-    crawlerName :: Core.Maybe Core.Text,
+    crawlerName :: Prelude.Maybe Prelude.Text,
     -- | The @JobRun@ timeout in minutes. This is the maximum time that a job run
     -- can consume resources before it is terminated and enters @TIMEOUT@
     -- status. The default is 2,880 minutes (48 hours). This overrides the
     -- timeout value set in the parent job.
-    timeout :: Core.Maybe Core.Natural,
+    timeout :: Prelude.Maybe Prelude.Natural,
     -- | Specifies configuration properties of a job run notification.
-    notificationProperty :: Core.Maybe NotificationProperty,
+    notificationProperty :: Prelude.Maybe NotificationProperty,
     -- | The name of a job to be executed.
-    jobName :: Core.Maybe Core.Text,
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | The job arguments used when this trigger fires. For this job run, they
     -- replace the default arguments set in the job definition itself.
     --
@@ -56,9 +57,9 @@ data Action = Action'
     -- up your job, see the
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue>
     -- topic in the developer guide.
-    arguments :: Core.Maybe (Core.HashMap Core.Text Core.Text)
+    arguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Action' with all optional fields omitted.
@@ -101,36 +102,36 @@ newAction ::
   Action
 newAction =
   Action'
-    { securityConfiguration = Core.Nothing,
-      crawlerName = Core.Nothing,
-      timeout = Core.Nothing,
-      notificationProperty = Core.Nothing,
-      jobName = Core.Nothing,
-      arguments = Core.Nothing
+    { securityConfiguration = Prelude.Nothing,
+      crawlerName = Prelude.Nothing,
+      timeout = Prelude.Nothing,
+      notificationProperty = Prelude.Nothing,
+      jobName = Prelude.Nothing,
+      arguments = Prelude.Nothing
     }
 
 -- | The name of the @SecurityConfiguration@ structure to be used with this
 -- action.
-action_securityConfiguration :: Lens.Lens' Action (Core.Maybe Core.Text)
+action_securityConfiguration :: Lens.Lens' Action (Prelude.Maybe Prelude.Text)
 action_securityConfiguration = Lens.lens (\Action' {securityConfiguration} -> securityConfiguration) (\s@Action' {} a -> s {securityConfiguration = a} :: Action)
 
 -- | The name of the crawler to be used with this action.
-action_crawlerName :: Lens.Lens' Action (Core.Maybe Core.Text)
+action_crawlerName :: Lens.Lens' Action (Prelude.Maybe Prelude.Text)
 action_crawlerName = Lens.lens (\Action' {crawlerName} -> crawlerName) (\s@Action' {} a -> s {crawlerName = a} :: Action)
 
 -- | The @JobRun@ timeout in minutes. This is the maximum time that a job run
 -- can consume resources before it is terminated and enters @TIMEOUT@
 -- status. The default is 2,880 minutes (48 hours). This overrides the
 -- timeout value set in the parent job.
-action_timeout :: Lens.Lens' Action (Core.Maybe Core.Natural)
+action_timeout :: Lens.Lens' Action (Prelude.Maybe Prelude.Natural)
 action_timeout = Lens.lens (\Action' {timeout} -> timeout) (\s@Action' {} a -> s {timeout = a} :: Action)
 
 -- | Specifies configuration properties of a job run notification.
-action_notificationProperty :: Lens.Lens' Action (Core.Maybe NotificationProperty)
+action_notificationProperty :: Lens.Lens' Action (Prelude.Maybe NotificationProperty)
 action_notificationProperty = Lens.lens (\Action' {notificationProperty} -> notificationProperty) (\s@Action' {} a -> s {notificationProperty = a} :: Action)
 
 -- | The name of a job to be executed.
-action_jobName :: Lens.Lens' Action (Core.Maybe Core.Text)
+action_jobName :: Lens.Lens' Action (Prelude.Maybe Prelude.Text)
 action_jobName = Lens.lens (\Action' {jobName} -> jobName) (\s@Action' {} a -> s {jobName = a} :: Action)
 
 -- | The job arguments used when this trigger fires. For this job run, they
@@ -148,8 +149,8 @@ action_jobName = Lens.lens (\Action' {jobName} -> jobName) (\s@Action' {} a -> s
 -- up your job, see the
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue>
 -- topic in the developer guide.
-action_arguments :: Lens.Lens' Action (Core.Maybe (Core.HashMap Core.Text Core.Text))
-action_arguments = Lens.lens (\Action' {arguments} -> arguments) (\s@Action' {} a -> s {arguments = a} :: Action) Core.. Lens.mapping Lens._Coerce
+action_arguments :: Lens.Lens' Action (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+action_arguments = Lens.lens (\Action' {arguments} -> arguments) (\s@Action' {} a -> s {arguments = a} :: Action) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON Action where
   parseJSON =
@@ -157,29 +158,29 @@ instance Core.FromJSON Action where
       "Action"
       ( \x ->
           Action'
-            Core.<$> (x Core..:? "SecurityConfiguration")
-            Core.<*> (x Core..:? "CrawlerName")
-            Core.<*> (x Core..:? "Timeout")
-            Core.<*> (x Core..:? "NotificationProperty")
-            Core.<*> (x Core..:? "JobName")
-            Core.<*> (x Core..:? "Arguments" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "SecurityConfiguration")
+            Prelude.<*> (x Core..:? "CrawlerName")
+            Prelude.<*> (x Core..:? "Timeout")
+            Prelude.<*> (x Core..:? "NotificationProperty")
+            Prelude.<*> (x Core..:? "JobName")
+            Prelude.<*> (x Core..:? "Arguments" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable Action
+instance Prelude.Hashable Action
 
-instance Core.NFData Action
+instance Prelude.NFData Action
 
 instance Core.ToJSON Action where
   toJSON Action' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SecurityConfiguration" Core..=)
-              Core.<$> securityConfiguration,
-            ("CrawlerName" Core..=) Core.<$> crawlerName,
-            ("Timeout" Core..=) Core.<$> timeout,
+              Prelude.<$> securityConfiguration,
+            ("CrawlerName" Core..=) Prelude.<$> crawlerName,
+            ("Timeout" Core..=) Prelude.<$> timeout,
             ("NotificationProperty" Core..=)
-              Core.<$> notificationProperty,
-            ("JobName" Core..=) Core.<$> jobName,
-            ("Arguments" Core..=) Core.<$> arguments
+              Prelude.<$> notificationProperty,
+            ("JobName" Core..=) Prelude.<$> jobName,
+            ("Arguments" Core..=) Prelude.<$> arguments
           ]
       )

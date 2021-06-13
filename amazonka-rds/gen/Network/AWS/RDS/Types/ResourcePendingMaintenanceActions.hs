@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.ResourcePendingMaintenanceActions where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types.PendingMaintenanceAction
 
 -- | Describes the pending maintenance actions for a resource.
@@ -29,11 +30,11 @@ import Network.AWS.RDS.Types.PendingMaintenanceAction
 data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
   { -- | A list that provides details about the pending maintenance actions for
     -- the resource.
-    pendingMaintenanceActionDetails :: Core.Maybe [PendingMaintenanceAction],
+    pendingMaintenanceActionDetails :: Prelude.Maybe [PendingMaintenanceAction],
     -- | The ARN of the resource that has pending maintenance actions.
-    resourceIdentifier :: Core.Maybe Core.Text
+    resourceIdentifier :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourcePendingMaintenanceActions' with all optional fields omitted.
@@ -52,17 +53,17 @@ newResourcePendingMaintenanceActions ::
 newResourcePendingMaintenanceActions =
   ResourcePendingMaintenanceActions'
     { pendingMaintenanceActionDetails =
-        Core.Nothing,
-      resourceIdentifier = Core.Nothing
+        Prelude.Nothing,
+      resourceIdentifier = Prelude.Nothing
     }
 
 -- | A list that provides details about the pending maintenance actions for
 -- the resource.
-resourcePendingMaintenanceActions_pendingMaintenanceActionDetails :: Lens.Lens' ResourcePendingMaintenanceActions (Core.Maybe [PendingMaintenanceAction])
-resourcePendingMaintenanceActions_pendingMaintenanceActionDetails = Lens.lens (\ResourcePendingMaintenanceActions' {pendingMaintenanceActionDetails} -> pendingMaintenanceActionDetails) (\s@ResourcePendingMaintenanceActions' {} a -> s {pendingMaintenanceActionDetails = a} :: ResourcePendingMaintenanceActions) Core.. Lens.mapping Lens._Coerce
+resourcePendingMaintenanceActions_pendingMaintenanceActionDetails :: Lens.Lens' ResourcePendingMaintenanceActions (Prelude.Maybe [PendingMaintenanceAction])
+resourcePendingMaintenanceActions_pendingMaintenanceActionDetails = Lens.lens (\ResourcePendingMaintenanceActions' {pendingMaintenanceActionDetails} -> pendingMaintenanceActionDetails) (\s@ResourcePendingMaintenanceActions' {} a -> s {pendingMaintenanceActionDetails = a} :: ResourcePendingMaintenanceActions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the resource that has pending maintenance actions.
-resourcePendingMaintenanceActions_resourceIdentifier :: Lens.Lens' ResourcePendingMaintenanceActions (Core.Maybe Core.Text)
+resourcePendingMaintenanceActions_resourceIdentifier :: Lens.Lens' ResourcePendingMaintenanceActions (Prelude.Maybe Prelude.Text)
 resourcePendingMaintenanceActions_resourceIdentifier = Lens.lens (\ResourcePendingMaintenanceActions' {resourceIdentifier} -> resourceIdentifier) (\s@ResourcePendingMaintenanceActions' {} a -> s {resourceIdentifier = a} :: ResourcePendingMaintenanceActions)
 
 instance
@@ -71,17 +72,17 @@ instance
   where
   parseXML x =
     ResourcePendingMaintenanceActions'
-      Core.<$> ( x Core..@? "PendingMaintenanceActionDetails"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may
-                     (Core.parseXMLList "PendingMaintenanceAction")
-               )
-      Core.<*> (x Core..@? "ResourceIdentifier")
+      Prelude.<$> ( x Core..@? "PendingMaintenanceActionDetails"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may
+                        (Core.parseXMLList "PendingMaintenanceAction")
+                  )
+      Prelude.<*> (x Core..@? "ResourceIdentifier")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ResourcePendingMaintenanceActions
 
 instance
-  Core.NFData
+  Prelude.NFData
     ResourcePendingMaintenanceActions

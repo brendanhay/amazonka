@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ImageConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.RepositoryAccessMode
 
 -- | Specifies whether the model container is in Amazon ECR or a private
@@ -36,7 +37,7 @@ data ImageConfig = ImageConfig'
     --     your VPC.
     repositoryAccessMode :: RepositoryAccessMode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImageConfig' with all optional fields omitted.
@@ -77,18 +78,18 @@ instance Core.FromJSON ImageConfig where
       "ImageConfig"
       ( \x ->
           ImageConfig'
-            Core.<$> (x Core..: "RepositoryAccessMode")
+            Prelude.<$> (x Core..: "RepositoryAccessMode")
       )
 
-instance Core.Hashable ImageConfig
+instance Prelude.Hashable ImageConfig
 
-instance Core.NFData ImageConfig
+instance Prelude.NFData ImageConfig
 
 instance Core.ToJSON ImageConfig where
   toJSON ImageConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "RepositoryAccessMode"
                   Core..= repositoryAccessMode
               )

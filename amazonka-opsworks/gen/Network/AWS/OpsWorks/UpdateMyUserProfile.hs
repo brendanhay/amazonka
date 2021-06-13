@@ -43,15 +43,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateMyUserProfile' smart constructor.
 data UpdateMyUserProfile = UpdateMyUserProfile'
   { -- | The user\'s SSH public key.
-    sshPublicKey :: Core.Maybe Core.Text
+    sshPublicKey :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateMyUserProfile' with all optional fields omitted.
@@ -65,10 +66,13 @@ data UpdateMyUserProfile = UpdateMyUserProfile'
 newUpdateMyUserProfile ::
   UpdateMyUserProfile
 newUpdateMyUserProfile =
-  UpdateMyUserProfile' {sshPublicKey = Core.Nothing}
+  UpdateMyUserProfile'
+    { sshPublicKey =
+        Prelude.Nothing
+    }
 
 -- | The user\'s SSH public key.
-updateMyUserProfile_sshPublicKey :: Lens.Lens' UpdateMyUserProfile (Core.Maybe Core.Text)
+updateMyUserProfile_sshPublicKey :: Lens.Lens' UpdateMyUserProfile (Prelude.Maybe Prelude.Text)
 updateMyUserProfile_sshPublicKey = Lens.lens (\UpdateMyUserProfile' {sshPublicKey} -> sshPublicKey) (\s@UpdateMyUserProfile' {} a -> s {sshPublicKey = a} :: UpdateMyUserProfile)
 
 instance Core.AWSRequest UpdateMyUserProfile where
@@ -79,41 +83,43 @@ instance Core.AWSRequest UpdateMyUserProfile where
   response =
     Response.receiveNull UpdateMyUserProfileResponse'
 
-instance Core.Hashable UpdateMyUserProfile
+instance Prelude.Hashable UpdateMyUserProfile
 
-instance Core.NFData UpdateMyUserProfile
+instance Prelude.NFData UpdateMyUserProfile
 
 instance Core.ToHeaders UpdateMyUserProfile where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.UpdateMyUserProfile" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateMyUserProfile where
   toJSON UpdateMyUserProfile' {..} =
     Core.object
-      ( Core.catMaybes
-          [("SshPublicKey" Core..=) Core.<$> sshPublicKey]
+      ( Prelude.catMaybes
+          [("SshPublicKey" Core..=) Prelude.<$> sshPublicKey]
       )
 
 instance Core.ToPath UpdateMyUserProfile where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateMyUserProfile where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMyUserProfileResponse' smart constructor.
 data UpdateMyUserProfileResponse = UpdateMyUserProfileResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateMyUserProfileResponse' with all optional fields omitted.
@@ -124,4 +130,4 @@ newUpdateMyUserProfileResponse ::
 newUpdateMyUserProfileResponse =
   UpdateMyUserProfileResponse'
 
-instance Core.NFData UpdateMyUserProfileResponse
+instance Prelude.NFData UpdateMyUserProfileResponse

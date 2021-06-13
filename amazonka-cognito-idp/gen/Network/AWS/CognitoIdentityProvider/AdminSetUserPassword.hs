@@ -55,22 +55,23 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAdminSetUserPassword' smart constructor.
 data AdminSetUserPassword = AdminSetUserPassword'
   { -- | @True@ if the password is permanent, @False@ if it is temporary.
-    permanent :: Core.Maybe Core.Bool,
+    permanent :: Prelude.Maybe Prelude.Bool,
     -- | The user pool ID for the user pool where you want to set the user\'s
     -- password.
-    userPoolId :: Core.Text,
+    userPoolId :: Prelude.Text,
     -- | The user name of the user whose password you wish to set.
-    username :: Core.Sensitive Core.Text,
+    username :: Core.Sensitive Prelude.Text,
     -- | The password for the user.
-    password :: Core.Sensitive Core.Text
+    password :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminSetUserPassword' with all optional fields omitted.
@@ -90,39 +91,39 @@ data AdminSetUserPassword = AdminSetUserPassword'
 -- 'password', 'adminSetUserPassword_password' - The password for the user.
 newAdminSetUserPassword ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'username'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'password'
-  Core.Text ->
+  Prelude.Text ->
   AdminSetUserPassword
 newAdminSetUserPassword
   pUserPoolId_
   pUsername_
   pPassword_ =
     AdminSetUserPassword'
-      { permanent = Core.Nothing,
+      { permanent = Prelude.Nothing,
         userPoolId = pUserPoolId_,
         username = Core._Sensitive Lens.# pUsername_,
         password = Core._Sensitive Lens.# pPassword_
       }
 
 -- | @True@ if the password is permanent, @False@ if it is temporary.
-adminSetUserPassword_permanent :: Lens.Lens' AdminSetUserPassword (Core.Maybe Core.Bool)
+adminSetUserPassword_permanent :: Lens.Lens' AdminSetUserPassword (Prelude.Maybe Prelude.Bool)
 adminSetUserPassword_permanent = Lens.lens (\AdminSetUserPassword' {permanent} -> permanent) (\s@AdminSetUserPassword' {} a -> s {permanent = a} :: AdminSetUserPassword)
 
 -- | The user pool ID for the user pool where you want to set the user\'s
 -- password.
-adminSetUserPassword_userPoolId :: Lens.Lens' AdminSetUserPassword Core.Text
+adminSetUserPassword_userPoolId :: Lens.Lens' AdminSetUserPassword Prelude.Text
 adminSetUserPassword_userPoolId = Lens.lens (\AdminSetUserPassword' {userPoolId} -> userPoolId) (\s@AdminSetUserPassword' {} a -> s {userPoolId = a} :: AdminSetUserPassword)
 
 -- | The user name of the user whose password you wish to set.
-adminSetUserPassword_username :: Lens.Lens' AdminSetUserPassword Core.Text
-adminSetUserPassword_username = Lens.lens (\AdminSetUserPassword' {username} -> username) (\s@AdminSetUserPassword' {} a -> s {username = a} :: AdminSetUserPassword) Core.. Core._Sensitive
+adminSetUserPassword_username :: Lens.Lens' AdminSetUserPassword Prelude.Text
+adminSetUserPassword_username = Lens.lens (\AdminSetUserPassword' {username} -> username) (\s@AdminSetUserPassword' {} a -> s {username = a} :: AdminSetUserPassword) Prelude.. Core._Sensitive
 
 -- | The password for the user.
-adminSetUserPassword_password :: Lens.Lens' AdminSetUserPassword Core.Text
-adminSetUserPassword_password = Lens.lens (\AdminSetUserPassword' {password} -> password) (\s@AdminSetUserPassword' {} a -> s {password = a} :: AdminSetUserPassword) Core.. Core._Sensitive
+adminSetUserPassword_password :: Lens.Lens' AdminSetUserPassword Prelude.Text
+adminSetUserPassword_password = Lens.lens (\AdminSetUserPassword' {password} -> password) (\s@AdminSetUserPassword' {} a -> s {password = a} :: AdminSetUserPassword) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest AdminSetUserPassword where
   type
@@ -133,49 +134,51 @@ instance Core.AWSRequest AdminSetUserPassword where
     Response.receiveEmpty
       ( \s h x ->
           AdminSetUserPasswordResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AdminSetUserPassword
+instance Prelude.Hashable AdminSetUserPassword
 
-instance Core.NFData AdminSetUserPassword
+instance Prelude.NFData AdminSetUserPassword
 
 instance Core.ToHeaders AdminSetUserPassword where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.AdminSetUserPassword" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AdminSetUserPassword where
   toJSON AdminSetUserPassword' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Permanent" Core..=) Core.<$> permanent,
-            Core.Just ("UserPoolId" Core..= userPoolId),
-            Core.Just ("Username" Core..= username),
-            Core.Just ("Password" Core..= password)
+      ( Prelude.catMaybes
+          [ ("Permanent" Core..=) Prelude.<$> permanent,
+            Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("Username" Core..= username),
+            Prelude.Just ("Password" Core..= password)
           ]
       )
 
 instance Core.ToPath AdminSetUserPassword where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AdminSetUserPassword where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAdminSetUserPasswordResponse' smart constructor.
 data AdminSetUserPasswordResponse = AdminSetUserPasswordResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminSetUserPasswordResponse' with all optional fields omitted.
@@ -188,7 +191,7 @@ data AdminSetUserPasswordResponse = AdminSetUserPasswordResponse'
 -- 'httpStatus', 'adminSetUserPasswordResponse_httpStatus' - The response's http status code.
 newAdminSetUserPasswordResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AdminSetUserPasswordResponse
 newAdminSetUserPasswordResponse pHttpStatus_ =
   AdminSetUserPasswordResponse'
@@ -197,7 +200,7 @@ newAdminSetUserPasswordResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-adminSetUserPasswordResponse_httpStatus :: Lens.Lens' AdminSetUserPasswordResponse Core.Int
+adminSetUserPasswordResponse_httpStatus :: Lens.Lens' AdminSetUserPasswordResponse Prelude.Int
 adminSetUserPasswordResponse_httpStatus = Lens.lens (\AdminSetUserPasswordResponse' {httpStatus} -> httpStatus) (\s@AdminSetUserPasswordResponse' {} a -> s {httpStatus = a} :: AdminSetUserPasswordResponse)
 
-instance Core.NFData AdminSetUserPasswordResponse
+instance Prelude.NFData AdminSetUserPasswordResponse

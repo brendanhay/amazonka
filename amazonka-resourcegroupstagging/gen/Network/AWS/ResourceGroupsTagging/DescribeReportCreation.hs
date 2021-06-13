@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroupsTagging.Types
 import qualified Network.AWS.Response as Response
@@ -51,7 +52,7 @@ import qualified Network.AWS.Response as Response
 data DescribeReportCreation = DescribeReportCreation'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeReportCreation' with all optional fields omitted.
@@ -70,37 +71,39 @@ instance Core.AWSRequest DescribeReportCreation where
     Response.receiveJSON
       ( \s h x ->
           DescribeReportCreationResponse'
-            Core.<$> (x Core..?> "Status")
-            Core.<*> (x Core..?> "S3Location")
-            Core.<*> (x Core..?> "ErrorMessage")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "S3Location")
+            Prelude.<*> (x Core..?> "ErrorMessage")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeReportCreation
+instance Prelude.Hashable DescribeReportCreation
 
-instance Core.NFData DescribeReportCreation
+instance Prelude.NFData DescribeReportCreation
 
 instance Core.ToHeaders DescribeReportCreation where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeReportCreation where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DescribeReportCreation where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeReportCreation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeReportCreationResponse' smart constructor.
 data DescribeReportCreationResponse = DescribeReportCreationResponse'
@@ -118,16 +121,16 @@ data DescribeReportCreationResponse = DescribeReportCreationResponse'
     --     accessible.
     --
     -- -   @NO REPORT@ - No report was generated in the last 90 days.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | The path to the Amazon S3 bucket where the report was stored on
     -- creation.
-    s3Location :: Core.Maybe Core.Text,
+    s3Location :: Prelude.Maybe Prelude.Text,
     -- | Details of the common errors that all operations return.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeReportCreationResponse' with all optional fields omitted.
@@ -160,14 +163,14 @@ data DescribeReportCreationResponse = DescribeReportCreationResponse'
 -- 'httpStatus', 'describeReportCreationResponse_httpStatus' - The response's http status code.
 newDescribeReportCreationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeReportCreationResponse
 newDescribeReportCreationResponse pHttpStatus_ =
   DescribeReportCreationResponse'
     { status =
-        Core.Nothing,
-      s3Location = Core.Nothing,
-      errorMessage = Core.Nothing,
+        Prelude.Nothing,
+      s3Location = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -185,20 +188,22 @@ newDescribeReportCreationResponse pHttpStatus_ =
 --     accessible.
 --
 -- -   @NO REPORT@ - No report was generated in the last 90 days.
-describeReportCreationResponse_status :: Lens.Lens' DescribeReportCreationResponse (Core.Maybe Core.Text)
+describeReportCreationResponse_status :: Lens.Lens' DescribeReportCreationResponse (Prelude.Maybe Prelude.Text)
 describeReportCreationResponse_status = Lens.lens (\DescribeReportCreationResponse' {status} -> status) (\s@DescribeReportCreationResponse' {} a -> s {status = a} :: DescribeReportCreationResponse)
 
 -- | The path to the Amazon S3 bucket where the report was stored on
 -- creation.
-describeReportCreationResponse_s3Location :: Lens.Lens' DescribeReportCreationResponse (Core.Maybe Core.Text)
+describeReportCreationResponse_s3Location :: Lens.Lens' DescribeReportCreationResponse (Prelude.Maybe Prelude.Text)
 describeReportCreationResponse_s3Location = Lens.lens (\DescribeReportCreationResponse' {s3Location} -> s3Location) (\s@DescribeReportCreationResponse' {} a -> s {s3Location = a} :: DescribeReportCreationResponse)
 
 -- | Details of the common errors that all operations return.
-describeReportCreationResponse_errorMessage :: Lens.Lens' DescribeReportCreationResponse (Core.Maybe Core.Text)
+describeReportCreationResponse_errorMessage :: Lens.Lens' DescribeReportCreationResponse (Prelude.Maybe Prelude.Text)
 describeReportCreationResponse_errorMessage = Lens.lens (\DescribeReportCreationResponse' {errorMessage} -> errorMessage) (\s@DescribeReportCreationResponse' {} a -> s {errorMessage = a} :: DescribeReportCreationResponse)
 
 -- | The response's http status code.
-describeReportCreationResponse_httpStatus :: Lens.Lens' DescribeReportCreationResponse Core.Int
+describeReportCreationResponse_httpStatus :: Lens.Lens' DescribeReportCreationResponse Prelude.Int
 describeReportCreationResponse_httpStatus = Lens.lens (\DescribeReportCreationResponse' {httpStatus} -> httpStatus) (\s@DescribeReportCreationResponse' {} a -> s {httpStatus = a} :: DescribeReportCreationResponse)
 
-instance Core.NFData DescribeReportCreationResponse
+instance
+  Prelude.NFData
+    DescribeReportCreationResponse

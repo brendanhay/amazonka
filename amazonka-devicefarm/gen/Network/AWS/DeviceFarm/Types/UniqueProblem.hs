@@ -22,17 +22,18 @@ module Network.AWS.DeviceFarm.Types.UniqueProblem where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.Problem
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A collection of one or more problems, grouped by their result.
 --
 -- /See:/ 'newUniqueProblem' smart constructor.
 data UniqueProblem = UniqueProblem'
   { -- | A message about the unique problems\' result.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | Information about the problems.
-    problems :: Core.Maybe [Problem]
+    problems :: Prelude.Maybe [Problem]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UniqueProblem' with all optional fields omitted.
@@ -49,17 +50,17 @@ newUniqueProblem ::
   UniqueProblem
 newUniqueProblem =
   UniqueProblem'
-    { message = Core.Nothing,
-      problems = Core.Nothing
+    { message = Prelude.Nothing,
+      problems = Prelude.Nothing
     }
 
 -- | A message about the unique problems\' result.
-uniqueProblem_message :: Lens.Lens' UniqueProblem (Core.Maybe Core.Text)
+uniqueProblem_message :: Lens.Lens' UniqueProblem (Prelude.Maybe Prelude.Text)
 uniqueProblem_message = Lens.lens (\UniqueProblem' {message} -> message) (\s@UniqueProblem' {} a -> s {message = a} :: UniqueProblem)
 
 -- | Information about the problems.
-uniqueProblem_problems :: Lens.Lens' UniqueProblem (Core.Maybe [Problem])
-uniqueProblem_problems = Lens.lens (\UniqueProblem' {problems} -> problems) (\s@UniqueProblem' {} a -> s {problems = a} :: UniqueProblem) Core.. Lens.mapping Lens._Coerce
+uniqueProblem_problems :: Lens.Lens' UniqueProblem (Prelude.Maybe [Problem])
+uniqueProblem_problems = Lens.lens (\UniqueProblem' {problems} -> problems) (\s@UniqueProblem' {} a -> s {problems = a} :: UniqueProblem) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON UniqueProblem where
   parseJSON =
@@ -67,10 +68,10 @@ instance Core.FromJSON UniqueProblem where
       "UniqueProblem"
       ( \x ->
           UniqueProblem'
-            Core.<$> (x Core..:? "message")
-            Core.<*> (x Core..:? "problems" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "problems" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable UniqueProblem
+instance Prelude.Hashable UniqueProblem
 
-instance Core.NFData UniqueProblem
+instance Prelude.NFData UniqueProblem

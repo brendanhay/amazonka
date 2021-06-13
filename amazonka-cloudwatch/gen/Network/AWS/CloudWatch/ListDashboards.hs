@@ -54,6 +54,7 @@ where
 import Network.AWS.CloudWatch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,13 +62,13 @@ import qualified Network.AWS.Response as Response
 data ListDashboards = ListDashboards'
   { -- | The token returned by a previous call to indicate that there is more
     -- data available.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | If you specify this parameter, only the dashboards with names starting
     -- with the specified string are listed. The maximum length is 255, and
     -- valid characters are A-Z, a-z, 0-9, \".\", \"-\", and \"_\".
-    dashboardNamePrefix :: Core.Maybe Core.Text
+    dashboardNamePrefix :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDashboards' with all optional fields omitted.
@@ -87,40 +88,41 @@ newListDashboards ::
   ListDashboards
 newListDashboards =
   ListDashboards'
-    { nextToken = Core.Nothing,
-      dashboardNamePrefix = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      dashboardNamePrefix = Prelude.Nothing
     }
 
 -- | The token returned by a previous call to indicate that there is more
 -- data available.
-listDashboards_nextToken :: Lens.Lens' ListDashboards (Core.Maybe Core.Text)
+listDashboards_nextToken :: Lens.Lens' ListDashboards (Prelude.Maybe Prelude.Text)
 listDashboards_nextToken = Lens.lens (\ListDashboards' {nextToken} -> nextToken) (\s@ListDashboards' {} a -> s {nextToken = a} :: ListDashboards)
 
 -- | If you specify this parameter, only the dashboards with names starting
 -- with the specified string are listed. The maximum length is 255, and
 -- valid characters are A-Z, a-z, 0-9, \".\", \"-\", and \"_\".
-listDashboards_dashboardNamePrefix :: Lens.Lens' ListDashboards (Core.Maybe Core.Text)
+listDashboards_dashboardNamePrefix :: Lens.Lens' ListDashboards (Prelude.Maybe Prelude.Text)
 listDashboards_dashboardNamePrefix = Lens.lens (\ListDashboards' {dashboardNamePrefix} -> dashboardNamePrefix) (\s@ListDashboards' {} a -> s {dashboardNamePrefix = a} :: ListDashboards)
 
 instance Core.AWSPager ListDashboards where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listDashboardsResponse_nextToken Core.. Lens._Just
+            Lens.^? listDashboardsResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDashboardsResponse_dashboardEntries
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listDashboards_nextToken
+          Prelude.& listDashboards_nextToken
           Lens..~ rs
-          Lens.^? listDashboardsResponse_nextToken Core.. Lens._Just
+          Lens.^? listDashboardsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDashboards where
   type
@@ -132,29 +134,31 @@ instance Core.AWSRequest ListDashboards where
       "ListDashboardsResult"
       ( \s h x ->
           ListDashboardsResponse'
-            Core.<$> (x Core..@? "NextToken")
-            Core.<*> ( x Core..@? "DashboardEntries" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "DashboardEntries"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListDashboards
+instance Prelude.Hashable ListDashboards
 
-instance Core.NFData ListDashboards
+instance Prelude.NFData ListDashboards
 
 instance Core.ToHeaders ListDashboards where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListDashboards where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListDashboards where
   toQuery ListDashboards' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListDashboards" :: Core.ByteString),
-        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
+          Core.=: ("ListDashboards" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-08-01" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "DashboardNamePrefix" Core.=: dashboardNamePrefix
       ]
@@ -162,13 +166,13 @@ instance Core.ToQuery ListDashboards where
 -- | /See:/ 'newListDashboardsResponse' smart constructor.
 data ListDashboardsResponse = ListDashboardsResponse'
   { -- | The token that marks the start of the next batch of returned results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of matching dashboards.
-    dashboardEntries :: Core.Maybe [DashboardEntry],
+    dashboardEntries :: Prelude.Maybe [DashboardEntry],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDashboardsResponse' with all optional fields omitted.
@@ -185,25 +189,26 @@ data ListDashboardsResponse = ListDashboardsResponse'
 -- 'httpStatus', 'listDashboardsResponse_httpStatus' - The response's http status code.
 newListDashboardsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListDashboardsResponse
 newListDashboardsResponse pHttpStatus_ =
   ListDashboardsResponse'
-    { nextToken = Core.Nothing,
-      dashboardEntries = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      dashboardEntries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token that marks the start of the next batch of returned results.
-listDashboardsResponse_nextToken :: Lens.Lens' ListDashboardsResponse (Core.Maybe Core.Text)
+listDashboardsResponse_nextToken :: Lens.Lens' ListDashboardsResponse (Prelude.Maybe Prelude.Text)
 listDashboardsResponse_nextToken = Lens.lens (\ListDashboardsResponse' {nextToken} -> nextToken) (\s@ListDashboardsResponse' {} a -> s {nextToken = a} :: ListDashboardsResponse)
 
 -- | The list of matching dashboards.
-listDashboardsResponse_dashboardEntries :: Lens.Lens' ListDashboardsResponse (Core.Maybe [DashboardEntry])
-listDashboardsResponse_dashboardEntries = Lens.lens (\ListDashboardsResponse' {dashboardEntries} -> dashboardEntries) (\s@ListDashboardsResponse' {} a -> s {dashboardEntries = a} :: ListDashboardsResponse) Core.. Lens.mapping Lens._Coerce
+listDashboardsResponse_dashboardEntries :: Lens.Lens' ListDashboardsResponse (Prelude.Maybe [DashboardEntry])
+listDashboardsResponse_dashboardEntries = Lens.lens (\ListDashboardsResponse' {dashboardEntries} -> dashboardEntries) (\s@ListDashboardsResponse' {} a -> s {dashboardEntries = a} :: ListDashboardsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listDashboardsResponse_httpStatus :: Lens.Lens' ListDashboardsResponse Core.Int
+listDashboardsResponse_httpStatus :: Lens.Lens' ListDashboardsResponse Prelude.Int
 listDashboardsResponse_httpStatus = Lens.lens (\ListDashboardsResponse' {httpStatus} -> httpStatus) (\s@ListDashboardsResponse' {} a -> s {httpStatus = a} :: ListDashboardsResponse)
 
-instance Core.NFData ListDashboardsResponse
+instance Prelude.NFData ListDashboardsResponse

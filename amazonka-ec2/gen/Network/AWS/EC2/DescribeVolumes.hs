@@ -61,6 +61,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,14 +72,14 @@ data DescribeVolumes = DescribeVolumes'
     -- exceeded the value of that parameter. Pagination continues from the end
     -- of the previous results that returned the @NextToken@ value. This value
     -- is @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The volume IDs.
-    volumeIds :: Core.Maybe [Core.Text],
+    volumeIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of volume results returned by @DescribeVolumes@ in
     -- paginated output. When this parameter is used, @DescribeVolumes@ only
     -- returns @MaxResults@ results in a single page along with a @NextToken@
@@ -89,7 +90,7 @@ data DescribeVolumes = DescribeVolumes'
     -- parameter is not used, then @DescribeVolumes@ returns all results. You
     -- cannot specify this parameter and the volume IDs parameter in the same
     -- request.
-    maxResults :: Core.Maybe Core.Int,
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The filters.
     --
     -- -   @attachment.attach-time@ - The time stamp when the attachment
@@ -143,9 +144,9 @@ data DescribeVolumes = DescribeVolumes'
     --
     -- -   @volume-type@ - The Amazon EBS volume type (@gp2@ | @gp3@ | @io1@ |
     --     @io2@ | @st1@ | @sc1@| @standard@)
-    filters :: Core.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeVolumes' with all optional fields omitted.
@@ -236,11 +237,11 @@ newDescribeVolumes ::
   DescribeVolumes
 newDescribeVolumes =
   DescribeVolumes'
-    { nextToken = Core.Nothing,
-      dryRun = Core.Nothing,
-      volumeIds = Core.Nothing,
-      maxResults = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      volumeIds = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | The @NextToken@ value returned from a previous paginated
@@ -248,19 +249,19 @@ newDescribeVolumes =
 -- exceeded the value of that parameter. Pagination continues from the end
 -- of the previous results that returned the @NextToken@ value. This value
 -- is @null@ when there are no more results to return.
-describeVolumes_nextToken :: Lens.Lens' DescribeVolumes (Core.Maybe Core.Text)
+describeVolumes_nextToken :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Text)
 describeVolumes_nextToken = Lens.lens (\DescribeVolumes' {nextToken} -> nextToken) (\s@DescribeVolumes' {} a -> s {nextToken = a} :: DescribeVolumes)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeVolumes_dryRun :: Lens.Lens' DescribeVolumes (Core.Maybe Core.Bool)
+describeVolumes_dryRun :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Bool)
 describeVolumes_dryRun = Lens.lens (\DescribeVolumes' {dryRun} -> dryRun) (\s@DescribeVolumes' {} a -> s {dryRun = a} :: DescribeVolumes)
 
 -- | The volume IDs.
-describeVolumes_volumeIds :: Lens.Lens' DescribeVolumes (Core.Maybe [Core.Text])
-describeVolumes_volumeIds = Lens.lens (\DescribeVolumes' {volumeIds} -> volumeIds) (\s@DescribeVolumes' {} a -> s {volumeIds = a} :: DescribeVolumes) Core.. Lens.mapping Lens._Coerce
+describeVolumes_volumeIds :: Lens.Lens' DescribeVolumes (Prelude.Maybe [Prelude.Text])
+describeVolumes_volumeIds = Lens.lens (\DescribeVolumes' {volumeIds} -> volumeIds) (\s@DescribeVolumes' {} a -> s {volumeIds = a} :: DescribeVolumes) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of volume results returned by @DescribeVolumes@ in
 -- paginated output. When this parameter is used, @DescribeVolumes@ only
@@ -272,7 +273,7 @@ describeVolumes_volumeIds = Lens.lens (\DescribeVolumes' {volumeIds} -> volumeId
 -- parameter is not used, then @DescribeVolumes@ returns all results. You
 -- cannot specify this parameter and the volume IDs parameter in the same
 -- request.
-describeVolumes_maxResults :: Lens.Lens' DescribeVolumes (Core.Maybe Core.Int)
+describeVolumes_maxResults :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Int)
 describeVolumes_maxResults = Lens.lens (\DescribeVolumes' {maxResults} -> maxResults) (\s@DescribeVolumes' {} a -> s {maxResults = a} :: DescribeVolumes)
 
 -- | The filters.
@@ -328,27 +329,29 @@ describeVolumes_maxResults = Lens.lens (\DescribeVolumes' {maxResults} -> maxRes
 --
 -- -   @volume-type@ - The Amazon EBS volume type (@gp2@ | @gp3@ | @io1@ |
 --     @io2@ | @st1@ | @sc1@| @standard@)
-describeVolumes_filters :: Lens.Lens' DescribeVolumes (Core.Maybe [Filter])
-describeVolumes_filters = Lens.lens (\DescribeVolumes' {filters} -> filters) (\s@DescribeVolumes' {} a -> s {filters = a} :: DescribeVolumes) Core.. Lens.mapping Lens._Coerce
+describeVolumes_filters :: Lens.Lens' DescribeVolumes (Prelude.Maybe [Filter])
+describeVolumes_filters = Lens.lens (\DescribeVolumes' {filters} -> filters) (\s@DescribeVolumes' {} a -> s {filters = a} :: DescribeVolumes) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeVolumes where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeVolumesResponse_nextToken Core.. Lens._Just
+            Lens.^? describeVolumesResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeVolumesResponse_volumes Core.. Lens._Just
+            Lens.^? describeVolumesResponse_volumes Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeVolumes_nextToken
+          Prelude.& describeVolumes_nextToken
           Lens..~ rs
-          Lens.^? describeVolumesResponse_nextToken Core.. Lens._Just
+          Lens.^? describeVolumesResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVolumes where
   type
@@ -359,36 +362,37 @@ instance Core.AWSRequest DescribeVolumes where
     Response.receiveXML
       ( \s h x ->
           DescribeVolumesResponse'
-            Core.<$> (x Core..@? "nextToken")
-            Core.<*> ( x Core..@? "volumeSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "volumeSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeVolumes
+instance Prelude.Hashable DescribeVolumes
 
-instance Core.NFData DescribeVolumes
+instance Prelude.NFData DescribeVolumes
 
 instance Core.ToHeaders DescribeVolumes where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeVolumes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeVolumes where
   toQuery DescribeVolumes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeVolumes" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DescribeVolumes" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         Core.toQuery
-          (Core.toQueryList "VolumeId" Core.<$> volumeIds),
+          (Core.toQueryList "VolumeId" Prelude.<$> volumeIds),
         "MaxResults" Core.=: maxResults,
         Core.toQuery
-          (Core.toQueryList "Filter" Core.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeVolumesResponse' smart constructor.
@@ -397,13 +401,13 @@ data DescribeVolumesResponse = DescribeVolumesResponse'
     -- When the results of a @DescribeVolumes@ request exceed @MaxResults@,
     -- this value can be used to retrieve the next page of results. This value
     -- is @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the volumes.
-    volumes :: Core.Maybe [Volume],
+    volumes :: Prelude.Maybe [Volume],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeVolumesResponse' with all optional fields omitted.
@@ -423,12 +427,13 @@ data DescribeVolumesResponse = DescribeVolumesResponse'
 -- 'httpStatus', 'describeVolumesResponse_httpStatus' - The response's http status code.
 newDescribeVolumesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeVolumesResponse
 newDescribeVolumesResponse pHttpStatus_ =
   DescribeVolumesResponse'
-    { nextToken = Core.Nothing,
-      volumes = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      volumes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -436,15 +441,15 @@ newDescribeVolumesResponse pHttpStatus_ =
 -- When the results of a @DescribeVolumes@ request exceed @MaxResults@,
 -- this value can be used to retrieve the next page of results. This value
 -- is @null@ when there are no more results to return.
-describeVolumesResponse_nextToken :: Lens.Lens' DescribeVolumesResponse (Core.Maybe Core.Text)
+describeVolumesResponse_nextToken :: Lens.Lens' DescribeVolumesResponse (Prelude.Maybe Prelude.Text)
 describeVolumesResponse_nextToken = Lens.lens (\DescribeVolumesResponse' {nextToken} -> nextToken) (\s@DescribeVolumesResponse' {} a -> s {nextToken = a} :: DescribeVolumesResponse)
 
 -- | Information about the volumes.
-describeVolumesResponse_volumes :: Lens.Lens' DescribeVolumesResponse (Core.Maybe [Volume])
-describeVolumesResponse_volumes = Lens.lens (\DescribeVolumesResponse' {volumes} -> volumes) (\s@DescribeVolumesResponse' {} a -> s {volumes = a} :: DescribeVolumesResponse) Core.. Lens.mapping Lens._Coerce
+describeVolumesResponse_volumes :: Lens.Lens' DescribeVolumesResponse (Prelude.Maybe [Volume])
+describeVolumesResponse_volumes = Lens.lens (\DescribeVolumesResponse' {volumes} -> volumes) (\s@DescribeVolumesResponse' {} a -> s {volumes = a} :: DescribeVolumesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeVolumesResponse_httpStatus :: Lens.Lens' DescribeVolumesResponse Core.Int
+describeVolumesResponse_httpStatus :: Lens.Lens' DescribeVolumesResponse Prelude.Int
 describeVolumesResponse_httpStatus = Lens.lens (\DescribeVolumesResponse' {httpStatus} -> httpStatus) (\s@DescribeVolumesResponse' {} a -> s {httpStatus = a} :: DescribeVolumesResponse)
 
-instance Core.NFData DescribeVolumesResponse
+instance Prelude.NFData DescribeVolumesResponse

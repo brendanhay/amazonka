@@ -24,6 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.DolbyVisionLevel6Metadata
 import Network.AWS.MediaConvert.Types.DolbyVisionLevel6Mode
 import Network.AWS.MediaConvert.Types.DolbyVisionProfile
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for Dolby Vision
 --
@@ -31,16 +32,16 @@ import Network.AWS.MediaConvert.Types.DolbyVisionProfile
 data DolbyVision = DolbyVision'
   { -- | Use Dolby Vision Mode to choose how the service will handle Dolby Vision
     -- MaxCLL and MaxFALL properies.
-    l6Mode :: Core.Maybe DolbyVisionLevel6Mode,
+    l6Mode :: Prelude.Maybe DolbyVisionLevel6Mode,
     -- | Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to
     -- override the MaxCLL and MaxFALL values in your input with new values.
-    l6Metadata :: Core.Maybe DolbyVisionLevel6Metadata,
+    l6Metadata :: Prelude.Maybe DolbyVisionLevel6Metadata,
     -- | In the current MediaConvert implementation, the Dolby Vision profile is
     -- always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby
     -- Vision frame interleaved data.
-    profile :: Core.Maybe DolbyVisionProfile
+    profile :: Prelude.Maybe DolbyVisionProfile
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DolbyVision' with all optional fields omitted.
@@ -63,25 +64,25 @@ newDolbyVision ::
   DolbyVision
 newDolbyVision =
   DolbyVision'
-    { l6Mode = Core.Nothing,
-      l6Metadata = Core.Nothing,
-      profile = Core.Nothing
+    { l6Mode = Prelude.Nothing,
+      l6Metadata = Prelude.Nothing,
+      profile = Prelude.Nothing
     }
 
 -- | Use Dolby Vision Mode to choose how the service will handle Dolby Vision
 -- MaxCLL and MaxFALL properies.
-dolbyVision_l6Mode :: Lens.Lens' DolbyVision (Core.Maybe DolbyVisionLevel6Mode)
+dolbyVision_l6Mode :: Lens.Lens' DolbyVision (Prelude.Maybe DolbyVisionLevel6Mode)
 dolbyVision_l6Mode = Lens.lens (\DolbyVision' {l6Mode} -> l6Mode) (\s@DolbyVision' {} a -> s {l6Mode = a} :: DolbyVision)
 
 -- | Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to
 -- override the MaxCLL and MaxFALL values in your input with new values.
-dolbyVision_l6Metadata :: Lens.Lens' DolbyVision (Core.Maybe DolbyVisionLevel6Metadata)
+dolbyVision_l6Metadata :: Lens.Lens' DolbyVision (Prelude.Maybe DolbyVisionLevel6Metadata)
 dolbyVision_l6Metadata = Lens.lens (\DolbyVision' {l6Metadata} -> l6Metadata) (\s@DolbyVision' {} a -> s {l6Metadata = a} :: DolbyVision)
 
 -- | In the current MediaConvert implementation, the Dolby Vision profile is
 -- always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby
 -- Vision frame interleaved data.
-dolbyVision_profile :: Lens.Lens' DolbyVision (Core.Maybe DolbyVisionProfile)
+dolbyVision_profile :: Lens.Lens' DolbyVision (Prelude.Maybe DolbyVisionProfile)
 dolbyVision_profile = Lens.lens (\DolbyVision' {profile} -> profile) (\s@DolbyVision' {} a -> s {profile = a} :: DolbyVision)
 
 instance Core.FromJSON DolbyVision where
@@ -90,21 +91,21 @@ instance Core.FromJSON DolbyVision where
       "DolbyVision"
       ( \x ->
           DolbyVision'
-            Core.<$> (x Core..:? "l6Mode")
-            Core.<*> (x Core..:? "l6Metadata")
-            Core.<*> (x Core..:? "profile")
+            Prelude.<$> (x Core..:? "l6Mode")
+            Prelude.<*> (x Core..:? "l6Metadata")
+            Prelude.<*> (x Core..:? "profile")
       )
 
-instance Core.Hashable DolbyVision
+instance Prelude.Hashable DolbyVision
 
-instance Core.NFData DolbyVision
+instance Prelude.NFData DolbyVision
 
 instance Core.ToJSON DolbyVision where
   toJSON DolbyVision' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("l6Mode" Core..=) Core.<$> l6Mode,
-            ("l6Metadata" Core..=) Core.<$> l6Metadata,
-            ("profile" Core..=) Core.<$> profile
+      ( Prelude.catMaybes
+          [ ("l6Mode" Core..=) Prelude.<$> l6Mode,
+            ("l6Metadata" Core..=) Prelude.<$> l6Metadata,
+            ("profile" Core..=) Prelude.<$> profile
           ]
       )

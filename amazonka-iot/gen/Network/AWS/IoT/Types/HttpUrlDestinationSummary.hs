@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.HttpUrlDestinationSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an HTTP URL destination.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data HttpUrlDestinationSummary = HttpUrlDestinationSummary'
   { -- | The URL used to confirm ownership of or access to the HTTP topic rule
     -- destination URL.
-    confirmationUrl :: Core.Maybe Core.Text
+    confirmationUrl :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HttpUrlDestinationSummary' with all optional fields omitted.
@@ -47,12 +48,12 @@ newHttpUrlDestinationSummary ::
 newHttpUrlDestinationSummary =
   HttpUrlDestinationSummary'
     { confirmationUrl =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The URL used to confirm ownership of or access to the HTTP topic rule
 -- destination URL.
-httpUrlDestinationSummary_confirmationUrl :: Lens.Lens' HttpUrlDestinationSummary (Core.Maybe Core.Text)
+httpUrlDestinationSummary_confirmationUrl :: Lens.Lens' HttpUrlDestinationSummary (Prelude.Maybe Prelude.Text)
 httpUrlDestinationSummary_confirmationUrl = Lens.lens (\HttpUrlDestinationSummary' {confirmationUrl} -> confirmationUrl) (\s@HttpUrlDestinationSummary' {} a -> s {confirmationUrl = a} :: HttpUrlDestinationSummary)
 
 instance Core.FromJSON HttpUrlDestinationSummary where
@@ -61,9 +62,9 @@ instance Core.FromJSON HttpUrlDestinationSummary where
       "HttpUrlDestinationSummary"
       ( \x ->
           HttpUrlDestinationSummary'
-            Core.<$> (x Core..:? "confirmationUrl")
+            Prelude.<$> (x Core..:? "confirmationUrl")
       )
 
-instance Core.Hashable HttpUrlDestinationSummary
+instance Prelude.Hashable HttpUrlDestinationSummary
 
-instance Core.NFData HttpUrlDestinationSummary
+instance Prelude.NFData HttpUrlDestinationSummary

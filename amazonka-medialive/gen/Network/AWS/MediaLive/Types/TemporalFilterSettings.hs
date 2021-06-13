@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening
 import Network.AWS.MediaLive.Types.TemporalFilterStrength
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Temporal Filter Settings
 --
@@ -33,13 +34,13 @@ data TemporalFilterSettings = TemporalFilterSettings'
     -- filter cleans up the source. - If the source content is already clean,
     -- the filter tends to decrease the bitrate, especially when the rate
     -- control mode is QVBR.
-    postFilterSharpening :: Core.Maybe TemporalFilterPostFilterSharpening,
+    postFilterSharpening :: Prelude.Maybe TemporalFilterPostFilterSharpening,
     -- | Choose a filter strength. We recommend a strength of 1 or 2. A higher
     -- strength might take out good information, resulting in an image that is
     -- overly soft.
-    strength :: Core.Maybe TemporalFilterStrength
+    strength :: Prelude.Maybe TemporalFilterStrength
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TemporalFilterSettings' with all optional fields omitted.
@@ -63,8 +64,8 @@ newTemporalFilterSettings ::
 newTemporalFilterSettings =
   TemporalFilterSettings'
     { postFilterSharpening =
-        Core.Nothing,
-      strength = Core.Nothing
+        Prelude.Nothing,
+      strength = Prelude.Nothing
     }
 
 -- | If you enable this filter, the results are the following: - If the
@@ -72,13 +73,13 @@ newTemporalFilterSettings =
 -- filter cleans up the source. - If the source content is already clean,
 -- the filter tends to decrease the bitrate, especially when the rate
 -- control mode is QVBR.
-temporalFilterSettings_postFilterSharpening :: Lens.Lens' TemporalFilterSettings (Core.Maybe TemporalFilterPostFilterSharpening)
+temporalFilterSettings_postFilterSharpening :: Lens.Lens' TemporalFilterSettings (Prelude.Maybe TemporalFilterPostFilterSharpening)
 temporalFilterSettings_postFilterSharpening = Lens.lens (\TemporalFilterSettings' {postFilterSharpening} -> postFilterSharpening) (\s@TemporalFilterSettings' {} a -> s {postFilterSharpening = a} :: TemporalFilterSettings)
 
 -- | Choose a filter strength. We recommend a strength of 1 or 2. A higher
 -- strength might take out good information, resulting in an image that is
 -- overly soft.
-temporalFilterSettings_strength :: Lens.Lens' TemporalFilterSettings (Core.Maybe TemporalFilterStrength)
+temporalFilterSettings_strength :: Lens.Lens' TemporalFilterSettings (Prelude.Maybe TemporalFilterStrength)
 temporalFilterSettings_strength = Lens.lens (\TemporalFilterSettings' {strength} -> strength) (\s@TemporalFilterSettings' {} a -> s {strength = a} :: TemporalFilterSettings)
 
 instance Core.FromJSON TemporalFilterSettings where
@@ -87,20 +88,20 @@ instance Core.FromJSON TemporalFilterSettings where
       "TemporalFilterSettings"
       ( \x ->
           TemporalFilterSettings'
-            Core.<$> (x Core..:? "postFilterSharpening")
-            Core.<*> (x Core..:? "strength")
+            Prelude.<$> (x Core..:? "postFilterSharpening")
+            Prelude.<*> (x Core..:? "strength")
       )
 
-instance Core.Hashable TemporalFilterSettings
+instance Prelude.Hashable TemporalFilterSettings
 
-instance Core.NFData TemporalFilterSettings
+instance Prelude.NFData TemporalFilterSettings
 
 instance Core.ToJSON TemporalFilterSettings where
   toJSON TemporalFilterSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("postFilterSharpening" Core..=)
-              Core.<$> postFilterSharpening,
-            ("strength" Core..=) Core.<$> strength
+              Prelude.<$> postFilterSharpening,
+            ("strength" Core..=) Prelude.<$> strength
           ]
       )

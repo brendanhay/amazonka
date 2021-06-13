@@ -22,18 +22,19 @@ module Network.AWS.CloudHSMv2.Types.BackupRetentionPolicy where
 import Network.AWS.CloudHSMv2.Types.BackupRetentionType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A policy that defines the number of days to retain backups.
 --
 -- /See:/ 'newBackupRetentionPolicy' smart constructor.
 data BackupRetentionPolicy = BackupRetentionPolicy'
   { -- | Use a value between 7 - 379.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | The type of backup retention policy. For the @DAYS@ type, the value is
     -- the number of days to retain backups.
-    type' :: Core.Maybe BackupRetentionType
+    type' :: Prelude.Maybe BackupRetentionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BackupRetentionPolicy' with all optional fields omitted.
@@ -51,17 +52,17 @@ newBackupRetentionPolicy ::
   BackupRetentionPolicy
 newBackupRetentionPolicy =
   BackupRetentionPolicy'
-    { value = Core.Nothing,
-      type' = Core.Nothing
+    { value = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | Use a value between 7 - 379.
-backupRetentionPolicy_value :: Lens.Lens' BackupRetentionPolicy (Core.Maybe Core.Text)
+backupRetentionPolicy_value :: Lens.Lens' BackupRetentionPolicy (Prelude.Maybe Prelude.Text)
 backupRetentionPolicy_value = Lens.lens (\BackupRetentionPolicy' {value} -> value) (\s@BackupRetentionPolicy' {} a -> s {value = a} :: BackupRetentionPolicy)
 
 -- | The type of backup retention policy. For the @DAYS@ type, the value is
 -- the number of days to retain backups.
-backupRetentionPolicy_type :: Lens.Lens' BackupRetentionPolicy (Core.Maybe BackupRetentionType)
+backupRetentionPolicy_type :: Lens.Lens' BackupRetentionPolicy (Prelude.Maybe BackupRetentionType)
 backupRetentionPolicy_type = Lens.lens (\BackupRetentionPolicy' {type'} -> type') (\s@BackupRetentionPolicy' {} a -> s {type' = a} :: BackupRetentionPolicy)
 
 instance Core.FromJSON BackupRetentionPolicy where
@@ -70,18 +71,18 @@ instance Core.FromJSON BackupRetentionPolicy where
       "BackupRetentionPolicy"
       ( \x ->
           BackupRetentionPolicy'
-            Core.<$> (x Core..:? "Value") Core.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Type")
       )
 
-instance Core.Hashable BackupRetentionPolicy
+instance Prelude.Hashable BackupRetentionPolicy
 
-instance Core.NFData BackupRetentionPolicy
+instance Prelude.NFData BackupRetentionPolicy
 
 instance Core.ToJSON BackupRetentionPolicy where
   toJSON BackupRetentionPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Value" Core..=) Core.<$> value,
-            ("Type" Core..=) Core.<$> type'
+      ( Prelude.catMaybes
+          [ ("Value" Core..=) Prelude.<$> value,
+            ("Type" Core..=) Prelude.<$> type'
           ]
       )

@@ -63,6 +63,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -75,7 +76,7 @@ data UpdateEndpoint = UpdateEndpoint'
     -- VariantProperty to override with the values provided by
     -- @EndpointConfig@. If you don\'t specify a value for
     -- @ExcludeAllVariantProperties@, no variant properties are overridden.
-    excludeRetainedVariantProperties :: Core.Maybe [VariantProperty],
+    excludeRetainedVariantProperties :: Prelude.Maybe [VariantProperty],
     -- | When updating endpoint resources, enables or disables the retention of
     -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html variant properties>,
     -- such as the instance count or the variant weight. To retain the variant
@@ -83,15 +84,15 @@ data UpdateEndpoint = UpdateEndpoint'
     -- @RetainAllVariantProperties@ to @true@. To use the variant properties
     -- specified in a new @EndpointConfig@ call when updating an endpoint, set
     -- @RetainAllVariantProperties@ to @false@. The default is @false@.
-    retainAllVariantProperties :: Core.Maybe Core.Bool,
+    retainAllVariantProperties :: Prelude.Maybe Prelude.Bool,
     -- | The deployment configuration for the endpoint to be updated.
-    deploymentConfig :: Core.Maybe DeploymentConfig,
+    deploymentConfig :: Prelude.Maybe DeploymentConfig,
     -- | The name of the endpoint whose configuration you want to update.
-    endpointName :: Core.Text,
+    endpointName :: Prelude.Text,
     -- | The name of the new endpoint configuration.
-    endpointConfigName :: Core.Text
+    endpointConfigName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateEndpoint' with all optional fields omitted.
@@ -123,16 +124,16 @@ data UpdateEndpoint = UpdateEndpoint'
 -- 'endpointConfigName', 'updateEndpoint_endpointConfigName' - The name of the new endpoint configuration.
 newUpdateEndpoint ::
   -- | 'endpointName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'endpointConfigName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateEndpoint
 newUpdateEndpoint pEndpointName_ pEndpointConfigName_ =
   UpdateEndpoint'
     { excludeRetainedVariantProperties =
-        Core.Nothing,
-      retainAllVariantProperties = Core.Nothing,
-      deploymentConfig = Core.Nothing,
+        Prelude.Nothing,
+      retainAllVariantProperties = Prelude.Nothing,
+      deploymentConfig = Prelude.Nothing,
       endpointName = pEndpointName_,
       endpointConfigName = pEndpointConfigName_
     }
@@ -143,8 +144,8 @@ newUpdateEndpoint pEndpointName_ pEndpointConfigName_ =
 -- VariantProperty to override with the values provided by
 -- @EndpointConfig@. If you don\'t specify a value for
 -- @ExcludeAllVariantProperties@, no variant properties are overridden.
-updateEndpoint_excludeRetainedVariantProperties :: Lens.Lens' UpdateEndpoint (Core.Maybe [VariantProperty])
-updateEndpoint_excludeRetainedVariantProperties = Lens.lens (\UpdateEndpoint' {excludeRetainedVariantProperties} -> excludeRetainedVariantProperties) (\s@UpdateEndpoint' {} a -> s {excludeRetainedVariantProperties = a} :: UpdateEndpoint) Core.. Lens.mapping Lens._Coerce
+updateEndpoint_excludeRetainedVariantProperties :: Lens.Lens' UpdateEndpoint (Prelude.Maybe [VariantProperty])
+updateEndpoint_excludeRetainedVariantProperties = Lens.lens (\UpdateEndpoint' {excludeRetainedVariantProperties} -> excludeRetainedVariantProperties) (\s@UpdateEndpoint' {} a -> s {excludeRetainedVariantProperties = a} :: UpdateEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | When updating endpoint resources, enables or disables the retention of
 -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html variant properties>,
@@ -153,19 +154,19 @@ updateEndpoint_excludeRetainedVariantProperties = Lens.lens (\UpdateEndpoint' {e
 -- @RetainAllVariantProperties@ to @true@. To use the variant properties
 -- specified in a new @EndpointConfig@ call when updating an endpoint, set
 -- @RetainAllVariantProperties@ to @false@. The default is @false@.
-updateEndpoint_retainAllVariantProperties :: Lens.Lens' UpdateEndpoint (Core.Maybe Core.Bool)
+updateEndpoint_retainAllVariantProperties :: Lens.Lens' UpdateEndpoint (Prelude.Maybe Prelude.Bool)
 updateEndpoint_retainAllVariantProperties = Lens.lens (\UpdateEndpoint' {retainAllVariantProperties} -> retainAllVariantProperties) (\s@UpdateEndpoint' {} a -> s {retainAllVariantProperties = a} :: UpdateEndpoint)
 
 -- | The deployment configuration for the endpoint to be updated.
-updateEndpoint_deploymentConfig :: Lens.Lens' UpdateEndpoint (Core.Maybe DeploymentConfig)
+updateEndpoint_deploymentConfig :: Lens.Lens' UpdateEndpoint (Prelude.Maybe DeploymentConfig)
 updateEndpoint_deploymentConfig = Lens.lens (\UpdateEndpoint' {deploymentConfig} -> deploymentConfig) (\s@UpdateEndpoint' {} a -> s {deploymentConfig = a} :: UpdateEndpoint)
 
 -- | The name of the endpoint whose configuration you want to update.
-updateEndpoint_endpointName :: Lens.Lens' UpdateEndpoint Core.Text
+updateEndpoint_endpointName :: Lens.Lens' UpdateEndpoint Prelude.Text
 updateEndpoint_endpointName = Lens.lens (\UpdateEndpoint' {endpointName} -> endpointName) (\s@UpdateEndpoint' {} a -> s {endpointName = a} :: UpdateEndpoint)
 
 -- | The name of the new endpoint configuration.
-updateEndpoint_endpointConfigName :: Lens.Lens' UpdateEndpoint Core.Text
+updateEndpoint_endpointConfigName :: Lens.Lens' UpdateEndpoint Prelude.Text
 updateEndpoint_endpointConfigName = Lens.lens (\UpdateEndpoint' {endpointConfigName} -> endpointConfigName) (\s@UpdateEndpoint' {} a -> s {endpointConfigName = a} :: UpdateEndpoint)
 
 instance Core.AWSRequest UpdateEndpoint where
@@ -177,55 +178,57 @@ instance Core.AWSRequest UpdateEndpoint where
     Response.receiveJSON
       ( \s h x ->
           UpdateEndpointResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "EndpointArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "EndpointArn")
       )
 
-instance Core.Hashable UpdateEndpoint
+instance Prelude.Hashable UpdateEndpoint
 
-instance Core.NFData UpdateEndpoint
+instance Prelude.NFData UpdateEndpoint
 
 instance Core.ToHeaders UpdateEndpoint where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.UpdateEndpoint" :: Core.ByteString),
+              Core.=# ("SageMaker.UpdateEndpoint" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateEndpoint where
   toJSON UpdateEndpoint' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ExcludeRetainedVariantProperties" Core..=)
-              Core.<$> excludeRetainedVariantProperties,
+              Prelude.<$> excludeRetainedVariantProperties,
             ("RetainAllVariantProperties" Core..=)
-              Core.<$> retainAllVariantProperties,
+              Prelude.<$> retainAllVariantProperties,
             ("DeploymentConfig" Core..=)
-              Core.<$> deploymentConfig,
-            Core.Just ("EndpointName" Core..= endpointName),
-            Core.Just
+              Prelude.<$> deploymentConfig,
+            Prelude.Just ("EndpointName" Core..= endpointName),
+            Prelude.Just
               ("EndpointConfigName" Core..= endpointConfigName)
           ]
       )
 
 instance Core.ToPath UpdateEndpoint where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateEndpoint where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEndpointResponse' smart constructor.
 data UpdateEndpointResponse = UpdateEndpointResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the endpoint.
-    endpointArn :: Core.Text
+    endpointArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateEndpointResponse' with all optional fields omitted.
@@ -240,9 +243,9 @@ data UpdateEndpointResponse = UpdateEndpointResponse'
 -- 'endpointArn', 'updateEndpointResponse_endpointArn' - The Amazon Resource Name (ARN) of the endpoint.
 newUpdateEndpointResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'endpointArn'
-  Core.Text ->
+  Prelude.Text ->
   UpdateEndpointResponse
 newUpdateEndpointResponse pHttpStatus_ pEndpointArn_ =
   UpdateEndpointResponse'
@@ -251,11 +254,11 @@ newUpdateEndpointResponse pHttpStatus_ pEndpointArn_ =
     }
 
 -- | The response's http status code.
-updateEndpointResponse_httpStatus :: Lens.Lens' UpdateEndpointResponse Core.Int
+updateEndpointResponse_httpStatus :: Lens.Lens' UpdateEndpointResponse Prelude.Int
 updateEndpointResponse_httpStatus = Lens.lens (\UpdateEndpointResponse' {httpStatus} -> httpStatus) (\s@UpdateEndpointResponse' {} a -> s {httpStatus = a} :: UpdateEndpointResponse)
 
 -- | The Amazon Resource Name (ARN) of the endpoint.
-updateEndpointResponse_endpointArn :: Lens.Lens' UpdateEndpointResponse Core.Text
+updateEndpointResponse_endpointArn :: Lens.Lens' UpdateEndpointResponse Prelude.Text
 updateEndpointResponse_endpointArn = Lens.lens (\UpdateEndpointResponse' {endpointArn} -> endpointArn) (\s@UpdateEndpointResponse' {} a -> s {endpointArn = a} :: UpdateEndpointResponse)
 
-instance Core.NFData UpdateEndpointResponse
+instance Prelude.NFData UpdateEndpointResponse

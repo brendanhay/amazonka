@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,9 +64,9 @@ import qualified Network.AWS.Response as Response
 data RegisterCACertificate = RegisterCACertificate'
   { -- | Allows this CA certificate to be used for auto registration of device
     -- certificates.
-    allowAutoRegistration :: Core.Maybe Core.Bool,
+    allowAutoRegistration :: Prelude.Maybe Prelude.Bool,
     -- | A boolean value that specifies if the CA certificate is set to active.
-    setAsActive :: Core.Maybe Core.Bool,
+    setAsActive :: Prelude.Maybe Prelude.Bool,
     -- | Metadata which can be used to manage the CA certificate.
     --
     -- For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -75,15 +76,15 @@ data RegisterCACertificate = RegisterCACertificate'
     --
     -- For the cli-input-json file use format: \"tags\":
     -- \"key1=value1&key2=value2...\"
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | Information about the registration configuration.
-    registrationConfig :: Core.Maybe RegistrationConfig,
+    registrationConfig :: Prelude.Maybe RegistrationConfig,
     -- | The CA certificate.
-    caCertificate :: Core.Text,
+    caCertificate :: Prelude.Text,
     -- | The private key verification certificate.
-    verificationCertificate :: Core.Text
+    verificationCertificate :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterCACertificate' with all optional fields omitted.
@@ -115,30 +116,30 @@ data RegisterCACertificate = RegisterCACertificate'
 -- 'verificationCertificate', 'registerCACertificate_verificationCertificate' - The private key verification certificate.
 newRegisterCACertificate ::
   -- | 'caCertificate'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'verificationCertificate'
-  Core.Text ->
+  Prelude.Text ->
   RegisterCACertificate
 newRegisterCACertificate
   pCaCertificate_
   pVerificationCertificate_ =
     RegisterCACertificate'
       { allowAutoRegistration =
-          Core.Nothing,
-        setAsActive = Core.Nothing,
-        tags = Core.Nothing,
-        registrationConfig = Core.Nothing,
+          Prelude.Nothing,
+        setAsActive = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        registrationConfig = Prelude.Nothing,
         caCertificate = pCaCertificate_,
         verificationCertificate = pVerificationCertificate_
       }
 
 -- | Allows this CA certificate to be used for auto registration of device
 -- certificates.
-registerCACertificate_allowAutoRegistration :: Lens.Lens' RegisterCACertificate (Core.Maybe Core.Bool)
+registerCACertificate_allowAutoRegistration :: Lens.Lens' RegisterCACertificate (Prelude.Maybe Prelude.Bool)
 registerCACertificate_allowAutoRegistration = Lens.lens (\RegisterCACertificate' {allowAutoRegistration} -> allowAutoRegistration) (\s@RegisterCACertificate' {} a -> s {allowAutoRegistration = a} :: RegisterCACertificate)
 
 -- | A boolean value that specifies if the CA certificate is set to active.
-registerCACertificate_setAsActive :: Lens.Lens' RegisterCACertificate (Core.Maybe Core.Bool)
+registerCACertificate_setAsActive :: Lens.Lens' RegisterCACertificate (Prelude.Maybe Prelude.Bool)
 registerCACertificate_setAsActive = Lens.lens (\RegisterCACertificate' {setAsActive} -> setAsActive) (\s@RegisterCACertificate' {} a -> s {setAsActive = a} :: RegisterCACertificate)
 
 -- | Metadata which can be used to manage the CA certificate.
@@ -150,19 +151,19 @@ registerCACertificate_setAsActive = Lens.lens (\RegisterCACertificate' {setAsAct
 --
 -- For the cli-input-json file use format: \"tags\":
 -- \"key1=value1&key2=value2...\"
-registerCACertificate_tags :: Lens.Lens' RegisterCACertificate (Core.Maybe [Tag])
-registerCACertificate_tags = Lens.lens (\RegisterCACertificate' {tags} -> tags) (\s@RegisterCACertificate' {} a -> s {tags = a} :: RegisterCACertificate) Core.. Lens.mapping Lens._Coerce
+registerCACertificate_tags :: Lens.Lens' RegisterCACertificate (Prelude.Maybe [Tag])
+registerCACertificate_tags = Lens.lens (\RegisterCACertificate' {tags} -> tags) (\s@RegisterCACertificate' {} a -> s {tags = a} :: RegisterCACertificate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the registration configuration.
-registerCACertificate_registrationConfig :: Lens.Lens' RegisterCACertificate (Core.Maybe RegistrationConfig)
+registerCACertificate_registrationConfig :: Lens.Lens' RegisterCACertificate (Prelude.Maybe RegistrationConfig)
 registerCACertificate_registrationConfig = Lens.lens (\RegisterCACertificate' {registrationConfig} -> registrationConfig) (\s@RegisterCACertificate' {} a -> s {registrationConfig = a} :: RegisterCACertificate)
 
 -- | The CA certificate.
-registerCACertificate_caCertificate :: Lens.Lens' RegisterCACertificate Core.Text
+registerCACertificate_caCertificate :: Lens.Lens' RegisterCACertificate Prelude.Text
 registerCACertificate_caCertificate = Lens.lens (\RegisterCACertificate' {caCertificate} -> caCertificate) (\s@RegisterCACertificate' {} a -> s {caCertificate = a} :: RegisterCACertificate)
 
 -- | The private key verification certificate.
-registerCACertificate_verificationCertificate :: Lens.Lens' RegisterCACertificate Core.Text
+registerCACertificate_verificationCertificate :: Lens.Lens' RegisterCACertificate Prelude.Text
 registerCACertificate_verificationCertificate = Lens.lens (\RegisterCACertificate' {verificationCertificate} -> verificationCertificate) (\s@RegisterCACertificate' {} a -> s {verificationCertificate = a} :: RegisterCACertificate)
 
 instance Core.AWSRequest RegisterCACertificate where
@@ -174,27 +175,27 @@ instance Core.AWSRequest RegisterCACertificate where
     Response.receiveJSON
       ( \s h x ->
           RegisterCACertificateResponse'
-            Core.<$> (x Core..?> "certificateArn")
-            Core.<*> (x Core..?> "certificateId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "certificateArn")
+            Prelude.<*> (x Core..?> "certificateId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RegisterCACertificate
+instance Prelude.Hashable RegisterCACertificate
 
-instance Core.NFData RegisterCACertificate
+instance Prelude.NFData RegisterCACertificate
 
 instance Core.ToHeaders RegisterCACertificate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON RegisterCACertificate where
   toJSON RegisterCACertificate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("tags" Core..=) Core.<$> tags,
+      ( Prelude.catMaybes
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("registrationConfig" Core..=)
-              Core.<$> registrationConfig,
-            Core.Just ("caCertificate" Core..= caCertificate),
-            Core.Just
+              Prelude.<$> registrationConfig,
+            Prelude.Just ("caCertificate" Core..= caCertificate),
+            Prelude.Just
               ( "verificationCertificate"
                   Core..= verificationCertificate
               )
@@ -202,11 +203,11 @@ instance Core.ToJSON RegisterCACertificate where
       )
 
 instance Core.ToPath RegisterCACertificate where
-  toPath = Core.const "/cacertificate"
+  toPath = Prelude.const "/cacertificate"
 
 instance Core.ToQuery RegisterCACertificate where
   toQuery RegisterCACertificate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "allowAutoRegistration"
           Core.=: allowAutoRegistration,
         "setAsActive" Core.=: setAsActive
@@ -217,13 +218,13 @@ instance Core.ToQuery RegisterCACertificate where
 -- /See:/ 'newRegisterCACertificateResponse' smart constructor.
 data RegisterCACertificateResponse = RegisterCACertificateResponse'
   { -- | The CA certificate ARN.
-    certificateArn :: Core.Maybe Core.Text,
+    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The CA certificate identifier.
-    certificateId :: Core.Maybe Core.Text,
+    certificateId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterCACertificateResponse' with all optional fields omitted.
@@ -240,26 +241,26 @@ data RegisterCACertificateResponse = RegisterCACertificateResponse'
 -- 'httpStatus', 'registerCACertificateResponse_httpStatus' - The response's http status code.
 newRegisterCACertificateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RegisterCACertificateResponse
 newRegisterCACertificateResponse pHttpStatus_ =
   RegisterCACertificateResponse'
     { certificateArn =
-        Core.Nothing,
-      certificateId = Core.Nothing,
+        Prelude.Nothing,
+      certificateId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The CA certificate ARN.
-registerCACertificateResponse_certificateArn :: Lens.Lens' RegisterCACertificateResponse (Core.Maybe Core.Text)
+registerCACertificateResponse_certificateArn :: Lens.Lens' RegisterCACertificateResponse (Prelude.Maybe Prelude.Text)
 registerCACertificateResponse_certificateArn = Lens.lens (\RegisterCACertificateResponse' {certificateArn} -> certificateArn) (\s@RegisterCACertificateResponse' {} a -> s {certificateArn = a} :: RegisterCACertificateResponse)
 
 -- | The CA certificate identifier.
-registerCACertificateResponse_certificateId :: Lens.Lens' RegisterCACertificateResponse (Core.Maybe Core.Text)
+registerCACertificateResponse_certificateId :: Lens.Lens' RegisterCACertificateResponse (Prelude.Maybe Prelude.Text)
 registerCACertificateResponse_certificateId = Lens.lens (\RegisterCACertificateResponse' {certificateId} -> certificateId) (\s@RegisterCACertificateResponse' {} a -> s {certificateId = a} :: RegisterCACertificateResponse)
 
 -- | The response's http status code.
-registerCACertificateResponse_httpStatus :: Lens.Lens' RegisterCACertificateResponse Core.Int
+registerCACertificateResponse_httpStatus :: Lens.Lens' RegisterCACertificateResponse Prelude.Int
 registerCACertificateResponse_httpStatus = Lens.lens (\RegisterCACertificateResponse' {httpStatus} -> httpStatus) (\s@RegisterCACertificateResponse' {} a -> s {httpStatus = a} :: RegisterCACertificateResponse)
 
-instance Core.NFData RegisterCACertificateResponse
+instance Prelude.NFData RegisterCACertificateResponse

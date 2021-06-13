@@ -68,6 +68,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -86,7 +87,7 @@ data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
     -- @all@, an AWS account whose account ID is explicitly added to the
     -- @restore@ attribute can still copy or restore a manual DB cluster
     -- snapshot.
-    valuesToRemove :: Core.Maybe [Core.Text],
+    valuesToRemove :: Prelude.Maybe [Prelude.Text],
     -- | A list of DB cluster snapshot attributes to add to the attribute
     -- specified by @AttributeName@.
     --
@@ -95,9 +96,9 @@ data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
     -- to make the manual DB cluster snapshot restorable by any AWS account. Do
     -- not add the @all@ value for any manual DB cluster snapshots that contain
     -- private information that you don\'t want available to all AWS accounts.
-    valuesToAdd :: Core.Maybe [Core.Text],
+    valuesToAdd :: Prelude.Maybe [Prelude.Text],
     -- | The identifier for the DB cluster snapshot to modify the attributes for.
-    dbClusterSnapshotIdentifier :: Core.Text,
+    dbClusterSnapshotIdentifier :: Prelude.Text,
     -- | The name of the DB cluster snapshot attribute to modify.
     --
     -- To manage authorization for other AWS accounts to copy or restore a
@@ -105,9 +106,9 @@ data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
     --
     -- To view the list of attributes available to modify, use the
     -- DescribeDBClusterSnapshotAttributes API action.
-    attributeName :: Core.Text
+    attributeName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyDBClusterSnapshotAttribute' with all optional fields omitted.
@@ -148,17 +149,17 @@ data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
 -- DescribeDBClusterSnapshotAttributes API action.
 newModifyDBClusterSnapshotAttribute ::
   -- | 'dbClusterSnapshotIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'attributeName'
-  Core.Text ->
+  Prelude.Text ->
   ModifyDBClusterSnapshotAttribute
 newModifyDBClusterSnapshotAttribute
   pDBClusterSnapshotIdentifier_
   pAttributeName_ =
     ModifyDBClusterSnapshotAttribute'
       { valuesToRemove =
-          Core.Nothing,
-        valuesToAdd = Core.Nothing,
+          Prelude.Nothing,
+        valuesToAdd = Prelude.Nothing,
         dbClusterSnapshotIdentifier =
           pDBClusterSnapshotIdentifier_,
         attributeName = pAttributeName_
@@ -174,8 +175,8 @@ newModifyDBClusterSnapshotAttribute
 -- @all@, an AWS account whose account ID is explicitly added to the
 -- @restore@ attribute can still copy or restore a manual DB cluster
 -- snapshot.
-modifyDBClusterSnapshotAttribute_valuesToRemove :: Lens.Lens' ModifyDBClusterSnapshotAttribute (Core.Maybe [Core.Text])
-modifyDBClusterSnapshotAttribute_valuesToRemove = Lens.lens (\ModifyDBClusterSnapshotAttribute' {valuesToRemove} -> valuesToRemove) (\s@ModifyDBClusterSnapshotAttribute' {} a -> s {valuesToRemove = a} :: ModifyDBClusterSnapshotAttribute) Core.. Lens.mapping Lens._Coerce
+modifyDBClusterSnapshotAttribute_valuesToRemove :: Lens.Lens' ModifyDBClusterSnapshotAttribute (Prelude.Maybe [Prelude.Text])
+modifyDBClusterSnapshotAttribute_valuesToRemove = Lens.lens (\ModifyDBClusterSnapshotAttribute' {valuesToRemove} -> valuesToRemove) (\s@ModifyDBClusterSnapshotAttribute' {} a -> s {valuesToRemove = a} :: ModifyDBClusterSnapshotAttribute) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of DB cluster snapshot attributes to add to the attribute
 -- specified by @AttributeName@.
@@ -185,11 +186,11 @@ modifyDBClusterSnapshotAttribute_valuesToRemove = Lens.lens (\ModifyDBClusterSna
 -- to make the manual DB cluster snapshot restorable by any AWS account. Do
 -- not add the @all@ value for any manual DB cluster snapshots that contain
 -- private information that you don\'t want available to all AWS accounts.
-modifyDBClusterSnapshotAttribute_valuesToAdd :: Lens.Lens' ModifyDBClusterSnapshotAttribute (Core.Maybe [Core.Text])
-modifyDBClusterSnapshotAttribute_valuesToAdd = Lens.lens (\ModifyDBClusterSnapshotAttribute' {valuesToAdd} -> valuesToAdd) (\s@ModifyDBClusterSnapshotAttribute' {} a -> s {valuesToAdd = a} :: ModifyDBClusterSnapshotAttribute) Core.. Lens.mapping Lens._Coerce
+modifyDBClusterSnapshotAttribute_valuesToAdd :: Lens.Lens' ModifyDBClusterSnapshotAttribute (Prelude.Maybe [Prelude.Text])
+modifyDBClusterSnapshotAttribute_valuesToAdd = Lens.lens (\ModifyDBClusterSnapshotAttribute' {valuesToAdd} -> valuesToAdd) (\s@ModifyDBClusterSnapshotAttribute' {} a -> s {valuesToAdd = a} :: ModifyDBClusterSnapshotAttribute) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier for the DB cluster snapshot to modify the attributes for.
-modifyDBClusterSnapshotAttribute_dbClusterSnapshotIdentifier :: Lens.Lens' ModifyDBClusterSnapshotAttribute Core.Text
+modifyDBClusterSnapshotAttribute_dbClusterSnapshotIdentifier :: Lens.Lens' ModifyDBClusterSnapshotAttribute Prelude.Text
 modifyDBClusterSnapshotAttribute_dbClusterSnapshotIdentifier = Lens.lens (\ModifyDBClusterSnapshotAttribute' {dbClusterSnapshotIdentifier} -> dbClusterSnapshotIdentifier) (\s@ModifyDBClusterSnapshotAttribute' {} a -> s {dbClusterSnapshotIdentifier = a} :: ModifyDBClusterSnapshotAttribute)
 
 -- | The name of the DB cluster snapshot attribute to modify.
@@ -199,7 +200,7 @@ modifyDBClusterSnapshotAttribute_dbClusterSnapshotIdentifier = Lens.lens (\Modif
 --
 -- To view the list of attributes available to modify, use the
 -- DescribeDBClusterSnapshotAttributes API action.
-modifyDBClusterSnapshotAttribute_attributeName :: Lens.Lens' ModifyDBClusterSnapshotAttribute Core.Text
+modifyDBClusterSnapshotAttribute_attributeName :: Lens.Lens' ModifyDBClusterSnapshotAttribute Prelude.Text
 modifyDBClusterSnapshotAttribute_attributeName = Lens.lens (\ModifyDBClusterSnapshotAttribute' {attributeName} -> attributeName) (\s@ModifyDBClusterSnapshotAttribute' {} a -> s {attributeName = a} :: ModifyDBClusterSnapshotAttribute)
 
 instance
@@ -215,45 +216,48 @@ instance
       "ModifyDBClusterSnapshotAttributeResult"
       ( \s h x ->
           ModifyDBClusterSnapshotAttributeResponse'
-            Core.<$> (x Core..@? "DBClusterSnapshotAttributesResult")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBClusterSnapshotAttributesResult")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ModifyDBClusterSnapshotAttribute
 
-instance Core.NFData ModifyDBClusterSnapshotAttribute
+instance
+  Prelude.NFData
+    ModifyDBClusterSnapshotAttribute
 
 instance
   Core.ToHeaders
     ModifyDBClusterSnapshotAttribute
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyDBClusterSnapshotAttribute where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     ModifyDBClusterSnapshotAttribute
   where
   toQuery ModifyDBClusterSnapshotAttribute' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "ModifyDBClusterSnapshotAttribute" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "ValuesToRemove"
           Core.=: Core.toQuery
             ( Core.toQueryList "AttributeValue"
-                Core.<$> valuesToRemove
+                Prelude.<$> valuesToRemove
             ),
         "ValuesToAdd"
           Core.=: Core.toQuery
             ( Core.toQueryList "AttributeValue"
-                Core.<$> valuesToAdd
+                Prelude.<$> valuesToAdd
             ),
         "DBClusterSnapshotIdentifier"
           Core.=: dbClusterSnapshotIdentifier,
@@ -262,11 +266,11 @@ instance
 
 -- | /See:/ 'newModifyDBClusterSnapshotAttributeResponse' smart constructor.
 data ModifyDBClusterSnapshotAttributeResponse = ModifyDBClusterSnapshotAttributeResponse'
-  { dbClusterSnapshotAttributesResult :: Core.Maybe DBClusterSnapshotAttributesResult,
+  { dbClusterSnapshotAttributesResult :: Prelude.Maybe DBClusterSnapshotAttributesResult,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyDBClusterSnapshotAttributeResponse' with all optional fields omitted.
@@ -281,24 +285,24 @@ data ModifyDBClusterSnapshotAttributeResponse = ModifyDBClusterSnapshotAttribute
 -- 'httpStatus', 'modifyDBClusterSnapshotAttributeResponse_httpStatus' - The response's http status code.
 newModifyDBClusterSnapshotAttributeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyDBClusterSnapshotAttributeResponse
 newModifyDBClusterSnapshotAttributeResponse
   pHttpStatus_ =
     ModifyDBClusterSnapshotAttributeResponse'
       { dbClusterSnapshotAttributesResult =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-modifyDBClusterSnapshotAttributeResponse_dbClusterSnapshotAttributesResult :: Lens.Lens' ModifyDBClusterSnapshotAttributeResponse (Core.Maybe DBClusterSnapshotAttributesResult)
+modifyDBClusterSnapshotAttributeResponse_dbClusterSnapshotAttributesResult :: Lens.Lens' ModifyDBClusterSnapshotAttributeResponse (Prelude.Maybe DBClusterSnapshotAttributesResult)
 modifyDBClusterSnapshotAttributeResponse_dbClusterSnapshotAttributesResult = Lens.lens (\ModifyDBClusterSnapshotAttributeResponse' {dbClusterSnapshotAttributesResult} -> dbClusterSnapshotAttributesResult) (\s@ModifyDBClusterSnapshotAttributeResponse' {} a -> s {dbClusterSnapshotAttributesResult = a} :: ModifyDBClusterSnapshotAttributeResponse)
 
 -- | The response's http status code.
-modifyDBClusterSnapshotAttributeResponse_httpStatus :: Lens.Lens' ModifyDBClusterSnapshotAttributeResponse Core.Int
+modifyDBClusterSnapshotAttributeResponse_httpStatus :: Lens.Lens' ModifyDBClusterSnapshotAttributeResponse Prelude.Int
 modifyDBClusterSnapshotAttributeResponse_httpStatus = Lens.lens (\ModifyDBClusterSnapshotAttributeResponse' {httpStatus} -> httpStatus) (\s@ModifyDBClusterSnapshotAttributeResponse' {} a -> s {httpStatus = a} :: ModifyDBClusterSnapshotAttributeResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ModifyDBClusterSnapshotAttributeResponse

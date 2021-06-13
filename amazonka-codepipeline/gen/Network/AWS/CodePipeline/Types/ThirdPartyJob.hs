@@ -21,6 +21,7 @@ module Network.AWS.CodePipeline.Types.ThirdPartyJob where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A response to a @PollForThirdPartyJobs@ request returned by AWS
 -- CodePipeline when there is a job to be worked on by a partner action.
@@ -30,11 +31,11 @@ data ThirdPartyJob = ThirdPartyJob'
   { -- | The @clientToken@ portion of the @clientId@ and @clientToken@ pair used
     -- to verify that the calling entity is allowed access to the job and its
     -- details.
-    clientId :: Core.Maybe Core.Text,
+    clientId :: Prelude.Maybe Prelude.Text,
     -- | The identifier used to identify the job in AWS CodePipeline.
-    jobId :: Core.Maybe Core.Text
+    jobId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ThirdPartyJob' with all optional fields omitted.
@@ -53,18 +54,18 @@ newThirdPartyJob ::
   ThirdPartyJob
 newThirdPartyJob =
   ThirdPartyJob'
-    { clientId = Core.Nothing,
-      jobId = Core.Nothing
+    { clientId = Prelude.Nothing,
+      jobId = Prelude.Nothing
     }
 
 -- | The @clientToken@ portion of the @clientId@ and @clientToken@ pair used
 -- to verify that the calling entity is allowed access to the job and its
 -- details.
-thirdPartyJob_clientId :: Lens.Lens' ThirdPartyJob (Core.Maybe Core.Text)
+thirdPartyJob_clientId :: Lens.Lens' ThirdPartyJob (Prelude.Maybe Prelude.Text)
 thirdPartyJob_clientId = Lens.lens (\ThirdPartyJob' {clientId} -> clientId) (\s@ThirdPartyJob' {} a -> s {clientId = a} :: ThirdPartyJob)
 
 -- | The identifier used to identify the job in AWS CodePipeline.
-thirdPartyJob_jobId :: Lens.Lens' ThirdPartyJob (Core.Maybe Core.Text)
+thirdPartyJob_jobId :: Lens.Lens' ThirdPartyJob (Prelude.Maybe Prelude.Text)
 thirdPartyJob_jobId = Lens.lens (\ThirdPartyJob' {jobId} -> jobId) (\s@ThirdPartyJob' {} a -> s {jobId = a} :: ThirdPartyJob)
 
 instance Core.FromJSON ThirdPartyJob where
@@ -73,10 +74,10 @@ instance Core.FromJSON ThirdPartyJob where
       "ThirdPartyJob"
       ( \x ->
           ThirdPartyJob'
-            Core.<$> (x Core..:? "clientId")
-            Core.<*> (x Core..:? "jobId")
+            Prelude.<$> (x Core..:? "clientId")
+            Prelude.<*> (x Core..:? "jobId")
       )
 
-instance Core.Hashable ThirdPartyJob
+instance Prelude.Hashable ThirdPartyJob
 
-instance Core.NFData ThirdPartyJob
+instance Prelude.NFData ThirdPartyJob

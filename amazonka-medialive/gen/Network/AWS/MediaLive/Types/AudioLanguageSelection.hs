@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.AudioLanguageSelection where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AudioLanguageSelectionPolicy
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Audio Language Selection
 --
@@ -34,12 +35,12 @@ data AudioLanguageSelection = AudioLanguageSelection'
     -- \"loose\", then on a PMT update the demux will choose another audio
     -- stream in the program with the same stream type if it can\'t find one
     -- with the same language.
-    languageSelectionPolicy :: Core.Maybe AudioLanguageSelectionPolicy,
+    languageSelectionPolicy :: Prelude.Maybe AudioLanguageSelectionPolicy,
     -- | Selects a specific three-letter language code from within an audio
     -- source.
-    languageCode :: Core.Text
+    languageCode :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AudioLanguageSelection' with all optional fields omitted.
@@ -61,12 +62,12 @@ data AudioLanguageSelection = AudioLanguageSelection'
 -- source.
 newAudioLanguageSelection ::
   -- | 'languageCode'
-  Core.Text ->
+  Prelude.Text ->
   AudioLanguageSelection
 newAudioLanguageSelection pLanguageCode_ =
   AudioLanguageSelection'
     { languageSelectionPolicy =
-        Core.Nothing,
+        Prelude.Nothing,
       languageCode = pLanguageCode_
     }
 
@@ -77,12 +78,12 @@ newAudioLanguageSelection pLanguageCode_ =
 -- \"loose\", then on a PMT update the demux will choose another audio
 -- stream in the program with the same stream type if it can\'t find one
 -- with the same language.
-audioLanguageSelection_languageSelectionPolicy :: Lens.Lens' AudioLanguageSelection (Core.Maybe AudioLanguageSelectionPolicy)
+audioLanguageSelection_languageSelectionPolicy :: Lens.Lens' AudioLanguageSelection (Prelude.Maybe AudioLanguageSelectionPolicy)
 audioLanguageSelection_languageSelectionPolicy = Lens.lens (\AudioLanguageSelection' {languageSelectionPolicy} -> languageSelectionPolicy) (\s@AudioLanguageSelection' {} a -> s {languageSelectionPolicy = a} :: AudioLanguageSelection)
 
 -- | Selects a specific three-letter language code from within an audio
 -- source.
-audioLanguageSelection_languageCode :: Lens.Lens' AudioLanguageSelection Core.Text
+audioLanguageSelection_languageCode :: Lens.Lens' AudioLanguageSelection Prelude.Text
 audioLanguageSelection_languageCode = Lens.lens (\AudioLanguageSelection' {languageCode} -> languageCode) (\s@AudioLanguageSelection' {} a -> s {languageCode = a} :: AudioLanguageSelection)
 
 instance Core.FromJSON AudioLanguageSelection where
@@ -91,20 +92,20 @@ instance Core.FromJSON AudioLanguageSelection where
       "AudioLanguageSelection"
       ( \x ->
           AudioLanguageSelection'
-            Core.<$> (x Core..:? "languageSelectionPolicy")
-            Core.<*> (x Core..: "languageCode")
+            Prelude.<$> (x Core..:? "languageSelectionPolicy")
+            Prelude.<*> (x Core..: "languageCode")
       )
 
-instance Core.Hashable AudioLanguageSelection
+instance Prelude.Hashable AudioLanguageSelection
 
-instance Core.NFData AudioLanguageSelection
+instance Prelude.NFData AudioLanguageSelection
 
 instance Core.ToJSON AudioLanguageSelection where
   toJSON AudioLanguageSelection' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("languageSelectionPolicy" Core..=)
-              Core.<$> languageSelectionPolicy,
-            Core.Just ("languageCode" Core..= languageCode)
+              Prelude.<$> languageSelectionPolicy,
+            Prelude.Just ("languageCode" Core..= languageCode)
           ]
       )

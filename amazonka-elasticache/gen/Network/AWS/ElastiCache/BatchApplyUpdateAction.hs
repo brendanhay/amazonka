@@ -46,19 +46,20 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newBatchApplyUpdateAction' smart constructor.
 data BatchApplyUpdateAction = BatchApplyUpdateAction'
   { -- | The cache cluster IDs
-    cacheClusterIds :: Core.Maybe [Core.Text],
+    cacheClusterIds :: Prelude.Maybe [Prelude.Text],
     -- | The replication group IDs
-    replicationGroupIds :: Core.Maybe [Core.Text],
+    replicationGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The unique ID of the service update
-    serviceUpdateName :: Core.Text
+    serviceUpdateName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchApplyUpdateAction' with all optional fields omitted.
@@ -75,26 +76,26 @@ data BatchApplyUpdateAction = BatchApplyUpdateAction'
 -- 'serviceUpdateName', 'batchApplyUpdateAction_serviceUpdateName' - The unique ID of the service update
 newBatchApplyUpdateAction ::
   -- | 'serviceUpdateName'
-  Core.Text ->
+  Prelude.Text ->
   BatchApplyUpdateAction
 newBatchApplyUpdateAction pServiceUpdateName_ =
   BatchApplyUpdateAction'
     { cacheClusterIds =
-        Core.Nothing,
-      replicationGroupIds = Core.Nothing,
+        Prelude.Nothing,
+      replicationGroupIds = Prelude.Nothing,
       serviceUpdateName = pServiceUpdateName_
     }
 
 -- | The cache cluster IDs
-batchApplyUpdateAction_cacheClusterIds :: Lens.Lens' BatchApplyUpdateAction (Core.Maybe [Core.Text])
-batchApplyUpdateAction_cacheClusterIds = Lens.lens (\BatchApplyUpdateAction' {cacheClusterIds} -> cacheClusterIds) (\s@BatchApplyUpdateAction' {} a -> s {cacheClusterIds = a} :: BatchApplyUpdateAction) Core.. Lens.mapping Lens._Coerce
+batchApplyUpdateAction_cacheClusterIds :: Lens.Lens' BatchApplyUpdateAction (Prelude.Maybe [Prelude.Text])
+batchApplyUpdateAction_cacheClusterIds = Lens.lens (\BatchApplyUpdateAction' {cacheClusterIds} -> cacheClusterIds) (\s@BatchApplyUpdateAction' {} a -> s {cacheClusterIds = a} :: BatchApplyUpdateAction) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The replication group IDs
-batchApplyUpdateAction_replicationGroupIds :: Lens.Lens' BatchApplyUpdateAction (Core.Maybe [Core.Text])
-batchApplyUpdateAction_replicationGroupIds = Lens.lens (\BatchApplyUpdateAction' {replicationGroupIds} -> replicationGroupIds) (\s@BatchApplyUpdateAction' {} a -> s {replicationGroupIds = a} :: BatchApplyUpdateAction) Core.. Lens.mapping Lens._Coerce
+batchApplyUpdateAction_replicationGroupIds :: Lens.Lens' BatchApplyUpdateAction (Prelude.Maybe [Prelude.Text])
+batchApplyUpdateAction_replicationGroupIds = Lens.lens (\BatchApplyUpdateAction' {replicationGroupIds} -> replicationGroupIds) (\s@BatchApplyUpdateAction' {} a -> s {replicationGroupIds = a} :: BatchApplyUpdateAction) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique ID of the service update
-batchApplyUpdateAction_serviceUpdateName :: Lens.Lens' BatchApplyUpdateAction Core.Text
+batchApplyUpdateAction_serviceUpdateName :: Lens.Lens' BatchApplyUpdateAction Prelude.Text
 batchApplyUpdateAction_serviceUpdateName = Lens.lens (\BatchApplyUpdateAction' {serviceUpdateName} -> serviceUpdateName) (\s@BatchApplyUpdateAction' {} a -> s {serviceUpdateName = a} :: BatchApplyUpdateAction)
 
 instance Core.AWSRequest BatchApplyUpdateAction where
@@ -107,29 +108,32 @@ instance Core.AWSRequest BatchApplyUpdateAction where
       "BatchApplyUpdateActionResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable BatchApplyUpdateAction
+instance Prelude.Hashable BatchApplyUpdateAction
 
-instance Core.NFData BatchApplyUpdateAction
+instance Prelude.NFData BatchApplyUpdateAction
 
 instance Core.ToHeaders BatchApplyUpdateAction where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath BatchApplyUpdateAction where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchApplyUpdateAction where
   toQuery BatchApplyUpdateAction' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("BatchApplyUpdateAction" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+          Core.=: ("BatchApplyUpdateAction" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "CacheClusterIds"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> cacheClusterIds),
+            ( Core.toQueryList "member"
+                Prelude.<$> cacheClusterIds
+            ),
         "ReplicationGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> replicationGroupIds
+                Prelude.<$> replicationGroupIds
             ),
         "ServiceUpdateName" Core.=: serviceUpdateName
       ]

@@ -21,19 +21,20 @@ module Network.AWS.EMR.Types.StepTimeline where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The timeline of the cluster step lifecycle.
 --
 -- /See:/ 'newStepTimeline' smart constructor.
 data StepTimeline = StepTimeline'
   { -- | The date and time when the cluster step execution started.
-    startDateTime :: Core.Maybe Core.POSIX,
+    startDateTime :: Prelude.Maybe Core.POSIX,
     -- | The date and time when the cluster step execution completed or failed.
-    endDateTime :: Core.Maybe Core.POSIX,
+    endDateTime :: Prelude.Maybe Core.POSIX,
     -- | The date and time when the cluster step was created.
-    creationDateTime :: Core.Maybe Core.POSIX
+    creationDateTime :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StepTimeline' with all optional fields omitted.
@@ -52,22 +53,22 @@ newStepTimeline ::
   StepTimeline
 newStepTimeline =
   StepTimeline'
-    { startDateTime = Core.Nothing,
-      endDateTime = Core.Nothing,
-      creationDateTime = Core.Nothing
+    { startDateTime = Prelude.Nothing,
+      endDateTime = Prelude.Nothing,
+      creationDateTime = Prelude.Nothing
     }
 
 -- | The date and time when the cluster step execution started.
-stepTimeline_startDateTime :: Lens.Lens' StepTimeline (Core.Maybe Core.UTCTime)
-stepTimeline_startDateTime = Lens.lens (\StepTimeline' {startDateTime} -> startDateTime) (\s@StepTimeline' {} a -> s {startDateTime = a} :: StepTimeline) Core.. Lens.mapping Core._Time
+stepTimeline_startDateTime :: Lens.Lens' StepTimeline (Prelude.Maybe Prelude.UTCTime)
+stepTimeline_startDateTime = Lens.lens (\StepTimeline' {startDateTime} -> startDateTime) (\s@StepTimeline' {} a -> s {startDateTime = a} :: StepTimeline) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time when the cluster step execution completed or failed.
-stepTimeline_endDateTime :: Lens.Lens' StepTimeline (Core.Maybe Core.UTCTime)
-stepTimeline_endDateTime = Lens.lens (\StepTimeline' {endDateTime} -> endDateTime) (\s@StepTimeline' {} a -> s {endDateTime = a} :: StepTimeline) Core.. Lens.mapping Core._Time
+stepTimeline_endDateTime :: Lens.Lens' StepTimeline (Prelude.Maybe Prelude.UTCTime)
+stepTimeline_endDateTime = Lens.lens (\StepTimeline' {endDateTime} -> endDateTime) (\s@StepTimeline' {} a -> s {endDateTime = a} :: StepTimeline) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time when the cluster step was created.
-stepTimeline_creationDateTime :: Lens.Lens' StepTimeline (Core.Maybe Core.UTCTime)
-stepTimeline_creationDateTime = Lens.lens (\StepTimeline' {creationDateTime} -> creationDateTime) (\s@StepTimeline' {} a -> s {creationDateTime = a} :: StepTimeline) Core.. Lens.mapping Core._Time
+stepTimeline_creationDateTime :: Lens.Lens' StepTimeline (Prelude.Maybe Prelude.UTCTime)
+stepTimeline_creationDateTime = Lens.lens (\StepTimeline' {creationDateTime} -> creationDateTime) (\s@StepTimeline' {} a -> s {creationDateTime = a} :: StepTimeline) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON StepTimeline where
   parseJSON =
@@ -75,11 +76,11 @@ instance Core.FromJSON StepTimeline where
       "StepTimeline"
       ( \x ->
           StepTimeline'
-            Core.<$> (x Core..:? "StartDateTime")
-            Core.<*> (x Core..:? "EndDateTime")
-            Core.<*> (x Core..:? "CreationDateTime")
+            Prelude.<$> (x Core..:? "StartDateTime")
+            Prelude.<*> (x Core..:? "EndDateTime")
+            Prelude.<*> (x Core..:? "CreationDateTime")
       )
 
-instance Core.Hashable StepTimeline
+instance Prelude.Hashable StepTimeline
 
-instance Core.NFData StepTimeline
+instance Prelude.NFData StepTimeline

@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +56,9 @@ data GetStaticIps = GetStaticIps'
     -- To get a page token, perform an initial @GetStaticIps@ request. If your
     -- results are paginated, the response will return a next page token that
     -- you can specify as the page token in a subsequent request.
-    pageToken :: Core.Maybe Core.Text
+    pageToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetStaticIps' with all optional fields omitted.
@@ -75,34 +76,36 @@ data GetStaticIps = GetStaticIps'
 newGetStaticIps ::
   GetStaticIps
 newGetStaticIps =
-  GetStaticIps' {pageToken = Core.Nothing}
+  GetStaticIps' {pageToken = Prelude.Nothing}
 
 -- | The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetStaticIps@ request. If your
 -- results are paginated, the response will return a next page token that
 -- you can specify as the page token in a subsequent request.
-getStaticIps_pageToken :: Lens.Lens' GetStaticIps (Core.Maybe Core.Text)
+getStaticIps_pageToken :: Lens.Lens' GetStaticIps (Prelude.Maybe Prelude.Text)
 getStaticIps_pageToken = Lens.lens (\GetStaticIps' {pageToken} -> pageToken) (\s@GetStaticIps' {} a -> s {pageToken = a} :: GetStaticIps)
 
 instance Core.AWSPager GetStaticIps where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getStaticIpsResponse_nextPageToken Core.. Lens._Just
+            Lens.^? getStaticIpsResponse_nextPageToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getStaticIpsResponse_staticIps Core.. Lens._Just
+            Lens.^? getStaticIpsResponse_staticIps Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getStaticIps_pageToken
+          Prelude.& getStaticIps_pageToken
           Lens..~ rs
-          Lens.^? getStaticIpsResponse_nextPageToken Core.. Lens._Just
+          Lens.^? getStaticIpsResponse_nextPageToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetStaticIps where
   type AWSResponse GetStaticIps = GetStaticIpsResponse
@@ -111,40 +114,42 @@ instance Core.AWSRequest GetStaticIps where
     Response.receiveJSON
       ( \s h x ->
           GetStaticIpsResponse'
-            Core.<$> (x Core..?> "nextPageToken")
-            Core.<*> (x Core..?> "staticIps" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextPageToken")
+            Prelude.<*> (x Core..?> "staticIps" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetStaticIps
+instance Prelude.Hashable GetStaticIps
 
-instance Core.NFData GetStaticIps
+instance Prelude.NFData GetStaticIps
 
 instance Core.ToHeaders GetStaticIps where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.GetStaticIps" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetStaticIps where
   toJSON GetStaticIps' {..} =
     Core.object
-      ( Core.catMaybes
-          [("pageToken" Core..=) Core.<$> pageToken]
+      ( Prelude.catMaybes
+          [("pageToken" Core..=) Prelude.<$> pageToken]
       )
 
 instance Core.ToPath GetStaticIps where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetStaticIps where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetStaticIpsResponse' smart constructor.
 data GetStaticIpsResponse = GetStaticIpsResponse'
@@ -155,14 +160,14 @@ data GetStaticIpsResponse = GetStaticIpsResponse'
     --
     -- To get the next page of results, perform another @GetStaticIps@ request
     -- and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | An array of key-value pairs containing information about your get static
     -- IPs request.
-    staticIps :: Core.Maybe [StaticIp],
+    staticIps :: Prelude.Maybe [StaticIp],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetStaticIpsResponse' with all optional fields omitted.
@@ -186,12 +191,13 @@ data GetStaticIpsResponse = GetStaticIpsResponse'
 -- 'httpStatus', 'getStaticIpsResponse_httpStatus' - The response's http status code.
 newGetStaticIpsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetStaticIpsResponse
 newGetStaticIpsResponse pHttpStatus_ =
   GetStaticIpsResponse'
-    { nextPageToken = Core.Nothing,
-      staticIps = Core.Nothing,
+    { nextPageToken =
+        Prelude.Nothing,
+      staticIps = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -202,16 +208,16 @@ newGetStaticIpsResponse pHttpStatus_ =
 --
 -- To get the next page of results, perform another @GetStaticIps@ request
 -- and specify the next page token using the @pageToken@ parameter.
-getStaticIpsResponse_nextPageToken :: Lens.Lens' GetStaticIpsResponse (Core.Maybe Core.Text)
+getStaticIpsResponse_nextPageToken :: Lens.Lens' GetStaticIpsResponse (Prelude.Maybe Prelude.Text)
 getStaticIpsResponse_nextPageToken = Lens.lens (\GetStaticIpsResponse' {nextPageToken} -> nextPageToken) (\s@GetStaticIpsResponse' {} a -> s {nextPageToken = a} :: GetStaticIpsResponse)
 
 -- | An array of key-value pairs containing information about your get static
 -- IPs request.
-getStaticIpsResponse_staticIps :: Lens.Lens' GetStaticIpsResponse (Core.Maybe [StaticIp])
-getStaticIpsResponse_staticIps = Lens.lens (\GetStaticIpsResponse' {staticIps} -> staticIps) (\s@GetStaticIpsResponse' {} a -> s {staticIps = a} :: GetStaticIpsResponse) Core.. Lens.mapping Lens._Coerce
+getStaticIpsResponse_staticIps :: Lens.Lens' GetStaticIpsResponse (Prelude.Maybe [StaticIp])
+getStaticIpsResponse_staticIps = Lens.lens (\GetStaticIpsResponse' {staticIps} -> staticIps) (\s@GetStaticIpsResponse' {} a -> s {staticIps = a} :: GetStaticIpsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getStaticIpsResponse_httpStatus :: Lens.Lens' GetStaticIpsResponse Core.Int
+getStaticIpsResponse_httpStatus :: Lens.Lens' GetStaticIpsResponse Prelude.Int
 getStaticIpsResponse_httpStatus = Lens.lens (\GetStaticIpsResponse' {httpStatus} -> httpStatus) (\s@GetStaticIpsResponse' {} a -> s {httpStatus = a} :: GetStaticIpsResponse)
 
-instance Core.NFData GetStaticIpsResponse
+instance Prelude.NFData GetStaticIpsResponse

@@ -21,6 +21,7 @@ module Network.AWS.CognitoIdentityProvider.Types.UICustomizationType where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A container for the UI customization information for a user pool\'s
 -- built-in app UI.
@@ -28,21 +29,21 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newUICustomizationType' smart constructor.
 data UICustomizationType = UICustomizationType'
   { -- | The last-modified date for the UI customization.
-    lastModifiedDate :: Core.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | The client ID for the client app.
-    clientId :: Core.Maybe (Core.Sensitive Core.Text),
+    clientId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The CSS version number.
-    cSSVersion :: Core.Maybe Core.Text,
+    cSSVersion :: Prelude.Maybe Prelude.Text,
     -- | The user pool ID for the user pool.
-    userPoolId :: Core.Maybe Core.Text,
+    userPoolId :: Prelude.Maybe Prelude.Text,
     -- | The creation date for the UI customization.
-    creationDate :: Core.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Core.POSIX,
     -- | The logo image for the UI customization.
-    imageUrl :: Core.Maybe Core.Text,
+    imageUrl :: Prelude.Maybe Prelude.Text,
     -- | The CSS values in the UI customization.
-    css :: Core.Maybe Core.Text
+    css :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UICustomizationType' with all optional fields omitted.
@@ -70,41 +71,41 @@ newUICustomizationType ::
 newUICustomizationType =
   UICustomizationType'
     { lastModifiedDate =
-        Core.Nothing,
-      clientId = Core.Nothing,
-      cSSVersion = Core.Nothing,
-      userPoolId = Core.Nothing,
-      creationDate = Core.Nothing,
-      imageUrl = Core.Nothing,
-      css = Core.Nothing
+        Prelude.Nothing,
+      clientId = Prelude.Nothing,
+      cSSVersion = Prelude.Nothing,
+      userPoolId = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      imageUrl = Prelude.Nothing,
+      css = Prelude.Nothing
     }
 
 -- | The last-modified date for the UI customization.
-uICustomizationType_lastModifiedDate :: Lens.Lens' UICustomizationType (Core.Maybe Core.UTCTime)
-uICustomizationType_lastModifiedDate = Lens.lens (\UICustomizationType' {lastModifiedDate} -> lastModifiedDate) (\s@UICustomizationType' {} a -> s {lastModifiedDate = a} :: UICustomizationType) Core.. Lens.mapping Core._Time
+uICustomizationType_lastModifiedDate :: Lens.Lens' UICustomizationType (Prelude.Maybe Prelude.UTCTime)
+uICustomizationType_lastModifiedDate = Lens.lens (\UICustomizationType' {lastModifiedDate} -> lastModifiedDate) (\s@UICustomizationType' {} a -> s {lastModifiedDate = a} :: UICustomizationType) Prelude.. Lens.mapping Core._Time
 
 -- | The client ID for the client app.
-uICustomizationType_clientId :: Lens.Lens' UICustomizationType (Core.Maybe Core.Text)
-uICustomizationType_clientId = Lens.lens (\UICustomizationType' {clientId} -> clientId) (\s@UICustomizationType' {} a -> s {clientId = a} :: UICustomizationType) Core.. Lens.mapping Core._Sensitive
+uICustomizationType_clientId :: Lens.Lens' UICustomizationType (Prelude.Maybe Prelude.Text)
+uICustomizationType_clientId = Lens.lens (\UICustomizationType' {clientId} -> clientId) (\s@UICustomizationType' {} a -> s {clientId = a} :: UICustomizationType) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The CSS version number.
-uICustomizationType_cSSVersion :: Lens.Lens' UICustomizationType (Core.Maybe Core.Text)
+uICustomizationType_cSSVersion :: Lens.Lens' UICustomizationType (Prelude.Maybe Prelude.Text)
 uICustomizationType_cSSVersion = Lens.lens (\UICustomizationType' {cSSVersion} -> cSSVersion) (\s@UICustomizationType' {} a -> s {cSSVersion = a} :: UICustomizationType)
 
 -- | The user pool ID for the user pool.
-uICustomizationType_userPoolId :: Lens.Lens' UICustomizationType (Core.Maybe Core.Text)
+uICustomizationType_userPoolId :: Lens.Lens' UICustomizationType (Prelude.Maybe Prelude.Text)
 uICustomizationType_userPoolId = Lens.lens (\UICustomizationType' {userPoolId} -> userPoolId) (\s@UICustomizationType' {} a -> s {userPoolId = a} :: UICustomizationType)
 
 -- | The creation date for the UI customization.
-uICustomizationType_creationDate :: Lens.Lens' UICustomizationType (Core.Maybe Core.UTCTime)
-uICustomizationType_creationDate = Lens.lens (\UICustomizationType' {creationDate} -> creationDate) (\s@UICustomizationType' {} a -> s {creationDate = a} :: UICustomizationType) Core.. Lens.mapping Core._Time
+uICustomizationType_creationDate :: Lens.Lens' UICustomizationType (Prelude.Maybe Prelude.UTCTime)
+uICustomizationType_creationDate = Lens.lens (\UICustomizationType' {creationDate} -> creationDate) (\s@UICustomizationType' {} a -> s {creationDate = a} :: UICustomizationType) Prelude.. Lens.mapping Core._Time
 
 -- | The logo image for the UI customization.
-uICustomizationType_imageUrl :: Lens.Lens' UICustomizationType (Core.Maybe Core.Text)
+uICustomizationType_imageUrl :: Lens.Lens' UICustomizationType (Prelude.Maybe Prelude.Text)
 uICustomizationType_imageUrl = Lens.lens (\UICustomizationType' {imageUrl} -> imageUrl) (\s@UICustomizationType' {} a -> s {imageUrl = a} :: UICustomizationType)
 
 -- | The CSS values in the UI customization.
-uICustomizationType_css :: Lens.Lens' UICustomizationType (Core.Maybe Core.Text)
+uICustomizationType_css :: Lens.Lens' UICustomizationType (Prelude.Maybe Prelude.Text)
 uICustomizationType_css = Lens.lens (\UICustomizationType' {css} -> css) (\s@UICustomizationType' {} a -> s {css = a} :: UICustomizationType)
 
 instance Core.FromJSON UICustomizationType where
@@ -113,15 +114,15 @@ instance Core.FromJSON UICustomizationType where
       "UICustomizationType"
       ( \x ->
           UICustomizationType'
-            Core.<$> (x Core..:? "LastModifiedDate")
-            Core.<*> (x Core..:? "ClientId")
-            Core.<*> (x Core..:? "CSSVersion")
-            Core.<*> (x Core..:? "UserPoolId")
-            Core.<*> (x Core..:? "CreationDate")
-            Core.<*> (x Core..:? "ImageUrl")
-            Core.<*> (x Core..:? "CSS")
+            Prelude.<$> (x Core..:? "LastModifiedDate")
+            Prelude.<*> (x Core..:? "ClientId")
+            Prelude.<*> (x Core..:? "CSSVersion")
+            Prelude.<*> (x Core..:? "UserPoolId")
+            Prelude.<*> (x Core..:? "CreationDate")
+            Prelude.<*> (x Core..:? "ImageUrl")
+            Prelude.<*> (x Core..:? "CSS")
       )
 
-instance Core.Hashable UICustomizationType
+instance Prelude.Hashable UICustomizationType
 
-instance Core.NFData UICustomizationType
+instance Prelude.NFData UICustomizationType

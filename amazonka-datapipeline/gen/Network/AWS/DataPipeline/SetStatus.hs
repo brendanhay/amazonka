@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,16 +54,16 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newSetStatus' smart constructor.
 data SetStatus = SetStatus'
   { -- | The ID of the pipeline that contains the objects.
-    pipelineId :: Core.Text,
+    pipelineId :: Prelude.Text,
     -- | The IDs of the objects. The corresponding objects can be either physical
     -- or components, but not a mix of both types.
-    objectIds :: [Core.Text],
+    objectIds :: [Prelude.Text],
     -- | The status to be set on all the objects specified in @objectIds@. For
     -- components, use @PAUSE@ or @RESUME@. For instances, use @TRY_CANCEL@,
     -- @RERUN@, or @MARK_FINISHED@.
-    status :: Core.Text
+    status :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetStatus' with all optional fields omitted.
@@ -82,30 +83,30 @@ data SetStatus = SetStatus'
 -- @RERUN@, or @MARK_FINISHED@.
 newSetStatus ::
   -- | 'pipelineId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
-  Core.Text ->
+  Prelude.Text ->
   SetStatus
 newSetStatus pPipelineId_ pStatus_ =
   SetStatus'
     { pipelineId = pPipelineId_,
-      objectIds = Core.mempty,
+      objectIds = Prelude.mempty,
       status = pStatus_
     }
 
 -- | The ID of the pipeline that contains the objects.
-setStatus_pipelineId :: Lens.Lens' SetStatus Core.Text
+setStatus_pipelineId :: Lens.Lens' SetStatus Prelude.Text
 setStatus_pipelineId = Lens.lens (\SetStatus' {pipelineId} -> pipelineId) (\s@SetStatus' {} a -> s {pipelineId = a} :: SetStatus)
 
 -- | The IDs of the objects. The corresponding objects can be either physical
 -- or components, but not a mix of both types.
-setStatus_objectIds :: Lens.Lens' SetStatus [Core.Text]
-setStatus_objectIds = Lens.lens (\SetStatus' {objectIds} -> objectIds) (\s@SetStatus' {} a -> s {objectIds = a} :: SetStatus) Core.. Lens._Coerce
+setStatus_objectIds :: Lens.Lens' SetStatus [Prelude.Text]
+setStatus_objectIds = Lens.lens (\SetStatus' {objectIds} -> objectIds) (\s@SetStatus' {} a -> s {objectIds = a} :: SetStatus) Prelude.. Lens._Coerce
 
 -- | The status to be set on all the objects specified in @objectIds@. For
 -- components, use @PAUSE@ or @RESUME@. For instances, use @TRY_CANCEL@,
 -- @RERUN@, or @MARK_FINISHED@.
-setStatus_status :: Lens.Lens' SetStatus Core.Text
+setStatus_status :: Lens.Lens' SetStatus Prelude.Text
 setStatus_status = Lens.lens (\SetStatus' {status} -> status) (\s@SetStatus' {} a -> s {status = a} :: SetStatus)
 
 instance Core.AWSRequest SetStatus where
@@ -113,42 +114,44 @@ instance Core.AWSRequest SetStatus where
   request = Request.postJSON defaultService
   response = Response.receiveNull SetStatusResponse'
 
-instance Core.Hashable SetStatus
+instance Prelude.Hashable SetStatus
 
-instance Core.NFData SetStatus
+instance Prelude.NFData SetStatus
 
 instance Core.ToHeaders SetStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DataPipeline.SetStatus" :: Core.ByteString),
+              Core.=# ("DataPipeline.SetStatus" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SetStatus where
   toJSON SetStatus' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("pipelineId" Core..= pipelineId),
-            Core.Just ("objectIds" Core..= objectIds),
-            Core.Just ("status" Core..= status)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("pipelineId" Core..= pipelineId),
+            Prelude.Just ("objectIds" Core..= objectIds),
+            Prelude.Just ("status" Core..= status)
           ]
       )
 
 instance Core.ToPath SetStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SetStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetStatusResponse' smart constructor.
 data SetStatusResponse = SetStatusResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SetStatusResponse' with all optional fields omitted.
@@ -158,4 +161,4 @@ newSetStatusResponse ::
   SetStatusResponse
 newSetStatusResponse = SetStatusResponse'
 
-instance Core.NFData SetStatusResponse
+instance Prelude.NFData SetStatusResponse

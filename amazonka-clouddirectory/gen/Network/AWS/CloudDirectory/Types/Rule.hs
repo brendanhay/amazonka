@@ -22,6 +22,7 @@ module Network.AWS.CloudDirectory.Types.Rule where
 import Network.AWS.CloudDirectory.Types.RuleType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains an Amazon Resource Name (ARN) and parameters that are
 -- associated with the rule.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newRule' smart constructor.
 data Rule = Rule'
   { -- | The type of attribute validation rule.
-    type' :: Core.Maybe RuleType,
+    type' :: Prelude.Maybe RuleType,
     -- | The minimum and maximum parameters that are associated with the rule.
-    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text)
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Rule' with all optional fields omitted.
@@ -50,17 +51,17 @@ newRule ::
   Rule
 newRule =
   Rule'
-    { type' = Core.Nothing,
-      parameters = Core.Nothing
+    { type' = Prelude.Nothing,
+      parameters = Prelude.Nothing
     }
 
 -- | The type of attribute validation rule.
-rule_type :: Lens.Lens' Rule (Core.Maybe RuleType)
+rule_type :: Lens.Lens' Rule (Prelude.Maybe RuleType)
 rule_type = Lens.lens (\Rule' {type'} -> type') (\s@Rule' {} a -> s {type' = a} :: Rule)
 
 -- | The minimum and maximum parameters that are associated with the rule.
-rule_parameters :: Lens.Lens' Rule (Core.Maybe (Core.HashMap Core.Text Core.Text))
-rule_parameters = Lens.lens (\Rule' {parameters} -> parameters) (\s@Rule' {} a -> s {parameters = a} :: Rule) Core.. Lens.mapping Lens._Coerce
+rule_parameters :: Lens.Lens' Rule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+rule_parameters = Lens.lens (\Rule' {parameters} -> parameters) (\s@Rule' {} a -> s {parameters = a} :: Rule) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON Rule where
   parseJSON =
@@ -68,19 +69,19 @@ instance Core.FromJSON Rule where
       "Rule"
       ( \x ->
           Rule'
-            Core.<$> (x Core..:? "Type")
-            Core.<*> (x Core..:? "Parameters" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable Rule
+instance Prelude.Hashable Rule
 
-instance Core.NFData Rule
+instance Prelude.NFData Rule
 
 instance Core.ToJSON Rule where
   toJSON Rule' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Type" Core..=) Core.<$> type',
-            ("Parameters" Core..=) Core.<$> parameters
+      ( Prelude.catMaybes
+          [ ("Type" Core..=) Prelude.<$> type',
+            ("Parameters" Core..=) Prelude.<$> parameters
           ]
       )

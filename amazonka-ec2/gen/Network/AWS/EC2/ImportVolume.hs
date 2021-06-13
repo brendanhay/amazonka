@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,17 +62,17 @@ data ImportVolume = ImportVolume'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | A description of the volume.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone for the resulting EBS volume.
-    availabilityZone :: Core.Text,
+    availabilityZone :: Prelude.Text,
     -- | The disk image.
     image :: DiskImageDetail,
     -- | The volume size.
     volume :: VolumeDetail
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportVolume' with all optional fields omitted.
@@ -95,7 +96,7 @@ data ImportVolume = ImportVolume'
 -- 'volume', 'importVolume_volume' - The volume size.
 newImportVolume ::
   -- | 'availabilityZone'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'image'
   DiskImageDetail ->
   -- | 'volume'
@@ -103,8 +104,8 @@ newImportVolume ::
   ImportVolume
 newImportVolume pAvailabilityZone_ pImage_ pVolume_ =
   ImportVolume'
-    { dryRun = Core.Nothing,
-      description = Core.Nothing,
+    { dryRun = Prelude.Nothing,
+      description = Prelude.Nothing,
       availabilityZone = pAvailabilityZone_,
       image = pImage_,
       volume = pVolume_
@@ -114,15 +115,15 @@ newImportVolume pAvailabilityZone_ pImage_ pVolume_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-importVolume_dryRun :: Lens.Lens' ImportVolume (Core.Maybe Core.Bool)
+importVolume_dryRun :: Lens.Lens' ImportVolume (Prelude.Maybe Prelude.Bool)
 importVolume_dryRun = Lens.lens (\ImportVolume' {dryRun} -> dryRun) (\s@ImportVolume' {} a -> s {dryRun = a} :: ImportVolume)
 
 -- | A description of the volume.
-importVolume_description :: Lens.Lens' ImportVolume (Core.Maybe Core.Text)
+importVolume_description :: Lens.Lens' ImportVolume (Prelude.Maybe Prelude.Text)
 importVolume_description = Lens.lens (\ImportVolume' {description} -> description) (\s@ImportVolume' {} a -> s {description = a} :: ImportVolume)
 
 -- | The Availability Zone for the resulting EBS volume.
-importVolume_availabilityZone :: Lens.Lens' ImportVolume Core.Text
+importVolume_availabilityZone :: Lens.Lens' ImportVolume Prelude.Text
 importVolume_availabilityZone = Lens.lens (\ImportVolume' {availabilityZone} -> availabilityZone) (\s@ImportVolume' {} a -> s {availabilityZone = a} :: ImportVolume)
 
 -- | The disk image.
@@ -140,26 +141,27 @@ instance Core.AWSRequest ImportVolume where
     Response.receiveXML
       ( \s h x ->
           ImportVolumeResponse'
-            Core.<$> (x Core..@? "conversionTask")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "conversionTask")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ImportVolume
+instance Prelude.Hashable ImportVolume
 
-instance Core.NFData ImportVolume
+instance Prelude.NFData ImportVolume
 
 instance Core.ToHeaders ImportVolume where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ImportVolume where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ImportVolume where
   toQuery ImportVolume' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ImportVolume" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("ImportVolume" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "Description" Core.=: description,
         "AvailabilityZone" Core.=: availabilityZone,
@@ -170,11 +172,11 @@ instance Core.ToQuery ImportVolume where
 -- | /See:/ 'newImportVolumeResponse' smart constructor.
 data ImportVolumeResponse = ImportVolumeResponse'
   { -- | Information about the conversion task.
-    conversionTask :: Core.Maybe ConversionTask,
+    conversionTask :: Prelude.Maybe ConversionTask,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportVolumeResponse' with all optional fields omitted.
@@ -189,21 +191,21 @@ data ImportVolumeResponse = ImportVolumeResponse'
 -- 'httpStatus', 'importVolumeResponse_httpStatus' - The response's http status code.
 newImportVolumeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ImportVolumeResponse
 newImportVolumeResponse pHttpStatus_ =
   ImportVolumeResponse'
     { conversionTask =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the conversion task.
-importVolumeResponse_conversionTask :: Lens.Lens' ImportVolumeResponse (Core.Maybe ConversionTask)
+importVolumeResponse_conversionTask :: Lens.Lens' ImportVolumeResponse (Prelude.Maybe ConversionTask)
 importVolumeResponse_conversionTask = Lens.lens (\ImportVolumeResponse' {conversionTask} -> conversionTask) (\s@ImportVolumeResponse' {} a -> s {conversionTask = a} :: ImportVolumeResponse)
 
 -- | The response's http status code.
-importVolumeResponse_httpStatus :: Lens.Lens' ImportVolumeResponse Core.Int
+importVolumeResponse_httpStatus :: Lens.Lens' ImportVolumeResponse Prelude.Int
 importVolumeResponse_httpStatus = Lens.lens (\ImportVolumeResponse' {httpStatus} -> httpStatus) (\s@ImportVolumeResponse' {} a -> s {httpStatus = a} :: ImportVolumeResponse)
 
-instance Core.NFData ImportVolumeResponse
+instance Prelude.NFData ImportVolumeResponse

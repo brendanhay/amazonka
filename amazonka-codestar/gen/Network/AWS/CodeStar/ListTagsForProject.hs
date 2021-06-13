@@ -45,19 +45,20 @@ where
 import Network.AWS.CodeStar.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTagsForProject' smart constructor.
 data ListTagsForProject = ListTagsForProject'
   { -- | Reserved for future use.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Reserved for future use.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the project to get tags for.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForProject' with all optional fields omitted.
@@ -74,25 +75,25 @@ data ListTagsForProject = ListTagsForProject'
 -- 'id', 'listTagsForProject_id' - The ID of the project to get tags for.
 newListTagsForProject ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   ListTagsForProject
 newListTagsForProject pId_ =
   ListTagsForProject'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       id = pId_
     }
 
 -- | Reserved for future use.
-listTagsForProject_nextToken :: Lens.Lens' ListTagsForProject (Core.Maybe Core.Text)
+listTagsForProject_nextToken :: Lens.Lens' ListTagsForProject (Prelude.Maybe Prelude.Text)
 listTagsForProject_nextToken = Lens.lens (\ListTagsForProject' {nextToken} -> nextToken) (\s@ListTagsForProject' {} a -> s {nextToken = a} :: ListTagsForProject)
 
 -- | Reserved for future use.
-listTagsForProject_maxResults :: Lens.Lens' ListTagsForProject (Core.Maybe Core.Natural)
+listTagsForProject_maxResults :: Lens.Lens' ListTagsForProject (Prelude.Maybe Prelude.Natural)
 listTagsForProject_maxResults = Lens.lens (\ListTagsForProject' {maxResults} -> maxResults) (\s@ListTagsForProject' {} a -> s {maxResults = a} :: ListTagsForProject)
 
 -- | The ID of the project to get tags for.
-listTagsForProject_id :: Lens.Lens' ListTagsForProject Core.Text
+listTagsForProject_id :: Lens.Lens' ListTagsForProject Prelude.Text
 listTagsForProject_id = Lens.lens (\ListTagsForProject' {id} -> id) (\s@ListTagsForProject' {} a -> s {id = a} :: ListTagsForProject)
 
 instance Core.AWSRequest ListTagsForProject where
@@ -104,54 +105,56 @@ instance Core.AWSRequest ListTagsForProject where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForProjectResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "tags" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTagsForProject
+instance Prelude.Hashable ListTagsForProject
 
-instance Core.NFData ListTagsForProject
+instance Prelude.NFData ListTagsForProject
 
 instance Core.ToHeaders ListTagsForProject where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeStar_20170419.ListTagsForProject" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListTagsForProject where
   toJSON ListTagsForProject' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("id" Core..= id)
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("id" Core..= id)
           ]
       )
 
 instance Core.ToPath ListTagsForProject where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTagsForProject where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTagsForProjectResponse' smart constructor.
 data ListTagsForProjectResponse = ListTagsForProjectResponse'
   { -- | Reserved for future use.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The tags for the project.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForProjectResponse' with all optional fields omitted.
@@ -168,26 +171,26 @@ data ListTagsForProjectResponse = ListTagsForProjectResponse'
 -- 'httpStatus', 'listTagsForProjectResponse_httpStatus' - The response's http status code.
 newListTagsForProjectResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTagsForProjectResponse
 newListTagsForProjectResponse pHttpStatus_ =
   ListTagsForProjectResponse'
     { nextToken =
-        Core.Nothing,
-      tags = Core.Nothing,
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Reserved for future use.
-listTagsForProjectResponse_nextToken :: Lens.Lens' ListTagsForProjectResponse (Core.Maybe Core.Text)
+listTagsForProjectResponse_nextToken :: Lens.Lens' ListTagsForProjectResponse (Prelude.Maybe Prelude.Text)
 listTagsForProjectResponse_nextToken = Lens.lens (\ListTagsForProjectResponse' {nextToken} -> nextToken) (\s@ListTagsForProjectResponse' {} a -> s {nextToken = a} :: ListTagsForProjectResponse)
 
 -- | The tags for the project.
-listTagsForProjectResponse_tags :: Lens.Lens' ListTagsForProjectResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
-listTagsForProjectResponse_tags = Lens.lens (\ListTagsForProjectResponse' {tags} -> tags) (\s@ListTagsForProjectResponse' {} a -> s {tags = a} :: ListTagsForProjectResponse) Core.. Lens.mapping Lens._Coerce
+listTagsForProjectResponse_tags :: Lens.Lens' ListTagsForProjectResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listTagsForProjectResponse_tags = Lens.lens (\ListTagsForProjectResponse' {tags} -> tags) (\s@ListTagsForProjectResponse' {} a -> s {tags = a} :: ListTagsForProjectResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTagsForProjectResponse_httpStatus :: Lens.Lens' ListTagsForProjectResponse Core.Int
+listTagsForProjectResponse_httpStatus :: Lens.Lens' ListTagsForProjectResponse Prelude.Int
 listTagsForProjectResponse_httpStatus = Lens.lens (\ListTagsForProjectResponse' {httpStatus} -> httpStatus) (\s@ListTagsForProjectResponse' {} a -> s {httpStatus = a} :: ListTagsForProjectResponse)
 
-instance Core.NFData ListTagsForProjectResponse
+instance Prelude.NFData ListTagsForProjectResponse

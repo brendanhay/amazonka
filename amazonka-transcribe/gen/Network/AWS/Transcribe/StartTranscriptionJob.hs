@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -61,15 +62,15 @@ import Network.AWS.Transcribe.Types
 -- | /See:/ 'newStartTranscriptionJob' smart constructor.
 data StartTranscriptionJob = StartTranscriptionJob'
   { -- | The language code for the language used in the input media file.
-    languageCode :: Core.Maybe LanguageCode,
+    languageCode :: Prelude.Maybe LanguageCode,
     -- | The format of the input media file.
-    mediaFormat :: Core.Maybe MediaFormat,
+    mediaFormat :: Prelude.Maybe MediaFormat,
     -- | An object that contains the request parameters for content redaction.
-    contentRedaction :: Core.Maybe ContentRedaction,
+    contentRedaction :: Prelude.Maybe ContentRedaction,
     -- | Set this field to @true@ to enable automatic language identification.
     -- Automatic language identification is disabled by default. You receive a
     -- @BadRequestException@ error if you enter a value for a @LanguageCode@.
-    identifyLanguage :: Core.Maybe Core.Bool,
+    identifyLanguage :: Prelude.Maybe Prelude.Bool,
     -- | You can specify a location in an Amazon S3 bucket to store the output of
     -- your transcription job.
     --
@@ -88,10 +89,10 @@ data StartTranscriptionJob = StartTranscriptionJob'
     --
     -- If you specify an output key, you must also specify an S3 bucket in the
     -- @OutputBucketName@ parameter.
-    outputKey :: Core.Maybe Core.Text,
+    outputKey :: Prelude.Maybe Prelude.Text,
     -- | Choose the custom language model you use for your transcription job in
     -- this parameter.
-    modelSettings :: Core.Maybe ModelSettings,
+    modelSettings :: Prelude.Maybe ModelSettings,
     -- | The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS)
     -- key used to encrypt the output of the transcription job. The user
     -- calling the @StartTranscriptionJob@ operation must have permission to
@@ -119,7 +120,7 @@ data StartTranscriptionJob = StartTranscriptionJob'
     --
     -- If you specify a KMS key to encrypt your output, you must also specify
     -- an output location in the @OutputBucketName@ parameter.
-    outputEncryptionKMSKeyId :: Core.Maybe Core.Text,
+    outputEncryptionKMSKeyId :: Prelude.Maybe Prelude.Text,
     -- | The sample rate, in Hertz, of the audio track in the input media file.
     --
     -- If you do not specify the media sample rate, Amazon Transcribe
@@ -127,7 +128,7 @@ data StartTranscriptionJob = StartTranscriptionJob'
     -- match the sample rate detected by Amazon Transcribe. In most cases, you
     -- should leave the @MediaSampleRateHertz@ field blank and let Amazon
     -- Transcribe determine the sample rate.
-    mediaSampleRateHertz :: Core.Maybe Core.Natural,
+    mediaSampleRateHertz :: Prelude.Maybe Prelude.Natural,
     -- | The location where the transcription is stored.
     --
     -- If you set the @OutputBucketName@, Amazon Transcribe puts the transcript
@@ -151,28 +152,28 @@ data StartTranscriptionJob = StartTranscriptionJob'
     -- pre-signed URL, a shareable URL that provides secure access to your
     -- transcription, and returns it in the @TranscriptFileUri@ field. Use this
     -- URL to download the transcription.
-    outputBucketName :: Core.Maybe Core.Text,
+    outputBucketName :: Prelude.Maybe Prelude.Text,
     -- | Provides information about how a transcription job is executed. Use this
     -- field to indicate that the job can be queued for deferred execution if
     -- the concurrency limit is reached and there are no slots available to
     -- immediately run the job.
-    jobExecutionSettings :: Core.Maybe JobExecutionSettings,
+    jobExecutionSettings :: Prelude.Maybe JobExecutionSettings,
     -- | A @Settings@ object that provides optional settings for a transcription
     -- job.
-    settings :: Core.Maybe Settings,
+    settings :: Prelude.Maybe Settings,
     -- | An object containing a list of languages that might be present in your
     -- collection of audio files. Automatic language identification chooses a
     -- language that best matches the source audio from that list.
-    languageOptions :: Core.Maybe (Core.NonEmpty LanguageCode),
+    languageOptions :: Prelude.Maybe (Prelude.NonEmpty LanguageCode),
     -- | The name of the job. You can\'t use the strings \"@.@\" or \"@..@\" by
     -- themselves as the job name. The name must also be unique within an AWS
     -- account. If you try to create a transcription job with the same name as
     -- a previous transcription job, you get a @ConflictException@ error.
-    transcriptionJobName :: Core.Text,
+    transcriptionJobName :: Prelude.Text,
     -- | An object that describes the input media for a transcription job.
     media :: Media
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartTranscriptionJob' with all optional fields omitted.
@@ -294,7 +295,7 @@ data StartTranscriptionJob = StartTranscriptionJob'
 -- 'media', 'startTranscriptionJob_media' - An object that describes the input media for a transcription job.
 newStartTranscriptionJob ::
   -- | 'transcriptionJobName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'media'
   Media ->
   StartTranscriptionJob
@@ -302,38 +303,39 @@ newStartTranscriptionJob
   pTranscriptionJobName_
   pMedia_ =
     StartTranscriptionJob'
-      { languageCode = Core.Nothing,
-        mediaFormat = Core.Nothing,
-        contentRedaction = Core.Nothing,
-        identifyLanguage = Core.Nothing,
-        outputKey = Core.Nothing,
-        modelSettings = Core.Nothing,
-        outputEncryptionKMSKeyId = Core.Nothing,
-        mediaSampleRateHertz = Core.Nothing,
-        outputBucketName = Core.Nothing,
-        jobExecutionSettings = Core.Nothing,
-        settings = Core.Nothing,
-        languageOptions = Core.Nothing,
+      { languageCode =
+          Prelude.Nothing,
+        mediaFormat = Prelude.Nothing,
+        contentRedaction = Prelude.Nothing,
+        identifyLanguage = Prelude.Nothing,
+        outputKey = Prelude.Nothing,
+        modelSettings = Prelude.Nothing,
+        outputEncryptionKMSKeyId = Prelude.Nothing,
+        mediaSampleRateHertz = Prelude.Nothing,
+        outputBucketName = Prelude.Nothing,
+        jobExecutionSettings = Prelude.Nothing,
+        settings = Prelude.Nothing,
+        languageOptions = Prelude.Nothing,
         transcriptionJobName = pTranscriptionJobName_,
         media = pMedia_
       }
 
 -- | The language code for the language used in the input media file.
-startTranscriptionJob_languageCode :: Lens.Lens' StartTranscriptionJob (Core.Maybe LanguageCode)
+startTranscriptionJob_languageCode :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe LanguageCode)
 startTranscriptionJob_languageCode = Lens.lens (\StartTranscriptionJob' {languageCode} -> languageCode) (\s@StartTranscriptionJob' {} a -> s {languageCode = a} :: StartTranscriptionJob)
 
 -- | The format of the input media file.
-startTranscriptionJob_mediaFormat :: Lens.Lens' StartTranscriptionJob (Core.Maybe MediaFormat)
+startTranscriptionJob_mediaFormat :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe MediaFormat)
 startTranscriptionJob_mediaFormat = Lens.lens (\StartTranscriptionJob' {mediaFormat} -> mediaFormat) (\s@StartTranscriptionJob' {} a -> s {mediaFormat = a} :: StartTranscriptionJob)
 
 -- | An object that contains the request parameters for content redaction.
-startTranscriptionJob_contentRedaction :: Lens.Lens' StartTranscriptionJob (Core.Maybe ContentRedaction)
+startTranscriptionJob_contentRedaction :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe ContentRedaction)
 startTranscriptionJob_contentRedaction = Lens.lens (\StartTranscriptionJob' {contentRedaction} -> contentRedaction) (\s@StartTranscriptionJob' {} a -> s {contentRedaction = a} :: StartTranscriptionJob)
 
 -- | Set this field to @true@ to enable automatic language identification.
 -- Automatic language identification is disabled by default. You receive a
 -- @BadRequestException@ error if you enter a value for a @LanguageCode@.
-startTranscriptionJob_identifyLanguage :: Lens.Lens' StartTranscriptionJob (Core.Maybe Core.Bool)
+startTranscriptionJob_identifyLanguage :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Prelude.Bool)
 startTranscriptionJob_identifyLanguage = Lens.lens (\StartTranscriptionJob' {identifyLanguage} -> identifyLanguage) (\s@StartTranscriptionJob' {} a -> s {identifyLanguage = a} :: StartTranscriptionJob)
 
 -- | You can specify a location in an Amazon S3 bucket to store the output of
@@ -354,12 +356,12 @@ startTranscriptionJob_identifyLanguage = Lens.lens (\StartTranscriptionJob' {ide
 --
 -- If you specify an output key, you must also specify an S3 bucket in the
 -- @OutputBucketName@ parameter.
-startTranscriptionJob_outputKey :: Lens.Lens' StartTranscriptionJob (Core.Maybe Core.Text)
+startTranscriptionJob_outputKey :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Prelude.Text)
 startTranscriptionJob_outputKey = Lens.lens (\StartTranscriptionJob' {outputKey} -> outputKey) (\s@StartTranscriptionJob' {} a -> s {outputKey = a} :: StartTranscriptionJob)
 
 -- | Choose the custom language model you use for your transcription job in
 -- this parameter.
-startTranscriptionJob_modelSettings :: Lens.Lens' StartTranscriptionJob (Core.Maybe ModelSettings)
+startTranscriptionJob_modelSettings :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe ModelSettings)
 startTranscriptionJob_modelSettings = Lens.lens (\StartTranscriptionJob' {modelSettings} -> modelSettings) (\s@StartTranscriptionJob' {} a -> s {modelSettings = a} :: StartTranscriptionJob)
 
 -- | The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS)
@@ -389,7 +391,7 @@ startTranscriptionJob_modelSettings = Lens.lens (\StartTranscriptionJob' {modelS
 --
 -- If you specify a KMS key to encrypt your output, you must also specify
 -- an output location in the @OutputBucketName@ parameter.
-startTranscriptionJob_outputEncryptionKMSKeyId :: Lens.Lens' StartTranscriptionJob (Core.Maybe Core.Text)
+startTranscriptionJob_outputEncryptionKMSKeyId :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Prelude.Text)
 startTranscriptionJob_outputEncryptionKMSKeyId = Lens.lens (\StartTranscriptionJob' {outputEncryptionKMSKeyId} -> outputEncryptionKMSKeyId) (\s@StartTranscriptionJob' {} a -> s {outputEncryptionKMSKeyId = a} :: StartTranscriptionJob)
 
 -- | The sample rate, in Hertz, of the audio track in the input media file.
@@ -399,7 +401,7 @@ startTranscriptionJob_outputEncryptionKMSKeyId = Lens.lens (\StartTranscriptionJ
 -- match the sample rate detected by Amazon Transcribe. In most cases, you
 -- should leave the @MediaSampleRateHertz@ field blank and let Amazon
 -- Transcribe determine the sample rate.
-startTranscriptionJob_mediaSampleRateHertz :: Lens.Lens' StartTranscriptionJob (Core.Maybe Core.Natural)
+startTranscriptionJob_mediaSampleRateHertz :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Prelude.Natural)
 startTranscriptionJob_mediaSampleRateHertz = Lens.lens (\StartTranscriptionJob' {mediaSampleRateHertz} -> mediaSampleRateHertz) (\s@StartTranscriptionJob' {} a -> s {mediaSampleRateHertz = a} :: StartTranscriptionJob)
 
 -- | The location where the transcription is stored.
@@ -425,32 +427,32 @@ startTranscriptionJob_mediaSampleRateHertz = Lens.lens (\StartTranscriptionJob' 
 -- pre-signed URL, a shareable URL that provides secure access to your
 -- transcription, and returns it in the @TranscriptFileUri@ field. Use this
 -- URL to download the transcription.
-startTranscriptionJob_outputBucketName :: Lens.Lens' StartTranscriptionJob (Core.Maybe Core.Text)
+startTranscriptionJob_outputBucketName :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Prelude.Text)
 startTranscriptionJob_outputBucketName = Lens.lens (\StartTranscriptionJob' {outputBucketName} -> outputBucketName) (\s@StartTranscriptionJob' {} a -> s {outputBucketName = a} :: StartTranscriptionJob)
 
 -- | Provides information about how a transcription job is executed. Use this
 -- field to indicate that the job can be queued for deferred execution if
 -- the concurrency limit is reached and there are no slots available to
 -- immediately run the job.
-startTranscriptionJob_jobExecutionSettings :: Lens.Lens' StartTranscriptionJob (Core.Maybe JobExecutionSettings)
+startTranscriptionJob_jobExecutionSettings :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe JobExecutionSettings)
 startTranscriptionJob_jobExecutionSettings = Lens.lens (\StartTranscriptionJob' {jobExecutionSettings} -> jobExecutionSettings) (\s@StartTranscriptionJob' {} a -> s {jobExecutionSettings = a} :: StartTranscriptionJob)
 
 -- | A @Settings@ object that provides optional settings for a transcription
 -- job.
-startTranscriptionJob_settings :: Lens.Lens' StartTranscriptionJob (Core.Maybe Settings)
+startTranscriptionJob_settings :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Settings)
 startTranscriptionJob_settings = Lens.lens (\StartTranscriptionJob' {settings} -> settings) (\s@StartTranscriptionJob' {} a -> s {settings = a} :: StartTranscriptionJob)
 
 -- | An object containing a list of languages that might be present in your
 -- collection of audio files. Automatic language identification chooses a
 -- language that best matches the source audio from that list.
-startTranscriptionJob_languageOptions :: Lens.Lens' StartTranscriptionJob (Core.Maybe (Core.NonEmpty LanguageCode))
-startTranscriptionJob_languageOptions = Lens.lens (\StartTranscriptionJob' {languageOptions} -> languageOptions) (\s@StartTranscriptionJob' {} a -> s {languageOptions = a} :: StartTranscriptionJob) Core.. Lens.mapping Lens._Coerce
+startTranscriptionJob_languageOptions :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe (Prelude.NonEmpty LanguageCode))
+startTranscriptionJob_languageOptions = Lens.lens (\StartTranscriptionJob' {languageOptions} -> languageOptions) (\s@StartTranscriptionJob' {} a -> s {languageOptions = a} :: StartTranscriptionJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the job. You can\'t use the strings \"@.@\" or \"@..@\" by
 -- themselves as the job name. The name must also be unique within an AWS
 -- account. If you try to create a transcription job with the same name as
 -- a previous transcription job, you get a @ConflictException@ error.
-startTranscriptionJob_transcriptionJobName :: Lens.Lens' StartTranscriptionJob Core.Text
+startTranscriptionJob_transcriptionJobName :: Lens.Lens' StartTranscriptionJob Prelude.Text
 startTranscriptionJob_transcriptionJobName = Lens.lens (\StartTranscriptionJob' {transcriptionJobName} -> transcriptionJobName) (\s@StartTranscriptionJob' {} a -> s {transcriptionJobName = a} :: StartTranscriptionJob)
 
 -- | An object that describes the input media for a transcription job.
@@ -466,71 +468,74 @@ instance Core.AWSRequest StartTranscriptionJob where
     Response.receiveJSON
       ( \s h x ->
           StartTranscriptionJobResponse'
-            Core.<$> (x Core..?> "TranscriptionJob")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TranscriptionJob")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartTranscriptionJob
+instance Prelude.Hashable StartTranscriptionJob
 
-instance Core.NFData StartTranscriptionJob
+instance Prelude.NFData StartTranscriptionJob
 
 instance Core.ToHeaders StartTranscriptionJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Transcribe.StartTranscriptionJob" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartTranscriptionJob where
   toJSON StartTranscriptionJob' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("LanguageCode" Core..=) Core.<$> languageCode,
-            ("MediaFormat" Core..=) Core.<$> mediaFormat,
+      ( Prelude.catMaybes
+          [ ("LanguageCode" Core..=) Prelude.<$> languageCode,
+            ("MediaFormat" Core..=) Prelude.<$> mediaFormat,
             ("ContentRedaction" Core..=)
-              Core.<$> contentRedaction,
+              Prelude.<$> contentRedaction,
             ("IdentifyLanguage" Core..=)
-              Core.<$> identifyLanguage,
-            ("OutputKey" Core..=) Core.<$> outputKey,
-            ("ModelSettings" Core..=) Core.<$> modelSettings,
+              Prelude.<$> identifyLanguage,
+            ("OutputKey" Core..=) Prelude.<$> outputKey,
+            ("ModelSettings" Core..=) Prelude.<$> modelSettings,
             ("OutputEncryptionKMSKeyId" Core..=)
-              Core.<$> outputEncryptionKMSKeyId,
+              Prelude.<$> outputEncryptionKMSKeyId,
             ("MediaSampleRateHertz" Core..=)
-              Core.<$> mediaSampleRateHertz,
+              Prelude.<$> mediaSampleRateHertz,
             ("OutputBucketName" Core..=)
-              Core.<$> outputBucketName,
+              Prelude.<$> outputBucketName,
             ("JobExecutionSettings" Core..=)
-              Core.<$> jobExecutionSettings,
-            ("Settings" Core..=) Core.<$> settings,
-            ("LanguageOptions" Core..=) Core.<$> languageOptions,
-            Core.Just
+              Prelude.<$> jobExecutionSettings,
+            ("Settings" Core..=) Prelude.<$> settings,
+            ("LanguageOptions" Core..=)
+              Prelude.<$> languageOptions,
+            Prelude.Just
               ( "TranscriptionJobName"
                   Core..= transcriptionJobName
               ),
-            Core.Just ("Media" Core..= media)
+            Prelude.Just ("Media" Core..= media)
           ]
       )
 
 instance Core.ToPath StartTranscriptionJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartTranscriptionJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartTranscriptionJobResponse' smart constructor.
 data StartTranscriptionJobResponse = StartTranscriptionJobResponse'
   { -- | An object containing details of the asynchronous transcription job.
-    transcriptionJob :: Core.Maybe TranscriptionJob,
+    transcriptionJob :: Prelude.Maybe TranscriptionJob,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartTranscriptionJobResponse' with all optional fields omitted.
@@ -545,21 +550,21 @@ data StartTranscriptionJobResponse = StartTranscriptionJobResponse'
 -- 'httpStatus', 'startTranscriptionJobResponse_httpStatus' - The response's http status code.
 newStartTranscriptionJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartTranscriptionJobResponse
 newStartTranscriptionJobResponse pHttpStatus_ =
   StartTranscriptionJobResponse'
     { transcriptionJob =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object containing details of the asynchronous transcription job.
-startTranscriptionJobResponse_transcriptionJob :: Lens.Lens' StartTranscriptionJobResponse (Core.Maybe TranscriptionJob)
+startTranscriptionJobResponse_transcriptionJob :: Lens.Lens' StartTranscriptionJobResponse (Prelude.Maybe TranscriptionJob)
 startTranscriptionJobResponse_transcriptionJob = Lens.lens (\StartTranscriptionJobResponse' {transcriptionJob} -> transcriptionJob) (\s@StartTranscriptionJobResponse' {} a -> s {transcriptionJob = a} :: StartTranscriptionJobResponse)
 
 -- | The response's http status code.
-startTranscriptionJobResponse_httpStatus :: Lens.Lens' StartTranscriptionJobResponse Core.Int
+startTranscriptionJobResponse_httpStatus :: Lens.Lens' StartTranscriptionJobResponse Prelude.Int
 startTranscriptionJobResponse_httpStatus = Lens.lens (\StartTranscriptionJobResponse' {httpStatus} -> httpStatus) (\s@StartTranscriptionJobResponse' {} a -> s {httpStatus = a} :: StartTranscriptionJobResponse)
 
-instance Core.NFData StartTranscriptionJobResponse
+instance Prelude.NFData StartTranscriptionJobResponse

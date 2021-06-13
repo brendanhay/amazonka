@@ -21,6 +21,7 @@ module Network.AWS.CloudWatch.Types.MessageData where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A message returned by the @GetMetricData@API, including a code and a
 -- description.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newMessageData' smart constructor.
 data MessageData = MessageData'
   { -- | The error code or status code associated with the message.
-    code :: Core.Maybe Core.Text,
+    code :: Prelude.Maybe Prelude.Text,
     -- | The message text.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MessageData' with all optional fields omitted.
@@ -49,23 +50,23 @@ newMessageData ::
   MessageData
 newMessageData =
   MessageData'
-    { code = Core.Nothing,
-      value = Core.Nothing
+    { code = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The error code or status code associated with the message.
-messageData_code :: Lens.Lens' MessageData (Core.Maybe Core.Text)
+messageData_code :: Lens.Lens' MessageData (Prelude.Maybe Prelude.Text)
 messageData_code = Lens.lens (\MessageData' {code} -> code) (\s@MessageData' {} a -> s {code = a} :: MessageData)
 
 -- | The message text.
-messageData_value :: Lens.Lens' MessageData (Core.Maybe Core.Text)
+messageData_value :: Lens.Lens' MessageData (Prelude.Maybe Prelude.Text)
 messageData_value = Lens.lens (\MessageData' {value} -> value) (\s@MessageData' {} a -> s {value = a} :: MessageData)
 
 instance Core.FromXML MessageData where
   parseXML x =
     MessageData'
-      Core.<$> (x Core..@? "Code") Core.<*> (x Core..@? "Value")
+      Prelude.<$> (x Core..@? "Code") Prelude.<*> (x Core..@? "Value")
 
-instance Core.Hashable MessageData
+instance Prelude.Hashable MessageData
 
-instance Core.NFData MessageData
+instance Prelude.NFData MessageData

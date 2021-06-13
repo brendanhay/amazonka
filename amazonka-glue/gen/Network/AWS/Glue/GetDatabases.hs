@@ -48,18 +48,19 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDatabases' smart constructor.
 data GetDatabases = GetDatabases'
   { -- | A continuation token, if this is a continuation call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Data Catalog from which to retrieve @Databases@. If none
     -- is provided, the AWS account ID is used by default.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of databases to return in one response.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Allows you to specify that you want to list the databases shared with
     -- your account. The allowable values are @FOREIGN@ or @ALL@.
     --
@@ -68,9 +69,9 @@ data GetDatabases = GetDatabases'
     --
     -- -   If set to @ALL@, will list the databases shared with your account,
     --     as well as the databases in yor local account.
-    resourceShareType :: Core.Maybe ResourceShareType
+    resourceShareType :: Prelude.Maybe ResourceShareType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDatabases' with all optional fields omitted.
@@ -99,23 +100,23 @@ newGetDatabases ::
   GetDatabases
 newGetDatabases =
   GetDatabases'
-    { nextToken = Core.Nothing,
-      catalogId = Core.Nothing,
-      maxResults = Core.Nothing,
-      resourceShareType = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      resourceShareType = Prelude.Nothing
     }
 
 -- | A continuation token, if this is a continuation call.
-getDatabases_nextToken :: Lens.Lens' GetDatabases (Core.Maybe Core.Text)
+getDatabases_nextToken :: Lens.Lens' GetDatabases (Prelude.Maybe Prelude.Text)
 getDatabases_nextToken = Lens.lens (\GetDatabases' {nextToken} -> nextToken) (\s@GetDatabases' {} a -> s {nextToken = a} :: GetDatabases)
 
 -- | The ID of the Data Catalog from which to retrieve @Databases@. If none
 -- is provided, the AWS account ID is used by default.
-getDatabases_catalogId :: Lens.Lens' GetDatabases (Core.Maybe Core.Text)
+getDatabases_catalogId :: Lens.Lens' GetDatabases (Prelude.Maybe Prelude.Text)
 getDatabases_catalogId = Lens.lens (\GetDatabases' {catalogId} -> catalogId) (\s@GetDatabases' {} a -> s {catalogId = a} :: GetDatabases)
 
 -- | The maximum number of databases to return in one response.
-getDatabases_maxResults :: Lens.Lens' GetDatabases (Core.Maybe Core.Natural)
+getDatabases_maxResults :: Lens.Lens' GetDatabases (Prelude.Maybe Prelude.Natural)
 getDatabases_maxResults = Lens.lens (\GetDatabases' {maxResults} -> maxResults) (\s@GetDatabases' {} a -> s {maxResults = a} :: GetDatabases)
 
 -- | Allows you to specify that you want to list the databases shared with
@@ -126,25 +127,25 @@ getDatabases_maxResults = Lens.lens (\GetDatabases' {maxResults} -> maxResults) 
 --
 -- -   If set to @ALL@, will list the databases shared with your account,
 --     as well as the databases in yor local account.
-getDatabases_resourceShareType :: Lens.Lens' GetDatabases (Core.Maybe ResourceShareType)
+getDatabases_resourceShareType :: Lens.Lens' GetDatabases (Prelude.Maybe ResourceShareType)
 getDatabases_resourceShareType = Lens.lens (\GetDatabases' {resourceShareType} -> resourceShareType) (\s@GetDatabases' {} a -> s {resourceShareType = a} :: GetDatabases)
 
 instance Core.AWSPager GetDatabases where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getDatabasesResponse_nextToken Core.. Lens._Just
+            Lens.^? getDatabasesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         (rs Lens.^. getDatabasesResponse_databaseList) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getDatabases_nextToken
+          Prelude.& getDatabases_nextToken
           Lens..~ rs
-          Lens.^? getDatabasesResponse_nextToken Core.. Lens._Just
+          Lens.^? getDatabasesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDatabases where
   type AWSResponse GetDatabases = GetDatabasesResponse
@@ -153,55 +154,57 @@ instance Core.AWSRequest GetDatabases where
     Response.receiveJSON
       ( \s h x ->
           GetDatabasesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "DatabaseList" Core..!@ Core.mempty)
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "DatabaseList" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable GetDatabases
+instance Prelude.Hashable GetDatabases
 
-instance Core.NFData GetDatabases
+instance Prelude.NFData GetDatabases
 
 instance Core.ToHeaders GetDatabases where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetDatabases" :: Core.ByteString),
+              Core.=# ("AWSGlue.GetDatabases" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetDatabases where
   toJSON GetDatabases' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("CatalogId" Core..=) Core.<$> catalogId,
-            ("MaxResults" Core..=) Core.<$> maxResults,
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("ResourceShareType" Core..=)
-              Core.<$> resourceShareType
+              Prelude.<$> resourceShareType
           ]
       )
 
 instance Core.ToPath GetDatabases where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetDatabases where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDatabasesResponse' smart constructor.
 data GetDatabasesResponse = GetDatabasesResponse'
   { -- | A continuation token for paginating the returned list of tokens,
     -- returned if the current segment of the list is not the last.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of @Database@ objects from the specified catalog.
     databaseList :: [Database]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDatabasesResponse' with all optional fields omitted.
@@ -219,26 +222,26 @@ data GetDatabasesResponse = GetDatabasesResponse'
 -- 'databaseList', 'getDatabasesResponse_databaseList' - A list of @Database@ objects from the specified catalog.
 newGetDatabasesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDatabasesResponse
 newGetDatabasesResponse pHttpStatus_ =
   GetDatabasesResponse'
-    { nextToken = Core.Nothing,
+    { nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      databaseList = Core.mempty
+      databaseList = Prelude.mempty
     }
 
 -- | A continuation token for paginating the returned list of tokens,
 -- returned if the current segment of the list is not the last.
-getDatabasesResponse_nextToken :: Lens.Lens' GetDatabasesResponse (Core.Maybe Core.Text)
+getDatabasesResponse_nextToken :: Lens.Lens' GetDatabasesResponse (Prelude.Maybe Prelude.Text)
 getDatabasesResponse_nextToken = Lens.lens (\GetDatabasesResponse' {nextToken} -> nextToken) (\s@GetDatabasesResponse' {} a -> s {nextToken = a} :: GetDatabasesResponse)
 
 -- | The response's http status code.
-getDatabasesResponse_httpStatus :: Lens.Lens' GetDatabasesResponse Core.Int
+getDatabasesResponse_httpStatus :: Lens.Lens' GetDatabasesResponse Prelude.Int
 getDatabasesResponse_httpStatus = Lens.lens (\GetDatabasesResponse' {httpStatus} -> httpStatus) (\s@GetDatabasesResponse' {} a -> s {httpStatus = a} :: GetDatabasesResponse)
 
 -- | A list of @Database@ objects from the specified catalog.
 getDatabasesResponse_databaseList :: Lens.Lens' GetDatabasesResponse [Database]
-getDatabasesResponse_databaseList = Lens.lens (\GetDatabasesResponse' {databaseList} -> databaseList) (\s@GetDatabasesResponse' {} a -> s {databaseList = a} :: GetDatabasesResponse) Core.. Lens._Coerce
+getDatabasesResponse_databaseList = Lens.lens (\GetDatabasesResponse' {databaseList} -> databaseList) (\s@GetDatabasesResponse' {} a -> s {databaseList = a} :: GetDatabasesResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData GetDatabasesResponse
+instance Prelude.NFData GetDatabasesResponse

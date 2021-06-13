@@ -65,6 +65,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,16 +73,16 @@ import qualified Network.AWS.Response as Response
 data AssociateEnclaveCertificateIamRole = AssociateEnclaveCertificateIamRole'
   { -- | The ARN of the IAM role to associate with the ACM certificate. You can
     -- associate up to 16 IAM roles with an ACM certificate.
-    roleArn :: Core.Maybe Core.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of the ACM certificate with which to associate the IAM role.
-    certificateArn :: Core.Maybe Core.Text
+    certificateArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateEnclaveCertificateIamRole' with all optional fields omitted.
@@ -105,25 +106,25 @@ newAssociateEnclaveCertificateIamRole ::
 newAssociateEnclaveCertificateIamRole =
   AssociateEnclaveCertificateIamRole'
     { roleArn =
-        Core.Nothing,
-      dryRun = Core.Nothing,
-      certificateArn = Core.Nothing
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      certificateArn = Prelude.Nothing
     }
 
 -- | The ARN of the IAM role to associate with the ACM certificate. You can
 -- associate up to 16 IAM roles with an ACM certificate.
-associateEnclaveCertificateIamRole_roleArn :: Lens.Lens' AssociateEnclaveCertificateIamRole (Core.Maybe Core.Text)
+associateEnclaveCertificateIamRole_roleArn :: Lens.Lens' AssociateEnclaveCertificateIamRole (Prelude.Maybe Prelude.Text)
 associateEnclaveCertificateIamRole_roleArn = Lens.lens (\AssociateEnclaveCertificateIamRole' {roleArn} -> roleArn) (\s@AssociateEnclaveCertificateIamRole' {} a -> s {roleArn = a} :: AssociateEnclaveCertificateIamRole)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-associateEnclaveCertificateIamRole_dryRun :: Lens.Lens' AssociateEnclaveCertificateIamRole (Core.Maybe Core.Bool)
+associateEnclaveCertificateIamRole_dryRun :: Lens.Lens' AssociateEnclaveCertificateIamRole (Prelude.Maybe Prelude.Bool)
 associateEnclaveCertificateIamRole_dryRun = Lens.lens (\AssociateEnclaveCertificateIamRole' {dryRun} -> dryRun) (\s@AssociateEnclaveCertificateIamRole' {} a -> s {dryRun = a} :: AssociateEnclaveCertificateIamRole)
 
 -- | The ARN of the ACM certificate with which to associate the IAM role.
-associateEnclaveCertificateIamRole_certificateArn :: Lens.Lens' AssociateEnclaveCertificateIamRole (Core.Maybe Core.Text)
+associateEnclaveCertificateIamRole_certificateArn :: Lens.Lens' AssociateEnclaveCertificateIamRole (Prelude.Maybe Prelude.Text)
 associateEnclaveCertificateIamRole_certificateArn = Lens.lens (\AssociateEnclaveCertificateIamRole' {certificateArn} -> certificateArn) (\s@AssociateEnclaveCertificateIamRole' {} a -> s {certificateArn = a} :: AssociateEnclaveCertificateIamRole)
 
 instance
@@ -138,43 +139,44 @@ instance
     Response.receiveXML
       ( \s h x ->
           AssociateEnclaveCertificateIamRoleResponse'
-            Core.<$> (x Core..@? "certificateS3ObjectKey")
-            Core.<*> (x Core..@? "encryptionKmsKeyId")
-            Core.<*> (x Core..@? "certificateS3BucketName")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "certificateS3ObjectKey")
+              Prelude.<*> (x Core..@? "encryptionKmsKeyId")
+              Prelude.<*> (x Core..@? "certificateS3BucketName")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AssociateEnclaveCertificateIamRole
 
 instance
-  Core.NFData
+  Prelude.NFData
     AssociateEnclaveCertificateIamRole
 
 instance
   Core.ToHeaders
     AssociateEnclaveCertificateIamRole
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     AssociateEnclaveCertificateIamRole
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     AssociateEnclaveCertificateIamRole
   where
   toQuery AssociateEnclaveCertificateIamRole' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "AssociateEnclaveCertificateIamRole" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "RoleArn" Core.=: roleArn,
         "DryRun" Core.=: dryRun,
         "CertificateArn" Core.=: certificateArn
@@ -185,16 +187,16 @@ data AssociateEnclaveCertificateIamRoleResponse = AssociateEnclaveCertificateIam
   { -- | The Amazon S3 object key where the certificate, certificate chain, and
     -- encrypted private key bundle are stored. The object key is formatted as
     -- follows: @role_arn@\/@certificate_arn@.
-    certificateS3ObjectKey :: Core.Maybe Core.Text,
+    certificateS3ObjectKey :: Prelude.Maybe Prelude.Text,
     -- | The ID of the AWS KMS CMK used to encrypt the private key of the
     -- certificate.
-    encryptionKmsKeyId :: Core.Maybe Core.Text,
+    encryptionKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket to which the certificate was uploaded.
-    certificateS3BucketName :: Core.Maybe Core.Text,
+    certificateS3BucketName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateEnclaveCertificateIamRoleResponse' with all optional fields omitted.
@@ -216,39 +218,39 @@ data AssociateEnclaveCertificateIamRoleResponse = AssociateEnclaveCertificateIam
 -- 'httpStatus', 'associateEnclaveCertificateIamRoleResponse_httpStatus' - The response's http status code.
 newAssociateEnclaveCertificateIamRoleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssociateEnclaveCertificateIamRoleResponse
 newAssociateEnclaveCertificateIamRoleResponse
   pHttpStatus_ =
     AssociateEnclaveCertificateIamRoleResponse'
       { certificateS3ObjectKey =
-          Core.Nothing,
+          Prelude.Nothing,
         encryptionKmsKeyId =
-          Core.Nothing,
+          Prelude.Nothing,
         certificateS3BucketName =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The Amazon S3 object key where the certificate, certificate chain, and
 -- encrypted private key bundle are stored. The object key is formatted as
 -- follows: @role_arn@\/@certificate_arn@.
-associateEnclaveCertificateIamRoleResponse_certificateS3ObjectKey :: Lens.Lens' AssociateEnclaveCertificateIamRoleResponse (Core.Maybe Core.Text)
+associateEnclaveCertificateIamRoleResponse_certificateS3ObjectKey :: Lens.Lens' AssociateEnclaveCertificateIamRoleResponse (Prelude.Maybe Prelude.Text)
 associateEnclaveCertificateIamRoleResponse_certificateS3ObjectKey = Lens.lens (\AssociateEnclaveCertificateIamRoleResponse' {certificateS3ObjectKey} -> certificateS3ObjectKey) (\s@AssociateEnclaveCertificateIamRoleResponse' {} a -> s {certificateS3ObjectKey = a} :: AssociateEnclaveCertificateIamRoleResponse)
 
 -- | The ID of the AWS KMS CMK used to encrypt the private key of the
 -- certificate.
-associateEnclaveCertificateIamRoleResponse_encryptionKmsKeyId :: Lens.Lens' AssociateEnclaveCertificateIamRoleResponse (Core.Maybe Core.Text)
+associateEnclaveCertificateIamRoleResponse_encryptionKmsKeyId :: Lens.Lens' AssociateEnclaveCertificateIamRoleResponse (Prelude.Maybe Prelude.Text)
 associateEnclaveCertificateIamRoleResponse_encryptionKmsKeyId = Lens.lens (\AssociateEnclaveCertificateIamRoleResponse' {encryptionKmsKeyId} -> encryptionKmsKeyId) (\s@AssociateEnclaveCertificateIamRoleResponse' {} a -> s {encryptionKmsKeyId = a} :: AssociateEnclaveCertificateIamRoleResponse)
 
 -- | The name of the Amazon S3 bucket to which the certificate was uploaded.
-associateEnclaveCertificateIamRoleResponse_certificateS3BucketName :: Lens.Lens' AssociateEnclaveCertificateIamRoleResponse (Core.Maybe Core.Text)
+associateEnclaveCertificateIamRoleResponse_certificateS3BucketName :: Lens.Lens' AssociateEnclaveCertificateIamRoleResponse (Prelude.Maybe Prelude.Text)
 associateEnclaveCertificateIamRoleResponse_certificateS3BucketName = Lens.lens (\AssociateEnclaveCertificateIamRoleResponse' {certificateS3BucketName} -> certificateS3BucketName) (\s@AssociateEnclaveCertificateIamRoleResponse' {} a -> s {certificateS3BucketName = a} :: AssociateEnclaveCertificateIamRoleResponse)
 
 -- | The response's http status code.
-associateEnclaveCertificateIamRoleResponse_httpStatus :: Lens.Lens' AssociateEnclaveCertificateIamRoleResponse Core.Int
+associateEnclaveCertificateIamRoleResponse_httpStatus :: Lens.Lens' AssociateEnclaveCertificateIamRoleResponse Prelude.Int
 associateEnclaveCertificateIamRoleResponse_httpStatus = Lens.lens (\AssociateEnclaveCertificateIamRoleResponse' {httpStatus} -> httpStatus) (\s@AssociateEnclaveCertificateIamRoleResponse' {} a -> s {httpStatus = a} :: AssociateEnclaveCertificateIamRoleResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AssociateEnclaveCertificateIamRoleResponse

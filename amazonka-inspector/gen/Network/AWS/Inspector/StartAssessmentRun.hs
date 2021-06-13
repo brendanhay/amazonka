@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,12 +54,12 @@ data StartAssessmentRun = StartAssessmentRun'
   { -- | You can specify the name for the assessment run. The name must be unique
     -- for the assessment template whose ARN is used to start the assessment
     -- run.
-    assessmentRunName :: Core.Maybe Core.Text,
+    assessmentRunName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the assessment template of the assessment run that you want
     -- to start.
-    assessmentTemplateArn :: Core.Text
+    assessmentTemplateArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartAssessmentRun' with all optional fields omitted.
@@ -76,24 +77,24 @@ data StartAssessmentRun = StartAssessmentRun'
 -- to start.
 newStartAssessmentRun ::
   -- | 'assessmentTemplateArn'
-  Core.Text ->
+  Prelude.Text ->
   StartAssessmentRun
 newStartAssessmentRun pAssessmentTemplateArn_ =
   StartAssessmentRun'
     { assessmentRunName =
-        Core.Nothing,
+        Prelude.Nothing,
       assessmentTemplateArn = pAssessmentTemplateArn_
     }
 
 -- | You can specify the name for the assessment run. The name must be unique
 -- for the assessment template whose ARN is used to start the assessment
 -- run.
-startAssessmentRun_assessmentRunName :: Lens.Lens' StartAssessmentRun (Core.Maybe Core.Text)
+startAssessmentRun_assessmentRunName :: Lens.Lens' StartAssessmentRun (Prelude.Maybe Prelude.Text)
 startAssessmentRun_assessmentRunName = Lens.lens (\StartAssessmentRun' {assessmentRunName} -> assessmentRunName) (\s@StartAssessmentRun' {} a -> s {assessmentRunName = a} :: StartAssessmentRun)
 
 -- | The ARN of the assessment template of the assessment run that you want
 -- to start.
-startAssessmentRun_assessmentTemplateArn :: Lens.Lens' StartAssessmentRun Core.Text
+startAssessmentRun_assessmentTemplateArn :: Lens.Lens' StartAssessmentRun Prelude.Text
 startAssessmentRun_assessmentTemplateArn = Lens.lens (\StartAssessmentRun' {assessmentTemplateArn} -> assessmentTemplateArn) (\s@StartAssessmentRun' {} a -> s {assessmentTemplateArn = a} :: StartAssessmentRun)
 
 instance Core.AWSRequest StartAssessmentRun where
@@ -105,34 +106,36 @@ instance Core.AWSRequest StartAssessmentRun where
     Response.receiveJSON
       ( \s h x ->
           StartAssessmentRunResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "assessmentRunArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "assessmentRunArn")
       )
 
-instance Core.Hashable StartAssessmentRun
+instance Prelude.Hashable StartAssessmentRun
 
-instance Core.NFData StartAssessmentRun
+instance Prelude.NFData StartAssessmentRun
 
 instance Core.ToHeaders StartAssessmentRun where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "InspectorService.StartAssessmentRun" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartAssessmentRun where
   toJSON StartAssessmentRun' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("assessmentRunName" Core..=)
-              Core.<$> assessmentRunName,
-            Core.Just
+              Prelude.<$> assessmentRunName,
+            Prelude.Just
               ( "assessmentTemplateArn"
                   Core..= assessmentTemplateArn
               )
@@ -140,19 +143,19 @@ instance Core.ToJSON StartAssessmentRun where
       )
 
 instance Core.ToPath StartAssessmentRun where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartAssessmentRun where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartAssessmentRunResponse' smart constructor.
 data StartAssessmentRunResponse = StartAssessmentRunResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The ARN of the assessment run that has been started.
-    assessmentRunArn :: Core.Text
+    assessmentRunArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartAssessmentRunResponse' with all optional fields omitted.
@@ -167,9 +170,9 @@ data StartAssessmentRunResponse = StartAssessmentRunResponse'
 -- 'assessmentRunArn', 'startAssessmentRunResponse_assessmentRunArn' - The ARN of the assessment run that has been started.
 newStartAssessmentRunResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'assessmentRunArn'
-  Core.Text ->
+  Prelude.Text ->
   StartAssessmentRunResponse
 newStartAssessmentRunResponse
   pHttpStatus_
@@ -181,11 +184,11 @@ newStartAssessmentRunResponse
       }
 
 -- | The response's http status code.
-startAssessmentRunResponse_httpStatus :: Lens.Lens' StartAssessmentRunResponse Core.Int
+startAssessmentRunResponse_httpStatus :: Lens.Lens' StartAssessmentRunResponse Prelude.Int
 startAssessmentRunResponse_httpStatus = Lens.lens (\StartAssessmentRunResponse' {httpStatus} -> httpStatus) (\s@StartAssessmentRunResponse' {} a -> s {httpStatus = a} :: StartAssessmentRunResponse)
 
 -- | The ARN of the assessment run that has been started.
-startAssessmentRunResponse_assessmentRunArn :: Lens.Lens' StartAssessmentRunResponse Core.Text
+startAssessmentRunResponse_assessmentRunArn :: Lens.Lens' StartAssessmentRunResponse Prelude.Text
 startAssessmentRunResponse_assessmentRunArn = Lens.lens (\StartAssessmentRunResponse' {assessmentRunArn} -> assessmentRunArn) (\s@StartAssessmentRunResponse' {} a -> s {assessmentRunArn = a} :: StartAssessmentRunResponse)
 
-instance Core.NFData StartAssessmentRunResponse
+instance Prelude.NFData StartAssessmentRunResponse

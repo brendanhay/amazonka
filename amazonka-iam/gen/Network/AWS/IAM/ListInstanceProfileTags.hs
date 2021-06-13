@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,21 +66,21 @@ data ListInstanceProfileTags = ListInstanceProfileTags'
     -- that case, the @IsTruncated@ response element returns @true@, and
     -- @Marker@ contains a value to include in the subsequent call that tells
     -- the service where to continue from.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The name of the IAM instance profile whose tags you want to see.
     --
     -- This parameter accepts (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    instanceProfileName :: Core.Text
+    instanceProfileName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListInstanceProfileTags' with all optional fields omitted.
@@ -113,12 +114,13 @@ data ListInstanceProfileTags = ListInstanceProfileTags'
 -- spaces. You can also include any of the following characters: =,.\@-
 newListInstanceProfileTags ::
   -- | 'instanceProfileName'
-  Core.Text ->
+  Prelude.Text ->
   ListInstanceProfileTags
 newListInstanceProfileTags pInstanceProfileName_ =
   ListInstanceProfileTags'
-    { maxItems = Core.Nothing,
-      marker = Core.Nothing,
+    { maxItems =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       instanceProfileName = pInstanceProfileName_
     }
 
@@ -132,14 +134,14 @@ newListInstanceProfileTags pInstanceProfileName_ =
 -- that case, the @IsTruncated@ response element returns @true@, and
 -- @Marker@ contains a value to include in the subsequent call that tells
 -- the service where to continue from.
-listInstanceProfileTags_maxItems :: Lens.Lens' ListInstanceProfileTags (Core.Maybe Core.Natural)
+listInstanceProfileTags_maxItems :: Lens.Lens' ListInstanceProfileTags (Prelude.Maybe Prelude.Natural)
 listInstanceProfileTags_maxItems = Lens.lens (\ListInstanceProfileTags' {maxItems} -> maxItems) (\s@ListInstanceProfileTags' {} a -> s {maxItems = a} :: ListInstanceProfileTags)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listInstanceProfileTags_marker :: Lens.Lens' ListInstanceProfileTags (Core.Maybe Core.Text)
+listInstanceProfileTags_marker :: Lens.Lens' ListInstanceProfileTags (Prelude.Maybe Prelude.Text)
 listInstanceProfileTags_marker = Lens.lens (\ListInstanceProfileTags' {marker} -> marker) (\s@ListInstanceProfileTags' {} a -> s {marker = a} :: ListInstanceProfileTags)
 
 -- | The name of the IAM instance profile whose tags you want to see.
@@ -148,7 +150,7 @@ listInstanceProfileTags_marker = Lens.lens (\ListInstanceProfileTags' {marker} -
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-listInstanceProfileTags_instanceProfileName :: Lens.Lens' ListInstanceProfileTags Core.Text
+listInstanceProfileTags_instanceProfileName :: Lens.Lens' ListInstanceProfileTags Prelude.Text
 listInstanceProfileTags_instanceProfileName = Lens.lens (\ListInstanceProfileTags' {instanceProfileName} -> instanceProfileName) (\s@ListInstanceProfileTags' {} a -> s {instanceProfileName = a} :: ListInstanceProfileTags)
 
 instance Core.AWSRequest ListInstanceProfileTags where
@@ -161,30 +163,31 @@ instance Core.AWSRequest ListInstanceProfileTags where
       "ListInstanceProfileTagsResult"
       ( \s h x ->
           ListInstanceProfileTagsResponse'
-            Core.<$> (x Core..@? "IsTruncated")
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "Tags" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "member"
-                     )
+            Prelude.<$> (x Core..@? "IsTruncated")
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
       )
 
-instance Core.Hashable ListInstanceProfileTags
+instance Prelude.Hashable ListInstanceProfileTags
 
-instance Core.NFData ListInstanceProfileTags
+instance Prelude.NFData ListInstanceProfileTags
 
 instance Core.ToHeaders ListInstanceProfileTags where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListInstanceProfileTags where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListInstanceProfileTags where
   toQuery ListInstanceProfileTags' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListInstanceProfileTags" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("ListInstanceProfileTags" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker,
         "InstanceProfileName" Core.=: instanceProfileName
@@ -198,20 +201,20 @@ data ListInstanceProfileTagsResponse = ListInstanceProfileTagsResponse'
     -- that IAM might return fewer than the @MaxItems@ number of results even
     -- when more results are available. Check @IsTruncated@ after every call to
     -- ensure that you receive all of your results.
-    isTruncated :: Core.Maybe Core.Bool,
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The list of tags that are currently attached to the IAM instance
     -- profile. Each tag consists of a key name and an associated value. If no
     -- tags are attached to the specified resource, the response contains an
     -- empty list.
     tags :: [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListInstanceProfileTagsResponse' with all optional fields omitted.
@@ -240,15 +243,15 @@ data ListInstanceProfileTagsResponse = ListInstanceProfileTagsResponse'
 -- empty list.
 newListInstanceProfileTagsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListInstanceProfileTagsResponse
 newListInstanceProfileTagsResponse pHttpStatus_ =
   ListInstanceProfileTagsResponse'
     { isTruncated =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -257,17 +260,17 @@ newListInstanceProfileTagsResponse pHttpStatus_ =
 -- that IAM might return fewer than the @MaxItems@ number of results even
 -- when more results are available. Check @IsTruncated@ after every call to
 -- ensure that you receive all of your results.
-listInstanceProfileTagsResponse_isTruncated :: Lens.Lens' ListInstanceProfileTagsResponse (Core.Maybe Core.Bool)
+listInstanceProfileTagsResponse_isTruncated :: Lens.Lens' ListInstanceProfileTagsResponse (Prelude.Maybe Prelude.Bool)
 listInstanceProfileTagsResponse_isTruncated = Lens.lens (\ListInstanceProfileTagsResponse' {isTruncated} -> isTruncated) (\s@ListInstanceProfileTagsResponse' {} a -> s {isTruncated = a} :: ListInstanceProfileTagsResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listInstanceProfileTagsResponse_marker :: Lens.Lens' ListInstanceProfileTagsResponse (Core.Maybe Core.Text)
+listInstanceProfileTagsResponse_marker :: Lens.Lens' ListInstanceProfileTagsResponse (Prelude.Maybe Prelude.Text)
 listInstanceProfileTagsResponse_marker = Lens.lens (\ListInstanceProfileTagsResponse' {marker} -> marker) (\s@ListInstanceProfileTagsResponse' {} a -> s {marker = a} :: ListInstanceProfileTagsResponse)
 
 -- | The response's http status code.
-listInstanceProfileTagsResponse_httpStatus :: Lens.Lens' ListInstanceProfileTagsResponse Core.Int
+listInstanceProfileTagsResponse_httpStatus :: Lens.Lens' ListInstanceProfileTagsResponse Prelude.Int
 listInstanceProfileTagsResponse_httpStatus = Lens.lens (\ListInstanceProfileTagsResponse' {httpStatus} -> httpStatus) (\s@ListInstanceProfileTagsResponse' {} a -> s {httpStatus = a} :: ListInstanceProfileTagsResponse)
 
 -- | The list of tags that are currently attached to the IAM instance
@@ -275,6 +278,8 @@ listInstanceProfileTagsResponse_httpStatus = Lens.lens (\ListInstanceProfileTags
 -- tags are attached to the specified resource, the response contains an
 -- empty list.
 listInstanceProfileTagsResponse_tags :: Lens.Lens' ListInstanceProfileTagsResponse [Tag]
-listInstanceProfileTagsResponse_tags = Lens.lens (\ListInstanceProfileTagsResponse' {tags} -> tags) (\s@ListInstanceProfileTagsResponse' {} a -> s {tags = a} :: ListInstanceProfileTagsResponse) Core.. Lens._Coerce
+listInstanceProfileTagsResponse_tags = Lens.lens (\ListInstanceProfileTagsResponse' {tags} -> tags) (\s@ListInstanceProfileTagsResponse' {} a -> s {tags = a} :: ListInstanceProfileTagsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListInstanceProfileTagsResponse
+instance
+  Prelude.NFData
+    ListInstanceProfileTagsResponse

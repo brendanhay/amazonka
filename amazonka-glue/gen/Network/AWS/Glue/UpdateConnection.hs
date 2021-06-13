@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,13 +51,13 @@ import qualified Network.AWS.Response as Response
 data UpdateConnection = UpdateConnection'
   { -- | The ID of the Data Catalog in which the connection resides. If none is
     -- provided, the AWS account ID is used by default.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the connection definition to update.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | A @ConnectionInput@ object that redefines the connection in question.
     connectionInput :: ConnectionInput
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateConnection' with all optional fields omitted.
@@ -74,24 +75,24 @@ data UpdateConnection = UpdateConnection'
 -- 'connectionInput', 'updateConnection_connectionInput' - A @ConnectionInput@ object that redefines the connection in question.
 newUpdateConnection ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'connectionInput'
   ConnectionInput ->
   UpdateConnection
 newUpdateConnection pName_ pConnectionInput_ =
   UpdateConnection'
-    { catalogId = Core.Nothing,
+    { catalogId = Prelude.Nothing,
       name = pName_,
       connectionInput = pConnectionInput_
     }
 
 -- | The ID of the Data Catalog in which the connection resides. If none is
 -- provided, the AWS account ID is used by default.
-updateConnection_catalogId :: Lens.Lens' UpdateConnection (Core.Maybe Core.Text)
+updateConnection_catalogId :: Lens.Lens' UpdateConnection (Prelude.Maybe Prelude.Text)
 updateConnection_catalogId = Lens.lens (\UpdateConnection' {catalogId} -> catalogId) (\s@UpdateConnection' {} a -> s {catalogId = a} :: UpdateConnection)
 
 -- | The name of the connection definition to update.
-updateConnection_name :: Lens.Lens' UpdateConnection Core.Text
+updateConnection_name :: Lens.Lens' UpdateConnection Prelude.Text
 updateConnection_name = Lens.lens (\UpdateConnection' {name} -> name) (\s@UpdateConnection' {} a -> s {name = a} :: UpdateConnection)
 
 -- | A @ConnectionInput@ object that redefines the connection in question.
@@ -107,47 +108,49 @@ instance Core.AWSRequest UpdateConnection where
     Response.receiveEmpty
       ( \s h x ->
           UpdateConnectionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateConnection
+instance Prelude.Hashable UpdateConnection
 
-instance Core.NFData UpdateConnection
+instance Prelude.NFData UpdateConnection
 
 instance Core.ToHeaders UpdateConnection where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.UpdateConnection" :: Core.ByteString),
+              Core.=# ("AWSGlue.UpdateConnection" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateConnection where
   toJSON UpdateConnection' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CatalogId" Core..=) Core.<$> catalogId,
-            Core.Just ("Name" Core..= name),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just
               ("ConnectionInput" Core..= connectionInput)
           ]
       )
 
 instance Core.ToPath UpdateConnection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateConnection where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateConnectionResponse' smart constructor.
 data UpdateConnectionResponse = UpdateConnectionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateConnectionResponse' with all optional fields omitted.
@@ -160,7 +163,7 @@ data UpdateConnectionResponse = UpdateConnectionResponse'
 -- 'httpStatus', 'updateConnectionResponse_httpStatus' - The response's http status code.
 newUpdateConnectionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateConnectionResponse
 newUpdateConnectionResponse pHttpStatus_ =
   UpdateConnectionResponse'
@@ -169,7 +172,7 @@ newUpdateConnectionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateConnectionResponse_httpStatus :: Lens.Lens' UpdateConnectionResponse Core.Int
+updateConnectionResponse_httpStatus :: Lens.Lens' UpdateConnectionResponse Prelude.Int
 updateConnectionResponse_httpStatus = Lens.lens (\UpdateConnectionResponse' {httpStatus} -> httpStatus) (\s@UpdateConnectionResponse' {} a -> s {httpStatus = a} :: UpdateConnectionResponse)
 
-instance Core.NFData UpdateConnectionResponse
+instance Prelude.NFData UpdateConnectionResponse

@@ -58,6 +58,7 @@ where
 import Network.AWS.CodeBuild.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,7 +70,7 @@ data CreateWebhook = CreateWebhook'
     -- all branches are built.
     --
     -- It is recommended that you use @filterGroups@ instead of @branchFilter@.
-    branchFilter :: Core.Maybe Core.Text,
+    branchFilter :: Prelude.Maybe Prelude.Text,
     -- | An array of arrays of @WebhookFilter@ objects used to determine which
     -- webhooks are triggered. At least one @WebhookFilter@ in the array must
     -- specify @EVENT@ as its @type@.
@@ -77,13 +78,13 @@ data CreateWebhook = CreateWebhook'
     -- For a build to be triggered, at least one filter group in the
     -- @filterGroups@ array must pass. For a filter group to pass, each of its
     -- filters must pass.
-    filterGroups :: Core.Maybe [[WebhookFilter]],
+    filterGroups :: Prelude.Maybe [[WebhookFilter]],
     -- | Specifies the type of build this webhook will trigger.
-    buildType :: Core.Maybe WebhookBuildType,
+    buildType :: Prelude.Maybe WebhookBuildType,
     -- | The name of the AWS CodeBuild project.
-    projectName :: Core.Text
+    projectName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateWebhook' with all optional fields omitted.
@@ -113,13 +114,13 @@ data CreateWebhook = CreateWebhook'
 -- 'projectName', 'createWebhook_projectName' - The name of the AWS CodeBuild project.
 newCreateWebhook ::
   -- | 'projectName'
-  Core.Text ->
+  Prelude.Text ->
   CreateWebhook
 newCreateWebhook pProjectName_ =
   CreateWebhook'
-    { branchFilter = Core.Nothing,
-      filterGroups = Core.Nothing,
-      buildType = Core.Nothing,
+    { branchFilter = Prelude.Nothing,
+      filterGroups = Prelude.Nothing,
+      buildType = Prelude.Nothing,
       projectName = pProjectName_
     }
 
@@ -129,7 +130,7 @@ newCreateWebhook pProjectName_ =
 -- all branches are built.
 --
 -- It is recommended that you use @filterGroups@ instead of @branchFilter@.
-createWebhook_branchFilter :: Lens.Lens' CreateWebhook (Core.Maybe Core.Text)
+createWebhook_branchFilter :: Lens.Lens' CreateWebhook (Prelude.Maybe Prelude.Text)
 createWebhook_branchFilter = Lens.lens (\CreateWebhook' {branchFilter} -> branchFilter) (\s@CreateWebhook' {} a -> s {branchFilter = a} :: CreateWebhook)
 
 -- | An array of arrays of @WebhookFilter@ objects used to determine which
@@ -139,15 +140,15 @@ createWebhook_branchFilter = Lens.lens (\CreateWebhook' {branchFilter} -> branch
 -- For a build to be triggered, at least one filter group in the
 -- @filterGroups@ array must pass. For a filter group to pass, each of its
 -- filters must pass.
-createWebhook_filterGroups :: Lens.Lens' CreateWebhook (Core.Maybe [[WebhookFilter]])
-createWebhook_filterGroups = Lens.lens (\CreateWebhook' {filterGroups} -> filterGroups) (\s@CreateWebhook' {} a -> s {filterGroups = a} :: CreateWebhook) Core.. Lens.mapping Lens._Coerce
+createWebhook_filterGroups :: Lens.Lens' CreateWebhook (Prelude.Maybe [[WebhookFilter]])
+createWebhook_filterGroups = Lens.lens (\CreateWebhook' {filterGroups} -> filterGroups) (\s@CreateWebhook' {} a -> s {filterGroups = a} :: CreateWebhook) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the type of build this webhook will trigger.
-createWebhook_buildType :: Lens.Lens' CreateWebhook (Core.Maybe WebhookBuildType)
+createWebhook_buildType :: Lens.Lens' CreateWebhook (Prelude.Maybe WebhookBuildType)
 createWebhook_buildType = Lens.lens (\CreateWebhook' {buildType} -> buildType) (\s@CreateWebhook' {} a -> s {buildType = a} :: CreateWebhook)
 
 -- | The name of the AWS CodeBuild project.
-createWebhook_projectName :: Lens.Lens' CreateWebhook Core.Text
+createWebhook_projectName :: Lens.Lens' CreateWebhook Prelude.Text
 createWebhook_projectName = Lens.lens (\CreateWebhook' {projectName} -> projectName) (\s@CreateWebhook' {} a -> s {projectName = a} :: CreateWebhook)
 
 instance Core.AWSRequest CreateWebhook where
@@ -159,53 +160,55 @@ instance Core.AWSRequest CreateWebhook where
     Response.receiveJSON
       ( \s h x ->
           CreateWebhookResponse'
-            Core.<$> (x Core..?> "webhook")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "webhook")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateWebhook
+instance Prelude.Hashable CreateWebhook
 
-instance Core.NFData CreateWebhook
+instance Prelude.NFData CreateWebhook
 
 instance Core.ToHeaders CreateWebhook where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeBuild_20161006.CreateWebhook" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateWebhook where
   toJSON CreateWebhook' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("branchFilter" Core..=) Core.<$> branchFilter,
-            ("filterGroups" Core..=) Core.<$> filterGroups,
-            ("buildType" Core..=) Core.<$> buildType,
-            Core.Just ("projectName" Core..= projectName)
+      ( Prelude.catMaybes
+          [ ("branchFilter" Core..=) Prelude.<$> branchFilter,
+            ("filterGroups" Core..=) Prelude.<$> filterGroups,
+            ("buildType" Core..=) Prelude.<$> buildType,
+            Prelude.Just ("projectName" Core..= projectName)
           ]
       )
 
 instance Core.ToPath CreateWebhook where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateWebhook where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWebhookResponse' smart constructor.
 data CreateWebhookResponse = CreateWebhookResponse'
   { -- | Information about a webhook that connects repository events to a build
     -- project in AWS CodeBuild.
-    webhook :: Core.Maybe Webhook,
+    webhook :: Prelude.Maybe Webhook,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateWebhookResponse' with all optional fields omitted.
@@ -221,21 +224,21 @@ data CreateWebhookResponse = CreateWebhookResponse'
 -- 'httpStatus', 'createWebhookResponse_httpStatus' - The response's http status code.
 newCreateWebhookResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateWebhookResponse
 newCreateWebhookResponse pHttpStatus_ =
   CreateWebhookResponse'
-    { webhook = Core.Nothing,
+    { webhook = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about a webhook that connects repository events to a build
 -- project in AWS CodeBuild.
-createWebhookResponse_webhook :: Lens.Lens' CreateWebhookResponse (Core.Maybe Webhook)
+createWebhookResponse_webhook :: Lens.Lens' CreateWebhookResponse (Prelude.Maybe Webhook)
 createWebhookResponse_webhook = Lens.lens (\CreateWebhookResponse' {webhook} -> webhook) (\s@CreateWebhookResponse' {} a -> s {webhook = a} :: CreateWebhookResponse)
 
 -- | The response's http status code.
-createWebhookResponse_httpStatus :: Lens.Lens' CreateWebhookResponse Core.Int
+createWebhookResponse_httpStatus :: Lens.Lens' CreateWebhookResponse Prelude.Int
 createWebhookResponse_httpStatus = Lens.lens (\CreateWebhookResponse' {httpStatus} -> httpStatus) (\s@CreateWebhookResponse' {} a -> s {httpStatus = a} :: CreateWebhookResponse)
 
-instance Core.NFData CreateWebhookResponse
+instance Prelude.NFData CreateWebhookResponse

@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,12 +62,12 @@ import qualified Network.AWS.Response as Response
 data DeleteDatabase = DeleteDatabase'
   { -- | The ID of the Data Catalog in which the database resides. If none is
     -- provided, the AWS account ID is used by default.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the database to delete. For Hive compatibility, this must be
     -- all lowercase.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDatabase' with all optional fields omitted.
@@ -83,22 +84,22 @@ data DeleteDatabase = DeleteDatabase'
 -- all lowercase.
 newDeleteDatabase ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDatabase
 newDeleteDatabase pName_ =
   DeleteDatabase'
-    { catalogId = Core.Nothing,
+    { catalogId = Prelude.Nothing,
       name = pName_
     }
 
 -- | The ID of the Data Catalog in which the database resides. If none is
 -- provided, the AWS account ID is used by default.
-deleteDatabase_catalogId :: Lens.Lens' DeleteDatabase (Core.Maybe Core.Text)
+deleteDatabase_catalogId :: Lens.Lens' DeleteDatabase (Prelude.Maybe Prelude.Text)
 deleteDatabase_catalogId = Lens.lens (\DeleteDatabase' {catalogId} -> catalogId) (\s@DeleteDatabase' {} a -> s {catalogId = a} :: DeleteDatabase)
 
 -- | The name of the database to delete. For Hive compatibility, this must be
 -- all lowercase.
-deleteDatabase_name :: Lens.Lens' DeleteDatabase Core.Text
+deleteDatabase_name :: Lens.Lens' DeleteDatabase Prelude.Text
 deleteDatabase_name = Lens.lens (\DeleteDatabase' {name} -> name) (\s@DeleteDatabase' {} a -> s {name = a} :: DeleteDatabase)
 
 instance Core.AWSRequest DeleteDatabase where
@@ -110,45 +111,47 @@ instance Core.AWSRequest DeleteDatabase where
     Response.receiveEmpty
       ( \s h x ->
           DeleteDatabaseResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteDatabase
+instance Prelude.Hashable DeleteDatabase
 
-instance Core.NFData DeleteDatabase
+instance Prelude.NFData DeleteDatabase
 
 instance Core.ToHeaders DeleteDatabase where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.DeleteDatabase" :: Core.ByteString),
+              Core.=# ("AWSGlue.DeleteDatabase" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteDatabase where
   toJSON DeleteDatabase' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CatalogId" Core..=) Core.<$> catalogId,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath DeleteDatabase where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDatabase where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDatabaseResponse' smart constructor.
 data DeleteDatabaseResponse = DeleteDatabaseResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDatabaseResponse' with all optional fields omitted.
@@ -161,13 +164,13 @@ data DeleteDatabaseResponse = DeleteDatabaseResponse'
 -- 'httpStatus', 'deleteDatabaseResponse_httpStatus' - The response's http status code.
 newDeleteDatabaseResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteDatabaseResponse
 newDeleteDatabaseResponse pHttpStatus_ =
   DeleteDatabaseResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteDatabaseResponse_httpStatus :: Lens.Lens' DeleteDatabaseResponse Core.Int
+deleteDatabaseResponse_httpStatus :: Lens.Lens' DeleteDatabaseResponse Prelude.Int
 deleteDatabaseResponse_httpStatus = Lens.lens (\DeleteDatabaseResponse' {httpStatus} -> httpStatus) (\s@DeleteDatabaseResponse' {} a -> s {httpStatus = a} :: DeleteDatabaseResponse)
 
-instance Core.NFData DeleteDatabaseResponse
+instance Prelude.NFData DeleteDatabaseResponse

@@ -71,6 +71,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -81,9 +82,9 @@ data AcceptHandshake = AcceptHandshake'
     -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
     -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
     -- digits.
-    handshakeId :: Core.Text
+    handshakeId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AcceptHandshake' with all optional fields omitted.
@@ -100,7 +101,7 @@ data AcceptHandshake = AcceptHandshake'
 -- digits.
 newAcceptHandshake ::
   -- | 'handshakeId'
-  Core.Text ->
+  Prelude.Text ->
   AcceptHandshake
 newAcceptHandshake pHandshakeId_ =
   AcceptHandshake' {handshakeId = pHandshakeId_}
@@ -110,7 +111,7 @@ newAcceptHandshake pHandshakeId_ =
 -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
 -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
 -- digits.
-acceptHandshake_handshakeId :: Lens.Lens' AcceptHandshake Core.Text
+acceptHandshake_handshakeId :: Lens.Lens' AcceptHandshake Prelude.Text
 acceptHandshake_handshakeId = Lens.lens (\AcceptHandshake' {handshakeId} -> handshakeId) (\s@AcceptHandshake' {} a -> s {handshakeId = a} :: AcceptHandshake)
 
 instance Core.AWSRequest AcceptHandshake where
@@ -122,48 +123,50 @@ instance Core.AWSRequest AcceptHandshake where
     Response.receiveJSON
       ( \s h x ->
           AcceptHandshakeResponse'
-            Core.<$> (x Core..?> "Handshake")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Handshake")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AcceptHandshake
+instance Prelude.Hashable AcceptHandshake
 
-instance Core.NFData AcceptHandshake
+instance Prelude.NFData AcceptHandshake
 
 instance Core.ToHeaders AcceptHandshake where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.AcceptHandshake" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AcceptHandshake where
   toJSON AcceptHandshake' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("HandshakeId" Core..= handshakeId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("HandshakeId" Core..= handshakeId)]
       )
 
 instance Core.ToPath AcceptHandshake where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AcceptHandshake where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAcceptHandshakeResponse' smart constructor.
 data AcceptHandshakeResponse = AcceptHandshakeResponse'
   { -- | A structure that contains details about the accepted handshake.
-    handshake :: Core.Maybe Handshake,
+    handshake :: Prelude.Maybe Handshake,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AcceptHandshakeResponse' with all optional fields omitted.
@@ -178,20 +181,21 @@ data AcceptHandshakeResponse = AcceptHandshakeResponse'
 -- 'httpStatus', 'acceptHandshakeResponse_httpStatus' - The response's http status code.
 newAcceptHandshakeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AcceptHandshakeResponse
 newAcceptHandshakeResponse pHttpStatus_ =
   AcceptHandshakeResponse'
-    { handshake = Core.Nothing,
+    { handshake =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains details about the accepted handshake.
-acceptHandshakeResponse_handshake :: Lens.Lens' AcceptHandshakeResponse (Core.Maybe Handshake)
+acceptHandshakeResponse_handshake :: Lens.Lens' AcceptHandshakeResponse (Prelude.Maybe Handshake)
 acceptHandshakeResponse_handshake = Lens.lens (\AcceptHandshakeResponse' {handshake} -> handshake) (\s@AcceptHandshakeResponse' {} a -> s {handshake = a} :: AcceptHandshakeResponse)
 
 -- | The response's http status code.
-acceptHandshakeResponse_httpStatus :: Lens.Lens' AcceptHandshakeResponse Core.Int
+acceptHandshakeResponse_httpStatus :: Lens.Lens' AcceptHandshakeResponse Prelude.Int
 acceptHandshakeResponse_httpStatus = Lens.lens (\AcceptHandshakeResponse' {httpStatus} -> httpStatus) (\s@AcceptHandshakeResponse' {} a -> s {httpStatus = a} :: AcceptHandshakeResponse)
 
-instance Core.NFData AcceptHandshakeResponse
+instance Prelude.NFData AcceptHandshakeResponse

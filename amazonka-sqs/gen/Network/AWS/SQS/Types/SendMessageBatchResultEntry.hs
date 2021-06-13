@@ -21,6 +21,7 @@ module Network.AWS.SQS.Types.SendMessageBatchResultEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Encloses a @MessageId@ for a successfully-enqueued message in a
 -- @ SendMessageBatch.@
@@ -34,31 +35,31 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
     --
     -- The length of @SequenceNumber@ is 128 bits. As @SequenceNumber@
     -- continues to increase for a particular @MessageGroupId@.
-    sequenceNumber :: Core.Maybe Core.Text,
+    sequenceNumber :: Prelude.Maybe Prelude.Text,
     -- | An MD5 digest of the non-URL-encoded message system attribute string.
     -- You can use this attribute to verify that Amazon SQS received the
     -- message correctly. Amazon SQS URL-decodes the message before creating
     -- the MD5 digest. For information about MD5, see
     -- <https://www.ietf.org/rfc/rfc1321.txt RFC1321>.
-    mD5OfMessageSystemAttributes :: Core.Maybe Core.Text,
+    mD5OfMessageSystemAttributes :: Prelude.Maybe Prelude.Text,
     -- | An MD5 digest of the non-URL-encoded message attribute string. You can
     -- use this attribute to verify that Amazon SQS received the message
     -- correctly. Amazon SQS URL-decodes the message before creating the MD5
     -- digest. For information about MD5, see
     -- <https://www.ietf.org/rfc/rfc1321.txt RFC1321>.
-    mD5OfMessageAttributes :: Core.Maybe Core.Text,
+    mD5OfMessageAttributes :: Prelude.Maybe Prelude.Text,
     -- | An identifier for the message in this batch.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | An identifier for the message.
-    messageId :: Core.Text,
+    messageId :: Prelude.Text,
     -- | An MD5 digest of the non-URL-encoded message attribute string. You can
     -- use this attribute to verify that Amazon SQS received the message
     -- correctly. Amazon SQS URL-decodes the message before creating the MD5
     -- digest. For information about MD5, see
     -- <https://www.ietf.org/rfc/rfc1321.txt RFC1321>.
-    mD5OfMessageBody :: Core.Text
+    mD5OfMessageBody :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendMessageBatchResultEntry' with all optional fields omitted.
@@ -99,11 +100,11 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
 -- <https://www.ietf.org/rfc/rfc1321.txt RFC1321>.
 newSendMessageBatchResultEntry ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'messageId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'mD5OfMessageBody'
-  Core.Text ->
+  Prelude.Text ->
   SendMessageBatchResultEntry
 newSendMessageBatchResultEntry
   pId_
@@ -111,9 +112,9 @@ newSendMessageBatchResultEntry
   pMD5OfMessageBody_ =
     SendMessageBatchResultEntry'
       { sequenceNumber =
-          Core.Nothing,
-        mD5OfMessageSystemAttributes = Core.Nothing,
-        mD5OfMessageAttributes = Core.Nothing,
+          Prelude.Nothing,
+        mD5OfMessageSystemAttributes = Prelude.Nothing,
+        mD5OfMessageAttributes = Prelude.Nothing,
         id = pId_,
         messageId = pMessageId_,
         mD5OfMessageBody = pMD5OfMessageBody_
@@ -126,7 +127,7 @@ newSendMessageBatchResultEntry
 --
 -- The length of @SequenceNumber@ is 128 bits. As @SequenceNumber@
 -- continues to increase for a particular @MessageGroupId@.
-sendMessageBatchResultEntry_sequenceNumber :: Lens.Lens' SendMessageBatchResultEntry (Core.Maybe Core.Text)
+sendMessageBatchResultEntry_sequenceNumber :: Lens.Lens' SendMessageBatchResultEntry (Prelude.Maybe Prelude.Text)
 sendMessageBatchResultEntry_sequenceNumber = Lens.lens (\SendMessageBatchResultEntry' {sequenceNumber} -> sequenceNumber) (\s@SendMessageBatchResultEntry' {} a -> s {sequenceNumber = a} :: SendMessageBatchResultEntry)
 
 -- | An MD5 digest of the non-URL-encoded message system attribute string.
@@ -134,7 +135,7 @@ sendMessageBatchResultEntry_sequenceNumber = Lens.lens (\SendMessageBatchResultE
 -- message correctly. Amazon SQS URL-decodes the message before creating
 -- the MD5 digest. For information about MD5, see
 -- <https://www.ietf.org/rfc/rfc1321.txt RFC1321>.
-sendMessageBatchResultEntry_mD5OfMessageSystemAttributes :: Lens.Lens' SendMessageBatchResultEntry (Core.Maybe Core.Text)
+sendMessageBatchResultEntry_mD5OfMessageSystemAttributes :: Lens.Lens' SendMessageBatchResultEntry (Prelude.Maybe Prelude.Text)
 sendMessageBatchResultEntry_mD5OfMessageSystemAttributes = Lens.lens (\SendMessageBatchResultEntry' {mD5OfMessageSystemAttributes} -> mD5OfMessageSystemAttributes) (\s@SendMessageBatchResultEntry' {} a -> s {mD5OfMessageSystemAttributes = a} :: SendMessageBatchResultEntry)
 
 -- | An MD5 digest of the non-URL-encoded message attribute string. You can
@@ -142,15 +143,15 @@ sendMessageBatchResultEntry_mD5OfMessageSystemAttributes = Lens.lens (\SendMessa
 -- correctly. Amazon SQS URL-decodes the message before creating the MD5
 -- digest. For information about MD5, see
 -- <https://www.ietf.org/rfc/rfc1321.txt RFC1321>.
-sendMessageBatchResultEntry_mD5OfMessageAttributes :: Lens.Lens' SendMessageBatchResultEntry (Core.Maybe Core.Text)
+sendMessageBatchResultEntry_mD5OfMessageAttributes :: Lens.Lens' SendMessageBatchResultEntry (Prelude.Maybe Prelude.Text)
 sendMessageBatchResultEntry_mD5OfMessageAttributes = Lens.lens (\SendMessageBatchResultEntry' {mD5OfMessageAttributes} -> mD5OfMessageAttributes) (\s@SendMessageBatchResultEntry' {} a -> s {mD5OfMessageAttributes = a} :: SendMessageBatchResultEntry)
 
 -- | An identifier for the message in this batch.
-sendMessageBatchResultEntry_id :: Lens.Lens' SendMessageBatchResultEntry Core.Text
+sendMessageBatchResultEntry_id :: Lens.Lens' SendMessageBatchResultEntry Prelude.Text
 sendMessageBatchResultEntry_id = Lens.lens (\SendMessageBatchResultEntry' {id} -> id) (\s@SendMessageBatchResultEntry' {} a -> s {id = a} :: SendMessageBatchResultEntry)
 
 -- | An identifier for the message.
-sendMessageBatchResultEntry_messageId :: Lens.Lens' SendMessageBatchResultEntry Core.Text
+sendMessageBatchResultEntry_messageId :: Lens.Lens' SendMessageBatchResultEntry Prelude.Text
 sendMessageBatchResultEntry_messageId = Lens.lens (\SendMessageBatchResultEntry' {messageId} -> messageId) (\s@SendMessageBatchResultEntry' {} a -> s {messageId = a} :: SendMessageBatchResultEntry)
 
 -- | An MD5 digest of the non-URL-encoded message attribute string. You can
@@ -158,19 +159,19 @@ sendMessageBatchResultEntry_messageId = Lens.lens (\SendMessageBatchResultEntry'
 -- correctly. Amazon SQS URL-decodes the message before creating the MD5
 -- digest. For information about MD5, see
 -- <https://www.ietf.org/rfc/rfc1321.txt RFC1321>.
-sendMessageBatchResultEntry_mD5OfMessageBody :: Lens.Lens' SendMessageBatchResultEntry Core.Text
+sendMessageBatchResultEntry_mD5OfMessageBody :: Lens.Lens' SendMessageBatchResultEntry Prelude.Text
 sendMessageBatchResultEntry_mD5OfMessageBody = Lens.lens (\SendMessageBatchResultEntry' {mD5OfMessageBody} -> mD5OfMessageBody) (\s@SendMessageBatchResultEntry' {} a -> s {mD5OfMessageBody = a} :: SendMessageBatchResultEntry)
 
 instance Core.FromXML SendMessageBatchResultEntry where
   parseXML x =
     SendMessageBatchResultEntry'
-      Core.<$> (x Core..@? "SequenceNumber")
-      Core.<*> (x Core..@? "MD5OfMessageSystemAttributes")
-      Core.<*> (x Core..@? "MD5OfMessageAttributes")
-      Core.<*> (x Core..@ "Id")
-      Core.<*> (x Core..@ "MessageId")
-      Core.<*> (x Core..@ "MD5OfMessageBody")
+      Prelude.<$> (x Core..@? "SequenceNumber")
+      Prelude.<*> (x Core..@? "MD5OfMessageSystemAttributes")
+      Prelude.<*> (x Core..@? "MD5OfMessageAttributes")
+      Prelude.<*> (x Core..@ "Id")
+      Prelude.<*> (x Core..@ "MessageId")
+      Prelude.<*> (x Core..@ "MD5OfMessageBody")
 
-instance Core.Hashable SendMessageBatchResultEntry
+instance Prelude.Hashable SendMessageBatchResultEntry
 
-instance Core.NFData SendMessageBatchResultEntry
+instance Prelude.NFData SendMessageBatchResultEntry

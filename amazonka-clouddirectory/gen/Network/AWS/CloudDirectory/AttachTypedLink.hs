@@ -48,6 +48,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,7 +56,7 @@ import qualified Network.AWS.Response as Response
 data AttachTypedLink = AttachTypedLink'
   { -- | The Amazon Resource Name (ARN) of the directory where you want to attach
     -- the typed link.
-    directoryArn :: Core.Text,
+    directoryArn :: Prelude.Text,
     -- | Identifies the source object that the typed link will attach to.
     sourceObjectReference :: ObjectReference,
     -- | Identifies the target object that the typed link will attach to.
@@ -65,7 +66,7 @@ data AttachTypedLink = AttachTypedLink'
     -- | A set of attributes that are associated with the typed link.
     attributes :: [AttributeNameAndValue]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachTypedLink' with all optional fields omitted.
@@ -87,7 +88,7 @@ data AttachTypedLink = AttachTypedLink'
 -- 'attributes', 'attachTypedLink_attributes' - A set of attributes that are associated with the typed link.
 newAttachTypedLink ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sourceObjectReference'
   ObjectReference ->
   -- | 'targetObjectReference'
@@ -105,12 +106,12 @@ newAttachTypedLink
         sourceObjectReference = pSourceObjectReference_,
         targetObjectReference = pTargetObjectReference_,
         typedLinkFacet = pTypedLinkFacet_,
-        attributes = Core.mempty
+        attributes = Prelude.mempty
       }
 
 -- | The Amazon Resource Name (ARN) of the directory where you want to attach
 -- the typed link.
-attachTypedLink_directoryArn :: Lens.Lens' AttachTypedLink Core.Text
+attachTypedLink_directoryArn :: Lens.Lens' AttachTypedLink Prelude.Text
 attachTypedLink_directoryArn = Lens.lens (\AttachTypedLink' {directoryArn} -> directoryArn) (\s@AttachTypedLink' {} a -> s {directoryArn = a} :: AttachTypedLink)
 
 -- | Identifies the source object that the typed link will attach to.
@@ -127,7 +128,7 @@ attachTypedLink_typedLinkFacet = Lens.lens (\AttachTypedLink' {typedLinkFacet} -
 
 -- | A set of attributes that are associated with the typed link.
 attachTypedLink_attributes :: Lens.Lens' AttachTypedLink [AttributeNameAndValue]
-attachTypedLink_attributes = Lens.lens (\AttachTypedLink' {attributes} -> attributes) (\s@AttachTypedLink' {} a -> s {attributes = a} :: AttachTypedLink) Core.. Lens._Coerce
+attachTypedLink_attributes = Lens.lens (\AttachTypedLink' {attributes} -> attributes) (\s@AttachTypedLink' {} a -> s {attributes = a} :: AttachTypedLink) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AttachTypedLink where
   type
@@ -138,52 +139,53 @@ instance Core.AWSRequest AttachTypedLink where
     Response.receiveJSON
       ( \s h x ->
           AttachTypedLinkResponse'
-            Core.<$> (x Core..?> "TypedLinkSpecifier")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "TypedLinkSpecifier")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AttachTypedLink
+instance Prelude.Hashable AttachTypedLink
 
-instance Core.NFData AttachTypedLink
+instance Prelude.NFData AttachTypedLink
 
 instance Core.ToHeaders AttachTypedLink where
   toHeaders AttachTypedLink' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# directoryArn]
 
 instance Core.ToJSON AttachTypedLink where
   toJSON AttachTypedLink' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "SourceObjectReference"
                   Core..= sourceObjectReference
               ),
-            Core.Just
+            Prelude.Just
               ( "TargetObjectReference"
                   Core..= targetObjectReference
               ),
-            Core.Just ("TypedLinkFacet" Core..= typedLinkFacet),
-            Core.Just ("Attributes" Core..= attributes)
+            Prelude.Just
+              ("TypedLinkFacet" Core..= typedLinkFacet),
+            Prelude.Just ("Attributes" Core..= attributes)
           ]
       )
 
 instance Core.ToPath AttachTypedLink where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/typedlink/attach"
 
 instance Core.ToQuery AttachTypedLink where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAttachTypedLinkResponse' smart constructor.
 data AttachTypedLinkResponse = AttachTypedLinkResponse'
   { -- | Returns a typed link specifier as output.
-    typedLinkSpecifier :: Core.Maybe TypedLinkSpecifier,
+    typedLinkSpecifier :: Prelude.Maybe TypedLinkSpecifier,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachTypedLinkResponse' with all optional fields omitted.
@@ -198,21 +200,21 @@ data AttachTypedLinkResponse = AttachTypedLinkResponse'
 -- 'httpStatus', 'attachTypedLinkResponse_httpStatus' - The response's http status code.
 newAttachTypedLinkResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AttachTypedLinkResponse
 newAttachTypedLinkResponse pHttpStatus_ =
   AttachTypedLinkResponse'
     { typedLinkSpecifier =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns a typed link specifier as output.
-attachTypedLinkResponse_typedLinkSpecifier :: Lens.Lens' AttachTypedLinkResponse (Core.Maybe TypedLinkSpecifier)
+attachTypedLinkResponse_typedLinkSpecifier :: Lens.Lens' AttachTypedLinkResponse (Prelude.Maybe TypedLinkSpecifier)
 attachTypedLinkResponse_typedLinkSpecifier = Lens.lens (\AttachTypedLinkResponse' {typedLinkSpecifier} -> typedLinkSpecifier) (\s@AttachTypedLinkResponse' {} a -> s {typedLinkSpecifier = a} :: AttachTypedLinkResponse)
 
 -- | The response's http status code.
-attachTypedLinkResponse_httpStatus :: Lens.Lens' AttachTypedLinkResponse Core.Int
+attachTypedLinkResponse_httpStatus :: Lens.Lens' AttachTypedLinkResponse Prelude.Int
 attachTypedLinkResponse_httpStatus = Lens.lens (\AttachTypedLinkResponse' {httpStatus} -> httpStatus) (\s@AttachTypedLinkResponse' {} a -> s {httpStatus = a} :: AttachTypedLinkResponse)
 
-instance Core.NFData AttachTypedLinkResponse
+instance Prelude.NFData AttachTypedLinkResponse

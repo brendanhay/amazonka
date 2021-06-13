@@ -48,21 +48,22 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListAuthorizers' smart constructor.
 data ListAuthorizers = ListAuthorizers'
   { -- | The status of the list authorizers request.
-    status :: Core.Maybe AuthorizerStatus,
+    status :: Prelude.Maybe AuthorizerStatus,
     -- | The maximum number of results to return at one time.
-    pageSize :: Core.Maybe Core.Natural,
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | Return the list of authorizers in ascending alphabetical order.
-    ascendingOrder :: Core.Maybe Core.Bool,
+    ascendingOrder :: Prelude.Maybe Prelude.Bool,
     -- | A marker used to get the next set of results.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAuthorizers' with all optional fields omitted.
@@ -83,47 +84,49 @@ newListAuthorizers ::
   ListAuthorizers
 newListAuthorizers =
   ListAuthorizers'
-    { status = Core.Nothing,
-      pageSize = Core.Nothing,
-      ascendingOrder = Core.Nothing,
-      marker = Core.Nothing
+    { status = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
+      ascendingOrder = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The status of the list authorizers request.
-listAuthorizers_status :: Lens.Lens' ListAuthorizers (Core.Maybe AuthorizerStatus)
+listAuthorizers_status :: Lens.Lens' ListAuthorizers (Prelude.Maybe AuthorizerStatus)
 listAuthorizers_status = Lens.lens (\ListAuthorizers' {status} -> status) (\s@ListAuthorizers' {} a -> s {status = a} :: ListAuthorizers)
 
 -- | The maximum number of results to return at one time.
-listAuthorizers_pageSize :: Lens.Lens' ListAuthorizers (Core.Maybe Core.Natural)
+listAuthorizers_pageSize :: Lens.Lens' ListAuthorizers (Prelude.Maybe Prelude.Natural)
 listAuthorizers_pageSize = Lens.lens (\ListAuthorizers' {pageSize} -> pageSize) (\s@ListAuthorizers' {} a -> s {pageSize = a} :: ListAuthorizers)
 
 -- | Return the list of authorizers in ascending alphabetical order.
-listAuthorizers_ascendingOrder :: Lens.Lens' ListAuthorizers (Core.Maybe Core.Bool)
+listAuthorizers_ascendingOrder :: Lens.Lens' ListAuthorizers (Prelude.Maybe Prelude.Bool)
 listAuthorizers_ascendingOrder = Lens.lens (\ListAuthorizers' {ascendingOrder} -> ascendingOrder) (\s@ListAuthorizers' {} a -> s {ascendingOrder = a} :: ListAuthorizers)
 
 -- | A marker used to get the next set of results.
-listAuthorizers_marker :: Lens.Lens' ListAuthorizers (Core.Maybe Core.Text)
+listAuthorizers_marker :: Lens.Lens' ListAuthorizers (Prelude.Maybe Prelude.Text)
 listAuthorizers_marker = Lens.lens (\ListAuthorizers' {marker} -> marker) (\s@ListAuthorizers' {} a -> s {marker = a} :: ListAuthorizers)
 
 instance Core.AWSPager ListAuthorizers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listAuthorizersResponse_nextMarker Core.. Lens._Just
+            Lens.^? listAuthorizersResponse_nextMarker
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAuthorizersResponse_authorizers
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listAuthorizers_marker
+          Prelude.& listAuthorizers_marker
           Lens..~ rs
-          Lens.^? listAuthorizersResponse_nextMarker Core.. Lens._Just
+          Lens.^? listAuthorizersResponse_nextMarker
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAuthorizers where
   type
@@ -134,24 +137,24 @@ instance Core.AWSRequest ListAuthorizers where
     Response.receiveJSON
       ( \s h x ->
           ListAuthorizersResponse'
-            Core.<$> (x Core..?> "nextMarker")
-            Core.<*> (x Core..?> "authorizers" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextMarker")
+            Prelude.<*> (x Core..?> "authorizers" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListAuthorizers
+instance Prelude.Hashable ListAuthorizers
 
-instance Core.NFData ListAuthorizers
+instance Prelude.NFData ListAuthorizers
 
 instance Core.ToHeaders ListAuthorizers where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListAuthorizers where
-  toPath = Core.const "/authorizers/"
+  toPath = Prelude.const "/authorizers/"
 
 instance Core.ToQuery ListAuthorizers where
   toQuery ListAuthorizers' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "status" Core.=: status,
         "pageSize" Core.=: pageSize,
         "isAscendingOrder" Core.=: ascendingOrder,
@@ -161,13 +164,13 @@ instance Core.ToQuery ListAuthorizers where
 -- | /See:/ 'newListAuthorizersResponse' smart constructor.
 data ListAuthorizersResponse = ListAuthorizersResponse'
   { -- | A marker used to get the next set of results.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The authorizers.
-    authorizers :: Core.Maybe [AuthorizerSummary],
+    authorizers :: Prelude.Maybe [AuthorizerSummary],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListAuthorizersResponse' with all optional fields omitted.
@@ -184,25 +187,26 @@ data ListAuthorizersResponse = ListAuthorizersResponse'
 -- 'httpStatus', 'listAuthorizersResponse_httpStatus' - The response's http status code.
 newListAuthorizersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListAuthorizersResponse
 newListAuthorizersResponse pHttpStatus_ =
   ListAuthorizersResponse'
-    { nextMarker = Core.Nothing,
-      authorizers = Core.Nothing,
+    { nextMarker =
+        Prelude.Nothing,
+      authorizers = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A marker used to get the next set of results.
-listAuthorizersResponse_nextMarker :: Lens.Lens' ListAuthorizersResponse (Core.Maybe Core.Text)
+listAuthorizersResponse_nextMarker :: Lens.Lens' ListAuthorizersResponse (Prelude.Maybe Prelude.Text)
 listAuthorizersResponse_nextMarker = Lens.lens (\ListAuthorizersResponse' {nextMarker} -> nextMarker) (\s@ListAuthorizersResponse' {} a -> s {nextMarker = a} :: ListAuthorizersResponse)
 
 -- | The authorizers.
-listAuthorizersResponse_authorizers :: Lens.Lens' ListAuthorizersResponse (Core.Maybe [AuthorizerSummary])
-listAuthorizersResponse_authorizers = Lens.lens (\ListAuthorizersResponse' {authorizers} -> authorizers) (\s@ListAuthorizersResponse' {} a -> s {authorizers = a} :: ListAuthorizersResponse) Core.. Lens.mapping Lens._Coerce
+listAuthorizersResponse_authorizers :: Lens.Lens' ListAuthorizersResponse (Prelude.Maybe [AuthorizerSummary])
+listAuthorizersResponse_authorizers = Lens.lens (\ListAuthorizersResponse' {authorizers} -> authorizers) (\s@ListAuthorizersResponse' {} a -> s {authorizers = a} :: ListAuthorizersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAuthorizersResponse_httpStatus :: Lens.Lens' ListAuthorizersResponse Core.Int
+listAuthorizersResponse_httpStatus :: Lens.Lens' ListAuthorizersResponse Prelude.Int
 listAuthorizersResponse_httpStatus = Lens.lens (\ListAuthorizersResponse' {httpStatus} -> httpStatus) (\s@ListAuthorizersResponse' {} a -> s {httpStatus = a} :: ListAuthorizersResponse)
 
-instance Core.NFData ListAuthorizersResponse
+instance Prelude.NFData ListAuthorizersResponse

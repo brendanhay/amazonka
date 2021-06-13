@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -54,9 +55,9 @@ import Network.AWS.Route53.Types
 data GetQueryLoggingConfig = GetQueryLoggingConfig'
   { -- | The ID of the configuration for DNS query logging that you want to get
     -- information about.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetQueryLoggingConfig' with all optional fields omitted.
@@ -70,14 +71,14 @@ data GetQueryLoggingConfig = GetQueryLoggingConfig'
 -- information about.
 newGetQueryLoggingConfig ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   GetQueryLoggingConfig
 newGetQueryLoggingConfig pId_ =
   GetQueryLoggingConfig' {id = pId_}
 
 -- | The ID of the configuration for DNS query logging that you want to get
 -- information about.
-getQueryLoggingConfig_id :: Lens.Lens' GetQueryLoggingConfig Core.Text
+getQueryLoggingConfig_id :: Lens.Lens' GetQueryLoggingConfig Prelude.Text
 getQueryLoggingConfig_id = Lens.lens (\GetQueryLoggingConfig' {id} -> id) (\s@GetQueryLoggingConfig' {} a -> s {id = a} :: GetQueryLoggingConfig)
 
 instance Core.AWSRequest GetQueryLoggingConfig where
@@ -89,36 +90,36 @@ instance Core.AWSRequest GetQueryLoggingConfig where
     Response.receiveXML
       ( \s h x ->
           GetQueryLoggingConfigResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "QueryLoggingConfig")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "QueryLoggingConfig")
       )
 
-instance Core.Hashable GetQueryLoggingConfig
+instance Prelude.Hashable GetQueryLoggingConfig
 
-instance Core.NFData GetQueryLoggingConfig
+instance Prelude.NFData GetQueryLoggingConfig
 
 instance Core.ToHeaders GetQueryLoggingConfig where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetQueryLoggingConfig where
   toPath GetQueryLoggingConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2013-04-01/queryloggingconfig/", Core.toBS id]
 
 instance Core.ToQuery GetQueryLoggingConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetQueryLoggingConfigResponse' smart constructor.
 data GetQueryLoggingConfigResponse = GetQueryLoggingConfigResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A complex type that contains information about the query logging
     -- configuration that you specified in a
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetQueryLoggingConfig.html GetQueryLoggingConfig>
     -- request.
     queryLoggingConfig :: QueryLoggingConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetQueryLoggingConfigResponse' with all optional fields omitted.
@@ -136,7 +137,7 @@ data GetQueryLoggingConfigResponse = GetQueryLoggingConfigResponse'
 -- request.
 newGetQueryLoggingConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'queryLoggingConfig'
   QueryLoggingConfig ->
   GetQueryLoggingConfigResponse
@@ -150,7 +151,7 @@ newGetQueryLoggingConfigResponse
       }
 
 -- | The response's http status code.
-getQueryLoggingConfigResponse_httpStatus :: Lens.Lens' GetQueryLoggingConfigResponse Core.Int
+getQueryLoggingConfigResponse_httpStatus :: Lens.Lens' GetQueryLoggingConfigResponse Prelude.Int
 getQueryLoggingConfigResponse_httpStatus = Lens.lens (\GetQueryLoggingConfigResponse' {httpStatus} -> httpStatus) (\s@GetQueryLoggingConfigResponse' {} a -> s {httpStatus = a} :: GetQueryLoggingConfigResponse)
 
 -- | A complex type that contains information about the query logging
@@ -160,4 +161,4 @@ getQueryLoggingConfigResponse_httpStatus = Lens.lens (\GetQueryLoggingConfigResp
 getQueryLoggingConfigResponse_queryLoggingConfig :: Lens.Lens' GetQueryLoggingConfigResponse QueryLoggingConfig
 getQueryLoggingConfigResponse_queryLoggingConfig = Lens.lens (\GetQueryLoggingConfigResponse' {queryLoggingConfig} -> queryLoggingConfig) (\s@GetQueryLoggingConfigResponse' {} a -> s {queryLoggingConfig = a} :: GetQueryLoggingConfigResponse)
 
-instance Core.NFData GetQueryLoggingConfigResponse
+instance Prelude.NFData GetQueryLoggingConfigResponse

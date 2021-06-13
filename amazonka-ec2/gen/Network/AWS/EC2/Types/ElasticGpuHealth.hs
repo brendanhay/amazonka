@@ -23,15 +23,16 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ElasticGpuStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the status of an Elastic Graphics accelerator.
 --
 -- /See:/ 'newElasticGpuHealth' smart constructor.
 data ElasticGpuHealth = ElasticGpuHealth'
   { -- | The health status.
-    status :: Core.Maybe ElasticGpuStatus
+    status :: Prelude.Maybe ElasticGpuStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ElasticGpuHealth' with all optional fields omitted.
@@ -45,16 +46,16 @@ data ElasticGpuHealth = ElasticGpuHealth'
 newElasticGpuHealth ::
   ElasticGpuHealth
 newElasticGpuHealth =
-  ElasticGpuHealth' {status = Core.Nothing}
+  ElasticGpuHealth' {status = Prelude.Nothing}
 
 -- | The health status.
-elasticGpuHealth_status :: Lens.Lens' ElasticGpuHealth (Core.Maybe ElasticGpuStatus)
+elasticGpuHealth_status :: Lens.Lens' ElasticGpuHealth (Prelude.Maybe ElasticGpuStatus)
 elasticGpuHealth_status = Lens.lens (\ElasticGpuHealth' {status} -> status) (\s@ElasticGpuHealth' {} a -> s {status = a} :: ElasticGpuHealth)
 
 instance Core.FromXML ElasticGpuHealth where
   parseXML x =
-    ElasticGpuHealth' Core.<$> (x Core..@? "status")
+    ElasticGpuHealth' Prelude.<$> (x Core..@? "status")
 
-instance Core.Hashable ElasticGpuHealth
+instance Prelude.Hashable ElasticGpuHealth
 
-instance Core.NFData ElasticGpuHealth
+instance Prelude.NFData ElasticGpuHealth

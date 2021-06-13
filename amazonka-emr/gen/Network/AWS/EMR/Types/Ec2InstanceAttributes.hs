@@ -21,6 +21,7 @@ module Network.AWS.EMR.Types.Ec2InstanceAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the EC2 instances in a cluster grouped by
 -- category. For example, key name, subnet ID, IAM instance profile, and so
@@ -30,15 +31,15 @@ import qualified Network.AWS.Lens as Lens
 data Ec2InstanceAttributes = Ec2InstanceAttributes'
   { -- | The name of the Amazon EC2 key pair to use when connecting with SSH into
     -- the master node as a user named \"hadoop\".
-    ec2KeyName :: Core.Maybe Core.Text,
+    ec2KeyName :: Prelude.Maybe Prelude.Text,
     -- | A list of additional Amazon EC2 security group IDs for the core and task
     -- nodes.
-    additionalSlaveSecurityGroups :: Core.Maybe [Core.Text],
+    additionalSlaveSecurityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The Availability Zone in which the cluster will run.
-    ec2AvailabilityZone :: Core.Maybe Core.Text,
+    ec2AvailabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon EC2 security group for the core and task
     -- nodes.
-    emrManagedSlaveSecurityGroup :: Core.Maybe Core.Text,
+    emrManagedSlaveSecurityGroup :: Prelude.Maybe Prelude.Text,
     -- | Applies to clusters configured with the instance fleets option.
     -- Specifies one or more Availability Zones in which to launch EC2 cluster
     -- instances when the EC2-Classic network configuration is supported.
@@ -48,18 +49,18 @@ data Ec2InstanceAttributes = Ec2InstanceAttributes'
     -- this value, Amazon EMR chooses the Availability Zone for you.
     -- @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot be
     -- specified together.
-    requestedEc2AvailabilityZones :: Core.Maybe [Core.Text],
+    requestedEc2AvailabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | Set this parameter to the identifier of the Amazon VPC subnet where you
     -- want the cluster to launch. If you do not specify this value, and your
     -- account supports EC2-Classic, the cluster launches in EC2-Classic.
-    ec2SubnetId :: Core.Maybe Core.Text,
+    ec2SubnetId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon EC2 security group for the master node.
-    emrManagedMasterSecurityGroup :: Core.Maybe Core.Text,
+    emrManagedMasterSecurityGroup :: Prelude.Maybe Prelude.Text,
     -- | The IAM role that was specified when the cluster was launched. The EC2
     -- instances of the cluster assume this role.
-    iamInstanceProfile :: Core.Maybe Core.Text,
+    iamInstanceProfile :: Prelude.Maybe Prelude.Text,
     -- | A list of additional Amazon EC2 security group IDs for the master node.
-    additionalMasterSecurityGroups :: Core.Maybe [Core.Text],
+    additionalMasterSecurityGroups :: Prelude.Maybe [Prelude.Text],
     -- | Applies to clusters configured with the instance fleets option.
     -- Specifies the unique identifier of one or more Amazon EC2 subnets in
     -- which to launch EC2 cluster instances. Subnets must exist within the
@@ -72,12 +73,12 @@ data Ec2InstanceAttributes = Ec2InstanceAttributes'
     -- is not supported, and no Subnet is specified, Amazon EMR chooses the
     -- subnet for you. @RequestedEc2SubnetIDs@ and
     -- @RequestedEc2AvailabilityZones@ cannot be specified together.
-    requestedEc2SubnetIds :: Core.Maybe [Core.Text],
+    requestedEc2SubnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the Amazon EC2 security group for the Amazon EMR
     -- service to access clusters in VPC private subnets.
-    serviceAccessSecurityGroup :: Core.Maybe Core.Text
+    serviceAccessSecurityGroup :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Ec2InstanceAttributes' with all optional fields omitted.
@@ -138,36 +139,37 @@ newEc2InstanceAttributes ::
   Ec2InstanceAttributes
 newEc2InstanceAttributes =
   Ec2InstanceAttributes'
-    { ec2KeyName = Core.Nothing,
-      additionalSlaveSecurityGroups = Core.Nothing,
-      ec2AvailabilityZone = Core.Nothing,
-      emrManagedSlaveSecurityGroup = Core.Nothing,
-      requestedEc2AvailabilityZones = Core.Nothing,
-      ec2SubnetId = Core.Nothing,
-      emrManagedMasterSecurityGroup = Core.Nothing,
-      iamInstanceProfile = Core.Nothing,
-      additionalMasterSecurityGroups = Core.Nothing,
-      requestedEc2SubnetIds = Core.Nothing,
-      serviceAccessSecurityGroup = Core.Nothing
+    { ec2KeyName =
+        Prelude.Nothing,
+      additionalSlaveSecurityGroups = Prelude.Nothing,
+      ec2AvailabilityZone = Prelude.Nothing,
+      emrManagedSlaveSecurityGroup = Prelude.Nothing,
+      requestedEc2AvailabilityZones = Prelude.Nothing,
+      ec2SubnetId = Prelude.Nothing,
+      emrManagedMasterSecurityGroup = Prelude.Nothing,
+      iamInstanceProfile = Prelude.Nothing,
+      additionalMasterSecurityGroups = Prelude.Nothing,
+      requestedEc2SubnetIds = Prelude.Nothing,
+      serviceAccessSecurityGroup = Prelude.Nothing
     }
 
 -- | The name of the Amazon EC2 key pair to use when connecting with SSH into
 -- the master node as a user named \"hadoop\".
-ec2InstanceAttributes_ec2KeyName :: Lens.Lens' Ec2InstanceAttributes (Core.Maybe Core.Text)
+ec2InstanceAttributes_ec2KeyName :: Lens.Lens' Ec2InstanceAttributes (Prelude.Maybe Prelude.Text)
 ec2InstanceAttributes_ec2KeyName = Lens.lens (\Ec2InstanceAttributes' {ec2KeyName} -> ec2KeyName) (\s@Ec2InstanceAttributes' {} a -> s {ec2KeyName = a} :: Ec2InstanceAttributes)
 
 -- | A list of additional Amazon EC2 security group IDs for the core and task
 -- nodes.
-ec2InstanceAttributes_additionalSlaveSecurityGroups :: Lens.Lens' Ec2InstanceAttributes (Core.Maybe [Core.Text])
-ec2InstanceAttributes_additionalSlaveSecurityGroups = Lens.lens (\Ec2InstanceAttributes' {additionalSlaveSecurityGroups} -> additionalSlaveSecurityGroups) (\s@Ec2InstanceAttributes' {} a -> s {additionalSlaveSecurityGroups = a} :: Ec2InstanceAttributes) Core.. Lens.mapping Lens._Coerce
+ec2InstanceAttributes_additionalSlaveSecurityGroups :: Lens.Lens' Ec2InstanceAttributes (Prelude.Maybe [Prelude.Text])
+ec2InstanceAttributes_additionalSlaveSecurityGroups = Lens.lens (\Ec2InstanceAttributes' {additionalSlaveSecurityGroups} -> additionalSlaveSecurityGroups) (\s@Ec2InstanceAttributes' {} a -> s {additionalSlaveSecurityGroups = a} :: Ec2InstanceAttributes) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Availability Zone in which the cluster will run.
-ec2InstanceAttributes_ec2AvailabilityZone :: Lens.Lens' Ec2InstanceAttributes (Core.Maybe Core.Text)
+ec2InstanceAttributes_ec2AvailabilityZone :: Lens.Lens' Ec2InstanceAttributes (Prelude.Maybe Prelude.Text)
 ec2InstanceAttributes_ec2AvailabilityZone = Lens.lens (\Ec2InstanceAttributes' {ec2AvailabilityZone} -> ec2AvailabilityZone) (\s@Ec2InstanceAttributes' {} a -> s {ec2AvailabilityZone = a} :: Ec2InstanceAttributes)
 
 -- | The identifier of the Amazon EC2 security group for the core and task
 -- nodes.
-ec2InstanceAttributes_emrManagedSlaveSecurityGroup :: Lens.Lens' Ec2InstanceAttributes (Core.Maybe Core.Text)
+ec2InstanceAttributes_emrManagedSlaveSecurityGroup :: Lens.Lens' Ec2InstanceAttributes (Prelude.Maybe Prelude.Text)
 ec2InstanceAttributes_emrManagedSlaveSecurityGroup = Lens.lens (\Ec2InstanceAttributes' {emrManagedSlaveSecurityGroup} -> emrManagedSlaveSecurityGroup) (\s@Ec2InstanceAttributes' {} a -> s {emrManagedSlaveSecurityGroup = a} :: Ec2InstanceAttributes)
 
 -- | Applies to clusters configured with the instance fleets option.
@@ -179,27 +181,27 @@ ec2InstanceAttributes_emrManagedSlaveSecurityGroup = Lens.lens (\Ec2InstanceAttr
 -- this value, Amazon EMR chooses the Availability Zone for you.
 -- @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot be
 -- specified together.
-ec2InstanceAttributes_requestedEc2AvailabilityZones :: Lens.Lens' Ec2InstanceAttributes (Core.Maybe [Core.Text])
-ec2InstanceAttributes_requestedEc2AvailabilityZones = Lens.lens (\Ec2InstanceAttributes' {requestedEc2AvailabilityZones} -> requestedEc2AvailabilityZones) (\s@Ec2InstanceAttributes' {} a -> s {requestedEc2AvailabilityZones = a} :: Ec2InstanceAttributes) Core.. Lens.mapping Lens._Coerce
+ec2InstanceAttributes_requestedEc2AvailabilityZones :: Lens.Lens' Ec2InstanceAttributes (Prelude.Maybe [Prelude.Text])
+ec2InstanceAttributes_requestedEc2AvailabilityZones = Lens.lens (\Ec2InstanceAttributes' {requestedEc2AvailabilityZones} -> requestedEc2AvailabilityZones) (\s@Ec2InstanceAttributes' {} a -> s {requestedEc2AvailabilityZones = a} :: Ec2InstanceAttributes) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Set this parameter to the identifier of the Amazon VPC subnet where you
 -- want the cluster to launch. If you do not specify this value, and your
 -- account supports EC2-Classic, the cluster launches in EC2-Classic.
-ec2InstanceAttributes_ec2SubnetId :: Lens.Lens' Ec2InstanceAttributes (Core.Maybe Core.Text)
+ec2InstanceAttributes_ec2SubnetId :: Lens.Lens' Ec2InstanceAttributes (Prelude.Maybe Prelude.Text)
 ec2InstanceAttributes_ec2SubnetId = Lens.lens (\Ec2InstanceAttributes' {ec2SubnetId} -> ec2SubnetId) (\s@Ec2InstanceAttributes' {} a -> s {ec2SubnetId = a} :: Ec2InstanceAttributes)
 
 -- | The identifier of the Amazon EC2 security group for the master node.
-ec2InstanceAttributes_emrManagedMasterSecurityGroup :: Lens.Lens' Ec2InstanceAttributes (Core.Maybe Core.Text)
+ec2InstanceAttributes_emrManagedMasterSecurityGroup :: Lens.Lens' Ec2InstanceAttributes (Prelude.Maybe Prelude.Text)
 ec2InstanceAttributes_emrManagedMasterSecurityGroup = Lens.lens (\Ec2InstanceAttributes' {emrManagedMasterSecurityGroup} -> emrManagedMasterSecurityGroup) (\s@Ec2InstanceAttributes' {} a -> s {emrManagedMasterSecurityGroup = a} :: Ec2InstanceAttributes)
 
 -- | The IAM role that was specified when the cluster was launched. The EC2
 -- instances of the cluster assume this role.
-ec2InstanceAttributes_iamInstanceProfile :: Lens.Lens' Ec2InstanceAttributes (Core.Maybe Core.Text)
+ec2InstanceAttributes_iamInstanceProfile :: Lens.Lens' Ec2InstanceAttributes (Prelude.Maybe Prelude.Text)
 ec2InstanceAttributes_iamInstanceProfile = Lens.lens (\Ec2InstanceAttributes' {iamInstanceProfile} -> iamInstanceProfile) (\s@Ec2InstanceAttributes' {} a -> s {iamInstanceProfile = a} :: Ec2InstanceAttributes)
 
 -- | A list of additional Amazon EC2 security group IDs for the master node.
-ec2InstanceAttributes_additionalMasterSecurityGroups :: Lens.Lens' Ec2InstanceAttributes (Core.Maybe [Core.Text])
-ec2InstanceAttributes_additionalMasterSecurityGroups = Lens.lens (\Ec2InstanceAttributes' {additionalMasterSecurityGroups} -> additionalMasterSecurityGroups) (\s@Ec2InstanceAttributes' {} a -> s {additionalMasterSecurityGroups = a} :: Ec2InstanceAttributes) Core.. Lens.mapping Lens._Coerce
+ec2InstanceAttributes_additionalMasterSecurityGroups :: Lens.Lens' Ec2InstanceAttributes (Prelude.Maybe [Prelude.Text])
+ec2InstanceAttributes_additionalMasterSecurityGroups = Lens.lens (\Ec2InstanceAttributes' {additionalMasterSecurityGroups} -> additionalMasterSecurityGroups) (\s@Ec2InstanceAttributes' {} a -> s {additionalMasterSecurityGroups = a} :: Ec2InstanceAttributes) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Applies to clusters configured with the instance fleets option.
 -- Specifies the unique identifier of one or more Amazon EC2 subnets in
@@ -213,12 +215,12 @@ ec2InstanceAttributes_additionalMasterSecurityGroups = Lens.lens (\Ec2InstanceAt
 -- is not supported, and no Subnet is specified, Amazon EMR chooses the
 -- subnet for you. @RequestedEc2SubnetIDs@ and
 -- @RequestedEc2AvailabilityZones@ cannot be specified together.
-ec2InstanceAttributes_requestedEc2SubnetIds :: Lens.Lens' Ec2InstanceAttributes (Core.Maybe [Core.Text])
-ec2InstanceAttributes_requestedEc2SubnetIds = Lens.lens (\Ec2InstanceAttributes' {requestedEc2SubnetIds} -> requestedEc2SubnetIds) (\s@Ec2InstanceAttributes' {} a -> s {requestedEc2SubnetIds = a} :: Ec2InstanceAttributes) Core.. Lens.mapping Lens._Coerce
+ec2InstanceAttributes_requestedEc2SubnetIds :: Lens.Lens' Ec2InstanceAttributes (Prelude.Maybe [Prelude.Text])
+ec2InstanceAttributes_requestedEc2SubnetIds = Lens.lens (\Ec2InstanceAttributes' {requestedEc2SubnetIds} -> requestedEc2SubnetIds) (\s@Ec2InstanceAttributes' {} a -> s {requestedEc2SubnetIds = a} :: Ec2InstanceAttributes) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the Amazon EC2 security group for the Amazon EMR
 -- service to access clusters in VPC private subnets.
-ec2InstanceAttributes_serviceAccessSecurityGroup :: Lens.Lens' Ec2InstanceAttributes (Core.Maybe Core.Text)
+ec2InstanceAttributes_serviceAccessSecurityGroup :: Lens.Lens' Ec2InstanceAttributes (Prelude.Maybe Prelude.Text)
 ec2InstanceAttributes_serviceAccessSecurityGroup = Lens.lens (\Ec2InstanceAttributes' {serviceAccessSecurityGroup} -> serviceAccessSecurityGroup) (\s@Ec2InstanceAttributes' {} a -> s {serviceAccessSecurityGroup = a} :: Ec2InstanceAttributes)
 
 instance Core.FromJSON Ec2InstanceAttributes where
@@ -227,27 +229,27 @@ instance Core.FromJSON Ec2InstanceAttributes where
       "Ec2InstanceAttributes"
       ( \x ->
           Ec2InstanceAttributes'
-            Core.<$> (x Core..:? "Ec2KeyName")
-            Core.<*> ( x Core..:? "AdditionalSlaveSecurityGroups"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "Ec2AvailabilityZone")
-            Core.<*> (x Core..:? "EmrManagedSlaveSecurityGroup")
-            Core.<*> ( x Core..:? "RequestedEc2AvailabilityZones"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "Ec2SubnetId")
-            Core.<*> (x Core..:? "EmrManagedMasterSecurityGroup")
-            Core.<*> (x Core..:? "IamInstanceProfile")
-            Core.<*> ( x Core..:? "AdditionalMasterSecurityGroups"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> ( x Core..:? "RequestedEc2SubnetIds"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "ServiceAccessSecurityGroup")
+            Prelude.<$> (x Core..:? "Ec2KeyName")
+            Prelude.<*> ( x Core..:? "AdditionalSlaveSecurityGroups"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "Ec2AvailabilityZone")
+            Prelude.<*> (x Core..:? "EmrManagedSlaveSecurityGroup")
+            Prelude.<*> ( x Core..:? "RequestedEc2AvailabilityZones"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "Ec2SubnetId")
+            Prelude.<*> (x Core..:? "EmrManagedMasterSecurityGroup")
+            Prelude.<*> (x Core..:? "IamInstanceProfile")
+            Prelude.<*> ( x Core..:? "AdditionalMasterSecurityGroups"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "RequestedEc2SubnetIds"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "ServiceAccessSecurityGroup")
       )
 
-instance Core.Hashable Ec2InstanceAttributes
+instance Prelude.Hashable Ec2InstanceAttributes
 
-instance Core.NFData Ec2InstanceAttributes
+instance Prelude.NFData Ec2InstanceAttributes

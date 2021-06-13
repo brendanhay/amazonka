@@ -51,13 +51,14 @@ where
 import Network.AWS.CodePipeline.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutWebhook' smart constructor.
 data PutWebhook = PutWebhook'
   { -- | The tags for the webhook.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The detail provided in an input file to create the webhook, such as the
     -- webhook name, the pipeline name, and the action name. Give the webhook a
     -- unique name that helps you identify it. You might name the webhook after
@@ -65,7 +66,7 @@ data PutWebhook = PutWebhook'
     -- it\'s used for later.
     webhook :: WebhookDefinition
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutWebhook' with all optional fields omitted.
@@ -88,13 +89,13 @@ newPutWebhook ::
   PutWebhook
 newPutWebhook pWebhook_ =
   PutWebhook'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       webhook = pWebhook_
     }
 
 -- | The tags for the webhook.
-putWebhook_tags :: Lens.Lens' PutWebhook (Core.Maybe [Tag])
-putWebhook_tags = Lens.lens (\PutWebhook' {tags} -> tags) (\s@PutWebhook' {} a -> s {tags = a} :: PutWebhook) Core.. Lens.mapping Lens._Coerce
+putWebhook_tags :: Lens.Lens' PutWebhook (Prelude.Maybe [Tag])
+putWebhook_tags = Lens.lens (\PutWebhook' {tags} -> tags) (\s@PutWebhook' {} a -> s {tags = a} :: PutWebhook) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The detail provided in an input file to create the webhook, such as the
 -- webhook name, the pipeline name, and the action name. Give the webhook a
@@ -111,51 +112,53 @@ instance Core.AWSRequest PutWebhook where
     Response.receiveJSON
       ( \s h x ->
           PutWebhookResponse'
-            Core.<$> (x Core..?> "webhook")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "webhook")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutWebhook
+instance Prelude.Hashable PutWebhook
 
-instance Core.NFData PutWebhook
+instance Prelude.NFData PutWebhook
 
 instance Core.ToHeaders PutWebhook where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodePipeline_20150709.PutWebhook" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutWebhook where
   toJSON PutWebhook' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("tags" Core..=) Core.<$> tags,
-            Core.Just ("webhook" Core..= webhook)
+      ( Prelude.catMaybes
+          [ ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("webhook" Core..= webhook)
           ]
       )
 
 instance Core.ToPath PutWebhook where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutWebhook where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutWebhookResponse' smart constructor.
 data PutWebhookResponse = PutWebhookResponse'
   { -- | The detail returned from creating the webhook, such as the webhook name,
     -- webhook URL, and webhook ARN.
-    webhook :: Core.Maybe ListWebhookItem,
+    webhook :: Prelude.Maybe ListWebhookItem,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutWebhookResponse' with all optional fields omitted.
@@ -171,21 +174,21 @@ data PutWebhookResponse = PutWebhookResponse'
 -- 'httpStatus', 'putWebhookResponse_httpStatus' - The response's http status code.
 newPutWebhookResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutWebhookResponse
 newPutWebhookResponse pHttpStatus_ =
   PutWebhookResponse'
-    { webhook = Core.Nothing,
+    { webhook = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The detail returned from creating the webhook, such as the webhook name,
 -- webhook URL, and webhook ARN.
-putWebhookResponse_webhook :: Lens.Lens' PutWebhookResponse (Core.Maybe ListWebhookItem)
+putWebhookResponse_webhook :: Lens.Lens' PutWebhookResponse (Prelude.Maybe ListWebhookItem)
 putWebhookResponse_webhook = Lens.lens (\PutWebhookResponse' {webhook} -> webhook) (\s@PutWebhookResponse' {} a -> s {webhook = a} :: PutWebhookResponse)
 
 -- | The response's http status code.
-putWebhookResponse_httpStatus :: Lens.Lens' PutWebhookResponse Core.Int
+putWebhookResponse_httpStatus :: Lens.Lens' PutWebhookResponse Prelude.Int
 putWebhookResponse_httpStatus = Lens.lens (\PutWebhookResponse' {httpStatus} -> httpStatus) (\s@PutWebhookResponse' {} a -> s {httpStatus = a} :: PutWebhookResponse)
 
-instance Core.NFData PutWebhookResponse
+instance Prelude.NFData PutWebhookResponse

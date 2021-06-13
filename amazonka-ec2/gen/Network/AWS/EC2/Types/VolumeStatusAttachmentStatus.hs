@@ -22,17 +22,18 @@ module Network.AWS.EC2.Types.VolumeStatusAttachmentStatus where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the instances to which the volume is attached.
 --
 -- /See:/ 'newVolumeStatusAttachmentStatus' smart constructor.
 data VolumeStatusAttachmentStatus = VolumeStatusAttachmentStatus'
   { -- | The ID of the attached instance.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The maximum IOPS supported by the attached instance.
-    ioPerformance :: Core.Maybe Core.Text
+    ioPerformance :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VolumeStatusAttachmentStatus' with all optional fields omitted.
@@ -50,24 +51,26 @@ newVolumeStatusAttachmentStatus ::
 newVolumeStatusAttachmentStatus =
   VolumeStatusAttachmentStatus'
     { instanceId =
-        Core.Nothing,
-      ioPerformance = Core.Nothing
+        Prelude.Nothing,
+      ioPerformance = Prelude.Nothing
     }
 
 -- | The ID of the attached instance.
-volumeStatusAttachmentStatus_instanceId :: Lens.Lens' VolumeStatusAttachmentStatus (Core.Maybe Core.Text)
+volumeStatusAttachmentStatus_instanceId :: Lens.Lens' VolumeStatusAttachmentStatus (Prelude.Maybe Prelude.Text)
 volumeStatusAttachmentStatus_instanceId = Lens.lens (\VolumeStatusAttachmentStatus' {instanceId} -> instanceId) (\s@VolumeStatusAttachmentStatus' {} a -> s {instanceId = a} :: VolumeStatusAttachmentStatus)
 
 -- | The maximum IOPS supported by the attached instance.
-volumeStatusAttachmentStatus_ioPerformance :: Lens.Lens' VolumeStatusAttachmentStatus (Core.Maybe Core.Text)
+volumeStatusAttachmentStatus_ioPerformance :: Lens.Lens' VolumeStatusAttachmentStatus (Prelude.Maybe Prelude.Text)
 volumeStatusAttachmentStatus_ioPerformance = Lens.lens (\VolumeStatusAttachmentStatus' {ioPerformance} -> ioPerformance) (\s@VolumeStatusAttachmentStatus' {} a -> s {ioPerformance = a} :: VolumeStatusAttachmentStatus)
 
 instance Core.FromXML VolumeStatusAttachmentStatus where
   parseXML x =
     VolumeStatusAttachmentStatus'
-      Core.<$> (x Core..@? "instanceId")
-      Core.<*> (x Core..@? "ioPerformance")
+      Prelude.<$> (x Core..@? "instanceId")
+      Prelude.<*> (x Core..@? "ioPerformance")
 
-instance Core.Hashable VolumeStatusAttachmentStatus
+instance
+  Prelude.Hashable
+    VolumeStatusAttachmentStatus
 
-instance Core.NFData VolumeStatusAttachmentStatus
+instance Prelude.NFData VolumeStatusAttachmentStatus

@@ -47,6 +47,7 @@ where
 import Network.AWS.Comprehend.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +55,9 @@ import qualified Network.AWS.Response as Response
 data StopTrainingDocumentClassifier = StopTrainingDocumentClassifier'
   { -- | The Amazon Resource Name (ARN) that identifies the document classifier
     -- currently being trained.
-    documentClassifierArn :: Core.Text
+    documentClassifierArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopTrainingDocumentClassifier' with all optional fields omitted.
@@ -70,7 +71,7 @@ data StopTrainingDocumentClassifier = StopTrainingDocumentClassifier'
 -- currently being trained.
 newStopTrainingDocumentClassifier ::
   -- | 'documentClassifierArn'
-  Core.Text ->
+  Prelude.Text ->
   StopTrainingDocumentClassifier
 newStopTrainingDocumentClassifier
   pDocumentClassifierArn_ =
@@ -81,7 +82,7 @@ newStopTrainingDocumentClassifier
 
 -- | The Amazon Resource Name (ARN) that identifies the document classifier
 -- currently being trained.
-stopTrainingDocumentClassifier_documentClassifierArn :: Lens.Lens' StopTrainingDocumentClassifier Core.Text
+stopTrainingDocumentClassifier_documentClassifierArn :: Lens.Lens' StopTrainingDocumentClassifier Prelude.Text
 stopTrainingDocumentClassifier_documentClassifierArn = Lens.lens (\StopTrainingDocumentClassifier' {documentClassifierArn} -> documentClassifierArn) (\s@StopTrainingDocumentClassifier' {} a -> s {documentClassifierArn = a} :: StopTrainingDocumentClassifier)
 
 instance
@@ -96,34 +97,40 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           StopTrainingDocumentClassifierResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopTrainingDocumentClassifier
+instance
+  Prelude.Hashable
+    StopTrainingDocumentClassifier
 
-instance Core.NFData StopTrainingDocumentClassifier
+instance
+  Prelude.NFData
+    StopTrainingDocumentClassifier
 
 instance
   Core.ToHeaders
     StopTrainingDocumentClassifier
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Comprehend_20171127.StopTrainingDocumentClassifier" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopTrainingDocumentClassifier where
   toJSON StopTrainingDocumentClassifier' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "DocumentClassifierArn"
                   Core..= documentClassifierArn
               )
@@ -131,17 +138,17 @@ instance Core.ToJSON StopTrainingDocumentClassifier where
       )
 
 instance Core.ToPath StopTrainingDocumentClassifier where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopTrainingDocumentClassifier where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopTrainingDocumentClassifierResponse' smart constructor.
 data StopTrainingDocumentClassifierResponse = StopTrainingDocumentClassifierResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopTrainingDocumentClassifierResponse' with all optional fields omitted.
@@ -154,7 +161,7 @@ data StopTrainingDocumentClassifierResponse = StopTrainingDocumentClassifierResp
 -- 'httpStatus', 'stopTrainingDocumentClassifierResponse_httpStatus' - The response's http status code.
 newStopTrainingDocumentClassifierResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopTrainingDocumentClassifierResponse
 newStopTrainingDocumentClassifierResponse
   pHttpStatus_ =
@@ -164,9 +171,9 @@ newStopTrainingDocumentClassifierResponse
       }
 
 -- | The response's http status code.
-stopTrainingDocumentClassifierResponse_httpStatus :: Lens.Lens' StopTrainingDocumentClassifierResponse Core.Int
+stopTrainingDocumentClassifierResponse_httpStatus :: Lens.Lens' StopTrainingDocumentClassifierResponse Prelude.Int
 stopTrainingDocumentClassifierResponse_httpStatus = Lens.lens (\StopTrainingDocumentClassifierResponse' {httpStatus} -> httpStatus) (\s@StopTrainingDocumentClassifierResponse' {} a -> s {httpStatus = a} :: StopTrainingDocumentClassifierResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     StopTrainingDocumentClassifierResponse

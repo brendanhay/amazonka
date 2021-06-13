@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.InstancePatchState where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.PatchOperationType
 import Network.AWS.SSM.Types.RebootOption
 
@@ -40,16 +41,16 @@ data InstancePatchState = InstancePatchState'
     -- For more information about the @InstallOverrideList@ parameter, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-about-aws-runpatchbaseline.html About the SSM document AWS-RunPatchBaseline>
     -- in the /AWS Systems Manager User Guide/.
-    installOverrideList :: Core.Maybe Core.Text,
+    installOverrideList :: Prelude.Maybe Prelude.Text,
     -- | The number of patches beyond the supported limit of @NotApplicableCount@
     -- that are not reported by name to Systems Manager Inventory.
-    unreportedNotApplicableCount :: Core.Maybe Core.Int,
+    unreportedNotApplicableCount :: Prelude.Maybe Prelude.Int,
     -- | The number of patches not specified in the patch baseline that are
     -- installed on the instance.
-    installedOtherCount :: Core.Maybe Core.Int,
+    installedOtherCount :: Prelude.Maybe Prelude.Int,
     -- | The number of patches installed by Patch Manager since the last time the
     -- instance was rebooted.
-    installedPendingRebootCount :: Core.Maybe Core.Int,
+    installedPendingRebootCount :: Prelude.Maybe Prelude.Int,
     -- | Indicates the reboot option specified in the patch baseline.
     --
     -- Reboot options apply to @Install@ operations only. Reboots are not
@@ -63,31 +64,31 @@ data InstancePatchState = InstancePatchState'
     --     without trying to reboot the system. Patches installed with this
     --     option are assigned a status of @InstalledPendingReboot@. These
     --     patches might not be in effect until a reboot is performed.
-    rebootOption :: Core.Maybe RebootOption,
+    rebootOption :: Prelude.Maybe RebootOption,
     -- | The number of patches from the patch baseline that are applicable for
     -- the instance but aren\'t currently installed.
-    missingCount :: Core.Maybe Core.Int,
+    missingCount :: Prelude.Maybe Prelude.Int,
     -- | The ID of the patch baseline snapshot used during the patching operation
     -- when this compliance data was collected.
-    snapshotId :: Core.Maybe Core.Text,
+    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The number of patches from the patch baseline that are installed on the
     -- instance.
-    installedCount :: Core.Maybe Core.Int,
+    installedCount :: Prelude.Maybe Prelude.Int,
     -- | The time of the last attempt to patch the instance with @NoReboot@
     -- specified as the reboot option.
-    lastNoRebootInstallOperationTime :: Core.Maybe Core.POSIX,
+    lastNoRebootInstallOperationTime :: Prelude.Maybe Core.POSIX,
     -- | The number of patches from the patch baseline that aren\'t applicable
     -- for the instance and therefore aren\'t installed on the instance. This
     -- number may be truncated if the list of patch names is very large. The
     -- number of patches beyond this limit are reported in
     -- @UnreportedNotApplicableCount@.
-    notApplicableCount :: Core.Maybe Core.Int,
+    notApplicableCount :: Prelude.Maybe Prelude.Int,
     -- | The number of patches from the patch baseline that were attempted to be
     -- installed during the last patching operation, but failed to install.
-    failedCount :: Core.Maybe Core.Int,
+    failedCount :: Prelude.Maybe Prelude.Int,
     -- | Placeholder information. This field will always be empty in the current
     -- release of the service.
-    ownerInformation :: Core.Maybe (Core.Sensitive Core.Text),
+    ownerInformation :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The number of patches installed on an instance that are specified in a
     -- @RejectedPatches@ list. Patches with a status of /InstalledRejected/
     -- were typically installed before they were added to a @RejectedPatches@
@@ -96,14 +97,14 @@ data InstancePatchState = InstancePatchState'
     -- If @ALLOW_AS_DEPENDENCY@ is the specified option for
     -- @RejectedPatchesAction@, the value of @InstalledRejectedCount@ will
     -- always be @0@ (zero).
-    installedRejectedCount :: Core.Maybe Core.Int,
+    installedRejectedCount :: Prelude.Maybe Prelude.Int,
     -- | The ID of the managed instance the high-level patch compliance
     -- information was collected for.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The name of the patch group the managed instance belongs to.
-    patchGroup :: Core.Text,
+    patchGroup :: Prelude.Text,
     -- | The ID of the patch baseline used to patch the instance.
-    baselineId :: Core.Text,
+    baselineId :: Prelude.Text,
     -- | The time the most recent patching operation was started on the instance.
     operationStartTime :: Core.POSIX,
     -- | The time the most recent patching operation completed on the instance.
@@ -112,7 +113,7 @@ data InstancePatchState = InstancePatchState'
     -- compliance state) or @INSTALL@ (install missing patches).
     operation :: PatchOperationType
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstancePatchState' with all optional fields omitted.
@@ -203,15 +204,15 @@ data InstancePatchState = InstancePatchState'
 -- compliance state) or @INSTALL@ (install missing patches).
 newInstancePatchState ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'patchGroup'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'baselineId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'operationStartTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'operationEndTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'operation'
   PatchOperationType ->
   InstancePatchState
@@ -224,19 +225,19 @@ newInstancePatchState
   pOperation_ =
     InstancePatchState'
       { installOverrideList =
-          Core.Nothing,
-        unreportedNotApplicableCount = Core.Nothing,
-        installedOtherCount = Core.Nothing,
-        installedPendingRebootCount = Core.Nothing,
-        rebootOption = Core.Nothing,
-        missingCount = Core.Nothing,
-        snapshotId = Core.Nothing,
-        installedCount = Core.Nothing,
-        lastNoRebootInstallOperationTime = Core.Nothing,
-        notApplicableCount = Core.Nothing,
-        failedCount = Core.Nothing,
-        ownerInformation = Core.Nothing,
-        installedRejectedCount = Core.Nothing,
+          Prelude.Nothing,
+        unreportedNotApplicableCount = Prelude.Nothing,
+        installedOtherCount = Prelude.Nothing,
+        installedPendingRebootCount = Prelude.Nothing,
+        rebootOption = Prelude.Nothing,
+        missingCount = Prelude.Nothing,
+        snapshotId = Prelude.Nothing,
+        installedCount = Prelude.Nothing,
+        lastNoRebootInstallOperationTime = Prelude.Nothing,
+        notApplicableCount = Prelude.Nothing,
+        failedCount = Prelude.Nothing,
+        ownerInformation = Prelude.Nothing,
+        installedRejectedCount = Prelude.Nothing,
         instanceId = pInstanceId_,
         patchGroup = pPatchGroup_,
         baselineId = pBaselineId_,
@@ -256,22 +257,22 @@ newInstancePatchState
 -- For more information about the @InstallOverrideList@ parameter, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-about-aws-runpatchbaseline.html About the SSM document AWS-RunPatchBaseline>
 -- in the /AWS Systems Manager User Guide/.
-instancePatchState_installOverrideList :: Lens.Lens' InstancePatchState (Core.Maybe Core.Text)
+instancePatchState_installOverrideList :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Text)
 instancePatchState_installOverrideList = Lens.lens (\InstancePatchState' {installOverrideList} -> installOverrideList) (\s@InstancePatchState' {} a -> s {installOverrideList = a} :: InstancePatchState)
 
 -- | The number of patches beyond the supported limit of @NotApplicableCount@
 -- that are not reported by name to Systems Manager Inventory.
-instancePatchState_unreportedNotApplicableCount :: Lens.Lens' InstancePatchState (Core.Maybe Core.Int)
+instancePatchState_unreportedNotApplicableCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_unreportedNotApplicableCount = Lens.lens (\InstancePatchState' {unreportedNotApplicableCount} -> unreportedNotApplicableCount) (\s@InstancePatchState' {} a -> s {unreportedNotApplicableCount = a} :: InstancePatchState)
 
 -- | The number of patches not specified in the patch baseline that are
 -- installed on the instance.
-instancePatchState_installedOtherCount :: Lens.Lens' InstancePatchState (Core.Maybe Core.Int)
+instancePatchState_installedOtherCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_installedOtherCount = Lens.lens (\InstancePatchState' {installedOtherCount} -> installedOtherCount) (\s@InstancePatchState' {} a -> s {installedOtherCount = a} :: InstancePatchState)
 
 -- | The number of patches installed by Patch Manager since the last time the
 -- instance was rebooted.
-instancePatchState_installedPendingRebootCount :: Lens.Lens' InstancePatchState (Core.Maybe Core.Int)
+instancePatchState_installedPendingRebootCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_installedPendingRebootCount = Lens.lens (\InstancePatchState' {installedPendingRebootCount} -> installedPendingRebootCount) (\s@InstancePatchState' {} a -> s {installedPendingRebootCount = a} :: InstancePatchState)
 
 -- | Indicates the reboot option specified in the patch baseline.
@@ -287,46 +288,46 @@ instancePatchState_installedPendingRebootCount = Lens.lens (\InstancePatchState'
 --     without trying to reboot the system. Patches installed with this
 --     option are assigned a status of @InstalledPendingReboot@. These
 --     patches might not be in effect until a reboot is performed.
-instancePatchState_rebootOption :: Lens.Lens' InstancePatchState (Core.Maybe RebootOption)
+instancePatchState_rebootOption :: Lens.Lens' InstancePatchState (Prelude.Maybe RebootOption)
 instancePatchState_rebootOption = Lens.lens (\InstancePatchState' {rebootOption} -> rebootOption) (\s@InstancePatchState' {} a -> s {rebootOption = a} :: InstancePatchState)
 
 -- | The number of patches from the patch baseline that are applicable for
 -- the instance but aren\'t currently installed.
-instancePatchState_missingCount :: Lens.Lens' InstancePatchState (Core.Maybe Core.Int)
+instancePatchState_missingCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_missingCount = Lens.lens (\InstancePatchState' {missingCount} -> missingCount) (\s@InstancePatchState' {} a -> s {missingCount = a} :: InstancePatchState)
 
 -- | The ID of the patch baseline snapshot used during the patching operation
 -- when this compliance data was collected.
-instancePatchState_snapshotId :: Lens.Lens' InstancePatchState (Core.Maybe Core.Text)
+instancePatchState_snapshotId :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Text)
 instancePatchState_snapshotId = Lens.lens (\InstancePatchState' {snapshotId} -> snapshotId) (\s@InstancePatchState' {} a -> s {snapshotId = a} :: InstancePatchState)
 
 -- | The number of patches from the patch baseline that are installed on the
 -- instance.
-instancePatchState_installedCount :: Lens.Lens' InstancePatchState (Core.Maybe Core.Int)
+instancePatchState_installedCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_installedCount = Lens.lens (\InstancePatchState' {installedCount} -> installedCount) (\s@InstancePatchState' {} a -> s {installedCount = a} :: InstancePatchState)
 
 -- | The time of the last attempt to patch the instance with @NoReboot@
 -- specified as the reboot option.
-instancePatchState_lastNoRebootInstallOperationTime :: Lens.Lens' InstancePatchState (Core.Maybe Core.UTCTime)
-instancePatchState_lastNoRebootInstallOperationTime = Lens.lens (\InstancePatchState' {lastNoRebootInstallOperationTime} -> lastNoRebootInstallOperationTime) (\s@InstancePatchState' {} a -> s {lastNoRebootInstallOperationTime = a} :: InstancePatchState) Core.. Lens.mapping Core._Time
+instancePatchState_lastNoRebootInstallOperationTime :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.UTCTime)
+instancePatchState_lastNoRebootInstallOperationTime = Lens.lens (\InstancePatchState' {lastNoRebootInstallOperationTime} -> lastNoRebootInstallOperationTime) (\s@InstancePatchState' {} a -> s {lastNoRebootInstallOperationTime = a} :: InstancePatchState) Prelude.. Lens.mapping Core._Time
 
 -- | The number of patches from the patch baseline that aren\'t applicable
 -- for the instance and therefore aren\'t installed on the instance. This
 -- number may be truncated if the list of patch names is very large. The
 -- number of patches beyond this limit are reported in
 -- @UnreportedNotApplicableCount@.
-instancePatchState_notApplicableCount :: Lens.Lens' InstancePatchState (Core.Maybe Core.Int)
+instancePatchState_notApplicableCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_notApplicableCount = Lens.lens (\InstancePatchState' {notApplicableCount} -> notApplicableCount) (\s@InstancePatchState' {} a -> s {notApplicableCount = a} :: InstancePatchState)
 
 -- | The number of patches from the patch baseline that were attempted to be
 -- installed during the last patching operation, but failed to install.
-instancePatchState_failedCount :: Lens.Lens' InstancePatchState (Core.Maybe Core.Int)
+instancePatchState_failedCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_failedCount = Lens.lens (\InstancePatchState' {failedCount} -> failedCount) (\s@InstancePatchState' {} a -> s {failedCount = a} :: InstancePatchState)
 
 -- | Placeholder information. This field will always be empty in the current
 -- release of the service.
-instancePatchState_ownerInformation :: Lens.Lens' InstancePatchState (Core.Maybe Core.Text)
-instancePatchState_ownerInformation = Lens.lens (\InstancePatchState' {ownerInformation} -> ownerInformation) (\s@InstancePatchState' {} a -> s {ownerInformation = a} :: InstancePatchState) Core.. Lens.mapping Core._Sensitive
+instancePatchState_ownerInformation :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Text)
+instancePatchState_ownerInformation = Lens.lens (\InstancePatchState' {ownerInformation} -> ownerInformation) (\s@InstancePatchState' {} a -> s {ownerInformation = a} :: InstancePatchState) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The number of patches installed on an instance that are specified in a
 -- @RejectedPatches@ list. Patches with a status of /InstalledRejected/
@@ -336,29 +337,29 @@ instancePatchState_ownerInformation = Lens.lens (\InstancePatchState' {ownerInfo
 -- If @ALLOW_AS_DEPENDENCY@ is the specified option for
 -- @RejectedPatchesAction@, the value of @InstalledRejectedCount@ will
 -- always be @0@ (zero).
-instancePatchState_installedRejectedCount :: Lens.Lens' InstancePatchState (Core.Maybe Core.Int)
+instancePatchState_installedRejectedCount :: Lens.Lens' InstancePatchState (Prelude.Maybe Prelude.Int)
 instancePatchState_installedRejectedCount = Lens.lens (\InstancePatchState' {installedRejectedCount} -> installedRejectedCount) (\s@InstancePatchState' {} a -> s {installedRejectedCount = a} :: InstancePatchState)
 
 -- | The ID of the managed instance the high-level patch compliance
 -- information was collected for.
-instancePatchState_instanceId :: Lens.Lens' InstancePatchState Core.Text
+instancePatchState_instanceId :: Lens.Lens' InstancePatchState Prelude.Text
 instancePatchState_instanceId = Lens.lens (\InstancePatchState' {instanceId} -> instanceId) (\s@InstancePatchState' {} a -> s {instanceId = a} :: InstancePatchState)
 
 -- | The name of the patch group the managed instance belongs to.
-instancePatchState_patchGroup :: Lens.Lens' InstancePatchState Core.Text
+instancePatchState_patchGroup :: Lens.Lens' InstancePatchState Prelude.Text
 instancePatchState_patchGroup = Lens.lens (\InstancePatchState' {patchGroup} -> patchGroup) (\s@InstancePatchState' {} a -> s {patchGroup = a} :: InstancePatchState)
 
 -- | The ID of the patch baseline used to patch the instance.
-instancePatchState_baselineId :: Lens.Lens' InstancePatchState Core.Text
+instancePatchState_baselineId :: Lens.Lens' InstancePatchState Prelude.Text
 instancePatchState_baselineId = Lens.lens (\InstancePatchState' {baselineId} -> baselineId) (\s@InstancePatchState' {} a -> s {baselineId = a} :: InstancePatchState)
 
 -- | The time the most recent patching operation was started on the instance.
-instancePatchState_operationStartTime :: Lens.Lens' InstancePatchState Core.UTCTime
-instancePatchState_operationStartTime = Lens.lens (\InstancePatchState' {operationStartTime} -> operationStartTime) (\s@InstancePatchState' {} a -> s {operationStartTime = a} :: InstancePatchState) Core.. Core._Time
+instancePatchState_operationStartTime :: Lens.Lens' InstancePatchState Prelude.UTCTime
+instancePatchState_operationStartTime = Lens.lens (\InstancePatchState' {operationStartTime} -> operationStartTime) (\s@InstancePatchState' {} a -> s {operationStartTime = a} :: InstancePatchState) Prelude.. Core._Time
 
 -- | The time the most recent patching operation completed on the instance.
-instancePatchState_operationEndTime :: Lens.Lens' InstancePatchState Core.UTCTime
-instancePatchState_operationEndTime = Lens.lens (\InstancePatchState' {operationEndTime} -> operationEndTime) (\s@InstancePatchState' {} a -> s {operationEndTime = a} :: InstancePatchState) Core.. Core._Time
+instancePatchState_operationEndTime :: Lens.Lens' InstancePatchState Prelude.UTCTime
+instancePatchState_operationEndTime = Lens.lens (\InstancePatchState' {operationEndTime} -> operationEndTime) (\s@InstancePatchState' {} a -> s {operationEndTime = a} :: InstancePatchState) Prelude.. Core._Time
 
 -- | The type of patching operation that was performed: @SCAN@ (assess patch
 -- compliance state) or @INSTALL@ (install missing patches).
@@ -371,27 +372,27 @@ instance Core.FromJSON InstancePatchState where
       "InstancePatchState"
       ( \x ->
           InstancePatchState'
-            Core.<$> (x Core..:? "InstallOverrideList")
-            Core.<*> (x Core..:? "UnreportedNotApplicableCount")
-            Core.<*> (x Core..:? "InstalledOtherCount")
-            Core.<*> (x Core..:? "InstalledPendingRebootCount")
-            Core.<*> (x Core..:? "RebootOption")
-            Core.<*> (x Core..:? "MissingCount")
-            Core.<*> (x Core..:? "SnapshotId")
-            Core.<*> (x Core..:? "InstalledCount")
-            Core.<*> (x Core..:? "LastNoRebootInstallOperationTime")
-            Core.<*> (x Core..:? "NotApplicableCount")
-            Core.<*> (x Core..:? "FailedCount")
-            Core.<*> (x Core..:? "OwnerInformation")
-            Core.<*> (x Core..:? "InstalledRejectedCount")
-            Core.<*> (x Core..: "InstanceId")
-            Core.<*> (x Core..: "PatchGroup")
-            Core.<*> (x Core..: "BaselineId")
-            Core.<*> (x Core..: "OperationStartTime")
-            Core.<*> (x Core..: "OperationEndTime")
-            Core.<*> (x Core..: "Operation")
+            Prelude.<$> (x Core..:? "InstallOverrideList")
+            Prelude.<*> (x Core..:? "UnreportedNotApplicableCount")
+            Prelude.<*> (x Core..:? "InstalledOtherCount")
+            Prelude.<*> (x Core..:? "InstalledPendingRebootCount")
+            Prelude.<*> (x Core..:? "RebootOption")
+            Prelude.<*> (x Core..:? "MissingCount")
+            Prelude.<*> (x Core..:? "SnapshotId")
+            Prelude.<*> (x Core..:? "InstalledCount")
+            Prelude.<*> (x Core..:? "LastNoRebootInstallOperationTime")
+            Prelude.<*> (x Core..:? "NotApplicableCount")
+            Prelude.<*> (x Core..:? "FailedCount")
+            Prelude.<*> (x Core..:? "OwnerInformation")
+            Prelude.<*> (x Core..:? "InstalledRejectedCount")
+            Prelude.<*> (x Core..: "InstanceId")
+            Prelude.<*> (x Core..: "PatchGroup")
+            Prelude.<*> (x Core..: "BaselineId")
+            Prelude.<*> (x Core..: "OperationStartTime")
+            Prelude.<*> (x Core..: "OperationEndTime")
+            Prelude.<*> (x Core..: "Operation")
       )
 
-instance Core.Hashable InstancePatchState
+instance Prelude.Hashable InstancePatchState
 
-instance Core.NFData InstancePatchState
+instance Prelude.NFData InstancePatchState

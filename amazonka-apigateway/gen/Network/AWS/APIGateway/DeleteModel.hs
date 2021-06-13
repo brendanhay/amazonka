@@ -39,6 +39,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,11 +48,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteModel' smart constructor.
 data DeleteModel = DeleteModel'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The name of the model to delete.
-    modelName :: Core.Text
+    modelName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteModel' with all optional fields omitted.
@@ -66,9 +67,9 @@ data DeleteModel = DeleteModel'
 -- 'modelName', 'deleteModel_modelName' - [Required] The name of the model to delete.
 newDeleteModel ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'modelName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteModel
 newDeleteModel pRestApiId_ pModelName_ =
   DeleteModel'
@@ -77,11 +78,11 @@ newDeleteModel pRestApiId_ pModelName_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-deleteModel_restApiId :: Lens.Lens' DeleteModel Core.Text
+deleteModel_restApiId :: Lens.Lens' DeleteModel Prelude.Text
 deleteModel_restApiId = Lens.lens (\DeleteModel' {restApiId} -> restApiId) (\s@DeleteModel' {} a -> s {restApiId = a} :: DeleteModel)
 
 -- | [Required] The name of the model to delete.
-deleteModel_modelName :: Lens.Lens' DeleteModel Core.Text
+deleteModel_modelName :: Lens.Lens' DeleteModel Prelude.Text
 deleteModel_modelName = Lens.lens (\DeleteModel' {modelName} -> modelName) (\s@DeleteModel' {} a -> s {modelName = a} :: DeleteModel)
 
 instance Core.AWSRequest DeleteModel where
@@ -89,22 +90,22 @@ instance Core.AWSRequest DeleteModel where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteModelResponse'
 
-instance Core.Hashable DeleteModel
+instance Prelude.Hashable DeleteModel
 
-instance Core.NFData DeleteModel
+instance Prelude.NFData DeleteModel
 
 instance Core.ToHeaders DeleteModel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath DeleteModel where
   toPath DeleteModel' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/models/",
@@ -112,13 +113,13 @@ instance Core.ToPath DeleteModel where
       ]
 
 instance Core.ToQuery DeleteModel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteModelResponse' smart constructor.
 data DeleteModelResponse = DeleteModelResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteModelResponse' with all optional fields omitted.
@@ -128,4 +129,4 @@ newDeleteModelResponse ::
   DeleteModelResponse
 newDeleteModelResponse = DeleteModelResponse'
 
-instance Core.NFData DeleteModelResponse
+instance Prelude.NFData DeleteModelResponse

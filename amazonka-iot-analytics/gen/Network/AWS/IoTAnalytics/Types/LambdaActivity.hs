@@ -21,25 +21,26 @@ module Network.AWS.IoTAnalytics.Types.LambdaActivity where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An activity that runs a Lambda function to modify the message.
 --
 -- /See:/ 'newLambdaActivity' smart constructor.
 data LambdaActivity = LambdaActivity'
   { -- | The next activity in the pipeline.
-    next :: Core.Maybe Core.Text,
+    next :: Prelude.Maybe Prelude.Text,
     -- | The name of the lambda activity.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The name of the Lambda function that is run on the message.
-    lambdaName :: Core.Text,
+    lambdaName :: Prelude.Text,
     -- | The number of messages passed to the Lambda function for processing.
     --
     -- The Lambda function must be able to process all of these messages within
     -- five minutes, which is the maximum timeout duration for Lambda
     -- functions.
-    batchSize :: Core.Natural
+    batchSize :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LambdaActivity' with all optional fields omitted.
@@ -62,30 +63,30 @@ data LambdaActivity = LambdaActivity'
 -- functions.
 newLambdaActivity ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'lambdaName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'batchSize'
-  Core.Natural ->
+  Prelude.Natural ->
   LambdaActivity
 newLambdaActivity pName_ pLambdaName_ pBatchSize_ =
   LambdaActivity'
-    { next = Core.Nothing,
+    { next = Prelude.Nothing,
       name = pName_,
       lambdaName = pLambdaName_,
       batchSize = pBatchSize_
     }
 
 -- | The next activity in the pipeline.
-lambdaActivity_next :: Lens.Lens' LambdaActivity (Core.Maybe Core.Text)
+lambdaActivity_next :: Lens.Lens' LambdaActivity (Prelude.Maybe Prelude.Text)
 lambdaActivity_next = Lens.lens (\LambdaActivity' {next} -> next) (\s@LambdaActivity' {} a -> s {next = a} :: LambdaActivity)
 
 -- | The name of the lambda activity.
-lambdaActivity_name :: Lens.Lens' LambdaActivity Core.Text
+lambdaActivity_name :: Lens.Lens' LambdaActivity Prelude.Text
 lambdaActivity_name = Lens.lens (\LambdaActivity' {name} -> name) (\s@LambdaActivity' {} a -> s {name = a} :: LambdaActivity)
 
 -- | The name of the Lambda function that is run on the message.
-lambdaActivity_lambdaName :: Lens.Lens' LambdaActivity Core.Text
+lambdaActivity_lambdaName :: Lens.Lens' LambdaActivity Prelude.Text
 lambdaActivity_lambdaName = Lens.lens (\LambdaActivity' {lambdaName} -> lambdaName) (\s@LambdaActivity' {} a -> s {lambdaName = a} :: LambdaActivity)
 
 -- | The number of messages passed to the Lambda function for processing.
@@ -93,7 +94,7 @@ lambdaActivity_lambdaName = Lens.lens (\LambdaActivity' {lambdaName} -> lambdaNa
 -- The Lambda function must be able to process all of these messages within
 -- five minutes, which is the maximum timeout duration for Lambda
 -- functions.
-lambdaActivity_batchSize :: Lens.Lens' LambdaActivity Core.Natural
+lambdaActivity_batchSize :: Lens.Lens' LambdaActivity Prelude.Natural
 lambdaActivity_batchSize = Lens.lens (\LambdaActivity' {batchSize} -> batchSize) (\s@LambdaActivity' {} a -> s {batchSize = a} :: LambdaActivity)
 
 instance Core.FromJSON LambdaActivity where
@@ -102,23 +103,23 @@ instance Core.FromJSON LambdaActivity where
       "LambdaActivity"
       ( \x ->
           LambdaActivity'
-            Core.<$> (x Core..:? "next")
-            Core.<*> (x Core..: "name")
-            Core.<*> (x Core..: "lambdaName")
-            Core.<*> (x Core..: "batchSize")
+            Prelude.<$> (x Core..:? "next")
+            Prelude.<*> (x Core..: "name")
+            Prelude.<*> (x Core..: "lambdaName")
+            Prelude.<*> (x Core..: "batchSize")
       )
 
-instance Core.Hashable LambdaActivity
+instance Prelude.Hashable LambdaActivity
 
-instance Core.NFData LambdaActivity
+instance Prelude.NFData LambdaActivity
 
 instance Core.ToJSON LambdaActivity where
   toJSON LambdaActivity' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("next" Core..=) Core.<$> next,
-            Core.Just ("name" Core..= name),
-            Core.Just ("lambdaName" Core..= lambdaName),
-            Core.Just ("batchSize" Core..= batchSize)
+      ( Prelude.catMaybes
+          [ ("next" Core..=) Prelude.<$> next,
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("lambdaName" Core..= lambdaName),
+            Prelude.Just ("batchSize" Core..= batchSize)
           ]
       )

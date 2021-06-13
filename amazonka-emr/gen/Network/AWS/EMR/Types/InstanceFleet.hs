@@ -25,6 +25,7 @@ import Network.AWS.EMR.Types.InstanceFleetStatus
 import Network.AWS.EMR.Types.InstanceFleetType
 import Network.AWS.EMR.Types.InstanceTypeSpecification
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an instance fleet, which is a group of EC2 instances that host
 -- a particular node type (master, core, or task) in an Amazon EMR cluster.
@@ -38,9 +39,9 @@ import qualified Network.AWS.Lens as Lens
 data InstanceFleet = InstanceFleet'
   { -- | The node type that the instance fleet hosts. Valid values are MASTER,
     -- CORE, or TASK.
-    instanceFleetType :: Core.Maybe InstanceFleetType,
+    instanceFleetType :: Prelude.Maybe InstanceFleetType,
     -- | The current status of the instance fleet.
-    status :: Core.Maybe InstanceFleetStatus,
+    status :: Prelude.Maybe InstanceFleetStatus,
     -- | The target capacity of On-Demand units for the instance fleet, which
     -- determines how many On-Demand Instances to provision. When the instance
     -- fleet launches, Amazon EMR tries to provision On-Demand Instances as
@@ -60,9 +61,9 @@ data InstanceFleet = InstanceFleet'
     -- @TargetSpotCapacity@ and @TargetOnDemandCapacity@ should be greater than
     -- 0. For a master instance fleet, only one of @TargetSpotCapacity@ and
     -- @TargetOnDemandCapacity@ can be specified, and its value must be 1.
-    targetOnDemandCapacity :: Core.Maybe Core.Natural,
+    targetOnDemandCapacity :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier of the instance fleet.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The target capacity of Spot units for the instance fleet, which
     -- determines how many Spot Instances to provision. When the instance fleet
     -- launches, Amazon EMR tries to provision Spot Instances as specified by
@@ -82,25 +83,25 @@ data InstanceFleet = InstanceFleet'
     -- @TargetOnDemandCapacity@ should be greater than 0. For a master instance
     -- fleet, only one of @TargetSpotCapacity@ and @TargetOnDemandCapacity@ can
     -- be specified, and its value must be 1.
-    targetSpotCapacity :: Core.Maybe Core.Natural,
+    targetSpotCapacity :: Prelude.Maybe Prelude.Natural,
     -- | The number of On-Demand units that have been provisioned for the
     -- instance fleet to fulfill @TargetOnDemandCapacity@. This provisioned
     -- capacity might be less than or greater than @TargetOnDemandCapacity@.
-    provisionedOnDemandCapacity :: Core.Maybe Core.Natural,
+    provisionedOnDemandCapacity :: Prelude.Maybe Prelude.Natural,
     -- | The specification for the instance types that comprise an instance
     -- fleet. Up to five unique instance specifications may be defined for each
     -- instance fleet.
-    instanceTypeSpecifications :: Core.Maybe [InstanceTypeSpecification],
+    instanceTypeSpecifications :: Prelude.Maybe [InstanceTypeSpecification],
     -- | A friendly name for the instance fleet.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The number of Spot units that have been provisioned for this instance
     -- fleet to fulfill @TargetSpotCapacity@. This provisioned capacity might
     -- be less than or greater than @TargetSpotCapacity@.
-    provisionedSpotCapacity :: Core.Maybe Core.Natural,
+    provisionedSpotCapacity :: Prelude.Maybe Prelude.Natural,
     -- | Describes the launch specification for an instance fleet.
-    launchSpecifications :: Core.Maybe InstanceFleetProvisioningSpecifications
+    launchSpecifications :: Prelude.Maybe InstanceFleetProvisioningSpecifications
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceFleet' with all optional fields omitted.
@@ -176,25 +177,25 @@ newInstanceFleet ::
   InstanceFleet
 newInstanceFleet =
   InstanceFleet'
-    { instanceFleetType = Core.Nothing,
-      status = Core.Nothing,
-      targetOnDemandCapacity = Core.Nothing,
-      id = Core.Nothing,
-      targetSpotCapacity = Core.Nothing,
-      provisionedOnDemandCapacity = Core.Nothing,
-      instanceTypeSpecifications = Core.Nothing,
-      name = Core.Nothing,
-      provisionedSpotCapacity = Core.Nothing,
-      launchSpecifications = Core.Nothing
+    { instanceFleetType = Prelude.Nothing,
+      status = Prelude.Nothing,
+      targetOnDemandCapacity = Prelude.Nothing,
+      id = Prelude.Nothing,
+      targetSpotCapacity = Prelude.Nothing,
+      provisionedOnDemandCapacity = Prelude.Nothing,
+      instanceTypeSpecifications = Prelude.Nothing,
+      name = Prelude.Nothing,
+      provisionedSpotCapacity = Prelude.Nothing,
+      launchSpecifications = Prelude.Nothing
     }
 
 -- | The node type that the instance fleet hosts. Valid values are MASTER,
 -- CORE, or TASK.
-instanceFleet_instanceFleetType :: Lens.Lens' InstanceFleet (Core.Maybe InstanceFleetType)
+instanceFleet_instanceFleetType :: Lens.Lens' InstanceFleet (Prelude.Maybe InstanceFleetType)
 instanceFleet_instanceFleetType = Lens.lens (\InstanceFleet' {instanceFleetType} -> instanceFleetType) (\s@InstanceFleet' {} a -> s {instanceFleetType = a} :: InstanceFleet)
 
 -- | The current status of the instance fleet.
-instanceFleet_status :: Lens.Lens' InstanceFleet (Core.Maybe InstanceFleetStatus)
+instanceFleet_status :: Lens.Lens' InstanceFleet (Prelude.Maybe InstanceFleetStatus)
 instanceFleet_status = Lens.lens (\InstanceFleet' {status} -> status) (\s@InstanceFleet' {} a -> s {status = a} :: InstanceFleet)
 
 -- | The target capacity of On-Demand units for the instance fleet, which
@@ -216,11 +217,11 @@ instanceFleet_status = Lens.lens (\InstanceFleet' {status} -> status) (\s@Instan
 -- @TargetSpotCapacity@ and @TargetOnDemandCapacity@ should be greater than
 -- 0. For a master instance fleet, only one of @TargetSpotCapacity@ and
 -- @TargetOnDemandCapacity@ can be specified, and its value must be 1.
-instanceFleet_targetOnDemandCapacity :: Lens.Lens' InstanceFleet (Core.Maybe Core.Natural)
+instanceFleet_targetOnDemandCapacity :: Lens.Lens' InstanceFleet (Prelude.Maybe Prelude.Natural)
 instanceFleet_targetOnDemandCapacity = Lens.lens (\InstanceFleet' {targetOnDemandCapacity} -> targetOnDemandCapacity) (\s@InstanceFleet' {} a -> s {targetOnDemandCapacity = a} :: InstanceFleet)
 
 -- | The unique identifier of the instance fleet.
-instanceFleet_id :: Lens.Lens' InstanceFleet (Core.Maybe Core.Text)
+instanceFleet_id :: Lens.Lens' InstanceFleet (Prelude.Maybe Prelude.Text)
 instanceFleet_id = Lens.lens (\InstanceFleet' {id} -> id) (\s@InstanceFleet' {} a -> s {id = a} :: InstanceFleet)
 
 -- | The target capacity of Spot units for the instance fleet, which
@@ -242,33 +243,33 @@ instanceFleet_id = Lens.lens (\InstanceFleet' {id} -> id) (\s@InstanceFleet' {} 
 -- @TargetOnDemandCapacity@ should be greater than 0. For a master instance
 -- fleet, only one of @TargetSpotCapacity@ and @TargetOnDemandCapacity@ can
 -- be specified, and its value must be 1.
-instanceFleet_targetSpotCapacity :: Lens.Lens' InstanceFleet (Core.Maybe Core.Natural)
+instanceFleet_targetSpotCapacity :: Lens.Lens' InstanceFleet (Prelude.Maybe Prelude.Natural)
 instanceFleet_targetSpotCapacity = Lens.lens (\InstanceFleet' {targetSpotCapacity} -> targetSpotCapacity) (\s@InstanceFleet' {} a -> s {targetSpotCapacity = a} :: InstanceFleet)
 
 -- | The number of On-Demand units that have been provisioned for the
 -- instance fleet to fulfill @TargetOnDemandCapacity@. This provisioned
 -- capacity might be less than or greater than @TargetOnDemandCapacity@.
-instanceFleet_provisionedOnDemandCapacity :: Lens.Lens' InstanceFleet (Core.Maybe Core.Natural)
+instanceFleet_provisionedOnDemandCapacity :: Lens.Lens' InstanceFleet (Prelude.Maybe Prelude.Natural)
 instanceFleet_provisionedOnDemandCapacity = Lens.lens (\InstanceFleet' {provisionedOnDemandCapacity} -> provisionedOnDemandCapacity) (\s@InstanceFleet' {} a -> s {provisionedOnDemandCapacity = a} :: InstanceFleet)
 
 -- | The specification for the instance types that comprise an instance
 -- fleet. Up to five unique instance specifications may be defined for each
 -- instance fleet.
-instanceFleet_instanceTypeSpecifications :: Lens.Lens' InstanceFleet (Core.Maybe [InstanceTypeSpecification])
-instanceFleet_instanceTypeSpecifications = Lens.lens (\InstanceFleet' {instanceTypeSpecifications} -> instanceTypeSpecifications) (\s@InstanceFleet' {} a -> s {instanceTypeSpecifications = a} :: InstanceFleet) Core.. Lens.mapping Lens._Coerce
+instanceFleet_instanceTypeSpecifications :: Lens.Lens' InstanceFleet (Prelude.Maybe [InstanceTypeSpecification])
+instanceFleet_instanceTypeSpecifications = Lens.lens (\InstanceFleet' {instanceTypeSpecifications} -> instanceTypeSpecifications) (\s@InstanceFleet' {} a -> s {instanceTypeSpecifications = a} :: InstanceFleet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A friendly name for the instance fleet.
-instanceFleet_name :: Lens.Lens' InstanceFleet (Core.Maybe Core.Text)
+instanceFleet_name :: Lens.Lens' InstanceFleet (Prelude.Maybe Prelude.Text)
 instanceFleet_name = Lens.lens (\InstanceFleet' {name} -> name) (\s@InstanceFleet' {} a -> s {name = a} :: InstanceFleet)
 
 -- | The number of Spot units that have been provisioned for this instance
 -- fleet to fulfill @TargetSpotCapacity@. This provisioned capacity might
 -- be less than or greater than @TargetSpotCapacity@.
-instanceFleet_provisionedSpotCapacity :: Lens.Lens' InstanceFleet (Core.Maybe Core.Natural)
+instanceFleet_provisionedSpotCapacity :: Lens.Lens' InstanceFleet (Prelude.Maybe Prelude.Natural)
 instanceFleet_provisionedSpotCapacity = Lens.lens (\InstanceFleet' {provisionedSpotCapacity} -> provisionedSpotCapacity) (\s@InstanceFleet' {} a -> s {provisionedSpotCapacity = a} :: InstanceFleet)
 
 -- | Describes the launch specification for an instance fleet.
-instanceFleet_launchSpecifications :: Lens.Lens' InstanceFleet (Core.Maybe InstanceFleetProvisioningSpecifications)
+instanceFleet_launchSpecifications :: Lens.Lens' InstanceFleet (Prelude.Maybe InstanceFleetProvisioningSpecifications)
 instanceFleet_launchSpecifications = Lens.lens (\InstanceFleet' {launchSpecifications} -> launchSpecifications) (\s@InstanceFleet' {} a -> s {launchSpecifications = a} :: InstanceFleet)
 
 instance Core.FromJSON InstanceFleet where
@@ -277,20 +278,20 @@ instance Core.FromJSON InstanceFleet where
       "InstanceFleet"
       ( \x ->
           InstanceFleet'
-            Core.<$> (x Core..:? "InstanceFleetType")
-            Core.<*> (x Core..:? "Status")
-            Core.<*> (x Core..:? "TargetOnDemandCapacity")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "TargetSpotCapacity")
-            Core.<*> (x Core..:? "ProvisionedOnDemandCapacity")
-            Core.<*> ( x Core..:? "InstanceTypeSpecifications"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "ProvisionedSpotCapacity")
-            Core.<*> (x Core..:? "LaunchSpecifications")
+            Prelude.<$> (x Core..:? "InstanceFleetType")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "TargetOnDemandCapacity")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "TargetSpotCapacity")
+            Prelude.<*> (x Core..:? "ProvisionedOnDemandCapacity")
+            Prelude.<*> ( x Core..:? "InstanceTypeSpecifications"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "ProvisionedSpotCapacity")
+            Prelude.<*> (x Core..:? "LaunchSpecifications")
       )
 
-instance Core.Hashable InstanceFleet
+instance Prelude.Hashable InstanceFleet
 
-instance Core.NFData InstanceFleet
+instance Prelude.NFData InstanceFleet

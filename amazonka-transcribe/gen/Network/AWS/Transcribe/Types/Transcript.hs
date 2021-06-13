@@ -21,6 +21,7 @@ module Network.AWS.Transcribe.Types.Transcript where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies the location of a transcription.
 --
@@ -33,7 +34,7 @@ data Transcript = Transcript'
     -- of that bucket. If you chose to store the transcript in Amazon
     -- Transcribe, this is a shareable URL that provides secure access to that
     -- location.
-    transcriptFileUri :: Core.Maybe Core.Text,
+    transcriptFileUri :: Prelude.Maybe Prelude.Text,
     -- | The S3 object location of the redacted transcript.
     --
     -- Use this URI to access the redacted transcript. If you specified an S3
@@ -41,9 +42,9 @@ data Transcript = Transcript'
     -- the URI of that bucket. If you chose to store the transcript in Amazon
     -- Transcribe, this is a shareable URL that provides secure access to that
     -- location.
-    redactedTranscriptFileUri :: Core.Maybe Core.Text
+    redactedTranscriptFileUri :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Transcript' with all optional fields omitted.
@@ -72,8 +73,8 @@ newTranscript ::
   Transcript
 newTranscript =
   Transcript'
-    { transcriptFileUri = Core.Nothing,
-      redactedTranscriptFileUri = Core.Nothing
+    { transcriptFileUri = Prelude.Nothing,
+      redactedTranscriptFileUri = Prelude.Nothing
     }
 
 -- | The S3 object location of the transcript.
@@ -83,7 +84,7 @@ newTranscript =
 -- of that bucket. If you chose to store the transcript in Amazon
 -- Transcribe, this is a shareable URL that provides secure access to that
 -- location.
-transcript_transcriptFileUri :: Lens.Lens' Transcript (Core.Maybe Core.Text)
+transcript_transcriptFileUri :: Lens.Lens' Transcript (Prelude.Maybe Prelude.Text)
 transcript_transcriptFileUri = Lens.lens (\Transcript' {transcriptFileUri} -> transcriptFileUri) (\s@Transcript' {} a -> s {transcriptFileUri = a} :: Transcript)
 
 -- | The S3 object location of the redacted transcript.
@@ -93,7 +94,7 @@ transcript_transcriptFileUri = Lens.lens (\Transcript' {transcriptFileUri} -> tr
 -- the URI of that bucket. If you chose to store the transcript in Amazon
 -- Transcribe, this is a shareable URL that provides secure access to that
 -- location.
-transcript_redactedTranscriptFileUri :: Lens.Lens' Transcript (Core.Maybe Core.Text)
+transcript_redactedTranscriptFileUri :: Lens.Lens' Transcript (Prelude.Maybe Prelude.Text)
 transcript_redactedTranscriptFileUri = Lens.lens (\Transcript' {redactedTranscriptFileUri} -> redactedTranscriptFileUri) (\s@Transcript' {} a -> s {redactedTranscriptFileUri = a} :: Transcript)
 
 instance Core.FromJSON Transcript where
@@ -102,10 +103,10 @@ instance Core.FromJSON Transcript where
       "Transcript"
       ( \x ->
           Transcript'
-            Core.<$> (x Core..:? "TranscriptFileUri")
-            Core.<*> (x Core..:? "RedactedTranscriptFileUri")
+            Prelude.<$> (x Core..:? "TranscriptFileUri")
+            Prelude.<*> (x Core..:? "RedactedTranscriptFileUri")
       )
 
-instance Core.Hashable Transcript
+instance Prelude.Hashable Transcript
 
-instance Core.NFData Transcript
+instance Prelude.NFData Transcript

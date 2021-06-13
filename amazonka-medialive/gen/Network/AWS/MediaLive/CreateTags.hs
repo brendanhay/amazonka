@@ -39,6 +39,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -46,10 +47,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateTags' smart constructor.
 data CreateTags = CreateTags'
-  { tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
-    resourceArn :: Core.Text
+  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    resourceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTags' with all optional fields omitted.
@@ -64,20 +65,20 @@ data CreateTags = CreateTags'
 -- 'resourceArn', 'createTags_resourceArn' - Undocumented member.
 newCreateTags ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateTags
 newCreateTags pResourceArn_ =
   CreateTags'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       resourceArn = pResourceArn_
     }
 
 -- | Undocumented member.
-createTags_tags :: Lens.Lens' CreateTags (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Core.. Lens.mapping Lens._Coerce
+createTags_tags :: Lens.Lens' CreateTags (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-createTags_resourceArn :: Lens.Lens' CreateTags Core.Text
+createTags_resourceArn :: Lens.Lens' CreateTags Prelude.Text
 createTags_resourceArn = Lens.lens (\CreateTags' {resourceArn} -> resourceArn) (\s@CreateTags' {} a -> s {resourceArn = a} :: CreateTags)
 
 instance Core.AWSRequest CreateTags where
@@ -85,36 +86,41 @@ instance Core.AWSRequest CreateTags where
   request = Request.postJSON defaultService
   response = Response.receiveNull CreateTagsResponse'
 
-instance Core.Hashable CreateTags
+instance Prelude.Hashable CreateTags
 
-instance Core.NFData CreateTags
+instance Prelude.NFData CreateTags
 
 instance Core.ToHeaders CreateTags where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateTags where
   toJSON CreateTags' {..} =
     Core.object
-      (Core.catMaybes [("tags" Core..=) Core.<$> tags])
+      ( Prelude.catMaybes
+          [("tags" Core..=) Prelude.<$> tags]
+      )
 
 instance Core.ToPath CreateTags where
   toPath CreateTags' {..} =
-    Core.mconcat ["/prod/tags/", Core.toBS resourceArn]
+    Prelude.mconcat
+      ["/prod/tags/", Core.toBS resourceArn]
 
 instance Core.ToQuery CreateTags where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTagsResponse' smart constructor.
 data CreateTagsResponse = CreateTagsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTagsResponse' with all optional fields omitted.
@@ -124,4 +130,4 @@ newCreateTagsResponse ::
   CreateTagsResponse
 newCreateTagsResponse = CreateTagsResponse'
 
-instance Core.NFData CreateTagsResponse
+instance Prelude.NFData CreateTagsResponse

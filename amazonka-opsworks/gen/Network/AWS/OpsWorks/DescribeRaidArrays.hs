@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,15 +60,15 @@ import qualified Network.AWS.Response as Response
 data DescribeRaidArrays = DescribeRaidArrays'
   { -- | The instance ID. If you use this parameter, @DescribeRaidArrays@ returns
     -- descriptions of the RAID arrays associated with the specified instance.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | An array of RAID array IDs. If you use this parameter,
     -- @DescribeRaidArrays@ returns descriptions of the specified arrays.
     -- Otherwise, it returns a description of every array.
-    raidArrayIds :: Core.Maybe [Core.Text],
+    raidArrayIds :: Prelude.Maybe [Prelude.Text],
     -- | The stack ID.
-    stackId :: Core.Maybe Core.Text
+    stackId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRaidArrays' with all optional fields omitted.
@@ -89,24 +90,24 @@ newDescribeRaidArrays ::
   DescribeRaidArrays
 newDescribeRaidArrays =
   DescribeRaidArrays'
-    { instanceId = Core.Nothing,
-      raidArrayIds = Core.Nothing,
-      stackId = Core.Nothing
+    { instanceId = Prelude.Nothing,
+      raidArrayIds = Prelude.Nothing,
+      stackId = Prelude.Nothing
     }
 
 -- | The instance ID. If you use this parameter, @DescribeRaidArrays@ returns
 -- descriptions of the RAID arrays associated with the specified instance.
-describeRaidArrays_instanceId :: Lens.Lens' DescribeRaidArrays (Core.Maybe Core.Text)
+describeRaidArrays_instanceId :: Lens.Lens' DescribeRaidArrays (Prelude.Maybe Prelude.Text)
 describeRaidArrays_instanceId = Lens.lens (\DescribeRaidArrays' {instanceId} -> instanceId) (\s@DescribeRaidArrays' {} a -> s {instanceId = a} :: DescribeRaidArrays)
 
 -- | An array of RAID array IDs. If you use this parameter,
 -- @DescribeRaidArrays@ returns descriptions of the specified arrays.
 -- Otherwise, it returns a description of every array.
-describeRaidArrays_raidArrayIds :: Lens.Lens' DescribeRaidArrays (Core.Maybe [Core.Text])
-describeRaidArrays_raidArrayIds = Lens.lens (\DescribeRaidArrays' {raidArrayIds} -> raidArrayIds) (\s@DescribeRaidArrays' {} a -> s {raidArrayIds = a} :: DescribeRaidArrays) Core.. Lens.mapping Lens._Coerce
+describeRaidArrays_raidArrayIds :: Lens.Lens' DescribeRaidArrays (Prelude.Maybe [Prelude.Text])
+describeRaidArrays_raidArrayIds = Lens.lens (\DescribeRaidArrays' {raidArrayIds} -> raidArrayIds) (\s@DescribeRaidArrays' {} a -> s {raidArrayIds = a} :: DescribeRaidArrays) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The stack ID.
-describeRaidArrays_stackId :: Lens.Lens' DescribeRaidArrays (Core.Maybe Core.Text)
+describeRaidArrays_stackId :: Lens.Lens' DescribeRaidArrays (Prelude.Maybe Prelude.Text)
 describeRaidArrays_stackId = Lens.lens (\DescribeRaidArrays' {stackId} -> stackId) (\s@DescribeRaidArrays' {} a -> s {stackId = a} :: DescribeRaidArrays)
 
 instance Core.AWSRequest DescribeRaidArrays where
@@ -118,53 +119,55 @@ instance Core.AWSRequest DescribeRaidArrays where
     Response.receiveJSON
       ( \s h x ->
           DescribeRaidArraysResponse'
-            Core.<$> (x Core..?> "RaidArrays" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RaidArrays" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeRaidArrays
+instance Prelude.Hashable DescribeRaidArrays
 
-instance Core.NFData DescribeRaidArrays
+instance Prelude.NFData DescribeRaidArrays
 
 instance Core.ToHeaders DescribeRaidArrays where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.DescribeRaidArrays" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeRaidArrays where
   toJSON DescribeRaidArrays' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("InstanceId" Core..=) Core.<$> instanceId,
-            ("RaidArrayIds" Core..=) Core.<$> raidArrayIds,
-            ("StackId" Core..=) Core.<$> stackId
+      ( Prelude.catMaybes
+          [ ("InstanceId" Core..=) Prelude.<$> instanceId,
+            ("RaidArrayIds" Core..=) Prelude.<$> raidArrayIds,
+            ("StackId" Core..=) Prelude.<$> stackId
           ]
       )
 
 instance Core.ToPath DescribeRaidArrays where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeRaidArrays where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeRaidArrays@ request.
 --
 -- /See:/ 'newDescribeRaidArraysResponse' smart constructor.
 data DescribeRaidArraysResponse = DescribeRaidArraysResponse'
   { -- | A @RaidArrays@ object that describes the specified RAID arrays.
-    raidArrays :: Core.Maybe [RaidArray],
+    raidArrays :: Prelude.Maybe [RaidArray],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRaidArraysResponse' with all optional fields omitted.
@@ -179,21 +182,21 @@ data DescribeRaidArraysResponse = DescribeRaidArraysResponse'
 -- 'httpStatus', 'describeRaidArraysResponse_httpStatus' - The response's http status code.
 newDescribeRaidArraysResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeRaidArraysResponse
 newDescribeRaidArraysResponse pHttpStatus_ =
   DescribeRaidArraysResponse'
     { raidArrays =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A @RaidArrays@ object that describes the specified RAID arrays.
-describeRaidArraysResponse_raidArrays :: Lens.Lens' DescribeRaidArraysResponse (Core.Maybe [RaidArray])
-describeRaidArraysResponse_raidArrays = Lens.lens (\DescribeRaidArraysResponse' {raidArrays} -> raidArrays) (\s@DescribeRaidArraysResponse' {} a -> s {raidArrays = a} :: DescribeRaidArraysResponse) Core.. Lens.mapping Lens._Coerce
+describeRaidArraysResponse_raidArrays :: Lens.Lens' DescribeRaidArraysResponse (Prelude.Maybe [RaidArray])
+describeRaidArraysResponse_raidArrays = Lens.lens (\DescribeRaidArraysResponse' {raidArrays} -> raidArrays) (\s@DescribeRaidArraysResponse' {} a -> s {raidArrays = a} :: DescribeRaidArraysResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeRaidArraysResponse_httpStatus :: Lens.Lens' DescribeRaidArraysResponse Core.Int
+describeRaidArraysResponse_httpStatus :: Lens.Lens' DescribeRaidArraysResponse Prelude.Int
 describeRaidArraysResponse_httpStatus = Lens.lens (\DescribeRaidArraysResponse' {httpStatus} -> httpStatus) (\s@DescribeRaidArraysResponse' {} a -> s {httpStatus = a} :: DescribeRaidArraysResponse)
 
-instance Core.NFData DescribeRaidArraysResponse
+instance Prelude.NFData DescribeRaidArraysResponse

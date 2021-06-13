@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,14 +70,14 @@ data PutGroupPolicy = PutGroupPolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-.
-    groupName :: Core.Text,
+    groupName :: Prelude.Text,
     -- | The name of the policy document.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    policyName :: Core.Text,
+    policyName :: Prelude.Text,
     -- | The policy document.
     --
     -- You must provide policies in JSON format in IAM. However, for AWS
@@ -95,9 +96,9 @@ data PutGroupPolicy = PutGroupPolicy'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    policyDocument :: Core.Text
+    policyDocument :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutGroupPolicy' with all optional fields omitted.
@@ -141,11 +142,11 @@ data PutGroupPolicy = PutGroupPolicy'
 --     carriage return (@\\u000D@)
 newPutGroupPolicy ::
   -- | 'groupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyDocument'
-  Core.Text ->
+  Prelude.Text ->
   PutGroupPolicy
 newPutGroupPolicy
   pGroupName_
@@ -163,7 +164,7 @@ newPutGroupPolicy
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-.
-putGroupPolicy_groupName :: Lens.Lens' PutGroupPolicy Core.Text
+putGroupPolicy_groupName :: Lens.Lens' PutGroupPolicy Prelude.Text
 putGroupPolicy_groupName = Lens.lens (\PutGroupPolicy' {groupName} -> groupName) (\s@PutGroupPolicy' {} a -> s {groupName = a} :: PutGroupPolicy)
 
 -- | The name of the policy document.
@@ -172,7 +173,7 @@ putGroupPolicy_groupName = Lens.lens (\PutGroupPolicy' {groupName} -> groupName)
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-putGroupPolicy_policyName :: Lens.Lens' PutGroupPolicy Core.Text
+putGroupPolicy_policyName :: Lens.Lens' PutGroupPolicy Prelude.Text
 putGroupPolicy_policyName = Lens.lens (\PutGroupPolicy' {policyName} -> policyName) (\s@PutGroupPolicy' {} a -> s {policyName = a} :: PutGroupPolicy)
 
 -- | The policy document.
@@ -193,7 +194,7 @@ putGroupPolicy_policyName = Lens.lens (\PutGroupPolicy' {policyName} -> policyNa
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-putGroupPolicy_policyDocument :: Lens.Lens' PutGroupPolicy Core.Text
+putGroupPolicy_policyDocument :: Lens.Lens' PutGroupPolicy Prelude.Text
 putGroupPolicy_policyDocument = Lens.lens (\PutGroupPolicy' {policyDocument} -> policyDocument) (\s@PutGroupPolicy' {} a -> s {policyDocument = a} :: PutGroupPolicy)
 
 instance Core.AWSRequest PutGroupPolicy where
@@ -204,22 +205,23 @@ instance Core.AWSRequest PutGroupPolicy where
   response =
     Response.receiveNull PutGroupPolicyResponse'
 
-instance Core.Hashable PutGroupPolicy
+instance Prelude.Hashable PutGroupPolicy
 
-instance Core.NFData PutGroupPolicy
+instance Prelude.NFData PutGroupPolicy
 
 instance Core.ToHeaders PutGroupPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath PutGroupPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutGroupPolicy where
   toQuery PutGroupPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("PutGroupPolicy" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("PutGroupPolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "GroupName" Core.=: groupName,
         "PolicyName" Core.=: policyName,
         "PolicyDocument" Core.=: policyDocument
@@ -229,7 +231,7 @@ instance Core.ToQuery PutGroupPolicy where
 data PutGroupPolicyResponse = PutGroupPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutGroupPolicyResponse' with all optional fields omitted.
@@ -239,4 +241,4 @@ newPutGroupPolicyResponse ::
   PutGroupPolicyResponse
 newPutGroupPolicyResponse = PutGroupPolicyResponse'
 
-instance Core.NFData PutGroupPolicyResponse
+instance Prelude.NFData PutGroupPolicyResponse

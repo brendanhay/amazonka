@@ -51,6 +51,7 @@ where
 import Network.AWS.CognitoSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,16 +63,16 @@ data DescribeDataset = DescribeDataset'
   { -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
-    identityPoolId :: Core.Text,
+    identityPoolId :: Prelude.Text,
     -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
-    identityId :: Core.Text,
+    identityId :: Prelude.Text,
     -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
     -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-    datasetName :: Core.Text
+    datasetName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDataset' with all optional fields omitted.
@@ -93,11 +94,11 @@ data DescribeDataset = DescribeDataset'
 -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
 newDescribeDataset ::
   -- | 'identityPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'identityId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'datasetName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeDataset
 newDescribeDataset
   pIdentityPoolId_
@@ -112,18 +113,18 @@ newDescribeDataset
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-describeDataset_identityPoolId :: Lens.Lens' DescribeDataset Core.Text
+describeDataset_identityPoolId :: Lens.Lens' DescribeDataset Prelude.Text
 describeDataset_identityPoolId = Lens.lens (\DescribeDataset' {identityPoolId} -> identityPoolId) (\s@DescribeDataset' {} a -> s {identityPoolId = a} :: DescribeDataset)
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-describeDataset_identityId :: Lens.Lens' DescribeDataset Core.Text
+describeDataset_identityId :: Lens.Lens' DescribeDataset Prelude.Text
 describeDataset_identityId = Lens.lens (\DescribeDataset' {identityId} -> identityId) (\s@DescribeDataset' {} a -> s {identityId = a} :: DescribeDataset)
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
 -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-describeDataset_datasetName :: Lens.Lens' DescribeDataset Core.Text
+describeDataset_datasetName :: Lens.Lens' DescribeDataset Prelude.Text
 describeDataset_datasetName = Lens.lens (\DescribeDataset' {datasetName} -> datasetName) (\s@DescribeDataset' {} a -> s {datasetName = a} :: DescribeDataset)
 
 instance Core.AWSRequest DescribeDataset where
@@ -135,26 +136,28 @@ instance Core.AWSRequest DescribeDataset where
     Response.receiveJSON
       ( \s h x ->
           DescribeDatasetResponse'
-            Core.<$> (x Core..?> "Dataset")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Dataset")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeDataset
+instance Prelude.Hashable DescribeDataset
 
-instance Core.NFData DescribeDataset
+instance Prelude.NFData DescribeDataset
 
 instance Core.ToHeaders DescribeDataset where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeDataset where
   toPath DescribeDataset' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/identitypools/",
         Core.toBS identityPoolId,
         "/identities/",
@@ -164,7 +167,7 @@ instance Core.ToPath DescribeDataset where
       ]
 
 instance Core.ToQuery DescribeDataset where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Response to a successful DescribeDataset request.
 --
@@ -175,11 +178,11 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
     -- particular entity in an application (like a saved game). Datasets are
     -- automatically created if they don\'t exist. Data is synced by dataset,
     -- and a dataset can hold up to 1MB of key-value pairs.
-    dataset :: Core.Maybe Dataset,
+    dataset :: Prelude.Maybe Dataset,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDatasetResponse' with all optional fields omitted.
@@ -198,11 +201,11 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
 -- 'httpStatus', 'describeDatasetResponse_httpStatus' - The response's http status code.
 newDescribeDatasetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeDatasetResponse
 newDescribeDatasetResponse pHttpStatus_ =
   DescribeDatasetResponse'
-    { dataset = Core.Nothing,
+    { dataset = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -211,11 +214,11 @@ newDescribeDatasetResponse pHttpStatus_ =
 -- particular entity in an application (like a saved game). Datasets are
 -- automatically created if they don\'t exist. Data is synced by dataset,
 -- and a dataset can hold up to 1MB of key-value pairs.
-describeDatasetResponse_dataset :: Lens.Lens' DescribeDatasetResponse (Core.Maybe Dataset)
+describeDatasetResponse_dataset :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Dataset)
 describeDatasetResponse_dataset = Lens.lens (\DescribeDatasetResponse' {dataset} -> dataset) (\s@DescribeDatasetResponse' {} a -> s {dataset = a} :: DescribeDatasetResponse)
 
 -- | The response's http status code.
-describeDatasetResponse_httpStatus :: Lens.Lens' DescribeDatasetResponse Core.Int
+describeDatasetResponse_httpStatus :: Lens.Lens' DescribeDatasetResponse Prelude.Int
 describeDatasetResponse_httpStatus = Lens.lens (\DescribeDatasetResponse' {httpStatus} -> httpStatus) (\s@DescribeDatasetResponse' {} a -> s {httpStatus = a} :: DescribeDatasetResponse)
 
-instance Core.NFData DescribeDatasetResponse
+instance Prelude.NFData DescribeDatasetResponse

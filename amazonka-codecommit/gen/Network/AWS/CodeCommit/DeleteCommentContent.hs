@@ -43,6 +43,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DeleteCommentContent = DeleteCommentContent'
   { -- | The unique, system-generated ID of the comment. To get this ID, use
     -- GetCommentsForComparedCommit or GetCommentsForPullRequest.
-    commentId :: Core.Text
+    commentId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCommentContent' with all optional fields omitted.
@@ -66,14 +67,14 @@ data DeleteCommentContent = DeleteCommentContent'
 -- GetCommentsForComparedCommit or GetCommentsForPullRequest.
 newDeleteCommentContent ::
   -- | 'commentId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteCommentContent
 newDeleteCommentContent pCommentId_ =
   DeleteCommentContent' {commentId = pCommentId_}
 
 -- | The unique, system-generated ID of the comment. To get this ID, use
 -- GetCommentsForComparedCommit or GetCommentsForPullRequest.
-deleteCommentContent_commentId :: Lens.Lens' DeleteCommentContent Core.Text
+deleteCommentContent_commentId :: Lens.Lens' DeleteCommentContent Prelude.Text
 deleteCommentContent_commentId = Lens.lens (\DeleteCommentContent' {commentId} -> commentId) (\s@DeleteCommentContent' {} a -> s {commentId = a} :: DeleteCommentContent)
 
 instance Core.AWSRequest DeleteCommentContent where
@@ -85,48 +86,50 @@ instance Core.AWSRequest DeleteCommentContent where
     Response.receiveJSON
       ( \s h x ->
           DeleteCommentContentResponse'
-            Core.<$> (x Core..?> "comment")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "comment")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteCommentContent
+instance Prelude.Hashable DeleteCommentContent
 
-instance Core.NFData DeleteCommentContent
+instance Prelude.NFData DeleteCommentContent
 
 instance Core.ToHeaders DeleteCommentContent where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.DeleteCommentContent" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteCommentContent where
   toJSON DeleteCommentContent' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("commentId" Core..= commentId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("commentId" Core..= commentId)]
       )
 
 instance Core.ToPath DeleteCommentContent where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteCommentContent where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCommentContentResponse' smart constructor.
 data DeleteCommentContentResponse = DeleteCommentContentResponse'
   { -- | Information about the comment you just deleted.
-    comment :: Core.Maybe Comment,
+    comment :: Prelude.Maybe Comment,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCommentContentResponse' with all optional fields omitted.
@@ -141,21 +144,21 @@ data DeleteCommentContentResponse = DeleteCommentContentResponse'
 -- 'httpStatus', 'deleteCommentContentResponse_httpStatus' - The response's http status code.
 newDeleteCommentContentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteCommentContentResponse
 newDeleteCommentContentResponse pHttpStatus_ =
   DeleteCommentContentResponse'
     { comment =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the comment you just deleted.
-deleteCommentContentResponse_comment :: Lens.Lens' DeleteCommentContentResponse (Core.Maybe Comment)
+deleteCommentContentResponse_comment :: Lens.Lens' DeleteCommentContentResponse (Prelude.Maybe Comment)
 deleteCommentContentResponse_comment = Lens.lens (\DeleteCommentContentResponse' {comment} -> comment) (\s@DeleteCommentContentResponse' {} a -> s {comment = a} :: DeleteCommentContentResponse)
 
 -- | The response's http status code.
-deleteCommentContentResponse_httpStatus :: Lens.Lens' DeleteCommentContentResponse Core.Int
+deleteCommentContentResponse_httpStatus :: Lens.Lens' DeleteCommentContentResponse Prelude.Int
 deleteCommentContentResponse_httpStatus = Lens.lens (\DeleteCommentContentResponse' {httpStatus} -> httpStatus) (\s@DeleteCommentContentResponse' {} a -> s {httpStatus = a} :: DeleteCommentContentResponse)
 
-instance Core.NFData DeleteCommentContentResponse
+instance Prelude.NFData DeleteCommentContentResponse

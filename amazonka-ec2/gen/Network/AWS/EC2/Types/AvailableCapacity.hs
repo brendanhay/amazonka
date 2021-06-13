@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceCapacity
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The capacity information for instances that can be launched onto the
 -- Dedicated Host.
@@ -33,12 +34,12 @@ data AvailableCapacity = AvailableCapacity'
     -- depending on the host\'s available capacity. For Dedicated Hosts that
     -- support multiple instance types, this parameter represents the number of
     -- instances for each instance size that is supported on the host.
-    availableInstanceCapacity :: Core.Maybe [InstanceCapacity],
+    availableInstanceCapacity :: Prelude.Maybe [InstanceCapacity],
     -- | The number of vCPUs available for launching instances onto the Dedicated
     -- Host.
-    availableVCpus :: Core.Maybe Core.Int
+    availableVCpus :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AvailableCapacity' with all optional fields omitted.
@@ -60,31 +61,31 @@ newAvailableCapacity ::
 newAvailableCapacity =
   AvailableCapacity'
     { availableInstanceCapacity =
-        Core.Nothing,
-      availableVCpus = Core.Nothing
+        Prelude.Nothing,
+      availableVCpus = Prelude.Nothing
     }
 
 -- | The number of instances that can be launched onto the Dedicated Host
 -- depending on the host\'s available capacity. For Dedicated Hosts that
 -- support multiple instance types, this parameter represents the number of
 -- instances for each instance size that is supported on the host.
-availableCapacity_availableInstanceCapacity :: Lens.Lens' AvailableCapacity (Core.Maybe [InstanceCapacity])
-availableCapacity_availableInstanceCapacity = Lens.lens (\AvailableCapacity' {availableInstanceCapacity} -> availableInstanceCapacity) (\s@AvailableCapacity' {} a -> s {availableInstanceCapacity = a} :: AvailableCapacity) Core.. Lens.mapping Lens._Coerce
+availableCapacity_availableInstanceCapacity :: Lens.Lens' AvailableCapacity (Prelude.Maybe [InstanceCapacity])
+availableCapacity_availableInstanceCapacity = Lens.lens (\AvailableCapacity' {availableInstanceCapacity} -> availableInstanceCapacity) (\s@AvailableCapacity' {} a -> s {availableInstanceCapacity = a} :: AvailableCapacity) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of vCPUs available for launching instances onto the Dedicated
 -- Host.
-availableCapacity_availableVCpus :: Lens.Lens' AvailableCapacity (Core.Maybe Core.Int)
+availableCapacity_availableVCpus :: Lens.Lens' AvailableCapacity (Prelude.Maybe Prelude.Int)
 availableCapacity_availableVCpus = Lens.lens (\AvailableCapacity' {availableVCpus} -> availableVCpus) (\s@AvailableCapacity' {} a -> s {availableVCpus = a} :: AvailableCapacity)
 
 instance Core.FromXML AvailableCapacity where
   parseXML x =
     AvailableCapacity'
-      Core.<$> ( x Core..@? "availableInstanceCapacity"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "availableVCpus")
+      Prelude.<$> ( x Core..@? "availableInstanceCapacity"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "availableVCpus")
 
-instance Core.Hashable AvailableCapacity
+instance Prelude.Hashable AvailableCapacity
 
-instance Core.NFData AvailableCapacity
+instance Prelude.NFData AvailableCapacity

@@ -21,15 +21,16 @@ module Network.AWS.Shield.Types.Mitigation where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The mitigation applied to a DDoS attack.
 --
 -- /See:/ 'newMitigation' smart constructor.
 data Mitigation = Mitigation'
   { -- | The name of the mitigation taken for this attack.
-    mitigationName :: Core.Maybe Core.Text
+    mitigationName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Mitigation' with all optional fields omitted.
@@ -43,10 +44,10 @@ data Mitigation = Mitigation'
 newMitigation ::
   Mitigation
 newMitigation =
-  Mitigation' {mitigationName = Core.Nothing}
+  Mitigation' {mitigationName = Prelude.Nothing}
 
 -- | The name of the mitigation taken for this attack.
-mitigation_mitigationName :: Lens.Lens' Mitigation (Core.Maybe Core.Text)
+mitigation_mitigationName :: Lens.Lens' Mitigation (Prelude.Maybe Prelude.Text)
 mitigation_mitigationName = Lens.lens (\Mitigation' {mitigationName} -> mitigationName) (\s@Mitigation' {} a -> s {mitigationName = a} :: Mitigation)
 
 instance Core.FromJSON Mitigation where
@@ -54,9 +55,10 @@ instance Core.FromJSON Mitigation where
     Core.withObject
       "Mitigation"
       ( \x ->
-          Mitigation' Core.<$> (x Core..:? "MitigationName")
+          Mitigation'
+            Prelude.<$> (x Core..:? "MitigationName")
       )
 
-instance Core.Hashable Mitigation
+instance Prelude.Hashable Mitigation
 
-instance Core.NFData Mitigation
+instance Prelude.NFData Mitigation

@@ -21,20 +21,21 @@ module Network.AWS.AppSync.Types.DeltaSyncConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Delta Sync configuration.
 --
 -- /See:/ 'newDeltaSyncConfig' smart constructor.
 data DeltaSyncConfig = DeltaSyncConfig'
   { -- | The number of minutes an Item is stored in the datasource.
-    baseTableTTL :: Core.Maybe Core.Integer,
+    baseTableTTL :: Prelude.Maybe Prelude.Integer,
     -- | The Delta Sync table name.
-    deltaSyncTableName :: Core.Maybe Core.Text,
+    deltaSyncTableName :: Prelude.Maybe Prelude.Text,
     -- | The number of minutes a Delta Sync log entry is stored in the Delta Sync
     -- table.
-    deltaSyncTableTTL :: Core.Maybe Core.Integer
+    deltaSyncTableTTL :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeltaSyncConfig' with all optional fields omitted.
@@ -54,22 +55,22 @@ newDeltaSyncConfig ::
   DeltaSyncConfig
 newDeltaSyncConfig =
   DeltaSyncConfig'
-    { baseTableTTL = Core.Nothing,
-      deltaSyncTableName = Core.Nothing,
-      deltaSyncTableTTL = Core.Nothing
+    { baseTableTTL = Prelude.Nothing,
+      deltaSyncTableName = Prelude.Nothing,
+      deltaSyncTableTTL = Prelude.Nothing
     }
 
 -- | The number of minutes an Item is stored in the datasource.
-deltaSyncConfig_baseTableTTL :: Lens.Lens' DeltaSyncConfig (Core.Maybe Core.Integer)
+deltaSyncConfig_baseTableTTL :: Lens.Lens' DeltaSyncConfig (Prelude.Maybe Prelude.Integer)
 deltaSyncConfig_baseTableTTL = Lens.lens (\DeltaSyncConfig' {baseTableTTL} -> baseTableTTL) (\s@DeltaSyncConfig' {} a -> s {baseTableTTL = a} :: DeltaSyncConfig)
 
 -- | The Delta Sync table name.
-deltaSyncConfig_deltaSyncTableName :: Lens.Lens' DeltaSyncConfig (Core.Maybe Core.Text)
+deltaSyncConfig_deltaSyncTableName :: Lens.Lens' DeltaSyncConfig (Prelude.Maybe Prelude.Text)
 deltaSyncConfig_deltaSyncTableName = Lens.lens (\DeltaSyncConfig' {deltaSyncTableName} -> deltaSyncTableName) (\s@DeltaSyncConfig' {} a -> s {deltaSyncTableName = a} :: DeltaSyncConfig)
 
 -- | The number of minutes a Delta Sync log entry is stored in the Delta Sync
 -- table.
-deltaSyncConfig_deltaSyncTableTTL :: Lens.Lens' DeltaSyncConfig (Core.Maybe Core.Integer)
+deltaSyncConfig_deltaSyncTableTTL :: Lens.Lens' DeltaSyncConfig (Prelude.Maybe Prelude.Integer)
 deltaSyncConfig_deltaSyncTableTTL = Lens.lens (\DeltaSyncConfig' {deltaSyncTableTTL} -> deltaSyncTableTTL) (\s@DeltaSyncConfig' {} a -> s {deltaSyncTableTTL = a} :: DeltaSyncConfig)
 
 instance Core.FromJSON DeltaSyncConfig where
@@ -78,23 +79,23 @@ instance Core.FromJSON DeltaSyncConfig where
       "DeltaSyncConfig"
       ( \x ->
           DeltaSyncConfig'
-            Core.<$> (x Core..:? "baseTableTTL")
-            Core.<*> (x Core..:? "deltaSyncTableName")
-            Core.<*> (x Core..:? "deltaSyncTableTTL")
+            Prelude.<$> (x Core..:? "baseTableTTL")
+            Prelude.<*> (x Core..:? "deltaSyncTableName")
+            Prelude.<*> (x Core..:? "deltaSyncTableTTL")
       )
 
-instance Core.Hashable DeltaSyncConfig
+instance Prelude.Hashable DeltaSyncConfig
 
-instance Core.NFData DeltaSyncConfig
+instance Prelude.NFData DeltaSyncConfig
 
 instance Core.ToJSON DeltaSyncConfig where
   toJSON DeltaSyncConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("baseTableTTL" Core..=) Core.<$> baseTableTTL,
+      ( Prelude.catMaybes
+          [ ("baseTableTTL" Core..=) Prelude.<$> baseTableTTL,
             ("deltaSyncTableName" Core..=)
-              Core.<$> deltaSyncTableName,
+              Prelude.<$> deltaSyncTableName,
             ("deltaSyncTableTTL" Core..=)
-              Core.<$> deltaSyncTableTTL
+              Prelude.<$> deltaSyncTableTTL
           ]
       )

@@ -56,23 +56,24 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetPercentiles' smart constructor.
 data GetPercentiles = GetPercentiles'
   { -- | The name of the index to search.
-    indexName :: Core.Maybe Core.Text,
+    indexName :: Prelude.Maybe Prelude.Text,
     -- | The query version.
-    queryVersion :: Core.Maybe Core.Text,
+    queryVersion :: Prelude.Maybe Prelude.Text,
     -- | The percentile groups returned.
-    percents :: Core.Maybe [Core.Double],
+    percents :: Prelude.Maybe [Prelude.Double],
     -- | The field to aggregate.
-    aggregationField :: Core.Maybe Core.Text,
+    aggregationField :: Prelude.Maybe Prelude.Text,
     -- | The query string.
-    queryString :: Core.Text
+    queryString :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPercentiles' with all optional fields omitted.
@@ -93,35 +94,35 @@ data GetPercentiles = GetPercentiles'
 -- 'queryString', 'getPercentiles_queryString' - The query string.
 newGetPercentiles ::
   -- | 'queryString'
-  Core.Text ->
+  Prelude.Text ->
   GetPercentiles
 newGetPercentiles pQueryString_ =
   GetPercentiles'
-    { indexName = Core.Nothing,
-      queryVersion = Core.Nothing,
-      percents = Core.Nothing,
-      aggregationField = Core.Nothing,
+    { indexName = Prelude.Nothing,
+      queryVersion = Prelude.Nothing,
+      percents = Prelude.Nothing,
+      aggregationField = Prelude.Nothing,
       queryString = pQueryString_
     }
 
 -- | The name of the index to search.
-getPercentiles_indexName :: Lens.Lens' GetPercentiles (Core.Maybe Core.Text)
+getPercentiles_indexName :: Lens.Lens' GetPercentiles (Prelude.Maybe Prelude.Text)
 getPercentiles_indexName = Lens.lens (\GetPercentiles' {indexName} -> indexName) (\s@GetPercentiles' {} a -> s {indexName = a} :: GetPercentiles)
 
 -- | The query version.
-getPercentiles_queryVersion :: Lens.Lens' GetPercentiles (Core.Maybe Core.Text)
+getPercentiles_queryVersion :: Lens.Lens' GetPercentiles (Prelude.Maybe Prelude.Text)
 getPercentiles_queryVersion = Lens.lens (\GetPercentiles' {queryVersion} -> queryVersion) (\s@GetPercentiles' {} a -> s {queryVersion = a} :: GetPercentiles)
 
 -- | The percentile groups returned.
-getPercentiles_percents :: Lens.Lens' GetPercentiles (Core.Maybe [Core.Double])
-getPercentiles_percents = Lens.lens (\GetPercentiles' {percents} -> percents) (\s@GetPercentiles' {} a -> s {percents = a} :: GetPercentiles) Core.. Lens.mapping Lens._Coerce
+getPercentiles_percents :: Lens.Lens' GetPercentiles (Prelude.Maybe [Prelude.Double])
+getPercentiles_percents = Lens.lens (\GetPercentiles' {percents} -> percents) (\s@GetPercentiles' {} a -> s {percents = a} :: GetPercentiles) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The field to aggregate.
-getPercentiles_aggregationField :: Lens.Lens' GetPercentiles (Core.Maybe Core.Text)
+getPercentiles_aggregationField :: Lens.Lens' GetPercentiles (Prelude.Maybe Prelude.Text)
 getPercentiles_aggregationField = Lens.lens (\GetPercentiles' {aggregationField} -> aggregationField) (\s@GetPercentiles' {} a -> s {aggregationField = a} :: GetPercentiles)
 
 -- | The query string.
-getPercentiles_queryString :: Lens.Lens' GetPercentiles Core.Text
+getPercentiles_queryString :: Lens.Lens' GetPercentiles Prelude.Text
 getPercentiles_queryString = Lens.lens (\GetPercentiles' {queryString} -> queryString) (\s@GetPercentiles' {} a -> s {queryString = a} :: GetPercentiles)
 
 instance Core.AWSRequest GetPercentiles where
@@ -133,44 +134,44 @@ instance Core.AWSRequest GetPercentiles where
     Response.receiveJSON
       ( \s h x ->
           GetPercentilesResponse'
-            Core.<$> (x Core..?> "percentiles" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "percentiles" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetPercentiles
+instance Prelude.Hashable GetPercentiles
 
-instance Core.NFData GetPercentiles
+instance Prelude.NFData GetPercentiles
 
 instance Core.ToHeaders GetPercentiles where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON GetPercentiles where
   toJSON GetPercentiles' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("indexName" Core..=) Core.<$> indexName,
-            ("queryVersion" Core..=) Core.<$> queryVersion,
-            ("percents" Core..=) Core.<$> percents,
+      ( Prelude.catMaybes
+          [ ("indexName" Core..=) Prelude.<$> indexName,
+            ("queryVersion" Core..=) Prelude.<$> queryVersion,
+            ("percents" Core..=) Prelude.<$> percents,
             ("aggregationField" Core..=)
-              Core.<$> aggregationField,
-            Core.Just ("queryString" Core..= queryString)
+              Prelude.<$> aggregationField,
+            Prelude.Just ("queryString" Core..= queryString)
           ]
       )
 
 instance Core.ToPath GetPercentiles where
-  toPath = Core.const "/indices/percentiles"
+  toPath = Prelude.const "/indices/percentiles"
 
 instance Core.ToQuery GetPercentiles where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPercentilesResponse' smart constructor.
 data GetPercentilesResponse = GetPercentilesResponse'
   { -- | The percentile values of the aggregated fields.
-    percentiles :: Core.Maybe [PercentPair],
+    percentiles :: Prelude.Maybe [PercentPair],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetPercentilesResponse' with all optional fields omitted.
@@ -185,20 +186,21 @@ data GetPercentilesResponse = GetPercentilesResponse'
 -- 'httpStatus', 'getPercentilesResponse_httpStatus' - The response's http status code.
 newGetPercentilesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetPercentilesResponse
 newGetPercentilesResponse pHttpStatus_ =
   GetPercentilesResponse'
-    { percentiles = Core.Nothing,
+    { percentiles =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The percentile values of the aggregated fields.
-getPercentilesResponse_percentiles :: Lens.Lens' GetPercentilesResponse (Core.Maybe [PercentPair])
-getPercentilesResponse_percentiles = Lens.lens (\GetPercentilesResponse' {percentiles} -> percentiles) (\s@GetPercentilesResponse' {} a -> s {percentiles = a} :: GetPercentilesResponse) Core.. Lens.mapping Lens._Coerce
+getPercentilesResponse_percentiles :: Lens.Lens' GetPercentilesResponse (Prelude.Maybe [PercentPair])
+getPercentilesResponse_percentiles = Lens.lens (\GetPercentilesResponse' {percentiles} -> percentiles) (\s@GetPercentilesResponse' {} a -> s {percentiles = a} :: GetPercentilesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getPercentilesResponse_httpStatus :: Lens.Lens' GetPercentilesResponse Core.Int
+getPercentilesResponse_httpStatus :: Lens.Lens' GetPercentilesResponse Prelude.Int
 getPercentilesResponse_httpStatus = Lens.lens (\GetPercentilesResponse' {httpStatus} -> httpStatus) (\s@GetPercentilesResponse' {} a -> s {httpStatus = a} :: GetPercentilesResponse)
 
-instance Core.NFData GetPercentilesResponse
+instance Prelude.NFData GetPercentilesResponse

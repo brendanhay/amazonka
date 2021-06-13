@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ProfilerConfigForUpdate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration information for updating the Debugger profile parameters,
 -- system and framework metrics configurations, and storage paths.
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newProfilerConfigForUpdate' smart constructor.
 data ProfilerConfigForUpdate = ProfilerConfigForUpdate'
   { -- | Path to Amazon S3 storage location for system and framework metrics.
-    s3OutputPath :: Core.Maybe Core.Text,
+    s3OutputPath :: Prelude.Maybe Prelude.Text,
     -- | Configuration information for capturing framework metrics. Available key
     -- strings for different profiling options are @DetailedProfilingConfig@,
     -- @PythonProfilingConfig@, and @DataLoaderProfilingConfig@. The following
@@ -36,15 +37,15 @@ data ProfilerConfigForUpdate = ProfilerConfigForUpdate'
     -- parameter. To learn more about how to configure the
     -- @ProfilingParameters@ parameter, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job>.
-    profilingParameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    profilingParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A time interval for capturing system metrics in milliseconds. Available
     -- values are 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000
     -- (1 minute) milliseconds. The default value is 500 milliseconds.
-    profilingIntervalInMilliseconds :: Core.Maybe Core.Integer,
+    profilingIntervalInMilliseconds :: Prelude.Maybe Prelude.Integer,
     -- | To disable Debugger monitoring and profiling, set to @True@.
-    disableProfiler :: Core.Maybe Core.Bool
+    disableProfiler :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProfilerConfigForUpdate' with all optional fields omitted.
@@ -74,14 +75,14 @@ newProfilerConfigForUpdate ::
 newProfilerConfigForUpdate =
   ProfilerConfigForUpdate'
     { s3OutputPath =
-        Core.Nothing,
-      profilingParameters = Core.Nothing,
-      profilingIntervalInMilliseconds = Core.Nothing,
-      disableProfiler = Core.Nothing
+        Prelude.Nothing,
+      profilingParameters = Prelude.Nothing,
+      profilingIntervalInMilliseconds = Prelude.Nothing,
+      disableProfiler = Prelude.Nothing
     }
 
 -- | Path to Amazon S3 storage location for system and framework metrics.
-profilerConfigForUpdate_s3OutputPath :: Lens.Lens' ProfilerConfigForUpdate (Core.Maybe Core.Text)
+profilerConfigForUpdate_s3OutputPath :: Lens.Lens' ProfilerConfigForUpdate (Prelude.Maybe Prelude.Text)
 profilerConfigForUpdate_s3OutputPath = Lens.lens (\ProfilerConfigForUpdate' {s3OutputPath} -> s3OutputPath) (\s@ProfilerConfigForUpdate' {} a -> s {s3OutputPath = a} :: ProfilerConfigForUpdate)
 
 -- | Configuration information for capturing framework metrics. Available key
@@ -91,33 +92,33 @@ profilerConfigForUpdate_s3OutputPath = Lens.lens (\ProfilerConfigForUpdate' {s3O
 -- parameter. To learn more about how to configure the
 -- @ProfilingParameters@ parameter, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job>.
-profilerConfigForUpdate_profilingParameters :: Lens.Lens' ProfilerConfigForUpdate (Core.Maybe (Core.HashMap Core.Text Core.Text))
-profilerConfigForUpdate_profilingParameters = Lens.lens (\ProfilerConfigForUpdate' {profilingParameters} -> profilingParameters) (\s@ProfilerConfigForUpdate' {} a -> s {profilingParameters = a} :: ProfilerConfigForUpdate) Core.. Lens.mapping Lens._Coerce
+profilerConfigForUpdate_profilingParameters :: Lens.Lens' ProfilerConfigForUpdate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+profilerConfigForUpdate_profilingParameters = Lens.lens (\ProfilerConfigForUpdate' {profilingParameters} -> profilingParameters) (\s@ProfilerConfigForUpdate' {} a -> s {profilingParameters = a} :: ProfilerConfigForUpdate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A time interval for capturing system metrics in milliseconds. Available
 -- values are 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000
 -- (1 minute) milliseconds. The default value is 500 milliseconds.
-profilerConfigForUpdate_profilingIntervalInMilliseconds :: Lens.Lens' ProfilerConfigForUpdate (Core.Maybe Core.Integer)
+profilerConfigForUpdate_profilingIntervalInMilliseconds :: Lens.Lens' ProfilerConfigForUpdate (Prelude.Maybe Prelude.Integer)
 profilerConfigForUpdate_profilingIntervalInMilliseconds = Lens.lens (\ProfilerConfigForUpdate' {profilingIntervalInMilliseconds} -> profilingIntervalInMilliseconds) (\s@ProfilerConfigForUpdate' {} a -> s {profilingIntervalInMilliseconds = a} :: ProfilerConfigForUpdate)
 
 -- | To disable Debugger monitoring and profiling, set to @True@.
-profilerConfigForUpdate_disableProfiler :: Lens.Lens' ProfilerConfigForUpdate (Core.Maybe Core.Bool)
+profilerConfigForUpdate_disableProfiler :: Lens.Lens' ProfilerConfigForUpdate (Prelude.Maybe Prelude.Bool)
 profilerConfigForUpdate_disableProfiler = Lens.lens (\ProfilerConfigForUpdate' {disableProfiler} -> disableProfiler) (\s@ProfilerConfigForUpdate' {} a -> s {disableProfiler = a} :: ProfilerConfigForUpdate)
 
-instance Core.Hashable ProfilerConfigForUpdate
+instance Prelude.Hashable ProfilerConfigForUpdate
 
-instance Core.NFData ProfilerConfigForUpdate
+instance Prelude.NFData ProfilerConfigForUpdate
 
 instance Core.ToJSON ProfilerConfigForUpdate where
   toJSON ProfilerConfigForUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("S3OutputPath" Core..=) Core.<$> s3OutputPath,
+      ( Prelude.catMaybes
+          [ ("S3OutputPath" Core..=) Prelude.<$> s3OutputPath,
             ("ProfilingParameters" Core..=)
-              Core.<$> profilingParameters,
+              Prelude.<$> profilingParameters,
             ("ProfilingIntervalInMilliseconds" Core..=)
-              Core.<$> profilingIntervalInMilliseconds,
+              Prelude.<$> profilingIntervalInMilliseconds,
             ("DisableProfiler" Core..=)
-              Core.<$> disableProfiler
+              Prelude.<$> disableProfiler
           ]
       )

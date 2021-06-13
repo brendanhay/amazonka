@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.OutputChannelMapping where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | OutputChannel mapping settings.
 --
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 data OutputChannelMapping = OutputChannelMapping'
   { -- | Use this setting to specify your remix values when they are integers,
     -- such as -10, 0, or 4.
-    inputChannels :: Core.Maybe [Core.Int],
+    inputChannels :: Prelude.Maybe [Prelude.Int],
     -- | Use this setting to specify your remix values when they have a decimal
     -- component, such as -10.312, 0.08, or 4.9. MediaConvert rounds your
     -- remixing values to the nearest thousandth.
-    inputChannelsFineTune :: Core.Maybe [Core.Double]
+    inputChannelsFineTune :: Prelude.Maybe [Prelude.Double]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OutputChannelMapping' with all optional fields omitted.
@@ -54,20 +55,21 @@ newOutputChannelMapping ::
   OutputChannelMapping
 newOutputChannelMapping =
   OutputChannelMapping'
-    { inputChannels = Core.Nothing,
-      inputChannelsFineTune = Core.Nothing
+    { inputChannels =
+        Prelude.Nothing,
+      inputChannelsFineTune = Prelude.Nothing
     }
 
 -- | Use this setting to specify your remix values when they are integers,
 -- such as -10, 0, or 4.
-outputChannelMapping_inputChannels :: Lens.Lens' OutputChannelMapping (Core.Maybe [Core.Int])
-outputChannelMapping_inputChannels = Lens.lens (\OutputChannelMapping' {inputChannels} -> inputChannels) (\s@OutputChannelMapping' {} a -> s {inputChannels = a} :: OutputChannelMapping) Core.. Lens.mapping Lens._Coerce
+outputChannelMapping_inputChannels :: Lens.Lens' OutputChannelMapping (Prelude.Maybe [Prelude.Int])
+outputChannelMapping_inputChannels = Lens.lens (\OutputChannelMapping' {inputChannels} -> inputChannels) (\s@OutputChannelMapping' {} a -> s {inputChannels = a} :: OutputChannelMapping) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Use this setting to specify your remix values when they have a decimal
 -- component, such as -10.312, 0.08, or 4.9. MediaConvert rounds your
 -- remixing values to the nearest thousandth.
-outputChannelMapping_inputChannelsFineTune :: Lens.Lens' OutputChannelMapping (Core.Maybe [Core.Double])
-outputChannelMapping_inputChannelsFineTune = Lens.lens (\OutputChannelMapping' {inputChannelsFineTune} -> inputChannelsFineTune) (\s@OutputChannelMapping' {} a -> s {inputChannelsFineTune = a} :: OutputChannelMapping) Core.. Lens.mapping Lens._Coerce
+outputChannelMapping_inputChannelsFineTune :: Lens.Lens' OutputChannelMapping (Prelude.Maybe [Prelude.Double])
+outputChannelMapping_inputChannelsFineTune = Lens.lens (\OutputChannelMapping' {inputChannelsFineTune} -> inputChannelsFineTune) (\s@OutputChannelMapping' {} a -> s {inputChannelsFineTune = a} :: OutputChannelMapping) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON OutputChannelMapping where
   parseJSON =
@@ -75,22 +77,22 @@ instance Core.FromJSON OutputChannelMapping where
       "OutputChannelMapping"
       ( \x ->
           OutputChannelMapping'
-            Core.<$> (x Core..:? "inputChannels" Core..!= Core.mempty)
-            Core.<*> ( x Core..:? "inputChannelsFineTune"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "inputChannels" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "inputChannelsFineTune"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable OutputChannelMapping
+instance Prelude.Hashable OutputChannelMapping
 
-instance Core.NFData OutputChannelMapping
+instance Prelude.NFData OutputChannelMapping
 
 instance Core.ToJSON OutputChannelMapping where
   toJSON OutputChannelMapping' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("inputChannels" Core..=) Core.<$> inputChannels,
+      ( Prelude.catMaybes
+          [ ("inputChannels" Core..=) Prelude.<$> inputChannels,
             ("inputChannelsFineTune" Core..=)
-              Core.<$> inputChannelsFineTune
+              Prelude.<$> inputChannelsFineTune
           ]
       )

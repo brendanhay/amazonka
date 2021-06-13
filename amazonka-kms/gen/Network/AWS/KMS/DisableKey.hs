@@ -58,6 +58,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,9 +76,9 @@ data DisableKey = DisableKey'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Core.Text
+    keyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableKey' with all optional fields omitted.
@@ -101,7 +102,7 @@ data DisableKey = DisableKey'
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
 newDisableKey ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   DisableKey
 newDisableKey pKeyId_ = DisableKey' {keyId = pKeyId_}
 
@@ -117,7 +118,7 @@ newDisableKey pKeyId_ = DisableKey' {keyId = pKeyId_}
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-disableKey_keyId :: Lens.Lens' DisableKey Core.Text
+disableKey_keyId :: Lens.Lens' DisableKey Prelude.Text
 disableKey_keyId = Lens.lens (\DisableKey' {keyId} -> keyId) (\s@DisableKey' {} a -> s {keyId = a} :: DisableKey)
 
 instance Core.AWSRequest DisableKey where
@@ -125,37 +126,41 @@ instance Core.AWSRequest DisableKey where
   request = Request.postJSON defaultService
   response = Response.receiveNull DisableKeyResponse'
 
-instance Core.Hashable DisableKey
+instance Prelude.Hashable DisableKey
 
-instance Core.NFData DisableKey
+instance Prelude.NFData DisableKey
 
 instance Core.ToHeaders DisableKey where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.DisableKey" :: Core.ByteString),
+              Core.=# ("TrentService.DisableKey" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisableKey where
   toJSON DisableKey' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("KeyId" Core..= keyId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("KeyId" Core..= keyId)]
+      )
 
 instance Core.ToPath DisableKey where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisableKey where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableKeyResponse' smart constructor.
 data DisableKeyResponse = DisableKeyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableKeyResponse' with all optional fields omitted.
@@ -165,4 +170,4 @@ newDisableKeyResponse ::
   DisableKeyResponse
 newDisableKeyResponse = DisableKeyResponse'
 
-instance Core.NFData DisableKeyResponse
+instance Prelude.NFData DisableKeyResponse

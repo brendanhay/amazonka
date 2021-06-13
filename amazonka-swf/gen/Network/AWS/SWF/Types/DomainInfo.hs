@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.DomainInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.RegistrationStatus
 
 -- | Contains general information about a domain.
@@ -28,11 +29,11 @@ import Network.AWS.SWF.Types.RegistrationStatus
 -- /See:/ 'newDomainInfo' smart constructor.
 data DomainInfo = DomainInfo'
   { -- | The ARN of the domain.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The description of the domain provided through RegisterDomain.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain. This name is unique within the account.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The status of the domain:
     --
     -- -   @REGISTERED@ – The domain is properly registered and available. You
@@ -44,7 +45,7 @@ data DomainInfo = DomainInfo'
     --     this domain.
     status :: RegistrationStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DomainInfo' with all optional fields omitted.
@@ -71,28 +72,28 @@ data DomainInfo = DomainInfo'
 --     this domain.
 newDomainInfo ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
   RegistrationStatus ->
   DomainInfo
 newDomainInfo pName_ pStatus_ =
   DomainInfo'
-    { arn = Core.Nothing,
-      description = Core.Nothing,
+    { arn = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_,
       status = pStatus_
     }
 
 -- | The ARN of the domain.
-domainInfo_arn :: Lens.Lens' DomainInfo (Core.Maybe Core.Text)
+domainInfo_arn :: Lens.Lens' DomainInfo (Prelude.Maybe Prelude.Text)
 domainInfo_arn = Lens.lens (\DomainInfo' {arn} -> arn) (\s@DomainInfo' {} a -> s {arn = a} :: DomainInfo)
 
 -- | The description of the domain provided through RegisterDomain.
-domainInfo_description :: Lens.Lens' DomainInfo (Core.Maybe Core.Text)
+domainInfo_description :: Lens.Lens' DomainInfo (Prelude.Maybe Prelude.Text)
 domainInfo_description = Lens.lens (\DomainInfo' {description} -> description) (\s@DomainInfo' {} a -> s {description = a} :: DomainInfo)
 
 -- | The name of the domain. This name is unique within the account.
-domainInfo_name :: Lens.Lens' DomainInfo Core.Text
+domainInfo_name :: Lens.Lens' DomainInfo Prelude.Text
 domainInfo_name = Lens.lens (\DomainInfo' {name} -> name) (\s@DomainInfo' {} a -> s {name = a} :: DomainInfo)
 
 -- | The status of the domain:
@@ -113,12 +114,12 @@ instance Core.FromJSON DomainInfo where
       "DomainInfo"
       ( \x ->
           DomainInfo'
-            Core.<$> (x Core..:? "arn")
-            Core.<*> (x Core..:? "description")
-            Core.<*> (x Core..: "name")
-            Core.<*> (x Core..: "status")
+            Prelude.<$> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..: "name")
+            Prelude.<*> (x Core..: "status")
       )
 
-instance Core.Hashable DomainInfo
+instance Prelude.Hashable DomainInfo
 
-instance Core.NFData DomainInfo
+instance Prelude.NFData DomainInfo

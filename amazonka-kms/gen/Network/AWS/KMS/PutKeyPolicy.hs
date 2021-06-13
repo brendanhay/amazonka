@@ -60,6 +60,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -80,7 +81,7 @@ data PutKeyPolicy = PutKeyPolicy'
     -- the CMK.
     --
     -- The default value is false.
-    bypassPolicyLockoutSafetyCheck :: Core.Maybe Core.Bool,
+    bypassPolicyLockoutSafetyCheck :: Prelude.Maybe Prelude.Bool,
     -- | A unique identifier for the customer master key (CMK).
     --
     -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
@@ -93,9 +94,9 @@ data PutKeyPolicy = PutKeyPolicy'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Core.Text,
+    keyId :: Prelude.Text,
     -- | The name of the key policy. The only valid value is @default@.
-    policyName :: Core.Text,
+    policyName :: Prelude.Text,
     -- | The key policy to attach to the CMK.
     --
     -- The key policy must meet the following criteria:
@@ -122,9 +123,9 @@ data PutKeyPolicy = PutKeyPolicy'
     -- information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html Resource Quotas>
     -- in the /AWS Key Management Service Developer Guide/.
-    policy :: Core.Text
+    policy :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutKeyPolicy' with all optional fields omitted.
@@ -193,16 +194,16 @@ data PutKeyPolicy = PutKeyPolicy'
 -- in the /AWS Key Management Service Developer Guide/.
 newPutKeyPolicy ::
   -- | 'keyId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policy'
-  Core.Text ->
+  Prelude.Text ->
   PutKeyPolicy
 newPutKeyPolicy pKeyId_ pPolicyName_ pPolicy_ =
   PutKeyPolicy'
     { bypassPolicyLockoutSafetyCheck =
-        Core.Nothing,
+        Prelude.Nothing,
       keyId = pKeyId_,
       policyName = pPolicyName_,
       policy = pPolicy_
@@ -223,7 +224,7 @@ newPutKeyPolicy pKeyId_ pPolicyName_ pPolicy_ =
 -- the CMK.
 --
 -- The default value is false.
-putKeyPolicy_bypassPolicyLockoutSafetyCheck :: Lens.Lens' PutKeyPolicy (Core.Maybe Core.Bool)
+putKeyPolicy_bypassPolicyLockoutSafetyCheck :: Lens.Lens' PutKeyPolicy (Prelude.Maybe Prelude.Bool)
 putKeyPolicy_bypassPolicyLockoutSafetyCheck = Lens.lens (\PutKeyPolicy' {bypassPolicyLockoutSafetyCheck} -> bypassPolicyLockoutSafetyCheck) (\s@PutKeyPolicy' {} a -> s {bypassPolicyLockoutSafetyCheck = a} :: PutKeyPolicy)
 
 -- | A unique identifier for the customer master key (CMK).
@@ -238,11 +239,11 @@ putKeyPolicy_bypassPolicyLockoutSafetyCheck = Lens.lens (\PutKeyPolicy' {bypassP
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-putKeyPolicy_keyId :: Lens.Lens' PutKeyPolicy Core.Text
+putKeyPolicy_keyId :: Lens.Lens' PutKeyPolicy Prelude.Text
 putKeyPolicy_keyId = Lens.lens (\PutKeyPolicy' {keyId} -> keyId) (\s@PutKeyPolicy' {} a -> s {keyId = a} :: PutKeyPolicy)
 
 -- | The name of the key policy. The only valid value is @default@.
-putKeyPolicy_policyName :: Lens.Lens' PutKeyPolicy Core.Text
+putKeyPolicy_policyName :: Lens.Lens' PutKeyPolicy Prelude.Text
 putKeyPolicy_policyName = Lens.lens (\PutKeyPolicy' {policyName} -> policyName) (\s@PutKeyPolicy' {} a -> s {policyName = a} :: PutKeyPolicy)
 
 -- | The key policy to attach to the CMK.
@@ -271,7 +272,7 @@ putKeyPolicy_policyName = Lens.lens (\PutKeyPolicy' {policyName} -> policyName) 
 -- information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html Resource Quotas>
 -- in the /AWS Key Management Service Developer Guide/.
-putKeyPolicy_policy :: Lens.Lens' PutKeyPolicy Core.Text
+putKeyPolicy_policy :: Lens.Lens' PutKeyPolicy Prelude.Text
 putKeyPolicy_policy = Lens.lens (\PutKeyPolicy' {policy} -> policy) (\s@PutKeyPolicy' {} a -> s {policy = a} :: PutKeyPolicy)
 
 instance Core.AWSRequest PutKeyPolicy where
@@ -279,44 +280,46 @@ instance Core.AWSRequest PutKeyPolicy where
   request = Request.postJSON defaultService
   response = Response.receiveNull PutKeyPolicyResponse'
 
-instance Core.Hashable PutKeyPolicy
+instance Prelude.Hashable PutKeyPolicy
 
-instance Core.NFData PutKeyPolicy
+instance Prelude.NFData PutKeyPolicy
 
 instance Core.ToHeaders PutKeyPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TrentService.PutKeyPolicy" :: Core.ByteString),
+              Core.=# ("TrentService.PutKeyPolicy" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutKeyPolicy where
   toJSON PutKeyPolicy' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("BypassPolicyLockoutSafetyCheck" Core..=)
-              Core.<$> bypassPolicyLockoutSafetyCheck,
-            Core.Just ("KeyId" Core..= keyId),
-            Core.Just ("PolicyName" Core..= policyName),
-            Core.Just ("Policy" Core..= policy)
+              Prelude.<$> bypassPolicyLockoutSafetyCheck,
+            Prelude.Just ("KeyId" Core..= keyId),
+            Prelude.Just ("PolicyName" Core..= policyName),
+            Prelude.Just ("Policy" Core..= policy)
           ]
       )
 
 instance Core.ToPath PutKeyPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutKeyPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutKeyPolicyResponse' smart constructor.
 data PutKeyPolicyResponse = PutKeyPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutKeyPolicyResponse' with all optional fields omitted.
@@ -326,4 +329,4 @@ newPutKeyPolicyResponse ::
   PutKeyPolicyResponse
 newPutKeyPolicyResponse = PutKeyPolicyResponse'
 
-instance Core.NFData PutKeyPolicyResponse
+instance Prelude.NFData PutKeyPolicyResponse

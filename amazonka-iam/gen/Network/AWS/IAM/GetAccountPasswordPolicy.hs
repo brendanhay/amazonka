@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,7 +51,7 @@ import qualified Network.AWS.Response as Response
 data GetAccountPasswordPolicy = GetAccountPasswordPolicy'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccountPasswordPolicy' with all optional fields omitted.
@@ -71,27 +72,28 @@ instance Core.AWSRequest GetAccountPasswordPolicy where
       "GetAccountPasswordPolicyResult"
       ( \s h x ->
           GetAccountPasswordPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "PasswordPolicy")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "PasswordPolicy")
       )
 
-instance Core.Hashable GetAccountPasswordPolicy
+instance Prelude.Hashable GetAccountPasswordPolicy
 
-instance Core.NFData GetAccountPasswordPolicy
+instance Prelude.NFData GetAccountPasswordPolicy
 
 instance Core.ToHeaders GetAccountPasswordPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetAccountPasswordPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetAccountPasswordPolicy where
   toQuery =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Action"
-              Core.=: ("GetAccountPasswordPolicy" :: Core.ByteString),
-            "Version" Core.=: ("2010-05-08" :: Core.ByteString)
+              Core.=: ("GetAccountPasswordPolicy" :: Prelude.ByteString),
+            "Version"
+              Core.=: ("2010-05-08" :: Prelude.ByteString)
           ]
       )
 
@@ -100,11 +102,11 @@ instance Core.ToQuery GetAccountPasswordPolicy where
 -- /See:/ 'newGetAccountPasswordPolicyResponse' smart constructor.
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A structure that contains details about the account\'s password policy.
     passwordPolicy :: PasswordPolicy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccountPasswordPolicyResponse' with all optional fields omitted.
@@ -119,7 +121,7 @@ data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
 -- 'passwordPolicy', 'getAccountPasswordPolicyResponse_passwordPolicy' - A structure that contains details about the account\'s password policy.
 newGetAccountPasswordPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'passwordPolicy'
   PasswordPolicy ->
   GetAccountPasswordPolicyResponse
@@ -133,11 +135,13 @@ newGetAccountPasswordPolicyResponse
       }
 
 -- | The response's http status code.
-getAccountPasswordPolicyResponse_httpStatus :: Lens.Lens' GetAccountPasswordPolicyResponse Core.Int
+getAccountPasswordPolicyResponse_httpStatus :: Lens.Lens' GetAccountPasswordPolicyResponse Prelude.Int
 getAccountPasswordPolicyResponse_httpStatus = Lens.lens (\GetAccountPasswordPolicyResponse' {httpStatus} -> httpStatus) (\s@GetAccountPasswordPolicyResponse' {} a -> s {httpStatus = a} :: GetAccountPasswordPolicyResponse)
 
 -- | A structure that contains details about the account\'s password policy.
 getAccountPasswordPolicyResponse_passwordPolicy :: Lens.Lens' GetAccountPasswordPolicyResponse PasswordPolicy
 getAccountPasswordPolicyResponse_passwordPolicy = Lens.lens (\GetAccountPasswordPolicyResponse' {passwordPolicy} -> passwordPolicy) (\s@GetAccountPasswordPolicyResponse' {} a -> s {passwordPolicy = a} :: GetAccountPasswordPolicyResponse)
 
-instance Core.NFData GetAccountPasswordPolicyResponse
+instance
+  Prelude.NFData
+    GetAccountPasswordPolicyResponse

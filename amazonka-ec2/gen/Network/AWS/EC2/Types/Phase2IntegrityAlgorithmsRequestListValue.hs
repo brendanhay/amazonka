@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.Phase2IntegrityAlgorithmsRequestListValue where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE
 -- negotiations.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPhase2IntegrityAlgorithmsRequestListValue' smart constructor.
 data Phase2IntegrityAlgorithmsRequestListValue = Phase2IntegrityAlgorithmsRequestListValue'
   { -- | The integrity algorithm.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Phase2IntegrityAlgorithmsRequestListValue' with all optional fields omitted.
@@ -47,19 +48,19 @@ newPhase2IntegrityAlgorithmsRequestListValue ::
 newPhase2IntegrityAlgorithmsRequestListValue =
   Phase2IntegrityAlgorithmsRequestListValue'
     { value =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The integrity algorithm.
-phase2IntegrityAlgorithmsRequestListValue_value :: Lens.Lens' Phase2IntegrityAlgorithmsRequestListValue (Core.Maybe Core.Text)
+phase2IntegrityAlgorithmsRequestListValue_value :: Lens.Lens' Phase2IntegrityAlgorithmsRequestListValue (Prelude.Maybe Prelude.Text)
 phase2IntegrityAlgorithmsRequestListValue_value = Lens.lens (\Phase2IntegrityAlgorithmsRequestListValue' {value} -> value) (\s@Phase2IntegrityAlgorithmsRequestListValue' {} a -> s {value = a} :: Phase2IntegrityAlgorithmsRequestListValue)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     Phase2IntegrityAlgorithmsRequestListValue
 
 instance
-  Core.NFData
+  Prelude.NFData
     Phase2IntegrityAlgorithmsRequestListValue
 
 instance
@@ -68,4 +69,4 @@ instance
   where
   toQuery
     Phase2IntegrityAlgorithmsRequestListValue' {..} =
-      Core.mconcat ["Value" Core.=: value]
+      Prelude.mconcat ["Value" Core.=: value]

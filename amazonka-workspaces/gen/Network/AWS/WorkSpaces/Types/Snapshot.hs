@@ -21,15 +21,16 @@ module Network.AWS.WorkSpaces.Types.Snapshot where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a snapshot.
 --
 -- /See:/ 'newSnapshot' smart constructor.
 data Snapshot = Snapshot'
   { -- | The time when the snapshot was created.
-    snapshotTime :: Core.Maybe Core.POSIX
+    snapshotTime :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Snapshot' with all optional fields omitted.
@@ -42,20 +43,21 @@ data Snapshot = Snapshot'
 -- 'snapshotTime', 'snapshot_snapshotTime' - The time when the snapshot was created.
 newSnapshot ::
   Snapshot
-newSnapshot = Snapshot' {snapshotTime = Core.Nothing}
+newSnapshot =
+  Snapshot' {snapshotTime = Prelude.Nothing}
 
 -- | The time when the snapshot was created.
-snapshot_snapshotTime :: Lens.Lens' Snapshot (Core.Maybe Core.UTCTime)
-snapshot_snapshotTime = Lens.lens (\Snapshot' {snapshotTime} -> snapshotTime) (\s@Snapshot' {} a -> s {snapshotTime = a} :: Snapshot) Core.. Lens.mapping Core._Time
+snapshot_snapshotTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
+snapshot_snapshotTime = Lens.lens (\Snapshot' {snapshotTime} -> snapshotTime) (\s@Snapshot' {} a -> s {snapshotTime = a} :: Snapshot) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON Snapshot where
   parseJSON =
     Core.withObject
       "Snapshot"
       ( \x ->
-          Snapshot' Core.<$> (x Core..:? "SnapshotTime")
+          Snapshot' Prelude.<$> (x Core..:? "SnapshotTime")
       )
 
-instance Core.Hashable Snapshot
+instance Prelude.Hashable Snapshot
 
-instance Core.NFData Snapshot
+instance Prelude.NFData Snapshot

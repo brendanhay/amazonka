@@ -22,6 +22,7 @@ module Network.AWS.CodeBuild.Types.EnvironmentVariable where
 import Network.AWS.CodeBuild.Types.EnvironmentVariableType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an environment variable for a build project or a
 -- build.
@@ -44,9 +45,9 @@ data EnvironmentVariable = EnvironmentVariable'
     --     variable, see
     --     <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager env\/secrets-manager>
     --     in the /AWS CodeBuild User Guide/.
-    type' :: Core.Maybe EnvironmentVariableType,
+    type' :: Prelude.Maybe EnvironmentVariableType,
     -- | The name or key of the environment variable.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The value of the environment variable.
     --
     -- We strongly discourage the use of @PLAINTEXT@ environment variables to
@@ -55,9 +56,9 @@ data EnvironmentVariable = EnvironmentVariable'
     -- using the AWS CodeBuild console and the AWS Command Line Interface (AWS
     -- CLI). For sensitive values, we recommend you use an environment variable
     -- of type @PARAMETER_STORE@ or @SECRETS_MANAGER@.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnvironmentVariable' with all optional fields omitted.
@@ -96,13 +97,13 @@ data EnvironmentVariable = EnvironmentVariable'
 -- of type @PARAMETER_STORE@ or @SECRETS_MANAGER@.
 newEnvironmentVariable ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   EnvironmentVariable
 newEnvironmentVariable pName_ pValue_ =
   EnvironmentVariable'
-    { type' = Core.Nothing,
+    { type' = Prelude.Nothing,
       name = pName_,
       value = pValue_
     }
@@ -123,11 +124,11 @@ newEnvironmentVariable pName_ pValue_ =
 --     variable, see
 --     <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager env\/secrets-manager>
 --     in the /AWS CodeBuild User Guide/.
-environmentVariable_type :: Lens.Lens' EnvironmentVariable (Core.Maybe EnvironmentVariableType)
+environmentVariable_type :: Lens.Lens' EnvironmentVariable (Prelude.Maybe EnvironmentVariableType)
 environmentVariable_type = Lens.lens (\EnvironmentVariable' {type'} -> type') (\s@EnvironmentVariable' {} a -> s {type' = a} :: EnvironmentVariable)
 
 -- | The name or key of the environment variable.
-environmentVariable_name :: Lens.Lens' EnvironmentVariable Core.Text
+environmentVariable_name :: Lens.Lens' EnvironmentVariable Prelude.Text
 environmentVariable_name = Lens.lens (\EnvironmentVariable' {name} -> name) (\s@EnvironmentVariable' {} a -> s {name = a} :: EnvironmentVariable)
 
 -- | The value of the environment variable.
@@ -138,7 +139,7 @@ environmentVariable_name = Lens.lens (\EnvironmentVariable' {name} -> name) (\s@
 -- using the AWS CodeBuild console and the AWS Command Line Interface (AWS
 -- CLI). For sensitive values, we recommend you use an environment variable
 -- of type @PARAMETER_STORE@ or @SECRETS_MANAGER@.
-environmentVariable_value :: Lens.Lens' EnvironmentVariable Core.Text
+environmentVariable_value :: Lens.Lens' EnvironmentVariable Prelude.Text
 environmentVariable_value = Lens.lens (\EnvironmentVariable' {value} -> value) (\s@EnvironmentVariable' {} a -> s {value = a} :: EnvironmentVariable)
 
 instance Core.FromJSON EnvironmentVariable where
@@ -147,21 +148,21 @@ instance Core.FromJSON EnvironmentVariable where
       "EnvironmentVariable"
       ( \x ->
           EnvironmentVariable'
-            Core.<$> (x Core..:? "type")
-            Core.<*> (x Core..: "name")
-            Core.<*> (x Core..: "value")
+            Prelude.<$> (x Core..:? "type")
+            Prelude.<*> (x Core..: "name")
+            Prelude.<*> (x Core..: "value")
       )
 
-instance Core.Hashable EnvironmentVariable
+instance Prelude.Hashable EnvironmentVariable
 
-instance Core.NFData EnvironmentVariable
+instance Prelude.NFData EnvironmentVariable
 
 instance Core.ToJSON EnvironmentVariable where
   toJSON EnvironmentVariable' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("type" Core..=) Core.<$> type',
-            Core.Just ("name" Core..= name),
-            Core.Just ("value" Core..= value)
+      ( Prelude.catMaybes
+          [ ("type" Core..=) Prelude.<$> type',
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("value" Core..= value)
           ]
       )

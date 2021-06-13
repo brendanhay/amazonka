@@ -44,19 +44,20 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateLexBot' smart constructor.
 data DisassociateLexBot = DisassociateLexBot'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The name of the Amazon Lex bot. Maximum character limit of 50.
-    botName :: Core.Text,
+    botName :: Prelude.Text,
     -- | The Region in which the Amazon Lex bot has been created.
-    lexRegion :: Core.Text
+    lexRegion :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateLexBot' with all optional fields omitted.
@@ -73,11 +74,11 @@ data DisassociateLexBot = DisassociateLexBot'
 -- 'lexRegion', 'disassociateLexBot_lexRegion' - The Region in which the Amazon Lex bot has been created.
 newDisassociateLexBot ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'botName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'lexRegion'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateLexBot
 newDisassociateLexBot
   pInstanceId_
@@ -90,15 +91,15 @@ newDisassociateLexBot
       }
 
 -- | The identifier of the Amazon Connect instance.
-disassociateLexBot_instanceId :: Lens.Lens' DisassociateLexBot Core.Text
+disassociateLexBot_instanceId :: Lens.Lens' DisassociateLexBot Prelude.Text
 disassociateLexBot_instanceId = Lens.lens (\DisassociateLexBot' {instanceId} -> instanceId) (\s@DisassociateLexBot' {} a -> s {instanceId = a} :: DisassociateLexBot)
 
 -- | The name of the Amazon Lex bot. Maximum character limit of 50.
-disassociateLexBot_botName :: Lens.Lens' DisassociateLexBot Core.Text
+disassociateLexBot_botName :: Lens.Lens' DisassociateLexBot Prelude.Text
 disassociateLexBot_botName = Lens.lens (\DisassociateLexBot' {botName} -> botName) (\s@DisassociateLexBot' {} a -> s {botName = a} :: DisassociateLexBot)
 
 -- | The Region in which the Amazon Lex bot has been created.
-disassociateLexBot_lexRegion :: Lens.Lens' DisassociateLexBot Core.Text
+disassociateLexBot_lexRegion :: Lens.Lens' DisassociateLexBot Prelude.Text
 disassociateLexBot_lexRegion = Lens.lens (\DisassociateLexBot' {lexRegion} -> lexRegion) (\s@DisassociateLexBot' {} a -> s {lexRegion = a} :: DisassociateLexBot)
 
 instance Core.AWSRequest DisassociateLexBot where
@@ -109,27 +110,29 @@ instance Core.AWSRequest DisassociateLexBot where
   response =
     Response.receiveNull DisassociateLexBotResponse'
 
-instance Core.Hashable DisassociateLexBot
+instance Prelude.Hashable DisassociateLexBot
 
-instance Core.NFData DisassociateLexBot
+instance Prelude.NFData DisassociateLexBot
 
 instance Core.ToHeaders DisassociateLexBot where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DisassociateLexBot where
   toPath DisassociateLexBot' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/instance/", Core.toBS instanceId, "/lex-bot"]
 
 instance Core.ToQuery DisassociateLexBot where
   toQuery DisassociateLexBot' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "botName" Core.=: botName,
         "lexRegion" Core.=: lexRegion
       ]
@@ -138,7 +141,7 @@ instance Core.ToQuery DisassociateLexBot where
 data DisassociateLexBotResponse = DisassociateLexBotResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateLexBotResponse' with all optional fields omitted.
@@ -149,4 +152,4 @@ newDisassociateLexBotResponse ::
 newDisassociateLexBotResponse =
   DisassociateLexBotResponse'
 
-instance Core.NFData DisassociateLexBotResponse
+instance Prelude.NFData DisassociateLexBotResponse

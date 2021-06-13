@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -86,21 +87,21 @@ data ListNotebookExecutions = ListNotebookExecutions'
     --
     -- -   @STOPPED@ indicates that the execution stopped because of a
     --     @StopNotebookExecution@ request.
-    status :: Core.Maybe NotebookExecutionStatus,
+    status :: Prelude.Maybe NotebookExecutionStatus,
     -- | The unique ID of the editor associated with the notebook execution.
-    editorId :: Core.Maybe Core.Text,
+    editorId :: Prelude.Maybe Prelude.Text,
     -- | The end of time range filter for listing notebook executions. The
     -- default is the current timestamp.
-    to :: Core.Maybe Core.POSIX,
+    to :: Prelude.Maybe Core.POSIX,
     -- | The beginning of time range filter for listing notebook executions. The
     -- default is the timestamp of 30 days ago.
-    from :: Core.Maybe Core.POSIX,
+    from :: Prelude.Maybe Core.POSIX,
     -- | The pagination token, returned by a previous @ListNotebookExecutions@
     -- call, that indicates the start of the list for this
     -- @ListNotebookExecutions@ call.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListNotebookExecutions' with all optional fields omitted.
@@ -154,11 +155,11 @@ newListNotebookExecutions ::
   ListNotebookExecutions
 newListNotebookExecutions =
   ListNotebookExecutions'
-    { status = Core.Nothing,
-      editorId = Core.Nothing,
-      to = Core.Nothing,
-      from = Core.Nothing,
-      marker = Core.Nothing
+    { status = Prelude.Nothing,
+      editorId = Prelude.Nothing,
+      to = Prelude.Nothing,
+      from = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The status filter for listing notebook executions.
@@ -189,27 +190,27 @@ newListNotebookExecutions =
 --
 -- -   @STOPPED@ indicates that the execution stopped because of a
 --     @StopNotebookExecution@ request.
-listNotebookExecutions_status :: Lens.Lens' ListNotebookExecutions (Core.Maybe NotebookExecutionStatus)
+listNotebookExecutions_status :: Lens.Lens' ListNotebookExecutions (Prelude.Maybe NotebookExecutionStatus)
 listNotebookExecutions_status = Lens.lens (\ListNotebookExecutions' {status} -> status) (\s@ListNotebookExecutions' {} a -> s {status = a} :: ListNotebookExecutions)
 
 -- | The unique ID of the editor associated with the notebook execution.
-listNotebookExecutions_editorId :: Lens.Lens' ListNotebookExecutions (Core.Maybe Core.Text)
+listNotebookExecutions_editorId :: Lens.Lens' ListNotebookExecutions (Prelude.Maybe Prelude.Text)
 listNotebookExecutions_editorId = Lens.lens (\ListNotebookExecutions' {editorId} -> editorId) (\s@ListNotebookExecutions' {} a -> s {editorId = a} :: ListNotebookExecutions)
 
 -- | The end of time range filter for listing notebook executions. The
 -- default is the current timestamp.
-listNotebookExecutions_to :: Lens.Lens' ListNotebookExecutions (Core.Maybe Core.UTCTime)
-listNotebookExecutions_to = Lens.lens (\ListNotebookExecutions' {to} -> to) (\s@ListNotebookExecutions' {} a -> s {to = a} :: ListNotebookExecutions) Core.. Lens.mapping Core._Time
+listNotebookExecutions_to :: Lens.Lens' ListNotebookExecutions (Prelude.Maybe Prelude.UTCTime)
+listNotebookExecutions_to = Lens.lens (\ListNotebookExecutions' {to} -> to) (\s@ListNotebookExecutions' {} a -> s {to = a} :: ListNotebookExecutions) Prelude.. Lens.mapping Core._Time
 
 -- | The beginning of time range filter for listing notebook executions. The
 -- default is the timestamp of 30 days ago.
-listNotebookExecutions_from :: Lens.Lens' ListNotebookExecutions (Core.Maybe Core.UTCTime)
-listNotebookExecutions_from = Lens.lens (\ListNotebookExecutions' {from} -> from) (\s@ListNotebookExecutions' {} a -> s {from = a} :: ListNotebookExecutions) Core.. Lens.mapping Core._Time
+listNotebookExecutions_from :: Lens.Lens' ListNotebookExecutions (Prelude.Maybe Prelude.UTCTime)
+listNotebookExecutions_from = Lens.lens (\ListNotebookExecutions' {from} -> from) (\s@ListNotebookExecutions' {} a -> s {from = a} :: ListNotebookExecutions) Prelude.. Lens.mapping Core._Time
 
 -- | The pagination token, returned by a previous @ListNotebookExecutions@
 -- call, that indicates the start of the list for this
 -- @ListNotebookExecutions@ call.
-listNotebookExecutions_marker :: Lens.Lens' ListNotebookExecutions (Core.Maybe Core.Text)
+listNotebookExecutions_marker :: Lens.Lens' ListNotebookExecutions (Prelude.Maybe Prelude.Text)
 listNotebookExecutions_marker = Lens.lens (\ListNotebookExecutions' {marker} -> marker) (\s@ListNotebookExecutions' {} a -> s {marker = a} :: ListNotebookExecutions)
 
 instance Core.AWSPager ListNotebookExecutions where
@@ -217,22 +218,22 @@ instance Core.AWSPager ListNotebookExecutions where
     | Core.stop
         ( rs
             Lens.^? listNotebookExecutionsResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listNotebookExecutionsResponse_notebookExecutions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listNotebookExecutions_marker
+          Prelude.& listNotebookExecutions_marker
           Lens..~ rs
           Lens.^? listNotebookExecutionsResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNotebookExecutions where
   type
@@ -243,59 +244,61 @@ instance Core.AWSRequest ListNotebookExecutions where
     Response.receiveJSON
       ( \s h x ->
           ListNotebookExecutionsResponse'
-            Core.<$> ( x Core..?> "NotebookExecutions"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "NotebookExecutions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListNotebookExecutions
+instance Prelude.Hashable ListNotebookExecutions
 
-instance Core.NFData ListNotebookExecutions
+instance Prelude.NFData ListNotebookExecutions
 
 instance Core.ToHeaders ListNotebookExecutions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ElasticMapReduce.ListNotebookExecutions" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListNotebookExecutions where
   toJSON ListNotebookExecutions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Status" Core..=) Core.<$> status,
-            ("EditorId" Core..=) Core.<$> editorId,
-            ("To" Core..=) Core.<$> to,
-            ("From" Core..=) Core.<$> from,
-            ("Marker" Core..=) Core.<$> marker
+      ( Prelude.catMaybes
+          [ ("Status" Core..=) Prelude.<$> status,
+            ("EditorId" Core..=) Prelude.<$> editorId,
+            ("To" Core..=) Prelude.<$> to,
+            ("From" Core..=) Prelude.<$> from,
+            ("Marker" Core..=) Prelude.<$> marker
           ]
       )
 
 instance Core.ToPath ListNotebookExecutions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListNotebookExecutions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListNotebookExecutionsResponse' smart constructor.
 data ListNotebookExecutionsResponse = ListNotebookExecutionsResponse'
   { -- | A list of notebook executions.
-    notebookExecutions :: Core.Maybe [NotebookExecutionSummary],
+    notebookExecutions :: Prelude.Maybe [NotebookExecutionSummary],
     -- | A pagination token that a subsequent @ListNotebookExecutions@ can use to
     -- determine the next set of results to retrieve.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListNotebookExecutionsResponse' with all optional fields omitted.
@@ -313,27 +316,29 @@ data ListNotebookExecutionsResponse = ListNotebookExecutionsResponse'
 -- 'httpStatus', 'listNotebookExecutionsResponse_httpStatus' - The response's http status code.
 newListNotebookExecutionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListNotebookExecutionsResponse
 newListNotebookExecutionsResponse pHttpStatus_ =
   ListNotebookExecutionsResponse'
     { notebookExecutions =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of notebook executions.
-listNotebookExecutionsResponse_notebookExecutions :: Lens.Lens' ListNotebookExecutionsResponse (Core.Maybe [NotebookExecutionSummary])
-listNotebookExecutionsResponse_notebookExecutions = Lens.lens (\ListNotebookExecutionsResponse' {notebookExecutions} -> notebookExecutions) (\s@ListNotebookExecutionsResponse' {} a -> s {notebookExecutions = a} :: ListNotebookExecutionsResponse) Core.. Lens.mapping Lens._Coerce
+listNotebookExecutionsResponse_notebookExecutions :: Lens.Lens' ListNotebookExecutionsResponse (Prelude.Maybe [NotebookExecutionSummary])
+listNotebookExecutionsResponse_notebookExecutions = Lens.lens (\ListNotebookExecutionsResponse' {notebookExecutions} -> notebookExecutions) (\s@ListNotebookExecutionsResponse' {} a -> s {notebookExecutions = a} :: ListNotebookExecutionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A pagination token that a subsequent @ListNotebookExecutions@ can use to
 -- determine the next set of results to retrieve.
-listNotebookExecutionsResponse_marker :: Lens.Lens' ListNotebookExecutionsResponse (Core.Maybe Core.Text)
+listNotebookExecutionsResponse_marker :: Lens.Lens' ListNotebookExecutionsResponse (Prelude.Maybe Prelude.Text)
 listNotebookExecutionsResponse_marker = Lens.lens (\ListNotebookExecutionsResponse' {marker} -> marker) (\s@ListNotebookExecutionsResponse' {} a -> s {marker = a} :: ListNotebookExecutionsResponse)
 
 -- | The response's http status code.
-listNotebookExecutionsResponse_httpStatus :: Lens.Lens' ListNotebookExecutionsResponse Core.Int
+listNotebookExecutionsResponse_httpStatus :: Lens.Lens' ListNotebookExecutionsResponse Prelude.Int
 listNotebookExecutionsResponse_httpStatus = Lens.lens (\ListNotebookExecutionsResponse' {httpStatus} -> httpStatus) (\s@ListNotebookExecutionsResponse' {} a -> s {httpStatus = a} :: ListNotebookExecutionsResponse)
 
-instance Core.NFData ListNotebookExecutionsResponse
+instance
+  Prelude.NFData
+    ListNotebookExecutionsResponse

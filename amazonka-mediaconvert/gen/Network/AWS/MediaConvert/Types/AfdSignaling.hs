@@ -28,6 +28,7 @@ module Network.AWS.MediaConvert.Types.AfdSignaling
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This setting only applies to H.264, H.265, and MPEG2 outputs. Use Insert
 -- AFD signaling (AfdSignaling) to specify whether the service includes AFD
@@ -41,15 +42,15 @@ newtype AfdSignaling = AfdSignaling'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

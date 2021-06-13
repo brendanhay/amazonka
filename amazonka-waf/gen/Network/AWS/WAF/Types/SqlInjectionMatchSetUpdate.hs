@@ -21,6 +21,7 @@ module Network.AWS.WAF.Types.SqlInjectionMatchSetUpdate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.ChangeAction
 import Network.AWS.WAF.Types.SqlInjectionMatchTuple
 
@@ -49,7 +50,7 @@ data SqlInjectionMatchSetUpdate = SqlInjectionMatchSetUpdate'
     -- header, the name of the header.
     sqlInjectionMatchTuple :: SqlInjectionMatchTuple
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SqlInjectionMatchSetUpdate' with all optional fields omitted.
@@ -93,16 +94,16 @@ sqlInjectionMatchSetUpdate_action = Lens.lens (\SqlInjectionMatchSetUpdate' {act
 sqlInjectionMatchSetUpdate_sqlInjectionMatchTuple :: Lens.Lens' SqlInjectionMatchSetUpdate SqlInjectionMatchTuple
 sqlInjectionMatchSetUpdate_sqlInjectionMatchTuple = Lens.lens (\SqlInjectionMatchSetUpdate' {sqlInjectionMatchTuple} -> sqlInjectionMatchTuple) (\s@SqlInjectionMatchSetUpdate' {} a -> s {sqlInjectionMatchTuple = a} :: SqlInjectionMatchSetUpdate)
 
-instance Core.Hashable SqlInjectionMatchSetUpdate
+instance Prelude.Hashable SqlInjectionMatchSetUpdate
 
-instance Core.NFData SqlInjectionMatchSetUpdate
+instance Prelude.NFData SqlInjectionMatchSetUpdate
 
 instance Core.ToJSON SqlInjectionMatchSetUpdate where
   toJSON SqlInjectionMatchSetUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Action" Core..= action),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Action" Core..= action),
+            Prelude.Just
               ( "SqlInjectionMatchTuple"
                   Core..= sqlInjectionMatchTuple
               )

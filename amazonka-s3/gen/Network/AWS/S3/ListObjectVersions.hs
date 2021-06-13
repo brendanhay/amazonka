@@ -82,6 +82,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -91,37 +92,37 @@ data ListObjectVersions = ListObjectVersions'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
-    encodingType :: Core.Maybe EncodingType,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    encodingType :: Prelude.Maybe EncodingType,
     -- | A delimiter is a character that you specify to group keys. All keys that
     -- contain the same string between the @prefix@ and the first occurrence of
     -- the delimiter are grouped under a single result element in
     -- CommonPrefixes. These groups are counted as one result against the
     -- max-keys limitation. These keys are not returned elsewhere in the
     -- response.
-    delimiter :: Core.Maybe Delimiter,
+    delimiter :: Prelude.Maybe Delimiter,
     -- | Use this parameter to select only those keys that begin with the
     -- specified prefix. You can use prefixes to separate a bucket into
     -- different groupings of keys. (You can think of using prefix to make
     -- groups in the same way you\'d use a folder in a file system.) You can
     -- use prefix with delimiter to roll up numerous objects into a single
     -- result under CommonPrefixes.
-    prefix :: Core.Maybe Core.Text,
+    prefix :: Prelude.Maybe Prelude.Text,
     -- | Sets the maximum number of keys returned in the response. By default the
     -- API returns up to 1,000 key names. The response might contain fewer keys
     -- but will never contain more. If additional keys satisfy the search
     -- criteria, but were not returned because max-keys was exceeded, the
     -- response contains \<isTruncated>true\<\/isTruncated>. To return the
     -- additional keys, see key-marker and version-id-marker.
-    maxKeys :: Core.Maybe Core.Int,
+    maxKeys :: Prelude.Maybe Prelude.Int,
     -- | Specifies the key to start with when listing objects in a bucket.
-    keyMarker :: Core.Maybe Core.Text,
+    keyMarker :: Prelude.Maybe Prelude.Text,
     -- | Specifies the object version you want to start listing from.
-    versionIdMarker :: Core.Maybe Core.Text,
+    versionIdMarker :: Prelude.Maybe Prelude.Text,
     -- | The bucket name that contains the objects.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListObjectVersions' with all optional fields omitted.
@@ -170,24 +171,24 @@ newListObjectVersions ::
 newListObjectVersions pBucket_ =
   ListObjectVersions'
     { expectedBucketOwner =
-        Core.Nothing,
-      encodingType = Core.Nothing,
-      delimiter = Core.Nothing,
-      prefix = Core.Nothing,
-      maxKeys = Core.Nothing,
-      keyMarker = Core.Nothing,
-      versionIdMarker = Core.Nothing,
+        Prelude.Nothing,
+      encodingType = Prelude.Nothing,
+      delimiter = Prelude.Nothing,
+      prefix = Prelude.Nothing,
+      maxKeys = Prelude.Nothing,
+      keyMarker = Prelude.Nothing,
+      versionIdMarker = Prelude.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-listObjectVersions_expectedBucketOwner :: Lens.Lens' ListObjectVersions (Core.Maybe Core.Text)
+listObjectVersions_expectedBucketOwner :: Lens.Lens' ListObjectVersions (Prelude.Maybe Prelude.Text)
 listObjectVersions_expectedBucketOwner = Lens.lens (\ListObjectVersions' {expectedBucketOwner} -> expectedBucketOwner) (\s@ListObjectVersions' {} a -> s {expectedBucketOwner = a} :: ListObjectVersions)
 
 -- | Undocumented member.
-listObjectVersions_encodingType :: Lens.Lens' ListObjectVersions (Core.Maybe EncodingType)
+listObjectVersions_encodingType :: Lens.Lens' ListObjectVersions (Prelude.Maybe EncodingType)
 listObjectVersions_encodingType = Lens.lens (\ListObjectVersions' {encodingType} -> encodingType) (\s@ListObjectVersions' {} a -> s {encodingType = a} :: ListObjectVersions)
 
 -- | A delimiter is a character that you specify to group keys. All keys that
@@ -196,7 +197,7 @@ listObjectVersions_encodingType = Lens.lens (\ListObjectVersions' {encodingType}
 -- CommonPrefixes. These groups are counted as one result against the
 -- max-keys limitation. These keys are not returned elsewhere in the
 -- response.
-listObjectVersions_delimiter :: Lens.Lens' ListObjectVersions (Core.Maybe Delimiter)
+listObjectVersions_delimiter :: Lens.Lens' ListObjectVersions (Prelude.Maybe Delimiter)
 listObjectVersions_delimiter = Lens.lens (\ListObjectVersions' {delimiter} -> delimiter) (\s@ListObjectVersions' {} a -> s {delimiter = a} :: ListObjectVersions)
 
 -- | Use this parameter to select only those keys that begin with the
@@ -205,7 +206,7 @@ listObjectVersions_delimiter = Lens.lens (\ListObjectVersions' {delimiter} -> de
 -- groups in the same way you\'d use a folder in a file system.) You can
 -- use prefix with delimiter to roll up numerous objects into a single
 -- result under CommonPrefixes.
-listObjectVersions_prefix :: Lens.Lens' ListObjectVersions (Core.Maybe Core.Text)
+listObjectVersions_prefix :: Lens.Lens' ListObjectVersions (Prelude.Maybe Prelude.Text)
 listObjectVersions_prefix = Lens.lens (\ListObjectVersions' {prefix} -> prefix) (\s@ListObjectVersions' {} a -> s {prefix = a} :: ListObjectVersions)
 
 -- | Sets the maximum number of keys returned in the response. By default the
@@ -214,15 +215,15 @@ listObjectVersions_prefix = Lens.lens (\ListObjectVersions' {prefix} -> prefix) 
 -- criteria, but were not returned because max-keys was exceeded, the
 -- response contains \<isTruncated>true\<\/isTruncated>. To return the
 -- additional keys, see key-marker and version-id-marker.
-listObjectVersions_maxKeys :: Lens.Lens' ListObjectVersions (Core.Maybe Core.Int)
+listObjectVersions_maxKeys :: Lens.Lens' ListObjectVersions (Prelude.Maybe Prelude.Int)
 listObjectVersions_maxKeys = Lens.lens (\ListObjectVersions' {maxKeys} -> maxKeys) (\s@ListObjectVersions' {} a -> s {maxKeys = a} :: ListObjectVersions)
 
 -- | Specifies the key to start with when listing objects in a bucket.
-listObjectVersions_keyMarker :: Lens.Lens' ListObjectVersions (Core.Maybe Core.Text)
+listObjectVersions_keyMarker :: Lens.Lens' ListObjectVersions (Prelude.Maybe Prelude.Text)
 listObjectVersions_keyMarker = Lens.lens (\ListObjectVersions' {keyMarker} -> keyMarker) (\s@ListObjectVersions' {} a -> s {keyMarker = a} :: ListObjectVersions)
 
 -- | Specifies the object version you want to start listing from.
-listObjectVersions_versionIdMarker :: Lens.Lens' ListObjectVersions (Core.Maybe Core.Text)
+listObjectVersions_versionIdMarker :: Lens.Lens' ListObjectVersions (Prelude.Maybe Prelude.Text)
 listObjectVersions_versionIdMarker = Lens.lens (\ListObjectVersions' {versionIdMarker} -> versionIdMarker) (\s@ListObjectVersions' {} a -> s {versionIdMarker = a} :: ListObjectVersions)
 
 -- | The bucket name that contains the objects.
@@ -234,31 +235,31 @@ instance Core.AWSPager ListObjectVersions where
     | Core.stop
         ( rs
             Lens.^? listObjectVersionsResponse_isTruncated
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.isNothing
+      Prelude.Nothing
+    | Prelude.isNothing
         ( rs
             Lens.^? listObjectVersionsResponse_nextKeyMarker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         )
-        Core.&& Core.isNothing
+        Prelude.&& Prelude.isNothing
           ( rs
               Lens.^? listObjectVersionsResponse_nextVersionIdMarker
-                Core.. Lens._Just
+                Prelude.. Lens._Just
           ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listObjectVersions_keyMarker
+          Prelude.& listObjectVersions_keyMarker
           Lens..~ rs
           Lens.^? listObjectVersionsResponse_nextKeyMarker
-            Core.. Lens._Just
-          Lens.& listObjectVersions_versionIdMarker
+            Prelude.. Lens._Just
+          Prelude.& listObjectVersions_versionIdMarker
           Lens..~ rs
           Lens.^? listObjectVersionsResponse_nextVersionIdMarker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListObjectVersions where
   type
@@ -269,40 +270,40 @@ instance Core.AWSRequest ListObjectVersions where
     Response.receiveXML
       ( \s h x ->
           ListObjectVersionsResponse'
-            Core.<$> (Core.may (Core.parseXMLList "Version") x)
-            Core.<*> (Core.may (Core.parseXMLList "CommonPrefixes") x)
-            Core.<*> (x Core..@? "EncodingType")
-            Core.<*> (x Core..@? "Delimiter")
-            Core.<*> (x Core..@? "Prefix")
-            Core.<*> (x Core..@? "IsTruncated")
-            Core.<*> (x Core..@? "MaxKeys")
-            Core.<*> (x Core..@? "KeyMarker")
-            Core.<*> (x Core..@? "NextKeyMarker")
-            Core.<*> (x Core..@? "Name")
-            Core.<*> (Core.may (Core.parseXMLList "DeleteMarker") x)
-            Core.<*> (x Core..@? "VersionIdMarker")
-            Core.<*> (x Core..@? "NextVersionIdMarker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.may (Core.parseXMLList "Version") x)
+            Prelude.<*> (Core.may (Core.parseXMLList "CommonPrefixes") x)
+            Prelude.<*> (x Core..@? "EncodingType")
+            Prelude.<*> (x Core..@? "Delimiter")
+            Prelude.<*> (x Core..@? "Prefix")
+            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<*> (x Core..@? "MaxKeys")
+            Prelude.<*> (x Core..@? "KeyMarker")
+            Prelude.<*> (x Core..@? "NextKeyMarker")
+            Prelude.<*> (x Core..@? "Name")
+            Prelude.<*> (Core.may (Core.parseXMLList "DeleteMarker") x)
+            Prelude.<*> (x Core..@? "VersionIdMarker")
+            Prelude.<*> (x Core..@? "NextVersionIdMarker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListObjectVersions
+instance Prelude.Hashable ListObjectVersions
 
-instance Core.NFData ListObjectVersions
+instance Prelude.NFData ListObjectVersions
 
 instance Core.ToHeaders ListObjectVersions where
   toHeaders ListObjectVersions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath ListObjectVersions where
   toPath ListObjectVersions' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery ListObjectVersions where
   toQuery ListObjectVersions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "encoding-type" Core.=: encodingType,
         "delimiter" Core.=: delimiter,
         "prefix" Core.=: prefix,
@@ -315,10 +316,10 @@ instance Core.ToQuery ListObjectVersions where
 -- | /See:/ 'newListObjectVersionsResponse' smart constructor.
 data ListObjectVersionsResponse = ListObjectVersionsResponse'
   { -- | Container for version information.
-    versions :: Core.Maybe [ObjectVersion],
+    versions :: Prelude.Maybe [ObjectVersion],
     -- | All of the keys rolled up into a common prefix count as a single return
     -- when calculating the number of returns.
-    commonPrefixes :: Core.Maybe [CommonPrefix],
+    commonPrefixes :: Prelude.Maybe [CommonPrefix],
     -- | Encoding type used by Amazon S3 to encode object key names in the XML
     -- response.
     --
@@ -327,46 +328,46 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
     -- following response elements:
     --
     -- @KeyMarker, NextKeyMarker, Prefix, Key@, and @Delimiter@.
-    encodingType :: Core.Maybe EncodingType,
+    encodingType :: Prelude.Maybe EncodingType,
     -- | The delimiter grouping the included keys. A delimiter is a character
     -- that you specify to group keys. All keys that contain the same string
     -- between the prefix and the first occurrence of the delimiter are grouped
     -- under a single result element in @CommonPrefixes@. These groups are
     -- counted as one result against the max-keys limitation. These keys are
     -- not returned elsewhere in the response.
-    delimiter :: Core.Maybe Delimiter,
+    delimiter :: Prelude.Maybe Delimiter,
     -- | Selects objects that start with the value supplied by this parameter.
-    prefix :: Core.Maybe Core.Text,
+    prefix :: Prelude.Maybe Prelude.Text,
     -- | A flag that indicates whether Amazon S3 returned all of the results that
     -- satisfied the search criteria. If your results were truncated, you can
     -- make a follow-up paginated request using the NextKeyMarker and
     -- NextVersionIdMarker response parameters as a starting place in another
     -- request to return the rest of the results.
-    isTruncated :: Core.Maybe Core.Bool,
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the maximum number of objects to return.
-    maxKeys :: Core.Maybe Core.Int,
+    maxKeys :: Prelude.Maybe Prelude.Int,
     -- | Marks the last key returned in a truncated response.
-    keyMarker :: Core.Maybe Core.Text,
+    keyMarker :: Prelude.Maybe Prelude.Text,
     -- | When the number of responses exceeds the value of @MaxKeys@,
     -- @NextKeyMarker@ specifies the first key not returned that satisfies the
     -- search criteria. Use this value for the key-marker request parameter in
     -- a subsequent request.
-    nextKeyMarker :: Core.Maybe Core.Text,
+    nextKeyMarker :: Prelude.Maybe Prelude.Text,
     -- | The bucket name.
-    name :: Core.Maybe BucketName,
+    name :: Prelude.Maybe BucketName,
     -- | Container for an object that is a delete marker.
-    deleteMarkers :: Core.Maybe [DeleteMarkerEntry],
+    deleteMarkers :: Prelude.Maybe [DeleteMarkerEntry],
     -- | Marks the last version of the key returned in a truncated response.
-    versionIdMarker :: Core.Maybe Core.Text,
+    versionIdMarker :: Prelude.Maybe Prelude.Text,
     -- | When the number of responses exceeds the value of @MaxKeys@,
     -- @NextVersionIdMarker@ specifies the first object version not returned
     -- that satisfies the search criteria. Use this value for the
     -- version-id-marker request parameter in a subsequent request.
-    nextVersionIdMarker :: Core.Maybe Core.Text,
+    nextVersionIdMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListObjectVersionsResponse' with all optional fields omitted.
@@ -428,35 +429,35 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
 -- 'httpStatus', 'listObjectVersionsResponse_httpStatus' - The response's http status code.
 newListObjectVersionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListObjectVersionsResponse
 newListObjectVersionsResponse pHttpStatus_ =
   ListObjectVersionsResponse'
     { versions =
-        Core.Nothing,
-      commonPrefixes = Core.Nothing,
-      encodingType = Core.Nothing,
-      delimiter = Core.Nothing,
-      prefix = Core.Nothing,
-      isTruncated = Core.Nothing,
-      maxKeys = Core.Nothing,
-      keyMarker = Core.Nothing,
-      nextKeyMarker = Core.Nothing,
-      name = Core.Nothing,
-      deleteMarkers = Core.Nothing,
-      versionIdMarker = Core.Nothing,
-      nextVersionIdMarker = Core.Nothing,
+        Prelude.Nothing,
+      commonPrefixes = Prelude.Nothing,
+      encodingType = Prelude.Nothing,
+      delimiter = Prelude.Nothing,
+      prefix = Prelude.Nothing,
+      isTruncated = Prelude.Nothing,
+      maxKeys = Prelude.Nothing,
+      keyMarker = Prelude.Nothing,
+      nextKeyMarker = Prelude.Nothing,
+      name = Prelude.Nothing,
+      deleteMarkers = Prelude.Nothing,
+      versionIdMarker = Prelude.Nothing,
+      nextVersionIdMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Container for version information.
-listObjectVersionsResponse_versions :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe [ObjectVersion])
-listObjectVersionsResponse_versions = Lens.lens (\ListObjectVersionsResponse' {versions} -> versions) (\s@ListObjectVersionsResponse' {} a -> s {versions = a} :: ListObjectVersionsResponse) Core.. Lens.mapping Lens._Coerce
+listObjectVersionsResponse_versions :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe [ObjectVersion])
+listObjectVersionsResponse_versions = Lens.lens (\ListObjectVersionsResponse' {versions} -> versions) (\s@ListObjectVersionsResponse' {} a -> s {versions = a} :: ListObjectVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | All of the keys rolled up into a common prefix count as a single return
 -- when calculating the number of returns.
-listObjectVersionsResponse_commonPrefixes :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe [CommonPrefix])
-listObjectVersionsResponse_commonPrefixes = Lens.lens (\ListObjectVersionsResponse' {commonPrefixes} -> commonPrefixes) (\s@ListObjectVersionsResponse' {} a -> s {commonPrefixes = a} :: ListObjectVersionsResponse) Core.. Lens.mapping Lens._Coerce
+listObjectVersionsResponse_commonPrefixes :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe [CommonPrefix])
+listObjectVersionsResponse_commonPrefixes = Lens.lens (\ListObjectVersionsResponse' {commonPrefixes} -> commonPrefixes) (\s@ListObjectVersionsResponse' {} a -> s {commonPrefixes = a} :: ListObjectVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Encoding type used by Amazon S3 to encode object key names in the XML
 -- response.
@@ -466,7 +467,7 @@ listObjectVersionsResponse_commonPrefixes = Lens.lens (\ListObjectVersionsRespon
 -- following response elements:
 --
 -- @KeyMarker, NextKeyMarker, Prefix, Key@, and @Delimiter@.
-listObjectVersionsResponse_encodingType :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe EncodingType)
+listObjectVersionsResponse_encodingType :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe EncodingType)
 listObjectVersionsResponse_encodingType = Lens.lens (\ListObjectVersionsResponse' {encodingType} -> encodingType) (\s@ListObjectVersionsResponse' {} a -> s {encodingType = a} :: ListObjectVersionsResponse)
 
 -- | The delimiter grouping the included keys. A delimiter is a character
@@ -475,11 +476,11 @@ listObjectVersionsResponse_encodingType = Lens.lens (\ListObjectVersionsResponse
 -- under a single result element in @CommonPrefixes@. These groups are
 -- counted as one result against the max-keys limitation. These keys are
 -- not returned elsewhere in the response.
-listObjectVersionsResponse_delimiter :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Delimiter)
+listObjectVersionsResponse_delimiter :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Delimiter)
 listObjectVersionsResponse_delimiter = Lens.lens (\ListObjectVersionsResponse' {delimiter} -> delimiter) (\s@ListObjectVersionsResponse' {} a -> s {delimiter = a} :: ListObjectVersionsResponse)
 
 -- | Selects objects that start with the value supplied by this parameter.
-listObjectVersionsResponse_prefix :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Core.Text)
+listObjectVersionsResponse_prefix :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Text)
 listObjectVersionsResponse_prefix = Lens.lens (\ListObjectVersionsResponse' {prefix} -> prefix) (\s@ListObjectVersionsResponse' {} a -> s {prefix = a} :: ListObjectVersionsResponse)
 
 -- | A flag that indicates whether Amazon S3 returned all of the results that
@@ -487,45 +488,45 @@ listObjectVersionsResponse_prefix = Lens.lens (\ListObjectVersionsResponse' {pre
 -- make a follow-up paginated request using the NextKeyMarker and
 -- NextVersionIdMarker response parameters as a starting place in another
 -- request to return the rest of the results.
-listObjectVersionsResponse_isTruncated :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Core.Bool)
+listObjectVersionsResponse_isTruncated :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Bool)
 listObjectVersionsResponse_isTruncated = Lens.lens (\ListObjectVersionsResponse' {isTruncated} -> isTruncated) (\s@ListObjectVersionsResponse' {} a -> s {isTruncated = a} :: ListObjectVersionsResponse)
 
 -- | Specifies the maximum number of objects to return.
-listObjectVersionsResponse_maxKeys :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Core.Int)
+listObjectVersionsResponse_maxKeys :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Int)
 listObjectVersionsResponse_maxKeys = Lens.lens (\ListObjectVersionsResponse' {maxKeys} -> maxKeys) (\s@ListObjectVersionsResponse' {} a -> s {maxKeys = a} :: ListObjectVersionsResponse)
 
 -- | Marks the last key returned in a truncated response.
-listObjectVersionsResponse_keyMarker :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Core.Text)
+listObjectVersionsResponse_keyMarker :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Text)
 listObjectVersionsResponse_keyMarker = Lens.lens (\ListObjectVersionsResponse' {keyMarker} -> keyMarker) (\s@ListObjectVersionsResponse' {} a -> s {keyMarker = a} :: ListObjectVersionsResponse)
 
 -- | When the number of responses exceeds the value of @MaxKeys@,
 -- @NextKeyMarker@ specifies the first key not returned that satisfies the
 -- search criteria. Use this value for the key-marker request parameter in
 -- a subsequent request.
-listObjectVersionsResponse_nextKeyMarker :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Core.Text)
+listObjectVersionsResponse_nextKeyMarker :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Text)
 listObjectVersionsResponse_nextKeyMarker = Lens.lens (\ListObjectVersionsResponse' {nextKeyMarker} -> nextKeyMarker) (\s@ListObjectVersionsResponse' {} a -> s {nextKeyMarker = a} :: ListObjectVersionsResponse)
 
 -- | The bucket name.
-listObjectVersionsResponse_name :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe BucketName)
+listObjectVersionsResponse_name :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe BucketName)
 listObjectVersionsResponse_name = Lens.lens (\ListObjectVersionsResponse' {name} -> name) (\s@ListObjectVersionsResponse' {} a -> s {name = a} :: ListObjectVersionsResponse)
 
 -- | Container for an object that is a delete marker.
-listObjectVersionsResponse_deleteMarkers :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe [DeleteMarkerEntry])
-listObjectVersionsResponse_deleteMarkers = Lens.lens (\ListObjectVersionsResponse' {deleteMarkers} -> deleteMarkers) (\s@ListObjectVersionsResponse' {} a -> s {deleteMarkers = a} :: ListObjectVersionsResponse) Core.. Lens.mapping Lens._Coerce
+listObjectVersionsResponse_deleteMarkers :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe [DeleteMarkerEntry])
+listObjectVersionsResponse_deleteMarkers = Lens.lens (\ListObjectVersionsResponse' {deleteMarkers} -> deleteMarkers) (\s@ListObjectVersionsResponse' {} a -> s {deleteMarkers = a} :: ListObjectVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Marks the last version of the key returned in a truncated response.
-listObjectVersionsResponse_versionIdMarker :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Core.Text)
+listObjectVersionsResponse_versionIdMarker :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Text)
 listObjectVersionsResponse_versionIdMarker = Lens.lens (\ListObjectVersionsResponse' {versionIdMarker} -> versionIdMarker) (\s@ListObjectVersionsResponse' {} a -> s {versionIdMarker = a} :: ListObjectVersionsResponse)
 
 -- | When the number of responses exceeds the value of @MaxKeys@,
 -- @NextVersionIdMarker@ specifies the first object version not returned
 -- that satisfies the search criteria. Use this value for the
 -- version-id-marker request parameter in a subsequent request.
-listObjectVersionsResponse_nextVersionIdMarker :: Lens.Lens' ListObjectVersionsResponse (Core.Maybe Core.Text)
+listObjectVersionsResponse_nextVersionIdMarker :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Text)
 listObjectVersionsResponse_nextVersionIdMarker = Lens.lens (\ListObjectVersionsResponse' {nextVersionIdMarker} -> nextVersionIdMarker) (\s@ListObjectVersionsResponse' {} a -> s {nextVersionIdMarker = a} :: ListObjectVersionsResponse)
 
 -- | The response's http status code.
-listObjectVersionsResponse_httpStatus :: Lens.Lens' ListObjectVersionsResponse Core.Int
+listObjectVersionsResponse_httpStatus :: Lens.Lens' ListObjectVersionsResponse Prelude.Int
 listObjectVersionsResponse_httpStatus = Lens.lens (\ListObjectVersionsResponse' {httpStatus} -> httpStatus) (\s@ListObjectVersionsResponse' {} a -> s {httpStatus = a} :: ListObjectVersionsResponse)
 
-instance Core.NFData ListObjectVersionsResponse
+instance Prelude.NFData ListObjectVersionsResponse

@@ -21,6 +21,7 @@ module Network.AWS.Lightsail.Types.ResourceRecord where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the domain name system (DNS) records to add to your domain\'s
 -- DNS to validate it for an Amazon Lightsail certificate.
@@ -28,13 +29,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newResourceRecord' smart constructor.
 data ResourceRecord = ResourceRecord'
   { -- | The name of the record.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The value for the DNS record.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | The DNS record type.
-    type' :: Core.Maybe Core.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceRecord' with all optional fields omitted.
@@ -53,21 +54,21 @@ newResourceRecord ::
   ResourceRecord
 newResourceRecord =
   ResourceRecord'
-    { name = Core.Nothing,
-      value = Core.Nothing,
-      type' = Core.Nothing
+    { name = Prelude.Nothing,
+      value = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The name of the record.
-resourceRecord_name :: Lens.Lens' ResourceRecord (Core.Maybe Core.Text)
+resourceRecord_name :: Lens.Lens' ResourceRecord (Prelude.Maybe Prelude.Text)
 resourceRecord_name = Lens.lens (\ResourceRecord' {name} -> name) (\s@ResourceRecord' {} a -> s {name = a} :: ResourceRecord)
 
 -- | The value for the DNS record.
-resourceRecord_value :: Lens.Lens' ResourceRecord (Core.Maybe Core.Text)
+resourceRecord_value :: Lens.Lens' ResourceRecord (Prelude.Maybe Prelude.Text)
 resourceRecord_value = Lens.lens (\ResourceRecord' {value} -> value) (\s@ResourceRecord' {} a -> s {value = a} :: ResourceRecord)
 
 -- | The DNS record type.
-resourceRecord_type :: Lens.Lens' ResourceRecord (Core.Maybe Core.Text)
+resourceRecord_type :: Lens.Lens' ResourceRecord (Prelude.Maybe Prelude.Text)
 resourceRecord_type = Lens.lens (\ResourceRecord' {type'} -> type') (\s@ResourceRecord' {} a -> s {type' = a} :: ResourceRecord)
 
 instance Core.FromJSON ResourceRecord where
@@ -76,11 +77,11 @@ instance Core.FromJSON ResourceRecord where
       "ResourceRecord"
       ( \x ->
           ResourceRecord'
-            Core.<$> (x Core..:? "name")
-            Core.<*> (x Core..:? "value")
-            Core.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "value")
+            Prelude.<*> (x Core..:? "type")
       )
 
-instance Core.Hashable ResourceRecord
+instance Prelude.Hashable ResourceRecord
 
-instance Core.NFData ResourceRecord
+instance Prelude.NFData ResourceRecord

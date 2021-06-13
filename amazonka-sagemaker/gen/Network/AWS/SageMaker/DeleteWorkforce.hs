@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -56,9 +57,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteWorkforce' smart constructor.
 data DeleteWorkforce = DeleteWorkforce'
   { -- | The name of the workforce.
-    workforceName :: Core.Text
+    workforceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteWorkforce' with all optional fields omitted.
@@ -71,13 +72,13 @@ data DeleteWorkforce = DeleteWorkforce'
 -- 'workforceName', 'deleteWorkforce_workforceName' - The name of the workforce.
 newDeleteWorkforce ::
   -- | 'workforceName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteWorkforce
 newDeleteWorkforce pWorkforceName_ =
   DeleteWorkforce' {workforceName = pWorkforceName_}
 
 -- | The name of the workforce.
-deleteWorkforce_workforceName :: Lens.Lens' DeleteWorkforce Core.Text
+deleteWorkforce_workforceName :: Lens.Lens' DeleteWorkforce Prelude.Text
 deleteWorkforce_workforceName = Lens.lens (\DeleteWorkforce' {workforceName} -> workforceName) (\s@DeleteWorkforce' {} a -> s {workforceName = a} :: DeleteWorkforce)
 
 instance Core.AWSRequest DeleteWorkforce where
@@ -89,43 +90,47 @@ instance Core.AWSRequest DeleteWorkforce where
     Response.receiveEmpty
       ( \s h x ->
           DeleteWorkforceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteWorkforce
+instance Prelude.Hashable DeleteWorkforce
 
-instance Core.NFData DeleteWorkforce
+instance Prelude.NFData DeleteWorkforce
 
 instance Core.ToHeaders DeleteWorkforce where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteWorkforce" :: Core.ByteString),
+              Core.=# ("SageMaker.DeleteWorkforce" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteWorkforce where
   toJSON DeleteWorkforce' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("WorkforceName" Core..= workforceName)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("WorkforceName" Core..= workforceName)
+          ]
       )
 
 instance Core.ToPath DeleteWorkforce where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteWorkforce where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWorkforceResponse' smart constructor.
 data DeleteWorkforceResponse = DeleteWorkforceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteWorkforceResponse' with all optional fields omitted.
@@ -138,13 +143,13 @@ data DeleteWorkforceResponse = DeleteWorkforceResponse'
 -- 'httpStatus', 'deleteWorkforceResponse_httpStatus' - The response's http status code.
 newDeleteWorkforceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteWorkforceResponse
 newDeleteWorkforceResponse pHttpStatus_ =
   DeleteWorkforceResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteWorkforceResponse_httpStatus :: Lens.Lens' DeleteWorkforceResponse Core.Int
+deleteWorkforceResponse_httpStatus :: Lens.Lens' DeleteWorkforceResponse Prelude.Int
 deleteWorkforceResponse_httpStatus = Lens.lens (\DeleteWorkforceResponse' {httpStatus} -> httpStatus) (\s@DeleteWorkforceResponse' {} a -> s {httpStatus = a} :: DeleteWorkforceResponse)
 
-instance Core.NFData DeleteWorkforceResponse
+instance Prelude.NFData DeleteWorkforceResponse

@@ -44,6 +44,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateInvalidation' smart constructor.
 data CreateInvalidation = CreateInvalidation'
   { -- | The distribution\'s id.
-    distributionId :: Core.Text,
+    distributionId :: Prelude.Text,
     -- | The batch information for the invalidation.
     invalidationBatch :: InvalidationBatch
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateInvalidation' with all optional fields omitted.
@@ -71,7 +72,7 @@ data CreateInvalidation = CreateInvalidation'
 -- 'invalidationBatch', 'createInvalidation_invalidationBatch' - The batch information for the invalidation.
 newCreateInvalidation ::
   -- | 'distributionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'invalidationBatch'
   InvalidationBatch ->
   CreateInvalidation
@@ -85,7 +86,7 @@ newCreateInvalidation
       }
 
 -- | The distribution\'s id.
-createInvalidation_distributionId :: Lens.Lens' CreateInvalidation Core.Text
+createInvalidation_distributionId :: Lens.Lens' CreateInvalidation Prelude.Text
 createInvalidation_distributionId = Lens.lens (\CreateInvalidation' {distributionId} -> distributionId) (\s@CreateInvalidation' {} a -> s {distributionId = a} :: CreateInvalidation)
 
 -- | The batch information for the invalidation.
@@ -101,14 +102,14 @@ instance Core.AWSRequest CreateInvalidation where
     Response.receiveXML
       ( \s h x ->
           CreateInvalidationResponse'
-            Core.<$> (Core.parseXML x)
-            Core.<*> (h Core..#? "Location")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (h Core..#? "Location")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateInvalidation
+instance Prelude.Hashable CreateInvalidation
 
-instance Core.NFData CreateInvalidation
+instance Prelude.NFData CreateInvalidation
 
 instance Core.ToElement CreateInvalidation where
   toElement CreateInvalidation' {..} =
@@ -117,32 +118,32 @@ instance Core.ToElement CreateInvalidation where
       invalidationBatch
 
 instance Core.ToHeaders CreateInvalidation where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateInvalidation where
   toPath CreateInvalidation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-05-31/distribution/",
         Core.toBS distributionId,
         "/invalidation"
       ]
 
 instance Core.ToQuery CreateInvalidation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'newCreateInvalidationResponse' smart constructor.
 data CreateInvalidationResponse = CreateInvalidationResponse'
   { -- | The invalidation\'s information.
-    invalidation :: Core.Maybe Invalidation,
+    invalidation :: Prelude.Maybe Invalidation,
     -- | The fully qualified URI of the distribution and invalidation batch
     -- request, including the @Invalidation ID@.
-    location :: Core.Maybe Core.Text,
+    location :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateInvalidationResponse' with all optional fields omitted.
@@ -160,27 +161,27 @@ data CreateInvalidationResponse = CreateInvalidationResponse'
 -- 'httpStatus', 'createInvalidationResponse_httpStatus' - The response's http status code.
 newCreateInvalidationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateInvalidationResponse
 newCreateInvalidationResponse pHttpStatus_ =
   CreateInvalidationResponse'
     { invalidation =
-        Core.Nothing,
-      location = Core.Nothing,
+        Prelude.Nothing,
+      location = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The invalidation\'s information.
-createInvalidationResponse_invalidation :: Lens.Lens' CreateInvalidationResponse (Core.Maybe Invalidation)
+createInvalidationResponse_invalidation :: Lens.Lens' CreateInvalidationResponse (Prelude.Maybe Invalidation)
 createInvalidationResponse_invalidation = Lens.lens (\CreateInvalidationResponse' {invalidation} -> invalidation) (\s@CreateInvalidationResponse' {} a -> s {invalidation = a} :: CreateInvalidationResponse)
 
 -- | The fully qualified URI of the distribution and invalidation batch
 -- request, including the @Invalidation ID@.
-createInvalidationResponse_location :: Lens.Lens' CreateInvalidationResponse (Core.Maybe Core.Text)
+createInvalidationResponse_location :: Lens.Lens' CreateInvalidationResponse (Prelude.Maybe Prelude.Text)
 createInvalidationResponse_location = Lens.lens (\CreateInvalidationResponse' {location} -> location) (\s@CreateInvalidationResponse' {} a -> s {location = a} :: CreateInvalidationResponse)
 
 -- | The response's http status code.
-createInvalidationResponse_httpStatus :: Lens.Lens' CreateInvalidationResponse Core.Int
+createInvalidationResponse_httpStatus :: Lens.Lens' CreateInvalidationResponse Prelude.Int
 createInvalidationResponse_httpStatus = Lens.lens (\CreateInvalidationResponse' {httpStatus} -> httpStatus) (\s@CreateInvalidationResponse' {} a -> s {httpStatus = a} :: CreateInvalidationResponse)
 
-instance Core.NFData CreateInvalidationResponse
+instance Prelude.NFData CreateInvalidationResponse

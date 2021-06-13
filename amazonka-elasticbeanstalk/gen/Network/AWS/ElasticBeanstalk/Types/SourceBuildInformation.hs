@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types.SourceRepository
 import Network.AWS.ElasticBeanstalk.Types.SourceType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Location of the source code for an application version.
 --
@@ -50,9 +51,9 @@ data SourceBuildInformation = SourceBuildInformation'
     -- -   For @S3@, the format is the S3 bucket name and object key, separated
     --     by a forward slash. For example,
     --     @my-s3-bucket\/Folders\/my-source-file@.
-    sourceLocation :: Core.Text
+    sourceLocation :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SourceBuildInformation' with all optional fields omitted.
@@ -90,7 +91,7 @@ newSourceBuildInformation ::
   -- | 'sourceRepository'
   SourceRepository ->
   -- | 'sourceLocation'
-  Core.Text ->
+  Prelude.Text ->
   SourceBuildInformation
 newSourceBuildInformation
   pSourceType_
@@ -128,23 +129,23 @@ sourceBuildInformation_sourceRepository = Lens.lens (\SourceBuildInformation' {s
 -- -   For @S3@, the format is the S3 bucket name and object key, separated
 --     by a forward slash. For example,
 --     @my-s3-bucket\/Folders\/my-source-file@.
-sourceBuildInformation_sourceLocation :: Lens.Lens' SourceBuildInformation Core.Text
+sourceBuildInformation_sourceLocation :: Lens.Lens' SourceBuildInformation Prelude.Text
 sourceBuildInformation_sourceLocation = Lens.lens (\SourceBuildInformation' {sourceLocation} -> sourceLocation) (\s@SourceBuildInformation' {} a -> s {sourceLocation = a} :: SourceBuildInformation)
 
 instance Core.FromXML SourceBuildInformation where
   parseXML x =
     SourceBuildInformation'
-      Core.<$> (x Core..@ "SourceType")
-      Core.<*> (x Core..@ "SourceRepository")
-      Core.<*> (x Core..@ "SourceLocation")
+      Prelude.<$> (x Core..@ "SourceType")
+      Prelude.<*> (x Core..@ "SourceRepository")
+      Prelude.<*> (x Core..@ "SourceLocation")
 
-instance Core.Hashable SourceBuildInformation
+instance Prelude.Hashable SourceBuildInformation
 
-instance Core.NFData SourceBuildInformation
+instance Prelude.NFData SourceBuildInformation
 
 instance Core.ToQuery SourceBuildInformation where
   toQuery SourceBuildInformation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "SourceType" Core.=: sourceType,
         "SourceRepository" Core.=: sourceRepository,
         "SourceLocation" Core.=: sourceLocation

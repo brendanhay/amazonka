@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.Smile where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether or not the face is smiling, and the confidence level
 -- in the determination.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSmile' smart constructor.
 data Smile = Smile'
   { -- | Level of confidence in the determination.
-    confidence :: Core.Maybe Core.Double,
+    confidence :: Prelude.Maybe Prelude.Double,
     -- | Boolean value that indicates whether the face is smiling or not.
-    value :: Core.Maybe Core.Bool
+    value :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Smile' with all optional fields omitted.
@@ -49,16 +50,16 @@ newSmile ::
   Smile
 newSmile =
   Smile'
-    { confidence = Core.Nothing,
-      value = Core.Nothing
+    { confidence = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | Level of confidence in the determination.
-smile_confidence :: Lens.Lens' Smile (Core.Maybe Core.Double)
+smile_confidence :: Lens.Lens' Smile (Prelude.Maybe Prelude.Double)
 smile_confidence = Lens.lens (\Smile' {confidence} -> confidence) (\s@Smile' {} a -> s {confidence = a} :: Smile)
 
 -- | Boolean value that indicates whether the face is smiling or not.
-smile_value :: Lens.Lens' Smile (Core.Maybe Core.Bool)
+smile_value :: Lens.Lens' Smile (Prelude.Maybe Prelude.Bool)
 smile_value = Lens.lens (\Smile' {value} -> value) (\s@Smile' {} a -> s {value = a} :: Smile)
 
 instance Core.FromJSON Smile where
@@ -67,10 +68,10 @@ instance Core.FromJSON Smile where
       "Smile"
       ( \x ->
           Smile'
-            Core.<$> (x Core..:? "Confidence")
-            Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable Smile
+instance Prelude.Hashable Smile
 
-instance Core.NFData Smile
+instance Prelude.NFData Smile

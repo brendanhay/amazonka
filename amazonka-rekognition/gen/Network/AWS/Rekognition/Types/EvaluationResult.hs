@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.EvaluationResult where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.Summary
 
 -- | The evaluation results for the training of a model.
@@ -32,11 +33,11 @@ data EvaluationResult = EvaluationResult'
     -- single value. A higher value indicates better precision and recall
     -- performance. A lower score indicates that precision, recall, or both are
     -- performing poorly.
-    f1Score :: Core.Maybe Core.Double,
+    f1Score :: Prelude.Maybe Prelude.Double,
     -- | The S3 bucket that contains the training summary.
-    summary :: Core.Maybe Summary
+    summary :: Prelude.Maybe Summary
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EvaluationResult' with all optional fields omitted.
@@ -57,8 +58,8 @@ newEvaluationResult ::
   EvaluationResult
 newEvaluationResult =
   EvaluationResult'
-    { f1Score = Core.Nothing,
-      summary = Core.Nothing
+    { f1Score = Prelude.Nothing,
+      summary = Prelude.Nothing
     }
 
 -- | The F1 score for the evaluation of all labels. The F1 score metric
@@ -66,11 +67,11 @@ newEvaluationResult =
 -- single value. A higher value indicates better precision and recall
 -- performance. A lower score indicates that precision, recall, or both are
 -- performing poorly.
-evaluationResult_f1Score :: Lens.Lens' EvaluationResult (Core.Maybe Core.Double)
+evaluationResult_f1Score :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.Double)
 evaluationResult_f1Score = Lens.lens (\EvaluationResult' {f1Score} -> f1Score) (\s@EvaluationResult' {} a -> s {f1Score = a} :: EvaluationResult)
 
 -- | The S3 bucket that contains the training summary.
-evaluationResult_summary :: Lens.Lens' EvaluationResult (Core.Maybe Summary)
+evaluationResult_summary :: Lens.Lens' EvaluationResult (Prelude.Maybe Summary)
 evaluationResult_summary = Lens.lens (\EvaluationResult' {summary} -> summary) (\s@EvaluationResult' {} a -> s {summary = a} :: EvaluationResult)
 
 instance Core.FromJSON EvaluationResult where
@@ -79,10 +80,10 @@ instance Core.FromJSON EvaluationResult where
       "EvaluationResult"
       ( \x ->
           EvaluationResult'
-            Core.<$> (x Core..:? "F1Score")
-            Core.<*> (x Core..:? "Summary")
+            Prelude.<$> (x Core..:? "F1Score")
+            Prelude.<*> (x Core..:? "Summary")
       )
 
-instance Core.Hashable EvaluationResult
+instance Prelude.Hashable EvaluationResult
 
-instance Core.NFData EvaluationResult
+instance Prelude.NFData EvaluationResult

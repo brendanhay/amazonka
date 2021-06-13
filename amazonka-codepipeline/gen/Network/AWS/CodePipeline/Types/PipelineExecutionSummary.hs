@@ -25,6 +25,7 @@ import Network.AWS.CodePipeline.Types.SourceRevision
 import Network.AWS.CodePipeline.Types.StopExecutionTrigger
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary information about a pipeline execution.
 --
@@ -52,25 +53,25 @@ data PipelineExecutionSummary = PipelineExecutionSummary'
     --     <https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded Superseded Executions>.
     --
     -- -   Failed: The pipeline execution was not completed successfully.
-    status :: Core.Maybe PipelineExecutionStatus,
+    status :: Prelude.Maybe PipelineExecutionStatus,
     -- | The date and time of the last change to the pipeline execution, in
     -- timestamp format.
-    lastUpdateTime :: Core.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | The interaction or event that started a pipeline execution, such as
     -- automated change detection or a @StartPipelineExecution@ API call.
-    trigger :: Core.Maybe ExecutionTrigger,
+    trigger :: Prelude.Maybe ExecutionTrigger,
     -- | The date and time when the pipeline execution began, in timestamp
     -- format.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The interaction that stopped a pipeline execution.
-    stopTrigger :: Core.Maybe StopExecutionTrigger,
+    stopTrigger :: Prelude.Maybe StopExecutionTrigger,
     -- | A list of the source artifact revisions that initiated a pipeline
     -- execution.
-    sourceRevisions :: Core.Maybe [SourceRevision],
+    sourceRevisions :: Prelude.Maybe [SourceRevision],
     -- | The ID of the pipeline execution.
-    pipelineExecutionId :: Core.Maybe Core.Text
+    pipelineExecutionId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PipelineExecutionSummary' with all optional fields omitted.
@@ -122,13 +123,13 @@ newPipelineExecutionSummary ::
   PipelineExecutionSummary
 newPipelineExecutionSummary =
   PipelineExecutionSummary'
-    { status = Core.Nothing,
-      lastUpdateTime = Core.Nothing,
-      trigger = Core.Nothing,
-      startTime = Core.Nothing,
-      stopTrigger = Core.Nothing,
-      sourceRevisions = Core.Nothing,
-      pipelineExecutionId = Core.Nothing
+    { status = Prelude.Nothing,
+      lastUpdateTime = Prelude.Nothing,
+      trigger = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      stopTrigger = Prelude.Nothing,
+      sourceRevisions = Prelude.Nothing,
+      pipelineExecutionId = Prelude.Nothing
     }
 
 -- | The status of the pipeline execution.
@@ -153,35 +154,35 @@ newPipelineExecutionSummary =
 --     <https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded Superseded Executions>.
 --
 -- -   Failed: The pipeline execution was not completed successfully.
-pipelineExecutionSummary_status :: Lens.Lens' PipelineExecutionSummary (Core.Maybe PipelineExecutionStatus)
+pipelineExecutionSummary_status :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe PipelineExecutionStatus)
 pipelineExecutionSummary_status = Lens.lens (\PipelineExecutionSummary' {status} -> status) (\s@PipelineExecutionSummary' {} a -> s {status = a} :: PipelineExecutionSummary)
 
 -- | The date and time of the last change to the pipeline execution, in
 -- timestamp format.
-pipelineExecutionSummary_lastUpdateTime :: Lens.Lens' PipelineExecutionSummary (Core.Maybe Core.UTCTime)
-pipelineExecutionSummary_lastUpdateTime = Lens.lens (\PipelineExecutionSummary' {lastUpdateTime} -> lastUpdateTime) (\s@PipelineExecutionSummary' {} a -> s {lastUpdateTime = a} :: PipelineExecutionSummary) Core.. Lens.mapping Core._Time
+pipelineExecutionSummary_lastUpdateTime :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe Prelude.UTCTime)
+pipelineExecutionSummary_lastUpdateTime = Lens.lens (\PipelineExecutionSummary' {lastUpdateTime} -> lastUpdateTime) (\s@PipelineExecutionSummary' {} a -> s {lastUpdateTime = a} :: PipelineExecutionSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The interaction or event that started a pipeline execution, such as
 -- automated change detection or a @StartPipelineExecution@ API call.
-pipelineExecutionSummary_trigger :: Lens.Lens' PipelineExecutionSummary (Core.Maybe ExecutionTrigger)
+pipelineExecutionSummary_trigger :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe ExecutionTrigger)
 pipelineExecutionSummary_trigger = Lens.lens (\PipelineExecutionSummary' {trigger} -> trigger) (\s@PipelineExecutionSummary' {} a -> s {trigger = a} :: PipelineExecutionSummary)
 
 -- | The date and time when the pipeline execution began, in timestamp
 -- format.
-pipelineExecutionSummary_startTime :: Lens.Lens' PipelineExecutionSummary (Core.Maybe Core.UTCTime)
-pipelineExecutionSummary_startTime = Lens.lens (\PipelineExecutionSummary' {startTime} -> startTime) (\s@PipelineExecutionSummary' {} a -> s {startTime = a} :: PipelineExecutionSummary) Core.. Lens.mapping Core._Time
+pipelineExecutionSummary_startTime :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe Prelude.UTCTime)
+pipelineExecutionSummary_startTime = Lens.lens (\PipelineExecutionSummary' {startTime} -> startTime) (\s@PipelineExecutionSummary' {} a -> s {startTime = a} :: PipelineExecutionSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The interaction that stopped a pipeline execution.
-pipelineExecutionSummary_stopTrigger :: Lens.Lens' PipelineExecutionSummary (Core.Maybe StopExecutionTrigger)
+pipelineExecutionSummary_stopTrigger :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe StopExecutionTrigger)
 pipelineExecutionSummary_stopTrigger = Lens.lens (\PipelineExecutionSummary' {stopTrigger} -> stopTrigger) (\s@PipelineExecutionSummary' {} a -> s {stopTrigger = a} :: PipelineExecutionSummary)
 
 -- | A list of the source artifact revisions that initiated a pipeline
 -- execution.
-pipelineExecutionSummary_sourceRevisions :: Lens.Lens' PipelineExecutionSummary (Core.Maybe [SourceRevision])
-pipelineExecutionSummary_sourceRevisions = Lens.lens (\PipelineExecutionSummary' {sourceRevisions} -> sourceRevisions) (\s@PipelineExecutionSummary' {} a -> s {sourceRevisions = a} :: PipelineExecutionSummary) Core.. Lens.mapping Lens._Coerce
+pipelineExecutionSummary_sourceRevisions :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe [SourceRevision])
+pipelineExecutionSummary_sourceRevisions = Lens.lens (\PipelineExecutionSummary' {sourceRevisions} -> sourceRevisions) (\s@PipelineExecutionSummary' {} a -> s {sourceRevisions = a} :: PipelineExecutionSummary) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the pipeline execution.
-pipelineExecutionSummary_pipelineExecutionId :: Lens.Lens' PipelineExecutionSummary (Core.Maybe Core.Text)
+pipelineExecutionSummary_pipelineExecutionId :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe Prelude.Text)
 pipelineExecutionSummary_pipelineExecutionId = Lens.lens (\PipelineExecutionSummary' {pipelineExecutionId} -> pipelineExecutionId) (\s@PipelineExecutionSummary' {} a -> s {pipelineExecutionId = a} :: PipelineExecutionSummary)
 
 instance Core.FromJSON PipelineExecutionSummary where
@@ -190,15 +191,17 @@ instance Core.FromJSON PipelineExecutionSummary where
       "PipelineExecutionSummary"
       ( \x ->
           PipelineExecutionSummary'
-            Core.<$> (x Core..:? "status")
-            Core.<*> (x Core..:? "lastUpdateTime")
-            Core.<*> (x Core..:? "trigger")
-            Core.<*> (x Core..:? "startTime")
-            Core.<*> (x Core..:? "stopTrigger")
-            Core.<*> (x Core..:? "sourceRevisions" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "pipelineExecutionId")
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "lastUpdateTime")
+            Prelude.<*> (x Core..:? "trigger")
+            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<*> (x Core..:? "stopTrigger")
+            Prelude.<*> ( x Core..:? "sourceRevisions"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "pipelineExecutionId")
       )
 
-instance Core.Hashable PipelineExecutionSummary
+instance Prelude.Hashable PipelineExecutionSummary
 
-instance Core.NFData PipelineExecutionSummary
+instance Prelude.NFData PipelineExecutionSummary

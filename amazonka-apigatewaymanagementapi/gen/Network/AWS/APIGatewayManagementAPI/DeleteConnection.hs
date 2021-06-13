@@ -38,14 +38,15 @@ where
 import Network.AWS.APIGatewayManagementAPI.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteConnection' smart constructor.
 data DeleteConnection = DeleteConnection'
-  { connectionId :: Core.Text
+  { connectionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConnection' with all optional fields omitted.
@@ -58,13 +59,13 @@ data DeleteConnection = DeleteConnection'
 -- 'connectionId', 'deleteConnection_connectionId' - Undocumented member.
 newDeleteConnection ::
   -- | 'connectionId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteConnection
 newDeleteConnection pConnectionId_ =
   DeleteConnection' {connectionId = pConnectionId_}
 
 -- | Undocumented member.
-deleteConnection_connectionId :: Lens.Lens' DeleteConnection Core.Text
+deleteConnection_connectionId :: Lens.Lens' DeleteConnection Prelude.Text
 deleteConnection_connectionId = Lens.lens (\DeleteConnection' {connectionId} -> connectionId) (\s@DeleteConnection' {} a -> s {connectionId = a} :: DeleteConnection)
 
 instance Core.AWSRequest DeleteConnection where
@@ -75,32 +76,34 @@ instance Core.AWSRequest DeleteConnection where
   response =
     Response.receiveNull DeleteConnectionResponse'
 
-instance Core.Hashable DeleteConnection
+instance Prelude.Hashable DeleteConnection
 
-instance Core.NFData DeleteConnection
+instance Prelude.NFData DeleteConnection
 
 instance Core.ToHeaders DeleteConnection where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteConnection where
   toPath DeleteConnection' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/@connections/", Core.toBS connectionId]
 
 instance Core.ToQuery DeleteConnection where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteConnectionResponse' smart constructor.
 data DeleteConnectionResponse = DeleteConnectionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConnectionResponse' with all optional fields omitted.
@@ -111,4 +114,4 @@ newDeleteConnectionResponse ::
 newDeleteConnectionResponse =
   DeleteConnectionResponse'
 
-instance Core.NFData DeleteConnectionResponse
+instance Prelude.NFData DeleteConnectionResponse

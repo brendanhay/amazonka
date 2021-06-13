@@ -31,6 +31,7 @@ module Network.AWS.MediaConvert.Types.DvbSubtitleOutlineColor
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies font outline color. This option is not valid for source
 -- captions that are either 608\/embedded or teletext. These source
@@ -41,15 +42,15 @@ newtype DvbSubtitleOutlineColor = DvbSubtitleOutlineColor'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

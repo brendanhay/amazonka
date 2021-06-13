@@ -85,6 +85,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -94,14 +95,14 @@ data UpdateRegexPatternSet = UpdateRegexPatternSet'
   { -- | The @RegexPatternSetId@ of the RegexPatternSet that you want to update.
     -- @RegexPatternSetId@ is returned by CreateRegexPatternSet and by
     -- ListRegexPatternSets.
-    regexPatternSetId :: Core.Text,
+    regexPatternSetId :: Prelude.Text,
     -- | An array of @RegexPatternSetUpdate@ objects that you want to insert into
     -- or delete from a RegexPatternSet.
-    updates :: Core.NonEmpty RegexPatternSetUpdate,
+    updates :: Prelude.NonEmpty RegexPatternSetUpdate,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text
+    changeToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRegexPatternSet' with all optional fields omitted.
@@ -121,11 +122,11 @@ data UpdateRegexPatternSet = UpdateRegexPatternSet'
 -- 'changeToken', 'updateRegexPatternSet_changeToken' - The value returned by the most recent call to GetChangeToken.
 newUpdateRegexPatternSet ::
   -- | 'regexPatternSetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'updates'
-  Core.NonEmpty RegexPatternSetUpdate ->
+  Prelude.NonEmpty RegexPatternSetUpdate ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   UpdateRegexPatternSet
 newUpdateRegexPatternSet
   pRegexPatternSetId_
@@ -141,16 +142,16 @@ newUpdateRegexPatternSet
 -- | The @RegexPatternSetId@ of the RegexPatternSet that you want to update.
 -- @RegexPatternSetId@ is returned by CreateRegexPatternSet and by
 -- ListRegexPatternSets.
-updateRegexPatternSet_regexPatternSetId :: Lens.Lens' UpdateRegexPatternSet Core.Text
+updateRegexPatternSet_regexPatternSetId :: Lens.Lens' UpdateRegexPatternSet Prelude.Text
 updateRegexPatternSet_regexPatternSetId = Lens.lens (\UpdateRegexPatternSet' {regexPatternSetId} -> regexPatternSetId) (\s@UpdateRegexPatternSet' {} a -> s {regexPatternSetId = a} :: UpdateRegexPatternSet)
 
 -- | An array of @RegexPatternSetUpdate@ objects that you want to insert into
 -- or delete from a RegexPatternSet.
-updateRegexPatternSet_updates :: Lens.Lens' UpdateRegexPatternSet (Core.NonEmpty RegexPatternSetUpdate)
-updateRegexPatternSet_updates = Lens.lens (\UpdateRegexPatternSet' {updates} -> updates) (\s@UpdateRegexPatternSet' {} a -> s {updates = a} :: UpdateRegexPatternSet) Core.. Lens._Coerce
+updateRegexPatternSet_updates :: Lens.Lens' UpdateRegexPatternSet (Prelude.NonEmpty RegexPatternSetUpdate)
+updateRegexPatternSet_updates = Lens.lens (\UpdateRegexPatternSet' {updates} -> updates) (\s@UpdateRegexPatternSet' {} a -> s {updates = a} :: UpdateRegexPatternSet) Prelude.. Lens._Coerce
 
 -- | The value returned by the most recent call to GetChangeToken.
-updateRegexPatternSet_changeToken :: Lens.Lens' UpdateRegexPatternSet Core.Text
+updateRegexPatternSet_changeToken :: Lens.Lens' UpdateRegexPatternSet Prelude.Text
 updateRegexPatternSet_changeToken = Lens.lens (\UpdateRegexPatternSet' {changeToken} -> changeToken) (\s@UpdateRegexPatternSet' {} a -> s {changeToken = a} :: UpdateRegexPatternSet)
 
 instance Core.AWSRequest UpdateRegexPatternSet where
@@ -162,54 +163,56 @@ instance Core.AWSRequest UpdateRegexPatternSet where
     Response.receiveJSON
       ( \s h x ->
           UpdateRegexPatternSetResponse'
-            Core.<$> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateRegexPatternSet
+instance Prelude.Hashable UpdateRegexPatternSet
 
-instance Core.NFData UpdateRegexPatternSet
+instance Prelude.NFData UpdateRegexPatternSet
 
 instance Core.ToHeaders UpdateRegexPatternSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.UpdateRegexPatternSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateRegexPatternSet where
   toJSON UpdateRegexPatternSet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("RegexPatternSetId" Core..= regexPatternSetId),
-            Core.Just ("Updates" Core..= updates),
-            Core.Just ("ChangeToken" Core..= changeToken)
+            Prelude.Just ("Updates" Core..= updates),
+            Prelude.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
 instance Core.ToPath UpdateRegexPatternSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateRegexPatternSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRegexPatternSetResponse' smart constructor.
 data UpdateRegexPatternSetResponse = UpdateRegexPatternSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @UpdateRegexPatternSet@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRegexPatternSetResponse' with all optional fields omitted.
@@ -226,23 +229,23 @@ data UpdateRegexPatternSetResponse = UpdateRegexPatternSetResponse'
 -- 'httpStatus', 'updateRegexPatternSetResponse_httpStatus' - The response's http status code.
 newUpdateRegexPatternSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateRegexPatternSetResponse
 newUpdateRegexPatternSetResponse pHttpStatus_ =
   UpdateRegexPatternSetResponse'
     { changeToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateRegexPatternSet@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-updateRegexPatternSetResponse_changeToken :: Lens.Lens' UpdateRegexPatternSetResponse (Core.Maybe Core.Text)
+updateRegexPatternSetResponse_changeToken :: Lens.Lens' UpdateRegexPatternSetResponse (Prelude.Maybe Prelude.Text)
 updateRegexPatternSetResponse_changeToken = Lens.lens (\UpdateRegexPatternSetResponse' {changeToken} -> changeToken) (\s@UpdateRegexPatternSetResponse' {} a -> s {changeToken = a} :: UpdateRegexPatternSetResponse)
 
 -- | The response's http status code.
-updateRegexPatternSetResponse_httpStatus :: Lens.Lens' UpdateRegexPatternSetResponse Core.Int
+updateRegexPatternSetResponse_httpStatus :: Lens.Lens' UpdateRegexPatternSetResponse Prelude.Int
 updateRegexPatternSetResponse_httpStatus = Lens.lens (\UpdateRegexPatternSetResponse' {httpStatus} -> httpStatus) (\s@UpdateRegexPatternSetResponse' {} a -> s {httpStatus = a} :: UpdateRegexPatternSetResponse)
 
-instance Core.NFData UpdateRegexPatternSetResponse
+instance Prelude.NFData UpdateRegexPatternSetResponse

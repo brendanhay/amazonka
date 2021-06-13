@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.HoldoutActivity where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the settings for a holdout activity in a journey. This type of
 -- activity stops a journey for a specified percentage of participants.
@@ -29,16 +30,16 @@ import qualified Network.AWS.Lens as Lens
 data HoldoutActivity = HoldoutActivity'
   { -- | The unique identifier for the next activity to perform, after performing
     -- the holdout activity.
-    nextActivity :: Core.Maybe Core.Text,
+    nextActivity :: Prelude.Maybe Prelude.Text,
     -- | The percentage of participants who shouldn\'t continue the journey.
     --
     -- To determine which participants are held out, Amazon Pinpoint applies a
     -- probability-based algorithm to the percentage that you specify.
     -- Therefore, the actual percentage of participants who are held out may
     -- not be equal to the percentage that you specify.
-    percentage :: Core.Int
+    percentage :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HoldoutActivity' with all optional fields omitted.
@@ -59,17 +60,17 @@ data HoldoutActivity = HoldoutActivity'
 -- not be equal to the percentage that you specify.
 newHoldoutActivity ::
   -- | 'percentage'
-  Core.Int ->
+  Prelude.Int ->
   HoldoutActivity
 newHoldoutActivity pPercentage_ =
   HoldoutActivity'
-    { nextActivity = Core.Nothing,
+    { nextActivity = Prelude.Nothing,
       percentage = pPercentage_
     }
 
 -- | The unique identifier for the next activity to perform, after performing
 -- the holdout activity.
-holdoutActivity_nextActivity :: Lens.Lens' HoldoutActivity (Core.Maybe Core.Text)
+holdoutActivity_nextActivity :: Lens.Lens' HoldoutActivity (Prelude.Maybe Prelude.Text)
 holdoutActivity_nextActivity = Lens.lens (\HoldoutActivity' {nextActivity} -> nextActivity) (\s@HoldoutActivity' {} a -> s {nextActivity = a} :: HoldoutActivity)
 
 -- | The percentage of participants who shouldn\'t continue the journey.
@@ -78,7 +79,7 @@ holdoutActivity_nextActivity = Lens.lens (\HoldoutActivity' {nextActivity} -> ne
 -- probability-based algorithm to the percentage that you specify.
 -- Therefore, the actual percentage of participants who are held out may
 -- not be equal to the percentage that you specify.
-holdoutActivity_percentage :: Lens.Lens' HoldoutActivity Core.Int
+holdoutActivity_percentage :: Lens.Lens' HoldoutActivity Prelude.Int
 holdoutActivity_percentage = Lens.lens (\HoldoutActivity' {percentage} -> percentage) (\s@HoldoutActivity' {} a -> s {percentage = a} :: HoldoutActivity)
 
 instance Core.FromJSON HoldoutActivity where
@@ -87,19 +88,19 @@ instance Core.FromJSON HoldoutActivity where
       "HoldoutActivity"
       ( \x ->
           HoldoutActivity'
-            Core.<$> (x Core..:? "NextActivity")
-            Core.<*> (x Core..: "Percentage")
+            Prelude.<$> (x Core..:? "NextActivity")
+            Prelude.<*> (x Core..: "Percentage")
       )
 
-instance Core.Hashable HoldoutActivity
+instance Prelude.Hashable HoldoutActivity
 
-instance Core.NFData HoldoutActivity
+instance Prelude.NFData HoldoutActivity
 
 instance Core.ToJSON HoldoutActivity where
   toJSON HoldoutActivity' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextActivity" Core..=) Core.<$> nextActivity,
-            Core.Just ("Percentage" Core..= percentage)
+      ( Prelude.catMaybes
+          [ ("NextActivity" Core..=) Prelude.<$> nextActivity,
+            Prelude.Just ("Percentage" Core..= percentage)
           ]
       )

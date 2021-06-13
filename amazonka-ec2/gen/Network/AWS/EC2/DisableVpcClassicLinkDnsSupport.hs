@@ -49,15 +49,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisableVpcClassicLinkDnsSupport' smart constructor.
 data DisableVpcClassicLinkDnsSupport = DisableVpcClassicLinkDnsSupport'
   { -- | The ID of the VPC.
-    vpcId :: Core.Maybe Core.Text
+    vpcId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableVpcClassicLinkDnsSupport' with all optional fields omitted.
@@ -73,11 +74,11 @@ newDisableVpcClassicLinkDnsSupport ::
 newDisableVpcClassicLinkDnsSupport =
   DisableVpcClassicLinkDnsSupport'
     { vpcId =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The ID of the VPC.
-disableVpcClassicLinkDnsSupport_vpcId :: Lens.Lens' DisableVpcClassicLinkDnsSupport (Core.Maybe Core.Text)
+disableVpcClassicLinkDnsSupport_vpcId :: Lens.Lens' DisableVpcClassicLinkDnsSupport (Prelude.Maybe Prelude.Text)
 disableVpcClassicLinkDnsSupport_vpcId = Lens.lens (\DisableVpcClassicLinkDnsSupport' {vpcId} -> vpcId) (\s@DisableVpcClassicLinkDnsSupport' {} a -> s {vpcId = a} :: DisableVpcClassicLinkDnsSupport)
 
 instance
@@ -92,44 +93,47 @@ instance
     Response.receiveXML
       ( \s h x ->
           DisableVpcClassicLinkDnsSupportResponse'
-            Core.<$> (x Core..@? "return")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "return")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DisableVpcClassicLinkDnsSupport
 
-instance Core.NFData DisableVpcClassicLinkDnsSupport
+instance
+  Prelude.NFData
+    DisableVpcClassicLinkDnsSupport
 
 instance
   Core.ToHeaders
     DisableVpcClassicLinkDnsSupport
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DisableVpcClassicLinkDnsSupport where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisableVpcClassicLinkDnsSupport where
   toQuery DisableVpcClassicLinkDnsSupport' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DisableVpcClassicLinkDnsSupport" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "VpcId" Core.=: vpcId
       ]
 
 -- | /See:/ 'newDisableVpcClassicLinkDnsSupportResponse' smart constructor.
 data DisableVpcClassicLinkDnsSupportResponse = DisableVpcClassicLinkDnsSupportResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    return' :: Core.Maybe Core.Bool,
+    return' :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableVpcClassicLinkDnsSupportResponse' with all optional fields omitted.
@@ -144,24 +148,24 @@ data DisableVpcClassicLinkDnsSupportResponse = DisableVpcClassicLinkDnsSupportRe
 -- 'httpStatus', 'disableVpcClassicLinkDnsSupportResponse_httpStatus' - The response's http status code.
 newDisableVpcClassicLinkDnsSupportResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisableVpcClassicLinkDnsSupportResponse
 newDisableVpcClassicLinkDnsSupportResponse
   pHttpStatus_ =
     DisableVpcClassicLinkDnsSupportResponse'
       { return' =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-disableVpcClassicLinkDnsSupportResponse_return :: Lens.Lens' DisableVpcClassicLinkDnsSupportResponse (Core.Maybe Core.Bool)
+disableVpcClassicLinkDnsSupportResponse_return :: Lens.Lens' DisableVpcClassicLinkDnsSupportResponse (Prelude.Maybe Prelude.Bool)
 disableVpcClassicLinkDnsSupportResponse_return = Lens.lens (\DisableVpcClassicLinkDnsSupportResponse' {return'} -> return') (\s@DisableVpcClassicLinkDnsSupportResponse' {} a -> s {return' = a} :: DisableVpcClassicLinkDnsSupportResponse)
 
 -- | The response's http status code.
-disableVpcClassicLinkDnsSupportResponse_httpStatus :: Lens.Lens' DisableVpcClassicLinkDnsSupportResponse Core.Int
+disableVpcClassicLinkDnsSupportResponse_httpStatus :: Lens.Lens' DisableVpcClassicLinkDnsSupportResponse Prelude.Int
 disableVpcClassicLinkDnsSupportResponse_httpStatus = Lens.lens (\DisableVpcClassicLinkDnsSupportResponse' {httpStatus} -> httpStatus) (\s@DisableVpcClassicLinkDnsSupportResponse' {} a -> s {httpStatus = a} :: DisableVpcClassicLinkDnsSupportResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisableVpcClassicLinkDnsSupportResponse

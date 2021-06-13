@@ -21,17 +21,18 @@ module Network.AWS.RDS.Types.DoubleRange where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A range of double values.
 --
 -- /See:/ 'newDoubleRange' smart constructor.
 data DoubleRange = DoubleRange'
   { -- | The maximum value in the range.
-    to :: Core.Maybe Core.Double,
+    to :: Prelude.Maybe Prelude.Double,
     -- | The minimum value in the range.
-    from :: Core.Maybe Core.Double
+    from :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DoubleRange' with all optional fields omitted.
@@ -48,23 +49,23 @@ newDoubleRange ::
   DoubleRange
 newDoubleRange =
   DoubleRange'
-    { to = Core.Nothing,
-      from = Core.Nothing
+    { to = Prelude.Nothing,
+      from = Prelude.Nothing
     }
 
 -- | The maximum value in the range.
-doubleRange_to :: Lens.Lens' DoubleRange (Core.Maybe Core.Double)
+doubleRange_to :: Lens.Lens' DoubleRange (Prelude.Maybe Prelude.Double)
 doubleRange_to = Lens.lens (\DoubleRange' {to} -> to) (\s@DoubleRange' {} a -> s {to = a} :: DoubleRange)
 
 -- | The minimum value in the range.
-doubleRange_from :: Lens.Lens' DoubleRange (Core.Maybe Core.Double)
+doubleRange_from :: Lens.Lens' DoubleRange (Prelude.Maybe Prelude.Double)
 doubleRange_from = Lens.lens (\DoubleRange' {from} -> from) (\s@DoubleRange' {} a -> s {from = a} :: DoubleRange)
 
 instance Core.FromXML DoubleRange where
   parseXML x =
     DoubleRange'
-      Core.<$> (x Core..@? "To") Core.<*> (x Core..@? "From")
+      Prelude.<$> (x Core..@? "To") Prelude.<*> (x Core..@? "From")
 
-instance Core.Hashable DoubleRange
+instance Prelude.Hashable DoubleRange
 
-instance Core.NFData DoubleRange
+instance Prelude.NFData DoubleRange

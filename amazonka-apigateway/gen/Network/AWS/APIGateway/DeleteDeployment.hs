@@ -40,6 +40,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,11 +49,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteDeployment' smart constructor.
 data DeleteDeployment = DeleteDeployment'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The identifier of the Deployment resource to delete.
-    deploymentId :: Core.Text
+    deploymentId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDeployment' with all optional fields omitted.
@@ -67,9 +68,9 @@ data DeleteDeployment = DeleteDeployment'
 -- 'deploymentId', 'deleteDeployment_deploymentId' - [Required] The identifier of the Deployment resource to delete.
 newDeleteDeployment ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'deploymentId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDeployment
 newDeleteDeployment pRestApiId_ pDeploymentId_ =
   DeleteDeployment'
@@ -78,11 +79,11 @@ newDeleteDeployment pRestApiId_ pDeploymentId_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-deleteDeployment_restApiId :: Lens.Lens' DeleteDeployment Core.Text
+deleteDeployment_restApiId :: Lens.Lens' DeleteDeployment Prelude.Text
 deleteDeployment_restApiId = Lens.lens (\DeleteDeployment' {restApiId} -> restApiId) (\s@DeleteDeployment' {} a -> s {restApiId = a} :: DeleteDeployment)
 
 -- | [Required] The identifier of the Deployment resource to delete.
-deleteDeployment_deploymentId :: Lens.Lens' DeleteDeployment Core.Text
+deleteDeployment_deploymentId :: Lens.Lens' DeleteDeployment Prelude.Text
 deleteDeployment_deploymentId = Lens.lens (\DeleteDeployment' {deploymentId} -> deploymentId) (\s@DeleteDeployment' {} a -> s {deploymentId = a} :: DeleteDeployment)
 
 instance Core.AWSRequest DeleteDeployment where
@@ -93,22 +94,22 @@ instance Core.AWSRequest DeleteDeployment where
   response =
     Response.receiveNull DeleteDeploymentResponse'
 
-instance Core.Hashable DeleteDeployment
+instance Prelude.Hashable DeleteDeployment
 
-instance Core.NFData DeleteDeployment
+instance Prelude.NFData DeleteDeployment
 
 instance Core.ToHeaders DeleteDeployment where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath DeleteDeployment where
   toPath DeleteDeployment' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/deployments/",
@@ -116,13 +117,13 @@ instance Core.ToPath DeleteDeployment where
       ]
 
 instance Core.ToQuery DeleteDeployment where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDeploymentResponse' smart constructor.
 data DeleteDeploymentResponse = DeleteDeploymentResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDeploymentResponse' with all optional fields omitted.
@@ -133,4 +134,4 @@ newDeleteDeploymentResponse ::
 newDeleteDeploymentResponse =
   DeleteDeploymentResponse'
 
-instance Core.NFData DeleteDeploymentResponse
+instance Prelude.NFData DeleteDeploymentResponse

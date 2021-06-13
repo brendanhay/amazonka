@@ -22,15 +22,16 @@ module Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse where
 import Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a GetObjectAttributes response operation.
 --
 -- /See:/ 'newBatchGetObjectAttributesResponse' smart constructor.
 data BatchGetObjectAttributesResponse = BatchGetObjectAttributesResponse'
   { -- | The attribute values that are associated with an object.
-    attributes :: Core.Maybe [AttributeKeyAndValue]
+    attributes :: Prelude.Maybe [AttributeKeyAndValue]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchGetObjectAttributesResponse' with all optional fields omitted.
@@ -46,12 +47,12 @@ newBatchGetObjectAttributesResponse ::
 newBatchGetObjectAttributesResponse =
   BatchGetObjectAttributesResponse'
     { attributes =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The attribute values that are associated with an object.
-batchGetObjectAttributesResponse_attributes :: Lens.Lens' BatchGetObjectAttributesResponse (Core.Maybe [AttributeKeyAndValue])
-batchGetObjectAttributesResponse_attributes = Lens.lens (\BatchGetObjectAttributesResponse' {attributes} -> attributes) (\s@BatchGetObjectAttributesResponse' {} a -> s {attributes = a} :: BatchGetObjectAttributesResponse) Core.. Lens.mapping Lens._Coerce
+batchGetObjectAttributesResponse_attributes :: Lens.Lens' BatchGetObjectAttributesResponse (Prelude.Maybe [AttributeKeyAndValue])
+batchGetObjectAttributesResponse_attributes = Lens.lens (\BatchGetObjectAttributesResponse' {attributes} -> attributes) (\s@BatchGetObjectAttributesResponse' {} a -> s {attributes = a} :: BatchGetObjectAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromJSON
@@ -62,11 +63,13 @@ instance
       "BatchGetObjectAttributesResponse"
       ( \x ->
           BatchGetObjectAttributesResponse'
-            Core.<$> (x Core..:? "Attributes" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Attributes" Core..!= Prelude.mempty)
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     BatchGetObjectAttributesResponse
 
-instance Core.NFData BatchGetObjectAttributesResponse
+instance
+  Prelude.NFData
+    BatchGetObjectAttributesResponse

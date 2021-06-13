@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +55,11 @@ import qualified Network.AWS.Response as Response
 data UpdateNumberOfDomainControllers = UpdateNumberOfDomainControllers'
   { -- | Identifier of the directory to which the domain controllers will be
     -- added or removed.
-    directoryId :: Core.Text,
+    directoryId :: Prelude.Text,
     -- | The number of domain controllers desired in the directory.
-    desiredNumber :: Core.Natural
+    desiredNumber :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateNumberOfDomainControllers' with all optional fields omitted.
@@ -74,9 +75,9 @@ data UpdateNumberOfDomainControllers = UpdateNumberOfDomainControllers'
 -- 'desiredNumber', 'updateNumberOfDomainControllers_desiredNumber' - The number of domain controllers desired in the directory.
 newUpdateNumberOfDomainControllers ::
   -- | 'directoryId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'desiredNumber'
-  Core.Natural ->
+  Prelude.Natural ->
   UpdateNumberOfDomainControllers
 newUpdateNumberOfDomainControllers
   pDirectoryId_
@@ -89,11 +90,11 @@ newUpdateNumberOfDomainControllers
 
 -- | Identifier of the directory to which the domain controllers will be
 -- added or removed.
-updateNumberOfDomainControllers_directoryId :: Lens.Lens' UpdateNumberOfDomainControllers Core.Text
+updateNumberOfDomainControllers_directoryId :: Lens.Lens' UpdateNumberOfDomainControllers Prelude.Text
 updateNumberOfDomainControllers_directoryId = Lens.lens (\UpdateNumberOfDomainControllers' {directoryId} -> directoryId) (\s@UpdateNumberOfDomainControllers' {} a -> s {directoryId = a} :: UpdateNumberOfDomainControllers)
 
 -- | The number of domain controllers desired in the directory.
-updateNumberOfDomainControllers_desiredNumber :: Lens.Lens' UpdateNumberOfDomainControllers Core.Natural
+updateNumberOfDomainControllers_desiredNumber :: Lens.Lens' UpdateNumberOfDomainControllers Prelude.Natural
 updateNumberOfDomainControllers_desiredNumber = Lens.lens (\UpdateNumberOfDomainControllers' {desiredNumber} -> desiredNumber) (\s@UpdateNumberOfDomainControllers' {} a -> s {desiredNumber = a} :: UpdateNumberOfDomainControllers)
 
 instance
@@ -108,52 +109,57 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           UpdateNumberOfDomainControllersResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdateNumberOfDomainControllers
 
-instance Core.NFData UpdateNumberOfDomainControllers
+instance
+  Prelude.NFData
+    UpdateNumberOfDomainControllers
 
 instance
   Core.ToHeaders
     UpdateNumberOfDomainControllers
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DirectoryService_20150416.UpdateNumberOfDomainControllers" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateNumberOfDomainControllers where
   toJSON UpdateNumberOfDomainControllers' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DirectoryId" Core..= directoryId),
-            Core.Just ("DesiredNumber" Core..= desiredNumber)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("DirectoryId" Core..= directoryId),
+            Prelude.Just
+              ("DesiredNumber" Core..= desiredNumber)
           ]
       )
 
 instance Core.ToPath UpdateNumberOfDomainControllers where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateNumberOfDomainControllers where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateNumberOfDomainControllersResponse' smart constructor.
 data UpdateNumberOfDomainControllersResponse = UpdateNumberOfDomainControllersResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateNumberOfDomainControllersResponse' with all optional fields omitted.
@@ -166,7 +172,7 @@ data UpdateNumberOfDomainControllersResponse = UpdateNumberOfDomainControllersRe
 -- 'httpStatus', 'updateNumberOfDomainControllersResponse_httpStatus' - The response's http status code.
 newUpdateNumberOfDomainControllersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateNumberOfDomainControllersResponse
 newUpdateNumberOfDomainControllersResponse
   pHttpStatus_ =
@@ -176,9 +182,9 @@ newUpdateNumberOfDomainControllersResponse
       }
 
 -- | The response's http status code.
-updateNumberOfDomainControllersResponse_httpStatus :: Lens.Lens' UpdateNumberOfDomainControllersResponse Core.Int
+updateNumberOfDomainControllersResponse_httpStatus :: Lens.Lens' UpdateNumberOfDomainControllersResponse Prelude.Int
 updateNumberOfDomainControllersResponse_httpStatus = Lens.lens (\UpdateNumberOfDomainControllersResponse' {httpStatus} -> httpStatus) (\s@UpdateNumberOfDomainControllersResponse' {} a -> s {httpStatus = a} :: UpdateNumberOfDomainControllersResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateNumberOfDomainControllersResponse

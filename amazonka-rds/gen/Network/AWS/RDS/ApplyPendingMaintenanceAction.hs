@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -56,12 +57,12 @@ data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction'
     -- maintenance action applies to. For information about creating an ARN,
     -- see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)>.
-    resourceIdentifier :: Core.Text,
+    resourceIdentifier :: Prelude.Text,
     -- | The pending maintenance action to apply to this resource.
     --
     -- Valid values: @system-update@, @db-upgrade@, @hardware-maintenance@,
     -- @ca-certificate-rotation@
-    applyAction :: Core.Text,
+    applyAction :: Prelude.Text,
     -- | A value that specifies the type of opt-in request, or undoes an opt-in
     -- request. An opt-in request of type @immediate@ can\'t be undone.
     --
@@ -74,9 +75,9 @@ data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction'
     --
     -- -   @undo-opt-in@ - Cancel any existing @next-maintenance@ opt-in
     --     requests.
-    optInType :: Core.Text
+    optInType :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApplyPendingMaintenanceAction' with all optional fields omitted.
@@ -110,11 +111,11 @@ data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction'
 --     requests.
 newApplyPendingMaintenanceAction ::
   -- | 'resourceIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'applyAction'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'optInType'
-  Core.Text ->
+  Prelude.Text ->
   ApplyPendingMaintenanceAction
 newApplyPendingMaintenanceAction
   pResourceIdentifier_
@@ -131,14 +132,14 @@ newApplyPendingMaintenanceAction
 -- maintenance action applies to. For information about creating an ARN,
 -- see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)>.
-applyPendingMaintenanceAction_resourceIdentifier :: Lens.Lens' ApplyPendingMaintenanceAction Core.Text
+applyPendingMaintenanceAction_resourceIdentifier :: Lens.Lens' ApplyPendingMaintenanceAction Prelude.Text
 applyPendingMaintenanceAction_resourceIdentifier = Lens.lens (\ApplyPendingMaintenanceAction' {resourceIdentifier} -> resourceIdentifier) (\s@ApplyPendingMaintenanceAction' {} a -> s {resourceIdentifier = a} :: ApplyPendingMaintenanceAction)
 
 -- | The pending maintenance action to apply to this resource.
 --
 -- Valid values: @system-update@, @db-upgrade@, @hardware-maintenance@,
 -- @ca-certificate-rotation@
-applyPendingMaintenanceAction_applyAction :: Lens.Lens' ApplyPendingMaintenanceAction Core.Text
+applyPendingMaintenanceAction_applyAction :: Lens.Lens' ApplyPendingMaintenanceAction Prelude.Text
 applyPendingMaintenanceAction_applyAction = Lens.lens (\ApplyPendingMaintenanceAction' {applyAction} -> applyAction) (\s@ApplyPendingMaintenanceAction' {} a -> s {applyAction = a} :: ApplyPendingMaintenanceAction)
 
 -- | A value that specifies the type of opt-in request, or undoes an opt-in
@@ -153,7 +154,7 @@ applyPendingMaintenanceAction_applyAction = Lens.lens (\ApplyPendingMaintenanceA
 --
 -- -   @undo-opt-in@ - Cancel any existing @next-maintenance@ opt-in
 --     requests.
-applyPendingMaintenanceAction_optInType :: Lens.Lens' ApplyPendingMaintenanceAction Core.Text
+applyPendingMaintenanceAction_optInType :: Lens.Lens' ApplyPendingMaintenanceAction Prelude.Text
 applyPendingMaintenanceAction_optInType = Lens.lens (\ApplyPendingMaintenanceAction' {optInType} -> optInType) (\s@ApplyPendingMaintenanceAction' {} a -> s {optInType = a} :: ApplyPendingMaintenanceAction)
 
 instance
@@ -169,26 +170,31 @@ instance
       "ApplyPendingMaintenanceActionResult"
       ( \s h x ->
           ApplyPendingMaintenanceActionResponse'
-            Core.<$> (x Core..@? "ResourcePendingMaintenanceActions")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "ResourcePendingMaintenanceActions")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ApplyPendingMaintenanceAction
+instance
+  Prelude.Hashable
+    ApplyPendingMaintenanceAction
 
-instance Core.NFData ApplyPendingMaintenanceAction
+instance Prelude.NFData ApplyPendingMaintenanceAction
 
 instance Core.ToHeaders ApplyPendingMaintenanceAction where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ApplyPendingMaintenanceAction where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ApplyPendingMaintenanceAction where
   toQuery ApplyPendingMaintenanceAction' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ApplyPendingMaintenanceAction" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ( "ApplyPendingMaintenanceAction" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "ResourceIdentifier" Core.=: resourceIdentifier,
         "ApplyAction" Core.=: applyAction,
         "OptInType" Core.=: optInType
@@ -196,11 +202,11 @@ instance Core.ToQuery ApplyPendingMaintenanceAction where
 
 -- | /See:/ 'newApplyPendingMaintenanceActionResponse' smart constructor.
 data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse'
-  { resourcePendingMaintenanceActions :: Core.Maybe ResourcePendingMaintenanceActions,
+  { resourcePendingMaintenanceActions :: Prelude.Maybe ResourcePendingMaintenanceActions,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApplyPendingMaintenanceActionResponse' with all optional fields omitted.
@@ -215,23 +221,23 @@ data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionRespon
 -- 'httpStatus', 'applyPendingMaintenanceActionResponse_httpStatus' - The response's http status code.
 newApplyPendingMaintenanceActionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ApplyPendingMaintenanceActionResponse
 newApplyPendingMaintenanceActionResponse pHttpStatus_ =
   ApplyPendingMaintenanceActionResponse'
     { resourcePendingMaintenanceActions =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-applyPendingMaintenanceActionResponse_resourcePendingMaintenanceActions :: Lens.Lens' ApplyPendingMaintenanceActionResponse (Core.Maybe ResourcePendingMaintenanceActions)
+applyPendingMaintenanceActionResponse_resourcePendingMaintenanceActions :: Lens.Lens' ApplyPendingMaintenanceActionResponse (Prelude.Maybe ResourcePendingMaintenanceActions)
 applyPendingMaintenanceActionResponse_resourcePendingMaintenanceActions = Lens.lens (\ApplyPendingMaintenanceActionResponse' {resourcePendingMaintenanceActions} -> resourcePendingMaintenanceActions) (\s@ApplyPendingMaintenanceActionResponse' {} a -> s {resourcePendingMaintenanceActions = a} :: ApplyPendingMaintenanceActionResponse)
 
 -- | The response's http status code.
-applyPendingMaintenanceActionResponse_httpStatus :: Lens.Lens' ApplyPendingMaintenanceActionResponse Core.Int
+applyPendingMaintenanceActionResponse_httpStatus :: Lens.Lens' ApplyPendingMaintenanceActionResponse Prelude.Int
 applyPendingMaintenanceActionResponse_httpStatus = Lens.lens (\ApplyPendingMaintenanceActionResponse' {httpStatus} -> httpStatus) (\s@ApplyPendingMaintenanceActionResponse' {} a -> s {httpStatus = a} :: ApplyPendingMaintenanceActionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ApplyPendingMaintenanceActionResponse

@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.ImportImageLicenseConfigurationResponse where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The response information for license configurations.
 --
 -- /See:/ 'newImportImageLicenseConfigurationResponse' smart constructor.
 data ImportImageLicenseConfigurationResponse = ImportImageLicenseConfigurationResponse'
   { -- | The ARN of a license configuration.
-    licenseConfigurationArn :: Core.Maybe Core.Text
+    licenseConfigurationArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportImageLicenseConfigurationResponse' with all optional fields omitted.
@@ -46,11 +47,11 @@ newImportImageLicenseConfigurationResponse ::
 newImportImageLicenseConfigurationResponse =
   ImportImageLicenseConfigurationResponse'
     { licenseConfigurationArn =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The ARN of a license configuration.
-importImageLicenseConfigurationResponse_licenseConfigurationArn :: Lens.Lens' ImportImageLicenseConfigurationResponse (Core.Maybe Core.Text)
+importImageLicenseConfigurationResponse_licenseConfigurationArn :: Lens.Lens' ImportImageLicenseConfigurationResponse (Prelude.Maybe Prelude.Text)
 importImageLicenseConfigurationResponse_licenseConfigurationArn = Lens.lens (\ImportImageLicenseConfigurationResponse' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@ImportImageLicenseConfigurationResponse' {} a -> s {licenseConfigurationArn = a} :: ImportImageLicenseConfigurationResponse)
 
 instance
@@ -59,12 +60,12 @@ instance
   where
   parseXML x =
     ImportImageLicenseConfigurationResponse'
-      Core.<$> (x Core..@? "licenseConfigurationArn")
+      Prelude.<$> (x Core..@? "licenseConfigurationArn")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ImportImageLicenseConfigurationResponse
 
 instance
-  Core.NFData
+  Prelude.NFData
     ImportImageLicenseConfigurationResponse

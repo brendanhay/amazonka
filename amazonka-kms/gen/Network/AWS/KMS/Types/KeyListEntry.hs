@@ -21,17 +21,18 @@ module Network.AWS.KMS.Types.KeyListEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about each entry in the key list.
 --
 -- /See:/ 'newKeyListEntry' smart constructor.
 data KeyListEntry = KeyListEntry'
   { -- | ARN of the key.
-    keyArn :: Core.Maybe Core.Text,
+    keyArn :: Prelude.Maybe Prelude.Text,
     -- | Unique identifier of the key.
-    keyId :: Core.Maybe Core.Text
+    keyId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KeyListEntry' with all optional fields omitted.
@@ -48,16 +49,16 @@ newKeyListEntry ::
   KeyListEntry
 newKeyListEntry =
   KeyListEntry'
-    { keyArn = Core.Nothing,
-      keyId = Core.Nothing
+    { keyArn = Prelude.Nothing,
+      keyId = Prelude.Nothing
     }
 
 -- | ARN of the key.
-keyListEntry_keyArn :: Lens.Lens' KeyListEntry (Core.Maybe Core.Text)
+keyListEntry_keyArn :: Lens.Lens' KeyListEntry (Prelude.Maybe Prelude.Text)
 keyListEntry_keyArn = Lens.lens (\KeyListEntry' {keyArn} -> keyArn) (\s@KeyListEntry' {} a -> s {keyArn = a} :: KeyListEntry)
 
 -- | Unique identifier of the key.
-keyListEntry_keyId :: Lens.Lens' KeyListEntry (Core.Maybe Core.Text)
+keyListEntry_keyId :: Lens.Lens' KeyListEntry (Prelude.Maybe Prelude.Text)
 keyListEntry_keyId = Lens.lens (\KeyListEntry' {keyId} -> keyId) (\s@KeyListEntry' {} a -> s {keyId = a} :: KeyListEntry)
 
 instance Core.FromJSON KeyListEntry where
@@ -66,9 +67,10 @@ instance Core.FromJSON KeyListEntry where
       "KeyListEntry"
       ( \x ->
           KeyListEntry'
-            Core.<$> (x Core..:? "KeyArn") Core.<*> (x Core..:? "KeyId")
+            Prelude.<$> (x Core..:? "KeyArn")
+            Prelude.<*> (x Core..:? "KeyId")
       )
 
-instance Core.Hashable KeyListEntry
+instance Prelude.Hashable KeyListEntry
 
-instance Core.NFData KeyListEntry
+instance Prelude.NFData KeyListEntry

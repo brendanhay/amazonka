@@ -43,15 +43,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartCrawler' smart constructor.
 data StartCrawler = StartCrawler'
   { -- | Name of the crawler to start.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartCrawler' with all optional fields omitted.
@@ -64,12 +65,12 @@ data StartCrawler = StartCrawler'
 -- 'name', 'startCrawler_name' - Name of the crawler to start.
 newStartCrawler ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   StartCrawler
 newStartCrawler pName_ = StartCrawler' {name = pName_}
 
 -- | Name of the crawler to start.
-startCrawler_name :: Lens.Lens' StartCrawler Core.Text
+startCrawler_name :: Lens.Lens' StartCrawler Prelude.Text
 startCrawler_name = Lens.lens (\StartCrawler' {name} -> name) (\s@StartCrawler' {} a -> s {name = a} :: StartCrawler)
 
 instance Core.AWSRequest StartCrawler where
@@ -79,41 +80,45 @@ instance Core.AWSRequest StartCrawler where
     Response.receiveEmpty
       ( \s h x ->
           StartCrawlerResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartCrawler
+instance Prelude.Hashable StartCrawler
 
-instance Core.NFData StartCrawler
+instance Prelude.NFData StartCrawler
 
 instance Core.ToHeaders StartCrawler where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.StartCrawler" :: Core.ByteString),
+              Core.=# ("AWSGlue.StartCrawler" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartCrawler where
   toJSON StartCrawler' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath StartCrawler where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartCrawler where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartCrawlerResponse' smart constructor.
 data StartCrawlerResponse = StartCrawlerResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartCrawlerResponse' with all optional fields omitted.
@@ -126,13 +131,13 @@ data StartCrawlerResponse = StartCrawlerResponse'
 -- 'httpStatus', 'startCrawlerResponse_httpStatus' - The response's http status code.
 newStartCrawlerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartCrawlerResponse
 newStartCrawlerResponse pHttpStatus_ =
   StartCrawlerResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-startCrawlerResponse_httpStatus :: Lens.Lens' StartCrawlerResponse Core.Int
+startCrawlerResponse_httpStatus :: Lens.Lens' StartCrawlerResponse Prelude.Int
 startCrawlerResponse_httpStatus = Lens.lens (\StartCrawlerResponse' {httpStatus} -> httpStatus) (\s@StartCrawlerResponse' {} a -> s {httpStatus = a} :: StartCrawlerResponse)
 
-instance Core.NFData StartCrawlerResponse
+instance Prelude.NFData StartCrawlerResponse

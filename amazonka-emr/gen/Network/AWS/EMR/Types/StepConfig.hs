@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.ActionOnFailure
 import Network.AWS.EMR.Types.HadoopJarStepConfig
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specification of a cluster (job flow) step.
 --
@@ -32,13 +33,13 @@ data StepConfig = StepConfig'
     -- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is
     -- provided for backward compatibility. We recommend using
     -- TERMINATE_CLUSTER instead.
-    actionOnFailure :: Core.Maybe ActionOnFailure,
+    actionOnFailure :: Prelude.Maybe ActionOnFailure,
     -- | The name of the step.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The JAR file used for the step.
     hadoopJarStep :: HadoopJarStepConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StepConfig' with all optional fields omitted.
@@ -58,13 +59,13 @@ data StepConfig = StepConfig'
 -- 'hadoopJarStep', 'stepConfig_hadoopJarStep' - The JAR file used for the step.
 newStepConfig ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'hadoopJarStep'
   HadoopJarStepConfig ->
   StepConfig
 newStepConfig pName_ pHadoopJarStep_ =
   StepConfig'
-    { actionOnFailure = Core.Nothing,
+    { actionOnFailure = Prelude.Nothing,
       name = pName_,
       hadoopJarStep = pHadoopJarStep_
     }
@@ -73,28 +74,29 @@ newStepConfig pName_ pHadoopJarStep_ =
 -- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is
 -- provided for backward compatibility. We recommend using
 -- TERMINATE_CLUSTER instead.
-stepConfig_actionOnFailure :: Lens.Lens' StepConfig (Core.Maybe ActionOnFailure)
+stepConfig_actionOnFailure :: Lens.Lens' StepConfig (Prelude.Maybe ActionOnFailure)
 stepConfig_actionOnFailure = Lens.lens (\StepConfig' {actionOnFailure} -> actionOnFailure) (\s@StepConfig' {} a -> s {actionOnFailure = a} :: StepConfig)
 
 -- | The name of the step.
-stepConfig_name :: Lens.Lens' StepConfig Core.Text
+stepConfig_name :: Lens.Lens' StepConfig Prelude.Text
 stepConfig_name = Lens.lens (\StepConfig' {name} -> name) (\s@StepConfig' {} a -> s {name = a} :: StepConfig)
 
 -- | The JAR file used for the step.
 stepConfig_hadoopJarStep :: Lens.Lens' StepConfig HadoopJarStepConfig
 stepConfig_hadoopJarStep = Lens.lens (\StepConfig' {hadoopJarStep} -> hadoopJarStep) (\s@StepConfig' {} a -> s {hadoopJarStep = a} :: StepConfig)
 
-instance Core.Hashable StepConfig
+instance Prelude.Hashable StepConfig
 
-instance Core.NFData StepConfig
+instance Prelude.NFData StepConfig
 
 instance Core.ToJSON StepConfig where
   toJSON StepConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ActionOnFailure" Core..=)
-              Core.<$> actionOnFailure,
-            Core.Just ("Name" Core..= name),
-            Core.Just ("HadoopJarStep" Core..= hadoopJarStep)
+              Prelude.<$> actionOnFailure,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just
+              ("HadoopJarStep" Core..= hadoopJarStep)
           ]
       )

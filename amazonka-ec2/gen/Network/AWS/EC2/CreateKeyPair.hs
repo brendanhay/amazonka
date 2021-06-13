@@ -62,24 +62,25 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateKeyPair' smart constructor.
 data CreateKeyPair = CreateKeyPair'
   { -- | The tags to apply to the new key pair.
-    tagSpecifications :: Core.Maybe [TagSpecification],
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | A unique name for the key pair.
     --
     -- Constraints: Up to 255 ASCII characters
-    keyName :: Core.Text
+    keyName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateKeyPair' with all optional fields omitted.
@@ -101,30 +102,30 @@ data CreateKeyPair = CreateKeyPair'
 -- Constraints: Up to 255 ASCII characters
 newCreateKeyPair ::
   -- | 'keyName'
-  Core.Text ->
+  Prelude.Text ->
   CreateKeyPair
 newCreateKeyPair pKeyName_ =
   CreateKeyPair'
-    { tagSpecifications = Core.Nothing,
-      dryRun = Core.Nothing,
+    { tagSpecifications = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       keyName = pKeyName_
     }
 
 -- | The tags to apply to the new key pair.
-createKeyPair_tagSpecifications :: Lens.Lens' CreateKeyPair (Core.Maybe [TagSpecification])
-createKeyPair_tagSpecifications = Lens.lens (\CreateKeyPair' {tagSpecifications} -> tagSpecifications) (\s@CreateKeyPair' {} a -> s {tagSpecifications = a} :: CreateKeyPair) Core.. Lens.mapping Lens._Coerce
+createKeyPair_tagSpecifications :: Lens.Lens' CreateKeyPair (Prelude.Maybe [TagSpecification])
+createKeyPair_tagSpecifications = Lens.lens (\CreateKeyPair' {tagSpecifications} -> tagSpecifications) (\s@CreateKeyPair' {} a -> s {tagSpecifications = a} :: CreateKeyPair) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createKeyPair_dryRun :: Lens.Lens' CreateKeyPair (Core.Maybe Core.Bool)
+createKeyPair_dryRun :: Lens.Lens' CreateKeyPair (Prelude.Maybe Prelude.Bool)
 createKeyPair_dryRun = Lens.lens (\CreateKeyPair' {dryRun} -> dryRun) (\s@CreateKeyPair' {} a -> s {dryRun = a} :: CreateKeyPair)
 
 -- | A unique name for the key pair.
 --
 -- Constraints: Up to 255 ASCII characters
-createKeyPair_keyName :: Lens.Lens' CreateKeyPair Core.Text
+createKeyPair_keyName :: Lens.Lens' CreateKeyPair Prelude.Text
 createKeyPair_keyName = Lens.lens (\CreateKeyPair' {keyName} -> keyName) (\s@CreateKeyPair' {} a -> s {keyName = a} :: CreateKeyPair)
 
 instance Core.AWSRequest CreateKeyPair where
@@ -136,35 +137,36 @@ instance Core.AWSRequest CreateKeyPair where
     Response.receiveXML
       ( \s h x ->
           CreateKeyPairResponse'
-            Core.<$> (x Core..@? "keyPairId")
-            Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "keyName")
-            Core.<*> (x Core..@ "keyFingerprint")
-            Core.<*> (x Core..@ "keyMaterial")
+            Prelude.<$> (x Core..@? "keyPairId")
+            Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "keyName")
+            Prelude.<*> (x Core..@ "keyFingerprint")
+            Prelude.<*> (x Core..@ "keyMaterial")
       )
 
-instance Core.Hashable CreateKeyPair
+instance Prelude.Hashable CreateKeyPair
 
-instance Core.NFData CreateKeyPair
+instance Prelude.NFData CreateKeyPair
 
 instance Core.ToHeaders CreateKeyPair where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateKeyPair where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateKeyPair where
   toQuery CreateKeyPair' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateKeyPair" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("CreateKeyPair" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
-              Core.<$> tagSpecifications
+              Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
         "KeyName" Core.=: keyName
@@ -175,19 +177,19 @@ instance Core.ToQuery CreateKeyPair where
 -- /See:/ 'newCreateKeyPairResponse' smart constructor.
 data CreateKeyPairResponse = CreateKeyPairResponse'
   { -- | The ID of the key pair.
-    keyPairId :: Core.Maybe Core.Text,
+    keyPairId :: Prelude.Maybe Prelude.Text,
     -- | Any tags applied to the key pair.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The name of the key pair.
-    keyName :: Core.Text,
+    keyName :: Prelude.Text,
     -- | The SHA-1 digest of the DER encoded private key.
-    keyFingerprint :: Core.Text,
+    keyFingerprint :: Prelude.Text,
     -- | An unencrypted PEM encoded RSA private key.
-    keyMaterial :: Core.Sensitive Core.Text
+    keyMaterial :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateKeyPairResponse' with all optional fields omitted.
@@ -210,13 +212,13 @@ data CreateKeyPairResponse = CreateKeyPairResponse'
 -- 'keyMaterial', 'createKeyPairResponse_keyMaterial' - An unencrypted PEM encoded RSA private key.
 newCreateKeyPairResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'keyName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'keyFingerprint'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'keyMaterial'
-  Core.Text ->
+  Prelude.Text ->
   CreateKeyPairResponse
 newCreateKeyPairResponse
   pHttpStatus_
@@ -224,8 +226,8 @@ newCreateKeyPairResponse
   pKeyFingerprint_
   pKeyMaterial_ =
     CreateKeyPairResponse'
-      { keyPairId = Core.Nothing,
-        tags = Core.Nothing,
+      { keyPairId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         keyName = pKeyName_,
         keyFingerprint = pKeyFingerprint_,
@@ -233,27 +235,27 @@ newCreateKeyPairResponse
       }
 
 -- | The ID of the key pair.
-createKeyPairResponse_keyPairId :: Lens.Lens' CreateKeyPairResponse (Core.Maybe Core.Text)
+createKeyPairResponse_keyPairId :: Lens.Lens' CreateKeyPairResponse (Prelude.Maybe Prelude.Text)
 createKeyPairResponse_keyPairId = Lens.lens (\CreateKeyPairResponse' {keyPairId} -> keyPairId) (\s@CreateKeyPairResponse' {} a -> s {keyPairId = a} :: CreateKeyPairResponse)
 
 -- | Any tags applied to the key pair.
-createKeyPairResponse_tags :: Lens.Lens' CreateKeyPairResponse (Core.Maybe [Tag])
-createKeyPairResponse_tags = Lens.lens (\CreateKeyPairResponse' {tags} -> tags) (\s@CreateKeyPairResponse' {} a -> s {tags = a} :: CreateKeyPairResponse) Core.. Lens.mapping Lens._Coerce
+createKeyPairResponse_tags :: Lens.Lens' CreateKeyPairResponse (Prelude.Maybe [Tag])
+createKeyPairResponse_tags = Lens.lens (\CreateKeyPairResponse' {tags} -> tags) (\s@CreateKeyPairResponse' {} a -> s {tags = a} :: CreateKeyPairResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createKeyPairResponse_httpStatus :: Lens.Lens' CreateKeyPairResponse Core.Int
+createKeyPairResponse_httpStatus :: Lens.Lens' CreateKeyPairResponse Prelude.Int
 createKeyPairResponse_httpStatus = Lens.lens (\CreateKeyPairResponse' {httpStatus} -> httpStatus) (\s@CreateKeyPairResponse' {} a -> s {httpStatus = a} :: CreateKeyPairResponse)
 
 -- | The name of the key pair.
-createKeyPairResponse_keyName :: Lens.Lens' CreateKeyPairResponse Core.Text
+createKeyPairResponse_keyName :: Lens.Lens' CreateKeyPairResponse Prelude.Text
 createKeyPairResponse_keyName = Lens.lens (\CreateKeyPairResponse' {keyName} -> keyName) (\s@CreateKeyPairResponse' {} a -> s {keyName = a} :: CreateKeyPairResponse)
 
 -- | The SHA-1 digest of the DER encoded private key.
-createKeyPairResponse_keyFingerprint :: Lens.Lens' CreateKeyPairResponse Core.Text
+createKeyPairResponse_keyFingerprint :: Lens.Lens' CreateKeyPairResponse Prelude.Text
 createKeyPairResponse_keyFingerprint = Lens.lens (\CreateKeyPairResponse' {keyFingerprint} -> keyFingerprint) (\s@CreateKeyPairResponse' {} a -> s {keyFingerprint = a} :: CreateKeyPairResponse)
 
 -- | An unencrypted PEM encoded RSA private key.
-createKeyPairResponse_keyMaterial :: Lens.Lens' CreateKeyPairResponse Core.Text
-createKeyPairResponse_keyMaterial = Lens.lens (\CreateKeyPairResponse' {keyMaterial} -> keyMaterial) (\s@CreateKeyPairResponse' {} a -> s {keyMaterial = a} :: CreateKeyPairResponse) Core.. Core._Sensitive
+createKeyPairResponse_keyMaterial :: Lens.Lens' CreateKeyPairResponse Prelude.Text
+createKeyPairResponse_keyMaterial = Lens.lens (\CreateKeyPairResponse' {keyMaterial} -> keyMaterial) (\s@CreateKeyPairResponse' {} a -> s {keyMaterial = a} :: CreateKeyPairResponse) Prelude.. Core._Sensitive
 
-instance Core.NFData CreateKeyPairResponse
+instance Prelude.NFData CreateKeyPairResponse

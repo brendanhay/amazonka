@@ -27,6 +27,7 @@ module Network.AWS.Greengrass.Types.SoftwareToUpdate
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The piece of software on the Greengrass core that will be updated.
 newtype SoftwareToUpdate = SoftwareToUpdate'
@@ -34,15 +35,15 @@ newtype SoftwareToUpdate = SoftwareToUpdate'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

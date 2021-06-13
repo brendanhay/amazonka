@@ -21,17 +21,18 @@ module Network.AWS.DMS.Types.TableToReload where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the name of the schema and table to be reloaded.
 --
 -- /See:/ 'newTableToReload' smart constructor.
 data TableToReload = TableToReload'
   { -- | The schema name of the table to be reloaded.
-    schemaName :: Core.Text,
+    schemaName :: Prelude.Text,
     -- | The table name of the table to be reloaded.
-    tableName :: Core.Text
+    tableName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TableToReload' with all optional fields omitted.
@@ -46,9 +47,9 @@ data TableToReload = TableToReload'
 -- 'tableName', 'tableToReload_tableName' - The table name of the table to be reloaded.
 newTableToReload ::
   -- | 'schemaName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   TableToReload
 newTableToReload pSchemaName_ pTableName_ =
   TableToReload'
@@ -57,22 +58,22 @@ newTableToReload pSchemaName_ pTableName_ =
     }
 
 -- | The schema name of the table to be reloaded.
-tableToReload_schemaName :: Lens.Lens' TableToReload Core.Text
+tableToReload_schemaName :: Lens.Lens' TableToReload Prelude.Text
 tableToReload_schemaName = Lens.lens (\TableToReload' {schemaName} -> schemaName) (\s@TableToReload' {} a -> s {schemaName = a} :: TableToReload)
 
 -- | The table name of the table to be reloaded.
-tableToReload_tableName :: Lens.Lens' TableToReload Core.Text
+tableToReload_tableName :: Lens.Lens' TableToReload Prelude.Text
 tableToReload_tableName = Lens.lens (\TableToReload' {tableName} -> tableName) (\s@TableToReload' {} a -> s {tableName = a} :: TableToReload)
 
-instance Core.Hashable TableToReload
+instance Prelude.Hashable TableToReload
 
-instance Core.NFData TableToReload
+instance Prelude.NFData TableToReload
 
 instance Core.ToJSON TableToReload where
   toJSON TableToReload' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("SchemaName" Core..= schemaName),
-            Core.Just ("TableName" Core..= tableName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("SchemaName" Core..= schemaName),
+            Prelude.Just ("TableName" Core..= tableName)
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.Hdr10Settings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Hdr10 Settings
 --
@@ -29,13 +30,13 @@ data Hdr10Settings = Hdr10Settings'
   { -- | Maximum Content Light Level An integer metadata value defining the
     -- maximum light level, in nits, of any single pixel within an encoded HDR
     -- video stream or file.
-    maxCll :: Core.Maybe Core.Natural,
+    maxCll :: Prelude.Maybe Prelude.Natural,
     -- | Maximum Frame Average Light Level An integer metadata value defining the
     -- maximum average light level, in nits, for any single frame within an
     -- encoded HDR video stream or file.
-    maxFall :: Core.Maybe Core.Natural
+    maxFall :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Hdr10Settings' with all optional fields omitted.
@@ -56,20 +57,20 @@ newHdr10Settings ::
   Hdr10Settings
 newHdr10Settings =
   Hdr10Settings'
-    { maxCll = Core.Nothing,
-      maxFall = Core.Nothing
+    { maxCll = Prelude.Nothing,
+      maxFall = Prelude.Nothing
     }
 
 -- | Maximum Content Light Level An integer metadata value defining the
 -- maximum light level, in nits, of any single pixel within an encoded HDR
 -- video stream or file.
-hdr10Settings_maxCll :: Lens.Lens' Hdr10Settings (Core.Maybe Core.Natural)
+hdr10Settings_maxCll :: Lens.Lens' Hdr10Settings (Prelude.Maybe Prelude.Natural)
 hdr10Settings_maxCll = Lens.lens (\Hdr10Settings' {maxCll} -> maxCll) (\s@Hdr10Settings' {} a -> s {maxCll = a} :: Hdr10Settings)
 
 -- | Maximum Frame Average Light Level An integer metadata value defining the
 -- maximum average light level, in nits, for any single frame within an
 -- encoded HDR video stream or file.
-hdr10Settings_maxFall :: Lens.Lens' Hdr10Settings (Core.Maybe Core.Natural)
+hdr10Settings_maxFall :: Lens.Lens' Hdr10Settings (Prelude.Maybe Prelude.Natural)
 hdr10Settings_maxFall = Lens.lens (\Hdr10Settings' {maxFall} -> maxFall) (\s@Hdr10Settings' {} a -> s {maxFall = a} :: Hdr10Settings)
 
 instance Core.FromJSON Hdr10Settings where
@@ -78,19 +79,19 @@ instance Core.FromJSON Hdr10Settings where
       "Hdr10Settings"
       ( \x ->
           Hdr10Settings'
-            Core.<$> (x Core..:? "maxCll")
-            Core.<*> (x Core..:? "maxFall")
+            Prelude.<$> (x Core..:? "maxCll")
+            Prelude.<*> (x Core..:? "maxFall")
       )
 
-instance Core.Hashable Hdr10Settings
+instance Prelude.Hashable Hdr10Settings
 
-instance Core.NFData Hdr10Settings
+instance Prelude.NFData Hdr10Settings
 
 instance Core.ToJSON Hdr10Settings where
   toJSON Hdr10Settings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("maxCll" Core..=) Core.<$> maxCll,
-            ("maxFall" Core..=) Core.<$> maxFall
+      ( Prelude.catMaybes
+          [ ("maxCll" Core..=) Prelude.<$> maxCll,
+            ("maxFall" Core..=) Prelude.<$> maxFall
           ]
       )

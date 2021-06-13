@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -60,16 +61,16 @@ data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
     -- parameter is required if your IAM user has a policy containing a
     -- snapshot resource element that specifies anything other than * for the
     -- cluster name.
-    snapshotClusterIdentifier :: Core.Maybe Core.Text,
+    snapshotClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the snapshot the account is authorized to restore.
-    snapshotIdentifier :: Core.Text,
+    snapshotIdentifier :: Prelude.Text,
     -- | The identifier of the AWS customer account authorized to restore the
     -- specified snapshot.
     --
     -- To share a snapshot with AWS support, specify amazon-redshift-support.
-    accountWithRestoreAccess :: Core.Text
+    accountWithRestoreAccess :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AuthorizeSnapshotAccess' with all optional fields omitted.
@@ -92,16 +93,16 @@ data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
 -- To share a snapshot with AWS support, specify amazon-redshift-support.
 newAuthorizeSnapshotAccess ::
   -- | 'snapshotIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'accountWithRestoreAccess'
-  Core.Text ->
+  Prelude.Text ->
   AuthorizeSnapshotAccess
 newAuthorizeSnapshotAccess
   pSnapshotIdentifier_
   pAccountWithRestoreAccess_ =
     AuthorizeSnapshotAccess'
       { snapshotClusterIdentifier =
-          Core.Nothing,
+          Prelude.Nothing,
         snapshotIdentifier = pSnapshotIdentifier_,
         accountWithRestoreAccess =
           pAccountWithRestoreAccess_
@@ -111,18 +112,18 @@ newAuthorizeSnapshotAccess
 -- parameter is required if your IAM user has a policy containing a
 -- snapshot resource element that specifies anything other than * for the
 -- cluster name.
-authorizeSnapshotAccess_snapshotClusterIdentifier :: Lens.Lens' AuthorizeSnapshotAccess (Core.Maybe Core.Text)
+authorizeSnapshotAccess_snapshotClusterIdentifier :: Lens.Lens' AuthorizeSnapshotAccess (Prelude.Maybe Prelude.Text)
 authorizeSnapshotAccess_snapshotClusterIdentifier = Lens.lens (\AuthorizeSnapshotAccess' {snapshotClusterIdentifier} -> snapshotClusterIdentifier) (\s@AuthorizeSnapshotAccess' {} a -> s {snapshotClusterIdentifier = a} :: AuthorizeSnapshotAccess)
 
 -- | The identifier of the snapshot the account is authorized to restore.
-authorizeSnapshotAccess_snapshotIdentifier :: Lens.Lens' AuthorizeSnapshotAccess Core.Text
+authorizeSnapshotAccess_snapshotIdentifier :: Lens.Lens' AuthorizeSnapshotAccess Prelude.Text
 authorizeSnapshotAccess_snapshotIdentifier = Lens.lens (\AuthorizeSnapshotAccess' {snapshotIdentifier} -> snapshotIdentifier) (\s@AuthorizeSnapshotAccess' {} a -> s {snapshotIdentifier = a} :: AuthorizeSnapshotAccess)
 
 -- | The identifier of the AWS customer account authorized to restore the
 -- specified snapshot.
 --
 -- To share a snapshot with AWS support, specify amazon-redshift-support.
-authorizeSnapshotAccess_accountWithRestoreAccess :: Lens.Lens' AuthorizeSnapshotAccess Core.Text
+authorizeSnapshotAccess_accountWithRestoreAccess :: Lens.Lens' AuthorizeSnapshotAccess Prelude.Text
 authorizeSnapshotAccess_accountWithRestoreAccess = Lens.lens (\AuthorizeSnapshotAccess' {accountWithRestoreAccess} -> accountWithRestoreAccess) (\s@AuthorizeSnapshotAccess' {} a -> s {accountWithRestoreAccess = a} :: AuthorizeSnapshotAccess)
 
 instance Core.AWSRequest AuthorizeSnapshotAccess where
@@ -135,26 +136,27 @@ instance Core.AWSRequest AuthorizeSnapshotAccess where
       "AuthorizeSnapshotAccessResult"
       ( \s h x ->
           AuthorizeSnapshotAccessResponse'
-            Core.<$> (x Core..@? "Snapshot")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Snapshot")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AuthorizeSnapshotAccess
+instance Prelude.Hashable AuthorizeSnapshotAccess
 
-instance Core.NFData AuthorizeSnapshotAccess
+instance Prelude.NFData AuthorizeSnapshotAccess
 
 instance Core.ToHeaders AuthorizeSnapshotAccess where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AuthorizeSnapshotAccess where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AuthorizeSnapshotAccess where
   toQuery AuthorizeSnapshotAccess' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("AuthorizeSnapshotAccess" :: Core.ByteString),
-        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+          Core.=: ("AuthorizeSnapshotAccess" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
         "SnapshotClusterIdentifier"
           Core.=: snapshotClusterIdentifier,
         "SnapshotIdentifier" Core.=: snapshotIdentifier,
@@ -164,11 +166,11 @@ instance Core.ToQuery AuthorizeSnapshotAccess where
 
 -- | /See:/ 'newAuthorizeSnapshotAccessResponse' smart constructor.
 data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'
-  { snapshot :: Core.Maybe Snapshot,
+  { snapshot :: Prelude.Maybe Snapshot,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AuthorizeSnapshotAccessResponse' with all optional fields omitted.
@@ -183,21 +185,23 @@ data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'
 -- 'httpStatus', 'authorizeSnapshotAccessResponse_httpStatus' - The response's http status code.
 newAuthorizeSnapshotAccessResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AuthorizeSnapshotAccessResponse
 newAuthorizeSnapshotAccessResponse pHttpStatus_ =
   AuthorizeSnapshotAccessResponse'
     { snapshot =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-authorizeSnapshotAccessResponse_snapshot :: Lens.Lens' AuthorizeSnapshotAccessResponse (Core.Maybe Snapshot)
+authorizeSnapshotAccessResponse_snapshot :: Lens.Lens' AuthorizeSnapshotAccessResponse (Prelude.Maybe Snapshot)
 authorizeSnapshotAccessResponse_snapshot = Lens.lens (\AuthorizeSnapshotAccessResponse' {snapshot} -> snapshot) (\s@AuthorizeSnapshotAccessResponse' {} a -> s {snapshot = a} :: AuthorizeSnapshotAccessResponse)
 
 -- | The response's http status code.
-authorizeSnapshotAccessResponse_httpStatus :: Lens.Lens' AuthorizeSnapshotAccessResponse Core.Int
+authorizeSnapshotAccessResponse_httpStatus :: Lens.Lens' AuthorizeSnapshotAccessResponse Prelude.Int
 authorizeSnapshotAccessResponse_httpStatus = Lens.lens (\AuthorizeSnapshotAccessResponse' {httpStatus} -> httpStatus) (\s@AuthorizeSnapshotAccessResponse' {} a -> s {httpStatus = a} :: AuthorizeSnapshotAccessResponse)
 
-instance Core.NFData AuthorizeSnapshotAccessResponse
+instance
+  Prelude.NFData
+    AuthorizeSnapshotAccessResponse

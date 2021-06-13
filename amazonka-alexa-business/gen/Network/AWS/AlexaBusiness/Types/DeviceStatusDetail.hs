@@ -23,17 +23,18 @@ import Network.AWS.AlexaBusiness.Types.DeviceStatusDetailCode
 import Network.AWS.AlexaBusiness.Types.Feature
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details of a device’s status.
 --
 -- /See:/ 'newDeviceStatusDetail' smart constructor.
 data DeviceStatusDetail = DeviceStatusDetail'
   { -- | The device status detail code.
-    code :: Core.Maybe DeviceStatusDetailCode,
+    code :: Prelude.Maybe DeviceStatusDetailCode,
     -- | The list of available features on the device.
-    feature :: Core.Maybe Feature
+    feature :: Prelude.Maybe Feature
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeviceStatusDetail' with all optional fields omitted.
@@ -50,16 +51,16 @@ newDeviceStatusDetail ::
   DeviceStatusDetail
 newDeviceStatusDetail =
   DeviceStatusDetail'
-    { code = Core.Nothing,
-      feature = Core.Nothing
+    { code = Prelude.Nothing,
+      feature = Prelude.Nothing
     }
 
 -- | The device status detail code.
-deviceStatusDetail_code :: Lens.Lens' DeviceStatusDetail (Core.Maybe DeviceStatusDetailCode)
+deviceStatusDetail_code :: Lens.Lens' DeviceStatusDetail (Prelude.Maybe DeviceStatusDetailCode)
 deviceStatusDetail_code = Lens.lens (\DeviceStatusDetail' {code} -> code) (\s@DeviceStatusDetail' {} a -> s {code = a} :: DeviceStatusDetail)
 
 -- | The list of available features on the device.
-deviceStatusDetail_feature :: Lens.Lens' DeviceStatusDetail (Core.Maybe Feature)
+deviceStatusDetail_feature :: Lens.Lens' DeviceStatusDetail (Prelude.Maybe Feature)
 deviceStatusDetail_feature = Lens.lens (\DeviceStatusDetail' {feature} -> feature) (\s@DeviceStatusDetail' {} a -> s {feature = a} :: DeviceStatusDetail)
 
 instance Core.FromJSON DeviceStatusDetail where
@@ -68,9 +69,10 @@ instance Core.FromJSON DeviceStatusDetail where
       "DeviceStatusDetail"
       ( \x ->
           DeviceStatusDetail'
-            Core.<$> (x Core..:? "Code") Core.<*> (x Core..:? "Feature")
+            Prelude.<$> (x Core..:? "Code")
+            Prelude.<*> (x Core..:? "Feature")
       )
 
-instance Core.Hashable DeviceStatusDetail
+instance Prelude.Hashable DeviceStatusDetail
 
-instance Core.NFData DeviceStatusDetail
+instance Prelude.NFData DeviceStatusDetail

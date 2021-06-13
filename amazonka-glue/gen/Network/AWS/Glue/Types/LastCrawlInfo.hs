@@ -22,25 +22,26 @@ module Network.AWS.Glue.Types.LastCrawlInfo where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.LastCrawlStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Status and error information about the most recent crawl.
 --
 -- /See:/ 'newLastCrawlInfo' smart constructor.
 data LastCrawlInfo = LastCrawlInfo'
   { -- | Status of the last crawl.
-    status :: Core.Maybe LastCrawlStatus,
+    status :: Prelude.Maybe LastCrawlStatus,
     -- | The prefix for a message about this crawl.
-    messagePrefix :: Core.Maybe Core.Text,
+    messagePrefix :: Prelude.Maybe Prelude.Text,
     -- | The log group for the last crawl.
-    logGroup :: Core.Maybe Core.Text,
+    logGroup :: Prelude.Maybe Prelude.Text,
     -- | The time at which the crawl started.
-    startTime :: Core.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | If an error occurred, the error information about the last crawl.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The log stream for the last crawl.
-    logStream :: Core.Maybe Core.Text
+    logStream :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LastCrawlInfo' with all optional fields omitted.
@@ -65,36 +66,36 @@ newLastCrawlInfo ::
   LastCrawlInfo
 newLastCrawlInfo =
   LastCrawlInfo'
-    { status = Core.Nothing,
-      messagePrefix = Core.Nothing,
-      logGroup = Core.Nothing,
-      startTime = Core.Nothing,
-      errorMessage = Core.Nothing,
-      logStream = Core.Nothing
+    { status = Prelude.Nothing,
+      messagePrefix = Prelude.Nothing,
+      logGroup = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      logStream = Prelude.Nothing
     }
 
 -- | Status of the last crawl.
-lastCrawlInfo_status :: Lens.Lens' LastCrawlInfo (Core.Maybe LastCrawlStatus)
+lastCrawlInfo_status :: Lens.Lens' LastCrawlInfo (Prelude.Maybe LastCrawlStatus)
 lastCrawlInfo_status = Lens.lens (\LastCrawlInfo' {status} -> status) (\s@LastCrawlInfo' {} a -> s {status = a} :: LastCrawlInfo)
 
 -- | The prefix for a message about this crawl.
-lastCrawlInfo_messagePrefix :: Lens.Lens' LastCrawlInfo (Core.Maybe Core.Text)
+lastCrawlInfo_messagePrefix :: Lens.Lens' LastCrawlInfo (Prelude.Maybe Prelude.Text)
 lastCrawlInfo_messagePrefix = Lens.lens (\LastCrawlInfo' {messagePrefix} -> messagePrefix) (\s@LastCrawlInfo' {} a -> s {messagePrefix = a} :: LastCrawlInfo)
 
 -- | The log group for the last crawl.
-lastCrawlInfo_logGroup :: Lens.Lens' LastCrawlInfo (Core.Maybe Core.Text)
+lastCrawlInfo_logGroup :: Lens.Lens' LastCrawlInfo (Prelude.Maybe Prelude.Text)
 lastCrawlInfo_logGroup = Lens.lens (\LastCrawlInfo' {logGroup} -> logGroup) (\s@LastCrawlInfo' {} a -> s {logGroup = a} :: LastCrawlInfo)
 
 -- | The time at which the crawl started.
-lastCrawlInfo_startTime :: Lens.Lens' LastCrawlInfo (Core.Maybe Core.UTCTime)
-lastCrawlInfo_startTime = Lens.lens (\LastCrawlInfo' {startTime} -> startTime) (\s@LastCrawlInfo' {} a -> s {startTime = a} :: LastCrawlInfo) Core.. Lens.mapping Core._Time
+lastCrawlInfo_startTime :: Lens.Lens' LastCrawlInfo (Prelude.Maybe Prelude.UTCTime)
+lastCrawlInfo_startTime = Lens.lens (\LastCrawlInfo' {startTime} -> startTime) (\s@LastCrawlInfo' {} a -> s {startTime = a} :: LastCrawlInfo) Prelude.. Lens.mapping Core._Time
 
 -- | If an error occurred, the error information about the last crawl.
-lastCrawlInfo_errorMessage :: Lens.Lens' LastCrawlInfo (Core.Maybe Core.Text)
+lastCrawlInfo_errorMessage :: Lens.Lens' LastCrawlInfo (Prelude.Maybe Prelude.Text)
 lastCrawlInfo_errorMessage = Lens.lens (\LastCrawlInfo' {errorMessage} -> errorMessage) (\s@LastCrawlInfo' {} a -> s {errorMessage = a} :: LastCrawlInfo)
 
 -- | The log stream for the last crawl.
-lastCrawlInfo_logStream :: Lens.Lens' LastCrawlInfo (Core.Maybe Core.Text)
+lastCrawlInfo_logStream :: Lens.Lens' LastCrawlInfo (Prelude.Maybe Prelude.Text)
 lastCrawlInfo_logStream = Lens.lens (\LastCrawlInfo' {logStream} -> logStream) (\s@LastCrawlInfo' {} a -> s {logStream = a} :: LastCrawlInfo)
 
 instance Core.FromJSON LastCrawlInfo where
@@ -103,14 +104,14 @@ instance Core.FromJSON LastCrawlInfo where
       "LastCrawlInfo"
       ( \x ->
           LastCrawlInfo'
-            Core.<$> (x Core..:? "Status")
-            Core.<*> (x Core..:? "MessagePrefix")
-            Core.<*> (x Core..:? "LogGroup")
-            Core.<*> (x Core..:? "StartTime")
-            Core.<*> (x Core..:? "ErrorMessage")
-            Core.<*> (x Core..:? "LogStream")
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "MessagePrefix")
+            Prelude.<*> (x Core..:? "LogGroup")
+            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "LogStream")
       )
 
-instance Core.Hashable LastCrawlInfo
+instance Prelude.Hashable LastCrawlInfo
 
-instance Core.NFData LastCrawlInfo
+instance Prelude.NFData LastCrawlInfo

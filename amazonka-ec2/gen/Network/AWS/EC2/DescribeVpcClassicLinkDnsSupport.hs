@@ -54,21 +54,22 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeVpcClassicLinkDnsSupport' smart constructor.
 data DescribeVpcClassicLinkDnsSupport = DescribeVpcClassicLinkDnsSupport'
   { -- | The token for the next page of results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more VPC IDs.
-    vpcIds :: Core.Maybe [Core.Text]
+    vpcIds :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeVpcClassicLinkDnsSupport' with all optional fields omitted.
@@ -90,24 +91,24 @@ newDescribeVpcClassicLinkDnsSupport ::
 newDescribeVpcClassicLinkDnsSupport =
   DescribeVpcClassicLinkDnsSupport'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing,
-      vpcIds = Core.Nothing
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      vpcIds = Prelude.Nothing
     }
 
 -- | The token for the next page of results.
-describeVpcClassicLinkDnsSupport_nextToken :: Lens.Lens' DescribeVpcClassicLinkDnsSupport (Core.Maybe Core.Text)
+describeVpcClassicLinkDnsSupport_nextToken :: Lens.Lens' DescribeVpcClassicLinkDnsSupport (Prelude.Maybe Prelude.Text)
 describeVpcClassicLinkDnsSupport_nextToken = Lens.lens (\DescribeVpcClassicLinkDnsSupport' {nextToken} -> nextToken) (\s@DescribeVpcClassicLinkDnsSupport' {} a -> s {nextToken = a} :: DescribeVpcClassicLinkDnsSupport)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-describeVpcClassicLinkDnsSupport_maxResults :: Lens.Lens' DescribeVpcClassicLinkDnsSupport (Core.Maybe Core.Natural)
+describeVpcClassicLinkDnsSupport_maxResults :: Lens.Lens' DescribeVpcClassicLinkDnsSupport (Prelude.Maybe Prelude.Natural)
 describeVpcClassicLinkDnsSupport_maxResults = Lens.lens (\DescribeVpcClassicLinkDnsSupport' {maxResults} -> maxResults) (\s@DescribeVpcClassicLinkDnsSupport' {} a -> s {maxResults = a} :: DescribeVpcClassicLinkDnsSupport)
 
 -- | One or more VPC IDs.
-describeVpcClassicLinkDnsSupport_vpcIds :: Lens.Lens' DescribeVpcClassicLinkDnsSupport (Core.Maybe [Core.Text])
-describeVpcClassicLinkDnsSupport_vpcIds = Lens.lens (\DescribeVpcClassicLinkDnsSupport' {vpcIds} -> vpcIds) (\s@DescribeVpcClassicLinkDnsSupport' {} a -> s {vpcIds = a} :: DescribeVpcClassicLinkDnsSupport) Core.. Lens.mapping Lens._Coerce
+describeVpcClassicLinkDnsSupport_vpcIds :: Lens.Lens' DescribeVpcClassicLinkDnsSupport (Prelude.Maybe [Prelude.Text])
+describeVpcClassicLinkDnsSupport_vpcIds = Lens.lens (\DescribeVpcClassicLinkDnsSupport' {vpcIds} -> vpcIds) (\s@DescribeVpcClassicLinkDnsSupport' {} a -> s {vpcIds = a} :: DescribeVpcClassicLinkDnsSupport) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.AWSPager
@@ -117,22 +118,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeVpcClassicLinkDnsSupportResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVpcClassicLinkDnsSupportResponse_vpcs
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeVpcClassicLinkDnsSupport_nextToken
+          Prelude.& describeVpcClassicLinkDnsSupport_nextToken
           Lens..~ rs
           Lens.^? describeVpcClassicLinkDnsSupportResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -146,56 +147,59 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeVpcClassicLinkDnsSupportResponse'
-            Core.<$> (x Core..@? "nextToken")
-            Core.<*> ( x Core..@? "vpcs" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "vpcs" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeVpcClassicLinkDnsSupport
 
-instance Core.NFData DescribeVpcClassicLinkDnsSupport
+instance
+  Prelude.NFData
+    DescribeVpcClassicLinkDnsSupport
 
 instance
   Core.ToHeaders
     DescribeVpcClassicLinkDnsSupport
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeVpcClassicLinkDnsSupport where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeVpcClassicLinkDnsSupport
   where
   toQuery DescribeVpcClassicLinkDnsSupport' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "DescribeVpcClassicLinkDnsSupport" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "MaxResults" Core.=: maxResults,
         Core.toQuery
-          (Core.toQueryList "VpcIds" Core.<$> vpcIds)
+          (Core.toQueryList "VpcIds" Prelude.<$> vpcIds)
       ]
 
 -- | /See:/ 'newDescribeVpcClassicLinkDnsSupportResponse' smart constructor.
 data DescribeVpcClassicLinkDnsSupportResponse = DescribeVpcClassicLinkDnsSupportResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the ClassicLink DNS support status of the VPCs.
-    vpcs :: Core.Maybe [ClassicLinkDnsSupport],
+    vpcs :: Prelude.Maybe [ClassicLinkDnsSupport],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeVpcClassicLinkDnsSupportResponse' with all optional fields omitted.
@@ -213,30 +217,30 @@ data DescribeVpcClassicLinkDnsSupportResponse = DescribeVpcClassicLinkDnsSupport
 -- 'httpStatus', 'describeVpcClassicLinkDnsSupportResponse_httpStatus' - The response's http status code.
 newDescribeVpcClassicLinkDnsSupportResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeVpcClassicLinkDnsSupportResponse
 newDescribeVpcClassicLinkDnsSupportResponse
   pHttpStatus_ =
     DescribeVpcClassicLinkDnsSupportResponse'
       { nextToken =
-          Core.Nothing,
-        vpcs = Core.Nothing,
+          Prelude.Nothing,
+        vpcs = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeVpcClassicLinkDnsSupportResponse_nextToken :: Lens.Lens' DescribeVpcClassicLinkDnsSupportResponse (Core.Maybe Core.Text)
+describeVpcClassicLinkDnsSupportResponse_nextToken :: Lens.Lens' DescribeVpcClassicLinkDnsSupportResponse (Prelude.Maybe Prelude.Text)
 describeVpcClassicLinkDnsSupportResponse_nextToken = Lens.lens (\DescribeVpcClassicLinkDnsSupportResponse' {nextToken} -> nextToken) (\s@DescribeVpcClassicLinkDnsSupportResponse' {} a -> s {nextToken = a} :: DescribeVpcClassicLinkDnsSupportResponse)
 
 -- | Information about the ClassicLink DNS support status of the VPCs.
-describeVpcClassicLinkDnsSupportResponse_vpcs :: Lens.Lens' DescribeVpcClassicLinkDnsSupportResponse (Core.Maybe [ClassicLinkDnsSupport])
-describeVpcClassicLinkDnsSupportResponse_vpcs = Lens.lens (\DescribeVpcClassicLinkDnsSupportResponse' {vpcs} -> vpcs) (\s@DescribeVpcClassicLinkDnsSupportResponse' {} a -> s {vpcs = a} :: DescribeVpcClassicLinkDnsSupportResponse) Core.. Lens.mapping Lens._Coerce
+describeVpcClassicLinkDnsSupportResponse_vpcs :: Lens.Lens' DescribeVpcClassicLinkDnsSupportResponse (Prelude.Maybe [ClassicLinkDnsSupport])
+describeVpcClassicLinkDnsSupportResponse_vpcs = Lens.lens (\DescribeVpcClassicLinkDnsSupportResponse' {vpcs} -> vpcs) (\s@DescribeVpcClassicLinkDnsSupportResponse' {} a -> s {vpcs = a} :: DescribeVpcClassicLinkDnsSupportResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeVpcClassicLinkDnsSupportResponse_httpStatus :: Lens.Lens' DescribeVpcClassicLinkDnsSupportResponse Core.Int
+describeVpcClassicLinkDnsSupportResponse_httpStatus :: Lens.Lens' DescribeVpcClassicLinkDnsSupportResponse Prelude.Int
 describeVpcClassicLinkDnsSupportResponse_httpStatus = Lens.lens (\DescribeVpcClassicLinkDnsSupportResponse' {httpStatus} -> httpStatus) (\s@DescribeVpcClassicLinkDnsSupportResponse' {} a -> s {httpStatus = a} :: DescribeVpcClassicLinkDnsSupportResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeVpcClassicLinkDnsSupportResponse

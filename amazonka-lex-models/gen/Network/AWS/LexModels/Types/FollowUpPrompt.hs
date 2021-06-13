@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.Prompt
 import Network.AWS.LexModels.Types.Statement
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A prompt for additional activity after an intent is fulfilled. For
 -- example, after the @OrderPizza@ intent is fulfilled, you might prompt
@@ -37,7 +38,7 @@ data FollowUpPrompt = FollowUpPrompt'
     -- intent was canceled.
     rejectionStatement :: Statement
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FollowUpPrompt' with all optional fields omitted.
@@ -80,20 +81,20 @@ instance Core.FromJSON FollowUpPrompt where
       "FollowUpPrompt"
       ( \x ->
           FollowUpPrompt'
-            Core.<$> (x Core..: "prompt")
-            Core.<*> (x Core..: "rejectionStatement")
+            Prelude.<$> (x Core..: "prompt")
+            Prelude.<*> (x Core..: "rejectionStatement")
       )
 
-instance Core.Hashable FollowUpPrompt
+instance Prelude.Hashable FollowUpPrompt
 
-instance Core.NFData FollowUpPrompt
+instance Prelude.NFData FollowUpPrompt
 
 instance Core.ToJSON FollowUpPrompt where
   toJSON FollowUpPrompt' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("prompt" Core..= prompt),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("prompt" Core..= prompt),
+            Prelude.Just
               ("rejectionStatement" Core..= rejectionStatement)
           ]
       )

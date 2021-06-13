@@ -42,15 +42,16 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartSmartHomeApplianceDiscovery' smart constructor.
 data StartSmartHomeApplianceDiscovery = StartSmartHomeApplianceDiscovery'
   { -- | The room where smart home appliance discovery was initiated.
-    roomArn :: Core.Text
+    roomArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartSmartHomeApplianceDiscovery' with all optional fields omitted.
@@ -63,7 +64,7 @@ data StartSmartHomeApplianceDiscovery = StartSmartHomeApplianceDiscovery'
 -- 'roomArn', 'startSmartHomeApplianceDiscovery_roomArn' - The room where smart home appliance discovery was initiated.
 newStartSmartHomeApplianceDiscovery ::
   -- | 'roomArn'
-  Core.Text ->
+  Prelude.Text ->
   StartSmartHomeApplianceDiscovery
 newStartSmartHomeApplianceDiscovery pRoomArn_ =
   StartSmartHomeApplianceDiscovery'
@@ -72,7 +73,7 @@ newStartSmartHomeApplianceDiscovery pRoomArn_ =
     }
 
 -- | The room where smart home appliance discovery was initiated.
-startSmartHomeApplianceDiscovery_roomArn :: Lens.Lens' StartSmartHomeApplianceDiscovery Core.Text
+startSmartHomeApplianceDiscovery_roomArn :: Lens.Lens' StartSmartHomeApplianceDiscovery Prelude.Text
 startSmartHomeApplianceDiscovery_roomArn = Lens.lens (\StartSmartHomeApplianceDiscovery' {roomArn} -> roomArn) (\s@StartSmartHomeApplianceDiscovery' {} a -> s {roomArn = a} :: StartSmartHomeApplianceDiscovery)
 
 instance
@@ -87,53 +88,57 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           StartSmartHomeApplianceDiscoveryResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     StartSmartHomeApplianceDiscovery
 
-instance Core.NFData StartSmartHomeApplianceDiscovery
+instance
+  Prelude.NFData
+    StartSmartHomeApplianceDiscovery
 
 instance
   Core.ToHeaders
     StartSmartHomeApplianceDiscovery
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.StartSmartHomeApplianceDiscovery" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartSmartHomeApplianceDiscovery where
   toJSON StartSmartHomeApplianceDiscovery' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("RoomArn" Core..= roomArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("RoomArn" Core..= roomArn)]
       )
 
 instance Core.ToPath StartSmartHomeApplianceDiscovery where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     StartSmartHomeApplianceDiscovery
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartSmartHomeApplianceDiscoveryResponse' smart constructor.
 data StartSmartHomeApplianceDiscoveryResponse = StartSmartHomeApplianceDiscoveryResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartSmartHomeApplianceDiscoveryResponse' with all optional fields omitted.
@@ -146,7 +151,7 @@ data StartSmartHomeApplianceDiscoveryResponse = StartSmartHomeApplianceDiscovery
 -- 'httpStatus', 'startSmartHomeApplianceDiscoveryResponse_httpStatus' - The response's http status code.
 newStartSmartHomeApplianceDiscoveryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartSmartHomeApplianceDiscoveryResponse
 newStartSmartHomeApplianceDiscoveryResponse
   pHttpStatus_ =
@@ -156,9 +161,9 @@ newStartSmartHomeApplianceDiscoveryResponse
       }
 
 -- | The response's http status code.
-startSmartHomeApplianceDiscoveryResponse_httpStatus :: Lens.Lens' StartSmartHomeApplianceDiscoveryResponse Core.Int
+startSmartHomeApplianceDiscoveryResponse_httpStatus :: Lens.Lens' StartSmartHomeApplianceDiscoveryResponse Prelude.Int
 startSmartHomeApplianceDiscoveryResponse_httpStatus = Lens.lens (\StartSmartHomeApplianceDiscoveryResponse' {httpStatus} -> httpStatus) (\s@StartSmartHomeApplianceDiscoveryResponse' {} a -> s {httpStatus = a} :: StartSmartHomeApplianceDiscoveryResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     StartSmartHomeApplianceDiscoveryResponse

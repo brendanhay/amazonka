@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.StartSegmentDetectionFilters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.StartShotDetectionFilter
 import Network.AWS.Rekognition.Types.StartTechnicalCueDetectionFilter
 
@@ -30,11 +31,11 @@ import Network.AWS.Rekognition.Types.StartTechnicalCueDetectionFilter
 -- /See:/ 'newStartSegmentDetectionFilters' smart constructor.
 data StartSegmentDetectionFilters = StartSegmentDetectionFilters'
   { -- | Filters that are specific to technical cues.
-    technicalCueFilter :: Core.Maybe StartTechnicalCueDetectionFilter,
+    technicalCueFilter :: Prelude.Maybe StartTechnicalCueDetectionFilter,
     -- | Filters that are specific to shot detections.
-    shotFilter :: Core.Maybe StartShotDetectionFilter
+    shotFilter :: Prelude.Maybe StartShotDetectionFilter
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartSegmentDetectionFilters' with all optional fields omitted.
@@ -52,28 +53,30 @@ newStartSegmentDetectionFilters ::
 newStartSegmentDetectionFilters =
   StartSegmentDetectionFilters'
     { technicalCueFilter =
-        Core.Nothing,
-      shotFilter = Core.Nothing
+        Prelude.Nothing,
+      shotFilter = Prelude.Nothing
     }
 
 -- | Filters that are specific to technical cues.
-startSegmentDetectionFilters_technicalCueFilter :: Lens.Lens' StartSegmentDetectionFilters (Core.Maybe StartTechnicalCueDetectionFilter)
+startSegmentDetectionFilters_technicalCueFilter :: Lens.Lens' StartSegmentDetectionFilters (Prelude.Maybe StartTechnicalCueDetectionFilter)
 startSegmentDetectionFilters_technicalCueFilter = Lens.lens (\StartSegmentDetectionFilters' {technicalCueFilter} -> technicalCueFilter) (\s@StartSegmentDetectionFilters' {} a -> s {technicalCueFilter = a} :: StartSegmentDetectionFilters)
 
 -- | Filters that are specific to shot detections.
-startSegmentDetectionFilters_shotFilter :: Lens.Lens' StartSegmentDetectionFilters (Core.Maybe StartShotDetectionFilter)
+startSegmentDetectionFilters_shotFilter :: Lens.Lens' StartSegmentDetectionFilters (Prelude.Maybe StartShotDetectionFilter)
 startSegmentDetectionFilters_shotFilter = Lens.lens (\StartSegmentDetectionFilters' {shotFilter} -> shotFilter) (\s@StartSegmentDetectionFilters' {} a -> s {shotFilter = a} :: StartSegmentDetectionFilters)
 
-instance Core.Hashable StartSegmentDetectionFilters
+instance
+  Prelude.Hashable
+    StartSegmentDetectionFilters
 
-instance Core.NFData StartSegmentDetectionFilters
+instance Prelude.NFData StartSegmentDetectionFilters
 
 instance Core.ToJSON StartSegmentDetectionFilters where
   toJSON StartSegmentDetectionFilters' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("TechnicalCueFilter" Core..=)
-              Core.<$> technicalCueFilter,
-            ("ShotFilter" Core..=) Core.<$> shotFilter
+              Prelude.<$> technicalCueFilter,
+            ("ShotFilter" Core..=) Prelude.<$> shotFilter
           ]
       )

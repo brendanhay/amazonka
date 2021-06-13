@@ -23,25 +23,26 @@ import Network.AWS.CodePipeline.Types.ActionExecution
 import Network.AWS.CodePipeline.Types.ActionRevision
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about the state of an action.
 --
 -- /See:/ 'newActionState' smart constructor.
 data ActionState = ActionState'
   { -- | The name of the action.
-    actionName :: Core.Maybe Core.Text,
+    actionName :: Prelude.Maybe Prelude.Text,
     -- | Represents information about the run of an action.
-    latestExecution :: Core.Maybe ActionExecution,
+    latestExecution :: Prelude.Maybe ActionExecution,
     -- | Represents information about the version (or revision) of an action.
-    currentRevision :: Core.Maybe ActionRevision,
+    currentRevision :: Prelude.Maybe ActionRevision,
     -- | A URL link for more information about the state of the action, such as a
     -- deployment group details page.
-    entityUrl :: Core.Maybe Core.Text,
+    entityUrl :: Prelude.Maybe Prelude.Text,
     -- | A URL link for more information about the revision, such as a commit
     -- details page.
-    revisionUrl :: Core.Maybe Core.Text
+    revisionUrl :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActionState' with all optional fields omitted.
@@ -66,33 +67,33 @@ newActionState ::
   ActionState
 newActionState =
   ActionState'
-    { actionName = Core.Nothing,
-      latestExecution = Core.Nothing,
-      currentRevision = Core.Nothing,
-      entityUrl = Core.Nothing,
-      revisionUrl = Core.Nothing
+    { actionName = Prelude.Nothing,
+      latestExecution = Prelude.Nothing,
+      currentRevision = Prelude.Nothing,
+      entityUrl = Prelude.Nothing,
+      revisionUrl = Prelude.Nothing
     }
 
 -- | The name of the action.
-actionState_actionName :: Lens.Lens' ActionState (Core.Maybe Core.Text)
+actionState_actionName :: Lens.Lens' ActionState (Prelude.Maybe Prelude.Text)
 actionState_actionName = Lens.lens (\ActionState' {actionName} -> actionName) (\s@ActionState' {} a -> s {actionName = a} :: ActionState)
 
 -- | Represents information about the run of an action.
-actionState_latestExecution :: Lens.Lens' ActionState (Core.Maybe ActionExecution)
+actionState_latestExecution :: Lens.Lens' ActionState (Prelude.Maybe ActionExecution)
 actionState_latestExecution = Lens.lens (\ActionState' {latestExecution} -> latestExecution) (\s@ActionState' {} a -> s {latestExecution = a} :: ActionState)
 
 -- | Represents information about the version (or revision) of an action.
-actionState_currentRevision :: Lens.Lens' ActionState (Core.Maybe ActionRevision)
+actionState_currentRevision :: Lens.Lens' ActionState (Prelude.Maybe ActionRevision)
 actionState_currentRevision = Lens.lens (\ActionState' {currentRevision} -> currentRevision) (\s@ActionState' {} a -> s {currentRevision = a} :: ActionState)
 
 -- | A URL link for more information about the state of the action, such as a
 -- deployment group details page.
-actionState_entityUrl :: Lens.Lens' ActionState (Core.Maybe Core.Text)
+actionState_entityUrl :: Lens.Lens' ActionState (Prelude.Maybe Prelude.Text)
 actionState_entityUrl = Lens.lens (\ActionState' {entityUrl} -> entityUrl) (\s@ActionState' {} a -> s {entityUrl = a} :: ActionState)
 
 -- | A URL link for more information about the revision, such as a commit
 -- details page.
-actionState_revisionUrl :: Lens.Lens' ActionState (Core.Maybe Core.Text)
+actionState_revisionUrl :: Lens.Lens' ActionState (Prelude.Maybe Prelude.Text)
 actionState_revisionUrl = Lens.lens (\ActionState' {revisionUrl} -> revisionUrl) (\s@ActionState' {} a -> s {revisionUrl = a} :: ActionState)
 
 instance Core.FromJSON ActionState where
@@ -101,13 +102,13 @@ instance Core.FromJSON ActionState where
       "ActionState"
       ( \x ->
           ActionState'
-            Core.<$> (x Core..:? "actionName")
-            Core.<*> (x Core..:? "latestExecution")
-            Core.<*> (x Core..:? "currentRevision")
-            Core.<*> (x Core..:? "entityUrl")
-            Core.<*> (x Core..:? "revisionUrl")
+            Prelude.<$> (x Core..:? "actionName")
+            Prelude.<*> (x Core..:? "latestExecution")
+            Prelude.<*> (x Core..:? "currentRevision")
+            Prelude.<*> (x Core..:? "entityUrl")
+            Prelude.<*> (x Core..:? "revisionUrl")
       )
 
-instance Core.Hashable ActionState
+instance Prelude.Hashable ActionState
 
-instance Core.NFData ActionState
+instance Prelude.NFData ActionState

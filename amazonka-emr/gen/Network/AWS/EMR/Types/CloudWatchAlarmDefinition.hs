@@ -25,6 +25,7 @@ import Network.AWS.EMR.Types.MetricDimension
 import Network.AWS.EMR.Types.Statistic
 import Network.AWS.EMR.Types.Unit
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The definition of a CloudWatch metric alarm, which determines when an
 -- automatic scaling activity is triggered. When the defined alarm
@@ -35,33 +36,33 @@ data CloudWatchAlarmDefinition = CloudWatchAlarmDefinition'
   { -- | The unit of measure associated with the CloudWatch metric being watched.
     -- The value specified for @Unit@ must correspond to the units specified in
     -- the CloudWatch metric.
-    unit :: Core.Maybe Unit,
+    unit :: Prelude.Maybe Unit,
     -- | The statistic to apply to the metric associated with the alarm. The
     -- default is @AVERAGE@.
-    statistic :: Core.Maybe Statistic,
+    statistic :: Prelude.Maybe Statistic,
     -- | A CloudWatch metric dimension.
-    dimensions :: Core.Maybe [MetricDimension],
+    dimensions :: Prelude.Maybe [MetricDimension],
     -- | The namespace for the CloudWatch metric. The default is
     -- @AWS\/ElasticMapReduce@.
-    namespace :: Core.Maybe Core.Text,
+    namespace :: Prelude.Maybe Prelude.Text,
     -- | The number of periods, in five-minute increments, during which the alarm
     -- condition must exist before the alarm triggers automatic scaling
     -- activity. The default value is @1@.
-    evaluationPeriods :: Core.Maybe Core.Int,
+    evaluationPeriods :: Prelude.Maybe Prelude.Int,
     -- | Determines how the metric specified by @MetricName@ is compared to the
     -- value specified by @Threshold@.
     comparisonOperator :: ComparisonOperator,
     -- | The name of the CloudWatch metric that is watched to determine an alarm
     -- condition.
-    metricName :: Core.Text,
+    metricName :: Prelude.Text,
     -- | The period, in seconds, over which the statistic is applied. EMR
     -- CloudWatch metrics are emitted every five minutes (300 seconds), so if
     -- an EMR CloudWatch metric is specified, specify @300@.
-    period :: Core.Int,
+    period :: Prelude.Int,
     -- | The value against which the specified statistic is compared.
-    threshold :: Core.Double
+    threshold :: Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CloudWatchAlarmDefinition' with all optional fields omitted.
@@ -102,11 +103,11 @@ newCloudWatchAlarmDefinition ::
   -- | 'comparisonOperator'
   ComparisonOperator ->
   -- | 'metricName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'period'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'threshold'
-  Core.Double ->
+  Prelude.Double ->
   CloudWatchAlarmDefinition
 newCloudWatchAlarmDefinition
   pComparisonOperator_
@@ -114,11 +115,11 @@ newCloudWatchAlarmDefinition
   pPeriod_
   pThreshold_ =
     CloudWatchAlarmDefinition'
-      { unit = Core.Nothing,
-        statistic = Core.Nothing,
-        dimensions = Core.Nothing,
-        namespace = Core.Nothing,
-        evaluationPeriods = Core.Nothing,
+      { unit = Prelude.Nothing,
+        statistic = Prelude.Nothing,
+        dimensions = Prelude.Nothing,
+        namespace = Prelude.Nothing,
+        evaluationPeriods = Prelude.Nothing,
         comparisonOperator = pComparisonOperator_,
         metricName = pMetricName_,
         period = pPeriod_,
@@ -128,27 +129,27 @@ newCloudWatchAlarmDefinition
 -- | The unit of measure associated with the CloudWatch metric being watched.
 -- The value specified for @Unit@ must correspond to the units specified in
 -- the CloudWatch metric.
-cloudWatchAlarmDefinition_unit :: Lens.Lens' CloudWatchAlarmDefinition (Core.Maybe Unit)
+cloudWatchAlarmDefinition_unit :: Lens.Lens' CloudWatchAlarmDefinition (Prelude.Maybe Unit)
 cloudWatchAlarmDefinition_unit = Lens.lens (\CloudWatchAlarmDefinition' {unit} -> unit) (\s@CloudWatchAlarmDefinition' {} a -> s {unit = a} :: CloudWatchAlarmDefinition)
 
 -- | The statistic to apply to the metric associated with the alarm. The
 -- default is @AVERAGE@.
-cloudWatchAlarmDefinition_statistic :: Lens.Lens' CloudWatchAlarmDefinition (Core.Maybe Statistic)
+cloudWatchAlarmDefinition_statistic :: Lens.Lens' CloudWatchAlarmDefinition (Prelude.Maybe Statistic)
 cloudWatchAlarmDefinition_statistic = Lens.lens (\CloudWatchAlarmDefinition' {statistic} -> statistic) (\s@CloudWatchAlarmDefinition' {} a -> s {statistic = a} :: CloudWatchAlarmDefinition)
 
 -- | A CloudWatch metric dimension.
-cloudWatchAlarmDefinition_dimensions :: Lens.Lens' CloudWatchAlarmDefinition (Core.Maybe [MetricDimension])
-cloudWatchAlarmDefinition_dimensions = Lens.lens (\CloudWatchAlarmDefinition' {dimensions} -> dimensions) (\s@CloudWatchAlarmDefinition' {} a -> s {dimensions = a} :: CloudWatchAlarmDefinition) Core.. Lens.mapping Lens._Coerce
+cloudWatchAlarmDefinition_dimensions :: Lens.Lens' CloudWatchAlarmDefinition (Prelude.Maybe [MetricDimension])
+cloudWatchAlarmDefinition_dimensions = Lens.lens (\CloudWatchAlarmDefinition' {dimensions} -> dimensions) (\s@CloudWatchAlarmDefinition' {} a -> s {dimensions = a} :: CloudWatchAlarmDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The namespace for the CloudWatch metric. The default is
 -- @AWS\/ElasticMapReduce@.
-cloudWatchAlarmDefinition_namespace :: Lens.Lens' CloudWatchAlarmDefinition (Core.Maybe Core.Text)
+cloudWatchAlarmDefinition_namespace :: Lens.Lens' CloudWatchAlarmDefinition (Prelude.Maybe Prelude.Text)
 cloudWatchAlarmDefinition_namespace = Lens.lens (\CloudWatchAlarmDefinition' {namespace} -> namespace) (\s@CloudWatchAlarmDefinition' {} a -> s {namespace = a} :: CloudWatchAlarmDefinition)
 
 -- | The number of periods, in five-minute increments, during which the alarm
 -- condition must exist before the alarm triggers automatic scaling
 -- activity. The default value is @1@.
-cloudWatchAlarmDefinition_evaluationPeriods :: Lens.Lens' CloudWatchAlarmDefinition (Core.Maybe Core.Int)
+cloudWatchAlarmDefinition_evaluationPeriods :: Lens.Lens' CloudWatchAlarmDefinition (Prelude.Maybe Prelude.Int)
 cloudWatchAlarmDefinition_evaluationPeriods = Lens.lens (\CloudWatchAlarmDefinition' {evaluationPeriods} -> evaluationPeriods) (\s@CloudWatchAlarmDefinition' {} a -> s {evaluationPeriods = a} :: CloudWatchAlarmDefinition)
 
 -- | Determines how the metric specified by @MetricName@ is compared to the
@@ -158,17 +159,17 @@ cloudWatchAlarmDefinition_comparisonOperator = Lens.lens (\CloudWatchAlarmDefini
 
 -- | The name of the CloudWatch metric that is watched to determine an alarm
 -- condition.
-cloudWatchAlarmDefinition_metricName :: Lens.Lens' CloudWatchAlarmDefinition Core.Text
+cloudWatchAlarmDefinition_metricName :: Lens.Lens' CloudWatchAlarmDefinition Prelude.Text
 cloudWatchAlarmDefinition_metricName = Lens.lens (\CloudWatchAlarmDefinition' {metricName} -> metricName) (\s@CloudWatchAlarmDefinition' {} a -> s {metricName = a} :: CloudWatchAlarmDefinition)
 
 -- | The period, in seconds, over which the statistic is applied. EMR
 -- CloudWatch metrics are emitted every five minutes (300 seconds), so if
 -- an EMR CloudWatch metric is specified, specify @300@.
-cloudWatchAlarmDefinition_period :: Lens.Lens' CloudWatchAlarmDefinition Core.Int
+cloudWatchAlarmDefinition_period :: Lens.Lens' CloudWatchAlarmDefinition Prelude.Int
 cloudWatchAlarmDefinition_period = Lens.lens (\CloudWatchAlarmDefinition' {period} -> period) (\s@CloudWatchAlarmDefinition' {} a -> s {period = a} :: CloudWatchAlarmDefinition)
 
 -- | The value against which the specified statistic is compared.
-cloudWatchAlarmDefinition_threshold :: Lens.Lens' CloudWatchAlarmDefinition Core.Double
+cloudWatchAlarmDefinition_threshold :: Lens.Lens' CloudWatchAlarmDefinition Prelude.Double
 cloudWatchAlarmDefinition_threshold = Lens.lens (\CloudWatchAlarmDefinition' {threshold} -> threshold) (\s@CloudWatchAlarmDefinition' {} a -> s {threshold = a} :: CloudWatchAlarmDefinition)
 
 instance Core.FromJSON CloudWatchAlarmDefinition where
@@ -177,35 +178,35 @@ instance Core.FromJSON CloudWatchAlarmDefinition where
       "CloudWatchAlarmDefinition"
       ( \x ->
           CloudWatchAlarmDefinition'
-            Core.<$> (x Core..:? "Unit")
-            Core.<*> (x Core..:? "Statistic")
-            Core.<*> (x Core..:? "Dimensions" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Namespace")
-            Core.<*> (x Core..:? "EvaluationPeriods")
-            Core.<*> (x Core..: "ComparisonOperator")
-            Core.<*> (x Core..: "MetricName")
-            Core.<*> (x Core..: "Period")
-            Core.<*> (x Core..: "Threshold")
+            Prelude.<$> (x Core..:? "Unit")
+            Prelude.<*> (x Core..:? "Statistic")
+            Prelude.<*> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Namespace")
+            Prelude.<*> (x Core..:? "EvaluationPeriods")
+            Prelude.<*> (x Core..: "ComparisonOperator")
+            Prelude.<*> (x Core..: "MetricName")
+            Prelude.<*> (x Core..: "Period")
+            Prelude.<*> (x Core..: "Threshold")
       )
 
-instance Core.Hashable CloudWatchAlarmDefinition
+instance Prelude.Hashable CloudWatchAlarmDefinition
 
-instance Core.NFData CloudWatchAlarmDefinition
+instance Prelude.NFData CloudWatchAlarmDefinition
 
 instance Core.ToJSON CloudWatchAlarmDefinition where
   toJSON CloudWatchAlarmDefinition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Unit" Core..=) Core.<$> unit,
-            ("Statistic" Core..=) Core.<$> statistic,
-            ("Dimensions" Core..=) Core.<$> dimensions,
-            ("Namespace" Core..=) Core.<$> namespace,
+      ( Prelude.catMaybes
+          [ ("Unit" Core..=) Prelude.<$> unit,
+            ("Statistic" Core..=) Prelude.<$> statistic,
+            ("Dimensions" Core..=) Prelude.<$> dimensions,
+            ("Namespace" Core..=) Prelude.<$> namespace,
             ("EvaluationPeriods" Core..=)
-              Core.<$> evaluationPeriods,
-            Core.Just
+              Prelude.<$> evaluationPeriods,
+            Prelude.Just
               ("ComparisonOperator" Core..= comparisonOperator),
-            Core.Just ("MetricName" Core..= metricName),
-            Core.Just ("Period" Core..= period),
-            Core.Just ("Threshold" Core..= threshold)
+            Prelude.Just ("MetricName" Core..= metricName),
+            Prelude.Just ("Period" Core..= period),
+            Prelude.Just ("Threshold" Core..= threshold)
           ]
       )

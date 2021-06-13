@@ -118,6 +118,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -136,18 +137,18 @@ data Query = Query'
     -- For more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
-    projectionExpression :: Core.Maybe Core.Text,
+    projectionExpression :: Prelude.Maybe Prelude.Text,
     -- | The primary key of the first item that this operation will evaluate. Use
     -- the value that was returned for @LastEvaluatedKey@ in the previous
     -- operation.
     --
     -- The data type for @ExclusiveStartKey@ must be String, Number, or Binary.
     -- No set data types are allowed.
-    exclusiveStartKey :: Core.Maybe (Core.HashMap Core.Text AttributeValue),
+    exclusiveStartKey :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | The name of an index to query. This index can be any local secondary
     -- index or global secondary index on the table. Note that if you use the
     -- @IndexName@ parameter, you must also provide @TableName.@
-    indexName :: Core.Maybe Core.Text,
+    indexName :: Prelude.Maybe Prelude.Text,
     -- | One or more values that can be substituted in an expression.
     --
     -- Use the __:__ (colon) character in an expression to dereference an
@@ -167,7 +168,7 @@ data Query = Query'
     -- For more information on expression attribute values, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
     -- in the /Amazon DynamoDB Developer Guide/.
-    expressionAttributeValues :: Core.Maybe (Core.HashMap Core.Text AttributeValue),
+    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | The condition that specifies the key values for items to be retrieved by
     -- the @Query@ action.
     --
@@ -242,7 +243,7 @@ data Query = Query'
     -- @ExpressionAttributeValues@, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
     -- in the /Amazon DynamoDB Developer Guide/.
-    keyConditionExpression :: Core.Maybe Core.Text,
+    keyConditionExpression :: Prelude.Maybe Prelude.Text,
     -- | Determines the read consistency model: If set to @true@, then the
     -- operation uses strongly consistent reads; otherwise, the operation uses
     -- eventually consistent reads.
@@ -250,7 +251,7 @@ data Query = Query'
     -- Strongly consistent reads are not supported on global secondary indexes.
     -- If you query a global secondary index with @ConsistentRead@ set to
     -- @true@, you will receive a @ValidationException@.
-    consistentRead :: Core.Maybe Core.Bool,
+    consistentRead :: Prelude.Maybe Prelude.Bool,
     -- | One or more substitution tokens for attribute names in an expression.
     -- The following are some use cases for using @ExpressionAttributeNames@:
     --
@@ -288,7 +289,7 @@ data Query = Query'
     -- For more information on expression attribute names, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
-    expressionAttributeNames :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A string that contains conditions that DynamoDB applies after the
     -- @Query@ operation, but before the data is returned to you. Items that do
     -- not satisfy the @FilterExpression@ criteria are not returned.
@@ -303,18 +304,18 @@ data Query = Query'
     -- For more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
     -- in the /Amazon DynamoDB Developer Guide/.
-    filterExpression :: Core.Maybe Core.Text,
+    filterExpression :: Prelude.Maybe Prelude.Text,
     -- | This is a legacy parameter. Use @KeyConditionExpression@ instead. For
     -- more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html KeyConditions>
     -- in the /Amazon DynamoDB Developer Guide/.
-    keyConditions :: Core.Maybe (Core.HashMap Core.Text Condition),
-    returnConsumedCapacity :: Core.Maybe ReturnConsumedCapacity,
+    keyConditions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Condition),
+    returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
     -- | This is a legacy parameter. Use @FilterExpression@ instead. For more
     -- information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
     -- in the /Amazon DynamoDB Developer Guide/.
-    conditionalOperator :: Core.Maybe ConditionalOperator,
+    conditionalOperator :: Prelude.Maybe ConditionalOperator,
     -- | The attributes to be returned in the result. You can retrieve all item
     -- attributes, specific item attributes, the count of matching items, or in
     -- the case of an index, some or all of the attributes projected into the
@@ -360,7 +361,7 @@ data Query = Query'
     -- If you use the @ProjectionExpression@ parameter, then the value for
     -- @Select@ can only be @SPECIFIC_ATTRIBUTES@. Any other value for @Select@
     -- will return an error.
-    select :: Core.Maybe Select,
+    select :: Prelude.Maybe Select,
     -- | The maximum number of items to evaluate (not necessarily the number of
     -- matching items). If DynamoDB processes the number of items up to the
     -- limit while processing the results, it stops the operation and returns
@@ -373,12 +374,12 @@ data Query = Query'
     -- see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan>
     -- in the /Amazon DynamoDB Developer Guide/.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
     -- information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
     -- in the /Amazon DynamoDB Developer Guide/.
-    attributesToGet :: Core.Maybe (Core.NonEmpty Core.Text),
+    attributesToGet :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Specifies the order for index traversal: If @true@ (default), the
     -- traversal is performed in ascending order; if @false@, the traversal is
     -- performed in descending order.
@@ -394,16 +395,16 @@ data Query = Query'
     -- behavior. If @ScanIndexForward@ is @false@, DynamoDB reads the results
     -- in reverse order by sort key value, and then returns the results to the
     -- client.
-    scanIndexForward :: Core.Maybe Core.Bool,
+    scanIndexForward :: Prelude.Maybe Prelude.Bool,
     -- | This is a legacy parameter. Use @FilterExpression@ instead. For more
     -- information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html QueryFilter>
     -- in the /Amazon DynamoDB Developer Guide/.
-    queryFilter :: Core.Maybe (Core.HashMap Core.Text Condition),
+    queryFilter :: Prelude.Maybe (Prelude.HashMap Prelude.Text Condition),
     -- | The name of the table containing the requested items.
-    tableName :: Core.Text
+    tableName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Query' with all optional fields omitted.
@@ -692,26 +693,26 @@ data Query = Query'
 -- 'tableName', 'query_tableName' - The name of the table containing the requested items.
 newQuery ::
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   Query
 newQuery pTableName_ =
   Query'
-    { projectionExpression = Core.Nothing,
-      exclusiveStartKey = Core.Nothing,
-      indexName = Core.Nothing,
-      expressionAttributeValues = Core.Nothing,
-      keyConditionExpression = Core.Nothing,
-      consistentRead = Core.Nothing,
-      expressionAttributeNames = Core.Nothing,
-      filterExpression = Core.Nothing,
-      keyConditions = Core.Nothing,
-      returnConsumedCapacity = Core.Nothing,
-      conditionalOperator = Core.Nothing,
-      select = Core.Nothing,
-      limit = Core.Nothing,
-      attributesToGet = Core.Nothing,
-      scanIndexForward = Core.Nothing,
-      queryFilter = Core.Nothing,
+    { projectionExpression = Prelude.Nothing,
+      exclusiveStartKey = Prelude.Nothing,
+      indexName = Prelude.Nothing,
+      expressionAttributeValues = Prelude.Nothing,
+      keyConditionExpression = Prelude.Nothing,
+      consistentRead = Prelude.Nothing,
+      expressionAttributeNames = Prelude.Nothing,
+      filterExpression = Prelude.Nothing,
+      keyConditions = Prelude.Nothing,
+      returnConsumedCapacity = Prelude.Nothing,
+      conditionalOperator = Prelude.Nothing,
+      select = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      attributesToGet = Prelude.Nothing,
+      scanIndexForward = Prelude.Nothing,
+      queryFilter = Prelude.Nothing,
       tableName = pTableName_
     }
 
@@ -726,7 +727,7 @@ newQuery pTableName_ =
 -- For more information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
-query_projectionExpression :: Lens.Lens' Query (Core.Maybe Core.Text)
+query_projectionExpression :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
 query_projectionExpression = Lens.lens (\Query' {projectionExpression} -> projectionExpression) (\s@Query' {} a -> s {projectionExpression = a} :: Query)
 
 -- | The primary key of the first item that this operation will evaluate. Use
@@ -735,13 +736,13 @@ query_projectionExpression = Lens.lens (\Query' {projectionExpression} -> projec
 --
 -- The data type for @ExclusiveStartKey@ must be String, Number, or Binary.
 -- No set data types are allowed.
-query_exclusiveStartKey :: Lens.Lens' Query (Core.Maybe (Core.HashMap Core.Text AttributeValue))
-query_exclusiveStartKey = Lens.lens (\Query' {exclusiveStartKey} -> exclusiveStartKey) (\s@Query' {} a -> s {exclusiveStartKey = a} :: Query) Core.. Lens.mapping Lens._Coerce
+query_exclusiveStartKey :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+query_exclusiveStartKey = Lens.lens (\Query' {exclusiveStartKey} -> exclusiveStartKey) (\s@Query' {} a -> s {exclusiveStartKey = a} :: Query) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of an index to query. This index can be any local secondary
 -- index or global secondary index on the table. Note that if you use the
 -- @IndexName@ parameter, you must also provide @TableName.@
-query_indexName :: Lens.Lens' Query (Core.Maybe Core.Text)
+query_indexName :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
 query_indexName = Lens.lens (\Query' {indexName} -> indexName) (\s@Query' {} a -> s {indexName = a} :: Query)
 
 -- | One or more values that can be substituted in an expression.
@@ -763,8 +764,8 @@ query_indexName = Lens.lens (\Query' {indexName} -> indexName) (\s@Query' {} a -
 -- For more information on expression attribute values, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
-query_expressionAttributeValues :: Lens.Lens' Query (Core.Maybe (Core.HashMap Core.Text AttributeValue))
-query_expressionAttributeValues = Lens.lens (\Query' {expressionAttributeValues} -> expressionAttributeValues) (\s@Query' {} a -> s {expressionAttributeValues = a} :: Query) Core.. Lens.mapping Lens._Coerce
+query_expressionAttributeValues :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+query_expressionAttributeValues = Lens.lens (\Query' {expressionAttributeValues} -> expressionAttributeValues) (\s@Query' {} a -> s {expressionAttributeValues = a} :: Query) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The condition that specifies the key values for items to be retrieved by
 -- the @Query@ action.
@@ -840,7 +841,7 @@ query_expressionAttributeValues = Lens.lens (\Query' {expressionAttributeValues}
 -- @ExpressionAttributeValues@, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
-query_keyConditionExpression :: Lens.Lens' Query (Core.Maybe Core.Text)
+query_keyConditionExpression :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
 query_keyConditionExpression = Lens.lens (\Query' {keyConditionExpression} -> keyConditionExpression) (\s@Query' {} a -> s {keyConditionExpression = a} :: Query)
 
 -- | Determines the read consistency model: If set to @true@, then the
@@ -850,7 +851,7 @@ query_keyConditionExpression = Lens.lens (\Query' {keyConditionExpression} -> ke
 -- Strongly consistent reads are not supported on global secondary indexes.
 -- If you query a global secondary index with @ConsistentRead@ set to
 -- @true@, you will receive a @ValidationException@.
-query_consistentRead :: Lens.Lens' Query (Core.Maybe Core.Bool)
+query_consistentRead :: Lens.Lens' Query (Prelude.Maybe Prelude.Bool)
 query_consistentRead = Lens.lens (\Query' {consistentRead} -> consistentRead) (\s@Query' {} a -> s {consistentRead = a} :: Query)
 
 -- | One or more substitution tokens for attribute names in an expression.
@@ -890,8 +891,8 @@ query_consistentRead = Lens.lens (\Query' {consistentRead} -> consistentRead) (\
 -- For more information on expression attribute names, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
-query_expressionAttributeNames :: Lens.Lens' Query (Core.Maybe (Core.HashMap Core.Text Core.Text))
-query_expressionAttributeNames = Lens.lens (\Query' {expressionAttributeNames} -> expressionAttributeNames) (\s@Query' {} a -> s {expressionAttributeNames = a} :: Query) Core.. Lens.mapping Lens._Coerce
+query_expressionAttributeNames :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+query_expressionAttributeNames = Lens.lens (\Query' {expressionAttributeNames} -> expressionAttributeNames) (\s@Query' {} a -> s {expressionAttributeNames = a} :: Query) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A string that contains conditions that DynamoDB applies after the
 -- @Query@ operation, but before the data is returned to you. Items that do
@@ -907,25 +908,25 @@ query_expressionAttributeNames = Lens.lens (\Query' {expressionAttributeNames} -
 -- For more information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
 -- in the /Amazon DynamoDB Developer Guide/.
-query_filterExpression :: Lens.Lens' Query (Core.Maybe Core.Text)
+query_filterExpression :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
 query_filterExpression = Lens.lens (\Query' {filterExpression} -> filterExpression) (\s@Query' {} a -> s {filterExpression = a} :: Query)
 
 -- | This is a legacy parameter. Use @KeyConditionExpression@ instead. For
 -- more information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html KeyConditions>
 -- in the /Amazon DynamoDB Developer Guide/.
-query_keyConditions :: Lens.Lens' Query (Core.Maybe (Core.HashMap Core.Text Condition))
-query_keyConditions = Lens.lens (\Query' {keyConditions} -> keyConditions) (\s@Query' {} a -> s {keyConditions = a} :: Query) Core.. Lens.mapping Lens._Coerce
+query_keyConditions :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text Condition))
+query_keyConditions = Lens.lens (\Query' {keyConditions} -> keyConditions) (\s@Query' {} a -> s {keyConditions = a} :: Query) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-query_returnConsumedCapacity :: Lens.Lens' Query (Core.Maybe ReturnConsumedCapacity)
+query_returnConsumedCapacity :: Lens.Lens' Query (Prelude.Maybe ReturnConsumedCapacity)
 query_returnConsumedCapacity = Lens.lens (\Query' {returnConsumedCapacity} -> returnConsumedCapacity) (\s@Query' {} a -> s {returnConsumedCapacity = a} :: Query)
 
 -- | This is a legacy parameter. Use @FilterExpression@ instead. For more
 -- information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
 -- in the /Amazon DynamoDB Developer Guide/.
-query_conditionalOperator :: Lens.Lens' Query (Core.Maybe ConditionalOperator)
+query_conditionalOperator :: Lens.Lens' Query (Prelude.Maybe ConditionalOperator)
 query_conditionalOperator = Lens.lens (\Query' {conditionalOperator} -> conditionalOperator) (\s@Query' {} a -> s {conditionalOperator = a} :: Query)
 
 -- | The attributes to be returned in the result. You can retrieve all item
@@ -973,7 +974,7 @@ query_conditionalOperator = Lens.lens (\Query' {conditionalOperator} -> conditio
 -- If you use the @ProjectionExpression@ parameter, then the value for
 -- @Select@ can only be @SPECIFIC_ATTRIBUTES@. Any other value for @Select@
 -- will return an error.
-query_select :: Lens.Lens' Query (Core.Maybe Select)
+query_select :: Lens.Lens' Query (Prelude.Maybe Select)
 query_select = Lens.lens (\Query' {select} -> select) (\s@Query' {} a -> s {select = a} :: Query)
 
 -- | The maximum number of items to evaluate (not necessarily the number of
@@ -988,15 +989,15 @@ query_select = Lens.lens (\Query' {select} -> select) (\s@Query' {} a -> s {sele
 -- see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan>
 -- in the /Amazon DynamoDB Developer Guide/.
-query_limit :: Lens.Lens' Query (Core.Maybe Core.Natural)
+query_limit :: Lens.Lens' Query (Prelude.Maybe Prelude.Natural)
 query_limit = Lens.lens (\Query' {limit} -> limit) (\s@Query' {} a -> s {limit = a} :: Query)
 
 -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
 -- information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
 -- in the /Amazon DynamoDB Developer Guide/.
-query_attributesToGet :: Lens.Lens' Query (Core.Maybe (Core.NonEmpty Core.Text))
-query_attributesToGet = Lens.lens (\Query' {attributesToGet} -> attributesToGet) (\s@Query' {} a -> s {attributesToGet = a} :: Query) Core.. Lens.mapping Lens._Coerce
+query_attributesToGet :: Lens.Lens' Query (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+query_attributesToGet = Lens.lens (\Query' {attributesToGet} -> attributesToGet) (\s@Query' {} a -> s {attributesToGet = a} :: Query) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the order for index traversal: If @true@ (default), the
 -- traversal is performed in ascending order; if @false@, the traversal is
@@ -1013,33 +1014,33 @@ query_attributesToGet = Lens.lens (\Query' {attributesToGet} -> attributesToGet)
 -- behavior. If @ScanIndexForward@ is @false@, DynamoDB reads the results
 -- in reverse order by sort key value, and then returns the results to the
 -- client.
-query_scanIndexForward :: Lens.Lens' Query (Core.Maybe Core.Bool)
+query_scanIndexForward :: Lens.Lens' Query (Prelude.Maybe Prelude.Bool)
 query_scanIndexForward = Lens.lens (\Query' {scanIndexForward} -> scanIndexForward) (\s@Query' {} a -> s {scanIndexForward = a} :: Query)
 
 -- | This is a legacy parameter. Use @FilterExpression@ instead. For more
 -- information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html QueryFilter>
 -- in the /Amazon DynamoDB Developer Guide/.
-query_queryFilter :: Lens.Lens' Query (Core.Maybe (Core.HashMap Core.Text Condition))
-query_queryFilter = Lens.lens (\Query' {queryFilter} -> queryFilter) (\s@Query' {} a -> s {queryFilter = a} :: Query) Core.. Lens.mapping Lens._Coerce
+query_queryFilter :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text Condition))
+query_queryFilter = Lens.lens (\Query' {queryFilter} -> queryFilter) (\s@Query' {} a -> s {queryFilter = a} :: Query) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the table containing the requested items.
-query_tableName :: Lens.Lens' Query Core.Text
+query_tableName :: Lens.Lens' Query Prelude.Text
 query_tableName = Lens.lens (\Query' {tableName} -> tableName) (\s@Query' {} a -> s {tableName = a} :: Query)
 
 instance Core.AWSPager Query where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? queryResponse_lastEvaluatedKey Core.. Lens._Just
+            Lens.^? queryResponse_lastEvaluatedKey Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& query_exclusiveStartKey
+          Prelude.& query_exclusiveStartKey
           Lens..~ rs
-          Lens.^? queryResponse_lastEvaluatedKey Core.. Lens._Just
+          Lens.^? queryResponse_lastEvaluatedKey Prelude.. Lens._Just
 
 instance Core.AWSRequest Query where
   type AWSResponse Query = QueryResponse
@@ -1048,67 +1049,73 @@ instance Core.AWSRequest Query where
     Response.receiveJSON
       ( \s h x ->
           QueryResponse'
-            Core.<$> (x Core..?> "Items" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "ScannedCount")
-            Core.<*> (x Core..?> "LastEvaluatedKey" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "ConsumedCapacity")
-            Core.<*> (x Core..?> "Count")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ScannedCount")
+            Prelude.<*> ( x Core..?> "LastEvaluatedKey"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "ConsumedCapacity")
+            Prelude.<*> (x Core..?> "Count")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable Query
+instance Prelude.Hashable Query
 
-instance Core.NFData Query
+instance Prelude.NFData Query
 
 instance Core.ToHeaders Query where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DynamoDB_20120810.Query" :: Core.ByteString),
+              Core.=# ("DynamoDB_20120810.Query" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON Query where
   toJSON Query' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ProjectionExpression" Core..=)
-              Core.<$> projectionExpression,
+              Prelude.<$> projectionExpression,
             ("ExclusiveStartKey" Core..=)
-              Core.<$> exclusiveStartKey,
-            ("IndexName" Core..=) Core.<$> indexName,
+              Prelude.<$> exclusiveStartKey,
+            ("IndexName" Core..=) Prelude.<$> indexName,
             ("ExpressionAttributeValues" Core..=)
-              Core.<$> expressionAttributeValues,
+              Prelude.<$> expressionAttributeValues,
             ("KeyConditionExpression" Core..=)
-              Core.<$> keyConditionExpression,
-            ("ConsistentRead" Core..=) Core.<$> consistentRead,
+              Prelude.<$> keyConditionExpression,
+            ("ConsistentRead" Core..=)
+              Prelude.<$> consistentRead,
             ("ExpressionAttributeNames" Core..=)
-              Core.<$> expressionAttributeNames,
+              Prelude.<$> expressionAttributeNames,
             ("FilterExpression" Core..=)
-              Core.<$> filterExpression,
-            ("KeyConditions" Core..=) Core.<$> keyConditions,
+              Prelude.<$> filterExpression,
+            ("KeyConditions" Core..=) Prelude.<$> keyConditions,
             ("ReturnConsumedCapacity" Core..=)
-              Core.<$> returnConsumedCapacity,
+              Prelude.<$> returnConsumedCapacity,
             ("ConditionalOperator" Core..=)
-              Core.<$> conditionalOperator,
-            ("Select" Core..=) Core.<$> select,
-            ("Limit" Core..=) Core.<$> limit,
-            ("AttributesToGet" Core..=) Core.<$> attributesToGet,
+              Prelude.<$> conditionalOperator,
+            ("Select" Core..=) Prelude.<$> select,
+            ("Limit" Core..=) Prelude.<$> limit,
+            ("AttributesToGet" Core..=)
+              Prelude.<$> attributesToGet,
             ("ScanIndexForward" Core..=)
-              Core.<$> scanIndexForward,
-            ("QueryFilter" Core..=) Core.<$> queryFilter,
-            Core.Just ("TableName" Core..= tableName)
+              Prelude.<$> scanIndexForward,
+            ("QueryFilter" Core..=) Prelude.<$> queryFilter,
+            Prelude.Just ("TableName" Core..= tableName)
           ]
       )
 
 instance Core.ToPath Query where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery Query where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @Query@ operation.
 --
@@ -1117,7 +1124,7 @@ data QueryResponse = QueryResponse'
   { -- | An array of item attributes that match the query criteria. Each element
     -- in this array consists of an attribute name and the value for that
     -- attribute.
-    items :: Core.Maybe [Core.HashMap Core.Text AttributeValue],
+    items :: Prelude.Maybe [Prelude.HashMap Prelude.Text AttributeValue],
     -- | The number of items evaluated, before any @QueryFilter@ is applied. A
     -- high @ScannedCount@ value with few, or no, @Count@ results indicates an
     -- inefficient @Query@ operation. For more information, see
@@ -1126,7 +1133,7 @@ data QueryResponse = QueryResponse'
     --
     -- If you did not use a filter in the request, then @ScannedCount@ is the
     -- same as @Count@.
-    scannedCount :: Core.Maybe Core.Int,
+    scannedCount :: Prelude.Maybe Prelude.Int,
     -- | The primary key of the item where the operation stopped, inclusive of
     -- the previous result set. Use this value to start a new operation,
     -- excluding this value in the new request.
@@ -1137,7 +1144,7 @@ data QueryResponse = QueryResponse'
     -- If @LastEvaluatedKey@ is not empty, it does not necessarily mean that
     -- there is more data in the result set. The only way to know when you have
     -- reached the end of the result set is when @LastEvaluatedKey@ is empty.
-    lastEvaluatedKey :: Core.Maybe (Core.HashMap Core.Text AttributeValue),
+    lastEvaluatedKey :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | The capacity units consumed by the @Query@ operation. The data returned
     -- includes the total provisioned throughput consumed, along with
     -- statistics for the table and any indexes involved in the operation.
@@ -1145,7 +1152,7 @@ data QueryResponse = QueryResponse'
     -- parameter was specified. For more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
     -- in the /Amazon DynamoDB Developer Guide/.
-    consumedCapacity :: Core.Maybe ConsumedCapacity,
+    consumedCapacity :: Prelude.Maybe ConsumedCapacity,
     -- | The number of items in the response.
     --
     -- If you used a @QueryFilter@ in the request, then @Count@ is the number
@@ -1154,11 +1161,11 @@ data QueryResponse = QueryResponse'
     --
     -- If you did not use a filter in the request, then @Count@ and
     -- @ScannedCount@ are the same.
-    count :: Core.Maybe Core.Int,
+    count :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QueryResponse' with all optional fields omitted.
@@ -1212,23 +1219,23 @@ data QueryResponse = QueryResponse'
 -- 'httpStatus', 'queryResponse_httpStatus' - The response's http status code.
 newQueryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   QueryResponse
 newQueryResponse pHttpStatus_ =
   QueryResponse'
-    { items = Core.Nothing,
-      scannedCount = Core.Nothing,
-      lastEvaluatedKey = Core.Nothing,
-      consumedCapacity = Core.Nothing,
-      count = Core.Nothing,
+    { items = Prelude.Nothing,
+      scannedCount = Prelude.Nothing,
+      lastEvaluatedKey = Prelude.Nothing,
+      consumedCapacity = Prelude.Nothing,
+      count = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of item attributes that match the query criteria. Each element
 -- in this array consists of an attribute name and the value for that
 -- attribute.
-queryResponse_items :: Lens.Lens' QueryResponse (Core.Maybe [Core.HashMap Core.Text AttributeValue])
-queryResponse_items = Lens.lens (\QueryResponse' {items} -> items) (\s@QueryResponse' {} a -> s {items = a} :: QueryResponse) Core.. Lens.mapping Lens._Coerce
+queryResponse_items :: Lens.Lens' QueryResponse (Prelude.Maybe [Prelude.HashMap Prelude.Text AttributeValue])
+queryResponse_items = Lens.lens (\QueryResponse' {items} -> items) (\s@QueryResponse' {} a -> s {items = a} :: QueryResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of items evaluated, before any @QueryFilter@ is applied. A
 -- high @ScannedCount@ value with few, or no, @Count@ results indicates an
@@ -1238,7 +1245,7 @@ queryResponse_items = Lens.lens (\QueryResponse' {items} -> items) (\s@QueryResp
 --
 -- If you did not use a filter in the request, then @ScannedCount@ is the
 -- same as @Count@.
-queryResponse_scannedCount :: Lens.Lens' QueryResponse (Core.Maybe Core.Int)
+queryResponse_scannedCount :: Lens.Lens' QueryResponse (Prelude.Maybe Prelude.Int)
 queryResponse_scannedCount = Lens.lens (\QueryResponse' {scannedCount} -> scannedCount) (\s@QueryResponse' {} a -> s {scannedCount = a} :: QueryResponse)
 
 -- | The primary key of the item where the operation stopped, inclusive of
@@ -1251,8 +1258,8 @@ queryResponse_scannedCount = Lens.lens (\QueryResponse' {scannedCount} -> scanne
 -- If @LastEvaluatedKey@ is not empty, it does not necessarily mean that
 -- there is more data in the result set. The only way to know when you have
 -- reached the end of the result set is when @LastEvaluatedKey@ is empty.
-queryResponse_lastEvaluatedKey :: Lens.Lens' QueryResponse (Core.Maybe (Core.HashMap Core.Text AttributeValue))
-queryResponse_lastEvaluatedKey = Lens.lens (\QueryResponse' {lastEvaluatedKey} -> lastEvaluatedKey) (\s@QueryResponse' {} a -> s {lastEvaluatedKey = a} :: QueryResponse) Core.. Lens.mapping Lens._Coerce
+queryResponse_lastEvaluatedKey :: Lens.Lens' QueryResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+queryResponse_lastEvaluatedKey = Lens.lens (\QueryResponse' {lastEvaluatedKey} -> lastEvaluatedKey) (\s@QueryResponse' {} a -> s {lastEvaluatedKey = a} :: QueryResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The capacity units consumed by the @Query@ operation. The data returned
 -- includes the total provisioned throughput consumed, along with
@@ -1261,7 +1268,7 @@ queryResponse_lastEvaluatedKey = Lens.lens (\QueryResponse' {lastEvaluatedKey} -
 -- parameter was specified. For more information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
 -- in the /Amazon DynamoDB Developer Guide/.
-queryResponse_consumedCapacity :: Lens.Lens' QueryResponse (Core.Maybe ConsumedCapacity)
+queryResponse_consumedCapacity :: Lens.Lens' QueryResponse (Prelude.Maybe ConsumedCapacity)
 queryResponse_consumedCapacity = Lens.lens (\QueryResponse' {consumedCapacity} -> consumedCapacity) (\s@QueryResponse' {} a -> s {consumedCapacity = a} :: QueryResponse)
 
 -- | The number of items in the response.
@@ -1272,11 +1279,11 @@ queryResponse_consumedCapacity = Lens.lens (\QueryResponse' {consumedCapacity} -
 --
 -- If you did not use a filter in the request, then @Count@ and
 -- @ScannedCount@ are the same.
-queryResponse_count :: Lens.Lens' QueryResponse (Core.Maybe Core.Int)
+queryResponse_count :: Lens.Lens' QueryResponse (Prelude.Maybe Prelude.Int)
 queryResponse_count = Lens.lens (\QueryResponse' {count} -> count) (\s@QueryResponse' {} a -> s {count = a} :: QueryResponse)
 
 -- | The response's http status code.
-queryResponse_httpStatus :: Lens.Lens' QueryResponse Core.Int
+queryResponse_httpStatus :: Lens.Lens' QueryResponse Prelude.Int
 queryResponse_httpStatus = Lens.lens (\QueryResponse' {httpStatus} -> httpStatus) (\s@QueryResponse' {} a -> s {httpStatus = a} :: QueryResponse)
 
-instance Core.NFData QueryResponse
+instance Prelude.NFData QueryResponse

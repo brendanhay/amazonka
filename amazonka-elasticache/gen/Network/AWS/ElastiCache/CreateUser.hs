@@ -55,6 +55,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,19 +63,19 @@ import qualified Network.AWS.Response as Response
 data CreateUser = CreateUser'
   { -- | Passwords used for this user. You can create up to two passwords for
     -- each user.
-    passwords :: Core.Maybe (Core.NonEmpty Core.Text),
+    passwords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Indicates a password is not required for this user.
-    noPasswordRequired :: Core.Maybe Core.Bool,
+    noPasswordRequired :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the user.
-    userId :: Core.Text,
+    userId :: Prelude.Text,
     -- | The username of the user.
-    userName :: Core.Text,
+    userName :: Prelude.Text,
     -- | The current supported value is Redis.
-    engine :: Core.Text,
+    engine :: Prelude.Text,
     -- | Access permissions string used for this user.
-    accessString :: Core.Text
+    accessString :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateUser' with all optional fields omitted.
@@ -98,13 +99,13 @@ data CreateUser = CreateUser'
 -- 'accessString', 'createUser_accessString' - Access permissions string used for this user.
 newCreateUser ::
   -- | 'userId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'engine'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'accessString'
-  Core.Text ->
+  Prelude.Text ->
   CreateUser
 newCreateUser
   pUserId_
@@ -112,8 +113,8 @@ newCreateUser
   pEngine_
   pAccessString_ =
     CreateUser'
-      { passwords = Core.Nothing,
-        noPasswordRequired = Core.Nothing,
+      { passwords = Prelude.Nothing,
+        noPasswordRequired = Prelude.Nothing,
         userId = pUserId_,
         userName = pUserName_,
         engine = pEngine_,
@@ -122,27 +123,27 @@ newCreateUser
 
 -- | Passwords used for this user. You can create up to two passwords for
 -- each user.
-createUser_passwords :: Lens.Lens' CreateUser (Core.Maybe (Core.NonEmpty Core.Text))
-createUser_passwords = Lens.lens (\CreateUser' {passwords} -> passwords) (\s@CreateUser' {} a -> s {passwords = a} :: CreateUser) Core.. Lens.mapping Lens._Coerce
+createUser_passwords :: Lens.Lens' CreateUser (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createUser_passwords = Lens.lens (\CreateUser' {passwords} -> passwords) (\s@CreateUser' {} a -> s {passwords = a} :: CreateUser) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates a password is not required for this user.
-createUser_noPasswordRequired :: Lens.Lens' CreateUser (Core.Maybe Core.Bool)
+createUser_noPasswordRequired :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Bool)
 createUser_noPasswordRequired = Lens.lens (\CreateUser' {noPasswordRequired} -> noPasswordRequired) (\s@CreateUser' {} a -> s {noPasswordRequired = a} :: CreateUser)
 
 -- | The ID of the user.
-createUser_userId :: Lens.Lens' CreateUser Core.Text
+createUser_userId :: Lens.Lens' CreateUser Prelude.Text
 createUser_userId = Lens.lens (\CreateUser' {userId} -> userId) (\s@CreateUser' {} a -> s {userId = a} :: CreateUser)
 
 -- | The username of the user.
-createUser_userName :: Lens.Lens' CreateUser Core.Text
+createUser_userName :: Lens.Lens' CreateUser Prelude.Text
 createUser_userName = Lens.lens (\CreateUser' {userName} -> userName) (\s@CreateUser' {} a -> s {userName = a} :: CreateUser)
 
 -- | The current supported value is Redis.
-createUser_engine :: Lens.Lens' CreateUser Core.Text
+createUser_engine :: Lens.Lens' CreateUser Prelude.Text
 createUser_engine = Lens.lens (\CreateUser' {engine} -> engine) (\s@CreateUser' {} a -> s {engine = a} :: CreateUser)
 
 -- | Access permissions string used for this user.
-createUser_accessString :: Lens.Lens' CreateUser Core.Text
+createUser_accessString :: Lens.Lens' CreateUser Prelude.Text
 createUser_accessString = Lens.lens (\CreateUser' {accessString} -> accessString) (\s@CreateUser' {} a -> s {accessString = a} :: CreateUser)
 
 instance Core.AWSRequest CreateUser where
@@ -153,24 +154,26 @@ instance Core.AWSRequest CreateUser where
       "CreateUserResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable CreateUser
+instance Prelude.Hashable CreateUser
 
-instance Core.NFData CreateUser
+instance Prelude.NFData CreateUser
 
 instance Core.ToHeaders CreateUser where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateUser where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateUser where
   toQuery CreateUser' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("CreateUser" :: Core.ByteString),
-        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CreateUser" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
         "Passwords"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> passwords),
+            (Core.toQueryList "member" Prelude.<$> passwords),
         "NoPasswordRequired" Core.=: noPasswordRequired,
         "UserId" Core.=: userId,
         "UserName" Core.=: userName,

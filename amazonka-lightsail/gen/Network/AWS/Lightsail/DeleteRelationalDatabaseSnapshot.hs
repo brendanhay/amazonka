@@ -47,15 +47,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteRelationalDatabaseSnapshot' smart constructor.
 data DeleteRelationalDatabaseSnapshot = DeleteRelationalDatabaseSnapshot'
   { -- | The name of the database snapshot that you are deleting.
-    relationalDatabaseSnapshotName :: Core.Text
+    relationalDatabaseSnapshotName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRelationalDatabaseSnapshot' with all optional fields omitted.
@@ -68,7 +69,7 @@ data DeleteRelationalDatabaseSnapshot = DeleteRelationalDatabaseSnapshot'
 -- 'relationalDatabaseSnapshotName', 'deleteRelationalDatabaseSnapshot_relationalDatabaseSnapshotName' - The name of the database snapshot that you are deleting.
 newDeleteRelationalDatabaseSnapshot ::
   -- | 'relationalDatabaseSnapshotName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteRelationalDatabaseSnapshot
 newDeleteRelationalDatabaseSnapshot
   pRelationalDatabaseSnapshotName_ =
@@ -78,7 +79,7 @@ newDeleteRelationalDatabaseSnapshot
       }
 
 -- | The name of the database snapshot that you are deleting.
-deleteRelationalDatabaseSnapshot_relationalDatabaseSnapshotName :: Lens.Lens' DeleteRelationalDatabaseSnapshot Core.Text
+deleteRelationalDatabaseSnapshot_relationalDatabaseSnapshotName :: Lens.Lens' DeleteRelationalDatabaseSnapshot Prelude.Text
 deleteRelationalDatabaseSnapshot_relationalDatabaseSnapshotName = Lens.lens (\DeleteRelationalDatabaseSnapshot' {relationalDatabaseSnapshotName} -> relationalDatabaseSnapshotName) (\s@DeleteRelationalDatabaseSnapshot' {} a -> s {relationalDatabaseSnapshotName = a} :: DeleteRelationalDatabaseSnapshot)
 
 instance
@@ -93,37 +94,41 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteRelationalDatabaseSnapshotResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteRelationalDatabaseSnapshot
 
-instance Core.NFData DeleteRelationalDatabaseSnapshot
+instance
+  Prelude.NFData
+    DeleteRelationalDatabaseSnapshot
 
 instance
   Core.ToHeaders
     DeleteRelationalDatabaseSnapshot
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.DeleteRelationalDatabaseSnapshot" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteRelationalDatabaseSnapshot where
   toJSON DeleteRelationalDatabaseSnapshot' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "relationalDatabaseSnapshotName"
                   Core..= relationalDatabaseSnapshotName
               )
@@ -131,24 +136,24 @@ instance Core.ToJSON DeleteRelationalDatabaseSnapshot where
       )
 
 instance Core.ToPath DeleteRelationalDatabaseSnapshot where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DeleteRelationalDatabaseSnapshot
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRelationalDatabaseSnapshotResponse' smart constructor.
 data DeleteRelationalDatabaseSnapshotResponse = DeleteRelationalDatabaseSnapshotResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRelationalDatabaseSnapshotResponse' with all optional fields omitted.
@@ -165,26 +170,26 @@ data DeleteRelationalDatabaseSnapshotResponse = DeleteRelationalDatabaseSnapshot
 -- 'httpStatus', 'deleteRelationalDatabaseSnapshotResponse_httpStatus' - The response's http status code.
 newDeleteRelationalDatabaseSnapshotResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteRelationalDatabaseSnapshotResponse
 newDeleteRelationalDatabaseSnapshotResponse
   pHttpStatus_ =
     DeleteRelationalDatabaseSnapshotResponse'
       { operations =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-deleteRelationalDatabaseSnapshotResponse_operations :: Lens.Lens' DeleteRelationalDatabaseSnapshotResponse (Core.Maybe [Operation])
-deleteRelationalDatabaseSnapshotResponse_operations = Lens.lens (\DeleteRelationalDatabaseSnapshotResponse' {operations} -> operations) (\s@DeleteRelationalDatabaseSnapshotResponse' {} a -> s {operations = a} :: DeleteRelationalDatabaseSnapshotResponse) Core.. Lens.mapping Lens._Coerce
+deleteRelationalDatabaseSnapshotResponse_operations :: Lens.Lens' DeleteRelationalDatabaseSnapshotResponse (Prelude.Maybe [Operation])
+deleteRelationalDatabaseSnapshotResponse_operations = Lens.lens (\DeleteRelationalDatabaseSnapshotResponse' {operations} -> operations) (\s@DeleteRelationalDatabaseSnapshotResponse' {} a -> s {operations = a} :: DeleteRelationalDatabaseSnapshotResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteRelationalDatabaseSnapshotResponse_httpStatus :: Lens.Lens' DeleteRelationalDatabaseSnapshotResponse Core.Int
+deleteRelationalDatabaseSnapshotResponse_httpStatus :: Lens.Lens' DeleteRelationalDatabaseSnapshotResponse Prelude.Int
 deleteRelationalDatabaseSnapshotResponse_httpStatus = Lens.lens (\DeleteRelationalDatabaseSnapshotResponse' {httpStatus} -> httpStatus) (\s@DeleteRelationalDatabaseSnapshotResponse' {} a -> s {httpStatus = a} :: DeleteRelationalDatabaseSnapshotResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteRelationalDatabaseSnapshotResponse

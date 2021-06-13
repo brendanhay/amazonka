@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.DvbTdtSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | DVB Time and Date Table (SDT)
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data DvbTdtSettings = DvbTdtSettings'
   { -- | The number of milliseconds between instances of this table in the output
     -- transport stream.
-    repInterval :: Core.Maybe Core.Natural
+    repInterval :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DvbTdtSettings' with all optional fields omitted.
@@ -45,11 +46,11 @@ data DvbTdtSettings = DvbTdtSettings'
 newDvbTdtSettings ::
   DvbTdtSettings
 newDvbTdtSettings =
-  DvbTdtSettings' {repInterval = Core.Nothing}
+  DvbTdtSettings' {repInterval = Prelude.Nothing}
 
 -- | The number of milliseconds between instances of this table in the output
 -- transport stream.
-dvbTdtSettings_repInterval :: Lens.Lens' DvbTdtSettings (Core.Maybe Core.Natural)
+dvbTdtSettings_repInterval :: Lens.Lens' DvbTdtSettings (Prelude.Maybe Prelude.Natural)
 dvbTdtSettings_repInterval = Lens.lens (\DvbTdtSettings' {repInterval} -> repInterval) (\s@DvbTdtSettings' {} a -> s {repInterval = a} :: DvbTdtSettings)
 
 instance Core.FromJSON DvbTdtSettings where
@@ -57,16 +58,17 @@ instance Core.FromJSON DvbTdtSettings where
     Core.withObject
       "DvbTdtSettings"
       ( \x ->
-          DvbTdtSettings' Core.<$> (x Core..:? "repInterval")
+          DvbTdtSettings'
+            Prelude.<$> (x Core..:? "repInterval")
       )
 
-instance Core.Hashable DvbTdtSettings
+instance Prelude.Hashable DvbTdtSettings
 
-instance Core.NFData DvbTdtSettings
+instance Prelude.NFData DvbTdtSettings
 
 instance Core.ToJSON DvbTdtSettings where
   toJSON DvbTdtSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [("repInterval" Core..=) Core.<$> repInterval]
+      ( Prelude.catMaybes
+          [("repInterval" Core..=) Prelude.<$> repInterval]
       )

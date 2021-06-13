@@ -21,20 +21,21 @@ module Network.AWS.OpsWorks.Types.SslConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an app\'s SSL configuration.
 --
 -- /See:/ 'newSslConfiguration' smart constructor.
 data SslConfiguration = SslConfiguration'
   { -- | The private key; the contents of the certificate\'s domain.kex file.
-    privateKey :: Core.Maybe Core.Text,
+    privateKey :: Prelude.Maybe Prelude.Text,
     -- | The contents of the certificate\'s domain.crt file.
-    certificate :: Core.Maybe Core.Text,
+    certificate :: Prelude.Maybe Prelude.Text,
     -- | Optional. Can be used to specify an intermediate certificate authority
     -- key or client authentication.
-    chain :: Core.Maybe Core.Text
+    chain :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SslConfiguration' with all optional fields omitted.
@@ -54,22 +55,22 @@ newSslConfiguration ::
   SslConfiguration
 newSslConfiguration =
   SslConfiguration'
-    { privateKey = Core.Nothing,
-      certificate = Core.Nothing,
-      chain = Core.Nothing
+    { privateKey = Prelude.Nothing,
+      certificate = Prelude.Nothing,
+      chain = Prelude.Nothing
     }
 
 -- | The private key; the contents of the certificate\'s domain.kex file.
-sslConfiguration_privateKey :: Lens.Lens' SslConfiguration (Core.Maybe Core.Text)
+sslConfiguration_privateKey :: Lens.Lens' SslConfiguration (Prelude.Maybe Prelude.Text)
 sslConfiguration_privateKey = Lens.lens (\SslConfiguration' {privateKey} -> privateKey) (\s@SslConfiguration' {} a -> s {privateKey = a} :: SslConfiguration)
 
 -- | The contents of the certificate\'s domain.crt file.
-sslConfiguration_certificate :: Lens.Lens' SslConfiguration (Core.Maybe Core.Text)
+sslConfiguration_certificate :: Lens.Lens' SslConfiguration (Prelude.Maybe Prelude.Text)
 sslConfiguration_certificate = Lens.lens (\SslConfiguration' {certificate} -> certificate) (\s@SslConfiguration' {} a -> s {certificate = a} :: SslConfiguration)
 
 -- | Optional. Can be used to specify an intermediate certificate authority
 -- key or client authentication.
-sslConfiguration_chain :: Lens.Lens' SslConfiguration (Core.Maybe Core.Text)
+sslConfiguration_chain :: Lens.Lens' SslConfiguration (Prelude.Maybe Prelude.Text)
 sslConfiguration_chain = Lens.lens (\SslConfiguration' {chain} -> chain) (\s@SslConfiguration' {} a -> s {chain = a} :: SslConfiguration)
 
 instance Core.FromJSON SslConfiguration where
@@ -78,21 +79,21 @@ instance Core.FromJSON SslConfiguration where
       "SslConfiguration"
       ( \x ->
           SslConfiguration'
-            Core.<$> (x Core..:? "PrivateKey")
-            Core.<*> (x Core..:? "Certificate")
-            Core.<*> (x Core..:? "Chain")
+            Prelude.<$> (x Core..:? "PrivateKey")
+            Prelude.<*> (x Core..:? "Certificate")
+            Prelude.<*> (x Core..:? "Chain")
       )
 
-instance Core.Hashable SslConfiguration
+instance Prelude.Hashable SslConfiguration
 
-instance Core.NFData SslConfiguration
+instance Prelude.NFData SslConfiguration
 
 instance Core.ToJSON SslConfiguration where
   toJSON SslConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("PrivateKey" Core..=) Core.<$> privateKey,
-            ("Certificate" Core..=) Core.<$> certificate,
-            ("Chain" Core..=) Core.<$> chain
+      ( Prelude.catMaybes
+          [ ("PrivateKey" Core..=) Prelude.<$> privateKey,
+            ("Certificate" Core..=) Prelude.<$> certificate,
+            ("Chain" Core..=) Prelude.<$> chain
           ]
       )

@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +52,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeCACertificate' smart constructor.
 data DescribeCACertificate = DescribeCACertificate'
   { -- | The CA certificate identifier.
-    certificateId :: Core.Text
+    certificateId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCACertificate' with all optional fields omitted.
@@ -66,7 +67,7 @@ data DescribeCACertificate = DescribeCACertificate'
 -- 'certificateId', 'describeCACertificate_certificateId' - The CA certificate identifier.
 newDescribeCACertificate ::
   -- | 'certificateId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeCACertificate
 newDescribeCACertificate pCertificateId_ =
   DescribeCACertificate'
@@ -75,7 +76,7 @@ newDescribeCACertificate pCertificateId_ =
     }
 
 -- | The CA certificate identifier.
-describeCACertificate_certificateId :: Lens.Lens' DescribeCACertificate Core.Text
+describeCACertificate_certificateId :: Lens.Lens' DescribeCACertificate Prelude.Text
 describeCACertificate_certificateId = Lens.lens (\DescribeCACertificate' {certificateId} -> certificateId) (\s@DescribeCACertificate' {} a -> s {certificateId = a} :: DescribeCACertificate)
 
 instance Core.AWSRequest DescribeCACertificate where
@@ -87,38 +88,38 @@ instance Core.AWSRequest DescribeCACertificate where
     Response.receiveJSON
       ( \s h x ->
           DescribeCACertificateResponse'
-            Core.<$> (x Core..?> "certificateDescription")
-            Core.<*> (x Core..?> "registrationConfig")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "certificateDescription")
+            Prelude.<*> (x Core..?> "registrationConfig")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeCACertificate
+instance Prelude.Hashable DescribeCACertificate
 
-instance Core.NFData DescribeCACertificate
+instance Prelude.NFData DescribeCACertificate
 
 instance Core.ToHeaders DescribeCACertificate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeCACertificate where
   toPath DescribeCACertificate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/cacertificate/", Core.toBS certificateId]
 
 instance Core.ToQuery DescribeCACertificate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the DescribeCACertificate operation.
 --
 -- /See:/ 'newDescribeCACertificateResponse' smart constructor.
 data DescribeCACertificateResponse = DescribeCACertificateResponse'
   { -- | The CA certificate description.
-    certificateDescription :: Core.Maybe CACertificateDescription,
+    certificateDescription :: Prelude.Maybe CACertificateDescription,
     -- | Information about the registration configuration.
-    registrationConfig :: Core.Maybe RegistrationConfig,
+    registrationConfig :: Prelude.Maybe RegistrationConfig,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeCACertificateResponse' with all optional fields omitted.
@@ -135,26 +136,26 @@ data DescribeCACertificateResponse = DescribeCACertificateResponse'
 -- 'httpStatus', 'describeCACertificateResponse_httpStatus' - The response's http status code.
 newDescribeCACertificateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeCACertificateResponse
 newDescribeCACertificateResponse pHttpStatus_ =
   DescribeCACertificateResponse'
     { certificateDescription =
-        Core.Nothing,
-      registrationConfig = Core.Nothing,
+        Prelude.Nothing,
+      registrationConfig = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The CA certificate description.
-describeCACertificateResponse_certificateDescription :: Lens.Lens' DescribeCACertificateResponse (Core.Maybe CACertificateDescription)
+describeCACertificateResponse_certificateDescription :: Lens.Lens' DescribeCACertificateResponse (Prelude.Maybe CACertificateDescription)
 describeCACertificateResponse_certificateDescription = Lens.lens (\DescribeCACertificateResponse' {certificateDescription} -> certificateDescription) (\s@DescribeCACertificateResponse' {} a -> s {certificateDescription = a} :: DescribeCACertificateResponse)
 
 -- | Information about the registration configuration.
-describeCACertificateResponse_registrationConfig :: Lens.Lens' DescribeCACertificateResponse (Core.Maybe RegistrationConfig)
+describeCACertificateResponse_registrationConfig :: Lens.Lens' DescribeCACertificateResponse (Prelude.Maybe RegistrationConfig)
 describeCACertificateResponse_registrationConfig = Lens.lens (\DescribeCACertificateResponse' {registrationConfig} -> registrationConfig) (\s@DescribeCACertificateResponse' {} a -> s {registrationConfig = a} :: DescribeCACertificateResponse)
 
 -- | The response's http status code.
-describeCACertificateResponse_httpStatus :: Lens.Lens' DescribeCACertificateResponse Core.Int
+describeCACertificateResponse_httpStatus :: Lens.Lens' DescribeCACertificateResponse Prelude.Int
 describeCACertificateResponse_httpStatus = Lens.lens (\DescribeCACertificateResponse' {httpStatus} -> httpStatus) (\s@DescribeCACertificateResponse' {} a -> s {httpStatus = a} :: DescribeCACertificateResponse)
 
-instance Core.NFData DescribeCACertificateResponse
+instance Prelude.NFData DescribeCACertificateResponse

@@ -67,6 +67,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -76,11 +77,11 @@ data DeleteSizeConstraintSet = DeleteSizeConstraintSet'
   { -- | The @SizeConstraintSetId@ of the SizeConstraintSet that you want to
     -- delete. @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and
     -- by ListSizeConstraintSets.
-    sizeConstraintSetId :: Core.Text,
+    sizeConstraintSetId :: Prelude.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text
+    changeToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSizeConstraintSet' with all optional fields omitted.
@@ -97,9 +98,9 @@ data DeleteSizeConstraintSet = DeleteSizeConstraintSet'
 -- 'changeToken', 'deleteSizeConstraintSet_changeToken' - The value returned by the most recent call to GetChangeToken.
 newDeleteSizeConstraintSet ::
   -- | 'sizeConstraintSetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   DeleteSizeConstraintSet
 newDeleteSizeConstraintSet
   pSizeConstraintSetId_
@@ -113,11 +114,11 @@ newDeleteSizeConstraintSet
 -- | The @SizeConstraintSetId@ of the SizeConstraintSet that you want to
 -- delete. @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and
 -- by ListSizeConstraintSets.
-deleteSizeConstraintSet_sizeConstraintSetId :: Lens.Lens' DeleteSizeConstraintSet Core.Text
+deleteSizeConstraintSet_sizeConstraintSetId :: Lens.Lens' DeleteSizeConstraintSet Prelude.Text
 deleteSizeConstraintSet_sizeConstraintSetId = Lens.lens (\DeleteSizeConstraintSet' {sizeConstraintSetId} -> sizeConstraintSetId) (\s@DeleteSizeConstraintSet' {} a -> s {sizeConstraintSetId = a} :: DeleteSizeConstraintSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-deleteSizeConstraintSet_changeToken :: Lens.Lens' DeleteSizeConstraintSet Core.Text
+deleteSizeConstraintSet_changeToken :: Lens.Lens' DeleteSizeConstraintSet Prelude.Text
 deleteSizeConstraintSet_changeToken = Lens.lens (\DeleteSizeConstraintSet' {changeToken} -> changeToken) (\s@DeleteSizeConstraintSet' {} a -> s {changeToken = a} :: DeleteSizeConstraintSet)
 
 instance Core.AWSRequest DeleteSizeConstraintSet where
@@ -129,53 +130,55 @@ instance Core.AWSRequest DeleteSizeConstraintSet where
     Response.receiveJSON
       ( \s h x ->
           DeleteSizeConstraintSetResponse'
-            Core.<$> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteSizeConstraintSet
+instance Prelude.Hashable DeleteSizeConstraintSet
 
-instance Core.NFData DeleteSizeConstraintSet
+instance Prelude.NFData DeleteSizeConstraintSet
 
 instance Core.ToHeaders DeleteSizeConstraintSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_20150824.DeleteSizeConstraintSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteSizeConstraintSet where
   toJSON DeleteSizeConstraintSet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("SizeConstraintSetId" Core..= sizeConstraintSetId),
-            Core.Just ("ChangeToken" Core..= changeToken)
+            Prelude.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
 instance Core.ToPath DeleteSizeConstraintSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteSizeConstraintSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSizeConstraintSetResponse' smart constructor.
 data DeleteSizeConstraintSetResponse = DeleteSizeConstraintSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @DeleteSizeConstraintSet@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteSizeConstraintSetResponse' with all optional fields omitted.
@@ -192,23 +195,25 @@ data DeleteSizeConstraintSetResponse = DeleteSizeConstraintSetResponse'
 -- 'httpStatus', 'deleteSizeConstraintSetResponse_httpStatus' - The response's http status code.
 newDeleteSizeConstraintSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteSizeConstraintSetResponse
 newDeleteSizeConstraintSetResponse pHttpStatus_ =
   DeleteSizeConstraintSetResponse'
     { changeToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @DeleteSizeConstraintSet@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-deleteSizeConstraintSetResponse_changeToken :: Lens.Lens' DeleteSizeConstraintSetResponse (Core.Maybe Core.Text)
+deleteSizeConstraintSetResponse_changeToken :: Lens.Lens' DeleteSizeConstraintSetResponse (Prelude.Maybe Prelude.Text)
 deleteSizeConstraintSetResponse_changeToken = Lens.lens (\DeleteSizeConstraintSetResponse' {changeToken} -> changeToken) (\s@DeleteSizeConstraintSetResponse' {} a -> s {changeToken = a} :: DeleteSizeConstraintSetResponse)
 
 -- | The response's http status code.
-deleteSizeConstraintSetResponse_httpStatus :: Lens.Lens' DeleteSizeConstraintSetResponse Core.Int
+deleteSizeConstraintSetResponse_httpStatus :: Lens.Lens' DeleteSizeConstraintSetResponse Prelude.Int
 deleteSizeConstraintSetResponse_httpStatus = Lens.lens (\DeleteSizeConstraintSetResponse' {httpStatus} -> httpStatus) (\s@DeleteSizeConstraintSetResponse' {} a -> s {httpStatus = a} :: DeleteSizeConstraintSetResponse)
 
-instance Core.NFData DeleteSizeConstraintSetResponse
+instance
+  Prelude.NFData
+    DeleteSizeConstraintSetResponse

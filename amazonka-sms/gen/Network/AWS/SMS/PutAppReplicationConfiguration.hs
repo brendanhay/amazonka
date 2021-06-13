@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -49,12 +50,12 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newPutAppReplicationConfiguration' smart constructor.
 data PutAppReplicationConfiguration = PutAppReplicationConfiguration'
   { -- | The ID of the application.
-    appId :: Core.Maybe Core.Text,
+    appId :: Prelude.Maybe Prelude.Text,
     -- | Information about the replication configurations for server groups in
     -- the application.
-    serverGroupReplicationConfigurations :: Core.Maybe [ServerGroupReplicationConfiguration]
+    serverGroupReplicationConfigurations :: Prelude.Maybe [ServerGroupReplicationConfiguration]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutAppReplicationConfiguration' with all optional fields omitted.
@@ -73,19 +74,19 @@ newPutAppReplicationConfiguration ::
 newPutAppReplicationConfiguration =
   PutAppReplicationConfiguration'
     { appId =
-        Core.Nothing,
+        Prelude.Nothing,
       serverGroupReplicationConfigurations =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The ID of the application.
-putAppReplicationConfiguration_appId :: Lens.Lens' PutAppReplicationConfiguration (Core.Maybe Core.Text)
+putAppReplicationConfiguration_appId :: Lens.Lens' PutAppReplicationConfiguration (Prelude.Maybe Prelude.Text)
 putAppReplicationConfiguration_appId = Lens.lens (\PutAppReplicationConfiguration' {appId} -> appId) (\s@PutAppReplicationConfiguration' {} a -> s {appId = a} :: PutAppReplicationConfiguration)
 
 -- | Information about the replication configurations for server groups in
 -- the application.
-putAppReplicationConfiguration_serverGroupReplicationConfigurations :: Lens.Lens' PutAppReplicationConfiguration (Core.Maybe [ServerGroupReplicationConfiguration])
-putAppReplicationConfiguration_serverGroupReplicationConfigurations = Lens.lens (\PutAppReplicationConfiguration' {serverGroupReplicationConfigurations} -> serverGroupReplicationConfigurations) (\s@PutAppReplicationConfiguration' {} a -> s {serverGroupReplicationConfigurations = a} :: PutAppReplicationConfiguration) Core.. Lens.mapping Lens._Coerce
+putAppReplicationConfiguration_serverGroupReplicationConfigurations :: Lens.Lens' PutAppReplicationConfiguration (Prelude.Maybe [ServerGroupReplicationConfiguration])
+putAppReplicationConfiguration_serverGroupReplicationConfigurations = Lens.lens (\PutAppReplicationConfiguration' {serverGroupReplicationConfigurations} -> serverGroupReplicationConfigurations) (\s@PutAppReplicationConfiguration' {} a -> s {serverGroupReplicationConfigurations = a} :: PutAppReplicationConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -99,51 +100,57 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           PutAppReplicationConfigurationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutAppReplicationConfiguration
+instance
+  Prelude.Hashable
+    PutAppReplicationConfiguration
 
-instance Core.NFData PutAppReplicationConfiguration
+instance
+  Prelude.NFData
+    PutAppReplicationConfiguration
 
 instance
   Core.ToHeaders
     PutAppReplicationConfiguration
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSServerMigrationService_V2016_10_24.PutAppReplicationConfiguration" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutAppReplicationConfiguration where
   toJSON PutAppReplicationConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("appId" Core..=) Core.<$> appId,
+      ( Prelude.catMaybes
+          [ ("appId" Core..=) Prelude.<$> appId,
             ("serverGroupReplicationConfigurations" Core..=)
-              Core.<$> serverGroupReplicationConfigurations
+              Prelude.<$> serverGroupReplicationConfigurations
           ]
       )
 
 instance Core.ToPath PutAppReplicationConfiguration where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutAppReplicationConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutAppReplicationConfigurationResponse' smart constructor.
 data PutAppReplicationConfigurationResponse = PutAppReplicationConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutAppReplicationConfigurationResponse' with all optional fields omitted.
@@ -156,7 +163,7 @@ data PutAppReplicationConfigurationResponse = PutAppReplicationConfigurationResp
 -- 'httpStatus', 'putAppReplicationConfigurationResponse_httpStatus' - The response's http status code.
 newPutAppReplicationConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutAppReplicationConfigurationResponse
 newPutAppReplicationConfigurationResponse
   pHttpStatus_ =
@@ -166,9 +173,9 @@ newPutAppReplicationConfigurationResponse
       }
 
 -- | The response's http status code.
-putAppReplicationConfigurationResponse_httpStatus :: Lens.Lens' PutAppReplicationConfigurationResponse Core.Int
+putAppReplicationConfigurationResponse_httpStatus :: Lens.Lens' PutAppReplicationConfigurationResponse Prelude.Int
 putAppReplicationConfigurationResponse_httpStatus = Lens.lens (\PutAppReplicationConfigurationResponse' {httpStatus} -> httpStatus) (\s@PutAppReplicationConfigurationResponse' {} a -> s {httpStatus = a} :: PutAppReplicationConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     PutAppReplicationConfigurationResponse

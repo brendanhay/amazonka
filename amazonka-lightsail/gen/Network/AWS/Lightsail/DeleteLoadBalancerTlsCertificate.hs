@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,13 +62,13 @@ data DeleteLoadBalancerTlsCertificate = DeleteLoadBalancerTlsCertificate'
     -- the primary and the backup. The @force@ parameter is required when the
     -- primary SSL\/TLS certificate is in use by an instance attached to the
     -- load balancer.
-    force :: Core.Maybe Core.Bool,
+    force :: Prelude.Maybe Prelude.Bool,
     -- | The load balancer name.
-    loadBalancerName :: Core.Text,
+    loadBalancerName :: Prelude.Text,
     -- | The SSL\/TLS certificate name.
-    certificateName :: Core.Text
+    certificateName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLoadBalancerTlsCertificate' with all optional fields omitted.
@@ -89,16 +90,16 @@ data DeleteLoadBalancerTlsCertificate = DeleteLoadBalancerTlsCertificate'
 -- 'certificateName', 'deleteLoadBalancerTlsCertificate_certificateName' - The SSL\/TLS certificate name.
 newDeleteLoadBalancerTlsCertificate ::
   -- | 'loadBalancerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'certificateName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteLoadBalancerTlsCertificate
 newDeleteLoadBalancerTlsCertificate
   pLoadBalancerName_
   pCertificateName_ =
     DeleteLoadBalancerTlsCertificate'
       { force =
-          Core.Nothing,
+          Prelude.Nothing,
         loadBalancerName = pLoadBalancerName_,
         certificateName = pCertificateName_
       }
@@ -109,15 +110,15 @@ newDeleteLoadBalancerTlsCertificate
 -- the primary and the backup. The @force@ parameter is required when the
 -- primary SSL\/TLS certificate is in use by an instance attached to the
 -- load balancer.
-deleteLoadBalancerTlsCertificate_force :: Lens.Lens' DeleteLoadBalancerTlsCertificate (Core.Maybe Core.Bool)
+deleteLoadBalancerTlsCertificate_force :: Lens.Lens' DeleteLoadBalancerTlsCertificate (Prelude.Maybe Prelude.Bool)
 deleteLoadBalancerTlsCertificate_force = Lens.lens (\DeleteLoadBalancerTlsCertificate' {force} -> force) (\s@DeleteLoadBalancerTlsCertificate' {} a -> s {force = a} :: DeleteLoadBalancerTlsCertificate)
 
 -- | The load balancer name.
-deleteLoadBalancerTlsCertificate_loadBalancerName :: Lens.Lens' DeleteLoadBalancerTlsCertificate Core.Text
+deleteLoadBalancerTlsCertificate_loadBalancerName :: Lens.Lens' DeleteLoadBalancerTlsCertificate Prelude.Text
 deleteLoadBalancerTlsCertificate_loadBalancerName = Lens.lens (\DeleteLoadBalancerTlsCertificate' {loadBalancerName} -> loadBalancerName) (\s@DeleteLoadBalancerTlsCertificate' {} a -> s {loadBalancerName = a} :: DeleteLoadBalancerTlsCertificate)
 
 -- | The SSL\/TLS certificate name.
-deleteLoadBalancerTlsCertificate_certificateName :: Lens.Lens' DeleteLoadBalancerTlsCertificate Core.Text
+deleteLoadBalancerTlsCertificate_certificateName :: Lens.Lens' DeleteLoadBalancerTlsCertificate Prelude.Text
 deleteLoadBalancerTlsCertificate_certificateName = Lens.lens (\DeleteLoadBalancerTlsCertificate' {certificateName} -> certificateName) (\s@DeleteLoadBalancerTlsCertificate' {} a -> s {certificateName = a} :: DeleteLoadBalancerTlsCertificate)
 
 instance
@@ -132,63 +133,67 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteLoadBalancerTlsCertificateResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeleteLoadBalancerTlsCertificate
 
-instance Core.NFData DeleteLoadBalancerTlsCertificate
+instance
+  Prelude.NFData
+    DeleteLoadBalancerTlsCertificate
 
 instance
   Core.ToHeaders
     DeleteLoadBalancerTlsCertificate
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.DeleteLoadBalancerTlsCertificate" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteLoadBalancerTlsCertificate where
   toJSON DeleteLoadBalancerTlsCertificate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("force" Core..=) Core.<$> force,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("force" Core..=) Prelude.<$> force,
+            Prelude.Just
               ("loadBalancerName" Core..= loadBalancerName),
-            Core.Just
+            Prelude.Just
               ("certificateName" Core..= certificateName)
           ]
       )
 
 instance Core.ToPath DeleteLoadBalancerTlsCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DeleteLoadBalancerTlsCertificate
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLoadBalancerTlsCertificateResponse' smart constructor.
 data DeleteLoadBalancerTlsCertificateResponse = DeleteLoadBalancerTlsCertificateResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLoadBalancerTlsCertificateResponse' with all optional fields omitted.
@@ -205,26 +210,26 @@ data DeleteLoadBalancerTlsCertificateResponse = DeleteLoadBalancerTlsCertificate
 -- 'httpStatus', 'deleteLoadBalancerTlsCertificateResponse_httpStatus' - The response's http status code.
 newDeleteLoadBalancerTlsCertificateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteLoadBalancerTlsCertificateResponse
 newDeleteLoadBalancerTlsCertificateResponse
   pHttpStatus_ =
     DeleteLoadBalancerTlsCertificateResponse'
       { operations =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-deleteLoadBalancerTlsCertificateResponse_operations :: Lens.Lens' DeleteLoadBalancerTlsCertificateResponse (Core.Maybe [Operation])
-deleteLoadBalancerTlsCertificateResponse_operations = Lens.lens (\DeleteLoadBalancerTlsCertificateResponse' {operations} -> operations) (\s@DeleteLoadBalancerTlsCertificateResponse' {} a -> s {operations = a} :: DeleteLoadBalancerTlsCertificateResponse) Core.. Lens.mapping Lens._Coerce
+deleteLoadBalancerTlsCertificateResponse_operations :: Lens.Lens' DeleteLoadBalancerTlsCertificateResponse (Prelude.Maybe [Operation])
+deleteLoadBalancerTlsCertificateResponse_operations = Lens.lens (\DeleteLoadBalancerTlsCertificateResponse' {operations} -> operations) (\s@DeleteLoadBalancerTlsCertificateResponse' {} a -> s {operations = a} :: DeleteLoadBalancerTlsCertificateResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteLoadBalancerTlsCertificateResponse_httpStatus :: Lens.Lens' DeleteLoadBalancerTlsCertificateResponse Core.Int
+deleteLoadBalancerTlsCertificateResponse_httpStatus :: Lens.Lens' DeleteLoadBalancerTlsCertificateResponse Prelude.Int
 deleteLoadBalancerTlsCertificateResponse_httpStatus = Lens.lens (\DeleteLoadBalancerTlsCertificateResponse' {httpStatus} -> httpStatus) (\s@DeleteLoadBalancerTlsCertificateResponse' {} a -> s {httpStatus = a} :: DeleteLoadBalancerTlsCertificateResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteLoadBalancerTlsCertificateResponse

@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,37 +64,37 @@ data DescribeEnvironments = DescribeEnvironments'
     -- identical to the ones specified in the initial request.
     --
     -- If no @NextToken@ is specified, the first page is retrieved.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
     -- to include only those that have the specified names.
-    environmentNames :: Core.Maybe [Core.Text],
+    environmentNames :: Prelude.Maybe [Prelude.Text],
     -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
     -- to include only those that have the specified IDs.
-    environmentIds :: Core.Maybe [Core.Text],
+    environmentIds :: Prelude.Maybe [Prelude.Text],
     -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
     -- to include only those that are associated with this application version.
-    versionLabel :: Core.Maybe Core.Text,
+    versionLabel :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether to include deleted environments:
     --
     -- @true@: Environments that have been deleted after
     -- @IncludedDeletedBackTo@ are displayed.
     --
     -- @false@: Do not include deleted environments.
-    includeDeleted :: Core.Maybe Core.Bool,
+    includeDeleted :: Prelude.Maybe Prelude.Bool,
     -- | If specified when @IncludeDeleted@ is set to @true@, then environments
     -- deleted after this date are displayed.
-    includedDeletedBackTo :: Core.Maybe Core.ISO8601,
+    includedDeletedBackTo :: Prelude.Maybe Core.ISO8601,
     -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
     -- to include only those that are associated with this application.
-    applicationName :: Core.Maybe Core.Text,
+    applicationName :: Prelude.Maybe Prelude.Text,
     -- | For a paginated request. Specify a maximum number of environments to
     -- include in each response.
     --
     -- If no @MaxRecords@ is specified, all available environments are
     -- retrieved in a single response.
-    maxRecords :: Core.Maybe Core.Natural
+    maxRecords :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEnvironments' with all optional fields omitted.
@@ -140,14 +141,14 @@ newDescribeEnvironments ::
   DescribeEnvironments
 newDescribeEnvironments =
   DescribeEnvironments'
-    { nextToken = Core.Nothing,
-      environmentNames = Core.Nothing,
-      environmentIds = Core.Nothing,
-      versionLabel = Core.Nothing,
-      includeDeleted = Core.Nothing,
-      includedDeletedBackTo = Core.Nothing,
-      applicationName = Core.Nothing,
-      maxRecords = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      environmentNames = Prelude.Nothing,
+      environmentIds = Prelude.Nothing,
+      versionLabel = Prelude.Nothing,
+      includeDeleted = Prelude.Nothing,
+      includedDeletedBackTo = Prelude.Nothing,
+      applicationName = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | For a paginated request. Specify a token from a previous response page
@@ -155,22 +156,22 @@ newDescribeEnvironments =
 -- identical to the ones specified in the initial request.
 --
 -- If no @NextToken@ is specified, the first page is retrieved.
-describeEnvironments_nextToken :: Lens.Lens' DescribeEnvironments (Core.Maybe Core.Text)
+describeEnvironments_nextToken :: Lens.Lens' DescribeEnvironments (Prelude.Maybe Prelude.Text)
 describeEnvironments_nextToken = Lens.lens (\DescribeEnvironments' {nextToken} -> nextToken) (\s@DescribeEnvironments' {} a -> s {nextToken = a} :: DescribeEnvironments)
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that have the specified names.
-describeEnvironments_environmentNames :: Lens.Lens' DescribeEnvironments (Core.Maybe [Core.Text])
-describeEnvironments_environmentNames = Lens.lens (\DescribeEnvironments' {environmentNames} -> environmentNames) (\s@DescribeEnvironments' {} a -> s {environmentNames = a} :: DescribeEnvironments) Core.. Lens.mapping Lens._Coerce
+describeEnvironments_environmentNames :: Lens.Lens' DescribeEnvironments (Prelude.Maybe [Prelude.Text])
+describeEnvironments_environmentNames = Lens.lens (\DescribeEnvironments' {environmentNames} -> environmentNames) (\s@DescribeEnvironments' {} a -> s {environmentNames = a} :: DescribeEnvironments) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that have the specified IDs.
-describeEnvironments_environmentIds :: Lens.Lens' DescribeEnvironments (Core.Maybe [Core.Text])
-describeEnvironments_environmentIds = Lens.lens (\DescribeEnvironments' {environmentIds} -> environmentIds) (\s@DescribeEnvironments' {} a -> s {environmentIds = a} :: DescribeEnvironments) Core.. Lens.mapping Lens._Coerce
+describeEnvironments_environmentIds :: Lens.Lens' DescribeEnvironments (Prelude.Maybe [Prelude.Text])
+describeEnvironments_environmentIds = Lens.lens (\DescribeEnvironments' {environmentIds} -> environmentIds) (\s@DescribeEnvironments' {} a -> s {environmentIds = a} :: DescribeEnvironments) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that are associated with this application version.
-describeEnvironments_versionLabel :: Lens.Lens' DescribeEnvironments (Core.Maybe Core.Text)
+describeEnvironments_versionLabel :: Lens.Lens' DescribeEnvironments (Prelude.Maybe Prelude.Text)
 describeEnvironments_versionLabel = Lens.lens (\DescribeEnvironments' {versionLabel} -> versionLabel) (\s@DescribeEnvironments' {} a -> s {versionLabel = a} :: DescribeEnvironments)
 
 -- | Indicates whether to include deleted environments:
@@ -179,17 +180,17 @@ describeEnvironments_versionLabel = Lens.lens (\DescribeEnvironments' {versionLa
 -- @IncludedDeletedBackTo@ are displayed.
 --
 -- @false@: Do not include deleted environments.
-describeEnvironments_includeDeleted :: Lens.Lens' DescribeEnvironments (Core.Maybe Core.Bool)
+describeEnvironments_includeDeleted :: Lens.Lens' DescribeEnvironments (Prelude.Maybe Prelude.Bool)
 describeEnvironments_includeDeleted = Lens.lens (\DescribeEnvironments' {includeDeleted} -> includeDeleted) (\s@DescribeEnvironments' {} a -> s {includeDeleted = a} :: DescribeEnvironments)
 
 -- | If specified when @IncludeDeleted@ is set to @true@, then environments
 -- deleted after this date are displayed.
-describeEnvironments_includedDeletedBackTo :: Lens.Lens' DescribeEnvironments (Core.Maybe Core.UTCTime)
-describeEnvironments_includedDeletedBackTo = Lens.lens (\DescribeEnvironments' {includedDeletedBackTo} -> includedDeletedBackTo) (\s@DescribeEnvironments' {} a -> s {includedDeletedBackTo = a} :: DescribeEnvironments) Core.. Lens.mapping Core._Time
+describeEnvironments_includedDeletedBackTo :: Lens.Lens' DescribeEnvironments (Prelude.Maybe Prelude.UTCTime)
+describeEnvironments_includedDeletedBackTo = Lens.lens (\DescribeEnvironments' {includedDeletedBackTo} -> includedDeletedBackTo) (\s@DescribeEnvironments' {} a -> s {includedDeletedBackTo = a} :: DescribeEnvironments) Prelude.. Lens.mapping Core._Time
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that are associated with this application.
-describeEnvironments_applicationName :: Lens.Lens' DescribeEnvironments (Core.Maybe Core.Text)
+describeEnvironments_applicationName :: Lens.Lens' DescribeEnvironments (Prelude.Maybe Prelude.Text)
 describeEnvironments_applicationName = Lens.lens (\DescribeEnvironments' {applicationName} -> applicationName) (\s@DescribeEnvironments' {} a -> s {applicationName = a} :: DescribeEnvironments)
 
 -- | For a paginated request. Specify a maximum number of environments to
@@ -197,7 +198,7 @@ describeEnvironments_applicationName = Lens.lens (\DescribeEnvironments' {applic
 --
 -- If no @MaxRecords@ is specified, all available environments are
 -- retrieved in a single response.
-describeEnvironments_maxRecords :: Lens.Lens' DescribeEnvironments (Core.Maybe Core.Natural)
+describeEnvironments_maxRecords :: Lens.Lens' DescribeEnvironments (Prelude.Maybe Prelude.Natural)
 describeEnvironments_maxRecords = Lens.lens (\DescribeEnvironments' {maxRecords} -> maxRecords) (\s@DescribeEnvironments' {} a -> s {maxRecords = a} :: DescribeEnvironments)
 
 instance Core.AWSPager DescribeEnvironments where
@@ -205,22 +206,22 @@ instance Core.AWSPager DescribeEnvironments where
     | Core.stop
         ( rs
             Lens.^? environmentDescriptionsMessage_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? environmentDescriptionsMessage_environments
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeEnvironments_nextToken
+          Prelude.& describeEnvironments_nextToken
           Lens..~ rs
           Lens.^? environmentDescriptionsMessage_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEnvironments where
   type
@@ -232,31 +233,34 @@ instance Core.AWSRequest DescribeEnvironments where
       "DescribeEnvironmentsResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable DescribeEnvironments
+instance Prelude.Hashable DescribeEnvironments
 
-instance Core.NFData DescribeEnvironments
+instance Prelude.NFData DescribeEnvironments
 
 instance Core.ToHeaders DescribeEnvironments where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeEnvironments where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeEnvironments where
   toQuery DescribeEnvironments' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeEnvironments" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("DescribeEnvironments" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "EnvironmentNames"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> environmentNames
+                Prelude.<$> environmentNames
             ),
         "EnvironmentIds"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> environmentIds),
+            ( Core.toQueryList "member"
+                Prelude.<$> environmentIds
+            ),
         "VersionLabel" Core.=: versionLabel,
         "IncludeDeleted" Core.=: includeDeleted,
         "IncludedDeletedBackTo"

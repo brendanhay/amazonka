@@ -50,21 +50,22 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDomainConfiguration' smart constructor.
 data UpdateDomainConfiguration = UpdateDomainConfiguration'
   { -- | The status to which the domain configuration should be updated.
-    domainConfigurationStatus :: Core.Maybe DomainConfigurationStatus,
+    domainConfigurationStatus :: Prelude.Maybe DomainConfigurationStatus,
     -- | An object that specifies the authorization service for a domain.
-    authorizerConfig :: Core.Maybe AuthorizerConfig,
+    authorizerConfig :: Prelude.Maybe AuthorizerConfig,
     -- | Removes the authorization configuration from a domain.
-    removeAuthorizerConfig :: Core.Maybe Core.Bool,
+    removeAuthorizerConfig :: Prelude.Maybe Prelude.Bool,
     -- | The name of the domain configuration to be updated.
-    domainConfigurationName :: Core.Text
+    domainConfigurationName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDomainConfiguration' with all optional fields omitted.
@@ -83,33 +84,33 @@ data UpdateDomainConfiguration = UpdateDomainConfiguration'
 -- 'domainConfigurationName', 'updateDomainConfiguration_domainConfigurationName' - The name of the domain configuration to be updated.
 newUpdateDomainConfiguration ::
   -- | 'domainConfigurationName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateDomainConfiguration
 newUpdateDomainConfiguration
   pDomainConfigurationName_ =
     UpdateDomainConfiguration'
       { domainConfigurationStatus =
-          Core.Nothing,
-        authorizerConfig = Core.Nothing,
-        removeAuthorizerConfig = Core.Nothing,
+          Prelude.Nothing,
+        authorizerConfig = Prelude.Nothing,
+        removeAuthorizerConfig = Prelude.Nothing,
         domainConfigurationName =
           pDomainConfigurationName_
       }
 
 -- | The status to which the domain configuration should be updated.
-updateDomainConfiguration_domainConfigurationStatus :: Lens.Lens' UpdateDomainConfiguration (Core.Maybe DomainConfigurationStatus)
+updateDomainConfiguration_domainConfigurationStatus :: Lens.Lens' UpdateDomainConfiguration (Prelude.Maybe DomainConfigurationStatus)
 updateDomainConfiguration_domainConfigurationStatus = Lens.lens (\UpdateDomainConfiguration' {domainConfigurationStatus} -> domainConfigurationStatus) (\s@UpdateDomainConfiguration' {} a -> s {domainConfigurationStatus = a} :: UpdateDomainConfiguration)
 
 -- | An object that specifies the authorization service for a domain.
-updateDomainConfiguration_authorizerConfig :: Lens.Lens' UpdateDomainConfiguration (Core.Maybe AuthorizerConfig)
+updateDomainConfiguration_authorizerConfig :: Lens.Lens' UpdateDomainConfiguration (Prelude.Maybe AuthorizerConfig)
 updateDomainConfiguration_authorizerConfig = Lens.lens (\UpdateDomainConfiguration' {authorizerConfig} -> authorizerConfig) (\s@UpdateDomainConfiguration' {} a -> s {authorizerConfig = a} :: UpdateDomainConfiguration)
 
 -- | Removes the authorization configuration from a domain.
-updateDomainConfiguration_removeAuthorizerConfig :: Lens.Lens' UpdateDomainConfiguration (Core.Maybe Core.Bool)
+updateDomainConfiguration_removeAuthorizerConfig :: Lens.Lens' UpdateDomainConfiguration (Prelude.Maybe Prelude.Bool)
 updateDomainConfiguration_removeAuthorizerConfig = Lens.lens (\UpdateDomainConfiguration' {removeAuthorizerConfig} -> removeAuthorizerConfig) (\s@UpdateDomainConfiguration' {} a -> s {removeAuthorizerConfig = a} :: UpdateDomainConfiguration)
 
 -- | The name of the domain configuration to be updated.
-updateDomainConfiguration_domainConfigurationName :: Lens.Lens' UpdateDomainConfiguration Core.Text
+updateDomainConfiguration_domainConfigurationName :: Lens.Lens' UpdateDomainConfiguration Prelude.Text
 updateDomainConfiguration_domainConfigurationName = Lens.lens (\UpdateDomainConfiguration' {domainConfigurationName} -> domainConfigurationName) (\s@UpdateDomainConfiguration' {} a -> s {domainConfigurationName = a} :: UpdateDomainConfiguration)
 
 instance Core.AWSRequest UpdateDomainConfiguration where
@@ -121,51 +122,51 @@ instance Core.AWSRequest UpdateDomainConfiguration where
     Response.receiveJSON
       ( \s h x ->
           UpdateDomainConfigurationResponse'
-            Core.<$> (x Core..?> "domainConfigurationArn")
-            Core.<*> (x Core..?> "domainConfigurationName")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "domainConfigurationArn")
+            Prelude.<*> (x Core..?> "domainConfigurationName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateDomainConfiguration
+instance Prelude.Hashable UpdateDomainConfiguration
 
-instance Core.NFData UpdateDomainConfiguration
+instance Prelude.NFData UpdateDomainConfiguration
 
 instance Core.ToHeaders UpdateDomainConfiguration where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdateDomainConfiguration where
   toJSON UpdateDomainConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("domainConfigurationStatus" Core..=)
-              Core.<$> domainConfigurationStatus,
+              Prelude.<$> domainConfigurationStatus,
             ("authorizerConfig" Core..=)
-              Core.<$> authorizerConfig,
+              Prelude.<$> authorizerConfig,
             ("removeAuthorizerConfig" Core..=)
-              Core.<$> removeAuthorizerConfig
+              Prelude.<$> removeAuthorizerConfig
           ]
       )
 
 instance Core.ToPath UpdateDomainConfiguration where
   toPath UpdateDomainConfiguration' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/domainConfigurations/",
         Core.toBS domainConfigurationName
       ]
 
 instance Core.ToQuery UpdateDomainConfiguration where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDomainConfigurationResponse' smart constructor.
 data UpdateDomainConfigurationResponse = UpdateDomainConfigurationResponse'
   { -- | The ARN of the domain configuration that was updated.
-    domainConfigurationArn :: Core.Maybe Core.Text,
+    domainConfigurationArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain configuration that was updated.
-    domainConfigurationName :: Core.Maybe Core.Text,
+    domainConfigurationName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDomainConfigurationResponse' with all optional fields omitted.
@@ -182,28 +183,29 @@ data UpdateDomainConfigurationResponse = UpdateDomainConfigurationResponse'
 -- 'httpStatus', 'updateDomainConfigurationResponse_httpStatus' - The response's http status code.
 newUpdateDomainConfigurationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateDomainConfigurationResponse
 newUpdateDomainConfigurationResponse pHttpStatus_ =
   UpdateDomainConfigurationResponse'
     { domainConfigurationArn =
-        Core.Nothing,
-      domainConfigurationName = Core.Nothing,
+        Prelude.Nothing,
+      domainConfigurationName =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the domain configuration that was updated.
-updateDomainConfigurationResponse_domainConfigurationArn :: Lens.Lens' UpdateDomainConfigurationResponse (Core.Maybe Core.Text)
+updateDomainConfigurationResponse_domainConfigurationArn :: Lens.Lens' UpdateDomainConfigurationResponse (Prelude.Maybe Prelude.Text)
 updateDomainConfigurationResponse_domainConfigurationArn = Lens.lens (\UpdateDomainConfigurationResponse' {domainConfigurationArn} -> domainConfigurationArn) (\s@UpdateDomainConfigurationResponse' {} a -> s {domainConfigurationArn = a} :: UpdateDomainConfigurationResponse)
 
 -- | The name of the domain configuration that was updated.
-updateDomainConfigurationResponse_domainConfigurationName :: Lens.Lens' UpdateDomainConfigurationResponse (Core.Maybe Core.Text)
+updateDomainConfigurationResponse_domainConfigurationName :: Lens.Lens' UpdateDomainConfigurationResponse (Prelude.Maybe Prelude.Text)
 updateDomainConfigurationResponse_domainConfigurationName = Lens.lens (\UpdateDomainConfigurationResponse' {domainConfigurationName} -> domainConfigurationName) (\s@UpdateDomainConfigurationResponse' {} a -> s {domainConfigurationName = a} :: UpdateDomainConfigurationResponse)
 
 -- | The response's http status code.
-updateDomainConfigurationResponse_httpStatus :: Lens.Lens' UpdateDomainConfigurationResponse Core.Int
+updateDomainConfigurationResponse_httpStatus :: Lens.Lens' UpdateDomainConfigurationResponse Prelude.Int
 updateDomainConfigurationResponse_httpStatus = Lens.lens (\UpdateDomainConfigurationResponse' {httpStatus} -> httpStatus) (\s@UpdateDomainConfigurationResponse' {} a -> s {httpStatus = a} :: UpdateDomainConfigurationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateDomainConfigurationResponse

@@ -40,6 +40,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -47,9 +48,9 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newTerminateApp' smart constructor.
 data TerminateApp = TerminateApp'
   { -- | The ID of the application.
-    appId :: Core.Maybe Core.Text
+    appId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TerminateApp' with all optional fields omitted.
@@ -62,10 +63,11 @@ data TerminateApp = TerminateApp'
 -- 'appId', 'terminateApp_appId' - The ID of the application.
 newTerminateApp ::
   TerminateApp
-newTerminateApp = TerminateApp' {appId = Core.Nothing}
+newTerminateApp =
+  TerminateApp' {appId = Prelude.Nothing}
 
 -- | The ID of the application.
-terminateApp_appId :: Lens.Lens' TerminateApp (Core.Maybe Core.Text)
+terminateApp_appId :: Lens.Lens' TerminateApp (Prelude.Maybe Prelude.Text)
 terminateApp_appId = Lens.lens (\TerminateApp' {appId} -> appId) (\s@TerminateApp' {} a -> s {appId = a} :: TerminateApp)
 
 instance Core.AWSRequest TerminateApp where
@@ -75,43 +77,47 @@ instance Core.AWSRequest TerminateApp where
     Response.receiveEmpty
       ( \s h x ->
           TerminateAppResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable TerminateApp
+instance Prelude.Hashable TerminateApp
 
-instance Core.NFData TerminateApp
+instance Prelude.NFData TerminateApp
 
 instance Core.ToHeaders TerminateApp where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSServerMigrationService_V2016_10_24.TerminateApp" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON TerminateApp where
   toJSON TerminateApp' {..} =
     Core.object
-      (Core.catMaybes [("appId" Core..=) Core.<$> appId])
+      ( Prelude.catMaybes
+          [("appId" Core..=) Prelude.<$> appId]
+      )
 
 instance Core.ToPath TerminateApp where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TerminateApp where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTerminateAppResponse' smart constructor.
 data TerminateAppResponse = TerminateAppResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TerminateAppResponse' with all optional fields omitted.
@@ -124,13 +130,13 @@ data TerminateAppResponse = TerminateAppResponse'
 -- 'httpStatus', 'terminateAppResponse_httpStatus' - The response's http status code.
 newTerminateAppResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   TerminateAppResponse
 newTerminateAppResponse pHttpStatus_ =
   TerminateAppResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-terminateAppResponse_httpStatus :: Lens.Lens' TerminateAppResponse Core.Int
+terminateAppResponse_httpStatus :: Lens.Lens' TerminateAppResponse Prelude.Int
 terminateAppResponse_httpStatus = Lens.lens (\TerminateAppResponse' {httpStatus} -> httpStatus) (\s@TerminateAppResponse' {} a -> s {httpStatus = a} :: TerminateAppResponse)
 
-instance Core.NFData TerminateAppResponse
+instance Prelude.NFData TerminateAppResponse

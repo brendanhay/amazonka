@@ -66,6 +66,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -75,11 +76,11 @@ data DeleteGeoMatchSet = DeleteGeoMatchSet'
   { -- | The @GeoMatchSetID@ of the GeoMatchSet that you want to delete.
     -- @GeoMatchSetId@ is returned by CreateGeoMatchSet and by
     -- ListGeoMatchSets.
-    geoMatchSetId :: Core.Text,
+    geoMatchSetId :: Prelude.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text
+    changeToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGeoMatchSet' with all optional fields omitted.
@@ -96,9 +97,9 @@ data DeleteGeoMatchSet = DeleteGeoMatchSet'
 -- 'changeToken', 'deleteGeoMatchSet_changeToken' - The value returned by the most recent call to GetChangeToken.
 newDeleteGeoMatchSet ::
   -- | 'geoMatchSetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   DeleteGeoMatchSet
 newDeleteGeoMatchSet pGeoMatchSetId_ pChangeToken_ =
   DeleteGeoMatchSet'
@@ -109,11 +110,11 @@ newDeleteGeoMatchSet pGeoMatchSetId_ pChangeToken_ =
 -- | The @GeoMatchSetID@ of the GeoMatchSet that you want to delete.
 -- @GeoMatchSetId@ is returned by CreateGeoMatchSet and by
 -- ListGeoMatchSets.
-deleteGeoMatchSet_geoMatchSetId :: Lens.Lens' DeleteGeoMatchSet Core.Text
+deleteGeoMatchSet_geoMatchSetId :: Lens.Lens' DeleteGeoMatchSet Prelude.Text
 deleteGeoMatchSet_geoMatchSetId = Lens.lens (\DeleteGeoMatchSet' {geoMatchSetId} -> geoMatchSetId) (\s@DeleteGeoMatchSet' {} a -> s {geoMatchSetId = a} :: DeleteGeoMatchSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-deleteGeoMatchSet_changeToken :: Lens.Lens' DeleteGeoMatchSet Core.Text
+deleteGeoMatchSet_changeToken :: Lens.Lens' DeleteGeoMatchSet Prelude.Text
 deleteGeoMatchSet_changeToken = Lens.lens (\DeleteGeoMatchSet' {changeToken} -> changeToken) (\s@DeleteGeoMatchSet' {} a -> s {changeToken = a} :: DeleteGeoMatchSet)
 
 instance Core.AWSRequest DeleteGeoMatchSet where
@@ -125,52 +126,55 @@ instance Core.AWSRequest DeleteGeoMatchSet where
     Response.receiveJSON
       ( \s h x ->
           DeleteGeoMatchSetResponse'
-            Core.<$> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteGeoMatchSet
+instance Prelude.Hashable DeleteGeoMatchSet
 
-instance Core.NFData DeleteGeoMatchSet
+instance Prelude.NFData DeleteGeoMatchSet
 
 instance Core.ToHeaders DeleteGeoMatchSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.DeleteGeoMatchSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteGeoMatchSet where
   toJSON DeleteGeoMatchSet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("GeoMatchSetId" Core..= geoMatchSetId),
-            Core.Just ("ChangeToken" Core..= changeToken)
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("GeoMatchSetId" Core..= geoMatchSetId),
+            Prelude.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
 instance Core.ToPath DeleteGeoMatchSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteGeoMatchSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGeoMatchSetResponse' smart constructor.
 data DeleteGeoMatchSetResponse = DeleteGeoMatchSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @DeleteGeoMatchSet@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGeoMatchSetResponse' with all optional fields omitted.
@@ -187,23 +191,23 @@ data DeleteGeoMatchSetResponse = DeleteGeoMatchSetResponse'
 -- 'httpStatus', 'deleteGeoMatchSetResponse_httpStatus' - The response's http status code.
 newDeleteGeoMatchSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteGeoMatchSetResponse
 newDeleteGeoMatchSetResponse pHttpStatus_ =
   DeleteGeoMatchSetResponse'
     { changeToken =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @DeleteGeoMatchSet@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-deleteGeoMatchSetResponse_changeToken :: Lens.Lens' DeleteGeoMatchSetResponse (Core.Maybe Core.Text)
+deleteGeoMatchSetResponse_changeToken :: Lens.Lens' DeleteGeoMatchSetResponse (Prelude.Maybe Prelude.Text)
 deleteGeoMatchSetResponse_changeToken = Lens.lens (\DeleteGeoMatchSetResponse' {changeToken} -> changeToken) (\s@DeleteGeoMatchSetResponse' {} a -> s {changeToken = a} :: DeleteGeoMatchSetResponse)
 
 -- | The response's http status code.
-deleteGeoMatchSetResponse_httpStatus :: Lens.Lens' DeleteGeoMatchSetResponse Core.Int
+deleteGeoMatchSetResponse_httpStatus :: Lens.Lens' DeleteGeoMatchSetResponse Prelude.Int
 deleteGeoMatchSetResponse_httpStatus = Lens.lens (\DeleteGeoMatchSetResponse' {httpStatus} -> httpStatus) (\s@DeleteGeoMatchSetResponse' {} a -> s {httpStatus = a} :: DeleteGeoMatchSetResponse)
 
-instance Core.NFData DeleteGeoMatchSetResponse
+instance Prelude.NFData DeleteGeoMatchSetResponse

@@ -22,6 +22,7 @@ module Network.AWS.ECR.Types.ListImagesFilter where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.TagStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing a filter on a ListImages operation.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data ListImagesFilter = ListImagesFilter'
   { -- | The tag status with which to filter your ListImages results. You can
     -- filter results based on whether they are @TAGGED@ or @UNTAGGED@.
-    tagStatus :: Core.Maybe TagStatus
+    tagStatus :: Prelude.Maybe TagStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListImagesFilter' with all optional fields omitted.
@@ -46,20 +47,20 @@ data ListImagesFilter = ListImagesFilter'
 newListImagesFilter ::
   ListImagesFilter
 newListImagesFilter =
-  ListImagesFilter' {tagStatus = Core.Nothing}
+  ListImagesFilter' {tagStatus = Prelude.Nothing}
 
 -- | The tag status with which to filter your ListImages results. You can
 -- filter results based on whether they are @TAGGED@ or @UNTAGGED@.
-listImagesFilter_tagStatus :: Lens.Lens' ListImagesFilter (Core.Maybe TagStatus)
+listImagesFilter_tagStatus :: Lens.Lens' ListImagesFilter (Prelude.Maybe TagStatus)
 listImagesFilter_tagStatus = Lens.lens (\ListImagesFilter' {tagStatus} -> tagStatus) (\s@ListImagesFilter' {} a -> s {tagStatus = a} :: ListImagesFilter)
 
-instance Core.Hashable ListImagesFilter
+instance Prelude.Hashable ListImagesFilter
 
-instance Core.NFData ListImagesFilter
+instance Prelude.NFData ListImagesFilter
 
 instance Core.ToJSON ListImagesFilter where
   toJSON ListImagesFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [("tagStatus" Core..=) Core.<$> tagStatus]
+      ( Prelude.catMaybes
+          [("tagStatus" Core..=) Prelude.<$> tagStatus]
       )

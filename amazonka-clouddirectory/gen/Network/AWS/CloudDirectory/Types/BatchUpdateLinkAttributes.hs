@@ -23,6 +23,7 @@ import Network.AWS.CloudDirectory.Types.LinkAttributeUpdate
 import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Updates a given typed link’s attributes inside a BatchRead operation.
 -- Attributes to be updated must not contribute to the typed link’s
@@ -36,7 +37,7 @@ data BatchUpdateLinkAttributes = BatchUpdateLinkAttributes'
     -- | The attributes update structure.
     attributeUpdates :: [LinkAttributeUpdate]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchUpdateLinkAttributes' with all optional fields omitted.
@@ -57,7 +58,7 @@ newBatchUpdateLinkAttributes pTypedLinkSpecifier_ =
   BatchUpdateLinkAttributes'
     { typedLinkSpecifier =
         pTypedLinkSpecifier_,
-      attributeUpdates = Core.mempty
+      attributeUpdates = Prelude.mempty
     }
 
 -- | Allows a typed link specifier to be accepted as input.
@@ -66,19 +67,19 @@ batchUpdateLinkAttributes_typedLinkSpecifier = Lens.lens (\BatchUpdateLinkAttrib
 
 -- | The attributes update structure.
 batchUpdateLinkAttributes_attributeUpdates :: Lens.Lens' BatchUpdateLinkAttributes [LinkAttributeUpdate]
-batchUpdateLinkAttributes_attributeUpdates = Lens.lens (\BatchUpdateLinkAttributes' {attributeUpdates} -> attributeUpdates) (\s@BatchUpdateLinkAttributes' {} a -> s {attributeUpdates = a} :: BatchUpdateLinkAttributes) Core.. Lens._Coerce
+batchUpdateLinkAttributes_attributeUpdates = Lens.lens (\BatchUpdateLinkAttributes' {attributeUpdates} -> attributeUpdates) (\s@BatchUpdateLinkAttributes' {} a -> s {attributeUpdates = a} :: BatchUpdateLinkAttributes) Prelude.. Lens._Coerce
 
-instance Core.Hashable BatchUpdateLinkAttributes
+instance Prelude.Hashable BatchUpdateLinkAttributes
 
-instance Core.NFData BatchUpdateLinkAttributes
+instance Prelude.NFData BatchUpdateLinkAttributes
 
 instance Core.ToJSON BatchUpdateLinkAttributes where
   toJSON BatchUpdateLinkAttributes' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("TypedLinkSpecifier" Core..= typedLinkSpecifier),
-            Core.Just
+            Prelude.Just
               ("AttributeUpdates" Core..= attributeUpdates)
           ]
       )

@@ -21,17 +21,18 @@ module Network.AWS.ElasticSearch.Types.SAMLIdp where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the SAML Identity Provider\'s information.
 --
 -- /See:/ 'newSAMLIdp' smart constructor.
 data SAMLIdp = SAMLIdp'
   { -- | The Metadata of the SAML application in xml format.
-    metadataContent :: Core.Text,
+    metadataContent :: Prelude.Text,
     -- | The unique Entity ID of the application in SAML Identity Provider.
-    entityId :: Core.Text
+    entityId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SAMLIdp' with all optional fields omitted.
@@ -46,9 +47,9 @@ data SAMLIdp = SAMLIdp'
 -- 'entityId', 'sAMLIdp_entityId' - The unique Entity ID of the application in SAML Identity Provider.
 newSAMLIdp ::
   -- | 'metadataContent'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'entityId'
-  Core.Text ->
+  Prelude.Text ->
   SAMLIdp
 newSAMLIdp pMetadataContent_ pEntityId_ =
   SAMLIdp'
@@ -57,11 +58,11 @@ newSAMLIdp pMetadataContent_ pEntityId_ =
     }
 
 -- | The Metadata of the SAML application in xml format.
-sAMLIdp_metadataContent :: Lens.Lens' SAMLIdp Core.Text
+sAMLIdp_metadataContent :: Lens.Lens' SAMLIdp Prelude.Text
 sAMLIdp_metadataContent = Lens.lens (\SAMLIdp' {metadataContent} -> metadataContent) (\s@SAMLIdp' {} a -> s {metadataContent = a} :: SAMLIdp)
 
 -- | The unique Entity ID of the application in SAML Identity Provider.
-sAMLIdp_entityId :: Lens.Lens' SAMLIdp Core.Text
+sAMLIdp_entityId :: Lens.Lens' SAMLIdp Prelude.Text
 sAMLIdp_entityId = Lens.lens (\SAMLIdp' {entityId} -> entityId) (\s@SAMLIdp' {} a -> s {entityId = a} :: SAMLIdp)
 
 instance Core.FromJSON SAMLIdp where
@@ -70,20 +71,20 @@ instance Core.FromJSON SAMLIdp where
       "SAMLIdp"
       ( \x ->
           SAMLIdp'
-            Core.<$> (x Core..: "MetadataContent")
-            Core.<*> (x Core..: "EntityId")
+            Prelude.<$> (x Core..: "MetadataContent")
+            Prelude.<*> (x Core..: "EntityId")
       )
 
-instance Core.Hashable SAMLIdp
+instance Prelude.Hashable SAMLIdp
 
-instance Core.NFData SAMLIdp
+instance Prelude.NFData SAMLIdp
 
 instance Core.ToJSON SAMLIdp where
   toJSON SAMLIdp' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("MetadataContent" Core..= metadataContent),
-            Core.Just ("EntityId" Core..= entityId)
+            Prelude.Just ("EntityId" Core..= entityId)
           ]
       )

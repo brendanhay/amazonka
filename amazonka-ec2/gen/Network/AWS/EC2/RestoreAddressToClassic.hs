@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +57,11 @@ data RestoreAddressToClassic = RestoreAddressToClassic'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The Elastic IP address.
-    publicIp :: Core.Text
+    publicIp :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RestoreAddressToClassic' with all optional fields omitted.
@@ -78,11 +79,11 @@ data RestoreAddressToClassic = RestoreAddressToClassic'
 -- 'publicIp', 'restoreAddressToClassic_publicIp' - The Elastic IP address.
 newRestoreAddressToClassic ::
   -- | 'publicIp'
-  Core.Text ->
+  Prelude.Text ->
   RestoreAddressToClassic
 newRestoreAddressToClassic pPublicIp_ =
   RestoreAddressToClassic'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       publicIp = pPublicIp_
     }
 
@@ -90,11 +91,11 @@ newRestoreAddressToClassic pPublicIp_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-restoreAddressToClassic_dryRun :: Lens.Lens' RestoreAddressToClassic (Core.Maybe Core.Bool)
+restoreAddressToClassic_dryRun :: Lens.Lens' RestoreAddressToClassic (Prelude.Maybe Prelude.Bool)
 restoreAddressToClassic_dryRun = Lens.lens (\RestoreAddressToClassic' {dryRun} -> dryRun) (\s@RestoreAddressToClassic' {} a -> s {dryRun = a} :: RestoreAddressToClassic)
 
 -- | The Elastic IP address.
-restoreAddressToClassic_publicIp :: Lens.Lens' RestoreAddressToClassic Core.Text
+restoreAddressToClassic_publicIp :: Lens.Lens' RestoreAddressToClassic Prelude.Text
 restoreAddressToClassic_publicIp = Lens.lens (\RestoreAddressToClassic' {publicIp} -> publicIp) (\s@RestoreAddressToClassic' {} a -> s {publicIp = a} :: RestoreAddressToClassic)
 
 instance Core.AWSRequest RestoreAddressToClassic where
@@ -106,27 +107,28 @@ instance Core.AWSRequest RestoreAddressToClassic where
     Response.receiveXML
       ( \s h x ->
           RestoreAddressToClassicResponse'
-            Core.<$> (x Core..@? "status")
-            Core.<*> (x Core..@? "publicIp")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "status")
+            Prelude.<*> (x Core..@? "publicIp")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RestoreAddressToClassic
+instance Prelude.Hashable RestoreAddressToClassic
 
-instance Core.NFData RestoreAddressToClassic
+instance Prelude.NFData RestoreAddressToClassic
 
 instance Core.ToHeaders RestoreAddressToClassic where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath RestoreAddressToClassic where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RestoreAddressToClassic where
   toQuery RestoreAddressToClassic' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("RestoreAddressToClassic" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("RestoreAddressToClassic" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "PublicIp" Core.=: publicIp
       ]
@@ -134,13 +136,13 @@ instance Core.ToQuery RestoreAddressToClassic where
 -- | /See:/ 'newRestoreAddressToClassicResponse' smart constructor.
 data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
   { -- | The move status for the IP address.
-    status :: Core.Maybe AddressStatus,
+    status :: Prelude.Maybe AddressStatus,
     -- | The Elastic IP address.
-    publicIp :: Core.Maybe Core.Text,
+    publicIp :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RestoreAddressToClassicResponse' with all optional fields omitted.
@@ -157,26 +159,28 @@ data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
 -- 'httpStatus', 'restoreAddressToClassicResponse_httpStatus' - The response's http status code.
 newRestoreAddressToClassicResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RestoreAddressToClassicResponse
 newRestoreAddressToClassicResponse pHttpStatus_ =
   RestoreAddressToClassicResponse'
     { status =
-        Core.Nothing,
-      publicIp = Core.Nothing,
+        Prelude.Nothing,
+      publicIp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The move status for the IP address.
-restoreAddressToClassicResponse_status :: Lens.Lens' RestoreAddressToClassicResponse (Core.Maybe AddressStatus)
+restoreAddressToClassicResponse_status :: Lens.Lens' RestoreAddressToClassicResponse (Prelude.Maybe AddressStatus)
 restoreAddressToClassicResponse_status = Lens.lens (\RestoreAddressToClassicResponse' {status} -> status) (\s@RestoreAddressToClassicResponse' {} a -> s {status = a} :: RestoreAddressToClassicResponse)
 
 -- | The Elastic IP address.
-restoreAddressToClassicResponse_publicIp :: Lens.Lens' RestoreAddressToClassicResponse (Core.Maybe Core.Text)
+restoreAddressToClassicResponse_publicIp :: Lens.Lens' RestoreAddressToClassicResponse (Prelude.Maybe Prelude.Text)
 restoreAddressToClassicResponse_publicIp = Lens.lens (\RestoreAddressToClassicResponse' {publicIp} -> publicIp) (\s@RestoreAddressToClassicResponse' {} a -> s {publicIp = a} :: RestoreAddressToClassicResponse)
 
 -- | The response's http status code.
-restoreAddressToClassicResponse_httpStatus :: Lens.Lens' RestoreAddressToClassicResponse Core.Int
+restoreAddressToClassicResponse_httpStatus :: Lens.Lens' RestoreAddressToClassicResponse Prelude.Int
 restoreAddressToClassicResponse_httpStatus = Lens.lens (\RestoreAddressToClassicResponse' {httpStatus} -> httpStatus) (\s@RestoreAddressToClassicResponse' {} a -> s {httpStatus = a} :: RestoreAddressToClassicResponse)
 
-instance Core.NFData RestoreAddressToClassicResponse
+instance
+  Prelude.NFData
+    RestoreAddressToClassicResponse

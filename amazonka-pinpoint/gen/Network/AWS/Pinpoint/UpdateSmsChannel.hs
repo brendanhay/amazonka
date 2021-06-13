@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,10 +52,10 @@ import qualified Network.AWS.Response as Response
 data UpdateSmsChannel = UpdateSmsChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     sMSChannelRequest :: SMSChannelRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSmsChannel' with all optional fields omitted.
@@ -70,7 +71,7 @@ data UpdateSmsChannel = UpdateSmsChannel'
 -- 'sMSChannelRequest', 'updateSmsChannel_sMSChannelRequest' - Undocumented member.
 newUpdateSmsChannel ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'sMSChannelRequest'
   SMSChannelRequest ->
   UpdateSmsChannel
@@ -84,7 +85,7 @@ newUpdateSmsChannel
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-updateSmsChannel_applicationId :: Lens.Lens' UpdateSmsChannel Core.Text
+updateSmsChannel_applicationId :: Lens.Lens' UpdateSmsChannel Prelude.Text
 updateSmsChannel_applicationId = Lens.lens (\UpdateSmsChannel' {applicationId} -> applicationId) (\s@UpdateSmsChannel' {} a -> s {applicationId = a} :: UpdateSmsChannel)
 
 -- | Undocumented member.
@@ -100,50 +101,52 @@ instance Core.AWSRequest UpdateSmsChannel where
     Response.receiveJSON
       ( \s h x ->
           UpdateSmsChannelResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable UpdateSmsChannel
+instance Prelude.Hashable UpdateSmsChannel
 
-instance Core.NFData UpdateSmsChannel
+instance Prelude.NFData UpdateSmsChannel
 
 instance Core.ToHeaders UpdateSmsChannel where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateSmsChannel where
   toJSON UpdateSmsChannel' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("SMSChannelRequest" Core..= sMSChannelRequest)
           ]
       )
 
 instance Core.ToPath UpdateSmsChannel where
   toPath UpdateSmsChannel' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/channels/sms"
       ]
 
 instance Core.ToQuery UpdateSmsChannel where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSmsChannelResponse' smart constructor.
 data UpdateSmsChannelResponse = UpdateSmsChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     sMSChannelResponse :: SMSChannelResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSmsChannelResponse' with all optional fields omitted.
@@ -158,7 +161,7 @@ data UpdateSmsChannelResponse = UpdateSmsChannelResponse'
 -- 'sMSChannelResponse', 'updateSmsChannelResponse_sMSChannelResponse' - Undocumented member.
 newUpdateSmsChannelResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'sMSChannelResponse'
   SMSChannelResponse ->
   UpdateSmsChannelResponse
@@ -172,11 +175,11 @@ newUpdateSmsChannelResponse
       }
 
 -- | The response's http status code.
-updateSmsChannelResponse_httpStatus :: Lens.Lens' UpdateSmsChannelResponse Core.Int
+updateSmsChannelResponse_httpStatus :: Lens.Lens' UpdateSmsChannelResponse Prelude.Int
 updateSmsChannelResponse_httpStatus = Lens.lens (\UpdateSmsChannelResponse' {httpStatus} -> httpStatus) (\s@UpdateSmsChannelResponse' {} a -> s {httpStatus = a} :: UpdateSmsChannelResponse)
 
 -- | Undocumented member.
 updateSmsChannelResponse_sMSChannelResponse :: Lens.Lens' UpdateSmsChannelResponse SMSChannelResponse
 updateSmsChannelResponse_sMSChannelResponse = Lens.lens (\UpdateSmsChannelResponse' {sMSChannelResponse} -> sMSChannelResponse) (\s@UpdateSmsChannelResponse' {} a -> s {sMSChannelResponse = a} :: UpdateSmsChannelResponse)
 
-instance Core.NFData UpdateSmsChannelResponse
+instance Prelude.NFData UpdateSmsChannelResponse

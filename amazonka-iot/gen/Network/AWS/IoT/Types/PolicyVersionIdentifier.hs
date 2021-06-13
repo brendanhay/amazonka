@@ -21,6 +21,7 @@ module Network.AWS.IoT.Types.PolicyVersionIdentifier where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the version of the policy associated with the
 -- resource.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPolicyVersionIdentifier' smart constructor.
 data PolicyVersionIdentifier = PolicyVersionIdentifier'
   { -- | The ID of the version of the policy associated with the resource.
-    policyVersionId :: Core.Maybe Core.Text,
+    policyVersionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the policy.
-    policyName :: Core.Maybe Core.Text
+    policyName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PolicyVersionIdentifier' with all optional fields omitted.
@@ -50,16 +51,16 @@ newPolicyVersionIdentifier ::
 newPolicyVersionIdentifier =
   PolicyVersionIdentifier'
     { policyVersionId =
-        Core.Nothing,
-      policyName = Core.Nothing
+        Prelude.Nothing,
+      policyName = Prelude.Nothing
     }
 
 -- | The ID of the version of the policy associated with the resource.
-policyVersionIdentifier_policyVersionId :: Lens.Lens' PolicyVersionIdentifier (Core.Maybe Core.Text)
+policyVersionIdentifier_policyVersionId :: Lens.Lens' PolicyVersionIdentifier (Prelude.Maybe Prelude.Text)
 policyVersionIdentifier_policyVersionId = Lens.lens (\PolicyVersionIdentifier' {policyVersionId} -> policyVersionId) (\s@PolicyVersionIdentifier' {} a -> s {policyVersionId = a} :: PolicyVersionIdentifier)
 
 -- | The name of the policy.
-policyVersionIdentifier_policyName :: Lens.Lens' PolicyVersionIdentifier (Core.Maybe Core.Text)
+policyVersionIdentifier_policyName :: Lens.Lens' PolicyVersionIdentifier (Prelude.Maybe Prelude.Text)
 policyVersionIdentifier_policyName = Lens.lens (\PolicyVersionIdentifier' {policyName} -> policyName) (\s@PolicyVersionIdentifier' {} a -> s {policyName = a} :: PolicyVersionIdentifier)
 
 instance Core.FromJSON PolicyVersionIdentifier where
@@ -68,20 +69,20 @@ instance Core.FromJSON PolicyVersionIdentifier where
       "PolicyVersionIdentifier"
       ( \x ->
           PolicyVersionIdentifier'
-            Core.<$> (x Core..:? "policyVersionId")
-            Core.<*> (x Core..:? "policyName")
+            Prelude.<$> (x Core..:? "policyVersionId")
+            Prelude.<*> (x Core..:? "policyName")
       )
 
-instance Core.Hashable PolicyVersionIdentifier
+instance Prelude.Hashable PolicyVersionIdentifier
 
-instance Core.NFData PolicyVersionIdentifier
+instance Prelude.NFData PolicyVersionIdentifier
 
 instance Core.ToJSON PolicyVersionIdentifier where
   toJSON PolicyVersionIdentifier' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("policyVersionId" Core..=)
-              Core.<$> policyVersionId,
-            ("policyName" Core..=) Core.<$> policyName
+              Prelude.<$> policyVersionId,
+            ("policyName" Core..=) Prelude.<$> policyName
           ]
       )

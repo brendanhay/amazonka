@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.PersonDetail where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.BoundingBox
 import Network.AWS.Rekognition.Types.FaceDetail
 
@@ -29,15 +30,15 @@ import Network.AWS.Rekognition.Types.FaceDetail
 -- /See:/ 'newPersonDetail' smart constructor.
 data PersonDetail = PersonDetail'
   { -- | Bounding box around the detected person.
-    boundingBox :: Core.Maybe BoundingBox,
+    boundingBox :: Prelude.Maybe BoundingBox,
     -- | Face details for the detected person.
-    face :: Core.Maybe FaceDetail,
+    face :: Prelude.Maybe FaceDetail,
     -- | Identifier for the person detected person within a video. Use to keep
     -- track of the person throughout the video. The identifier is not stored
     -- by Amazon Rekognition.
-    index :: Core.Maybe Core.Integer
+    index :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PersonDetail' with all optional fields omitted.
@@ -58,23 +59,23 @@ newPersonDetail ::
   PersonDetail
 newPersonDetail =
   PersonDetail'
-    { boundingBox = Core.Nothing,
-      face = Core.Nothing,
-      index = Core.Nothing
+    { boundingBox = Prelude.Nothing,
+      face = Prelude.Nothing,
+      index = Prelude.Nothing
     }
 
 -- | Bounding box around the detected person.
-personDetail_boundingBox :: Lens.Lens' PersonDetail (Core.Maybe BoundingBox)
+personDetail_boundingBox :: Lens.Lens' PersonDetail (Prelude.Maybe BoundingBox)
 personDetail_boundingBox = Lens.lens (\PersonDetail' {boundingBox} -> boundingBox) (\s@PersonDetail' {} a -> s {boundingBox = a} :: PersonDetail)
 
 -- | Face details for the detected person.
-personDetail_face :: Lens.Lens' PersonDetail (Core.Maybe FaceDetail)
+personDetail_face :: Lens.Lens' PersonDetail (Prelude.Maybe FaceDetail)
 personDetail_face = Lens.lens (\PersonDetail' {face} -> face) (\s@PersonDetail' {} a -> s {face = a} :: PersonDetail)
 
 -- | Identifier for the person detected person within a video. Use to keep
 -- track of the person throughout the video. The identifier is not stored
 -- by Amazon Rekognition.
-personDetail_index :: Lens.Lens' PersonDetail (Core.Maybe Core.Integer)
+personDetail_index :: Lens.Lens' PersonDetail (Prelude.Maybe Prelude.Integer)
 personDetail_index = Lens.lens (\PersonDetail' {index} -> index) (\s@PersonDetail' {} a -> s {index = a} :: PersonDetail)
 
 instance Core.FromJSON PersonDetail where
@@ -83,11 +84,11 @@ instance Core.FromJSON PersonDetail where
       "PersonDetail"
       ( \x ->
           PersonDetail'
-            Core.<$> (x Core..:? "BoundingBox")
-            Core.<*> (x Core..:? "Face")
-            Core.<*> (x Core..:? "Index")
+            Prelude.<$> (x Core..:? "BoundingBox")
+            Prelude.<*> (x Core..:? "Face")
+            Prelude.<*> (x Core..:? "Index")
       )
 
-instance Core.Hashable PersonDetail
+instance Prelude.Hashable PersonDetail
 
-instance Core.NFData PersonDetail
+instance Prelude.NFData PersonDetail

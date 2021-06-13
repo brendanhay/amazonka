@@ -21,6 +21,7 @@ module Network.AWS.Lightsail.Types.AvailabilityZone where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Availability Zone.
 --
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 data AvailabilityZone = AvailabilityZone'
   { -- | The name of the Availability Zone. The format is @us-east-2a@
     -- (case-sensitive).
-    zoneName :: Core.Maybe Core.Text,
+    zoneName :: Prelude.Maybe Prelude.Text,
     -- | The state of the Availability Zone.
-    state :: Core.Maybe Core.Text
+    state :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AvailabilityZone' with all optional fields omitted.
@@ -50,17 +51,17 @@ newAvailabilityZone ::
   AvailabilityZone
 newAvailabilityZone =
   AvailabilityZone'
-    { zoneName = Core.Nothing,
-      state = Core.Nothing
+    { zoneName = Prelude.Nothing,
+      state = Prelude.Nothing
     }
 
 -- | The name of the Availability Zone. The format is @us-east-2a@
 -- (case-sensitive).
-availabilityZone_zoneName :: Lens.Lens' AvailabilityZone (Core.Maybe Core.Text)
+availabilityZone_zoneName :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
 availabilityZone_zoneName = Lens.lens (\AvailabilityZone' {zoneName} -> zoneName) (\s@AvailabilityZone' {} a -> s {zoneName = a} :: AvailabilityZone)
 
 -- | The state of the Availability Zone.
-availabilityZone_state :: Lens.Lens' AvailabilityZone (Core.Maybe Core.Text)
+availabilityZone_state :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
 availabilityZone_state = Lens.lens (\AvailabilityZone' {state} -> state) (\s@AvailabilityZone' {} a -> s {state = a} :: AvailabilityZone)
 
 instance Core.FromJSON AvailabilityZone where
@@ -69,10 +70,10 @@ instance Core.FromJSON AvailabilityZone where
       "AvailabilityZone"
       ( \x ->
           AvailabilityZone'
-            Core.<$> (x Core..:? "zoneName")
-            Core.<*> (x Core..:? "state")
+            Prelude.<$> (x Core..:? "zoneName")
+            Prelude.<*> (x Core..:? "state")
       )
 
-instance Core.Hashable AvailabilityZone
+instance Prelude.Hashable AvailabilityZone
 
-instance Core.NFData AvailabilityZone
+instance Prelude.NFData AvailabilityZone

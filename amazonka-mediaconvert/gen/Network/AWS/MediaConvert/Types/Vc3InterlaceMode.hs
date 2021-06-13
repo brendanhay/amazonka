@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.Vc3InterlaceMode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Optional. Choose the scan line type for this output. If you don\'t
 -- specify a value, MediaConvert will create a progressive output.
@@ -35,15 +36,15 @@ newtype Vc3InterlaceMode = Vc3InterlaceMode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

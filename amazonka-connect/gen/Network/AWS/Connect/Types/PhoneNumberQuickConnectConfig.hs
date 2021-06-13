@@ -21,15 +21,16 @@ module Network.AWS.Connect.Types.PhoneNumberQuickConnectConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a phone number for a quick connect.
 --
 -- /See:/ 'newPhoneNumberQuickConnectConfig' smart constructor.
 data PhoneNumberQuickConnectConfig = PhoneNumberQuickConnectConfig'
   { -- | The phone number in E.164 format.
-    phoneNumber :: Core.Text
+    phoneNumber :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PhoneNumberQuickConnectConfig' with all optional fields omitted.
@@ -42,7 +43,7 @@ data PhoneNumberQuickConnectConfig = PhoneNumberQuickConnectConfig'
 -- 'phoneNumber', 'phoneNumberQuickConnectConfig_phoneNumber' - The phone number in E.164 format.
 newPhoneNumberQuickConnectConfig ::
   -- | 'phoneNumber'
-  Core.Text ->
+  Prelude.Text ->
   PhoneNumberQuickConnectConfig
 newPhoneNumberQuickConnectConfig pPhoneNumber_ =
   PhoneNumberQuickConnectConfig'
@@ -51,7 +52,7 @@ newPhoneNumberQuickConnectConfig pPhoneNumber_ =
     }
 
 -- | The phone number in E.164 format.
-phoneNumberQuickConnectConfig_phoneNumber :: Lens.Lens' PhoneNumberQuickConnectConfig Core.Text
+phoneNumberQuickConnectConfig_phoneNumber :: Lens.Lens' PhoneNumberQuickConnectConfig Prelude.Text
 phoneNumberQuickConnectConfig_phoneNumber = Lens.lens (\PhoneNumberQuickConnectConfig' {phoneNumber} -> phoneNumber) (\s@PhoneNumberQuickConnectConfig' {} a -> s {phoneNumber = a} :: PhoneNumberQuickConnectConfig)
 
 instance Core.FromJSON PhoneNumberQuickConnectConfig where
@@ -60,16 +61,18 @@ instance Core.FromJSON PhoneNumberQuickConnectConfig where
       "PhoneNumberQuickConnectConfig"
       ( \x ->
           PhoneNumberQuickConnectConfig'
-            Core.<$> (x Core..: "PhoneNumber")
+            Prelude.<$> (x Core..: "PhoneNumber")
       )
 
-instance Core.Hashable PhoneNumberQuickConnectConfig
+instance
+  Prelude.Hashable
+    PhoneNumberQuickConnectConfig
 
-instance Core.NFData PhoneNumberQuickConnectConfig
+instance Prelude.NFData PhoneNumberQuickConnectConfig
 
 instance Core.ToJSON PhoneNumberQuickConnectConfig where
   toJSON PhoneNumberQuickConnectConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("PhoneNumber" Core..= phoneNumber)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("PhoneNumber" Core..= phoneNumber)]
       )

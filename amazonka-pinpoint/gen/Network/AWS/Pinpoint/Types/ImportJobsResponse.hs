@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.ImportJobsResponse where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.ImportJobResponse
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the status and settings of all the import
 -- jobs that are associated with an application or segment. An import job
@@ -32,13 +33,13 @@ data ImportJobsResponse = ImportJobsResponse'
   { -- | The string to use in a subsequent request to get the next page of
     -- results in a paginated response. This value is null if there are no
     -- additional pages.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of responses, one for each import job that\'s associated with
     -- the application (Import Jobs resource) or segment (Segment Import Jobs
     -- resource).
     item :: [ImportJobResponse]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportJobsResponse' with all optional fields omitted.
@@ -59,21 +60,21 @@ newImportJobsResponse ::
   ImportJobsResponse
 newImportJobsResponse =
   ImportJobsResponse'
-    { nextToken = Core.Nothing,
-      item = Core.mempty
+    { nextToken = Prelude.Nothing,
+      item = Prelude.mempty
     }
 
 -- | The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
 -- additional pages.
-importJobsResponse_nextToken :: Lens.Lens' ImportJobsResponse (Core.Maybe Core.Text)
+importJobsResponse_nextToken :: Lens.Lens' ImportJobsResponse (Prelude.Maybe Prelude.Text)
 importJobsResponse_nextToken = Lens.lens (\ImportJobsResponse' {nextToken} -> nextToken) (\s@ImportJobsResponse' {} a -> s {nextToken = a} :: ImportJobsResponse)
 
 -- | An array of responses, one for each import job that\'s associated with
 -- the application (Import Jobs resource) or segment (Segment Import Jobs
 -- resource).
 importJobsResponse_item :: Lens.Lens' ImportJobsResponse [ImportJobResponse]
-importJobsResponse_item = Lens.lens (\ImportJobsResponse' {item} -> item) (\s@ImportJobsResponse' {} a -> s {item = a} :: ImportJobsResponse) Core.. Lens._Coerce
+importJobsResponse_item = Lens.lens (\ImportJobsResponse' {item} -> item) (\s@ImportJobsResponse' {} a -> s {item = a} :: ImportJobsResponse) Prelude.. Lens._Coerce
 
 instance Core.FromJSON ImportJobsResponse where
   parseJSON =
@@ -81,10 +82,10 @@ instance Core.FromJSON ImportJobsResponse where
       "ImportJobsResponse"
       ( \x ->
           ImportJobsResponse'
-            Core.<$> (x Core..:? "NextToken")
-            Core.<*> (x Core..:? "Item" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "NextToken")
+            Prelude.<*> (x Core..:? "Item" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ImportJobsResponse
+instance Prelude.Hashable ImportJobsResponse
 
-instance Core.NFData ImportJobsResponse
+instance Prelude.NFData ImportJobsResponse

@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,26 +57,26 @@ import qualified Network.AWS.Response as Response
 data CreateQueue = CreateQueue'
   { -- | Initial state of the queue. If you create a paused queue, then jobs in
     -- that queue won\'t begin.
-    status :: Core.Maybe QueueStatus,
+    status :: Prelude.Maybe QueueStatus,
     -- | The tags that you want to add to the resource. You can tag resources
     -- with a key-value pair or with only a key.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Details about the pricing plan for your reserved queue. Required for
     -- reserved queues and not applicable to on-demand queues.
-    reservationPlanSettings :: Core.Maybe ReservationPlanSettings,
+    reservationPlanSettings :: Prelude.Maybe ReservationPlanSettings,
     -- | Optional. A description of the queue that you are creating.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the pricing plan for the queue is on-demand or
     -- reserved. For on-demand, you pay per minute, billed in increments of .01
     -- minute. For reserved, you pay for the transcoding capacity of the entire
     -- queue, regardless of how much or how little you use it. Reserved pricing
     -- requires a 12-month commitment. When you use the API to create a queue,
     -- the default is on-demand.
-    pricingPlan :: Core.Maybe PricingPlan,
+    pricingPlan :: Prelude.Maybe PricingPlan,
     -- | The name of the queue that you are creating.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateQueue' with all optional fields omitted.
@@ -106,35 +107,35 @@ data CreateQueue = CreateQueue'
 -- 'name', 'createQueue_name' - The name of the queue that you are creating.
 newCreateQueue ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   CreateQueue
 newCreateQueue pName_ =
   CreateQueue'
-    { status = Core.Nothing,
-      tags = Core.Nothing,
-      reservationPlanSettings = Core.Nothing,
-      description = Core.Nothing,
-      pricingPlan = Core.Nothing,
+    { status = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      reservationPlanSettings = Prelude.Nothing,
+      description = Prelude.Nothing,
+      pricingPlan = Prelude.Nothing,
       name = pName_
     }
 
 -- | Initial state of the queue. If you create a paused queue, then jobs in
 -- that queue won\'t begin.
-createQueue_status :: Lens.Lens' CreateQueue (Core.Maybe QueueStatus)
+createQueue_status :: Lens.Lens' CreateQueue (Prelude.Maybe QueueStatus)
 createQueue_status = Lens.lens (\CreateQueue' {status} -> status) (\s@CreateQueue' {} a -> s {status = a} :: CreateQueue)
 
 -- | The tags that you want to add to the resource. You can tag resources
 -- with a key-value pair or with only a key.
-createQueue_tags :: Lens.Lens' CreateQueue (Core.Maybe (Core.HashMap Core.Text Core.Text))
-createQueue_tags = Lens.lens (\CreateQueue' {tags} -> tags) (\s@CreateQueue' {} a -> s {tags = a} :: CreateQueue) Core.. Lens.mapping Lens._Coerce
+createQueue_tags :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createQueue_tags = Lens.lens (\CreateQueue' {tags} -> tags) (\s@CreateQueue' {} a -> s {tags = a} :: CreateQueue) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Details about the pricing plan for your reserved queue. Required for
 -- reserved queues and not applicable to on-demand queues.
-createQueue_reservationPlanSettings :: Lens.Lens' CreateQueue (Core.Maybe ReservationPlanSettings)
+createQueue_reservationPlanSettings :: Lens.Lens' CreateQueue (Prelude.Maybe ReservationPlanSettings)
 createQueue_reservationPlanSettings = Lens.lens (\CreateQueue' {reservationPlanSettings} -> reservationPlanSettings) (\s@CreateQueue' {} a -> s {reservationPlanSettings = a} :: CreateQueue)
 
 -- | Optional. A description of the queue that you are creating.
-createQueue_description :: Lens.Lens' CreateQueue (Core.Maybe Core.Text)
+createQueue_description :: Lens.Lens' CreateQueue (Prelude.Maybe Prelude.Text)
 createQueue_description = Lens.lens (\CreateQueue' {description} -> description) (\s@CreateQueue' {} a -> s {description = a} :: CreateQueue)
 
 -- | Specifies whether the pricing plan for the queue is on-demand or
@@ -143,11 +144,11 @@ createQueue_description = Lens.lens (\CreateQueue' {description} -> description)
 -- queue, regardless of how much or how little you use it. Reserved pricing
 -- requires a 12-month commitment. When you use the API to create a queue,
 -- the default is on-demand.
-createQueue_pricingPlan :: Lens.Lens' CreateQueue (Core.Maybe PricingPlan)
+createQueue_pricingPlan :: Lens.Lens' CreateQueue (Prelude.Maybe PricingPlan)
 createQueue_pricingPlan = Lens.lens (\CreateQueue' {pricingPlan} -> pricingPlan) (\s@CreateQueue' {} a -> s {pricingPlan = a} :: CreateQueue)
 
 -- | The name of the queue that you are creating.
-createQueue_name :: Lens.Lens' CreateQueue Core.Text
+createQueue_name :: Lens.Lens' CreateQueue Prelude.Text
 createQueue_name = Lens.lens (\CreateQueue' {name} -> name) (\s@CreateQueue' {} a -> s {name = a} :: CreateQueue)
 
 instance Core.AWSRequest CreateQueue where
@@ -157,42 +158,44 @@ instance Core.AWSRequest CreateQueue where
     Response.receiveJSON
       ( \s h x ->
           CreateQueueResponse'
-            Core.<$> (x Core..?> "queue")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "queue")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateQueue
+instance Prelude.Hashable CreateQueue
 
-instance Core.NFData CreateQueue
+instance Prelude.NFData CreateQueue
 
 instance Core.ToHeaders CreateQueue where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateQueue where
   toJSON CreateQueue' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("status" Core..=) Core.<$> status,
-            ("tags" Core..=) Core.<$> tags,
+      ( Prelude.catMaybes
+          [ ("status" Core..=) Prelude.<$> status,
+            ("tags" Core..=) Prelude.<$> tags,
             ("reservationPlanSettings" Core..=)
-              Core.<$> reservationPlanSettings,
-            ("description" Core..=) Core.<$> description,
-            ("pricingPlan" Core..=) Core.<$> pricingPlan,
-            Core.Just ("name" Core..= name)
+              Prelude.<$> reservationPlanSettings,
+            ("description" Core..=) Prelude.<$> description,
+            ("pricingPlan" Core..=) Prelude.<$> pricingPlan,
+            Prelude.Just ("name" Core..= name)
           ]
       )
 
 instance Core.ToPath CreateQueue where
-  toPath = Core.const "/2017-08-29/queues"
+  toPath = Prelude.const "/2017-08-29/queues"
 
 instance Core.ToQuery CreateQueue where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateQueueResponse' smart constructor.
 data CreateQueueResponse = CreateQueueResponse'
@@ -201,11 +204,11 @@ data CreateQueueResponse = CreateQueueResponse'
     -- you don\'t specify a queue, the service sends all jobs through the
     -- default queue. For more information, see
     -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-queues.html.
-    queue :: Core.Maybe Queue,
+    queue :: Prelude.Maybe Queue,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateQueueResponse' with all optional fields omitted.
@@ -224,11 +227,11 @@ data CreateQueueResponse = CreateQueueResponse'
 -- 'httpStatus', 'createQueueResponse_httpStatus' - The response's http status code.
 newCreateQueueResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateQueueResponse
 newCreateQueueResponse pHttpStatus_ =
   CreateQueueResponse'
-    { queue = Core.Nothing,
+    { queue = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -237,11 +240,11 @@ newCreateQueueResponse pHttpStatus_ =
 -- you don\'t specify a queue, the service sends all jobs through the
 -- default queue. For more information, see
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-queues.html.
-createQueueResponse_queue :: Lens.Lens' CreateQueueResponse (Core.Maybe Queue)
+createQueueResponse_queue :: Lens.Lens' CreateQueueResponse (Prelude.Maybe Queue)
 createQueueResponse_queue = Lens.lens (\CreateQueueResponse' {queue} -> queue) (\s@CreateQueueResponse' {} a -> s {queue = a} :: CreateQueueResponse)
 
 -- | The response's http status code.
-createQueueResponse_httpStatus :: Lens.Lens' CreateQueueResponse Core.Int
+createQueueResponse_httpStatus :: Lens.Lens' CreateQueueResponse Prelude.Int
 createQueueResponse_httpStatus = Lens.lens (\CreateQueueResponse' {httpStatus} -> httpStatus) (\s@CreateQueueResponse' {} a -> s {httpStatus = a} :: CreateQueueResponse)
 
-instance Core.NFData CreateQueueResponse
+instance Prelude.NFData CreateQueueResponse

@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.DBInstanceStatusInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides a list of status information for a DB instance.
 --
@@ -29,17 +30,17 @@ data DBInstanceStatusInfo = DBInstanceStatusInfo'
   { -- | Status of the DB instance. For a StatusType of read replica, the values
     -- can be replicating, replication stop point set, replication stop point
     -- reached, error, stopped, or terminated.
-    status :: Core.Maybe Core.Text,
+    status :: Prelude.Maybe Prelude.Text,
     -- | Details of the error if there is an error for the instance. If the
     -- instance isn\'t in an error state, this value is blank.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | Boolean value that is true if the instance is operating normally, or
     -- false if the instance is in an error state.
-    normal :: Core.Maybe Core.Bool,
+    normal :: Prelude.Maybe Prelude.Bool,
     -- | This value is currently \"read replication.\"
-    statusType :: Core.Maybe Core.Text
+    statusType :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DBInstanceStatusInfo' with all optional fields omitted.
@@ -64,40 +65,40 @@ newDBInstanceStatusInfo ::
   DBInstanceStatusInfo
 newDBInstanceStatusInfo =
   DBInstanceStatusInfo'
-    { status = Core.Nothing,
-      message = Core.Nothing,
-      normal = Core.Nothing,
-      statusType = Core.Nothing
+    { status = Prelude.Nothing,
+      message = Prelude.Nothing,
+      normal = Prelude.Nothing,
+      statusType = Prelude.Nothing
     }
 
 -- | Status of the DB instance. For a StatusType of read replica, the values
 -- can be replicating, replication stop point set, replication stop point
 -- reached, error, stopped, or terminated.
-dbInstanceStatusInfo_status :: Lens.Lens' DBInstanceStatusInfo (Core.Maybe Core.Text)
+dbInstanceStatusInfo_status :: Lens.Lens' DBInstanceStatusInfo (Prelude.Maybe Prelude.Text)
 dbInstanceStatusInfo_status = Lens.lens (\DBInstanceStatusInfo' {status} -> status) (\s@DBInstanceStatusInfo' {} a -> s {status = a} :: DBInstanceStatusInfo)
 
 -- | Details of the error if there is an error for the instance. If the
 -- instance isn\'t in an error state, this value is blank.
-dbInstanceStatusInfo_message :: Lens.Lens' DBInstanceStatusInfo (Core.Maybe Core.Text)
+dbInstanceStatusInfo_message :: Lens.Lens' DBInstanceStatusInfo (Prelude.Maybe Prelude.Text)
 dbInstanceStatusInfo_message = Lens.lens (\DBInstanceStatusInfo' {message} -> message) (\s@DBInstanceStatusInfo' {} a -> s {message = a} :: DBInstanceStatusInfo)
 
 -- | Boolean value that is true if the instance is operating normally, or
 -- false if the instance is in an error state.
-dbInstanceStatusInfo_normal :: Lens.Lens' DBInstanceStatusInfo (Core.Maybe Core.Bool)
+dbInstanceStatusInfo_normal :: Lens.Lens' DBInstanceStatusInfo (Prelude.Maybe Prelude.Bool)
 dbInstanceStatusInfo_normal = Lens.lens (\DBInstanceStatusInfo' {normal} -> normal) (\s@DBInstanceStatusInfo' {} a -> s {normal = a} :: DBInstanceStatusInfo)
 
 -- | This value is currently \"read replication.\"
-dbInstanceStatusInfo_statusType :: Lens.Lens' DBInstanceStatusInfo (Core.Maybe Core.Text)
+dbInstanceStatusInfo_statusType :: Lens.Lens' DBInstanceStatusInfo (Prelude.Maybe Prelude.Text)
 dbInstanceStatusInfo_statusType = Lens.lens (\DBInstanceStatusInfo' {statusType} -> statusType) (\s@DBInstanceStatusInfo' {} a -> s {statusType = a} :: DBInstanceStatusInfo)
 
 instance Core.FromXML DBInstanceStatusInfo where
   parseXML x =
     DBInstanceStatusInfo'
-      Core.<$> (x Core..@? "Status")
-      Core.<*> (x Core..@? "Message")
-      Core.<*> (x Core..@? "Normal")
-      Core.<*> (x Core..@? "StatusType")
+      Prelude.<$> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "Message")
+      Prelude.<*> (x Core..@? "Normal")
+      Prelude.<*> (x Core..@? "StatusType")
 
-instance Core.Hashable DBInstanceStatusInfo
+instance Prelude.Hashable DBInstanceStatusInfo
 
-instance Core.NFData DBInstanceStatusInfo
+instance Prelude.NFData DBInstanceStatusInfo

@@ -21,19 +21,20 @@ module Network.AWS.IoT.Types.EffectivePolicy where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The policy that has the effect on the authorization results.
 --
 -- /See:/ 'newEffectivePolicy' smart constructor.
 data EffectivePolicy = EffectivePolicy'
   { -- | The policy name.
-    policyName :: Core.Maybe Core.Text,
+    policyName :: Prelude.Maybe Prelude.Text,
     -- | The IAM policy document.
-    policyDocument :: Core.Maybe Core.Text,
+    policyDocument :: Prelude.Maybe Prelude.Text,
     -- | The policy ARN.
-    policyArn :: Core.Maybe Core.Text
+    policyArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EffectivePolicy' with all optional fields omitted.
@@ -52,21 +53,21 @@ newEffectivePolicy ::
   EffectivePolicy
 newEffectivePolicy =
   EffectivePolicy'
-    { policyName = Core.Nothing,
-      policyDocument = Core.Nothing,
-      policyArn = Core.Nothing
+    { policyName = Prelude.Nothing,
+      policyDocument = Prelude.Nothing,
+      policyArn = Prelude.Nothing
     }
 
 -- | The policy name.
-effectivePolicy_policyName :: Lens.Lens' EffectivePolicy (Core.Maybe Core.Text)
+effectivePolicy_policyName :: Lens.Lens' EffectivePolicy (Prelude.Maybe Prelude.Text)
 effectivePolicy_policyName = Lens.lens (\EffectivePolicy' {policyName} -> policyName) (\s@EffectivePolicy' {} a -> s {policyName = a} :: EffectivePolicy)
 
 -- | The IAM policy document.
-effectivePolicy_policyDocument :: Lens.Lens' EffectivePolicy (Core.Maybe Core.Text)
+effectivePolicy_policyDocument :: Lens.Lens' EffectivePolicy (Prelude.Maybe Prelude.Text)
 effectivePolicy_policyDocument = Lens.lens (\EffectivePolicy' {policyDocument} -> policyDocument) (\s@EffectivePolicy' {} a -> s {policyDocument = a} :: EffectivePolicy)
 
 -- | The policy ARN.
-effectivePolicy_policyArn :: Lens.Lens' EffectivePolicy (Core.Maybe Core.Text)
+effectivePolicy_policyArn :: Lens.Lens' EffectivePolicy (Prelude.Maybe Prelude.Text)
 effectivePolicy_policyArn = Lens.lens (\EffectivePolicy' {policyArn} -> policyArn) (\s@EffectivePolicy' {} a -> s {policyArn = a} :: EffectivePolicy)
 
 instance Core.FromJSON EffectivePolicy where
@@ -75,11 +76,11 @@ instance Core.FromJSON EffectivePolicy where
       "EffectivePolicy"
       ( \x ->
           EffectivePolicy'
-            Core.<$> (x Core..:? "policyName")
-            Core.<*> (x Core..:? "policyDocument")
-            Core.<*> (x Core..:? "policyArn")
+            Prelude.<$> (x Core..:? "policyName")
+            Prelude.<*> (x Core..:? "policyDocument")
+            Prelude.<*> (x Core..:? "policyArn")
       )
 
-instance Core.Hashable EffectivePolicy
+instance Prelude.Hashable EffectivePolicy
 
-instance Core.NFData EffectivePolicy
+instance Prelude.NFData EffectivePolicy

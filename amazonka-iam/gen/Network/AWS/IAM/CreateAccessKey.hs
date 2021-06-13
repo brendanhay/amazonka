@@ -59,6 +59,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,9 +71,9 @@ data CreateAccessKey = CreateAccessKey'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Core.Maybe Core.Text
+    userName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAccessKey' with all optional fields omitted.
@@ -91,7 +92,7 @@ data CreateAccessKey = CreateAccessKey'
 newCreateAccessKey ::
   CreateAccessKey
 newCreateAccessKey =
-  CreateAccessKey' {userName = Core.Nothing}
+  CreateAccessKey' {userName = Prelude.Nothing}
 
 -- | The name of the IAM user that the new key will belong to.
 --
@@ -99,7 +100,7 @@ newCreateAccessKey =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-createAccessKey_userName :: Lens.Lens' CreateAccessKey (Core.Maybe Core.Text)
+createAccessKey_userName :: Lens.Lens' CreateAccessKey (Prelude.Maybe Prelude.Text)
 createAccessKey_userName = Lens.lens (\CreateAccessKey' {userName} -> userName) (\s@CreateAccessKey' {} a -> s {userName = a} :: CreateAccessKey)
 
 instance Core.AWSRequest CreateAccessKey where
@@ -112,26 +113,27 @@ instance Core.AWSRequest CreateAccessKey where
       "CreateAccessKeyResult"
       ( \s h x ->
           CreateAccessKeyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "AccessKey")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "AccessKey")
       )
 
-instance Core.Hashable CreateAccessKey
+instance Prelude.Hashable CreateAccessKey
 
-instance Core.NFData CreateAccessKey
+instance Prelude.NFData CreateAccessKey
 
 instance Core.ToHeaders CreateAccessKey where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateAccessKey where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateAccessKey where
   toQuery CreateAccessKey' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateAccessKey" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("CreateAccessKey" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "UserName" Core.=: userName
       ]
 
@@ -140,11 +142,11 @@ instance Core.ToQuery CreateAccessKey where
 -- /See:/ 'newCreateAccessKeyResponse' smart constructor.
 data CreateAccessKeyResponse = CreateAccessKeyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A structure with details about the access key.
     accessKey :: AccessKeyInfo
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAccessKeyResponse' with all optional fields omitted.
@@ -159,7 +161,7 @@ data CreateAccessKeyResponse = CreateAccessKeyResponse'
 -- 'accessKey', 'createAccessKeyResponse_accessKey' - A structure with details about the access key.
 newCreateAccessKeyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'accessKey'
   AccessKeyInfo ->
   CreateAccessKeyResponse
@@ -170,11 +172,11 @@ newCreateAccessKeyResponse pHttpStatus_ pAccessKey_ =
     }
 
 -- | The response's http status code.
-createAccessKeyResponse_httpStatus :: Lens.Lens' CreateAccessKeyResponse Core.Int
+createAccessKeyResponse_httpStatus :: Lens.Lens' CreateAccessKeyResponse Prelude.Int
 createAccessKeyResponse_httpStatus = Lens.lens (\CreateAccessKeyResponse' {httpStatus} -> httpStatus) (\s@CreateAccessKeyResponse' {} a -> s {httpStatus = a} :: CreateAccessKeyResponse)
 
 -- | A structure with details about the access key.
 createAccessKeyResponse_accessKey :: Lens.Lens' CreateAccessKeyResponse AccessKeyInfo
 createAccessKeyResponse_accessKey = Lens.lens (\CreateAccessKeyResponse' {accessKey} -> accessKey) (\s@CreateAccessKeyResponse' {} a -> s {accessKey = a} :: CreateAccessKeyResponse)
 
-instance Core.NFData CreateAccessKeyResponse
+instance Prelude.NFData CreateAccessKeyResponse

@@ -27,6 +27,7 @@ module Network.AWS.MediaLive.Types.Scte35SegmentationCancelIndicator
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Corresponds to SCTE-35 segmentation_event_cancel_indicator.
 -- SEGMENTATION_EVENT_NOT_CANCELED corresponds to 0 in the SCTE-35
@@ -39,15 +40,15 @@ newtype Scte35SegmentationCancelIndicator = Scte35SegmentationCancelIndicator'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -82,6 +82,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -91,12 +92,12 @@ data AssociateAddress = AssociateAddress'
     -- network interface. For EC2-VPC, you can specify either the instance ID
     -- or the network interface ID, but not both. For EC2-Classic, you must
     -- specify an instance ID and the instance must be in the running state.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an
     -- Elastic IP address that is already associated with an instance or
     -- network interface to be reassociated with the specified instance or
@@ -104,24 +105,24 @@ data AssociateAddress = AssociateAddress'
     -- EC2-VPC-only account, reassociation is automatic, therefore you can
     -- specify false to ensure the operation fails if the Elastic IP address is
     -- already associated with another resource.
-    allowReassociation :: Core.Maybe Core.Bool,
+    allowReassociation :: Prelude.Maybe Prelude.Bool,
     -- | [EC2-VPC] The ID of the network interface. If the instance has more than
     -- one network interface, you must specify a network interface ID.
     --
     -- For EC2-VPC, you can specify either the instance ID or the network
     -- interface ID, but not both.
-    networkInterfaceId :: Core.Maybe Core.Text,
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | [EC2-Classic] The Elastic IP address to associate with the instance.
     -- This is required for EC2-Classic.
-    publicIp :: Core.Maybe Core.Text,
+    publicIp :: Prelude.Maybe Prelude.Text,
     -- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
-    allocationId :: Core.Maybe Core.Text,
+    allocationId :: Prelude.Maybe Prelude.Text,
     -- | [EC2-VPC] The primary or secondary private IP address to associate with
     -- the Elastic IP address. If no private IP address is specified, the
     -- Elastic IP address is associated with the primary private IP address.
-    privateIpAddress :: Core.Maybe Core.Text
+    privateIpAddress :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateAddress' with all optional fields omitted.
@@ -167,27 +168,27 @@ newAssociateAddress ::
   AssociateAddress
 newAssociateAddress =
   AssociateAddress'
-    { instanceId = Core.Nothing,
-      dryRun = Core.Nothing,
-      allowReassociation = Core.Nothing,
-      networkInterfaceId = Core.Nothing,
-      publicIp = Core.Nothing,
-      allocationId = Core.Nothing,
-      privateIpAddress = Core.Nothing
+    { instanceId = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      allowReassociation = Prelude.Nothing,
+      networkInterfaceId = Prelude.Nothing,
+      publicIp = Prelude.Nothing,
+      allocationId = Prelude.Nothing,
+      privateIpAddress = Prelude.Nothing
     }
 
 -- | The ID of the instance. The instance must have exactly one attached
 -- network interface. For EC2-VPC, you can specify either the instance ID
 -- or the network interface ID, but not both. For EC2-Classic, you must
 -- specify an instance ID and the instance must be in the running state.
-associateAddress_instanceId :: Lens.Lens' AssociateAddress (Core.Maybe Core.Text)
+associateAddress_instanceId :: Lens.Lens' AssociateAddress (Prelude.Maybe Prelude.Text)
 associateAddress_instanceId = Lens.lens (\AssociateAddress' {instanceId} -> instanceId) (\s@AssociateAddress' {} a -> s {instanceId = a} :: AssociateAddress)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-associateAddress_dryRun :: Lens.Lens' AssociateAddress (Core.Maybe Core.Bool)
+associateAddress_dryRun :: Lens.Lens' AssociateAddress (Prelude.Maybe Prelude.Bool)
 associateAddress_dryRun = Lens.lens (\AssociateAddress' {dryRun} -> dryRun) (\s@AssociateAddress' {} a -> s {dryRun = a} :: AssociateAddress)
 
 -- | [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an
@@ -197,7 +198,7 @@ associateAddress_dryRun = Lens.lens (\AssociateAddress' {dryRun} -> dryRun) (\s@
 -- EC2-VPC-only account, reassociation is automatic, therefore you can
 -- specify false to ensure the operation fails if the Elastic IP address is
 -- already associated with another resource.
-associateAddress_allowReassociation :: Lens.Lens' AssociateAddress (Core.Maybe Core.Bool)
+associateAddress_allowReassociation :: Lens.Lens' AssociateAddress (Prelude.Maybe Prelude.Bool)
 associateAddress_allowReassociation = Lens.lens (\AssociateAddress' {allowReassociation} -> allowReassociation) (\s@AssociateAddress' {} a -> s {allowReassociation = a} :: AssociateAddress)
 
 -- | [EC2-VPC] The ID of the network interface. If the instance has more than
@@ -205,22 +206,22 @@ associateAddress_allowReassociation = Lens.lens (\AssociateAddress' {allowReasso
 --
 -- For EC2-VPC, you can specify either the instance ID or the network
 -- interface ID, but not both.
-associateAddress_networkInterfaceId :: Lens.Lens' AssociateAddress (Core.Maybe Core.Text)
+associateAddress_networkInterfaceId :: Lens.Lens' AssociateAddress (Prelude.Maybe Prelude.Text)
 associateAddress_networkInterfaceId = Lens.lens (\AssociateAddress' {networkInterfaceId} -> networkInterfaceId) (\s@AssociateAddress' {} a -> s {networkInterfaceId = a} :: AssociateAddress)
 
 -- | [EC2-Classic] The Elastic IP address to associate with the instance.
 -- This is required for EC2-Classic.
-associateAddress_publicIp :: Lens.Lens' AssociateAddress (Core.Maybe Core.Text)
+associateAddress_publicIp :: Lens.Lens' AssociateAddress (Prelude.Maybe Prelude.Text)
 associateAddress_publicIp = Lens.lens (\AssociateAddress' {publicIp} -> publicIp) (\s@AssociateAddress' {} a -> s {publicIp = a} :: AssociateAddress)
 
 -- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
-associateAddress_allocationId :: Lens.Lens' AssociateAddress (Core.Maybe Core.Text)
+associateAddress_allocationId :: Lens.Lens' AssociateAddress (Prelude.Maybe Prelude.Text)
 associateAddress_allocationId = Lens.lens (\AssociateAddress' {allocationId} -> allocationId) (\s@AssociateAddress' {} a -> s {allocationId = a} :: AssociateAddress)
 
 -- | [EC2-VPC] The primary or secondary private IP address to associate with
 -- the Elastic IP address. If no private IP address is specified, the
 -- Elastic IP address is associated with the primary private IP address.
-associateAddress_privateIpAddress :: Lens.Lens' AssociateAddress (Core.Maybe Core.Text)
+associateAddress_privateIpAddress :: Lens.Lens' AssociateAddress (Prelude.Maybe Prelude.Text)
 associateAddress_privateIpAddress = Lens.lens (\AssociateAddress' {privateIpAddress} -> privateIpAddress) (\s@AssociateAddress' {} a -> s {privateIpAddress = a} :: AssociateAddress)
 
 instance Core.AWSRequest AssociateAddress where
@@ -232,26 +233,27 @@ instance Core.AWSRequest AssociateAddress where
     Response.receiveXML
       ( \s h x ->
           AssociateAddressResponse'
-            Core.<$> (x Core..@? "associationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "associationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AssociateAddress
+instance Prelude.Hashable AssociateAddress
 
-instance Core.NFData AssociateAddress
+instance Prelude.NFData AssociateAddress
 
 instance Core.ToHeaders AssociateAddress where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AssociateAddress where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AssociateAddress where
   toQuery AssociateAddress' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("AssociateAddress" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("AssociateAddress" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "InstanceId" Core.=: instanceId,
         "DryRun" Core.=: dryRun,
         "AllowReassociation" Core.=: allowReassociation,
@@ -265,11 +267,11 @@ instance Core.ToQuery AssociateAddress where
 data AssociateAddressResponse = AssociateAddressResponse'
   { -- | [EC2-VPC] The ID that represents the association of the Elastic IP
     -- address with an instance.
-    associationId :: Core.Maybe Core.Text,
+    associationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateAddressResponse' with all optional fields omitted.
@@ -285,22 +287,22 @@ data AssociateAddressResponse = AssociateAddressResponse'
 -- 'httpStatus', 'associateAddressResponse_httpStatus' - The response's http status code.
 newAssociateAddressResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssociateAddressResponse
 newAssociateAddressResponse pHttpStatus_ =
   AssociateAddressResponse'
     { associationId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | [EC2-VPC] The ID that represents the association of the Elastic IP
 -- address with an instance.
-associateAddressResponse_associationId :: Lens.Lens' AssociateAddressResponse (Core.Maybe Core.Text)
+associateAddressResponse_associationId :: Lens.Lens' AssociateAddressResponse (Prelude.Maybe Prelude.Text)
 associateAddressResponse_associationId = Lens.lens (\AssociateAddressResponse' {associationId} -> associationId) (\s@AssociateAddressResponse' {} a -> s {associationId = a} :: AssociateAddressResponse)
 
 -- | The response's http status code.
-associateAddressResponse_httpStatus :: Lens.Lens' AssociateAddressResponse Core.Int
+associateAddressResponse_httpStatus :: Lens.Lens' AssociateAddressResponse Prelude.Int
 associateAddressResponse_httpStatus = Lens.lens (\AssociateAddressResponse' {httpStatus} -> httpStatus) (\s@AssociateAddressResponse' {} a -> s {httpStatus = a} :: AssociateAddressResponse)
 
-instance Core.NFData AssociateAddressResponse
+instance Prelude.NFData AssociateAddressResponse

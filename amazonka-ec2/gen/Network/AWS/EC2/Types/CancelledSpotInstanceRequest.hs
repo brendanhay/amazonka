@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CancelSpotInstanceRequestState
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a request to cancel a Spot Instance.
 --
 -- /See:/ 'newCancelledSpotInstanceRequest' smart constructor.
 data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest'
   { -- | The state of the Spot Instance request.
-    state :: Core.Maybe CancelSpotInstanceRequestState,
+    state :: Prelude.Maybe CancelSpotInstanceRequestState,
     -- | The ID of the Spot Instance request.
-    spotInstanceRequestId :: Core.Maybe Core.Text
+    spotInstanceRequestId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelledSpotInstanceRequest' with all optional fields omitted.
@@ -50,24 +51,27 @@ newCancelledSpotInstanceRequest ::
   CancelledSpotInstanceRequest
 newCancelledSpotInstanceRequest =
   CancelledSpotInstanceRequest'
-    { state = Core.Nothing,
-      spotInstanceRequestId = Core.Nothing
+    { state =
+        Prelude.Nothing,
+      spotInstanceRequestId = Prelude.Nothing
     }
 
 -- | The state of the Spot Instance request.
-cancelledSpotInstanceRequest_state :: Lens.Lens' CancelledSpotInstanceRequest (Core.Maybe CancelSpotInstanceRequestState)
+cancelledSpotInstanceRequest_state :: Lens.Lens' CancelledSpotInstanceRequest (Prelude.Maybe CancelSpotInstanceRequestState)
 cancelledSpotInstanceRequest_state = Lens.lens (\CancelledSpotInstanceRequest' {state} -> state) (\s@CancelledSpotInstanceRequest' {} a -> s {state = a} :: CancelledSpotInstanceRequest)
 
 -- | The ID of the Spot Instance request.
-cancelledSpotInstanceRequest_spotInstanceRequestId :: Lens.Lens' CancelledSpotInstanceRequest (Core.Maybe Core.Text)
+cancelledSpotInstanceRequest_spotInstanceRequestId :: Lens.Lens' CancelledSpotInstanceRequest (Prelude.Maybe Prelude.Text)
 cancelledSpotInstanceRequest_spotInstanceRequestId = Lens.lens (\CancelledSpotInstanceRequest' {spotInstanceRequestId} -> spotInstanceRequestId) (\s@CancelledSpotInstanceRequest' {} a -> s {spotInstanceRequestId = a} :: CancelledSpotInstanceRequest)
 
 instance Core.FromXML CancelledSpotInstanceRequest where
   parseXML x =
     CancelledSpotInstanceRequest'
-      Core.<$> (x Core..@? "state")
-      Core.<*> (x Core..@? "spotInstanceRequestId")
+      Prelude.<$> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "spotInstanceRequestId")
 
-instance Core.Hashable CancelledSpotInstanceRequest
+instance
+  Prelude.Hashable
+    CancelledSpotInstanceRequest
 
-instance Core.NFData CancelledSpotInstanceRequest
+instance Prelude.NFData CancelledSpotInstanceRequest

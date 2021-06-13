@@ -21,15 +21,16 @@ module Network.AWS.Lambda.Types.OnFailure where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A destination for events that failed processing.
 --
 -- /See:/ 'newOnFailure' smart constructor.
 data OnFailure = OnFailure'
   { -- | The Amazon Resource Name (ARN) of the destination resource.
-    destination :: Core.Maybe Core.Text
+    destination :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OnFailure' with all optional fields omitted.
@@ -42,10 +43,11 @@ data OnFailure = OnFailure'
 -- 'destination', 'onFailure_destination' - The Amazon Resource Name (ARN) of the destination resource.
 newOnFailure ::
   OnFailure
-newOnFailure = OnFailure' {destination = Core.Nothing}
+newOnFailure =
+  OnFailure' {destination = Prelude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the destination resource.
-onFailure_destination :: Lens.Lens' OnFailure (Core.Maybe Core.Text)
+onFailure_destination :: Lens.Lens' OnFailure (Prelude.Maybe Prelude.Text)
 onFailure_destination = Lens.lens (\OnFailure' {destination} -> destination) (\s@OnFailure' {} a -> s {destination = a} :: OnFailure)
 
 instance Core.FromJSON OnFailure where
@@ -53,16 +55,16 @@ instance Core.FromJSON OnFailure where
     Core.withObject
       "OnFailure"
       ( \x ->
-          OnFailure' Core.<$> (x Core..:? "Destination")
+          OnFailure' Prelude.<$> (x Core..:? "Destination")
       )
 
-instance Core.Hashable OnFailure
+instance Prelude.Hashable OnFailure
 
-instance Core.NFData OnFailure
+instance Prelude.NFData OnFailure
 
 instance Core.ToJSON OnFailure where
   toJSON OnFailure' {..} =
     Core.object
-      ( Core.catMaybes
-          [("Destination" Core..=) Core.<$> destination]
+      ( Prelude.catMaybes
+          [("Destination" Core..=) Prelude.<$> destination]
       )

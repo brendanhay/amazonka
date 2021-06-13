@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.SmpteTtDestinationSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Smpte Tt Destination Settings
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data SmpteTtDestinationSettings = SmpteTtDestinationSettings'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SmpteTtDestinationSettings' with all optional fields omitted.
@@ -43,11 +44,11 @@ instance Core.FromJSON SmpteTtDestinationSettings where
   parseJSON =
     Core.withObject
       "SmpteTtDestinationSettings"
-      (\x -> Core.pure SmpteTtDestinationSettings')
+      (\x -> Prelude.pure SmpteTtDestinationSettings')
 
-instance Core.Hashable SmpteTtDestinationSettings
+instance Prelude.Hashable SmpteTtDestinationSettings
 
-instance Core.NFData SmpteTtDestinationSettings
+instance Prelude.NFData SmpteTtDestinationSettings
 
 instance Core.ToJSON SmpteTtDestinationSettings where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)

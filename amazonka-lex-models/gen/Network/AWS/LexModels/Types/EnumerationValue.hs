@@ -21,6 +21,7 @@ module Network.AWS.LexModels.Types.EnumerationValue where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Each slot type can have a set of values. Each enumeration value
 -- represents a value the slot type can take.
@@ -38,11 +39,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEnumerationValue' smart constructor.
 data EnumerationValue = EnumerationValue'
   { -- | Additional values related to the slot type value.
-    synonyms :: Core.Maybe [Core.Text],
+    synonyms :: Prelude.Maybe [Prelude.Text],
     -- | The value of the slot type.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnumerationValue' with all optional fields omitted.
@@ -57,20 +58,20 @@ data EnumerationValue = EnumerationValue'
 -- 'value', 'enumerationValue_value' - The value of the slot type.
 newEnumerationValue ::
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   EnumerationValue
 newEnumerationValue pValue_ =
   EnumerationValue'
-    { synonyms = Core.Nothing,
+    { synonyms = Prelude.Nothing,
       value = pValue_
     }
 
 -- | Additional values related to the slot type value.
-enumerationValue_synonyms :: Lens.Lens' EnumerationValue (Core.Maybe [Core.Text])
-enumerationValue_synonyms = Lens.lens (\EnumerationValue' {synonyms} -> synonyms) (\s@EnumerationValue' {} a -> s {synonyms = a} :: EnumerationValue) Core.. Lens.mapping Lens._Coerce
+enumerationValue_synonyms :: Lens.Lens' EnumerationValue (Prelude.Maybe [Prelude.Text])
+enumerationValue_synonyms = Lens.lens (\EnumerationValue' {synonyms} -> synonyms) (\s@EnumerationValue' {} a -> s {synonyms = a} :: EnumerationValue) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The value of the slot type.
-enumerationValue_value :: Lens.Lens' EnumerationValue Core.Text
+enumerationValue_value :: Lens.Lens' EnumerationValue Prelude.Text
 enumerationValue_value = Lens.lens (\EnumerationValue' {value} -> value) (\s@EnumerationValue' {} a -> s {value = a} :: EnumerationValue)
 
 instance Core.FromJSON EnumerationValue where
@@ -79,19 +80,19 @@ instance Core.FromJSON EnumerationValue where
       "EnumerationValue"
       ( \x ->
           EnumerationValue'
-            Core.<$> (x Core..:? "synonyms" Core..!= Core.mempty)
-            Core.<*> (x Core..: "value")
+            Prelude.<$> (x Core..:? "synonyms" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "value")
       )
 
-instance Core.Hashable EnumerationValue
+instance Prelude.Hashable EnumerationValue
 
-instance Core.NFData EnumerationValue
+instance Prelude.NFData EnumerationValue
 
 instance Core.ToJSON EnumerationValue where
   toJSON EnumerationValue' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("synonyms" Core..=) Core.<$> synonyms,
-            Core.Just ("value" Core..= value)
+      ( Prelude.catMaybes
+          [ ("synonyms" Core..=) Prelude.<$> synonyms,
+            Prelude.Just ("value" Core..= value)
           ]
       )

@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.DescribeEndpointsMode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Optional field, defaults to DEFAULT. Specify DEFAULT for this operation
 -- to return your endpoints if any exist, or to create an endpoint for you
@@ -37,15 +38,15 @@ newtype DescribeEndpointsMode = DescribeEndpointsMode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,15 +65,15 @@ data BatchDeleteImage = BatchDeleteImage'
   { -- | The AWS account ID associated with the registry that contains the image
     -- to delete. If you do not specify a registry, the default registry is
     -- assumed.
-    registryId :: Core.Maybe Core.Text,
+    registryId :: Prelude.Maybe Prelude.Text,
     -- | The repository that contains the image to delete.
-    repositoryName :: Core.Text,
+    repositoryName :: Prelude.Text,
     -- | A list of image ID references that correspond to images to delete. The
     -- format of the @imageIds@ reference is @imageTag=tag@ or
     -- @imageDigest=digest@.
     imageIds :: [ImageIdentifier]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteImage' with all optional fields omitted.
@@ -93,30 +94,30 @@ data BatchDeleteImage = BatchDeleteImage'
 -- @imageDigest=digest@.
 newBatchDeleteImage ::
   -- | 'repositoryName'
-  Core.Text ->
+  Prelude.Text ->
   BatchDeleteImage
 newBatchDeleteImage pRepositoryName_ =
   BatchDeleteImage'
-    { registryId = Core.Nothing,
+    { registryId = Prelude.Nothing,
       repositoryName = pRepositoryName_,
-      imageIds = Core.mempty
+      imageIds = Prelude.mempty
     }
 
 -- | The AWS account ID associated with the registry that contains the image
 -- to delete. If you do not specify a registry, the default registry is
 -- assumed.
-batchDeleteImage_registryId :: Lens.Lens' BatchDeleteImage (Core.Maybe Core.Text)
+batchDeleteImage_registryId :: Lens.Lens' BatchDeleteImage (Prelude.Maybe Prelude.Text)
 batchDeleteImage_registryId = Lens.lens (\BatchDeleteImage' {registryId} -> registryId) (\s@BatchDeleteImage' {} a -> s {registryId = a} :: BatchDeleteImage)
 
 -- | The repository that contains the image to delete.
-batchDeleteImage_repositoryName :: Lens.Lens' BatchDeleteImage Core.Text
+batchDeleteImage_repositoryName :: Lens.Lens' BatchDeleteImage Prelude.Text
 batchDeleteImage_repositoryName = Lens.lens (\BatchDeleteImage' {repositoryName} -> repositoryName) (\s@BatchDeleteImage' {} a -> s {repositoryName = a} :: BatchDeleteImage)
 
 -- | A list of image ID references that correspond to images to delete. The
 -- format of the @imageIds@ reference is @imageTag=tag@ or
 -- @imageDigest=digest@.
 batchDeleteImage_imageIds :: Lens.Lens' BatchDeleteImage [ImageIdentifier]
-batchDeleteImage_imageIds = Lens.lens (\BatchDeleteImage' {imageIds} -> imageIds) (\s@BatchDeleteImage' {} a -> s {imageIds = a} :: BatchDeleteImage) Core.. Lens._Coerce
+batchDeleteImage_imageIds = Lens.lens (\BatchDeleteImage' {imageIds} -> imageIds) (\s@BatchDeleteImage' {} a -> s {imageIds = a} :: BatchDeleteImage) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchDeleteImage where
   type
@@ -127,54 +128,57 @@ instance Core.AWSRequest BatchDeleteImage where
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteImageResponse'
-            Core.<$> (x Core..?> "imageIds" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "failures" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "imageIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchDeleteImage
+instance Prelude.Hashable BatchDeleteImage
 
-instance Core.NFData BatchDeleteImage
+instance Prelude.NFData BatchDeleteImage
 
 instance Core.ToHeaders BatchDeleteImage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonEC2ContainerRegistry_V20150921.BatchDeleteImage" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchDeleteImage where
   toJSON BatchDeleteImage' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("registryId" Core..=) Core.<$> registryId,
-            Core.Just ("repositoryName" Core..= repositoryName),
-            Core.Just ("imageIds" Core..= imageIds)
+      ( Prelude.catMaybes
+          [ ("registryId" Core..=) Prelude.<$> registryId,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName),
+            Prelude.Just ("imageIds" Core..= imageIds)
           ]
       )
 
 instance Core.ToPath BatchDeleteImage where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchDeleteImage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDeleteImageResponse' smart constructor.
 data BatchDeleteImageResponse = BatchDeleteImageResponse'
   { -- | The image IDs of the deleted images.
-    imageIds :: Core.Maybe [ImageIdentifier],
+    imageIds :: Prelude.Maybe [ImageIdentifier],
     -- | Any failures associated with the call.
-    failures :: Core.Maybe [ImageFailure],
+    failures :: Prelude.Maybe [ImageFailure],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteImageResponse' with all optional fields omitted.
@@ -191,25 +195,26 @@ data BatchDeleteImageResponse = BatchDeleteImageResponse'
 -- 'httpStatus', 'batchDeleteImageResponse_httpStatus' - The response's http status code.
 newBatchDeleteImageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchDeleteImageResponse
 newBatchDeleteImageResponse pHttpStatus_ =
   BatchDeleteImageResponse'
-    { imageIds = Core.Nothing,
-      failures = Core.Nothing,
+    { imageIds =
+        Prelude.Nothing,
+      failures = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The image IDs of the deleted images.
-batchDeleteImageResponse_imageIds :: Lens.Lens' BatchDeleteImageResponse (Core.Maybe [ImageIdentifier])
-batchDeleteImageResponse_imageIds = Lens.lens (\BatchDeleteImageResponse' {imageIds} -> imageIds) (\s@BatchDeleteImageResponse' {} a -> s {imageIds = a} :: BatchDeleteImageResponse) Core.. Lens.mapping Lens._Coerce
+batchDeleteImageResponse_imageIds :: Lens.Lens' BatchDeleteImageResponse (Prelude.Maybe [ImageIdentifier])
+batchDeleteImageResponse_imageIds = Lens.lens (\BatchDeleteImageResponse' {imageIds} -> imageIds) (\s@BatchDeleteImageResponse' {} a -> s {imageIds = a} :: BatchDeleteImageResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Any failures associated with the call.
-batchDeleteImageResponse_failures :: Lens.Lens' BatchDeleteImageResponse (Core.Maybe [ImageFailure])
-batchDeleteImageResponse_failures = Lens.lens (\BatchDeleteImageResponse' {failures} -> failures) (\s@BatchDeleteImageResponse' {} a -> s {failures = a} :: BatchDeleteImageResponse) Core.. Lens.mapping Lens._Coerce
+batchDeleteImageResponse_failures :: Lens.Lens' BatchDeleteImageResponse (Prelude.Maybe [ImageFailure])
+batchDeleteImageResponse_failures = Lens.lens (\BatchDeleteImageResponse' {failures} -> failures) (\s@BatchDeleteImageResponse' {} a -> s {failures = a} :: BatchDeleteImageResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchDeleteImageResponse_httpStatus :: Lens.Lens' BatchDeleteImageResponse Core.Int
+batchDeleteImageResponse_httpStatus :: Lens.Lens' BatchDeleteImageResponse Prelude.Int
 batchDeleteImageResponse_httpStatus = Lens.lens (\BatchDeleteImageResponse' {httpStatus} -> httpStatus) (\s@BatchDeleteImageResponse' {} a -> s {httpStatus = a} :: BatchDeleteImageResponse)
 
-instance Core.NFData BatchDeleteImageResponse
+instance Prelude.NFData BatchDeleteImageResponse

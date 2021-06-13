@@ -21,6 +21,7 @@ module Network.AWS.Translate.Types.OutputDataConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The output configuration properties for a batch translation job.
 --
@@ -29,9 +30,9 @@ data OutputDataConfig = OutputDataConfig'
   { -- | The URI of the S3 folder that contains a translation job\'s output file.
     -- The folder must be in the same Region as the API endpoint that you are
     -- calling.
-    s3Uri :: Core.Text
+    s3Uri :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OutputDataConfig' with all optional fields omitted.
@@ -46,7 +47,7 @@ data OutputDataConfig = OutputDataConfig'
 -- calling.
 newOutputDataConfig ::
   -- | 's3Uri'
-  Core.Text ->
+  Prelude.Text ->
   OutputDataConfig
 newOutputDataConfig pS3Uri_ =
   OutputDataConfig' {s3Uri = pS3Uri_}
@@ -54,7 +55,7 @@ newOutputDataConfig pS3Uri_ =
 -- | The URI of the S3 folder that contains a translation job\'s output file.
 -- The folder must be in the same Region as the API endpoint that you are
 -- calling.
-outputDataConfig_s3Uri :: Lens.Lens' OutputDataConfig Core.Text
+outputDataConfig_s3Uri :: Lens.Lens' OutputDataConfig Prelude.Text
 outputDataConfig_s3Uri = Lens.lens (\OutputDataConfig' {s3Uri} -> s3Uri) (\s@OutputDataConfig' {} a -> s {s3Uri = a} :: OutputDataConfig)
 
 instance Core.FromJSON OutputDataConfig where
@@ -62,14 +63,16 @@ instance Core.FromJSON OutputDataConfig where
     Core.withObject
       "OutputDataConfig"
       ( \x ->
-          OutputDataConfig' Core.<$> (x Core..: "S3Uri")
+          OutputDataConfig' Prelude.<$> (x Core..: "S3Uri")
       )
 
-instance Core.Hashable OutputDataConfig
+instance Prelude.Hashable OutputDataConfig
 
-instance Core.NFData OutputDataConfig
+instance Prelude.NFData OutputDataConfig
 
 instance Core.ToJSON OutputDataConfig where
   toJSON OutputDataConfig' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("S3Uri" Core..= s3Uri)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("S3Uri" Core..= s3Uri)]
+      )

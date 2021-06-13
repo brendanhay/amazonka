@@ -23,27 +23,28 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.ResourceDetails
 import Network.AWS.CostExplorer.Types.ResourceUtilization
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Details on recommended instance.
 --
 -- /See:/ 'newTargetInstance' smart constructor.
 data TargetInstance = TargetInstance'
   { -- | Estimated savings resulting from modification, on a monthly basis.
-    estimatedMonthlySavings :: Core.Maybe Core.Text,
+    estimatedMonthlySavings :: Prelude.Maybe Prelude.Text,
     -- | The currency code that AWS used to calculate the costs for this
     -- instance.
-    currencyCode :: Core.Maybe Core.Text,
+    currencyCode :: Prelude.Maybe Prelude.Text,
     -- | Expected cost to operate this instance type on a monthly basis.
-    estimatedMonthlyCost :: Core.Maybe Core.Text,
+    estimatedMonthlyCost :: Prelude.Maybe Prelude.Text,
     -- | Expected utilization metrics for target instance type.
-    expectedResourceUtilization :: Core.Maybe ResourceUtilization,
+    expectedResourceUtilization :: Prelude.Maybe ResourceUtilization,
     -- | Indicates whether this recommendation is the defaulted AWS
     -- recommendation.
-    defaultTargetInstance :: Core.Maybe Core.Bool,
+    defaultTargetInstance :: Prelude.Maybe Prelude.Bool,
     -- | Details on the target instance type.
-    resourceDetails :: Core.Maybe ResourceDetails
+    resourceDetails :: Prelude.Maybe ResourceDetails
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TargetInstance' with all optional fields omitted.
@@ -71,38 +72,38 @@ newTargetInstance ::
 newTargetInstance =
   TargetInstance'
     { estimatedMonthlySavings =
-        Core.Nothing,
-      currencyCode = Core.Nothing,
-      estimatedMonthlyCost = Core.Nothing,
-      expectedResourceUtilization = Core.Nothing,
-      defaultTargetInstance = Core.Nothing,
-      resourceDetails = Core.Nothing
+        Prelude.Nothing,
+      currencyCode = Prelude.Nothing,
+      estimatedMonthlyCost = Prelude.Nothing,
+      expectedResourceUtilization = Prelude.Nothing,
+      defaultTargetInstance = Prelude.Nothing,
+      resourceDetails = Prelude.Nothing
     }
 
 -- | Estimated savings resulting from modification, on a monthly basis.
-targetInstance_estimatedMonthlySavings :: Lens.Lens' TargetInstance (Core.Maybe Core.Text)
+targetInstance_estimatedMonthlySavings :: Lens.Lens' TargetInstance (Prelude.Maybe Prelude.Text)
 targetInstance_estimatedMonthlySavings = Lens.lens (\TargetInstance' {estimatedMonthlySavings} -> estimatedMonthlySavings) (\s@TargetInstance' {} a -> s {estimatedMonthlySavings = a} :: TargetInstance)
 
 -- | The currency code that AWS used to calculate the costs for this
 -- instance.
-targetInstance_currencyCode :: Lens.Lens' TargetInstance (Core.Maybe Core.Text)
+targetInstance_currencyCode :: Lens.Lens' TargetInstance (Prelude.Maybe Prelude.Text)
 targetInstance_currencyCode = Lens.lens (\TargetInstance' {currencyCode} -> currencyCode) (\s@TargetInstance' {} a -> s {currencyCode = a} :: TargetInstance)
 
 -- | Expected cost to operate this instance type on a monthly basis.
-targetInstance_estimatedMonthlyCost :: Lens.Lens' TargetInstance (Core.Maybe Core.Text)
+targetInstance_estimatedMonthlyCost :: Lens.Lens' TargetInstance (Prelude.Maybe Prelude.Text)
 targetInstance_estimatedMonthlyCost = Lens.lens (\TargetInstance' {estimatedMonthlyCost} -> estimatedMonthlyCost) (\s@TargetInstance' {} a -> s {estimatedMonthlyCost = a} :: TargetInstance)
 
 -- | Expected utilization metrics for target instance type.
-targetInstance_expectedResourceUtilization :: Lens.Lens' TargetInstance (Core.Maybe ResourceUtilization)
+targetInstance_expectedResourceUtilization :: Lens.Lens' TargetInstance (Prelude.Maybe ResourceUtilization)
 targetInstance_expectedResourceUtilization = Lens.lens (\TargetInstance' {expectedResourceUtilization} -> expectedResourceUtilization) (\s@TargetInstance' {} a -> s {expectedResourceUtilization = a} :: TargetInstance)
 
 -- | Indicates whether this recommendation is the defaulted AWS
 -- recommendation.
-targetInstance_defaultTargetInstance :: Lens.Lens' TargetInstance (Core.Maybe Core.Bool)
+targetInstance_defaultTargetInstance :: Lens.Lens' TargetInstance (Prelude.Maybe Prelude.Bool)
 targetInstance_defaultTargetInstance = Lens.lens (\TargetInstance' {defaultTargetInstance} -> defaultTargetInstance) (\s@TargetInstance' {} a -> s {defaultTargetInstance = a} :: TargetInstance)
 
 -- | Details on the target instance type.
-targetInstance_resourceDetails :: Lens.Lens' TargetInstance (Core.Maybe ResourceDetails)
+targetInstance_resourceDetails :: Lens.Lens' TargetInstance (Prelude.Maybe ResourceDetails)
 targetInstance_resourceDetails = Lens.lens (\TargetInstance' {resourceDetails} -> resourceDetails) (\s@TargetInstance' {} a -> s {resourceDetails = a} :: TargetInstance)
 
 instance Core.FromJSON TargetInstance where
@@ -111,14 +112,14 @@ instance Core.FromJSON TargetInstance where
       "TargetInstance"
       ( \x ->
           TargetInstance'
-            Core.<$> (x Core..:? "EstimatedMonthlySavings")
-            Core.<*> (x Core..:? "CurrencyCode")
-            Core.<*> (x Core..:? "EstimatedMonthlyCost")
-            Core.<*> (x Core..:? "ExpectedResourceUtilization")
-            Core.<*> (x Core..:? "DefaultTargetInstance")
-            Core.<*> (x Core..:? "ResourceDetails")
+            Prelude.<$> (x Core..:? "EstimatedMonthlySavings")
+            Prelude.<*> (x Core..:? "CurrencyCode")
+            Prelude.<*> (x Core..:? "EstimatedMonthlyCost")
+            Prelude.<*> (x Core..:? "ExpectedResourceUtilization")
+            Prelude.<*> (x Core..:? "DefaultTargetInstance")
+            Prelude.<*> (x Core..:? "ResourceDetails")
       )
 
-instance Core.Hashable TargetInstance
+instance Prelude.Hashable TargetInstance
 
-instance Core.NFData TargetInstance
+instance Prelude.NFData TargetInstance

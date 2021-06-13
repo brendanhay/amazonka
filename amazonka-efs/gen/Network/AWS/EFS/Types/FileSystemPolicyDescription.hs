@@ -21,15 +21,16 @@ module Network.AWS.EFS.Types.FileSystemPolicyDescription where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newFileSystemPolicyDescription' smart constructor.
 data FileSystemPolicyDescription = FileSystemPolicyDescription'
   { -- | Specifies the EFS file system to which the @FileSystemPolicy@ applies.
-    fileSystemId :: Core.Maybe Core.Text,
+    fileSystemId :: Prelude.Maybe Prelude.Text,
     -- | The JSON formatted @FileSystemPolicy@ for the EFS file system.
-    policy :: Core.Maybe Core.Text
+    policy :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FileSystemPolicyDescription' with all optional fields omitted.
@@ -47,16 +48,16 @@ newFileSystemPolicyDescription ::
 newFileSystemPolicyDescription =
   FileSystemPolicyDescription'
     { fileSystemId =
-        Core.Nothing,
-      policy = Core.Nothing
+        Prelude.Nothing,
+      policy = Prelude.Nothing
     }
 
 -- | Specifies the EFS file system to which the @FileSystemPolicy@ applies.
-fileSystemPolicyDescription_fileSystemId :: Lens.Lens' FileSystemPolicyDescription (Core.Maybe Core.Text)
+fileSystemPolicyDescription_fileSystemId :: Lens.Lens' FileSystemPolicyDescription (Prelude.Maybe Prelude.Text)
 fileSystemPolicyDescription_fileSystemId = Lens.lens (\FileSystemPolicyDescription' {fileSystemId} -> fileSystemId) (\s@FileSystemPolicyDescription' {} a -> s {fileSystemId = a} :: FileSystemPolicyDescription)
 
 -- | The JSON formatted @FileSystemPolicy@ for the EFS file system.
-fileSystemPolicyDescription_policy :: Lens.Lens' FileSystemPolicyDescription (Core.Maybe Core.Text)
+fileSystemPolicyDescription_policy :: Lens.Lens' FileSystemPolicyDescription (Prelude.Maybe Prelude.Text)
 fileSystemPolicyDescription_policy = Lens.lens (\FileSystemPolicyDescription' {policy} -> policy) (\s@FileSystemPolicyDescription' {} a -> s {policy = a} :: FileSystemPolicyDescription)
 
 instance Core.FromJSON FileSystemPolicyDescription where
@@ -65,10 +66,10 @@ instance Core.FromJSON FileSystemPolicyDescription where
       "FileSystemPolicyDescription"
       ( \x ->
           FileSystemPolicyDescription'
-            Core.<$> (x Core..:? "FileSystemId")
-            Core.<*> (x Core..:? "Policy")
+            Prelude.<$> (x Core..:? "FileSystemId")
+            Prelude.<*> (x Core..:? "Policy")
       )
 
-instance Core.Hashable FileSystemPolicyDescription
+instance Prelude.Hashable FileSystemPolicyDescription
 
-instance Core.NFData FileSystemPolicyDescription
+instance Prelude.NFData FileSystemPolicyDescription

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.MonitoringClusterConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ProcessingInstanceType
 
 -- | Configuration for the cluster used to run model monitoring jobs.
@@ -30,18 +31,18 @@ data MonitoringClusterConfig = MonitoringClusterConfig'
   { -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
     -- to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that run the model monitoring job.
-    volumeKmsKeyId :: Core.Maybe Core.Text,
+    volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The number of ML compute instances to use in the model monitoring job.
     -- For distributed processing jobs, specify a value greater than 1. The
     -- default value is 1.
-    instanceCount :: Core.Natural,
+    instanceCount :: Prelude.Natural,
     -- | The ML compute instance type for the processing job.
     instanceType :: ProcessingInstanceType,
     -- | The size of the ML storage volume, in gigabytes, that you want to
     -- provision. You must specify sufficient ML storage for your scenario.
-    volumeSizeInGB :: Core.Natural
+    volumeSizeInGB :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MonitoringClusterConfig' with all optional fields omitted.
@@ -65,11 +66,11 @@ data MonitoringClusterConfig = MonitoringClusterConfig'
 -- provision. You must specify sufficient ML storage for your scenario.
 newMonitoringClusterConfig ::
   -- | 'instanceCount'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'instanceType'
   ProcessingInstanceType ->
   -- | 'volumeSizeInGB'
-  Core.Natural ->
+  Prelude.Natural ->
   MonitoringClusterConfig
 newMonitoringClusterConfig
   pInstanceCount_
@@ -77,7 +78,7 @@ newMonitoringClusterConfig
   pVolumeSizeInGB_ =
     MonitoringClusterConfig'
       { volumeKmsKeyId =
-          Core.Nothing,
+          Prelude.Nothing,
         instanceCount = pInstanceCount_,
         instanceType = pInstanceType_,
         volumeSizeInGB = pVolumeSizeInGB_
@@ -86,13 +87,13 @@ newMonitoringClusterConfig
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
 -- to encrypt data on the storage volume attached to the ML compute
 -- instance(s) that run the model monitoring job.
-monitoringClusterConfig_volumeKmsKeyId :: Lens.Lens' MonitoringClusterConfig (Core.Maybe Core.Text)
+monitoringClusterConfig_volumeKmsKeyId :: Lens.Lens' MonitoringClusterConfig (Prelude.Maybe Prelude.Text)
 monitoringClusterConfig_volumeKmsKeyId = Lens.lens (\MonitoringClusterConfig' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@MonitoringClusterConfig' {} a -> s {volumeKmsKeyId = a} :: MonitoringClusterConfig)
 
 -- | The number of ML compute instances to use in the model monitoring job.
 -- For distributed processing jobs, specify a value greater than 1. The
 -- default value is 1.
-monitoringClusterConfig_instanceCount :: Lens.Lens' MonitoringClusterConfig Core.Natural
+monitoringClusterConfig_instanceCount :: Lens.Lens' MonitoringClusterConfig Prelude.Natural
 monitoringClusterConfig_instanceCount = Lens.lens (\MonitoringClusterConfig' {instanceCount} -> instanceCount) (\s@MonitoringClusterConfig' {} a -> s {instanceCount = a} :: MonitoringClusterConfig)
 
 -- | The ML compute instance type for the processing job.
@@ -101,7 +102,7 @@ monitoringClusterConfig_instanceType = Lens.lens (\MonitoringClusterConfig' {ins
 
 -- | The size of the ML storage volume, in gigabytes, that you want to
 -- provision. You must specify sufficient ML storage for your scenario.
-monitoringClusterConfig_volumeSizeInGB :: Lens.Lens' MonitoringClusterConfig Core.Natural
+monitoringClusterConfig_volumeSizeInGB :: Lens.Lens' MonitoringClusterConfig Prelude.Natural
 monitoringClusterConfig_volumeSizeInGB = Lens.lens (\MonitoringClusterConfig' {volumeSizeInGB} -> volumeSizeInGB) (\s@MonitoringClusterConfig' {} a -> s {volumeSizeInGB = a} :: MonitoringClusterConfig)
 
 instance Core.FromJSON MonitoringClusterConfig where
@@ -110,23 +111,25 @@ instance Core.FromJSON MonitoringClusterConfig where
       "MonitoringClusterConfig"
       ( \x ->
           MonitoringClusterConfig'
-            Core.<$> (x Core..:? "VolumeKmsKeyId")
-            Core.<*> (x Core..: "InstanceCount")
-            Core.<*> (x Core..: "InstanceType")
-            Core.<*> (x Core..: "VolumeSizeInGB")
+            Prelude.<$> (x Core..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Core..: "InstanceCount")
+            Prelude.<*> (x Core..: "InstanceType")
+            Prelude.<*> (x Core..: "VolumeSizeInGB")
       )
 
-instance Core.Hashable MonitoringClusterConfig
+instance Prelude.Hashable MonitoringClusterConfig
 
-instance Core.NFData MonitoringClusterConfig
+instance Prelude.NFData MonitoringClusterConfig
 
 instance Core.ToJSON MonitoringClusterConfig where
   toJSON MonitoringClusterConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("VolumeKmsKeyId" Core..=) Core.<$> volumeKmsKeyId,
-            Core.Just ("InstanceCount" Core..= instanceCount),
-            Core.Just ("InstanceType" Core..= instanceType),
-            Core.Just ("VolumeSizeInGB" Core..= volumeSizeInGB)
+      ( Prelude.catMaybes
+          [ ("VolumeKmsKeyId" Core..=)
+              Prelude.<$> volumeKmsKeyId,
+            Prelude.Just ("InstanceCount" Core..= instanceCount),
+            Prelude.Just ("InstanceType" Core..= instanceType),
+            Prelude.Just
+              ("VolumeSizeInGB" Core..= volumeSizeInGB)
           ]
       )

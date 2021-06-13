@@ -22,6 +22,7 @@ module Network.AWS.CloudDirectory.Types.BatchDetachTypedLink where
 import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Detaches a typed link from a specified source and target object inside a
 -- BatchRead operation. For more information, see DetachTypedLink and
@@ -32,7 +33,7 @@ data BatchDetachTypedLink = BatchDetachTypedLink'
   { -- | Used to accept a typed link specifier as input.
     typedLinkSpecifier :: TypedLinkSpecifier
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDetachTypedLink' with all optional fields omitted.
@@ -57,15 +58,15 @@ newBatchDetachTypedLink pTypedLinkSpecifier_ =
 batchDetachTypedLink_typedLinkSpecifier :: Lens.Lens' BatchDetachTypedLink TypedLinkSpecifier
 batchDetachTypedLink_typedLinkSpecifier = Lens.lens (\BatchDetachTypedLink' {typedLinkSpecifier} -> typedLinkSpecifier) (\s@BatchDetachTypedLink' {} a -> s {typedLinkSpecifier = a} :: BatchDetachTypedLink)
 
-instance Core.Hashable BatchDetachTypedLink
+instance Prelude.Hashable BatchDetachTypedLink
 
-instance Core.NFData BatchDetachTypedLink
+instance Prelude.NFData BatchDetachTypedLink
 
 instance Core.ToJSON BatchDetachTypedLink where
   toJSON BatchDetachTypedLink' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("TypedLinkSpecifier" Core..= typedLinkSpecifier)
           ]
       )

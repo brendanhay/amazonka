@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
@@ -53,7 +54,7 @@ data CreateAddress = CreateAddress'
   { -- | The address that you want the Snow device shipped to.
     address :: Address
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAddress' with all optional fields omitted.
@@ -84,50 +85,52 @@ instance Core.AWSRequest CreateAddress where
     Response.receiveJSON
       ( \s h x ->
           CreateAddressResponse'
-            Core.<$> (x Core..?> "AddressId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AddressId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateAddress
+instance Prelude.Hashable CreateAddress
 
-instance Core.NFData CreateAddress
+instance Prelude.NFData CreateAddress
 
 instance Core.ToHeaders CreateAddress where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSIESnowballJobManagementService.CreateAddress" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateAddress where
   toJSON CreateAddress' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("Address" Core..= address)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("Address" Core..= address)]
       )
 
 instance Core.ToPath CreateAddress where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateAddress where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAddressResponse' smart constructor.
 data CreateAddressResponse = CreateAddressResponse'
   { -- | The automatically generated ID for a specific address. You\'ll use this
     -- ID when you create a job to specify which address you want the Snow
     -- device for that job shipped to.
-    addressId :: Core.Maybe Core.Text,
+    addressId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAddressResponse' with all optional fields omitted.
@@ -144,22 +147,22 @@ data CreateAddressResponse = CreateAddressResponse'
 -- 'httpStatus', 'createAddressResponse_httpStatus' - The response's http status code.
 newCreateAddressResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateAddressResponse
 newCreateAddressResponse pHttpStatus_ =
   CreateAddressResponse'
-    { addressId = Core.Nothing,
+    { addressId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The automatically generated ID for a specific address. You\'ll use this
 -- ID when you create a job to specify which address you want the Snow
 -- device for that job shipped to.
-createAddressResponse_addressId :: Lens.Lens' CreateAddressResponse (Core.Maybe Core.Text)
+createAddressResponse_addressId :: Lens.Lens' CreateAddressResponse (Prelude.Maybe Prelude.Text)
 createAddressResponse_addressId = Lens.lens (\CreateAddressResponse' {addressId} -> addressId) (\s@CreateAddressResponse' {} a -> s {addressId = a} :: CreateAddressResponse)
 
 -- | The response's http status code.
-createAddressResponse_httpStatus :: Lens.Lens' CreateAddressResponse Core.Int
+createAddressResponse_httpStatus :: Lens.Lens' CreateAddressResponse Prelude.Int
 createAddressResponse_httpStatus = Lens.lens (\CreateAddressResponse' {httpStatus} -> httpStatus) (\s@CreateAddressResponse' {} a -> s {httpStatus = a} :: CreateAddressResponse)
 
-instance Core.NFData CreateAddressResponse
+instance Prelude.NFData CreateAddressResponse

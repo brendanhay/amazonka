@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.EventItemResponse where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the status code and message that result from processing an
 -- event.
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 data EventItemResponse = EventItemResponse'
   { -- | A custom message that\'s returned in the response as a result of
     -- processing the event.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The status code that\'s returned in the response as a result of
     -- processing the event. Possible values are: 202, for events that were
     -- accepted; and, 400, for events that weren\'t valid.
-    statusCode :: Core.Maybe Core.Int
+    statusCode :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventItemResponse' with all optional fields omitted.
@@ -55,19 +56,19 @@ newEventItemResponse ::
   EventItemResponse
 newEventItemResponse =
   EventItemResponse'
-    { message = Core.Nothing,
-      statusCode = Core.Nothing
+    { message = Prelude.Nothing,
+      statusCode = Prelude.Nothing
     }
 
 -- | A custom message that\'s returned in the response as a result of
 -- processing the event.
-eventItemResponse_message :: Lens.Lens' EventItemResponse (Core.Maybe Core.Text)
+eventItemResponse_message :: Lens.Lens' EventItemResponse (Prelude.Maybe Prelude.Text)
 eventItemResponse_message = Lens.lens (\EventItemResponse' {message} -> message) (\s@EventItemResponse' {} a -> s {message = a} :: EventItemResponse)
 
 -- | The status code that\'s returned in the response as a result of
 -- processing the event. Possible values are: 202, for events that were
 -- accepted; and, 400, for events that weren\'t valid.
-eventItemResponse_statusCode :: Lens.Lens' EventItemResponse (Core.Maybe Core.Int)
+eventItemResponse_statusCode :: Lens.Lens' EventItemResponse (Prelude.Maybe Prelude.Int)
 eventItemResponse_statusCode = Lens.lens (\EventItemResponse' {statusCode} -> statusCode) (\s@EventItemResponse' {} a -> s {statusCode = a} :: EventItemResponse)
 
 instance Core.FromJSON EventItemResponse where
@@ -76,10 +77,10 @@ instance Core.FromJSON EventItemResponse where
       "EventItemResponse"
       ( \x ->
           EventItemResponse'
-            Core.<$> (x Core..:? "Message")
-            Core.<*> (x Core..:? "StatusCode")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "StatusCode")
       )
 
-instance Core.Hashable EventItemResponse
+instance Prelude.Hashable EventItemResponse
 
-instance Core.NFData EventItemResponse
+instance Prelude.NFData EventItemResponse

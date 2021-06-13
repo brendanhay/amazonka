@@ -52,6 +52,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -60,12 +61,12 @@ import Network.AWS.WAFRegional.Types
 data ListResourcesForWebACL = ListResourcesForWebACL'
   { -- | The type of resource to list, either an application load balancer or
     -- Amazon API Gateway.
-    resourceType :: Core.Maybe ResourceType,
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The unique identifier (ID) of the web ACL for which to list the
     -- associated resources.
-    webACLId :: Core.Text
+    webACLId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListResourcesForWebACL' with all optional fields omitted.
@@ -82,23 +83,23 @@ data ListResourcesForWebACL = ListResourcesForWebACL'
 -- associated resources.
 newListResourcesForWebACL ::
   -- | 'webACLId'
-  Core.Text ->
+  Prelude.Text ->
   ListResourcesForWebACL
 newListResourcesForWebACL pWebACLId_ =
   ListResourcesForWebACL'
     { resourceType =
-        Core.Nothing,
+        Prelude.Nothing,
       webACLId = pWebACLId_
     }
 
 -- | The type of resource to list, either an application load balancer or
 -- Amazon API Gateway.
-listResourcesForWebACL_resourceType :: Lens.Lens' ListResourcesForWebACL (Core.Maybe ResourceType)
+listResourcesForWebACL_resourceType :: Lens.Lens' ListResourcesForWebACL (Prelude.Maybe ResourceType)
 listResourcesForWebACL_resourceType = Lens.lens (\ListResourcesForWebACL' {resourceType} -> resourceType) (\s@ListResourcesForWebACL' {} a -> s {resourceType = a} :: ListResourcesForWebACL)
 
 -- | The unique identifier (ID) of the web ACL for which to list the
 -- associated resources.
-listResourcesForWebACL_webACLId :: Lens.Lens' ListResourcesForWebACL Core.Text
+listResourcesForWebACL_webACLId :: Lens.Lens' ListResourcesForWebACL Prelude.Text
 listResourcesForWebACL_webACLId = Lens.lens (\ListResourcesForWebACL' {webACLId} -> webACLId) (\s@ListResourcesForWebACL' {} a -> s {webACLId = a} :: ListResourcesForWebACL)
 
 instance Core.AWSRequest ListResourcesForWebACL where
@@ -110,52 +111,54 @@ instance Core.AWSRequest ListResourcesForWebACL where
     Response.receiveJSON
       ( \s h x ->
           ListResourcesForWebACLResponse'
-            Core.<$> (x Core..?> "ResourceArns" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ResourceArns" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListResourcesForWebACL
+instance Prelude.Hashable ListResourcesForWebACL
 
-instance Core.NFData ListResourcesForWebACL
+instance Prelude.NFData ListResourcesForWebACL
 
 instance Core.ToHeaders ListResourcesForWebACL where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_Regional_20161128.ListResourcesForWebACL" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListResourcesForWebACL where
   toJSON ListResourcesForWebACL' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ResourceType" Core..=) Core.<$> resourceType,
-            Core.Just ("WebACLId" Core..= webACLId)
+      ( Prelude.catMaybes
+          [ ("ResourceType" Core..=) Prelude.<$> resourceType,
+            Prelude.Just ("WebACLId" Core..= webACLId)
           ]
       )
 
 instance Core.ToPath ListResourcesForWebACL where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListResourcesForWebACL where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResourcesForWebACLResponse' smart constructor.
 data ListResourcesForWebACLResponse = ListResourcesForWebACLResponse'
   { -- | An array of ARNs (Amazon Resource Names) of the resources associated
     -- with the specified web ACL. An array with zero elements is returned if
     -- there are no resources associated with the web ACL.
-    resourceArns :: Core.Maybe [Core.Text],
+    resourceArns :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListResourcesForWebACLResponse' with all optional fields omitted.
@@ -172,23 +175,25 @@ data ListResourcesForWebACLResponse = ListResourcesForWebACLResponse'
 -- 'httpStatus', 'listResourcesForWebACLResponse_httpStatus' - The response's http status code.
 newListResourcesForWebACLResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListResourcesForWebACLResponse
 newListResourcesForWebACLResponse pHttpStatus_ =
   ListResourcesForWebACLResponse'
     { resourceArns =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of ARNs (Amazon Resource Names) of the resources associated
 -- with the specified web ACL. An array with zero elements is returned if
 -- there are no resources associated with the web ACL.
-listResourcesForWebACLResponse_resourceArns :: Lens.Lens' ListResourcesForWebACLResponse (Core.Maybe [Core.Text])
-listResourcesForWebACLResponse_resourceArns = Lens.lens (\ListResourcesForWebACLResponse' {resourceArns} -> resourceArns) (\s@ListResourcesForWebACLResponse' {} a -> s {resourceArns = a} :: ListResourcesForWebACLResponse) Core.. Lens.mapping Lens._Coerce
+listResourcesForWebACLResponse_resourceArns :: Lens.Lens' ListResourcesForWebACLResponse (Prelude.Maybe [Prelude.Text])
+listResourcesForWebACLResponse_resourceArns = Lens.lens (\ListResourcesForWebACLResponse' {resourceArns} -> resourceArns) (\s@ListResourcesForWebACLResponse' {} a -> s {resourceArns = a} :: ListResourcesForWebACLResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listResourcesForWebACLResponse_httpStatus :: Lens.Lens' ListResourcesForWebACLResponse Core.Int
+listResourcesForWebACLResponse_httpStatus :: Lens.Lens' ListResourcesForWebACLResponse Prelude.Int
 listResourcesForWebACLResponse_httpStatus = Lens.lens (\ListResourcesForWebACLResponse' {httpStatus} -> httpStatus) (\s@ListResourcesForWebACLResponse' {} a -> s {httpStatus = a} :: ListResourcesForWebACLResponse)
 
-instance Core.NFData ListResourcesForWebACLResponse
+instance
+  Prelude.NFData
+    ListResourcesForWebACLResponse

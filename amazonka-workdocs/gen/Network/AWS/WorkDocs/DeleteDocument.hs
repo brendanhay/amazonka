@@ -38,6 +38,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -46,11 +47,11 @@ import Network.AWS.WorkDocs.Types
 data DeleteDocument = DeleteDocument'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ID of the document.
-    documentId :: Core.Text
+    documentId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDocument' with all optional fields omitted.
@@ -66,21 +67,22 @@ data DeleteDocument = DeleteDocument'
 -- 'documentId', 'deleteDocument_documentId' - The ID of the document.
 newDeleteDocument ::
   -- | 'documentId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDocument
 newDeleteDocument pDocumentId_ =
   DeleteDocument'
-    { authenticationToken = Core.Nothing,
+    { authenticationToken =
+        Prelude.Nothing,
       documentId = pDocumentId_
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-deleteDocument_authenticationToken :: Lens.Lens' DeleteDocument (Core.Maybe Core.Text)
-deleteDocument_authenticationToken = Lens.lens (\DeleteDocument' {authenticationToken} -> authenticationToken) (\s@DeleteDocument' {} a -> s {authenticationToken = a} :: DeleteDocument) Core.. Lens.mapping Core._Sensitive
+deleteDocument_authenticationToken :: Lens.Lens' DeleteDocument (Prelude.Maybe Prelude.Text)
+deleteDocument_authenticationToken = Lens.lens (\DeleteDocument' {authenticationToken} -> authenticationToken) (\s@DeleteDocument' {} a -> s {authenticationToken = a} :: DeleteDocument) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the document.
-deleteDocument_documentId :: Lens.Lens' DeleteDocument Core.Text
+deleteDocument_documentId :: Lens.Lens' DeleteDocument Prelude.Text
 deleteDocument_documentId = Lens.lens (\DeleteDocument' {documentId} -> documentId) (\s@DeleteDocument' {} a -> s {documentId = a} :: DeleteDocument)
 
 instance Core.AWSRequest DeleteDocument where
@@ -91,31 +93,31 @@ instance Core.AWSRequest DeleteDocument where
   response =
     Response.receiveNull DeleteDocumentResponse'
 
-instance Core.Hashable DeleteDocument
+instance Prelude.Hashable DeleteDocument
 
-instance Core.NFData DeleteDocument
+instance Prelude.NFData DeleteDocument
 
 instance Core.ToHeaders DeleteDocument where
   toHeaders DeleteDocument' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
 instance Core.ToPath DeleteDocument where
   toPath DeleteDocument' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/api/v1/documents/", Core.toBS documentId]
 
 instance Core.ToQuery DeleteDocument where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDocumentResponse' smart constructor.
 data DeleteDocumentResponse = DeleteDocumentResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDocumentResponse' with all optional fields omitted.
@@ -125,4 +127,4 @@ newDeleteDocumentResponse ::
   DeleteDocumentResponse
 newDeleteDocumentResponse = DeleteDocumentResponse'
 
-instance Core.NFData DeleteDocumentResponse
+instance Prelude.NFData DeleteDocumentResponse

@@ -21,6 +21,7 @@ module Network.AWS.GuardDuty.Types.DnsRequestAction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the DNS_REQUEST action described in this
 -- finding.
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDnsRequestAction' smart constructor.
 data DnsRequestAction = DnsRequestAction'
   { -- | The domain information for the API request.
-    domain :: Core.Maybe Core.Text
+    domain :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DnsRequestAction' with all optional fields omitted.
@@ -44,10 +45,10 @@ data DnsRequestAction = DnsRequestAction'
 newDnsRequestAction ::
   DnsRequestAction
 newDnsRequestAction =
-  DnsRequestAction' {domain = Core.Nothing}
+  DnsRequestAction' {domain = Prelude.Nothing}
 
 -- | The domain information for the API request.
-dnsRequestAction_domain :: Lens.Lens' DnsRequestAction (Core.Maybe Core.Text)
+dnsRequestAction_domain :: Lens.Lens' DnsRequestAction (Prelude.Maybe Prelude.Text)
 dnsRequestAction_domain = Lens.lens (\DnsRequestAction' {domain} -> domain) (\s@DnsRequestAction' {} a -> s {domain = a} :: DnsRequestAction)
 
 instance Core.FromJSON DnsRequestAction where
@@ -55,9 +56,9 @@ instance Core.FromJSON DnsRequestAction where
     Core.withObject
       "DnsRequestAction"
       ( \x ->
-          DnsRequestAction' Core.<$> (x Core..:? "domain")
+          DnsRequestAction' Prelude.<$> (x Core..:? "domain")
       )
 
-instance Core.Hashable DnsRequestAction
+instance Prelude.Hashable DnsRequestAction
 
-instance Core.NFData DnsRequestAction
+instance Prelude.NFData DnsRequestAction

@@ -42,17 +42,18 @@ where
 import Network.AWS.AppSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
   { -- | The @GraphqlApi@ ARN.
-    resourceArn :: Core.Text,
+    resourceArn :: Prelude.Text,
     -- | A list of @TagKey@ objects.
-    tagKeys :: Core.NonEmpty Core.Text
+    tagKeys :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagResource' with all optional fields omitted.
@@ -67,9 +68,9 @@ data UntagResource = UntagResource'
 -- 'tagKeys', 'untagResource_tagKeys' - A list of @TagKey@ objects.
 newUntagResource ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'tagKeys'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   UntagResource
 newUntagResource pResourceArn_ pTagKeys_ =
   UntagResource'
@@ -78,12 +79,12 @@ newUntagResource pResourceArn_ pTagKeys_ =
     }
 
 -- | The @GraphqlApi@ ARN.
-untagResource_resourceArn :: Lens.Lens' UntagResource Core.Text
+untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
 -- | A list of @TagKey@ objects.
-untagResource_tagKeys :: Lens.Lens' UntagResource (Core.NonEmpty Core.Text)
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Core.. Lens._Coerce
+untagResource_tagKeys :: Lens.Lens' UntagResource (Prelude.NonEmpty Prelude.Text)
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UntagResource where
   type
@@ -94,37 +95,40 @@ instance Core.AWSRequest UntagResource where
     Response.receiveEmpty
       ( \s h x ->
           UntagResourceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UntagResource
+instance Prelude.Hashable UntagResource
 
-instance Core.NFData UntagResource
+instance Prelude.NFData UntagResource
 
 instance Core.ToHeaders UntagResource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath UntagResource where
   toPath UntagResource' {..} =
-    Core.mconcat ["/v1/tags/", Core.toBS resourceArn]
+    Prelude.mconcat
+      ["/v1/tags/", Core.toBS resourceArn]
 
 instance Core.ToQuery UntagResource where
   toQuery UntagResource' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["tagKeys" Core.=: Core.toQueryList "member" tagKeys]
 
 -- | /See:/ 'newUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagResourceResponse' with all optional fields omitted.
@@ -137,13 +141,13 @@ data UntagResourceResponse = UntagResourceResponse'
 -- 'httpStatus', 'untagResourceResponse_httpStatus' - The response's http status code.
 newUntagResourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UntagResourceResponse
 newUntagResourceResponse pHttpStatus_ =
   UntagResourceResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-untagResourceResponse_httpStatus :: Lens.Lens' UntagResourceResponse Core.Int
+untagResourceResponse_httpStatus :: Lens.Lens' UntagResourceResponse Prelude.Int
 untagResourceResponse_httpStatus = Lens.lens (\UntagResourceResponse' {httpStatus} -> httpStatus) (\s@UntagResourceResponse' {} a -> s {httpStatus = a} :: UntagResourceResponse)
 
-instance Core.NFData UntagResourceResponse
+instance Prelude.NFData UntagResourceResponse

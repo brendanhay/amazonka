@@ -21,15 +21,16 @@ module Network.AWS.Lightsail.Types.DiskSnapshotInfo where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a disk snapshot.
 --
 -- /See:/ 'newDiskSnapshotInfo' smart constructor.
 data DiskSnapshotInfo = DiskSnapshotInfo'
   { -- | The size of the disk in GB (e.g., @32@).
-    sizeInGb :: Core.Maybe Core.Int
+    sizeInGb :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DiskSnapshotInfo' with all optional fields omitted.
@@ -43,10 +44,10 @@ data DiskSnapshotInfo = DiskSnapshotInfo'
 newDiskSnapshotInfo ::
   DiskSnapshotInfo
 newDiskSnapshotInfo =
-  DiskSnapshotInfo' {sizeInGb = Core.Nothing}
+  DiskSnapshotInfo' {sizeInGb = Prelude.Nothing}
 
 -- | The size of the disk in GB (e.g., @32@).
-diskSnapshotInfo_sizeInGb :: Lens.Lens' DiskSnapshotInfo (Core.Maybe Core.Int)
+diskSnapshotInfo_sizeInGb :: Lens.Lens' DiskSnapshotInfo (Prelude.Maybe Prelude.Int)
 diskSnapshotInfo_sizeInGb = Lens.lens (\DiskSnapshotInfo' {sizeInGb} -> sizeInGb) (\s@DiskSnapshotInfo' {} a -> s {sizeInGb = a} :: DiskSnapshotInfo)
 
 instance Core.FromJSON DiskSnapshotInfo where
@@ -54,9 +55,10 @@ instance Core.FromJSON DiskSnapshotInfo where
     Core.withObject
       "DiskSnapshotInfo"
       ( \x ->
-          DiskSnapshotInfo' Core.<$> (x Core..:? "sizeInGb")
+          DiskSnapshotInfo'
+            Prelude.<$> (x Core..:? "sizeInGb")
       )
 
-instance Core.Hashable DiskSnapshotInfo
+instance Prelude.Hashable DiskSnapshotInfo
 
-instance Core.NFData DiskSnapshotInfo
+instance Prelude.NFData DiskSnapshotInfo

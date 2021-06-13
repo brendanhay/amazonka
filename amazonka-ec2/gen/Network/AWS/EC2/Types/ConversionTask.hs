@@ -26,30 +26,31 @@ import Network.AWS.EC2.Types.ImportInstanceTaskDetails
 import Network.AWS.EC2.Types.ImportVolumeTaskDetails
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a conversion task.
 --
 -- /See:/ 'newConversionTask' smart constructor.
 data ConversionTask = ConversionTask'
   { -- | The status message related to the conversion task.
-    statusMessage :: Core.Maybe Core.Text,
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | If the task is for importing an instance, this contains information
     -- about the import instance task.
-    importInstance :: Core.Maybe ImportInstanceTaskDetails,
+    importInstance :: Prelude.Maybe ImportInstanceTaskDetails,
     -- | The time when the task expires. If the upload isn\'t complete before the
     -- expiration time, we automatically cancel the task.
-    expirationTime :: Core.Maybe Core.Text,
+    expirationTime :: Prelude.Maybe Prelude.Text,
     -- | If the task is for importing a volume, this contains information about
     -- the import volume task.
-    importVolume :: Core.Maybe ImportVolumeTaskDetails,
+    importVolume :: Prelude.Maybe ImportVolumeTaskDetails,
     -- | The state of the conversion task.
-    state :: Core.Maybe ConversionTaskState,
+    state :: Prelude.Maybe ConversionTaskState,
     -- | Any tags assigned to the task.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the conversion task.
-    conversionTaskId :: Core.Maybe Core.Text
+    conversionTaskId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConversionTask' with all optional fields omitted.
@@ -79,59 +80,59 @@ newConversionTask ::
   ConversionTask
 newConversionTask =
   ConversionTask'
-    { statusMessage = Core.Nothing,
-      importInstance = Core.Nothing,
-      expirationTime = Core.Nothing,
-      importVolume = Core.Nothing,
-      state = Core.Nothing,
-      tags = Core.Nothing,
-      conversionTaskId = Core.Nothing
+    { statusMessage = Prelude.Nothing,
+      importInstance = Prelude.Nothing,
+      expirationTime = Prelude.Nothing,
+      importVolume = Prelude.Nothing,
+      state = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      conversionTaskId = Prelude.Nothing
     }
 
 -- | The status message related to the conversion task.
-conversionTask_statusMessage :: Lens.Lens' ConversionTask (Core.Maybe Core.Text)
+conversionTask_statusMessage :: Lens.Lens' ConversionTask (Prelude.Maybe Prelude.Text)
 conversionTask_statusMessage = Lens.lens (\ConversionTask' {statusMessage} -> statusMessage) (\s@ConversionTask' {} a -> s {statusMessage = a} :: ConversionTask)
 
 -- | If the task is for importing an instance, this contains information
 -- about the import instance task.
-conversionTask_importInstance :: Lens.Lens' ConversionTask (Core.Maybe ImportInstanceTaskDetails)
+conversionTask_importInstance :: Lens.Lens' ConversionTask (Prelude.Maybe ImportInstanceTaskDetails)
 conversionTask_importInstance = Lens.lens (\ConversionTask' {importInstance} -> importInstance) (\s@ConversionTask' {} a -> s {importInstance = a} :: ConversionTask)
 
 -- | The time when the task expires. If the upload isn\'t complete before the
 -- expiration time, we automatically cancel the task.
-conversionTask_expirationTime :: Lens.Lens' ConversionTask (Core.Maybe Core.Text)
+conversionTask_expirationTime :: Lens.Lens' ConversionTask (Prelude.Maybe Prelude.Text)
 conversionTask_expirationTime = Lens.lens (\ConversionTask' {expirationTime} -> expirationTime) (\s@ConversionTask' {} a -> s {expirationTime = a} :: ConversionTask)
 
 -- | If the task is for importing a volume, this contains information about
 -- the import volume task.
-conversionTask_importVolume :: Lens.Lens' ConversionTask (Core.Maybe ImportVolumeTaskDetails)
+conversionTask_importVolume :: Lens.Lens' ConversionTask (Prelude.Maybe ImportVolumeTaskDetails)
 conversionTask_importVolume = Lens.lens (\ConversionTask' {importVolume} -> importVolume) (\s@ConversionTask' {} a -> s {importVolume = a} :: ConversionTask)
 
 -- | The state of the conversion task.
-conversionTask_state :: Lens.Lens' ConversionTask (Core.Maybe ConversionTaskState)
+conversionTask_state :: Lens.Lens' ConversionTask (Prelude.Maybe ConversionTaskState)
 conversionTask_state = Lens.lens (\ConversionTask' {state} -> state) (\s@ConversionTask' {} a -> s {state = a} :: ConversionTask)
 
 -- | Any tags assigned to the task.
-conversionTask_tags :: Lens.Lens' ConversionTask (Core.Maybe [Tag])
-conversionTask_tags = Lens.lens (\ConversionTask' {tags} -> tags) (\s@ConversionTask' {} a -> s {tags = a} :: ConversionTask) Core.. Lens.mapping Lens._Coerce
+conversionTask_tags :: Lens.Lens' ConversionTask (Prelude.Maybe [Tag])
+conversionTask_tags = Lens.lens (\ConversionTask' {tags} -> tags) (\s@ConversionTask' {} a -> s {tags = a} :: ConversionTask) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the conversion task.
-conversionTask_conversionTaskId :: Lens.Lens' ConversionTask (Core.Maybe Core.Text)
+conversionTask_conversionTaskId :: Lens.Lens' ConversionTask (Prelude.Maybe Prelude.Text)
 conversionTask_conversionTaskId = Lens.lens (\ConversionTask' {conversionTaskId} -> conversionTaskId) (\s@ConversionTask' {} a -> s {conversionTaskId = a} :: ConversionTask)
 
 instance Core.FromXML ConversionTask where
   parseXML x =
     ConversionTask'
-      Core.<$> (x Core..@? "statusMessage")
-      Core.<*> (x Core..@? "importInstance")
-      Core.<*> (x Core..@? "expirationTime")
-      Core.<*> (x Core..@? "importVolume")
-      Core.<*> (x Core..@? "state")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "conversionTaskId")
+      Prelude.<$> (x Core..@? "statusMessage")
+      Prelude.<*> (x Core..@? "importInstance")
+      Prelude.<*> (x Core..@? "expirationTime")
+      Prelude.<*> (x Core..@? "importVolume")
+      Prelude.<*> (x Core..@? "state")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "conversionTaskId")
 
-instance Core.Hashable ConversionTask
+instance Prelude.Hashable ConversionTask
 
-instance Core.NFData ConversionTask
+instance Prelude.NFData ConversionTask

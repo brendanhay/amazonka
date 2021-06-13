@@ -47,6 +47,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +56,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeConfigurationRecorders' smart constructor.
 data DescribeConfigurationRecorders = DescribeConfigurationRecorders'
   { -- | A list of configuration recorder names.
-    configurationRecorderNames :: Core.Maybe [Core.Text]
+    configurationRecorderNames :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeConfigurationRecorders' with all optional fields omitted.
@@ -73,12 +74,12 @@ newDescribeConfigurationRecorders ::
 newDescribeConfigurationRecorders =
   DescribeConfigurationRecorders'
     { configurationRecorderNames =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | A list of configuration recorder names.
-describeConfigurationRecorders_configurationRecorderNames :: Lens.Lens' DescribeConfigurationRecorders (Core.Maybe [Core.Text])
-describeConfigurationRecorders_configurationRecorderNames = Lens.lens (\DescribeConfigurationRecorders' {configurationRecorderNames} -> configurationRecorderNames) (\s@DescribeConfigurationRecorders' {} a -> s {configurationRecorderNames = a} :: DescribeConfigurationRecorders) Core.. Lens.mapping Lens._Coerce
+describeConfigurationRecorders_configurationRecorderNames :: Lens.Lens' DescribeConfigurationRecorders (Prelude.Maybe [Prelude.Text])
+describeConfigurationRecorders_configurationRecorderNames = Lens.lens (\DescribeConfigurationRecorders' {configurationRecorderNames} -> configurationRecorderNames) (\s@DescribeConfigurationRecorders' {} a -> s {configurationRecorderNames = a} :: DescribeConfigurationRecorders) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -92,46 +93,52 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationRecordersResponse'
-            Core.<$> ( x Core..?> "ConfigurationRecorders"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "ConfigurationRecorders"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeConfigurationRecorders
+instance
+  Prelude.Hashable
+    DescribeConfigurationRecorders
 
-instance Core.NFData DescribeConfigurationRecorders
+instance
+  Prelude.NFData
+    DescribeConfigurationRecorders
 
 instance
   Core.ToHeaders
     DescribeConfigurationRecorders
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.DescribeConfigurationRecorders" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeConfigurationRecorders where
   toJSON DescribeConfigurationRecorders' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ConfigurationRecorderNames" Core..=)
-              Core.<$> configurationRecorderNames
+              Prelude.<$> configurationRecorderNames
           ]
       )
 
 instance Core.ToPath DescribeConfigurationRecorders where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeConfigurationRecorders where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the DescribeConfigurationRecorders action.
 --
@@ -139,11 +146,11 @@ instance Core.ToQuery DescribeConfigurationRecorders where
 data DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse'
   { -- | A list that contains the descriptions of the specified configuration
     -- recorders.
-    configurationRecorders :: Core.Maybe [ConfigurationRecorder],
+    configurationRecorders :: Prelude.Maybe [ConfigurationRecorder],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeConfigurationRecordersResponse' with all optional fields omitted.
@@ -159,25 +166,25 @@ data DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResp
 -- 'httpStatus', 'describeConfigurationRecordersResponse_httpStatus' - The response's http status code.
 newDescribeConfigurationRecordersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeConfigurationRecordersResponse
 newDescribeConfigurationRecordersResponse
   pHttpStatus_ =
     DescribeConfigurationRecordersResponse'
       { configurationRecorders =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A list that contains the descriptions of the specified configuration
 -- recorders.
-describeConfigurationRecordersResponse_configurationRecorders :: Lens.Lens' DescribeConfigurationRecordersResponse (Core.Maybe [ConfigurationRecorder])
-describeConfigurationRecordersResponse_configurationRecorders = Lens.lens (\DescribeConfigurationRecordersResponse' {configurationRecorders} -> configurationRecorders) (\s@DescribeConfigurationRecordersResponse' {} a -> s {configurationRecorders = a} :: DescribeConfigurationRecordersResponse) Core.. Lens.mapping Lens._Coerce
+describeConfigurationRecordersResponse_configurationRecorders :: Lens.Lens' DescribeConfigurationRecordersResponse (Prelude.Maybe [ConfigurationRecorder])
+describeConfigurationRecordersResponse_configurationRecorders = Lens.lens (\DescribeConfigurationRecordersResponse' {configurationRecorders} -> configurationRecorders) (\s@DescribeConfigurationRecordersResponse' {} a -> s {configurationRecorders = a} :: DescribeConfigurationRecordersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeConfigurationRecordersResponse_httpStatus :: Lens.Lens' DescribeConfigurationRecordersResponse Core.Int
+describeConfigurationRecordersResponse_httpStatus :: Lens.Lens' DescribeConfigurationRecordersResponse Prelude.Int
 describeConfigurationRecordersResponse_httpStatus = Lens.lens (\DescribeConfigurationRecordersResponse' {httpStatus} -> httpStatus) (\s@DescribeConfigurationRecordersResponse' {} a -> s {httpStatus = a} :: DescribeConfigurationRecordersResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeConfigurationRecordersResponse

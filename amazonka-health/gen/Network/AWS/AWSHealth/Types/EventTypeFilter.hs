@@ -22,6 +22,7 @@ module Network.AWS.AWSHealth.Types.EventTypeFilter where
 import Network.AWS.AWSHealth.Types.EventTypeCategory
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The values to use to filter results from the
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventTypes.html DescribeEventTypes>
@@ -30,14 +31,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEventTypeFilter' smart constructor.
 data EventTypeFilter = EventTypeFilter'
   { -- | The AWS services associated with the event. For example, @EC2@, @RDS@.
-    services :: Core.Maybe (Core.NonEmpty Core.Text),
+    services :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of event type codes.
-    eventTypeCodes :: Core.Maybe (Core.NonEmpty Core.Text),
+    eventTypeCodes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of event type category codes (@issue@, @scheduledChange@, or
     -- @accountNotification@).
-    eventTypeCategories :: Core.Maybe (Core.NonEmpty EventTypeCategory)
+    eventTypeCategories :: Prelude.Maybe (Prelude.NonEmpty EventTypeCategory)
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventTypeFilter' with all optional fields omitted.
@@ -57,35 +58,36 @@ newEventTypeFilter ::
   EventTypeFilter
 newEventTypeFilter =
   EventTypeFilter'
-    { services = Core.Nothing,
-      eventTypeCodes = Core.Nothing,
-      eventTypeCategories = Core.Nothing
+    { services = Prelude.Nothing,
+      eventTypeCodes = Prelude.Nothing,
+      eventTypeCategories = Prelude.Nothing
     }
 
 -- | The AWS services associated with the event. For example, @EC2@, @RDS@.
-eventTypeFilter_services :: Lens.Lens' EventTypeFilter (Core.Maybe (Core.NonEmpty Core.Text))
-eventTypeFilter_services = Lens.lens (\EventTypeFilter' {services} -> services) (\s@EventTypeFilter' {} a -> s {services = a} :: EventTypeFilter) Core.. Lens.mapping Lens._Coerce
+eventTypeFilter_services :: Lens.Lens' EventTypeFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+eventTypeFilter_services = Lens.lens (\EventTypeFilter' {services} -> services) (\s@EventTypeFilter' {} a -> s {services = a} :: EventTypeFilter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of event type codes.
-eventTypeFilter_eventTypeCodes :: Lens.Lens' EventTypeFilter (Core.Maybe (Core.NonEmpty Core.Text))
-eventTypeFilter_eventTypeCodes = Lens.lens (\EventTypeFilter' {eventTypeCodes} -> eventTypeCodes) (\s@EventTypeFilter' {} a -> s {eventTypeCodes = a} :: EventTypeFilter) Core.. Lens.mapping Lens._Coerce
+eventTypeFilter_eventTypeCodes :: Lens.Lens' EventTypeFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+eventTypeFilter_eventTypeCodes = Lens.lens (\EventTypeFilter' {eventTypeCodes} -> eventTypeCodes) (\s@EventTypeFilter' {} a -> s {eventTypeCodes = a} :: EventTypeFilter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of event type category codes (@issue@, @scheduledChange@, or
 -- @accountNotification@).
-eventTypeFilter_eventTypeCategories :: Lens.Lens' EventTypeFilter (Core.Maybe (Core.NonEmpty EventTypeCategory))
-eventTypeFilter_eventTypeCategories = Lens.lens (\EventTypeFilter' {eventTypeCategories} -> eventTypeCategories) (\s@EventTypeFilter' {} a -> s {eventTypeCategories = a} :: EventTypeFilter) Core.. Lens.mapping Lens._Coerce
+eventTypeFilter_eventTypeCategories :: Lens.Lens' EventTypeFilter (Prelude.Maybe (Prelude.NonEmpty EventTypeCategory))
+eventTypeFilter_eventTypeCategories = Lens.lens (\EventTypeFilter' {eventTypeCategories} -> eventTypeCategories) (\s@EventTypeFilter' {} a -> s {eventTypeCategories = a} :: EventTypeFilter) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable EventTypeFilter
+instance Prelude.Hashable EventTypeFilter
 
-instance Core.NFData EventTypeFilter
+instance Prelude.NFData EventTypeFilter
 
 instance Core.ToJSON EventTypeFilter where
   toJSON EventTypeFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("services" Core..=) Core.<$> services,
-            ("eventTypeCodes" Core..=) Core.<$> eventTypeCodes,
+      ( Prelude.catMaybes
+          [ ("services" Core..=) Prelude.<$> services,
+            ("eventTypeCodes" Core..=)
+              Prelude.<$> eventTypeCodes,
             ("eventTypeCategories" Core..=)
-              Core.<$> eventTypeCategories
+              Prelude.<$> eventTypeCategories
           ]
       )

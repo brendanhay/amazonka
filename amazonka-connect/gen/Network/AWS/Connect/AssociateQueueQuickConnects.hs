@@ -43,19 +43,20 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateQueueQuickConnects' smart constructor.
 data AssociateQueueQuickConnects = AssociateQueueQuickConnects'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The identifier for the queue.
-    queueId :: Core.Text,
+    queueId :: Prelude.Text,
     -- | The quick connects to associate with this queue.
-    quickConnectIds :: Core.NonEmpty Core.Text
+    quickConnectIds :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateQueueQuickConnects' with all optional fields omitted.
@@ -72,11 +73,11 @@ data AssociateQueueQuickConnects = AssociateQueueQuickConnects'
 -- 'quickConnectIds', 'associateQueueQuickConnects_quickConnectIds' - The quick connects to associate with this queue.
 newAssociateQueueQuickConnects ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'queueId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'quickConnectIds'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   AssociateQueueQuickConnects
 newAssociateQueueQuickConnects
   pInstanceId_
@@ -91,16 +92,16 @@ newAssociateQueueQuickConnects
       }
 
 -- | The identifier of the Amazon Connect instance.
-associateQueueQuickConnects_instanceId :: Lens.Lens' AssociateQueueQuickConnects Core.Text
+associateQueueQuickConnects_instanceId :: Lens.Lens' AssociateQueueQuickConnects Prelude.Text
 associateQueueQuickConnects_instanceId = Lens.lens (\AssociateQueueQuickConnects' {instanceId} -> instanceId) (\s@AssociateQueueQuickConnects' {} a -> s {instanceId = a} :: AssociateQueueQuickConnects)
 
 -- | The identifier for the queue.
-associateQueueQuickConnects_queueId :: Lens.Lens' AssociateQueueQuickConnects Core.Text
+associateQueueQuickConnects_queueId :: Lens.Lens' AssociateQueueQuickConnects Prelude.Text
 associateQueueQuickConnects_queueId = Lens.lens (\AssociateQueueQuickConnects' {queueId} -> queueId) (\s@AssociateQueueQuickConnects' {} a -> s {queueId = a} :: AssociateQueueQuickConnects)
 
 -- | The quick connects to associate with this queue.
-associateQueueQuickConnects_quickConnectIds :: Lens.Lens' AssociateQueueQuickConnects (Core.NonEmpty Core.Text)
-associateQueueQuickConnects_quickConnectIds = Lens.lens (\AssociateQueueQuickConnects' {quickConnectIds} -> quickConnectIds) (\s@AssociateQueueQuickConnects' {} a -> s {quickConnectIds = a} :: AssociateQueueQuickConnects) Core.. Lens._Coerce
+associateQueueQuickConnects_quickConnectIds :: Lens.Lens' AssociateQueueQuickConnects (Prelude.NonEmpty Prelude.Text)
+associateQueueQuickConnects_quickConnectIds = Lens.lens (\AssociateQueueQuickConnects' {quickConnectIds} -> quickConnectIds) (\s@AssociateQueueQuickConnects' {} a -> s {quickConnectIds = a} :: AssociateQueueQuickConnects) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AssociateQueueQuickConnects where
   type
@@ -111,31 +112,33 @@ instance Core.AWSRequest AssociateQueueQuickConnects where
     Response.receiveNull
       AssociateQueueQuickConnectsResponse'
 
-instance Core.Hashable AssociateQueueQuickConnects
+instance Prelude.Hashable AssociateQueueQuickConnects
 
-instance Core.NFData AssociateQueueQuickConnects
+instance Prelude.NFData AssociateQueueQuickConnects
 
 instance Core.ToHeaders AssociateQueueQuickConnects where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AssociateQueueQuickConnects where
   toJSON AssociateQueueQuickConnects' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("QuickConnectIds" Core..= quickConnectIds)
           ]
       )
 
 instance Core.ToPath AssociateQueueQuickConnects where
   toPath AssociateQueueQuickConnects' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/queues/",
         Core.toBS instanceId,
         "/",
@@ -144,13 +147,13 @@ instance Core.ToPath AssociateQueueQuickConnects where
       ]
 
 instance Core.ToQuery AssociateQueueQuickConnects where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateQueueQuickConnectsResponse' smart constructor.
 data AssociateQueueQuickConnectsResponse = AssociateQueueQuickConnectsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateQueueQuickConnectsResponse' with all optional fields omitted.
@@ -162,5 +165,5 @@ newAssociateQueueQuickConnectsResponse =
   AssociateQueueQuickConnectsResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     AssociateQueueQuickConnectsResponse

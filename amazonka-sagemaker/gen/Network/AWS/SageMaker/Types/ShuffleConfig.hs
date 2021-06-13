@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ShuffleConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A configuration for a shuffle option for input data in a channel. If you
 -- use @S3Prefix@ for @S3DataType@, the results of the S3 key prefix
@@ -42,9 +43,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newShuffleConfig' smart constructor.
 data ShuffleConfig = ShuffleConfig'
   { -- | Determines the shuffling order in @ShuffleConfig@ value.
-    seed :: Core.Integer
+    seed :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ShuffleConfig' with all optional fields omitted.
@@ -57,26 +58,30 @@ data ShuffleConfig = ShuffleConfig'
 -- 'seed', 'shuffleConfig_seed' - Determines the shuffling order in @ShuffleConfig@ value.
 newShuffleConfig ::
   -- | 'seed'
-  Core.Integer ->
+  Prelude.Integer ->
   ShuffleConfig
 newShuffleConfig pSeed_ =
   ShuffleConfig' {seed = pSeed_}
 
 -- | Determines the shuffling order in @ShuffleConfig@ value.
-shuffleConfig_seed :: Lens.Lens' ShuffleConfig Core.Integer
+shuffleConfig_seed :: Lens.Lens' ShuffleConfig Prelude.Integer
 shuffleConfig_seed = Lens.lens (\ShuffleConfig' {seed} -> seed) (\s@ShuffleConfig' {} a -> s {seed = a} :: ShuffleConfig)
 
 instance Core.FromJSON ShuffleConfig where
   parseJSON =
     Core.withObject
       "ShuffleConfig"
-      (\x -> ShuffleConfig' Core.<$> (x Core..: "Seed"))
+      ( \x ->
+          ShuffleConfig' Prelude.<$> (x Core..: "Seed")
+      )
 
-instance Core.Hashable ShuffleConfig
+instance Prelude.Hashable ShuffleConfig
 
-instance Core.NFData ShuffleConfig
+instance Prelude.NFData ShuffleConfig
 
 instance Core.ToJSON ShuffleConfig where
   toJSON ShuffleConfig' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Seed" Core..= seed)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Seed" Core..= seed)]
+      )

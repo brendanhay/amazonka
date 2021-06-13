@@ -42,6 +42,7 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,7 +51,7 @@ data PutConferencePreference = PutConferencePreference'
   { -- | The conference preference of a specific conference provider.
     conferencePreference :: ConferencePreference
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutConferencePreference' with all optional fields omitted.
@@ -84,31 +85,33 @@ instance Core.AWSRequest PutConferencePreference where
     Response.receiveEmpty
       ( \s h x ->
           PutConferencePreferenceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutConferencePreference
+instance Prelude.Hashable PutConferencePreference
 
-instance Core.NFData PutConferencePreference
+instance Prelude.NFData PutConferencePreference
 
 instance Core.ToHeaders PutConferencePreference where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.PutConferencePreference" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutConferencePreference where
   toJSON PutConferencePreference' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "ConferencePreference"
                   Core..= conferencePreference
               )
@@ -116,17 +119,17 @@ instance Core.ToJSON PutConferencePreference where
       )
 
 instance Core.ToPath PutConferencePreference where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutConferencePreference where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutConferencePreferenceResponse' smart constructor.
 data PutConferencePreferenceResponse = PutConferencePreferenceResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutConferencePreferenceResponse' with all optional fields omitted.
@@ -139,7 +142,7 @@ data PutConferencePreferenceResponse = PutConferencePreferenceResponse'
 -- 'httpStatus', 'putConferencePreferenceResponse_httpStatus' - The response's http status code.
 newPutConferencePreferenceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutConferencePreferenceResponse
 newPutConferencePreferenceResponse pHttpStatus_ =
   PutConferencePreferenceResponse'
@@ -148,7 +151,9 @@ newPutConferencePreferenceResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putConferencePreferenceResponse_httpStatus :: Lens.Lens' PutConferencePreferenceResponse Core.Int
+putConferencePreferenceResponse_httpStatus :: Lens.Lens' PutConferencePreferenceResponse Prelude.Int
 putConferencePreferenceResponse_httpStatus = Lens.lens (\PutConferencePreferenceResponse' {httpStatus} -> httpStatus) (\s@PutConferencePreferenceResponse' {} a -> s {httpStatus = a} :: PutConferencePreferenceResponse)
 
-instance Core.NFData PutConferencePreferenceResponse
+instance
+  Prelude.NFData
+    PutConferencePreferenceResponse

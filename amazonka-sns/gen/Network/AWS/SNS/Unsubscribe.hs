@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -54,9 +55,9 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newUnsubscribe' smart constructor.
 data Unsubscribe = Unsubscribe'
   { -- | The ARN of the subscription to be deleted.
-    subscriptionArn :: Core.Text
+    subscriptionArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Unsubscribe' with all optional fields omitted.
@@ -69,13 +70,13 @@ data Unsubscribe = Unsubscribe'
 -- 'subscriptionArn', 'unsubscribe_subscriptionArn' - The ARN of the subscription to be deleted.
 newUnsubscribe ::
   -- | 'subscriptionArn'
-  Core.Text ->
+  Prelude.Text ->
   Unsubscribe
 newUnsubscribe pSubscriptionArn_ =
   Unsubscribe' {subscriptionArn = pSubscriptionArn_}
 
 -- | The ARN of the subscription to be deleted.
-unsubscribe_subscriptionArn :: Lens.Lens' Unsubscribe Core.Text
+unsubscribe_subscriptionArn :: Lens.Lens' Unsubscribe Prelude.Text
 unsubscribe_subscriptionArn = Lens.lens (\Unsubscribe' {subscriptionArn} -> subscriptionArn) (\s@Unsubscribe' {} a -> s {subscriptionArn = a} :: Unsubscribe)
 
 instance Core.AWSRequest Unsubscribe where
@@ -83,21 +84,23 @@ instance Core.AWSRequest Unsubscribe where
   request = Request.postQuery defaultService
   response = Response.receiveNull UnsubscribeResponse'
 
-instance Core.Hashable Unsubscribe
+instance Prelude.Hashable Unsubscribe
 
-instance Core.NFData Unsubscribe
+instance Prelude.NFData Unsubscribe
 
 instance Core.ToHeaders Unsubscribe where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath Unsubscribe where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery Unsubscribe where
   toQuery Unsubscribe' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("Unsubscribe" :: Core.ByteString),
-        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("Unsubscribe" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
         "SubscriptionArn" Core.=: subscriptionArn
       ]
 
@@ -105,7 +108,7 @@ instance Core.ToQuery Unsubscribe where
 data UnsubscribeResponse = UnsubscribeResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnsubscribeResponse' with all optional fields omitted.
@@ -115,4 +118,4 @@ newUnsubscribeResponse ::
   UnsubscribeResponse
 newUnsubscribeResponse = UnsubscribeResponse'
 
-instance Core.NFData UnsubscribeResponse
+instance Prelude.NFData UnsubscribeResponse

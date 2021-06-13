@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.LaunchTemplateLicenseConfigurationRequest where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a license configuration.
 --
 -- /See:/ 'newLaunchTemplateLicenseConfigurationRequest' smart constructor.
 data LaunchTemplateLicenseConfigurationRequest = LaunchTemplateLicenseConfigurationRequest'
   { -- | The Amazon Resource Name (ARN) of the license configuration.
-    licenseConfigurationArn :: Core.Maybe Core.Text
+    licenseConfigurationArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateLicenseConfigurationRequest' with all optional fields omitted.
@@ -46,19 +47,19 @@ newLaunchTemplateLicenseConfigurationRequest ::
 newLaunchTemplateLicenseConfigurationRequest =
   LaunchTemplateLicenseConfigurationRequest'
     { licenseConfigurationArn =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the license configuration.
-launchTemplateLicenseConfigurationRequest_licenseConfigurationArn :: Lens.Lens' LaunchTemplateLicenseConfigurationRequest (Core.Maybe Core.Text)
+launchTemplateLicenseConfigurationRequest_licenseConfigurationArn :: Lens.Lens' LaunchTemplateLicenseConfigurationRequest (Prelude.Maybe Prelude.Text)
 launchTemplateLicenseConfigurationRequest_licenseConfigurationArn = Lens.lens (\LaunchTemplateLicenseConfigurationRequest' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@LaunchTemplateLicenseConfigurationRequest' {} a -> s {licenseConfigurationArn = a} :: LaunchTemplateLicenseConfigurationRequest)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     LaunchTemplateLicenseConfigurationRequest
 
 instance
-  Core.NFData
+  Prelude.NFData
     LaunchTemplateLicenseConfigurationRequest
 
 instance
@@ -67,7 +68,7 @@ instance
   where
   toQuery
     LaunchTemplateLicenseConfigurationRequest' {..} =
-      Core.mconcat
+      Prelude.mconcat
         [ "LicenseConfigurationArn"
             Core.=: licenseConfigurationArn
         ]

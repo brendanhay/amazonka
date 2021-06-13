@@ -21,6 +21,7 @@ module Network.AWS.FMS.Types.StatelessRuleGroup where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | AWS Network Firewall stateless rule group, used in a
 -- NetworkFirewallPolicyDescription.
@@ -28,15 +29,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newStatelessRuleGroup' smart constructor.
 data StatelessRuleGroup = StatelessRuleGroup'
   { -- | The resource ID of the rule group.
-    resourceId :: Core.Maybe Core.Text,
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | The priority of the rule group. AWS Network Firewall evaluates the
     -- stateless rule groups in a firewall policy starting from the lowest
     -- priority setting.
-    priority :: Core.Maybe Core.Natural,
+    priority :: Prelude.Maybe Prelude.Natural,
     -- | The name of the rule group.
-    ruleGroupName :: Core.Maybe Core.Text
+    ruleGroupName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StatelessRuleGroup' with all optional fields omitted.
@@ -57,23 +58,23 @@ newStatelessRuleGroup ::
   StatelessRuleGroup
 newStatelessRuleGroup =
   StatelessRuleGroup'
-    { resourceId = Core.Nothing,
-      priority = Core.Nothing,
-      ruleGroupName = Core.Nothing
+    { resourceId = Prelude.Nothing,
+      priority = Prelude.Nothing,
+      ruleGroupName = Prelude.Nothing
     }
 
 -- | The resource ID of the rule group.
-statelessRuleGroup_resourceId :: Lens.Lens' StatelessRuleGroup (Core.Maybe Core.Text)
+statelessRuleGroup_resourceId :: Lens.Lens' StatelessRuleGroup (Prelude.Maybe Prelude.Text)
 statelessRuleGroup_resourceId = Lens.lens (\StatelessRuleGroup' {resourceId} -> resourceId) (\s@StatelessRuleGroup' {} a -> s {resourceId = a} :: StatelessRuleGroup)
 
 -- | The priority of the rule group. AWS Network Firewall evaluates the
 -- stateless rule groups in a firewall policy starting from the lowest
 -- priority setting.
-statelessRuleGroup_priority :: Lens.Lens' StatelessRuleGroup (Core.Maybe Core.Natural)
+statelessRuleGroup_priority :: Lens.Lens' StatelessRuleGroup (Prelude.Maybe Prelude.Natural)
 statelessRuleGroup_priority = Lens.lens (\StatelessRuleGroup' {priority} -> priority) (\s@StatelessRuleGroup' {} a -> s {priority = a} :: StatelessRuleGroup)
 
 -- | The name of the rule group.
-statelessRuleGroup_ruleGroupName :: Lens.Lens' StatelessRuleGroup (Core.Maybe Core.Text)
+statelessRuleGroup_ruleGroupName :: Lens.Lens' StatelessRuleGroup (Prelude.Maybe Prelude.Text)
 statelessRuleGroup_ruleGroupName = Lens.lens (\StatelessRuleGroup' {ruleGroupName} -> ruleGroupName) (\s@StatelessRuleGroup' {} a -> s {ruleGroupName = a} :: StatelessRuleGroup)
 
 instance Core.FromJSON StatelessRuleGroup where
@@ -82,11 +83,11 @@ instance Core.FromJSON StatelessRuleGroup where
       "StatelessRuleGroup"
       ( \x ->
           StatelessRuleGroup'
-            Core.<$> (x Core..:? "ResourceId")
-            Core.<*> (x Core..:? "Priority")
-            Core.<*> (x Core..:? "RuleGroupName")
+            Prelude.<$> (x Core..:? "ResourceId")
+            Prelude.<*> (x Core..:? "Priority")
+            Prelude.<*> (x Core..:? "RuleGroupName")
       )
 
-instance Core.Hashable StatelessRuleGroup
+instance Prelude.Hashable StatelessRuleGroup
 
-instance Core.NFData StatelessRuleGroup
+instance Prelude.NFData StatelessRuleGroup

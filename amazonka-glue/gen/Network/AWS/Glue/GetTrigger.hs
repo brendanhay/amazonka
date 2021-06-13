@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetTrigger' smart constructor.
 data GetTrigger = GetTrigger'
   { -- | The name of the trigger to retrieve.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTrigger' with all optional fields omitted.
@@ -63,12 +64,12 @@ data GetTrigger = GetTrigger'
 -- 'name', 'getTrigger_name' - The name of the trigger to retrieve.
 newGetTrigger ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   GetTrigger
 newGetTrigger pName_ = GetTrigger' {name = pName_}
 
 -- | The name of the trigger to retrieve.
-getTrigger_name :: Lens.Lens' GetTrigger Core.Text
+getTrigger_name :: Lens.Lens' GetTrigger Prelude.Text
 getTrigger_name = Lens.lens (\GetTrigger' {name} -> name) (\s@GetTrigger' {} a -> s {name = a} :: GetTrigger)
 
 instance Core.AWSRequest GetTrigger where
@@ -78,44 +79,48 @@ instance Core.AWSRequest GetTrigger where
     Response.receiveJSON
       ( \s h x ->
           GetTriggerResponse'
-            Core.<$> (x Core..?> "Trigger")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Trigger")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetTrigger
+instance Prelude.Hashable GetTrigger
 
-instance Core.NFData GetTrigger
+instance Prelude.NFData GetTrigger
 
 instance Core.ToHeaders GetTrigger where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetTrigger" :: Core.ByteString),
+              Core.=# ("AWSGlue.GetTrigger" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetTrigger where
   toJSON GetTrigger' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath GetTrigger where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetTrigger where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTriggerResponse' smart constructor.
 data GetTriggerResponse = GetTriggerResponse'
   { -- | The requested trigger definition.
-    trigger :: Core.Maybe Trigger,
+    trigger :: Prelude.Maybe Trigger,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetTriggerResponse' with all optional fields omitted.
@@ -130,20 +135,20 @@ data GetTriggerResponse = GetTriggerResponse'
 -- 'httpStatus', 'getTriggerResponse_httpStatus' - The response's http status code.
 newGetTriggerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetTriggerResponse
 newGetTriggerResponse pHttpStatus_ =
   GetTriggerResponse'
-    { trigger = Core.Nothing,
+    { trigger = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The requested trigger definition.
-getTriggerResponse_trigger :: Lens.Lens' GetTriggerResponse (Core.Maybe Trigger)
+getTriggerResponse_trigger :: Lens.Lens' GetTriggerResponse (Prelude.Maybe Trigger)
 getTriggerResponse_trigger = Lens.lens (\GetTriggerResponse' {trigger} -> trigger) (\s@GetTriggerResponse' {} a -> s {trigger = a} :: GetTriggerResponse)
 
 -- | The response's http status code.
-getTriggerResponse_httpStatus :: Lens.Lens' GetTriggerResponse Core.Int
+getTriggerResponse_httpStatus :: Lens.Lens' GetTriggerResponse Prelude.Int
 getTriggerResponse_httpStatus = Lens.lens (\GetTriggerResponse' {httpStatus} -> httpStatus) (\s@GetTriggerResponse' {} a -> s {httpStatus = a} :: GetTriggerResponse)
 
-instance Core.NFData GetTriggerResponse
+instance Prelude.NFData GetTriggerResponse

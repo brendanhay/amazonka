@@ -21,6 +21,7 @@ module Network.AWS.DeviceFarm.Types.Location where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a latitude and longitude pair, expressed in geographic
 -- coordinate system degrees (for example, 47.6204, -122.3491).
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newLocation' smart constructor.
 data Location = Location'
   { -- | The latitude.
-    latitude :: Core.Double,
+    latitude :: Prelude.Double,
     -- | The longitude.
-    longitude :: Core.Double
+    longitude :: Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Location' with all optional fields omitted.
@@ -49,9 +50,9 @@ data Location = Location'
 -- 'longitude', 'location_longitude' - The longitude.
 newLocation ::
   -- | 'latitude'
-  Core.Double ->
+  Prelude.Double ->
   -- | 'longitude'
-  Core.Double ->
+  Prelude.Double ->
   Location
 newLocation pLatitude_ pLongitude_ =
   Location'
@@ -60,11 +61,11 @@ newLocation pLatitude_ pLongitude_ =
     }
 
 -- | The latitude.
-location_latitude :: Lens.Lens' Location Core.Double
+location_latitude :: Lens.Lens' Location Prelude.Double
 location_latitude = Lens.lens (\Location' {latitude} -> latitude) (\s@Location' {} a -> s {latitude = a} :: Location)
 
 -- | The longitude.
-location_longitude :: Lens.Lens' Location Core.Double
+location_longitude :: Lens.Lens' Location Prelude.Double
 location_longitude = Lens.lens (\Location' {longitude} -> longitude) (\s@Location' {} a -> s {longitude = a} :: Location)
 
 instance Core.FromJSON Location where
@@ -73,19 +74,19 @@ instance Core.FromJSON Location where
       "Location"
       ( \x ->
           Location'
-            Core.<$> (x Core..: "latitude")
-            Core.<*> (x Core..: "longitude")
+            Prelude.<$> (x Core..: "latitude")
+            Prelude.<*> (x Core..: "longitude")
       )
 
-instance Core.Hashable Location
+instance Prelude.Hashable Location
 
-instance Core.NFData Location
+instance Prelude.NFData Location
 
 instance Core.ToJSON Location where
   toJSON Location' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("latitude" Core..= latitude),
-            Core.Just ("longitude" Core..= longitude)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("latitude" Core..= latitude),
+            Prelude.Just ("longitude" Core..= longitude)
           ]
       )

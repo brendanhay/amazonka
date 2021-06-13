@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,13 +54,13 @@ data UpdateBillingGroup = UpdateBillingGroup'
     -- group does not match the expected version specified in the request, the
     -- @UpdateBillingGroup@ request is rejected with a
     -- @VersionConflictException@.
-    expectedVersion :: Core.Maybe Core.Integer,
+    expectedVersion :: Prelude.Maybe Prelude.Integer,
     -- | The name of the billing group.
-    billingGroupName :: Core.Text,
+    billingGroupName :: Prelude.Text,
     -- | The properties of the billing group.
     billingGroupProperties :: BillingGroupProperties
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateBillingGroup' with all optional fields omitted.
@@ -79,7 +80,7 @@ data UpdateBillingGroup = UpdateBillingGroup'
 -- 'billingGroupProperties', 'updateBillingGroup_billingGroupProperties' - The properties of the billing group.
 newUpdateBillingGroup ::
   -- | 'billingGroupName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'billingGroupProperties'
   BillingGroupProperties ->
   UpdateBillingGroup
@@ -87,7 +88,8 @@ newUpdateBillingGroup
   pBillingGroupName_
   pBillingGroupProperties_ =
     UpdateBillingGroup'
-      { expectedVersion = Core.Nothing,
+      { expectedVersion =
+          Prelude.Nothing,
         billingGroupName = pBillingGroupName_,
         billingGroupProperties = pBillingGroupProperties_
       }
@@ -96,11 +98,11 @@ newUpdateBillingGroup
 -- group does not match the expected version specified in the request, the
 -- @UpdateBillingGroup@ request is rejected with a
 -- @VersionConflictException@.
-updateBillingGroup_expectedVersion :: Lens.Lens' UpdateBillingGroup (Core.Maybe Core.Integer)
+updateBillingGroup_expectedVersion :: Lens.Lens' UpdateBillingGroup (Prelude.Maybe Prelude.Integer)
 updateBillingGroup_expectedVersion = Lens.lens (\UpdateBillingGroup' {expectedVersion} -> expectedVersion) (\s@UpdateBillingGroup' {} a -> s {expectedVersion = a} :: UpdateBillingGroup)
 
 -- | The name of the billing group.
-updateBillingGroup_billingGroupName :: Lens.Lens' UpdateBillingGroup Core.Text
+updateBillingGroup_billingGroupName :: Lens.Lens' UpdateBillingGroup Prelude.Text
 updateBillingGroup_billingGroupName = Lens.lens (\UpdateBillingGroup' {billingGroupName} -> billingGroupName) (\s@UpdateBillingGroup' {} a -> s {billingGroupName = a} :: UpdateBillingGroup)
 
 -- | The properties of the billing group.
@@ -116,24 +118,24 @@ instance Core.AWSRequest UpdateBillingGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateBillingGroupResponse'
-            Core.<$> (x Core..?> "version")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "version")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateBillingGroup
+instance Prelude.Hashable UpdateBillingGroup
 
-instance Core.NFData UpdateBillingGroup
+instance Prelude.NFData UpdateBillingGroup
 
 instance Core.ToHeaders UpdateBillingGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON UpdateBillingGroup where
   toJSON UpdateBillingGroup' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("expectedVersion" Core..=)
-              Core.<$> expectedVersion,
-            Core.Just
+              Prelude.<$> expectedVersion,
+            Prelude.Just
               ( "billingGroupProperties"
                   Core..= billingGroupProperties
               )
@@ -142,20 +144,20 @@ instance Core.ToJSON UpdateBillingGroup where
 
 instance Core.ToPath UpdateBillingGroup where
   toPath UpdateBillingGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/billing-groups/", Core.toBS billingGroupName]
 
 instance Core.ToQuery UpdateBillingGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBillingGroupResponse' smart constructor.
 data UpdateBillingGroupResponse = UpdateBillingGroupResponse'
   { -- | The latest version of the billing group.
-    version :: Core.Maybe Core.Integer,
+    version :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateBillingGroupResponse' with all optional fields omitted.
@@ -170,20 +172,21 @@ data UpdateBillingGroupResponse = UpdateBillingGroupResponse'
 -- 'httpStatus', 'updateBillingGroupResponse_httpStatus' - The response's http status code.
 newUpdateBillingGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateBillingGroupResponse
 newUpdateBillingGroupResponse pHttpStatus_ =
   UpdateBillingGroupResponse'
-    { version = Core.Nothing,
+    { version =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The latest version of the billing group.
-updateBillingGroupResponse_version :: Lens.Lens' UpdateBillingGroupResponse (Core.Maybe Core.Integer)
+updateBillingGroupResponse_version :: Lens.Lens' UpdateBillingGroupResponse (Prelude.Maybe Prelude.Integer)
 updateBillingGroupResponse_version = Lens.lens (\UpdateBillingGroupResponse' {version} -> version) (\s@UpdateBillingGroupResponse' {} a -> s {version = a} :: UpdateBillingGroupResponse)
 
 -- | The response's http status code.
-updateBillingGroupResponse_httpStatus :: Lens.Lens' UpdateBillingGroupResponse Core.Int
+updateBillingGroupResponse_httpStatus :: Lens.Lens' UpdateBillingGroupResponse Prelude.Int
 updateBillingGroupResponse_httpStatus = Lens.lens (\UpdateBillingGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateBillingGroupResponse' {} a -> s {httpStatus = a} :: UpdateBillingGroupResponse)
 
-instance Core.NFData UpdateBillingGroupResponse
+instance Prelude.NFData UpdateBillingGroupResponse

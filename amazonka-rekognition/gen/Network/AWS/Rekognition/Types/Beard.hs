@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.Beard where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether or not the face has a beard, and the confidence level
 -- in the determination.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newBeard' smart constructor.
 data Beard = Beard'
   { -- | Level of confidence in the determination.
-    confidence :: Core.Maybe Core.Double,
+    confidence :: Prelude.Maybe Prelude.Double,
     -- | Boolean value that indicates whether the face has beard or not.
-    value :: Core.Maybe Core.Bool
+    value :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Beard' with all optional fields omitted.
@@ -49,16 +50,16 @@ newBeard ::
   Beard
 newBeard =
   Beard'
-    { confidence = Core.Nothing,
-      value = Core.Nothing
+    { confidence = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | Level of confidence in the determination.
-beard_confidence :: Lens.Lens' Beard (Core.Maybe Core.Double)
+beard_confidence :: Lens.Lens' Beard (Prelude.Maybe Prelude.Double)
 beard_confidence = Lens.lens (\Beard' {confidence} -> confidence) (\s@Beard' {} a -> s {confidence = a} :: Beard)
 
 -- | Boolean value that indicates whether the face has beard or not.
-beard_value :: Lens.Lens' Beard (Core.Maybe Core.Bool)
+beard_value :: Lens.Lens' Beard (Prelude.Maybe Prelude.Bool)
 beard_value = Lens.lens (\Beard' {value} -> value) (\s@Beard' {} a -> s {value = a} :: Beard)
 
 instance Core.FromJSON Beard where
@@ -67,10 +68,10 @@ instance Core.FromJSON Beard where
       "Beard"
       ( \x ->
           Beard'
-            Core.<$> (x Core..:? "Confidence")
-            Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable Beard
+instance Prelude.Hashable Beard
 
-instance Core.NFData Beard
+instance Prelude.NFData Beard

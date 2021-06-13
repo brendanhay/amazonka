@@ -22,17 +22,18 @@ module Network.AWS.IoT.Types.StreamFile where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.S3Location
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a file to stream.
 --
 -- /See:/ 'newStreamFile' smart constructor.
 data StreamFile = StreamFile'
   { -- | The location of the file in S3.
-    s3Location :: Core.Maybe S3Location,
+    s3Location :: Prelude.Maybe S3Location,
     -- | The file ID.
-    fileId :: Core.Maybe Core.Natural
+    fileId :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StreamFile' with all optional fields omitted.
@@ -49,16 +50,16 @@ newStreamFile ::
   StreamFile
 newStreamFile =
   StreamFile'
-    { s3Location = Core.Nothing,
-      fileId = Core.Nothing
+    { s3Location = Prelude.Nothing,
+      fileId = Prelude.Nothing
     }
 
 -- | The location of the file in S3.
-streamFile_s3Location :: Lens.Lens' StreamFile (Core.Maybe S3Location)
+streamFile_s3Location :: Lens.Lens' StreamFile (Prelude.Maybe S3Location)
 streamFile_s3Location = Lens.lens (\StreamFile' {s3Location} -> s3Location) (\s@StreamFile' {} a -> s {s3Location = a} :: StreamFile)
 
 -- | The file ID.
-streamFile_fileId :: Lens.Lens' StreamFile (Core.Maybe Core.Natural)
+streamFile_fileId :: Lens.Lens' StreamFile (Prelude.Maybe Prelude.Natural)
 streamFile_fileId = Lens.lens (\StreamFile' {fileId} -> fileId) (\s@StreamFile' {} a -> s {fileId = a} :: StreamFile)
 
 instance Core.FromJSON StreamFile where
@@ -67,19 +68,19 @@ instance Core.FromJSON StreamFile where
       "StreamFile"
       ( \x ->
           StreamFile'
-            Core.<$> (x Core..:? "s3Location")
-            Core.<*> (x Core..:? "fileId")
+            Prelude.<$> (x Core..:? "s3Location")
+            Prelude.<*> (x Core..:? "fileId")
       )
 
-instance Core.Hashable StreamFile
+instance Prelude.Hashable StreamFile
 
-instance Core.NFData StreamFile
+instance Prelude.NFData StreamFile
 
 instance Core.ToJSON StreamFile where
   toJSON StreamFile' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("s3Location" Core..=) Core.<$> s3Location,
-            ("fileId" Core..=) Core.<$> fileId
+      ( Prelude.catMaybes
+          [ ("s3Location" Core..=) Prelude.<$> s3Location,
+            ("fileId" Core..=) Prelude.<$> fileId
           ]
       )

@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.MetricsAndOperator where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Tag
 
@@ -32,11 +33,11 @@ import Network.AWS.S3.Types.Tag
 -- /See:/ 'newMetricsAndOperator' smart constructor.
 data MetricsAndOperator = MetricsAndOperator'
   { -- | The prefix used when evaluating an AND predicate.
-    prefix :: Core.Maybe Core.Text,
+    prefix :: Prelude.Maybe Prelude.Text,
     -- | The list of tags used when evaluating an AND predicate.
-    tags :: Core.Maybe [Tag]
+    tags :: Prelude.Maybe [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MetricsAndOperator' with all optional fields omitted.
@@ -53,34 +54,34 @@ newMetricsAndOperator ::
   MetricsAndOperator
 newMetricsAndOperator =
   MetricsAndOperator'
-    { prefix = Core.Nothing,
-      tags = Core.Nothing
+    { prefix = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | The prefix used when evaluating an AND predicate.
-metricsAndOperator_prefix :: Lens.Lens' MetricsAndOperator (Core.Maybe Core.Text)
+metricsAndOperator_prefix :: Lens.Lens' MetricsAndOperator (Prelude.Maybe Prelude.Text)
 metricsAndOperator_prefix = Lens.lens (\MetricsAndOperator' {prefix} -> prefix) (\s@MetricsAndOperator' {} a -> s {prefix = a} :: MetricsAndOperator)
 
 -- | The list of tags used when evaluating an AND predicate.
-metricsAndOperator_tags :: Lens.Lens' MetricsAndOperator (Core.Maybe [Tag])
-metricsAndOperator_tags = Lens.lens (\MetricsAndOperator' {tags} -> tags) (\s@MetricsAndOperator' {} a -> s {tags = a} :: MetricsAndOperator) Core.. Lens.mapping Lens._Coerce
+metricsAndOperator_tags :: Lens.Lens' MetricsAndOperator (Prelude.Maybe [Tag])
+metricsAndOperator_tags = Lens.lens (\MetricsAndOperator' {tags} -> tags) (\s@MetricsAndOperator' {} a -> s {tags = a} :: MetricsAndOperator) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML MetricsAndOperator where
   parseXML x =
     MetricsAndOperator'
-      Core.<$> (x Core..@? "Prefix")
-      Core.<*> ( x Core..@? "Tag" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Tag")
-               )
+      Prelude.<$> (x Core..@? "Prefix")
+      Prelude.<*> ( x Core..@? "Tag" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+                  )
 
-instance Core.Hashable MetricsAndOperator
+instance Prelude.Hashable MetricsAndOperator
 
-instance Core.NFData MetricsAndOperator
+instance Prelude.NFData MetricsAndOperator
 
 instance Core.ToXML MetricsAndOperator where
   toXML MetricsAndOperator' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Prefix" Core.@= prefix,
         "Tag"
-          Core.@= Core.toXML (Core.toXMLList "Tag" Core.<$> tags)
+          Core.@= Core.toXML (Core.toXMLList "Tag" Prelude.<$> tags)
       ]

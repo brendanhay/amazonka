@@ -22,23 +22,24 @@ module Network.AWS.Connect.Types.HierarchyPath where
 import Network.AWS.Connect.Types.HierarchyGroupSummary
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the levels of a hierarchy group.
 --
 -- /See:/ 'newHierarchyPath' smart constructor.
 data HierarchyPath = HierarchyPath'
   { -- | Information about level three.
-    levelThree :: Core.Maybe HierarchyGroupSummary,
+    levelThree :: Prelude.Maybe HierarchyGroupSummary,
     -- | Information about level four.
-    levelFour :: Core.Maybe HierarchyGroupSummary,
+    levelFour :: Prelude.Maybe HierarchyGroupSummary,
     -- | Information about level two.
-    levelTwo :: Core.Maybe HierarchyGroupSummary,
+    levelTwo :: Prelude.Maybe HierarchyGroupSummary,
     -- | Information about level one.
-    levelOne :: Core.Maybe HierarchyGroupSummary,
+    levelOne :: Prelude.Maybe HierarchyGroupSummary,
     -- | Information about level five.
-    levelFive :: Core.Maybe HierarchyGroupSummary
+    levelFive :: Prelude.Maybe HierarchyGroupSummary
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HierarchyPath' with all optional fields omitted.
@@ -61,31 +62,31 @@ newHierarchyPath ::
   HierarchyPath
 newHierarchyPath =
   HierarchyPath'
-    { levelThree = Core.Nothing,
-      levelFour = Core.Nothing,
-      levelTwo = Core.Nothing,
-      levelOne = Core.Nothing,
-      levelFive = Core.Nothing
+    { levelThree = Prelude.Nothing,
+      levelFour = Prelude.Nothing,
+      levelTwo = Prelude.Nothing,
+      levelOne = Prelude.Nothing,
+      levelFive = Prelude.Nothing
     }
 
 -- | Information about level three.
-hierarchyPath_levelThree :: Lens.Lens' HierarchyPath (Core.Maybe HierarchyGroupSummary)
+hierarchyPath_levelThree :: Lens.Lens' HierarchyPath (Prelude.Maybe HierarchyGroupSummary)
 hierarchyPath_levelThree = Lens.lens (\HierarchyPath' {levelThree} -> levelThree) (\s@HierarchyPath' {} a -> s {levelThree = a} :: HierarchyPath)
 
 -- | Information about level four.
-hierarchyPath_levelFour :: Lens.Lens' HierarchyPath (Core.Maybe HierarchyGroupSummary)
+hierarchyPath_levelFour :: Lens.Lens' HierarchyPath (Prelude.Maybe HierarchyGroupSummary)
 hierarchyPath_levelFour = Lens.lens (\HierarchyPath' {levelFour} -> levelFour) (\s@HierarchyPath' {} a -> s {levelFour = a} :: HierarchyPath)
 
 -- | Information about level two.
-hierarchyPath_levelTwo :: Lens.Lens' HierarchyPath (Core.Maybe HierarchyGroupSummary)
+hierarchyPath_levelTwo :: Lens.Lens' HierarchyPath (Prelude.Maybe HierarchyGroupSummary)
 hierarchyPath_levelTwo = Lens.lens (\HierarchyPath' {levelTwo} -> levelTwo) (\s@HierarchyPath' {} a -> s {levelTwo = a} :: HierarchyPath)
 
 -- | Information about level one.
-hierarchyPath_levelOne :: Lens.Lens' HierarchyPath (Core.Maybe HierarchyGroupSummary)
+hierarchyPath_levelOne :: Lens.Lens' HierarchyPath (Prelude.Maybe HierarchyGroupSummary)
 hierarchyPath_levelOne = Lens.lens (\HierarchyPath' {levelOne} -> levelOne) (\s@HierarchyPath' {} a -> s {levelOne = a} :: HierarchyPath)
 
 -- | Information about level five.
-hierarchyPath_levelFive :: Lens.Lens' HierarchyPath (Core.Maybe HierarchyGroupSummary)
+hierarchyPath_levelFive :: Lens.Lens' HierarchyPath (Prelude.Maybe HierarchyGroupSummary)
 hierarchyPath_levelFive = Lens.lens (\HierarchyPath' {levelFive} -> levelFive) (\s@HierarchyPath' {} a -> s {levelFive = a} :: HierarchyPath)
 
 instance Core.FromJSON HierarchyPath where
@@ -94,13 +95,13 @@ instance Core.FromJSON HierarchyPath where
       "HierarchyPath"
       ( \x ->
           HierarchyPath'
-            Core.<$> (x Core..:? "LevelThree")
-            Core.<*> (x Core..:? "LevelFour")
-            Core.<*> (x Core..:? "LevelTwo")
-            Core.<*> (x Core..:? "LevelOne")
-            Core.<*> (x Core..:? "LevelFive")
+            Prelude.<$> (x Core..:? "LevelThree")
+            Prelude.<*> (x Core..:? "LevelFour")
+            Prelude.<*> (x Core..:? "LevelTwo")
+            Prelude.<*> (x Core..:? "LevelOne")
+            Prelude.<*> (x Core..:? "LevelFive")
       )
 
-instance Core.Hashable HierarchyPath
+instance Prelude.Hashable HierarchyPath
 
-instance Core.NFData HierarchyPath
+instance Prelude.NFData HierarchyPath

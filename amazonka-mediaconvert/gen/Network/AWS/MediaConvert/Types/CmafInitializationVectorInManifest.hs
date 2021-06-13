@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When you use DRM with CMAF outputs, choose whether the service writes
 -- the 128-bit encryption initialization vector in the HLS and DASH
@@ -36,15 +37,15 @@ newtype CmafInitializationVectorInManifest = CmafInitializationVectorInManifest'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

@@ -48,20 +48,21 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateCodeSigningConfig' smart constructor.
 data CreateCodeSigningConfig = CreateCodeSigningConfig'
   { -- | Descriptive name for this code signing configuration.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The code signing policies define the actions to take if the validation
     -- checks fail.
-    codeSigningPolicies :: Core.Maybe CodeSigningPolicies,
+    codeSigningPolicies :: Prelude.Maybe CodeSigningPolicies,
     -- | Signing profiles for this code signing configuration.
     allowedPublishers :: AllowedPublishers
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCodeSigningConfig' with all optional fields omitted.
@@ -84,18 +85,18 @@ newCreateCodeSigningConfig ::
 newCreateCodeSigningConfig pAllowedPublishers_ =
   CreateCodeSigningConfig'
     { description =
-        Core.Nothing,
-      codeSigningPolicies = Core.Nothing,
+        Prelude.Nothing,
+      codeSigningPolicies = Prelude.Nothing,
       allowedPublishers = pAllowedPublishers_
     }
 
 -- | Descriptive name for this code signing configuration.
-createCodeSigningConfig_description :: Lens.Lens' CreateCodeSigningConfig (Core.Maybe Core.Text)
+createCodeSigningConfig_description :: Lens.Lens' CreateCodeSigningConfig (Prelude.Maybe Prelude.Text)
 createCodeSigningConfig_description = Lens.lens (\CreateCodeSigningConfig' {description} -> description) (\s@CreateCodeSigningConfig' {} a -> s {description = a} :: CreateCodeSigningConfig)
 
 -- | The code signing policies define the actions to take if the validation
 -- checks fail.
-createCodeSigningConfig_codeSigningPolicies :: Lens.Lens' CreateCodeSigningConfig (Core.Maybe CodeSigningPolicies)
+createCodeSigningConfig_codeSigningPolicies :: Lens.Lens' CreateCodeSigningConfig (Prelude.Maybe CodeSigningPolicies)
 createCodeSigningConfig_codeSigningPolicies = Lens.lens (\CreateCodeSigningConfig' {codeSigningPolicies} -> codeSigningPolicies) (\s@CreateCodeSigningConfig' {} a -> s {codeSigningPolicies = a} :: CreateCodeSigningConfig)
 
 -- | Signing profiles for this code signing configuration.
@@ -111,44 +112,44 @@ instance Core.AWSRequest CreateCodeSigningConfig where
     Response.receiveJSON
       ( \s h x ->
           CreateCodeSigningConfigResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "CodeSigningConfig")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "CodeSigningConfig")
       )
 
-instance Core.Hashable CreateCodeSigningConfig
+instance Prelude.Hashable CreateCodeSigningConfig
 
-instance Core.NFData CreateCodeSigningConfig
+instance Prelude.NFData CreateCodeSigningConfig
 
 instance Core.ToHeaders CreateCodeSigningConfig where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CreateCodeSigningConfig where
   toJSON CreateCodeSigningConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Description" Core..=) Core.<$> description,
+      ( Prelude.catMaybes
+          [ ("Description" Core..=) Prelude.<$> description,
             ("CodeSigningPolicies" Core..=)
-              Core.<$> codeSigningPolicies,
-            Core.Just
+              Prelude.<$> codeSigningPolicies,
+            Prelude.Just
               ("AllowedPublishers" Core..= allowedPublishers)
           ]
       )
 
 instance Core.ToPath CreateCodeSigningConfig where
   toPath =
-    Core.const "/2020-04-22/code-signing-configs/"
+    Prelude.const "/2020-04-22/code-signing-configs/"
 
 instance Core.ToQuery CreateCodeSigningConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCodeSigningConfigResponse' smart constructor.
 data CreateCodeSigningConfigResponse = CreateCodeSigningConfigResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The code signing configuration.
     codeSigningConfig :: CodeSigningConfig
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCodeSigningConfigResponse' with all optional fields omitted.
@@ -163,7 +164,7 @@ data CreateCodeSigningConfigResponse = CreateCodeSigningConfigResponse'
 -- 'codeSigningConfig', 'createCodeSigningConfigResponse_codeSigningConfig' - The code signing configuration.
 newCreateCodeSigningConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'codeSigningConfig'
   CodeSigningConfig ->
   CreateCodeSigningConfigResponse
@@ -177,11 +178,13 @@ newCreateCodeSigningConfigResponse
       }
 
 -- | The response's http status code.
-createCodeSigningConfigResponse_httpStatus :: Lens.Lens' CreateCodeSigningConfigResponse Core.Int
+createCodeSigningConfigResponse_httpStatus :: Lens.Lens' CreateCodeSigningConfigResponse Prelude.Int
 createCodeSigningConfigResponse_httpStatus = Lens.lens (\CreateCodeSigningConfigResponse' {httpStatus} -> httpStatus) (\s@CreateCodeSigningConfigResponse' {} a -> s {httpStatus = a} :: CreateCodeSigningConfigResponse)
 
 -- | The code signing configuration.
 createCodeSigningConfigResponse_codeSigningConfig :: Lens.Lens' CreateCodeSigningConfigResponse CodeSigningConfig
 createCodeSigningConfigResponse_codeSigningConfig = Lens.lens (\CreateCodeSigningConfigResponse' {codeSigningConfig} -> codeSigningConfig) (\s@CreateCodeSigningConfigResponse' {} a -> s {codeSigningConfig = a} :: CreateCodeSigningConfigResponse)
 
-instance Core.NFData CreateCodeSigningConfigResponse
+instance
+  Prelude.NFData
+    CreateCodeSigningConfigResponse

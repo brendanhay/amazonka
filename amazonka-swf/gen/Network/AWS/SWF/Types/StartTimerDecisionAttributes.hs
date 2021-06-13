@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.StartTimerDecisionAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @StartTimer@ decision.
 --
@@ -48,21 +49,21 @@ import qualified Network.AWS.Lens as Lens
 data StartTimerDecisionAttributes = StartTimerDecisionAttributes'
   { -- | The data attached to the event that can be used by the decider in
     -- subsequent workflow tasks.
-    control :: Core.Maybe Core.Text,
+    control :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the timer.
     --
     -- The specified string must not start or end with whitespace. It must not
     -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
     -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
     -- contain the literal string @arn@.
-    timerId :: Core.Text,
+    timerId :: Prelude.Text,
     -- | The duration to wait before firing the timer.
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@.
-    startToFireTimeout :: Core.Text
+    startToFireTimeout :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartTimerDecisionAttributes' with all optional fields omitted.
@@ -88,23 +89,23 @@ data StartTimerDecisionAttributes = StartTimerDecisionAttributes'
 -- to @0@.
 newStartTimerDecisionAttributes ::
   -- | 'timerId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'startToFireTimeout'
-  Core.Text ->
+  Prelude.Text ->
   StartTimerDecisionAttributes
 newStartTimerDecisionAttributes
   pTimerId_
   pStartToFireTimeout_ =
     StartTimerDecisionAttributes'
       { control =
-          Core.Nothing,
+          Prelude.Nothing,
         timerId = pTimerId_,
         startToFireTimeout = pStartToFireTimeout_
       }
 
 -- | The data attached to the event that can be used by the decider in
 -- subsequent workflow tasks.
-startTimerDecisionAttributes_control :: Lens.Lens' StartTimerDecisionAttributes (Core.Maybe Core.Text)
+startTimerDecisionAttributes_control :: Lens.Lens' StartTimerDecisionAttributes (Prelude.Maybe Prelude.Text)
 startTimerDecisionAttributes_control = Lens.lens (\StartTimerDecisionAttributes' {control} -> control) (\s@StartTimerDecisionAttributes' {} a -> s {control = a} :: StartTimerDecisionAttributes)
 
 -- | The unique ID of the timer.
@@ -113,27 +114,29 @@ startTimerDecisionAttributes_control = Lens.lens (\StartTimerDecisionAttributes'
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
 -- contain the literal string @arn@.
-startTimerDecisionAttributes_timerId :: Lens.Lens' StartTimerDecisionAttributes Core.Text
+startTimerDecisionAttributes_timerId :: Lens.Lens' StartTimerDecisionAttributes Prelude.Text
 startTimerDecisionAttributes_timerId = Lens.lens (\StartTimerDecisionAttributes' {timerId} -> timerId) (\s@StartTimerDecisionAttributes' {} a -> s {timerId = a} :: StartTimerDecisionAttributes)
 
 -- | The duration to wait before firing the timer.
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@.
-startTimerDecisionAttributes_startToFireTimeout :: Lens.Lens' StartTimerDecisionAttributes Core.Text
+startTimerDecisionAttributes_startToFireTimeout :: Lens.Lens' StartTimerDecisionAttributes Prelude.Text
 startTimerDecisionAttributes_startToFireTimeout = Lens.lens (\StartTimerDecisionAttributes' {startToFireTimeout} -> startToFireTimeout) (\s@StartTimerDecisionAttributes' {} a -> s {startToFireTimeout = a} :: StartTimerDecisionAttributes)
 
-instance Core.Hashable StartTimerDecisionAttributes
+instance
+  Prelude.Hashable
+    StartTimerDecisionAttributes
 
-instance Core.NFData StartTimerDecisionAttributes
+instance Prelude.NFData StartTimerDecisionAttributes
 
 instance Core.ToJSON StartTimerDecisionAttributes where
   toJSON StartTimerDecisionAttributes' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("control" Core..=) Core.<$> control,
-            Core.Just ("timerId" Core..= timerId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("control" Core..=) Prelude.<$> control,
+            Prelude.Just ("timerId" Core..= timerId),
+            Prelude.Just
               ("startToFireTimeout" Core..= startToFireTimeout)
           ]
       )

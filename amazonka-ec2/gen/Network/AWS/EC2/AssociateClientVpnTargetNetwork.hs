@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,17 +66,17 @@ data AssociateClientVpnTargetNetwork = AssociateClientVpnTargetNetwork'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-    clientToken :: Core.Maybe Core.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Client VPN endpoint.
-    clientVpnEndpointId :: Core.Text,
+    clientVpnEndpointId :: Prelude.Text,
     -- | The ID of the subnet to associate with the Client VPN endpoint.
-    subnetId :: Core.Text
+    subnetId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateClientVpnTargetNetwork' with all optional fields omitted.
@@ -99,17 +100,17 @@ data AssociateClientVpnTargetNetwork = AssociateClientVpnTargetNetwork'
 -- 'subnetId', 'associateClientVpnTargetNetwork_subnetId' - The ID of the subnet to associate with the Client VPN endpoint.
 newAssociateClientVpnTargetNetwork ::
   -- | 'clientVpnEndpointId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'subnetId'
-  Core.Text ->
+  Prelude.Text ->
   AssociateClientVpnTargetNetwork
 newAssociateClientVpnTargetNetwork
   pClientVpnEndpointId_
   pSubnetId_ =
     AssociateClientVpnTargetNetwork'
       { dryRun =
-          Core.Nothing,
-        clientToken = Core.Nothing,
+          Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         clientVpnEndpointId =
           pClientVpnEndpointId_,
         subnetId = pSubnetId_
@@ -119,21 +120,21 @@ newAssociateClientVpnTargetNetwork
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-associateClientVpnTargetNetwork_dryRun :: Lens.Lens' AssociateClientVpnTargetNetwork (Core.Maybe Core.Bool)
+associateClientVpnTargetNetwork_dryRun :: Lens.Lens' AssociateClientVpnTargetNetwork (Prelude.Maybe Prelude.Bool)
 associateClientVpnTargetNetwork_dryRun = Lens.lens (\AssociateClientVpnTargetNetwork' {dryRun} -> dryRun) (\s@AssociateClientVpnTargetNetwork' {} a -> s {dryRun = a} :: AssociateClientVpnTargetNetwork)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-associateClientVpnTargetNetwork_clientToken :: Lens.Lens' AssociateClientVpnTargetNetwork (Core.Maybe Core.Text)
+associateClientVpnTargetNetwork_clientToken :: Lens.Lens' AssociateClientVpnTargetNetwork (Prelude.Maybe Prelude.Text)
 associateClientVpnTargetNetwork_clientToken = Lens.lens (\AssociateClientVpnTargetNetwork' {clientToken} -> clientToken) (\s@AssociateClientVpnTargetNetwork' {} a -> s {clientToken = a} :: AssociateClientVpnTargetNetwork)
 
 -- | The ID of the Client VPN endpoint.
-associateClientVpnTargetNetwork_clientVpnEndpointId :: Lens.Lens' AssociateClientVpnTargetNetwork Core.Text
+associateClientVpnTargetNetwork_clientVpnEndpointId :: Lens.Lens' AssociateClientVpnTargetNetwork Prelude.Text
 associateClientVpnTargetNetwork_clientVpnEndpointId = Lens.lens (\AssociateClientVpnTargetNetwork' {clientVpnEndpointId} -> clientVpnEndpointId) (\s@AssociateClientVpnTargetNetwork' {} a -> s {clientVpnEndpointId = a} :: AssociateClientVpnTargetNetwork)
 
 -- | The ID of the subnet to associate with the Client VPN endpoint.
-associateClientVpnTargetNetwork_subnetId :: Lens.Lens' AssociateClientVpnTargetNetwork Core.Text
+associateClientVpnTargetNetwork_subnetId :: Lens.Lens' AssociateClientVpnTargetNetwork Prelude.Text
 associateClientVpnTargetNetwork_subnetId = Lens.lens (\AssociateClientVpnTargetNetwork' {subnetId} -> subnetId) (\s@AssociateClientVpnTargetNetwork' {} a -> s {subnetId = a} :: AssociateClientVpnTargetNetwork)
 
 instance
@@ -148,34 +149,37 @@ instance
     Response.receiveXML
       ( \s h x ->
           AssociateClientVpnTargetNetworkResponse'
-            Core.<$> (x Core..@? "status")
-            Core.<*> (x Core..@? "associationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "status")
+            Prelude.<*> (x Core..@? "associationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AssociateClientVpnTargetNetwork
 
-instance Core.NFData AssociateClientVpnTargetNetwork
+instance
+  Prelude.NFData
+    AssociateClientVpnTargetNetwork
 
 instance
   Core.ToHeaders
     AssociateClientVpnTargetNetwork
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath AssociateClientVpnTargetNetwork where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AssociateClientVpnTargetNetwork where
   toQuery AssociateClientVpnTargetNetwork' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "AssociateClientVpnTargetNetwork" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "ClientToken" Core.=: clientToken,
         "ClientVpnEndpointId" Core.=: clientVpnEndpointId,
@@ -185,13 +189,13 @@ instance Core.ToQuery AssociateClientVpnTargetNetwork where
 -- | /See:/ 'newAssociateClientVpnTargetNetworkResponse' smart constructor.
 data AssociateClientVpnTargetNetworkResponse = AssociateClientVpnTargetNetworkResponse'
   { -- | The current state of the target network association.
-    status :: Core.Maybe AssociationStatus,
+    status :: Prelude.Maybe AssociationStatus,
     -- | The unique ID of the target network association.
-    associationId :: Core.Maybe Core.Text,
+    associationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssociateClientVpnTargetNetworkResponse' with all optional fields omitted.
@@ -208,29 +212,29 @@ data AssociateClientVpnTargetNetworkResponse = AssociateClientVpnTargetNetworkRe
 -- 'httpStatus', 'associateClientVpnTargetNetworkResponse_httpStatus' - The response's http status code.
 newAssociateClientVpnTargetNetworkResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AssociateClientVpnTargetNetworkResponse
 newAssociateClientVpnTargetNetworkResponse
   pHttpStatus_ =
     AssociateClientVpnTargetNetworkResponse'
       { status =
-          Core.Nothing,
-        associationId = Core.Nothing,
+          Prelude.Nothing,
+        associationId = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The current state of the target network association.
-associateClientVpnTargetNetworkResponse_status :: Lens.Lens' AssociateClientVpnTargetNetworkResponse (Core.Maybe AssociationStatus)
+associateClientVpnTargetNetworkResponse_status :: Lens.Lens' AssociateClientVpnTargetNetworkResponse (Prelude.Maybe AssociationStatus)
 associateClientVpnTargetNetworkResponse_status = Lens.lens (\AssociateClientVpnTargetNetworkResponse' {status} -> status) (\s@AssociateClientVpnTargetNetworkResponse' {} a -> s {status = a} :: AssociateClientVpnTargetNetworkResponse)
 
 -- | The unique ID of the target network association.
-associateClientVpnTargetNetworkResponse_associationId :: Lens.Lens' AssociateClientVpnTargetNetworkResponse (Core.Maybe Core.Text)
+associateClientVpnTargetNetworkResponse_associationId :: Lens.Lens' AssociateClientVpnTargetNetworkResponse (Prelude.Maybe Prelude.Text)
 associateClientVpnTargetNetworkResponse_associationId = Lens.lens (\AssociateClientVpnTargetNetworkResponse' {associationId} -> associationId) (\s@AssociateClientVpnTargetNetworkResponse' {} a -> s {associationId = a} :: AssociateClientVpnTargetNetworkResponse)
 
 -- | The response's http status code.
-associateClientVpnTargetNetworkResponse_httpStatus :: Lens.Lens' AssociateClientVpnTargetNetworkResponse Core.Int
+associateClientVpnTargetNetworkResponse_httpStatus :: Lens.Lens' AssociateClientVpnTargetNetworkResponse Prelude.Int
 associateClientVpnTargetNetworkResponse_httpStatus = Lens.lens (\AssociateClientVpnTargetNetworkResponse' {httpStatus} -> httpStatus) (\s@AssociateClientVpnTargetNetworkResponse' {} a -> s {httpStatus = a} :: AssociateClientVpnTargetNetworkResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AssociateClientVpnTargetNetworkResponse

@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.GameSession
 import Network.AWS.GameLift.Types.ProtectionPolicy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A game session\'s properties plus the protection policy currently in
 -- force.
@@ -30,7 +31,7 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newGameSessionDetail' smart constructor.
 data GameSessionDetail = GameSessionDetail'
   { -- | Object that describes a game session.
-    gameSession :: Core.Maybe GameSession,
+    gameSession :: Prelude.Maybe GameSession,
     -- | Current status of protection for the game session.
     --
     -- -   __NoProtection__ -- The game session can be terminated during a
@@ -38,9 +39,9 @@ data GameSessionDetail = GameSessionDetail'
     --
     -- -   __FullProtection__ -- If the game session is in an @ACTIVE@ status,
     --     it cannot be terminated during a scale-down event.
-    protectionPolicy :: Core.Maybe ProtectionPolicy
+    protectionPolicy :: Prelude.Maybe ProtectionPolicy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GameSessionDetail' with all optional fields omitted.
@@ -63,12 +64,12 @@ newGameSessionDetail ::
   GameSessionDetail
 newGameSessionDetail =
   GameSessionDetail'
-    { gameSession = Core.Nothing,
-      protectionPolicy = Core.Nothing
+    { gameSession = Prelude.Nothing,
+      protectionPolicy = Prelude.Nothing
     }
 
 -- | Object that describes a game session.
-gameSessionDetail_gameSession :: Lens.Lens' GameSessionDetail (Core.Maybe GameSession)
+gameSessionDetail_gameSession :: Lens.Lens' GameSessionDetail (Prelude.Maybe GameSession)
 gameSessionDetail_gameSession = Lens.lens (\GameSessionDetail' {gameSession} -> gameSession) (\s@GameSessionDetail' {} a -> s {gameSession = a} :: GameSessionDetail)
 
 -- | Current status of protection for the game session.
@@ -78,7 +79,7 @@ gameSessionDetail_gameSession = Lens.lens (\GameSessionDetail' {gameSession} -> 
 --
 -- -   __FullProtection__ -- If the game session is in an @ACTIVE@ status,
 --     it cannot be terminated during a scale-down event.
-gameSessionDetail_protectionPolicy :: Lens.Lens' GameSessionDetail (Core.Maybe ProtectionPolicy)
+gameSessionDetail_protectionPolicy :: Lens.Lens' GameSessionDetail (Prelude.Maybe ProtectionPolicy)
 gameSessionDetail_protectionPolicy = Lens.lens (\GameSessionDetail' {protectionPolicy} -> protectionPolicy) (\s@GameSessionDetail' {} a -> s {protectionPolicy = a} :: GameSessionDetail)
 
 instance Core.FromJSON GameSessionDetail where
@@ -87,10 +88,10 @@ instance Core.FromJSON GameSessionDetail where
       "GameSessionDetail"
       ( \x ->
           GameSessionDetail'
-            Core.<$> (x Core..:? "GameSession")
-            Core.<*> (x Core..:? "ProtectionPolicy")
+            Prelude.<$> (x Core..:? "GameSession")
+            Prelude.<*> (x Core..:? "ProtectionPolicy")
       )
 
-instance Core.Hashable GameSessionDetail
+instance Prelude.Hashable GameSessionDetail
 
-instance Core.NFData GameSessionDetail
+instance Prelude.NFData GameSessionDetail

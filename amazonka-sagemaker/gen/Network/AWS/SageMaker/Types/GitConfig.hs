@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.GitConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies configuration details for a Git repository in your AWS
 -- account.
@@ -33,13 +34,13 @@ data GitConfig = GitConfig'
     -- format:
     --
     -- @{\"username\": UserName, \"password\": Password}@
-    secretArn :: Core.Maybe Core.Text,
+    secretArn :: Prelude.Maybe Prelude.Text,
     -- | The default branch for the Git repository.
-    branch :: Core.Maybe Core.Text,
+    branch :: Prelude.Maybe Prelude.Text,
     -- | The URL where the Git repository is located.
-    repositoryUrl :: Core.Text
+    repositoryUrl :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GitConfig' with all optional fields omitted.
@@ -61,12 +62,12 @@ data GitConfig = GitConfig'
 -- 'repositoryUrl', 'gitConfig_repositoryUrl' - The URL where the Git repository is located.
 newGitConfig ::
   -- | 'repositoryUrl'
-  Core.Text ->
+  Prelude.Text ->
   GitConfig
 newGitConfig pRepositoryUrl_ =
   GitConfig'
-    { secretArn = Core.Nothing,
-      branch = Core.Nothing,
+    { secretArn = Prelude.Nothing,
+      branch = Prelude.Nothing,
       repositoryUrl = pRepositoryUrl_
     }
 
@@ -76,15 +77,15 @@ newGitConfig pRepositoryUrl_ =
 -- format:
 --
 -- @{\"username\": UserName, \"password\": Password}@
-gitConfig_secretArn :: Lens.Lens' GitConfig (Core.Maybe Core.Text)
+gitConfig_secretArn :: Lens.Lens' GitConfig (Prelude.Maybe Prelude.Text)
 gitConfig_secretArn = Lens.lens (\GitConfig' {secretArn} -> secretArn) (\s@GitConfig' {} a -> s {secretArn = a} :: GitConfig)
 
 -- | The default branch for the Git repository.
-gitConfig_branch :: Lens.Lens' GitConfig (Core.Maybe Core.Text)
+gitConfig_branch :: Lens.Lens' GitConfig (Prelude.Maybe Prelude.Text)
 gitConfig_branch = Lens.lens (\GitConfig' {branch} -> branch) (\s@GitConfig' {} a -> s {branch = a} :: GitConfig)
 
 -- | The URL where the Git repository is located.
-gitConfig_repositoryUrl :: Lens.Lens' GitConfig Core.Text
+gitConfig_repositoryUrl :: Lens.Lens' GitConfig Prelude.Text
 gitConfig_repositoryUrl = Lens.lens (\GitConfig' {repositoryUrl} -> repositoryUrl) (\s@GitConfig' {} a -> s {repositoryUrl = a} :: GitConfig)
 
 instance Core.FromJSON GitConfig where
@@ -93,21 +94,22 @@ instance Core.FromJSON GitConfig where
       "GitConfig"
       ( \x ->
           GitConfig'
-            Core.<$> (x Core..:? "SecretArn")
-            Core.<*> (x Core..:? "Branch")
-            Core.<*> (x Core..: "RepositoryUrl")
+            Prelude.<$> (x Core..:? "SecretArn")
+            Prelude.<*> (x Core..:? "Branch")
+            Prelude.<*> (x Core..: "RepositoryUrl")
       )
 
-instance Core.Hashable GitConfig
+instance Prelude.Hashable GitConfig
 
-instance Core.NFData GitConfig
+instance Prelude.NFData GitConfig
 
 instance Core.ToJSON GitConfig where
   toJSON GitConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SecretArn" Core..=) Core.<$> secretArn,
-            ("Branch" Core..=) Core.<$> branch,
-            Core.Just ("RepositoryUrl" Core..= repositoryUrl)
+      ( Prelude.catMaybes
+          [ ("SecretArn" Core..=) Prelude.<$> secretArn,
+            ("Branch" Core..=) Prelude.<$> branch,
+            Prelude.Just
+              ("RepositoryUrl" Core..= repositoryUrl)
           ]
       )

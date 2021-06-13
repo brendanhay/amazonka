@@ -22,21 +22,22 @@ module Network.AWS.Config.Types.ConformancePackStatusDetail where
 import Network.AWS.Config.Types.ConformancePackState
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Status details of a conformance pack.
 --
 -- /See:/ 'newConformancePackStatusDetail' smart constructor.
 data ConformancePackStatusDetail = ConformancePackStatusDetail'
   { -- | The reason of conformance pack creation failure.
-    conformancePackStatusReason :: Core.Maybe Core.Text,
+    conformancePackStatusReason :: Prelude.Maybe Prelude.Text,
     -- | Last time when conformation pack creation and update was successful.
-    lastUpdateCompletedTime :: Core.Maybe Core.POSIX,
+    lastUpdateCompletedTime :: Prelude.Maybe Core.POSIX,
     -- | Name of the conformance pack.
-    conformancePackName :: Core.Text,
+    conformancePackName :: Prelude.Text,
     -- | ID of the conformance pack.
-    conformancePackId :: Core.Text,
+    conformancePackId :: Prelude.Text,
     -- | Amazon Resource Name (ARN) of comformance pack.
-    conformancePackArn :: Core.Text,
+    conformancePackArn :: Prelude.Text,
     -- | Indicates deployment status of conformance pack.
     --
     -- AWS Config sets the state of the conformance pack to:
@@ -56,11 +57,11 @@ data ConformancePackStatusDetail = ConformancePackStatusDetail'
     --     account.
     conformancePackState :: ConformancePackState,
     -- | Amazon Resource Name (ARN) of AWS CloudFormation stack.
-    stackArn :: Core.Text,
+    stackArn :: Prelude.Text,
     -- | Last time when conformation pack creation and update was requested.
     lastUpdateRequestedTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConformancePackStatusDetail' with all optional fields omitted.
@@ -103,17 +104,17 @@ data ConformancePackStatusDetail = ConformancePackStatusDetail'
 -- 'lastUpdateRequestedTime', 'conformancePackStatusDetail_lastUpdateRequestedTime' - Last time when conformation pack creation and update was requested.
 newConformancePackStatusDetail ::
   -- | 'conformancePackName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'conformancePackId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'conformancePackArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'conformancePackState'
   ConformancePackState ->
   -- | 'stackArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'lastUpdateRequestedTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   ConformancePackStatusDetail
 newConformancePackStatusDetail
   pConformancePackName_
@@ -124,8 +125,8 @@ newConformancePackStatusDetail
   pLastUpdateRequestedTime_ =
     ConformancePackStatusDetail'
       { conformancePackStatusReason =
-          Core.Nothing,
-        lastUpdateCompletedTime = Core.Nothing,
+          Prelude.Nothing,
+        lastUpdateCompletedTime = Prelude.Nothing,
         conformancePackName = pConformancePackName_,
         conformancePackId = pConformancePackId_,
         conformancePackArn = pConformancePackArn_,
@@ -136,23 +137,23 @@ newConformancePackStatusDetail
       }
 
 -- | The reason of conformance pack creation failure.
-conformancePackStatusDetail_conformancePackStatusReason :: Lens.Lens' ConformancePackStatusDetail (Core.Maybe Core.Text)
+conformancePackStatusDetail_conformancePackStatusReason :: Lens.Lens' ConformancePackStatusDetail (Prelude.Maybe Prelude.Text)
 conformancePackStatusDetail_conformancePackStatusReason = Lens.lens (\ConformancePackStatusDetail' {conformancePackStatusReason} -> conformancePackStatusReason) (\s@ConformancePackStatusDetail' {} a -> s {conformancePackStatusReason = a} :: ConformancePackStatusDetail)
 
 -- | Last time when conformation pack creation and update was successful.
-conformancePackStatusDetail_lastUpdateCompletedTime :: Lens.Lens' ConformancePackStatusDetail (Core.Maybe Core.UTCTime)
-conformancePackStatusDetail_lastUpdateCompletedTime = Lens.lens (\ConformancePackStatusDetail' {lastUpdateCompletedTime} -> lastUpdateCompletedTime) (\s@ConformancePackStatusDetail' {} a -> s {lastUpdateCompletedTime = a} :: ConformancePackStatusDetail) Core.. Lens.mapping Core._Time
+conformancePackStatusDetail_lastUpdateCompletedTime :: Lens.Lens' ConformancePackStatusDetail (Prelude.Maybe Prelude.UTCTime)
+conformancePackStatusDetail_lastUpdateCompletedTime = Lens.lens (\ConformancePackStatusDetail' {lastUpdateCompletedTime} -> lastUpdateCompletedTime) (\s@ConformancePackStatusDetail' {} a -> s {lastUpdateCompletedTime = a} :: ConformancePackStatusDetail) Prelude.. Lens.mapping Core._Time
 
 -- | Name of the conformance pack.
-conformancePackStatusDetail_conformancePackName :: Lens.Lens' ConformancePackStatusDetail Core.Text
+conformancePackStatusDetail_conformancePackName :: Lens.Lens' ConformancePackStatusDetail Prelude.Text
 conformancePackStatusDetail_conformancePackName = Lens.lens (\ConformancePackStatusDetail' {conformancePackName} -> conformancePackName) (\s@ConformancePackStatusDetail' {} a -> s {conformancePackName = a} :: ConformancePackStatusDetail)
 
 -- | ID of the conformance pack.
-conformancePackStatusDetail_conformancePackId :: Lens.Lens' ConformancePackStatusDetail Core.Text
+conformancePackStatusDetail_conformancePackId :: Lens.Lens' ConformancePackStatusDetail Prelude.Text
 conformancePackStatusDetail_conformancePackId = Lens.lens (\ConformancePackStatusDetail' {conformancePackId} -> conformancePackId) (\s@ConformancePackStatusDetail' {} a -> s {conformancePackId = a} :: ConformancePackStatusDetail)
 
 -- | Amazon Resource Name (ARN) of comformance pack.
-conformancePackStatusDetail_conformancePackArn :: Lens.Lens' ConformancePackStatusDetail Core.Text
+conformancePackStatusDetail_conformancePackArn :: Lens.Lens' ConformancePackStatusDetail Prelude.Text
 conformancePackStatusDetail_conformancePackArn = Lens.lens (\ConformancePackStatusDetail' {conformancePackArn} -> conformancePackArn) (\s@ConformancePackStatusDetail' {} a -> s {conformancePackArn = a} :: ConformancePackStatusDetail)
 
 -- | Indicates deployment status of conformance pack.
@@ -176,12 +177,12 @@ conformancePackStatusDetail_conformancePackState :: Lens.Lens' ConformancePackSt
 conformancePackStatusDetail_conformancePackState = Lens.lens (\ConformancePackStatusDetail' {conformancePackState} -> conformancePackState) (\s@ConformancePackStatusDetail' {} a -> s {conformancePackState = a} :: ConformancePackStatusDetail)
 
 -- | Amazon Resource Name (ARN) of AWS CloudFormation stack.
-conformancePackStatusDetail_stackArn :: Lens.Lens' ConformancePackStatusDetail Core.Text
+conformancePackStatusDetail_stackArn :: Lens.Lens' ConformancePackStatusDetail Prelude.Text
 conformancePackStatusDetail_stackArn = Lens.lens (\ConformancePackStatusDetail' {stackArn} -> stackArn) (\s@ConformancePackStatusDetail' {} a -> s {stackArn = a} :: ConformancePackStatusDetail)
 
 -- | Last time when conformation pack creation and update was requested.
-conformancePackStatusDetail_lastUpdateRequestedTime :: Lens.Lens' ConformancePackStatusDetail Core.UTCTime
-conformancePackStatusDetail_lastUpdateRequestedTime = Lens.lens (\ConformancePackStatusDetail' {lastUpdateRequestedTime} -> lastUpdateRequestedTime) (\s@ConformancePackStatusDetail' {} a -> s {lastUpdateRequestedTime = a} :: ConformancePackStatusDetail) Core.. Core._Time
+conformancePackStatusDetail_lastUpdateRequestedTime :: Lens.Lens' ConformancePackStatusDetail Prelude.UTCTime
+conformancePackStatusDetail_lastUpdateRequestedTime = Lens.lens (\ConformancePackStatusDetail' {lastUpdateRequestedTime} -> lastUpdateRequestedTime) (\s@ConformancePackStatusDetail' {} a -> s {lastUpdateRequestedTime = a} :: ConformancePackStatusDetail) Prelude.. Core._Time
 
 instance Core.FromJSON ConformancePackStatusDetail where
   parseJSON =
@@ -189,16 +190,16 @@ instance Core.FromJSON ConformancePackStatusDetail where
       "ConformancePackStatusDetail"
       ( \x ->
           ConformancePackStatusDetail'
-            Core.<$> (x Core..:? "ConformancePackStatusReason")
-            Core.<*> (x Core..:? "LastUpdateCompletedTime")
-            Core.<*> (x Core..: "ConformancePackName")
-            Core.<*> (x Core..: "ConformancePackId")
-            Core.<*> (x Core..: "ConformancePackArn")
-            Core.<*> (x Core..: "ConformancePackState")
-            Core.<*> (x Core..: "StackArn")
-            Core.<*> (x Core..: "LastUpdateRequestedTime")
+            Prelude.<$> (x Core..:? "ConformancePackStatusReason")
+            Prelude.<*> (x Core..:? "LastUpdateCompletedTime")
+            Prelude.<*> (x Core..: "ConformancePackName")
+            Prelude.<*> (x Core..: "ConformancePackId")
+            Prelude.<*> (x Core..: "ConformancePackArn")
+            Prelude.<*> (x Core..: "ConformancePackState")
+            Prelude.<*> (x Core..: "StackArn")
+            Prelude.<*> (x Core..: "LastUpdateRequestedTime")
       )
 
-instance Core.Hashable ConformancePackStatusDetail
+instance Prelude.Hashable ConformancePackStatusDetail
 
-instance Core.NFData ConformancePackStatusDetail
+instance Prelude.NFData ConformancePackStatusDetail

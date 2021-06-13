@@ -21,6 +21,7 @@ module Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types.AvailableProcessorFeature
 import Network.AWS.RDS.Types.ValidStorageOptions
 
@@ -32,11 +33,11 @@ import Network.AWS.RDS.Types.ValidStorageOptions
 -- /See:/ 'newValidDBInstanceModificationsMessage' smart constructor.
 data ValidDBInstanceModificationsMessage = ValidDBInstanceModificationsMessage'
   { -- | Valid processor features for your DB instance.
-    validProcessorFeatures :: Core.Maybe [AvailableProcessorFeature],
+    validProcessorFeatures :: Prelude.Maybe [AvailableProcessorFeature],
     -- | Valid storage options for your DB instance.
-    storage :: Core.Maybe [ValidStorageOptions]
+    storage :: Prelude.Maybe [ValidStorageOptions]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ValidDBInstanceModificationsMessage' with all optional fields omitted.
@@ -54,17 +55,17 @@ newValidDBInstanceModificationsMessage ::
 newValidDBInstanceModificationsMessage =
   ValidDBInstanceModificationsMessage'
     { validProcessorFeatures =
-        Core.Nothing,
-      storage = Core.Nothing
+        Prelude.Nothing,
+      storage = Prelude.Nothing
     }
 
 -- | Valid processor features for your DB instance.
-validDBInstanceModificationsMessage_validProcessorFeatures :: Lens.Lens' ValidDBInstanceModificationsMessage (Core.Maybe [AvailableProcessorFeature])
-validDBInstanceModificationsMessage_validProcessorFeatures = Lens.lens (\ValidDBInstanceModificationsMessage' {validProcessorFeatures} -> validProcessorFeatures) (\s@ValidDBInstanceModificationsMessage' {} a -> s {validProcessorFeatures = a} :: ValidDBInstanceModificationsMessage) Core.. Lens.mapping Lens._Coerce
+validDBInstanceModificationsMessage_validProcessorFeatures :: Lens.Lens' ValidDBInstanceModificationsMessage (Prelude.Maybe [AvailableProcessorFeature])
+validDBInstanceModificationsMessage_validProcessorFeatures = Lens.lens (\ValidDBInstanceModificationsMessage' {validProcessorFeatures} -> validProcessorFeatures) (\s@ValidDBInstanceModificationsMessage' {} a -> s {validProcessorFeatures = a} :: ValidDBInstanceModificationsMessage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Valid storage options for your DB instance.
-validDBInstanceModificationsMessage_storage :: Lens.Lens' ValidDBInstanceModificationsMessage (Core.Maybe [ValidStorageOptions])
-validDBInstanceModificationsMessage_storage = Lens.lens (\ValidDBInstanceModificationsMessage' {storage} -> storage) (\s@ValidDBInstanceModificationsMessage' {} a -> s {storage = a} :: ValidDBInstanceModificationsMessage) Core.. Lens.mapping Lens._Coerce
+validDBInstanceModificationsMessage_storage :: Lens.Lens' ValidDBInstanceModificationsMessage (Prelude.Maybe [ValidStorageOptions])
+validDBInstanceModificationsMessage_storage = Lens.lens (\ValidDBInstanceModificationsMessage' {storage} -> storage) (\s@ValidDBInstanceModificationsMessage' {} a -> s {storage = a} :: ValidDBInstanceModificationsMessage) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromXML
@@ -72,19 +73,19 @@ instance
   where
   parseXML x =
     ValidDBInstanceModificationsMessage'
-      Core.<$> ( x Core..@? "ValidProcessorFeatures"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may
-                     (Core.parseXMLList "AvailableProcessorFeature")
-               )
-      Core.<*> ( x Core..@? "Storage" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "ValidStorageOptions")
-               )
+      Prelude.<$> ( x Core..@? "ValidProcessorFeatures"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may
+                        (Core.parseXMLList "AvailableProcessorFeature")
+                  )
+      Prelude.<*> ( x Core..@? "Storage" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "ValidStorageOptions")
+                  )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ValidDBInstanceModificationsMessage
 
 instance
-  Core.NFData
+  Prelude.NFData
     ValidDBInstanceModificationsMessage

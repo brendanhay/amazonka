@@ -53,6 +53,7 @@ where
 import Network.AWS.CognitoIdentityProvider.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -92,19 +93,19 @@ data AdminUpdateUserAttributes = AdminUpdateUserAttributes'
     --
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
-    clientMetadata :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The user pool ID for the user pool where you want to update user
     -- attributes.
-    userPoolId :: Core.Text,
+    userPoolId :: Prelude.Text,
     -- | The user name of the user for whom you want to update user attributes.
-    username :: Core.Sensitive Core.Text,
+    username :: Core.Sensitive Prelude.Text,
     -- | An array of name-value pairs representing user attributes.
     --
     -- For custom attributes, you must prepend the @custom:@ prefix to the
     -- attribute name.
     userAttributes :: [AttributeType]
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminUpdateUserAttributes' with all optional fields omitted.
@@ -157,17 +158,17 @@ data AdminUpdateUserAttributes = AdminUpdateUserAttributes'
 -- attribute name.
 newAdminUpdateUserAttributes ::
   -- | 'userPoolId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'username'
-  Core.Text ->
+  Prelude.Text ->
   AdminUpdateUserAttributes
 newAdminUpdateUserAttributes pUserPoolId_ pUsername_ =
   AdminUpdateUserAttributes'
     { clientMetadata =
-        Core.Nothing,
+        Prelude.Nothing,
       userPoolId = pUserPoolId_,
       username = Core._Sensitive Lens.# pUsername_,
-      userAttributes = Core.mempty
+      userAttributes = Prelude.mempty
     }
 
 -- | A map of custom key-value pairs that you can provide as input for any
@@ -201,24 +202,24 @@ newAdminUpdateUserAttributes pUserPoolId_ pUsername_ =
 --
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
-adminUpdateUserAttributes_clientMetadata :: Lens.Lens' AdminUpdateUserAttributes (Core.Maybe (Core.HashMap Core.Text Core.Text))
-adminUpdateUserAttributes_clientMetadata = Lens.lens (\AdminUpdateUserAttributes' {clientMetadata} -> clientMetadata) (\s@AdminUpdateUserAttributes' {} a -> s {clientMetadata = a} :: AdminUpdateUserAttributes) Core.. Lens.mapping Lens._Coerce
+adminUpdateUserAttributes_clientMetadata :: Lens.Lens' AdminUpdateUserAttributes (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+adminUpdateUserAttributes_clientMetadata = Lens.lens (\AdminUpdateUserAttributes' {clientMetadata} -> clientMetadata) (\s@AdminUpdateUserAttributes' {} a -> s {clientMetadata = a} :: AdminUpdateUserAttributes) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The user pool ID for the user pool where you want to update user
 -- attributes.
-adminUpdateUserAttributes_userPoolId :: Lens.Lens' AdminUpdateUserAttributes Core.Text
+adminUpdateUserAttributes_userPoolId :: Lens.Lens' AdminUpdateUserAttributes Prelude.Text
 adminUpdateUserAttributes_userPoolId = Lens.lens (\AdminUpdateUserAttributes' {userPoolId} -> userPoolId) (\s@AdminUpdateUserAttributes' {} a -> s {userPoolId = a} :: AdminUpdateUserAttributes)
 
 -- | The user name of the user for whom you want to update user attributes.
-adminUpdateUserAttributes_username :: Lens.Lens' AdminUpdateUserAttributes Core.Text
-adminUpdateUserAttributes_username = Lens.lens (\AdminUpdateUserAttributes' {username} -> username) (\s@AdminUpdateUserAttributes' {} a -> s {username = a} :: AdminUpdateUserAttributes) Core.. Core._Sensitive
+adminUpdateUserAttributes_username :: Lens.Lens' AdminUpdateUserAttributes Prelude.Text
+adminUpdateUserAttributes_username = Lens.lens (\AdminUpdateUserAttributes' {username} -> username) (\s@AdminUpdateUserAttributes' {} a -> s {username = a} :: AdminUpdateUserAttributes) Prelude.. Core._Sensitive
 
 -- | An array of name-value pairs representing user attributes.
 --
 -- For custom attributes, you must prepend the @custom:@ prefix to the
 -- attribute name.
 adminUpdateUserAttributes_userAttributes :: Lens.Lens' AdminUpdateUserAttributes [AttributeType]
-adminUpdateUserAttributes_userAttributes = Lens.lens (\AdminUpdateUserAttributes' {userAttributes} -> userAttributes) (\s@AdminUpdateUserAttributes' {} a -> s {userAttributes = a} :: AdminUpdateUserAttributes) Core.. Lens._Coerce
+adminUpdateUserAttributes_userAttributes = Lens.lens (\AdminUpdateUserAttributes' {userAttributes} -> userAttributes) (\s@AdminUpdateUserAttributes' {} a -> s {userAttributes = a} :: AdminUpdateUserAttributes) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest AdminUpdateUserAttributes where
   type
@@ -229,42 +230,46 @@ instance Core.AWSRequest AdminUpdateUserAttributes where
     Response.receiveEmpty
       ( \s h x ->
           AdminUpdateUserAttributesResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable AdminUpdateUserAttributes
+instance Prelude.Hashable AdminUpdateUserAttributes
 
-instance Core.NFData AdminUpdateUserAttributes
+instance Prelude.NFData AdminUpdateUserAttributes
 
 instance Core.ToHeaders AdminUpdateUserAttributes where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCognitoIdentityProviderService.AdminUpdateUserAttributes" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON AdminUpdateUserAttributes where
   toJSON AdminUpdateUserAttributes' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ClientMetadata" Core..=) Core.<$> clientMetadata,
-            Core.Just ("UserPoolId" Core..= userPoolId),
-            Core.Just ("Username" Core..= username),
-            Core.Just ("UserAttributes" Core..= userAttributes)
+      ( Prelude.catMaybes
+          [ ("ClientMetadata" Core..=)
+              Prelude.<$> clientMetadata,
+            Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("Username" Core..= username),
+            Prelude.Just
+              ("UserAttributes" Core..= userAttributes)
           ]
       )
 
 instance Core.ToPath AdminUpdateUserAttributes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery AdminUpdateUserAttributes where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server for the request to update user
 -- attributes as an administrator.
@@ -272,9 +277,9 @@ instance Core.ToQuery AdminUpdateUserAttributes where
 -- /See:/ 'newAdminUpdateUserAttributesResponse' smart constructor.
 data AdminUpdateUserAttributesResponse = AdminUpdateUserAttributesResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdminUpdateUserAttributesResponse' with all optional fields omitted.
@@ -287,7 +292,7 @@ data AdminUpdateUserAttributesResponse = AdminUpdateUserAttributesResponse'
 -- 'httpStatus', 'adminUpdateUserAttributesResponse_httpStatus' - The response's http status code.
 newAdminUpdateUserAttributesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   AdminUpdateUserAttributesResponse
 newAdminUpdateUserAttributesResponse pHttpStatus_ =
   AdminUpdateUserAttributesResponse'
@@ -296,9 +301,9 @@ newAdminUpdateUserAttributesResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-adminUpdateUserAttributesResponse_httpStatus :: Lens.Lens' AdminUpdateUserAttributesResponse Core.Int
+adminUpdateUserAttributesResponse_httpStatus :: Lens.Lens' AdminUpdateUserAttributesResponse Prelude.Int
 adminUpdateUserAttributesResponse_httpStatus = Lens.lens (\AdminUpdateUserAttributesResponse' {httpStatus} -> httpStatus) (\s@AdminUpdateUserAttributesResponse' {} a -> s {httpStatus = a} :: AdminUpdateUserAttributesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     AdminUpdateUserAttributesResponse

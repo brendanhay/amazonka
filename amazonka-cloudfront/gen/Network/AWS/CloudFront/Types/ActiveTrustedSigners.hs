@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.ActiveTrustedSigners where
 import Network.AWS.CloudFront.Types.Signer
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of AWS accounts and the active CloudFront key pairs in each
 -- account that CloudFront can use to verify the signatures of signed URLs
@@ -32,15 +33,15 @@ data ActiveTrustedSigners = ActiveTrustedSigners'
   { -- | A list of AWS accounts and the identifiers of active CloudFront key
     -- pairs in each account that CloudFront can use to verify the signatures
     -- of signed URLs and signed cookies.
-    items :: Core.Maybe [Signer],
+    items :: Prelude.Maybe [Signer],
     -- | This field is @true@ if any of the AWS accounts in the list have active
     -- CloudFront key pairs that CloudFront can use to verify the signatures of
     -- signed URLs and signed cookies. If not, this field is @false@.
-    enabled :: Core.Bool,
+    enabled :: Prelude.Bool,
     -- | The number of AWS accounts in the list.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActiveTrustedSigners' with all optional fields omitted.
@@ -61,13 +62,13 @@ data ActiveTrustedSigners = ActiveTrustedSigners'
 -- 'quantity', 'activeTrustedSigners_quantity' - The number of AWS accounts in the list.
 newActiveTrustedSigners ::
   -- | 'enabled'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   ActiveTrustedSigners
 newActiveTrustedSigners pEnabled_ pQuantity_ =
   ActiveTrustedSigners'
-    { items = Core.Nothing,
+    { items = Prelude.Nothing,
       enabled = pEnabled_,
       quantity = pQuantity_
     }
@@ -75,28 +76,28 @@ newActiveTrustedSigners pEnabled_ pQuantity_ =
 -- | A list of AWS accounts and the identifiers of active CloudFront key
 -- pairs in each account that CloudFront can use to verify the signatures
 -- of signed URLs and signed cookies.
-activeTrustedSigners_items :: Lens.Lens' ActiveTrustedSigners (Core.Maybe [Signer])
-activeTrustedSigners_items = Lens.lens (\ActiveTrustedSigners' {items} -> items) (\s@ActiveTrustedSigners' {} a -> s {items = a} :: ActiveTrustedSigners) Core.. Lens.mapping Lens._Coerce
+activeTrustedSigners_items :: Lens.Lens' ActiveTrustedSigners (Prelude.Maybe [Signer])
+activeTrustedSigners_items = Lens.lens (\ActiveTrustedSigners' {items} -> items) (\s@ActiveTrustedSigners' {} a -> s {items = a} :: ActiveTrustedSigners) Prelude.. Lens.mapping Lens._Coerce
 
 -- | This field is @true@ if any of the AWS accounts in the list have active
 -- CloudFront key pairs that CloudFront can use to verify the signatures of
 -- signed URLs and signed cookies. If not, this field is @false@.
-activeTrustedSigners_enabled :: Lens.Lens' ActiveTrustedSigners Core.Bool
+activeTrustedSigners_enabled :: Lens.Lens' ActiveTrustedSigners Prelude.Bool
 activeTrustedSigners_enabled = Lens.lens (\ActiveTrustedSigners' {enabled} -> enabled) (\s@ActiveTrustedSigners' {} a -> s {enabled = a} :: ActiveTrustedSigners)
 
 -- | The number of AWS accounts in the list.
-activeTrustedSigners_quantity :: Lens.Lens' ActiveTrustedSigners Core.Int
+activeTrustedSigners_quantity :: Lens.Lens' ActiveTrustedSigners Prelude.Int
 activeTrustedSigners_quantity = Lens.lens (\ActiveTrustedSigners' {quantity} -> quantity) (\s@ActiveTrustedSigners' {} a -> s {quantity = a} :: ActiveTrustedSigners)
 
 instance Core.FromXML ActiveTrustedSigners where
   parseXML x =
     ActiveTrustedSigners'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "Signer")
-               )
-      Core.<*> (x Core..@ "Enabled")
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Signer")
+                  )
+      Prelude.<*> (x Core..@ "Enabled")
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable ActiveTrustedSigners
+instance Prelude.Hashable ActiveTrustedSigners
 
-instance Core.NFData ActiveTrustedSigners
+instance Prelude.NFData ActiveTrustedSigners

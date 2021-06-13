@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -53,9 +54,9 @@ data StopProjectVersion = StopProjectVersion'
     --
     -- This operation requires permissions to perform the
     -- @rekognition:StopProjectVersion@ action.
-    projectVersionArn :: Core.Text
+    projectVersionArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopProjectVersion' with all optional fields omitted.
@@ -72,7 +73,7 @@ data StopProjectVersion = StopProjectVersion'
 -- @rekognition:StopProjectVersion@ action.
 newStopProjectVersion ::
   -- | 'projectVersionArn'
-  Core.Text ->
+  Prelude.Text ->
   StopProjectVersion
 newStopProjectVersion pProjectVersionArn_ =
   StopProjectVersion'
@@ -85,7 +86,7 @@ newStopProjectVersion pProjectVersionArn_ =
 --
 -- This operation requires permissions to perform the
 -- @rekognition:StopProjectVersion@ action.
-stopProjectVersion_projectVersionArn :: Lens.Lens' StopProjectVersion Core.Text
+stopProjectVersion_projectVersionArn :: Lens.Lens' StopProjectVersion Prelude.Text
 stopProjectVersion_projectVersionArn = Lens.lens (\StopProjectVersion' {projectVersionArn} -> projectVersionArn) (\s@StopProjectVersion' {} a -> s {projectVersionArn = a} :: StopProjectVersion)
 
 instance Core.AWSRequest StopProjectVersion where
@@ -97,50 +98,52 @@ instance Core.AWSRequest StopProjectVersion where
     Response.receiveJSON
       ( \s h x ->
           StopProjectVersionResponse'
-            Core.<$> (x Core..?> "Status")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Status")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopProjectVersion
+instance Prelude.Hashable StopProjectVersion
 
-instance Core.NFData StopProjectVersion
+instance Prelude.NFData StopProjectVersion
 
 instance Core.ToHeaders StopProjectVersion where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "RekognitionService.StopProjectVersion" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StopProjectVersion where
   toJSON StopProjectVersion' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ProjectVersionArn" Core..= projectVersionArn)
           ]
       )
 
 instance Core.ToPath StopProjectVersion where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopProjectVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopProjectVersionResponse' smart constructor.
 data StopProjectVersionResponse = StopProjectVersionResponse'
   { -- | The current status of the stop operation.
-    status :: Core.Maybe ProjectVersionStatus,
+    status :: Prelude.Maybe ProjectVersionStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopProjectVersionResponse' with all optional fields omitted.
@@ -155,20 +158,21 @@ data StopProjectVersionResponse = StopProjectVersionResponse'
 -- 'httpStatus', 'stopProjectVersionResponse_httpStatus' - The response's http status code.
 newStopProjectVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopProjectVersionResponse
 newStopProjectVersionResponse pHttpStatus_ =
   StopProjectVersionResponse'
-    { status = Core.Nothing,
+    { status =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current status of the stop operation.
-stopProjectVersionResponse_status :: Lens.Lens' StopProjectVersionResponse (Core.Maybe ProjectVersionStatus)
+stopProjectVersionResponse_status :: Lens.Lens' StopProjectVersionResponse (Prelude.Maybe ProjectVersionStatus)
 stopProjectVersionResponse_status = Lens.lens (\StopProjectVersionResponse' {status} -> status) (\s@StopProjectVersionResponse' {} a -> s {status = a} :: StopProjectVersionResponse)
 
 -- | The response's http status code.
-stopProjectVersionResponse_httpStatus :: Lens.Lens' StopProjectVersionResponse Core.Int
+stopProjectVersionResponse_httpStatus :: Lens.Lens' StopProjectVersionResponse Prelude.Int
 stopProjectVersionResponse_httpStatus = Lens.lens (\StopProjectVersionResponse' {httpStatus} -> httpStatus) (\s@StopProjectVersionResponse' {} a -> s {httpStatus = a} :: StopProjectVersionResponse)
 
-instance Core.NFData StopProjectVersionResponse
+instance Prelude.NFData StopProjectVersionResponse

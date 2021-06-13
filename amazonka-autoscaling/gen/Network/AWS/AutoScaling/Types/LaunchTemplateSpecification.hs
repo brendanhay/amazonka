@@ -21,6 +21,7 @@ module Network.AWS.AutoScaling.Types.LaunchTemplateSpecification where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Amazon EC2 launch template and the launch template version
 -- that can be used by an Auto Scaling group to configure Amazon EC2
@@ -42,7 +43,7 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
     --
     -- Conditional: You must specify either a @LaunchTemplateId@ or a
     -- @LaunchTemplateName@.
-    launchTemplateId :: Core.Maybe Core.Text,
+    launchTemplateId :: Prelude.Maybe Prelude.Text,
     -- | The name of the launch template. To get the template name, use the
     -- Amazon EC2
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html DescribeLaunchTemplates>
@@ -52,7 +53,7 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
     --
     -- Conditional: You must specify either a @LaunchTemplateId@ or a
     -- @LaunchTemplateName@.
-    launchTemplateName :: Core.Maybe Core.Text,
+    launchTemplateName :: Prelude.Maybe Prelude.Text,
     -- | The version number, @$Latest@, or @$Default@. To get the version number,
     -- use the Amazon EC2
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplateVersions.html DescribeLaunchTemplateVersions>
@@ -64,9 +65,9 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
     -- value is @$Default@, Amazon EC2 Auto Scaling selects the default version
     -- of the launch template when launching instances. The default value is
     -- @$Default@.
-    version :: Core.Maybe Core.Text
+    version :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateSpecification' with all optional fields omitted.
@@ -112,9 +113,9 @@ newLaunchTemplateSpecification ::
 newLaunchTemplateSpecification =
   LaunchTemplateSpecification'
     { launchTemplateId =
-        Core.Nothing,
-      launchTemplateName = Core.Nothing,
-      version = Core.Nothing
+        Prelude.Nothing,
+      launchTemplateName = Prelude.Nothing,
+      version = Prelude.Nothing
     }
 
 -- | The ID of the launch template. To get the template ID, use the Amazon
@@ -126,7 +127,7 @@ newLaunchTemplateSpecification =
 --
 -- Conditional: You must specify either a @LaunchTemplateId@ or a
 -- @LaunchTemplateName@.
-launchTemplateSpecification_launchTemplateId :: Lens.Lens' LaunchTemplateSpecification (Core.Maybe Core.Text)
+launchTemplateSpecification_launchTemplateId :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_launchTemplateId = Lens.lens (\LaunchTemplateSpecification' {launchTemplateId} -> launchTemplateId) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateId = a} :: LaunchTemplateSpecification)
 
 -- | The name of the launch template. To get the template name, use the
@@ -138,7 +139,7 @@ launchTemplateSpecification_launchTemplateId = Lens.lens (\LaunchTemplateSpecifi
 --
 -- Conditional: You must specify either a @LaunchTemplateId@ or a
 -- @LaunchTemplateName@.
-launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Core.Maybe Core.Text)
+launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
 
 -- | The version number, @$Latest@, or @$Default@. To get the version number,
@@ -152,23 +153,23 @@ launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpeci
 -- value is @$Default@, Amazon EC2 Auto Scaling selects the default version
 -- of the launch template when launching instances. The default value is
 -- @$Default@.
-launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Core.Maybe Core.Text)
+launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_version = Lens.lens (\LaunchTemplateSpecification' {version} -> version) (\s@LaunchTemplateSpecification' {} a -> s {version = a} :: LaunchTemplateSpecification)
 
 instance Core.FromXML LaunchTemplateSpecification where
   parseXML x =
     LaunchTemplateSpecification'
-      Core.<$> (x Core..@? "LaunchTemplateId")
-      Core.<*> (x Core..@? "LaunchTemplateName")
-      Core.<*> (x Core..@? "Version")
+      Prelude.<$> (x Core..@? "LaunchTemplateId")
+      Prelude.<*> (x Core..@? "LaunchTemplateName")
+      Prelude.<*> (x Core..@? "Version")
 
-instance Core.Hashable LaunchTemplateSpecification
+instance Prelude.Hashable LaunchTemplateSpecification
 
-instance Core.NFData LaunchTemplateSpecification
+instance Prelude.NFData LaunchTemplateSpecification
 
 instance Core.ToQuery LaunchTemplateSpecification where
   toQuery LaunchTemplateSpecification' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "LaunchTemplateId" Core.=: launchTemplateId,
         "LaunchTemplateName" Core.=: launchTemplateName,
         "Version" Core.=: version

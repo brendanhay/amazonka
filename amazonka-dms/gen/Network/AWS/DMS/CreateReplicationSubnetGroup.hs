@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,7 +55,7 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateReplicationSubnetGroup' smart constructor.
 data CreateReplicationSubnetGroup = CreateReplicationSubnetGroup'
   { -- | One or more tags to be assigned to the subnet group.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name for the replication subnet group. This value is stored as a
     -- lowercase string.
     --
@@ -62,13 +63,13 @@ data CreateReplicationSubnetGroup = CreateReplicationSubnetGroup'
     -- periods, spaces, underscores, or hyphens. Must not be \"default\".
     --
     -- Example: @mySubnetgroup@
-    replicationSubnetGroupIdentifier :: Core.Text,
+    replicationSubnetGroupIdentifier :: Prelude.Text,
     -- | The description for the subnet group.
-    replicationSubnetGroupDescription :: Core.Text,
+    replicationSubnetGroupDescription :: Prelude.Text,
     -- | One or more subnet IDs to be assigned to the subnet group.
-    subnetIds :: [Core.Text]
+    subnetIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateReplicationSubnetGroup' with all optional fields omitted.
@@ -93,25 +94,26 @@ data CreateReplicationSubnetGroup = CreateReplicationSubnetGroup'
 -- 'subnetIds', 'createReplicationSubnetGroup_subnetIds' - One or more subnet IDs to be assigned to the subnet group.
 newCreateReplicationSubnetGroup ::
   -- | 'replicationSubnetGroupIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'replicationSubnetGroupDescription'
-  Core.Text ->
+  Prelude.Text ->
   CreateReplicationSubnetGroup
 newCreateReplicationSubnetGroup
   pReplicationSubnetGroupIdentifier_
   pReplicationSubnetGroupDescription_ =
     CreateReplicationSubnetGroup'
-      { tags = Core.Nothing,
+      { tags =
+          Prelude.Nothing,
         replicationSubnetGroupIdentifier =
           pReplicationSubnetGroupIdentifier_,
         replicationSubnetGroupDescription =
           pReplicationSubnetGroupDescription_,
-        subnetIds = Core.mempty
+        subnetIds = Prelude.mempty
       }
 
 -- | One or more tags to be assigned to the subnet group.
-createReplicationSubnetGroup_tags :: Lens.Lens' CreateReplicationSubnetGroup (Core.Maybe [Tag])
-createReplicationSubnetGroup_tags = Lens.lens (\CreateReplicationSubnetGroup' {tags} -> tags) (\s@CreateReplicationSubnetGroup' {} a -> s {tags = a} :: CreateReplicationSubnetGroup) Core.. Lens.mapping Lens._Coerce
+createReplicationSubnetGroup_tags :: Lens.Lens' CreateReplicationSubnetGroup (Prelude.Maybe [Tag])
+createReplicationSubnetGroup_tags = Lens.lens (\CreateReplicationSubnetGroup' {tags} -> tags) (\s@CreateReplicationSubnetGroup' {} a -> s {tags = a} :: CreateReplicationSubnetGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name for the replication subnet group. This value is stored as a
 -- lowercase string.
@@ -120,16 +122,16 @@ createReplicationSubnetGroup_tags = Lens.lens (\CreateReplicationSubnetGroup' {t
 -- periods, spaces, underscores, or hyphens. Must not be \"default\".
 --
 -- Example: @mySubnetgroup@
-createReplicationSubnetGroup_replicationSubnetGroupIdentifier :: Lens.Lens' CreateReplicationSubnetGroup Core.Text
+createReplicationSubnetGroup_replicationSubnetGroupIdentifier :: Lens.Lens' CreateReplicationSubnetGroup Prelude.Text
 createReplicationSubnetGroup_replicationSubnetGroupIdentifier = Lens.lens (\CreateReplicationSubnetGroup' {replicationSubnetGroupIdentifier} -> replicationSubnetGroupIdentifier) (\s@CreateReplicationSubnetGroup' {} a -> s {replicationSubnetGroupIdentifier = a} :: CreateReplicationSubnetGroup)
 
 -- | The description for the subnet group.
-createReplicationSubnetGroup_replicationSubnetGroupDescription :: Lens.Lens' CreateReplicationSubnetGroup Core.Text
+createReplicationSubnetGroup_replicationSubnetGroupDescription :: Lens.Lens' CreateReplicationSubnetGroup Prelude.Text
 createReplicationSubnetGroup_replicationSubnetGroupDescription = Lens.lens (\CreateReplicationSubnetGroup' {replicationSubnetGroupDescription} -> replicationSubnetGroupDescription) (\s@CreateReplicationSubnetGroup' {} a -> s {replicationSubnetGroupDescription = a} :: CreateReplicationSubnetGroup)
 
 -- | One or more subnet IDs to be assigned to the subnet group.
-createReplicationSubnetGroup_subnetIds :: Lens.Lens' CreateReplicationSubnetGroup [Core.Text]
-createReplicationSubnetGroup_subnetIds = Lens.lens (\CreateReplicationSubnetGroup' {subnetIds} -> subnetIds) (\s@CreateReplicationSubnetGroup' {} a -> s {subnetIds = a} :: CreateReplicationSubnetGroup) Core.. Lens._Coerce
+createReplicationSubnetGroup_subnetIds :: Lens.Lens' CreateReplicationSubnetGroup [Prelude.Text]
+createReplicationSubnetGroup_subnetIds = Lens.lens (\CreateReplicationSubnetGroup' {subnetIds} -> subnetIds) (\s@CreateReplicationSubnetGroup' {} a -> s {subnetIds = a} :: CreateReplicationSubnetGroup) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateReplicationSubnetGroup where
   type
@@ -140,60 +142,64 @@ instance Core.AWSRequest CreateReplicationSubnetGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateReplicationSubnetGroupResponse'
-            Core.<$> (x Core..?> "ReplicationSubnetGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ReplicationSubnetGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateReplicationSubnetGroup
+instance
+  Prelude.Hashable
+    CreateReplicationSubnetGroup
 
-instance Core.NFData CreateReplicationSubnetGroup
+instance Prelude.NFData CreateReplicationSubnetGroup
 
 instance Core.ToHeaders CreateReplicationSubnetGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonDMSv20160101.CreateReplicationSubnetGroup" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateReplicationSubnetGroup where
   toJSON CreateReplicationSubnetGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Tags" Core..=) Core.<$> tags,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just
               ( "ReplicationSubnetGroupIdentifier"
                   Core..= replicationSubnetGroupIdentifier
               ),
-            Core.Just
+            Prelude.Just
               ( "ReplicationSubnetGroupDescription"
                   Core..= replicationSubnetGroupDescription
               ),
-            Core.Just ("SubnetIds" Core..= subnetIds)
+            Prelude.Just ("SubnetIds" Core..= subnetIds)
           ]
       )
 
 instance Core.ToPath CreateReplicationSubnetGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateReplicationSubnetGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
 -- /See:/ 'newCreateReplicationSubnetGroupResponse' smart constructor.
 data CreateReplicationSubnetGroupResponse = CreateReplicationSubnetGroupResponse'
   { -- | The replication subnet group that was created.
-    replicationSubnetGroup :: Core.Maybe ReplicationSubnetGroup,
+    replicationSubnetGroup :: Prelude.Maybe ReplicationSubnetGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateReplicationSubnetGroupResponse' with all optional fields omitted.
@@ -208,23 +214,23 @@ data CreateReplicationSubnetGroupResponse = CreateReplicationSubnetGroupResponse
 -- 'httpStatus', 'createReplicationSubnetGroupResponse_httpStatus' - The response's http status code.
 newCreateReplicationSubnetGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateReplicationSubnetGroupResponse
 newCreateReplicationSubnetGroupResponse pHttpStatus_ =
   CreateReplicationSubnetGroupResponse'
     { replicationSubnetGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The replication subnet group that was created.
-createReplicationSubnetGroupResponse_replicationSubnetGroup :: Lens.Lens' CreateReplicationSubnetGroupResponse (Core.Maybe ReplicationSubnetGroup)
+createReplicationSubnetGroupResponse_replicationSubnetGroup :: Lens.Lens' CreateReplicationSubnetGroupResponse (Prelude.Maybe ReplicationSubnetGroup)
 createReplicationSubnetGroupResponse_replicationSubnetGroup = Lens.lens (\CreateReplicationSubnetGroupResponse' {replicationSubnetGroup} -> replicationSubnetGroup) (\s@CreateReplicationSubnetGroupResponse' {} a -> s {replicationSubnetGroup = a} :: CreateReplicationSubnetGroupResponse)
 
 -- | The response's http status code.
-createReplicationSubnetGroupResponse_httpStatus :: Lens.Lens' CreateReplicationSubnetGroupResponse Core.Int
+createReplicationSubnetGroupResponse_httpStatus :: Lens.Lens' CreateReplicationSubnetGroupResponse Prelude.Int
 createReplicationSubnetGroupResponse_httpStatus = Lens.lens (\CreateReplicationSubnetGroupResponse' {httpStatus} -> httpStatus) (\s@CreateReplicationSubnetGroupResponse' {} a -> s {httpStatus = a} :: CreateReplicationSubnetGroupResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateReplicationSubnetGroupResponse

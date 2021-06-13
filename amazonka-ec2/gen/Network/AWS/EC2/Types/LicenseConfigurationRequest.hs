@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.LicenseConfigurationRequest where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a license configuration.
 --
 -- /See:/ 'newLicenseConfigurationRequest' smart constructor.
 data LicenseConfigurationRequest = LicenseConfigurationRequest'
   { -- | The Amazon Resource Name (ARN) of the license configuration.
-    licenseConfigurationArn :: Core.Maybe Core.Text
+    licenseConfigurationArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LicenseConfigurationRequest' with all optional fields omitted.
@@ -46,20 +47,20 @@ newLicenseConfigurationRequest ::
 newLicenseConfigurationRequest =
   LicenseConfigurationRequest'
     { licenseConfigurationArn =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the license configuration.
-licenseConfigurationRequest_licenseConfigurationArn :: Lens.Lens' LicenseConfigurationRequest (Core.Maybe Core.Text)
+licenseConfigurationRequest_licenseConfigurationArn :: Lens.Lens' LicenseConfigurationRequest (Prelude.Maybe Prelude.Text)
 licenseConfigurationRequest_licenseConfigurationArn = Lens.lens (\LicenseConfigurationRequest' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@LicenseConfigurationRequest' {} a -> s {licenseConfigurationArn = a} :: LicenseConfigurationRequest)
 
-instance Core.Hashable LicenseConfigurationRequest
+instance Prelude.Hashable LicenseConfigurationRequest
 
-instance Core.NFData LicenseConfigurationRequest
+instance Prelude.NFData LicenseConfigurationRequest
 
 instance Core.ToQuery LicenseConfigurationRequest where
   toQuery LicenseConfigurationRequest' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "LicenseConfigurationArn"
           Core.=: licenseConfigurationArn
       ]

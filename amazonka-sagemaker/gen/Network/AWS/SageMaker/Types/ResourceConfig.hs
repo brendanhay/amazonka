@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ResourceConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.TrainingInstanceType
 
 -- | Describes the resources, including ML compute instances and ML storage
@@ -52,12 +53,12 @@ data ResourceConfig = ResourceConfig'
     -- -   \/\/ Amazon Resource Name (ARN) of a KMS Key
     --
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-    volumeKmsKeyId :: Core.Maybe Core.Text,
+    volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The ML compute instance type.
     instanceType :: TrainingInstanceType,
     -- | The number of ML compute instances to use. For distributed training,
     -- provide a value greater than 1.
-    instanceCount :: Core.Natural,
+    instanceCount :: Prelude.Natural,
     -- | The size of the ML storage volume that you want to provision.
     --
     -- ML storage volumes store model artifacts and incremental states.
@@ -79,9 +80,9 @@ data ResourceConfig = ResourceConfig'
     -- For a list of instance types that support local instance storage,
     -- including the total size per instance type, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes Instance Store Volumes>.
-    volumeSizeInGB :: Core.Natural
+    volumeSizeInGB :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceConfig' with all optional fields omitted.
@@ -146,16 +147,16 @@ newResourceConfig ::
   -- | 'instanceType'
   TrainingInstanceType ->
   -- | 'instanceCount'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'volumeSizeInGB'
-  Core.Natural ->
+  Prelude.Natural ->
   ResourceConfig
 newResourceConfig
   pInstanceType_
   pInstanceCount_
   pVolumeSizeInGB_ =
     ResourceConfig'
-      { volumeKmsKeyId = Core.Nothing,
+      { volumeKmsKeyId = Prelude.Nothing,
         instanceType = pInstanceType_,
         instanceCount = pInstanceCount_,
         volumeSizeInGB = pVolumeSizeInGB_
@@ -185,7 +186,7 @@ newResourceConfig
 -- -   \/\/ Amazon Resource Name (ARN) of a KMS Key
 --
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-resourceConfig_volumeKmsKeyId :: Lens.Lens' ResourceConfig (Core.Maybe Core.Text)
+resourceConfig_volumeKmsKeyId :: Lens.Lens' ResourceConfig (Prelude.Maybe Prelude.Text)
 resourceConfig_volumeKmsKeyId = Lens.lens (\ResourceConfig' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@ResourceConfig' {} a -> s {volumeKmsKeyId = a} :: ResourceConfig)
 
 -- | The ML compute instance type.
@@ -194,7 +195,7 @@ resourceConfig_instanceType = Lens.lens (\ResourceConfig' {instanceType} -> inst
 
 -- | The number of ML compute instances to use. For distributed training,
 -- provide a value greater than 1.
-resourceConfig_instanceCount :: Lens.Lens' ResourceConfig Core.Natural
+resourceConfig_instanceCount :: Lens.Lens' ResourceConfig Prelude.Natural
 resourceConfig_instanceCount = Lens.lens (\ResourceConfig' {instanceCount} -> instanceCount) (\s@ResourceConfig' {} a -> s {instanceCount = a} :: ResourceConfig)
 
 -- | The size of the ML storage volume that you want to provision.
@@ -218,7 +219,7 @@ resourceConfig_instanceCount = Lens.lens (\ResourceConfig' {instanceCount} -> in
 -- For a list of instance types that support local instance storage,
 -- including the total size per instance type, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes Instance Store Volumes>.
-resourceConfig_volumeSizeInGB :: Lens.Lens' ResourceConfig Core.Natural
+resourceConfig_volumeSizeInGB :: Lens.Lens' ResourceConfig Prelude.Natural
 resourceConfig_volumeSizeInGB = Lens.lens (\ResourceConfig' {volumeSizeInGB} -> volumeSizeInGB) (\s@ResourceConfig' {} a -> s {volumeSizeInGB = a} :: ResourceConfig)
 
 instance Core.FromJSON ResourceConfig where
@@ -227,23 +228,25 @@ instance Core.FromJSON ResourceConfig where
       "ResourceConfig"
       ( \x ->
           ResourceConfig'
-            Core.<$> (x Core..:? "VolumeKmsKeyId")
-            Core.<*> (x Core..: "InstanceType")
-            Core.<*> (x Core..: "InstanceCount")
-            Core.<*> (x Core..: "VolumeSizeInGB")
+            Prelude.<$> (x Core..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Core..: "InstanceType")
+            Prelude.<*> (x Core..: "InstanceCount")
+            Prelude.<*> (x Core..: "VolumeSizeInGB")
       )
 
-instance Core.Hashable ResourceConfig
+instance Prelude.Hashable ResourceConfig
 
-instance Core.NFData ResourceConfig
+instance Prelude.NFData ResourceConfig
 
 instance Core.ToJSON ResourceConfig where
   toJSON ResourceConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("VolumeKmsKeyId" Core..=) Core.<$> volumeKmsKeyId,
-            Core.Just ("InstanceType" Core..= instanceType),
-            Core.Just ("InstanceCount" Core..= instanceCount),
-            Core.Just ("VolumeSizeInGB" Core..= volumeSizeInGB)
+      ( Prelude.catMaybes
+          [ ("VolumeKmsKeyId" Core..=)
+              Prelude.<$> volumeKmsKeyId,
+            Prelude.Just ("InstanceType" Core..= instanceType),
+            Prelude.Just ("InstanceCount" Core..= instanceCount),
+            Prelude.Just
+              ("VolumeSizeInGB" Core..= volumeSizeInGB)
           ]
       )

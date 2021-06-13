@@ -31,6 +31,7 @@ import Network.AWS.IoTAnalytics.Types.MathActivity
 import Network.AWS.IoTAnalytics.Types.RemoveAttributesActivity
 import Network.AWS.IoTAnalytics.Types.SelectAttributesActivity
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An activity that performs a transformation on a message.
 --
@@ -38,28 +39,28 @@ import qualified Network.AWS.Lens as Lens
 data PipelineActivity = PipelineActivity'
   { -- | Creates a new message using only the specified attributes from the
     -- original message.
-    selectAttributes :: Core.Maybe SelectAttributesActivity,
+    selectAttributes :: Prelude.Maybe SelectAttributesActivity,
     -- | Specifies where to store the processed message data.
-    datastore :: Core.Maybe DatastoreActivity,
+    datastore :: Prelude.Maybe DatastoreActivity,
     -- | Removes attributes from a message.
-    removeAttributes :: Core.Maybe RemoveAttributesActivity,
+    removeAttributes :: Prelude.Maybe RemoveAttributesActivity,
     -- | Adds other attributes based on existing attributes in the message.
-    addAttributes :: Core.Maybe AddAttributesActivity,
+    addAttributes :: Prelude.Maybe AddAttributesActivity,
     -- | Adds information from the AWS IoT Device Shadow service to a message.
-    deviceShadowEnrich :: Core.Maybe DeviceShadowEnrichActivity,
+    deviceShadowEnrich :: Prelude.Maybe DeviceShadowEnrichActivity,
     -- | Runs a Lambda function to modify the message.
-    lambda :: Core.Maybe LambdaActivity,
+    lambda :: Prelude.Maybe LambdaActivity,
     -- | Adds data from the AWS IoT device registry to your message.
-    deviceRegistryEnrich :: Core.Maybe DeviceRegistryEnrichActivity,
+    deviceRegistryEnrich :: Prelude.Maybe DeviceRegistryEnrichActivity,
     -- | Determines the source of the messages to be processed.
-    channel :: Core.Maybe ChannelActivity,
+    channel :: Prelude.Maybe ChannelActivity,
     -- | Filters a message based on its attributes.
-    filter' :: Core.Maybe FilterActivity,
+    filter' :: Prelude.Maybe FilterActivity,
     -- | Computes an arithmetic expression using the message\'s attributes and
     -- adds it to the message.
-    math :: Core.Maybe MathActivity
+    math :: Prelude.Maybe MathActivity
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PipelineActivity' with all optional fields omitted.
@@ -94,58 +95,59 @@ newPipelineActivity ::
   PipelineActivity
 newPipelineActivity =
   PipelineActivity'
-    { selectAttributes = Core.Nothing,
-      datastore = Core.Nothing,
-      removeAttributes = Core.Nothing,
-      addAttributes = Core.Nothing,
-      deviceShadowEnrich = Core.Nothing,
-      lambda = Core.Nothing,
-      deviceRegistryEnrich = Core.Nothing,
-      channel = Core.Nothing,
-      filter' = Core.Nothing,
-      math = Core.Nothing
+    { selectAttributes =
+        Prelude.Nothing,
+      datastore = Prelude.Nothing,
+      removeAttributes = Prelude.Nothing,
+      addAttributes = Prelude.Nothing,
+      deviceShadowEnrich = Prelude.Nothing,
+      lambda = Prelude.Nothing,
+      deviceRegistryEnrich = Prelude.Nothing,
+      channel = Prelude.Nothing,
+      filter' = Prelude.Nothing,
+      math = Prelude.Nothing
     }
 
 -- | Creates a new message using only the specified attributes from the
 -- original message.
-pipelineActivity_selectAttributes :: Lens.Lens' PipelineActivity (Core.Maybe SelectAttributesActivity)
+pipelineActivity_selectAttributes :: Lens.Lens' PipelineActivity (Prelude.Maybe SelectAttributesActivity)
 pipelineActivity_selectAttributes = Lens.lens (\PipelineActivity' {selectAttributes} -> selectAttributes) (\s@PipelineActivity' {} a -> s {selectAttributes = a} :: PipelineActivity)
 
 -- | Specifies where to store the processed message data.
-pipelineActivity_datastore :: Lens.Lens' PipelineActivity (Core.Maybe DatastoreActivity)
+pipelineActivity_datastore :: Lens.Lens' PipelineActivity (Prelude.Maybe DatastoreActivity)
 pipelineActivity_datastore = Lens.lens (\PipelineActivity' {datastore} -> datastore) (\s@PipelineActivity' {} a -> s {datastore = a} :: PipelineActivity)
 
 -- | Removes attributes from a message.
-pipelineActivity_removeAttributes :: Lens.Lens' PipelineActivity (Core.Maybe RemoveAttributesActivity)
+pipelineActivity_removeAttributes :: Lens.Lens' PipelineActivity (Prelude.Maybe RemoveAttributesActivity)
 pipelineActivity_removeAttributes = Lens.lens (\PipelineActivity' {removeAttributes} -> removeAttributes) (\s@PipelineActivity' {} a -> s {removeAttributes = a} :: PipelineActivity)
 
 -- | Adds other attributes based on existing attributes in the message.
-pipelineActivity_addAttributes :: Lens.Lens' PipelineActivity (Core.Maybe AddAttributesActivity)
+pipelineActivity_addAttributes :: Lens.Lens' PipelineActivity (Prelude.Maybe AddAttributesActivity)
 pipelineActivity_addAttributes = Lens.lens (\PipelineActivity' {addAttributes} -> addAttributes) (\s@PipelineActivity' {} a -> s {addAttributes = a} :: PipelineActivity)
 
 -- | Adds information from the AWS IoT Device Shadow service to a message.
-pipelineActivity_deviceShadowEnrich :: Lens.Lens' PipelineActivity (Core.Maybe DeviceShadowEnrichActivity)
+pipelineActivity_deviceShadowEnrich :: Lens.Lens' PipelineActivity (Prelude.Maybe DeviceShadowEnrichActivity)
 pipelineActivity_deviceShadowEnrich = Lens.lens (\PipelineActivity' {deviceShadowEnrich} -> deviceShadowEnrich) (\s@PipelineActivity' {} a -> s {deviceShadowEnrich = a} :: PipelineActivity)
 
 -- | Runs a Lambda function to modify the message.
-pipelineActivity_lambda :: Lens.Lens' PipelineActivity (Core.Maybe LambdaActivity)
+pipelineActivity_lambda :: Lens.Lens' PipelineActivity (Prelude.Maybe LambdaActivity)
 pipelineActivity_lambda = Lens.lens (\PipelineActivity' {lambda} -> lambda) (\s@PipelineActivity' {} a -> s {lambda = a} :: PipelineActivity)
 
 -- | Adds data from the AWS IoT device registry to your message.
-pipelineActivity_deviceRegistryEnrich :: Lens.Lens' PipelineActivity (Core.Maybe DeviceRegistryEnrichActivity)
+pipelineActivity_deviceRegistryEnrich :: Lens.Lens' PipelineActivity (Prelude.Maybe DeviceRegistryEnrichActivity)
 pipelineActivity_deviceRegistryEnrich = Lens.lens (\PipelineActivity' {deviceRegistryEnrich} -> deviceRegistryEnrich) (\s@PipelineActivity' {} a -> s {deviceRegistryEnrich = a} :: PipelineActivity)
 
 -- | Determines the source of the messages to be processed.
-pipelineActivity_channel :: Lens.Lens' PipelineActivity (Core.Maybe ChannelActivity)
+pipelineActivity_channel :: Lens.Lens' PipelineActivity (Prelude.Maybe ChannelActivity)
 pipelineActivity_channel = Lens.lens (\PipelineActivity' {channel} -> channel) (\s@PipelineActivity' {} a -> s {channel = a} :: PipelineActivity)
 
 -- | Filters a message based on its attributes.
-pipelineActivity_filter :: Lens.Lens' PipelineActivity (Core.Maybe FilterActivity)
+pipelineActivity_filter :: Lens.Lens' PipelineActivity (Prelude.Maybe FilterActivity)
 pipelineActivity_filter = Lens.lens (\PipelineActivity' {filter'} -> filter') (\s@PipelineActivity' {} a -> s {filter' = a} :: PipelineActivity)
 
 -- | Computes an arithmetic expression using the message\'s attributes and
 -- adds it to the message.
-pipelineActivity_math :: Lens.Lens' PipelineActivity (Core.Maybe MathActivity)
+pipelineActivity_math :: Lens.Lens' PipelineActivity (Prelude.Maybe MathActivity)
 pipelineActivity_math = Lens.lens (\PipelineActivity' {math} -> math) (\s@PipelineActivity' {} a -> s {math = a} :: PipelineActivity)
 
 instance Core.FromJSON PipelineActivity where
@@ -154,39 +156,39 @@ instance Core.FromJSON PipelineActivity where
       "PipelineActivity"
       ( \x ->
           PipelineActivity'
-            Core.<$> (x Core..:? "selectAttributes")
-            Core.<*> (x Core..:? "datastore")
-            Core.<*> (x Core..:? "removeAttributes")
-            Core.<*> (x Core..:? "addAttributes")
-            Core.<*> (x Core..:? "deviceShadowEnrich")
-            Core.<*> (x Core..:? "lambda")
-            Core.<*> (x Core..:? "deviceRegistryEnrich")
-            Core.<*> (x Core..:? "channel")
-            Core.<*> (x Core..:? "filter")
-            Core.<*> (x Core..:? "math")
+            Prelude.<$> (x Core..:? "selectAttributes")
+            Prelude.<*> (x Core..:? "datastore")
+            Prelude.<*> (x Core..:? "removeAttributes")
+            Prelude.<*> (x Core..:? "addAttributes")
+            Prelude.<*> (x Core..:? "deviceShadowEnrich")
+            Prelude.<*> (x Core..:? "lambda")
+            Prelude.<*> (x Core..:? "deviceRegistryEnrich")
+            Prelude.<*> (x Core..:? "channel")
+            Prelude.<*> (x Core..:? "filter")
+            Prelude.<*> (x Core..:? "math")
       )
 
-instance Core.Hashable PipelineActivity
+instance Prelude.Hashable PipelineActivity
 
-instance Core.NFData PipelineActivity
+instance Prelude.NFData PipelineActivity
 
 instance Core.ToJSON PipelineActivity where
   toJSON PipelineActivity' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("selectAttributes" Core..=)
-              Core.<$> selectAttributes,
-            ("datastore" Core..=) Core.<$> datastore,
+              Prelude.<$> selectAttributes,
+            ("datastore" Core..=) Prelude.<$> datastore,
             ("removeAttributes" Core..=)
-              Core.<$> removeAttributes,
-            ("addAttributes" Core..=) Core.<$> addAttributes,
+              Prelude.<$> removeAttributes,
+            ("addAttributes" Core..=) Prelude.<$> addAttributes,
             ("deviceShadowEnrich" Core..=)
-              Core.<$> deviceShadowEnrich,
-            ("lambda" Core..=) Core.<$> lambda,
+              Prelude.<$> deviceShadowEnrich,
+            ("lambda" Core..=) Prelude.<$> lambda,
             ("deviceRegistryEnrich" Core..=)
-              Core.<$> deviceRegistryEnrich,
-            ("channel" Core..=) Core.<$> channel,
-            ("filter" Core..=) Core.<$> filter',
-            ("math" Core..=) Core.<$> math
+              Prelude.<$> deviceRegistryEnrich,
+            ("channel" Core..=) Prelude.<$> channel,
+            ("filter" Core..=) Prelude.<$> filter',
+            ("math" Core..=) Prelude.<$> math
           ]
       )

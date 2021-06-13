@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ScheduledInstancesEbs
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a block device mapping for a Scheduled Instance.
 --
@@ -30,10 +31,10 @@ import qualified Network.AWS.Lens as Lens
 data ScheduledInstancesBlockDeviceMapping = ScheduledInstancesBlockDeviceMapping'
   { -- | Parameters used to set up EBS volumes automatically when the instance is
     -- launched.
-    ebs :: Core.Maybe ScheduledInstancesEbs,
+    ebs :: Prelude.Maybe ScheduledInstancesEbs,
     -- | To omit the device from the block device mapping, specify an empty
     -- string.
-    noDevice :: Core.Maybe Core.Text,
+    noDevice :: Prelude.Maybe Prelude.Text,
     -- | The virtual device name (@ephemeral@N). Instance store volumes are
     -- numbered starting from 0. An instance type with two available instance
     -- store volumes can specify mappings for @ephemeral0@ and @ephemeral1@.
@@ -44,11 +45,11 @@ data ScheduledInstancesBlockDeviceMapping = ScheduledInstancesBlockDeviceMapping
     -- in the block device mapping for the instance. When you launch an M3
     -- instance, we ignore any instance store volumes specified in the block
     -- device mapping for the AMI.
-    virtualName :: Core.Maybe Core.Text,
+    virtualName :: Prelude.Maybe Prelude.Text,
     -- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
-    deviceName :: Core.Maybe Core.Text
+    deviceName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScheduledInstancesBlockDeviceMapping' with all optional fields omitted.
@@ -81,20 +82,20 @@ newScheduledInstancesBlockDeviceMapping ::
 newScheduledInstancesBlockDeviceMapping =
   ScheduledInstancesBlockDeviceMapping'
     { ebs =
-        Core.Nothing,
-      noDevice = Core.Nothing,
-      virtualName = Core.Nothing,
-      deviceName = Core.Nothing
+        Prelude.Nothing,
+      noDevice = Prelude.Nothing,
+      virtualName = Prelude.Nothing,
+      deviceName = Prelude.Nothing
     }
 
 -- | Parameters used to set up EBS volumes automatically when the instance is
 -- launched.
-scheduledInstancesBlockDeviceMapping_ebs :: Lens.Lens' ScheduledInstancesBlockDeviceMapping (Core.Maybe ScheduledInstancesEbs)
+scheduledInstancesBlockDeviceMapping_ebs :: Lens.Lens' ScheduledInstancesBlockDeviceMapping (Prelude.Maybe ScheduledInstancesEbs)
 scheduledInstancesBlockDeviceMapping_ebs = Lens.lens (\ScheduledInstancesBlockDeviceMapping' {ebs} -> ebs) (\s@ScheduledInstancesBlockDeviceMapping' {} a -> s {ebs = a} :: ScheduledInstancesBlockDeviceMapping)
 
 -- | To omit the device from the block device mapping, specify an empty
 -- string.
-scheduledInstancesBlockDeviceMapping_noDevice :: Lens.Lens' ScheduledInstancesBlockDeviceMapping (Core.Maybe Core.Text)
+scheduledInstancesBlockDeviceMapping_noDevice :: Lens.Lens' ScheduledInstancesBlockDeviceMapping (Prelude.Maybe Prelude.Text)
 scheduledInstancesBlockDeviceMapping_noDevice = Lens.lens (\ScheduledInstancesBlockDeviceMapping' {noDevice} -> noDevice) (\s@ScheduledInstancesBlockDeviceMapping' {} a -> s {noDevice = a} :: ScheduledInstancesBlockDeviceMapping)
 
 -- | The virtual device name (@ephemeral@N). Instance store volumes are
@@ -107,19 +108,19 @@ scheduledInstancesBlockDeviceMapping_noDevice = Lens.lens (\ScheduledInstancesBl
 -- in the block device mapping for the instance. When you launch an M3
 -- instance, we ignore any instance store volumes specified in the block
 -- device mapping for the AMI.
-scheduledInstancesBlockDeviceMapping_virtualName :: Lens.Lens' ScheduledInstancesBlockDeviceMapping (Core.Maybe Core.Text)
+scheduledInstancesBlockDeviceMapping_virtualName :: Lens.Lens' ScheduledInstancesBlockDeviceMapping (Prelude.Maybe Prelude.Text)
 scheduledInstancesBlockDeviceMapping_virtualName = Lens.lens (\ScheduledInstancesBlockDeviceMapping' {virtualName} -> virtualName) (\s@ScheduledInstancesBlockDeviceMapping' {} a -> s {virtualName = a} :: ScheduledInstancesBlockDeviceMapping)
 
 -- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
-scheduledInstancesBlockDeviceMapping_deviceName :: Lens.Lens' ScheduledInstancesBlockDeviceMapping (Core.Maybe Core.Text)
+scheduledInstancesBlockDeviceMapping_deviceName :: Lens.Lens' ScheduledInstancesBlockDeviceMapping (Prelude.Maybe Prelude.Text)
 scheduledInstancesBlockDeviceMapping_deviceName = Lens.lens (\ScheduledInstancesBlockDeviceMapping' {deviceName} -> deviceName) (\s@ScheduledInstancesBlockDeviceMapping' {} a -> s {deviceName = a} :: ScheduledInstancesBlockDeviceMapping)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ScheduledInstancesBlockDeviceMapping
 
 instance
-  Core.NFData
+  Prelude.NFData
     ScheduledInstancesBlockDeviceMapping
 
 instance
@@ -127,7 +128,7 @@ instance
     ScheduledInstancesBlockDeviceMapping
   where
   toQuery ScheduledInstancesBlockDeviceMapping' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Ebs" Core.=: ebs,
         "NoDevice" Core.=: noDevice,
         "VirtualName" Core.=: virtualName,

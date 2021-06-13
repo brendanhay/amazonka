@@ -21,17 +21,18 @@ module Network.AWS.Glue.Types.KeySchemaElement where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A partition key pair consisting of a name and a type.
 --
 -- /See:/ 'newKeySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
   { -- | The name of a partition key.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The type of a partition key.
-    type' :: Core.Text
+    type' :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KeySchemaElement' with all optional fields omitted.
@@ -46,19 +47,19 @@ data KeySchemaElement = KeySchemaElement'
 -- 'type'', 'keySchemaElement_type' - The type of a partition key.
 newKeySchemaElement ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
-  Core.Text ->
+  Prelude.Text ->
   KeySchemaElement
 newKeySchemaElement pName_ pType_ =
   KeySchemaElement' {name = pName_, type' = pType_}
 
 -- | The name of a partition key.
-keySchemaElement_name :: Lens.Lens' KeySchemaElement Core.Text
+keySchemaElement_name :: Lens.Lens' KeySchemaElement Prelude.Text
 keySchemaElement_name = Lens.lens (\KeySchemaElement' {name} -> name) (\s@KeySchemaElement' {} a -> s {name = a} :: KeySchemaElement)
 
 -- | The type of a partition key.
-keySchemaElement_type :: Lens.Lens' KeySchemaElement Core.Text
+keySchemaElement_type :: Lens.Lens' KeySchemaElement Prelude.Text
 keySchemaElement_type = Lens.lens (\KeySchemaElement' {type'} -> type') (\s@KeySchemaElement' {} a -> s {type' = a} :: KeySchemaElement)
 
 instance Core.FromJSON KeySchemaElement where
@@ -67,9 +68,9 @@ instance Core.FromJSON KeySchemaElement where
       "KeySchemaElement"
       ( \x ->
           KeySchemaElement'
-            Core.<$> (x Core..: "Name") Core.<*> (x Core..: "Type")
+            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Type")
       )
 
-instance Core.Hashable KeySchemaElement
+instance Prelude.Hashable KeySchemaElement
 
-instance Core.NFData KeySchemaElement
+instance Prelude.NFData KeySchemaElement

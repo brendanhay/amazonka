@@ -21,6 +21,7 @@ module Network.AWS.AutoScaling.Types.AdjustmentType where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a policy adjustment type.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data AdjustmentType = AdjustmentType'
   { -- | The policy adjustment type. The valid values are @ChangeInCapacity@,
     -- @ExactCapacity@, and @PercentChangeInCapacity@.
-    adjustmentType :: Core.Maybe Core.Text
+    adjustmentType :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdjustmentType' with all optional fields omitted.
@@ -45,18 +46,18 @@ data AdjustmentType = AdjustmentType'
 newAdjustmentType ::
   AdjustmentType
 newAdjustmentType =
-  AdjustmentType' {adjustmentType = Core.Nothing}
+  AdjustmentType' {adjustmentType = Prelude.Nothing}
 
 -- | The policy adjustment type. The valid values are @ChangeInCapacity@,
 -- @ExactCapacity@, and @PercentChangeInCapacity@.
-adjustmentType_adjustmentType :: Lens.Lens' AdjustmentType (Core.Maybe Core.Text)
+adjustmentType_adjustmentType :: Lens.Lens' AdjustmentType (Prelude.Maybe Prelude.Text)
 adjustmentType_adjustmentType = Lens.lens (\AdjustmentType' {adjustmentType} -> adjustmentType) (\s@AdjustmentType' {} a -> s {adjustmentType = a} :: AdjustmentType)
 
 instance Core.FromXML AdjustmentType where
   parseXML x =
     AdjustmentType'
-      Core.<$> (x Core..@? "AdjustmentType")
+      Prelude.<$> (x Core..@? "AdjustmentType")
 
-instance Core.Hashable AdjustmentType
+instance Prelude.Hashable AdjustmentType
 
-instance Core.NFData AdjustmentType
+instance Prelude.NFData AdjustmentType

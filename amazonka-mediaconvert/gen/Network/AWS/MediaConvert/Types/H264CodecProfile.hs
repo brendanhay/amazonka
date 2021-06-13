@@ -31,6 +31,7 @@ module Network.AWS.MediaConvert.Types.H264CodecProfile
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | H.264 Profile. High 4:2:2 and 10-bit profiles are only available with
 -- the AVC-I License.
@@ -39,15 +40,15 @@ newtype H264CodecProfile = H264CodecProfile'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

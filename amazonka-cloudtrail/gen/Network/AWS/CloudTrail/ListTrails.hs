@@ -45,6 +45,7 @@ where
 import Network.AWS.CloudTrail.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +56,9 @@ data ListTrails = ListTrails'
     -- specified in the the original call. For example, if the original call
     -- specified an AttributeKey of \'Username\' with a value of \'root\', the
     -- call with NextToken should include those same parameters.
-    nextToken :: Core.Maybe Core.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTrails' with all optional fields omitted.
@@ -74,34 +75,35 @@ data ListTrails = ListTrails'
 -- call with NextToken should include those same parameters.
 newListTrails ::
   ListTrails
-newListTrails = ListTrails' {nextToken = Core.Nothing}
+newListTrails =
+  ListTrails' {nextToken = Prelude.Nothing}
 
 -- | The token to use to get the next page of results after a previous API
 -- call. This token must be passed in with the same parameters that were
 -- specified in the the original call. For example, if the original call
 -- specified an AttributeKey of \'Username\' with a value of \'root\', the
 -- call with NextToken should include those same parameters.
-listTrails_nextToken :: Lens.Lens' ListTrails (Core.Maybe Core.Text)
+listTrails_nextToken :: Lens.Lens' ListTrails (Prelude.Maybe Prelude.Text)
 listTrails_nextToken = Lens.lens (\ListTrails' {nextToken} -> nextToken) (\s@ListTrails' {} a -> s {nextToken = a} :: ListTrails)
 
 instance Core.AWSPager ListTrails where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listTrailsResponse_nextToken Core.. Lens._Just
+            Lens.^? listTrailsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listTrailsResponse_trails Core.. Lens._Just
+            Lens.^? listTrailsResponse_trails Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listTrails_nextToken
+          Prelude.& listTrails_nextToken
           Lens..~ rs
-          Lens.^? listTrailsResponse_nextToken Core.. Lens._Just
+          Lens.^? listTrailsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTrails where
   type AWSResponse ListTrails = ListTrailsResponse
@@ -110,40 +112,42 @@ instance Core.AWSRequest ListTrails where
     Response.receiveJSON
       ( \s h x ->
           ListTrailsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Trails" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Trails" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTrails
+instance Prelude.Hashable ListTrails
 
-instance Core.NFData ListTrails
+instance Prelude.NFData ListTrails
 
 instance Core.ToHeaders ListTrails where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListTrails" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListTrails where
   toJSON ListTrails' {..} =
     Core.object
-      ( Core.catMaybes
-          [("NextToken" Core..=) Core.<$> nextToken]
+      ( Prelude.catMaybes
+          [("NextToken" Core..=) Prelude.<$> nextToken]
       )
 
 instance Core.ToPath ListTrails where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTrails where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTrailsResponse' smart constructor.
 data ListTrailsResponse = ListTrailsResponse'
@@ -153,13 +157,13 @@ data ListTrailsResponse = ListTrailsResponse'
     -- call. For example, if the original call specified an AttributeKey of
     -- \'Username\' with a value of \'root\', the call with NextToken should
     -- include those same parameters.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns the name, ARN, and home region of trails in the current account.
-    trails :: Core.Maybe [TrailInfo],
+    trails :: Prelude.Maybe [TrailInfo],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTrailsResponse' with all optional fields omitted.
@@ -181,12 +185,12 @@ data ListTrailsResponse = ListTrailsResponse'
 -- 'httpStatus', 'listTrailsResponse_httpStatus' - The response's http status code.
 newListTrailsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTrailsResponse
 newListTrailsResponse pHttpStatus_ =
   ListTrailsResponse'
-    { nextToken = Core.Nothing,
-      trails = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      trails = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -196,15 +200,15 @@ newListTrailsResponse pHttpStatus_ =
 -- call. For example, if the original call specified an AttributeKey of
 -- \'Username\' with a value of \'root\', the call with NextToken should
 -- include those same parameters.
-listTrailsResponse_nextToken :: Lens.Lens' ListTrailsResponse (Core.Maybe Core.Text)
+listTrailsResponse_nextToken :: Lens.Lens' ListTrailsResponse (Prelude.Maybe Prelude.Text)
 listTrailsResponse_nextToken = Lens.lens (\ListTrailsResponse' {nextToken} -> nextToken) (\s@ListTrailsResponse' {} a -> s {nextToken = a} :: ListTrailsResponse)
 
 -- | Returns the name, ARN, and home region of trails in the current account.
-listTrailsResponse_trails :: Lens.Lens' ListTrailsResponse (Core.Maybe [TrailInfo])
-listTrailsResponse_trails = Lens.lens (\ListTrailsResponse' {trails} -> trails) (\s@ListTrailsResponse' {} a -> s {trails = a} :: ListTrailsResponse) Core.. Lens.mapping Lens._Coerce
+listTrailsResponse_trails :: Lens.Lens' ListTrailsResponse (Prelude.Maybe [TrailInfo])
+listTrailsResponse_trails = Lens.lens (\ListTrailsResponse' {trails} -> trails) (\s@ListTrailsResponse' {} a -> s {trails = a} :: ListTrailsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTrailsResponse_httpStatus :: Lens.Lens' ListTrailsResponse Core.Int
+listTrailsResponse_httpStatus :: Lens.Lens' ListTrailsResponse Prelude.Int
 listTrailsResponse_httpStatus = Lens.lens (\ListTrailsResponse' {httpStatus} -> httpStatus) (\s@ListTrailsResponse' {} a -> s {httpStatus = a} :: ListTrailsResponse)
 
-instance Core.NFData ListTrailsResponse
+instance Prelude.NFData ListTrailsResponse

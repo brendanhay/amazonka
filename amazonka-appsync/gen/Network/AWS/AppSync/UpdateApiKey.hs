@@ -45,22 +45,23 @@ where
 import Network.AWS.AppSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateApiKey' smart constructor.
 data UpdateApiKey = UpdateApiKey'
   { -- | A description of the purpose of the API key.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The time from update time after which the API key expires. The date is
     -- represented as seconds since the epoch. For more information, see .
-    expires :: Core.Maybe Core.Integer,
+    expires :: Prelude.Maybe Prelude.Integer,
     -- | The ID for the GraphQL API.
-    apiId :: Core.Text,
+    apiId :: Prelude.Text,
     -- | The API key ID.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApiKey' with all optional fields omitted.
@@ -80,33 +81,33 @@ data UpdateApiKey = UpdateApiKey'
 -- 'id', 'updateApiKey_id' - The API key ID.
 newUpdateApiKey ::
   -- | 'apiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   UpdateApiKey
 newUpdateApiKey pApiId_ pId_ =
   UpdateApiKey'
-    { description = Core.Nothing,
-      expires = Core.Nothing,
+    { description = Prelude.Nothing,
+      expires = Prelude.Nothing,
       apiId = pApiId_,
       id = pId_
     }
 
 -- | A description of the purpose of the API key.
-updateApiKey_description :: Lens.Lens' UpdateApiKey (Core.Maybe Core.Text)
+updateApiKey_description :: Lens.Lens' UpdateApiKey (Prelude.Maybe Prelude.Text)
 updateApiKey_description = Lens.lens (\UpdateApiKey' {description} -> description) (\s@UpdateApiKey' {} a -> s {description = a} :: UpdateApiKey)
 
 -- | The time from update time after which the API key expires. The date is
 -- represented as seconds since the epoch. For more information, see .
-updateApiKey_expires :: Lens.Lens' UpdateApiKey (Core.Maybe Core.Integer)
+updateApiKey_expires :: Lens.Lens' UpdateApiKey (Prelude.Maybe Prelude.Integer)
 updateApiKey_expires = Lens.lens (\UpdateApiKey' {expires} -> expires) (\s@UpdateApiKey' {} a -> s {expires = a} :: UpdateApiKey)
 
 -- | The ID for the GraphQL API.
-updateApiKey_apiId :: Lens.Lens' UpdateApiKey Core.Text
+updateApiKey_apiId :: Lens.Lens' UpdateApiKey Prelude.Text
 updateApiKey_apiId = Lens.lens (\UpdateApiKey' {apiId} -> apiId) (\s@UpdateApiKey' {} a -> s {apiId = a} :: UpdateApiKey)
 
 -- | The API key ID.
-updateApiKey_id :: Lens.Lens' UpdateApiKey Core.Text
+updateApiKey_id :: Lens.Lens' UpdateApiKey Prelude.Text
 updateApiKey_id = Lens.lens (\UpdateApiKey' {id} -> id) (\s@UpdateApiKey' {} a -> s {id = a} :: UpdateApiKey)
 
 instance Core.AWSRequest UpdateApiKey where
@@ -116,35 +117,37 @@ instance Core.AWSRequest UpdateApiKey where
     Response.receiveJSON
       ( \s h x ->
           UpdateApiKeyResponse'
-            Core.<$> (x Core..?> "apiKey")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "apiKey")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateApiKey
+instance Prelude.Hashable UpdateApiKey
 
-instance Core.NFData UpdateApiKey
+instance Prelude.NFData UpdateApiKey
 
 instance Core.ToHeaders UpdateApiKey where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateApiKey where
   toJSON UpdateApiKey' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("description" Core..=) Core.<$> description,
-            ("expires" Core..=) Core.<$> expires
+      ( Prelude.catMaybes
+          [ ("description" Core..=) Prelude.<$> description,
+            ("expires" Core..=) Prelude.<$> expires
           ]
       )
 
 instance Core.ToPath UpdateApiKey where
   toPath UpdateApiKey' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apis/",
         Core.toBS apiId,
         "/apikeys/",
@@ -152,16 +155,16 @@ instance Core.ToPath UpdateApiKey where
       ]
 
 instance Core.ToQuery UpdateApiKey where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateApiKeyResponse' smart constructor.
 data UpdateApiKeyResponse = UpdateApiKeyResponse'
   { -- | The API key.
-    apiKey :: Core.Maybe ApiKey,
+    apiKey :: Prelude.Maybe ApiKey,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateApiKeyResponse' with all optional fields omitted.
@@ -176,20 +179,20 @@ data UpdateApiKeyResponse = UpdateApiKeyResponse'
 -- 'httpStatus', 'updateApiKeyResponse_httpStatus' - The response's http status code.
 newUpdateApiKeyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateApiKeyResponse
 newUpdateApiKeyResponse pHttpStatus_ =
   UpdateApiKeyResponse'
-    { apiKey = Core.Nothing,
+    { apiKey = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The API key.
-updateApiKeyResponse_apiKey :: Lens.Lens' UpdateApiKeyResponse (Core.Maybe ApiKey)
+updateApiKeyResponse_apiKey :: Lens.Lens' UpdateApiKeyResponse (Prelude.Maybe ApiKey)
 updateApiKeyResponse_apiKey = Lens.lens (\UpdateApiKeyResponse' {apiKey} -> apiKey) (\s@UpdateApiKeyResponse' {} a -> s {apiKey = a} :: UpdateApiKeyResponse)
 
 -- | The response's http status code.
-updateApiKeyResponse_httpStatus :: Lens.Lens' UpdateApiKeyResponse Core.Int
+updateApiKeyResponse_httpStatus :: Lens.Lens' UpdateApiKeyResponse Prelude.Int
 updateApiKeyResponse_httpStatus = Lens.lens (\UpdateApiKeyResponse' {httpStatus} -> httpStatus) (\s@UpdateApiKeyResponse' {} a -> s {httpStatus = a} :: UpdateApiKeyResponse)
 
-instance Core.NFData UpdateApiKeyResponse
+instance Prelude.NFData UpdateApiKeyResponse

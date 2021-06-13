@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,12 +54,12 @@ import qualified Network.AWS.Response as Response
 data DeleteCertificate = DeleteCertificate'
   { -- | Forces the deletion of a certificate if it is inactive and is not
     -- attached to an IoT thing.
-    forceDelete :: Core.Maybe Core.Bool,
+    forceDelete :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the certificate. (The last part of the certificate ARN
     -- contains the certificate ID.)
-    certificateId :: Core.Text
+    certificateId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCertificate' with all optional fields omitted.
@@ -75,22 +76,22 @@ data DeleteCertificate = DeleteCertificate'
 -- contains the certificate ID.)
 newDeleteCertificate ::
   -- | 'certificateId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteCertificate
 newDeleteCertificate pCertificateId_ =
   DeleteCertificate'
-    { forceDelete = Core.Nothing,
+    { forceDelete = Prelude.Nothing,
       certificateId = pCertificateId_
     }
 
 -- | Forces the deletion of a certificate if it is inactive and is not
 -- attached to an IoT thing.
-deleteCertificate_forceDelete :: Lens.Lens' DeleteCertificate (Core.Maybe Core.Bool)
+deleteCertificate_forceDelete :: Lens.Lens' DeleteCertificate (Prelude.Maybe Prelude.Bool)
 deleteCertificate_forceDelete = Lens.lens (\DeleteCertificate' {forceDelete} -> forceDelete) (\s@DeleteCertificate' {} a -> s {forceDelete = a} :: DeleteCertificate)
 
 -- | The ID of the certificate. (The last part of the certificate ARN
 -- contains the certificate ID.)
-deleteCertificate_certificateId :: Lens.Lens' DeleteCertificate Core.Text
+deleteCertificate_certificateId :: Lens.Lens' DeleteCertificate Prelude.Text
 deleteCertificate_certificateId = Lens.lens (\DeleteCertificate' {certificateId} -> certificateId) (\s@DeleteCertificate' {} a -> s {certificateId = a} :: DeleteCertificate)
 
 instance Core.AWSRequest DeleteCertificate where
@@ -101,27 +102,27 @@ instance Core.AWSRequest DeleteCertificate where
   response =
     Response.receiveNull DeleteCertificateResponse'
 
-instance Core.Hashable DeleteCertificate
+instance Prelude.Hashable DeleteCertificate
 
-instance Core.NFData DeleteCertificate
+instance Prelude.NFData DeleteCertificate
 
 instance Core.ToHeaders DeleteCertificate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteCertificate where
   toPath DeleteCertificate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/certificates/", Core.toBS certificateId]
 
 instance Core.ToQuery DeleteCertificate where
   toQuery DeleteCertificate' {..} =
-    Core.mconcat ["forceDelete" Core.=: forceDelete]
+    Prelude.mconcat ["forceDelete" Core.=: forceDelete]
 
 -- | /See:/ 'newDeleteCertificateResponse' smart constructor.
 data DeleteCertificateResponse = DeleteCertificateResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCertificateResponse' with all optional fields omitted.
@@ -132,4 +133,4 @@ newDeleteCertificateResponse ::
 newDeleteCertificateResponse =
   DeleteCertificateResponse'
 
-instance Core.NFData DeleteCertificateResponse
+instance Prelude.NFData DeleteCertificateResponse

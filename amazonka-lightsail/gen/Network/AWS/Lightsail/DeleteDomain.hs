@@ -47,15 +47,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDomain' smart constructor.
 data DeleteDomain = DeleteDomain'
   { -- | The specific domain name to delete.
-    domainName :: Core.Text
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDomain' with all optional fields omitted.
@@ -68,13 +69,13 @@ data DeleteDomain = DeleteDomain'
 -- 'domainName', 'deleteDomain_domainName' - The specific domain name to delete.
 newDeleteDomain ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDomain
 newDeleteDomain pDomainName_ =
   DeleteDomain' {domainName = pDomainName_}
 
 -- | The specific domain name to delete.
-deleteDomain_domainName :: Lens.Lens' DeleteDomain Core.Text
+deleteDomain_domainName :: Lens.Lens' DeleteDomain Prelude.Text
 deleteDomain_domainName = Lens.lens (\DeleteDomain' {domainName} -> domainName) (\s@DeleteDomain' {} a -> s {domainName = a} :: DeleteDomain)
 
 instance Core.AWSRequest DeleteDomain where
@@ -84,50 +85,52 @@ instance Core.AWSRequest DeleteDomain where
     Response.receiveJSON
       ( \s h x ->
           DeleteDomainResponse'
-            Core.<$> (x Core..?> "operation")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operation")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteDomain
+instance Prelude.Hashable DeleteDomain
 
-instance Core.NFData DeleteDomain
+instance Prelude.NFData DeleteDomain
 
 instance Core.ToHeaders DeleteDomain where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.DeleteDomain" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteDomain where
   toJSON DeleteDomain' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("domainName" Core..= domainName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("domainName" Core..= domainName)]
       )
 
 instance Core.ToPath DeleteDomain where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDomain where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDomainResponse' smart constructor.
 data DeleteDomainResponse = DeleteDomainResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operation :: Core.Maybe Operation,
+    operation :: Prelude.Maybe Operation,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDomainResponse' with all optional fields omitted.
@@ -144,22 +147,22 @@ data DeleteDomainResponse = DeleteDomainResponse'
 -- 'httpStatus', 'deleteDomainResponse_httpStatus' - The response's http status code.
 newDeleteDomainResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteDomainResponse
 newDeleteDomainResponse pHttpStatus_ =
   DeleteDomainResponse'
-    { operation = Core.Nothing,
+    { operation = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-deleteDomainResponse_operation :: Lens.Lens' DeleteDomainResponse (Core.Maybe Operation)
+deleteDomainResponse_operation :: Lens.Lens' DeleteDomainResponse (Prelude.Maybe Operation)
 deleteDomainResponse_operation = Lens.lens (\DeleteDomainResponse' {operation} -> operation) (\s@DeleteDomainResponse' {} a -> s {operation = a} :: DeleteDomainResponse)
 
 -- | The response's http status code.
-deleteDomainResponse_httpStatus :: Lens.Lens' DeleteDomainResponse Core.Int
+deleteDomainResponse_httpStatus :: Lens.Lens' DeleteDomainResponse Prelude.Int
 deleteDomainResponse_httpStatus = Lens.lens (\DeleteDomainResponse' {httpStatus} -> httpStatus) (\s@DeleteDomainResponse' {} a -> s {httpStatus = a} :: DeleteDomainResponse)
 
-instance Core.NFData DeleteDomainResponse
+instance Prelude.NFData DeleteDomainResponse

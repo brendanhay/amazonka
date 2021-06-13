@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,19 +60,19 @@ data UpdateSigningCertificate = UpdateSigningCertificate'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Core.Maybe Core.Text,
+    userName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the signing certificate you want to update.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that can consist of any upper or lowercased letter or digit.
-    certificateId :: Core.Text,
+    certificateId :: Prelude.Text,
     -- | The status you want to assign to the certificate. @Active@ means that
     -- the certificate can be used for programmatic calls to AWS @Inactive@
     -- means that the certificate cannot be used.
     status :: StatusType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSigningCertificate' with all optional fields omitted.
@@ -99,13 +100,14 @@ data UpdateSigningCertificate = UpdateSigningCertificate'
 -- means that the certificate cannot be used.
 newUpdateSigningCertificate ::
   -- | 'certificateId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'status'
   StatusType ->
   UpdateSigningCertificate
 newUpdateSigningCertificate pCertificateId_ pStatus_ =
   UpdateSigningCertificate'
-    { userName = Core.Nothing,
+    { userName =
+        Prelude.Nothing,
       certificateId = pCertificateId_,
       status = pStatus_
     }
@@ -116,7 +118,7 @@ newUpdateSigningCertificate pCertificateId_ pStatus_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-updateSigningCertificate_userName :: Lens.Lens' UpdateSigningCertificate (Core.Maybe Core.Text)
+updateSigningCertificate_userName :: Lens.Lens' UpdateSigningCertificate (Prelude.Maybe Prelude.Text)
 updateSigningCertificate_userName = Lens.lens (\UpdateSigningCertificate' {userName} -> userName) (\s@UpdateSigningCertificate' {} a -> s {userName = a} :: UpdateSigningCertificate)
 
 -- | The ID of the signing certificate you want to update.
@@ -124,7 +126,7 @@ updateSigningCertificate_userName = Lens.lens (\UpdateSigningCertificate' {userN
 -- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that can consist of any upper or lowercased letter or digit.
-updateSigningCertificate_certificateId :: Lens.Lens' UpdateSigningCertificate Core.Text
+updateSigningCertificate_certificateId :: Lens.Lens' UpdateSigningCertificate Prelude.Text
 updateSigningCertificate_certificateId = Lens.lens (\UpdateSigningCertificate' {certificateId} -> certificateId) (\s@UpdateSigningCertificate' {} a -> s {certificateId = a} :: UpdateSigningCertificate)
 
 -- | The status you want to assign to the certificate. @Active@ means that
@@ -142,22 +144,23 @@ instance Core.AWSRequest UpdateSigningCertificate where
     Response.receiveNull
       UpdateSigningCertificateResponse'
 
-instance Core.Hashable UpdateSigningCertificate
+instance Prelude.Hashable UpdateSigningCertificate
 
-instance Core.NFData UpdateSigningCertificate
+instance Prelude.NFData UpdateSigningCertificate
 
 instance Core.ToHeaders UpdateSigningCertificate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateSigningCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateSigningCertificate where
   toQuery UpdateSigningCertificate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateSigningCertificate" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("UpdateSigningCertificate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "UserName" Core.=: userName,
         "CertificateId" Core.=: certificateId,
         "Status" Core.=: status
@@ -167,7 +170,7 @@ instance Core.ToQuery UpdateSigningCertificate where
 data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSigningCertificateResponse' with all optional fields omitted.
@@ -178,4 +181,6 @@ newUpdateSigningCertificateResponse ::
 newUpdateSigningCertificateResponse =
   UpdateSigningCertificateResponse'
 
-instance Core.NFData UpdateSigningCertificateResponse
+instance
+  Prelude.NFData
+    UpdateSigningCertificateResponse

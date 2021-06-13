@@ -21,6 +21,7 @@ module Network.AWS.WAFRegional.Types.WafAction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.WafActionType
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -53,7 +54,7 @@ data WafAction = WafAction'
     --     specify @COUNT@ for the default action for a @WebACL@.
     type' :: WafActionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WafAction' with all optional fields omitted.
@@ -98,13 +99,15 @@ instance Core.FromJSON WafAction where
   parseJSON =
     Core.withObject
       "WafAction"
-      (\x -> WafAction' Core.<$> (x Core..: "Type"))
+      (\x -> WafAction' Prelude.<$> (x Core..: "Type"))
 
-instance Core.Hashable WafAction
+instance Prelude.Hashable WafAction
 
-instance Core.NFData WafAction
+instance Prelude.NFData WafAction
 
 instance Core.ToJSON WafAction where
   toJSON WafAction' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Type" Core..= type')])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Type" Core..= type')]
+      )

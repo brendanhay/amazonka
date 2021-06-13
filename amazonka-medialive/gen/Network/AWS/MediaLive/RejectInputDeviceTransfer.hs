@@ -41,6 +41,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data RejectInputDeviceTransfer = RejectInputDeviceTransfer'
   { -- | The unique ID of the input device to reject. For example,
     -- hd-123456789abcdef.
-    inputDeviceId :: Core.Text
+    inputDeviceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectInputDeviceTransfer' with all optional fields omitted.
@@ -66,7 +67,7 @@ data RejectInputDeviceTransfer = RejectInputDeviceTransfer'
 -- hd-123456789abcdef.
 newRejectInputDeviceTransfer ::
   -- | 'inputDeviceId'
-  Core.Text ->
+  Prelude.Text ->
   RejectInputDeviceTransfer
 newRejectInputDeviceTransfer pInputDeviceId_ =
   RejectInputDeviceTransfer'
@@ -76,7 +77,7 @@ newRejectInputDeviceTransfer pInputDeviceId_ =
 
 -- | The unique ID of the input device to reject. For example,
 -- hd-123456789abcdef.
-rejectInputDeviceTransfer_inputDeviceId :: Lens.Lens' RejectInputDeviceTransfer Core.Text
+rejectInputDeviceTransfer_inputDeviceId :: Lens.Lens' RejectInputDeviceTransfer Prelude.Text
 rejectInputDeviceTransfer_inputDeviceId = Lens.lens (\RejectInputDeviceTransfer' {inputDeviceId} -> inputDeviceId) (\s@RejectInputDeviceTransfer' {} a -> s {inputDeviceId = a} :: RejectInputDeviceTransfer)
 
 instance Core.AWSRequest RejectInputDeviceTransfer where
@@ -88,44 +89,46 @@ instance Core.AWSRequest RejectInputDeviceTransfer where
     Response.receiveEmpty
       ( \s h x ->
           RejectInputDeviceTransferResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RejectInputDeviceTransfer
+instance Prelude.Hashable RejectInputDeviceTransfer
 
-instance Core.NFData RejectInputDeviceTransfer
+instance Prelude.NFData RejectInputDeviceTransfer
 
 instance Core.ToHeaders RejectInputDeviceTransfer where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RejectInputDeviceTransfer where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath RejectInputDeviceTransfer where
   toPath RejectInputDeviceTransfer' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/prod/inputDevices/",
         Core.toBS inputDeviceId,
         "/reject"
       ]
 
 instance Core.ToQuery RejectInputDeviceTransfer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for RejectInputDeviceTransferResponse
 --
 -- /See:/ 'newRejectInputDeviceTransferResponse' smart constructor.
 data RejectInputDeviceTransferResponse = RejectInputDeviceTransferResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectInputDeviceTransferResponse' with all optional fields omitted.
@@ -138,7 +141,7 @@ data RejectInputDeviceTransferResponse = RejectInputDeviceTransferResponse'
 -- 'httpStatus', 'rejectInputDeviceTransferResponse_httpStatus' - The response's http status code.
 newRejectInputDeviceTransferResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RejectInputDeviceTransferResponse
 newRejectInputDeviceTransferResponse pHttpStatus_ =
   RejectInputDeviceTransferResponse'
@@ -147,9 +150,9 @@ newRejectInputDeviceTransferResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-rejectInputDeviceTransferResponse_httpStatus :: Lens.Lens' RejectInputDeviceTransferResponse Core.Int
+rejectInputDeviceTransferResponse_httpStatus :: Lens.Lens' RejectInputDeviceTransferResponse Prelude.Int
 rejectInputDeviceTransferResponse_httpStatus = Lens.lens (\RejectInputDeviceTransferResponse' {httpStatus} -> httpStatus) (\s@RejectInputDeviceTransferResponse' {} a -> s {httpStatus = a} :: RejectInputDeviceTransferResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     RejectInputDeviceTransferResponse

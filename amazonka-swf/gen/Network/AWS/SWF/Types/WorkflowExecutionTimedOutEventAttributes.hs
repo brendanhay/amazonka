@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.ChildPolicy
 import Network.AWS.SWF.Types.WorkflowExecutionTimeoutType
 
@@ -46,7 +47,7 @@ data WorkflowExecutionTimedOutEventAttributes = WorkflowExecutionTimedOutEventAt
     --     run.
     childPolicy :: ChildPolicy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WorkflowExecutionTimedOutEventAttributes' with all optional fields omitted.
@@ -117,14 +118,14 @@ instance
       "WorkflowExecutionTimedOutEventAttributes"
       ( \x ->
           WorkflowExecutionTimedOutEventAttributes'
-            Core.<$> (x Core..: "timeoutType")
-            Core.<*> (x Core..: "childPolicy")
+            Prelude.<$> (x Core..: "timeoutType")
+            Prelude.<*> (x Core..: "childPolicy")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     WorkflowExecutionTimedOutEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     WorkflowExecutionTimedOutEventAttributes

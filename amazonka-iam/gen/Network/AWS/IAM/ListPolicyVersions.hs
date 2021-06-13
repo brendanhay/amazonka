@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,21 +69,21 @@ data ListPolicyVersions = ListPolicyVersions'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM policy for which you want the
     -- versions.
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    policyArn :: Core.Text
+    policyArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPolicyVersions' with all optional fields omitted.
@@ -115,12 +116,12 @@ data ListPolicyVersions = ListPolicyVersions'
 -- in the /AWS General Reference/.
 newListPolicyVersions ::
   -- | 'policyArn'
-  Core.Text ->
+  Prelude.Text ->
   ListPolicyVersions
 newListPolicyVersions pPolicyArn_ =
   ListPolicyVersions'
-    { maxItems = Core.Nothing,
-      marker = Core.Nothing,
+    { maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing,
       policyArn = pPolicyArn_
     }
 
@@ -133,14 +134,14 @@ newListPolicyVersions pPolicyArn_ =
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-listPolicyVersions_maxItems :: Lens.Lens' ListPolicyVersions (Core.Maybe Core.Natural)
+listPolicyVersions_maxItems :: Lens.Lens' ListPolicyVersions (Prelude.Maybe Prelude.Natural)
 listPolicyVersions_maxItems = Lens.lens (\ListPolicyVersions' {maxItems} -> maxItems) (\s@ListPolicyVersions' {} a -> s {maxItems = a} :: ListPolicyVersions)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listPolicyVersions_marker :: Lens.Lens' ListPolicyVersions (Core.Maybe Core.Text)
+listPolicyVersions_marker :: Lens.Lens' ListPolicyVersions (Prelude.Maybe Prelude.Text)
 listPolicyVersions_marker = Lens.lens (\ListPolicyVersions' {marker} -> marker) (\s@ListPolicyVersions' {} a -> s {marker = a} :: ListPolicyVersions)
 
 -- | The Amazon Resource Name (ARN) of the IAM policy for which you want the
@@ -149,7 +150,7 @@ listPolicyVersions_marker = Lens.lens (\ListPolicyVersions' {marker} -> marker) 
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-listPolicyVersions_policyArn :: Lens.Lens' ListPolicyVersions Core.Text
+listPolicyVersions_policyArn :: Lens.Lens' ListPolicyVersions Prelude.Text
 listPolicyVersions_policyArn = Lens.lens (\ListPolicyVersions' {policyArn} -> policyArn) (\s@ListPolicyVersions' {} a -> s {policyArn = a} :: ListPolicyVersions)
 
 instance Core.AWSPager ListPolicyVersions where
@@ -157,20 +158,22 @@ instance Core.AWSPager ListPolicyVersions where
     | Core.stop
         ( rs
             Lens.^? listPolicyVersionsResponse_isTruncated
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.isNothing
+      Prelude.Nothing
+    | Prelude.isNothing
         ( rs
-            Lens.^? listPolicyVersionsResponse_marker Core.. Lens._Just
+            Lens.^? listPolicyVersionsResponse_marker
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listPolicyVersions_marker
+          Prelude.& listPolicyVersions_marker
           Lens..~ rs
-          Lens.^? listPolicyVersionsResponse_marker Core.. Lens._Just
+          Lens.^? listPolicyVersionsResponse_marker
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPolicyVersions where
   type
@@ -182,30 +185,31 @@ instance Core.AWSRequest ListPolicyVersions where
       "ListPolicyVersionsResult"
       ( \s h x ->
           ListPolicyVersionsResponse'
-            Core.<$> ( x Core..@? "Versions" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (x Core..@? "IsTruncated")
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Versions" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListPolicyVersions
+instance Prelude.Hashable ListPolicyVersions
 
-instance Core.NFData ListPolicyVersions
+instance Prelude.NFData ListPolicyVersions
 
 instance Core.ToHeaders ListPolicyVersions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListPolicyVersions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListPolicyVersions where
   toQuery ListPolicyVersions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListPolicyVersions" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("ListPolicyVersions" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker,
         "PolicyArn" Core.=: policyArn
@@ -220,7 +224,7 @@ data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
     -- For more information about managed policy versions, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for managed policies>
     -- in the /IAM User Guide/.
-    versions :: Core.Maybe [PolicyVersion],
+    versions :: Prelude.Maybe [PolicyVersion],
     -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. Note that
@@ -228,15 +232,15 @@ data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Core.Maybe Core.Bool,
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListPolicyVersionsResponse' with all optional fields omitted.
@@ -267,14 +271,14 @@ data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
 -- 'httpStatus', 'listPolicyVersionsResponse_httpStatus' - The response's http status code.
 newListPolicyVersionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListPolicyVersionsResponse
 newListPolicyVersionsResponse pHttpStatus_ =
   ListPolicyVersionsResponse'
     { versions =
-        Core.Nothing,
-      isTruncated = Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      isTruncated = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -283,8 +287,8 @@ newListPolicyVersionsResponse pHttpStatus_ =
 -- For more information about managed policy versions, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for managed policies>
 -- in the /IAM User Guide/.
-listPolicyVersionsResponse_versions :: Lens.Lens' ListPolicyVersionsResponse (Core.Maybe [PolicyVersion])
-listPolicyVersionsResponse_versions = Lens.lens (\ListPolicyVersionsResponse' {versions} -> versions) (\s@ListPolicyVersionsResponse' {} a -> s {versions = a} :: ListPolicyVersionsResponse) Core.. Lens.mapping Lens._Coerce
+listPolicyVersionsResponse_versions :: Lens.Lens' ListPolicyVersionsResponse (Prelude.Maybe [PolicyVersion])
+listPolicyVersionsResponse_versions = Lens.lens (\ListPolicyVersionsResponse' {versions} -> versions) (\s@ListPolicyVersionsResponse' {} a -> s {versions = a} :: ListPolicyVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -293,17 +297,17 @@ listPolicyVersionsResponse_versions = Lens.lens (\ListPolicyVersionsResponse' {v
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
-listPolicyVersionsResponse_isTruncated :: Lens.Lens' ListPolicyVersionsResponse (Core.Maybe Core.Bool)
+listPolicyVersionsResponse_isTruncated :: Lens.Lens' ListPolicyVersionsResponse (Prelude.Maybe Prelude.Bool)
 listPolicyVersionsResponse_isTruncated = Lens.lens (\ListPolicyVersionsResponse' {isTruncated} -> isTruncated) (\s@ListPolicyVersionsResponse' {} a -> s {isTruncated = a} :: ListPolicyVersionsResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listPolicyVersionsResponse_marker :: Lens.Lens' ListPolicyVersionsResponse (Core.Maybe Core.Text)
+listPolicyVersionsResponse_marker :: Lens.Lens' ListPolicyVersionsResponse (Prelude.Maybe Prelude.Text)
 listPolicyVersionsResponse_marker = Lens.lens (\ListPolicyVersionsResponse' {marker} -> marker) (\s@ListPolicyVersionsResponse' {} a -> s {marker = a} :: ListPolicyVersionsResponse)
 
 -- | The response's http status code.
-listPolicyVersionsResponse_httpStatus :: Lens.Lens' ListPolicyVersionsResponse Core.Int
+listPolicyVersionsResponse_httpStatus :: Lens.Lens' ListPolicyVersionsResponse Prelude.Int
 listPolicyVersionsResponse_httpStatus = Lens.lens (\ListPolicyVersionsResponse' {httpStatus} -> httpStatus) (\s@ListPolicyVersionsResponse' {} a -> s {httpStatus = a} :: ListPolicyVersionsResponse)
 
-instance Core.NFData ListPolicyVersionsResponse
+instance Prelude.NFData ListPolicyVersionsResponse

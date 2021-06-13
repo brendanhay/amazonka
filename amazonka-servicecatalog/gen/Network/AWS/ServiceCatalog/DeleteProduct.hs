@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -59,11 +60,11 @@ data DeleteProduct = DeleteProduct'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Core.Maybe Core.Text,
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The product identifier.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteProduct' with all optional fields omitted.
@@ -84,11 +85,11 @@ data DeleteProduct = DeleteProduct'
 -- 'id', 'deleteProduct_id' - The product identifier.
 newDeleteProduct ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   DeleteProduct
 newDeleteProduct pId_ =
   DeleteProduct'
-    { acceptLanguage = Core.Nothing,
+    { acceptLanguage = Prelude.Nothing,
       id = pId_
     }
 
@@ -99,11 +100,11 @@ newDeleteProduct pId_ =
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-deleteProduct_acceptLanguage :: Lens.Lens' DeleteProduct (Core.Maybe Core.Text)
+deleteProduct_acceptLanguage :: Lens.Lens' DeleteProduct (Prelude.Maybe Prelude.Text)
 deleteProduct_acceptLanguage = Lens.lens (\DeleteProduct' {acceptLanguage} -> acceptLanguage) (\s@DeleteProduct' {} a -> s {acceptLanguage = a} :: DeleteProduct)
 
 -- | The product identifier.
-deleteProduct_id :: Lens.Lens' DeleteProduct Core.Text
+deleteProduct_id :: Lens.Lens' DeleteProduct Prelude.Text
 deleteProduct_id = Lens.lens (\DeleteProduct' {id} -> id) (\s@DeleteProduct' {} a -> s {id = a} :: DeleteProduct)
 
 instance Core.AWSRequest DeleteProduct where
@@ -115,47 +116,50 @@ instance Core.AWSRequest DeleteProduct where
     Response.receiveEmpty
       ( \s h x ->
           DeleteProductResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteProduct
+instance Prelude.Hashable DeleteProduct
 
-instance Core.NFData DeleteProduct
+instance Prelude.NFData DeleteProduct
 
 instance Core.ToHeaders DeleteProduct where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.DeleteProduct" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteProduct where
   toJSON DeleteProduct' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
-            Core.Just ("Id" Core..= id)
+      ( Prelude.catMaybes
+          [ ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("Id" Core..= id)
           ]
       )
 
 instance Core.ToPath DeleteProduct where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteProduct where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProductResponse' smart constructor.
 data DeleteProductResponse = DeleteProductResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteProductResponse' with all optional fields omitted.
@@ -168,13 +172,13 @@ data DeleteProductResponse = DeleteProductResponse'
 -- 'httpStatus', 'deleteProductResponse_httpStatus' - The response's http status code.
 newDeleteProductResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteProductResponse
 newDeleteProductResponse pHttpStatus_ =
   DeleteProductResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteProductResponse_httpStatus :: Lens.Lens' DeleteProductResponse Core.Int
+deleteProductResponse_httpStatus :: Lens.Lens' DeleteProductResponse Prelude.Int
 deleteProductResponse_httpStatus = Lens.lens (\DeleteProductResponse' {httpStatus} -> httpStatus) (\s@DeleteProductResponse' {} a -> s {httpStatus = a} :: DeleteProductResponse)
 
-instance Core.NFData DeleteProductResponse
+instance Prelude.NFData DeleteProductResponse

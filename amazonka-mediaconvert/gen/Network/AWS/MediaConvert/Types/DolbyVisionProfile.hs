@@ -26,6 +26,7 @@ module Network.AWS.MediaConvert.Types.DolbyVisionProfile
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | In the current MediaConvert implementation, the Dolby Vision profile is
 -- always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby
@@ -35,15 +36,15 @@ newtype DolbyVisionProfile = DolbyVisionProfile'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

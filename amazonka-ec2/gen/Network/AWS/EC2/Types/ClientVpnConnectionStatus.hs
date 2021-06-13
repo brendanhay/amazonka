@@ -23,17 +23,18 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ClientVpnConnectionStatusCode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the status of a client connection.
 --
 -- /See:/ 'newClientVpnConnectionStatus' smart constructor.
 data ClientVpnConnectionStatus = ClientVpnConnectionStatus'
   { -- | A message about the status of the client connection, if applicable.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The state of the client connection.
-    code :: Core.Maybe ClientVpnConnectionStatusCode
+    code :: Prelude.Maybe ClientVpnConnectionStatusCode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ClientVpnConnectionStatus' with all optional fields omitted.
@@ -50,23 +51,25 @@ newClientVpnConnectionStatus ::
   ClientVpnConnectionStatus
 newClientVpnConnectionStatus =
   ClientVpnConnectionStatus'
-    { message = Core.Nothing,
-      code = Core.Nothing
+    { message =
+        Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | A message about the status of the client connection, if applicable.
-clientVpnConnectionStatus_message :: Lens.Lens' ClientVpnConnectionStatus (Core.Maybe Core.Text)
+clientVpnConnectionStatus_message :: Lens.Lens' ClientVpnConnectionStatus (Prelude.Maybe Prelude.Text)
 clientVpnConnectionStatus_message = Lens.lens (\ClientVpnConnectionStatus' {message} -> message) (\s@ClientVpnConnectionStatus' {} a -> s {message = a} :: ClientVpnConnectionStatus)
 
 -- | The state of the client connection.
-clientVpnConnectionStatus_code :: Lens.Lens' ClientVpnConnectionStatus (Core.Maybe ClientVpnConnectionStatusCode)
+clientVpnConnectionStatus_code :: Lens.Lens' ClientVpnConnectionStatus (Prelude.Maybe ClientVpnConnectionStatusCode)
 clientVpnConnectionStatus_code = Lens.lens (\ClientVpnConnectionStatus' {code} -> code) (\s@ClientVpnConnectionStatus' {} a -> s {code = a} :: ClientVpnConnectionStatus)
 
 instance Core.FromXML ClientVpnConnectionStatus where
   parseXML x =
     ClientVpnConnectionStatus'
-      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
-instance Core.Hashable ClientVpnConnectionStatus
+instance Prelude.Hashable ClientVpnConnectionStatus
 
-instance Core.NFData ClientVpnConnectionStatus
+instance Prelude.NFData ClientVpnConnectionStatus

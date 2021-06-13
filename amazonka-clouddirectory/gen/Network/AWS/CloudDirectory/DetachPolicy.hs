@@ -43,6 +43,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,14 +51,14 @@ import qualified Network.AWS.Response as Response
 data DetachPolicy = DetachPolicy'
   { -- | The Amazon Resource Name (ARN) that is associated with the Directory
     -- where both objects reside. For more information, see arns.
-    directoryArn :: Core.Text,
+    directoryArn :: Prelude.Text,
     -- | Reference that identifies the policy object.
     policyReference :: ObjectReference,
     -- | Reference that identifies the object whose policy object will be
     -- detached.
     objectReference :: ObjectReference
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachPolicy' with all optional fields omitted.
@@ -76,7 +77,7 @@ data DetachPolicy = DetachPolicy'
 -- detached.
 newDetachPolicy ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyReference'
   ObjectReference ->
   -- | 'objectReference'
@@ -94,7 +95,7 @@ newDetachPolicy
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory
 -- where both objects reside. For more information, see arns.
-detachPolicy_directoryArn :: Lens.Lens' DetachPolicy Core.Text
+detachPolicy_directoryArn :: Lens.Lens' DetachPolicy Prelude.Text
 detachPolicy_directoryArn = Lens.lens (\DetachPolicy' {directoryArn} -> directoryArn) (\s@DetachPolicy' {} a -> s {directoryArn = a} :: DetachPolicy)
 
 -- | Reference that identifies the policy object.
@@ -113,43 +114,43 @@ instance Core.AWSRequest DetachPolicy where
     Response.receiveEmpty
       ( \s h x ->
           DetachPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DetachPolicy
+instance Prelude.Hashable DetachPolicy
 
-instance Core.NFData DetachPolicy
+instance Prelude.NFData DetachPolicy
 
 instance Core.ToHeaders DetachPolicy where
   toHeaders DetachPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# directoryArn]
 
 instance Core.ToJSON DetachPolicy where
   toJSON DetachPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("PolicyReference" Core..= policyReference),
-            Core.Just
+            Prelude.Just
               ("ObjectReference" Core..= objectReference)
           ]
       )
 
 instance Core.ToPath DetachPolicy where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/policy/detach"
 
 instance Core.ToQuery DetachPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetachPolicyResponse' smart constructor.
 data DetachPolicyResponse = DetachPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachPolicyResponse' with all optional fields omitted.
@@ -162,13 +163,13 @@ data DetachPolicyResponse = DetachPolicyResponse'
 -- 'httpStatus', 'detachPolicyResponse_httpStatus' - The response's http status code.
 newDetachPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DetachPolicyResponse
 newDetachPolicyResponse pHttpStatus_ =
   DetachPolicyResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-detachPolicyResponse_httpStatus :: Lens.Lens' DetachPolicyResponse Core.Int
+detachPolicyResponse_httpStatus :: Lens.Lens' DetachPolicyResponse Prelude.Int
 detachPolicyResponse_httpStatus = Lens.lens (\DetachPolicyResponse' {httpStatus} -> httpStatus) (\s@DetachPolicyResponse' {} a -> s {httpStatus = a} :: DetachPolicyResponse)
 
-instance Core.NFData DetachPolicyResponse
+instance Prelude.NFData DetachPolicyResponse

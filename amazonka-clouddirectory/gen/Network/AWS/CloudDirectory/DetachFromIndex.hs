@@ -44,6 +44,7 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,13 +52,13 @@ import qualified Network.AWS.Response as Response
 data DetachFromIndex = DetachFromIndex'
   { -- | The Amazon Resource Name (ARN) of the directory the index and object
     -- exist in.
-    directoryArn :: Core.Text,
+    directoryArn :: Prelude.Text,
     -- | A reference to the index object.
     indexReference :: ObjectReference,
     -- | A reference to the object being detached from the index.
     targetReference :: ObjectReference
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachFromIndex' with all optional fields omitted.
@@ -75,7 +76,7 @@ data DetachFromIndex = DetachFromIndex'
 -- 'targetReference', 'detachFromIndex_targetReference' - A reference to the object being detached from the index.
 newDetachFromIndex ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'indexReference'
   ObjectReference ->
   -- | 'targetReference'
@@ -93,7 +94,7 @@ newDetachFromIndex
 
 -- | The Amazon Resource Name (ARN) of the directory the index and object
 -- exist in.
-detachFromIndex_directoryArn :: Lens.Lens' DetachFromIndex Core.Text
+detachFromIndex_directoryArn :: Lens.Lens' DetachFromIndex Prelude.Text
 detachFromIndex_directoryArn = Lens.lens (\DetachFromIndex' {directoryArn} -> directoryArn) (\s@DetachFromIndex' {} a -> s {directoryArn = a} :: DetachFromIndex)
 
 -- | A reference to the index object.
@@ -113,45 +114,46 @@ instance Core.AWSRequest DetachFromIndex where
     Response.receiveJSON
       ( \s h x ->
           DetachFromIndexResponse'
-            Core.<$> (x Core..?> "DetachedObjectIdentifier")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DetachedObjectIdentifier")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DetachFromIndex
+instance Prelude.Hashable DetachFromIndex
 
-instance Core.NFData DetachFromIndex
+instance Prelude.NFData DetachFromIndex
 
 instance Core.ToHeaders DetachFromIndex where
   toHeaders DetachFromIndex' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["x-amz-data-partition" Core.=# directoryArn]
 
 instance Core.ToJSON DetachFromIndex where
   toJSON DetachFromIndex' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("IndexReference" Core..= indexReference),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("IndexReference" Core..= indexReference),
+            Prelude.Just
               ("TargetReference" Core..= targetReference)
           ]
       )
 
 instance Core.ToPath DetachFromIndex where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/index/detach"
 
 instance Core.ToQuery DetachFromIndex where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetachFromIndexResponse' smart constructor.
 data DetachFromIndexResponse = DetachFromIndexResponse'
   { -- | The @ObjectIdentifier@ of the object that was detached from the index.
-    detachedObjectIdentifier :: Core.Maybe Core.Text,
+    detachedObjectIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachFromIndexResponse' with all optional fields omitted.
@@ -166,21 +168,21 @@ data DetachFromIndexResponse = DetachFromIndexResponse'
 -- 'httpStatus', 'detachFromIndexResponse_httpStatus' - The response's http status code.
 newDetachFromIndexResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DetachFromIndexResponse
 newDetachFromIndexResponse pHttpStatus_ =
   DetachFromIndexResponse'
     { detachedObjectIdentifier =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ObjectIdentifier@ of the object that was detached from the index.
-detachFromIndexResponse_detachedObjectIdentifier :: Lens.Lens' DetachFromIndexResponse (Core.Maybe Core.Text)
+detachFromIndexResponse_detachedObjectIdentifier :: Lens.Lens' DetachFromIndexResponse (Prelude.Maybe Prelude.Text)
 detachFromIndexResponse_detachedObjectIdentifier = Lens.lens (\DetachFromIndexResponse' {detachedObjectIdentifier} -> detachedObjectIdentifier) (\s@DetachFromIndexResponse' {} a -> s {detachedObjectIdentifier = a} :: DetachFromIndexResponse)
 
 -- | The response's http status code.
-detachFromIndexResponse_httpStatus :: Lens.Lens' DetachFromIndexResponse Core.Int
+detachFromIndexResponse_httpStatus :: Lens.Lens' DetachFromIndexResponse Prelude.Int
 detachFromIndexResponse_httpStatus = Lens.lens (\DetachFromIndexResponse' {httpStatus} -> httpStatus) (\s@DetachFromIndexResponse' {} a -> s {httpStatus = a} :: DetachFromIndexResponse)
 
-instance Core.NFData DetachFromIndexResponse
+instance Prelude.NFData DetachFromIndexResponse

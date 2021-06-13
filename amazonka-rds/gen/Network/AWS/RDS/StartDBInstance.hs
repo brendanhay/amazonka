@@ -49,6 +49,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -56,9 +57,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newStartDBInstance' smart constructor.
 data StartDBInstance = StartDBInstance'
   { -- | The user-supplied instance identifier.
-    dbInstanceIdentifier :: Core.Text
+    dbInstanceIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartDBInstance' with all optional fields omitted.
@@ -71,7 +72,7 @@ data StartDBInstance = StartDBInstance'
 -- 'dbInstanceIdentifier', 'startDBInstance_dbInstanceIdentifier' - The user-supplied instance identifier.
 newStartDBInstance ::
   -- | 'dbInstanceIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   StartDBInstance
 newStartDBInstance pDBInstanceIdentifier_ =
   StartDBInstance'
@@ -80,7 +81,7 @@ newStartDBInstance pDBInstanceIdentifier_ =
     }
 
 -- | The user-supplied instance identifier.
-startDBInstance_dbInstanceIdentifier :: Lens.Lens' StartDBInstance Core.Text
+startDBInstance_dbInstanceIdentifier :: Lens.Lens' StartDBInstance Prelude.Text
 startDBInstance_dbInstanceIdentifier = Lens.lens (\StartDBInstance' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@StartDBInstance' {} a -> s {dbInstanceIdentifier = a} :: StartDBInstance)
 
 instance Core.AWSRequest StartDBInstance where
@@ -93,36 +94,37 @@ instance Core.AWSRequest StartDBInstance where
       "StartDBInstanceResult"
       ( \s h x ->
           StartDBInstanceResponse'
-            Core.<$> (x Core..@? "DBInstance")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartDBInstance
+instance Prelude.Hashable StartDBInstance
 
-instance Core.NFData StartDBInstance
+instance Prelude.NFData StartDBInstance
 
 instance Core.ToHeaders StartDBInstance where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath StartDBInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartDBInstance where
   toQuery StartDBInstance' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("StartDBInstance" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("StartDBInstance" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
       ]
 
 -- | /See:/ 'newStartDBInstanceResponse' smart constructor.
 data StartDBInstanceResponse = StartDBInstanceResponse'
-  { dbInstance :: Core.Maybe DBInstance,
+  { dbInstance :: Prelude.Maybe DBInstance,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartDBInstanceResponse' with all optional fields omitted.
@@ -137,20 +139,21 @@ data StartDBInstanceResponse = StartDBInstanceResponse'
 -- 'httpStatus', 'startDBInstanceResponse_httpStatus' - The response's http status code.
 newStartDBInstanceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartDBInstanceResponse
 newStartDBInstanceResponse pHttpStatus_ =
   StartDBInstanceResponse'
-    { dbInstance = Core.Nothing,
+    { dbInstance =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-startDBInstanceResponse_dbInstance :: Lens.Lens' StartDBInstanceResponse (Core.Maybe DBInstance)
+startDBInstanceResponse_dbInstance :: Lens.Lens' StartDBInstanceResponse (Prelude.Maybe DBInstance)
 startDBInstanceResponse_dbInstance = Lens.lens (\StartDBInstanceResponse' {dbInstance} -> dbInstance) (\s@StartDBInstanceResponse' {} a -> s {dbInstance = a} :: StartDBInstanceResponse)
 
 -- | The response's http status code.
-startDBInstanceResponse_httpStatus :: Lens.Lens' StartDBInstanceResponse Core.Int
+startDBInstanceResponse_httpStatus :: Lens.Lens' StartDBInstanceResponse Prelude.Int
 startDBInstanceResponse_httpStatus = Lens.lens (\StartDBInstanceResponse' {httpStatus} -> httpStatus) (\s@StartDBInstanceResponse' {} a -> s {httpStatus = a} :: StartDBInstanceResponse)
 
-instance Core.NFData StartDBInstanceResponse
+instance Prelude.NFData StartDBInstanceResponse

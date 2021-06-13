@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,11 +68,11 @@ data StartMaintenance = StartMaintenance'
     --     @StartMaintenance@ request and set the value to @true@ to upgrade
     --     the server to Chef Automate 2. For more information, see
     --     <https://docs.aws.amazon.com/opsworks/latest/userguide/opscm-a2upgrade.html Upgrade an AWS OpsWorks for Chef Automate Server to Chef Automate 2>.
-    engineAttributes :: Core.Maybe [EngineAttribute],
+    engineAttributes :: Prelude.Maybe [EngineAttribute],
     -- | The name of the server on which to run maintenance.
-    serverName :: Core.Text
+    serverName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartMaintenance' with all optional fields omitted.
@@ -95,11 +96,12 @@ data StartMaintenance = StartMaintenance'
 -- 'serverName', 'startMaintenance_serverName' - The name of the server on which to run maintenance.
 newStartMaintenance ::
   -- | 'serverName'
-  Core.Text ->
+  Prelude.Text ->
   StartMaintenance
 newStartMaintenance pServerName_ =
   StartMaintenance'
-    { engineAttributes = Core.Nothing,
+    { engineAttributes =
+        Prelude.Nothing,
       serverName = pServerName_
     }
 
@@ -113,11 +115,11 @@ newStartMaintenance pServerName_ =
 --     @StartMaintenance@ request and set the value to @true@ to upgrade
 --     the server to Chef Automate 2. For more information, see
 --     <https://docs.aws.amazon.com/opsworks/latest/userguide/opscm-a2upgrade.html Upgrade an AWS OpsWorks for Chef Automate Server to Chef Automate 2>.
-startMaintenance_engineAttributes :: Lens.Lens' StartMaintenance (Core.Maybe [EngineAttribute])
-startMaintenance_engineAttributes = Lens.lens (\StartMaintenance' {engineAttributes} -> engineAttributes) (\s@StartMaintenance' {} a -> s {engineAttributes = a} :: StartMaintenance) Core.. Lens.mapping Lens._Coerce
+startMaintenance_engineAttributes :: Lens.Lens' StartMaintenance (Prelude.Maybe [EngineAttribute])
+startMaintenance_engineAttributes = Lens.lens (\StartMaintenance' {engineAttributes} -> engineAttributes) (\s@StartMaintenance' {} a -> s {engineAttributes = a} :: StartMaintenance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the server on which to run maintenance.
-startMaintenance_serverName :: Lens.Lens' StartMaintenance Core.Text
+startMaintenance_serverName :: Lens.Lens' StartMaintenance Prelude.Text
 startMaintenance_serverName = Lens.lens (\StartMaintenance' {serverName} -> serverName) (\s@StartMaintenance' {} a -> s {serverName = a} :: StartMaintenance)
 
 instance Core.AWSRequest StartMaintenance where
@@ -129,51 +131,53 @@ instance Core.AWSRequest StartMaintenance where
     Response.receiveJSON
       ( \s h x ->
           StartMaintenanceResponse'
-            Core.<$> (x Core..?> "Server")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Server")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartMaintenance
+instance Prelude.Hashable StartMaintenance
 
-instance Core.NFData StartMaintenance
+instance Prelude.NFData StartMaintenance
 
 instance Core.ToHeaders StartMaintenance where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorksCM_V2016_11_01.StartMaintenance" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartMaintenance where
   toJSON StartMaintenance' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("EngineAttributes" Core..=)
-              Core.<$> engineAttributes,
-            Core.Just ("ServerName" Core..= serverName)
+              Prelude.<$> engineAttributes,
+            Prelude.Just ("ServerName" Core..= serverName)
           ]
       )
 
 instance Core.ToPath StartMaintenance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartMaintenance where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartMaintenanceResponse' smart constructor.
 data StartMaintenanceResponse = StartMaintenanceResponse'
   { -- | Contains the response to a @StartMaintenance@ request.
-    server :: Core.Maybe Server,
+    server :: Prelude.Maybe Server,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartMaintenanceResponse' with all optional fields omitted.
@@ -188,20 +192,20 @@ data StartMaintenanceResponse = StartMaintenanceResponse'
 -- 'httpStatus', 'startMaintenanceResponse_httpStatus' - The response's http status code.
 newStartMaintenanceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartMaintenanceResponse
 newStartMaintenanceResponse pHttpStatus_ =
   StartMaintenanceResponse'
-    { server = Core.Nothing,
+    { server = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains the response to a @StartMaintenance@ request.
-startMaintenanceResponse_server :: Lens.Lens' StartMaintenanceResponse (Core.Maybe Server)
+startMaintenanceResponse_server :: Lens.Lens' StartMaintenanceResponse (Prelude.Maybe Server)
 startMaintenanceResponse_server = Lens.lens (\StartMaintenanceResponse' {server} -> server) (\s@StartMaintenanceResponse' {} a -> s {server = a} :: StartMaintenanceResponse)
 
 -- | The response's http status code.
-startMaintenanceResponse_httpStatus :: Lens.Lens' StartMaintenanceResponse Core.Int
+startMaintenanceResponse_httpStatus :: Lens.Lens' StartMaintenanceResponse Prelude.Int
 startMaintenanceResponse_httpStatus = Lens.lens (\StartMaintenanceResponse' {httpStatus} -> httpStatus) (\s@StartMaintenanceResponse' {} a -> s {httpStatus = a} :: StartMaintenanceResponse)
 
-instance Core.NFData StartMaintenanceResponse
+instance Prelude.NFData StartMaintenanceResponse

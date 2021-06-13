@@ -21,17 +21,18 @@ module Network.AWS.ECR.Types.Attribute where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This data type is used in the ImageScanFinding data type.
 --
 -- /See:/ 'newAttribute' smart constructor.
 data Attribute = Attribute'
   { -- | The value assigned to the attribute key.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | The attribute key.
-    key :: Core.Text
+    key :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Attribute' with all optional fields omitted.
@@ -46,17 +47,17 @@ data Attribute = Attribute'
 -- 'key', 'attribute_key' - The attribute key.
 newAttribute ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   Attribute
 newAttribute pKey_ =
-  Attribute' {value = Core.Nothing, key = pKey_}
+  Attribute' {value = Prelude.Nothing, key = pKey_}
 
 -- | The value assigned to the attribute key.
-attribute_value :: Lens.Lens' Attribute (Core.Maybe Core.Text)
+attribute_value :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -> s {value = a} :: Attribute)
 
 -- | The attribute key.
-attribute_key :: Lens.Lens' Attribute Core.Text
+attribute_key :: Lens.Lens' Attribute Prelude.Text
 attribute_key = Lens.lens (\Attribute' {key} -> key) (\s@Attribute' {} a -> s {key = a} :: Attribute)
 
 instance Core.FromJSON Attribute where
@@ -65,9 +66,9 @@ instance Core.FromJSON Attribute where
       "Attribute"
       ( \x ->
           Attribute'
-            Core.<$> (x Core..:? "value") Core.<*> (x Core..: "key")
+            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..: "key")
       )
 
-instance Core.Hashable Attribute
+instance Prelude.Hashable Attribute
 
-instance Core.NFData Attribute
+instance Prelude.NFData Attribute

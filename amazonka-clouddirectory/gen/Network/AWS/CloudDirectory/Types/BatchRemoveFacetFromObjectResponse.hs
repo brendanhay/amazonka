@@ -21,6 +21,7 @@ module Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObjectResponse where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An empty result that represents success.
 --
@@ -28,7 +29,7 @@ import qualified Network.AWS.Lens as Lens
 data BatchRemoveFacetFromObjectResponse = BatchRemoveFacetFromObjectResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchRemoveFacetFromObjectResponse' with all optional fields omitted.
@@ -47,13 +48,13 @@ instance
     Core.withObject
       "BatchRemoveFacetFromObjectResponse"
       ( \x ->
-          Core.pure BatchRemoveFacetFromObjectResponse'
+          Prelude.pure BatchRemoveFacetFromObjectResponse'
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     BatchRemoveFacetFromObjectResponse
 
 instance
-  Core.NFData
+  Prelude.NFData
     BatchRemoveFacetFromObjectResponse

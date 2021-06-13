@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDisk' smart constructor.
 data GetDisk = GetDisk'
   { -- | The name of the disk (e.g., @my-disk@).
-    diskName :: Core.Text
+    diskName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDisk' with all optional fields omitted.
@@ -63,13 +64,13 @@ data GetDisk = GetDisk'
 -- 'diskName', 'getDisk_diskName' - The name of the disk (e.g., @my-disk@).
 newGetDisk ::
   -- | 'diskName'
-  Core.Text ->
+  Prelude.Text ->
   GetDisk
 newGetDisk pDiskName_ =
   GetDisk' {diskName = pDiskName_}
 
 -- | The name of the disk (e.g., @my-disk@).
-getDisk_diskName :: Lens.Lens' GetDisk Core.Text
+getDisk_diskName :: Lens.Lens' GetDisk Prelude.Text
 getDisk_diskName = Lens.lens (\GetDisk' {diskName} -> diskName) (\s@GetDisk' {} a -> s {diskName = a} :: GetDisk)
 
 instance Core.AWSRequest GetDisk where
@@ -79,46 +80,48 @@ instance Core.AWSRequest GetDisk where
     Response.receiveJSON
       ( \s h x ->
           GetDiskResponse'
-            Core.<$> (x Core..?> "disk")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "disk")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDisk
+instance Prelude.Hashable GetDisk
 
-instance Core.NFData GetDisk
+instance Prelude.NFData GetDisk
 
 instance Core.ToHeaders GetDisk where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Lightsail_20161128.GetDisk" :: Core.ByteString),
+              Core.=# ("Lightsail_20161128.GetDisk" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetDisk where
   toJSON GetDisk' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("diskName" Core..= diskName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("diskName" Core..= diskName)]
       )
 
 instance Core.ToPath GetDisk where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetDisk where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDiskResponse' smart constructor.
 data GetDiskResponse = GetDiskResponse'
   { -- | An object containing information about the disk.
-    disk :: Core.Maybe Disk,
+    disk :: Prelude.Maybe Disk,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDiskResponse' with all optional fields omitted.
@@ -133,20 +136,20 @@ data GetDiskResponse = GetDiskResponse'
 -- 'httpStatus', 'getDiskResponse_httpStatus' - The response's http status code.
 newGetDiskResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDiskResponse
 newGetDiskResponse pHttpStatus_ =
   GetDiskResponse'
-    { disk = Core.Nothing,
+    { disk = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object containing information about the disk.
-getDiskResponse_disk :: Lens.Lens' GetDiskResponse (Core.Maybe Disk)
+getDiskResponse_disk :: Lens.Lens' GetDiskResponse (Prelude.Maybe Disk)
 getDiskResponse_disk = Lens.lens (\GetDiskResponse' {disk} -> disk) (\s@GetDiskResponse' {} a -> s {disk = a} :: GetDiskResponse)
 
 -- | The response's http status code.
-getDiskResponse_httpStatus :: Lens.Lens' GetDiskResponse Core.Int
+getDiskResponse_httpStatus :: Lens.Lens' GetDiskResponse Prelude.Int
 getDiskResponse_httpStatus = Lens.lens (\GetDiskResponse' {httpStatus} -> httpStatus) (\s@GetDiskResponse' {} a -> s {httpStatus = a} :: GetDiskResponse)
 
-instance Core.NFData GetDiskResponse
+instance Prelude.NFData GetDiskResponse

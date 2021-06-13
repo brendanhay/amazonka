@@ -22,6 +22,7 @@ module Network.AWS.Organizations.Types.HandshakeParty where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types.HandshakePartyType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies a participant in a handshake.
 --
@@ -32,11 +33,11 @@ data HandshakeParty = HandshakeParty'
     -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
     -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
     -- digits.
-    id :: Core.Sensitive Core.Text,
+    id :: Core.Sensitive Prelude.Text,
     -- | The type of party.
     type' :: HandshakePartyType
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HandshakeParty' with all optional fields omitted.
@@ -55,7 +56,7 @@ data HandshakeParty = HandshakeParty'
 -- 'type'', 'handshakeParty_type' - The type of party.
 newHandshakeParty ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   HandshakePartyType ->
   HandshakeParty
@@ -70,8 +71,8 @@ newHandshakeParty pId_ pType_ =
 -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
 -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
 -- digits.
-handshakeParty_id :: Lens.Lens' HandshakeParty Core.Text
-handshakeParty_id = Lens.lens (\HandshakeParty' {id} -> id) (\s@HandshakeParty' {} a -> s {id = a} :: HandshakeParty) Core.. Core._Sensitive
+handshakeParty_id :: Lens.Lens' HandshakeParty Prelude.Text
+handshakeParty_id = Lens.lens (\HandshakeParty' {id} -> id) (\s@HandshakeParty' {} a -> s {id = a} :: HandshakeParty) Prelude.. Core._Sensitive
 
 -- | The type of party.
 handshakeParty_type :: Lens.Lens' HandshakeParty HandshakePartyType
@@ -83,18 +84,18 @@ instance Core.FromJSON HandshakeParty where
       "HandshakeParty"
       ( \x ->
           HandshakeParty'
-            Core.<$> (x Core..: "Id") Core.<*> (x Core..: "Type")
+            Prelude.<$> (x Core..: "Id") Prelude.<*> (x Core..: "Type")
       )
 
-instance Core.Hashable HandshakeParty
+instance Prelude.Hashable HandshakeParty
 
-instance Core.NFData HandshakeParty
+instance Prelude.NFData HandshakeParty
 
 instance Core.ToJSON HandshakeParty where
   toJSON HandshakeParty' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Id" Core..= id),
-            Core.Just ("Type" Core..= type')
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Id" Core..= id),
+            Prelude.Just ("Type" Core..= type')
           ]
       )

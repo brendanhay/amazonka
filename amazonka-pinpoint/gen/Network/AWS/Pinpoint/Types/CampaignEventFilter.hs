@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EventDimensions
 import Network.AWS.Pinpoint.Types.FilterType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the settings for events that cause a campaign to be sent.
 --
@@ -35,7 +36,7 @@ data CampaignEventFilter = CampaignEventFilter'
     -- | The dimension settings of the event filter for the campaign.
     dimensions :: EventDimensions
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CampaignEventFilter' with all optional fields omitted.
@@ -78,19 +79,19 @@ instance Core.FromJSON CampaignEventFilter where
       "CampaignEventFilter"
       ( \x ->
           CampaignEventFilter'
-            Core.<$> (x Core..: "FilterType")
-            Core.<*> (x Core..: "Dimensions")
+            Prelude.<$> (x Core..: "FilterType")
+            Prelude.<*> (x Core..: "Dimensions")
       )
 
-instance Core.Hashable CampaignEventFilter
+instance Prelude.Hashable CampaignEventFilter
 
-instance Core.NFData CampaignEventFilter
+instance Prelude.NFData CampaignEventFilter
 
 instance Core.ToJSON CampaignEventFilter where
   toJSON CampaignEventFilter' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("FilterType" Core..= filterType),
-            Core.Just ("Dimensions" Core..= dimensions)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("FilterType" Core..= filterType),
+            Prelude.Just ("Dimensions" Core..= dimensions)
           ]
       )

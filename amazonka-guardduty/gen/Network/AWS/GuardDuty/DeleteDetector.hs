@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDetector' smart constructor.
 data DeleteDetector = DeleteDetector'
   { -- | The unique ID of the detector that you want to delete.
-    detectorId :: Core.Text
+    detectorId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDetector' with all optional fields omitted.
@@ -63,13 +64,13 @@ data DeleteDetector = DeleteDetector'
 -- 'detectorId', 'deleteDetector_detectorId' - The unique ID of the detector that you want to delete.
 newDeleteDetector ::
   -- | 'detectorId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDetector
 newDeleteDetector pDetectorId_ =
   DeleteDetector' {detectorId = pDetectorId_}
 
 -- | The unique ID of the detector that you want to delete.
-deleteDetector_detectorId :: Lens.Lens' DeleteDetector Core.Text
+deleteDetector_detectorId :: Lens.Lens' DeleteDetector Prelude.Text
 deleteDetector_detectorId = Lens.lens (\DeleteDetector' {detectorId} -> detectorId) (\s@DeleteDetector' {} a -> s {detectorId = a} :: DeleteDetector)
 
 instance Core.AWSRequest DeleteDetector where
@@ -81,35 +82,38 @@ instance Core.AWSRequest DeleteDetector where
     Response.receiveEmpty
       ( \s h x ->
           DeleteDetectorResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteDetector
+instance Prelude.Hashable DeleteDetector
 
-instance Core.NFData DeleteDetector
+instance Prelude.NFData DeleteDetector
 
 instance Core.ToHeaders DeleteDetector where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteDetector where
   toPath DeleteDetector' {..} =
-    Core.mconcat ["/detector/", Core.toBS detectorId]
+    Prelude.mconcat
+      ["/detector/", Core.toBS detectorId]
 
 instance Core.ToQuery DeleteDetector where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDetectorResponse' smart constructor.
 data DeleteDetectorResponse = DeleteDetectorResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDetectorResponse' with all optional fields omitted.
@@ -122,13 +126,13 @@ data DeleteDetectorResponse = DeleteDetectorResponse'
 -- 'httpStatus', 'deleteDetectorResponse_httpStatus' - The response's http status code.
 newDeleteDetectorResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteDetectorResponse
 newDeleteDetectorResponse pHttpStatus_ =
   DeleteDetectorResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteDetectorResponse_httpStatus :: Lens.Lens' DeleteDetectorResponse Core.Int
+deleteDetectorResponse_httpStatus :: Lens.Lens' DeleteDetectorResponse Prelude.Int
 deleteDetectorResponse_httpStatus = Lens.lens (\DeleteDetectorResponse' {httpStatus} -> httpStatus) (\s@DeleteDetectorResponse' {} a -> s {httpStatus = a} :: DeleteDetectorResponse)
 
-instance Core.NFData DeleteDetectorResponse
+instance Prelude.NFData DeleteDetectorResponse

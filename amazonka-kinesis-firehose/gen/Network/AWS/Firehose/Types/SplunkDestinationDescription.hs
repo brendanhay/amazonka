@@ -27,6 +27,7 @@ import Network.AWS.Firehose.Types.S3DestinationDescription
 import Network.AWS.Firehose.Types.SplunkRetryOptions
 import Network.AWS.Firehose.Types.SplunkS3BackupMode
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a destination in Splunk.
 --
@@ -36,34 +37,34 @@ data SplunkDestinationDescription = SplunkDestinationDescription'
     -- acknowledgment from Splunk after it sends it data. At the end of the
     -- timeout period, Kinesis Data Firehose either tries to send the data
     -- again or considers it an error, based on your retry settings.
-    hECAcknowledgmentTimeoutInSeconds :: Core.Maybe Core.Natural,
+    hECAcknowledgmentTimeoutInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The data processing configuration.
-    processingConfiguration :: Core.Maybe ProcessingConfiguration,
+    processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
     -- | The Amazon CloudWatch logging options for your delivery stream.
-    cloudWatchLoggingOptions :: Core.Maybe CloudWatchLoggingOptions,
+    cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
     -- | This type can be either \"Raw\" or \"Event.\"
-    hECEndpointType :: Core.Maybe HECEndpointType,
+    hECEndpointType :: Prelude.Maybe HECEndpointType,
     -- | The retry behavior in case Kinesis Data Firehose is unable to deliver
     -- data to Splunk or if it doesn\'t receive an acknowledgment of receipt
     -- from Splunk.
-    retryOptions :: Core.Maybe SplunkRetryOptions,
+    retryOptions :: Prelude.Maybe SplunkRetryOptions,
     -- | Defines how documents should be delivered to Amazon S3. When set to
     -- @FailedDocumentsOnly@, Kinesis Data Firehose writes any data that could
     -- not be indexed to the configured Amazon S3 destination. When set to
     -- @AllDocuments@, Kinesis Data Firehose delivers all incoming records to
     -- Amazon S3, and also writes failed documents to Amazon S3. Default value
     -- is @FailedDocumentsOnly@.
-    s3BackupMode :: Core.Maybe SplunkS3BackupMode,
+    s3BackupMode :: Prelude.Maybe SplunkS3BackupMode,
     -- | The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose
     -- sends your data.
-    hECEndpoint :: Core.Maybe Core.Text,
+    hECEndpoint :: Prelude.Maybe Prelude.Text,
     -- | A GUID you obtain from your Splunk cluster when you create a new HEC
     -- endpoint.
-    hECToken :: Core.Maybe Core.Text,
+    hECToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 destination.>
-    s3DestinationDescription :: Core.Maybe S3DestinationDescription
+    s3DestinationDescription :: Prelude.Maybe S3DestinationDescription
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SplunkDestinationDescription' with all optional fields omitted.
@@ -107,40 +108,40 @@ newSplunkDestinationDescription ::
 newSplunkDestinationDescription =
   SplunkDestinationDescription'
     { hECAcknowledgmentTimeoutInSeconds =
-        Core.Nothing,
-      processingConfiguration = Core.Nothing,
-      cloudWatchLoggingOptions = Core.Nothing,
-      hECEndpointType = Core.Nothing,
-      retryOptions = Core.Nothing,
-      s3BackupMode = Core.Nothing,
-      hECEndpoint = Core.Nothing,
-      hECToken = Core.Nothing,
-      s3DestinationDescription = Core.Nothing
+        Prelude.Nothing,
+      processingConfiguration = Prelude.Nothing,
+      cloudWatchLoggingOptions = Prelude.Nothing,
+      hECEndpointType = Prelude.Nothing,
+      retryOptions = Prelude.Nothing,
+      s3BackupMode = Prelude.Nothing,
+      hECEndpoint = Prelude.Nothing,
+      hECToken = Prelude.Nothing,
+      s3DestinationDescription = Prelude.Nothing
     }
 
 -- | The amount of time that Kinesis Data Firehose waits to receive an
 -- acknowledgment from Splunk after it sends it data. At the end of the
 -- timeout period, Kinesis Data Firehose either tries to send the data
 -- again or considers it an error, based on your retry settings.
-splunkDestinationDescription_hECAcknowledgmentTimeoutInSeconds :: Lens.Lens' SplunkDestinationDescription (Core.Maybe Core.Natural)
+splunkDestinationDescription_hECAcknowledgmentTimeoutInSeconds :: Lens.Lens' SplunkDestinationDescription (Prelude.Maybe Prelude.Natural)
 splunkDestinationDescription_hECAcknowledgmentTimeoutInSeconds = Lens.lens (\SplunkDestinationDescription' {hECAcknowledgmentTimeoutInSeconds} -> hECAcknowledgmentTimeoutInSeconds) (\s@SplunkDestinationDescription' {} a -> s {hECAcknowledgmentTimeoutInSeconds = a} :: SplunkDestinationDescription)
 
 -- | The data processing configuration.
-splunkDestinationDescription_processingConfiguration :: Lens.Lens' SplunkDestinationDescription (Core.Maybe ProcessingConfiguration)
+splunkDestinationDescription_processingConfiguration :: Lens.Lens' SplunkDestinationDescription (Prelude.Maybe ProcessingConfiguration)
 splunkDestinationDescription_processingConfiguration = Lens.lens (\SplunkDestinationDescription' {processingConfiguration} -> processingConfiguration) (\s@SplunkDestinationDescription' {} a -> s {processingConfiguration = a} :: SplunkDestinationDescription)
 
 -- | The Amazon CloudWatch logging options for your delivery stream.
-splunkDestinationDescription_cloudWatchLoggingOptions :: Lens.Lens' SplunkDestinationDescription (Core.Maybe CloudWatchLoggingOptions)
+splunkDestinationDescription_cloudWatchLoggingOptions :: Lens.Lens' SplunkDestinationDescription (Prelude.Maybe CloudWatchLoggingOptions)
 splunkDestinationDescription_cloudWatchLoggingOptions = Lens.lens (\SplunkDestinationDescription' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@SplunkDestinationDescription' {} a -> s {cloudWatchLoggingOptions = a} :: SplunkDestinationDescription)
 
 -- | This type can be either \"Raw\" or \"Event.\"
-splunkDestinationDescription_hECEndpointType :: Lens.Lens' SplunkDestinationDescription (Core.Maybe HECEndpointType)
+splunkDestinationDescription_hECEndpointType :: Lens.Lens' SplunkDestinationDescription (Prelude.Maybe HECEndpointType)
 splunkDestinationDescription_hECEndpointType = Lens.lens (\SplunkDestinationDescription' {hECEndpointType} -> hECEndpointType) (\s@SplunkDestinationDescription' {} a -> s {hECEndpointType = a} :: SplunkDestinationDescription)
 
 -- | The retry behavior in case Kinesis Data Firehose is unable to deliver
 -- data to Splunk or if it doesn\'t receive an acknowledgment of receipt
 -- from Splunk.
-splunkDestinationDescription_retryOptions :: Lens.Lens' SplunkDestinationDescription (Core.Maybe SplunkRetryOptions)
+splunkDestinationDescription_retryOptions :: Lens.Lens' SplunkDestinationDescription (Prelude.Maybe SplunkRetryOptions)
 splunkDestinationDescription_retryOptions = Lens.lens (\SplunkDestinationDescription' {retryOptions} -> retryOptions) (\s@SplunkDestinationDescription' {} a -> s {retryOptions = a} :: SplunkDestinationDescription)
 
 -- | Defines how documents should be delivered to Amazon S3. When set to
@@ -149,21 +150,21 @@ splunkDestinationDescription_retryOptions = Lens.lens (\SplunkDestinationDescrip
 -- @AllDocuments@, Kinesis Data Firehose delivers all incoming records to
 -- Amazon S3, and also writes failed documents to Amazon S3. Default value
 -- is @FailedDocumentsOnly@.
-splunkDestinationDescription_s3BackupMode :: Lens.Lens' SplunkDestinationDescription (Core.Maybe SplunkS3BackupMode)
+splunkDestinationDescription_s3BackupMode :: Lens.Lens' SplunkDestinationDescription (Prelude.Maybe SplunkS3BackupMode)
 splunkDestinationDescription_s3BackupMode = Lens.lens (\SplunkDestinationDescription' {s3BackupMode} -> s3BackupMode) (\s@SplunkDestinationDescription' {} a -> s {s3BackupMode = a} :: SplunkDestinationDescription)
 
 -- | The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose
 -- sends your data.
-splunkDestinationDescription_hECEndpoint :: Lens.Lens' SplunkDestinationDescription (Core.Maybe Core.Text)
+splunkDestinationDescription_hECEndpoint :: Lens.Lens' SplunkDestinationDescription (Prelude.Maybe Prelude.Text)
 splunkDestinationDescription_hECEndpoint = Lens.lens (\SplunkDestinationDescription' {hECEndpoint} -> hECEndpoint) (\s@SplunkDestinationDescription' {} a -> s {hECEndpoint = a} :: SplunkDestinationDescription)
 
 -- | A GUID you obtain from your Splunk cluster when you create a new HEC
 -- endpoint.
-splunkDestinationDescription_hECToken :: Lens.Lens' SplunkDestinationDescription (Core.Maybe Core.Text)
+splunkDestinationDescription_hECToken :: Lens.Lens' SplunkDestinationDescription (Prelude.Maybe Prelude.Text)
 splunkDestinationDescription_hECToken = Lens.lens (\SplunkDestinationDescription' {hECToken} -> hECToken) (\s@SplunkDestinationDescription' {} a -> s {hECToken = a} :: SplunkDestinationDescription)
 
 -- | The Amazon S3 destination.>
-splunkDestinationDescription_s3DestinationDescription :: Lens.Lens' SplunkDestinationDescription (Core.Maybe S3DestinationDescription)
+splunkDestinationDescription_s3DestinationDescription :: Lens.Lens' SplunkDestinationDescription (Prelude.Maybe S3DestinationDescription)
 splunkDestinationDescription_s3DestinationDescription = Lens.lens (\SplunkDestinationDescription' {s3DestinationDescription} -> s3DestinationDescription) (\s@SplunkDestinationDescription' {} a -> s {s3DestinationDescription = a} :: SplunkDestinationDescription)
 
 instance Core.FromJSON SplunkDestinationDescription where
@@ -172,17 +173,19 @@ instance Core.FromJSON SplunkDestinationDescription where
       "SplunkDestinationDescription"
       ( \x ->
           SplunkDestinationDescription'
-            Core.<$> (x Core..:? "HECAcknowledgmentTimeoutInSeconds")
-            Core.<*> (x Core..:? "ProcessingConfiguration")
-            Core.<*> (x Core..:? "CloudWatchLoggingOptions")
-            Core.<*> (x Core..:? "HECEndpointType")
-            Core.<*> (x Core..:? "RetryOptions")
-            Core.<*> (x Core..:? "S3BackupMode")
-            Core.<*> (x Core..:? "HECEndpoint")
-            Core.<*> (x Core..:? "HECToken")
-            Core.<*> (x Core..:? "S3DestinationDescription")
+            Prelude.<$> (x Core..:? "HECAcknowledgmentTimeoutInSeconds")
+            Prelude.<*> (x Core..:? "ProcessingConfiguration")
+            Prelude.<*> (x Core..:? "CloudWatchLoggingOptions")
+            Prelude.<*> (x Core..:? "HECEndpointType")
+            Prelude.<*> (x Core..:? "RetryOptions")
+            Prelude.<*> (x Core..:? "S3BackupMode")
+            Prelude.<*> (x Core..:? "HECEndpoint")
+            Prelude.<*> (x Core..:? "HECToken")
+            Prelude.<*> (x Core..:? "S3DestinationDescription")
       )
 
-instance Core.Hashable SplunkDestinationDescription
+instance
+  Prelude.Hashable
+    SplunkDestinationDescription
 
-instance Core.NFData SplunkDestinationDescription
+instance Prelude.NFData SplunkDestinationDescription

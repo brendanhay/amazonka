@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.WorkflowExecution
 import Network.AWS.SWF.Types.WorkflowType
 
@@ -29,7 +30,7 @@ import Network.AWS.SWF.Types.WorkflowType
 -- /See:/ 'newChildWorkflowExecutionCanceledEventAttributes' smart constructor.
 data ChildWorkflowExecutionCanceledEventAttributes = ChildWorkflowExecutionCanceledEventAttributes'
   { -- | Details of the cancellation (if provided).
-    details :: Core.Maybe Core.Text,
+    details :: Prelude.Maybe Prelude.Text,
     -- | The child workflow execution that was canceled.
     workflowExecution :: WorkflowExecution,
     -- | The type of the child workflow execution.
@@ -38,14 +39,14 @@ data ChildWorkflowExecutionCanceledEventAttributes = ChildWorkflowExecutionCance
     -- to the @StartChildWorkflowExecution@ Decision to start this child
     -- workflow execution. This information can be useful for diagnosing
     -- problems by tracing back the chain of events leading up to this event.
-    initiatedEventId :: Core.Integer,
+    initiatedEventId :: Prelude.Integer,
     -- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this
     -- child workflow execution was started. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    startedEventId :: Core.Integer
+    startedEventId :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChildWorkflowExecutionCanceledEventAttributes' with all optional fields omitted.
@@ -76,9 +77,9 @@ newChildWorkflowExecutionCanceledEventAttributes ::
   -- | 'workflowType'
   WorkflowType ->
   -- | 'initiatedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'startedEventId'
-  Core.Integer ->
+  Prelude.Integer ->
   ChildWorkflowExecutionCanceledEventAttributes
 newChildWorkflowExecutionCanceledEventAttributes
   pWorkflowExecution_
@@ -87,7 +88,7 @@ newChildWorkflowExecutionCanceledEventAttributes
   pStartedEventId_ =
     ChildWorkflowExecutionCanceledEventAttributes'
       { details =
-          Core.Nothing,
+          Prelude.Nothing,
         workflowExecution =
           pWorkflowExecution_,
         workflowType =
@@ -99,7 +100,7 @@ newChildWorkflowExecutionCanceledEventAttributes
       }
 
 -- | Details of the cancellation (if provided).
-childWorkflowExecutionCanceledEventAttributes_details :: Lens.Lens' ChildWorkflowExecutionCanceledEventAttributes (Core.Maybe Core.Text)
+childWorkflowExecutionCanceledEventAttributes_details :: Lens.Lens' ChildWorkflowExecutionCanceledEventAttributes (Prelude.Maybe Prelude.Text)
 childWorkflowExecutionCanceledEventAttributes_details = Lens.lens (\ChildWorkflowExecutionCanceledEventAttributes' {details} -> details) (\s@ChildWorkflowExecutionCanceledEventAttributes' {} a -> s {details = a} :: ChildWorkflowExecutionCanceledEventAttributes)
 
 -- | The child workflow execution that was canceled.
@@ -114,14 +115,14 @@ childWorkflowExecutionCanceledEventAttributes_workflowType = Lens.lens (\ChildWo
 -- to the @StartChildWorkflowExecution@ Decision to start this child
 -- workflow execution. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
-childWorkflowExecutionCanceledEventAttributes_initiatedEventId :: Lens.Lens' ChildWorkflowExecutionCanceledEventAttributes Core.Integer
+childWorkflowExecutionCanceledEventAttributes_initiatedEventId :: Lens.Lens' ChildWorkflowExecutionCanceledEventAttributes Prelude.Integer
 childWorkflowExecutionCanceledEventAttributes_initiatedEventId = Lens.lens (\ChildWorkflowExecutionCanceledEventAttributes' {initiatedEventId} -> initiatedEventId) (\s@ChildWorkflowExecutionCanceledEventAttributes' {} a -> s {initiatedEventId = a} :: ChildWorkflowExecutionCanceledEventAttributes)
 
 -- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this
 -- child workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-childWorkflowExecutionCanceledEventAttributes_startedEventId :: Lens.Lens' ChildWorkflowExecutionCanceledEventAttributes Core.Integer
+childWorkflowExecutionCanceledEventAttributes_startedEventId :: Lens.Lens' ChildWorkflowExecutionCanceledEventAttributes Prelude.Integer
 childWorkflowExecutionCanceledEventAttributes_startedEventId = Lens.lens (\ChildWorkflowExecutionCanceledEventAttributes' {startedEventId} -> startedEventId) (\s@ChildWorkflowExecutionCanceledEventAttributes' {} a -> s {startedEventId = a} :: ChildWorkflowExecutionCanceledEventAttributes)
 
 instance
@@ -133,17 +134,17 @@ instance
       "ChildWorkflowExecutionCanceledEventAttributes"
       ( \x ->
           ChildWorkflowExecutionCanceledEventAttributes'
-            Core.<$> (x Core..:? "details")
-              Core.<*> (x Core..: "workflowExecution")
-              Core.<*> (x Core..: "workflowType")
-              Core.<*> (x Core..: "initiatedEventId")
-              Core.<*> (x Core..: "startedEventId")
+            Prelude.<$> (x Core..:? "details")
+              Prelude.<*> (x Core..: "workflowExecution")
+              Prelude.<*> (x Core..: "workflowType")
+              Prelude.<*> (x Core..: "initiatedEventId")
+              Prelude.<*> (x Core..: "startedEventId")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ChildWorkflowExecutionCanceledEventAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     ChildWorkflowExecutionCanceledEventAttributes

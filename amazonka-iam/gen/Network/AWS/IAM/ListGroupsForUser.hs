@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,21 +66,21 @@ data ListGroupsForUser = ListGroupsForUser'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The name of the user to list groups for.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Core.Text
+    userName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListGroupsForUser' with all optional fields omitted.
@@ -112,12 +113,12 @@ data ListGroupsForUser = ListGroupsForUser'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newListGroupsForUser ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   ListGroupsForUser
 newListGroupsForUser pUserName_ =
   ListGroupsForUser'
-    { maxItems = Core.Nothing,
-      marker = Core.Nothing,
+    { maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing,
       userName = pUserName_
     }
 
@@ -130,14 +131,14 @@ newListGroupsForUser pUserName_ =
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-listGroupsForUser_maxItems :: Lens.Lens' ListGroupsForUser (Core.Maybe Core.Natural)
+listGroupsForUser_maxItems :: Lens.Lens' ListGroupsForUser (Prelude.Maybe Prelude.Natural)
 listGroupsForUser_maxItems = Lens.lens (\ListGroupsForUser' {maxItems} -> maxItems) (\s@ListGroupsForUser' {} a -> s {maxItems = a} :: ListGroupsForUser)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listGroupsForUser_marker :: Lens.Lens' ListGroupsForUser (Core.Maybe Core.Text)
+listGroupsForUser_marker :: Lens.Lens' ListGroupsForUser (Prelude.Maybe Prelude.Text)
 listGroupsForUser_marker = Lens.lens (\ListGroupsForUser' {marker} -> marker) (\s@ListGroupsForUser' {} a -> s {marker = a} :: ListGroupsForUser)
 
 -- | The name of the user to list groups for.
@@ -146,7 +147,7 @@ listGroupsForUser_marker = Lens.lens (\ListGroupsForUser' {marker} -> marker) (\
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-listGroupsForUser_userName :: Lens.Lens' ListGroupsForUser Core.Text
+listGroupsForUser_userName :: Lens.Lens' ListGroupsForUser Prelude.Text
 listGroupsForUser_userName = Lens.lens (\ListGroupsForUser' {userName} -> userName) (\s@ListGroupsForUser' {} a -> s {userName = a} :: ListGroupsForUser)
 
 instance Core.AWSPager ListGroupsForUser where
@@ -154,20 +155,21 @@ instance Core.AWSPager ListGroupsForUser where
     | Core.stop
         ( rs
             Lens.^? listGroupsForUserResponse_isTruncated
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.isNothing
+      Prelude.Nothing
+    | Prelude.isNothing
         ( rs
-            Lens.^? listGroupsForUserResponse_marker Core.. Lens._Just
+            Lens.^? listGroupsForUserResponse_marker
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listGroupsForUser_marker
+          Prelude.& listGroupsForUser_marker
           Lens..~ rs
-          Lens.^? listGroupsForUserResponse_marker Core.. Lens._Just
+          Lens.^? listGroupsForUserResponse_marker Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGroupsForUser where
   type
@@ -179,30 +181,31 @@ instance Core.AWSRequest ListGroupsForUser where
       "ListGroupsForUserResult"
       ( \s h x ->
           ListGroupsForUserResponse'
-            Core.<$> (x Core..@? "IsTruncated")
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "Groups" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "member"
-                     )
+            Prelude.<$> (x Core..@? "IsTruncated")
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "Groups" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
       )
 
-instance Core.Hashable ListGroupsForUser
+instance Prelude.Hashable ListGroupsForUser
 
-instance Core.NFData ListGroupsForUser
+instance Prelude.NFData ListGroupsForUser
 
 instance Core.ToHeaders ListGroupsForUser where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListGroupsForUser where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListGroupsForUser where
   toQuery ListGroupsForUser' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ListGroupsForUser" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("ListGroupsForUser" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker,
         "UserName" Core.=: userName
@@ -219,17 +222,17 @@ data ListGroupsForUserResponse = ListGroupsForUserResponse'
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Core.Maybe Core.Bool,
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | A list of groups.
     groups :: [Group]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListGroupsForUserResponse' with all optional fields omitted.
@@ -256,15 +259,15 @@ data ListGroupsForUserResponse = ListGroupsForUserResponse'
 -- 'groups', 'listGroupsForUserResponse_groups' - A list of groups.
 newListGroupsForUserResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListGroupsForUserResponse
 newListGroupsForUserResponse pHttpStatus_ =
   ListGroupsForUserResponse'
     { isTruncated =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      groups = Core.mempty
+      groups = Prelude.mempty
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -274,21 +277,21 @@ newListGroupsForUserResponse pHttpStatus_ =
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
-listGroupsForUserResponse_isTruncated :: Lens.Lens' ListGroupsForUserResponse (Core.Maybe Core.Bool)
+listGroupsForUserResponse_isTruncated :: Lens.Lens' ListGroupsForUserResponse (Prelude.Maybe Prelude.Bool)
 listGroupsForUserResponse_isTruncated = Lens.lens (\ListGroupsForUserResponse' {isTruncated} -> isTruncated) (\s@ListGroupsForUserResponse' {} a -> s {isTruncated = a} :: ListGroupsForUserResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listGroupsForUserResponse_marker :: Lens.Lens' ListGroupsForUserResponse (Core.Maybe Core.Text)
+listGroupsForUserResponse_marker :: Lens.Lens' ListGroupsForUserResponse (Prelude.Maybe Prelude.Text)
 listGroupsForUserResponse_marker = Lens.lens (\ListGroupsForUserResponse' {marker} -> marker) (\s@ListGroupsForUserResponse' {} a -> s {marker = a} :: ListGroupsForUserResponse)
 
 -- | The response's http status code.
-listGroupsForUserResponse_httpStatus :: Lens.Lens' ListGroupsForUserResponse Core.Int
+listGroupsForUserResponse_httpStatus :: Lens.Lens' ListGroupsForUserResponse Prelude.Int
 listGroupsForUserResponse_httpStatus = Lens.lens (\ListGroupsForUserResponse' {httpStatus} -> httpStatus) (\s@ListGroupsForUserResponse' {} a -> s {httpStatus = a} :: ListGroupsForUserResponse)
 
 -- | A list of groups.
 listGroupsForUserResponse_groups :: Lens.Lens' ListGroupsForUserResponse [Group]
-listGroupsForUserResponse_groups = Lens.lens (\ListGroupsForUserResponse' {groups} -> groups) (\s@ListGroupsForUserResponse' {} a -> s {groups = a} :: ListGroupsForUserResponse) Core.. Lens._Coerce
+listGroupsForUserResponse_groups = Lens.lens (\ListGroupsForUserResponse' {groups} -> groups) (\s@ListGroupsForUserResponse' {} a -> s {groups = a} :: ListGroupsForUserResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListGroupsForUserResponse
+instance Prelude.NFData ListGroupsForUserResponse

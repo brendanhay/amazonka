@@ -22,20 +22,21 @@ module Network.AWS.EC2.Types.RegionInfo where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Region.
 --
 -- /See:/ 'newRegionInfo' smart constructor.
 data RegionInfo = RegionInfo'
   { -- | The name of the Region.
-    regionName :: Core.Maybe Core.Text,
+    regionName :: Prelude.Maybe Prelude.Text,
     -- | The Region opt-in status. The possible values are @opt-in-not-required@,
     -- @opted-in@, and @not-opted-in@.
-    optInStatus :: Core.Maybe Core.Text,
+    optInStatus :: Prelude.Maybe Prelude.Text,
     -- | The Region service endpoint.
-    endpoint :: Core.Maybe Core.Text
+    endpoint :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegionInfo' with all optional fields omitted.
@@ -55,31 +56,31 @@ newRegionInfo ::
   RegionInfo
 newRegionInfo =
   RegionInfo'
-    { regionName = Core.Nothing,
-      optInStatus = Core.Nothing,
-      endpoint = Core.Nothing
+    { regionName = Prelude.Nothing,
+      optInStatus = Prelude.Nothing,
+      endpoint = Prelude.Nothing
     }
 
 -- | The name of the Region.
-regionInfo_regionName :: Lens.Lens' RegionInfo (Core.Maybe Core.Text)
+regionInfo_regionName :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
 regionInfo_regionName = Lens.lens (\RegionInfo' {regionName} -> regionName) (\s@RegionInfo' {} a -> s {regionName = a} :: RegionInfo)
 
 -- | The Region opt-in status. The possible values are @opt-in-not-required@,
 -- @opted-in@, and @not-opted-in@.
-regionInfo_optInStatus :: Lens.Lens' RegionInfo (Core.Maybe Core.Text)
+regionInfo_optInStatus :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
 regionInfo_optInStatus = Lens.lens (\RegionInfo' {optInStatus} -> optInStatus) (\s@RegionInfo' {} a -> s {optInStatus = a} :: RegionInfo)
 
 -- | The Region service endpoint.
-regionInfo_endpoint :: Lens.Lens' RegionInfo (Core.Maybe Core.Text)
+regionInfo_endpoint :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
 regionInfo_endpoint = Lens.lens (\RegionInfo' {endpoint} -> endpoint) (\s@RegionInfo' {} a -> s {endpoint = a} :: RegionInfo)
 
 instance Core.FromXML RegionInfo where
   parseXML x =
     RegionInfo'
-      Core.<$> (x Core..@? "regionName")
-      Core.<*> (x Core..@? "optInStatus")
-      Core.<*> (x Core..@? "regionEndpoint")
+      Prelude.<$> (x Core..@? "regionName")
+      Prelude.<*> (x Core..@? "optInStatus")
+      Prelude.<*> (x Core..@? "regionEndpoint")
 
-instance Core.Hashable RegionInfo
+instance Prelude.Hashable RegionInfo
 
-instance Core.NFData RegionInfo
+instance Prelude.NFData RegionInfo

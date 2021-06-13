@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -49,7 +50,7 @@ import Network.AWS.SES.Types
 data GetAccountSendingEnabled = GetAccountSendingEnabled'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccountSendingEnabled' with all optional fields omitted.
@@ -70,27 +71,28 @@ instance Core.AWSRequest GetAccountSendingEnabled where
       "GetAccountSendingEnabledResult"
       ( \s h x ->
           GetAccountSendingEnabledResponse'
-            Core.<$> (x Core..@? "Enabled")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Enabled")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetAccountSendingEnabled
+instance Prelude.Hashable GetAccountSendingEnabled
 
-instance Core.NFData GetAccountSendingEnabled
+instance Prelude.NFData GetAccountSendingEnabled
 
 instance Core.ToHeaders GetAccountSendingEnabled where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetAccountSendingEnabled where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetAccountSendingEnabled where
   toQuery =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Action"
-              Core.=: ("GetAccountSendingEnabled" :: Core.ByteString),
-            "Version" Core.=: ("2010-12-01" :: Core.ByteString)
+              Core.=: ("GetAccountSendingEnabled" :: Prelude.ByteString),
+            "Version"
+              Core.=: ("2010-12-01" :: Prelude.ByteString)
           ]
       )
 
@@ -101,11 +103,11 @@ instance Core.ToQuery GetAccountSendingEnabled where
 data GetAccountSendingEnabledResponse = GetAccountSendingEnabledResponse'
   { -- | Describes whether email sending is enabled or disabled for your Amazon
     -- SES account in the current AWS Region.
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccountSendingEnabledResponse' with all optional fields omitted.
@@ -121,22 +123,24 @@ data GetAccountSendingEnabledResponse = GetAccountSendingEnabledResponse'
 -- 'httpStatus', 'getAccountSendingEnabledResponse_httpStatus' - The response's http status code.
 newGetAccountSendingEnabledResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetAccountSendingEnabledResponse
 newGetAccountSendingEnabledResponse pHttpStatus_ =
   GetAccountSendingEnabledResponse'
     { enabled =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Describes whether email sending is enabled or disabled for your Amazon
 -- SES account in the current AWS Region.
-getAccountSendingEnabledResponse_enabled :: Lens.Lens' GetAccountSendingEnabledResponse (Core.Maybe Core.Bool)
+getAccountSendingEnabledResponse_enabled :: Lens.Lens' GetAccountSendingEnabledResponse (Prelude.Maybe Prelude.Bool)
 getAccountSendingEnabledResponse_enabled = Lens.lens (\GetAccountSendingEnabledResponse' {enabled} -> enabled) (\s@GetAccountSendingEnabledResponse' {} a -> s {enabled = a} :: GetAccountSendingEnabledResponse)
 
 -- | The response's http status code.
-getAccountSendingEnabledResponse_httpStatus :: Lens.Lens' GetAccountSendingEnabledResponse Core.Int
+getAccountSendingEnabledResponse_httpStatus :: Lens.Lens' GetAccountSendingEnabledResponse Prelude.Int
 getAccountSendingEnabledResponse_httpStatus = Lens.lens (\GetAccountSendingEnabledResponse' {httpStatus} -> httpStatus) (\s@GetAccountSendingEnabledResponse' {} a -> s {httpStatus = a} :: GetAccountSendingEnabledResponse)
 
-instance Core.NFData GetAccountSendingEnabledResponse
+instance
+  Prelude.NFData
+    GetAccountSendingEnabledResponse

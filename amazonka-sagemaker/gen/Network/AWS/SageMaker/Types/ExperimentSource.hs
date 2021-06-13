@@ -21,17 +21,18 @@ module Network.AWS.SageMaker.Types.ExperimentSource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The source of the experiment.
 --
 -- /See:/ 'newExperimentSource' smart constructor.
 data ExperimentSource = ExperimentSource'
   { -- | The source type.
-    sourceType :: Core.Maybe Core.Text,
+    sourceType :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the source.
-    sourceArn :: Core.Text
+    sourceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ExperimentSource' with all optional fields omitted.
@@ -46,20 +47,20 @@ data ExperimentSource = ExperimentSource'
 -- 'sourceArn', 'experimentSource_sourceArn' - The Amazon Resource Name (ARN) of the source.
 newExperimentSource ::
   -- | 'sourceArn'
-  Core.Text ->
+  Prelude.Text ->
   ExperimentSource
 newExperimentSource pSourceArn_ =
   ExperimentSource'
-    { sourceType = Core.Nothing,
+    { sourceType = Prelude.Nothing,
       sourceArn = pSourceArn_
     }
 
 -- | The source type.
-experimentSource_sourceType :: Lens.Lens' ExperimentSource (Core.Maybe Core.Text)
+experimentSource_sourceType :: Lens.Lens' ExperimentSource (Prelude.Maybe Prelude.Text)
 experimentSource_sourceType = Lens.lens (\ExperimentSource' {sourceType} -> sourceType) (\s@ExperimentSource' {} a -> s {sourceType = a} :: ExperimentSource)
 
 -- | The Amazon Resource Name (ARN) of the source.
-experimentSource_sourceArn :: Lens.Lens' ExperimentSource Core.Text
+experimentSource_sourceArn :: Lens.Lens' ExperimentSource Prelude.Text
 experimentSource_sourceArn = Lens.lens (\ExperimentSource' {sourceArn} -> sourceArn) (\s@ExperimentSource' {} a -> s {sourceArn = a} :: ExperimentSource)
 
 instance Core.FromJSON ExperimentSource where
@@ -68,10 +69,10 @@ instance Core.FromJSON ExperimentSource where
       "ExperimentSource"
       ( \x ->
           ExperimentSource'
-            Core.<$> (x Core..:? "SourceType")
-            Core.<*> (x Core..: "SourceArn")
+            Prelude.<$> (x Core..:? "SourceType")
+            Prelude.<*> (x Core..: "SourceArn")
       )
 
-instance Core.Hashable ExperimentSource
+instance Prelude.Hashable ExperimentSource
 
-instance Core.NFData ExperimentSource
+instance Prelude.NFData ExperimentSource

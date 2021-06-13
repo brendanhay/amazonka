@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificValue
 import Network.AWS.ElastiCache.Types.ChangeType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A parameter that has a different value for each cache node type it is
 -- applied to. For example, in a Redis cluster, a @cache.m1.large@ cache
@@ -36,28 +37,28 @@ data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'
     -- or wait until the next maintenance window\'s reboot. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html Rebooting a Cluster>.
-    changeType :: Core.Maybe ChangeType,
+    changeType :: Prelude.Maybe ChangeType,
     -- | The valid range of values for the parameter.
-    allowedValues :: Core.Maybe Core.Text,
+    allowedValues :: Prelude.Maybe Prelude.Text,
     -- | The source of the parameter value.
-    source :: Core.Maybe Core.Text,
+    source :: Prelude.Maybe Prelude.Text,
     -- | A list of cache node types and their corresponding values for this
     -- parameter.
-    cacheNodeTypeSpecificValues :: Core.Maybe [CacheNodeTypeSpecificValue],
+    cacheNodeTypeSpecificValues :: Prelude.Maybe [CacheNodeTypeSpecificValue],
     -- | The name of the parameter.
-    parameterName :: Core.Maybe Core.Text,
+    parameterName :: Prelude.Maybe Prelude.Text,
     -- | A description of the parameter.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The valid data type for the parameter.
-    dataType :: Core.Maybe Core.Text,
+    dataType :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether (@true@) or not (@false@) the parameter can be
     -- modified. Some parameters have security or operational implications that
     -- prevent them from being changed.
-    isModifiable :: Core.Maybe Core.Bool,
+    isModifiable :: Prelude.Maybe Prelude.Bool,
     -- | The earliest cache engine version to which the parameter can apply.
-    minimumEngineVersion :: Core.Maybe Core.Text
+    minimumEngineVersion :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CacheNodeTypeSpecificParameter' with all optional fields omitted.
@@ -96,15 +97,16 @@ newCacheNodeTypeSpecificParameter ::
 newCacheNodeTypeSpecificParameter =
   CacheNodeTypeSpecificParameter'
     { changeType =
-        Core.Nothing,
-      allowedValues = Core.Nothing,
-      source = Core.Nothing,
-      cacheNodeTypeSpecificValues = Core.Nothing,
-      parameterName = Core.Nothing,
-      description = Core.Nothing,
-      dataType = Core.Nothing,
-      isModifiable = Core.Nothing,
-      minimumEngineVersion = Core.Nothing
+        Prelude.Nothing,
+      allowedValues = Prelude.Nothing,
+      source = Prelude.Nothing,
+      cacheNodeTypeSpecificValues =
+        Prelude.Nothing,
+      parameterName = Prelude.Nothing,
+      description = Prelude.Nothing,
+      dataType = Prelude.Nothing,
+      isModifiable = Prelude.Nothing,
+      minimumEngineVersion = Prelude.Nothing
     }
 
 -- | Indicates whether a change to the parameter is applied immediately or
@@ -112,61 +114,65 @@ newCacheNodeTypeSpecificParameter =
 -- or wait until the next maintenance window\'s reboot. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html Rebooting a Cluster>.
-cacheNodeTypeSpecificParameter_changeType :: Lens.Lens' CacheNodeTypeSpecificParameter (Core.Maybe ChangeType)
+cacheNodeTypeSpecificParameter_changeType :: Lens.Lens' CacheNodeTypeSpecificParameter (Prelude.Maybe ChangeType)
 cacheNodeTypeSpecificParameter_changeType = Lens.lens (\CacheNodeTypeSpecificParameter' {changeType} -> changeType) (\s@CacheNodeTypeSpecificParameter' {} a -> s {changeType = a} :: CacheNodeTypeSpecificParameter)
 
 -- | The valid range of values for the parameter.
-cacheNodeTypeSpecificParameter_allowedValues :: Lens.Lens' CacheNodeTypeSpecificParameter (Core.Maybe Core.Text)
+cacheNodeTypeSpecificParameter_allowedValues :: Lens.Lens' CacheNodeTypeSpecificParameter (Prelude.Maybe Prelude.Text)
 cacheNodeTypeSpecificParameter_allowedValues = Lens.lens (\CacheNodeTypeSpecificParameter' {allowedValues} -> allowedValues) (\s@CacheNodeTypeSpecificParameter' {} a -> s {allowedValues = a} :: CacheNodeTypeSpecificParameter)
 
 -- | The source of the parameter value.
-cacheNodeTypeSpecificParameter_source :: Lens.Lens' CacheNodeTypeSpecificParameter (Core.Maybe Core.Text)
+cacheNodeTypeSpecificParameter_source :: Lens.Lens' CacheNodeTypeSpecificParameter (Prelude.Maybe Prelude.Text)
 cacheNodeTypeSpecificParameter_source = Lens.lens (\CacheNodeTypeSpecificParameter' {source} -> source) (\s@CacheNodeTypeSpecificParameter' {} a -> s {source = a} :: CacheNodeTypeSpecificParameter)
 
 -- | A list of cache node types and their corresponding values for this
 -- parameter.
-cacheNodeTypeSpecificParameter_cacheNodeTypeSpecificValues :: Lens.Lens' CacheNodeTypeSpecificParameter (Core.Maybe [CacheNodeTypeSpecificValue])
-cacheNodeTypeSpecificParameter_cacheNodeTypeSpecificValues = Lens.lens (\CacheNodeTypeSpecificParameter' {cacheNodeTypeSpecificValues} -> cacheNodeTypeSpecificValues) (\s@CacheNodeTypeSpecificParameter' {} a -> s {cacheNodeTypeSpecificValues = a} :: CacheNodeTypeSpecificParameter) Core.. Lens.mapping Lens._Coerce
+cacheNodeTypeSpecificParameter_cacheNodeTypeSpecificValues :: Lens.Lens' CacheNodeTypeSpecificParameter (Prelude.Maybe [CacheNodeTypeSpecificValue])
+cacheNodeTypeSpecificParameter_cacheNodeTypeSpecificValues = Lens.lens (\CacheNodeTypeSpecificParameter' {cacheNodeTypeSpecificValues} -> cacheNodeTypeSpecificValues) (\s@CacheNodeTypeSpecificParameter' {} a -> s {cacheNodeTypeSpecificValues = a} :: CacheNodeTypeSpecificParameter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the parameter.
-cacheNodeTypeSpecificParameter_parameterName :: Lens.Lens' CacheNodeTypeSpecificParameter (Core.Maybe Core.Text)
+cacheNodeTypeSpecificParameter_parameterName :: Lens.Lens' CacheNodeTypeSpecificParameter (Prelude.Maybe Prelude.Text)
 cacheNodeTypeSpecificParameter_parameterName = Lens.lens (\CacheNodeTypeSpecificParameter' {parameterName} -> parameterName) (\s@CacheNodeTypeSpecificParameter' {} a -> s {parameterName = a} :: CacheNodeTypeSpecificParameter)
 
 -- | A description of the parameter.
-cacheNodeTypeSpecificParameter_description :: Lens.Lens' CacheNodeTypeSpecificParameter (Core.Maybe Core.Text)
+cacheNodeTypeSpecificParameter_description :: Lens.Lens' CacheNodeTypeSpecificParameter (Prelude.Maybe Prelude.Text)
 cacheNodeTypeSpecificParameter_description = Lens.lens (\CacheNodeTypeSpecificParameter' {description} -> description) (\s@CacheNodeTypeSpecificParameter' {} a -> s {description = a} :: CacheNodeTypeSpecificParameter)
 
 -- | The valid data type for the parameter.
-cacheNodeTypeSpecificParameter_dataType :: Lens.Lens' CacheNodeTypeSpecificParameter (Core.Maybe Core.Text)
+cacheNodeTypeSpecificParameter_dataType :: Lens.Lens' CacheNodeTypeSpecificParameter (Prelude.Maybe Prelude.Text)
 cacheNodeTypeSpecificParameter_dataType = Lens.lens (\CacheNodeTypeSpecificParameter' {dataType} -> dataType) (\s@CacheNodeTypeSpecificParameter' {} a -> s {dataType = a} :: CacheNodeTypeSpecificParameter)
 
 -- | Indicates whether (@true@) or not (@false@) the parameter can be
 -- modified. Some parameters have security or operational implications that
 -- prevent them from being changed.
-cacheNodeTypeSpecificParameter_isModifiable :: Lens.Lens' CacheNodeTypeSpecificParameter (Core.Maybe Core.Bool)
+cacheNodeTypeSpecificParameter_isModifiable :: Lens.Lens' CacheNodeTypeSpecificParameter (Prelude.Maybe Prelude.Bool)
 cacheNodeTypeSpecificParameter_isModifiable = Lens.lens (\CacheNodeTypeSpecificParameter' {isModifiable} -> isModifiable) (\s@CacheNodeTypeSpecificParameter' {} a -> s {isModifiable = a} :: CacheNodeTypeSpecificParameter)
 
 -- | The earliest cache engine version to which the parameter can apply.
-cacheNodeTypeSpecificParameter_minimumEngineVersion :: Lens.Lens' CacheNodeTypeSpecificParameter (Core.Maybe Core.Text)
+cacheNodeTypeSpecificParameter_minimumEngineVersion :: Lens.Lens' CacheNodeTypeSpecificParameter (Prelude.Maybe Prelude.Text)
 cacheNodeTypeSpecificParameter_minimumEngineVersion = Lens.lens (\CacheNodeTypeSpecificParameter' {minimumEngineVersion} -> minimumEngineVersion) (\s@CacheNodeTypeSpecificParameter' {} a -> s {minimumEngineVersion = a} :: CacheNodeTypeSpecificParameter)
 
 instance Core.FromXML CacheNodeTypeSpecificParameter where
   parseXML x =
     CacheNodeTypeSpecificParameter'
-      Core.<$> (x Core..@? "ChangeType")
-      Core.<*> (x Core..@? "AllowedValues")
-      Core.<*> (x Core..@? "Source")
-      Core.<*> ( x Core..@? "CacheNodeTypeSpecificValues"
-                   Core..!@ Core.mempty
-                   Core.>>= Core.may
-                     (Core.parseXMLList "CacheNodeTypeSpecificValue")
-               )
-      Core.<*> (x Core..@? "ParameterName")
-      Core.<*> (x Core..@? "Description")
-      Core.<*> (x Core..@? "DataType")
-      Core.<*> (x Core..@? "IsModifiable")
-      Core.<*> (x Core..@? "MinimumEngineVersion")
+      Prelude.<$> (x Core..@? "ChangeType")
+      Prelude.<*> (x Core..@? "AllowedValues")
+      Prelude.<*> (x Core..@? "Source")
+      Prelude.<*> ( x Core..@? "CacheNodeTypeSpecificValues"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may
+                        (Core.parseXMLList "CacheNodeTypeSpecificValue")
+                  )
+      Prelude.<*> (x Core..@? "ParameterName")
+      Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "DataType")
+      Prelude.<*> (x Core..@? "IsModifiable")
+      Prelude.<*> (x Core..@? "MinimumEngineVersion")
 
-instance Core.Hashable CacheNodeTypeSpecificParameter
+instance
+  Prelude.Hashable
+    CacheNodeTypeSpecificParameter
 
-instance Core.NFData CacheNodeTypeSpecificParameter
+instance
+  Prelude.NFData
+    CacheNodeTypeSpecificParameter

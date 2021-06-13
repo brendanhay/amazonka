@@ -21,6 +21,7 @@ module Network.AWS.GameLift.Types.GameProperty where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Set of key-value pairs that contain information about a game session.
 -- When included in a game session request, these properties communicate
@@ -33,11 +34,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newGameProperty' smart constructor.
 data GameProperty = GameProperty'
   { -- | The game property identifier.
-    key :: Core.Text,
+    key :: Prelude.Text,
     -- | The game property value.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GameProperty' with all optional fields omitted.
@@ -52,19 +53,19 @@ data GameProperty = GameProperty'
 -- 'value', 'gameProperty_value' - The game property value.
 newGameProperty ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   GameProperty
 newGameProperty pKey_ pValue_ =
   GameProperty' {key = pKey_, value = pValue_}
 
 -- | The game property identifier.
-gameProperty_key :: Lens.Lens' GameProperty Core.Text
+gameProperty_key :: Lens.Lens' GameProperty Prelude.Text
 gameProperty_key = Lens.lens (\GameProperty' {key} -> key) (\s@GameProperty' {} a -> s {key = a} :: GameProperty)
 
 -- | The game property value.
-gameProperty_value :: Lens.Lens' GameProperty Core.Text
+gameProperty_value :: Lens.Lens' GameProperty Prelude.Text
 gameProperty_value = Lens.lens (\GameProperty' {value} -> value) (\s@GameProperty' {} a -> s {value = a} :: GameProperty)
 
 instance Core.FromJSON GameProperty where
@@ -73,18 +74,18 @@ instance Core.FromJSON GameProperty where
       "GameProperty"
       ( \x ->
           GameProperty'
-            Core.<$> (x Core..: "Key") Core.<*> (x Core..: "Value")
+            Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Value")
       )
 
-instance Core.Hashable GameProperty
+instance Prelude.Hashable GameProperty
 
-instance Core.NFData GameProperty
+instance Prelude.NFData GameProperty
 
 instance Core.ToJSON GameProperty where
   toJSON GameProperty' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Key" Core..= key),
-            Core.Just ("Value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Value" Core..= value)
           ]
       )

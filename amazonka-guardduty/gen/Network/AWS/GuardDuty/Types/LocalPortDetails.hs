@@ -21,17 +21,18 @@ module Network.AWS.GuardDuty.Types.LocalPortDetails where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the port for the local connection.
 --
 -- /See:/ 'newLocalPortDetails' smart constructor.
 data LocalPortDetails = LocalPortDetails'
   { -- | The port name of the local connection.
-    portName :: Core.Maybe Core.Text,
+    portName :: Prelude.Maybe Prelude.Text,
     -- | The port number of the local connection.
-    port :: Core.Maybe Core.Int
+    port :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LocalPortDetails' with all optional fields omitted.
@@ -48,16 +49,16 @@ newLocalPortDetails ::
   LocalPortDetails
 newLocalPortDetails =
   LocalPortDetails'
-    { portName = Core.Nothing,
-      port = Core.Nothing
+    { portName = Prelude.Nothing,
+      port = Prelude.Nothing
     }
 
 -- | The port name of the local connection.
-localPortDetails_portName :: Lens.Lens' LocalPortDetails (Core.Maybe Core.Text)
+localPortDetails_portName :: Lens.Lens' LocalPortDetails (Prelude.Maybe Prelude.Text)
 localPortDetails_portName = Lens.lens (\LocalPortDetails' {portName} -> portName) (\s@LocalPortDetails' {} a -> s {portName = a} :: LocalPortDetails)
 
 -- | The port number of the local connection.
-localPortDetails_port :: Lens.Lens' LocalPortDetails (Core.Maybe Core.Int)
+localPortDetails_port :: Lens.Lens' LocalPortDetails (Prelude.Maybe Prelude.Int)
 localPortDetails_port = Lens.lens (\LocalPortDetails' {port} -> port) (\s@LocalPortDetails' {} a -> s {port = a} :: LocalPortDetails)
 
 instance Core.FromJSON LocalPortDetails where
@@ -66,9 +67,10 @@ instance Core.FromJSON LocalPortDetails where
       "LocalPortDetails"
       ( \x ->
           LocalPortDetails'
-            Core.<$> (x Core..:? "portName") Core.<*> (x Core..:? "port")
+            Prelude.<$> (x Core..:? "portName")
+            Prelude.<*> (x Core..:? "port")
       )
 
-instance Core.Hashable LocalPortDetails
+instance Prelude.Hashable LocalPortDetails
 
-instance Core.NFData LocalPortDetails
+instance Prelude.NFData LocalPortDetails

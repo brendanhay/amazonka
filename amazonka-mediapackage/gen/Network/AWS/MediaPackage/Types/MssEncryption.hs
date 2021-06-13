@@ -22,6 +22,7 @@ module Network.AWS.MediaPackage.Types.MssEncryption where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types.SpekeKeyProvider
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A Microsoft Smooth Streaming (MSS) encryption configuration.
 --
@@ -29,7 +30,7 @@ import Network.AWS.MediaPackage.Types.SpekeKeyProvider
 data MssEncryption = MssEncryption'
   { spekeKeyProvider :: SpekeKeyProvider
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MssEncryption' with all optional fields omitted.
@@ -60,18 +61,18 @@ instance Core.FromJSON MssEncryption where
       "MssEncryption"
       ( \x ->
           MssEncryption'
-            Core.<$> (x Core..: "spekeKeyProvider")
+            Prelude.<$> (x Core..: "spekeKeyProvider")
       )
 
-instance Core.Hashable MssEncryption
+instance Prelude.Hashable MssEncryption
 
-instance Core.NFData MssEncryption
+instance Prelude.NFData MssEncryption
 
 instance Core.ToJSON MssEncryption where
   toJSON MssEncryption' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("spekeKeyProvider" Core..= spekeKeyProvider)
           ]
       )

@@ -43,17 +43,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeNodegroup' smart constructor.
 data DescribeNodegroup = DescribeNodegroup'
   { -- | The name of the Amazon EKS cluster associated with the node group.
-    clusterName :: Core.Text,
+    clusterName :: Prelude.Text,
     -- | The name of the node group to describe.
-    nodegroupName :: Core.Text
+    nodegroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeNodegroup' with all optional fields omitted.
@@ -68,9 +69,9 @@ data DescribeNodegroup = DescribeNodegroup'
 -- 'nodegroupName', 'describeNodegroup_nodegroupName' - The name of the node group to describe.
 newDescribeNodegroup ::
   -- | 'clusterName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'nodegroupName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeNodegroup
 newDescribeNodegroup pClusterName_ pNodegroupName_ =
   DescribeNodegroup'
@@ -79,11 +80,11 @@ newDescribeNodegroup pClusterName_ pNodegroupName_ =
     }
 
 -- | The name of the Amazon EKS cluster associated with the node group.
-describeNodegroup_clusterName :: Lens.Lens' DescribeNodegroup Core.Text
+describeNodegroup_clusterName :: Lens.Lens' DescribeNodegroup Prelude.Text
 describeNodegroup_clusterName = Lens.lens (\DescribeNodegroup' {clusterName} -> clusterName) (\s@DescribeNodegroup' {} a -> s {clusterName = a} :: DescribeNodegroup)
 
 -- | The name of the node group to describe.
-describeNodegroup_nodegroupName :: Lens.Lens' DescribeNodegroup Core.Text
+describeNodegroup_nodegroupName :: Lens.Lens' DescribeNodegroup Prelude.Text
 describeNodegroup_nodegroupName = Lens.lens (\DescribeNodegroup' {nodegroupName} -> nodegroupName) (\s@DescribeNodegroup' {} a -> s {nodegroupName = a} :: DescribeNodegroup)
 
 instance Core.AWSRequest DescribeNodegroup where
@@ -95,26 +96,28 @@ instance Core.AWSRequest DescribeNodegroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeNodegroupResponse'
-            Core.<$> (x Core..?> "nodegroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nodegroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeNodegroup
+instance Prelude.Hashable DescribeNodegroup
 
-instance Core.NFData DescribeNodegroup
+instance Prelude.NFData DescribeNodegroup
 
 instance Core.ToHeaders DescribeNodegroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeNodegroup where
   toPath DescribeNodegroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/clusters/",
         Core.toBS clusterName,
         "/node-groups/",
@@ -122,16 +125,16 @@ instance Core.ToPath DescribeNodegroup where
       ]
 
 instance Core.ToQuery DescribeNodegroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeNodegroupResponse' smart constructor.
 data DescribeNodegroupResponse = DescribeNodegroupResponse'
   { -- | The full description of your node group.
-    nodegroup :: Core.Maybe Nodegroup,
+    nodegroup :: Prelude.Maybe Nodegroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeNodegroupResponse' with all optional fields omitted.
@@ -146,21 +149,21 @@ data DescribeNodegroupResponse = DescribeNodegroupResponse'
 -- 'httpStatus', 'describeNodegroupResponse_httpStatus' - The response's http status code.
 newDescribeNodegroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeNodegroupResponse
 newDescribeNodegroupResponse pHttpStatus_ =
   DescribeNodegroupResponse'
     { nodegroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The full description of your node group.
-describeNodegroupResponse_nodegroup :: Lens.Lens' DescribeNodegroupResponse (Core.Maybe Nodegroup)
+describeNodegroupResponse_nodegroup :: Lens.Lens' DescribeNodegroupResponse (Prelude.Maybe Nodegroup)
 describeNodegroupResponse_nodegroup = Lens.lens (\DescribeNodegroupResponse' {nodegroup} -> nodegroup) (\s@DescribeNodegroupResponse' {} a -> s {nodegroup = a} :: DescribeNodegroupResponse)
 
 -- | The response's http status code.
-describeNodegroupResponse_httpStatus :: Lens.Lens' DescribeNodegroupResponse Core.Int
+describeNodegroupResponse_httpStatus :: Lens.Lens' DescribeNodegroupResponse Prelude.Int
 describeNodegroupResponse_httpStatus = Lens.lens (\DescribeNodegroupResponse' {httpStatus} -> httpStatus) (\s@DescribeNodegroupResponse' {} a -> s {httpStatus = a} :: DescribeNodegroupResponse)
 
-instance Core.NFData DescribeNodegroupResponse
+instance Prelude.NFData DescribeNodegroupResponse

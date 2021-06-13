@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ data DeletePlacementGroup = DeletePlacementGroup'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The name of the placement group.
-    groupName :: Core.Text
+    groupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePlacementGroup' with all optional fields omitted.
@@ -74,11 +75,11 @@ data DeletePlacementGroup = DeletePlacementGroup'
 -- 'groupName', 'deletePlacementGroup_groupName' - The name of the placement group.
 newDeletePlacementGroup ::
   -- | 'groupName'
-  Core.Text ->
+  Prelude.Text ->
   DeletePlacementGroup
 newDeletePlacementGroup pGroupName_ =
   DeletePlacementGroup'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       groupName = pGroupName_
     }
 
@@ -86,11 +87,11 @@ newDeletePlacementGroup pGroupName_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deletePlacementGroup_dryRun :: Lens.Lens' DeletePlacementGroup (Core.Maybe Core.Bool)
+deletePlacementGroup_dryRun :: Lens.Lens' DeletePlacementGroup (Prelude.Maybe Prelude.Bool)
 deletePlacementGroup_dryRun = Lens.lens (\DeletePlacementGroup' {dryRun} -> dryRun) (\s@DeletePlacementGroup' {} a -> s {dryRun = a} :: DeletePlacementGroup)
 
 -- | The name of the placement group.
-deletePlacementGroup_groupName :: Lens.Lens' DeletePlacementGroup Core.Text
+deletePlacementGroup_groupName :: Lens.Lens' DeletePlacementGroup Prelude.Text
 deletePlacementGroup_groupName = Lens.lens (\DeletePlacementGroup' {groupName} -> groupName) (\s@DeletePlacementGroup' {} a -> s {groupName = a} :: DeletePlacementGroup)
 
 instance Core.AWSRequest DeletePlacementGroup where
@@ -101,22 +102,23 @@ instance Core.AWSRequest DeletePlacementGroup where
   response =
     Response.receiveNull DeletePlacementGroupResponse'
 
-instance Core.Hashable DeletePlacementGroup
+instance Prelude.Hashable DeletePlacementGroup
 
-instance Core.NFData DeletePlacementGroup
+instance Prelude.NFData DeletePlacementGroup
 
 instance Core.ToHeaders DeletePlacementGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeletePlacementGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeletePlacementGroup where
   toQuery DeletePlacementGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeletePlacementGroup" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DeletePlacementGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "GroupName" Core.=: groupName
       ]
@@ -125,7 +127,7 @@ instance Core.ToQuery DeletePlacementGroup where
 data DeletePlacementGroupResponse = DeletePlacementGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePlacementGroupResponse' with all optional fields omitted.
@@ -136,4 +138,4 @@ newDeletePlacementGroupResponse ::
 newDeletePlacementGroupResponse =
   DeletePlacementGroupResponse'
 
-instance Core.NFData DeletePlacementGroupResponse
+instance Prelude.NFData DeletePlacementGroupResponse

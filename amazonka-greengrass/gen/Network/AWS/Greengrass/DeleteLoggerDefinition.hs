@@ -41,15 +41,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteLoggerDefinition' smart constructor.
 data DeleteLoggerDefinition = DeleteLoggerDefinition'
   { -- | The ID of the logger definition.
-    loggerDefinitionId :: Core.Text
+    loggerDefinitionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLoggerDefinition' with all optional fields omitted.
@@ -62,7 +63,7 @@ data DeleteLoggerDefinition = DeleteLoggerDefinition'
 -- 'loggerDefinitionId', 'deleteLoggerDefinition_loggerDefinitionId' - The ID of the logger definition.
 newDeleteLoggerDefinition ::
   -- | 'loggerDefinitionId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteLoggerDefinition
 newDeleteLoggerDefinition pLoggerDefinitionId_ =
   DeleteLoggerDefinition'
@@ -71,7 +72,7 @@ newDeleteLoggerDefinition pLoggerDefinitionId_ =
     }
 
 -- | The ID of the logger definition.
-deleteLoggerDefinition_loggerDefinitionId :: Lens.Lens' DeleteLoggerDefinition Core.Text
+deleteLoggerDefinition_loggerDefinitionId :: Lens.Lens' DeleteLoggerDefinition Prelude.Text
 deleteLoggerDefinition_loggerDefinitionId = Lens.lens (\DeleteLoggerDefinition' {loggerDefinitionId} -> loggerDefinitionId) (\s@DeleteLoggerDefinition' {} a -> s {loggerDefinitionId = a} :: DeleteLoggerDefinition)
 
 instance Core.AWSRequest DeleteLoggerDefinition where
@@ -83,38 +84,40 @@ instance Core.AWSRequest DeleteLoggerDefinition where
     Response.receiveEmpty
       ( \s h x ->
           DeleteLoggerDefinitionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteLoggerDefinition
+instance Prelude.Hashable DeleteLoggerDefinition
 
-instance Core.NFData DeleteLoggerDefinition
+instance Prelude.NFData DeleteLoggerDefinition
 
 instance Core.ToHeaders DeleteLoggerDefinition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteLoggerDefinition where
   toPath DeleteLoggerDefinition' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/greengrass/definition/loggers/",
         Core.toBS loggerDefinitionId
       ]
 
 instance Core.ToQuery DeleteLoggerDefinition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLoggerDefinitionResponse' smart constructor.
 data DeleteLoggerDefinitionResponse = DeleteLoggerDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLoggerDefinitionResponse' with all optional fields omitted.
@@ -127,7 +130,7 @@ data DeleteLoggerDefinitionResponse = DeleteLoggerDefinitionResponse'
 -- 'httpStatus', 'deleteLoggerDefinitionResponse_httpStatus' - The response's http status code.
 newDeleteLoggerDefinitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteLoggerDefinitionResponse
 newDeleteLoggerDefinitionResponse pHttpStatus_ =
   DeleteLoggerDefinitionResponse'
@@ -136,7 +139,9 @@ newDeleteLoggerDefinitionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteLoggerDefinitionResponse_httpStatus :: Lens.Lens' DeleteLoggerDefinitionResponse Core.Int
+deleteLoggerDefinitionResponse_httpStatus :: Lens.Lens' DeleteLoggerDefinitionResponse Prelude.Int
 deleteLoggerDefinitionResponse_httpStatus = Lens.lens (\DeleteLoggerDefinitionResponse' {httpStatus} -> httpStatus) (\s@DeleteLoggerDefinitionResponse' {} a -> s {httpStatus = a} :: DeleteLoggerDefinitionResponse)
 
-instance Core.NFData DeleteLoggerDefinitionResponse
+instance
+  Prelude.NFData
+    DeleteLoggerDefinitionResponse

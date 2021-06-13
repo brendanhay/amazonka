@@ -103,6 +103,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -112,7 +113,7 @@ import qualified Network.AWS.Response as Response
 data DescribeLimits = DescribeLimits'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeLimits' with all optional fields omitted.
@@ -131,38 +132,40 @@ instance Core.AWSRequest DescribeLimits where
     Response.receiveJSON
       ( \s h x ->
           DescribeLimitsResponse'
-            Core.<$> (x Core..?> "AccountMaxWriteCapacityUnits")
-            Core.<*> (x Core..?> "TableMaxReadCapacityUnits")
-            Core.<*> (x Core..?> "AccountMaxReadCapacityUnits")
-            Core.<*> (x Core..?> "TableMaxWriteCapacityUnits")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "AccountMaxWriteCapacityUnits")
+            Prelude.<*> (x Core..?> "TableMaxReadCapacityUnits")
+            Prelude.<*> (x Core..?> "AccountMaxReadCapacityUnits")
+            Prelude.<*> (x Core..?> "TableMaxWriteCapacityUnits")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeLimits
+instance Prelude.Hashable DescribeLimits
 
-instance Core.NFData DescribeLimits
+instance Prelude.NFData DescribeLimits
 
 instance Core.ToHeaders DescribeLimits where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DynamoDB_20120810.DescribeLimits" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeLimits where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DescribeLimits where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeLimits where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @DescribeLimits@ operation.
 --
@@ -170,24 +173,24 @@ instance Core.ToQuery DescribeLimits where
 data DescribeLimitsResponse = DescribeLimitsResponse'
   { -- | The maximum total write capacity units that your account allows you to
     -- provision across all of your tables in this Region.
-    accountMaxWriteCapacityUnits :: Core.Maybe Core.Natural,
+    accountMaxWriteCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The maximum read capacity units that your account allows you to
     -- provision for a new table that you are creating in this Region,
     -- including the read capacity units provisioned for its global secondary
     -- indexes (GSIs).
-    tableMaxReadCapacityUnits :: Core.Maybe Core.Natural,
+    tableMaxReadCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The maximum total read capacity units that your account allows you to
     -- provision across all of your tables in this Region.
-    accountMaxReadCapacityUnits :: Core.Maybe Core.Natural,
+    accountMaxReadCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The maximum write capacity units that your account allows you to
     -- provision for a new table that you are creating in this Region,
     -- including the write capacity units provisioned for its global secondary
     -- indexes (GSIs).
-    tableMaxWriteCapacityUnits :: Core.Maybe Core.Natural,
+    tableMaxWriteCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeLimitsResponse' with all optional fields omitted.
@@ -216,44 +219,44 @@ data DescribeLimitsResponse = DescribeLimitsResponse'
 -- 'httpStatus', 'describeLimitsResponse_httpStatus' - The response's http status code.
 newDescribeLimitsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeLimitsResponse
 newDescribeLimitsResponse pHttpStatus_ =
   DescribeLimitsResponse'
     { accountMaxWriteCapacityUnits =
-        Core.Nothing,
-      tableMaxReadCapacityUnits = Core.Nothing,
-      accountMaxReadCapacityUnits = Core.Nothing,
-      tableMaxWriteCapacityUnits = Core.Nothing,
+        Prelude.Nothing,
+      tableMaxReadCapacityUnits = Prelude.Nothing,
+      accountMaxReadCapacityUnits = Prelude.Nothing,
+      tableMaxWriteCapacityUnits = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The maximum total write capacity units that your account allows you to
 -- provision across all of your tables in this Region.
-describeLimitsResponse_accountMaxWriteCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Core.Maybe Core.Natural)
+describeLimitsResponse_accountMaxWriteCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Prelude.Maybe Prelude.Natural)
 describeLimitsResponse_accountMaxWriteCapacityUnits = Lens.lens (\DescribeLimitsResponse' {accountMaxWriteCapacityUnits} -> accountMaxWriteCapacityUnits) (\s@DescribeLimitsResponse' {} a -> s {accountMaxWriteCapacityUnits = a} :: DescribeLimitsResponse)
 
 -- | The maximum read capacity units that your account allows you to
 -- provision for a new table that you are creating in this Region,
 -- including the read capacity units provisioned for its global secondary
 -- indexes (GSIs).
-describeLimitsResponse_tableMaxReadCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Core.Maybe Core.Natural)
+describeLimitsResponse_tableMaxReadCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Prelude.Maybe Prelude.Natural)
 describeLimitsResponse_tableMaxReadCapacityUnits = Lens.lens (\DescribeLimitsResponse' {tableMaxReadCapacityUnits} -> tableMaxReadCapacityUnits) (\s@DescribeLimitsResponse' {} a -> s {tableMaxReadCapacityUnits = a} :: DescribeLimitsResponse)
 
 -- | The maximum total read capacity units that your account allows you to
 -- provision across all of your tables in this Region.
-describeLimitsResponse_accountMaxReadCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Core.Maybe Core.Natural)
+describeLimitsResponse_accountMaxReadCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Prelude.Maybe Prelude.Natural)
 describeLimitsResponse_accountMaxReadCapacityUnits = Lens.lens (\DescribeLimitsResponse' {accountMaxReadCapacityUnits} -> accountMaxReadCapacityUnits) (\s@DescribeLimitsResponse' {} a -> s {accountMaxReadCapacityUnits = a} :: DescribeLimitsResponse)
 
 -- | The maximum write capacity units that your account allows you to
 -- provision for a new table that you are creating in this Region,
 -- including the write capacity units provisioned for its global secondary
 -- indexes (GSIs).
-describeLimitsResponse_tableMaxWriteCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Core.Maybe Core.Natural)
+describeLimitsResponse_tableMaxWriteCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Prelude.Maybe Prelude.Natural)
 describeLimitsResponse_tableMaxWriteCapacityUnits = Lens.lens (\DescribeLimitsResponse' {tableMaxWriteCapacityUnits} -> tableMaxWriteCapacityUnits) (\s@DescribeLimitsResponse' {} a -> s {tableMaxWriteCapacityUnits = a} :: DescribeLimitsResponse)
 
 -- | The response's http status code.
-describeLimitsResponse_httpStatus :: Lens.Lens' DescribeLimitsResponse Core.Int
+describeLimitsResponse_httpStatus :: Lens.Lens' DescribeLimitsResponse Prelude.Int
 describeLimitsResponse_httpStatus = Lens.lens (\DescribeLimitsResponse' {httpStatus} -> httpStatus) (\s@DescribeLimitsResponse' {} a -> s {httpStatus = a} :: DescribeLimitsResponse)
 
-instance Core.NFData DescribeLimitsResponse
+instance Prelude.NFData DescribeLimitsResponse

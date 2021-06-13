@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,15 +57,15 @@ data DescribeDefaultParameters = DescribeDefaultParameters'
     -- pagination of results from this action. If this parameter is specified,
     -- the response includes only results beyond the token, up to the value
     -- specified by @MaxResults@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     --
     -- The value for @MaxResults@ must be between 20 and 100.
-    maxResults :: Core.Maybe Core.Int
+    maxResults :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDefaultParameters' with all optional fields omitted.
@@ -89,15 +90,15 @@ newDescribeDefaultParameters ::
 newDescribeDefaultParameters =
   DescribeDefaultParameters'
     { nextToken =
-        Core.Nothing,
-      maxResults = Core.Nothing
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only results beyond the token, up to the value
 -- specified by @MaxResults@.
-describeDefaultParameters_nextToken :: Lens.Lens' DescribeDefaultParameters (Core.Maybe Core.Text)
+describeDefaultParameters_nextToken :: Lens.Lens' DescribeDefaultParameters (Prelude.Maybe Prelude.Text)
 describeDefaultParameters_nextToken = Lens.lens (\DescribeDefaultParameters' {nextToken} -> nextToken) (\s@DescribeDefaultParameters' {} a -> s {nextToken = a} :: DescribeDefaultParameters)
 
 -- | The maximum number of results to include in the response. If more
@@ -105,7 +106,7 @@ describeDefaultParameters_nextToken = Lens.lens (\DescribeDefaultParameters' {ne
 -- in the response so that the remaining results can be retrieved.
 --
 -- The value for @MaxResults@ must be between 20 and 100.
-describeDefaultParameters_maxResults :: Lens.Lens' DescribeDefaultParameters (Core.Maybe Core.Int)
+describeDefaultParameters_maxResults :: Lens.Lens' DescribeDefaultParameters (Prelude.Maybe Prelude.Int)
 describeDefaultParameters_maxResults = Lens.lens (\DescribeDefaultParameters' {maxResults} -> maxResults) (\s@DescribeDefaultParameters' {} a -> s {maxResults = a} :: DescribeDefaultParameters)
 
 instance Core.AWSPager DescribeDefaultParameters where
@@ -113,22 +114,22 @@ instance Core.AWSPager DescribeDefaultParameters where
     | Core.stop
         ( rs
             Lens.^? describeDefaultParametersResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDefaultParametersResponse_parameters
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeDefaultParameters_nextToken
+          Prelude.& describeDefaultParameters_nextToken
           Lens..~ rs
           Lens.^? describeDefaultParametersResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDefaultParameters where
   type
@@ -139,53 +140,55 @@ instance Core.AWSRequest DescribeDefaultParameters where
     Response.receiveJSON
       ( \s h x ->
           DescribeDefaultParametersResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Parameters" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeDefaultParameters
+instance Prelude.Hashable DescribeDefaultParameters
 
-instance Core.NFData DescribeDefaultParameters
+instance Prelude.NFData DescribeDefaultParameters
 
 instance Core.ToHeaders DescribeDefaultParameters where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonDAXV3.DescribeDefaultParameters" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeDefaultParameters where
   toJSON DescribeDefaultParameters' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath DescribeDefaultParameters where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeDefaultParameters where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDefaultParametersResponse' smart constructor.
 data DescribeDefaultParametersResponse = DescribeDefaultParametersResponse'
   { -- | Provides an identifier to allow retrieval of paginated results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of parameters. Each element in the list represents one parameter.
-    parameters :: Core.Maybe [Parameter],
+    parameters :: Prelude.Maybe [Parameter],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDefaultParametersResponse' with all optional fields omitted.
@@ -202,28 +205,28 @@ data DescribeDefaultParametersResponse = DescribeDefaultParametersResponse'
 -- 'httpStatus', 'describeDefaultParametersResponse_httpStatus' - The response's http status code.
 newDescribeDefaultParametersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeDefaultParametersResponse
 newDescribeDefaultParametersResponse pHttpStatus_ =
   DescribeDefaultParametersResponse'
     { nextToken =
-        Core.Nothing,
-      parameters = Core.Nothing,
+        Prelude.Nothing,
+      parameters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
-describeDefaultParametersResponse_nextToken :: Lens.Lens' DescribeDefaultParametersResponse (Core.Maybe Core.Text)
+describeDefaultParametersResponse_nextToken :: Lens.Lens' DescribeDefaultParametersResponse (Prelude.Maybe Prelude.Text)
 describeDefaultParametersResponse_nextToken = Lens.lens (\DescribeDefaultParametersResponse' {nextToken} -> nextToken) (\s@DescribeDefaultParametersResponse' {} a -> s {nextToken = a} :: DescribeDefaultParametersResponse)
 
 -- | A list of parameters. Each element in the list represents one parameter.
-describeDefaultParametersResponse_parameters :: Lens.Lens' DescribeDefaultParametersResponse (Core.Maybe [Parameter])
-describeDefaultParametersResponse_parameters = Lens.lens (\DescribeDefaultParametersResponse' {parameters} -> parameters) (\s@DescribeDefaultParametersResponse' {} a -> s {parameters = a} :: DescribeDefaultParametersResponse) Core.. Lens.mapping Lens._Coerce
+describeDefaultParametersResponse_parameters :: Lens.Lens' DescribeDefaultParametersResponse (Prelude.Maybe [Parameter])
+describeDefaultParametersResponse_parameters = Lens.lens (\DescribeDefaultParametersResponse' {parameters} -> parameters) (\s@DescribeDefaultParametersResponse' {} a -> s {parameters = a} :: DescribeDefaultParametersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeDefaultParametersResponse_httpStatus :: Lens.Lens' DescribeDefaultParametersResponse Core.Int
+describeDefaultParametersResponse_httpStatus :: Lens.Lens' DescribeDefaultParametersResponse Prelude.Int
 describeDefaultParametersResponse_httpStatus = Lens.lens (\DescribeDefaultParametersResponse' {httpStatus} -> httpStatus) (\s@DescribeDefaultParametersResponse' {} a -> s {httpStatus = a} :: DescribeDefaultParametersResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeDefaultParametersResponse

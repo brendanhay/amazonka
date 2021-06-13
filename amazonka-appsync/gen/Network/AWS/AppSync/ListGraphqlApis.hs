@@ -46,6 +46,7 @@ where
 import Network.AWS.AppSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +55,11 @@ data ListGraphqlApis = ListGraphqlApis'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results you want the request to return.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListGraphqlApis' with all optional fields omitted.
@@ -77,39 +78,41 @@ newListGraphqlApis ::
   ListGraphqlApis
 newListGraphqlApis =
   ListGraphqlApis'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listGraphqlApis_nextToken :: Lens.Lens' ListGraphqlApis (Core.Maybe Core.Text)
+listGraphqlApis_nextToken :: Lens.Lens' ListGraphqlApis (Prelude.Maybe Prelude.Text)
 listGraphqlApis_nextToken = Lens.lens (\ListGraphqlApis' {nextToken} -> nextToken) (\s@ListGraphqlApis' {} a -> s {nextToken = a} :: ListGraphqlApis)
 
 -- | The maximum number of results you want the request to return.
-listGraphqlApis_maxResults :: Lens.Lens' ListGraphqlApis (Core.Maybe Core.Natural)
+listGraphqlApis_maxResults :: Lens.Lens' ListGraphqlApis (Prelude.Maybe Prelude.Natural)
 listGraphqlApis_maxResults = Lens.lens (\ListGraphqlApis' {maxResults} -> maxResults) (\s@ListGraphqlApis' {} a -> s {maxResults = a} :: ListGraphqlApis)
 
 instance Core.AWSPager ListGraphqlApis where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listGraphqlApisResponse_nextToken Core.. Lens._Just
+            Lens.^? listGraphqlApisResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listGraphqlApisResponse_graphqlApis
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listGraphqlApis_nextToken
+          Prelude.& listGraphqlApis_nextToken
           Lens..~ rs
-          Lens.^? listGraphqlApisResponse_nextToken Core.. Lens._Just
+          Lens.^? listGraphqlApisResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGraphqlApis where
   type
@@ -120,30 +123,32 @@ instance Core.AWSRequest ListGraphqlApis where
     Response.receiveJSON
       ( \s h x ->
           ListGraphqlApisResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "graphqlApis" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "graphqlApis" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListGraphqlApis
+instance Prelude.Hashable ListGraphqlApis
 
-instance Core.NFData ListGraphqlApis
+instance Prelude.NFData ListGraphqlApis
 
 instance Core.ToHeaders ListGraphqlApis where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListGraphqlApis where
-  toPath = Core.const "/v1/apis"
+  toPath = Prelude.const "/v1/apis"
 
 instance Core.ToQuery ListGraphqlApis where
   toQuery ListGraphqlApis' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -152,13 +157,13 @@ instance Core.ToQuery ListGraphqlApis where
 data ListGraphqlApisResponse = ListGraphqlApisResponse'
   { -- | An identifier to be passed in the next request to this operation to
     -- return the next set of items in the list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The @GraphqlApi@ objects.
-    graphqlApis :: Core.Maybe [GraphqlApi],
+    graphqlApis :: Prelude.Maybe [GraphqlApi],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListGraphqlApisResponse' with all optional fields omitted.
@@ -176,26 +181,27 @@ data ListGraphqlApisResponse = ListGraphqlApisResponse'
 -- 'httpStatus', 'listGraphqlApisResponse_httpStatus' - The response's http status code.
 newListGraphqlApisResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListGraphqlApisResponse
 newListGraphqlApisResponse pHttpStatus_ =
   ListGraphqlApisResponse'
-    { nextToken = Core.Nothing,
-      graphqlApis = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      graphqlApis = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An identifier to be passed in the next request to this operation to
 -- return the next set of items in the list.
-listGraphqlApisResponse_nextToken :: Lens.Lens' ListGraphqlApisResponse (Core.Maybe Core.Text)
+listGraphqlApisResponse_nextToken :: Lens.Lens' ListGraphqlApisResponse (Prelude.Maybe Prelude.Text)
 listGraphqlApisResponse_nextToken = Lens.lens (\ListGraphqlApisResponse' {nextToken} -> nextToken) (\s@ListGraphqlApisResponse' {} a -> s {nextToken = a} :: ListGraphqlApisResponse)
 
 -- | The @GraphqlApi@ objects.
-listGraphqlApisResponse_graphqlApis :: Lens.Lens' ListGraphqlApisResponse (Core.Maybe [GraphqlApi])
-listGraphqlApisResponse_graphqlApis = Lens.lens (\ListGraphqlApisResponse' {graphqlApis} -> graphqlApis) (\s@ListGraphqlApisResponse' {} a -> s {graphqlApis = a} :: ListGraphqlApisResponse) Core.. Lens.mapping Lens._Coerce
+listGraphqlApisResponse_graphqlApis :: Lens.Lens' ListGraphqlApisResponse (Prelude.Maybe [GraphqlApi])
+listGraphqlApisResponse_graphqlApis = Lens.lens (\ListGraphqlApisResponse' {graphqlApis} -> graphqlApis) (\s@ListGraphqlApisResponse' {} a -> s {graphqlApis = a} :: ListGraphqlApisResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listGraphqlApisResponse_httpStatus :: Lens.Lens' ListGraphqlApisResponse Core.Int
+listGraphqlApisResponse_httpStatus :: Lens.Lens' ListGraphqlApisResponse Prelude.Int
 listGraphqlApisResponse_httpStatus = Lens.lens (\ListGraphqlApisResponse' {httpStatus} -> httpStatus) (\s@ListGraphqlApisResponse' {} a -> s {httpStatus = a} :: ListGraphqlApisResponse)
 
-instance Core.NFData ListGraphqlApisResponse
+instance Prelude.NFData ListGraphqlApisResponse

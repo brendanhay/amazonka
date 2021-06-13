@@ -21,6 +21,7 @@ module Network.AWS.GuardDuty.Types.DefaultServerSideEncryption where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on the server side encryption method used in the S3
 -- bucket. See
@@ -30,12 +31,12 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDefaultServerSideEncryption' smart constructor.
 data DefaultServerSideEncryption = DefaultServerSideEncryption'
   { -- | The type of encryption used for objects within the S3 bucket.
-    encryptionType :: Core.Maybe Core.Text,
+    encryptionType :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the KMS encryption key. Only available
     -- if the bucket @EncryptionType@ is @aws:kms@.
-    kmsMasterKeyArn :: Core.Maybe Core.Text
+    kmsMasterKeyArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DefaultServerSideEncryption' with all optional fields omitted.
@@ -54,17 +55,17 @@ newDefaultServerSideEncryption ::
 newDefaultServerSideEncryption =
   DefaultServerSideEncryption'
     { encryptionType =
-        Core.Nothing,
-      kmsMasterKeyArn = Core.Nothing
+        Prelude.Nothing,
+      kmsMasterKeyArn = Prelude.Nothing
     }
 
 -- | The type of encryption used for objects within the S3 bucket.
-defaultServerSideEncryption_encryptionType :: Lens.Lens' DefaultServerSideEncryption (Core.Maybe Core.Text)
+defaultServerSideEncryption_encryptionType :: Lens.Lens' DefaultServerSideEncryption (Prelude.Maybe Prelude.Text)
 defaultServerSideEncryption_encryptionType = Lens.lens (\DefaultServerSideEncryption' {encryptionType} -> encryptionType) (\s@DefaultServerSideEncryption' {} a -> s {encryptionType = a} :: DefaultServerSideEncryption)
 
 -- | The Amazon Resource Name (ARN) of the KMS encryption key. Only available
 -- if the bucket @EncryptionType@ is @aws:kms@.
-defaultServerSideEncryption_kmsMasterKeyArn :: Lens.Lens' DefaultServerSideEncryption (Core.Maybe Core.Text)
+defaultServerSideEncryption_kmsMasterKeyArn :: Lens.Lens' DefaultServerSideEncryption (Prelude.Maybe Prelude.Text)
 defaultServerSideEncryption_kmsMasterKeyArn = Lens.lens (\DefaultServerSideEncryption' {kmsMasterKeyArn} -> kmsMasterKeyArn) (\s@DefaultServerSideEncryption' {} a -> s {kmsMasterKeyArn = a} :: DefaultServerSideEncryption)
 
 instance Core.FromJSON DefaultServerSideEncryption where
@@ -73,10 +74,10 @@ instance Core.FromJSON DefaultServerSideEncryption where
       "DefaultServerSideEncryption"
       ( \x ->
           DefaultServerSideEncryption'
-            Core.<$> (x Core..:? "encryptionType")
-            Core.<*> (x Core..:? "kmsMasterKeyArn")
+            Prelude.<$> (x Core..:? "encryptionType")
+            Prelude.<*> (x Core..:? "kmsMasterKeyArn")
       )
 
-instance Core.Hashable DefaultServerSideEncryption
+instance Prelude.Hashable DefaultServerSideEncryption
 
-instance Core.NFData DefaultServerSideEncryption
+instance Prelude.NFData DefaultServerSideEncryption

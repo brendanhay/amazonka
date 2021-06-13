@@ -21,22 +21,23 @@ module Network.AWS.CodePipeline.Types.CurrentRevision where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about a current revision.
 --
 -- /See:/ 'newCurrentRevision' smart constructor.
 data CurrentRevision = CurrentRevision'
   { -- | The summary of the most recent revision of the artifact.
-    revisionSummary :: Core.Maybe Core.Text,
+    revisionSummary :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the most recent revision of the artifact was
     -- created, in timestamp format.
-    created :: Core.Maybe Core.POSIX,
+    created :: Prelude.Maybe Core.POSIX,
     -- | The revision ID of the current version of an artifact.
-    revision :: Core.Text,
+    revision :: Prelude.Text,
     -- | The change identifier for the current revision.
-    changeIdentifier :: Core.Text
+    changeIdentifier :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CurrentRevision' with all optional fields omitted.
@@ -56,48 +57,48 @@ data CurrentRevision = CurrentRevision'
 -- 'changeIdentifier', 'currentRevision_changeIdentifier' - The change identifier for the current revision.
 newCurrentRevision ::
   -- | 'revision'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'changeIdentifier'
-  Core.Text ->
+  Prelude.Text ->
   CurrentRevision
 newCurrentRevision pRevision_ pChangeIdentifier_ =
   CurrentRevision'
-    { revisionSummary = Core.Nothing,
-      created = Core.Nothing,
+    { revisionSummary = Prelude.Nothing,
+      created = Prelude.Nothing,
       revision = pRevision_,
       changeIdentifier = pChangeIdentifier_
     }
 
 -- | The summary of the most recent revision of the artifact.
-currentRevision_revisionSummary :: Lens.Lens' CurrentRevision (Core.Maybe Core.Text)
+currentRevision_revisionSummary :: Lens.Lens' CurrentRevision (Prelude.Maybe Prelude.Text)
 currentRevision_revisionSummary = Lens.lens (\CurrentRevision' {revisionSummary} -> revisionSummary) (\s@CurrentRevision' {} a -> s {revisionSummary = a} :: CurrentRevision)
 
 -- | The date and time when the most recent revision of the artifact was
 -- created, in timestamp format.
-currentRevision_created :: Lens.Lens' CurrentRevision (Core.Maybe Core.UTCTime)
-currentRevision_created = Lens.lens (\CurrentRevision' {created} -> created) (\s@CurrentRevision' {} a -> s {created = a} :: CurrentRevision) Core.. Lens.mapping Core._Time
+currentRevision_created :: Lens.Lens' CurrentRevision (Prelude.Maybe Prelude.UTCTime)
+currentRevision_created = Lens.lens (\CurrentRevision' {created} -> created) (\s@CurrentRevision' {} a -> s {created = a} :: CurrentRevision) Prelude.. Lens.mapping Core._Time
 
 -- | The revision ID of the current version of an artifact.
-currentRevision_revision :: Lens.Lens' CurrentRevision Core.Text
+currentRevision_revision :: Lens.Lens' CurrentRevision Prelude.Text
 currentRevision_revision = Lens.lens (\CurrentRevision' {revision} -> revision) (\s@CurrentRevision' {} a -> s {revision = a} :: CurrentRevision)
 
 -- | The change identifier for the current revision.
-currentRevision_changeIdentifier :: Lens.Lens' CurrentRevision Core.Text
+currentRevision_changeIdentifier :: Lens.Lens' CurrentRevision Prelude.Text
 currentRevision_changeIdentifier = Lens.lens (\CurrentRevision' {changeIdentifier} -> changeIdentifier) (\s@CurrentRevision' {} a -> s {changeIdentifier = a} :: CurrentRevision)
 
-instance Core.Hashable CurrentRevision
+instance Prelude.Hashable CurrentRevision
 
-instance Core.NFData CurrentRevision
+instance Prelude.NFData CurrentRevision
 
 instance Core.ToJSON CurrentRevision where
   toJSON CurrentRevision' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("revisionSummary" Core..=)
-              Core.<$> revisionSummary,
-            ("created" Core..=) Core.<$> created,
-            Core.Just ("revision" Core..= revision),
-            Core.Just
+              Prelude.<$> revisionSummary,
+            ("created" Core..=) Prelude.<$> created,
+            Prelude.Just ("revision" Core..= revision),
+            Prelude.Just
               ("changeIdentifier" Core..= changeIdentifier)
           ]
       )

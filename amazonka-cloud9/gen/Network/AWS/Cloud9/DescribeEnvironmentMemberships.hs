@@ -50,6 +50,7 @@ where
 import Network.AWS.Cloud9.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,13 +62,13 @@ data DescribeEnvironmentMemberships = DescribeEnvironmentMemberships'
     -- operation again, adding the next token to the call. To get all of the
     -- items in the list, keep calling this operation with each subsequent next
     -- token that is returned, until no more next tokens are returned.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an individual environment member to
     -- get information about. If no value is specified, information about all
     -- environment members are returned.
-    userArn :: Core.Maybe Core.Text,
+    userArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of environment members to get information about.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The type of environment member permissions to get information about.
     -- Available values include:
     --
@@ -79,11 +80,11 @@ data DescribeEnvironmentMemberships = DescribeEnvironmentMemberships'
     --
     -- If no value is specified, information about all environment members are
     -- returned.
-    permissions :: Core.Maybe [Permissions],
+    permissions :: Prelude.Maybe [Permissions],
     -- | The ID of the environment to get environment member information about.
-    environmentId :: Core.Maybe Core.Text
+    environmentId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEnvironmentMemberships' with all optional fields omitted.
@@ -124,11 +125,11 @@ newDescribeEnvironmentMemberships ::
 newDescribeEnvironmentMemberships =
   DescribeEnvironmentMemberships'
     { nextToken =
-        Core.Nothing,
-      userArn = Core.Nothing,
-      maxResults = Core.Nothing,
-      permissions = Core.Nothing,
-      environmentId = Core.Nothing
+        Prelude.Nothing,
+      userArn = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      permissions = Prelude.Nothing,
+      environmentId = Prelude.Nothing
     }
 
 -- | During a previous call, if there are more than 25 items in the list,
@@ -137,17 +138,17 @@ newDescribeEnvironmentMemberships =
 -- operation again, adding the next token to the call. To get all of the
 -- items in the list, keep calling this operation with each subsequent next
 -- token that is returned, until no more next tokens are returned.
-describeEnvironmentMemberships_nextToken :: Lens.Lens' DescribeEnvironmentMemberships (Core.Maybe Core.Text)
+describeEnvironmentMemberships_nextToken :: Lens.Lens' DescribeEnvironmentMemberships (Prelude.Maybe Prelude.Text)
 describeEnvironmentMemberships_nextToken = Lens.lens (\DescribeEnvironmentMemberships' {nextToken} -> nextToken) (\s@DescribeEnvironmentMemberships' {} a -> s {nextToken = a} :: DescribeEnvironmentMemberships)
 
 -- | The Amazon Resource Name (ARN) of an individual environment member to
 -- get information about. If no value is specified, information about all
 -- environment members are returned.
-describeEnvironmentMemberships_userArn :: Lens.Lens' DescribeEnvironmentMemberships (Core.Maybe Core.Text)
+describeEnvironmentMemberships_userArn :: Lens.Lens' DescribeEnvironmentMemberships (Prelude.Maybe Prelude.Text)
 describeEnvironmentMemberships_userArn = Lens.lens (\DescribeEnvironmentMemberships' {userArn} -> userArn) (\s@DescribeEnvironmentMemberships' {} a -> s {userArn = a} :: DescribeEnvironmentMemberships)
 
 -- | The maximum number of environment members to get information about.
-describeEnvironmentMemberships_maxResults :: Lens.Lens' DescribeEnvironmentMemberships (Core.Maybe Core.Natural)
+describeEnvironmentMemberships_maxResults :: Lens.Lens' DescribeEnvironmentMemberships (Prelude.Maybe Prelude.Natural)
 describeEnvironmentMemberships_maxResults = Lens.lens (\DescribeEnvironmentMemberships' {maxResults} -> maxResults) (\s@DescribeEnvironmentMemberships' {} a -> s {maxResults = a} :: DescribeEnvironmentMemberships)
 
 -- | The type of environment member permissions to get information about.
@@ -161,11 +162,11 @@ describeEnvironmentMemberships_maxResults = Lens.lens (\DescribeEnvironmentMembe
 --
 -- If no value is specified, information about all environment members are
 -- returned.
-describeEnvironmentMemberships_permissions :: Lens.Lens' DescribeEnvironmentMemberships (Core.Maybe [Permissions])
-describeEnvironmentMemberships_permissions = Lens.lens (\DescribeEnvironmentMemberships' {permissions} -> permissions) (\s@DescribeEnvironmentMemberships' {} a -> s {permissions = a} :: DescribeEnvironmentMemberships) Core.. Lens.mapping Lens._Coerce
+describeEnvironmentMemberships_permissions :: Lens.Lens' DescribeEnvironmentMemberships (Prelude.Maybe [Permissions])
+describeEnvironmentMemberships_permissions = Lens.lens (\DescribeEnvironmentMemberships' {permissions} -> permissions) (\s@DescribeEnvironmentMemberships' {} a -> s {permissions = a} :: DescribeEnvironmentMemberships) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the environment to get environment member information about.
-describeEnvironmentMemberships_environmentId :: Lens.Lens' DescribeEnvironmentMemberships (Core.Maybe Core.Text)
+describeEnvironmentMemberships_environmentId :: Lens.Lens' DescribeEnvironmentMemberships (Prelude.Maybe Prelude.Text)
 describeEnvironmentMemberships_environmentId = Lens.lens (\DescribeEnvironmentMemberships' {environmentId} -> environmentId) (\s@DescribeEnvironmentMemberships' {} a -> s {environmentId = a} :: DescribeEnvironmentMemberships)
 
 instance Core.AWSPager DescribeEnvironmentMemberships where
@@ -173,22 +174,22 @@ instance Core.AWSPager DescribeEnvironmentMemberships where
     | Core.stop
         ( rs
             Lens.^? describeEnvironmentMembershipsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeEnvironmentMembershipsResponse_memberships
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeEnvironmentMemberships_nextToken
+          Prelude.& describeEnvironmentMemberships_nextToken
           Lens..~ rs
           Lens.^? describeEnvironmentMembershipsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -202,48 +203,54 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeEnvironmentMembershipsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "memberships" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "memberships" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeEnvironmentMemberships
+instance
+  Prelude.Hashable
+    DescribeEnvironmentMemberships
 
-instance Core.NFData DescribeEnvironmentMemberships
+instance
+  Prelude.NFData
+    DescribeEnvironmentMemberships
 
 instance
   Core.ToHeaders
     DescribeEnvironmentMemberships
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeEnvironmentMemberships where
   toJSON DescribeEnvironmentMemberships' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("userArn" Core..=) Core.<$> userArn,
-            ("maxResults" Core..=) Core.<$> maxResults,
-            ("permissions" Core..=) Core.<$> permissions,
-            ("environmentId" Core..=) Core.<$> environmentId
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("userArn" Core..=) Prelude.<$> userArn,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("permissions" Core..=) Prelude.<$> permissions,
+            ("environmentId" Core..=) Prelude.<$> environmentId
           ]
       )
 
 instance Core.ToPath DescribeEnvironmentMemberships where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeEnvironmentMemberships where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEnvironmentMembershipsResponse' smart constructor.
 data DescribeEnvironmentMembershipsResponse = DescribeEnvironmentMembershipsResponse'
@@ -251,13 +258,13 @@ data DescribeEnvironmentMembershipsResponse = DescribeEnvironmentMembershipsResp
     -- returned, along with a unique string called a /next token/. To get the
     -- next batch of items in the list, call this operation again, adding the
     -- next token to the call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the environment members for the environment.
-    memberships :: Core.Maybe [EnvironmentMember],
+    memberships :: Prelude.Maybe [EnvironmentMember],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEnvironmentMembershipsResponse' with all optional fields omitted.
@@ -277,14 +284,14 @@ data DescribeEnvironmentMembershipsResponse = DescribeEnvironmentMembershipsResp
 -- 'httpStatus', 'describeEnvironmentMembershipsResponse_httpStatus' - The response's http status code.
 newDescribeEnvironmentMembershipsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeEnvironmentMembershipsResponse
 newDescribeEnvironmentMembershipsResponse
   pHttpStatus_ =
     DescribeEnvironmentMembershipsResponse'
       { nextToken =
-          Core.Nothing,
-        memberships = Core.Nothing,
+          Prelude.Nothing,
+        memberships = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -292,17 +299,17 @@ newDescribeEnvironmentMembershipsResponse
 -- returned, along with a unique string called a /next token/. To get the
 -- next batch of items in the list, call this operation again, adding the
 -- next token to the call.
-describeEnvironmentMembershipsResponse_nextToken :: Lens.Lens' DescribeEnvironmentMembershipsResponse (Core.Maybe Core.Text)
+describeEnvironmentMembershipsResponse_nextToken :: Lens.Lens' DescribeEnvironmentMembershipsResponse (Prelude.Maybe Prelude.Text)
 describeEnvironmentMembershipsResponse_nextToken = Lens.lens (\DescribeEnvironmentMembershipsResponse' {nextToken} -> nextToken) (\s@DescribeEnvironmentMembershipsResponse' {} a -> s {nextToken = a} :: DescribeEnvironmentMembershipsResponse)
 
 -- | Information about the environment members for the environment.
-describeEnvironmentMembershipsResponse_memberships :: Lens.Lens' DescribeEnvironmentMembershipsResponse (Core.Maybe [EnvironmentMember])
-describeEnvironmentMembershipsResponse_memberships = Lens.lens (\DescribeEnvironmentMembershipsResponse' {memberships} -> memberships) (\s@DescribeEnvironmentMembershipsResponse' {} a -> s {memberships = a} :: DescribeEnvironmentMembershipsResponse) Core.. Lens.mapping Lens._Coerce
+describeEnvironmentMembershipsResponse_memberships :: Lens.Lens' DescribeEnvironmentMembershipsResponse (Prelude.Maybe [EnvironmentMember])
+describeEnvironmentMembershipsResponse_memberships = Lens.lens (\DescribeEnvironmentMembershipsResponse' {memberships} -> memberships) (\s@DescribeEnvironmentMembershipsResponse' {} a -> s {memberships = a} :: DescribeEnvironmentMembershipsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeEnvironmentMembershipsResponse_httpStatus :: Lens.Lens' DescribeEnvironmentMembershipsResponse Core.Int
+describeEnvironmentMembershipsResponse_httpStatus :: Lens.Lens' DescribeEnvironmentMembershipsResponse Prelude.Int
 describeEnvironmentMembershipsResponse_httpStatus = Lens.lens (\DescribeEnvironmentMembershipsResponse' {httpStatus} -> httpStatus) (\s@DescribeEnvironmentMembershipsResponse' {} a -> s {httpStatus = a} :: DescribeEnvironmentMembershipsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeEnvironmentMembershipsResponse

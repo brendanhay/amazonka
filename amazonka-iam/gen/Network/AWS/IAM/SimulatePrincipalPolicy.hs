@@ -91,6 +91,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -106,11 +107,11 @@ data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
     -- parameter is required only if you specify a resource-based policy and
     -- account that owns the resource is different from the account that owns
     -- the simulated calling user @CallerArn@.
-    resourceOwner :: Core.Maybe Core.Text,
+    resourceOwner :: Prelude.Maybe Prelude.Text,
     -- | A list of context keys and corresponding values for the simulation to
     -- use. Whenever a context key is evaluated in one of the simulated IAM
     -- permissions policies, the corresponding value is supplied.
-    contextEntries :: Core.Maybe [ContextEntry],
+    contextEntries :: Prelude.Maybe [ContextEntry],
     -- | A resource-based policy to include in the simulation provided as a
     -- string. Each resource in the simulation is treated as if it had this
     -- policy attached. You can include only one resource-based policy in a
@@ -127,7 +128,7 @@ data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    resourcePolicy :: Core.Maybe Core.Text,
+    resourcePolicy :: Prelude.Maybe Prelude.Text,
     -- | A list of ARNs of AWS resources to include in the simulation. If this
     -- parameter is not provided, then the value defaults to @*@ (all
     -- resources). Each API in the @ActionNames@ parameter is evaluated for
@@ -143,7 +144,7 @@ data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    resourceArns :: Core.Maybe [Core.Text],
+    resourceArns :: Prelude.Maybe [Prelude.Text],
     -- | The IAM permissions boundary policy to simulate. The permissions
     -- boundary sets the maximum permissions that the entity can have. You can
     -- input only one permissions boundary when you pass a policy to this
@@ -168,7 +169,7 @@ data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    permissionsBoundaryPolicyInputList :: Core.Maybe [Core.Text],
+    permissionsBoundaryPolicyInputList :: Prelude.Maybe [Prelude.Text],
     -- | An optional list of additional policy documents to include in the
     -- simulation. Each document is specified as a string containing the
     -- complete, valid JSON text of an IAM policy.
@@ -184,7 +185,7 @@ data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    policyInputList :: Core.Maybe [Core.Text],
+    policyInputList :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the type of simulation to run. Different API operations that
     -- support resource-based policies require different combinations of
     -- resources. By specifying the type of simulation to run, you enable the
@@ -226,7 +227,7 @@ data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
     -- -   __EC2-VPC-EBS-Subnet__
     --
     --     instance, image, security group, network interface, subnet, volume
-    resourceHandlingOption :: Core.Maybe Core.Text,
+    resourceHandlingOption :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM user that you want to specify as the simulated caller
     -- of the API operations. If you do not specify a @CallerArn@, it defaults
     -- to the ARN of the user that you specify in @PolicySourceArn@, if you
@@ -246,7 +247,7 @@ data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    callerArn :: Core.Maybe Core.Text,
+    callerArn :: Prelude.Maybe Prelude.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -256,12 +257,12 @@ data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Core.Maybe Core.Natural,
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of a user, group, or role whose policies
     -- you want to include in the simulation. If you specify a user, group, or
     -- role, the simulation includes all policies that are associated with that
@@ -271,13 +272,13 @@ data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    policySourceArn :: Core.Text,
+    policySourceArn :: Prelude.Text,
     -- | A list of names of API operations to evaluate in the simulation. Each
     -- operation is evaluated for each resource. Each operation must include
     -- the service identifier, such as @iam:CreateUser@.
-    actionNames :: [Core.Text]
+    actionNames :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SimulatePrincipalPolicy' with all optional fields omitted.
@@ -468,23 +469,24 @@ data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
 -- the service identifier, such as @iam:CreateUser@.
 newSimulatePrincipalPolicy ::
   -- | 'policySourceArn'
-  Core.Text ->
+  Prelude.Text ->
   SimulatePrincipalPolicy
 newSimulatePrincipalPolicy pPolicySourceArn_ =
   SimulatePrincipalPolicy'
     { resourceOwner =
-        Core.Nothing,
-      contextEntries = Core.Nothing,
-      resourcePolicy = Core.Nothing,
-      resourceArns = Core.Nothing,
-      permissionsBoundaryPolicyInputList = Core.Nothing,
-      policyInputList = Core.Nothing,
-      resourceHandlingOption = Core.Nothing,
-      callerArn = Core.Nothing,
-      maxItems = Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      contextEntries = Prelude.Nothing,
+      resourcePolicy = Prelude.Nothing,
+      resourceArns = Prelude.Nothing,
+      permissionsBoundaryPolicyInputList =
+        Prelude.Nothing,
+      policyInputList = Prelude.Nothing,
+      resourceHandlingOption = Prelude.Nothing,
+      callerArn = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing,
       policySourceArn = pPolicySourceArn_,
-      actionNames = Core.mempty
+      actionNames = Prelude.mempty
     }
 
 -- | An AWS account ID that specifies the owner of any simulated resource
@@ -497,14 +499,14 @@ newSimulatePrincipalPolicy pPolicySourceArn_ =
 -- parameter is required only if you specify a resource-based policy and
 -- account that owns the resource is different from the account that owns
 -- the simulated calling user @CallerArn@.
-simulatePrincipalPolicy_resourceOwner :: Lens.Lens' SimulatePrincipalPolicy (Core.Maybe Core.Text)
+simulatePrincipalPolicy_resourceOwner :: Lens.Lens' SimulatePrincipalPolicy (Prelude.Maybe Prelude.Text)
 simulatePrincipalPolicy_resourceOwner = Lens.lens (\SimulatePrincipalPolicy' {resourceOwner} -> resourceOwner) (\s@SimulatePrincipalPolicy' {} a -> s {resourceOwner = a} :: SimulatePrincipalPolicy)
 
 -- | A list of context keys and corresponding values for the simulation to
 -- use. Whenever a context key is evaluated in one of the simulated IAM
 -- permissions policies, the corresponding value is supplied.
-simulatePrincipalPolicy_contextEntries :: Lens.Lens' SimulatePrincipalPolicy (Core.Maybe [ContextEntry])
-simulatePrincipalPolicy_contextEntries = Lens.lens (\SimulatePrincipalPolicy' {contextEntries} -> contextEntries) (\s@SimulatePrincipalPolicy' {} a -> s {contextEntries = a} :: SimulatePrincipalPolicy) Core.. Lens.mapping Lens._Coerce
+simulatePrincipalPolicy_contextEntries :: Lens.Lens' SimulatePrincipalPolicy (Prelude.Maybe [ContextEntry])
+simulatePrincipalPolicy_contextEntries = Lens.lens (\SimulatePrincipalPolicy' {contextEntries} -> contextEntries) (\s@SimulatePrincipalPolicy' {} a -> s {contextEntries = a} :: SimulatePrincipalPolicy) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A resource-based policy to include in the simulation provided as a
 -- string. Each resource in the simulation is treated as if it had this
@@ -522,7 +524,7 @@ simulatePrincipalPolicy_contextEntries = Lens.lens (\SimulatePrincipalPolicy' {c
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-simulatePrincipalPolicy_resourcePolicy :: Lens.Lens' SimulatePrincipalPolicy (Core.Maybe Core.Text)
+simulatePrincipalPolicy_resourcePolicy :: Lens.Lens' SimulatePrincipalPolicy (Prelude.Maybe Prelude.Text)
 simulatePrincipalPolicy_resourcePolicy = Lens.lens (\SimulatePrincipalPolicy' {resourcePolicy} -> resourcePolicy) (\s@SimulatePrincipalPolicy' {} a -> s {resourcePolicy = a} :: SimulatePrincipalPolicy)
 
 -- | A list of ARNs of AWS resources to include in the simulation. If this
@@ -540,8 +542,8 @@ simulatePrincipalPolicy_resourcePolicy = Lens.lens (\SimulatePrincipalPolicy' {r
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-simulatePrincipalPolicy_resourceArns :: Lens.Lens' SimulatePrincipalPolicy (Core.Maybe [Core.Text])
-simulatePrincipalPolicy_resourceArns = Lens.lens (\SimulatePrincipalPolicy' {resourceArns} -> resourceArns) (\s@SimulatePrincipalPolicy' {} a -> s {resourceArns = a} :: SimulatePrincipalPolicy) Core.. Lens.mapping Lens._Coerce
+simulatePrincipalPolicy_resourceArns :: Lens.Lens' SimulatePrincipalPolicy (Prelude.Maybe [Prelude.Text])
+simulatePrincipalPolicy_resourceArns = Lens.lens (\SimulatePrincipalPolicy' {resourceArns} -> resourceArns) (\s@SimulatePrincipalPolicy' {} a -> s {resourceArns = a} :: SimulatePrincipalPolicy) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The IAM permissions boundary policy to simulate. The permissions
 -- boundary sets the maximum permissions that the entity can have. You can
@@ -567,8 +569,8 @@ simulatePrincipalPolicy_resourceArns = Lens.lens (\SimulatePrincipalPolicy' {res
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-simulatePrincipalPolicy_permissionsBoundaryPolicyInputList :: Lens.Lens' SimulatePrincipalPolicy (Core.Maybe [Core.Text])
-simulatePrincipalPolicy_permissionsBoundaryPolicyInputList = Lens.lens (\SimulatePrincipalPolicy' {permissionsBoundaryPolicyInputList} -> permissionsBoundaryPolicyInputList) (\s@SimulatePrincipalPolicy' {} a -> s {permissionsBoundaryPolicyInputList = a} :: SimulatePrincipalPolicy) Core.. Lens.mapping Lens._Coerce
+simulatePrincipalPolicy_permissionsBoundaryPolicyInputList :: Lens.Lens' SimulatePrincipalPolicy (Prelude.Maybe [Prelude.Text])
+simulatePrincipalPolicy_permissionsBoundaryPolicyInputList = Lens.lens (\SimulatePrincipalPolicy' {permissionsBoundaryPolicyInputList} -> permissionsBoundaryPolicyInputList) (\s@SimulatePrincipalPolicy' {} a -> s {permissionsBoundaryPolicyInputList = a} :: SimulatePrincipalPolicy) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional list of additional policy documents to include in the
 -- simulation. Each document is specified as a string containing the
@@ -585,8 +587,8 @@ simulatePrincipalPolicy_permissionsBoundaryPolicyInputList = Lens.lens (\Simulat
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-simulatePrincipalPolicy_policyInputList :: Lens.Lens' SimulatePrincipalPolicy (Core.Maybe [Core.Text])
-simulatePrincipalPolicy_policyInputList = Lens.lens (\SimulatePrincipalPolicy' {policyInputList} -> policyInputList) (\s@SimulatePrincipalPolicy' {} a -> s {policyInputList = a} :: SimulatePrincipalPolicy) Core.. Lens.mapping Lens._Coerce
+simulatePrincipalPolicy_policyInputList :: Lens.Lens' SimulatePrincipalPolicy (Prelude.Maybe [Prelude.Text])
+simulatePrincipalPolicy_policyInputList = Lens.lens (\SimulatePrincipalPolicy' {policyInputList} -> policyInputList) (\s@SimulatePrincipalPolicy' {} a -> s {policyInputList = a} :: SimulatePrincipalPolicy) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the type of simulation to run. Different API operations that
 -- support resource-based policies require different combinations of
@@ -629,7 +631,7 @@ simulatePrincipalPolicy_policyInputList = Lens.lens (\SimulatePrincipalPolicy' {
 -- -   __EC2-VPC-EBS-Subnet__
 --
 --     instance, image, security group, network interface, subnet, volume
-simulatePrincipalPolicy_resourceHandlingOption :: Lens.Lens' SimulatePrincipalPolicy (Core.Maybe Core.Text)
+simulatePrincipalPolicy_resourceHandlingOption :: Lens.Lens' SimulatePrincipalPolicy (Prelude.Maybe Prelude.Text)
 simulatePrincipalPolicy_resourceHandlingOption = Lens.lens (\SimulatePrincipalPolicy' {resourceHandlingOption} -> resourceHandlingOption) (\s@SimulatePrincipalPolicy' {} a -> s {resourceHandlingOption = a} :: SimulatePrincipalPolicy)
 
 -- | The ARN of the IAM user that you want to specify as the simulated caller
@@ -651,7 +653,7 @@ simulatePrincipalPolicy_resourceHandlingOption = Lens.lens (\SimulatePrincipalPo
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-simulatePrincipalPolicy_callerArn :: Lens.Lens' SimulatePrincipalPolicy (Core.Maybe Core.Text)
+simulatePrincipalPolicy_callerArn :: Lens.Lens' SimulatePrincipalPolicy (Prelude.Maybe Prelude.Text)
 simulatePrincipalPolicy_callerArn = Lens.lens (\SimulatePrincipalPolicy' {callerArn} -> callerArn) (\s@SimulatePrincipalPolicy' {} a -> s {callerArn = a} :: SimulatePrincipalPolicy)
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -663,14 +665,14 @@ simulatePrincipalPolicy_callerArn = Lens.lens (\SimulatePrincipalPolicy' {caller
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-simulatePrincipalPolicy_maxItems :: Lens.Lens' SimulatePrincipalPolicy (Core.Maybe Core.Natural)
+simulatePrincipalPolicy_maxItems :: Lens.Lens' SimulatePrincipalPolicy (Prelude.Maybe Prelude.Natural)
 simulatePrincipalPolicy_maxItems = Lens.lens (\SimulatePrincipalPolicy' {maxItems} -> maxItems) (\s@SimulatePrincipalPolicy' {} a -> s {maxItems = a} :: SimulatePrincipalPolicy)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-simulatePrincipalPolicy_marker :: Lens.Lens' SimulatePrincipalPolicy (Core.Maybe Core.Text)
+simulatePrincipalPolicy_marker :: Lens.Lens' SimulatePrincipalPolicy (Prelude.Maybe Prelude.Text)
 simulatePrincipalPolicy_marker = Lens.lens (\SimulatePrincipalPolicy' {marker} -> marker) (\s@SimulatePrincipalPolicy' {} a -> s {marker = a} :: SimulatePrincipalPolicy)
 
 -- | The Amazon Resource Name (ARN) of a user, group, or role whose policies
@@ -682,33 +684,34 @@ simulatePrincipalPolicy_marker = Lens.lens (\SimulatePrincipalPolicy' {marker} -
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-simulatePrincipalPolicy_policySourceArn :: Lens.Lens' SimulatePrincipalPolicy Core.Text
+simulatePrincipalPolicy_policySourceArn :: Lens.Lens' SimulatePrincipalPolicy Prelude.Text
 simulatePrincipalPolicy_policySourceArn = Lens.lens (\SimulatePrincipalPolicy' {policySourceArn} -> policySourceArn) (\s@SimulatePrincipalPolicy' {} a -> s {policySourceArn = a} :: SimulatePrincipalPolicy)
 
 -- | A list of names of API operations to evaluate in the simulation. Each
 -- operation is evaluated for each resource. Each operation must include
 -- the service identifier, such as @iam:CreateUser@.
-simulatePrincipalPolicy_actionNames :: Lens.Lens' SimulatePrincipalPolicy [Core.Text]
-simulatePrincipalPolicy_actionNames = Lens.lens (\SimulatePrincipalPolicy' {actionNames} -> actionNames) (\s@SimulatePrincipalPolicy' {} a -> s {actionNames = a} :: SimulatePrincipalPolicy) Core.. Lens._Coerce
+simulatePrincipalPolicy_actionNames :: Lens.Lens' SimulatePrincipalPolicy [Prelude.Text]
+simulatePrincipalPolicy_actionNames = Lens.lens (\SimulatePrincipalPolicy' {actionNames} -> actionNames) (\s@SimulatePrincipalPolicy' {} a -> s {actionNames = a} :: SimulatePrincipalPolicy) Prelude.. Lens._Coerce
 
 instance Core.AWSPager SimulatePrincipalPolicy where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? simulatePolicyResponse_isTruncated Core.. Lens._Just
+            Lens.^? simulatePolicyResponse_isTruncated
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.isNothing
+      Prelude.Nothing
+    | Prelude.isNothing
         ( rs
-            Lens.^? simulatePolicyResponse_marker Core.. Lens._Just
+            Lens.^? simulatePolicyResponse_marker Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& simulatePrincipalPolicy_marker
+          Prelude.& simulatePrincipalPolicy_marker
           Lens..~ rs
-          Lens.^? simulatePolicyResponse_marker Core.. Lens._Just
+          Lens.^? simulatePolicyResponse_marker Prelude.. Lens._Just
 
 instance Core.AWSRequest SimulatePrincipalPolicy where
   type
@@ -720,38 +723,43 @@ instance Core.AWSRequest SimulatePrincipalPolicy where
       "SimulatePrincipalPolicyResult"
       (\s h x -> Core.parseXML x)
 
-instance Core.Hashable SimulatePrincipalPolicy
+instance Prelude.Hashable SimulatePrincipalPolicy
 
-instance Core.NFData SimulatePrincipalPolicy
+instance Prelude.NFData SimulatePrincipalPolicy
 
 instance Core.ToHeaders SimulatePrincipalPolicy where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SimulatePrincipalPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SimulatePrincipalPolicy where
   toQuery SimulatePrincipalPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("SimulatePrincipalPolicy" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("SimulatePrincipalPolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "ResourceOwner" Core.=: resourceOwner,
         "ContextEntries"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> contextEntries),
+            ( Core.toQueryList "member"
+                Prelude.<$> contextEntries
+            ),
         "ResourcePolicy" Core.=: resourcePolicy,
         "ResourceArns"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> resourceArns),
+            (Core.toQueryList "member" Prelude.<$> resourceArns),
         "PermissionsBoundaryPolicyInputList"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> permissionsBoundaryPolicyInputList
+                Prelude.<$> permissionsBoundaryPolicyInputList
             ),
         "PolicyInputList"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> policyInputList),
+            ( Core.toQueryList "member"
+                Prelude.<$> policyInputList
+            ),
         "ResourceHandlingOption"
           Core.=: resourceHandlingOption,
         "CallerArn" Core.=: callerArn,

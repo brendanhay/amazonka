@@ -84,6 +84,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -94,16 +95,16 @@ data CreateVpcPeeringAuthorization = CreateVpcPeeringAuthorization'
   { -- | A unique identifier for the AWS account that you use to manage your
     -- Amazon GameLift fleet. You can find your Account ID in the AWS
     -- Management Console under account settings.
-    gameLiftAwsAccountId :: Core.Text,
+    gameLiftAwsAccountId :: Prelude.Text,
     -- | A unique identifier for a VPC with resources to be accessed by your
     -- Amazon GameLift fleet. The VPC must be in the same Region where your
     -- fleet is deployed. Look up a VPC ID using the
     -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS
     -- Management Console. Learn more about VPC peering in
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
-    peerVpcId :: Core.Text
+    peerVpcId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVpcPeeringAuthorization' with all optional fields omitted.
@@ -125,9 +126,9 @@ data CreateVpcPeeringAuthorization = CreateVpcPeeringAuthorization'
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
 newCreateVpcPeeringAuthorization ::
   -- | 'gameLiftAwsAccountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'peerVpcId'
-  Core.Text ->
+  Prelude.Text ->
   CreateVpcPeeringAuthorization
 newCreateVpcPeeringAuthorization
   pGameLiftAwsAccountId_
@@ -141,7 +142,7 @@ newCreateVpcPeeringAuthorization
 -- | A unique identifier for the AWS account that you use to manage your
 -- Amazon GameLift fleet. You can find your Account ID in the AWS
 -- Management Console under account settings.
-createVpcPeeringAuthorization_gameLiftAwsAccountId :: Lens.Lens' CreateVpcPeeringAuthorization Core.Text
+createVpcPeeringAuthorization_gameLiftAwsAccountId :: Lens.Lens' CreateVpcPeeringAuthorization Prelude.Text
 createVpcPeeringAuthorization_gameLiftAwsAccountId = Lens.lens (\CreateVpcPeeringAuthorization' {gameLiftAwsAccountId} -> gameLiftAwsAccountId) (\s@CreateVpcPeeringAuthorization' {} a -> s {gameLiftAwsAccountId = a} :: CreateVpcPeeringAuthorization)
 
 -- | A unique identifier for a VPC with resources to be accessed by your
@@ -150,7 +151,7 @@ createVpcPeeringAuthorization_gameLiftAwsAccountId = Lens.lens (\CreateVpcPeerin
 -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS
 -- Management Console. Learn more about VPC peering in
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
-createVpcPeeringAuthorization_peerVpcId :: Lens.Lens' CreateVpcPeeringAuthorization Core.Text
+createVpcPeeringAuthorization_peerVpcId :: Lens.Lens' CreateVpcPeeringAuthorization Prelude.Text
 createVpcPeeringAuthorization_peerVpcId = Lens.lens (\CreateVpcPeeringAuthorization' {peerVpcId} -> peerVpcId) (\s@CreateVpcPeeringAuthorization' {} a -> s {peerVpcId = a} :: CreateVpcPeeringAuthorization)
 
 instance
@@ -165,44 +166,48 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateVpcPeeringAuthorizationResponse'
-            Core.<$> (x Core..?> "VpcPeeringAuthorization")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "VpcPeeringAuthorization")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateVpcPeeringAuthorization
+instance
+  Prelude.Hashable
+    CreateVpcPeeringAuthorization
 
-instance Core.NFData CreateVpcPeeringAuthorization
+instance Prelude.NFData CreateVpcPeeringAuthorization
 
 instance Core.ToHeaders CreateVpcPeeringAuthorization where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.CreateVpcPeeringAuthorization" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateVpcPeeringAuthorization where
   toJSON CreateVpcPeeringAuthorization' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "GameLiftAwsAccountId"
                   Core..= gameLiftAwsAccountId
               ),
-            Core.Just ("PeerVpcId" Core..= peerVpcId)
+            Prelude.Just ("PeerVpcId" Core..= peerVpcId)
           ]
       )
 
 instance Core.ToPath CreateVpcPeeringAuthorization where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateVpcPeeringAuthorization where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -210,11 +215,11 @@ instance Core.ToQuery CreateVpcPeeringAuthorization where
 data CreateVpcPeeringAuthorizationResponse = CreateVpcPeeringAuthorizationResponse'
   { -- | Details on the requested VPC peering authorization, including
     -- expiration.
-    vpcPeeringAuthorization :: Core.Maybe VpcPeeringAuthorization,
+    vpcPeeringAuthorization :: Prelude.Maybe VpcPeeringAuthorization,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVpcPeeringAuthorizationResponse' with all optional fields omitted.
@@ -230,24 +235,24 @@ data CreateVpcPeeringAuthorizationResponse = CreateVpcPeeringAuthorizationRespon
 -- 'httpStatus', 'createVpcPeeringAuthorizationResponse_httpStatus' - The response's http status code.
 newCreateVpcPeeringAuthorizationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateVpcPeeringAuthorizationResponse
 newCreateVpcPeeringAuthorizationResponse pHttpStatus_ =
   CreateVpcPeeringAuthorizationResponse'
     { vpcPeeringAuthorization =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Details on the requested VPC peering authorization, including
 -- expiration.
-createVpcPeeringAuthorizationResponse_vpcPeeringAuthorization :: Lens.Lens' CreateVpcPeeringAuthorizationResponse (Core.Maybe VpcPeeringAuthorization)
+createVpcPeeringAuthorizationResponse_vpcPeeringAuthorization :: Lens.Lens' CreateVpcPeeringAuthorizationResponse (Prelude.Maybe VpcPeeringAuthorization)
 createVpcPeeringAuthorizationResponse_vpcPeeringAuthorization = Lens.lens (\CreateVpcPeeringAuthorizationResponse' {vpcPeeringAuthorization} -> vpcPeeringAuthorization) (\s@CreateVpcPeeringAuthorizationResponse' {} a -> s {vpcPeeringAuthorization = a} :: CreateVpcPeeringAuthorizationResponse)
 
 -- | The response's http status code.
-createVpcPeeringAuthorizationResponse_httpStatus :: Lens.Lens' CreateVpcPeeringAuthorizationResponse Core.Int
+createVpcPeeringAuthorizationResponse_httpStatus :: Lens.Lens' CreateVpcPeeringAuthorizationResponse Prelude.Int
 createVpcPeeringAuthorizationResponse_httpStatus = Lens.lens (\CreateVpcPeeringAuthorizationResponse' {httpStatus} -> httpStatus) (\s@CreateVpcPeeringAuthorizationResponse' {} a -> s {httpStatus = a} :: CreateVpcPeeringAuthorizationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateVpcPeeringAuthorizationResponse

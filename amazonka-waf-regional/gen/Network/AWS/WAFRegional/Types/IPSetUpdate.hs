@@ -21,6 +21,7 @@ module Network.AWS.WAFRegional.Types.IPSetUpdate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.ChangeAction
 import Network.AWS.WAFRegional.Types.IPSetDescriptor
 
@@ -43,7 +44,7 @@ data IPSetUpdate = IPSetUpdate'
     -- notation) that web requests originate from.
     iPSetDescriptor :: IPSetDescriptor
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IPSetUpdate' with all optional fields omitted.
@@ -78,16 +79,16 @@ iPSetUpdate_action = Lens.lens (\IPSetUpdate' {action} -> action) (\s@IPSetUpdat
 iPSetUpdate_iPSetDescriptor :: Lens.Lens' IPSetUpdate IPSetDescriptor
 iPSetUpdate_iPSetDescriptor = Lens.lens (\IPSetUpdate' {iPSetDescriptor} -> iPSetDescriptor) (\s@IPSetUpdate' {} a -> s {iPSetDescriptor = a} :: IPSetUpdate)
 
-instance Core.Hashable IPSetUpdate
+instance Prelude.Hashable IPSetUpdate
 
-instance Core.NFData IPSetUpdate
+instance Prelude.NFData IPSetUpdate
 
 instance Core.ToJSON IPSetUpdate where
   toJSON IPSetUpdate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Action" Core..= action),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Action" Core..= action),
+            Prelude.Just
               ("IPSetDescriptor" Core..= iPSetDescriptor)
           ]
       )

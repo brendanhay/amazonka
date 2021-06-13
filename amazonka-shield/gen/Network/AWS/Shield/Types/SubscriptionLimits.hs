@@ -21,6 +21,7 @@ module Network.AWS.Shield.Types.SubscriptionLimits where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Shield.Types.ProtectionGroupLimits
 import Network.AWS.Shield.Types.ProtectionLimits
 
@@ -33,7 +34,7 @@ data SubscriptionLimits = SubscriptionLimits'
     -- | Limits settings on protection groups for your subscription.
     protectionGroupLimits :: ProtectionGroupLimits
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SubscriptionLimits' with all optional fields omitted.
@@ -75,10 +76,10 @@ instance Core.FromJSON SubscriptionLimits where
       "SubscriptionLimits"
       ( \x ->
           SubscriptionLimits'
-            Core.<$> (x Core..: "ProtectionLimits")
-            Core.<*> (x Core..: "ProtectionGroupLimits")
+            Prelude.<$> (x Core..: "ProtectionLimits")
+            Prelude.<*> (x Core..: "ProtectionGroupLimits")
       )
 
-instance Core.Hashable SubscriptionLimits
+instance Prelude.Hashable SubscriptionLimits
 
-instance Core.NFData SubscriptionLimits
+instance Prelude.NFData SubscriptionLimits

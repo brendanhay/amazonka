@@ -45,6 +45,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +58,11 @@ data UpdateHITReviewStatus = UpdateHITReviewStatus'
     --
     -- -   Setting this to true will only transition a HIT from @Reviewing@ to
     --     @Reviewable@
-    revert :: Core.Maybe Core.Bool,
+    revert :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the HIT to update.
-    hITId :: Core.Text
+    hITId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateHITReviewStatus' with all optional fields omitted.
@@ -82,11 +83,11 @@ data UpdateHITReviewStatus = UpdateHITReviewStatus'
 -- 'hITId', 'updateHITReviewStatus_hITId' - The ID of the HIT to update.
 newUpdateHITReviewStatus ::
   -- | 'hITId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateHITReviewStatus
 newUpdateHITReviewStatus pHITId_ =
   UpdateHITReviewStatus'
-    { revert = Core.Nothing,
+    { revert = Prelude.Nothing,
       hITId = pHITId_
     }
 
@@ -97,11 +98,11 @@ newUpdateHITReviewStatus pHITId_ =
 --
 -- -   Setting this to true will only transition a HIT from @Reviewing@ to
 --     @Reviewable@
-updateHITReviewStatus_revert :: Lens.Lens' UpdateHITReviewStatus (Core.Maybe Core.Bool)
+updateHITReviewStatus_revert :: Lens.Lens' UpdateHITReviewStatus (Prelude.Maybe Prelude.Bool)
 updateHITReviewStatus_revert = Lens.lens (\UpdateHITReviewStatus' {revert} -> revert) (\s@UpdateHITReviewStatus' {} a -> s {revert = a} :: UpdateHITReviewStatus)
 
 -- | The ID of the HIT to update.
-updateHITReviewStatus_hITId :: Lens.Lens' UpdateHITReviewStatus Core.Text
+updateHITReviewStatus_hITId :: Lens.Lens' UpdateHITReviewStatus Prelude.Text
 updateHITReviewStatus_hITId = Lens.lens (\UpdateHITReviewStatus' {hITId} -> hITId) (\s@UpdateHITReviewStatus' {} a -> s {hITId = a} :: UpdateHITReviewStatus)
 
 instance Core.AWSRequest UpdateHITReviewStatus where
@@ -113,47 +114,49 @@ instance Core.AWSRequest UpdateHITReviewStatus where
     Response.receiveEmpty
       ( \s h x ->
           UpdateHITReviewStatusResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateHITReviewStatus
+instance Prelude.Hashable UpdateHITReviewStatus
 
-instance Core.NFData UpdateHITReviewStatus
+instance Prelude.NFData UpdateHITReviewStatus
 
 instance Core.ToHeaders UpdateHITReviewStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MTurkRequesterServiceV20170117.UpdateHITReviewStatus" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateHITReviewStatus where
   toJSON UpdateHITReviewStatus' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Revert" Core..=) Core.<$> revert,
-            Core.Just ("HITId" Core..= hITId)
+      ( Prelude.catMaybes
+          [ ("Revert" Core..=) Prelude.<$> revert,
+            Prelude.Just ("HITId" Core..= hITId)
           ]
       )
 
 instance Core.ToPath UpdateHITReviewStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateHITReviewStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateHITReviewStatusResponse' smart constructor.
 data UpdateHITReviewStatusResponse = UpdateHITReviewStatusResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateHITReviewStatusResponse' with all optional fields omitted.
@@ -166,7 +169,7 @@ data UpdateHITReviewStatusResponse = UpdateHITReviewStatusResponse'
 -- 'httpStatus', 'updateHITReviewStatusResponse_httpStatus' - The response's http status code.
 newUpdateHITReviewStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateHITReviewStatusResponse
 newUpdateHITReviewStatusResponse pHttpStatus_ =
   UpdateHITReviewStatusResponse'
@@ -175,7 +178,7 @@ newUpdateHITReviewStatusResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateHITReviewStatusResponse_httpStatus :: Lens.Lens' UpdateHITReviewStatusResponse Core.Int
+updateHITReviewStatusResponse_httpStatus :: Lens.Lens' UpdateHITReviewStatusResponse Prelude.Int
 updateHITReviewStatusResponse_httpStatus = Lens.lens (\UpdateHITReviewStatusResponse' {httpStatus} -> httpStatus) (\s@UpdateHITReviewStatusResponse' {} a -> s {httpStatus = a} :: UpdateHITReviewStatusResponse)
 
-instance Core.NFData UpdateHITReviewStatusResponse
+instance Prelude.NFData UpdateHITReviewStatusResponse

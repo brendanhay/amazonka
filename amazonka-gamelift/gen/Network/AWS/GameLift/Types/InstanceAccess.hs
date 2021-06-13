@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.InstanceCredentials
 import Network.AWS.GameLift.Types.OperatingSystem
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information required to remotely connect to a fleet instance. Access is
 -- requested by calling GetInstanceAccess.
@@ -30,17 +31,17 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newInstanceAccess' smart constructor.
 data InstanceAccess = InstanceAccess'
   { -- | A unique identifier for an instance being accessed.
-    instanceId :: Core.Maybe Core.Text,
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a fleet containing the instance being accessed.
-    fleetId :: Core.Maybe Core.Text,
+    fleetId :: Prelude.Maybe Prelude.Text,
     -- | IP address that is assigned to the instance.
-    ipAddress :: Core.Maybe Core.Text,
+    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | Operating system that is running on the instance.
-    operatingSystem :: Core.Maybe OperatingSystem,
+    operatingSystem :: Prelude.Maybe OperatingSystem,
     -- | Credentials required to access the instance.
-    credentials :: Core.Maybe (Core.Sensitive InstanceCredentials)
+    credentials :: Prelude.Maybe (Core.Sensitive InstanceCredentials)
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceAccess' with all optional fields omitted.
@@ -63,32 +64,32 @@ newInstanceAccess ::
   InstanceAccess
 newInstanceAccess =
   InstanceAccess'
-    { instanceId = Core.Nothing,
-      fleetId = Core.Nothing,
-      ipAddress = Core.Nothing,
-      operatingSystem = Core.Nothing,
-      credentials = Core.Nothing
+    { instanceId = Prelude.Nothing,
+      fleetId = Prelude.Nothing,
+      ipAddress = Prelude.Nothing,
+      operatingSystem = Prelude.Nothing,
+      credentials = Prelude.Nothing
     }
 
 -- | A unique identifier for an instance being accessed.
-instanceAccess_instanceId :: Lens.Lens' InstanceAccess (Core.Maybe Core.Text)
+instanceAccess_instanceId :: Lens.Lens' InstanceAccess (Prelude.Maybe Prelude.Text)
 instanceAccess_instanceId = Lens.lens (\InstanceAccess' {instanceId} -> instanceId) (\s@InstanceAccess' {} a -> s {instanceId = a} :: InstanceAccess)
 
 -- | A unique identifier for a fleet containing the instance being accessed.
-instanceAccess_fleetId :: Lens.Lens' InstanceAccess (Core.Maybe Core.Text)
+instanceAccess_fleetId :: Lens.Lens' InstanceAccess (Prelude.Maybe Prelude.Text)
 instanceAccess_fleetId = Lens.lens (\InstanceAccess' {fleetId} -> fleetId) (\s@InstanceAccess' {} a -> s {fleetId = a} :: InstanceAccess)
 
 -- | IP address that is assigned to the instance.
-instanceAccess_ipAddress :: Lens.Lens' InstanceAccess (Core.Maybe Core.Text)
+instanceAccess_ipAddress :: Lens.Lens' InstanceAccess (Prelude.Maybe Prelude.Text)
 instanceAccess_ipAddress = Lens.lens (\InstanceAccess' {ipAddress} -> ipAddress) (\s@InstanceAccess' {} a -> s {ipAddress = a} :: InstanceAccess)
 
 -- | Operating system that is running on the instance.
-instanceAccess_operatingSystem :: Lens.Lens' InstanceAccess (Core.Maybe OperatingSystem)
+instanceAccess_operatingSystem :: Lens.Lens' InstanceAccess (Prelude.Maybe OperatingSystem)
 instanceAccess_operatingSystem = Lens.lens (\InstanceAccess' {operatingSystem} -> operatingSystem) (\s@InstanceAccess' {} a -> s {operatingSystem = a} :: InstanceAccess)
 
 -- | Credentials required to access the instance.
-instanceAccess_credentials :: Lens.Lens' InstanceAccess (Core.Maybe InstanceCredentials)
-instanceAccess_credentials = Lens.lens (\InstanceAccess' {credentials} -> credentials) (\s@InstanceAccess' {} a -> s {credentials = a} :: InstanceAccess) Core.. Lens.mapping Core._Sensitive
+instanceAccess_credentials :: Lens.Lens' InstanceAccess (Prelude.Maybe InstanceCredentials)
+instanceAccess_credentials = Lens.lens (\InstanceAccess' {credentials} -> credentials) (\s@InstanceAccess' {} a -> s {credentials = a} :: InstanceAccess) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON InstanceAccess where
   parseJSON =
@@ -96,13 +97,13 @@ instance Core.FromJSON InstanceAccess where
       "InstanceAccess"
       ( \x ->
           InstanceAccess'
-            Core.<$> (x Core..:? "InstanceId")
-            Core.<*> (x Core..:? "FleetId")
-            Core.<*> (x Core..:? "IpAddress")
-            Core.<*> (x Core..:? "OperatingSystem")
-            Core.<*> (x Core..:? "Credentials")
+            Prelude.<$> (x Core..:? "InstanceId")
+            Prelude.<*> (x Core..:? "FleetId")
+            Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<*> (x Core..:? "OperatingSystem")
+            Prelude.<*> (x Core..:? "Credentials")
       )
 
-instance Core.Hashable InstanceAccess
+instance Prelude.Hashable InstanceAccess
 
-instance Core.NFData InstanceAccess
+instance Prelude.NFData InstanceAccess

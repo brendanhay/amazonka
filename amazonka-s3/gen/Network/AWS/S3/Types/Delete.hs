@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.Delete where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ObjectIdentifier
 
@@ -30,11 +31,11 @@ import Network.AWS.S3.Types.ObjectIdentifier
 data Delete = Delete'
   { -- | Element to enable quiet mode for the request. When you add this element,
     -- you must set its value to true.
-    quiet :: Core.Maybe Core.Bool,
+    quiet :: Prelude.Maybe Prelude.Bool,
     -- | The objects to delete.
     objects :: [ObjectIdentifier]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Delete' with all optional fields omitted.
@@ -52,26 +53,26 @@ newDelete ::
   Delete
 newDelete =
   Delete'
-    { quiet = Core.Nothing,
-      objects = Core.mempty
+    { quiet = Prelude.Nothing,
+      objects = Prelude.mempty
     }
 
 -- | Element to enable quiet mode for the request. When you add this element,
 -- you must set its value to true.
-delete_quiet :: Lens.Lens' Delete (Core.Maybe Core.Bool)
+delete_quiet :: Lens.Lens' Delete (Prelude.Maybe Prelude.Bool)
 delete_quiet = Lens.lens (\Delete' {quiet} -> quiet) (\s@Delete' {} a -> s {quiet = a} :: Delete)
 
 -- | The objects to delete.
 delete_objects :: Lens.Lens' Delete [ObjectIdentifier]
-delete_objects = Lens.lens (\Delete' {objects} -> objects) (\s@Delete' {} a -> s {objects = a} :: Delete) Core.. Lens._Coerce
+delete_objects = Lens.lens (\Delete' {objects} -> objects) (\s@Delete' {} a -> s {objects = a} :: Delete) Prelude.. Lens._Coerce
 
-instance Core.Hashable Delete
+instance Prelude.Hashable Delete
 
-instance Core.NFData Delete
+instance Prelude.NFData Delete
 
 instance Core.ToXML Delete where
   toXML Delete' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Quiet" Core.@= quiet,
         Core.toXMLList "Object" objects
       ]

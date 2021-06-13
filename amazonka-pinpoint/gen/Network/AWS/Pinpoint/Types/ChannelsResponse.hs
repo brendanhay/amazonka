@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.ChannelsResponse where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.ChannelResponse
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the general settings and status of all
 -- channels for an application, including channels that aren\'t enabled for
@@ -31,9 +32,9 @@ import Network.AWS.Pinpoint.Types.ChannelResponse
 data ChannelsResponse = ChannelsResponse'
   { -- | A map that contains a multipart response for each channel. For each item
     -- in this object, the ChannelType is the key and the Channel is the value.
-    channels :: Core.HashMap Core.Text ChannelResponse
+    channels :: Prelude.HashMap Prelude.Text ChannelResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChannelsResponse' with all optional fields omitted.
@@ -48,12 +49,12 @@ data ChannelsResponse = ChannelsResponse'
 newChannelsResponse ::
   ChannelsResponse
 newChannelsResponse =
-  ChannelsResponse' {channels = Core.mempty}
+  ChannelsResponse' {channels = Prelude.mempty}
 
 -- | A map that contains a multipart response for each channel. For each item
 -- in this object, the ChannelType is the key and the Channel is the value.
-channelsResponse_channels :: Lens.Lens' ChannelsResponse (Core.HashMap Core.Text ChannelResponse)
-channelsResponse_channels = Lens.lens (\ChannelsResponse' {channels} -> channels) (\s@ChannelsResponse' {} a -> s {channels = a} :: ChannelsResponse) Core.. Lens._Coerce
+channelsResponse_channels :: Lens.Lens' ChannelsResponse (Prelude.HashMap Prelude.Text ChannelResponse)
+channelsResponse_channels = Lens.lens (\ChannelsResponse' {channels} -> channels) (\s@ChannelsResponse' {} a -> s {channels = a} :: ChannelsResponse) Prelude.. Lens._Coerce
 
 instance Core.FromJSON ChannelsResponse where
   parseJSON =
@@ -61,9 +62,9 @@ instance Core.FromJSON ChannelsResponse where
       "ChannelsResponse"
       ( \x ->
           ChannelsResponse'
-            Core.<$> (x Core..:? "Channels" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "Channels" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ChannelsResponse
+instance Prelude.Hashable ChannelsResponse
 
-instance Core.NFData ChannelsResponse
+instance Prelude.NFData ChannelsResponse

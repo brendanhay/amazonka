@@ -54,6 +54,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,13 +66,13 @@ data GetDimensionValues = GetDimensionValues'
     -- results as the default value for this parameter.
     --
     -- For @GetDimensionValues@, MaxResults has an upper limit of 1000.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The value that you want to search the filter values for.
-    searchString :: Core.Maybe Core.Text,
+    searchString :: Prelude.Maybe Prelude.Text,
     -- | The token to retrieve the next set of results. AWS provides the token
     -- when the response from a previous call has more results than the maximum
     -- page size.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The context for the call to @GetDimensionValues@. This can be
     -- @RESERVATIONS@ or @COST_AND_USAGE@. The default value is
     -- @COST_AND_USAGE@. If the context is set to @RESERVATIONS@, the resulting
@@ -178,7 +179,7 @@ data GetDimensionValues = GetDimensionValues'
     --     AWS ID of the member account.
     --
     -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
-    context :: Core.Maybe Context,
+    context :: Prelude.Maybe Context,
     -- | The value by which you want to sort the data.
     --
     -- The key represents cost and usage metrics. The following values are
@@ -203,8 +204,8 @@ data GetDimensionValues = GetDimensionValues'
     -- When you specify a @SortBy@ paramater, the context must be
     -- @COST_AND_USAGE@. Further, when using @SortBy@, @NextPageToken@ and
     -- @SearchString@ are not supported.
-    sortBy :: Core.Maybe [SortDefinition],
-    filter' :: Core.Maybe Expression,
+    sortBy :: Prelude.Maybe [SortDefinition],
+    filter' :: Prelude.Maybe Expression,
     -- | The start and end dates for retrieving the dimension values. The start
     -- date is inclusive, but the end date is exclusive. For example, if
     -- @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then the cost and
@@ -215,7 +216,7 @@ data GetDimensionValues = GetDimensionValues'
     -- @Context@. For more information, see @Context@.
     dimension :: Dimension
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDimensionValues' with all optional fields omitted.
@@ -388,12 +389,12 @@ newGetDimensionValues ::
   GetDimensionValues
 newGetDimensionValues pTimePeriod_ pDimension_ =
   GetDimensionValues'
-    { maxResults = Core.Nothing,
-      searchString = Core.Nothing,
-      nextPageToken = Core.Nothing,
-      context = Core.Nothing,
-      sortBy = Core.Nothing,
-      filter' = Core.Nothing,
+    { maxResults = Prelude.Nothing,
+      searchString = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
+      context = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      filter' = Prelude.Nothing,
       timePeriod = pTimePeriod_,
       dimension = pDimension_
     }
@@ -404,17 +405,17 @@ newGetDimensionValues pTimePeriod_ pDimension_ =
 -- results as the default value for this parameter.
 --
 -- For @GetDimensionValues@, MaxResults has an upper limit of 1000.
-getDimensionValues_maxResults :: Lens.Lens' GetDimensionValues (Core.Maybe Core.Natural)
+getDimensionValues_maxResults :: Lens.Lens' GetDimensionValues (Prelude.Maybe Prelude.Natural)
 getDimensionValues_maxResults = Lens.lens (\GetDimensionValues' {maxResults} -> maxResults) (\s@GetDimensionValues' {} a -> s {maxResults = a} :: GetDimensionValues)
 
 -- | The value that you want to search the filter values for.
-getDimensionValues_searchString :: Lens.Lens' GetDimensionValues (Core.Maybe Core.Text)
+getDimensionValues_searchString :: Lens.Lens' GetDimensionValues (Prelude.Maybe Prelude.Text)
 getDimensionValues_searchString = Lens.lens (\GetDimensionValues' {searchString} -> searchString) (\s@GetDimensionValues' {} a -> s {searchString = a} :: GetDimensionValues)
 
 -- | The token to retrieve the next set of results. AWS provides the token
 -- when the response from a previous call has more results than the maximum
 -- page size.
-getDimensionValues_nextPageToken :: Lens.Lens' GetDimensionValues (Core.Maybe Core.Text)
+getDimensionValues_nextPageToken :: Lens.Lens' GetDimensionValues (Prelude.Maybe Prelude.Text)
 getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToken} -> nextPageToken) (\s@GetDimensionValues' {} a -> s {nextPageToken = a} :: GetDimensionValues)
 
 -- | The context for the call to @GetDimensionValues@. This can be
@@ -523,7 +524,7 @@ getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToke
 --     AWS ID of the member account.
 --
 -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
-getDimensionValues_context :: Lens.Lens' GetDimensionValues (Core.Maybe Context)
+getDimensionValues_context :: Lens.Lens' GetDimensionValues (Prelude.Maybe Context)
 getDimensionValues_context = Lens.lens (\GetDimensionValues' {context} -> context) (\s@GetDimensionValues' {} a -> s {context = a} :: GetDimensionValues)
 
 -- | The value by which you want to sort the data.
@@ -550,11 +551,11 @@ getDimensionValues_context = Lens.lens (\GetDimensionValues' {context} -> contex
 -- When you specify a @SortBy@ paramater, the context must be
 -- @COST_AND_USAGE@. Further, when using @SortBy@, @NextPageToken@ and
 -- @SearchString@ are not supported.
-getDimensionValues_sortBy :: Lens.Lens' GetDimensionValues (Core.Maybe [SortDefinition])
-getDimensionValues_sortBy = Lens.lens (\GetDimensionValues' {sortBy} -> sortBy) (\s@GetDimensionValues' {} a -> s {sortBy = a} :: GetDimensionValues) Core.. Lens.mapping Lens._Coerce
+getDimensionValues_sortBy :: Lens.Lens' GetDimensionValues (Prelude.Maybe [SortDefinition])
+getDimensionValues_sortBy = Lens.lens (\GetDimensionValues' {sortBy} -> sortBy) (\s@GetDimensionValues' {} a -> s {sortBy = a} :: GetDimensionValues) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getDimensionValues_filter :: Lens.Lens' GetDimensionValues (Core.Maybe Expression)
+getDimensionValues_filter :: Lens.Lens' GetDimensionValues (Prelude.Maybe Expression)
 getDimensionValues_filter = Lens.lens (\GetDimensionValues' {filter'} -> filter') (\s@GetDimensionValues' {} a -> s {filter' = a} :: GetDimensionValues)
 
 -- | The start and end dates for retrieving the dimension values. The start
@@ -579,59 +580,63 @@ instance Core.AWSRequest GetDimensionValues where
     Response.receiveJSON
       ( \s h x ->
           GetDimensionValuesResponse'
-            Core.<$> (x Core..?> "NextPageToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "DimensionValues" Core..!@ Core.mempty)
-            Core.<*> (x Core..:> "ReturnSize")
-            Core.<*> (x Core..:> "TotalSize")
+            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..?> "DimensionValues"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:> "ReturnSize")
+            Prelude.<*> (x Core..:> "TotalSize")
       )
 
-instance Core.Hashable GetDimensionValues
+instance Prelude.Hashable GetDimensionValues
 
-instance Core.NFData GetDimensionValues
+instance Prelude.NFData GetDimensionValues
 
 instance Core.ToHeaders GetDimensionValues where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSInsightsIndexService.GetDimensionValues" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetDimensionValues where
   toJSON GetDimensionValues' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("MaxResults" Core..=) Core.<$> maxResults,
-            ("SearchString" Core..=) Core.<$> searchString,
-            ("NextPageToken" Core..=) Core.<$> nextPageToken,
-            ("Context" Core..=) Core.<$> context,
-            ("SortBy" Core..=) Core.<$> sortBy,
-            ("Filter" Core..=) Core.<$> filter',
-            Core.Just ("TimePeriod" Core..= timePeriod),
-            Core.Just ("Dimension" Core..= dimension)
+      ( Prelude.catMaybes
+          [ ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SearchString" Core..=) Prelude.<$> searchString,
+            ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
+            ("Context" Core..=) Prelude.<$> context,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("Filter" Core..=) Prelude.<$> filter',
+            Prelude.Just ("TimePeriod" Core..= timePeriod),
+            Prelude.Just ("Dimension" Core..= dimension)
           ]
       )
 
 instance Core.ToPath GetDimensionValues where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetDimensionValues where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDimensionValuesResponse' smart constructor.
 data GetDimensionValuesResponse = GetDimensionValuesResponse'
   { -- | The token for the next set of retrievable results. AWS provides the
     -- token when the response from a previous call has more results than the
     -- maximum page size.
-    nextPageToken :: Core.Maybe Core.Text,
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The filters that you used to filter your request. Some dimensions are
     -- available only for a specific context.
     --
@@ -734,11 +739,11 @@ data GetDimensionValuesResponse = GetDimensionValuesResponse'
     -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
     dimensionValues :: [DimensionValuesWithAttributes],
     -- | The number of results that AWS returned at one time.
-    returnSize :: Core.Int,
+    returnSize :: Prelude.Int,
     -- | The total number of search results.
-    totalSize :: Core.Int
+    totalSize :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDimensionValuesResponse' with all optional fields omitted.
@@ -860,11 +865,11 @@ data GetDimensionValuesResponse = GetDimensionValuesResponse'
 -- 'totalSize', 'getDimensionValuesResponse_totalSize' - The total number of search results.
 newGetDimensionValuesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'returnSize'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'totalSize'
-  Core.Int ->
+  Prelude.Int ->
   GetDimensionValuesResponse
 newGetDimensionValuesResponse
   pHttpStatus_
@@ -872,9 +877,9 @@ newGetDimensionValuesResponse
   pTotalSize_ =
     GetDimensionValuesResponse'
       { nextPageToken =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_,
-        dimensionValues = Core.mempty,
+        dimensionValues = Prelude.mempty,
         returnSize = pReturnSize_,
         totalSize = pTotalSize_
       }
@@ -882,11 +887,11 @@ newGetDimensionValuesResponse
 -- | The token for the next set of retrievable results. AWS provides the
 -- token when the response from a previous call has more results than the
 -- maximum page size.
-getDimensionValuesResponse_nextPageToken :: Lens.Lens' GetDimensionValuesResponse (Core.Maybe Core.Text)
+getDimensionValuesResponse_nextPageToken :: Lens.Lens' GetDimensionValuesResponse (Prelude.Maybe Prelude.Text)
 getDimensionValuesResponse_nextPageToken = Lens.lens (\GetDimensionValuesResponse' {nextPageToken} -> nextPageToken) (\s@GetDimensionValuesResponse' {} a -> s {nextPageToken = a} :: GetDimensionValuesResponse)
 
 -- | The response's http status code.
-getDimensionValuesResponse_httpStatus :: Lens.Lens' GetDimensionValuesResponse Core.Int
+getDimensionValuesResponse_httpStatus :: Lens.Lens' GetDimensionValuesResponse Prelude.Int
 getDimensionValuesResponse_httpStatus = Lens.lens (\GetDimensionValuesResponse' {httpStatus} -> httpStatus) (\s@GetDimensionValuesResponse' {} a -> s {httpStatus = a} :: GetDimensionValuesResponse)
 
 -- | The filters that you used to filter your request. Some dimensions are
@@ -990,14 +995,14 @@ getDimensionValuesResponse_httpStatus = Lens.lens (\GetDimensionValuesResponse' 
 --
 -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
 getDimensionValuesResponse_dimensionValues :: Lens.Lens' GetDimensionValuesResponse [DimensionValuesWithAttributes]
-getDimensionValuesResponse_dimensionValues = Lens.lens (\GetDimensionValuesResponse' {dimensionValues} -> dimensionValues) (\s@GetDimensionValuesResponse' {} a -> s {dimensionValues = a} :: GetDimensionValuesResponse) Core.. Lens._Coerce
+getDimensionValuesResponse_dimensionValues = Lens.lens (\GetDimensionValuesResponse' {dimensionValues} -> dimensionValues) (\s@GetDimensionValuesResponse' {} a -> s {dimensionValues = a} :: GetDimensionValuesResponse) Prelude.. Lens._Coerce
 
 -- | The number of results that AWS returned at one time.
-getDimensionValuesResponse_returnSize :: Lens.Lens' GetDimensionValuesResponse Core.Int
+getDimensionValuesResponse_returnSize :: Lens.Lens' GetDimensionValuesResponse Prelude.Int
 getDimensionValuesResponse_returnSize = Lens.lens (\GetDimensionValuesResponse' {returnSize} -> returnSize) (\s@GetDimensionValuesResponse' {} a -> s {returnSize = a} :: GetDimensionValuesResponse)
 
 -- | The total number of search results.
-getDimensionValuesResponse_totalSize :: Lens.Lens' GetDimensionValuesResponse Core.Int
+getDimensionValuesResponse_totalSize :: Lens.Lens' GetDimensionValuesResponse Prelude.Int
 getDimensionValuesResponse_totalSize = Lens.lens (\GetDimensionValuesResponse' {totalSize} -> totalSize) (\s@GetDimensionValuesResponse' {} a -> s {totalSize = a} :: GetDimensionValuesResponse)
 
-instance Core.NFData GetDimensionValuesResponse
+instance Prelude.NFData GetDimensionValuesResponse

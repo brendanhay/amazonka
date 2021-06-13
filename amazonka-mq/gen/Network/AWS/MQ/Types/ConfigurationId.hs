@@ -21,6 +21,7 @@ module Network.AWS.MQ.Types.ConfigurationId where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of information about the configuration.
 -- Does not apply to RabbitMQ brokers.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newConfigurationId' smart constructor.
 data ConfigurationId = ConfigurationId'
   { -- | Required. The unique ID that Amazon MQ generates for the configuration.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The revision number of the configuration.
-    revision :: Core.Maybe Core.Int
+    revision :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfigurationId' with all optional fields omitted.
@@ -49,16 +50,16 @@ newConfigurationId ::
   ConfigurationId
 newConfigurationId =
   ConfigurationId'
-    { id = Core.Nothing,
-      revision = Core.Nothing
+    { id = Prelude.Nothing,
+      revision = Prelude.Nothing
     }
 
 -- | Required. The unique ID that Amazon MQ generates for the configuration.
-configurationId_id :: Lens.Lens' ConfigurationId (Core.Maybe Core.Text)
+configurationId_id :: Lens.Lens' ConfigurationId (Prelude.Maybe Prelude.Text)
 configurationId_id = Lens.lens (\ConfigurationId' {id} -> id) (\s@ConfigurationId' {} a -> s {id = a} :: ConfigurationId)
 
 -- | The revision number of the configuration.
-configurationId_revision :: Lens.Lens' ConfigurationId (Core.Maybe Core.Int)
+configurationId_revision :: Lens.Lens' ConfigurationId (Prelude.Maybe Prelude.Int)
 configurationId_revision = Lens.lens (\ConfigurationId' {revision} -> revision) (\s@ConfigurationId' {} a -> s {revision = a} :: ConfigurationId)
 
 instance Core.FromJSON ConfigurationId where
@@ -67,18 +68,19 @@ instance Core.FromJSON ConfigurationId where
       "ConfigurationId"
       ( \x ->
           ConfigurationId'
-            Core.<$> (x Core..:? "id") Core.<*> (x Core..:? "revision")
+            Prelude.<$> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "revision")
       )
 
-instance Core.Hashable ConfigurationId
+instance Prelude.Hashable ConfigurationId
 
-instance Core.NFData ConfigurationId
+instance Prelude.NFData ConfigurationId
 
 instance Core.ToJSON ConfigurationId where
   toJSON ConfigurationId' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("id" Core..=) Core.<$> id,
-            ("revision" Core..=) Core.<$> revision
+      ( Prelude.catMaybes
+          [ ("id" Core..=) Prelude.<$> id,
+            ("revision" Core..=) Prelude.<$> revision
           ]
       )

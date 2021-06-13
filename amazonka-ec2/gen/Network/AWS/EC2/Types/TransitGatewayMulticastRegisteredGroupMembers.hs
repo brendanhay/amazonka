@@ -22,19 +22,20 @@ module Network.AWS.EC2.Types.TransitGatewayMulticastRegisteredGroupMembers where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the registered transit gateway multicast group members.
 --
 -- /See:/ 'newTransitGatewayMulticastRegisteredGroupMembers' smart constructor.
 data TransitGatewayMulticastRegisteredGroupMembers = TransitGatewayMulticastRegisteredGroupMembers'
   { -- | The ID of the transit gateway multicast domain.
-    transitGatewayMulticastDomainId :: Core.Maybe Core.Text,
+    transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text,
     -- | The IP address assigned to the transit gateway multicast group.
-    groupIpAddress :: Core.Maybe Core.Text,
+    groupIpAddress :: Prelude.Maybe Prelude.Text,
     -- | The ID of the registered network interfaces.
-    registeredNetworkInterfaceIds :: Core.Maybe [Core.Text]
+    registeredNetworkInterfaceIds :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayMulticastRegisteredGroupMembers' with all optional fields omitted.
@@ -54,24 +55,24 @@ newTransitGatewayMulticastRegisteredGroupMembers ::
 newTransitGatewayMulticastRegisteredGroupMembers =
   TransitGatewayMulticastRegisteredGroupMembers'
     { transitGatewayMulticastDomainId =
-        Core.Nothing,
+        Prelude.Nothing,
       groupIpAddress =
-        Core.Nothing,
+        Prelude.Nothing,
       registeredNetworkInterfaceIds =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The ID of the transit gateway multicast domain.
-transitGatewayMulticastRegisteredGroupMembers_transitGatewayMulticastDomainId :: Lens.Lens' TransitGatewayMulticastRegisteredGroupMembers (Core.Maybe Core.Text)
+transitGatewayMulticastRegisteredGroupMembers_transitGatewayMulticastDomainId :: Lens.Lens' TransitGatewayMulticastRegisteredGroupMembers (Prelude.Maybe Prelude.Text)
 transitGatewayMulticastRegisteredGroupMembers_transitGatewayMulticastDomainId = Lens.lens (\TransitGatewayMulticastRegisteredGroupMembers' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@TransitGatewayMulticastRegisteredGroupMembers' {} a -> s {transitGatewayMulticastDomainId = a} :: TransitGatewayMulticastRegisteredGroupMembers)
 
 -- | The IP address assigned to the transit gateway multicast group.
-transitGatewayMulticastRegisteredGroupMembers_groupIpAddress :: Lens.Lens' TransitGatewayMulticastRegisteredGroupMembers (Core.Maybe Core.Text)
+transitGatewayMulticastRegisteredGroupMembers_groupIpAddress :: Lens.Lens' TransitGatewayMulticastRegisteredGroupMembers (Prelude.Maybe Prelude.Text)
 transitGatewayMulticastRegisteredGroupMembers_groupIpAddress = Lens.lens (\TransitGatewayMulticastRegisteredGroupMembers' {groupIpAddress} -> groupIpAddress) (\s@TransitGatewayMulticastRegisteredGroupMembers' {} a -> s {groupIpAddress = a} :: TransitGatewayMulticastRegisteredGroupMembers)
 
 -- | The ID of the registered network interfaces.
-transitGatewayMulticastRegisteredGroupMembers_registeredNetworkInterfaceIds :: Lens.Lens' TransitGatewayMulticastRegisteredGroupMembers (Core.Maybe [Core.Text])
-transitGatewayMulticastRegisteredGroupMembers_registeredNetworkInterfaceIds = Lens.lens (\TransitGatewayMulticastRegisteredGroupMembers' {registeredNetworkInterfaceIds} -> registeredNetworkInterfaceIds) (\s@TransitGatewayMulticastRegisteredGroupMembers' {} a -> s {registeredNetworkInterfaceIds = a} :: TransitGatewayMulticastRegisteredGroupMembers) Core.. Lens.mapping Lens._Coerce
+transitGatewayMulticastRegisteredGroupMembers_registeredNetworkInterfaceIds :: Lens.Lens' TransitGatewayMulticastRegisteredGroupMembers (Prelude.Maybe [Prelude.Text])
+transitGatewayMulticastRegisteredGroupMembers_registeredNetworkInterfaceIds = Lens.lens (\TransitGatewayMulticastRegisteredGroupMembers' {registeredNetworkInterfaceIds} -> registeredNetworkInterfaceIds) (\s@TransitGatewayMulticastRegisteredGroupMembers' {} a -> s {registeredNetworkInterfaceIds = a} :: TransitGatewayMulticastRegisteredGroupMembers) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromXML
@@ -79,17 +80,17 @@ instance
   where
   parseXML x =
     TransitGatewayMulticastRegisteredGroupMembers'
-      Core.<$> (x Core..@? "transitGatewayMulticastDomainId")
-        Core.<*> (x Core..@? "groupIpAddress")
-        Core.<*> ( x Core..@? "registeredNetworkInterfaceIds"
-                     Core..!@ Core.mempty
-                     Core.>>= Core.may (Core.parseXMLList "item")
-                 )
+      Prelude.<$> (x Core..@? "transitGatewayMulticastDomainId")
+        Prelude.<*> (x Core..@? "groupIpAddress")
+        Prelude.<*> ( x Core..@? "registeredNetworkInterfaceIds"
+                        Core..!@ Prelude.mempty
+                        Prelude.>>= Core.may (Core.parseXMLList "item")
+                    )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     TransitGatewayMulticastRegisteredGroupMembers
 
 instance
-  Core.NFData
+  Prelude.NFData
     TransitGatewayMulticastRegisteredGroupMembers

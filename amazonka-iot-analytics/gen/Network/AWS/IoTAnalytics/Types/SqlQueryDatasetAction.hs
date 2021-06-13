@@ -22,17 +22,18 @@ module Network.AWS.IoTAnalytics.Types.SqlQueryDatasetAction where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.QueryFilter
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The SQL query to modify the message.
 --
 -- /See:/ 'newSqlQueryDatasetAction' smart constructor.
 data SqlQueryDatasetAction = SqlQueryDatasetAction'
   { -- | Prefilters applied to message data.
-    filters :: Core.Maybe [QueryFilter],
+    filters :: Prelude.Maybe [QueryFilter],
     -- | A SQL query string.
-    sqlQuery :: Core.Text
+    sqlQuery :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SqlQueryDatasetAction' with all optional fields omitted.
@@ -47,20 +48,20 @@ data SqlQueryDatasetAction = SqlQueryDatasetAction'
 -- 'sqlQuery', 'sqlQueryDatasetAction_sqlQuery' - A SQL query string.
 newSqlQueryDatasetAction ::
   -- | 'sqlQuery'
-  Core.Text ->
+  Prelude.Text ->
   SqlQueryDatasetAction
 newSqlQueryDatasetAction pSqlQuery_ =
   SqlQueryDatasetAction'
-    { filters = Core.Nothing,
+    { filters = Prelude.Nothing,
       sqlQuery = pSqlQuery_
     }
 
 -- | Prefilters applied to message data.
-sqlQueryDatasetAction_filters :: Lens.Lens' SqlQueryDatasetAction (Core.Maybe [QueryFilter])
-sqlQueryDatasetAction_filters = Lens.lens (\SqlQueryDatasetAction' {filters} -> filters) (\s@SqlQueryDatasetAction' {} a -> s {filters = a} :: SqlQueryDatasetAction) Core.. Lens.mapping Lens._Coerce
+sqlQueryDatasetAction_filters :: Lens.Lens' SqlQueryDatasetAction (Prelude.Maybe [QueryFilter])
+sqlQueryDatasetAction_filters = Lens.lens (\SqlQueryDatasetAction' {filters} -> filters) (\s@SqlQueryDatasetAction' {} a -> s {filters = a} :: SqlQueryDatasetAction) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A SQL query string.
-sqlQueryDatasetAction_sqlQuery :: Lens.Lens' SqlQueryDatasetAction Core.Text
+sqlQueryDatasetAction_sqlQuery :: Lens.Lens' SqlQueryDatasetAction Prelude.Text
 sqlQueryDatasetAction_sqlQuery = Lens.lens (\SqlQueryDatasetAction' {sqlQuery} -> sqlQuery) (\s@SqlQueryDatasetAction' {} a -> s {sqlQuery = a} :: SqlQueryDatasetAction)
 
 instance Core.FromJSON SqlQueryDatasetAction where
@@ -69,19 +70,19 @@ instance Core.FromJSON SqlQueryDatasetAction where
       "SqlQueryDatasetAction"
       ( \x ->
           SqlQueryDatasetAction'
-            Core.<$> (x Core..:? "filters" Core..!= Core.mempty)
-            Core.<*> (x Core..: "sqlQuery")
+            Prelude.<$> (x Core..:? "filters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..: "sqlQuery")
       )
 
-instance Core.Hashable SqlQueryDatasetAction
+instance Prelude.Hashable SqlQueryDatasetAction
 
-instance Core.NFData SqlQueryDatasetAction
+instance Prelude.NFData SqlQueryDatasetAction
 
 instance Core.ToJSON SqlQueryDatasetAction where
   toJSON SqlQueryDatasetAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("filters" Core..=) Core.<$> filters,
-            Core.Just ("sqlQuery" Core..= sqlQuery)
+      ( Prelude.catMaybes
+          [ ("filters" Core..=) Prelude.<$> filters,
+            Prelude.Just ("sqlQuery" Core..= sqlQuery)
           ]
       )

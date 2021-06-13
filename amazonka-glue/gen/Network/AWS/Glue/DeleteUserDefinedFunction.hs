@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,13 +51,13 @@ import qualified Network.AWS.Response as Response
 data DeleteUserDefinedFunction = DeleteUserDefinedFunction'
   { -- | The ID of the Data Catalog where the function to be deleted is located.
     -- If none is supplied, the AWS account ID is used by default.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database where the function is located.
-    databaseName :: Core.Text,
+    databaseName :: Prelude.Text,
     -- | The name of the function definition to be deleted.
-    functionName :: Core.Text
+    functionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserDefinedFunction' with all optional fields omitted.
@@ -74,31 +75,31 @@ data DeleteUserDefinedFunction = DeleteUserDefinedFunction'
 -- 'functionName', 'deleteUserDefinedFunction_functionName' - The name of the function definition to be deleted.
 newDeleteUserDefinedFunction ::
   -- | 'databaseName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'functionName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteUserDefinedFunction
 newDeleteUserDefinedFunction
   pDatabaseName_
   pFunctionName_ =
     DeleteUserDefinedFunction'
       { catalogId =
-          Core.Nothing,
+          Prelude.Nothing,
         databaseName = pDatabaseName_,
         functionName = pFunctionName_
       }
 
 -- | The ID of the Data Catalog where the function to be deleted is located.
 -- If none is supplied, the AWS account ID is used by default.
-deleteUserDefinedFunction_catalogId :: Lens.Lens' DeleteUserDefinedFunction (Core.Maybe Core.Text)
+deleteUserDefinedFunction_catalogId :: Lens.Lens' DeleteUserDefinedFunction (Prelude.Maybe Prelude.Text)
 deleteUserDefinedFunction_catalogId = Lens.lens (\DeleteUserDefinedFunction' {catalogId} -> catalogId) (\s@DeleteUserDefinedFunction' {} a -> s {catalogId = a} :: DeleteUserDefinedFunction)
 
 -- | The name of the catalog database where the function is located.
-deleteUserDefinedFunction_databaseName :: Lens.Lens' DeleteUserDefinedFunction Core.Text
+deleteUserDefinedFunction_databaseName :: Lens.Lens' DeleteUserDefinedFunction Prelude.Text
 deleteUserDefinedFunction_databaseName = Lens.lens (\DeleteUserDefinedFunction' {databaseName} -> databaseName) (\s@DeleteUserDefinedFunction' {} a -> s {databaseName = a} :: DeleteUserDefinedFunction)
 
 -- | The name of the function definition to be deleted.
-deleteUserDefinedFunction_functionName :: Lens.Lens' DeleteUserDefinedFunction Core.Text
+deleteUserDefinedFunction_functionName :: Lens.Lens' DeleteUserDefinedFunction Prelude.Text
 deleteUserDefinedFunction_functionName = Lens.lens (\DeleteUserDefinedFunction' {functionName} -> functionName) (\s@DeleteUserDefinedFunction' {} a -> s {functionName = a} :: DeleteUserDefinedFunction)
 
 instance Core.AWSRequest DeleteUserDefinedFunction where
@@ -110,48 +111,50 @@ instance Core.AWSRequest DeleteUserDefinedFunction where
     Response.receiveEmpty
       ( \s h x ->
           DeleteUserDefinedFunctionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteUserDefinedFunction
+instance Prelude.Hashable DeleteUserDefinedFunction
 
-instance Core.NFData DeleteUserDefinedFunction
+instance Prelude.NFData DeleteUserDefinedFunction
 
 instance Core.ToHeaders DeleteUserDefinedFunction where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSGlue.DeleteUserDefinedFunction" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteUserDefinedFunction where
   toJSON DeleteUserDefinedFunction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CatalogId" Core..=) Core.<$> catalogId,
-            Core.Just ("DatabaseName" Core..= databaseName),
-            Core.Just ("FunctionName" Core..= functionName)
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Core..= databaseName),
+            Prelude.Just ("FunctionName" Core..= functionName)
           ]
       )
 
 instance Core.ToPath DeleteUserDefinedFunction where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteUserDefinedFunction where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUserDefinedFunctionResponse' smart constructor.
 data DeleteUserDefinedFunctionResponse = DeleteUserDefinedFunctionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteUserDefinedFunctionResponse' with all optional fields omitted.
@@ -164,7 +167,7 @@ data DeleteUserDefinedFunctionResponse = DeleteUserDefinedFunctionResponse'
 -- 'httpStatus', 'deleteUserDefinedFunctionResponse_httpStatus' - The response's http status code.
 newDeleteUserDefinedFunctionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteUserDefinedFunctionResponse
 newDeleteUserDefinedFunctionResponse pHttpStatus_ =
   DeleteUserDefinedFunctionResponse'
@@ -173,9 +176,9 @@ newDeleteUserDefinedFunctionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteUserDefinedFunctionResponse_httpStatus :: Lens.Lens' DeleteUserDefinedFunctionResponse Core.Int
+deleteUserDefinedFunctionResponse_httpStatus :: Lens.Lens' DeleteUserDefinedFunctionResponse Prelude.Int
 deleteUserDefinedFunctionResponse_httpStatus = Lens.lens (\DeleteUserDefinedFunctionResponse' {httpStatus} -> httpStatus) (\s@DeleteUserDefinedFunctionResponse' {} a -> s {httpStatus = a} :: DeleteUserDefinedFunctionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteUserDefinedFunctionResponse

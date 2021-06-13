@@ -73,23 +73,24 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateSubnet' smart constructor.
 data CreateSubnet = CreateSubnet'
   { -- | The tags to assign to the subnet.
-    tagSpecifications :: Core.Maybe [TagSpecification],
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the Outpost. If you specify an Outpost
     -- ARN, you must also specify the Availability Zone of the Outpost subnet.
-    outpostArn :: Core.Maybe Core.Text,
+    outpostArn :: Prelude.Maybe Prelude.Text,
     -- | The AZ ID or the Local Zone ID of the subnet.
-    availabilityZoneId :: Core.Maybe Core.Text,
+    availabilityZoneId :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone or Local Zone for the subnet.
     --
     -- Default: AWS selects one for you. If you create more than one subnet in
@@ -103,19 +104,19 @@ data CreateSubnet = CreateSubnet'
     --
     -- To create a subnet in an Outpost, set this value to the Availability
     -- Zone for the Outpost and specify the Outpost ARN.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The IPv6 network range for the subnet, in CIDR notation. The subnet size
     -- must use a \/64 prefix length.
-    ipv6CidrBlock :: Core.Maybe Core.Text,
+    ipv6CidrBlock :: Prelude.Maybe Prelude.Text,
     -- | The IPv4 network range for the subnet, in CIDR notation. For example,
     -- @10.0.0.0\/24@. We modify the specified CIDR block to its canonical
     -- form; for example, if you specify @100.68.0.18\/18@, we modify it to
     -- @100.68.0.0\/18@.
-    cidrBlock :: Core.Text,
+    cidrBlock :: Prelude.Text,
     -- | The ID of the VPC.
-    vpcId :: Core.Text
+    vpcId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSubnet' with all optional fields omitted.
@@ -162,40 +163,40 @@ data CreateSubnet = CreateSubnet'
 -- 'vpcId', 'createSubnet_vpcId' - The ID of the VPC.
 newCreateSubnet ::
   -- | 'cidrBlock'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'vpcId'
-  Core.Text ->
+  Prelude.Text ->
   CreateSubnet
 newCreateSubnet pCidrBlock_ pVpcId_ =
   CreateSubnet'
-    { tagSpecifications = Core.Nothing,
-      dryRun = Core.Nothing,
-      outpostArn = Core.Nothing,
-      availabilityZoneId = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      ipv6CidrBlock = Core.Nothing,
+    { tagSpecifications = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      outpostArn = Prelude.Nothing,
+      availabilityZoneId = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      ipv6CidrBlock = Prelude.Nothing,
       cidrBlock = pCidrBlock_,
       vpcId = pVpcId_
     }
 
 -- | The tags to assign to the subnet.
-createSubnet_tagSpecifications :: Lens.Lens' CreateSubnet (Core.Maybe [TagSpecification])
-createSubnet_tagSpecifications = Lens.lens (\CreateSubnet' {tagSpecifications} -> tagSpecifications) (\s@CreateSubnet' {} a -> s {tagSpecifications = a} :: CreateSubnet) Core.. Lens.mapping Lens._Coerce
+createSubnet_tagSpecifications :: Lens.Lens' CreateSubnet (Prelude.Maybe [TagSpecification])
+createSubnet_tagSpecifications = Lens.lens (\CreateSubnet' {tagSpecifications} -> tagSpecifications) (\s@CreateSubnet' {} a -> s {tagSpecifications = a} :: CreateSubnet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createSubnet_dryRun :: Lens.Lens' CreateSubnet (Core.Maybe Core.Bool)
+createSubnet_dryRun :: Lens.Lens' CreateSubnet (Prelude.Maybe Prelude.Bool)
 createSubnet_dryRun = Lens.lens (\CreateSubnet' {dryRun} -> dryRun) (\s@CreateSubnet' {} a -> s {dryRun = a} :: CreateSubnet)
 
 -- | The Amazon Resource Name (ARN) of the Outpost. If you specify an Outpost
 -- ARN, you must also specify the Availability Zone of the Outpost subnet.
-createSubnet_outpostArn :: Lens.Lens' CreateSubnet (Core.Maybe Core.Text)
+createSubnet_outpostArn :: Lens.Lens' CreateSubnet (Prelude.Maybe Prelude.Text)
 createSubnet_outpostArn = Lens.lens (\CreateSubnet' {outpostArn} -> outpostArn) (\s@CreateSubnet' {} a -> s {outpostArn = a} :: CreateSubnet)
 
 -- | The AZ ID or the Local Zone ID of the subnet.
-createSubnet_availabilityZoneId :: Lens.Lens' CreateSubnet (Core.Maybe Core.Text)
+createSubnet_availabilityZoneId :: Lens.Lens' CreateSubnet (Prelude.Maybe Prelude.Text)
 createSubnet_availabilityZoneId = Lens.lens (\CreateSubnet' {availabilityZoneId} -> availabilityZoneId) (\s@CreateSubnet' {} a -> s {availabilityZoneId = a} :: CreateSubnet)
 
 -- | The Availability Zone or Local Zone for the subnet.
@@ -211,23 +212,23 @@ createSubnet_availabilityZoneId = Lens.lens (\CreateSubnet' {availabilityZoneId}
 --
 -- To create a subnet in an Outpost, set this value to the Availability
 -- Zone for the Outpost and specify the Outpost ARN.
-createSubnet_availabilityZone :: Lens.Lens' CreateSubnet (Core.Maybe Core.Text)
+createSubnet_availabilityZone :: Lens.Lens' CreateSubnet (Prelude.Maybe Prelude.Text)
 createSubnet_availabilityZone = Lens.lens (\CreateSubnet' {availabilityZone} -> availabilityZone) (\s@CreateSubnet' {} a -> s {availabilityZone = a} :: CreateSubnet)
 
 -- | The IPv6 network range for the subnet, in CIDR notation. The subnet size
 -- must use a \/64 prefix length.
-createSubnet_ipv6CidrBlock :: Lens.Lens' CreateSubnet (Core.Maybe Core.Text)
+createSubnet_ipv6CidrBlock :: Lens.Lens' CreateSubnet (Prelude.Maybe Prelude.Text)
 createSubnet_ipv6CidrBlock = Lens.lens (\CreateSubnet' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@CreateSubnet' {} a -> s {ipv6CidrBlock = a} :: CreateSubnet)
 
 -- | The IPv4 network range for the subnet, in CIDR notation. For example,
 -- @10.0.0.0\/24@. We modify the specified CIDR block to its canonical
 -- form; for example, if you specify @100.68.0.18\/18@, we modify it to
 -- @100.68.0.0\/18@.
-createSubnet_cidrBlock :: Lens.Lens' CreateSubnet Core.Text
+createSubnet_cidrBlock :: Lens.Lens' CreateSubnet Prelude.Text
 createSubnet_cidrBlock = Lens.lens (\CreateSubnet' {cidrBlock} -> cidrBlock) (\s@CreateSubnet' {} a -> s {cidrBlock = a} :: CreateSubnet)
 
 -- | The ID of the VPC.
-createSubnet_vpcId :: Lens.Lens' CreateSubnet Core.Text
+createSubnet_vpcId :: Lens.Lens' CreateSubnet Prelude.Text
 createSubnet_vpcId = Lens.lens (\CreateSubnet' {vpcId} -> vpcId) (\s@CreateSubnet' {} a -> s {vpcId = a} :: CreateSubnet)
 
 instance Core.AWSRequest CreateSubnet where
@@ -237,29 +238,30 @@ instance Core.AWSRequest CreateSubnet where
     Response.receiveXML
       ( \s h x ->
           CreateSubnetResponse'
-            Core.<$> (x Core..@? "subnet")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "subnet")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateSubnet
+instance Prelude.Hashable CreateSubnet
 
-instance Core.NFData CreateSubnet
+instance Prelude.NFData CreateSubnet
 
 instance Core.ToHeaders CreateSubnet where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateSubnet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateSubnet where
   toQuery CreateSubnet' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateSubnet" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("CreateSubnet" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
-              Core.<$> tagSpecifications
+              Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
         "OutpostArn" Core.=: outpostArn,
@@ -273,11 +275,11 @@ instance Core.ToQuery CreateSubnet where
 -- | /See:/ 'newCreateSubnetResponse' smart constructor.
 data CreateSubnetResponse = CreateSubnetResponse'
   { -- | Information about the subnet.
-    subnet :: Core.Maybe Subnet,
+    subnet :: Prelude.Maybe Subnet,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateSubnetResponse' with all optional fields omitted.
@@ -292,20 +294,20 @@ data CreateSubnetResponse = CreateSubnetResponse'
 -- 'httpStatus', 'createSubnetResponse_httpStatus' - The response's http status code.
 newCreateSubnetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateSubnetResponse
 newCreateSubnetResponse pHttpStatus_ =
   CreateSubnetResponse'
-    { subnet = Core.Nothing,
+    { subnet = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the subnet.
-createSubnetResponse_subnet :: Lens.Lens' CreateSubnetResponse (Core.Maybe Subnet)
+createSubnetResponse_subnet :: Lens.Lens' CreateSubnetResponse (Prelude.Maybe Subnet)
 createSubnetResponse_subnet = Lens.lens (\CreateSubnetResponse' {subnet} -> subnet) (\s@CreateSubnetResponse' {} a -> s {subnet = a} :: CreateSubnetResponse)
 
 -- | The response's http status code.
-createSubnetResponse_httpStatus :: Lens.Lens' CreateSubnetResponse Core.Int
+createSubnetResponse_httpStatus :: Lens.Lens' CreateSubnetResponse Prelude.Int
 createSubnetResponse_httpStatus = Lens.lens (\CreateSubnetResponse' {httpStatus} -> httpStatus) (\s@CreateSubnetResponse' {} a -> s {httpStatus = a} :: CreateSubnetResponse)
 
-instance Core.NFData CreateSubnetResponse
+instance Prelude.NFData CreateSubnetResponse

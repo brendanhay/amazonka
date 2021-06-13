@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.InstanceIpv6Address where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an IPv6 address.
 --
 -- /See:/ 'newInstanceIpv6Address' smart constructor.
 data InstanceIpv6Address = InstanceIpv6Address'
   { -- | The IPv6 address.
-    ipv6Address :: Core.Maybe Core.Text
+    ipv6Address :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceIpv6Address' with all optional fields omitted.
@@ -44,21 +45,21 @@ data InstanceIpv6Address = InstanceIpv6Address'
 newInstanceIpv6Address ::
   InstanceIpv6Address
 newInstanceIpv6Address =
-  InstanceIpv6Address' {ipv6Address = Core.Nothing}
+  InstanceIpv6Address' {ipv6Address = Prelude.Nothing}
 
 -- | The IPv6 address.
-instanceIpv6Address_ipv6Address :: Lens.Lens' InstanceIpv6Address (Core.Maybe Core.Text)
+instanceIpv6Address_ipv6Address :: Lens.Lens' InstanceIpv6Address (Prelude.Maybe Prelude.Text)
 instanceIpv6Address_ipv6Address = Lens.lens (\InstanceIpv6Address' {ipv6Address} -> ipv6Address) (\s@InstanceIpv6Address' {} a -> s {ipv6Address = a} :: InstanceIpv6Address)
 
 instance Core.FromXML InstanceIpv6Address where
   parseXML x =
     InstanceIpv6Address'
-      Core.<$> (x Core..@? "ipv6Address")
+      Prelude.<$> (x Core..@? "ipv6Address")
 
-instance Core.Hashable InstanceIpv6Address
+instance Prelude.Hashable InstanceIpv6Address
 
-instance Core.NFData InstanceIpv6Address
+instance Prelude.NFData InstanceIpv6Address
 
 instance Core.ToQuery InstanceIpv6Address where
   toQuery InstanceIpv6Address' {..} =
-    Core.mconcat ["Ipv6Address" Core.=: ipv6Address]
+    Prelude.mconcat ["Ipv6Address" Core.=: ipv6Address]

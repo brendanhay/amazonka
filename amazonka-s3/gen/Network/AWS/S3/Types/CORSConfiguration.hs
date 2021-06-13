@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.CORSConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.CORSRule
 
@@ -35,7 +36,7 @@ data CORSConfiguration = CORSConfiguration'
     -- allow). You can add up to 100 rules to the configuration.
     cORSRules :: [CORSRule]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CORSConfiguration' with all optional fields omitted.
@@ -50,17 +51,18 @@ data CORSConfiguration = CORSConfiguration'
 newCORSConfiguration ::
   CORSConfiguration
 newCORSConfiguration =
-  CORSConfiguration' {cORSRules = Core.mempty}
+  CORSConfiguration' {cORSRules = Prelude.mempty}
 
 -- | A set of origins and methods (cross-origin access that you want to
 -- allow). You can add up to 100 rules to the configuration.
 cORSConfiguration_cORSRules :: Lens.Lens' CORSConfiguration [CORSRule]
-cORSConfiguration_cORSRules = Lens.lens (\CORSConfiguration' {cORSRules} -> cORSRules) (\s@CORSConfiguration' {} a -> s {cORSRules = a} :: CORSConfiguration) Core.. Lens._Coerce
+cORSConfiguration_cORSRules = Lens.lens (\CORSConfiguration' {cORSRules} -> cORSRules) (\s@CORSConfiguration' {} a -> s {cORSRules = a} :: CORSConfiguration) Prelude.. Lens._Coerce
 
-instance Core.Hashable CORSConfiguration
+instance Prelude.Hashable CORSConfiguration
 
-instance Core.NFData CORSConfiguration
+instance Prelude.NFData CORSConfiguration
 
 instance Core.ToXML CORSConfiguration where
   toXML CORSConfiguration' {..} =
-    Core.mconcat [Core.toXMLList "CORSRule" cORSRules]
+    Prelude.mconcat
+      [Core.toXMLList "CORSRule" cORSRules]

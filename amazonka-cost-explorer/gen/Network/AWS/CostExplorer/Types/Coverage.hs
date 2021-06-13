@@ -24,20 +24,21 @@ import Network.AWS.CostExplorer.Types.CoverageCost
 import Network.AWS.CostExplorer.Types.CoverageHours
 import Network.AWS.CostExplorer.Types.CoverageNormalizedUnits
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The amount of instance usage that a reservation covered.
 --
 -- /See:/ 'newCoverage' smart constructor.
 data Coverage = Coverage'
   { -- | The amount of cost that the reservation covered.
-    coverageCost :: Core.Maybe CoverageCost,
+    coverageCost :: Prelude.Maybe CoverageCost,
     -- | The amount of instance usage that the reservation covered, in hours.
-    coverageHours :: Core.Maybe CoverageHours,
+    coverageHours :: Prelude.Maybe CoverageHours,
     -- | The amount of instance usage that the reservation covered, in normalized
     -- units.
-    coverageNormalizedUnits :: Core.Maybe CoverageNormalizedUnits
+    coverageNormalizedUnits :: Prelude.Maybe CoverageNormalizedUnits
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Coverage' with all optional fields omitted.
@@ -57,22 +58,22 @@ newCoverage ::
   Coverage
 newCoverage =
   Coverage'
-    { coverageCost = Core.Nothing,
-      coverageHours = Core.Nothing,
-      coverageNormalizedUnits = Core.Nothing
+    { coverageCost = Prelude.Nothing,
+      coverageHours = Prelude.Nothing,
+      coverageNormalizedUnits = Prelude.Nothing
     }
 
 -- | The amount of cost that the reservation covered.
-coverage_coverageCost :: Lens.Lens' Coverage (Core.Maybe CoverageCost)
+coverage_coverageCost :: Lens.Lens' Coverage (Prelude.Maybe CoverageCost)
 coverage_coverageCost = Lens.lens (\Coverage' {coverageCost} -> coverageCost) (\s@Coverage' {} a -> s {coverageCost = a} :: Coverage)
 
 -- | The amount of instance usage that the reservation covered, in hours.
-coverage_coverageHours :: Lens.Lens' Coverage (Core.Maybe CoverageHours)
+coverage_coverageHours :: Lens.Lens' Coverage (Prelude.Maybe CoverageHours)
 coverage_coverageHours = Lens.lens (\Coverage' {coverageHours} -> coverageHours) (\s@Coverage' {} a -> s {coverageHours = a} :: Coverage)
 
 -- | The amount of instance usage that the reservation covered, in normalized
 -- units.
-coverage_coverageNormalizedUnits :: Lens.Lens' Coverage (Core.Maybe CoverageNormalizedUnits)
+coverage_coverageNormalizedUnits :: Lens.Lens' Coverage (Prelude.Maybe CoverageNormalizedUnits)
 coverage_coverageNormalizedUnits = Lens.lens (\Coverage' {coverageNormalizedUnits} -> coverageNormalizedUnits) (\s@Coverage' {} a -> s {coverageNormalizedUnits = a} :: Coverage)
 
 instance Core.FromJSON Coverage where
@@ -81,11 +82,11 @@ instance Core.FromJSON Coverage where
       "Coverage"
       ( \x ->
           Coverage'
-            Core.<$> (x Core..:? "CoverageCost")
-            Core.<*> (x Core..:? "CoverageHours")
-            Core.<*> (x Core..:? "CoverageNormalizedUnits")
+            Prelude.<$> (x Core..:? "CoverageCost")
+            Prelude.<*> (x Core..:? "CoverageHours")
+            Prelude.<*> (x Core..:? "CoverageNormalizedUnits")
       )
 
-instance Core.Hashable Coverage
+instance Prelude.Hashable Coverage
 
-instance Core.NFData Coverage
+instance Prelude.NFData Coverage

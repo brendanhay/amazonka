@@ -95,6 +95,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -104,14 +105,14 @@ data StopInstances = StopInstances'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Forces the instances to stop. The instances do not have an opportunity
     -- to flush file system caches or file system metadata. If you use this
     -- option, you must perform file system check and repair procedures. This
     -- option is not recommended for Windows instances.
     --
     -- Default: @false@
-    force :: Core.Maybe Core.Bool,
+    force :: Prelude.Maybe Prelude.Bool,
     -- | Hibernates the instance if the instance was enabled for hibernation at
     -- launch. If the instance cannot hibernate successfully, a normal shutdown
     -- occurs. For more information, see
@@ -119,11 +120,11 @@ data StopInstances = StopInstances'
     -- in the /Amazon EC2 User Guide/.
     --
     -- Default: @false@
-    hibernate :: Core.Maybe Core.Bool,
+    hibernate :: Prelude.Maybe Prelude.Bool,
     -- | The IDs of the instances.
-    instanceIds :: [Core.Text]
+    instanceIds :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopInstances' with all optional fields omitted.
@@ -158,17 +159,17 @@ newStopInstances ::
   StopInstances
 newStopInstances =
   StopInstances'
-    { dryRun = Core.Nothing,
-      force = Core.Nothing,
-      hibernate = Core.Nothing,
-      instanceIds = Core.mempty
+    { dryRun = Prelude.Nothing,
+      force = Prelude.Nothing,
+      hibernate = Prelude.Nothing,
+      instanceIds = Prelude.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-stopInstances_dryRun :: Lens.Lens' StopInstances (Core.Maybe Core.Bool)
+stopInstances_dryRun :: Lens.Lens' StopInstances (Prelude.Maybe Prelude.Bool)
 stopInstances_dryRun = Lens.lens (\StopInstances' {dryRun} -> dryRun) (\s@StopInstances' {} a -> s {dryRun = a} :: StopInstances)
 
 -- | Forces the instances to stop. The instances do not have an opportunity
@@ -177,7 +178,7 @@ stopInstances_dryRun = Lens.lens (\StopInstances' {dryRun} -> dryRun) (\s@StopIn
 -- option is not recommended for Windows instances.
 --
 -- Default: @false@
-stopInstances_force :: Lens.Lens' StopInstances (Core.Maybe Core.Bool)
+stopInstances_force :: Lens.Lens' StopInstances (Prelude.Maybe Prelude.Bool)
 stopInstances_force = Lens.lens (\StopInstances' {force} -> force) (\s@StopInstances' {} a -> s {force = a} :: StopInstances)
 
 -- | Hibernates the instance if the instance was enabled for hibernation at
@@ -187,12 +188,12 @@ stopInstances_force = Lens.lens (\StopInstances' {force} -> force) (\s@StopInsta
 -- in the /Amazon EC2 User Guide/.
 --
 -- Default: @false@
-stopInstances_hibernate :: Lens.Lens' StopInstances (Core.Maybe Core.Bool)
+stopInstances_hibernate :: Lens.Lens' StopInstances (Prelude.Maybe Prelude.Bool)
 stopInstances_hibernate = Lens.lens (\StopInstances' {hibernate} -> hibernate) (\s@StopInstances' {} a -> s {hibernate = a} :: StopInstances)
 
 -- | The IDs of the instances.
-stopInstances_instanceIds :: Lens.Lens' StopInstances [Core.Text]
-stopInstances_instanceIds = Lens.lens (\StopInstances' {instanceIds} -> instanceIds) (\s@StopInstances' {} a -> s {instanceIds = a} :: StopInstances) Core.. Lens._Coerce
+stopInstances_instanceIds :: Lens.Lens' StopInstances [Prelude.Text]
+stopInstances_instanceIds = Lens.lens (\StopInstances' {instanceIds} -> instanceIds) (\s@StopInstances' {} a -> s {instanceIds = a} :: StopInstances) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest StopInstances where
   type
@@ -203,28 +204,29 @@ instance Core.AWSRequest StopInstances where
     Response.receiveXML
       ( \s h x ->
           StopInstancesResponse'
-            Core.<$> ( x Core..@? "instancesSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "instancesSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StopInstances
+instance Prelude.Hashable StopInstances
 
-instance Core.NFData StopInstances
+instance Prelude.NFData StopInstances
 
 instance Core.ToHeaders StopInstances where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath StopInstances where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StopInstances where
   toQuery StopInstances' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("StopInstances" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("StopInstances" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "Force" Core.=: force,
         "Hibernate" Core.=: hibernate,
@@ -234,11 +236,11 @@ instance Core.ToQuery StopInstances where
 -- | /See:/ 'newStopInstancesResponse' smart constructor.
 data StopInstancesResponse = StopInstancesResponse'
   { -- | Information about the stopped instances.
-    stoppingInstances :: Core.Maybe [InstanceStateChange],
+    stoppingInstances :: Prelude.Maybe [InstanceStateChange],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StopInstancesResponse' with all optional fields omitted.
@@ -253,21 +255,21 @@ data StopInstancesResponse = StopInstancesResponse'
 -- 'httpStatus', 'stopInstancesResponse_httpStatus' - The response's http status code.
 newStopInstancesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StopInstancesResponse
 newStopInstancesResponse pHttpStatus_ =
   StopInstancesResponse'
     { stoppingInstances =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the stopped instances.
-stopInstancesResponse_stoppingInstances :: Lens.Lens' StopInstancesResponse (Core.Maybe [InstanceStateChange])
-stopInstancesResponse_stoppingInstances = Lens.lens (\StopInstancesResponse' {stoppingInstances} -> stoppingInstances) (\s@StopInstancesResponse' {} a -> s {stoppingInstances = a} :: StopInstancesResponse) Core.. Lens.mapping Lens._Coerce
+stopInstancesResponse_stoppingInstances :: Lens.Lens' StopInstancesResponse (Prelude.Maybe [InstanceStateChange])
+stopInstancesResponse_stoppingInstances = Lens.lens (\StopInstancesResponse' {stoppingInstances} -> stoppingInstances) (\s@StopInstancesResponse' {} a -> s {stoppingInstances = a} :: StopInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-stopInstancesResponse_httpStatus :: Lens.Lens' StopInstancesResponse Core.Int
+stopInstancesResponse_httpStatus :: Lens.Lens' StopInstancesResponse Prelude.Int
 stopInstancesResponse_httpStatus = Lens.lens (\StopInstancesResponse' {httpStatus} -> httpStatus) (\s@StopInstancesResponse' {} a -> s {httpStatus = a} :: StopInstancesResponse)
 
-instance Core.NFData StopInstancesResponse
+instance Prelude.NFData StopInstancesResponse

@@ -51,6 +51,7 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,15 +63,15 @@ data ListUseCases = ListUseCases'
   { -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The identifier for the integration association.
-    integrationAssociationId :: Core.Text
+    integrationAssociationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListUseCases' with all optional fields omitted.
@@ -91,16 +92,16 @@ data ListUseCases = ListUseCases'
 -- 'integrationAssociationId', 'listUseCases_integrationAssociationId' - The identifier for the integration association.
 newListUseCases ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'integrationAssociationId'
-  Core.Text ->
+  Prelude.Text ->
   ListUseCases
 newListUseCases
   pInstanceId_
   pIntegrationAssociationId_ =
     ListUseCases'
-      { nextToken = Core.Nothing,
-        maxResults = Core.Nothing,
+      { nextToken = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         instanceId = pInstanceId_,
         integrationAssociationId =
           pIntegrationAssociationId_
@@ -109,40 +110,40 @@ newListUseCases
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
-listUseCases_nextToken :: Lens.Lens' ListUseCases (Core.Maybe Core.Text)
+listUseCases_nextToken :: Lens.Lens' ListUseCases (Prelude.Maybe Prelude.Text)
 listUseCases_nextToken = Lens.lens (\ListUseCases' {nextToken} -> nextToken) (\s@ListUseCases' {} a -> s {nextToken = a} :: ListUseCases)
 
 -- | The maximum number of results to return per page.
-listUseCases_maxResults :: Lens.Lens' ListUseCases (Core.Maybe Core.Natural)
+listUseCases_maxResults :: Lens.Lens' ListUseCases (Prelude.Maybe Prelude.Natural)
 listUseCases_maxResults = Lens.lens (\ListUseCases' {maxResults} -> maxResults) (\s@ListUseCases' {} a -> s {maxResults = a} :: ListUseCases)
 
 -- | The identifier of the Amazon Connect instance.
-listUseCases_instanceId :: Lens.Lens' ListUseCases Core.Text
+listUseCases_instanceId :: Lens.Lens' ListUseCases Prelude.Text
 listUseCases_instanceId = Lens.lens (\ListUseCases' {instanceId} -> instanceId) (\s@ListUseCases' {} a -> s {instanceId = a} :: ListUseCases)
 
 -- | The identifier for the integration association.
-listUseCases_integrationAssociationId :: Lens.Lens' ListUseCases Core.Text
+listUseCases_integrationAssociationId :: Lens.Lens' ListUseCases Prelude.Text
 listUseCases_integrationAssociationId = Lens.lens (\ListUseCases' {integrationAssociationId} -> integrationAssociationId) (\s@ListUseCases' {} a -> s {integrationAssociationId = a} :: ListUseCases)
 
 instance Core.AWSPager ListUseCases where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listUseCasesResponse_nextToken Core.. Lens._Just
+            Lens.^? listUseCasesResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listUseCasesResponse_useCaseSummaryList
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listUseCases_nextToken
+          Prelude.& listUseCases_nextToken
           Lens..~ rs
-          Lens.^? listUseCasesResponse_nextToken Core.. Lens._Just
+          Lens.^? listUseCasesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUseCases where
   type AWSResponse ListUseCases = ListUseCasesResponse
@@ -151,29 +152,31 @@ instance Core.AWSRequest ListUseCases where
     Response.receiveJSON
       ( \s h x ->
           ListUseCasesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "UseCaseSummaryList"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "UseCaseSummaryList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListUseCases
+instance Prelude.Hashable ListUseCases
 
-instance Core.NFData ListUseCases
+instance Prelude.NFData ListUseCases
 
 instance Core.ToHeaders ListUseCases where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListUseCases where
   toPath ListUseCases' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/instance/",
         Core.toBS instanceId,
         "/integration-associations/",
@@ -183,7 +186,7 @@ instance Core.ToPath ListUseCases where
 
 instance Core.ToQuery ListUseCases where
   toQuery ListUseCases' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -192,13 +195,13 @@ instance Core.ToQuery ListUseCases where
 data ListUseCasesResponse = ListUseCasesResponse'
   { -- | If there are additional results, this is the token for the next set of
     -- results.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The use cases.
-    useCaseSummaryList :: Core.Maybe [UseCase],
+    useCaseSummaryList :: Prelude.Maybe [UseCase],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListUseCasesResponse' with all optional fields omitted.
@@ -216,26 +219,26 @@ data ListUseCasesResponse = ListUseCasesResponse'
 -- 'httpStatus', 'listUseCasesResponse_httpStatus' - The response's http status code.
 newListUseCasesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListUseCasesResponse
 newListUseCasesResponse pHttpStatus_ =
   ListUseCasesResponse'
-    { nextToken = Core.Nothing,
-      useCaseSummaryList = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      useCaseSummaryList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
-listUseCasesResponse_nextToken :: Lens.Lens' ListUseCasesResponse (Core.Maybe Core.Text)
+listUseCasesResponse_nextToken :: Lens.Lens' ListUseCasesResponse (Prelude.Maybe Prelude.Text)
 listUseCasesResponse_nextToken = Lens.lens (\ListUseCasesResponse' {nextToken} -> nextToken) (\s@ListUseCasesResponse' {} a -> s {nextToken = a} :: ListUseCasesResponse)
 
 -- | The use cases.
-listUseCasesResponse_useCaseSummaryList :: Lens.Lens' ListUseCasesResponse (Core.Maybe [UseCase])
-listUseCasesResponse_useCaseSummaryList = Lens.lens (\ListUseCasesResponse' {useCaseSummaryList} -> useCaseSummaryList) (\s@ListUseCasesResponse' {} a -> s {useCaseSummaryList = a} :: ListUseCasesResponse) Core.. Lens.mapping Lens._Coerce
+listUseCasesResponse_useCaseSummaryList :: Lens.Lens' ListUseCasesResponse (Prelude.Maybe [UseCase])
+listUseCasesResponse_useCaseSummaryList = Lens.lens (\ListUseCasesResponse' {useCaseSummaryList} -> useCaseSummaryList) (\s@ListUseCasesResponse' {} a -> s {useCaseSummaryList = a} :: ListUseCasesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listUseCasesResponse_httpStatus :: Lens.Lens' ListUseCasesResponse Core.Int
+listUseCasesResponse_httpStatus :: Lens.Lens' ListUseCasesResponse Prelude.Int
 listUseCasesResponse_httpStatus = Lens.lens (\ListUseCasesResponse' {httpStatus} -> httpStatus) (\s@ListUseCasesResponse' {} a -> s {httpStatus = a} :: ListUseCasesResponse)
 
-instance Core.NFData ListUseCasesResponse
+instance Prelude.NFData ListUseCasesResponse

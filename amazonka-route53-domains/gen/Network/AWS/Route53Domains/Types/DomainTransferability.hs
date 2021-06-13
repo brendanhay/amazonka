@@ -21,6 +21,7 @@ module Network.AWS.Route53Domains.Types.DomainTransferability where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53Domains.Types.Transferable
 
 -- | A complex type that contains information about whether the specified
@@ -28,9 +29,9 @@ import Network.AWS.Route53Domains.Types.Transferable
 --
 -- /See:/ 'newDomainTransferability' smart constructor.
 data DomainTransferability = DomainTransferability'
-  { transferable :: Core.Maybe Transferable
+  { transferable :: Prelude.Maybe Transferable
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DomainTransferability' with all optional fields omitted.
@@ -44,10 +45,13 @@ data DomainTransferability = DomainTransferability'
 newDomainTransferability ::
   DomainTransferability
 newDomainTransferability =
-  DomainTransferability' {transferable = Core.Nothing}
+  DomainTransferability'
+    { transferable =
+        Prelude.Nothing
+    }
 
 -- | Undocumented member.
-domainTransferability_transferable :: Lens.Lens' DomainTransferability (Core.Maybe Transferable)
+domainTransferability_transferable :: Lens.Lens' DomainTransferability (Prelude.Maybe Transferable)
 domainTransferability_transferable = Lens.lens (\DomainTransferability' {transferable} -> transferable) (\s@DomainTransferability' {} a -> s {transferable = a} :: DomainTransferability)
 
 instance Core.FromJSON DomainTransferability where
@@ -56,9 +60,9 @@ instance Core.FromJSON DomainTransferability where
       "DomainTransferability"
       ( \x ->
           DomainTransferability'
-            Core.<$> (x Core..:? "Transferable")
+            Prelude.<$> (x Core..:? "Transferable")
       )
 
-instance Core.Hashable DomainTransferability
+instance Prelude.Hashable DomainTransferability
 
-instance Core.NFData DomainTransferability
+instance Prelude.NFData DomainTransferability

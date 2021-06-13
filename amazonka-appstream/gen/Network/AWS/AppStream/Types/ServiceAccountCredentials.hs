@@ -21,6 +21,7 @@ module Network.AWS.AppStream.Types.ServiceAccountCredentials where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the credentials for the service account used by the fleet or
 -- image builder to connect to the directory.
@@ -31,11 +32,11 @@ data ServiceAccountCredentials = ServiceAccountCredentials'
     -- privileges: create computer objects, join computers to the domain, and
     -- change\/reset the password on descendant computer objects for the
     -- organizational units specified.
-    accountName :: Core.Sensitive Core.Text,
+    accountName :: Core.Sensitive Prelude.Text,
     -- | The password for the account.
-    accountPassword :: Core.Sensitive Core.Text
+    accountPassword :: Core.Sensitive Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ServiceAccountCredentials' with all optional fields omitted.
@@ -53,9 +54,9 @@ data ServiceAccountCredentials = ServiceAccountCredentials'
 -- 'accountPassword', 'serviceAccountCredentials_accountPassword' - The password for the account.
 newServiceAccountCredentials ::
   -- | 'accountName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'accountPassword'
-  Core.Text ->
+  Prelude.Text ->
   ServiceAccountCredentials
 newServiceAccountCredentials
   pAccountName_
@@ -71,12 +72,12 @@ newServiceAccountCredentials
 -- privileges: create computer objects, join computers to the domain, and
 -- change\/reset the password on descendant computer objects for the
 -- organizational units specified.
-serviceAccountCredentials_accountName :: Lens.Lens' ServiceAccountCredentials Core.Text
-serviceAccountCredentials_accountName = Lens.lens (\ServiceAccountCredentials' {accountName} -> accountName) (\s@ServiceAccountCredentials' {} a -> s {accountName = a} :: ServiceAccountCredentials) Core.. Core._Sensitive
+serviceAccountCredentials_accountName :: Lens.Lens' ServiceAccountCredentials Prelude.Text
+serviceAccountCredentials_accountName = Lens.lens (\ServiceAccountCredentials' {accountName} -> accountName) (\s@ServiceAccountCredentials' {} a -> s {accountName = a} :: ServiceAccountCredentials) Prelude.. Core._Sensitive
 
 -- | The password for the account.
-serviceAccountCredentials_accountPassword :: Lens.Lens' ServiceAccountCredentials Core.Text
-serviceAccountCredentials_accountPassword = Lens.lens (\ServiceAccountCredentials' {accountPassword} -> accountPassword) (\s@ServiceAccountCredentials' {} a -> s {accountPassword = a} :: ServiceAccountCredentials) Core.. Core._Sensitive
+serviceAccountCredentials_accountPassword :: Lens.Lens' ServiceAccountCredentials Prelude.Text
+serviceAccountCredentials_accountPassword = Lens.lens (\ServiceAccountCredentials' {accountPassword} -> accountPassword) (\s@ServiceAccountCredentials' {} a -> s {accountPassword = a} :: ServiceAccountCredentials) Prelude.. Core._Sensitive
 
 instance Core.FromJSON ServiceAccountCredentials where
   parseJSON =
@@ -84,20 +85,20 @@ instance Core.FromJSON ServiceAccountCredentials where
       "ServiceAccountCredentials"
       ( \x ->
           ServiceAccountCredentials'
-            Core.<$> (x Core..: "AccountName")
-            Core.<*> (x Core..: "AccountPassword")
+            Prelude.<$> (x Core..: "AccountName")
+            Prelude.<*> (x Core..: "AccountPassword")
       )
 
-instance Core.Hashable ServiceAccountCredentials
+instance Prelude.Hashable ServiceAccountCredentials
 
-instance Core.NFData ServiceAccountCredentials
+instance Prelude.NFData ServiceAccountCredentials
 
 instance Core.ToJSON ServiceAccountCredentials where
   toJSON ServiceAccountCredentials' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("AccountName" Core..= accountName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("AccountName" Core..= accountName),
+            Prelude.Just
               ("AccountPassword" Core..= accountPassword)
           ]
       )

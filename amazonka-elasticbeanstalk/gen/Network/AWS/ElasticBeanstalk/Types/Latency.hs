@@ -21,6 +21,7 @@ module Network.AWS.ElasticBeanstalk.Types.Latency where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the average latency for the slowest X percent of requests
 -- over the last 10 seconds.
@@ -29,30 +30,30 @@ import qualified Network.AWS.Lens as Lens
 data Latency = Latency'
   { -- | The average latency for the slowest 5 percent of requests over the last
     -- 10 seconds.
-    p95 :: Core.Maybe Core.Double,
+    p95 :: Prelude.Maybe Prelude.Double,
     -- | The average latency for the slowest 90 percent of requests over the last
     -- 10 seconds.
-    p10 :: Core.Maybe Core.Double,
+    p10 :: Prelude.Maybe Prelude.Double,
     -- | The average latency for the slowest 0.1 percent of requests over the
     -- last 10 seconds.
-    p999 :: Core.Maybe Core.Double,
+    p999 :: Prelude.Maybe Prelude.Double,
     -- | The average latency for the slowest 1 percent of requests over the last
     -- 10 seconds.
-    p99 :: Core.Maybe Core.Double,
+    p99 :: Prelude.Maybe Prelude.Double,
     -- | The average latency for the slowest 15 percent of requests over the last
     -- 10 seconds.
-    p85 :: Core.Maybe Core.Double,
+    p85 :: Prelude.Maybe Prelude.Double,
     -- | The average latency for the slowest 50 percent of requests over the last
     -- 10 seconds.
-    p50 :: Core.Maybe Core.Double,
+    p50 :: Prelude.Maybe Prelude.Double,
     -- | The average latency for the slowest 10 percent of requests over the last
     -- 10 seconds.
-    p90 :: Core.Maybe Core.Double,
+    p90 :: Prelude.Maybe Prelude.Double,
     -- | The average latency for the slowest 25 percent of requests over the last
     -- 10 seconds.
-    p75 :: Core.Maybe Core.Double
+    p75 :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Latency' with all optional fields omitted.
@@ -89,68 +90,68 @@ newLatency ::
   Latency
 newLatency =
   Latency'
-    { p95 = Core.Nothing,
-      p10 = Core.Nothing,
-      p999 = Core.Nothing,
-      p99 = Core.Nothing,
-      p85 = Core.Nothing,
-      p50 = Core.Nothing,
-      p90 = Core.Nothing,
-      p75 = Core.Nothing
+    { p95 = Prelude.Nothing,
+      p10 = Prelude.Nothing,
+      p999 = Prelude.Nothing,
+      p99 = Prelude.Nothing,
+      p85 = Prelude.Nothing,
+      p50 = Prelude.Nothing,
+      p90 = Prelude.Nothing,
+      p75 = Prelude.Nothing
     }
 
 -- | The average latency for the slowest 5 percent of requests over the last
 -- 10 seconds.
-latency_p95 :: Lens.Lens' Latency (Core.Maybe Core.Double)
+latency_p95 :: Lens.Lens' Latency (Prelude.Maybe Prelude.Double)
 latency_p95 = Lens.lens (\Latency' {p95} -> p95) (\s@Latency' {} a -> s {p95 = a} :: Latency)
 
 -- | The average latency for the slowest 90 percent of requests over the last
 -- 10 seconds.
-latency_p10 :: Lens.Lens' Latency (Core.Maybe Core.Double)
+latency_p10 :: Lens.Lens' Latency (Prelude.Maybe Prelude.Double)
 latency_p10 = Lens.lens (\Latency' {p10} -> p10) (\s@Latency' {} a -> s {p10 = a} :: Latency)
 
 -- | The average latency for the slowest 0.1 percent of requests over the
 -- last 10 seconds.
-latency_p999 :: Lens.Lens' Latency (Core.Maybe Core.Double)
+latency_p999 :: Lens.Lens' Latency (Prelude.Maybe Prelude.Double)
 latency_p999 = Lens.lens (\Latency' {p999} -> p999) (\s@Latency' {} a -> s {p999 = a} :: Latency)
 
 -- | The average latency for the slowest 1 percent of requests over the last
 -- 10 seconds.
-latency_p99 :: Lens.Lens' Latency (Core.Maybe Core.Double)
+latency_p99 :: Lens.Lens' Latency (Prelude.Maybe Prelude.Double)
 latency_p99 = Lens.lens (\Latency' {p99} -> p99) (\s@Latency' {} a -> s {p99 = a} :: Latency)
 
 -- | The average latency for the slowest 15 percent of requests over the last
 -- 10 seconds.
-latency_p85 :: Lens.Lens' Latency (Core.Maybe Core.Double)
+latency_p85 :: Lens.Lens' Latency (Prelude.Maybe Prelude.Double)
 latency_p85 = Lens.lens (\Latency' {p85} -> p85) (\s@Latency' {} a -> s {p85 = a} :: Latency)
 
 -- | The average latency for the slowest 50 percent of requests over the last
 -- 10 seconds.
-latency_p50 :: Lens.Lens' Latency (Core.Maybe Core.Double)
+latency_p50 :: Lens.Lens' Latency (Prelude.Maybe Prelude.Double)
 latency_p50 = Lens.lens (\Latency' {p50} -> p50) (\s@Latency' {} a -> s {p50 = a} :: Latency)
 
 -- | The average latency for the slowest 10 percent of requests over the last
 -- 10 seconds.
-latency_p90 :: Lens.Lens' Latency (Core.Maybe Core.Double)
+latency_p90 :: Lens.Lens' Latency (Prelude.Maybe Prelude.Double)
 latency_p90 = Lens.lens (\Latency' {p90} -> p90) (\s@Latency' {} a -> s {p90 = a} :: Latency)
 
 -- | The average latency for the slowest 25 percent of requests over the last
 -- 10 seconds.
-latency_p75 :: Lens.Lens' Latency (Core.Maybe Core.Double)
+latency_p75 :: Lens.Lens' Latency (Prelude.Maybe Prelude.Double)
 latency_p75 = Lens.lens (\Latency' {p75} -> p75) (\s@Latency' {} a -> s {p75 = a} :: Latency)
 
 instance Core.FromXML Latency where
   parseXML x =
     Latency'
-      Core.<$> (x Core..@? "P95")
-      Core.<*> (x Core..@? "P10")
-      Core.<*> (x Core..@? "P999")
-      Core.<*> (x Core..@? "P99")
-      Core.<*> (x Core..@? "P85")
-      Core.<*> (x Core..@? "P50")
-      Core.<*> (x Core..@? "P90")
-      Core.<*> (x Core..@? "P75")
+      Prelude.<$> (x Core..@? "P95")
+      Prelude.<*> (x Core..@? "P10")
+      Prelude.<*> (x Core..@? "P999")
+      Prelude.<*> (x Core..@? "P99")
+      Prelude.<*> (x Core..@? "P85")
+      Prelude.<*> (x Core..@? "P50")
+      Prelude.<*> (x Core..@? "P90")
+      Prelude.<*> (x Core..@? "P75")
 
-instance Core.Hashable Latency
+instance Prelude.Hashable Latency
 
-instance Core.NFData Latency
+instance Prelude.NFData Latency

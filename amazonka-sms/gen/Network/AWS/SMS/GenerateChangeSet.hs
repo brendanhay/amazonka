@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -50,11 +51,11 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newGenerateChangeSet' smart constructor.
 data GenerateChangeSet = GenerateChangeSet'
   { -- | The format for the change set.
-    changesetFormat :: Core.Maybe OutputFormat,
+    changesetFormat :: Prelude.Maybe OutputFormat,
     -- | The ID of the application associated with the change set.
-    appId :: Core.Maybe Core.Text
+    appId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GenerateChangeSet' with all optional fields omitted.
@@ -71,16 +72,17 @@ newGenerateChangeSet ::
   GenerateChangeSet
 newGenerateChangeSet =
   GenerateChangeSet'
-    { changesetFormat = Core.Nothing,
-      appId = Core.Nothing
+    { changesetFormat =
+        Prelude.Nothing,
+      appId = Prelude.Nothing
     }
 
 -- | The format for the change set.
-generateChangeSet_changesetFormat :: Lens.Lens' GenerateChangeSet (Core.Maybe OutputFormat)
+generateChangeSet_changesetFormat :: Lens.Lens' GenerateChangeSet (Prelude.Maybe OutputFormat)
 generateChangeSet_changesetFormat = Lens.lens (\GenerateChangeSet' {changesetFormat} -> changesetFormat) (\s@GenerateChangeSet' {} a -> s {changesetFormat = a} :: GenerateChangeSet)
 
 -- | The ID of the application associated with the change set.
-generateChangeSet_appId :: Lens.Lens' GenerateChangeSet (Core.Maybe Core.Text)
+generateChangeSet_appId :: Lens.Lens' GenerateChangeSet (Prelude.Maybe Prelude.Text)
 generateChangeSet_appId = Lens.lens (\GenerateChangeSet' {appId} -> appId) (\s@GenerateChangeSet' {} a -> s {appId = a} :: GenerateChangeSet)
 
 instance Core.AWSRequest GenerateChangeSet where
@@ -92,51 +94,53 @@ instance Core.AWSRequest GenerateChangeSet where
     Response.receiveJSON
       ( \s h x ->
           GenerateChangeSetResponse'
-            Core.<$> (x Core..?> "s3Location")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "s3Location")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GenerateChangeSet
+instance Prelude.Hashable GenerateChangeSet
 
-instance Core.NFData GenerateChangeSet
+instance Prelude.NFData GenerateChangeSet
 
 instance Core.ToHeaders GenerateChangeSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSServerMigrationService_V2016_10_24.GenerateChangeSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GenerateChangeSet where
   toJSON GenerateChangeSet' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("changesetFormat" Core..=)
-              Core.<$> changesetFormat,
-            ("appId" Core..=) Core.<$> appId
+              Prelude.<$> changesetFormat,
+            ("appId" Core..=) Prelude.<$> appId
           ]
       )
 
 instance Core.ToPath GenerateChangeSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GenerateChangeSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGenerateChangeSetResponse' smart constructor.
 data GenerateChangeSetResponse = GenerateChangeSetResponse'
   { -- | The location of the Amazon S3 object.
-    s3Location :: Core.Maybe S3Location,
+    s3Location :: Prelude.Maybe S3Location,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GenerateChangeSetResponse' with all optional fields omitted.
@@ -151,21 +155,21 @@ data GenerateChangeSetResponse = GenerateChangeSetResponse'
 -- 'httpStatus', 'generateChangeSetResponse_httpStatus' - The response's http status code.
 newGenerateChangeSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GenerateChangeSetResponse
 newGenerateChangeSetResponse pHttpStatus_ =
   GenerateChangeSetResponse'
     { s3Location =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The location of the Amazon S3 object.
-generateChangeSetResponse_s3Location :: Lens.Lens' GenerateChangeSetResponse (Core.Maybe S3Location)
+generateChangeSetResponse_s3Location :: Lens.Lens' GenerateChangeSetResponse (Prelude.Maybe S3Location)
 generateChangeSetResponse_s3Location = Lens.lens (\GenerateChangeSetResponse' {s3Location} -> s3Location) (\s@GenerateChangeSetResponse' {} a -> s {s3Location = a} :: GenerateChangeSetResponse)
 
 -- | The response's http status code.
-generateChangeSetResponse_httpStatus :: Lens.Lens' GenerateChangeSetResponse Core.Int
+generateChangeSetResponse_httpStatus :: Lens.Lens' GenerateChangeSetResponse Prelude.Int
 generateChangeSetResponse_httpStatus = Lens.lens (\GenerateChangeSetResponse' {httpStatus} -> httpStatus) (\s@GenerateChangeSetResponse' {} a -> s {httpStatus = a} :: GenerateChangeSetResponse)
 
-instance Core.NFData GenerateChangeSetResponse
+instance Prelude.NFData GenerateChangeSetResponse

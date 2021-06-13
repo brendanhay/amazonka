@@ -22,6 +22,7 @@ module Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput whe
 import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types.KeyType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the type and Amazon Resource Name (ARN) of the CMK to use for
 -- Server-Side Encryption (SSE).
@@ -31,7 +32,7 @@ data DeliveryStreamEncryptionConfigurationInput = DeliveryStreamEncryptionConfig
   { -- | If you set @KeyType@ to @CUSTOMER_MANAGED_CMK@, you must specify the
     -- Amazon Resource Name (ARN) of the CMK. If you set @KeyType@ to
     -- @AWS_OWNED_CMK@, Kinesis Data Firehose uses a service-account CMK.
-    keyARN :: Core.Maybe Core.Text,
+    keyARN :: Prelude.Maybe Prelude.Text,
     -- | Indicates the type of customer master key (CMK) to use for encryption.
     -- The default setting is @AWS_OWNED_CMK@. For more information about CMKs,
     -- see
@@ -60,7 +61,7 @@ data DeliveryStreamEncryptionConfigurationInput = DeliveryStreamEncryptionConfig
     -- in the AWS Key Management Service developer guide.
     keyType :: KeyType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeliveryStreamEncryptionConfigurationInput' with all optional fields omitted.
@@ -108,14 +109,14 @@ newDeliveryStreamEncryptionConfigurationInput
   pKeyType_ =
     DeliveryStreamEncryptionConfigurationInput'
       { keyARN =
-          Core.Nothing,
+          Prelude.Nothing,
         keyType = pKeyType_
       }
 
 -- | If you set @KeyType@ to @CUSTOMER_MANAGED_CMK@, you must specify the
 -- Amazon Resource Name (ARN) of the CMK. If you set @KeyType@ to
 -- @AWS_OWNED_CMK@, Kinesis Data Firehose uses a service-account CMK.
-deliveryStreamEncryptionConfigurationInput_keyARN :: Lens.Lens' DeliveryStreamEncryptionConfigurationInput (Core.Maybe Core.Text)
+deliveryStreamEncryptionConfigurationInput_keyARN :: Lens.Lens' DeliveryStreamEncryptionConfigurationInput (Prelude.Maybe Prelude.Text)
 deliveryStreamEncryptionConfigurationInput_keyARN = Lens.lens (\DeliveryStreamEncryptionConfigurationInput' {keyARN} -> keyARN) (\s@DeliveryStreamEncryptionConfigurationInput' {} a -> s {keyARN = a} :: DeliveryStreamEncryptionConfigurationInput)
 
 -- | Indicates the type of customer master key (CMK) to use for encryption.
@@ -148,11 +149,11 @@ deliveryStreamEncryptionConfigurationInput_keyType :: Lens.Lens' DeliveryStreamE
 deliveryStreamEncryptionConfigurationInput_keyType = Lens.lens (\DeliveryStreamEncryptionConfigurationInput' {keyType} -> keyType) (\s@DeliveryStreamEncryptionConfigurationInput' {} a -> s {keyType = a} :: DeliveryStreamEncryptionConfigurationInput)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DeliveryStreamEncryptionConfigurationInput
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeliveryStreamEncryptionConfigurationInput
 
 instance
@@ -162,8 +163,8 @@ instance
   toJSON
     DeliveryStreamEncryptionConfigurationInput' {..} =
       Core.object
-        ( Core.catMaybes
-            [ ("KeyARN" Core..=) Core.<$> keyARN,
-              Core.Just ("KeyType" Core..= keyType)
+        ( Prelude.catMaybes
+            [ ("KeyARN" Core..=) Prelude.<$> keyARN,
+              Prelude.Just ("KeyType" Core..= keyType)
             ]
         )

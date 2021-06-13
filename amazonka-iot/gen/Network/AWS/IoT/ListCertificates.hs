@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,14 +59,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newListCertificates' smart constructor.
 data ListCertificates = ListCertificates'
   { -- | The result page size.
-    pageSize :: Core.Maybe Core.Natural,
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the order for results. If True, the results are returned in
     -- ascending order, based on the creation date.
-    ascendingOrder :: Core.Maybe Core.Bool,
+    ascendingOrder :: Prelude.Maybe Prelude.Bool,
     -- | The marker for the next set of results.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListCertificates' with all optional fields omitted.
@@ -85,22 +86,22 @@ newListCertificates ::
   ListCertificates
 newListCertificates =
   ListCertificates'
-    { pageSize = Core.Nothing,
-      ascendingOrder = Core.Nothing,
-      marker = Core.Nothing
+    { pageSize = Prelude.Nothing,
+      ascendingOrder = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The result page size.
-listCertificates_pageSize :: Lens.Lens' ListCertificates (Core.Maybe Core.Natural)
+listCertificates_pageSize :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Natural)
 listCertificates_pageSize = Lens.lens (\ListCertificates' {pageSize} -> pageSize) (\s@ListCertificates' {} a -> s {pageSize = a} :: ListCertificates)
 
 -- | Specifies the order for results. If True, the results are returned in
 -- ascending order, based on the creation date.
-listCertificates_ascendingOrder :: Lens.Lens' ListCertificates (Core.Maybe Core.Bool)
+listCertificates_ascendingOrder :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Bool)
 listCertificates_ascendingOrder = Lens.lens (\ListCertificates' {ascendingOrder} -> ascendingOrder) (\s@ListCertificates' {} a -> s {ascendingOrder = a} :: ListCertificates)
 
 -- | The marker for the next set of results.
-listCertificates_marker :: Lens.Lens' ListCertificates (Core.Maybe Core.Text)
+listCertificates_marker :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Text)
 listCertificates_marker = Lens.lens (\ListCertificates' {marker} -> marker) (\s@ListCertificates' {} a -> s {marker = a} :: ListCertificates)
 
 instance Core.AWSPager ListCertificates where
@@ -108,21 +109,22 @@ instance Core.AWSPager ListCertificates where
     | Core.stop
         ( rs
             Lens.^? listCertificatesResponse_nextMarker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCertificatesResponse_certificates
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listCertificates_marker
+          Prelude.& listCertificates_marker
           Lens..~ rs
-          Lens.^? listCertificatesResponse_nextMarker Core.. Lens._Just
+          Lens.^? listCertificatesResponse_nextMarker
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCertificates where
   type
@@ -133,24 +135,24 @@ instance Core.AWSRequest ListCertificates where
     Response.receiveJSON
       ( \s h x ->
           ListCertificatesResponse'
-            Core.<$> (x Core..?> "nextMarker")
-            Core.<*> (x Core..?> "certificates" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextMarker")
+            Prelude.<*> (x Core..?> "certificates" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListCertificates
+instance Prelude.Hashable ListCertificates
 
-instance Core.NFData ListCertificates
+instance Prelude.NFData ListCertificates
 
 instance Core.ToHeaders ListCertificates where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListCertificates where
-  toPath = Core.const "/certificates"
+  toPath = Prelude.const "/certificates"
 
 instance Core.ToQuery ListCertificates where
   toQuery ListCertificates' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "pageSize" Core.=: pageSize,
         "isAscendingOrder" Core.=: ascendingOrder,
         "marker" Core.=: marker
@@ -162,13 +164,13 @@ instance Core.ToQuery ListCertificates where
 data ListCertificatesResponse = ListCertificatesResponse'
   { -- | The marker for the next set of results, or null if there are no
     -- additional results.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The descriptions of the certificates.
-    certificates :: Core.Maybe [Certificate],
+    certificates :: Prelude.Maybe [Certificate],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListCertificatesResponse' with all optional fields omitted.
@@ -186,27 +188,27 @@ data ListCertificatesResponse = ListCertificatesResponse'
 -- 'httpStatus', 'listCertificatesResponse_httpStatus' - The response's http status code.
 newListCertificatesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListCertificatesResponse
 newListCertificatesResponse pHttpStatus_ =
   ListCertificatesResponse'
     { nextMarker =
-        Core.Nothing,
-      certificates = Core.Nothing,
+        Prelude.Nothing,
+      certificates = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The marker for the next set of results, or null if there are no
 -- additional results.
-listCertificatesResponse_nextMarker :: Lens.Lens' ListCertificatesResponse (Core.Maybe Core.Text)
+listCertificatesResponse_nextMarker :: Lens.Lens' ListCertificatesResponse (Prelude.Maybe Prelude.Text)
 listCertificatesResponse_nextMarker = Lens.lens (\ListCertificatesResponse' {nextMarker} -> nextMarker) (\s@ListCertificatesResponse' {} a -> s {nextMarker = a} :: ListCertificatesResponse)
 
 -- | The descriptions of the certificates.
-listCertificatesResponse_certificates :: Lens.Lens' ListCertificatesResponse (Core.Maybe [Certificate])
-listCertificatesResponse_certificates = Lens.lens (\ListCertificatesResponse' {certificates} -> certificates) (\s@ListCertificatesResponse' {} a -> s {certificates = a} :: ListCertificatesResponse) Core.. Lens.mapping Lens._Coerce
+listCertificatesResponse_certificates :: Lens.Lens' ListCertificatesResponse (Prelude.Maybe [Certificate])
+listCertificatesResponse_certificates = Lens.lens (\ListCertificatesResponse' {certificates} -> certificates) (\s@ListCertificatesResponse' {} a -> s {certificates = a} :: ListCertificatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listCertificatesResponse_httpStatus :: Lens.Lens' ListCertificatesResponse Core.Int
+listCertificatesResponse_httpStatus :: Lens.Lens' ListCertificatesResponse Prelude.Int
 listCertificatesResponse_httpStatus = Lens.lens (\ListCertificatesResponse' {httpStatus} -> httpStatus) (\s@ListCertificatesResponse' {} a -> s {httpStatus = a} :: ListCertificatesResponse)
 
-instance Core.NFData ListCertificatesResponse
+instance Prelude.NFData ListCertificatesResponse

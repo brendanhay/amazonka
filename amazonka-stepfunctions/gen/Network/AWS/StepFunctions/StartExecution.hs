@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StepFunctions.Types
@@ -67,7 +68,7 @@ data StartExecution = StartExecution'
     --
     -- Length constraints apply to the payload size, and are expressed as bytes
     -- in UTF-8 encoding.
-    input :: Core.Maybe (Core.Sensitive Core.Text),
+    input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The name of the execution. This name must be unique for your AWS
     -- account, region, and state machine for 90 days. For more information,
     -- see
@@ -88,14 +89,14 @@ data StartExecution = StartExecution'
     --
     -- To enable logging with CloudWatch Logs, the name should only contain
     -- 0-9, A-Z, a-z, - and _.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | Passes the AWS X-Ray trace header. The trace header can also be passed
     -- in the request payload.
-    traceHeader :: Core.Maybe Core.Text,
+    traceHeader :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the state machine to execute.
-    stateMachineArn :: Core.Text
+    stateMachineArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartExecution' with all optional fields omitted.
@@ -143,13 +144,13 @@ data StartExecution = StartExecution'
 -- 'stateMachineArn', 'startExecution_stateMachineArn' - The Amazon Resource Name (ARN) of the state machine to execute.
 newStartExecution ::
   -- | 'stateMachineArn'
-  Core.Text ->
+  Prelude.Text ->
   StartExecution
 newStartExecution pStateMachineArn_ =
   StartExecution'
-    { input = Core.Nothing,
-      name = Core.Nothing,
-      traceHeader = Core.Nothing,
+    { input = Prelude.Nothing,
+      name = Prelude.Nothing,
+      traceHeader = Prelude.Nothing,
       stateMachineArn = pStateMachineArn_
     }
 
@@ -163,8 +164,8 @@ newStartExecution pStateMachineArn_ =
 --
 -- Length constraints apply to the payload size, and are expressed as bytes
 -- in UTF-8 encoding.
-startExecution_input :: Lens.Lens' StartExecution (Core.Maybe Core.Text)
-startExecution_input = Lens.lens (\StartExecution' {input} -> input) (\s@StartExecution' {} a -> s {input = a} :: StartExecution) Core.. Lens.mapping Core._Sensitive
+startExecution_input :: Lens.Lens' StartExecution (Prelude.Maybe Prelude.Text)
+startExecution_input = Lens.lens (\StartExecution' {input} -> input) (\s@StartExecution' {} a -> s {input = a} :: StartExecution) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the execution. This name must be unique for your AWS
 -- account, region, and state machine for 90 days. For more information,
@@ -186,16 +187,16 @@ startExecution_input = Lens.lens (\StartExecution' {input} -> input) (\s@StartEx
 --
 -- To enable logging with CloudWatch Logs, the name should only contain
 -- 0-9, A-Z, a-z, - and _.
-startExecution_name :: Lens.Lens' StartExecution (Core.Maybe Core.Text)
+startExecution_name :: Lens.Lens' StartExecution (Prelude.Maybe Prelude.Text)
 startExecution_name = Lens.lens (\StartExecution' {name} -> name) (\s@StartExecution' {} a -> s {name = a} :: StartExecution)
 
 -- | Passes the AWS X-Ray trace header. The trace header can also be passed
 -- in the request payload.
-startExecution_traceHeader :: Lens.Lens' StartExecution (Core.Maybe Core.Text)
+startExecution_traceHeader :: Lens.Lens' StartExecution (Prelude.Maybe Prelude.Text)
 startExecution_traceHeader = Lens.lens (\StartExecution' {traceHeader} -> traceHeader) (\s@StartExecution' {} a -> s {traceHeader = a} :: StartExecution)
 
 -- | The Amazon Resource Name (ARN) of the state machine to execute.
-startExecution_stateMachineArn :: Lens.Lens' StartExecution Core.Text
+startExecution_stateMachineArn :: Lens.Lens' StartExecution Prelude.Text
 startExecution_stateMachineArn = Lens.lens (\StartExecution' {stateMachineArn} -> stateMachineArn) (\s@StartExecution' {} a -> s {stateMachineArn = a} :: StartExecution)
 
 instance Core.AWSRequest StartExecution where
@@ -207,56 +208,58 @@ instance Core.AWSRequest StartExecution where
     Response.receiveJSON
       ( \s h x ->
           StartExecutionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "executionArn")
-            Core.<*> (x Core..:> "startDate")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "executionArn")
+            Prelude.<*> (x Core..:> "startDate")
       )
 
-instance Core.Hashable StartExecution
+instance Prelude.Hashable StartExecution
 
-instance Core.NFData StartExecution
+instance Prelude.NFData StartExecution
 
 instance Core.ToHeaders StartExecution where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSStepFunctions.StartExecution" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartExecution where
   toJSON StartExecution' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("input" Core..=) Core.<$> input,
-            ("name" Core..=) Core.<$> name,
-            ("traceHeader" Core..=) Core.<$> traceHeader,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("input" Core..=) Prelude.<$> input,
+            ("name" Core..=) Prelude.<$> name,
+            ("traceHeader" Core..=) Prelude.<$> traceHeader,
+            Prelude.Just
               ("stateMachineArn" Core..= stateMachineArn)
           ]
       )
 
 instance Core.ToPath StartExecution where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartExecution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartExecutionResponse' smart constructor.
 data StartExecutionResponse = StartExecutionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) that identifies the execution.
-    executionArn :: Core.Text,
+    executionArn :: Prelude.Text,
     -- | The date the execution is started.
     startDate :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartExecutionResponse' with all optional fields omitted.
@@ -273,11 +276,11 @@ data StartExecutionResponse = StartExecutionResponse'
 -- 'startDate', 'startExecutionResponse_startDate' - The date the execution is started.
 newStartExecutionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'executionArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'startDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   StartExecutionResponse
 newStartExecutionResponse
   pHttpStatus_
@@ -290,15 +293,15 @@ newStartExecutionResponse
       }
 
 -- | The response's http status code.
-startExecutionResponse_httpStatus :: Lens.Lens' StartExecutionResponse Core.Int
+startExecutionResponse_httpStatus :: Lens.Lens' StartExecutionResponse Prelude.Int
 startExecutionResponse_httpStatus = Lens.lens (\StartExecutionResponse' {httpStatus} -> httpStatus) (\s@StartExecutionResponse' {} a -> s {httpStatus = a} :: StartExecutionResponse)
 
 -- | The Amazon Resource Name (ARN) that identifies the execution.
-startExecutionResponse_executionArn :: Lens.Lens' StartExecutionResponse Core.Text
+startExecutionResponse_executionArn :: Lens.Lens' StartExecutionResponse Prelude.Text
 startExecutionResponse_executionArn = Lens.lens (\StartExecutionResponse' {executionArn} -> executionArn) (\s@StartExecutionResponse' {} a -> s {executionArn = a} :: StartExecutionResponse)
 
 -- | The date the execution is started.
-startExecutionResponse_startDate :: Lens.Lens' StartExecutionResponse Core.UTCTime
-startExecutionResponse_startDate = Lens.lens (\StartExecutionResponse' {startDate} -> startDate) (\s@StartExecutionResponse' {} a -> s {startDate = a} :: StartExecutionResponse) Core.. Core._Time
+startExecutionResponse_startDate :: Lens.Lens' StartExecutionResponse Prelude.UTCTime
+startExecutionResponse_startDate = Lens.lens (\StartExecutionResponse' {startDate} -> startDate) (\s@StartExecutionResponse' {} a -> s {startDate = a} :: StartExecutionResponse) Prelude.. Core._Time
 
-instance Core.NFData StartExecutionResponse
+instance Prelude.NFData StartExecutionResponse

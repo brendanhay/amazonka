@@ -21,6 +21,7 @@ module Network.AWS.IAM.Types.AccessKeyLastUsed where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the last time an AWS access key was used
 -- since IAM began tracking this information on April 22, 2015.
@@ -51,7 +52,7 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
     --     tracking this information.
     --
     -- -   There is no sign-in data associated with the user.
-    serviceName :: Core.Text,
+    serviceName :: Prelude.Text,
     -- | The AWS Region where this access key was most recently used. The value
     -- for this field is \"N\/A\" in the following situations:
     --
@@ -65,9 +66,9 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
     -- For more information about AWS Regions, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and endpoints>
     -- in the Amazon Web Services General Reference.
-    region :: Core.Text
+    region :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccessKeyLastUsed' with all optional fields omitted.
@@ -114,11 +115,11 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
 -- in the Amazon Web Services General Reference.
 newAccessKeyLastUsed ::
   -- | 'lastUsedDate'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'serviceName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'region'
-  Core.Text ->
+  Prelude.Text ->
   AccessKeyLastUsed
 newAccessKeyLastUsed
   pLastUsedDate_
@@ -142,8 +143,8 @@ newAccessKeyLastUsed
 --     this information.
 --
 -- -   There is no sign-in data associated with the user.
-accessKeyLastUsed_lastUsedDate :: Lens.Lens' AccessKeyLastUsed Core.UTCTime
-accessKeyLastUsed_lastUsedDate = Lens.lens (\AccessKeyLastUsed' {lastUsedDate} -> lastUsedDate) (\s@AccessKeyLastUsed' {} a -> s {lastUsedDate = a} :: AccessKeyLastUsed) Core.. Core._Time
+accessKeyLastUsed_lastUsedDate :: Lens.Lens' AccessKeyLastUsed Prelude.UTCTime
+accessKeyLastUsed_lastUsedDate = Lens.lens (\AccessKeyLastUsed' {lastUsedDate} -> lastUsedDate) (\s@AccessKeyLastUsed' {} a -> s {lastUsedDate = a} :: AccessKeyLastUsed) Prelude.. Core._Time
 
 -- | The name of the AWS service with which this access key was most recently
 -- used. The value of this field is \"N\/A\" in the following situations:
@@ -154,7 +155,7 @@ accessKeyLastUsed_lastUsedDate = Lens.lens (\AccessKeyLastUsed' {lastUsedDate} -
 --     tracking this information.
 --
 -- -   There is no sign-in data associated with the user.
-accessKeyLastUsed_serviceName :: Lens.Lens' AccessKeyLastUsed Core.Text
+accessKeyLastUsed_serviceName :: Lens.Lens' AccessKeyLastUsed Prelude.Text
 accessKeyLastUsed_serviceName = Lens.lens (\AccessKeyLastUsed' {serviceName} -> serviceName) (\s@AccessKeyLastUsed' {} a -> s {serviceName = a} :: AccessKeyLastUsed)
 
 -- | The AWS Region where this access key was most recently used. The value
@@ -170,16 +171,16 @@ accessKeyLastUsed_serviceName = Lens.lens (\AccessKeyLastUsed' {serviceName} -> 
 -- For more information about AWS Regions, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and endpoints>
 -- in the Amazon Web Services General Reference.
-accessKeyLastUsed_region :: Lens.Lens' AccessKeyLastUsed Core.Text
+accessKeyLastUsed_region :: Lens.Lens' AccessKeyLastUsed Prelude.Text
 accessKeyLastUsed_region = Lens.lens (\AccessKeyLastUsed' {region} -> region) (\s@AccessKeyLastUsed' {} a -> s {region = a} :: AccessKeyLastUsed)
 
 instance Core.FromXML AccessKeyLastUsed where
   parseXML x =
     AccessKeyLastUsed'
-      Core.<$> (x Core..@ "LastUsedDate")
-      Core.<*> (x Core..@ "ServiceName")
-      Core.<*> (x Core..@ "Region")
+      Prelude.<$> (x Core..@ "LastUsedDate")
+      Prelude.<*> (x Core..@ "ServiceName")
+      Prelude.<*> (x Core..@ "Region")
 
-instance Core.Hashable AccessKeyLastUsed
+instance Prelude.Hashable AccessKeyLastUsed
 
-instance Core.NFData AccessKeyLastUsed
+instance Prelude.NFData AccessKeyLastUsed

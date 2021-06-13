@@ -47,6 +47,7 @@ where
 import Network.AWS.CloudSearch.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,10 +57,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDefineAnalysisScheme' smart constructor.
 data DefineAnalysisScheme = DefineAnalysisScheme'
-  { domainName :: Core.Text,
+  { domainName :: Prelude.Text,
     analysisScheme :: AnalysisScheme
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DefineAnalysisScheme' with all optional fields omitted.
@@ -74,7 +75,7 @@ data DefineAnalysisScheme = DefineAnalysisScheme'
 -- 'analysisScheme', 'defineAnalysisScheme_analysisScheme' - Undocumented member.
 newDefineAnalysisScheme ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'analysisScheme'
   AnalysisScheme ->
   DefineAnalysisScheme
@@ -85,7 +86,7 @@ newDefineAnalysisScheme pDomainName_ pAnalysisScheme_ =
     }
 
 -- | Undocumented member.
-defineAnalysisScheme_domainName :: Lens.Lens' DefineAnalysisScheme Core.Text
+defineAnalysisScheme_domainName :: Lens.Lens' DefineAnalysisScheme Prelude.Text
 defineAnalysisScheme_domainName = Lens.lens (\DefineAnalysisScheme' {domainName} -> domainName) (\s@DefineAnalysisScheme' {} a -> s {domainName = a} :: DefineAnalysisScheme)
 
 -- | Undocumented member.
@@ -102,26 +103,27 @@ instance Core.AWSRequest DefineAnalysisScheme where
       "DefineAnalysisSchemeResult"
       ( \s h x ->
           DefineAnalysisSchemeResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "AnalysisScheme")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "AnalysisScheme")
       )
 
-instance Core.Hashable DefineAnalysisScheme
+instance Prelude.Hashable DefineAnalysisScheme
 
-instance Core.NFData DefineAnalysisScheme
+instance Prelude.NFData DefineAnalysisScheme
 
 instance Core.ToHeaders DefineAnalysisScheme where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DefineAnalysisScheme where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DefineAnalysisScheme where
   toQuery DefineAnalysisScheme' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DefineAnalysisScheme" :: Core.ByteString),
-        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+          Core.=: ("DefineAnalysisScheme" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
         "DomainName" Core.=: domainName,
         "AnalysisScheme" Core.=: analysisScheme
       ]
@@ -132,10 +134,10 @@ instance Core.ToQuery DefineAnalysisScheme where
 -- /See:/ 'newDefineAnalysisSchemeResponse' smart constructor.
 data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     analysisScheme :: AnalysisSchemeStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DefineAnalysisSchemeResponse' with all optional fields omitted.
@@ -150,7 +152,7 @@ data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
 -- 'analysisScheme', 'defineAnalysisSchemeResponse_analysisScheme' - Undocumented member.
 newDefineAnalysisSchemeResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'analysisScheme'
   AnalysisSchemeStatus ->
   DefineAnalysisSchemeResponse
@@ -164,11 +166,11 @@ newDefineAnalysisSchemeResponse
       }
 
 -- | The response's http status code.
-defineAnalysisSchemeResponse_httpStatus :: Lens.Lens' DefineAnalysisSchemeResponse Core.Int
+defineAnalysisSchemeResponse_httpStatus :: Lens.Lens' DefineAnalysisSchemeResponse Prelude.Int
 defineAnalysisSchemeResponse_httpStatus = Lens.lens (\DefineAnalysisSchemeResponse' {httpStatus} -> httpStatus) (\s@DefineAnalysisSchemeResponse' {} a -> s {httpStatus = a} :: DefineAnalysisSchemeResponse)
 
 -- | Undocumented member.
 defineAnalysisSchemeResponse_analysisScheme :: Lens.Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
 defineAnalysisSchemeResponse_analysisScheme = Lens.lens (\DefineAnalysisSchemeResponse' {analysisScheme} -> analysisScheme) (\s@DefineAnalysisSchemeResponse' {} a -> s {analysisScheme = a} :: DefineAnalysisSchemeResponse)
 
-instance Core.NFData DefineAnalysisSchemeResponse
+instance Prelude.NFData DefineAnalysisSchemeResponse

@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.AccountAttributeValue where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a value of an account attribute.
 --
 -- /See:/ 'newAccountAttributeValue' smart constructor.
 data AccountAttributeValue = AccountAttributeValue'
   { -- | The value of the attribute.
-    attributeValue :: Core.Maybe Core.Text
+    attributeValue :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccountAttributeValue' with all optional fields omitted.
@@ -46,18 +47,18 @@ newAccountAttributeValue ::
 newAccountAttributeValue =
   AccountAttributeValue'
     { attributeValue =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The value of the attribute.
-accountAttributeValue_attributeValue :: Lens.Lens' AccountAttributeValue (Core.Maybe Core.Text)
+accountAttributeValue_attributeValue :: Lens.Lens' AccountAttributeValue (Prelude.Maybe Prelude.Text)
 accountAttributeValue_attributeValue = Lens.lens (\AccountAttributeValue' {attributeValue} -> attributeValue) (\s@AccountAttributeValue' {} a -> s {attributeValue = a} :: AccountAttributeValue)
 
 instance Core.FromXML AccountAttributeValue where
   parseXML x =
     AccountAttributeValue'
-      Core.<$> (x Core..@? "attributeValue")
+      Prelude.<$> (x Core..@? "attributeValue")
 
-instance Core.Hashable AccountAttributeValue
+instance Prelude.Hashable AccountAttributeValue
 
-instance Core.NFData AccountAttributeValue
+instance Prelude.NFData AccountAttributeValue

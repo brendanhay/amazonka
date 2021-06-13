@@ -22,21 +22,22 @@ module Network.AWS.APIGateway.Types.SdkType where
 import Network.AWS.APIGateway.Types.SdkConfigurationProperty
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A type of SDK that API Gateway can generate.
 --
 -- /See:/ 'newSdkType' smart constructor.
 data SdkType = SdkType'
   { -- | The user-friendly name of an SdkType instance.
-    friendlyName :: Core.Maybe Core.Text,
+    friendlyName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of an SdkType instance.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | A list of configuration properties of an SdkType.
-    configurationProperties :: Core.Maybe [SdkConfigurationProperty],
+    configurationProperties :: Prelude.Maybe [SdkConfigurationProperty],
     -- | The description of an SdkType.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SdkType' with all optional fields omitted.
@@ -57,26 +58,26 @@ newSdkType ::
   SdkType
 newSdkType =
   SdkType'
-    { friendlyName = Core.Nothing,
-      id = Core.Nothing,
-      configurationProperties = Core.Nothing,
-      description = Core.Nothing
+    { friendlyName = Prelude.Nothing,
+      id = Prelude.Nothing,
+      configurationProperties = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The user-friendly name of an SdkType instance.
-sdkType_friendlyName :: Lens.Lens' SdkType (Core.Maybe Core.Text)
+sdkType_friendlyName :: Lens.Lens' SdkType (Prelude.Maybe Prelude.Text)
 sdkType_friendlyName = Lens.lens (\SdkType' {friendlyName} -> friendlyName) (\s@SdkType' {} a -> s {friendlyName = a} :: SdkType)
 
 -- | The identifier of an SdkType instance.
-sdkType_id :: Lens.Lens' SdkType (Core.Maybe Core.Text)
+sdkType_id :: Lens.Lens' SdkType (Prelude.Maybe Prelude.Text)
 sdkType_id = Lens.lens (\SdkType' {id} -> id) (\s@SdkType' {} a -> s {id = a} :: SdkType)
 
 -- | A list of configuration properties of an SdkType.
-sdkType_configurationProperties :: Lens.Lens' SdkType (Core.Maybe [SdkConfigurationProperty])
-sdkType_configurationProperties = Lens.lens (\SdkType' {configurationProperties} -> configurationProperties) (\s@SdkType' {} a -> s {configurationProperties = a} :: SdkType) Core.. Lens.mapping Lens._Coerce
+sdkType_configurationProperties :: Lens.Lens' SdkType (Prelude.Maybe [SdkConfigurationProperty])
+sdkType_configurationProperties = Lens.lens (\SdkType' {configurationProperties} -> configurationProperties) (\s@SdkType' {} a -> s {configurationProperties = a} :: SdkType) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The description of an SdkType.
-sdkType_description :: Lens.Lens' SdkType (Core.Maybe Core.Text)
+sdkType_description :: Lens.Lens' SdkType (Prelude.Maybe Prelude.Text)
 sdkType_description = Lens.lens (\SdkType' {description} -> description) (\s@SdkType' {} a -> s {description = a} :: SdkType)
 
 instance Core.FromJSON SdkType where
@@ -85,14 +86,14 @@ instance Core.FromJSON SdkType where
       "SdkType"
       ( \x ->
           SdkType'
-            Core.<$> (x Core..:? "friendlyName")
-            Core.<*> (x Core..:? "id")
-            Core.<*> ( x Core..:? "configurationProperties"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "description")
+            Prelude.<$> (x Core..:? "friendlyName")
+            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> ( x Core..:? "configurationProperties"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "description")
       )
 
-instance Core.Hashable SdkType
+instance Prelude.Hashable SdkType
 
-instance Core.NFData SdkType
+instance Prelude.NFData SdkType

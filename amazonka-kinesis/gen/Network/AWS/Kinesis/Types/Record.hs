@@ -22,6 +22,7 @@ module Network.AWS.Kinesis.Types.Record where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types.EncryptionType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The unit of data of the Kinesis data stream, which is composed of a
 -- sequence number, a partition key, and a data blob.
@@ -35,11 +36,11 @@ data Record = Record'
     --
     -- -   @KMS@: Use server-side encryption on the records in the stream using
     --     a customer-managed AWS KMS key.
-    encryptionType :: Core.Maybe EncryptionType,
+    encryptionType :: Prelude.Maybe EncryptionType,
     -- | The approximate time that the record was inserted into the stream.
-    approximateArrivalTimestamp :: Core.Maybe Core.POSIX,
+    approximateArrivalTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The unique identifier of the record within its shard.
-    sequenceNumber :: Core.Text,
+    sequenceNumber :: Prelude.Text,
     -- | The data blob. The data in the blob is both opaque and immutable to
     -- Kinesis Data Streams, which does not inspect, interpret, or change the
     -- data in the blob in any way. When the data blob (the payload before
@@ -47,9 +48,9 @@ data Record = Record'
     -- not exceed the maximum record size (1 MiB).
     data' :: Core.Base64,
     -- | Identifies which shard in the stream the data record is assigned to.
-    partitionKey :: Core.Text
+    partitionKey :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Record' with all optional fields omitted.
@@ -84,16 +85,16 @@ data Record = Record'
 -- 'partitionKey', 'record_partitionKey' - Identifies which shard in the stream the data record is assigned to.
 newRecord ::
   -- | 'sequenceNumber'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'data''
-  Core.ByteString ->
+  Prelude.ByteString ->
   -- | 'partitionKey'
-  Core.Text ->
+  Prelude.Text ->
   Record
 newRecord pSequenceNumber_ pData_ pPartitionKey_ =
   Record'
-    { encryptionType = Core.Nothing,
-      approximateArrivalTimestamp = Core.Nothing,
+    { encryptionType = Prelude.Nothing,
+      approximateArrivalTimestamp = Prelude.Nothing,
       sequenceNumber = pSequenceNumber_,
       data' = Core._Base64 Lens.# pData_,
       partitionKey = pPartitionKey_
@@ -106,15 +107,15 @@ newRecord pSequenceNumber_ pData_ pPartitionKey_ =
 --
 -- -   @KMS@: Use server-side encryption on the records in the stream using
 --     a customer-managed AWS KMS key.
-record_encryptionType :: Lens.Lens' Record (Core.Maybe EncryptionType)
+record_encryptionType :: Lens.Lens' Record (Prelude.Maybe EncryptionType)
 record_encryptionType = Lens.lens (\Record' {encryptionType} -> encryptionType) (\s@Record' {} a -> s {encryptionType = a} :: Record)
 
 -- | The approximate time that the record was inserted into the stream.
-record_approximateArrivalTimestamp :: Lens.Lens' Record (Core.Maybe Core.UTCTime)
-record_approximateArrivalTimestamp = Lens.lens (\Record' {approximateArrivalTimestamp} -> approximateArrivalTimestamp) (\s@Record' {} a -> s {approximateArrivalTimestamp = a} :: Record) Core.. Lens.mapping Core._Time
+record_approximateArrivalTimestamp :: Lens.Lens' Record (Prelude.Maybe Prelude.UTCTime)
+record_approximateArrivalTimestamp = Lens.lens (\Record' {approximateArrivalTimestamp} -> approximateArrivalTimestamp) (\s@Record' {} a -> s {approximateArrivalTimestamp = a} :: Record) Prelude.. Lens.mapping Core._Time
 
 -- | The unique identifier of the record within its shard.
-record_sequenceNumber :: Lens.Lens' Record Core.Text
+record_sequenceNumber :: Lens.Lens' Record Prelude.Text
 record_sequenceNumber = Lens.lens (\Record' {sequenceNumber} -> sequenceNumber) (\s@Record' {} a -> s {sequenceNumber = a} :: Record)
 
 -- | The data blob. The data in the blob is both opaque and immutable to
@@ -126,11 +127,11 @@ record_sequenceNumber = Lens.lens (\Record' {sequenceNumber} -> sequenceNumber) 
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-record_data :: Lens.Lens' Record Core.ByteString
-record_data = Lens.lens (\Record' {data'} -> data') (\s@Record' {} a -> s {data' = a} :: Record) Core.. Core._Base64
+record_data :: Lens.Lens' Record Prelude.ByteString
+record_data = Lens.lens (\Record' {data'} -> data') (\s@Record' {} a -> s {data' = a} :: Record) Prelude.. Core._Base64
 
 -- | Identifies which shard in the stream the data record is assigned to.
-record_partitionKey :: Lens.Lens' Record Core.Text
+record_partitionKey :: Lens.Lens' Record Prelude.Text
 record_partitionKey = Lens.lens (\Record' {partitionKey} -> partitionKey) (\s@Record' {} a -> s {partitionKey = a} :: Record)
 
 instance Core.FromJSON Record where
@@ -139,13 +140,13 @@ instance Core.FromJSON Record where
       "Record"
       ( \x ->
           Record'
-            Core.<$> (x Core..:? "EncryptionType")
-            Core.<*> (x Core..:? "ApproximateArrivalTimestamp")
-            Core.<*> (x Core..: "SequenceNumber")
-            Core.<*> (x Core..: "Data")
-            Core.<*> (x Core..: "PartitionKey")
+            Prelude.<$> (x Core..:? "EncryptionType")
+            Prelude.<*> (x Core..:? "ApproximateArrivalTimestamp")
+            Prelude.<*> (x Core..: "SequenceNumber")
+            Prelude.<*> (x Core..: "Data")
+            Prelude.<*> (x Core..: "PartitionKey")
       )
 
-instance Core.Hashable Record
+instance Prelude.Hashable Record
 
-instance Core.NFData Record
+instance Prelude.NFData Record

@@ -21,6 +21,7 @@ module Network.AWS.CloudWatchEvents.Types.PartnerEventSource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A partner event source is created by an SaaS partner. If a customer
 -- creates a partner event bus that matches this event source, that AWS
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPartnerEventSource' smart constructor.
 data PartnerEventSource = PartnerEventSource'
   { -- | The ARN of the partner event source.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the partner event source.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PartnerEventSource' with all optional fields omitted.
@@ -50,16 +51,16 @@ newPartnerEventSource ::
   PartnerEventSource
 newPartnerEventSource =
   PartnerEventSource'
-    { arn = Core.Nothing,
-      name = Core.Nothing
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The ARN of the partner event source.
-partnerEventSource_arn :: Lens.Lens' PartnerEventSource (Core.Maybe Core.Text)
+partnerEventSource_arn :: Lens.Lens' PartnerEventSource (Prelude.Maybe Prelude.Text)
 partnerEventSource_arn = Lens.lens (\PartnerEventSource' {arn} -> arn) (\s@PartnerEventSource' {} a -> s {arn = a} :: PartnerEventSource)
 
 -- | The name of the partner event source.
-partnerEventSource_name :: Lens.Lens' PartnerEventSource (Core.Maybe Core.Text)
+partnerEventSource_name :: Lens.Lens' PartnerEventSource (Prelude.Maybe Prelude.Text)
 partnerEventSource_name = Lens.lens (\PartnerEventSource' {name} -> name) (\s@PartnerEventSource' {} a -> s {name = a} :: PartnerEventSource)
 
 instance Core.FromJSON PartnerEventSource where
@@ -68,9 +69,9 @@ instance Core.FromJSON PartnerEventSource where
       "PartnerEventSource"
       ( \x ->
           PartnerEventSource'
-            Core.<$> (x Core..:? "Arn") Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Arn") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable PartnerEventSource
+instance Prelude.Hashable PartnerEventSource
 
-instance Core.NFData PartnerEventSource
+instance Prelude.NFData PartnerEventSource

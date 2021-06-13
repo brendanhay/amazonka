@@ -26,27 +26,28 @@ import Network.AWS.EC2.Types.InstanceType
 import Network.AWS.EC2.Types.LaunchTemplateAndOverridesResponse
 import Network.AWS.EC2.Types.PlatformValues
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the instances that were launched by the fleet.
 --
 -- /See:/ 'newCreateFleetInstance' smart constructor.
 data CreateFleetInstance = CreateFleetInstance'
   { -- | The IDs of the instances.
-    instanceIds :: Core.Maybe [Core.Text],
+    instanceIds :: Prelude.Maybe [Prelude.Text],
     -- | The value is @Windows@ for Windows instances. Otherwise, the value is
     -- blank.
-    platform :: Core.Maybe PlatformValues,
+    platform :: Prelude.Maybe PlatformValues,
     -- | The instance type.
-    instanceType :: Core.Maybe InstanceType,
+    instanceType :: Prelude.Maybe InstanceType,
     -- | The launch templates and overrides that were used for launching the
     -- instances. The values that you specify in the Overrides replace the
     -- values in the launch template.
-    launchTemplateAndOverrides :: Core.Maybe LaunchTemplateAndOverridesResponse,
+    launchTemplateAndOverrides :: Prelude.Maybe LaunchTemplateAndOverridesResponse,
     -- | Indicates if the instance that was launched is a Spot Instance or
     -- On-Demand Instance.
-    lifecycle :: Core.Maybe InstanceLifecycle
+    lifecycle :: Prelude.Maybe InstanceLifecycle
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateFleetInstance' with all optional fields omitted.
@@ -73,48 +74,48 @@ newCreateFleetInstance ::
   CreateFleetInstance
 newCreateFleetInstance =
   CreateFleetInstance'
-    { instanceIds = Core.Nothing,
-      platform = Core.Nothing,
-      instanceType = Core.Nothing,
-      launchTemplateAndOverrides = Core.Nothing,
-      lifecycle = Core.Nothing
+    { instanceIds = Prelude.Nothing,
+      platform = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      launchTemplateAndOverrides = Prelude.Nothing,
+      lifecycle = Prelude.Nothing
     }
 
 -- | The IDs of the instances.
-createFleetInstance_instanceIds :: Lens.Lens' CreateFleetInstance (Core.Maybe [Core.Text])
-createFleetInstance_instanceIds = Lens.lens (\CreateFleetInstance' {instanceIds} -> instanceIds) (\s@CreateFleetInstance' {} a -> s {instanceIds = a} :: CreateFleetInstance) Core.. Lens.mapping Lens._Coerce
+createFleetInstance_instanceIds :: Lens.Lens' CreateFleetInstance (Prelude.Maybe [Prelude.Text])
+createFleetInstance_instanceIds = Lens.lens (\CreateFleetInstance' {instanceIds} -> instanceIds) (\s@CreateFleetInstance' {} a -> s {instanceIds = a} :: CreateFleetInstance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The value is @Windows@ for Windows instances. Otherwise, the value is
 -- blank.
-createFleetInstance_platform :: Lens.Lens' CreateFleetInstance (Core.Maybe PlatformValues)
+createFleetInstance_platform :: Lens.Lens' CreateFleetInstance (Prelude.Maybe PlatformValues)
 createFleetInstance_platform = Lens.lens (\CreateFleetInstance' {platform} -> platform) (\s@CreateFleetInstance' {} a -> s {platform = a} :: CreateFleetInstance)
 
 -- | The instance type.
-createFleetInstance_instanceType :: Lens.Lens' CreateFleetInstance (Core.Maybe InstanceType)
+createFleetInstance_instanceType :: Lens.Lens' CreateFleetInstance (Prelude.Maybe InstanceType)
 createFleetInstance_instanceType = Lens.lens (\CreateFleetInstance' {instanceType} -> instanceType) (\s@CreateFleetInstance' {} a -> s {instanceType = a} :: CreateFleetInstance)
 
 -- | The launch templates and overrides that were used for launching the
 -- instances. The values that you specify in the Overrides replace the
 -- values in the launch template.
-createFleetInstance_launchTemplateAndOverrides :: Lens.Lens' CreateFleetInstance (Core.Maybe LaunchTemplateAndOverridesResponse)
+createFleetInstance_launchTemplateAndOverrides :: Lens.Lens' CreateFleetInstance (Prelude.Maybe LaunchTemplateAndOverridesResponse)
 createFleetInstance_launchTemplateAndOverrides = Lens.lens (\CreateFleetInstance' {launchTemplateAndOverrides} -> launchTemplateAndOverrides) (\s@CreateFleetInstance' {} a -> s {launchTemplateAndOverrides = a} :: CreateFleetInstance)
 
 -- | Indicates if the instance that was launched is a Spot Instance or
 -- On-Demand Instance.
-createFleetInstance_lifecycle :: Lens.Lens' CreateFleetInstance (Core.Maybe InstanceLifecycle)
+createFleetInstance_lifecycle :: Lens.Lens' CreateFleetInstance (Prelude.Maybe InstanceLifecycle)
 createFleetInstance_lifecycle = Lens.lens (\CreateFleetInstance' {lifecycle} -> lifecycle) (\s@CreateFleetInstance' {} a -> s {lifecycle = a} :: CreateFleetInstance)
 
 instance Core.FromXML CreateFleetInstance where
   parseXML x =
     CreateFleetInstance'
-      Core.<$> ( x Core..@? "instanceIds" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
-      Core.<*> (x Core..@? "platform")
-      Core.<*> (x Core..@? "instanceType")
-      Core.<*> (x Core..@? "launchTemplateAndOverrides")
-      Core.<*> (x Core..@? "lifecycle")
+      Prelude.<$> ( x Core..@? "instanceIds" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "platform")
+      Prelude.<*> (x Core..@? "instanceType")
+      Prelude.<*> (x Core..@? "launchTemplateAndOverrides")
+      Prelude.<*> (x Core..@? "lifecycle")
 
-instance Core.Hashable CreateFleetInstance
+instance Prelude.Hashable CreateFleetInstance
 
-instance Core.NFData CreateFleetInstance
+instance Prelude.NFData CreateFleetInstance

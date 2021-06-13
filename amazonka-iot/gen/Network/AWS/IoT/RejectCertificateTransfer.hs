@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,12 +57,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newRejectCertificateTransfer' smart constructor.
 data RejectCertificateTransfer = RejectCertificateTransfer'
   { -- | The reason the certificate transfer was rejected.
-    rejectReason :: Core.Maybe Core.Text,
+    rejectReason :: Prelude.Maybe Prelude.Text,
     -- | The ID of the certificate. (The last part of the certificate ARN
     -- contains the certificate ID.)
-    certificateId :: Core.Text
+    certificateId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectCertificateTransfer' with all optional fields omitted.
@@ -77,22 +78,22 @@ data RejectCertificateTransfer = RejectCertificateTransfer'
 -- contains the certificate ID.)
 newRejectCertificateTransfer ::
   -- | 'certificateId'
-  Core.Text ->
+  Prelude.Text ->
   RejectCertificateTransfer
 newRejectCertificateTransfer pCertificateId_ =
   RejectCertificateTransfer'
     { rejectReason =
-        Core.Nothing,
+        Prelude.Nothing,
       certificateId = pCertificateId_
     }
 
 -- | The reason the certificate transfer was rejected.
-rejectCertificateTransfer_rejectReason :: Lens.Lens' RejectCertificateTransfer (Core.Maybe Core.Text)
+rejectCertificateTransfer_rejectReason :: Lens.Lens' RejectCertificateTransfer (Prelude.Maybe Prelude.Text)
 rejectCertificateTransfer_rejectReason = Lens.lens (\RejectCertificateTransfer' {rejectReason} -> rejectReason) (\s@RejectCertificateTransfer' {} a -> s {rejectReason = a} :: RejectCertificateTransfer)
 
 -- | The ID of the certificate. (The last part of the certificate ARN
 -- contains the certificate ID.)
-rejectCertificateTransfer_certificateId :: Lens.Lens' RejectCertificateTransfer Core.Text
+rejectCertificateTransfer_certificateId :: Lens.Lens' RejectCertificateTransfer Prelude.Text
 rejectCertificateTransfer_certificateId = Lens.lens (\RejectCertificateTransfer' {certificateId} -> certificateId) (\s@RejectCertificateTransfer' {} a -> s {certificateId = a} :: RejectCertificateTransfer)
 
 instance Core.AWSRequest RejectCertificateTransfer where
@@ -104,35 +105,35 @@ instance Core.AWSRequest RejectCertificateTransfer where
     Response.receiveNull
       RejectCertificateTransferResponse'
 
-instance Core.Hashable RejectCertificateTransfer
+instance Prelude.Hashable RejectCertificateTransfer
 
-instance Core.NFData RejectCertificateTransfer
+instance Prelude.NFData RejectCertificateTransfer
 
 instance Core.ToHeaders RejectCertificateTransfer where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON RejectCertificateTransfer where
   toJSON RejectCertificateTransfer' {..} =
     Core.object
-      ( Core.catMaybes
-          [("rejectReason" Core..=) Core.<$> rejectReason]
+      ( Prelude.catMaybes
+          [("rejectReason" Core..=) Prelude.<$> rejectReason]
       )
 
 instance Core.ToPath RejectCertificateTransfer where
   toPath RejectCertificateTransfer' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/reject-certificate-transfer/",
         Core.toBS certificateId
       ]
 
 instance Core.ToQuery RejectCertificateTransfer where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRejectCertificateTransferResponse' smart constructor.
 data RejectCertificateTransferResponse = RejectCertificateTransferResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RejectCertificateTransferResponse' with all optional fields omitted.
@@ -144,5 +145,5 @@ newRejectCertificateTransferResponse =
   RejectCertificateTransferResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     RejectCertificateTransferResponse

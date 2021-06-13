@@ -68,6 +68,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,11 +77,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newRegisterInstancesWithLoadBalancer' smart constructor.
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer'
   { -- | The name of the load balancer.
-    loadBalancerName :: Core.Text,
+    loadBalancerName :: Prelude.Text,
     -- | The IDs of the instances.
     instances :: [Instance]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterInstancesWithLoadBalancer' with all optional fields omitted.
@@ -95,23 +96,23 @@ data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer'
 -- 'instances', 'registerInstancesWithLoadBalancer_instances' - The IDs of the instances.
 newRegisterInstancesWithLoadBalancer ::
   -- | 'loadBalancerName'
-  Core.Text ->
+  Prelude.Text ->
   RegisterInstancesWithLoadBalancer
 newRegisterInstancesWithLoadBalancer
   pLoadBalancerName_ =
     RegisterInstancesWithLoadBalancer'
       { loadBalancerName =
           pLoadBalancerName_,
-        instances = Core.mempty
+        instances = Prelude.mempty
       }
 
 -- | The name of the load balancer.
-registerInstancesWithLoadBalancer_loadBalancerName :: Lens.Lens' RegisterInstancesWithLoadBalancer Core.Text
+registerInstancesWithLoadBalancer_loadBalancerName :: Lens.Lens' RegisterInstancesWithLoadBalancer Prelude.Text
 registerInstancesWithLoadBalancer_loadBalancerName = Lens.lens (\RegisterInstancesWithLoadBalancer' {loadBalancerName} -> loadBalancerName) (\s@RegisterInstancesWithLoadBalancer' {} a -> s {loadBalancerName = a} :: RegisterInstancesWithLoadBalancer)
 
 -- | The IDs of the instances.
 registerInstancesWithLoadBalancer_instances :: Lens.Lens' RegisterInstancesWithLoadBalancer [Instance]
-registerInstancesWithLoadBalancer_instances = Lens.lens (\RegisterInstancesWithLoadBalancer' {instances} -> instances) (\s@RegisterInstancesWithLoadBalancer' {} a -> s {instances = a} :: RegisterInstancesWithLoadBalancer) Core.. Lens._Coerce
+registerInstancesWithLoadBalancer_instances = Lens.lens (\RegisterInstancesWithLoadBalancer' {instances} -> instances) (\s@RegisterInstancesWithLoadBalancer' {} a -> s {instances = a} :: RegisterInstancesWithLoadBalancer) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -126,43 +127,44 @@ instance
       "RegisterInstancesWithLoadBalancerResult"
       ( \s h x ->
           RegisterInstancesWithLoadBalancerResponse'
-            Core.<$> ( x Core..@? "Instances" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Instances" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     RegisterInstancesWithLoadBalancer
 
 instance
-  Core.NFData
+  Prelude.NFData
     RegisterInstancesWithLoadBalancer
 
 instance
   Core.ToHeaders
     RegisterInstancesWithLoadBalancer
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     RegisterInstancesWithLoadBalancer
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     RegisterInstancesWithLoadBalancer
   where
   toQuery RegisterInstancesWithLoadBalancer' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "RegisterInstancesWithLoadBalancer" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2012-06-01" :: Prelude.ByteString),
         "LoadBalancerName" Core.=: loadBalancerName,
         "Instances"
           Core.=: Core.toQueryList "member" instances
@@ -173,11 +175,11 @@ instance
 -- /See:/ 'newRegisterInstancesWithLoadBalancerResponse' smart constructor.
 data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'
   { -- | The updated list of instances for the load balancer.
-    instances :: Core.Maybe [Instance],
+    instances :: Prelude.Maybe [Instance],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterInstancesWithLoadBalancerResponse' with all optional fields omitted.
@@ -192,24 +194,24 @@ data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalanc
 -- 'httpStatus', 'registerInstancesWithLoadBalancerResponse_httpStatus' - The response's http status code.
 newRegisterInstancesWithLoadBalancerResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RegisterInstancesWithLoadBalancerResponse
 newRegisterInstancesWithLoadBalancerResponse
   pHttpStatus_ =
     RegisterInstancesWithLoadBalancerResponse'
       { instances =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The updated list of instances for the load balancer.
-registerInstancesWithLoadBalancerResponse_instances :: Lens.Lens' RegisterInstancesWithLoadBalancerResponse (Core.Maybe [Instance])
-registerInstancesWithLoadBalancerResponse_instances = Lens.lens (\RegisterInstancesWithLoadBalancerResponse' {instances} -> instances) (\s@RegisterInstancesWithLoadBalancerResponse' {} a -> s {instances = a} :: RegisterInstancesWithLoadBalancerResponse) Core.. Lens.mapping Lens._Coerce
+registerInstancesWithLoadBalancerResponse_instances :: Lens.Lens' RegisterInstancesWithLoadBalancerResponse (Prelude.Maybe [Instance])
+registerInstancesWithLoadBalancerResponse_instances = Lens.lens (\RegisterInstancesWithLoadBalancerResponse' {instances} -> instances) (\s@RegisterInstancesWithLoadBalancerResponse' {} a -> s {instances = a} :: RegisterInstancesWithLoadBalancerResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-registerInstancesWithLoadBalancerResponse_httpStatus :: Lens.Lens' RegisterInstancesWithLoadBalancerResponse Core.Int
+registerInstancesWithLoadBalancerResponse_httpStatus :: Lens.Lens' RegisterInstancesWithLoadBalancerResponse Prelude.Int
 registerInstancesWithLoadBalancerResponse_httpStatus = Lens.lens (\RegisterInstancesWithLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@RegisterInstancesWithLoadBalancerResponse' {} a -> s {httpStatus = a} :: RegisterInstancesWithLoadBalancerResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     RegisterInstancesWithLoadBalancerResponse

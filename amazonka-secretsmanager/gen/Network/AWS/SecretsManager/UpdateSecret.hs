@@ -116,6 +116,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -131,7 +132,7 @@ data UpdateSecret = UpdateSecret'
     -- empty.
     --
     -- This parameter is not accessible using the Secrets Manager console.
-    secretBinary :: Core.Maybe (Core.Sensitive Core.Base64),
+    secretBinary :: Prelude.Maybe (Core.Sensitive Core.Base64),
     -- | (Optional) Specifies an updated ARN or alias of the AWS KMS customer
     -- master key (CMK) to be used to encrypt the protected text in new
     -- versions of this secret.
@@ -142,9 +143,9 @@ data UpdateSecret = UpdateSecret'
     -- create a custom CMK and provide the ARN of that CMK in this field. The
     -- user making the call must have permissions to both the secret and the
     -- CMK in their respective accounts.
-    kmsKeyId :: Core.Maybe Core.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | (Optional) Specifies an updated user-provided description of the secret.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | (Optional) Specifies updated text data that you want to encrypt and
     -- store in this new version of the secret. Either @SecretBinary@ or
     -- @SecretString@ must have a value, but not both. They cannot both be
@@ -173,7 +174,7 @@ data UpdateSecret = UpdateSecret'
     -- double-quotes. All of the embedded double quotes are escaped:
     --
     -- @\"[{\\\"username\\\":\\\"bob\\\"},{\\\"password\\\":\\\"abc123xyz456\\\"}]\"@
-    secretString :: Core.Maybe (Core.Sensitive Core.Text),
+    secretString :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | (Optional) If you want to add a new version to the secret, this
     -- parameter specifies a unique identifier for the new version that helps
     -- ensure idempotency.
@@ -209,7 +210,7 @@ data UpdateSecret = UpdateSecret'
     --     secret value.
     --
     -- This value becomes the @VersionId@ of the new version.
-    clientRequestToken :: Core.Maybe Core.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the secret that you want to modify or to which you want to add
     -- a new version. You can specify either the Amazon Resource Name (ARN) or
     -- the friendly name of the secret.
@@ -232,9 +233,9 @@ data UpdateSecret = UpdateSecret'
     -- If you do include the random suffix added by Secrets Manager, you
     -- receive either a /ResourceNotFoundException/ or an
     -- /AccessDeniedException/ error, depending on your permissions.
-    secretId :: Core.Text
+    secretId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSecret' with all optional fields omitted.
@@ -360,15 +361,15 @@ data UpdateSecret = UpdateSecret'
 -- /AccessDeniedException/ error, depending on your permissions.
 newUpdateSecret ::
   -- | 'secretId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateSecret
 newUpdateSecret pSecretId_ =
   UpdateSecret'
-    { secretBinary = Core.Nothing,
-      kmsKeyId = Core.Nothing,
-      description = Core.Nothing,
-      secretString = Core.Nothing,
-      clientRequestToken = Core.Nothing,
+    { secretBinary = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      description = Prelude.Nothing,
+      secretString = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
       secretId = pSecretId_
     }
 
@@ -385,8 +386,8 @@ newUpdateSecret pSecretId_ =
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-updateSecret_secretBinary :: Lens.Lens' UpdateSecret (Core.Maybe Core.ByteString)
-updateSecret_secretBinary = Lens.lens (\UpdateSecret' {secretBinary} -> secretBinary) (\s@UpdateSecret' {} a -> s {secretBinary = a} :: UpdateSecret) Core.. Lens.mapping (Core._Sensitive Core.. Core._Base64)
+updateSecret_secretBinary :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.ByteString)
+updateSecret_secretBinary = Lens.lens (\UpdateSecret' {secretBinary} -> secretBinary) (\s@UpdateSecret' {} a -> s {secretBinary = a} :: UpdateSecret) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
 
 -- | (Optional) Specifies an updated ARN or alias of the AWS KMS customer
 -- master key (CMK) to be used to encrypt the protected text in new
@@ -398,11 +399,11 @@ updateSecret_secretBinary = Lens.lens (\UpdateSecret' {secretBinary} -> secretBi
 -- create a custom CMK and provide the ARN of that CMK in this field. The
 -- user making the call must have permissions to both the secret and the
 -- CMK in their respective accounts.
-updateSecret_kmsKeyId :: Lens.Lens' UpdateSecret (Core.Maybe Core.Text)
+updateSecret_kmsKeyId :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Text)
 updateSecret_kmsKeyId = Lens.lens (\UpdateSecret' {kmsKeyId} -> kmsKeyId) (\s@UpdateSecret' {} a -> s {kmsKeyId = a} :: UpdateSecret)
 
 -- | (Optional) Specifies an updated user-provided description of the secret.
-updateSecret_description :: Lens.Lens' UpdateSecret (Core.Maybe Core.Text)
+updateSecret_description :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Text)
 updateSecret_description = Lens.lens (\UpdateSecret' {description} -> description) (\s@UpdateSecret' {} a -> s {description = a} :: UpdateSecret)
 
 -- | (Optional) Specifies updated text data that you want to encrypt and
@@ -433,8 +434,8 @@ updateSecret_description = Lens.lens (\UpdateSecret' {description} -> descriptio
 -- double-quotes. All of the embedded double quotes are escaped:
 --
 -- @\"[{\\\"username\\\":\\\"bob\\\"},{\\\"password\\\":\\\"abc123xyz456\\\"}]\"@
-updateSecret_secretString :: Lens.Lens' UpdateSecret (Core.Maybe Core.Text)
-updateSecret_secretString = Lens.lens (\UpdateSecret' {secretString} -> secretString) (\s@UpdateSecret' {} a -> s {secretString = a} :: UpdateSecret) Core.. Lens.mapping Core._Sensitive
+updateSecret_secretString :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Text)
+updateSecret_secretString = Lens.lens (\UpdateSecret' {secretString} -> secretString) (\s@UpdateSecret' {} a -> s {secretString = a} :: UpdateSecret) Prelude.. Lens.mapping Core._Sensitive
 
 -- | (Optional) If you want to add a new version to the secret, this
 -- parameter specifies a unique identifier for the new version that helps
@@ -471,7 +472,7 @@ updateSecret_secretString = Lens.lens (\UpdateSecret' {secretString} -> secretSt
 --     secret value.
 --
 -- This value becomes the @VersionId@ of the new version.
-updateSecret_clientRequestToken :: Lens.Lens' UpdateSecret (Core.Maybe Core.Text)
+updateSecret_clientRequestToken :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Text)
 updateSecret_clientRequestToken = Lens.lens (\UpdateSecret' {clientRequestToken} -> clientRequestToken) (\s@UpdateSecret' {} a -> s {clientRequestToken = a} :: UpdateSecret)
 
 -- | Specifies the secret that you want to modify or to which you want to add
@@ -496,7 +497,7 @@ updateSecret_clientRequestToken = Lens.lens (\UpdateSecret' {clientRequestToken}
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-updateSecret_secretId :: Lens.Lens' UpdateSecret Core.Text
+updateSecret_secretId :: Lens.Lens' UpdateSecret Prelude.Text
 updateSecret_secretId = Lens.lens (\UpdateSecret' {secretId} -> secretId) (\s@UpdateSecret' {} a -> s {secretId = a} :: UpdateSecret)
 
 instance Core.AWSRequest UpdateSecret where
@@ -506,46 +507,50 @@ instance Core.AWSRequest UpdateSecret where
     Response.receiveJSON
       ( \s h x ->
           UpdateSecretResponse'
-            Core.<$> (x Core..?> "ARN")
-            Core.<*> (x Core..?> "VersionId")
-            Core.<*> (x Core..?> "Name")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ARN")
+            Prelude.<*> (x Core..?> "VersionId")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateSecret
+instance Prelude.Hashable UpdateSecret
 
-instance Core.NFData UpdateSecret
+instance Prelude.NFData UpdateSecret
 
 instance Core.ToHeaders UpdateSecret where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("secretsmanager.UpdateSecret" :: Core.ByteString),
+              Core.=# ( "secretsmanager.UpdateSecret" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateSecret where
   toJSON UpdateSecret' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SecretBinary" Core..=) Core.<$> secretBinary,
-            ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
-            ("Description" Core..=) Core.<$> description,
-            ("SecretString" Core..=) Core.<$> secretString,
+      ( Prelude.catMaybes
+          [ ("SecretBinary" Core..=) Prelude.<$> secretBinary,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("Description" Core..=) Prelude.<$> description,
+            ("SecretString" Core..=) Prelude.<$> secretString,
             ("ClientRequestToken" Core..=)
-              Core.<$> clientRequestToken,
-            Core.Just ("SecretId" Core..= secretId)
+              Prelude.<$> clientRequestToken,
+            Prelude.Just ("SecretId" Core..= secretId)
           ]
       )
 
 instance Core.ToPath UpdateSecret where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateSecret where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSecretResponse' smart constructor.
 data UpdateSecretResponse = UpdateSecretResponse'
@@ -558,16 +563,16 @@ data UpdateSecretResponse = UpdateSecretResponse'
     -- previously deleted, then users with access to the old secret /don\'t/
     -- automatically get access to the new secret because the ARNs are
     -- different.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | If a new version of the secret was created by this operation, then
     -- @VersionId@ contains the unique identifier of the new version.
-    versionId :: Core.Maybe Core.Text,
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the secret that was updated.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateSecretResponse' with all optional fields omitted.
@@ -595,13 +600,13 @@ data UpdateSecretResponse = UpdateSecretResponse'
 -- 'httpStatus', 'updateSecretResponse_httpStatus' - The response's http status code.
 newUpdateSecretResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateSecretResponse
 newUpdateSecretResponse pHttpStatus_ =
   UpdateSecretResponse'
-    { arn = Core.Nothing,
-      versionId = Core.Nothing,
-      name = Core.Nothing,
+    { arn = Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -614,20 +619,20 @@ newUpdateSecretResponse pHttpStatus_ =
 -- previously deleted, then users with access to the old secret /don\'t/
 -- automatically get access to the new secret because the ARNs are
 -- different.
-updateSecretResponse_arn :: Lens.Lens' UpdateSecretResponse (Core.Maybe Core.Text)
+updateSecretResponse_arn :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
 updateSecretResponse_arn = Lens.lens (\UpdateSecretResponse' {arn} -> arn) (\s@UpdateSecretResponse' {} a -> s {arn = a} :: UpdateSecretResponse)
 
 -- | If a new version of the secret was created by this operation, then
 -- @VersionId@ contains the unique identifier of the new version.
-updateSecretResponse_versionId :: Lens.Lens' UpdateSecretResponse (Core.Maybe Core.Text)
+updateSecretResponse_versionId :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
 updateSecretResponse_versionId = Lens.lens (\UpdateSecretResponse' {versionId} -> versionId) (\s@UpdateSecretResponse' {} a -> s {versionId = a} :: UpdateSecretResponse)
 
 -- | The friendly name of the secret that was updated.
-updateSecretResponse_name :: Lens.Lens' UpdateSecretResponse (Core.Maybe Core.Text)
+updateSecretResponse_name :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
 updateSecretResponse_name = Lens.lens (\UpdateSecretResponse' {name} -> name) (\s@UpdateSecretResponse' {} a -> s {name = a} :: UpdateSecretResponse)
 
 -- | The response's http status code.
-updateSecretResponse_httpStatus :: Lens.Lens' UpdateSecretResponse Core.Int
+updateSecretResponse_httpStatus :: Lens.Lens' UpdateSecretResponse Prelude.Int
 updateSecretResponse_httpStatus = Lens.lens (\UpdateSecretResponse' {httpStatus} -> httpStatus) (\s@UpdateSecretResponse' {} a -> s {httpStatus = a} :: UpdateSecretResponse)
 
-instance Core.NFData UpdateSecretResponse
+instance Prelude.NFData UpdateSecretResponse

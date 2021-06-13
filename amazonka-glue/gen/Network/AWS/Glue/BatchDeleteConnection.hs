@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +52,11 @@ import qualified Network.AWS.Response as Response
 data BatchDeleteConnection = BatchDeleteConnection'
   { -- | The ID of the Data Catalog in which the connections reside. If none is
     -- provided, the AWS account ID is used by default.
-    catalogId :: Core.Maybe Core.Text,
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | A list of names of the connections to delete.
-    connectionNameList :: [Core.Text]
+    connectionNameList :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteConnection' with all optional fields omitted.
@@ -73,18 +74,18 @@ newBatchDeleteConnection ::
   BatchDeleteConnection
 newBatchDeleteConnection =
   BatchDeleteConnection'
-    { catalogId = Core.Nothing,
-      connectionNameList = Core.mempty
+    { catalogId = Prelude.Nothing,
+      connectionNameList = Prelude.mempty
     }
 
 -- | The ID of the Data Catalog in which the connections reside. If none is
 -- provided, the AWS account ID is used by default.
-batchDeleteConnection_catalogId :: Lens.Lens' BatchDeleteConnection (Core.Maybe Core.Text)
+batchDeleteConnection_catalogId :: Lens.Lens' BatchDeleteConnection (Prelude.Maybe Prelude.Text)
 batchDeleteConnection_catalogId = Lens.lens (\BatchDeleteConnection' {catalogId} -> catalogId) (\s@BatchDeleteConnection' {} a -> s {catalogId = a} :: BatchDeleteConnection)
 
 -- | A list of names of the connections to delete.
-batchDeleteConnection_connectionNameList :: Lens.Lens' BatchDeleteConnection [Core.Text]
-batchDeleteConnection_connectionNameList = Lens.lens (\BatchDeleteConnection' {connectionNameList} -> connectionNameList) (\s@BatchDeleteConnection' {} a -> s {connectionNameList = a} :: BatchDeleteConnection) Core.. Lens._Coerce
+batchDeleteConnection_connectionNameList :: Lens.Lens' BatchDeleteConnection [Prelude.Text]
+batchDeleteConnection_connectionNameList = Lens.lens (\BatchDeleteConnection' {connectionNameList} -> connectionNameList) (\s@BatchDeleteConnection' {} a -> s {connectionNameList = a} :: BatchDeleteConnection) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchDeleteConnection where
   type
@@ -95,54 +96,58 @@ instance Core.AWSRequest BatchDeleteConnection where
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteConnectionResponse'
-            Core.<$> (x Core..?> "Succeeded" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "Errors" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Succeeded" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable BatchDeleteConnection
+instance Prelude.Hashable BatchDeleteConnection
 
-instance Core.NFData BatchDeleteConnection
+instance Prelude.NFData BatchDeleteConnection
 
 instance Core.ToHeaders BatchDeleteConnection where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.BatchDeleteConnection" :: Core.ByteString),
+              Core.=# ( "AWSGlue.BatchDeleteConnection" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON BatchDeleteConnection where
   toJSON BatchDeleteConnection' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("CatalogId" Core..=) Core.<$> catalogId,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just
               ("ConnectionNameList" Core..= connectionNameList)
           ]
       )
 
 instance Core.ToPath BatchDeleteConnection where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchDeleteConnection where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDeleteConnectionResponse' smart constructor.
 data BatchDeleteConnectionResponse = BatchDeleteConnectionResponse'
   { -- | A list of names of the connection definitions that were successfully
     -- deleted.
-    succeeded :: Core.Maybe [Core.Text],
+    succeeded :: Prelude.Maybe [Prelude.Text],
     -- | A map of the names of connections that were not successfully deleted to
     -- error details.
-    errors :: Core.Maybe (Core.HashMap Core.Text ErrorDetail),
+    errors :: Prelude.Maybe (Prelude.HashMap Prelude.Text ErrorDetail),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteConnectionResponse' with all optional fields omitted.
@@ -161,28 +166,28 @@ data BatchDeleteConnectionResponse = BatchDeleteConnectionResponse'
 -- 'httpStatus', 'batchDeleteConnectionResponse_httpStatus' - The response's http status code.
 newBatchDeleteConnectionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   BatchDeleteConnectionResponse
 newBatchDeleteConnectionResponse pHttpStatus_ =
   BatchDeleteConnectionResponse'
     { succeeded =
-        Core.Nothing,
-      errors = Core.Nothing,
+        Prelude.Nothing,
+      errors = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of names of the connection definitions that were successfully
 -- deleted.
-batchDeleteConnectionResponse_succeeded :: Lens.Lens' BatchDeleteConnectionResponse (Core.Maybe [Core.Text])
-batchDeleteConnectionResponse_succeeded = Lens.lens (\BatchDeleteConnectionResponse' {succeeded} -> succeeded) (\s@BatchDeleteConnectionResponse' {} a -> s {succeeded = a} :: BatchDeleteConnectionResponse) Core.. Lens.mapping Lens._Coerce
+batchDeleteConnectionResponse_succeeded :: Lens.Lens' BatchDeleteConnectionResponse (Prelude.Maybe [Prelude.Text])
+batchDeleteConnectionResponse_succeeded = Lens.lens (\BatchDeleteConnectionResponse' {succeeded} -> succeeded) (\s@BatchDeleteConnectionResponse' {} a -> s {succeeded = a} :: BatchDeleteConnectionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A map of the names of connections that were not successfully deleted to
 -- error details.
-batchDeleteConnectionResponse_errors :: Lens.Lens' BatchDeleteConnectionResponse (Core.Maybe (Core.HashMap Core.Text ErrorDetail))
-batchDeleteConnectionResponse_errors = Lens.lens (\BatchDeleteConnectionResponse' {errors} -> errors) (\s@BatchDeleteConnectionResponse' {} a -> s {errors = a} :: BatchDeleteConnectionResponse) Core.. Lens.mapping Lens._Coerce
+batchDeleteConnectionResponse_errors :: Lens.Lens' BatchDeleteConnectionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text ErrorDetail))
+batchDeleteConnectionResponse_errors = Lens.lens (\BatchDeleteConnectionResponse' {errors} -> errors) (\s@BatchDeleteConnectionResponse' {} a -> s {errors = a} :: BatchDeleteConnectionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchDeleteConnectionResponse_httpStatus :: Lens.Lens' BatchDeleteConnectionResponse Core.Int
+batchDeleteConnectionResponse_httpStatus :: Lens.Lens' BatchDeleteConnectionResponse Prelude.Int
 batchDeleteConnectionResponse_httpStatus = Lens.lens (\BatchDeleteConnectionResponse' {httpStatus} -> httpStatus) (\s@BatchDeleteConnectionResponse' {} a -> s {httpStatus = a} :: BatchDeleteConnectionResponse)
 
-instance Core.NFData BatchDeleteConnectionResponse
+instance Prelude.NFData BatchDeleteConnectionResponse

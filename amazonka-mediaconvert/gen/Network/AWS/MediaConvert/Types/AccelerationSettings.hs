@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.AccelerationSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.AccelerationMode
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Accelerated transcoding can significantly speed up jobs with long,
 -- visually complex content.
@@ -32,7 +33,7 @@ data AccelerationSettings = AccelerationSettings'
     -- accelerated transcoding.
     mode :: AccelerationMode
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccelerationSettings' with all optional fields omitted.
@@ -61,14 +62,16 @@ instance Core.FromJSON AccelerationSettings where
     Core.withObject
       "AccelerationSettings"
       ( \x ->
-          AccelerationSettings' Core.<$> (x Core..: "mode")
+          AccelerationSettings' Prelude.<$> (x Core..: "mode")
       )
 
-instance Core.Hashable AccelerationSettings
+instance Prelude.Hashable AccelerationSettings
 
-instance Core.NFData AccelerationSettings
+instance Prelude.NFData AccelerationSettings
 
 instance Core.ToJSON AccelerationSettings where
   toJSON AccelerationSettings' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("mode" Core..= mode)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("mode" Core..= mode)]
+      )

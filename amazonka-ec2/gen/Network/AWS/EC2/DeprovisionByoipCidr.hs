@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,12 +59,12 @@ data DeprovisionByoipCidr = DeprovisionByoipCidr'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The address range, in CIDR notation. The prefix must be the same prefix
     -- that you specified when you provisioned the address range.
-    cidr :: Core.Text
+    cidr :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeprovisionByoipCidr' with all optional fields omitted.
@@ -82,11 +83,11 @@ data DeprovisionByoipCidr = DeprovisionByoipCidr'
 -- that you specified when you provisioned the address range.
 newDeprovisionByoipCidr ::
   -- | 'cidr'
-  Core.Text ->
+  Prelude.Text ->
   DeprovisionByoipCidr
 newDeprovisionByoipCidr pCidr_ =
   DeprovisionByoipCidr'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       cidr = pCidr_
     }
 
@@ -94,12 +95,12 @@ newDeprovisionByoipCidr pCidr_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deprovisionByoipCidr_dryRun :: Lens.Lens' DeprovisionByoipCidr (Core.Maybe Core.Bool)
+deprovisionByoipCidr_dryRun :: Lens.Lens' DeprovisionByoipCidr (Prelude.Maybe Prelude.Bool)
 deprovisionByoipCidr_dryRun = Lens.lens (\DeprovisionByoipCidr' {dryRun} -> dryRun) (\s@DeprovisionByoipCidr' {} a -> s {dryRun = a} :: DeprovisionByoipCidr)
 
 -- | The address range, in CIDR notation. The prefix must be the same prefix
 -- that you specified when you provisioned the address range.
-deprovisionByoipCidr_cidr :: Lens.Lens' DeprovisionByoipCidr Core.Text
+deprovisionByoipCidr_cidr :: Lens.Lens' DeprovisionByoipCidr Prelude.Text
 deprovisionByoipCidr_cidr = Lens.lens (\DeprovisionByoipCidr' {cidr} -> cidr) (\s@DeprovisionByoipCidr' {} a -> s {cidr = a} :: DeprovisionByoipCidr)
 
 instance Core.AWSRequest DeprovisionByoipCidr where
@@ -111,26 +112,27 @@ instance Core.AWSRequest DeprovisionByoipCidr where
     Response.receiveXML
       ( \s h x ->
           DeprovisionByoipCidrResponse'
-            Core.<$> (x Core..@? "byoipCidr")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "byoipCidr")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeprovisionByoipCidr
+instance Prelude.Hashable DeprovisionByoipCidr
 
-instance Core.NFData DeprovisionByoipCidr
+instance Prelude.NFData DeprovisionByoipCidr
 
 instance Core.ToHeaders DeprovisionByoipCidr where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeprovisionByoipCidr where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeprovisionByoipCidr where
   toQuery DeprovisionByoipCidr' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeprovisionByoipCidr" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DeprovisionByoipCidr" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "Cidr" Core.=: cidr
       ]
@@ -138,11 +140,11 @@ instance Core.ToQuery DeprovisionByoipCidr where
 -- | /See:/ 'newDeprovisionByoipCidrResponse' smart constructor.
 data DeprovisionByoipCidrResponse = DeprovisionByoipCidrResponse'
   { -- | Information about the address range.
-    byoipCidr :: Core.Maybe ByoipCidr,
+    byoipCidr :: Prelude.Maybe ByoipCidr,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeprovisionByoipCidrResponse' with all optional fields omitted.
@@ -157,21 +159,21 @@ data DeprovisionByoipCidrResponse = DeprovisionByoipCidrResponse'
 -- 'httpStatus', 'deprovisionByoipCidrResponse_httpStatus' - The response's http status code.
 newDeprovisionByoipCidrResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeprovisionByoipCidrResponse
 newDeprovisionByoipCidrResponse pHttpStatus_ =
   DeprovisionByoipCidrResponse'
     { byoipCidr =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the address range.
-deprovisionByoipCidrResponse_byoipCidr :: Lens.Lens' DeprovisionByoipCidrResponse (Core.Maybe ByoipCidr)
+deprovisionByoipCidrResponse_byoipCidr :: Lens.Lens' DeprovisionByoipCidrResponse (Prelude.Maybe ByoipCidr)
 deprovisionByoipCidrResponse_byoipCidr = Lens.lens (\DeprovisionByoipCidrResponse' {byoipCidr} -> byoipCidr) (\s@DeprovisionByoipCidrResponse' {} a -> s {byoipCidr = a} :: DeprovisionByoipCidrResponse)
 
 -- | The response's http status code.
-deprovisionByoipCidrResponse_httpStatus :: Lens.Lens' DeprovisionByoipCidrResponse Core.Int
+deprovisionByoipCidrResponse_httpStatus :: Lens.Lens' DeprovisionByoipCidrResponse Prelude.Int
 deprovisionByoipCidrResponse_httpStatus = Lens.lens (\DeprovisionByoipCidrResponse' {httpStatus} -> httpStatus) (\s@DeprovisionByoipCidrResponse' {} a -> s {httpStatus = a} :: DeprovisionByoipCidrResponse)
 
-instance Core.NFData DeprovisionByoipCidrResponse
+instance Prelude.NFData DeprovisionByoipCidrResponse

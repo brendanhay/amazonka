@@ -22,15 +22,16 @@ module Network.AWS.ELB.Types.Instance where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The ID of an EC2 instance.
 --
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
   { -- | The instance ID.
-    instanceId :: Core.Maybe Core.Text
+    instanceId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Instance' with all optional fields omitted.
@@ -43,20 +44,20 @@ data Instance = Instance'
 -- 'instanceId', 'instance_instanceId' - The instance ID.
 newInstance ::
   Instance
-newInstance = Instance' {instanceId = Core.Nothing}
+newInstance = Instance' {instanceId = Prelude.Nothing}
 
 -- | The instance ID.
-instance_instanceId :: Lens.Lens' Instance (Core.Maybe Core.Text)
+instance_instanceId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_instanceId = Lens.lens (\Instance' {instanceId} -> instanceId) (\s@Instance' {} a -> s {instanceId = a} :: Instance)
 
 instance Core.FromXML Instance where
   parseXML x =
-    Instance' Core.<$> (x Core..@? "InstanceId")
+    Instance' Prelude.<$> (x Core..@? "InstanceId")
 
-instance Core.Hashable Instance
+instance Prelude.Hashable Instance
 
-instance Core.NFData Instance
+instance Prelude.NFData Instance
 
 instance Core.ToQuery Instance where
   toQuery Instance' {..} =
-    Core.mconcat ["InstanceId" Core.=: instanceId]
+    Prelude.mconcat ["InstanceId" Core.=: instanceId]

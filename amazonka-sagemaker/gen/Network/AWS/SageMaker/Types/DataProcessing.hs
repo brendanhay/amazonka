@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.DataProcessing where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.JoinSource
 
 -- | The data structure used to specify the data to be used for inference in
@@ -43,7 +44,7 @@ data DataProcessing = DataProcessing'
     -- size of the joined dataset, you get an error.
     --
     -- Examples: @\"$\"@, @\"$[0,5:]\"@, @\"$[\'id\',\'SageMakerOutput\']\"@
-    outputFilter :: Core.Maybe Core.Text,
+    outputFilter :: Prelude.Maybe Prelude.Text,
     -- | Specifies the source of the data to join with the transformed data. The
     -- valid values are @None@ and @Input@. The default value is @None@, which
     -- specifies not to join the input with the transformed data. If you want
@@ -62,7 +63,7 @@ data DataProcessing = DataProcessing'
     -- input data at the end of the input data and stores it in the output
     -- file. The joined data has the joined input data followed by the
     -- transformed data and the output is a CSV file.
-    joinSource :: Core.Maybe JoinSource,
+    joinSource :: Prelude.Maybe JoinSource,
     -- | A
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators JSONPath>
     -- expression used to select a portion of the input data to pass to the
@@ -71,9 +72,9 @@ data DataProcessing = DataProcessing'
     -- entire input dataset to the algorithm, accept the default value @$@.
     --
     -- Examples: @\"$\"@, @\"$[1:]\"@, @\"$.features\"@
-    inputFilter :: Core.Maybe Core.Text
+    inputFilter :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DataProcessing' with all optional fields omitted.
@@ -124,9 +125,9 @@ newDataProcessing ::
   DataProcessing
 newDataProcessing =
   DataProcessing'
-    { outputFilter = Core.Nothing,
-      joinSource = Core.Nothing,
-      inputFilter = Core.Nothing
+    { outputFilter = Prelude.Nothing,
+      joinSource = Prelude.Nothing,
+      inputFilter = Prelude.Nothing
     }
 
 -- | A
@@ -138,7 +139,7 @@ newDataProcessing =
 -- size of the joined dataset, you get an error.
 --
 -- Examples: @\"$\"@, @\"$[0,5:]\"@, @\"$[\'id\',\'SageMakerOutput\']\"@
-dataProcessing_outputFilter :: Lens.Lens' DataProcessing (Core.Maybe Core.Text)
+dataProcessing_outputFilter :: Lens.Lens' DataProcessing (Prelude.Maybe Prelude.Text)
 dataProcessing_outputFilter = Lens.lens (\DataProcessing' {outputFilter} -> outputFilter) (\s@DataProcessing' {} a -> s {outputFilter = a} :: DataProcessing)
 
 -- | Specifies the source of the data to join with the transformed data. The
@@ -159,7 +160,7 @@ dataProcessing_outputFilter = Lens.lens (\DataProcessing' {outputFilter} -> outp
 -- input data at the end of the input data and stores it in the output
 -- file. The joined data has the joined input data followed by the
 -- transformed data and the output is a CSV file.
-dataProcessing_joinSource :: Lens.Lens' DataProcessing (Core.Maybe JoinSource)
+dataProcessing_joinSource :: Lens.Lens' DataProcessing (Prelude.Maybe JoinSource)
 dataProcessing_joinSource = Lens.lens (\DataProcessing' {joinSource} -> joinSource) (\s@DataProcessing' {} a -> s {joinSource = a} :: DataProcessing)
 
 -- | A
@@ -170,7 +171,7 @@ dataProcessing_joinSource = Lens.lens (\DataProcessing' {joinSource} -> joinSour
 -- entire input dataset to the algorithm, accept the default value @$@.
 --
 -- Examples: @\"$\"@, @\"$[1:]\"@, @\"$.features\"@
-dataProcessing_inputFilter :: Lens.Lens' DataProcessing (Core.Maybe Core.Text)
+dataProcessing_inputFilter :: Lens.Lens' DataProcessing (Prelude.Maybe Prelude.Text)
 dataProcessing_inputFilter = Lens.lens (\DataProcessing' {inputFilter} -> inputFilter) (\s@DataProcessing' {} a -> s {inputFilter = a} :: DataProcessing)
 
 instance Core.FromJSON DataProcessing where
@@ -179,21 +180,21 @@ instance Core.FromJSON DataProcessing where
       "DataProcessing"
       ( \x ->
           DataProcessing'
-            Core.<$> (x Core..:? "OutputFilter")
-            Core.<*> (x Core..:? "JoinSource")
-            Core.<*> (x Core..:? "InputFilter")
+            Prelude.<$> (x Core..:? "OutputFilter")
+            Prelude.<*> (x Core..:? "JoinSource")
+            Prelude.<*> (x Core..:? "InputFilter")
       )
 
-instance Core.Hashable DataProcessing
+instance Prelude.Hashable DataProcessing
 
-instance Core.NFData DataProcessing
+instance Prelude.NFData DataProcessing
 
 instance Core.ToJSON DataProcessing where
   toJSON DataProcessing' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("OutputFilter" Core..=) Core.<$> outputFilter,
-            ("JoinSource" Core..=) Core.<$> joinSource,
-            ("InputFilter" Core..=) Core.<$> inputFilter
+      ( Prelude.catMaybes
+          [ ("OutputFilter" Core..=) Prelude.<$> outputFilter,
+            ("JoinSource" Core..=) Prelude.<$> joinSource,
+            ("InputFilter" Core..=) Prelude.<$> inputFilter
           ]
       )

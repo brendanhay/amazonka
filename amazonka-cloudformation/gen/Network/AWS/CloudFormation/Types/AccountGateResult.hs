@@ -22,6 +22,7 @@ module Network.AWS.CloudFormation.Types.AccountGateResult where
 import Network.AWS.CloudFormation.Types.AccountGateStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Structure that contains the results of the account gate function which
 -- AWS CloudFormation invokes, if present, before proceeding with a stack
@@ -70,12 +71,12 @@ data AccountGateResult = AccountGateResult'
     --     -   Either no action is necessary, or no action is possible, on the
     --         stack. AWS CloudFormation skips the stack set operation in this
     --         account and Region.
-    status :: Core.Maybe AccountGateStatus,
+    status :: Prelude.Maybe AccountGateStatus,
     -- | The reason for the account gate status assigned to this account and
     -- Region for the stack set operation.
-    statusReason :: Core.Maybe Core.Text
+    statusReason :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccountGateResult' with all optional fields omitted.
@@ -121,8 +122,8 @@ newAccountGateResult ::
   AccountGateResult
 newAccountGateResult =
   AccountGateResult'
-    { status = Core.Nothing,
-      statusReason = Core.Nothing
+    { status = Prelude.Nothing,
+      statusReason = Prelude.Nothing
     }
 
 -- | The status of the account gate function.
@@ -154,20 +155,20 @@ newAccountGateResult =
 --     -   Either no action is necessary, or no action is possible, on the
 --         stack. AWS CloudFormation skips the stack set operation in this
 --         account and Region.
-accountGateResult_status :: Lens.Lens' AccountGateResult (Core.Maybe AccountGateStatus)
+accountGateResult_status :: Lens.Lens' AccountGateResult (Prelude.Maybe AccountGateStatus)
 accountGateResult_status = Lens.lens (\AccountGateResult' {status} -> status) (\s@AccountGateResult' {} a -> s {status = a} :: AccountGateResult)
 
 -- | The reason for the account gate status assigned to this account and
 -- Region for the stack set operation.
-accountGateResult_statusReason :: Lens.Lens' AccountGateResult (Core.Maybe Core.Text)
+accountGateResult_statusReason :: Lens.Lens' AccountGateResult (Prelude.Maybe Prelude.Text)
 accountGateResult_statusReason = Lens.lens (\AccountGateResult' {statusReason} -> statusReason) (\s@AccountGateResult' {} a -> s {statusReason = a} :: AccountGateResult)
 
 instance Core.FromXML AccountGateResult where
   parseXML x =
     AccountGateResult'
-      Core.<$> (x Core..@? "Status")
-      Core.<*> (x Core..@? "StatusReason")
+      Prelude.<$> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "StatusReason")
 
-instance Core.Hashable AccountGateResult
+instance Prelude.Hashable AccountGateResult
 
-instance Core.NFData AccountGateResult
+instance Prelude.NFData AccountGateResult

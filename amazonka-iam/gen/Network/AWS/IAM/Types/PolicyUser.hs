@@ -21,6 +21,7 @@ module Network.AWS.IAM.Types.PolicyUser where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a user that a managed policy is attached to.
 --
@@ -37,11 +38,11 @@ data PolicyUser = PolicyUser'
     -- about IDs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    userId :: Core.Maybe Core.Text,
+    userId :: Prelude.Maybe Prelude.Text,
     -- | The name (friendly name, not ARN) identifying the user.
-    userName :: Core.Maybe Core.Text
+    userName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PolicyUser' with all optional fields omitted.
@@ -61,27 +62,27 @@ newPolicyUser ::
   PolicyUser
 newPolicyUser =
   PolicyUser'
-    { userId = Core.Nothing,
-      userName = Core.Nothing
+    { userId = Prelude.Nothing,
+      userName = Prelude.Nothing
     }
 
 -- | The stable and unique string identifying the user. For more information
 -- about IDs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
-policyUser_userId :: Lens.Lens' PolicyUser (Core.Maybe Core.Text)
+policyUser_userId :: Lens.Lens' PolicyUser (Prelude.Maybe Prelude.Text)
 policyUser_userId = Lens.lens (\PolicyUser' {userId} -> userId) (\s@PolicyUser' {} a -> s {userId = a} :: PolicyUser)
 
 -- | The name (friendly name, not ARN) identifying the user.
-policyUser_userName :: Lens.Lens' PolicyUser (Core.Maybe Core.Text)
+policyUser_userName :: Lens.Lens' PolicyUser (Prelude.Maybe Prelude.Text)
 policyUser_userName = Lens.lens (\PolicyUser' {userName} -> userName) (\s@PolicyUser' {} a -> s {userName = a} :: PolicyUser)
 
 instance Core.FromXML PolicyUser where
   parseXML x =
     PolicyUser'
-      Core.<$> (x Core..@? "UserId")
-      Core.<*> (x Core..@? "UserName")
+      Prelude.<$> (x Core..@? "UserId")
+      Prelude.<*> (x Core..@? "UserName")
 
-instance Core.Hashable PolicyUser
+instance Prelude.Hashable PolicyUser
 
-instance Core.NFData PolicyUser
+instance Prelude.NFData PolicyUser

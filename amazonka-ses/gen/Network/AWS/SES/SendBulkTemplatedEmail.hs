@@ -86,6 +86,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -104,7 +105,7 @@ data SendBulkTemplatedEmail = SendBulkTemplatedEmail'
     -- parameter is never overwritten. This email address must be either
     -- individually verified with Amazon SES, or from a domain that has been
     -- verified with Amazon SES.
-    returnPath :: Core.Maybe Core.Text,
+    returnPath :: Prelude.Maybe Prelude.Text,
     -- | A list of replacement values to apply to the template when replacement
     -- data is not specified in a Destination object. These values act as a
     -- default or fallback option when no other data is available.
@@ -112,7 +113,7 @@ data SendBulkTemplatedEmail = SendBulkTemplatedEmail'
     -- The template data is a JSON object, typically consisting of key-value
     -- pairs in which the keys correspond to replacement tags in the email
     -- template.
-    defaultTemplateData :: Core.Maybe Core.Text,
+    defaultTemplateData :: Prelude.Maybe Prelude.Text,
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to use the email address specified in the @ReturnPath@
@@ -127,13 +128,13 @@ data SendBulkTemplatedEmail = SendBulkTemplatedEmail'
     --
     -- For more information about sending authorization, see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-    returnPathArn :: Core.Maybe Core.Text,
+    returnPathArn :: Prelude.Maybe Prelude.Text,
     -- | A list of tags, in the form of name\/value pairs, to apply to an email
     -- that you send to a destination using @SendBulkTemplatedEmail@.
-    defaultTags :: Core.Maybe [MessageTag],
+    defaultTags :: Prelude.Maybe [MessageTag],
     -- | The reply-to email address(es) for the message. If the recipient replies
     -- to the message, each reply-to address will receive the reply.
-    replyToAddresses :: Core.Maybe [Core.Text],
+    replyToAddresses :: Prelude.Maybe [Prelude.Text],
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to send for the email address specified in the @Source@
@@ -148,12 +149,12 @@ data SendBulkTemplatedEmail = SendBulkTemplatedEmail'
     --
     -- For more information about sending authorization, see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-    sourceArn :: Core.Maybe Core.Text,
+    sourceArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the template to use when sending this email.
-    templateArn :: Core.Maybe Core.Text,
+    templateArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the configuration set to use when you send an email using
     -- @SendBulkTemplatedEmail@.
-    configurationSetName :: Core.Maybe Core.Text,
+    configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | The email address that is sending the email. This email address must be
     -- either individually verified with Amazon SES, or from a domain that has
     -- been verified with Amazon SES. For information about verifying
@@ -179,15 +180,15 @@ data SendBulkTemplatedEmail = SendBulkTemplatedEmail'
     -- described in <https://tools.ietf.org/html/rfc2047 RFC 2047>. MIME
     -- encoded-word syntax uses the following form:
     -- @=?charset?encoding?encoded-text?=@.
-    source :: Core.Text,
+    source :: Prelude.Text,
     -- | The template to use when sending this email.
-    template :: Core.Text,
+    template :: Prelude.Text,
     -- | One or more @Destination@ objects. All of the recipients in a
     -- @Destination@ will receive the same version of the email. You can
     -- specify up to 50 @Destination@ objects within a @Destinations@ array.
     destinations :: [BulkEmailDestination]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendBulkTemplatedEmail' with all optional fields omitted.
@@ -288,23 +289,24 @@ data SendBulkTemplatedEmail = SendBulkTemplatedEmail'
 -- specify up to 50 @Destination@ objects within a @Destinations@ array.
 newSendBulkTemplatedEmail ::
   -- | 'source'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'template'
-  Core.Text ->
+  Prelude.Text ->
   SendBulkTemplatedEmail
 newSendBulkTemplatedEmail pSource_ pTemplate_ =
   SendBulkTemplatedEmail'
-    { returnPath = Core.Nothing,
-      defaultTemplateData = Core.Nothing,
-      returnPathArn = Core.Nothing,
-      defaultTags = Core.Nothing,
-      replyToAddresses = Core.Nothing,
-      sourceArn = Core.Nothing,
-      templateArn = Core.Nothing,
-      configurationSetName = Core.Nothing,
+    { returnPath =
+        Prelude.Nothing,
+      defaultTemplateData = Prelude.Nothing,
+      returnPathArn = Prelude.Nothing,
+      defaultTags = Prelude.Nothing,
+      replyToAddresses = Prelude.Nothing,
+      sourceArn = Prelude.Nothing,
+      templateArn = Prelude.Nothing,
+      configurationSetName = Prelude.Nothing,
       source = pSource_,
       template = pTemplate_,
-      destinations = Core.mempty
+      destinations = Prelude.mempty
     }
 
 -- | The email address that bounces and complaints will be forwarded to when
@@ -315,7 +317,7 @@ newSendBulkTemplatedEmail pSource_ pTemplate_ =
 -- parameter is never overwritten. This email address must be either
 -- individually verified with Amazon SES, or from a domain that has been
 -- verified with Amazon SES.
-sendBulkTemplatedEmail_returnPath :: Lens.Lens' SendBulkTemplatedEmail (Core.Maybe Core.Text)
+sendBulkTemplatedEmail_returnPath :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
 sendBulkTemplatedEmail_returnPath = Lens.lens (\SendBulkTemplatedEmail' {returnPath} -> returnPath) (\s@SendBulkTemplatedEmail' {} a -> s {returnPath = a} :: SendBulkTemplatedEmail)
 
 -- | A list of replacement values to apply to the template when replacement
@@ -325,7 +327,7 @@ sendBulkTemplatedEmail_returnPath = Lens.lens (\SendBulkTemplatedEmail' {returnP
 -- The template data is a JSON object, typically consisting of key-value
 -- pairs in which the keys correspond to replacement tags in the email
 -- template.
-sendBulkTemplatedEmail_defaultTemplateData :: Lens.Lens' SendBulkTemplatedEmail (Core.Maybe Core.Text)
+sendBulkTemplatedEmail_defaultTemplateData :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
 sendBulkTemplatedEmail_defaultTemplateData = Lens.lens (\SendBulkTemplatedEmail' {defaultTemplateData} -> defaultTemplateData) (\s@SendBulkTemplatedEmail' {} a -> s {defaultTemplateData = a} :: SendBulkTemplatedEmail)
 
 -- | This parameter is used only for sending authorization. It is the ARN of
@@ -342,18 +344,18 @@ sendBulkTemplatedEmail_defaultTemplateData = Lens.lens (\SendBulkTemplatedEmail'
 --
 -- For more information about sending authorization, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-sendBulkTemplatedEmail_returnPathArn :: Lens.Lens' SendBulkTemplatedEmail (Core.Maybe Core.Text)
+sendBulkTemplatedEmail_returnPathArn :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
 sendBulkTemplatedEmail_returnPathArn = Lens.lens (\SendBulkTemplatedEmail' {returnPathArn} -> returnPathArn) (\s@SendBulkTemplatedEmail' {} a -> s {returnPathArn = a} :: SendBulkTemplatedEmail)
 
 -- | A list of tags, in the form of name\/value pairs, to apply to an email
 -- that you send to a destination using @SendBulkTemplatedEmail@.
-sendBulkTemplatedEmail_defaultTags :: Lens.Lens' SendBulkTemplatedEmail (Core.Maybe [MessageTag])
-sendBulkTemplatedEmail_defaultTags = Lens.lens (\SendBulkTemplatedEmail' {defaultTags} -> defaultTags) (\s@SendBulkTemplatedEmail' {} a -> s {defaultTags = a} :: SendBulkTemplatedEmail) Core.. Lens.mapping Lens._Coerce
+sendBulkTemplatedEmail_defaultTags :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe [MessageTag])
+sendBulkTemplatedEmail_defaultTags = Lens.lens (\SendBulkTemplatedEmail' {defaultTags} -> defaultTags) (\s@SendBulkTemplatedEmail' {} a -> s {defaultTags = a} :: SendBulkTemplatedEmail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The reply-to email address(es) for the message. If the recipient replies
 -- to the message, each reply-to address will receive the reply.
-sendBulkTemplatedEmail_replyToAddresses :: Lens.Lens' SendBulkTemplatedEmail (Core.Maybe [Core.Text])
-sendBulkTemplatedEmail_replyToAddresses = Lens.lens (\SendBulkTemplatedEmail' {replyToAddresses} -> replyToAddresses) (\s@SendBulkTemplatedEmail' {} a -> s {replyToAddresses = a} :: SendBulkTemplatedEmail) Core.. Lens.mapping Lens._Coerce
+sendBulkTemplatedEmail_replyToAddresses :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe [Prelude.Text])
+sendBulkTemplatedEmail_replyToAddresses = Lens.lens (\SendBulkTemplatedEmail' {replyToAddresses} -> replyToAddresses) (\s@SendBulkTemplatedEmail' {} a -> s {replyToAddresses = a} :: SendBulkTemplatedEmail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -369,16 +371,16 @@ sendBulkTemplatedEmail_replyToAddresses = Lens.lens (\SendBulkTemplatedEmail' {r
 --
 -- For more information about sending authorization, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-sendBulkTemplatedEmail_sourceArn :: Lens.Lens' SendBulkTemplatedEmail (Core.Maybe Core.Text)
+sendBulkTemplatedEmail_sourceArn :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
 sendBulkTemplatedEmail_sourceArn = Lens.lens (\SendBulkTemplatedEmail' {sourceArn} -> sourceArn) (\s@SendBulkTemplatedEmail' {} a -> s {sourceArn = a} :: SendBulkTemplatedEmail)
 
 -- | The ARN of the template to use when sending this email.
-sendBulkTemplatedEmail_templateArn :: Lens.Lens' SendBulkTemplatedEmail (Core.Maybe Core.Text)
+sendBulkTemplatedEmail_templateArn :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
 sendBulkTemplatedEmail_templateArn = Lens.lens (\SendBulkTemplatedEmail' {templateArn} -> templateArn) (\s@SendBulkTemplatedEmail' {} a -> s {templateArn = a} :: SendBulkTemplatedEmail)
 
 -- | The name of the configuration set to use when you send an email using
 -- @SendBulkTemplatedEmail@.
-sendBulkTemplatedEmail_configurationSetName :: Lens.Lens' SendBulkTemplatedEmail (Core.Maybe Core.Text)
+sendBulkTemplatedEmail_configurationSetName :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
 sendBulkTemplatedEmail_configurationSetName = Lens.lens (\SendBulkTemplatedEmail' {configurationSetName} -> configurationSetName) (\s@SendBulkTemplatedEmail' {} a -> s {configurationSetName = a} :: SendBulkTemplatedEmail)
 
 -- | The email address that is sending the email. This email address must be
@@ -406,18 +408,18 @@ sendBulkTemplatedEmail_configurationSetName = Lens.lens (\SendBulkTemplatedEmail
 -- described in <https://tools.ietf.org/html/rfc2047 RFC 2047>. MIME
 -- encoded-word syntax uses the following form:
 -- @=?charset?encoding?encoded-text?=@.
-sendBulkTemplatedEmail_source :: Lens.Lens' SendBulkTemplatedEmail Core.Text
+sendBulkTemplatedEmail_source :: Lens.Lens' SendBulkTemplatedEmail Prelude.Text
 sendBulkTemplatedEmail_source = Lens.lens (\SendBulkTemplatedEmail' {source} -> source) (\s@SendBulkTemplatedEmail' {} a -> s {source = a} :: SendBulkTemplatedEmail)
 
 -- | The template to use when sending this email.
-sendBulkTemplatedEmail_template :: Lens.Lens' SendBulkTemplatedEmail Core.Text
+sendBulkTemplatedEmail_template :: Lens.Lens' SendBulkTemplatedEmail Prelude.Text
 sendBulkTemplatedEmail_template = Lens.lens (\SendBulkTemplatedEmail' {template} -> template) (\s@SendBulkTemplatedEmail' {} a -> s {template = a} :: SendBulkTemplatedEmail)
 
 -- | One or more @Destination@ objects. All of the recipients in a
 -- @Destination@ will receive the same version of the email. You can
 -- specify up to 50 @Destination@ objects within a @Destinations@ array.
 sendBulkTemplatedEmail_destinations :: Lens.Lens' SendBulkTemplatedEmail [BulkEmailDestination]
-sendBulkTemplatedEmail_destinations = Lens.lens (\SendBulkTemplatedEmail' {destinations} -> destinations) (\s@SendBulkTemplatedEmail' {} a -> s {destinations = a} :: SendBulkTemplatedEmail) Core.. Lens._Coerce
+sendBulkTemplatedEmail_destinations = Lens.lens (\SendBulkTemplatedEmail' {destinations} -> destinations) (\s@SendBulkTemplatedEmail' {} a -> s {destinations = a} :: SendBulkTemplatedEmail) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest SendBulkTemplatedEmail where
   type
@@ -429,38 +431,39 @@ instance Core.AWSRequest SendBulkTemplatedEmail where
       "SendBulkTemplatedEmailResult"
       ( \s h x ->
           SendBulkTemplatedEmailResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> ( x Core..@? "Status" Core..!@ Core.mempty
-                         Core.>>= Core.parseXMLList "member"
-                     )
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "Status" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
       )
 
-instance Core.Hashable SendBulkTemplatedEmail
+instance Prelude.Hashable SendBulkTemplatedEmail
 
-instance Core.NFData SendBulkTemplatedEmail
+instance Prelude.NFData SendBulkTemplatedEmail
 
 instance Core.ToHeaders SendBulkTemplatedEmail where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SendBulkTemplatedEmail where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SendBulkTemplatedEmail where
   toQuery SendBulkTemplatedEmail' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("SendBulkTemplatedEmail" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("SendBulkTemplatedEmail" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "ReturnPath" Core.=: returnPath,
         "DefaultTemplateData" Core.=: defaultTemplateData,
         "ReturnPathArn" Core.=: returnPathArn,
         "DefaultTags"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> defaultTags),
+            (Core.toQueryList "member" Prelude.<$> defaultTags),
         "ReplyToAddresses"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> replyToAddresses
+                Prelude.<$> replyToAddresses
             ),
         "SourceArn" Core.=: sourceArn,
         "TemplateArn" Core.=: templateArn,
@@ -474,12 +477,12 @@ instance Core.ToQuery SendBulkTemplatedEmail where
 -- | /See:/ 'newSendBulkTemplatedEmailResponse' smart constructor.
 data SendBulkTemplatedEmailResponse = SendBulkTemplatedEmailResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The unique message identifier returned from the @SendBulkTemplatedEmail@
     -- action.
     status :: [BulkEmailDestinationStatus]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendBulkTemplatedEmailResponse' with all optional fields omitted.
@@ -495,22 +498,24 @@ data SendBulkTemplatedEmailResponse = SendBulkTemplatedEmailResponse'
 -- action.
 newSendBulkTemplatedEmailResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SendBulkTemplatedEmailResponse
 newSendBulkTemplatedEmailResponse pHttpStatus_ =
   SendBulkTemplatedEmailResponse'
     { httpStatus =
         pHttpStatus_,
-      status = Core.mempty
+      status = Prelude.mempty
     }
 
 -- | The response's http status code.
-sendBulkTemplatedEmailResponse_httpStatus :: Lens.Lens' SendBulkTemplatedEmailResponse Core.Int
+sendBulkTemplatedEmailResponse_httpStatus :: Lens.Lens' SendBulkTemplatedEmailResponse Prelude.Int
 sendBulkTemplatedEmailResponse_httpStatus = Lens.lens (\SendBulkTemplatedEmailResponse' {httpStatus} -> httpStatus) (\s@SendBulkTemplatedEmailResponse' {} a -> s {httpStatus = a} :: SendBulkTemplatedEmailResponse)
 
 -- | The unique message identifier returned from the @SendBulkTemplatedEmail@
 -- action.
 sendBulkTemplatedEmailResponse_status :: Lens.Lens' SendBulkTemplatedEmailResponse [BulkEmailDestinationStatus]
-sendBulkTemplatedEmailResponse_status = Lens.lens (\SendBulkTemplatedEmailResponse' {status} -> status) (\s@SendBulkTemplatedEmailResponse' {} a -> s {status = a} :: SendBulkTemplatedEmailResponse) Core.. Lens._Coerce
+sendBulkTemplatedEmailResponse_status = Lens.lens (\SendBulkTemplatedEmailResponse' {status} -> status) (\s@SendBulkTemplatedEmailResponse' {} a -> s {status = a} :: SendBulkTemplatedEmailResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData SendBulkTemplatedEmailResponse
+instance
+  Prelude.NFData
+    SendBulkTemplatedEmailResponse

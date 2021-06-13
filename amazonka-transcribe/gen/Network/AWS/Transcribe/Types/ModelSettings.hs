@@ -21,6 +21,7 @@ module Network.AWS.Transcribe.Types.ModelSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The object used to call your custom language model to your transcription
 -- job.
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newModelSettings' smart constructor.
 data ModelSettings = ModelSettings'
   { -- | The name of your custom language model.
-    languageModelName :: Core.Maybe Core.Text
+    languageModelName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModelSettings' with all optional fields omitted.
@@ -44,10 +45,10 @@ data ModelSettings = ModelSettings'
 newModelSettings ::
   ModelSettings
 newModelSettings =
-  ModelSettings' {languageModelName = Core.Nothing}
+  ModelSettings' {languageModelName = Prelude.Nothing}
 
 -- | The name of your custom language model.
-modelSettings_languageModelName :: Lens.Lens' ModelSettings (Core.Maybe Core.Text)
+modelSettings_languageModelName :: Lens.Lens' ModelSettings (Prelude.Maybe Prelude.Text)
 modelSettings_languageModelName = Lens.lens (\ModelSettings' {languageModelName} -> languageModelName) (\s@ModelSettings' {} a -> s {languageModelName = a} :: ModelSettings)
 
 instance Core.FromJSON ModelSettings where
@@ -56,18 +57,18 @@ instance Core.FromJSON ModelSettings where
       "ModelSettings"
       ( \x ->
           ModelSettings'
-            Core.<$> (x Core..:? "LanguageModelName")
+            Prelude.<$> (x Core..:? "LanguageModelName")
       )
 
-instance Core.Hashable ModelSettings
+instance Prelude.Hashable ModelSettings
 
-instance Core.NFData ModelSettings
+instance Prelude.NFData ModelSettings
 
 instance Core.ToJSON ModelSettings where
   toJSON ModelSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("LanguageModelName" Core..=)
-              Core.<$> languageModelName
+              Prelude.<$> languageModelName
           ]
       )

@@ -42,17 +42,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateCoreDefinition' smart constructor.
 data UpdateCoreDefinition = UpdateCoreDefinition'
   { -- | The name of the definition.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ID of the core definition.
-    coreDefinitionId :: Core.Text
+    coreDefinitionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateCoreDefinition' with all optional fields omitted.
@@ -67,20 +68,20 @@ data UpdateCoreDefinition = UpdateCoreDefinition'
 -- 'coreDefinitionId', 'updateCoreDefinition_coreDefinitionId' - The ID of the core definition.
 newUpdateCoreDefinition ::
   -- | 'coreDefinitionId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateCoreDefinition
 newUpdateCoreDefinition pCoreDefinitionId_ =
   UpdateCoreDefinition'
-    { name = Core.Nothing,
+    { name = Prelude.Nothing,
       coreDefinitionId = pCoreDefinitionId_
     }
 
 -- | The name of the definition.
-updateCoreDefinition_name :: Lens.Lens' UpdateCoreDefinition (Core.Maybe Core.Text)
+updateCoreDefinition_name :: Lens.Lens' UpdateCoreDefinition (Prelude.Maybe Prelude.Text)
 updateCoreDefinition_name = Lens.lens (\UpdateCoreDefinition' {name} -> name) (\s@UpdateCoreDefinition' {} a -> s {name = a} :: UpdateCoreDefinition)
 
 -- | The ID of the core definition.
-updateCoreDefinition_coreDefinitionId :: Lens.Lens' UpdateCoreDefinition Core.Text
+updateCoreDefinition_coreDefinitionId :: Lens.Lens' UpdateCoreDefinition Prelude.Text
 updateCoreDefinition_coreDefinitionId = Lens.lens (\UpdateCoreDefinition' {coreDefinitionId} -> coreDefinitionId) (\s@UpdateCoreDefinition' {} a -> s {coreDefinitionId = a} :: UpdateCoreDefinition)
 
 instance Core.AWSRequest UpdateCoreDefinition where
@@ -92,43 +93,47 @@ instance Core.AWSRequest UpdateCoreDefinition where
     Response.receiveEmpty
       ( \s h x ->
           UpdateCoreDefinitionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateCoreDefinition
+instance Prelude.Hashable UpdateCoreDefinition
 
-instance Core.NFData UpdateCoreDefinition
+instance Prelude.NFData UpdateCoreDefinition
 
 instance Core.ToHeaders UpdateCoreDefinition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateCoreDefinition where
   toJSON UpdateCoreDefinition' {..} =
     Core.object
-      (Core.catMaybes [("Name" Core..=) Core.<$> name])
+      ( Prelude.catMaybes
+          [("Name" Core..=) Prelude.<$> name]
+      )
 
 instance Core.ToPath UpdateCoreDefinition where
   toPath UpdateCoreDefinition' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/greengrass/definition/cores/",
         Core.toBS coreDefinitionId
       ]
 
 instance Core.ToQuery UpdateCoreDefinition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCoreDefinitionResponse' smart constructor.
 data UpdateCoreDefinitionResponse = UpdateCoreDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateCoreDefinitionResponse' with all optional fields omitted.
@@ -141,7 +146,7 @@ data UpdateCoreDefinitionResponse = UpdateCoreDefinitionResponse'
 -- 'httpStatus', 'updateCoreDefinitionResponse_httpStatus' - The response's http status code.
 newUpdateCoreDefinitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateCoreDefinitionResponse
 newUpdateCoreDefinitionResponse pHttpStatus_ =
   UpdateCoreDefinitionResponse'
@@ -150,7 +155,7 @@ newUpdateCoreDefinitionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateCoreDefinitionResponse_httpStatus :: Lens.Lens' UpdateCoreDefinitionResponse Core.Int
+updateCoreDefinitionResponse_httpStatus :: Lens.Lens' UpdateCoreDefinitionResponse Prelude.Int
 updateCoreDefinitionResponse_httpStatus = Lens.lens (\UpdateCoreDefinitionResponse' {httpStatus} -> httpStatus) (\s@UpdateCoreDefinitionResponse' {} a -> s {httpStatus = a} :: UpdateCoreDefinitionResponse)
 
-instance Core.NFData UpdateCoreDefinitionResponse
+instance Prelude.NFData UpdateCoreDefinitionResponse

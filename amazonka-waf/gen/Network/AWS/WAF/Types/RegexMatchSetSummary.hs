@@ -21,6 +21,7 @@ module Network.AWS.WAF.Types.RegexMatchSetSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
@@ -43,12 +44,12 @@ data RegexMatchSetSummary = RegexMatchSetSummary'
     --
     -- @RegexMatchSetId@ is returned by CreateRegexMatchSet and by
     -- ListRegexMatchSets.
-    regexMatchSetId :: Core.Text,
+    regexMatchSetId :: Prelude.Text,
     -- | A friendly name or description of the RegexMatchSet. You can\'t change
     -- @Name@ after you create a @RegexMatchSet@.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegexMatchSetSummary' with all optional fields omitted.
@@ -70,9 +71,9 @@ data RegexMatchSetSummary = RegexMatchSetSummary'
 -- @Name@ after you create a @RegexMatchSet@.
 newRegexMatchSetSummary ::
   -- | 'regexMatchSetId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   RegexMatchSetSummary
 newRegexMatchSetSummary pRegexMatchSetId_ pName_ =
   RegexMatchSetSummary'
@@ -88,12 +89,12 @@ newRegexMatchSetSummary pRegexMatchSetId_ pName_ =
 --
 -- @RegexMatchSetId@ is returned by CreateRegexMatchSet and by
 -- ListRegexMatchSets.
-regexMatchSetSummary_regexMatchSetId :: Lens.Lens' RegexMatchSetSummary Core.Text
+regexMatchSetSummary_regexMatchSetId :: Lens.Lens' RegexMatchSetSummary Prelude.Text
 regexMatchSetSummary_regexMatchSetId = Lens.lens (\RegexMatchSetSummary' {regexMatchSetId} -> regexMatchSetId) (\s@RegexMatchSetSummary' {} a -> s {regexMatchSetId = a} :: RegexMatchSetSummary)
 
 -- | A friendly name or description of the RegexMatchSet. You can\'t change
 -- @Name@ after you create a @RegexMatchSet@.
-regexMatchSetSummary_name :: Lens.Lens' RegexMatchSetSummary Core.Text
+regexMatchSetSummary_name :: Lens.Lens' RegexMatchSetSummary Prelude.Text
 regexMatchSetSummary_name = Lens.lens (\RegexMatchSetSummary' {name} -> name) (\s@RegexMatchSetSummary' {} a -> s {name = a} :: RegexMatchSetSummary)
 
 instance Core.FromJSON RegexMatchSetSummary where
@@ -102,10 +103,10 @@ instance Core.FromJSON RegexMatchSetSummary where
       "RegexMatchSetSummary"
       ( \x ->
           RegexMatchSetSummary'
-            Core.<$> (x Core..: "RegexMatchSetId")
-            Core.<*> (x Core..: "Name")
+            Prelude.<$> (x Core..: "RegexMatchSetId")
+            Prelude.<*> (x Core..: "Name")
       )
 
-instance Core.Hashable RegexMatchSetSummary
+instance Prelude.Hashable RegexMatchSetSummary
 
-instance Core.NFData RegexMatchSetSummary
+instance Prelude.NFData RegexMatchSetSummary

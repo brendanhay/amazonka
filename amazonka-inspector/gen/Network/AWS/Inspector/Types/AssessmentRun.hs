@@ -26,6 +26,7 @@ import Network.AWS.Inspector.Types.AssessmentRunStateChange
 import Network.AWS.Inspector.Types.Attribute
 import Network.AWS.Inspector.Types.Severity
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A snapshot of an Amazon Inspector assessment run that contains the
 -- findings of the assessment run .
@@ -35,23 +36,23 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAssessmentRun' smart constructor.
 data AssessmentRun = AssessmentRun'
   { -- | The time when StartAssessmentRun was called.
-    startedAt :: Core.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Core.POSIX,
     -- | The assessment run completion time that corresponds to the rules
     -- packages evaluation completion time or failure.
-    completedAt :: Core.Maybe Core.POSIX,
+    completedAt :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the assessment run.
-    arn :: Core.Text,
+    arn :: Prelude.Text,
     -- | The auto-generated name for the assessment run.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The ARN of the assessment template that is associated with the
     -- assessment run.
-    assessmentTemplateArn :: Core.Text,
+    assessmentTemplateArn :: Prelude.Text,
     -- | The state of the assessment run.
     state :: AssessmentRunState,
     -- | The duration of the assessment run.
-    durationInSeconds :: Core.Natural,
+    durationInSeconds :: Prelude.Natural,
     -- | The rules packages selected for the assessment run.
-    rulesPackageArns :: Core.NonEmpty Core.Text,
+    rulesPackageArns :: Prelude.NonEmpty Prelude.Text,
     -- | The user-defined attributes that are assigned to every generated
     -- finding.
     userAttributesForFindings :: [Attribute],
@@ -61,16 +62,16 @@ data AssessmentRun = AssessmentRun'
     stateChangedAt :: Core.POSIX,
     -- | A Boolean value (true or false) that specifies whether the process of
     -- collecting data from the agents is completed.
-    dataCollected :: Core.Bool,
+    dataCollected :: Prelude.Bool,
     -- | A list of the assessment run state changes.
     stateChanges :: [AssessmentRunStateChange],
     -- | A list of notifications for the event subscriptions. A notification
     -- about a particular generated finding is added to this list only once.
     notifications :: [AssessmentRunNotification],
     -- | Provides a total count of generated findings per severity.
-    findingCounts :: Core.HashMap Severity Core.Int
+    findingCounts :: Prelude.HashMap Severity Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssessmentRun' with all optional fields omitted.
@@ -116,23 +117,23 @@ data AssessmentRun = AssessmentRun'
 -- 'findingCounts', 'assessmentRun_findingCounts' - Provides a total count of generated findings per severity.
 newAssessmentRun ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'assessmentTemplateArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'state'
   AssessmentRunState ->
   -- | 'durationInSeconds'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'rulesPackageArns'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   -- | 'createdAt'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'stateChangedAt'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'dataCollected'
-  Core.Bool ->
+  Prelude.Bool ->
   AssessmentRun
 newAssessmentRun
   pArn_
@@ -145,8 +146,8 @@ newAssessmentRun
   pStateChangedAt_
   pDataCollected_ =
     AssessmentRun'
-      { startedAt = Core.Nothing,
-        completedAt = Core.Nothing,
+      { startedAt = Prelude.Nothing,
+        completedAt = Prelude.Nothing,
         arn = pArn_,
         name = pName_,
         assessmentTemplateArn = pAssessmentTemplateArn_,
@@ -154,35 +155,35 @@ newAssessmentRun
         durationInSeconds = pDurationInSeconds_,
         rulesPackageArns =
           Lens._Coerce Lens.# pRulesPackageArns_,
-        userAttributesForFindings = Core.mempty,
+        userAttributesForFindings = Prelude.mempty,
         createdAt = Core._Time Lens.# pCreatedAt_,
         stateChangedAt = Core._Time Lens.# pStateChangedAt_,
         dataCollected = pDataCollected_,
-        stateChanges = Core.mempty,
-        notifications = Core.mempty,
-        findingCounts = Core.mempty
+        stateChanges = Prelude.mempty,
+        notifications = Prelude.mempty,
+        findingCounts = Prelude.mempty
       }
 
 -- | The time when StartAssessmentRun was called.
-assessmentRun_startedAt :: Lens.Lens' AssessmentRun (Core.Maybe Core.UTCTime)
-assessmentRun_startedAt = Lens.lens (\AssessmentRun' {startedAt} -> startedAt) (\s@AssessmentRun' {} a -> s {startedAt = a} :: AssessmentRun) Core.. Lens.mapping Core._Time
+assessmentRun_startedAt :: Lens.Lens' AssessmentRun (Prelude.Maybe Prelude.UTCTime)
+assessmentRun_startedAt = Lens.lens (\AssessmentRun' {startedAt} -> startedAt) (\s@AssessmentRun' {} a -> s {startedAt = a} :: AssessmentRun) Prelude.. Lens.mapping Core._Time
 
 -- | The assessment run completion time that corresponds to the rules
 -- packages evaluation completion time or failure.
-assessmentRun_completedAt :: Lens.Lens' AssessmentRun (Core.Maybe Core.UTCTime)
-assessmentRun_completedAt = Lens.lens (\AssessmentRun' {completedAt} -> completedAt) (\s@AssessmentRun' {} a -> s {completedAt = a} :: AssessmentRun) Core.. Lens.mapping Core._Time
+assessmentRun_completedAt :: Lens.Lens' AssessmentRun (Prelude.Maybe Prelude.UTCTime)
+assessmentRun_completedAt = Lens.lens (\AssessmentRun' {completedAt} -> completedAt) (\s@AssessmentRun' {} a -> s {completedAt = a} :: AssessmentRun) Prelude.. Lens.mapping Core._Time
 
 -- | The ARN of the assessment run.
-assessmentRun_arn :: Lens.Lens' AssessmentRun Core.Text
+assessmentRun_arn :: Lens.Lens' AssessmentRun Prelude.Text
 assessmentRun_arn = Lens.lens (\AssessmentRun' {arn} -> arn) (\s@AssessmentRun' {} a -> s {arn = a} :: AssessmentRun)
 
 -- | The auto-generated name for the assessment run.
-assessmentRun_name :: Lens.Lens' AssessmentRun Core.Text
+assessmentRun_name :: Lens.Lens' AssessmentRun Prelude.Text
 assessmentRun_name = Lens.lens (\AssessmentRun' {name} -> name) (\s@AssessmentRun' {} a -> s {name = a} :: AssessmentRun)
 
 -- | The ARN of the assessment template that is associated with the
 -- assessment run.
-assessmentRun_assessmentTemplateArn :: Lens.Lens' AssessmentRun Core.Text
+assessmentRun_assessmentTemplateArn :: Lens.Lens' AssessmentRun Prelude.Text
 assessmentRun_assessmentTemplateArn = Lens.lens (\AssessmentRun' {assessmentTemplateArn} -> assessmentTemplateArn) (\s@AssessmentRun' {} a -> s {assessmentTemplateArn = a} :: AssessmentRun)
 
 -- | The state of the assessment run.
@@ -190,43 +191,43 @@ assessmentRun_state :: Lens.Lens' AssessmentRun AssessmentRunState
 assessmentRun_state = Lens.lens (\AssessmentRun' {state} -> state) (\s@AssessmentRun' {} a -> s {state = a} :: AssessmentRun)
 
 -- | The duration of the assessment run.
-assessmentRun_durationInSeconds :: Lens.Lens' AssessmentRun Core.Natural
+assessmentRun_durationInSeconds :: Lens.Lens' AssessmentRun Prelude.Natural
 assessmentRun_durationInSeconds = Lens.lens (\AssessmentRun' {durationInSeconds} -> durationInSeconds) (\s@AssessmentRun' {} a -> s {durationInSeconds = a} :: AssessmentRun)
 
 -- | The rules packages selected for the assessment run.
-assessmentRun_rulesPackageArns :: Lens.Lens' AssessmentRun (Core.NonEmpty Core.Text)
-assessmentRun_rulesPackageArns = Lens.lens (\AssessmentRun' {rulesPackageArns} -> rulesPackageArns) (\s@AssessmentRun' {} a -> s {rulesPackageArns = a} :: AssessmentRun) Core.. Lens._Coerce
+assessmentRun_rulesPackageArns :: Lens.Lens' AssessmentRun (Prelude.NonEmpty Prelude.Text)
+assessmentRun_rulesPackageArns = Lens.lens (\AssessmentRun' {rulesPackageArns} -> rulesPackageArns) (\s@AssessmentRun' {} a -> s {rulesPackageArns = a} :: AssessmentRun) Prelude.. Lens._Coerce
 
 -- | The user-defined attributes that are assigned to every generated
 -- finding.
 assessmentRun_userAttributesForFindings :: Lens.Lens' AssessmentRun [Attribute]
-assessmentRun_userAttributesForFindings = Lens.lens (\AssessmentRun' {userAttributesForFindings} -> userAttributesForFindings) (\s@AssessmentRun' {} a -> s {userAttributesForFindings = a} :: AssessmentRun) Core.. Lens._Coerce
+assessmentRun_userAttributesForFindings = Lens.lens (\AssessmentRun' {userAttributesForFindings} -> userAttributesForFindings) (\s@AssessmentRun' {} a -> s {userAttributesForFindings = a} :: AssessmentRun) Prelude.. Lens._Coerce
 
 -- | The time when StartAssessmentRun was called.
-assessmentRun_createdAt :: Lens.Lens' AssessmentRun Core.UTCTime
-assessmentRun_createdAt = Lens.lens (\AssessmentRun' {createdAt} -> createdAt) (\s@AssessmentRun' {} a -> s {createdAt = a} :: AssessmentRun) Core.. Core._Time
+assessmentRun_createdAt :: Lens.Lens' AssessmentRun Prelude.UTCTime
+assessmentRun_createdAt = Lens.lens (\AssessmentRun' {createdAt} -> createdAt) (\s@AssessmentRun' {} a -> s {createdAt = a} :: AssessmentRun) Prelude.. Core._Time
 
 -- | The last time when the assessment run\'s state changed.
-assessmentRun_stateChangedAt :: Lens.Lens' AssessmentRun Core.UTCTime
-assessmentRun_stateChangedAt = Lens.lens (\AssessmentRun' {stateChangedAt} -> stateChangedAt) (\s@AssessmentRun' {} a -> s {stateChangedAt = a} :: AssessmentRun) Core.. Core._Time
+assessmentRun_stateChangedAt :: Lens.Lens' AssessmentRun Prelude.UTCTime
+assessmentRun_stateChangedAt = Lens.lens (\AssessmentRun' {stateChangedAt} -> stateChangedAt) (\s@AssessmentRun' {} a -> s {stateChangedAt = a} :: AssessmentRun) Prelude.. Core._Time
 
 -- | A Boolean value (true or false) that specifies whether the process of
 -- collecting data from the agents is completed.
-assessmentRun_dataCollected :: Lens.Lens' AssessmentRun Core.Bool
+assessmentRun_dataCollected :: Lens.Lens' AssessmentRun Prelude.Bool
 assessmentRun_dataCollected = Lens.lens (\AssessmentRun' {dataCollected} -> dataCollected) (\s@AssessmentRun' {} a -> s {dataCollected = a} :: AssessmentRun)
 
 -- | A list of the assessment run state changes.
 assessmentRun_stateChanges :: Lens.Lens' AssessmentRun [AssessmentRunStateChange]
-assessmentRun_stateChanges = Lens.lens (\AssessmentRun' {stateChanges} -> stateChanges) (\s@AssessmentRun' {} a -> s {stateChanges = a} :: AssessmentRun) Core.. Lens._Coerce
+assessmentRun_stateChanges = Lens.lens (\AssessmentRun' {stateChanges} -> stateChanges) (\s@AssessmentRun' {} a -> s {stateChanges = a} :: AssessmentRun) Prelude.. Lens._Coerce
 
 -- | A list of notifications for the event subscriptions. A notification
 -- about a particular generated finding is added to this list only once.
 assessmentRun_notifications :: Lens.Lens' AssessmentRun [AssessmentRunNotification]
-assessmentRun_notifications = Lens.lens (\AssessmentRun' {notifications} -> notifications) (\s@AssessmentRun' {} a -> s {notifications = a} :: AssessmentRun) Core.. Lens._Coerce
+assessmentRun_notifications = Lens.lens (\AssessmentRun' {notifications} -> notifications) (\s@AssessmentRun' {} a -> s {notifications = a} :: AssessmentRun) Prelude.. Lens._Coerce
 
 -- | Provides a total count of generated findings per severity.
-assessmentRun_findingCounts :: Lens.Lens' AssessmentRun (Core.HashMap Severity Core.Int)
-assessmentRun_findingCounts = Lens.lens (\AssessmentRun' {findingCounts} -> findingCounts) (\s@AssessmentRun' {} a -> s {findingCounts = a} :: AssessmentRun) Core.. Lens._Coerce
+assessmentRun_findingCounts :: Lens.Lens' AssessmentRun (Prelude.HashMap Severity Prelude.Int)
+assessmentRun_findingCounts = Lens.lens (\AssessmentRun' {findingCounts} -> findingCounts) (\s@AssessmentRun' {} a -> s {findingCounts = a} :: AssessmentRun) Prelude.. Lens._Coerce
 
 instance Core.FromJSON AssessmentRun where
   parseJSON =
@@ -234,25 +235,25 @@ instance Core.FromJSON AssessmentRun where
       "AssessmentRun"
       ( \x ->
           AssessmentRun'
-            Core.<$> (x Core..:? "startedAt")
-            Core.<*> (x Core..:? "completedAt")
-            Core.<*> (x Core..: "arn")
-            Core.<*> (x Core..: "name")
-            Core.<*> (x Core..: "assessmentTemplateArn")
-            Core.<*> (x Core..: "state")
-            Core.<*> (x Core..: "durationInSeconds")
-            Core.<*> (x Core..: "rulesPackageArns")
-            Core.<*> ( x Core..:? "userAttributesForFindings"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..: "createdAt")
-            Core.<*> (x Core..: "stateChangedAt")
-            Core.<*> (x Core..: "dataCollected")
-            Core.<*> (x Core..:? "stateChanges" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "notifications" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "findingCounts" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "startedAt")
+            Prelude.<*> (x Core..:? "completedAt")
+            Prelude.<*> (x Core..: "arn")
+            Prelude.<*> (x Core..: "name")
+            Prelude.<*> (x Core..: "assessmentTemplateArn")
+            Prelude.<*> (x Core..: "state")
+            Prelude.<*> (x Core..: "durationInSeconds")
+            Prelude.<*> (x Core..: "rulesPackageArns")
+            Prelude.<*> ( x Core..:? "userAttributesForFindings"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..: "createdAt")
+            Prelude.<*> (x Core..: "stateChangedAt")
+            Prelude.<*> (x Core..: "dataCollected")
+            Prelude.<*> (x Core..:? "stateChanges" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "notifications" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "findingCounts" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable AssessmentRun
+instance Prelude.Hashable AssessmentRun
 
-instance Core.NFData AssessmentRun
+instance Prelude.NFData AssessmentRun

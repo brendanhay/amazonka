@@ -21,6 +21,7 @@ module Network.AWS.CognitoIdentityProvider.Types.ProviderUserIdentifierType wher
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A container for information about an identity provider for a user pool.
 --
@@ -28,14 +29,14 @@ import qualified Network.AWS.Lens as Lens
 data ProviderUserIdentifierType = ProviderUserIdentifierType'
   { -- | The name of the provider, for example, Facebook, Google, or Login with
     -- Amazon.
-    providerName :: Core.Maybe Core.Text,
+    providerName :: Prelude.Maybe Prelude.Text,
     -- | The name of the provider attribute to link to, for example, @NameID@.
-    providerAttributeName :: Core.Maybe Core.Text,
+    providerAttributeName :: Prelude.Maybe Prelude.Text,
     -- | The value of the provider attribute to link to, for example,
     -- @xxxxx_account@.
-    providerAttributeValue :: Core.Maybe Core.Text
+    providerAttributeValue :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProviderUserIdentifierType' with all optional fields omitted.
@@ -57,37 +58,37 @@ newProviderUserIdentifierType ::
 newProviderUserIdentifierType =
   ProviderUserIdentifierType'
     { providerName =
-        Core.Nothing,
-      providerAttributeName = Core.Nothing,
-      providerAttributeValue = Core.Nothing
+        Prelude.Nothing,
+      providerAttributeName = Prelude.Nothing,
+      providerAttributeValue = Prelude.Nothing
     }
 
 -- | The name of the provider, for example, Facebook, Google, or Login with
 -- Amazon.
-providerUserIdentifierType_providerName :: Lens.Lens' ProviderUserIdentifierType (Core.Maybe Core.Text)
+providerUserIdentifierType_providerName :: Lens.Lens' ProviderUserIdentifierType (Prelude.Maybe Prelude.Text)
 providerUserIdentifierType_providerName = Lens.lens (\ProviderUserIdentifierType' {providerName} -> providerName) (\s@ProviderUserIdentifierType' {} a -> s {providerName = a} :: ProviderUserIdentifierType)
 
 -- | The name of the provider attribute to link to, for example, @NameID@.
-providerUserIdentifierType_providerAttributeName :: Lens.Lens' ProviderUserIdentifierType (Core.Maybe Core.Text)
+providerUserIdentifierType_providerAttributeName :: Lens.Lens' ProviderUserIdentifierType (Prelude.Maybe Prelude.Text)
 providerUserIdentifierType_providerAttributeName = Lens.lens (\ProviderUserIdentifierType' {providerAttributeName} -> providerAttributeName) (\s@ProviderUserIdentifierType' {} a -> s {providerAttributeName = a} :: ProviderUserIdentifierType)
 
 -- | The value of the provider attribute to link to, for example,
 -- @xxxxx_account@.
-providerUserIdentifierType_providerAttributeValue :: Lens.Lens' ProviderUserIdentifierType (Core.Maybe Core.Text)
+providerUserIdentifierType_providerAttributeValue :: Lens.Lens' ProviderUserIdentifierType (Prelude.Maybe Prelude.Text)
 providerUserIdentifierType_providerAttributeValue = Lens.lens (\ProviderUserIdentifierType' {providerAttributeValue} -> providerAttributeValue) (\s@ProviderUserIdentifierType' {} a -> s {providerAttributeValue = a} :: ProviderUserIdentifierType)
 
-instance Core.Hashable ProviderUserIdentifierType
+instance Prelude.Hashable ProviderUserIdentifierType
 
-instance Core.NFData ProviderUserIdentifierType
+instance Prelude.NFData ProviderUserIdentifierType
 
 instance Core.ToJSON ProviderUserIdentifierType where
   toJSON ProviderUserIdentifierType' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ProviderName" Core..=) Core.<$> providerName,
+      ( Prelude.catMaybes
+          [ ("ProviderName" Core..=) Prelude.<$> providerName,
             ("ProviderAttributeName" Core..=)
-              Core.<$> providerAttributeName,
+              Prelude.<$> providerAttributeName,
             ("ProviderAttributeValue" Core..=)
-              Core.<$> providerAttributeValue
+              Prelude.<$> providerAttributeValue
           ]
       )

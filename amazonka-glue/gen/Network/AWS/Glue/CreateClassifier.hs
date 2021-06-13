@@ -46,21 +46,22 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateClassifier' smart constructor.
 data CreateClassifier = CreateClassifier'
   { -- | An @XMLClassifier@ object specifying the classifier to create.
-    xMLClassifier :: Core.Maybe CreateXMLClassifierRequest,
+    xMLClassifier :: Prelude.Maybe CreateXMLClassifierRequest,
     -- | A @JsonClassifier@ object specifying the classifier to create.
-    jsonClassifier :: Core.Maybe CreateJsonClassifierRequest,
+    jsonClassifier :: Prelude.Maybe CreateJsonClassifierRequest,
     -- | A @CsvClassifier@ object specifying the classifier to create.
-    csvClassifier :: Core.Maybe CreateCsvClassifierRequest,
+    csvClassifier :: Prelude.Maybe CreateCsvClassifierRequest,
     -- | A @GrokClassifier@ object specifying the classifier to create.
-    grokClassifier :: Core.Maybe CreateGrokClassifierRequest
+    grokClassifier :: Prelude.Maybe CreateGrokClassifierRequest
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateClassifier' with all optional fields omitted.
@@ -81,26 +82,26 @@ newCreateClassifier ::
   CreateClassifier
 newCreateClassifier =
   CreateClassifier'
-    { xMLClassifier = Core.Nothing,
-      jsonClassifier = Core.Nothing,
-      csvClassifier = Core.Nothing,
-      grokClassifier = Core.Nothing
+    { xMLClassifier = Prelude.Nothing,
+      jsonClassifier = Prelude.Nothing,
+      csvClassifier = Prelude.Nothing,
+      grokClassifier = Prelude.Nothing
     }
 
 -- | An @XMLClassifier@ object specifying the classifier to create.
-createClassifier_xMLClassifier :: Lens.Lens' CreateClassifier (Core.Maybe CreateXMLClassifierRequest)
+createClassifier_xMLClassifier :: Lens.Lens' CreateClassifier (Prelude.Maybe CreateXMLClassifierRequest)
 createClassifier_xMLClassifier = Lens.lens (\CreateClassifier' {xMLClassifier} -> xMLClassifier) (\s@CreateClassifier' {} a -> s {xMLClassifier = a} :: CreateClassifier)
 
 -- | A @JsonClassifier@ object specifying the classifier to create.
-createClassifier_jsonClassifier :: Lens.Lens' CreateClassifier (Core.Maybe CreateJsonClassifierRequest)
+createClassifier_jsonClassifier :: Lens.Lens' CreateClassifier (Prelude.Maybe CreateJsonClassifierRequest)
 createClassifier_jsonClassifier = Lens.lens (\CreateClassifier' {jsonClassifier} -> jsonClassifier) (\s@CreateClassifier' {} a -> s {jsonClassifier = a} :: CreateClassifier)
 
 -- | A @CsvClassifier@ object specifying the classifier to create.
-createClassifier_csvClassifier :: Lens.Lens' CreateClassifier (Core.Maybe CreateCsvClassifierRequest)
+createClassifier_csvClassifier :: Lens.Lens' CreateClassifier (Prelude.Maybe CreateCsvClassifierRequest)
 createClassifier_csvClassifier = Lens.lens (\CreateClassifier' {csvClassifier} -> csvClassifier) (\s@CreateClassifier' {} a -> s {csvClassifier = a} :: CreateClassifier)
 
 -- | A @GrokClassifier@ object specifying the classifier to create.
-createClassifier_grokClassifier :: Lens.Lens' CreateClassifier (Core.Maybe CreateGrokClassifierRequest)
+createClassifier_grokClassifier :: Lens.Lens' CreateClassifier (Prelude.Maybe CreateGrokClassifierRequest)
 createClassifier_grokClassifier = Lens.lens (\CreateClassifier' {grokClassifier} -> grokClassifier) (\s@CreateClassifier' {} a -> s {grokClassifier = a} :: CreateClassifier)
 
 instance Core.AWSRequest CreateClassifier where
@@ -112,47 +113,51 @@ instance Core.AWSRequest CreateClassifier where
     Response.receiveEmpty
       ( \s h x ->
           CreateClassifierResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateClassifier
+instance Prelude.Hashable CreateClassifier
 
-instance Core.NFData CreateClassifier
+instance Prelude.NFData CreateClassifier
 
 instance Core.ToHeaders CreateClassifier where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.CreateClassifier" :: Core.ByteString),
+              Core.=# ("AWSGlue.CreateClassifier" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateClassifier where
   toJSON CreateClassifier' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("XMLClassifier" Core..=) Core.<$> xMLClassifier,
-            ("JsonClassifier" Core..=) Core.<$> jsonClassifier,
-            ("CsvClassifier" Core..=) Core.<$> csvClassifier,
-            ("GrokClassifier" Core..=) Core.<$> grokClassifier
+      ( Prelude.catMaybes
+          [ ("XMLClassifier" Core..=) Prelude.<$> xMLClassifier,
+            ("JsonClassifier" Core..=)
+              Prelude.<$> jsonClassifier,
+            ("CsvClassifier" Core..=) Prelude.<$> csvClassifier,
+            ("GrokClassifier" Core..=)
+              Prelude.<$> grokClassifier
           ]
       )
 
 instance Core.ToPath CreateClassifier where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateClassifier where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateClassifierResponse' smart constructor.
 data CreateClassifierResponse = CreateClassifierResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateClassifierResponse' with all optional fields omitted.
@@ -165,7 +170,7 @@ data CreateClassifierResponse = CreateClassifierResponse'
 -- 'httpStatus', 'createClassifierResponse_httpStatus' - The response's http status code.
 newCreateClassifierResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateClassifierResponse
 newCreateClassifierResponse pHttpStatus_ =
   CreateClassifierResponse'
@@ -174,7 +179,7 @@ newCreateClassifierResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createClassifierResponse_httpStatus :: Lens.Lens' CreateClassifierResponse Core.Int
+createClassifierResponse_httpStatus :: Lens.Lens' CreateClassifierResponse Prelude.Int
 createClassifierResponse_httpStatus = Lens.lens (\CreateClassifierResponse' {httpStatus} -> httpStatus) (\s@CreateClassifierResponse' {} a -> s {httpStatus = a} :: CreateClassifierResponse)
 
-instance Core.NFData CreateClassifierResponse
+instance Prelude.NFData CreateClassifierResponse

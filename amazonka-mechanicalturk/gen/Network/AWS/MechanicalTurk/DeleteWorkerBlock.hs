@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +55,11 @@ import qualified Network.AWS.Response as Response
 data DeleteWorkerBlock = DeleteWorkerBlock'
   { -- | A message that explains the reason for unblocking the Worker. The Worker
     -- does not see this message.
-    reason :: Core.Maybe Core.Text,
+    reason :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Worker to unblock.
-    workerId :: Core.Text
+    workerId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteWorkerBlock' with all optional fields omitted.
@@ -74,21 +75,21 @@ data DeleteWorkerBlock = DeleteWorkerBlock'
 -- 'workerId', 'deleteWorkerBlock_workerId' - The ID of the Worker to unblock.
 newDeleteWorkerBlock ::
   -- | 'workerId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteWorkerBlock
 newDeleteWorkerBlock pWorkerId_ =
   DeleteWorkerBlock'
-    { reason = Core.Nothing,
+    { reason = Prelude.Nothing,
       workerId = pWorkerId_
     }
 
 -- | A message that explains the reason for unblocking the Worker. The Worker
 -- does not see this message.
-deleteWorkerBlock_reason :: Lens.Lens' DeleteWorkerBlock (Core.Maybe Core.Text)
+deleteWorkerBlock_reason :: Lens.Lens' DeleteWorkerBlock (Prelude.Maybe Prelude.Text)
 deleteWorkerBlock_reason = Lens.lens (\DeleteWorkerBlock' {reason} -> reason) (\s@DeleteWorkerBlock' {} a -> s {reason = a} :: DeleteWorkerBlock)
 
 -- | The ID of the Worker to unblock.
-deleteWorkerBlock_workerId :: Lens.Lens' DeleteWorkerBlock Core.Text
+deleteWorkerBlock_workerId :: Lens.Lens' DeleteWorkerBlock Prelude.Text
 deleteWorkerBlock_workerId = Lens.lens (\DeleteWorkerBlock' {workerId} -> workerId) (\s@DeleteWorkerBlock' {} a -> s {workerId = a} :: DeleteWorkerBlock)
 
 instance Core.AWSRequest DeleteWorkerBlock where
@@ -100,47 +101,49 @@ instance Core.AWSRequest DeleteWorkerBlock where
     Response.receiveEmpty
       ( \s h x ->
           DeleteWorkerBlockResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteWorkerBlock
+instance Prelude.Hashable DeleteWorkerBlock
 
-instance Core.NFData DeleteWorkerBlock
+instance Prelude.NFData DeleteWorkerBlock
 
 instance Core.ToHeaders DeleteWorkerBlock where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "MTurkRequesterServiceV20170117.DeleteWorkerBlock" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteWorkerBlock where
   toJSON DeleteWorkerBlock' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Reason" Core..=) Core.<$> reason,
-            Core.Just ("WorkerId" Core..= workerId)
+      ( Prelude.catMaybes
+          [ ("Reason" Core..=) Prelude.<$> reason,
+            Prelude.Just ("WorkerId" Core..= workerId)
           ]
       )
 
 instance Core.ToPath DeleteWorkerBlock where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteWorkerBlock where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWorkerBlockResponse' smart constructor.
 data DeleteWorkerBlockResponse = DeleteWorkerBlockResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteWorkerBlockResponse' with all optional fields omitted.
@@ -153,7 +156,7 @@ data DeleteWorkerBlockResponse = DeleteWorkerBlockResponse'
 -- 'httpStatus', 'deleteWorkerBlockResponse_httpStatus' - The response's http status code.
 newDeleteWorkerBlockResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteWorkerBlockResponse
 newDeleteWorkerBlockResponse pHttpStatus_ =
   DeleteWorkerBlockResponse'
@@ -162,7 +165,7 @@ newDeleteWorkerBlockResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteWorkerBlockResponse_httpStatus :: Lens.Lens' DeleteWorkerBlockResponse Core.Int
+deleteWorkerBlockResponse_httpStatus :: Lens.Lens' DeleteWorkerBlockResponse Prelude.Int
 deleteWorkerBlockResponse_httpStatus = Lens.lens (\DeleteWorkerBlockResponse' {httpStatus} -> httpStatus) (\s@DeleteWorkerBlockResponse' {} a -> s {httpStatus = a} :: DeleteWorkerBlockResponse)
 
-instance Core.NFData DeleteWorkerBlockResponse
+instance Prelude.NFData DeleteWorkerBlockResponse

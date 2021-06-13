@@ -23,6 +23,7 @@ import Network.AWS.CloudFront.Types.CachePolicy
 import Network.AWS.CloudFront.Types.CachePolicyType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains a cache policy.
 --
@@ -34,7 +35,7 @@ data CachePolicySummary = CachePolicySummary'
     -- | The cache policy.
     cachePolicy :: CachePolicy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CachePolicySummary' with all optional fields omitted.
@@ -72,8 +73,9 @@ cachePolicySummary_cachePolicy = Lens.lens (\CachePolicySummary' {cachePolicy} -
 instance Core.FromXML CachePolicySummary where
   parseXML x =
     CachePolicySummary'
-      Core.<$> (x Core..@ "Type") Core.<*> (x Core..@ "CachePolicy")
+      Prelude.<$> (x Core..@ "Type")
+      Prelude.<*> (x Core..@ "CachePolicy")
 
-instance Core.Hashable CachePolicySummary
+instance Prelude.Hashable CachePolicySummary
 
-instance Core.NFData CachePolicySummary
+instance Prelude.NFData CachePolicySummary

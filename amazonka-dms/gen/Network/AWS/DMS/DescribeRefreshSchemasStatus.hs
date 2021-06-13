@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data DescribeRefreshSchemasStatus = DescribeRefreshSchemasStatus'
   { -- | The Amazon Resource Name (ARN) string that uniquely identifies the
     -- endpoint.
-    endpointArn :: Core.Text
+    endpointArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRefreshSchemasStatus' with all optional fields omitted.
@@ -67,7 +68,7 @@ data DescribeRefreshSchemasStatus = DescribeRefreshSchemasStatus'
 -- endpoint.
 newDescribeRefreshSchemasStatus ::
   -- | 'endpointArn'
-  Core.Text ->
+  Prelude.Text ->
   DescribeRefreshSchemasStatus
 newDescribeRefreshSchemasStatus pEndpointArn_ =
   DescribeRefreshSchemasStatus'
@@ -77,7 +78,7 @@ newDescribeRefreshSchemasStatus pEndpointArn_ =
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the
 -- endpoint.
-describeRefreshSchemasStatus_endpointArn :: Lens.Lens' DescribeRefreshSchemasStatus Core.Text
+describeRefreshSchemasStatus_endpointArn :: Lens.Lens' DescribeRefreshSchemasStatus Prelude.Text
 describeRefreshSchemasStatus_endpointArn = Lens.lens (\DescribeRefreshSchemasStatus' {endpointArn} -> endpointArn) (\s@DescribeRefreshSchemasStatus' {} a -> s {endpointArn = a} :: DescribeRefreshSchemasStatus)
 
 instance Core.AWSRequest DescribeRefreshSchemasStatus where
@@ -89,50 +90,54 @@ instance Core.AWSRequest DescribeRefreshSchemasStatus where
     Response.receiveJSON
       ( \s h x ->
           DescribeRefreshSchemasStatusResponse'
-            Core.<$> (x Core..?> "RefreshSchemasStatus")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RefreshSchemasStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeRefreshSchemasStatus
+instance
+  Prelude.Hashable
+    DescribeRefreshSchemasStatus
 
-instance Core.NFData DescribeRefreshSchemasStatus
+instance Prelude.NFData DescribeRefreshSchemasStatus
 
 instance Core.ToHeaders DescribeRefreshSchemasStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonDMSv20160101.DescribeRefreshSchemasStatus" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeRefreshSchemasStatus where
   toJSON DescribeRefreshSchemasStatus' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("EndpointArn" Core..= endpointArn)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("EndpointArn" Core..= endpointArn)]
       )
 
 instance Core.ToPath DescribeRefreshSchemasStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeRefreshSchemasStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
 -- /See:/ 'newDescribeRefreshSchemasStatusResponse' smart constructor.
 data DescribeRefreshSchemasStatusResponse = DescribeRefreshSchemasStatusResponse'
   { -- | The status of the schema.
-    refreshSchemasStatus :: Core.Maybe RefreshSchemasStatus,
+    refreshSchemasStatus :: Prelude.Maybe RefreshSchemasStatus,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeRefreshSchemasStatusResponse' with all optional fields omitted.
@@ -147,23 +152,23 @@ data DescribeRefreshSchemasStatusResponse = DescribeRefreshSchemasStatusResponse
 -- 'httpStatus', 'describeRefreshSchemasStatusResponse_httpStatus' - The response's http status code.
 newDescribeRefreshSchemasStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeRefreshSchemasStatusResponse
 newDescribeRefreshSchemasStatusResponse pHttpStatus_ =
   DescribeRefreshSchemasStatusResponse'
     { refreshSchemasStatus =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the schema.
-describeRefreshSchemasStatusResponse_refreshSchemasStatus :: Lens.Lens' DescribeRefreshSchemasStatusResponse (Core.Maybe RefreshSchemasStatus)
+describeRefreshSchemasStatusResponse_refreshSchemasStatus :: Lens.Lens' DescribeRefreshSchemasStatusResponse (Prelude.Maybe RefreshSchemasStatus)
 describeRefreshSchemasStatusResponse_refreshSchemasStatus = Lens.lens (\DescribeRefreshSchemasStatusResponse' {refreshSchemasStatus} -> refreshSchemasStatus) (\s@DescribeRefreshSchemasStatusResponse' {} a -> s {refreshSchemasStatus = a} :: DescribeRefreshSchemasStatusResponse)
 
 -- | The response's http status code.
-describeRefreshSchemasStatusResponse_httpStatus :: Lens.Lens' DescribeRefreshSchemasStatusResponse Core.Int
+describeRefreshSchemasStatusResponse_httpStatus :: Lens.Lens' DescribeRefreshSchemasStatusResponse Prelude.Int
 describeRefreshSchemasStatusResponse_httpStatus = Lens.lens (\DescribeRefreshSchemasStatusResponse' {httpStatus} -> httpStatus) (\s@DescribeRefreshSchemasStatusResponse' {} a -> s {httpStatus = a} :: DescribeRefreshSchemasStatusResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeRefreshSchemasStatusResponse

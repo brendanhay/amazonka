@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +53,9 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetCompatibleElasticsearchVersions' smart constructor.
 data GetCompatibleElasticsearchVersions = GetCompatibleElasticsearchVersions'
-  { domainName :: Core.Maybe Core.Text
+  { domainName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCompatibleElasticsearchVersions' with all optional fields omitted.
@@ -70,11 +71,11 @@ newGetCompatibleElasticsearchVersions ::
 newGetCompatibleElasticsearchVersions =
   GetCompatibleElasticsearchVersions'
     { domainName =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Undocumented member.
-getCompatibleElasticsearchVersions_domainName :: Lens.Lens' GetCompatibleElasticsearchVersions (Core.Maybe Core.Text)
+getCompatibleElasticsearchVersions_domainName :: Lens.Lens' GetCompatibleElasticsearchVersions (Prelude.Maybe Prelude.Text)
 getCompatibleElasticsearchVersions_domainName = Lens.lens (\GetCompatibleElasticsearchVersions' {domainName} -> domainName) (\s@GetCompatibleElasticsearchVersions' {} a -> s {domainName = a} :: GetCompatibleElasticsearchVersions)
 
 instance
@@ -89,39 +90,39 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetCompatibleElasticsearchVersionsResponse'
-            Core.<$> ( x Core..?> "CompatibleElasticsearchVersions"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "CompatibleElasticsearchVersions"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     GetCompatibleElasticsearchVersions
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetCompatibleElasticsearchVersions
 
 instance
   Core.ToHeaders
     GetCompatibleElasticsearchVersions
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     GetCompatibleElasticsearchVersions
   where
   toPath =
-    Core.const "/2015-01-01/es/compatibleVersions"
+    Prelude.const "/2015-01-01/es/compatibleVersions"
 
 instance
   Core.ToQuery
     GetCompatibleElasticsearchVersions
   where
   toQuery GetCompatibleElasticsearchVersions' {..} =
-    Core.mconcat ["domainName" Core.=: domainName]
+    Prelude.mconcat ["domainName" Core.=: domainName]
 
 -- | Container for response returned by
 -- @ GetCompatibleElasticsearchVersions @ operation.
@@ -130,11 +131,11 @@ instance
 data GetCompatibleElasticsearchVersionsResponse = GetCompatibleElasticsearchVersionsResponse'
   { -- | A map of compatible Elasticsearch versions returned as part of the
     -- @ GetCompatibleElasticsearchVersions @ operation.
-    compatibleElasticsearchVersions :: Core.Maybe [CompatibleVersionsMap],
+    compatibleElasticsearchVersions :: Prelude.Maybe [CompatibleVersionsMap],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCompatibleElasticsearchVersionsResponse' with all optional fields omitted.
@@ -150,25 +151,25 @@ data GetCompatibleElasticsearchVersionsResponse = GetCompatibleElasticsearchVers
 -- 'httpStatus', 'getCompatibleElasticsearchVersionsResponse_httpStatus' - The response's http status code.
 newGetCompatibleElasticsearchVersionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetCompatibleElasticsearchVersionsResponse
 newGetCompatibleElasticsearchVersionsResponse
   pHttpStatus_ =
     GetCompatibleElasticsearchVersionsResponse'
       { compatibleElasticsearchVersions =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A map of compatible Elasticsearch versions returned as part of the
 -- @ GetCompatibleElasticsearchVersions @ operation.
-getCompatibleElasticsearchVersionsResponse_compatibleElasticsearchVersions :: Lens.Lens' GetCompatibleElasticsearchVersionsResponse (Core.Maybe [CompatibleVersionsMap])
-getCompatibleElasticsearchVersionsResponse_compatibleElasticsearchVersions = Lens.lens (\GetCompatibleElasticsearchVersionsResponse' {compatibleElasticsearchVersions} -> compatibleElasticsearchVersions) (\s@GetCompatibleElasticsearchVersionsResponse' {} a -> s {compatibleElasticsearchVersions = a} :: GetCompatibleElasticsearchVersionsResponse) Core.. Lens.mapping Lens._Coerce
+getCompatibleElasticsearchVersionsResponse_compatibleElasticsearchVersions :: Lens.Lens' GetCompatibleElasticsearchVersionsResponse (Prelude.Maybe [CompatibleVersionsMap])
+getCompatibleElasticsearchVersionsResponse_compatibleElasticsearchVersions = Lens.lens (\GetCompatibleElasticsearchVersionsResponse' {compatibleElasticsearchVersions} -> compatibleElasticsearchVersions) (\s@GetCompatibleElasticsearchVersionsResponse' {} a -> s {compatibleElasticsearchVersions = a} :: GetCompatibleElasticsearchVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getCompatibleElasticsearchVersionsResponse_httpStatus :: Lens.Lens' GetCompatibleElasticsearchVersionsResponse Core.Int
+getCompatibleElasticsearchVersionsResponse_httpStatus :: Lens.Lens' GetCompatibleElasticsearchVersionsResponse Prelude.Int
 getCompatibleElasticsearchVersionsResponse_httpStatus = Lens.lens (\GetCompatibleElasticsearchVersionsResponse' {httpStatus} -> httpStatus) (\s@GetCompatibleElasticsearchVersionsResponse' {} a -> s {httpStatus = a} :: GetCompatibleElasticsearchVersionsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetCompatibleElasticsearchVersionsResponse

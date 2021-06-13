@@ -22,17 +22,18 @@ module Network.AWS.EKS.Types.UpdateParam where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.UpdateParamType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the details of an update request.
 --
 -- /See:/ 'newUpdateParam' smart constructor.
 data UpdateParam = UpdateParam'
   { -- | The value of the keys submitted as part of an update request.
-    value :: Core.Maybe Core.Text,
+    value :: Prelude.Maybe Prelude.Text,
     -- | The keys associated with an update request.
-    type' :: Core.Maybe UpdateParamType
+    type' :: Prelude.Maybe UpdateParamType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateParam' with all optional fields omitted.
@@ -49,16 +50,16 @@ newUpdateParam ::
   UpdateParam
 newUpdateParam =
   UpdateParam'
-    { value = Core.Nothing,
-      type' = Core.Nothing
+    { value = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The value of the keys submitted as part of an update request.
-updateParam_value :: Lens.Lens' UpdateParam (Core.Maybe Core.Text)
+updateParam_value :: Lens.Lens' UpdateParam (Prelude.Maybe Prelude.Text)
 updateParam_value = Lens.lens (\UpdateParam' {value} -> value) (\s@UpdateParam' {} a -> s {value = a} :: UpdateParam)
 
 -- | The keys associated with an update request.
-updateParam_type :: Lens.Lens' UpdateParam (Core.Maybe UpdateParamType)
+updateParam_type :: Lens.Lens' UpdateParam (Prelude.Maybe UpdateParamType)
 updateParam_type = Lens.lens (\UpdateParam' {type'} -> type') (\s@UpdateParam' {} a -> s {type' = a} :: UpdateParam)
 
 instance Core.FromJSON UpdateParam where
@@ -67,9 +68,9 @@ instance Core.FromJSON UpdateParam where
       "UpdateParam"
       ( \x ->
           UpdateParam'
-            Core.<$> (x Core..:? "value") Core.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "type")
       )
 
-instance Core.Hashable UpdateParam
+instance Prelude.Hashable UpdateParam
 
-instance Core.NFData UpdateParam
+instance Prelude.NFData UpdateParam

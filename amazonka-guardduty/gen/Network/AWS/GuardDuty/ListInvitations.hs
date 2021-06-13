@@ -47,6 +47,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +57,13 @@ data ListInvitations = ListInvitations'
     -- this parameter to null on your first call to the list action. For
     -- subsequent calls to the action, fill nextToken in the request with the
     -- value of NextToken from the previous response to continue listing data.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | You can use this parameter to indicate the maximum number of items that
     -- you want in the response. The default value is 50. The maximum value is
     -- 50.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListInvitations' with all optional fields omitted.
@@ -84,42 +85,44 @@ newListInvitations ::
   ListInvitations
 newListInvitations =
   ListInvitations'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | You can use this parameter when paginating results. Set the value of
 -- this parameter to null on your first call to the list action. For
 -- subsequent calls to the action, fill nextToken in the request with the
 -- value of NextToken from the previous response to continue listing data.
-listInvitations_nextToken :: Lens.Lens' ListInvitations (Core.Maybe Core.Text)
+listInvitations_nextToken :: Lens.Lens' ListInvitations (Prelude.Maybe Prelude.Text)
 listInvitations_nextToken = Lens.lens (\ListInvitations' {nextToken} -> nextToken) (\s@ListInvitations' {} a -> s {nextToken = a} :: ListInvitations)
 
 -- | You can use this parameter to indicate the maximum number of items that
 -- you want in the response. The default value is 50. The maximum value is
 -- 50.
-listInvitations_maxResults :: Lens.Lens' ListInvitations (Core.Maybe Core.Natural)
+listInvitations_maxResults :: Lens.Lens' ListInvitations (Prelude.Maybe Prelude.Natural)
 listInvitations_maxResults = Lens.lens (\ListInvitations' {maxResults} -> maxResults) (\s@ListInvitations' {} a -> s {maxResults = a} :: ListInvitations)
 
 instance Core.AWSPager ListInvitations where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listInvitationsResponse_nextToken Core.. Lens._Just
+            Lens.^? listInvitationsResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listInvitationsResponse_invitations
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listInvitations_nextToken
+          Prelude.& listInvitations_nextToken
           Lens..~ rs
-          Lens.^? listInvitationsResponse_nextToken Core.. Lens._Just
+          Lens.^? listInvitationsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInvitations where
   type
@@ -130,30 +133,32 @@ instance Core.AWSRequest ListInvitations where
     Response.receiveJSON
       ( \s h x ->
           ListInvitationsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "invitations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "invitations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListInvitations
+instance Prelude.Hashable ListInvitations
 
-instance Core.NFData ListInvitations
+instance Prelude.NFData ListInvitations
 
 instance Core.ToHeaders ListInvitations where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath ListInvitations where
-  toPath = Core.const "/invitation"
+  toPath = Prelude.const "/invitation"
 
 instance Core.ToQuery ListInvitations where
   toQuery ListInvitations' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -162,13 +167,13 @@ instance Core.ToQuery ListInvitations where
 data ListInvitationsResponse = ListInvitationsResponse'
   { -- | The pagination parameter to be used on the next list operation to
     -- retrieve more items.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of invitation descriptions.
-    invitations :: Core.Maybe [Invitation],
+    invitations :: Prelude.Maybe [Invitation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListInvitationsResponse' with all optional fields omitted.
@@ -186,26 +191,27 @@ data ListInvitationsResponse = ListInvitationsResponse'
 -- 'httpStatus', 'listInvitationsResponse_httpStatus' - The response's http status code.
 newListInvitationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListInvitationsResponse
 newListInvitationsResponse pHttpStatus_ =
   ListInvitationsResponse'
-    { nextToken = Core.Nothing,
-      invitations = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      invitations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The pagination parameter to be used on the next list operation to
 -- retrieve more items.
-listInvitationsResponse_nextToken :: Lens.Lens' ListInvitationsResponse (Core.Maybe Core.Text)
+listInvitationsResponse_nextToken :: Lens.Lens' ListInvitationsResponse (Prelude.Maybe Prelude.Text)
 listInvitationsResponse_nextToken = Lens.lens (\ListInvitationsResponse' {nextToken} -> nextToken) (\s@ListInvitationsResponse' {} a -> s {nextToken = a} :: ListInvitationsResponse)
 
 -- | A list of invitation descriptions.
-listInvitationsResponse_invitations :: Lens.Lens' ListInvitationsResponse (Core.Maybe [Invitation])
-listInvitationsResponse_invitations = Lens.lens (\ListInvitationsResponse' {invitations} -> invitations) (\s@ListInvitationsResponse' {} a -> s {invitations = a} :: ListInvitationsResponse) Core.. Lens.mapping Lens._Coerce
+listInvitationsResponse_invitations :: Lens.Lens' ListInvitationsResponse (Prelude.Maybe [Invitation])
+listInvitationsResponse_invitations = Lens.lens (\ListInvitationsResponse' {invitations} -> invitations) (\s@ListInvitationsResponse' {} a -> s {invitations = a} :: ListInvitationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listInvitationsResponse_httpStatus :: Lens.Lens' ListInvitationsResponse Core.Int
+listInvitationsResponse_httpStatus :: Lens.Lens' ListInvitationsResponse Prelude.Int
 listInvitationsResponse_httpStatus = Lens.lens (\ListInvitationsResponse' {httpStatus} -> httpStatus) (\s@ListInvitationsResponse' {} a -> s {httpStatus = a} :: ListInvitationsResponse)
 
-instance Core.NFData ListInvitationsResponse
+instance Prelude.NFData ListInvitationsResponse

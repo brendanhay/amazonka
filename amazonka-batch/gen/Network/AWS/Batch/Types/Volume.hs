@@ -22,6 +22,7 @@ module Network.AWS.Batch.Types.Volume where
 import Network.AWS.Batch.Types.Host
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A data volume used in a job\'s container properties.
 --
@@ -30,7 +31,7 @@ data Volume = Volume'
   { -- | The name of the volume. Up to 255 letters (uppercase and lowercase),
     -- numbers, hyphens, and underscores are allowed. This name is referenced
     -- in the @sourceVolume@ parameter of container definition @mountPoints@.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The contents of the @host@ parameter determine whether your data volume
     -- persists on the host container instance and where it is stored. If the
     -- host parameter is empty, then the Docker daemon assigns a host path for
@@ -39,9 +40,9 @@ data Volume = Volume'
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources
     -- and shouldn\'t be provided.
-    host :: Core.Maybe Host
+    host :: Prelude.Maybe Host
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Volume' with all optional fields omitted.
@@ -66,12 +67,15 @@ data Volume = Volume'
 newVolume ::
   Volume
 newVolume =
-  Volume' {name = Core.Nothing, host = Core.Nothing}
+  Volume'
+    { name = Prelude.Nothing,
+      host = Prelude.Nothing
+    }
 
 -- | The name of the volume. Up to 255 letters (uppercase and lowercase),
 -- numbers, hyphens, and underscores are allowed. This name is referenced
 -- in the @sourceVolume@ parameter of container definition @mountPoints@.
-volume_name :: Lens.Lens' Volume (Core.Maybe Core.Text)
+volume_name :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
 volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = a} :: Volume)
 
 -- | The contents of the @host@ parameter determine whether your data volume
@@ -82,7 +86,7 @@ volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = 
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources
 -- and shouldn\'t be provided.
-volume_host :: Lens.Lens' Volume (Core.Maybe Host)
+volume_host :: Lens.Lens' Volume (Prelude.Maybe Host)
 volume_host = Lens.lens (\Volume' {host} -> host) (\s@Volume' {} a -> s {host = a} :: Volume)
 
 instance Core.FromJSON Volume where
@@ -91,18 +95,18 @@ instance Core.FromJSON Volume where
       "Volume"
       ( \x ->
           Volume'
-            Core.<$> (x Core..:? "name") Core.<*> (x Core..:? "host")
+            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "host")
       )
 
-instance Core.Hashable Volume
+instance Prelude.Hashable Volume
 
-instance Core.NFData Volume
+instance Prelude.NFData Volume
 
 instance Core.ToJSON Volume where
   toJSON Volume' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("name" Core..=) Core.<$> name,
-            ("host" Core..=) Core.<$> host
+      ( Prelude.catMaybes
+          [ ("name" Core..=) Prelude.<$> name,
+            ("host" Core..=) Prelude.<$> host
           ]
       )

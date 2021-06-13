@@ -21,6 +21,7 @@ module Network.AWS.ServerlessApplicationRepository.Types.VersionSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An application version summary.
 --
@@ -28,17 +29,17 @@ import qualified Network.AWS.Lens as Lens
 data VersionSummary = VersionSummary'
   { -- | A link to a public repository for the source code of your application,
     -- for example the URL of a specific GitHub commit.
-    sourceCodeUrl :: Core.Maybe Core.Text,
+    sourceCodeUrl :: Prelude.Maybe Prelude.Text,
     -- | The date and time this resource was created.
-    creationTime :: Core.Text,
+    creationTime :: Prelude.Text,
     -- | The application Amazon Resource Name (ARN).
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     -- | The semantic version of the application:
     --
     -- <https://semver.org/>
-    semanticVersion :: Core.Text
+    semanticVersion :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VersionSummary' with all optional fields omitted.
@@ -60,18 +61,18 @@ data VersionSummary = VersionSummary'
 -- <https://semver.org/>
 newVersionSummary ::
   -- | 'creationTime'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'semanticVersion'
-  Core.Text ->
+  Prelude.Text ->
   VersionSummary
 newVersionSummary
   pCreationTime_
   pApplicationId_
   pSemanticVersion_ =
     VersionSummary'
-      { sourceCodeUrl = Core.Nothing,
+      { sourceCodeUrl = Prelude.Nothing,
         creationTime = pCreationTime_,
         applicationId = pApplicationId_,
         semanticVersion = pSemanticVersion_
@@ -79,21 +80,21 @@ newVersionSummary
 
 -- | A link to a public repository for the source code of your application,
 -- for example the URL of a specific GitHub commit.
-versionSummary_sourceCodeUrl :: Lens.Lens' VersionSummary (Core.Maybe Core.Text)
+versionSummary_sourceCodeUrl :: Lens.Lens' VersionSummary (Prelude.Maybe Prelude.Text)
 versionSummary_sourceCodeUrl = Lens.lens (\VersionSummary' {sourceCodeUrl} -> sourceCodeUrl) (\s@VersionSummary' {} a -> s {sourceCodeUrl = a} :: VersionSummary)
 
 -- | The date and time this resource was created.
-versionSummary_creationTime :: Lens.Lens' VersionSummary Core.Text
+versionSummary_creationTime :: Lens.Lens' VersionSummary Prelude.Text
 versionSummary_creationTime = Lens.lens (\VersionSummary' {creationTime} -> creationTime) (\s@VersionSummary' {} a -> s {creationTime = a} :: VersionSummary)
 
 -- | The application Amazon Resource Name (ARN).
-versionSummary_applicationId :: Lens.Lens' VersionSummary Core.Text
+versionSummary_applicationId :: Lens.Lens' VersionSummary Prelude.Text
 versionSummary_applicationId = Lens.lens (\VersionSummary' {applicationId} -> applicationId) (\s@VersionSummary' {} a -> s {applicationId = a} :: VersionSummary)
 
 -- | The semantic version of the application:
 --
 -- <https://semver.org/>
-versionSummary_semanticVersion :: Lens.Lens' VersionSummary Core.Text
+versionSummary_semanticVersion :: Lens.Lens' VersionSummary Prelude.Text
 versionSummary_semanticVersion = Lens.lens (\VersionSummary' {semanticVersion} -> semanticVersion) (\s@VersionSummary' {} a -> s {semanticVersion = a} :: VersionSummary)
 
 instance Core.FromJSON VersionSummary where
@@ -102,12 +103,12 @@ instance Core.FromJSON VersionSummary where
       "VersionSummary"
       ( \x ->
           VersionSummary'
-            Core.<$> (x Core..:? "sourceCodeUrl")
-            Core.<*> (x Core..: "creationTime")
-            Core.<*> (x Core..: "applicationId")
-            Core.<*> (x Core..: "semanticVersion")
+            Prelude.<$> (x Core..:? "sourceCodeUrl")
+            Prelude.<*> (x Core..: "creationTime")
+            Prelude.<*> (x Core..: "applicationId")
+            Prelude.<*> (x Core..: "semanticVersion")
       )
 
-instance Core.Hashable VersionSummary
+instance Prelude.Hashable VersionSummary
 
-instance Core.NFData VersionSummary
+instance Prelude.NFData VersionSummary

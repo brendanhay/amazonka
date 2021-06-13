@@ -23,6 +23,7 @@ import Network.AWS.CloudSearch.Types.IndexField
 import Network.AWS.CloudSearch.Types.OptionStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The value of an @IndexField@ and its current status.
 --
@@ -31,7 +32,7 @@ data IndexFieldStatus = IndexFieldStatus'
   { options :: IndexField,
     status :: OptionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IndexFieldStatus' with all optional fields omitted.
@@ -67,8 +68,9 @@ indexFieldStatus_status = Lens.lens (\IndexFieldStatus' {status} -> status) (\s@
 instance Core.FromXML IndexFieldStatus where
   parseXML x =
     IndexFieldStatus'
-      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")
+      Prelude.<$> (x Core..@ "Options")
+      Prelude.<*> (x Core..@ "Status")
 
-instance Core.Hashable IndexFieldStatus
+instance Prelude.Hashable IndexFieldStatus
 
-instance Core.NFData IndexFieldStatus
+instance Prelude.NFData IndexFieldStatus

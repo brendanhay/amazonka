@@ -21,6 +21,7 @@ module Network.AWS.SMS.Types.UserDataValidationParameters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.ScriptType
 import Network.AWS.SMS.Types.Source
 
@@ -29,11 +30,11 @@ import Network.AWS.SMS.Types.Source
 -- /See:/ 'newUserDataValidationParameters' smart constructor.
 data UserDataValidationParameters = UserDataValidationParameters'
   { -- | The location of the validation script.
-    source :: Core.Maybe Source,
+    source :: Prelude.Maybe Source,
     -- | The type of validation script.
-    scriptType :: Core.Maybe ScriptType
+    scriptType :: Prelude.Maybe ScriptType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UserDataValidationParameters' with all optional fields omitted.
@@ -51,16 +52,16 @@ newUserDataValidationParameters ::
 newUserDataValidationParameters =
   UserDataValidationParameters'
     { source =
-        Core.Nothing,
-      scriptType = Core.Nothing
+        Prelude.Nothing,
+      scriptType = Prelude.Nothing
     }
 
 -- | The location of the validation script.
-userDataValidationParameters_source :: Lens.Lens' UserDataValidationParameters (Core.Maybe Source)
+userDataValidationParameters_source :: Lens.Lens' UserDataValidationParameters (Prelude.Maybe Source)
 userDataValidationParameters_source = Lens.lens (\UserDataValidationParameters' {source} -> source) (\s@UserDataValidationParameters' {} a -> s {source = a} :: UserDataValidationParameters)
 
 -- | The type of validation script.
-userDataValidationParameters_scriptType :: Lens.Lens' UserDataValidationParameters (Core.Maybe ScriptType)
+userDataValidationParameters_scriptType :: Lens.Lens' UserDataValidationParameters (Prelude.Maybe ScriptType)
 userDataValidationParameters_scriptType = Lens.lens (\UserDataValidationParameters' {scriptType} -> scriptType) (\s@UserDataValidationParameters' {} a -> s {scriptType = a} :: UserDataValidationParameters)
 
 instance Core.FromJSON UserDataValidationParameters where
@@ -69,19 +70,21 @@ instance Core.FromJSON UserDataValidationParameters where
       "UserDataValidationParameters"
       ( \x ->
           UserDataValidationParameters'
-            Core.<$> (x Core..:? "source")
-            Core.<*> (x Core..:? "scriptType")
+            Prelude.<$> (x Core..:? "source")
+            Prelude.<*> (x Core..:? "scriptType")
       )
 
-instance Core.Hashable UserDataValidationParameters
+instance
+  Prelude.Hashable
+    UserDataValidationParameters
 
-instance Core.NFData UserDataValidationParameters
+instance Prelude.NFData UserDataValidationParameters
 
 instance Core.ToJSON UserDataValidationParameters where
   toJSON UserDataValidationParameters' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("source" Core..=) Core.<$> source,
-            ("scriptType" Core..=) Core.<$> scriptType
+      ( Prelude.catMaybes
+          [ ("source" Core..=) Prelude.<$> source,
+            ("scriptType" Core..=) Prelude.<$> scriptType
           ]
       )

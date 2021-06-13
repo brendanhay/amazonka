@@ -22,6 +22,7 @@ module Network.AWS.DataPipeline.Types.Query where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types.Selector
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines the query to run against an object.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data Query = Query'
   { -- | List of selectors that define the query. An object must satisfy all of
     -- the selectors to match the query.
-    selectors :: Core.Maybe [Selector]
+    selectors :: Prelude.Maybe [Selector]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Query' with all optional fields omitted.
@@ -45,20 +46,20 @@ data Query = Query'
 -- the selectors to match the query.
 newQuery ::
   Query
-newQuery = Query' {selectors = Core.Nothing}
+newQuery = Query' {selectors = Prelude.Nothing}
 
 -- | List of selectors that define the query. An object must satisfy all of
 -- the selectors to match the query.
-query_selectors :: Lens.Lens' Query (Core.Maybe [Selector])
-query_selectors = Lens.lens (\Query' {selectors} -> selectors) (\s@Query' {} a -> s {selectors = a} :: Query) Core.. Lens.mapping Lens._Coerce
+query_selectors :: Lens.Lens' Query (Prelude.Maybe [Selector])
+query_selectors = Lens.lens (\Query' {selectors} -> selectors) (\s@Query' {} a -> s {selectors = a} :: Query) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable Query
+instance Prelude.Hashable Query
 
-instance Core.NFData Query
+instance Prelude.NFData Query
 
 instance Core.ToJSON Query where
   toJSON Query' {..} =
     Core.object
-      ( Core.catMaybes
-          [("selectors" Core..=) Core.<$> selectors]
+      ( Prelude.catMaybes
+          [("selectors" Core..=) Prelude.<$> selectors]
       )

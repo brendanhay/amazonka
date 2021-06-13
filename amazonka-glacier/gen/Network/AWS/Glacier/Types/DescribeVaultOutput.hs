@@ -21,6 +21,7 @@ module Network.AWS.Glacier.Types.DescribeVaultOutput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
@@ -29,25 +30,25 @@ data DescribeVaultOutput = DescribeVaultOutput'
   { -- | The Universal Coordinated Time (UTC) date when Amazon S3 Glacier
     -- completed the last vault inventory. This value should be a string in the
     -- ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@.
-    lastInventoryDate :: Core.Maybe Core.Text,
+    lastInventoryDate :: Prelude.Maybe Prelude.Text,
     -- | The Universal Coordinated Time (UTC) date when the vault was created.
     -- This value should be a string in the ISO 8601 date format, for example
     -- @2012-03-20T17:03:43.221Z@.
-    creationDate :: Core.Maybe Core.Text,
+    creationDate :: Prelude.Maybe Prelude.Text,
     -- | The name of the vault.
-    vaultName :: Core.Maybe Core.Text,
+    vaultName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the vault.
-    vaultARN :: Core.Maybe Core.Text,
+    vaultARN :: Prelude.Maybe Prelude.Text,
     -- | Total size, in bytes, of the archives in the vault as of the last
     -- inventory date. This field will return null if an inventory has not yet
     -- run on the vault, for example if you just created the vault.
-    sizeInBytes :: Core.Maybe Core.Integer,
+    sizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | The number of archives in the vault as of the last inventory date. This
     -- field will return @null@ if an inventory has not yet run on the vault,
     -- for example if you just created the vault.
-    numberOfArchives :: Core.Maybe Core.Integer
+    numberOfArchives :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeVaultOutput' with all optional fields omitted.
@@ -81,44 +82,44 @@ newDescribeVaultOutput ::
 newDescribeVaultOutput =
   DescribeVaultOutput'
     { lastInventoryDate =
-        Core.Nothing,
-      creationDate = Core.Nothing,
-      vaultName = Core.Nothing,
-      vaultARN = Core.Nothing,
-      sizeInBytes = Core.Nothing,
-      numberOfArchives = Core.Nothing
+        Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      vaultName = Prelude.Nothing,
+      vaultARN = Prelude.Nothing,
+      sizeInBytes = Prelude.Nothing,
+      numberOfArchives = Prelude.Nothing
     }
 
 -- | The Universal Coordinated Time (UTC) date when Amazon S3 Glacier
 -- completed the last vault inventory. This value should be a string in the
 -- ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@.
-describeVaultOutput_lastInventoryDate :: Lens.Lens' DescribeVaultOutput (Core.Maybe Core.Text)
+describeVaultOutput_lastInventoryDate :: Lens.Lens' DescribeVaultOutput (Prelude.Maybe Prelude.Text)
 describeVaultOutput_lastInventoryDate = Lens.lens (\DescribeVaultOutput' {lastInventoryDate} -> lastInventoryDate) (\s@DescribeVaultOutput' {} a -> s {lastInventoryDate = a} :: DescribeVaultOutput)
 
 -- | The Universal Coordinated Time (UTC) date when the vault was created.
 -- This value should be a string in the ISO 8601 date format, for example
 -- @2012-03-20T17:03:43.221Z@.
-describeVaultOutput_creationDate :: Lens.Lens' DescribeVaultOutput (Core.Maybe Core.Text)
+describeVaultOutput_creationDate :: Lens.Lens' DescribeVaultOutput (Prelude.Maybe Prelude.Text)
 describeVaultOutput_creationDate = Lens.lens (\DescribeVaultOutput' {creationDate} -> creationDate) (\s@DescribeVaultOutput' {} a -> s {creationDate = a} :: DescribeVaultOutput)
 
 -- | The name of the vault.
-describeVaultOutput_vaultName :: Lens.Lens' DescribeVaultOutput (Core.Maybe Core.Text)
+describeVaultOutput_vaultName :: Lens.Lens' DescribeVaultOutput (Prelude.Maybe Prelude.Text)
 describeVaultOutput_vaultName = Lens.lens (\DescribeVaultOutput' {vaultName} -> vaultName) (\s@DescribeVaultOutput' {} a -> s {vaultName = a} :: DescribeVaultOutput)
 
 -- | The Amazon Resource Name (ARN) of the vault.
-describeVaultOutput_vaultARN :: Lens.Lens' DescribeVaultOutput (Core.Maybe Core.Text)
+describeVaultOutput_vaultARN :: Lens.Lens' DescribeVaultOutput (Prelude.Maybe Prelude.Text)
 describeVaultOutput_vaultARN = Lens.lens (\DescribeVaultOutput' {vaultARN} -> vaultARN) (\s@DescribeVaultOutput' {} a -> s {vaultARN = a} :: DescribeVaultOutput)
 
 -- | Total size, in bytes, of the archives in the vault as of the last
 -- inventory date. This field will return null if an inventory has not yet
 -- run on the vault, for example if you just created the vault.
-describeVaultOutput_sizeInBytes :: Lens.Lens' DescribeVaultOutput (Core.Maybe Core.Integer)
+describeVaultOutput_sizeInBytes :: Lens.Lens' DescribeVaultOutput (Prelude.Maybe Prelude.Integer)
 describeVaultOutput_sizeInBytes = Lens.lens (\DescribeVaultOutput' {sizeInBytes} -> sizeInBytes) (\s@DescribeVaultOutput' {} a -> s {sizeInBytes = a} :: DescribeVaultOutput)
 
 -- | The number of archives in the vault as of the last inventory date. This
 -- field will return @null@ if an inventory has not yet run on the vault,
 -- for example if you just created the vault.
-describeVaultOutput_numberOfArchives :: Lens.Lens' DescribeVaultOutput (Core.Maybe Core.Integer)
+describeVaultOutput_numberOfArchives :: Lens.Lens' DescribeVaultOutput (Prelude.Maybe Prelude.Integer)
 describeVaultOutput_numberOfArchives = Lens.lens (\DescribeVaultOutput' {numberOfArchives} -> numberOfArchives) (\s@DescribeVaultOutput' {} a -> s {numberOfArchives = a} :: DescribeVaultOutput)
 
 instance Core.FromJSON DescribeVaultOutput where
@@ -127,14 +128,14 @@ instance Core.FromJSON DescribeVaultOutput where
       "DescribeVaultOutput"
       ( \x ->
           DescribeVaultOutput'
-            Core.<$> (x Core..:? "LastInventoryDate")
-            Core.<*> (x Core..:? "CreationDate")
-            Core.<*> (x Core..:? "VaultName")
-            Core.<*> (x Core..:? "VaultARN")
-            Core.<*> (x Core..:? "SizeInBytes")
-            Core.<*> (x Core..:? "NumberOfArchives")
+            Prelude.<$> (x Core..:? "LastInventoryDate")
+            Prelude.<*> (x Core..:? "CreationDate")
+            Prelude.<*> (x Core..:? "VaultName")
+            Prelude.<*> (x Core..:? "VaultARN")
+            Prelude.<*> (x Core..:? "SizeInBytes")
+            Prelude.<*> (x Core..:? "NumberOfArchives")
       )
 
-instance Core.Hashable DescribeVaultOutput
+instance Prelude.Hashable DescribeVaultOutput
 
-instance Core.NFData DescribeVaultOutput
+instance Prelude.NFData DescribeVaultOutput

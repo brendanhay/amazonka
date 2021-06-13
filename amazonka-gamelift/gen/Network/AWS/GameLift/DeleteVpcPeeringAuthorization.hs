@@ -56,6 +56,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,16 +67,16 @@ data DeleteVpcPeeringAuthorization = DeleteVpcPeeringAuthorization'
   { -- | A unique identifier for the AWS account that you use to manage your
     -- Amazon GameLift fleet. You can find your Account ID in the AWS
     -- Management Console under account settings.
-    gameLiftAwsAccountId :: Core.Text,
+    gameLiftAwsAccountId :: Prelude.Text,
     -- | A unique identifier for a VPC with resources to be accessed by your
     -- Amazon GameLift fleet. The VPC must be in the same Region where your
     -- fleet is deployed. Look up a VPC ID using the
     -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS
     -- Management Console. Learn more about VPC peering in
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
-    peerVpcId :: Core.Text
+    peerVpcId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVpcPeeringAuthorization' with all optional fields omitted.
@@ -97,9 +98,9 @@ data DeleteVpcPeeringAuthorization = DeleteVpcPeeringAuthorization'
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
 newDeleteVpcPeeringAuthorization ::
   -- | 'gameLiftAwsAccountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'peerVpcId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteVpcPeeringAuthorization
 newDeleteVpcPeeringAuthorization
   pGameLiftAwsAccountId_
@@ -113,7 +114,7 @@ newDeleteVpcPeeringAuthorization
 -- | A unique identifier for the AWS account that you use to manage your
 -- Amazon GameLift fleet. You can find your Account ID in the AWS
 -- Management Console under account settings.
-deleteVpcPeeringAuthorization_gameLiftAwsAccountId :: Lens.Lens' DeleteVpcPeeringAuthorization Core.Text
+deleteVpcPeeringAuthorization_gameLiftAwsAccountId :: Lens.Lens' DeleteVpcPeeringAuthorization Prelude.Text
 deleteVpcPeeringAuthorization_gameLiftAwsAccountId = Lens.lens (\DeleteVpcPeeringAuthorization' {gameLiftAwsAccountId} -> gameLiftAwsAccountId) (\s@DeleteVpcPeeringAuthorization' {} a -> s {gameLiftAwsAccountId = a} :: DeleteVpcPeeringAuthorization)
 
 -- | A unique identifier for a VPC with resources to be accessed by your
@@ -122,7 +123,7 @@ deleteVpcPeeringAuthorization_gameLiftAwsAccountId = Lens.lens (\DeleteVpcPeerin
 -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS
 -- Management Console. Learn more about VPC peering in
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
-deleteVpcPeeringAuthorization_peerVpcId :: Lens.Lens' DeleteVpcPeeringAuthorization Core.Text
+deleteVpcPeeringAuthorization_peerVpcId :: Lens.Lens' DeleteVpcPeeringAuthorization Prelude.Text
 deleteVpcPeeringAuthorization_peerVpcId = Lens.lens (\DeleteVpcPeeringAuthorization' {peerVpcId} -> peerVpcId) (\s@DeleteVpcPeeringAuthorization' {} a -> s {peerVpcId = a} :: DeleteVpcPeeringAuthorization)
 
 instance
@@ -137,50 +138,54 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           DeleteVpcPeeringAuthorizationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteVpcPeeringAuthorization
+instance
+  Prelude.Hashable
+    DeleteVpcPeeringAuthorization
 
-instance Core.NFData DeleteVpcPeeringAuthorization
+instance Prelude.NFData DeleteVpcPeeringAuthorization
 
 instance Core.ToHeaders DeleteVpcPeeringAuthorization where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.DeleteVpcPeeringAuthorization" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteVpcPeeringAuthorization where
   toJSON DeleteVpcPeeringAuthorization' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "GameLiftAwsAccountId"
                   Core..= gameLiftAwsAccountId
               ),
-            Core.Just ("PeerVpcId" Core..= peerVpcId)
+            Prelude.Just ("PeerVpcId" Core..= peerVpcId)
           ]
       )
 
 instance Core.ToPath DeleteVpcPeeringAuthorization where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteVpcPeeringAuthorization where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVpcPeeringAuthorizationResponse' smart constructor.
 data DeleteVpcPeeringAuthorizationResponse = DeleteVpcPeeringAuthorizationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVpcPeeringAuthorizationResponse' with all optional fields omitted.
@@ -193,7 +198,7 @@ data DeleteVpcPeeringAuthorizationResponse = DeleteVpcPeeringAuthorizationRespon
 -- 'httpStatus', 'deleteVpcPeeringAuthorizationResponse_httpStatus' - The response's http status code.
 newDeleteVpcPeeringAuthorizationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteVpcPeeringAuthorizationResponse
 newDeleteVpcPeeringAuthorizationResponse pHttpStatus_ =
   DeleteVpcPeeringAuthorizationResponse'
@@ -202,9 +207,9 @@ newDeleteVpcPeeringAuthorizationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteVpcPeeringAuthorizationResponse_httpStatus :: Lens.Lens' DeleteVpcPeeringAuthorizationResponse Core.Int
+deleteVpcPeeringAuthorizationResponse_httpStatus :: Lens.Lens' DeleteVpcPeeringAuthorizationResponse Prelude.Int
 deleteVpcPeeringAuthorizationResponse_httpStatus = Lens.lens (\DeleteVpcPeeringAuthorizationResponse' {httpStatus} -> httpStatus) (\s@DeleteVpcPeeringAuthorizationResponse' {} a -> s {httpStatus = a} :: DeleteVpcPeeringAuthorizationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteVpcPeeringAuthorizationResponse

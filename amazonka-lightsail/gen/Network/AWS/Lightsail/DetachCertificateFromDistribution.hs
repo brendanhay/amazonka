@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +56,9 @@ data DetachCertificateFromDistribution = DetachCertificateFromDistribution'
     --
     -- Use the @GetDistributions@ action to get a list of distribution names
     -- that you can specify.
-    distributionName :: Core.Text
+    distributionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachCertificateFromDistribution' with all optional fields omitted.
@@ -73,7 +74,7 @@ data DetachCertificateFromDistribution = DetachCertificateFromDistribution'
 -- that you can specify.
 newDetachCertificateFromDistribution ::
   -- | 'distributionName'
-  Core.Text ->
+  Prelude.Text ->
   DetachCertificateFromDistribution
 newDetachCertificateFromDistribution
   pDistributionName_ =
@@ -86,7 +87,7 @@ newDetachCertificateFromDistribution
 --
 -- Use the @GetDistributions@ action to get a list of distribution names
 -- that you can specify.
-detachCertificateFromDistribution_distributionName :: Lens.Lens' DetachCertificateFromDistribution Core.Text
+detachCertificateFromDistribution_distributionName :: Lens.Lens' DetachCertificateFromDistribution Prelude.Text
 detachCertificateFromDistribution_distributionName = Lens.lens (\DetachCertificateFromDistribution' {distributionName} -> distributionName) (\s@DetachCertificateFromDistribution' {} a -> s {distributionName = a} :: DetachCertificateFromDistribution)
 
 instance
@@ -101,16 +102,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DetachCertificateFromDistributionResponse'
-            Core.<$> (x Core..?> "operation")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operation")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DetachCertificateFromDistribution
 
 instance
-  Core.NFData
+  Prelude.NFData
     DetachCertificateFromDistribution
 
 instance
@@ -118,14 +119,16 @@ instance
     DetachCertificateFromDistribution
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.DetachCertificateFromDistribution" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -135,8 +138,8 @@ instance
   where
   toJSON DetachCertificateFromDistribution' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("distributionName" Core..= distributionName)
           ]
       )
@@ -145,24 +148,24 @@ instance
   Core.ToPath
     DetachCertificateFromDistribution
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DetachCertificateFromDistribution
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetachCertificateFromDistributionResponse' smart constructor.
 data DetachCertificateFromDistributionResponse = DetachCertificateFromDistributionResponse'
   { -- | An object that describes the result of the action, such as the status of
     -- the request, the timestamp of the request, and the resources affected by
     -- the request.
-    operation :: Core.Maybe Operation,
+    operation :: Prelude.Maybe Operation,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachCertificateFromDistributionResponse' with all optional fields omitted.
@@ -179,26 +182,26 @@ data DetachCertificateFromDistributionResponse = DetachCertificateFromDistributi
 -- 'httpStatus', 'detachCertificateFromDistributionResponse_httpStatus' - The response's http status code.
 newDetachCertificateFromDistributionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DetachCertificateFromDistributionResponse
 newDetachCertificateFromDistributionResponse
   pHttpStatus_ =
     DetachCertificateFromDistributionResponse'
       { operation =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An object that describes the result of the action, such as the status of
 -- the request, the timestamp of the request, and the resources affected by
 -- the request.
-detachCertificateFromDistributionResponse_operation :: Lens.Lens' DetachCertificateFromDistributionResponse (Core.Maybe Operation)
+detachCertificateFromDistributionResponse_operation :: Lens.Lens' DetachCertificateFromDistributionResponse (Prelude.Maybe Operation)
 detachCertificateFromDistributionResponse_operation = Lens.lens (\DetachCertificateFromDistributionResponse' {operation} -> operation) (\s@DetachCertificateFromDistributionResponse' {} a -> s {operation = a} :: DetachCertificateFromDistributionResponse)
 
 -- | The response's http status code.
-detachCertificateFromDistributionResponse_httpStatus :: Lens.Lens' DetachCertificateFromDistributionResponse Core.Int
+detachCertificateFromDistributionResponse_httpStatus :: Lens.Lens' DetachCertificateFromDistributionResponse Prelude.Int
 detachCertificateFromDistributionResponse_httpStatus = Lens.lens (\DetachCertificateFromDistributionResponse' {httpStatus} -> httpStatus) (\s@DetachCertificateFromDistributionResponse' {} a -> s {httpStatus = a} :: DetachCertificateFromDistributionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DetachCertificateFromDistributionResponse

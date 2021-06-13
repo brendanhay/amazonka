@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.AttributeDimension where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.AttributeType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies attribute-based criteria for including or excluding endpoints
 -- from a segment.
@@ -50,13 +51,13 @@ data AttributeDimension = AttributeDimension'
     --
     -- BETWEEN - endpoints with attributes read as ISO_INSTANT datetimes
     -- between the values are included in the segment.
-    attributeType :: Core.Maybe AttributeType,
+    attributeType :: Prelude.Maybe AttributeType,
     -- | The criteria values to use for the segment dimension. Depending on the
     -- value of the AttributeType property, endpoints are included or excluded
     -- from the segment if their attribute values match the criteria values.
-    values :: [Core.Text]
+    values :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttributeDimension' with all optional fields omitted.
@@ -96,8 +97,9 @@ newAttributeDimension ::
   AttributeDimension
 newAttributeDimension =
   AttributeDimension'
-    { attributeType = Core.Nothing,
-      values = Core.mempty
+    { attributeType =
+        Prelude.Nothing,
+      values = Prelude.mempty
     }
 
 -- | The type of segment dimension to use. Valid values are:
@@ -122,14 +124,14 @@ newAttributeDimension =
 --
 -- BETWEEN - endpoints with attributes read as ISO_INSTANT datetimes
 -- between the values are included in the segment.
-attributeDimension_attributeType :: Lens.Lens' AttributeDimension (Core.Maybe AttributeType)
+attributeDimension_attributeType :: Lens.Lens' AttributeDimension (Prelude.Maybe AttributeType)
 attributeDimension_attributeType = Lens.lens (\AttributeDimension' {attributeType} -> attributeType) (\s@AttributeDimension' {} a -> s {attributeType = a} :: AttributeDimension)
 
 -- | The criteria values to use for the segment dimension. Depending on the
 -- value of the AttributeType property, endpoints are included or excluded
 -- from the segment if their attribute values match the criteria values.
-attributeDimension_values :: Lens.Lens' AttributeDimension [Core.Text]
-attributeDimension_values = Lens.lens (\AttributeDimension' {values} -> values) (\s@AttributeDimension' {} a -> s {values = a} :: AttributeDimension) Core.. Lens._Coerce
+attributeDimension_values :: Lens.Lens' AttributeDimension [Prelude.Text]
+attributeDimension_values = Lens.lens (\AttributeDimension' {values} -> values) (\s@AttributeDimension' {} a -> s {values = a} :: AttributeDimension) Prelude.. Lens._Coerce
 
 instance Core.FromJSON AttributeDimension where
   parseJSON =
@@ -137,19 +139,19 @@ instance Core.FromJSON AttributeDimension where
       "AttributeDimension"
       ( \x ->
           AttributeDimension'
-            Core.<$> (x Core..:? "AttributeType")
-            Core.<*> (x Core..:? "Values" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "AttributeType")
+            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable AttributeDimension
+instance Prelude.Hashable AttributeDimension
 
-instance Core.NFData AttributeDimension
+instance Prelude.NFData AttributeDimension
 
 instance Core.ToJSON AttributeDimension where
   toJSON AttributeDimension' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AttributeType" Core..=) Core.<$> attributeType,
-            Core.Just ("Values" Core..= values)
+      ( Prelude.catMaybes
+          [ ("AttributeType" Core..=) Prelude.<$> attributeType,
+            Prelude.Just ("Values" Core..= values)
           ]
       )

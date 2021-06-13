@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types.OrcCompression
 import Network.AWS.Firehose.Types.OrcFormatVersion
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A serializer to use for converting data to the ORC format before storing
 -- it in Amazon S3. For more information, see
@@ -32,33 +33,33 @@ import qualified Network.AWS.Lens as Lens
 data OrcSerDe = OrcSerDe'
   { -- | The number of rows between index entries. The default is 10,000 and the
     -- minimum is 1,000.
-    rowIndexStride :: Core.Maybe Core.Natural,
+    rowIndexStride :: Prelude.Maybe Prelude.Natural,
     -- | The compression code to use over data blocks. The default is @SNAPPY@.
-    compression :: Core.Maybe OrcCompression,
+    compression :: Prelude.Maybe OrcCompression,
     -- | Represents the fraction of the total number of non-null rows. To turn
     -- off dictionary encoding, set this fraction to a number that is less than
     -- the number of distinct keys in a dictionary. To always use dictionary
     -- encoding, set this threshold to 1.
-    dictionaryKeyThreshold :: Core.Maybe Core.Double,
+    dictionaryKeyThreshold :: Prelude.Maybe Prelude.Double,
     -- | The Hadoop Distributed File System (HDFS) block size. This is useful if
     -- you intend to copy the data from Amazon S3 to HDFS before querying. The
     -- default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses
     -- this value for padding calculations.
-    blockSizeBytes :: Core.Maybe Core.Natural,
+    blockSizeBytes :: Prelude.Maybe Prelude.Natural,
     -- | The version of the file to write. The possible values are @V0_11@ and
     -- @V0_12@. The default is @V0_12@.
-    formatVersion :: Core.Maybe OrcFormatVersion,
+    formatVersion :: Prelude.Maybe OrcFormatVersion,
     -- | The column names for which you want Kinesis Data Firehose to create
     -- bloom filters. The default is @null@.
-    bloomFilterColumns :: Core.Maybe [Core.Text],
+    bloomFilterColumns :: Prelude.Maybe [Prelude.Text],
     -- | Set this to @true@ to indicate that you want stripes to be padded to the
     -- HDFS block boundaries. This is useful if you intend to copy the data
     -- from Amazon S3 to HDFS before querying. The default is @false@.
-    enablePadding :: Core.Maybe Core.Bool,
+    enablePadding :: Prelude.Maybe Prelude.Bool,
     -- | The Bloom filter false positive probability (FPP). The lower the FPP,
     -- the bigger the Bloom filter. The default value is 0.05, the minimum is
     -- 0, and the maximum is 1.
-    bloomFilterFalsePositiveProbability :: Core.Maybe Core.Double,
+    bloomFilterFalsePositiveProbability :: Prelude.Maybe Prelude.Double,
     -- | A number between 0 and 1 that defines the tolerance for block padding as
     -- a decimal fraction of stripe size. The default value is 0.05, which
     -- means 5 percent of stripe size.
@@ -73,12 +74,12 @@ data OrcSerDe = OrcSerDe'
     --
     -- Kinesis Data Firehose ignores this parameter when OrcSerDe$EnablePadding
     -- is @false@.
-    paddingTolerance :: Core.Maybe Core.Double,
+    paddingTolerance :: Prelude.Maybe Prelude.Double,
     -- | The number of bytes in each stripe. The default is 64 MiB and the
     -- minimum is 8 MiB.
-    stripeSizeBytes :: Core.Maybe Core.Natural
+    stripeSizeBytes :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OrcSerDe' with all optional fields omitted.
@@ -138,61 +139,62 @@ newOrcSerDe ::
   OrcSerDe
 newOrcSerDe =
   OrcSerDe'
-    { rowIndexStride = Core.Nothing,
-      compression = Core.Nothing,
-      dictionaryKeyThreshold = Core.Nothing,
-      blockSizeBytes = Core.Nothing,
-      formatVersion = Core.Nothing,
-      bloomFilterColumns = Core.Nothing,
-      enablePadding = Core.Nothing,
-      bloomFilterFalsePositiveProbability = Core.Nothing,
-      paddingTolerance = Core.Nothing,
-      stripeSizeBytes = Core.Nothing
+    { rowIndexStride = Prelude.Nothing,
+      compression = Prelude.Nothing,
+      dictionaryKeyThreshold = Prelude.Nothing,
+      blockSizeBytes = Prelude.Nothing,
+      formatVersion = Prelude.Nothing,
+      bloomFilterColumns = Prelude.Nothing,
+      enablePadding = Prelude.Nothing,
+      bloomFilterFalsePositiveProbability =
+        Prelude.Nothing,
+      paddingTolerance = Prelude.Nothing,
+      stripeSizeBytes = Prelude.Nothing
     }
 
 -- | The number of rows between index entries. The default is 10,000 and the
 -- minimum is 1,000.
-orcSerDe_rowIndexStride :: Lens.Lens' OrcSerDe (Core.Maybe Core.Natural)
+orcSerDe_rowIndexStride :: Lens.Lens' OrcSerDe (Prelude.Maybe Prelude.Natural)
 orcSerDe_rowIndexStride = Lens.lens (\OrcSerDe' {rowIndexStride} -> rowIndexStride) (\s@OrcSerDe' {} a -> s {rowIndexStride = a} :: OrcSerDe)
 
 -- | The compression code to use over data blocks. The default is @SNAPPY@.
-orcSerDe_compression :: Lens.Lens' OrcSerDe (Core.Maybe OrcCompression)
+orcSerDe_compression :: Lens.Lens' OrcSerDe (Prelude.Maybe OrcCompression)
 orcSerDe_compression = Lens.lens (\OrcSerDe' {compression} -> compression) (\s@OrcSerDe' {} a -> s {compression = a} :: OrcSerDe)
 
 -- | Represents the fraction of the total number of non-null rows. To turn
 -- off dictionary encoding, set this fraction to a number that is less than
 -- the number of distinct keys in a dictionary. To always use dictionary
 -- encoding, set this threshold to 1.
-orcSerDe_dictionaryKeyThreshold :: Lens.Lens' OrcSerDe (Core.Maybe Core.Double)
+orcSerDe_dictionaryKeyThreshold :: Lens.Lens' OrcSerDe (Prelude.Maybe Prelude.Double)
 orcSerDe_dictionaryKeyThreshold = Lens.lens (\OrcSerDe' {dictionaryKeyThreshold} -> dictionaryKeyThreshold) (\s@OrcSerDe' {} a -> s {dictionaryKeyThreshold = a} :: OrcSerDe)
 
 -- | The Hadoop Distributed File System (HDFS) block size. This is useful if
 -- you intend to copy the data from Amazon S3 to HDFS before querying. The
 -- default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses
 -- this value for padding calculations.
-orcSerDe_blockSizeBytes :: Lens.Lens' OrcSerDe (Core.Maybe Core.Natural)
+orcSerDe_blockSizeBytes :: Lens.Lens' OrcSerDe (Prelude.Maybe Prelude.Natural)
 orcSerDe_blockSizeBytes = Lens.lens (\OrcSerDe' {blockSizeBytes} -> blockSizeBytes) (\s@OrcSerDe' {} a -> s {blockSizeBytes = a} :: OrcSerDe)
 
 -- | The version of the file to write. The possible values are @V0_11@ and
 -- @V0_12@. The default is @V0_12@.
-orcSerDe_formatVersion :: Lens.Lens' OrcSerDe (Core.Maybe OrcFormatVersion)
+orcSerDe_formatVersion :: Lens.Lens' OrcSerDe (Prelude.Maybe OrcFormatVersion)
 orcSerDe_formatVersion = Lens.lens (\OrcSerDe' {formatVersion} -> formatVersion) (\s@OrcSerDe' {} a -> s {formatVersion = a} :: OrcSerDe)
 
 -- | The column names for which you want Kinesis Data Firehose to create
 -- bloom filters. The default is @null@.
-orcSerDe_bloomFilterColumns :: Lens.Lens' OrcSerDe (Core.Maybe [Core.Text])
-orcSerDe_bloomFilterColumns = Lens.lens (\OrcSerDe' {bloomFilterColumns} -> bloomFilterColumns) (\s@OrcSerDe' {} a -> s {bloomFilterColumns = a} :: OrcSerDe) Core.. Lens.mapping Lens._Coerce
+orcSerDe_bloomFilterColumns :: Lens.Lens' OrcSerDe (Prelude.Maybe [Prelude.Text])
+orcSerDe_bloomFilterColumns = Lens.lens (\OrcSerDe' {bloomFilterColumns} -> bloomFilterColumns) (\s@OrcSerDe' {} a -> s {bloomFilterColumns = a} :: OrcSerDe) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Set this to @true@ to indicate that you want stripes to be padded to the
 -- HDFS block boundaries. This is useful if you intend to copy the data
 -- from Amazon S3 to HDFS before querying. The default is @false@.
-orcSerDe_enablePadding :: Lens.Lens' OrcSerDe (Core.Maybe Core.Bool)
+orcSerDe_enablePadding :: Lens.Lens' OrcSerDe (Prelude.Maybe Prelude.Bool)
 orcSerDe_enablePadding = Lens.lens (\OrcSerDe' {enablePadding} -> enablePadding) (\s@OrcSerDe' {} a -> s {enablePadding = a} :: OrcSerDe)
 
 -- | The Bloom filter false positive probability (FPP). The lower the FPP,
 -- the bigger the Bloom filter. The default value is 0.05, the minimum is
 -- 0, and the maximum is 1.
-orcSerDe_bloomFilterFalsePositiveProbability :: Lens.Lens' OrcSerDe (Core.Maybe Core.Double)
+orcSerDe_bloomFilterFalsePositiveProbability :: Lens.Lens' OrcSerDe (Prelude.Maybe Prelude.Double)
 orcSerDe_bloomFilterFalsePositiveProbability = Lens.lens (\OrcSerDe' {bloomFilterFalsePositiveProbability} -> bloomFilterFalsePositiveProbability) (\s@OrcSerDe' {} a -> s {bloomFilterFalsePositiveProbability = a} :: OrcSerDe)
 
 -- | A number between 0 and 1 that defines the tolerance for block padding as
@@ -209,12 +211,12 @@ orcSerDe_bloomFilterFalsePositiveProbability = Lens.lens (\OrcSerDe' {bloomFilte
 --
 -- Kinesis Data Firehose ignores this parameter when OrcSerDe$EnablePadding
 -- is @false@.
-orcSerDe_paddingTolerance :: Lens.Lens' OrcSerDe (Core.Maybe Core.Double)
+orcSerDe_paddingTolerance :: Lens.Lens' OrcSerDe (Prelude.Maybe Prelude.Double)
 orcSerDe_paddingTolerance = Lens.lens (\OrcSerDe' {paddingTolerance} -> paddingTolerance) (\s@OrcSerDe' {} a -> s {paddingTolerance = a} :: OrcSerDe)
 
 -- | The number of bytes in each stripe. The default is 64 MiB and the
 -- minimum is 8 MiB.
-orcSerDe_stripeSizeBytes :: Lens.Lens' OrcSerDe (Core.Maybe Core.Natural)
+orcSerDe_stripeSizeBytes :: Lens.Lens' OrcSerDe (Prelude.Maybe Prelude.Natural)
 orcSerDe_stripeSizeBytes = Lens.lens (\OrcSerDe' {stripeSizeBytes} -> stripeSizeBytes) (\s@OrcSerDe' {} a -> s {stripeSizeBytes = a} :: OrcSerDe)
 
 instance Core.FromJSON OrcSerDe where
@@ -223,42 +225,44 @@ instance Core.FromJSON OrcSerDe where
       "OrcSerDe"
       ( \x ->
           OrcSerDe'
-            Core.<$> (x Core..:? "RowIndexStride")
-            Core.<*> (x Core..:? "Compression")
-            Core.<*> (x Core..:? "DictionaryKeyThreshold")
-            Core.<*> (x Core..:? "BlockSizeBytes")
-            Core.<*> (x Core..:? "FormatVersion")
-            Core.<*> ( x Core..:? "BloomFilterColumns"
-                         Core..!= Core.mempty
-                     )
-            Core.<*> (x Core..:? "EnablePadding")
-            Core.<*> (x Core..:? "BloomFilterFalsePositiveProbability")
-            Core.<*> (x Core..:? "PaddingTolerance")
-            Core.<*> (x Core..:? "StripeSizeBytes")
+            Prelude.<$> (x Core..:? "RowIndexStride")
+            Prelude.<*> (x Core..:? "Compression")
+            Prelude.<*> (x Core..:? "DictionaryKeyThreshold")
+            Prelude.<*> (x Core..:? "BlockSizeBytes")
+            Prelude.<*> (x Core..:? "FormatVersion")
+            Prelude.<*> ( x Core..:? "BloomFilterColumns"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "EnablePadding")
+            Prelude.<*> (x Core..:? "BloomFilterFalsePositiveProbability")
+            Prelude.<*> (x Core..:? "PaddingTolerance")
+            Prelude.<*> (x Core..:? "StripeSizeBytes")
       )
 
-instance Core.Hashable OrcSerDe
+instance Prelude.Hashable OrcSerDe
 
-instance Core.NFData OrcSerDe
+instance Prelude.NFData OrcSerDe
 
 instance Core.ToJSON OrcSerDe where
   toJSON OrcSerDe' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("RowIndexStride" Core..=) Core.<$> rowIndexStride,
-            ("Compression" Core..=) Core.<$> compression,
+      ( Prelude.catMaybes
+          [ ("RowIndexStride" Core..=)
+              Prelude.<$> rowIndexStride,
+            ("Compression" Core..=) Prelude.<$> compression,
             ("DictionaryKeyThreshold" Core..=)
-              Core.<$> dictionaryKeyThreshold,
-            ("BlockSizeBytes" Core..=) Core.<$> blockSizeBytes,
-            ("FormatVersion" Core..=) Core.<$> formatVersion,
+              Prelude.<$> dictionaryKeyThreshold,
+            ("BlockSizeBytes" Core..=)
+              Prelude.<$> blockSizeBytes,
+            ("FormatVersion" Core..=) Prelude.<$> formatVersion,
             ("BloomFilterColumns" Core..=)
-              Core.<$> bloomFilterColumns,
-            ("EnablePadding" Core..=) Core.<$> enablePadding,
+              Prelude.<$> bloomFilterColumns,
+            ("EnablePadding" Core..=) Prelude.<$> enablePadding,
             ("BloomFilterFalsePositiveProbability" Core..=)
-              Core.<$> bloomFilterFalsePositiveProbability,
+              Prelude.<$> bloomFilterFalsePositiveProbability,
             ("PaddingTolerance" Core..=)
-              Core.<$> paddingTolerance,
+              Prelude.<$> paddingTolerance,
             ("StripeSizeBytes" Core..=)
-              Core.<$> stripeSizeBytes
+              Prelude.<$> stripeSizeBytes
           ]
       )

@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.SortDirectionType
 import Network.AWS.Glue.Types.TransformSortColumnType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The sorting criteria that are associated with the machine learning
 -- transform.
@@ -36,7 +37,7 @@ data TransformSortCriteria = TransformSortCriteria'
     -- associated with the machine learning transform.
     sortDirection :: SortDirectionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TransformSortCriteria' with all optional fields omitted.
@@ -73,15 +74,16 @@ transformSortCriteria_column = Lens.lens (\TransformSortCriteria' {column} -> co
 transformSortCriteria_sortDirection :: Lens.Lens' TransformSortCriteria SortDirectionType
 transformSortCriteria_sortDirection = Lens.lens (\TransformSortCriteria' {sortDirection} -> sortDirection) (\s@TransformSortCriteria' {} a -> s {sortDirection = a} :: TransformSortCriteria)
 
-instance Core.Hashable TransformSortCriteria
+instance Prelude.Hashable TransformSortCriteria
 
-instance Core.NFData TransformSortCriteria
+instance Prelude.NFData TransformSortCriteria
 
 instance Core.ToJSON TransformSortCriteria where
   toJSON TransformSortCriteria' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Column" Core..= column),
-            Core.Just ("SortDirection" Core..= sortDirection)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Column" Core..= column),
+            Prelude.Just
+              ("SortDirection" Core..= sortDirection)
           ]
       )

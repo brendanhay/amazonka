@@ -22,6 +22,7 @@ module Network.AWS.CertificateManagerPCA.Types.PolicyInformation where
 import Network.AWS.CertificateManagerPCA.Types.PolicyQualifierInfo
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines the X.509 @CertificatePolicies@ extension.
 --
@@ -29,14 +30,14 @@ import qualified Network.AWS.Lens as Lens
 data PolicyInformation = PolicyInformation'
   { -- | Modifies the given @CertPolicyId@ with a qualifier. ACM Private CA
     -- supports the certification practice statement (CPS) qualifier.
-    policyQualifiers :: Core.Maybe (Core.NonEmpty PolicyQualifierInfo),
+    policyQualifiers :: Prelude.Maybe (Prelude.NonEmpty PolicyQualifierInfo),
     -- | Specifies the object identifier (OID) of the certificate policy under
     -- which the certificate was issued. For more information, see NIST\'s
     -- definition of
     -- <https://csrc.nist.gov/glossary/term/Object_Identifier Object Identifier (OID)>.
-    certPolicyId :: Core.Text
+    certPolicyId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PolicyInformation' with all optional fields omitted.
@@ -55,36 +56,37 @@ data PolicyInformation = PolicyInformation'
 -- <https://csrc.nist.gov/glossary/term/Object_Identifier Object Identifier (OID)>.
 newPolicyInformation ::
   -- | 'certPolicyId'
-  Core.Text ->
+  Prelude.Text ->
   PolicyInformation
 newPolicyInformation pCertPolicyId_ =
   PolicyInformation'
-    { policyQualifiers = Core.Nothing,
+    { policyQualifiers =
+        Prelude.Nothing,
       certPolicyId = pCertPolicyId_
     }
 
 -- | Modifies the given @CertPolicyId@ with a qualifier. ACM Private CA
 -- supports the certification practice statement (CPS) qualifier.
-policyInformation_policyQualifiers :: Lens.Lens' PolicyInformation (Core.Maybe (Core.NonEmpty PolicyQualifierInfo))
-policyInformation_policyQualifiers = Lens.lens (\PolicyInformation' {policyQualifiers} -> policyQualifiers) (\s@PolicyInformation' {} a -> s {policyQualifiers = a} :: PolicyInformation) Core.. Lens.mapping Lens._Coerce
+policyInformation_policyQualifiers :: Lens.Lens' PolicyInformation (Prelude.Maybe (Prelude.NonEmpty PolicyQualifierInfo))
+policyInformation_policyQualifiers = Lens.lens (\PolicyInformation' {policyQualifiers} -> policyQualifiers) (\s@PolicyInformation' {} a -> s {policyQualifiers = a} :: PolicyInformation) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the object identifier (OID) of the certificate policy under
 -- which the certificate was issued. For more information, see NIST\'s
 -- definition of
 -- <https://csrc.nist.gov/glossary/term/Object_Identifier Object Identifier (OID)>.
-policyInformation_certPolicyId :: Lens.Lens' PolicyInformation Core.Text
+policyInformation_certPolicyId :: Lens.Lens' PolicyInformation Prelude.Text
 policyInformation_certPolicyId = Lens.lens (\PolicyInformation' {certPolicyId} -> certPolicyId) (\s@PolicyInformation' {} a -> s {certPolicyId = a} :: PolicyInformation)
 
-instance Core.Hashable PolicyInformation
+instance Prelude.Hashable PolicyInformation
 
-instance Core.NFData PolicyInformation
+instance Prelude.NFData PolicyInformation
 
 instance Core.ToJSON PolicyInformation where
   toJSON PolicyInformation' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("PolicyQualifiers" Core..=)
-              Core.<$> policyQualifiers,
-            Core.Just ("CertPolicyId" Core..= certPolicyId)
+              Prelude.<$> policyQualifiers,
+            Prelude.Just ("CertPolicyId" Core..= certPolicyId)
           ]
       )

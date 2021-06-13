@@ -118,6 +118,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -128,16 +129,16 @@ data CreateEndpoint = CreateEndpoint'
     -- resources in different ways, for example, by purpose, owner, or
     -- environment. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the endpoint.The name must be unique within an AWS Region in
     -- your AWS account. The name is case-insensitive in @CreateEndpoint@, but
     -- the case is preserved and must be matched in .
-    endpointName :: Core.Text,
+    endpointName :: Prelude.Text,
     -- | The name of an endpoint configuration. For more information, see
     -- CreateEndpointConfig.
-    endpointConfigName :: Core.Text
+    endpointConfigName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateEndpoint' with all optional fields omitted.
@@ -160,13 +161,13 @@ data CreateEndpoint = CreateEndpoint'
 -- CreateEndpointConfig.
 newCreateEndpoint ::
   -- | 'endpointName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'endpointConfigName'
-  Core.Text ->
+  Prelude.Text ->
   CreateEndpoint
 newCreateEndpoint pEndpointName_ pEndpointConfigName_ =
   CreateEndpoint'
-    { tags = Core.Nothing,
+    { tags = Prelude.Nothing,
       endpointName = pEndpointName_,
       endpointConfigName = pEndpointConfigName_
     }
@@ -175,18 +176,18 @@ newCreateEndpoint pEndpointName_ pEndpointConfigName_ =
 -- resources in different ways, for example, by purpose, owner, or
 -- environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
-createEndpoint_tags :: Lens.Lens' CreateEndpoint (Core.Maybe [Tag])
-createEndpoint_tags = Lens.lens (\CreateEndpoint' {tags} -> tags) (\s@CreateEndpoint' {} a -> s {tags = a} :: CreateEndpoint) Core.. Lens.mapping Lens._Coerce
+createEndpoint_tags :: Lens.Lens' CreateEndpoint (Prelude.Maybe [Tag])
+createEndpoint_tags = Lens.lens (\CreateEndpoint' {tags} -> tags) (\s@CreateEndpoint' {} a -> s {tags = a} :: CreateEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the endpoint.The name must be unique within an AWS Region in
 -- your AWS account. The name is case-insensitive in @CreateEndpoint@, but
 -- the case is preserved and must be matched in .
-createEndpoint_endpointName :: Lens.Lens' CreateEndpoint Core.Text
+createEndpoint_endpointName :: Lens.Lens' CreateEndpoint Prelude.Text
 createEndpoint_endpointName = Lens.lens (\CreateEndpoint' {endpointName} -> endpointName) (\s@CreateEndpoint' {} a -> s {endpointName = a} :: CreateEndpoint)
 
 -- | The name of an endpoint configuration. For more information, see
 -- CreateEndpointConfig.
-createEndpoint_endpointConfigName :: Lens.Lens' CreateEndpoint Core.Text
+createEndpoint_endpointConfigName :: Lens.Lens' CreateEndpoint Prelude.Text
 createEndpoint_endpointConfigName = Lens.lens (\CreateEndpoint' {endpointConfigName} -> endpointConfigName) (\s@CreateEndpoint' {} a -> s {endpointConfigName = a} :: CreateEndpoint)
 
 instance Core.AWSRequest CreateEndpoint where
@@ -198,50 +199,52 @@ instance Core.AWSRequest CreateEndpoint where
     Response.receiveJSON
       ( \s h x ->
           CreateEndpointResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "EndpointArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "EndpointArn")
       )
 
-instance Core.Hashable CreateEndpoint
+instance Prelude.Hashable CreateEndpoint
 
-instance Core.NFData CreateEndpoint
+instance Prelude.NFData CreateEndpoint
 
 instance Core.ToHeaders CreateEndpoint where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateEndpoint" :: Core.ByteString),
+              Core.=# ("SageMaker.CreateEndpoint" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateEndpoint where
   toJSON CreateEndpoint' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("EndpointName" Core..= endpointName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("EndpointName" Core..= endpointName),
+            Prelude.Just
               ("EndpointConfigName" Core..= endpointConfigName)
           ]
       )
 
 instance Core.ToPath CreateEndpoint where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateEndpoint where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEndpointResponse' smart constructor.
 data CreateEndpointResponse = CreateEndpointResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the endpoint.
-    endpointArn :: Core.Text
+    endpointArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateEndpointResponse' with all optional fields omitted.
@@ -256,9 +259,9 @@ data CreateEndpointResponse = CreateEndpointResponse'
 -- 'endpointArn', 'createEndpointResponse_endpointArn' - The Amazon Resource Name (ARN) of the endpoint.
 newCreateEndpointResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'endpointArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateEndpointResponse
 newCreateEndpointResponse pHttpStatus_ pEndpointArn_ =
   CreateEndpointResponse'
@@ -267,11 +270,11 @@ newCreateEndpointResponse pHttpStatus_ pEndpointArn_ =
     }
 
 -- | The response's http status code.
-createEndpointResponse_httpStatus :: Lens.Lens' CreateEndpointResponse Core.Int
+createEndpointResponse_httpStatus :: Lens.Lens' CreateEndpointResponse Prelude.Int
 createEndpointResponse_httpStatus = Lens.lens (\CreateEndpointResponse' {httpStatus} -> httpStatus) (\s@CreateEndpointResponse' {} a -> s {httpStatus = a} :: CreateEndpointResponse)
 
 -- | The Amazon Resource Name (ARN) of the endpoint.
-createEndpointResponse_endpointArn :: Lens.Lens' CreateEndpointResponse Core.Text
+createEndpointResponse_endpointArn :: Lens.Lens' CreateEndpointResponse Prelude.Text
 createEndpointResponse_endpointArn = Lens.lens (\CreateEndpointResponse' {endpointArn} -> endpointArn) (\s@CreateEndpointResponse' {} a -> s {endpointArn = a} :: CreateEndpointResponse)
 
-instance Core.NFData CreateEndpointResponse
+instance Prelude.NFData CreateEndpointResponse

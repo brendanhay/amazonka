@@ -43,6 +43,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -50,11 +51,11 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newDeleteResourceDataSync' smart constructor.
 data DeleteResourceDataSync = DeleteResourceDataSync'
   { -- | Specify the type of resource data sync to delete.
-    syncType :: Core.Maybe Core.Text,
+    syncType :: Prelude.Maybe Prelude.Text,
     -- | The name of the configuration to delete.
-    syncName :: Core.Text
+    syncName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteResourceDataSync' with all optional fields omitted.
@@ -69,20 +70,20 @@ data DeleteResourceDataSync = DeleteResourceDataSync'
 -- 'syncName', 'deleteResourceDataSync_syncName' - The name of the configuration to delete.
 newDeleteResourceDataSync ::
   -- | 'syncName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteResourceDataSync
 newDeleteResourceDataSync pSyncName_ =
   DeleteResourceDataSync'
-    { syncType = Core.Nothing,
+    { syncType = Prelude.Nothing,
       syncName = pSyncName_
     }
 
 -- | Specify the type of resource data sync to delete.
-deleteResourceDataSync_syncType :: Lens.Lens' DeleteResourceDataSync (Core.Maybe Core.Text)
+deleteResourceDataSync_syncType :: Lens.Lens' DeleteResourceDataSync (Prelude.Maybe Prelude.Text)
 deleteResourceDataSync_syncType = Lens.lens (\DeleteResourceDataSync' {syncType} -> syncType) (\s@DeleteResourceDataSync' {} a -> s {syncType = a} :: DeleteResourceDataSync)
 
 -- | The name of the configuration to delete.
-deleteResourceDataSync_syncName :: Lens.Lens' DeleteResourceDataSync Core.Text
+deleteResourceDataSync_syncName :: Lens.Lens' DeleteResourceDataSync Prelude.Text
 deleteResourceDataSync_syncName = Lens.lens (\DeleteResourceDataSync' {syncName} -> syncName) (\s@DeleteResourceDataSync' {} a -> s {syncName = a} :: DeleteResourceDataSync)
 
 instance Core.AWSRequest DeleteResourceDataSync where
@@ -94,47 +95,49 @@ instance Core.AWSRequest DeleteResourceDataSync where
     Response.receiveEmpty
       ( \s h x ->
           DeleteResourceDataSyncResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteResourceDataSync
+instance Prelude.Hashable DeleteResourceDataSync
 
-instance Core.NFData DeleteResourceDataSync
+instance Prelude.NFData DeleteResourceDataSync
 
 instance Core.ToHeaders DeleteResourceDataSync where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonSSM.DeleteResourceDataSync" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteResourceDataSync where
   toJSON DeleteResourceDataSync' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SyncType" Core..=) Core.<$> syncType,
-            Core.Just ("SyncName" Core..= syncName)
+      ( Prelude.catMaybes
+          [ ("SyncType" Core..=) Prelude.<$> syncType,
+            Prelude.Just ("SyncName" Core..= syncName)
           ]
       )
 
 instance Core.ToPath DeleteResourceDataSync where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteResourceDataSync where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResourceDataSyncResponse' smart constructor.
 data DeleteResourceDataSyncResponse = DeleteResourceDataSyncResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteResourceDataSyncResponse' with all optional fields omitted.
@@ -147,7 +150,7 @@ data DeleteResourceDataSyncResponse = DeleteResourceDataSyncResponse'
 -- 'httpStatus', 'deleteResourceDataSyncResponse_httpStatus' - The response's http status code.
 newDeleteResourceDataSyncResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteResourceDataSyncResponse
 newDeleteResourceDataSyncResponse pHttpStatus_ =
   DeleteResourceDataSyncResponse'
@@ -156,7 +159,9 @@ newDeleteResourceDataSyncResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteResourceDataSyncResponse_httpStatus :: Lens.Lens' DeleteResourceDataSyncResponse Core.Int
+deleteResourceDataSyncResponse_httpStatus :: Lens.Lens' DeleteResourceDataSyncResponse Prelude.Int
 deleteResourceDataSyncResponse_httpStatus = Lens.lens (\DeleteResourceDataSyncResponse' {httpStatus} -> httpStatus) (\s@DeleteResourceDataSyncResponse' {} a -> s {httpStatus = a} :: DeleteResourceDataSyncResponse)
 
-instance Core.NFData DeleteResourceDataSyncResponse
+instance
+  Prelude.NFData
+    DeleteResourceDataSyncResponse

@@ -21,6 +21,7 @@ module Network.AWS.XRay.Types.FaultStatistics where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about requests that failed with a 5xx Server Error status
 -- code.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data FaultStatistics = FaultStatistics'
   { -- | The number of requests that failed with untracked 5xx Server Error
     -- status codes.
-    otherCount :: Core.Maybe Core.Integer,
+    otherCount :: Prelude.Maybe Prelude.Integer,
     -- | The total number of requests that failed with a 5xx Server Error status
     -- code.
-    totalCount :: Core.Maybe Core.Integer
+    totalCount :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FaultStatistics' with all optional fields omitted.
@@ -53,18 +54,18 @@ newFaultStatistics ::
   FaultStatistics
 newFaultStatistics =
   FaultStatistics'
-    { otherCount = Core.Nothing,
-      totalCount = Core.Nothing
+    { otherCount = Prelude.Nothing,
+      totalCount = Prelude.Nothing
     }
 
 -- | The number of requests that failed with untracked 5xx Server Error
 -- status codes.
-faultStatistics_otherCount :: Lens.Lens' FaultStatistics (Core.Maybe Core.Integer)
+faultStatistics_otherCount :: Lens.Lens' FaultStatistics (Prelude.Maybe Prelude.Integer)
 faultStatistics_otherCount = Lens.lens (\FaultStatistics' {otherCount} -> otherCount) (\s@FaultStatistics' {} a -> s {otherCount = a} :: FaultStatistics)
 
 -- | The total number of requests that failed with a 5xx Server Error status
 -- code.
-faultStatistics_totalCount :: Lens.Lens' FaultStatistics (Core.Maybe Core.Integer)
+faultStatistics_totalCount :: Lens.Lens' FaultStatistics (Prelude.Maybe Prelude.Integer)
 faultStatistics_totalCount = Lens.lens (\FaultStatistics' {totalCount} -> totalCount) (\s@FaultStatistics' {} a -> s {totalCount = a} :: FaultStatistics)
 
 instance Core.FromJSON FaultStatistics where
@@ -73,10 +74,10 @@ instance Core.FromJSON FaultStatistics where
       "FaultStatistics"
       ( \x ->
           FaultStatistics'
-            Core.<$> (x Core..:? "OtherCount")
-            Core.<*> (x Core..:? "TotalCount")
+            Prelude.<$> (x Core..:? "OtherCount")
+            Prelude.<*> (x Core..:? "TotalCount")
       )
 
-instance Core.Hashable FaultStatistics
+instance Prelude.Hashable FaultStatistics
 
-instance Core.NFData FaultStatistics
+instance Prelude.NFData FaultStatistics

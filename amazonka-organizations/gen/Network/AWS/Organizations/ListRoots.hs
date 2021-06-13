@@ -63,6 +63,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,7 +74,7 @@ data ListRoots = ListRoots'
     -- indicates that more output is available. Set this parameter to the value
     -- of the previous call\'s @NextToken@ response to indicate where the
     -- output should continue from.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The total number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
     -- that is specific to the operation. If additional items exist beyond the
@@ -84,9 +85,9 @@ data ListRoots = ListRoots'
     -- maximum even when there are more results available. You should check
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
-    maxResults :: Core.Maybe Core.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRoots' with all optional fields omitted.
@@ -116,8 +117,8 @@ newListRoots ::
   ListRoots
 newListRoots =
   ListRoots'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The parameter for receiving additional results if you receive a
@@ -125,7 +126,7 @@ newListRoots =
 -- indicates that more output is available. Set this parameter to the value
 -- of the previous call\'s @NextToken@ response to indicate where the
 -- output should continue from.
-listRoots_nextToken :: Lens.Lens' ListRoots (Core.Maybe Core.Text)
+listRoots_nextToken :: Lens.Lens' ListRoots (Prelude.Maybe Prelude.Text)
 listRoots_nextToken = Lens.lens (\ListRoots' {nextToken} -> nextToken) (\s@ListRoots' {} a -> s {nextToken = a} :: ListRoots)
 
 -- | The total number of results that you want included on each page of the
@@ -138,27 +139,27 @@ listRoots_nextToken = Lens.lens (\ListRoots' {nextToken} -> nextToken) (\s@ListR
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
-listRoots_maxResults :: Lens.Lens' ListRoots (Core.Maybe Core.Natural)
+listRoots_maxResults :: Lens.Lens' ListRoots (Prelude.Maybe Prelude.Natural)
 listRoots_maxResults = Lens.lens (\ListRoots' {maxResults} -> maxResults) (\s@ListRoots' {} a -> s {maxResults = a} :: ListRoots)
 
 instance Core.AWSPager ListRoots where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listRootsResponse_nextToken Core.. Lens._Just
+            Lens.^? listRootsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listRootsResponse_roots Core.. Lens._Just
+            Lens.^? listRootsResponse_roots Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listRoots_nextToken
+          Prelude.& listRoots_nextToken
           Lens..~ rs
-          Lens.^? listRootsResponse_nextToken Core.. Lens._Just
+          Lens.^? listRootsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRoots where
   type AWSResponse ListRoots = ListRootsResponse
@@ -167,42 +168,44 @@ instance Core.AWSRequest ListRoots where
     Response.receiveJSON
       ( \s h x ->
           ListRootsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "Roots" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Roots" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListRoots
+instance Prelude.Hashable ListRoots
 
-instance Core.NFData ListRoots
+instance Prelude.NFData ListRoots
 
 instance Core.ToHeaders ListRoots where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.ListRoots" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListRoots where
   toJSON ListRoots' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
 instance Core.ToPath ListRoots where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListRoots where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRootsResponse' smart constructor.
 data ListRootsResponse = ListRootsResponse'
@@ -211,13 +214,13 @@ data ListRootsResponse = ListRootsResponse'
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of roots that are defined in an organization.
-    roots :: Core.Maybe [Root],
+    roots :: Prelude.Maybe [Root],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListRootsResponse' with all optional fields omitted.
@@ -238,12 +241,12 @@ data ListRootsResponse = ListRootsResponse'
 -- 'httpStatus', 'listRootsResponse_httpStatus' - The response's http status code.
 newListRootsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListRootsResponse
 newListRootsResponse pHttpStatus_ =
   ListRootsResponse'
-    { nextToken = Core.Nothing,
-      roots = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      roots = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -252,15 +255,15 @@ newListRootsResponse pHttpStatus_ =
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
-listRootsResponse_nextToken :: Lens.Lens' ListRootsResponse (Core.Maybe Core.Text)
+listRootsResponse_nextToken :: Lens.Lens' ListRootsResponse (Prelude.Maybe Prelude.Text)
 listRootsResponse_nextToken = Lens.lens (\ListRootsResponse' {nextToken} -> nextToken) (\s@ListRootsResponse' {} a -> s {nextToken = a} :: ListRootsResponse)
 
 -- | A list of roots that are defined in an organization.
-listRootsResponse_roots :: Lens.Lens' ListRootsResponse (Core.Maybe [Root])
-listRootsResponse_roots = Lens.lens (\ListRootsResponse' {roots} -> roots) (\s@ListRootsResponse' {} a -> s {roots = a} :: ListRootsResponse) Core.. Lens.mapping Lens._Coerce
+listRootsResponse_roots :: Lens.Lens' ListRootsResponse (Prelude.Maybe [Root])
+listRootsResponse_roots = Lens.lens (\ListRootsResponse' {roots} -> roots) (\s@ListRootsResponse' {} a -> s {roots = a} :: ListRootsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listRootsResponse_httpStatus :: Lens.Lens' ListRootsResponse Core.Int
+listRootsResponse_httpStatus :: Lens.Lens' ListRootsResponse Prelude.Int
 listRootsResponse_httpStatus = Lens.lens (\ListRootsResponse' {httpStatus} -> httpStatus) (\s@ListRootsResponse' {} a -> s {httpStatus = a} :: ListRootsResponse)
 
-instance Core.NFData ListRootsResponse
+instance Prelude.NFData ListRootsResponse

@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.InventorySchedule where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.InventoryFrequency
 
@@ -31,7 +32,7 @@ data InventorySchedule = InventorySchedule'
   { -- | Specifies how frequently inventory results are produced.
     frequency :: InventoryFrequency
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InventorySchedule' with all optional fields omitted.
@@ -55,12 +56,13 @@ inventorySchedule_frequency = Lens.lens (\InventorySchedule' {frequency} -> freq
 
 instance Core.FromXML InventorySchedule where
   parseXML x =
-    InventorySchedule' Core.<$> (x Core..@ "Frequency")
+    InventorySchedule'
+      Prelude.<$> (x Core..@ "Frequency")
 
-instance Core.Hashable InventorySchedule
+instance Prelude.Hashable InventorySchedule
 
-instance Core.NFData InventorySchedule
+instance Prelude.NFData InventorySchedule
 
 instance Core.ToXML InventorySchedule where
   toXML InventorySchedule' {..} =
-    Core.mconcat ["Frequency" Core.@= frequency]
+    Prelude.mconcat ["Frequency" Core.@= frequency]

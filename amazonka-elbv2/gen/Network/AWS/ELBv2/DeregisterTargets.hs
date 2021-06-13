@@ -44,19 +44,20 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeregisterTargets' smart constructor.
 data DeregisterTargets = DeregisterTargets'
   { -- | The Amazon Resource Name (ARN) of the target group.
-    targetGroupArn :: Core.Text,
+    targetGroupArn :: Prelude.Text,
     -- | The targets. If you specified a port override when you registered a
     -- target, you must specify both the target ID and the port when you
     -- deregister it.
     targets :: [TargetDescription]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterTargets' with all optional fields omitted.
@@ -73,24 +74,24 @@ data DeregisterTargets = DeregisterTargets'
 -- deregister it.
 newDeregisterTargets ::
   -- | 'targetGroupArn'
-  Core.Text ->
+  Prelude.Text ->
   DeregisterTargets
 newDeregisterTargets pTargetGroupArn_ =
   DeregisterTargets'
     { targetGroupArn =
         pTargetGroupArn_,
-      targets = Core.mempty
+      targets = Prelude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the target group.
-deregisterTargets_targetGroupArn :: Lens.Lens' DeregisterTargets Core.Text
+deregisterTargets_targetGroupArn :: Lens.Lens' DeregisterTargets Prelude.Text
 deregisterTargets_targetGroupArn = Lens.lens (\DeregisterTargets' {targetGroupArn} -> targetGroupArn) (\s@DeregisterTargets' {} a -> s {targetGroupArn = a} :: DeregisterTargets)
 
 -- | The targets. If you specified a port override when you registered a
 -- target, you must specify both the target ID and the port when you
 -- deregister it.
 deregisterTargets_targets :: Lens.Lens' DeregisterTargets [TargetDescription]
-deregisterTargets_targets = Lens.lens (\DeregisterTargets' {targets} -> targets) (\s@DeregisterTargets' {} a -> s {targets = a} :: DeregisterTargets) Core.. Lens._Coerce
+deregisterTargets_targets = Lens.lens (\DeregisterTargets' {targets} -> targets) (\s@DeregisterTargets' {} a -> s {targets = a} :: DeregisterTargets) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest DeregisterTargets where
   type
@@ -102,25 +103,26 @@ instance Core.AWSRequest DeregisterTargets where
       "DeregisterTargetsResult"
       ( \s h x ->
           DeregisterTargetsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeregisterTargets
+instance Prelude.Hashable DeregisterTargets
 
-instance Core.NFData DeregisterTargets
+instance Prelude.NFData DeregisterTargets
 
 instance Core.ToHeaders DeregisterTargets where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeregisterTargets where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeregisterTargets where
   toQuery DeregisterTargets' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeregisterTargets" :: Core.ByteString),
-        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+          Core.=: ("DeregisterTargets" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
         "TargetGroupArn" Core.=: targetGroupArn,
         "Targets" Core.=: Core.toQueryList "member" targets
       ]
@@ -128,9 +130,9 @@ instance Core.ToQuery DeregisterTargets where
 -- | /See:/ 'newDeregisterTargetsResponse' smart constructor.
 data DeregisterTargetsResponse = DeregisterTargetsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterTargetsResponse' with all optional fields omitted.
@@ -143,7 +145,7 @@ data DeregisterTargetsResponse = DeregisterTargetsResponse'
 -- 'httpStatus', 'deregisterTargetsResponse_httpStatus' - The response's http status code.
 newDeregisterTargetsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeregisterTargetsResponse
 newDeregisterTargetsResponse pHttpStatus_ =
   DeregisterTargetsResponse'
@@ -152,7 +154,7 @@ newDeregisterTargetsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deregisterTargetsResponse_httpStatus :: Lens.Lens' DeregisterTargetsResponse Core.Int
+deregisterTargetsResponse_httpStatus :: Lens.Lens' DeregisterTargetsResponse Prelude.Int
 deregisterTargetsResponse_httpStatus = Lens.lens (\DeregisterTargetsResponse' {httpStatus} -> httpStatus) (\s@DeregisterTargetsResponse' {} a -> s {httpStatus = a} :: DeregisterTargetsResponse)
 
-instance Core.NFData DeregisterTargetsResponse
+instance Prelude.NFData DeregisterTargetsResponse

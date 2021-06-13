@@ -28,6 +28,7 @@ module Network.AWS.MediaConvert.Types.AccelerationMode
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify whether the service runs your job with accelerated transcoding.
 -- Choose DISABLED if you don\'t want accelerated transcoding. Choose
@@ -41,15 +42,15 @@ newtype AccelerationMode = AccelerationMode'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

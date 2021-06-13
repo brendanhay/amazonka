@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,9 +61,9 @@ data ListOfferingTransactions = ListOfferingTransactions'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Core.Maybe Core.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListOfferingTransactions' with all optional fields omitted.
@@ -78,12 +79,15 @@ data ListOfferingTransactions = ListOfferingTransactions'
 newListOfferingTransactions ::
   ListOfferingTransactions
 newListOfferingTransactions =
-  ListOfferingTransactions' {nextToken = Core.Nothing}
+  ListOfferingTransactions'
+    { nextToken =
+        Prelude.Nothing
+    }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listOfferingTransactions_nextToken :: Lens.Lens' ListOfferingTransactions (Core.Maybe Core.Text)
+listOfferingTransactions_nextToken :: Lens.Lens' ListOfferingTransactions (Prelude.Maybe Prelude.Text)
 listOfferingTransactions_nextToken = Lens.lens (\ListOfferingTransactions' {nextToken} -> nextToken) (\s@ListOfferingTransactions' {} a -> s {nextToken = a} :: ListOfferingTransactions)
 
 instance Core.AWSPager ListOfferingTransactions where
@@ -91,22 +95,22 @@ instance Core.AWSPager ListOfferingTransactions where
     | Core.stop
         ( rs
             Lens.^? listOfferingTransactionsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listOfferingTransactionsResponse_offeringTransactions
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listOfferingTransactions_nextToken
+          Prelude.& listOfferingTransactions_nextToken
           Lens..~ rs
           Lens.^? listOfferingTransactionsResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOfferingTransactions where
   type
@@ -117,42 +121,44 @@ instance Core.AWSRequest ListOfferingTransactions where
     Response.receiveJSON
       ( \s h x ->
           ListOfferingTransactionsResponse'
-            Core.<$> ( x Core..?> "offeringTransactions"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "nextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "offeringTransactions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListOfferingTransactions
+instance Prelude.Hashable ListOfferingTransactions
 
-instance Core.NFData ListOfferingTransactions
+instance Prelude.NFData ListOfferingTransactions
 
 instance Core.ToHeaders ListOfferingTransactions where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DeviceFarm_20150623.ListOfferingTransactions" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListOfferingTransactions where
   toJSON ListOfferingTransactions' {..} =
     Core.object
-      ( Core.catMaybes
-          [("nextToken" Core..=) Core.<$> nextToken]
+      ( Prelude.catMaybes
+          [("nextToken" Core..=) Prelude.<$> nextToken]
       )
 
 instance Core.ToPath ListOfferingTransactions where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListOfferingTransactions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Returns the transaction log of the specified offerings.
 --
@@ -160,15 +166,15 @@ instance Core.ToQuery ListOfferingTransactions where
 data ListOfferingTransactionsResponse = ListOfferingTransactionsResponse'
   { -- | The audit log of subscriptions you have purchased and modified through
     -- AWS Device Farm.
-    offeringTransactions :: Core.Maybe [OfferingTransaction],
+    offeringTransactions :: Prelude.Maybe [OfferingTransaction],
     -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListOfferingTransactionsResponse' with all optional fields omitted.
@@ -188,29 +194,31 @@ data ListOfferingTransactionsResponse = ListOfferingTransactionsResponse'
 -- 'httpStatus', 'listOfferingTransactionsResponse_httpStatus' - The response's http status code.
 newListOfferingTransactionsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListOfferingTransactionsResponse
 newListOfferingTransactionsResponse pHttpStatus_ =
   ListOfferingTransactionsResponse'
     { offeringTransactions =
-        Core.Nothing,
-      nextToken = Core.Nothing,
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The audit log of subscriptions you have purchased and modified through
 -- AWS Device Farm.
-listOfferingTransactionsResponse_offeringTransactions :: Lens.Lens' ListOfferingTransactionsResponse (Core.Maybe [OfferingTransaction])
-listOfferingTransactionsResponse_offeringTransactions = Lens.lens (\ListOfferingTransactionsResponse' {offeringTransactions} -> offeringTransactions) (\s@ListOfferingTransactionsResponse' {} a -> s {offeringTransactions = a} :: ListOfferingTransactionsResponse) Core.. Lens.mapping Lens._Coerce
+listOfferingTransactionsResponse_offeringTransactions :: Lens.Lens' ListOfferingTransactionsResponse (Prelude.Maybe [OfferingTransaction])
+listOfferingTransactionsResponse_offeringTransactions = Lens.lens (\ListOfferingTransactionsResponse' {offeringTransactions} -> offeringTransactions) (\s@ListOfferingTransactionsResponse' {} a -> s {offeringTransactions = a} :: ListOfferingTransactionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listOfferingTransactionsResponse_nextToken :: Lens.Lens' ListOfferingTransactionsResponse (Core.Maybe Core.Text)
+listOfferingTransactionsResponse_nextToken :: Lens.Lens' ListOfferingTransactionsResponse (Prelude.Maybe Prelude.Text)
 listOfferingTransactionsResponse_nextToken = Lens.lens (\ListOfferingTransactionsResponse' {nextToken} -> nextToken) (\s@ListOfferingTransactionsResponse' {} a -> s {nextToken = a} :: ListOfferingTransactionsResponse)
 
 -- | The response's http status code.
-listOfferingTransactionsResponse_httpStatus :: Lens.Lens' ListOfferingTransactionsResponse Core.Int
+listOfferingTransactionsResponse_httpStatus :: Lens.Lens' ListOfferingTransactionsResponse Prelude.Int
 listOfferingTransactionsResponse_httpStatus = Lens.lens (\ListOfferingTransactionsResponse' {httpStatus} -> httpStatus) (\s@ListOfferingTransactionsResponse' {} a -> s {httpStatus = a} :: ListOfferingTransactionsResponse)
 
-instance Core.NFData ListOfferingTransactionsResponse
+instance
+  Prelude.NFData
+    ListOfferingTransactionsResponse

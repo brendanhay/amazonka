@@ -48,6 +48,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -56,7 +57,7 @@ import Network.AWS.ServiceCatalog.Types
 data DisableAWSOrganizationsAccess = DisableAWSOrganizationsAccess'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableAWSOrganizationsAccess' with all optional fields omitted.
@@ -79,41 +80,45 @@ instance
     Response.receiveEmpty
       ( \s h x ->
           DisableAWSOrganizationsAccessResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisableAWSOrganizationsAccess
+instance
+  Prelude.Hashable
+    DisableAWSOrganizationsAccess
 
-instance Core.NFData DisableAWSOrganizationsAccess
+instance Prelude.NFData DisableAWSOrganizationsAccess
 
 instance Core.ToHeaders DisableAWSOrganizationsAccess where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWS242ServiceCatalogService.DisableAWSOrganizationsAccess" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DisableAWSOrganizationsAccess where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DisableAWSOrganizationsAccess where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DisableAWSOrganizationsAccess where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableAWSOrganizationsAccessResponse' smart constructor.
 data DisableAWSOrganizationsAccessResponse = DisableAWSOrganizationsAccessResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableAWSOrganizationsAccessResponse' with all optional fields omitted.
@@ -126,7 +131,7 @@ data DisableAWSOrganizationsAccessResponse = DisableAWSOrganizationsAccessRespon
 -- 'httpStatus', 'disableAWSOrganizationsAccessResponse_httpStatus' - The response's http status code.
 newDisableAWSOrganizationsAccessResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisableAWSOrganizationsAccessResponse
 newDisableAWSOrganizationsAccessResponse pHttpStatus_ =
   DisableAWSOrganizationsAccessResponse'
@@ -135,9 +140,9 @@ newDisableAWSOrganizationsAccessResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disableAWSOrganizationsAccessResponse_httpStatus :: Lens.Lens' DisableAWSOrganizationsAccessResponse Core.Int
+disableAWSOrganizationsAccessResponse_httpStatus :: Lens.Lens' DisableAWSOrganizationsAccessResponse Prelude.Int
 disableAWSOrganizationsAccessResponse_httpStatus = Lens.lens (\DisableAWSOrganizationsAccessResponse' {httpStatus} -> httpStatus) (\s@DisableAWSOrganizationsAccessResponse' {} a -> s {httpStatus = a} :: DisableAWSOrganizationsAccessResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DisableAWSOrganizationsAccessResponse

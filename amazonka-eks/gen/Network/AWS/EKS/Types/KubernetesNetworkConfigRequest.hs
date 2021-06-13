@@ -21,6 +21,7 @@ module Network.AWS.EKS.Types.KubernetesNetworkConfigRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Kubernetes network configuration for the cluster.
 --
@@ -43,9 +44,9 @@ data KubernetesNetworkConfigRequest = KubernetesNetworkConfigRequest'
     --
     -- You can only specify a custom CIDR block when you create a cluster and
     -- can\'t change this value once the cluster is created.
-    serviceIpv4Cidr :: Core.Maybe Core.Text
+    serviceIpv4Cidr :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KubernetesNetworkConfigRequest' with all optional fields omitted.
@@ -77,7 +78,7 @@ newKubernetesNetworkConfigRequest ::
 newKubernetesNetworkConfigRequest =
   KubernetesNetworkConfigRequest'
     { serviceIpv4Cidr =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The CIDR block to assign Kubernetes service IP addresses from. If you
@@ -97,18 +98,22 @@ newKubernetesNetworkConfigRequest =
 --
 -- You can only specify a custom CIDR block when you create a cluster and
 -- can\'t change this value once the cluster is created.
-kubernetesNetworkConfigRequest_serviceIpv4Cidr :: Lens.Lens' KubernetesNetworkConfigRequest (Core.Maybe Core.Text)
+kubernetesNetworkConfigRequest_serviceIpv4Cidr :: Lens.Lens' KubernetesNetworkConfigRequest (Prelude.Maybe Prelude.Text)
 kubernetesNetworkConfigRequest_serviceIpv4Cidr = Lens.lens (\KubernetesNetworkConfigRequest' {serviceIpv4Cidr} -> serviceIpv4Cidr) (\s@KubernetesNetworkConfigRequest' {} a -> s {serviceIpv4Cidr = a} :: KubernetesNetworkConfigRequest)
 
-instance Core.Hashable KubernetesNetworkConfigRequest
+instance
+  Prelude.Hashable
+    KubernetesNetworkConfigRequest
 
-instance Core.NFData KubernetesNetworkConfigRequest
+instance
+  Prelude.NFData
+    KubernetesNetworkConfigRequest
 
 instance Core.ToJSON KubernetesNetworkConfigRequest where
   toJSON KubernetesNetworkConfigRequest' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("serviceIpv4Cidr" Core..=)
-              Core.<$> serviceIpv4Cidr
+              Prelude.<$> serviceIpv4Cidr
           ]
       )

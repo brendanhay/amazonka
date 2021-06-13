@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.ScheduleLambdaFunctionDecisionAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Decision attributes specified in
 -- @scheduleLambdaFunctionDecisionAttributes@ within the list of decisions
@@ -29,22 +30,22 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newScheduleLambdaFunctionDecisionAttributes' smart constructor.
 data ScheduleLambdaFunctionDecisionAttributes = ScheduleLambdaFunctionDecisionAttributes'
   { -- | The optional input data to be supplied to the Lambda function.
-    input :: Core.Maybe Core.Text,
+    input :: Prelude.Maybe Prelude.Text,
     -- | The data attached to the event that the decider can use in subsequent
     -- workflow tasks. This data isn\'t sent to the Lambda task.
-    control :: Core.Maybe Core.Text,
+    control :: Prelude.Maybe Prelude.Text,
     -- | The timeout value, in seconds, after which the Lambda function is
     -- considered to be failed once it has started. This can be any integer
     -- from 1-300 (1s-5m). If no value is supplied, than a default value of
     -- 300s is assumed.
-    startToCloseTimeout :: Core.Maybe Core.Text,
+    startToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | A string that identifies the Lambda function execution in the event
     -- history.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The name, or ARN, of the Lambda function to schedule.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScheduleLambdaFunctionDecisionAttributes' with all optional fields omitted.
@@ -70,54 +71,54 @@ data ScheduleLambdaFunctionDecisionAttributes = ScheduleLambdaFunctionDecisionAt
 -- 'name', 'scheduleLambdaFunctionDecisionAttributes_name' - The name, or ARN, of the Lambda function to schedule.
 newScheduleLambdaFunctionDecisionAttributes ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   ScheduleLambdaFunctionDecisionAttributes
 newScheduleLambdaFunctionDecisionAttributes
   pId_
   pName_ =
     ScheduleLambdaFunctionDecisionAttributes'
       { input =
-          Core.Nothing,
-        control = Core.Nothing,
+          Prelude.Nothing,
+        control = Prelude.Nothing,
         startToCloseTimeout =
-          Core.Nothing,
+          Prelude.Nothing,
         id = pId_,
         name = pName_
       }
 
 -- | The optional input data to be supplied to the Lambda function.
-scheduleLambdaFunctionDecisionAttributes_input :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Core.Maybe Core.Text)
+scheduleLambdaFunctionDecisionAttributes_input :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Prelude.Maybe Prelude.Text)
 scheduleLambdaFunctionDecisionAttributes_input = Lens.lens (\ScheduleLambdaFunctionDecisionAttributes' {input} -> input) (\s@ScheduleLambdaFunctionDecisionAttributes' {} a -> s {input = a} :: ScheduleLambdaFunctionDecisionAttributes)
 
 -- | The data attached to the event that the decider can use in subsequent
 -- workflow tasks. This data isn\'t sent to the Lambda task.
-scheduleLambdaFunctionDecisionAttributes_control :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Core.Maybe Core.Text)
+scheduleLambdaFunctionDecisionAttributes_control :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Prelude.Maybe Prelude.Text)
 scheduleLambdaFunctionDecisionAttributes_control = Lens.lens (\ScheduleLambdaFunctionDecisionAttributes' {control} -> control) (\s@ScheduleLambdaFunctionDecisionAttributes' {} a -> s {control = a} :: ScheduleLambdaFunctionDecisionAttributes)
 
 -- | The timeout value, in seconds, after which the Lambda function is
 -- considered to be failed once it has started. This can be any integer
 -- from 1-300 (1s-5m). If no value is supplied, than a default value of
 -- 300s is assumed.
-scheduleLambdaFunctionDecisionAttributes_startToCloseTimeout :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Core.Maybe Core.Text)
+scheduleLambdaFunctionDecisionAttributes_startToCloseTimeout :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Prelude.Maybe Prelude.Text)
 scheduleLambdaFunctionDecisionAttributes_startToCloseTimeout = Lens.lens (\ScheduleLambdaFunctionDecisionAttributes' {startToCloseTimeout} -> startToCloseTimeout) (\s@ScheduleLambdaFunctionDecisionAttributes' {} a -> s {startToCloseTimeout = a} :: ScheduleLambdaFunctionDecisionAttributes)
 
 -- | A string that identifies the Lambda function execution in the event
 -- history.
-scheduleLambdaFunctionDecisionAttributes_id :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes Core.Text
+scheduleLambdaFunctionDecisionAttributes_id :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes Prelude.Text
 scheduleLambdaFunctionDecisionAttributes_id = Lens.lens (\ScheduleLambdaFunctionDecisionAttributes' {id} -> id) (\s@ScheduleLambdaFunctionDecisionAttributes' {} a -> s {id = a} :: ScheduleLambdaFunctionDecisionAttributes)
 
 -- | The name, or ARN, of the Lambda function to schedule.
-scheduleLambdaFunctionDecisionAttributes_name :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes Core.Text
+scheduleLambdaFunctionDecisionAttributes_name :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes Prelude.Text
 scheduleLambdaFunctionDecisionAttributes_name = Lens.lens (\ScheduleLambdaFunctionDecisionAttributes' {name} -> name) (\s@ScheduleLambdaFunctionDecisionAttributes' {} a -> s {name = a} :: ScheduleLambdaFunctionDecisionAttributes)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ScheduleLambdaFunctionDecisionAttributes
 
 instance
-  Core.NFData
+  Prelude.NFData
     ScheduleLambdaFunctionDecisionAttributes
 
 instance
@@ -126,12 +127,12 @@ instance
   where
   toJSON ScheduleLambdaFunctionDecisionAttributes' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("input" Core..=) Core.<$> input,
-            ("control" Core..=) Core.<$> control,
+      ( Prelude.catMaybes
+          [ ("input" Core..=) Prelude.<$> input,
+            ("control" Core..=) Prelude.<$> control,
             ("startToCloseTimeout" Core..=)
-              Core.<$> startToCloseTimeout,
-            Core.Just ("id" Core..= id),
-            Core.Just ("name" Core..= name)
+              Prelude.<$> startToCloseTimeout,
+            Prelude.Just ("id" Core..= id),
+            Prelude.Just ("name" Core..= name)
           ]
       )

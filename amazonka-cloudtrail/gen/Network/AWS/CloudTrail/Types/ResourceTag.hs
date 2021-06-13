@@ -22,17 +22,18 @@ module Network.AWS.CloudTrail.Types.ResourceTag where
 import Network.AWS.CloudTrail.Types.Tag
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A resource tag.
 --
 -- /See:/ 'newResourceTag' smart constructor.
 data ResourceTag = ResourceTag'
   { -- | Specifies the ARN of the resource.
-    resourceId :: Core.Maybe Core.Text,
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | A list of tags.
-    tagsList :: Core.Maybe [Tag]
+    tagsList :: Prelude.Maybe [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceTag' with all optional fields omitted.
@@ -49,17 +50,17 @@ newResourceTag ::
   ResourceTag
 newResourceTag =
   ResourceTag'
-    { resourceId = Core.Nothing,
-      tagsList = Core.Nothing
+    { resourceId = Prelude.Nothing,
+      tagsList = Prelude.Nothing
     }
 
 -- | Specifies the ARN of the resource.
-resourceTag_resourceId :: Lens.Lens' ResourceTag (Core.Maybe Core.Text)
+resourceTag_resourceId :: Lens.Lens' ResourceTag (Prelude.Maybe Prelude.Text)
 resourceTag_resourceId = Lens.lens (\ResourceTag' {resourceId} -> resourceId) (\s@ResourceTag' {} a -> s {resourceId = a} :: ResourceTag)
 
 -- | A list of tags.
-resourceTag_tagsList :: Lens.Lens' ResourceTag (Core.Maybe [Tag])
-resourceTag_tagsList = Lens.lens (\ResourceTag' {tagsList} -> tagsList) (\s@ResourceTag' {} a -> s {tagsList = a} :: ResourceTag) Core.. Lens.mapping Lens._Coerce
+resourceTag_tagsList :: Lens.Lens' ResourceTag (Prelude.Maybe [Tag])
+resourceTag_tagsList = Lens.lens (\ResourceTag' {tagsList} -> tagsList) (\s@ResourceTag' {} a -> s {tagsList = a} :: ResourceTag) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ResourceTag where
   parseJSON =
@@ -67,10 +68,10 @@ instance Core.FromJSON ResourceTag where
       "ResourceTag"
       ( \x ->
           ResourceTag'
-            Core.<$> (x Core..:? "ResourceId")
-            Core.<*> (x Core..:? "TagsList" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "ResourceId")
+            Prelude.<*> (x Core..:? "TagsList" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable ResourceTag
+instance Prelude.Hashable ResourceTag
 
-instance Core.NFData ResourceTag
+instance Prelude.NFData ResourceTag

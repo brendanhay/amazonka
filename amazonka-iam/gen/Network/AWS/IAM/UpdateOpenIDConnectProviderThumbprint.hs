@@ -55,6 +55,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,13 +68,13 @@ data UpdateOpenIDConnectProviderThumbprint = UpdateOpenIDConnectProviderThumbpri
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    openIDConnectProviderArn :: Core.Text,
+    openIDConnectProviderArn :: Prelude.Text,
     -- | A list of certificate thumbprints that are associated with the specified
     -- IAM OpenID Connect provider. For more information, see
     -- CreateOpenIDConnectProvider.
-    thumbprintList :: [Core.Text]
+    thumbprintList :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateOpenIDConnectProviderThumbprint' with all optional fields omitted.
@@ -96,14 +97,14 @@ data UpdateOpenIDConnectProviderThumbprint = UpdateOpenIDConnectProviderThumbpri
 -- CreateOpenIDConnectProvider.
 newUpdateOpenIDConnectProviderThumbprint ::
   -- | 'openIDConnectProviderArn'
-  Core.Text ->
+  Prelude.Text ->
   UpdateOpenIDConnectProviderThumbprint
 newUpdateOpenIDConnectProviderThumbprint
   pOpenIDConnectProviderArn_ =
     UpdateOpenIDConnectProviderThumbprint'
       { openIDConnectProviderArn =
           pOpenIDConnectProviderArn_,
-        thumbprintList = Core.mempty
+        thumbprintList = Prelude.mempty
       }
 
 -- | The Amazon Resource Name (ARN) of the IAM OIDC provider resource object
@@ -113,14 +114,14 @@ newUpdateOpenIDConnectProviderThumbprint
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-updateOpenIDConnectProviderThumbprint_openIDConnectProviderArn :: Lens.Lens' UpdateOpenIDConnectProviderThumbprint Core.Text
+updateOpenIDConnectProviderThumbprint_openIDConnectProviderArn :: Lens.Lens' UpdateOpenIDConnectProviderThumbprint Prelude.Text
 updateOpenIDConnectProviderThumbprint_openIDConnectProviderArn = Lens.lens (\UpdateOpenIDConnectProviderThumbprint' {openIDConnectProviderArn} -> openIDConnectProviderArn) (\s@UpdateOpenIDConnectProviderThumbprint' {} a -> s {openIDConnectProviderArn = a} :: UpdateOpenIDConnectProviderThumbprint)
 
 -- | A list of certificate thumbprints that are associated with the specified
 -- IAM OpenID Connect provider. For more information, see
 -- CreateOpenIDConnectProvider.
-updateOpenIDConnectProviderThumbprint_thumbprintList :: Lens.Lens' UpdateOpenIDConnectProviderThumbprint [Core.Text]
-updateOpenIDConnectProviderThumbprint_thumbprintList = Lens.lens (\UpdateOpenIDConnectProviderThumbprint' {thumbprintList} -> thumbprintList) (\s@UpdateOpenIDConnectProviderThumbprint' {} a -> s {thumbprintList = a} :: UpdateOpenIDConnectProviderThumbprint) Core.. Lens._Coerce
+updateOpenIDConnectProviderThumbprint_thumbprintList :: Lens.Lens' UpdateOpenIDConnectProviderThumbprint [Prelude.Text]
+updateOpenIDConnectProviderThumbprint_thumbprintList = Lens.lens (\UpdateOpenIDConnectProviderThumbprint' {thumbprintList} -> thumbprintList) (\s@UpdateOpenIDConnectProviderThumbprint' {} a -> s {thumbprintList = a} :: UpdateOpenIDConnectProviderThumbprint) Prelude.. Lens._Coerce
 
 instance
   Core.AWSRequest
@@ -136,36 +137,37 @@ instance
       UpdateOpenIDConnectProviderThumbprintResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdateOpenIDConnectProviderThumbprint
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateOpenIDConnectProviderThumbprint
 
 instance
   Core.ToHeaders
     UpdateOpenIDConnectProviderThumbprint
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToPath
     UpdateOpenIDConnectProviderThumbprint
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     UpdateOpenIDConnectProviderThumbprint
   where
   toQuery UpdateOpenIDConnectProviderThumbprint' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "UpdateOpenIDConnectProviderThumbprint" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "OpenIDConnectProviderArn"
           Core.=: openIDConnectProviderArn,
         "ThumbprintList"
@@ -176,7 +178,7 @@ instance
 data UpdateOpenIDConnectProviderThumbprintResponse = UpdateOpenIDConnectProviderThumbprintResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateOpenIDConnectProviderThumbprintResponse' with all optional fields omitted.
@@ -188,5 +190,5 @@ newUpdateOpenIDConnectProviderThumbprintResponse =
   UpdateOpenIDConnectProviderThumbprintResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateOpenIDConnectProviderThumbprintResponse

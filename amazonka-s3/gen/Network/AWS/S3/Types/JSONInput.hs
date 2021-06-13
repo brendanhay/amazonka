@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.JSONInput where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.JSONType
 
@@ -29,9 +30,9 @@ import Network.AWS.S3.Types.JSONType
 -- /See:/ 'newJSONInput' smart constructor.
 data JSONInput = JSONInput'
   { -- | The type of JSON. Valid values: Document, Lines.
-    type' :: Core.Maybe JSONType
+    type' :: Prelude.Maybe JSONType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JSONInput' with all optional fields omitted.
@@ -44,16 +45,16 @@ data JSONInput = JSONInput'
 -- 'type'', 'jSONInput_type' - The type of JSON. Valid values: Document, Lines.
 newJSONInput ::
   JSONInput
-newJSONInput = JSONInput' {type' = Core.Nothing}
+newJSONInput = JSONInput' {type' = Prelude.Nothing}
 
 -- | The type of JSON. Valid values: Document, Lines.
-jSONInput_type :: Lens.Lens' JSONInput (Core.Maybe JSONType)
+jSONInput_type :: Lens.Lens' JSONInput (Prelude.Maybe JSONType)
 jSONInput_type = Lens.lens (\JSONInput' {type'} -> type') (\s@JSONInput' {} a -> s {type' = a} :: JSONInput)
 
-instance Core.Hashable JSONInput
+instance Prelude.Hashable JSONInput
 
-instance Core.NFData JSONInput
+instance Prelude.NFData JSONInput
 
 instance Core.ToXML JSONInput where
   toXML JSONInput' {..} =
-    Core.mconcat ["Type" Core.@= type']
+    Prelude.mconcat ["Type" Core.@= type']

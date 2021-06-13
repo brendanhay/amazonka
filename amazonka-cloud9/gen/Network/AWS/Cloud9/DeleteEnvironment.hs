@@ -42,15 +42,16 @@ where
 import Network.AWS.Cloud9.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteEnvironment' smart constructor.
 data DeleteEnvironment = DeleteEnvironment'
   { -- | The ID of the environment to delete.
-    environmentId :: Core.Text
+    environmentId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEnvironment' with all optional fields omitted.
@@ -63,13 +64,13 @@ data DeleteEnvironment = DeleteEnvironment'
 -- 'environmentId', 'deleteEnvironment_environmentId' - The ID of the environment to delete.
 newDeleteEnvironment ::
   -- | 'environmentId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteEnvironment
 newDeleteEnvironment pEnvironmentId_ =
   DeleteEnvironment' {environmentId = pEnvironmentId_}
 
 -- | The ID of the environment to delete.
-deleteEnvironment_environmentId :: Lens.Lens' DeleteEnvironment Core.Text
+deleteEnvironment_environmentId :: Lens.Lens' DeleteEnvironment Prelude.Text
 deleteEnvironment_environmentId = Lens.lens (\DeleteEnvironment' {environmentId} -> environmentId) (\s@DeleteEnvironment' {} a -> s {environmentId = a} :: DeleteEnvironment)
 
 instance Core.AWSRequest DeleteEnvironment where
@@ -81,45 +82,49 @@ instance Core.AWSRequest DeleteEnvironment where
     Response.receiveEmpty
       ( \s h x ->
           DeleteEnvironmentResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteEnvironment
+instance Prelude.Hashable DeleteEnvironment
 
-instance Core.NFData DeleteEnvironment
+instance Prelude.NFData DeleteEnvironment
 
 instance Core.ToHeaders DeleteEnvironment where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSCloud9WorkspaceManagementService.DeleteEnvironment" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteEnvironment where
   toJSON DeleteEnvironment' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("environmentId" Core..= environmentId)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("environmentId" Core..= environmentId)
+          ]
       )
 
 instance Core.ToPath DeleteEnvironment where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteEnvironment where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEnvironmentResponse' smart constructor.
 data DeleteEnvironmentResponse = DeleteEnvironmentResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteEnvironmentResponse' with all optional fields omitted.
@@ -132,7 +137,7 @@ data DeleteEnvironmentResponse = DeleteEnvironmentResponse'
 -- 'httpStatus', 'deleteEnvironmentResponse_httpStatus' - The response's http status code.
 newDeleteEnvironmentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteEnvironmentResponse
 newDeleteEnvironmentResponse pHttpStatus_ =
   DeleteEnvironmentResponse'
@@ -141,7 +146,7 @@ newDeleteEnvironmentResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteEnvironmentResponse_httpStatus :: Lens.Lens' DeleteEnvironmentResponse Core.Int
+deleteEnvironmentResponse_httpStatus :: Lens.Lens' DeleteEnvironmentResponse Prelude.Int
 deleteEnvironmentResponse_httpStatus = Lens.lens (\DeleteEnvironmentResponse' {httpStatus} -> httpStatus) (\s@DeleteEnvironmentResponse' {} a -> s {httpStatus = a} :: DeleteEnvironmentResponse)
 
-instance Core.NFData DeleteEnvironmentResponse
+instance Prelude.NFData DeleteEnvironmentResponse

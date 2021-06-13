@@ -21,6 +21,7 @@ module Network.AWS.Rekognition.Types.AgeRange where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Structure containing the estimated age range, in years, for a face.
 --
@@ -32,11 +33,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAgeRange' smart constructor.
 data AgeRange = AgeRange'
   { -- | The highest estimated age.
-    high :: Core.Maybe Core.Natural,
+    high :: Prelude.Maybe Prelude.Natural,
     -- | The lowest estimated age.
-    low :: Core.Maybe Core.Natural
+    low :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AgeRange' with all optional fields omitted.
@@ -52,14 +53,17 @@ data AgeRange = AgeRange'
 newAgeRange ::
   AgeRange
 newAgeRange =
-  AgeRange' {high = Core.Nothing, low = Core.Nothing}
+  AgeRange'
+    { high = Prelude.Nothing,
+      low = Prelude.Nothing
+    }
 
 -- | The highest estimated age.
-ageRange_high :: Lens.Lens' AgeRange (Core.Maybe Core.Natural)
+ageRange_high :: Lens.Lens' AgeRange (Prelude.Maybe Prelude.Natural)
 ageRange_high = Lens.lens (\AgeRange' {high} -> high) (\s@AgeRange' {} a -> s {high = a} :: AgeRange)
 
 -- | The lowest estimated age.
-ageRange_low :: Lens.Lens' AgeRange (Core.Maybe Core.Natural)
+ageRange_low :: Lens.Lens' AgeRange (Prelude.Maybe Prelude.Natural)
 ageRange_low = Lens.lens (\AgeRange' {low} -> low) (\s@AgeRange' {} a -> s {low = a} :: AgeRange)
 
 instance Core.FromJSON AgeRange where
@@ -68,9 +72,9 @@ instance Core.FromJSON AgeRange where
       "AgeRange"
       ( \x ->
           AgeRange'
-            Core.<$> (x Core..:? "High") Core.<*> (x Core..:? "Low")
+            Prelude.<$> (x Core..:? "High") Prelude.<*> (x Core..:? "Low")
       )
 
-instance Core.Hashable AgeRange
+instance Prelude.Hashable AgeRange
 
-instance Core.NFData AgeRange
+instance Prelude.NFData AgeRange

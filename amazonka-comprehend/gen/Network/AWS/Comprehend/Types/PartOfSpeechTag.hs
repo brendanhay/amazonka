@@ -22,6 +22,7 @@ module Network.AWS.Comprehend.Types.PartOfSpeechTag where
 import Network.AWS.Comprehend.Types.PartOfSpeechTagType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies the part of speech represented by the token and gives the
 -- confidence that Amazon Comprehend has that the part of speech was
@@ -32,11 +33,11 @@ import qualified Network.AWS.Lens as Lens
 data PartOfSpeechTag = PartOfSpeechTag'
   { -- | The confidence that Amazon Comprehend has that the part of speech was
     -- correctly identified.
-    score :: Core.Maybe Core.Double,
+    score :: Prelude.Maybe Prelude.Double,
     -- | Identifies the part of speech that the token represents.
-    tag :: Core.Maybe PartOfSpeechTagType
+    tag :: Prelude.Maybe PartOfSpeechTagType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PartOfSpeechTag' with all optional fields omitted.
@@ -54,17 +55,17 @@ newPartOfSpeechTag ::
   PartOfSpeechTag
 newPartOfSpeechTag =
   PartOfSpeechTag'
-    { score = Core.Nothing,
-      tag = Core.Nothing
+    { score = Prelude.Nothing,
+      tag = Prelude.Nothing
     }
 
 -- | The confidence that Amazon Comprehend has that the part of speech was
 -- correctly identified.
-partOfSpeechTag_score :: Lens.Lens' PartOfSpeechTag (Core.Maybe Core.Double)
+partOfSpeechTag_score :: Lens.Lens' PartOfSpeechTag (Prelude.Maybe Prelude.Double)
 partOfSpeechTag_score = Lens.lens (\PartOfSpeechTag' {score} -> score) (\s@PartOfSpeechTag' {} a -> s {score = a} :: PartOfSpeechTag)
 
 -- | Identifies the part of speech that the token represents.
-partOfSpeechTag_tag :: Lens.Lens' PartOfSpeechTag (Core.Maybe PartOfSpeechTagType)
+partOfSpeechTag_tag :: Lens.Lens' PartOfSpeechTag (Prelude.Maybe PartOfSpeechTagType)
 partOfSpeechTag_tag = Lens.lens (\PartOfSpeechTag' {tag} -> tag) (\s@PartOfSpeechTag' {} a -> s {tag = a} :: PartOfSpeechTag)
 
 instance Core.FromJSON PartOfSpeechTag where
@@ -73,9 +74,9 @@ instance Core.FromJSON PartOfSpeechTag where
       "PartOfSpeechTag"
       ( \x ->
           PartOfSpeechTag'
-            Core.<$> (x Core..:? "Score") Core.<*> (x Core..:? "Tag")
+            Prelude.<$> (x Core..:? "Score") Prelude.<*> (x Core..:? "Tag")
       )
 
-instance Core.Hashable PartOfSpeechTag
+instance Prelude.Hashable PartOfSpeechTag
 
-instance Core.NFData PartOfSpeechTag
+instance Prelude.NFData PartOfSpeechTag

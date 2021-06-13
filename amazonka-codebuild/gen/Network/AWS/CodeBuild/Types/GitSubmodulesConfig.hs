@@ -21,6 +21,7 @@ module Network.AWS.CodeBuild.Types.GitSubmodulesConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the Git submodules configuration for an AWS CodeBuild
 -- build project.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data GitSubmodulesConfig = GitSubmodulesConfig'
   { -- | Set to true to fetch Git submodules for your AWS CodeBuild build
     -- project.
-    fetchSubmodules :: Core.Bool
+    fetchSubmodules :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GitSubmodulesConfig' with all optional fields omitted.
@@ -45,7 +46,7 @@ data GitSubmodulesConfig = GitSubmodulesConfig'
 -- project.
 newGitSubmodulesConfig ::
   -- | 'fetchSubmodules'
-  Core.Bool ->
+  Prelude.Bool ->
   GitSubmodulesConfig
 newGitSubmodulesConfig pFetchSubmodules_ =
   GitSubmodulesConfig'
@@ -55,7 +56,7 @@ newGitSubmodulesConfig pFetchSubmodules_ =
 
 -- | Set to true to fetch Git submodules for your AWS CodeBuild build
 -- project.
-gitSubmodulesConfig_fetchSubmodules :: Lens.Lens' GitSubmodulesConfig Core.Bool
+gitSubmodulesConfig_fetchSubmodules :: Lens.Lens' GitSubmodulesConfig Prelude.Bool
 gitSubmodulesConfig_fetchSubmodules = Lens.lens (\GitSubmodulesConfig' {fetchSubmodules} -> fetchSubmodules) (\s@GitSubmodulesConfig' {} a -> s {fetchSubmodules = a} :: GitSubmodulesConfig)
 
 instance Core.FromJSON GitSubmodulesConfig where
@@ -64,18 +65,18 @@ instance Core.FromJSON GitSubmodulesConfig where
       "GitSubmodulesConfig"
       ( \x ->
           GitSubmodulesConfig'
-            Core.<$> (x Core..: "fetchSubmodules")
+            Prelude.<$> (x Core..: "fetchSubmodules")
       )
 
-instance Core.Hashable GitSubmodulesConfig
+instance Prelude.Hashable GitSubmodulesConfig
 
-instance Core.NFData GitSubmodulesConfig
+instance Prelude.NFData GitSubmodulesConfig
 
 instance Core.ToJSON GitSubmodulesConfig where
   toJSON GitSubmodulesConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("fetchSubmodules" Core..= fetchSubmodules)
           ]
       )

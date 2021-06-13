@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.ResourceDataSyncSourceWithState where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.ResourceDataSyncAwsOrganizationsSource
 
 -- | The data type name for including resource data sync state. There are
@@ -42,7 +43,7 @@ import Network.AWS.SSM.Types.ResourceDataSyncAwsOrganizationsSource
 data ResourceDataSyncSourceWithState = ResourceDataSyncSourceWithState'
   { -- | Whether to automatically synchronize and aggregate data from new AWS
     -- Regions when those Regions come online.
-    includeFutureRegions :: Core.Maybe Core.Bool,
+    includeFutureRegions :: Prelude.Maybe Prelude.Bool,
     -- | The data type name for including resource data sync state. There are
     -- four sync states:
     --
@@ -57,18 +58,18 @@ data ResourceDataSyncSourceWithState = ResourceDataSyncSourceWithState'
     --
     -- @TrustedAccessDisabled@: You disabled Systems Manager access in the
     -- organization in AWS Organizations.
-    state :: Core.Maybe Core.Text,
+    state :: Prelude.Maybe Prelude.Text,
     -- | The @SyncSource@ AWS Regions included in the resource data sync.
-    sourceRegions :: Core.Maybe [Core.Text],
+    sourceRegions :: Prelude.Maybe [Prelude.Text],
     -- | The field name in @SyncSource@ for the
     -- @ResourceDataSyncAwsOrganizationsSource@ type.
-    awsOrganizationsSource :: Core.Maybe ResourceDataSyncAwsOrganizationsSource,
+    awsOrganizationsSource :: Prelude.Maybe ResourceDataSyncAwsOrganizationsSource,
     -- | The type of data source for the resource data sync. @SourceType@ is
     -- either @AwsOrganizations@ (if an organization is present in AWS
     -- Organizations) or @singleAccountMultiRegions@.
-    sourceType :: Core.Maybe Core.Text
+    sourceType :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceDataSyncSourceWithState' with all optional fields omitted.
@@ -109,16 +110,16 @@ newResourceDataSyncSourceWithState ::
 newResourceDataSyncSourceWithState =
   ResourceDataSyncSourceWithState'
     { includeFutureRegions =
-        Core.Nothing,
-      state = Core.Nothing,
-      sourceRegions = Core.Nothing,
-      awsOrganizationsSource = Core.Nothing,
-      sourceType = Core.Nothing
+        Prelude.Nothing,
+      state = Prelude.Nothing,
+      sourceRegions = Prelude.Nothing,
+      awsOrganizationsSource = Prelude.Nothing,
+      sourceType = Prelude.Nothing
     }
 
 -- | Whether to automatically synchronize and aggregate data from new AWS
 -- Regions when those Regions come online.
-resourceDataSyncSourceWithState_includeFutureRegions :: Lens.Lens' ResourceDataSyncSourceWithState (Core.Maybe Core.Bool)
+resourceDataSyncSourceWithState_includeFutureRegions :: Lens.Lens' ResourceDataSyncSourceWithState (Prelude.Maybe Prelude.Bool)
 resourceDataSyncSourceWithState_includeFutureRegions = Lens.lens (\ResourceDataSyncSourceWithState' {includeFutureRegions} -> includeFutureRegions) (\s@ResourceDataSyncSourceWithState' {} a -> s {includeFutureRegions = a} :: ResourceDataSyncSourceWithState)
 
 -- | The data type name for including resource data sync state. There are
@@ -135,22 +136,22 @@ resourceDataSyncSourceWithState_includeFutureRegions = Lens.lens (\ResourceDataS
 --
 -- @TrustedAccessDisabled@: You disabled Systems Manager access in the
 -- organization in AWS Organizations.
-resourceDataSyncSourceWithState_state :: Lens.Lens' ResourceDataSyncSourceWithState (Core.Maybe Core.Text)
+resourceDataSyncSourceWithState_state :: Lens.Lens' ResourceDataSyncSourceWithState (Prelude.Maybe Prelude.Text)
 resourceDataSyncSourceWithState_state = Lens.lens (\ResourceDataSyncSourceWithState' {state} -> state) (\s@ResourceDataSyncSourceWithState' {} a -> s {state = a} :: ResourceDataSyncSourceWithState)
 
 -- | The @SyncSource@ AWS Regions included in the resource data sync.
-resourceDataSyncSourceWithState_sourceRegions :: Lens.Lens' ResourceDataSyncSourceWithState (Core.Maybe [Core.Text])
-resourceDataSyncSourceWithState_sourceRegions = Lens.lens (\ResourceDataSyncSourceWithState' {sourceRegions} -> sourceRegions) (\s@ResourceDataSyncSourceWithState' {} a -> s {sourceRegions = a} :: ResourceDataSyncSourceWithState) Core.. Lens.mapping Lens._Coerce
+resourceDataSyncSourceWithState_sourceRegions :: Lens.Lens' ResourceDataSyncSourceWithState (Prelude.Maybe [Prelude.Text])
+resourceDataSyncSourceWithState_sourceRegions = Lens.lens (\ResourceDataSyncSourceWithState' {sourceRegions} -> sourceRegions) (\s@ResourceDataSyncSourceWithState' {} a -> s {sourceRegions = a} :: ResourceDataSyncSourceWithState) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The field name in @SyncSource@ for the
 -- @ResourceDataSyncAwsOrganizationsSource@ type.
-resourceDataSyncSourceWithState_awsOrganizationsSource :: Lens.Lens' ResourceDataSyncSourceWithState (Core.Maybe ResourceDataSyncAwsOrganizationsSource)
+resourceDataSyncSourceWithState_awsOrganizationsSource :: Lens.Lens' ResourceDataSyncSourceWithState (Prelude.Maybe ResourceDataSyncAwsOrganizationsSource)
 resourceDataSyncSourceWithState_awsOrganizationsSource = Lens.lens (\ResourceDataSyncSourceWithState' {awsOrganizationsSource} -> awsOrganizationsSource) (\s@ResourceDataSyncSourceWithState' {} a -> s {awsOrganizationsSource = a} :: ResourceDataSyncSourceWithState)
 
 -- | The type of data source for the resource data sync. @SourceType@ is
 -- either @AwsOrganizations@ (if an organization is present in AWS
 -- Organizations) or @singleAccountMultiRegions@.
-resourceDataSyncSourceWithState_sourceType :: Lens.Lens' ResourceDataSyncSourceWithState (Core.Maybe Core.Text)
+resourceDataSyncSourceWithState_sourceType :: Lens.Lens' ResourceDataSyncSourceWithState (Prelude.Maybe Prelude.Text)
 resourceDataSyncSourceWithState_sourceType = Lens.lens (\ResourceDataSyncSourceWithState' {sourceType} -> sourceType) (\s@ResourceDataSyncSourceWithState' {} a -> s {sourceType = a} :: ResourceDataSyncSourceWithState)
 
 instance
@@ -162,15 +163,17 @@ instance
       "ResourceDataSyncSourceWithState"
       ( \x ->
           ResourceDataSyncSourceWithState'
-            Core.<$> (x Core..:? "IncludeFutureRegions")
-            Core.<*> (x Core..:? "State")
-            Core.<*> (x Core..:? "SourceRegions" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "AwsOrganizationsSource")
-            Core.<*> (x Core..:? "SourceType")
+            Prelude.<$> (x Core..:? "IncludeFutureRegions")
+            Prelude.<*> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "SourceRegions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "AwsOrganizationsSource")
+            Prelude.<*> (x Core..:? "SourceType")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     ResourceDataSyncSourceWithState
 
-instance Core.NFData ResourceDataSyncSourceWithState
+instance
+  Prelude.NFData
+    ResourceDataSyncSourceWithState

@@ -50,6 +50,7 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,19 +60,19 @@ data SearchSkillGroups = SearchSkillGroups'
     -- pagination of results from this action. If this parameter is specified,
     -- the response includes only results beyond the token, up to the value
     -- specified by @MaxResults@. Required.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The sort order to use in listing the specified set of skill groups. The
     -- supported sort key is SkillGroupName.
-    sortCriteria :: Core.Maybe [Sort],
+    sortCriteria :: Prelude.Maybe [Sort],
     -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The filters to use to list a specified set of skill groups. The
     -- supported filter key is SkillGroupName.
-    filters :: Core.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SearchSkillGroups' with all optional fields omitted.
@@ -99,55 +100,56 @@ newSearchSkillGroups ::
   SearchSkillGroups
 newSearchSkillGroups =
   SearchSkillGroups'
-    { nextToken = Core.Nothing,
-      sortCriteria = Core.Nothing,
-      maxResults = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      sortCriteria = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only results beyond the token, up to the value
 -- specified by @MaxResults@. Required.
-searchSkillGroups_nextToken :: Lens.Lens' SearchSkillGroups (Core.Maybe Core.Text)
+searchSkillGroups_nextToken :: Lens.Lens' SearchSkillGroups (Prelude.Maybe Prelude.Text)
 searchSkillGroups_nextToken = Lens.lens (\SearchSkillGroups' {nextToken} -> nextToken) (\s@SearchSkillGroups' {} a -> s {nextToken = a} :: SearchSkillGroups)
 
 -- | The sort order to use in listing the specified set of skill groups. The
 -- supported sort key is SkillGroupName.
-searchSkillGroups_sortCriteria :: Lens.Lens' SearchSkillGroups (Core.Maybe [Sort])
-searchSkillGroups_sortCriteria = Lens.lens (\SearchSkillGroups' {sortCriteria} -> sortCriteria) (\s@SearchSkillGroups' {} a -> s {sortCriteria = a} :: SearchSkillGroups) Core.. Lens.mapping Lens._Coerce
+searchSkillGroups_sortCriteria :: Lens.Lens' SearchSkillGroups (Prelude.Maybe [Sort])
+searchSkillGroups_sortCriteria = Lens.lens (\SearchSkillGroups' {sortCriteria} -> sortCriteria) (\s@SearchSkillGroups' {} a -> s {sortCriteria = a} :: SearchSkillGroups) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
-searchSkillGroups_maxResults :: Lens.Lens' SearchSkillGroups (Core.Maybe Core.Natural)
+searchSkillGroups_maxResults :: Lens.Lens' SearchSkillGroups (Prelude.Maybe Prelude.Natural)
 searchSkillGroups_maxResults = Lens.lens (\SearchSkillGroups' {maxResults} -> maxResults) (\s@SearchSkillGroups' {} a -> s {maxResults = a} :: SearchSkillGroups)
 
 -- | The filters to use to list a specified set of skill groups. The
 -- supported filter key is SkillGroupName.
-searchSkillGroups_filters :: Lens.Lens' SearchSkillGroups (Core.Maybe [Filter])
-searchSkillGroups_filters = Lens.lens (\SearchSkillGroups' {filters} -> filters) (\s@SearchSkillGroups' {} a -> s {filters = a} :: SearchSkillGroups) Core.. Lens.mapping Lens._Coerce
+searchSkillGroups_filters :: Lens.Lens' SearchSkillGroups (Prelude.Maybe [Filter])
+searchSkillGroups_filters = Lens.lens (\SearchSkillGroups' {filters} -> filters) (\s@SearchSkillGroups' {} a -> s {filters = a} :: SearchSkillGroups) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager SearchSkillGroups where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? searchSkillGroupsResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? searchSkillGroupsResponse_skillGroups
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& searchSkillGroups_nextToken
+          Prelude.& searchSkillGroups_nextToken
           Lens..~ rs
-          Lens.^? searchSkillGroupsResponse_nextToken Core.. Lens._Just
+          Lens.^? searchSkillGroupsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchSkillGroups where
   type
@@ -158,58 +160,60 @@ instance Core.AWSRequest SearchSkillGroups where
     Response.receiveJSON
       ( \s h x ->
           SearchSkillGroupsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "TotalCount")
-            Core.<*> (x Core..?> "SkillGroups" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "TotalCount")
+            Prelude.<*> (x Core..?> "SkillGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SearchSkillGroups
+instance Prelude.Hashable SearchSkillGroups
 
-instance Core.NFData SearchSkillGroups
+instance Prelude.NFData SearchSkillGroups
 
 instance Core.ToHeaders SearchSkillGroups where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.SearchSkillGroups" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON SearchSkillGroups where
   toJSON SearchSkillGroups' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("SortCriteria" Core..=) Core.<$> sortCriteria,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Filters" Core..=) Core.<$> filters
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Filters" Core..=) Prelude.<$> filters
           ]
       )
 
 instance Core.ToPath SearchSkillGroups where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SearchSkillGroups where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchSkillGroupsResponse' smart constructor.
 data SearchSkillGroupsResponse = SearchSkillGroupsResponse'
   { -- | The token returned to indicate that there is more data available.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The total number of skill groups returned.
-    totalCount :: Core.Maybe Core.Int,
+    totalCount :: Prelude.Maybe Prelude.Int,
     -- | The skill groups that meet the filter criteria, in sort order.
-    skillGroups :: Core.Maybe [SkillGroupData],
+    skillGroups :: Prelude.Maybe [SkillGroupData],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SearchSkillGroupsResponse' with all optional fields omitted.
@@ -228,31 +232,31 @@ data SearchSkillGroupsResponse = SearchSkillGroupsResponse'
 -- 'httpStatus', 'searchSkillGroupsResponse_httpStatus' - The response's http status code.
 newSearchSkillGroupsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SearchSkillGroupsResponse
 newSearchSkillGroupsResponse pHttpStatus_ =
   SearchSkillGroupsResponse'
     { nextToken =
-        Core.Nothing,
-      totalCount = Core.Nothing,
-      skillGroups = Core.Nothing,
+        Prelude.Nothing,
+      totalCount = Prelude.Nothing,
+      skillGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token returned to indicate that there is more data available.
-searchSkillGroupsResponse_nextToken :: Lens.Lens' SearchSkillGroupsResponse (Core.Maybe Core.Text)
+searchSkillGroupsResponse_nextToken :: Lens.Lens' SearchSkillGroupsResponse (Prelude.Maybe Prelude.Text)
 searchSkillGroupsResponse_nextToken = Lens.lens (\SearchSkillGroupsResponse' {nextToken} -> nextToken) (\s@SearchSkillGroupsResponse' {} a -> s {nextToken = a} :: SearchSkillGroupsResponse)
 
 -- | The total number of skill groups returned.
-searchSkillGroupsResponse_totalCount :: Lens.Lens' SearchSkillGroupsResponse (Core.Maybe Core.Int)
+searchSkillGroupsResponse_totalCount :: Lens.Lens' SearchSkillGroupsResponse (Prelude.Maybe Prelude.Int)
 searchSkillGroupsResponse_totalCount = Lens.lens (\SearchSkillGroupsResponse' {totalCount} -> totalCount) (\s@SearchSkillGroupsResponse' {} a -> s {totalCount = a} :: SearchSkillGroupsResponse)
 
 -- | The skill groups that meet the filter criteria, in sort order.
-searchSkillGroupsResponse_skillGroups :: Lens.Lens' SearchSkillGroupsResponse (Core.Maybe [SkillGroupData])
-searchSkillGroupsResponse_skillGroups = Lens.lens (\SearchSkillGroupsResponse' {skillGroups} -> skillGroups) (\s@SearchSkillGroupsResponse' {} a -> s {skillGroups = a} :: SearchSkillGroupsResponse) Core.. Lens.mapping Lens._Coerce
+searchSkillGroupsResponse_skillGroups :: Lens.Lens' SearchSkillGroupsResponse (Prelude.Maybe [SkillGroupData])
+searchSkillGroupsResponse_skillGroups = Lens.lens (\SearchSkillGroupsResponse' {skillGroups} -> skillGroups) (\s@SearchSkillGroupsResponse' {} a -> s {skillGroups = a} :: SearchSkillGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-searchSkillGroupsResponse_httpStatus :: Lens.Lens' SearchSkillGroupsResponse Core.Int
+searchSkillGroupsResponse_httpStatus :: Lens.Lens' SearchSkillGroupsResponse Prelude.Int
 searchSkillGroupsResponse_httpStatus = Lens.lens (\SearchSkillGroupsResponse' {httpStatus} -> httpStatus) (\s@SearchSkillGroupsResponse' {} a -> s {httpStatus = a} :: SearchSkillGroupsResponse)
 
-instance Core.NFData SearchSkillGroupsResponse
+instance Prelude.NFData SearchSkillGroupsResponse

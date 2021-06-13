@@ -21,17 +21,18 @@ module Network.AWS.IoTAnalytics.Types.DatastoreActivity where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The datastore activity that specifies where to store the processed data.
 --
 -- /See:/ 'newDatastoreActivity' smart constructor.
 data DatastoreActivity = DatastoreActivity'
   { -- | The name of the datastore activity.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The name of the data store where processed messages are stored.
-    datastoreName :: Core.Text
+    datastoreName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DatastoreActivity' with all optional fields omitted.
@@ -46,9 +47,9 @@ data DatastoreActivity = DatastoreActivity'
 -- 'datastoreName', 'datastoreActivity_datastoreName' - The name of the data store where processed messages are stored.
 newDatastoreActivity ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'datastoreName'
-  Core.Text ->
+  Prelude.Text ->
   DatastoreActivity
 newDatastoreActivity pName_ pDatastoreName_ =
   DatastoreActivity'
@@ -57,11 +58,11 @@ newDatastoreActivity pName_ pDatastoreName_ =
     }
 
 -- | The name of the datastore activity.
-datastoreActivity_name :: Lens.Lens' DatastoreActivity Core.Text
+datastoreActivity_name :: Lens.Lens' DatastoreActivity Prelude.Text
 datastoreActivity_name = Lens.lens (\DatastoreActivity' {name} -> name) (\s@DatastoreActivity' {} a -> s {name = a} :: DatastoreActivity)
 
 -- | The name of the data store where processed messages are stored.
-datastoreActivity_datastoreName :: Lens.Lens' DatastoreActivity Core.Text
+datastoreActivity_datastoreName :: Lens.Lens' DatastoreActivity Prelude.Text
 datastoreActivity_datastoreName = Lens.lens (\DatastoreActivity' {datastoreName} -> datastoreName) (\s@DatastoreActivity' {} a -> s {datastoreName = a} :: DatastoreActivity)
 
 instance Core.FromJSON DatastoreActivity where
@@ -70,19 +71,20 @@ instance Core.FromJSON DatastoreActivity where
       "DatastoreActivity"
       ( \x ->
           DatastoreActivity'
-            Core.<$> (x Core..: "name")
-            Core.<*> (x Core..: "datastoreName")
+            Prelude.<$> (x Core..: "name")
+            Prelude.<*> (x Core..: "datastoreName")
       )
 
-instance Core.Hashable DatastoreActivity
+instance Prelude.Hashable DatastoreActivity
 
-instance Core.NFData DatastoreActivity
+instance Prelude.NFData DatastoreActivity
 
 instance Core.ToJSON DatastoreActivity where
   toJSON DatastoreActivity' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("name" Core..= name),
-            Core.Just ("datastoreName" Core..= datastoreName)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("name" Core..= name),
+            Prelude.Just
+              ("datastoreName" Core..= datastoreName)
           ]
       )

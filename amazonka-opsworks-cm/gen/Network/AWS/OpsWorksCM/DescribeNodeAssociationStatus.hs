@@ -50,6 +50,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +58,11 @@ import qualified Network.AWS.Response as Response
 data DescribeNodeAssociationStatus = DescribeNodeAssociationStatus'
   { -- | The token returned in either the AssociateNodeResponse or the
     -- DisassociateNodeResponse.
-    nodeAssociationStatusToken :: Core.Text,
+    nodeAssociationStatusToken :: Prelude.Text,
     -- | The name of the server from which to disassociate the node.
-    serverName :: Core.Text
+    serverName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeNodeAssociationStatus' with all optional fields omitted.
@@ -77,9 +78,9 @@ data DescribeNodeAssociationStatus = DescribeNodeAssociationStatus'
 -- 'serverName', 'describeNodeAssociationStatus_serverName' - The name of the server from which to disassociate the node.
 newDescribeNodeAssociationStatus ::
   -- | 'nodeAssociationStatusToken'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'serverName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeNodeAssociationStatus
 newDescribeNodeAssociationStatus
   pNodeAssociationStatusToken_
@@ -92,11 +93,11 @@ newDescribeNodeAssociationStatus
 
 -- | The token returned in either the AssociateNodeResponse or the
 -- DisassociateNodeResponse.
-describeNodeAssociationStatus_nodeAssociationStatusToken :: Lens.Lens' DescribeNodeAssociationStatus Core.Text
+describeNodeAssociationStatus_nodeAssociationStatusToken :: Lens.Lens' DescribeNodeAssociationStatus Prelude.Text
 describeNodeAssociationStatus_nodeAssociationStatusToken = Lens.lens (\DescribeNodeAssociationStatus' {nodeAssociationStatusToken} -> nodeAssociationStatusToken) (\s@DescribeNodeAssociationStatus' {} a -> s {nodeAssociationStatusToken = a} :: DescribeNodeAssociationStatus)
 
 -- | The name of the server from which to disassociate the node.
-describeNodeAssociationStatus_serverName :: Lens.Lens' DescribeNodeAssociationStatus Core.Text
+describeNodeAssociationStatus_serverName :: Lens.Lens' DescribeNodeAssociationStatus Prelude.Text
 describeNodeAssociationStatus_serverName = Lens.lens (\DescribeNodeAssociationStatus' {serverName} -> serverName) (\s@DescribeNodeAssociationStatus' {} a -> s {serverName = a} :: DescribeNodeAssociationStatus)
 
 instance
@@ -111,54 +112,60 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeNodeAssociationStatusResponse'
-            Core.<$> (x Core..?> "EngineAttributes" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "NodeAssociationStatus")
+            Prelude.<$> ( x Core..?> "EngineAttributes"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "NodeAssociationStatus")
       )
 
-instance Core.Hashable DescribeNodeAssociationStatus
+instance
+  Prelude.Hashable
+    DescribeNodeAssociationStatus
 
-instance Core.NFData DescribeNodeAssociationStatus
+instance Prelude.NFData DescribeNodeAssociationStatus
 
 instance Core.ToHeaders DescribeNodeAssociationStatus where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorksCM_V2016_11_01.DescribeNodeAssociationStatus" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeNodeAssociationStatus where
   toJSON DescribeNodeAssociationStatus' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "NodeAssociationStatusToken"
                   Core..= nodeAssociationStatusToken
               ),
-            Core.Just ("ServerName" Core..= serverName)
+            Prelude.Just ("ServerName" Core..= serverName)
           ]
       )
 
 instance Core.ToPath DescribeNodeAssociationStatus where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeNodeAssociationStatus where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeNodeAssociationStatusResponse' smart constructor.
 data DescribeNodeAssociationStatusResponse = DescribeNodeAssociationStatusResponse'
   { -- | Attributes specific to the node association. In Puppet, the attibute
     -- PUPPET_NODE_CERT contains the signed certificate (the result of the
     -- CSR).
-    engineAttributes :: Core.Maybe [EngineAttribute],
+    engineAttributes :: Prelude.Maybe [EngineAttribute],
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The status of the association or disassociation request.
     --
     -- __Possible values:__
@@ -171,7 +178,7 @@ data DescribeNodeAssociationStatusResponse = DescribeNodeAssociationStatusRespon
     --     progress.
     nodeAssociationStatus :: NodeAssociationStatus
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeNodeAssociationStatusResponse' with all optional fields omitted.
@@ -199,7 +206,7 @@ data DescribeNodeAssociationStatusResponse = DescribeNodeAssociationStatusRespon
 --     progress.
 newDescribeNodeAssociationStatusResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'nodeAssociationStatus'
   NodeAssociationStatus ->
   DescribeNodeAssociationStatusResponse
@@ -208,7 +215,7 @@ newDescribeNodeAssociationStatusResponse
   pNodeAssociationStatus_ =
     DescribeNodeAssociationStatusResponse'
       { engineAttributes =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_,
         nodeAssociationStatus =
           pNodeAssociationStatus_
@@ -217,11 +224,11 @@ newDescribeNodeAssociationStatusResponse
 -- | Attributes specific to the node association. In Puppet, the attibute
 -- PUPPET_NODE_CERT contains the signed certificate (the result of the
 -- CSR).
-describeNodeAssociationStatusResponse_engineAttributes :: Lens.Lens' DescribeNodeAssociationStatusResponse (Core.Maybe [EngineAttribute])
-describeNodeAssociationStatusResponse_engineAttributes = Lens.lens (\DescribeNodeAssociationStatusResponse' {engineAttributes} -> engineAttributes) (\s@DescribeNodeAssociationStatusResponse' {} a -> s {engineAttributes = a} :: DescribeNodeAssociationStatusResponse) Core.. Lens.mapping Lens._Coerce
+describeNodeAssociationStatusResponse_engineAttributes :: Lens.Lens' DescribeNodeAssociationStatusResponse (Prelude.Maybe [EngineAttribute])
+describeNodeAssociationStatusResponse_engineAttributes = Lens.lens (\DescribeNodeAssociationStatusResponse' {engineAttributes} -> engineAttributes) (\s@DescribeNodeAssociationStatusResponse' {} a -> s {engineAttributes = a} :: DescribeNodeAssociationStatusResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeNodeAssociationStatusResponse_httpStatus :: Lens.Lens' DescribeNodeAssociationStatusResponse Core.Int
+describeNodeAssociationStatusResponse_httpStatus :: Lens.Lens' DescribeNodeAssociationStatusResponse Prelude.Int
 describeNodeAssociationStatusResponse_httpStatus = Lens.lens (\DescribeNodeAssociationStatusResponse' {httpStatus} -> httpStatus) (\s@DescribeNodeAssociationStatusResponse' {} a -> s {httpStatus = a} :: DescribeNodeAssociationStatusResponse)
 
 -- | The status of the association or disassociation request.
@@ -238,5 +245,5 @@ describeNodeAssociationStatusResponse_nodeAssociationStatus :: Lens.Lens' Descri
 describeNodeAssociationStatusResponse_nodeAssociationStatus = Lens.lens (\DescribeNodeAssociationStatusResponse' {nodeAssociationStatus} -> nodeAssociationStatus) (\s@DescribeNodeAssociationStatusResponse' {} a -> s {nodeAssociationStatus = a} :: DescribeNodeAssociationStatusResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeNodeAssociationStatusResponse

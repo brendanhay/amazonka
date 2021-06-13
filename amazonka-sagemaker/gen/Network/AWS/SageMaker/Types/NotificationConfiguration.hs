@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.NotificationConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configures SNS notifications of available or expiring work items for
 -- work teams.
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newNotificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
   { -- | The ARN for the SNS topic to which notifications should be published.
-    notificationTopicArn :: Core.Maybe Core.Text
+    notificationTopicArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NotificationConfiguration' with all optional fields omitted.
@@ -46,11 +47,11 @@ newNotificationConfiguration ::
 newNotificationConfiguration =
   NotificationConfiguration'
     { notificationTopicArn =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The ARN for the SNS topic to which notifications should be published.
-notificationConfiguration_notificationTopicArn :: Lens.Lens' NotificationConfiguration (Core.Maybe Core.Text)
+notificationConfiguration_notificationTopicArn :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
 notificationConfiguration_notificationTopicArn = Lens.lens (\NotificationConfiguration' {notificationTopicArn} -> notificationTopicArn) (\s@NotificationConfiguration' {} a -> s {notificationTopicArn = a} :: NotificationConfiguration)
 
 instance Core.FromJSON NotificationConfiguration where
@@ -59,18 +60,18 @@ instance Core.FromJSON NotificationConfiguration where
       "NotificationConfiguration"
       ( \x ->
           NotificationConfiguration'
-            Core.<$> (x Core..:? "NotificationTopicArn")
+            Prelude.<$> (x Core..:? "NotificationTopicArn")
       )
 
-instance Core.Hashable NotificationConfiguration
+instance Prelude.Hashable NotificationConfiguration
 
-instance Core.NFData NotificationConfiguration
+instance Prelude.NFData NotificationConfiguration
 
 instance Core.ToJSON NotificationConfiguration where
   toJSON NotificationConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("NotificationTopicArn" Core..=)
-              Core.<$> notificationTopicArn
+              Prelude.<$> notificationTopicArn
           ]
       )

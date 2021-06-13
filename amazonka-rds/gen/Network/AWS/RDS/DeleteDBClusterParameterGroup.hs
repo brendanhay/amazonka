@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -61,9 +62,9 @@ data DeleteDBClusterParameterGroup = DeleteDBClusterParameterGroup'
     -- -   You can\'t delete a default DB cluster parameter group.
     --
     -- -   Can\'t be associated with any DB clusters.
-    dbClusterParameterGroupName :: Core.Text
+    dbClusterParameterGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDBClusterParameterGroup' with all optional fields omitted.
@@ -84,7 +85,7 @@ data DeleteDBClusterParameterGroup = DeleteDBClusterParameterGroup'
 -- -   Can\'t be associated with any DB clusters.
 newDeleteDBClusterParameterGroup ::
   -- | 'dbClusterParameterGroupName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteDBClusterParameterGroup
 newDeleteDBClusterParameterGroup
   pDBClusterParameterGroupName_ =
@@ -102,7 +103,7 @@ newDeleteDBClusterParameterGroup
 -- -   You can\'t delete a default DB cluster parameter group.
 --
 -- -   Can\'t be associated with any DB clusters.
-deleteDBClusterParameterGroup_dbClusterParameterGroupName :: Lens.Lens' DeleteDBClusterParameterGroup Core.Text
+deleteDBClusterParameterGroup_dbClusterParameterGroupName :: Lens.Lens' DeleteDBClusterParameterGroup Prelude.Text
 deleteDBClusterParameterGroup_dbClusterParameterGroupName = Lens.lens (\DeleteDBClusterParameterGroup' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@DeleteDBClusterParameterGroup' {} a -> s {dbClusterParameterGroupName = a} :: DeleteDBClusterParameterGroup)
 
 instance
@@ -117,22 +118,27 @@ instance
     Response.receiveNull
       DeleteDBClusterParameterGroupResponse'
 
-instance Core.Hashable DeleteDBClusterParameterGroup
+instance
+  Prelude.Hashable
+    DeleteDBClusterParameterGroup
 
-instance Core.NFData DeleteDBClusterParameterGroup
+instance Prelude.NFData DeleteDBClusterParameterGroup
 
 instance Core.ToHeaders DeleteDBClusterParameterGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteDBClusterParameterGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteDBClusterParameterGroup where
   toQuery DeleteDBClusterParameterGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteDBClusterParameterGroup" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ( "DeleteDBClusterParameterGroup" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBClusterParameterGroupName"
           Core.=: dbClusterParameterGroupName
       ]
@@ -141,7 +147,7 @@ instance Core.ToQuery DeleteDBClusterParameterGroup where
 data DeleteDBClusterParameterGroupResponse = DeleteDBClusterParameterGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteDBClusterParameterGroupResponse' with all optional fields omitted.
@@ -153,5 +159,5 @@ newDeleteDBClusterParameterGroupResponse =
   DeleteDBClusterParameterGroupResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteDBClusterParameterGroupResponse

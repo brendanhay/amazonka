@@ -21,6 +21,7 @@ module Network.AWS.SES.Types.ConfigurationSet where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The name of the configuration set.
 --
@@ -40,9 +41,9 @@ data ConfigurationSet = ConfigurationSet'
     --     dashes (-).
     --
     -- -   Contain 64 characters or fewer.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfigurationSet' with all optional fields omitted.
@@ -61,7 +62,7 @@ data ConfigurationSet = ConfigurationSet'
 -- -   Contain 64 characters or fewer.
 newConfigurationSet ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   ConfigurationSet
 newConfigurationSet pName_ =
   ConfigurationSet' {name = pName_}
@@ -73,17 +74,17 @@ newConfigurationSet pName_ =
 --     dashes (-).
 --
 -- -   Contain 64 characters or fewer.
-configurationSet_name :: Lens.Lens' ConfigurationSet Core.Text
+configurationSet_name :: Lens.Lens' ConfigurationSet Prelude.Text
 configurationSet_name = Lens.lens (\ConfigurationSet' {name} -> name) (\s@ConfigurationSet' {} a -> s {name = a} :: ConfigurationSet)
 
 instance Core.FromXML ConfigurationSet where
   parseXML x =
-    ConfigurationSet' Core.<$> (x Core..@ "Name")
+    ConfigurationSet' Prelude.<$> (x Core..@ "Name")
 
-instance Core.Hashable ConfigurationSet
+instance Prelude.Hashable ConfigurationSet
 
-instance Core.NFData ConfigurationSet
+instance Prelude.NFData ConfigurationSet
 
 instance Core.ToQuery ConfigurationSet where
   toQuery ConfigurationSet' {..} =
-    Core.mconcat ["Name" Core.=: name]
+    Prelude.mconcat ["Name" Core.=: name]

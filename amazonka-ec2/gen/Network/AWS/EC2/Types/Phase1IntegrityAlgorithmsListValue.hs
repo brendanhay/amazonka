@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.Phase1IntegrityAlgorithmsListValue where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The integrity algorithm for phase 1 IKE negotiations.
 --
 -- /See:/ 'newPhase1IntegrityAlgorithmsListValue' smart constructor.
 data Phase1IntegrityAlgorithmsListValue = Phase1IntegrityAlgorithmsListValue'
   { -- | The value for the integrity algorithm.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Phase1IntegrityAlgorithmsListValue' with all optional fields omitted.
@@ -46,11 +47,11 @@ newPhase1IntegrityAlgorithmsListValue ::
 newPhase1IntegrityAlgorithmsListValue =
   Phase1IntegrityAlgorithmsListValue'
     { value =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The value for the integrity algorithm.
-phase1IntegrityAlgorithmsListValue_value :: Lens.Lens' Phase1IntegrityAlgorithmsListValue (Core.Maybe Core.Text)
+phase1IntegrityAlgorithmsListValue_value :: Lens.Lens' Phase1IntegrityAlgorithmsListValue (Prelude.Maybe Prelude.Text)
 phase1IntegrityAlgorithmsListValue_value = Lens.lens (\Phase1IntegrityAlgorithmsListValue' {value} -> value) (\s@Phase1IntegrityAlgorithmsListValue' {} a -> s {value = a} :: Phase1IntegrityAlgorithmsListValue)
 
 instance
@@ -59,12 +60,12 @@ instance
   where
   parseXML x =
     Phase1IntegrityAlgorithmsListValue'
-      Core.<$> (x Core..@? "value")
+      Prelude.<$> (x Core..@? "value")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     Phase1IntegrityAlgorithmsListValue
 
 instance
-  Core.NFData
+  Prelude.NFData
     Phase1IntegrityAlgorithmsListValue

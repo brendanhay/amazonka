@@ -21,17 +21,18 @@ module Network.AWS.SSM.Types.SessionManagerOutputUrl where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Reserved for future use.
 --
 -- /See:/ 'newSessionManagerOutputUrl' smart constructor.
 data SessionManagerOutputUrl = SessionManagerOutputUrl'
   { -- | Reserved for future use.
-    s3OutputUrl :: Core.Maybe Core.Text,
+    s3OutputUrl :: Prelude.Maybe Prelude.Text,
     -- | Reserved for future use.
-    cloudWatchOutputUrl :: Core.Maybe Core.Text
+    cloudWatchOutputUrl :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SessionManagerOutputUrl' with all optional fields omitted.
@@ -49,16 +50,16 @@ newSessionManagerOutputUrl ::
 newSessionManagerOutputUrl =
   SessionManagerOutputUrl'
     { s3OutputUrl =
-        Core.Nothing,
-      cloudWatchOutputUrl = Core.Nothing
+        Prelude.Nothing,
+      cloudWatchOutputUrl = Prelude.Nothing
     }
 
 -- | Reserved for future use.
-sessionManagerOutputUrl_s3OutputUrl :: Lens.Lens' SessionManagerOutputUrl (Core.Maybe Core.Text)
+sessionManagerOutputUrl_s3OutputUrl :: Lens.Lens' SessionManagerOutputUrl (Prelude.Maybe Prelude.Text)
 sessionManagerOutputUrl_s3OutputUrl = Lens.lens (\SessionManagerOutputUrl' {s3OutputUrl} -> s3OutputUrl) (\s@SessionManagerOutputUrl' {} a -> s {s3OutputUrl = a} :: SessionManagerOutputUrl)
 
 -- | Reserved for future use.
-sessionManagerOutputUrl_cloudWatchOutputUrl :: Lens.Lens' SessionManagerOutputUrl (Core.Maybe Core.Text)
+sessionManagerOutputUrl_cloudWatchOutputUrl :: Lens.Lens' SessionManagerOutputUrl (Prelude.Maybe Prelude.Text)
 sessionManagerOutputUrl_cloudWatchOutputUrl = Lens.lens (\SessionManagerOutputUrl' {cloudWatchOutputUrl} -> cloudWatchOutputUrl) (\s@SessionManagerOutputUrl' {} a -> s {cloudWatchOutputUrl = a} :: SessionManagerOutputUrl)
 
 instance Core.FromJSON SessionManagerOutputUrl where
@@ -67,10 +68,10 @@ instance Core.FromJSON SessionManagerOutputUrl where
       "SessionManagerOutputUrl"
       ( \x ->
           SessionManagerOutputUrl'
-            Core.<$> (x Core..:? "S3OutputUrl")
-            Core.<*> (x Core..:? "CloudWatchOutputUrl")
+            Prelude.<$> (x Core..:? "S3OutputUrl")
+            Prelude.<*> (x Core..:? "CloudWatchOutputUrl")
       )
 
-instance Core.Hashable SessionManagerOutputUrl
+instance Prelude.Hashable SessionManagerOutputUrl
 
-instance Core.NFData SessionManagerOutputUrl
+instance Prelude.NFData SessionManagerOutputUrl

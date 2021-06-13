@@ -21,15 +21,16 @@ module Network.AWS.AppSync.Types.PipelineConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The pipeline configuration for a resolver of kind @PIPELINE@.
 --
 -- /See:/ 'newPipelineConfig' smart constructor.
 data PipelineConfig = PipelineConfig'
   { -- | A list of @Function@ objects.
-    functions :: Core.Maybe [Core.Text]
+    functions :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PipelineConfig' with all optional fields omitted.
@@ -43,11 +44,11 @@ data PipelineConfig = PipelineConfig'
 newPipelineConfig ::
   PipelineConfig
 newPipelineConfig =
-  PipelineConfig' {functions = Core.Nothing}
+  PipelineConfig' {functions = Prelude.Nothing}
 
 -- | A list of @Function@ objects.
-pipelineConfig_functions :: Lens.Lens' PipelineConfig (Core.Maybe [Core.Text])
-pipelineConfig_functions = Lens.lens (\PipelineConfig' {functions} -> functions) (\s@PipelineConfig' {} a -> s {functions = a} :: PipelineConfig) Core.. Lens.mapping Lens._Coerce
+pipelineConfig_functions :: Lens.Lens' PipelineConfig (Prelude.Maybe [Prelude.Text])
+pipelineConfig_functions = Lens.lens (\PipelineConfig' {functions} -> functions) (\s@PipelineConfig' {} a -> s {functions = a} :: PipelineConfig) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON PipelineConfig where
   parseJSON =
@@ -55,16 +56,16 @@ instance Core.FromJSON PipelineConfig where
       "PipelineConfig"
       ( \x ->
           PipelineConfig'
-            Core.<$> (x Core..:? "functions" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "functions" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable PipelineConfig
+instance Prelude.Hashable PipelineConfig
 
-instance Core.NFData PipelineConfig
+instance Prelude.NFData PipelineConfig
 
 instance Core.ToJSON PipelineConfig where
   toJSON PipelineConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [("functions" Core..=) Core.<$> functions]
+      ( Prelude.catMaybes
+          [("functions" Core..=) Prelude.<$> functions]
       )

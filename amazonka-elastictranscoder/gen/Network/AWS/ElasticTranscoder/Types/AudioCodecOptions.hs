@@ -21,6 +21,7 @@ module Network.AWS.ElasticTranscoder.Types.AudioCodecOptions where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Options associated with your audio codec.
 --
@@ -36,7 +37,7 @@ data AudioCodecOptions = AudioCodecOptions'
     -- Valid values are @16@ and @24@.
     --
     -- The most common bit depth is @24@.
-    bitDepth :: Core.Maybe Core.Text,
+    bitDepth :: Prelude.Maybe Prelude.Text,
     -- | You can only choose whether an audio sample is signed when you specify
     -- @pcm@ for the value of Audio:Codec.
     --
@@ -44,14 +45,14 @@ data AudioCodecOptions = AudioCodecOptions'
     -- (signed) or only positive numbers (unsigned).
     --
     -- The supported value is @Signed@.
-    signed :: Core.Maybe Core.Text,
+    signed :: Prelude.Maybe Prelude.Text,
     -- | You can only choose an audio bit order when you specify @pcm@ for the
     -- value of Audio:Codec.
     --
     -- The order the bits of a PCM sample are stored in.
     --
     -- The supported value is @LittleEndian@.
-    bitOrder :: Core.Maybe Core.Text,
+    bitOrder :: Prelude.Maybe Prelude.Text,
     -- | You can only choose an audio profile when you specify AAC for the value
     -- of Audio:Codec.
     --
@@ -76,9 +77,9 @@ data AudioCodecOptions = AudioCodecOptions'
     -- If you created any presets before AAC profiles were added, Elastic
     -- Transcoder automatically updated your presets to use AAC-LC. You can
     -- change the value as required.
-    profile :: Core.Maybe Core.Text
+    profile :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AudioCodecOptions' with all optional fields omitted.
@@ -142,10 +143,10 @@ newAudioCodecOptions ::
   AudioCodecOptions
 newAudioCodecOptions =
   AudioCodecOptions'
-    { bitDepth = Core.Nothing,
-      signed = Core.Nothing,
-      bitOrder = Core.Nothing,
-      profile = Core.Nothing
+    { bitDepth = Prelude.Nothing,
+      signed = Prelude.Nothing,
+      bitOrder = Prelude.Nothing,
+      profile = Prelude.Nothing
     }
 
 -- | You can only choose an audio bit depth when you specify @flac@ or @pcm@
@@ -158,7 +159,7 @@ newAudioCodecOptions =
 -- Valid values are @16@ and @24@.
 --
 -- The most common bit depth is @24@.
-audioCodecOptions_bitDepth :: Lens.Lens' AudioCodecOptions (Core.Maybe Core.Text)
+audioCodecOptions_bitDepth :: Lens.Lens' AudioCodecOptions (Prelude.Maybe Prelude.Text)
 audioCodecOptions_bitDepth = Lens.lens (\AudioCodecOptions' {bitDepth} -> bitDepth) (\s@AudioCodecOptions' {} a -> s {bitDepth = a} :: AudioCodecOptions)
 
 -- | You can only choose whether an audio sample is signed when you specify
@@ -168,7 +169,7 @@ audioCodecOptions_bitDepth = Lens.lens (\AudioCodecOptions' {bitDepth} -> bitDep
 -- (signed) or only positive numbers (unsigned).
 --
 -- The supported value is @Signed@.
-audioCodecOptions_signed :: Lens.Lens' AudioCodecOptions (Core.Maybe Core.Text)
+audioCodecOptions_signed :: Lens.Lens' AudioCodecOptions (Prelude.Maybe Prelude.Text)
 audioCodecOptions_signed = Lens.lens (\AudioCodecOptions' {signed} -> signed) (\s@AudioCodecOptions' {} a -> s {signed = a} :: AudioCodecOptions)
 
 -- | You can only choose an audio bit order when you specify @pcm@ for the
@@ -177,7 +178,7 @@ audioCodecOptions_signed = Lens.lens (\AudioCodecOptions' {signed} -> signed) (\
 -- The order the bits of a PCM sample are stored in.
 --
 -- The supported value is @LittleEndian@.
-audioCodecOptions_bitOrder :: Lens.Lens' AudioCodecOptions (Core.Maybe Core.Text)
+audioCodecOptions_bitOrder :: Lens.Lens' AudioCodecOptions (Prelude.Maybe Prelude.Text)
 audioCodecOptions_bitOrder = Lens.lens (\AudioCodecOptions' {bitOrder} -> bitOrder) (\s@AudioCodecOptions' {} a -> s {bitOrder = a} :: AudioCodecOptions)
 
 -- | You can only choose an audio profile when you specify AAC for the value
@@ -204,7 +205,7 @@ audioCodecOptions_bitOrder = Lens.lens (\AudioCodecOptions' {bitOrder} -> bitOrd
 -- If you created any presets before AAC profiles were added, Elastic
 -- Transcoder automatically updated your presets to use AAC-LC. You can
 -- change the value as required.
-audioCodecOptions_profile :: Lens.Lens' AudioCodecOptions (Core.Maybe Core.Text)
+audioCodecOptions_profile :: Lens.Lens' AudioCodecOptions (Prelude.Maybe Prelude.Text)
 audioCodecOptions_profile = Lens.lens (\AudioCodecOptions' {profile} -> profile) (\s@AudioCodecOptions' {} a -> s {profile = a} :: AudioCodecOptions)
 
 instance Core.FromJSON AudioCodecOptions where
@@ -213,23 +214,23 @@ instance Core.FromJSON AudioCodecOptions where
       "AudioCodecOptions"
       ( \x ->
           AudioCodecOptions'
-            Core.<$> (x Core..:? "BitDepth")
-            Core.<*> (x Core..:? "Signed")
-            Core.<*> (x Core..:? "BitOrder")
-            Core.<*> (x Core..:? "Profile")
+            Prelude.<$> (x Core..:? "BitDepth")
+            Prelude.<*> (x Core..:? "Signed")
+            Prelude.<*> (x Core..:? "BitOrder")
+            Prelude.<*> (x Core..:? "Profile")
       )
 
-instance Core.Hashable AudioCodecOptions
+instance Prelude.Hashable AudioCodecOptions
 
-instance Core.NFData AudioCodecOptions
+instance Prelude.NFData AudioCodecOptions
 
 instance Core.ToJSON AudioCodecOptions where
   toJSON AudioCodecOptions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("BitDepth" Core..=) Core.<$> bitDepth,
-            ("Signed" Core..=) Core.<$> signed,
-            ("BitOrder" Core..=) Core.<$> bitOrder,
-            ("Profile" Core..=) Core.<$> profile
+      ( Prelude.catMaybes
+          [ ("BitDepth" Core..=) Prelude.<$> bitDepth,
+            ("Signed" Core..=) Prelude.<$> signed,
+            ("BitOrder" Core..=) Prelude.<$> bitOrder,
+            ("Profile" Core..=) Prelude.<$> profile
           ]
       )

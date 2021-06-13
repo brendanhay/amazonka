@@ -22,15 +22,16 @@ module Network.AWS.EC2.Types.AssignedPrivateIpAddress where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the private IP addresses assigned to a network interface.
 --
 -- /See:/ 'newAssignedPrivateIpAddress' smart constructor.
 data AssignedPrivateIpAddress = AssignedPrivateIpAddress'
   { -- | The private IP address assigned to the network interface.
-    privateIpAddress :: Core.Maybe Core.Text
+    privateIpAddress :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AssignedPrivateIpAddress' with all optional fields omitted.
@@ -46,18 +47,18 @@ newAssignedPrivateIpAddress ::
 newAssignedPrivateIpAddress =
   AssignedPrivateIpAddress'
     { privateIpAddress =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The private IP address assigned to the network interface.
-assignedPrivateIpAddress_privateIpAddress :: Lens.Lens' AssignedPrivateIpAddress (Core.Maybe Core.Text)
+assignedPrivateIpAddress_privateIpAddress :: Lens.Lens' AssignedPrivateIpAddress (Prelude.Maybe Prelude.Text)
 assignedPrivateIpAddress_privateIpAddress = Lens.lens (\AssignedPrivateIpAddress' {privateIpAddress} -> privateIpAddress) (\s@AssignedPrivateIpAddress' {} a -> s {privateIpAddress = a} :: AssignedPrivateIpAddress)
 
 instance Core.FromXML AssignedPrivateIpAddress where
   parseXML x =
     AssignedPrivateIpAddress'
-      Core.<$> (x Core..@? "privateIpAddress")
+      Prelude.<$> (x Core..@? "privateIpAddress")
 
-instance Core.Hashable AssignedPrivateIpAddress
+instance Prelude.Hashable AssignedPrivateIpAddress
 
-instance Core.NFData AssignedPrivateIpAddress
+instance Prelude.NFData AssignedPrivateIpAddress

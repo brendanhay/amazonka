@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +56,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetUpgradeHistory' smart constructor.
 data GetUpgradeHistory = GetUpgradeHistory'
-  { nextToken :: Core.Maybe Core.Text,
-    maxResults :: Core.Maybe Core.Int,
-    domainName :: Core.Text
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    maxResults :: Prelude.Maybe Prelude.Int,
+    domainName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetUpgradeHistory' with all optional fields omitted.
@@ -76,25 +77,25 @@ data GetUpgradeHistory = GetUpgradeHistory'
 -- 'domainName', 'getUpgradeHistory_domainName' - Undocumented member.
 newGetUpgradeHistory ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   GetUpgradeHistory
 newGetUpgradeHistory pDomainName_ =
   GetUpgradeHistory'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       domainName = pDomainName_
     }
 
 -- | Undocumented member.
-getUpgradeHistory_nextToken :: Lens.Lens' GetUpgradeHistory (Core.Maybe Core.Text)
+getUpgradeHistory_nextToken :: Lens.Lens' GetUpgradeHistory (Prelude.Maybe Prelude.Text)
 getUpgradeHistory_nextToken = Lens.lens (\GetUpgradeHistory' {nextToken} -> nextToken) (\s@GetUpgradeHistory' {} a -> s {nextToken = a} :: GetUpgradeHistory)
 
 -- | Undocumented member.
-getUpgradeHistory_maxResults :: Lens.Lens' GetUpgradeHistory (Core.Maybe Core.Int)
+getUpgradeHistory_maxResults :: Lens.Lens' GetUpgradeHistory (Prelude.Maybe Prelude.Int)
 getUpgradeHistory_maxResults = Lens.lens (\GetUpgradeHistory' {maxResults} -> maxResults) (\s@GetUpgradeHistory' {} a -> s {maxResults = a} :: GetUpgradeHistory)
 
 -- | Undocumented member.
-getUpgradeHistory_domainName :: Lens.Lens' GetUpgradeHistory Core.Text
+getUpgradeHistory_domainName :: Lens.Lens' GetUpgradeHistory Prelude.Text
 getUpgradeHistory_domainName = Lens.lens (\GetUpgradeHistory' {domainName} -> domainName) (\s@GetUpgradeHistory' {} a -> s {domainName = a} :: GetUpgradeHistory)
 
 instance Core.AWSPager GetUpgradeHistory where
@@ -102,21 +103,22 @@ instance Core.AWSPager GetUpgradeHistory where
     | Core.stop
         ( rs
             Lens.^? getUpgradeHistoryResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getUpgradeHistoryResponse_upgradeHistories
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getUpgradeHistory_nextToken
+          Prelude.& getUpgradeHistory_nextToken
           Lens..~ rs
-          Lens.^? getUpgradeHistoryResponse_nextToken Core.. Lens._Just
+          Lens.^? getUpgradeHistoryResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetUpgradeHistory where
   type
@@ -127,21 +129,23 @@ instance Core.AWSRequest GetUpgradeHistory where
     Response.receiveJSON
       ( \s h x ->
           GetUpgradeHistoryResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "UpgradeHistories" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "UpgradeHistories"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetUpgradeHistory
+instance Prelude.Hashable GetUpgradeHistory
 
-instance Core.NFData GetUpgradeHistory
+instance Prelude.NFData GetUpgradeHistory
 
 instance Core.ToHeaders GetUpgradeHistory where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetUpgradeHistory where
   toPath GetUpgradeHistory' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2015-01-01/es/upgradeDomain/",
         Core.toBS domainName,
         "/history"
@@ -149,7 +153,7 @@ instance Core.ToPath GetUpgradeHistory where
 
 instance Core.ToQuery GetUpgradeHistory where
   toQuery GetUpgradeHistory' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
@@ -160,15 +164,15 @@ instance Core.ToQuery GetUpgradeHistory where
 data GetUpgradeHistoryResponse = GetUpgradeHistoryResponse'
   { -- | Pagination token that needs to be supplied to the next call to get the
     -- next page of results
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of @ UpgradeHistory @ objects corresponding to each Upgrade or
     -- Upgrade Eligibility Check performed on a domain returned as part of
     -- @ GetUpgradeHistoryResponse @ object.
-    upgradeHistories :: Core.Maybe [UpgradeHistory],
+    upgradeHistories :: Prelude.Maybe [UpgradeHistory],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetUpgradeHistoryResponse' with all optional fields omitted.
@@ -188,29 +192,29 @@ data GetUpgradeHistoryResponse = GetUpgradeHistoryResponse'
 -- 'httpStatus', 'getUpgradeHistoryResponse_httpStatus' - The response's http status code.
 newGetUpgradeHistoryResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetUpgradeHistoryResponse
 newGetUpgradeHistoryResponse pHttpStatus_ =
   GetUpgradeHistoryResponse'
     { nextToken =
-        Core.Nothing,
-      upgradeHistories = Core.Nothing,
+        Prelude.Nothing,
+      upgradeHistories = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Pagination token that needs to be supplied to the next call to get the
 -- next page of results
-getUpgradeHistoryResponse_nextToken :: Lens.Lens' GetUpgradeHistoryResponse (Core.Maybe Core.Text)
+getUpgradeHistoryResponse_nextToken :: Lens.Lens' GetUpgradeHistoryResponse (Prelude.Maybe Prelude.Text)
 getUpgradeHistoryResponse_nextToken = Lens.lens (\GetUpgradeHistoryResponse' {nextToken} -> nextToken) (\s@GetUpgradeHistoryResponse' {} a -> s {nextToken = a} :: GetUpgradeHistoryResponse)
 
 -- | A list of @ UpgradeHistory @ objects corresponding to each Upgrade or
 -- Upgrade Eligibility Check performed on a domain returned as part of
 -- @ GetUpgradeHistoryResponse @ object.
-getUpgradeHistoryResponse_upgradeHistories :: Lens.Lens' GetUpgradeHistoryResponse (Core.Maybe [UpgradeHistory])
-getUpgradeHistoryResponse_upgradeHistories = Lens.lens (\GetUpgradeHistoryResponse' {upgradeHistories} -> upgradeHistories) (\s@GetUpgradeHistoryResponse' {} a -> s {upgradeHistories = a} :: GetUpgradeHistoryResponse) Core.. Lens.mapping Lens._Coerce
+getUpgradeHistoryResponse_upgradeHistories :: Lens.Lens' GetUpgradeHistoryResponse (Prelude.Maybe [UpgradeHistory])
+getUpgradeHistoryResponse_upgradeHistories = Lens.lens (\GetUpgradeHistoryResponse' {upgradeHistories} -> upgradeHistories) (\s@GetUpgradeHistoryResponse' {} a -> s {upgradeHistories = a} :: GetUpgradeHistoryResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getUpgradeHistoryResponse_httpStatus :: Lens.Lens' GetUpgradeHistoryResponse Core.Int
+getUpgradeHistoryResponse_httpStatus :: Lens.Lens' GetUpgradeHistoryResponse Prelude.Int
 getUpgradeHistoryResponse_httpStatus = Lens.lens (\GetUpgradeHistoryResponse' {httpStatus} -> httpStatus) (\s@GetUpgradeHistoryResponse' {} a -> s {httpStatus = a} :: GetUpgradeHistoryResponse)
 
-instance Core.NFData GetUpgradeHistoryResponse
+instance Prelude.NFData GetUpgradeHistoryResponse

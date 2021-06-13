@@ -53,6 +53,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,11 +61,11 @@ import qualified Network.AWS.Response as Response
 data DeleteFargateProfile = DeleteFargateProfile'
   { -- | The name of the Amazon EKS cluster associated with the Fargate profile
     -- to delete.
-    clusterName :: Core.Text,
+    clusterName :: Prelude.Text,
     -- | The name of the Fargate profile to delete.
-    fargateProfileName :: Core.Text
+    fargateProfileName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFargateProfile' with all optional fields omitted.
@@ -80,9 +81,9 @@ data DeleteFargateProfile = DeleteFargateProfile'
 -- 'fargateProfileName', 'deleteFargateProfile_fargateProfileName' - The name of the Fargate profile to delete.
 newDeleteFargateProfile ::
   -- | 'clusterName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'fargateProfileName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteFargateProfile
 newDeleteFargateProfile
   pClusterName_
@@ -94,11 +95,11 @@ newDeleteFargateProfile
 
 -- | The name of the Amazon EKS cluster associated with the Fargate profile
 -- to delete.
-deleteFargateProfile_clusterName :: Lens.Lens' DeleteFargateProfile Core.Text
+deleteFargateProfile_clusterName :: Lens.Lens' DeleteFargateProfile Prelude.Text
 deleteFargateProfile_clusterName = Lens.lens (\DeleteFargateProfile' {clusterName} -> clusterName) (\s@DeleteFargateProfile' {} a -> s {clusterName = a} :: DeleteFargateProfile)
 
 -- | The name of the Fargate profile to delete.
-deleteFargateProfile_fargateProfileName :: Lens.Lens' DeleteFargateProfile Core.Text
+deleteFargateProfile_fargateProfileName :: Lens.Lens' DeleteFargateProfile Prelude.Text
 deleteFargateProfile_fargateProfileName = Lens.lens (\DeleteFargateProfile' {fargateProfileName} -> fargateProfileName) (\s@DeleteFargateProfile' {} a -> s {fargateProfileName = a} :: DeleteFargateProfile)
 
 instance Core.AWSRequest DeleteFargateProfile where
@@ -110,26 +111,28 @@ instance Core.AWSRequest DeleteFargateProfile where
     Response.receiveJSON
       ( \s h x ->
           DeleteFargateProfileResponse'
-            Core.<$> (x Core..?> "fargateProfile")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "fargateProfile")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteFargateProfile
+instance Prelude.Hashable DeleteFargateProfile
 
-instance Core.NFData DeleteFargateProfile
+instance Prelude.NFData DeleteFargateProfile
 
 instance Core.ToHeaders DeleteFargateProfile where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DeleteFargateProfile where
   toPath DeleteFargateProfile' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/clusters/",
         Core.toBS clusterName,
         "/fargate-profiles/",
@@ -137,16 +140,16 @@ instance Core.ToPath DeleteFargateProfile where
       ]
 
 instance Core.ToQuery DeleteFargateProfile where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFargateProfileResponse' smart constructor.
 data DeleteFargateProfileResponse = DeleteFargateProfileResponse'
   { -- | The deleted Fargate profile.
-    fargateProfile :: Core.Maybe FargateProfile,
+    fargateProfile :: Prelude.Maybe FargateProfile,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteFargateProfileResponse' with all optional fields omitted.
@@ -161,21 +164,21 @@ data DeleteFargateProfileResponse = DeleteFargateProfileResponse'
 -- 'httpStatus', 'deleteFargateProfileResponse_httpStatus' - The response's http status code.
 newDeleteFargateProfileResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteFargateProfileResponse
 newDeleteFargateProfileResponse pHttpStatus_ =
   DeleteFargateProfileResponse'
     { fargateProfile =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The deleted Fargate profile.
-deleteFargateProfileResponse_fargateProfile :: Lens.Lens' DeleteFargateProfileResponse (Core.Maybe FargateProfile)
+deleteFargateProfileResponse_fargateProfile :: Lens.Lens' DeleteFargateProfileResponse (Prelude.Maybe FargateProfile)
 deleteFargateProfileResponse_fargateProfile = Lens.lens (\DeleteFargateProfileResponse' {fargateProfile} -> fargateProfile) (\s@DeleteFargateProfileResponse' {} a -> s {fargateProfile = a} :: DeleteFargateProfileResponse)
 
 -- | The response's http status code.
-deleteFargateProfileResponse_httpStatus :: Lens.Lens' DeleteFargateProfileResponse Core.Int
+deleteFargateProfileResponse_httpStatus :: Lens.Lens' DeleteFargateProfileResponse Prelude.Int
 deleteFargateProfileResponse_httpStatus = Lens.lens (\DeleteFargateProfileResponse' {httpStatus} -> httpStatus) (\s@DeleteFargateProfileResponse' {} a -> s {httpStatus = a} :: DeleteFargateProfileResponse)
 
-instance Core.NFData DeleteFargateProfileResponse
+instance Prelude.NFData DeleteFargateProfileResponse

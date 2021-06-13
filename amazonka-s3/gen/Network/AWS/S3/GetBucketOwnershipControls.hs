@@ -54,6 +54,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -63,12 +64,12 @@ data GetBucketOwnershipControls = GetBucketOwnershipControls'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket whose @OwnershipControls@ you want to
     -- retrieve.
     bucket :: BucketName
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBucketOwnershipControls' with all optional fields omitted.
@@ -91,14 +92,14 @@ newGetBucketOwnershipControls ::
 newGetBucketOwnershipControls pBucket_ =
   GetBucketOwnershipControls'
     { expectedBucketOwner =
-        Core.Nothing,
+        Prelude.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getBucketOwnershipControls_expectedBucketOwner :: Lens.Lens' GetBucketOwnershipControls (Core.Maybe Core.Text)
+getBucketOwnershipControls_expectedBucketOwner :: Lens.Lens' GetBucketOwnershipControls (Prelude.Maybe Prelude.Text)
 getBucketOwnershipControls_expectedBucketOwner = Lens.lens (\GetBucketOwnershipControls' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketOwnershipControls' {} a -> s {expectedBucketOwner = a} :: GetBucketOwnershipControls)
 
 -- | The name of the Amazon S3 bucket whose @OwnershipControls@ you want to
@@ -115,38 +116,39 @@ instance Core.AWSRequest GetBucketOwnershipControls where
     Response.receiveXML
       ( \s h x ->
           GetBucketOwnershipControlsResponse'
-            Core.<$> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetBucketOwnershipControls
+instance Prelude.Hashable GetBucketOwnershipControls
 
-instance Core.NFData GetBucketOwnershipControls
+instance Prelude.NFData GetBucketOwnershipControls
 
 instance Core.ToHeaders GetBucketOwnershipControls where
   toHeaders GetBucketOwnershipControls' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath GetBucketOwnershipControls where
   toPath GetBucketOwnershipControls' {..} =
-    Core.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Core.toBS bucket]
 
 instance Core.ToQuery GetBucketOwnershipControls where
   toQuery =
-    Core.const (Core.mconcat ["ownershipControls"])
+    Prelude.const
+      (Prelude.mconcat ["ownershipControls"])
 
 -- | /See:/ 'newGetBucketOwnershipControlsResponse' smart constructor.
 data GetBucketOwnershipControlsResponse = GetBucketOwnershipControlsResponse'
   { -- | The @OwnershipControls@ (BucketOwnerPreferred or ObjectWriter) currently
     -- in effect for this Amazon S3 bucket.
-    ownershipControls :: Core.Maybe OwnershipControls,
+    ownershipControls :: Prelude.Maybe OwnershipControls,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetBucketOwnershipControlsResponse' with all optional fields omitted.
@@ -162,24 +164,24 @@ data GetBucketOwnershipControlsResponse = GetBucketOwnershipControlsResponse'
 -- 'httpStatus', 'getBucketOwnershipControlsResponse_httpStatus' - The response's http status code.
 newGetBucketOwnershipControlsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetBucketOwnershipControlsResponse
 newGetBucketOwnershipControlsResponse pHttpStatus_ =
   GetBucketOwnershipControlsResponse'
     { ownershipControls =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @OwnershipControls@ (BucketOwnerPreferred or ObjectWriter) currently
 -- in effect for this Amazon S3 bucket.
-getBucketOwnershipControlsResponse_ownershipControls :: Lens.Lens' GetBucketOwnershipControlsResponse (Core.Maybe OwnershipControls)
+getBucketOwnershipControlsResponse_ownershipControls :: Lens.Lens' GetBucketOwnershipControlsResponse (Prelude.Maybe OwnershipControls)
 getBucketOwnershipControlsResponse_ownershipControls = Lens.lens (\GetBucketOwnershipControlsResponse' {ownershipControls} -> ownershipControls) (\s@GetBucketOwnershipControlsResponse' {} a -> s {ownershipControls = a} :: GetBucketOwnershipControlsResponse)
 
 -- | The response's http status code.
-getBucketOwnershipControlsResponse_httpStatus :: Lens.Lens' GetBucketOwnershipControlsResponse Core.Int
+getBucketOwnershipControlsResponse_httpStatus :: Lens.Lens' GetBucketOwnershipControlsResponse Prelude.Int
 getBucketOwnershipControlsResponse_httpStatus = Lens.lens (\GetBucketOwnershipControlsResponse' {httpStatus} -> httpStatus) (\s@GetBucketOwnershipControlsResponse' {} a -> s {httpStatus = a} :: GetBucketOwnershipControlsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     GetBucketOwnershipControlsResponse

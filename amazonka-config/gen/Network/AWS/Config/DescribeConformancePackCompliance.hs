@@ -49,6 +49,7 @@ where
 import Network.AWS.Config.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,16 +57,16 @@ import qualified Network.AWS.Response as Response
 data DescribeConformancePackCompliance = DescribeConformancePackCompliance'
   { -- | The @nextToken@ string returned in a previous request that you use to
     -- request the next page of results in a paginated response.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A @ConformancePackComplianceFilters@ object.
-    filters :: Core.Maybe ConformancePackComplianceFilters,
+    filters :: Prelude.Maybe ConformancePackComplianceFilters,
     -- | The maximum number of AWS Config rules within a conformance pack are
     -- returned on each page.
-    limit :: Core.Maybe Core.Natural,
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | Name of the conformance pack.
-    conformancePackName :: Core.Text
+    conformancePackName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeConformancePackCompliance' with all optional fields omitted.
@@ -86,35 +87,35 @@ data DescribeConformancePackCompliance = DescribeConformancePackCompliance'
 -- 'conformancePackName', 'describeConformancePackCompliance_conformancePackName' - Name of the conformance pack.
 newDescribeConformancePackCompliance ::
   -- | 'conformancePackName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeConformancePackCompliance
 newDescribeConformancePackCompliance
   pConformancePackName_ =
     DescribeConformancePackCompliance'
       { nextToken =
-          Core.Nothing,
-        filters = Core.Nothing,
-        limit = Core.Nothing,
+          Prelude.Nothing,
+        filters = Prelude.Nothing,
+        limit = Prelude.Nothing,
         conformancePackName =
           pConformancePackName_
       }
 
 -- | The @nextToken@ string returned in a previous request that you use to
 -- request the next page of results in a paginated response.
-describeConformancePackCompliance_nextToken :: Lens.Lens' DescribeConformancePackCompliance (Core.Maybe Core.Text)
+describeConformancePackCompliance_nextToken :: Lens.Lens' DescribeConformancePackCompliance (Prelude.Maybe Prelude.Text)
 describeConformancePackCompliance_nextToken = Lens.lens (\DescribeConformancePackCompliance' {nextToken} -> nextToken) (\s@DescribeConformancePackCompliance' {} a -> s {nextToken = a} :: DescribeConformancePackCompliance)
 
 -- | A @ConformancePackComplianceFilters@ object.
-describeConformancePackCompliance_filters :: Lens.Lens' DescribeConformancePackCompliance (Core.Maybe ConformancePackComplianceFilters)
+describeConformancePackCompliance_filters :: Lens.Lens' DescribeConformancePackCompliance (Prelude.Maybe ConformancePackComplianceFilters)
 describeConformancePackCompliance_filters = Lens.lens (\DescribeConformancePackCompliance' {filters} -> filters) (\s@DescribeConformancePackCompliance' {} a -> s {filters = a} :: DescribeConformancePackCompliance)
 
 -- | The maximum number of AWS Config rules within a conformance pack are
 -- returned on each page.
-describeConformancePackCompliance_limit :: Lens.Lens' DescribeConformancePackCompliance (Core.Maybe Core.Natural)
+describeConformancePackCompliance_limit :: Lens.Lens' DescribeConformancePackCompliance (Prelude.Maybe Prelude.Natural)
 describeConformancePackCompliance_limit = Lens.lens (\DescribeConformancePackCompliance' {limit} -> limit) (\s@DescribeConformancePackCompliance' {} a -> s {limit = a} :: DescribeConformancePackCompliance)
 
 -- | Name of the conformance pack.
-describeConformancePackCompliance_conformancePackName :: Lens.Lens' DescribeConformancePackCompliance Core.Text
+describeConformancePackCompliance_conformancePackName :: Lens.Lens' DescribeConformancePackCompliance Prelude.Text
 describeConformancePackCompliance_conformancePackName = Lens.lens (\DescribeConformancePackCompliance' {conformancePackName} -> conformancePackName) (\s@DescribeConformancePackCompliance' {} a -> s {conformancePackName = a} :: DescribeConformancePackCompliance)
 
 instance
@@ -129,20 +130,20 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConformancePackComplianceResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "ConformancePackName")
-            Core.<*> ( x Core..?> "ConformancePackRuleComplianceList"
-                         Core..!@ Core.mempty
-                     )
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> (x Core..:> "ConformancePackName")
+              Prelude.<*> ( x Core..?> "ConformancePackRuleComplianceList"
+                              Core..!@ Prelude.mempty
+                          )
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeConformancePackCompliance
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeConformancePackCompliance
 
 instance
@@ -150,14 +151,16 @@ instance
     DescribeConformancePackCompliance
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StarlingDoveService.DescribeConformancePackCompliance" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -167,11 +170,11 @@ instance
   where
   toJSON DescribeConformancePackCompliance' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("Filters" Core..=) Core.<$> filters,
-            ("Limit" Core..=) Core.<$> limit,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
+            ("Limit" Core..=) Prelude.<$> limit,
+            Prelude.Just
               ("ConformancePackName" Core..= conformancePackName)
           ]
       )
@@ -180,27 +183,27 @@ instance
   Core.ToPath
     DescribeConformancePackCompliance
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeConformancePackCompliance
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeConformancePackComplianceResponse' smart constructor.
 data DescribeConformancePackComplianceResponse = DescribeConformancePackComplianceResponse'
   { -- | The @nextToken@ string returned in a previous request that you use to
     -- request the next page of results in a paginated response.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Name of the conformance pack.
-    conformancePackName :: Core.Text,
+    conformancePackName :: Prelude.Text,
     -- | Returns a list of @ConformancePackRuleCompliance@ objects.
     conformancePackRuleComplianceList :: [ConformancePackRuleCompliance]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeConformancePackComplianceResponse' with all optional fields omitted.
@@ -220,40 +223,40 @@ data DescribeConformancePackComplianceResponse = DescribeConformancePackComplian
 -- 'conformancePackRuleComplianceList', 'describeConformancePackComplianceResponse_conformancePackRuleComplianceList' - Returns a list of @ConformancePackRuleCompliance@ objects.
 newDescribeConformancePackComplianceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'conformancePackName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeConformancePackComplianceResponse
 newDescribeConformancePackComplianceResponse
   pHttpStatus_
   pConformancePackName_ =
     DescribeConformancePackComplianceResponse'
       { nextToken =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_,
         conformancePackName =
           pConformancePackName_,
         conformancePackRuleComplianceList =
-          Core.mempty
+          Prelude.mempty
       }
 
 -- | The @nextToken@ string returned in a previous request that you use to
 -- request the next page of results in a paginated response.
-describeConformancePackComplianceResponse_nextToken :: Lens.Lens' DescribeConformancePackComplianceResponse (Core.Maybe Core.Text)
+describeConformancePackComplianceResponse_nextToken :: Lens.Lens' DescribeConformancePackComplianceResponse (Prelude.Maybe Prelude.Text)
 describeConformancePackComplianceResponse_nextToken = Lens.lens (\DescribeConformancePackComplianceResponse' {nextToken} -> nextToken) (\s@DescribeConformancePackComplianceResponse' {} a -> s {nextToken = a} :: DescribeConformancePackComplianceResponse)
 
 -- | The response's http status code.
-describeConformancePackComplianceResponse_httpStatus :: Lens.Lens' DescribeConformancePackComplianceResponse Core.Int
+describeConformancePackComplianceResponse_httpStatus :: Lens.Lens' DescribeConformancePackComplianceResponse Prelude.Int
 describeConformancePackComplianceResponse_httpStatus = Lens.lens (\DescribeConformancePackComplianceResponse' {httpStatus} -> httpStatus) (\s@DescribeConformancePackComplianceResponse' {} a -> s {httpStatus = a} :: DescribeConformancePackComplianceResponse)
 
 -- | Name of the conformance pack.
-describeConformancePackComplianceResponse_conformancePackName :: Lens.Lens' DescribeConformancePackComplianceResponse Core.Text
+describeConformancePackComplianceResponse_conformancePackName :: Lens.Lens' DescribeConformancePackComplianceResponse Prelude.Text
 describeConformancePackComplianceResponse_conformancePackName = Lens.lens (\DescribeConformancePackComplianceResponse' {conformancePackName} -> conformancePackName) (\s@DescribeConformancePackComplianceResponse' {} a -> s {conformancePackName = a} :: DescribeConformancePackComplianceResponse)
 
 -- | Returns a list of @ConformancePackRuleCompliance@ objects.
 describeConformancePackComplianceResponse_conformancePackRuleComplianceList :: Lens.Lens' DescribeConformancePackComplianceResponse [ConformancePackRuleCompliance]
-describeConformancePackComplianceResponse_conformancePackRuleComplianceList = Lens.lens (\DescribeConformancePackComplianceResponse' {conformancePackRuleComplianceList} -> conformancePackRuleComplianceList) (\s@DescribeConformancePackComplianceResponse' {} a -> s {conformancePackRuleComplianceList = a} :: DescribeConformancePackComplianceResponse) Core.. Lens._Coerce
+describeConformancePackComplianceResponse_conformancePackRuleComplianceList = Lens.lens (\DescribeConformancePackComplianceResponse' {conformancePackRuleComplianceList} -> conformancePackRuleComplianceList) (\s@DescribeConformancePackComplianceResponse' {} a -> s {conformancePackRuleComplianceList = a} :: DescribeConformancePackComplianceResponse) Prelude.. Lens._Coerce
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeConformancePackComplianceResponse

@@ -22,17 +22,18 @@ module Network.AWS.ELB.Types.PolicyAttribute where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a policy attribute.
 --
 -- /See:/ 'newPolicyAttribute' smart constructor.
 data PolicyAttribute = PolicyAttribute'
   { -- | The value of the attribute.
-    attributeValue :: Core.Maybe Core.Text,
+    attributeValue :: Prelude.Maybe Prelude.Text,
     -- | The name of the attribute.
-    attributeName :: Core.Maybe Core.Text
+    attributeName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PolicyAttribute' with all optional fields omitted.
@@ -49,25 +50,25 @@ newPolicyAttribute ::
   PolicyAttribute
 newPolicyAttribute =
   PolicyAttribute'
-    { attributeValue = Core.Nothing,
-      attributeName = Core.Nothing
+    { attributeValue = Prelude.Nothing,
+      attributeName = Prelude.Nothing
     }
 
 -- | The value of the attribute.
-policyAttribute_attributeValue :: Lens.Lens' PolicyAttribute (Core.Maybe Core.Text)
+policyAttribute_attributeValue :: Lens.Lens' PolicyAttribute (Prelude.Maybe Prelude.Text)
 policyAttribute_attributeValue = Lens.lens (\PolicyAttribute' {attributeValue} -> attributeValue) (\s@PolicyAttribute' {} a -> s {attributeValue = a} :: PolicyAttribute)
 
 -- | The name of the attribute.
-policyAttribute_attributeName :: Lens.Lens' PolicyAttribute (Core.Maybe Core.Text)
+policyAttribute_attributeName :: Lens.Lens' PolicyAttribute (Prelude.Maybe Prelude.Text)
 policyAttribute_attributeName = Lens.lens (\PolicyAttribute' {attributeName} -> attributeName) (\s@PolicyAttribute' {} a -> s {attributeName = a} :: PolicyAttribute)
 
-instance Core.Hashable PolicyAttribute
+instance Prelude.Hashable PolicyAttribute
 
-instance Core.NFData PolicyAttribute
+instance Prelude.NFData PolicyAttribute
 
 instance Core.ToQuery PolicyAttribute where
   toQuery PolicyAttribute' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "AttributeValue" Core.=: attributeValue,
         "AttributeName" Core.=: attributeName
       ]

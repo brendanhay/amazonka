@@ -21,17 +21,18 @@ module Network.AWS.IoT.Types.SecurityProfileIdentifier where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifying information for a Device Defender security profile.
 --
 -- /See:/ 'newSecurityProfileIdentifier' smart constructor.
 data SecurityProfileIdentifier = SecurityProfileIdentifier'
   { -- | The name you\'ve given to the security profile.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The ARN of the security profile.
-    arn :: Core.Text
+    arn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SecurityProfileIdentifier' with all optional fields omitted.
@@ -46,9 +47,9 @@ data SecurityProfileIdentifier = SecurityProfileIdentifier'
 -- 'arn', 'securityProfileIdentifier_arn' - The ARN of the security profile.
 newSecurityProfileIdentifier ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   SecurityProfileIdentifier
 newSecurityProfileIdentifier pName_ pArn_ =
   SecurityProfileIdentifier'
@@ -57,11 +58,11 @@ newSecurityProfileIdentifier pName_ pArn_ =
     }
 
 -- | The name you\'ve given to the security profile.
-securityProfileIdentifier_name :: Lens.Lens' SecurityProfileIdentifier Core.Text
+securityProfileIdentifier_name :: Lens.Lens' SecurityProfileIdentifier Prelude.Text
 securityProfileIdentifier_name = Lens.lens (\SecurityProfileIdentifier' {name} -> name) (\s@SecurityProfileIdentifier' {} a -> s {name = a} :: SecurityProfileIdentifier)
 
 -- | The ARN of the security profile.
-securityProfileIdentifier_arn :: Lens.Lens' SecurityProfileIdentifier Core.Text
+securityProfileIdentifier_arn :: Lens.Lens' SecurityProfileIdentifier Prelude.Text
 securityProfileIdentifier_arn = Lens.lens (\SecurityProfileIdentifier' {arn} -> arn) (\s@SecurityProfileIdentifier' {} a -> s {arn = a} :: SecurityProfileIdentifier)
 
 instance Core.FromJSON SecurityProfileIdentifier where
@@ -70,9 +71,9 @@ instance Core.FromJSON SecurityProfileIdentifier where
       "SecurityProfileIdentifier"
       ( \x ->
           SecurityProfileIdentifier'
-            Core.<$> (x Core..: "name") Core.<*> (x Core..: "arn")
+            Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "arn")
       )
 
-instance Core.Hashable SecurityProfileIdentifier
+instance Prelude.Hashable SecurityProfileIdentifier
 
-instance Core.NFData SecurityProfileIdentifier
+instance Prelude.NFData SecurityProfileIdentifier

@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.TrackSourceSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings specific to caption sources that are specified by track number.
 -- Currently, this is only IMSC captions in an IMF package. If your caption
@@ -36,9 +37,9 @@ data TrackSourceSettings = TrackSourceSettings'
     -- listed first in the CPL. To include more than one captions track in your
     -- job outputs, create multiple input captions selectors. Specify one track
     -- per selector.
-    trackNumber :: Core.Maybe Core.Natural
+    trackNumber :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrackSourceSettings' with all optional fields omitted.
@@ -58,7 +59,7 @@ data TrackSourceSettings = TrackSourceSettings'
 newTrackSourceSettings ::
   TrackSourceSettings
 newTrackSourceSettings =
-  TrackSourceSettings' {trackNumber = Core.Nothing}
+  TrackSourceSettings' {trackNumber = Prelude.Nothing}
 
 -- | Use this setting to select a single captions track from a source. Track
 -- numbers correspond to the order in the captions source file. For IMF
@@ -67,7 +68,7 @@ newTrackSourceSettings =
 -- listed first in the CPL. To include more than one captions track in your
 -- job outputs, create multiple input captions selectors. Specify one track
 -- per selector.
-trackSourceSettings_trackNumber :: Lens.Lens' TrackSourceSettings (Core.Maybe Core.Natural)
+trackSourceSettings_trackNumber :: Lens.Lens' TrackSourceSettings (Prelude.Maybe Prelude.Natural)
 trackSourceSettings_trackNumber = Lens.lens (\TrackSourceSettings' {trackNumber} -> trackNumber) (\s@TrackSourceSettings' {} a -> s {trackNumber = a} :: TrackSourceSettings)
 
 instance Core.FromJSON TrackSourceSettings where
@@ -76,16 +77,16 @@ instance Core.FromJSON TrackSourceSettings where
       "TrackSourceSettings"
       ( \x ->
           TrackSourceSettings'
-            Core.<$> (x Core..:? "trackNumber")
+            Prelude.<$> (x Core..:? "trackNumber")
       )
 
-instance Core.Hashable TrackSourceSettings
+instance Prelude.Hashable TrackSourceSettings
 
-instance Core.NFData TrackSourceSettings
+instance Prelude.NFData TrackSourceSettings
 
 instance Core.ToJSON TrackSourceSettings where
   toJSON TrackSourceSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [("trackNumber" Core..=) Core.<$> trackNumber]
+      ( Prelude.catMaybes
+          [("trackNumber" Core..=) Prelude.<$> trackNumber]
       )

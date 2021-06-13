@@ -21,6 +21,7 @@ module Network.AWS.WAF.Types.SizeConstraint where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.ComparisonOperator
 import Network.AWS.WAF.Types.FieldToMatch
 import Network.AWS.WAF.Types.TextTransformation
@@ -157,9 +158,9 @@ data SizeConstraint = SizeConstraint'
     -- If you specify @URI@ for the value of @Type@, the \/ in the URI counts
     -- as one character. For example, the URI @\/logo.jpg@ is nine characters
     -- long.
-    size :: Core.Natural
+    size :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SizeConstraint' with all optional fields omitted.
@@ -292,7 +293,7 @@ newSizeConstraint ::
   -- | 'comparisonOperator'
   ComparisonOperator ->
   -- | 'size'
-  Core.Natural ->
+  Prelude.Natural ->
   SizeConstraint
 newSizeConstraint
   pFieldToMatch_
@@ -427,7 +428,7 @@ sizeConstraint_comparisonOperator = Lens.lens (\SizeConstraint' {comparisonOpera
 -- If you specify @URI@ for the value of @Type@, the \/ in the URI counts
 -- as one character. For example, the URI @\/logo.jpg@ is nine characters
 -- long.
-sizeConstraint_size :: Lens.Lens' SizeConstraint Core.Natural
+sizeConstraint_size :: Lens.Lens' SizeConstraint Prelude.Natural
 sizeConstraint_size = Lens.lens (\SizeConstraint' {size} -> size) (\s@SizeConstraint' {} a -> s {size = a} :: SizeConstraint)
 
 instance Core.FromJSON SizeConstraint where
@@ -436,25 +437,25 @@ instance Core.FromJSON SizeConstraint where
       "SizeConstraint"
       ( \x ->
           SizeConstraint'
-            Core.<$> (x Core..: "FieldToMatch")
-            Core.<*> (x Core..: "TextTransformation")
-            Core.<*> (x Core..: "ComparisonOperator")
-            Core.<*> (x Core..: "Size")
+            Prelude.<$> (x Core..: "FieldToMatch")
+            Prelude.<*> (x Core..: "TextTransformation")
+            Prelude.<*> (x Core..: "ComparisonOperator")
+            Prelude.<*> (x Core..: "Size")
       )
 
-instance Core.Hashable SizeConstraint
+instance Prelude.Hashable SizeConstraint
 
-instance Core.NFData SizeConstraint
+instance Prelude.NFData SizeConstraint
 
 instance Core.ToJSON SizeConstraint where
   toJSON SizeConstraint' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("FieldToMatch" Core..= fieldToMatch),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("FieldToMatch" Core..= fieldToMatch),
+            Prelude.Just
               ("TextTransformation" Core..= textTransformation),
-            Core.Just
+            Prelude.Just
               ("ComparisonOperator" Core..= comparisonOperator),
-            Core.Just ("Size" Core..= size)
+            Prelude.Just ("Size" Core..= size)
           ]
       )

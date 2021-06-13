@@ -24,6 +24,7 @@ import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.TunnelInsideIpVersion
 import Network.AWS.EC2.Types.VpnTunnelOptionsSpecification
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes VPN connection options.
 --
@@ -32,40 +33,40 @@ data VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification'
   { -- | The IPv6 CIDR on the AWS side of the VPN connection.
     --
     -- Default: @::\/0@
-    remoteIpv6NetworkCidr :: Core.Maybe Core.Text,
+    remoteIpv6NetworkCidr :: Prelude.Maybe Prelude.Text,
     -- | Indicate whether the VPN connection uses static routes only. If you are
     -- creating a VPN connection for a device that does not support BGP, you
     -- must specify @true@. Use CreateVpnConnectionRoute to create a static
     -- route.
     --
     -- Default: @false@
-    staticRoutesOnly :: Core.Maybe Core.Bool,
+    staticRoutesOnly :: Prelude.Maybe Prelude.Bool,
     -- | The IPv6 CIDR on the customer gateway (on-premises) side of the VPN
     -- connection.
     --
     -- Default: @::\/0@
-    localIpv6NetworkCidr :: Core.Maybe Core.Text,
+    localIpv6NetworkCidr :: Prelude.Maybe Prelude.Text,
     -- | Indicate whether to enable acceleration for the VPN connection.
     --
     -- Default: @false@
-    enableAcceleration :: Core.Maybe Core.Bool,
+    enableAcceleration :: Prelude.Maybe Prelude.Bool,
     -- | The tunnel options for the VPN connection.
-    tunnelOptions :: Core.Maybe [VpnTunnelOptionsSpecification],
+    tunnelOptions :: Prelude.Maybe [VpnTunnelOptionsSpecification],
     -- | The IPv4 CIDR on the AWS side of the VPN connection.
     --
     -- Default: @0.0.0.0\/0@
-    remoteIpv4NetworkCidr :: Core.Maybe Core.Text,
+    remoteIpv4NetworkCidr :: Prelude.Maybe Prelude.Text,
     -- | Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
     --
     -- Default: @ipv4@
-    tunnelInsideIpVersion :: Core.Maybe TunnelInsideIpVersion,
+    tunnelInsideIpVersion :: Prelude.Maybe TunnelInsideIpVersion,
     -- | The IPv4 CIDR on the customer gateway (on-premises) side of the VPN
     -- connection.
     --
     -- Default: @0.0.0.0\/0@
-    localIpv4NetworkCidr :: Core.Maybe Core.Text
+    localIpv4NetworkCidr :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpnConnectionOptionsSpecification' with all optional fields omitted.
@@ -114,20 +115,20 @@ newVpnConnectionOptionsSpecification ::
 newVpnConnectionOptionsSpecification =
   VpnConnectionOptionsSpecification'
     { remoteIpv6NetworkCidr =
-        Core.Nothing,
-      staticRoutesOnly = Core.Nothing,
-      localIpv6NetworkCidr = Core.Nothing,
-      enableAcceleration = Core.Nothing,
-      tunnelOptions = Core.Nothing,
-      remoteIpv4NetworkCidr = Core.Nothing,
-      tunnelInsideIpVersion = Core.Nothing,
-      localIpv4NetworkCidr = Core.Nothing
+        Prelude.Nothing,
+      staticRoutesOnly = Prelude.Nothing,
+      localIpv6NetworkCidr = Prelude.Nothing,
+      enableAcceleration = Prelude.Nothing,
+      tunnelOptions = Prelude.Nothing,
+      remoteIpv4NetworkCidr = Prelude.Nothing,
+      tunnelInsideIpVersion = Prelude.Nothing,
+      localIpv4NetworkCidr = Prelude.Nothing
     }
 
 -- | The IPv6 CIDR on the AWS side of the VPN connection.
 --
 -- Default: @::\/0@
-vpnConnectionOptionsSpecification_remoteIpv6NetworkCidr :: Lens.Lens' VpnConnectionOptionsSpecification (Core.Maybe Core.Text)
+vpnConnectionOptionsSpecification_remoteIpv6NetworkCidr :: Lens.Lens' VpnConnectionOptionsSpecification (Prelude.Maybe Prelude.Text)
 vpnConnectionOptionsSpecification_remoteIpv6NetworkCidr = Lens.lens (\VpnConnectionOptionsSpecification' {remoteIpv6NetworkCidr} -> remoteIpv6NetworkCidr) (\s@VpnConnectionOptionsSpecification' {} a -> s {remoteIpv6NetworkCidr = a} :: VpnConnectionOptionsSpecification)
 
 -- | Indicate whether the VPN connection uses static routes only. If you are
@@ -136,51 +137,51 @@ vpnConnectionOptionsSpecification_remoteIpv6NetworkCidr = Lens.lens (\VpnConnect
 -- route.
 --
 -- Default: @false@
-vpnConnectionOptionsSpecification_staticRoutesOnly :: Lens.Lens' VpnConnectionOptionsSpecification (Core.Maybe Core.Bool)
+vpnConnectionOptionsSpecification_staticRoutesOnly :: Lens.Lens' VpnConnectionOptionsSpecification (Prelude.Maybe Prelude.Bool)
 vpnConnectionOptionsSpecification_staticRoutesOnly = Lens.lens (\VpnConnectionOptionsSpecification' {staticRoutesOnly} -> staticRoutesOnly) (\s@VpnConnectionOptionsSpecification' {} a -> s {staticRoutesOnly = a} :: VpnConnectionOptionsSpecification)
 
 -- | The IPv6 CIDR on the customer gateway (on-premises) side of the VPN
 -- connection.
 --
 -- Default: @::\/0@
-vpnConnectionOptionsSpecification_localIpv6NetworkCidr :: Lens.Lens' VpnConnectionOptionsSpecification (Core.Maybe Core.Text)
+vpnConnectionOptionsSpecification_localIpv6NetworkCidr :: Lens.Lens' VpnConnectionOptionsSpecification (Prelude.Maybe Prelude.Text)
 vpnConnectionOptionsSpecification_localIpv6NetworkCidr = Lens.lens (\VpnConnectionOptionsSpecification' {localIpv6NetworkCidr} -> localIpv6NetworkCidr) (\s@VpnConnectionOptionsSpecification' {} a -> s {localIpv6NetworkCidr = a} :: VpnConnectionOptionsSpecification)
 
 -- | Indicate whether to enable acceleration for the VPN connection.
 --
 -- Default: @false@
-vpnConnectionOptionsSpecification_enableAcceleration :: Lens.Lens' VpnConnectionOptionsSpecification (Core.Maybe Core.Bool)
+vpnConnectionOptionsSpecification_enableAcceleration :: Lens.Lens' VpnConnectionOptionsSpecification (Prelude.Maybe Prelude.Bool)
 vpnConnectionOptionsSpecification_enableAcceleration = Lens.lens (\VpnConnectionOptionsSpecification' {enableAcceleration} -> enableAcceleration) (\s@VpnConnectionOptionsSpecification' {} a -> s {enableAcceleration = a} :: VpnConnectionOptionsSpecification)
 
 -- | The tunnel options for the VPN connection.
-vpnConnectionOptionsSpecification_tunnelOptions :: Lens.Lens' VpnConnectionOptionsSpecification (Core.Maybe [VpnTunnelOptionsSpecification])
-vpnConnectionOptionsSpecification_tunnelOptions = Lens.lens (\VpnConnectionOptionsSpecification' {tunnelOptions} -> tunnelOptions) (\s@VpnConnectionOptionsSpecification' {} a -> s {tunnelOptions = a} :: VpnConnectionOptionsSpecification) Core.. Lens.mapping Lens._Coerce
+vpnConnectionOptionsSpecification_tunnelOptions :: Lens.Lens' VpnConnectionOptionsSpecification (Prelude.Maybe [VpnTunnelOptionsSpecification])
+vpnConnectionOptionsSpecification_tunnelOptions = Lens.lens (\VpnConnectionOptionsSpecification' {tunnelOptions} -> tunnelOptions) (\s@VpnConnectionOptionsSpecification' {} a -> s {tunnelOptions = a} :: VpnConnectionOptionsSpecification) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The IPv4 CIDR on the AWS side of the VPN connection.
 --
 -- Default: @0.0.0.0\/0@
-vpnConnectionOptionsSpecification_remoteIpv4NetworkCidr :: Lens.Lens' VpnConnectionOptionsSpecification (Core.Maybe Core.Text)
+vpnConnectionOptionsSpecification_remoteIpv4NetworkCidr :: Lens.Lens' VpnConnectionOptionsSpecification (Prelude.Maybe Prelude.Text)
 vpnConnectionOptionsSpecification_remoteIpv4NetworkCidr = Lens.lens (\VpnConnectionOptionsSpecification' {remoteIpv4NetworkCidr} -> remoteIpv4NetworkCidr) (\s@VpnConnectionOptionsSpecification' {} a -> s {remoteIpv4NetworkCidr = a} :: VpnConnectionOptionsSpecification)
 
 -- | Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
 --
 -- Default: @ipv4@
-vpnConnectionOptionsSpecification_tunnelInsideIpVersion :: Lens.Lens' VpnConnectionOptionsSpecification (Core.Maybe TunnelInsideIpVersion)
+vpnConnectionOptionsSpecification_tunnelInsideIpVersion :: Lens.Lens' VpnConnectionOptionsSpecification (Prelude.Maybe TunnelInsideIpVersion)
 vpnConnectionOptionsSpecification_tunnelInsideIpVersion = Lens.lens (\VpnConnectionOptionsSpecification' {tunnelInsideIpVersion} -> tunnelInsideIpVersion) (\s@VpnConnectionOptionsSpecification' {} a -> s {tunnelInsideIpVersion = a} :: VpnConnectionOptionsSpecification)
 
 -- | The IPv4 CIDR on the customer gateway (on-premises) side of the VPN
 -- connection.
 --
 -- Default: @0.0.0.0\/0@
-vpnConnectionOptionsSpecification_localIpv4NetworkCidr :: Lens.Lens' VpnConnectionOptionsSpecification (Core.Maybe Core.Text)
+vpnConnectionOptionsSpecification_localIpv4NetworkCidr :: Lens.Lens' VpnConnectionOptionsSpecification (Prelude.Maybe Prelude.Text)
 vpnConnectionOptionsSpecification_localIpv4NetworkCidr = Lens.lens (\VpnConnectionOptionsSpecification' {localIpv4NetworkCidr} -> localIpv4NetworkCidr) (\s@VpnConnectionOptionsSpecification' {} a -> s {localIpv4NetworkCidr = a} :: VpnConnectionOptionsSpecification)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     VpnConnectionOptionsSpecification
 
 instance
-  Core.NFData
+  Prelude.NFData
     VpnConnectionOptionsSpecification
 
 instance
@@ -188,7 +189,7 @@ instance
     VpnConnectionOptionsSpecification
   where
   toQuery VpnConnectionOptionsSpecification' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "RemoteIpv6NetworkCidr"
           Core.=: remoteIpv6NetworkCidr,
         "StaticRoutesOnly" Core.=: staticRoutesOnly,
@@ -196,7 +197,7 @@ instance
         "EnableAcceleration" Core.=: enableAcceleration,
         Core.toQuery
           ( Core.toQueryList "TunnelOptions"
-              Core.<$> tunnelOptions
+              Prelude.<$> tunnelOptions
           ),
         "RemoteIpv4NetworkCidr"
           Core.=: remoteIpv4NetworkCidr,

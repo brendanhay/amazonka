@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +52,11 @@ import qualified Network.AWS.Response as Response
 data GetExportJob = GetExportJob'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
+    applicationId :: Prelude.Text,
     -- | The unique identifier for the job.
-    jobId :: Core.Text
+    jobId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetExportJob' with all optional fields omitted.
@@ -71,9 +72,9 @@ data GetExportJob = GetExportJob'
 -- 'jobId', 'getExportJob_jobId' - The unique identifier for the job.
 newGetExportJob ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   GetExportJob
 newGetExportJob pApplicationId_ pJobId_ =
   GetExportJob'
@@ -83,11 +84,11 @@ newGetExportJob pApplicationId_ pJobId_ =
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getExportJob_applicationId :: Lens.Lens' GetExportJob Core.Text
+getExportJob_applicationId :: Lens.Lens' GetExportJob Prelude.Text
 getExportJob_applicationId = Lens.lens (\GetExportJob' {applicationId} -> applicationId) (\s@GetExportJob' {} a -> s {applicationId = a} :: GetExportJob)
 
 -- | The unique identifier for the job.
-getExportJob_jobId :: Lens.Lens' GetExportJob Core.Text
+getExportJob_jobId :: Lens.Lens' GetExportJob Prelude.Text
 getExportJob_jobId = Lens.lens (\GetExportJob' {jobId} -> jobId) (\s@GetExportJob' {} a -> s {jobId = a} :: GetExportJob)
 
 instance Core.AWSRequest GetExportJob where
@@ -97,26 +98,28 @@ instance Core.AWSRequest GetExportJob where
     Response.receiveJSON
       ( \s h x ->
           GetExportJobResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable GetExportJob
+instance Prelude.Hashable GetExportJob
 
-instance Core.NFData GetExportJob
+instance Prelude.NFData GetExportJob
 
 instance Core.ToHeaders GetExportJob where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetExportJob where
   toPath GetExportJob' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/v1/apps/",
         Core.toBS applicationId,
         "/jobs/export/",
@@ -124,15 +127,15 @@ instance Core.ToPath GetExportJob where
       ]
 
 instance Core.ToQuery GetExportJob where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetExportJobResponse' smart constructor.
 data GetExportJobResponse = GetExportJobResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     exportJobResponse :: ExportJobResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetExportJobResponse' with all optional fields omitted.
@@ -147,7 +150,7 @@ data GetExportJobResponse = GetExportJobResponse'
 -- 'exportJobResponse', 'getExportJobResponse_exportJobResponse' - Undocumented member.
 newGetExportJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'exportJobResponse'
   ExportJobResponse ->
   GetExportJobResponse
@@ -160,11 +163,11 @@ newGetExportJobResponse
       }
 
 -- | The response's http status code.
-getExportJobResponse_httpStatus :: Lens.Lens' GetExportJobResponse Core.Int
+getExportJobResponse_httpStatus :: Lens.Lens' GetExportJobResponse Prelude.Int
 getExportJobResponse_httpStatus = Lens.lens (\GetExportJobResponse' {httpStatus} -> httpStatus) (\s@GetExportJobResponse' {} a -> s {httpStatus = a} :: GetExportJobResponse)
 
 -- | Undocumented member.
 getExportJobResponse_exportJobResponse :: Lens.Lens' GetExportJobResponse ExportJobResponse
 getExportJobResponse_exportJobResponse = Lens.lens (\GetExportJobResponse' {exportJobResponse} -> exportJobResponse) (\s@GetExportJobResponse' {} a -> s {exportJobResponse = a} :: GetExportJobResponse)
 
-instance Core.NFData GetExportJobResponse
+instance Prelude.NFData GetExportJobResponse

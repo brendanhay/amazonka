@@ -22,6 +22,7 @@ module Network.AWS.AlexaBusiness.Types.Ssml where
 import Network.AWS.AlexaBusiness.Types.Locale
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The SSML message. For more information, see
 -- <https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html SSML Reference>.
@@ -32,9 +33,9 @@ data Ssml = Ssml'
     locale :: Locale,
     -- | The value of the SSML message in the correct SSML format. The audio tag
     -- is not supported.
-    value :: Core.Text
+    value :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Ssml' with all optional fields omitted.
@@ -52,7 +53,7 @@ newSsml ::
   -- | 'locale'
   Locale ->
   -- | 'value'
-  Core.Text ->
+  Prelude.Text ->
   Ssml
 newSsml pLocale_ pValue_ =
   Ssml' {locale = pLocale_, value = pValue_}
@@ -63,18 +64,18 @@ ssml_locale = Lens.lens (\Ssml' {locale} -> locale) (\s@Ssml' {} a -> s {locale 
 
 -- | The value of the SSML message in the correct SSML format. The audio tag
 -- is not supported.
-ssml_value :: Lens.Lens' Ssml Core.Text
+ssml_value :: Lens.Lens' Ssml Prelude.Text
 ssml_value = Lens.lens (\Ssml' {value} -> value) (\s@Ssml' {} a -> s {value = a} :: Ssml)
 
-instance Core.Hashable Ssml
+instance Prelude.Hashable Ssml
 
-instance Core.NFData Ssml
+instance Prelude.NFData Ssml
 
 instance Core.ToJSON Ssml where
   toJSON Ssml' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Locale" Core..= locale),
-            Core.Just ("Value" Core..= value)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Locale" Core..= locale),
+            Prelude.Just ("Value" Core..= value)
           ]
       )

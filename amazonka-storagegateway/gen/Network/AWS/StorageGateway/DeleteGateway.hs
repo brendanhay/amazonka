@@ -58,6 +58,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -66,9 +67,9 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newDeleteGateway' smart constructor.
 data DeleteGateway = DeleteGateway'
-  { gatewayARN :: Core.Text
+  { gatewayARN :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGateway' with all optional fields omitted.
@@ -81,13 +82,13 @@ data DeleteGateway = DeleteGateway'
 -- 'gatewayARN', 'deleteGateway_gatewayARN' - Undocumented member.
 newDeleteGateway ::
   -- | 'gatewayARN'
-  Core.Text ->
+  Prelude.Text ->
   DeleteGateway
 newDeleteGateway pGatewayARN_ =
   DeleteGateway' {gatewayARN = pGatewayARN_}
 
 -- | Undocumented member.
-deleteGateway_gatewayARN :: Lens.Lens' DeleteGateway Core.Text
+deleteGateway_gatewayARN :: Lens.Lens' DeleteGateway Prelude.Text
 deleteGateway_gatewayARN = Lens.lens (\DeleteGateway' {gatewayARN} -> gatewayARN) (\s@DeleteGateway' {} a -> s {gatewayARN = a} :: DeleteGateway)
 
 instance Core.AWSRequest DeleteGateway where
@@ -99,49 +100,51 @@ instance Core.AWSRequest DeleteGateway where
     Response.receiveJSON
       ( \s h x ->
           DeleteGatewayResponse'
-            Core.<$> (x Core..?> "GatewayARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteGateway
+instance Prelude.Hashable DeleteGateway
 
-instance Core.NFData DeleteGateway
+instance Prelude.NFData DeleteGateway
 
 instance Core.ToHeaders DeleteGateway where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "StorageGateway_20130630.DeleteGateway" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteGateway where
   toJSON DeleteGateway' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("GatewayARN" Core..= gatewayARN)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
       )
 
 instance Core.ToPath DeleteGateway where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteGateway where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A JSON object containing the ID of the deleted gateway.
 --
 -- /See:/ 'newDeleteGatewayResponse' smart constructor.
 data DeleteGatewayResponse = DeleteGatewayResponse'
-  { gatewayARN :: Core.Maybe Core.Text,
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteGatewayResponse' with all optional fields omitted.
@@ -156,20 +159,21 @@ data DeleteGatewayResponse = DeleteGatewayResponse'
 -- 'httpStatus', 'deleteGatewayResponse_httpStatus' - The response's http status code.
 newDeleteGatewayResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteGatewayResponse
 newDeleteGatewayResponse pHttpStatus_ =
   DeleteGatewayResponse'
-    { gatewayARN = Core.Nothing,
+    { gatewayARN =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteGatewayResponse_gatewayARN :: Lens.Lens' DeleteGatewayResponse (Core.Maybe Core.Text)
+deleteGatewayResponse_gatewayARN :: Lens.Lens' DeleteGatewayResponse (Prelude.Maybe Prelude.Text)
 deleteGatewayResponse_gatewayARN = Lens.lens (\DeleteGatewayResponse' {gatewayARN} -> gatewayARN) (\s@DeleteGatewayResponse' {} a -> s {gatewayARN = a} :: DeleteGatewayResponse)
 
 -- | The response's http status code.
-deleteGatewayResponse_httpStatus :: Lens.Lens' DeleteGatewayResponse Core.Int
+deleteGatewayResponse_httpStatus :: Lens.Lens' DeleteGatewayResponse Prelude.Int
 deleteGatewayResponse_httpStatus = Lens.lens (\DeleteGatewayResponse' {httpStatus} -> httpStatus) (\s@DeleteGatewayResponse' {} a -> s {httpStatus = a} :: DeleteGatewayResponse)
 
-instance Core.NFData DeleteGatewayResponse
+instance Prelude.NFData DeleteGatewayResponse

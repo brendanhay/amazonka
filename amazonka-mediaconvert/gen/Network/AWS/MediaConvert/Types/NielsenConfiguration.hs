@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.NielsenConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for your Nielsen configuration. If you don\'t do Nielsen
 -- measurement and analytics, ignore these settings. When you enable
@@ -35,12 +36,12 @@ import qualified Network.AWS.Lens as Lens
 data NielsenConfiguration = NielsenConfiguration'
   { -- | Nielsen has discontinued the use of breakout code functionality. If you
     -- must include this property, set the value to zero.
-    breakoutCode :: Core.Maybe Core.Natural,
+    breakoutCode :: Prelude.Maybe Prelude.Natural,
     -- | Use Distributor ID (DistributorID) to specify the distributor ID that is
     -- assigned to your organization by Neilsen.
-    distributorId :: Core.Maybe Core.Text
+    distributorId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NielsenConfiguration' with all optional fields omitted.
@@ -59,18 +60,19 @@ newNielsenConfiguration ::
   NielsenConfiguration
 newNielsenConfiguration =
   NielsenConfiguration'
-    { breakoutCode = Core.Nothing,
-      distributorId = Core.Nothing
+    { breakoutCode =
+        Prelude.Nothing,
+      distributorId = Prelude.Nothing
     }
 
 -- | Nielsen has discontinued the use of breakout code functionality. If you
 -- must include this property, set the value to zero.
-nielsenConfiguration_breakoutCode :: Lens.Lens' NielsenConfiguration (Core.Maybe Core.Natural)
+nielsenConfiguration_breakoutCode :: Lens.Lens' NielsenConfiguration (Prelude.Maybe Prelude.Natural)
 nielsenConfiguration_breakoutCode = Lens.lens (\NielsenConfiguration' {breakoutCode} -> breakoutCode) (\s@NielsenConfiguration' {} a -> s {breakoutCode = a} :: NielsenConfiguration)
 
 -- | Use Distributor ID (DistributorID) to specify the distributor ID that is
 -- assigned to your organization by Neilsen.
-nielsenConfiguration_distributorId :: Lens.Lens' NielsenConfiguration (Core.Maybe Core.Text)
+nielsenConfiguration_distributorId :: Lens.Lens' NielsenConfiguration (Prelude.Maybe Prelude.Text)
 nielsenConfiguration_distributorId = Lens.lens (\NielsenConfiguration' {distributorId} -> distributorId) (\s@NielsenConfiguration' {} a -> s {distributorId = a} :: NielsenConfiguration)
 
 instance Core.FromJSON NielsenConfiguration where
@@ -79,19 +81,19 @@ instance Core.FromJSON NielsenConfiguration where
       "NielsenConfiguration"
       ( \x ->
           NielsenConfiguration'
-            Core.<$> (x Core..:? "breakoutCode")
-            Core.<*> (x Core..:? "distributorId")
+            Prelude.<$> (x Core..:? "breakoutCode")
+            Prelude.<*> (x Core..:? "distributorId")
       )
 
-instance Core.Hashable NielsenConfiguration
+instance Prelude.Hashable NielsenConfiguration
 
-instance Core.NFData NielsenConfiguration
+instance Prelude.NFData NielsenConfiguration
 
 instance Core.ToJSON NielsenConfiguration where
   toJSON NielsenConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("breakoutCode" Core..=) Core.<$> breakoutCode,
-            ("distributorId" Core..=) Core.<$> distributorId
+      ( Prelude.catMaybes
+          [ ("breakoutCode" Core..=) Prelude.<$> breakoutCode,
+            ("distributorId" Core..=) Prelude.<$> distributorId
           ]
       )

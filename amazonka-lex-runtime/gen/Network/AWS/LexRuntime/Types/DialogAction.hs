@@ -24,6 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexRuntime.Types.DialogActionType
 import Network.AWS.LexRuntime.Types.FulfillmentState
 import Network.AWS.LexRuntime.Types.MessageFormatType
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the next action that the bot should take in its interaction
 -- with the user and provides information about the context in which the
@@ -35,9 +36,9 @@ import Network.AWS.LexRuntime.Types.MessageFormatType
 data DialogAction = DialogAction'
   { -- | The message that should be shown to the user. If you don\'t specify a
     -- message, Amazon Lex will use the message configured for the intent.
-    message :: Core.Maybe (Core.Sensitive Core.Text),
+    message :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The name of the intent.
-    intentName :: Core.Maybe Core.Text,
+    intentName :: Prelude.Maybe Prelude.Text,
     -- | -   @PlainText@ - The message contains plain UTF-8 text.
     --
     -- -   @CustomPayload@ - The message is a custom format for the client.
@@ -47,7 +48,7 @@ data DialogAction = DialogAction'
     -- -   @Composite@ - The message contains an escaped JSON object containing
     --     one or more messages. For more information, see
     --     <https://docs.aws.amazon.com/lex/latest/dg/howitworks-manage-prompts.html Message Groups>.
-    messageFormat :: Core.Maybe MessageFormatType,
+    messageFormat :: Prelude.Maybe MessageFormatType,
     -- | The fulfillment state of the intent. The possible values are:
     --
     -- -   @Failed@ - The Lambda function associated with the intent failed to
@@ -59,11 +60,11 @@ data DialogAction = DialogAction'
     -- -   @ReadyForFulfillment@ - All of the information necessary for the
     --     intent is present and the intent ready to be fulfilled by the client
     --     application.
-    fulfillmentState :: Core.Maybe FulfillmentState,
+    fulfillmentState :: Prelude.Maybe FulfillmentState,
     -- | Map of the slots that have been gathered and their values.
-    slots :: Core.Maybe (Core.Sensitive (Core.HashMap Core.Text Core.Text)),
+    slots :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The name of the slot that should be elicited from the user.
-    slotToElicit :: Core.Maybe Core.Text,
+    slotToElicit :: Prelude.Maybe Prelude.Text,
     -- | The next action that the bot should take in its interaction with the
     -- user. The possible values are:
     --
@@ -84,7 +85,7 @@ data DialogAction = DialogAction'
     --     user.
     type' :: DialogActionType
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DialogAction' with all optional fields omitted.
@@ -149,22 +150,22 @@ newDialogAction ::
   DialogAction
 newDialogAction pType_ =
   DialogAction'
-    { message = Core.Nothing,
-      intentName = Core.Nothing,
-      messageFormat = Core.Nothing,
-      fulfillmentState = Core.Nothing,
-      slots = Core.Nothing,
-      slotToElicit = Core.Nothing,
+    { message = Prelude.Nothing,
+      intentName = Prelude.Nothing,
+      messageFormat = Prelude.Nothing,
+      fulfillmentState = Prelude.Nothing,
+      slots = Prelude.Nothing,
+      slotToElicit = Prelude.Nothing,
       type' = pType_
     }
 
 -- | The message that should be shown to the user. If you don\'t specify a
 -- message, Amazon Lex will use the message configured for the intent.
-dialogAction_message :: Lens.Lens' DialogAction (Core.Maybe Core.Text)
-dialogAction_message = Lens.lens (\DialogAction' {message} -> message) (\s@DialogAction' {} a -> s {message = a} :: DialogAction) Core.. Lens.mapping Core._Sensitive
+dialogAction_message :: Lens.Lens' DialogAction (Prelude.Maybe Prelude.Text)
+dialogAction_message = Lens.lens (\DialogAction' {message} -> message) (\s@DialogAction' {} a -> s {message = a} :: DialogAction) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the intent.
-dialogAction_intentName :: Lens.Lens' DialogAction (Core.Maybe Core.Text)
+dialogAction_intentName :: Lens.Lens' DialogAction (Prelude.Maybe Prelude.Text)
 dialogAction_intentName = Lens.lens (\DialogAction' {intentName} -> intentName) (\s@DialogAction' {} a -> s {intentName = a} :: DialogAction)
 
 -- | -   @PlainText@ - The message contains plain UTF-8 text.
@@ -176,7 +177,7 @@ dialogAction_intentName = Lens.lens (\DialogAction' {intentName} -> intentName) 
 -- -   @Composite@ - The message contains an escaped JSON object containing
 --     one or more messages. For more information, see
 --     <https://docs.aws.amazon.com/lex/latest/dg/howitworks-manage-prompts.html Message Groups>.
-dialogAction_messageFormat :: Lens.Lens' DialogAction (Core.Maybe MessageFormatType)
+dialogAction_messageFormat :: Lens.Lens' DialogAction (Prelude.Maybe MessageFormatType)
 dialogAction_messageFormat = Lens.lens (\DialogAction' {messageFormat} -> messageFormat) (\s@DialogAction' {} a -> s {messageFormat = a} :: DialogAction)
 
 -- | The fulfillment state of the intent. The possible values are:
@@ -190,15 +191,15 @@ dialogAction_messageFormat = Lens.lens (\DialogAction' {messageFormat} -> messag
 -- -   @ReadyForFulfillment@ - All of the information necessary for the
 --     intent is present and the intent ready to be fulfilled by the client
 --     application.
-dialogAction_fulfillmentState :: Lens.Lens' DialogAction (Core.Maybe FulfillmentState)
+dialogAction_fulfillmentState :: Lens.Lens' DialogAction (Prelude.Maybe FulfillmentState)
 dialogAction_fulfillmentState = Lens.lens (\DialogAction' {fulfillmentState} -> fulfillmentState) (\s@DialogAction' {} a -> s {fulfillmentState = a} :: DialogAction)
 
 -- | Map of the slots that have been gathered and their values.
-dialogAction_slots :: Lens.Lens' DialogAction (Core.Maybe (Core.HashMap Core.Text Core.Text))
-dialogAction_slots = Lens.lens (\DialogAction' {slots} -> slots) (\s@DialogAction' {} a -> s {slots = a} :: DialogAction) Core.. Lens.mapping (Core._Sensitive Core.. Lens._Coerce)
+dialogAction_slots :: Lens.Lens' DialogAction (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+dialogAction_slots = Lens.lens (\DialogAction' {slots} -> slots) (\s@DialogAction' {} a -> s {slots = a} :: DialogAction) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens._Coerce)
 
 -- | The name of the slot that should be elicited from the user.
-dialogAction_slotToElicit :: Lens.Lens' DialogAction (Core.Maybe Core.Text)
+dialogAction_slotToElicit :: Lens.Lens' DialogAction (Prelude.Maybe Prelude.Text)
 dialogAction_slotToElicit = Lens.lens (\DialogAction' {slotToElicit} -> slotToElicit) (\s@DialogAction' {} a -> s {slotToElicit = a} :: DialogAction)
 
 -- | The next action that the bot should take in its interaction with the
@@ -228,30 +229,30 @@ instance Core.FromJSON DialogAction where
       "DialogAction"
       ( \x ->
           DialogAction'
-            Core.<$> (x Core..:? "message")
-            Core.<*> (x Core..:? "intentName")
-            Core.<*> (x Core..:? "messageFormat")
-            Core.<*> (x Core..:? "fulfillmentState")
-            Core.<*> (x Core..:? "slots" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "slotToElicit")
-            Core.<*> (x Core..: "type")
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "intentName")
+            Prelude.<*> (x Core..:? "messageFormat")
+            Prelude.<*> (x Core..:? "fulfillmentState")
+            Prelude.<*> (x Core..:? "slots" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "slotToElicit")
+            Prelude.<*> (x Core..: "type")
       )
 
-instance Core.Hashable DialogAction
+instance Prelude.Hashable DialogAction
 
-instance Core.NFData DialogAction
+instance Prelude.NFData DialogAction
 
 instance Core.ToJSON DialogAction where
   toJSON DialogAction' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("message" Core..=) Core.<$> message,
-            ("intentName" Core..=) Core.<$> intentName,
-            ("messageFormat" Core..=) Core.<$> messageFormat,
+      ( Prelude.catMaybes
+          [ ("message" Core..=) Prelude.<$> message,
+            ("intentName" Core..=) Prelude.<$> intentName,
+            ("messageFormat" Core..=) Prelude.<$> messageFormat,
             ("fulfillmentState" Core..=)
-              Core.<$> fulfillmentState,
-            ("slots" Core..=) Core.<$> slots,
-            ("slotToElicit" Core..=) Core.<$> slotToElicit,
-            Core.Just ("type" Core..= type')
+              Prelude.<$> fulfillmentState,
+            ("slots" Core..=) Prelude.<$> slots,
+            ("slotToElicit" Core..=) Prelude.<$> slotToElicit,
+            Prelude.Just ("type" Core..= type')
           ]
       )

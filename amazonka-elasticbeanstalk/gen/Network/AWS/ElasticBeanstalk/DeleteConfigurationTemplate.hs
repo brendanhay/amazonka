@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +53,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteConfigurationTemplate' smart constructor.
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate'
   { -- | The name of the application to delete the configuration template from.
-    applicationName :: Core.Text,
+    applicationName :: Prelude.Text,
     -- | The name of the configuration template to delete.
-    templateName :: Core.Text
+    templateName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConfigurationTemplate' with all optional fields omitted.
@@ -71,9 +72,9 @@ data DeleteConfigurationTemplate = DeleteConfigurationTemplate'
 -- 'templateName', 'deleteConfigurationTemplate_templateName' - The name of the configuration template to delete.
 newDeleteConfigurationTemplate ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'templateName'
-  Core.Text ->
+  Prelude.Text ->
   DeleteConfigurationTemplate
 newDeleteConfigurationTemplate
   pApplicationName_
@@ -85,11 +86,11 @@ newDeleteConfigurationTemplate
       }
 
 -- | The name of the application to delete the configuration template from.
-deleteConfigurationTemplate_applicationName :: Lens.Lens' DeleteConfigurationTemplate Core.Text
+deleteConfigurationTemplate_applicationName :: Lens.Lens' DeleteConfigurationTemplate Prelude.Text
 deleteConfigurationTemplate_applicationName = Lens.lens (\DeleteConfigurationTemplate' {applicationName} -> applicationName) (\s@DeleteConfigurationTemplate' {} a -> s {applicationName = a} :: DeleteConfigurationTemplate)
 
 -- | The name of the configuration template to delete.
-deleteConfigurationTemplate_templateName :: Lens.Lens' DeleteConfigurationTemplate Core.Text
+deleteConfigurationTemplate_templateName :: Lens.Lens' DeleteConfigurationTemplate Prelude.Text
 deleteConfigurationTemplate_templateName = Lens.lens (\DeleteConfigurationTemplate' {templateName} -> templateName) (\s@DeleteConfigurationTemplate' {} a -> s {templateName = a} :: DeleteConfigurationTemplate)
 
 instance Core.AWSRequest DeleteConfigurationTemplate where
@@ -101,22 +102,25 @@ instance Core.AWSRequest DeleteConfigurationTemplate where
     Response.receiveNull
       DeleteConfigurationTemplateResponse'
 
-instance Core.Hashable DeleteConfigurationTemplate
+instance Prelude.Hashable DeleteConfigurationTemplate
 
-instance Core.NFData DeleteConfigurationTemplate
+instance Prelude.NFData DeleteConfigurationTemplate
 
 instance Core.ToHeaders DeleteConfigurationTemplate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteConfigurationTemplate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteConfigurationTemplate where
   toQuery DeleteConfigurationTemplate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteConfigurationTemplate" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ( "DeleteConfigurationTemplate" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "ApplicationName" Core.=: applicationName,
         "TemplateName" Core.=: templateName
       ]
@@ -125,7 +129,7 @@ instance Core.ToQuery DeleteConfigurationTemplate where
 data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteConfigurationTemplateResponse' with all optional fields omitted.
@@ -137,5 +141,5 @@ newDeleteConfigurationTemplateResponse =
   DeleteConfigurationTemplateResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     DeleteConfigurationTemplateResponse

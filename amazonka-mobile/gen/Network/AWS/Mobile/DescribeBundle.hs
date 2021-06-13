@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Mobile.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeBundle' smart constructor.
 data DescribeBundle = DescribeBundle'
   { -- | Unique bundle identifier.
-    bundleId :: Core.Text
+    bundleId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeBundle' with all optional fields omitted.
@@ -65,13 +66,13 @@ data DescribeBundle = DescribeBundle'
 -- 'bundleId', 'describeBundle_bundleId' - Unique bundle identifier.
 newDescribeBundle ::
   -- | 'bundleId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeBundle
 newDescribeBundle pBundleId_ =
   DescribeBundle' {bundleId = pBundleId_}
 
 -- | Unique bundle identifier.
-describeBundle_bundleId :: Lens.Lens' DescribeBundle Core.Text
+describeBundle_bundleId :: Lens.Lens' DescribeBundle Prelude.Text
 describeBundle_bundleId = Lens.lens (\DescribeBundle' {bundleId} -> bundleId) (\s@DescribeBundle' {} a -> s {bundleId = a} :: DescribeBundle)
 
 instance Core.AWSRequest DescribeBundle where
@@ -83,40 +84,42 @@ instance Core.AWSRequest DescribeBundle where
     Response.receiveJSON
       ( \s h x ->
           DescribeBundleResponse'
-            Core.<$> (x Core..?> "details")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "details")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeBundle
+instance Prelude.Hashable DescribeBundle
 
-instance Core.NFData DescribeBundle
+instance Prelude.NFData DescribeBundle
 
 instance Core.ToHeaders DescribeBundle where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DescribeBundle where
   toPath DescribeBundle' {..} =
-    Core.mconcat ["/bundles/", Core.toBS bundleId]
+    Prelude.mconcat ["/bundles/", Core.toBS bundleId]
 
 instance Core.ToQuery DescribeBundle where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Result structure contains the details of the bundle.
 --
 -- /See:/ 'newDescribeBundleResponse' smart constructor.
 data DescribeBundleResponse = DescribeBundleResponse'
   { -- | The details of the bundle.
-    details :: Core.Maybe BundleDetails,
+    details :: Prelude.Maybe BundleDetails,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeBundleResponse' with all optional fields omitted.
@@ -131,20 +134,20 @@ data DescribeBundleResponse = DescribeBundleResponse'
 -- 'httpStatus', 'describeBundleResponse_httpStatus' - The response's http status code.
 newDescribeBundleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeBundleResponse
 newDescribeBundleResponse pHttpStatus_ =
   DescribeBundleResponse'
-    { details = Core.Nothing,
+    { details = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The details of the bundle.
-describeBundleResponse_details :: Lens.Lens' DescribeBundleResponse (Core.Maybe BundleDetails)
+describeBundleResponse_details :: Lens.Lens' DescribeBundleResponse (Prelude.Maybe BundleDetails)
 describeBundleResponse_details = Lens.lens (\DescribeBundleResponse' {details} -> details) (\s@DescribeBundleResponse' {} a -> s {details = a} :: DescribeBundleResponse)
 
 -- | The response's http status code.
-describeBundleResponse_httpStatus :: Lens.Lens' DescribeBundleResponse Core.Int
+describeBundleResponse_httpStatus :: Lens.Lens' DescribeBundleResponse Prelude.Int
 describeBundleResponse_httpStatus = Lens.lens (\DescribeBundleResponse' {httpStatus} -> httpStatus) (\s@DescribeBundleResponse' {} a -> s {httpStatus = a} :: DescribeBundleResponse)
 
-instance Core.NFData DescribeBundleResponse
+instance Prelude.NFData DescribeBundleResponse

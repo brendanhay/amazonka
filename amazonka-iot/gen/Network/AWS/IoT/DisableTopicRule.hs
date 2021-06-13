@@ -38,6 +38,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -46,9 +47,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDisableTopicRule' smart constructor.
 data DisableTopicRule = DisableTopicRule'
   { -- | The name of the rule to disable.
-    ruleName :: Core.Text
+    ruleName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableTopicRule' with all optional fields omitted.
@@ -61,13 +62,13 @@ data DisableTopicRule = DisableTopicRule'
 -- 'ruleName', 'disableTopicRule_ruleName' - The name of the rule to disable.
 newDisableTopicRule ::
   -- | 'ruleName'
-  Core.Text ->
+  Prelude.Text ->
   DisableTopicRule
 newDisableTopicRule pRuleName_ =
   DisableTopicRule' {ruleName = pRuleName_}
 
 -- | The name of the rule to disable.
-disableTopicRule_ruleName :: Lens.Lens' DisableTopicRule Core.Text
+disableTopicRule_ruleName :: Lens.Lens' DisableTopicRule Prelude.Text
 disableTopicRule_ruleName = Lens.lens (\DisableTopicRule' {ruleName} -> ruleName) (\s@DisableTopicRule' {} a -> s {ruleName = a} :: DisableTopicRule)
 
 instance Core.AWSRequest DisableTopicRule where
@@ -78,29 +79,29 @@ instance Core.AWSRequest DisableTopicRule where
   response =
     Response.receiveNull DisableTopicRuleResponse'
 
-instance Core.Hashable DisableTopicRule
+instance Prelude.Hashable DisableTopicRule
 
-instance Core.NFData DisableTopicRule
+instance Prelude.NFData DisableTopicRule
 
 instance Core.ToHeaders DisableTopicRule where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON DisableTopicRule where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DisableTopicRule where
   toPath DisableTopicRule' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/rules/", Core.toBS ruleName, "/disable"]
 
 instance Core.ToQuery DisableTopicRule where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableTopicRuleResponse' smart constructor.
 data DisableTopicRuleResponse = DisableTopicRuleResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisableTopicRuleResponse' with all optional fields omitted.
@@ -111,4 +112,4 @@ newDisableTopicRuleResponse ::
 newDisableTopicRuleResponse =
   DisableTopicRuleResponse'
 
-instance Core.NFData DisableTopicRuleResponse
+instance Prelude.NFData DisableTopicRuleResponse

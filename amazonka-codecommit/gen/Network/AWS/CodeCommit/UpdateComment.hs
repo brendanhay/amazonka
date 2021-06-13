@@ -43,6 +43,7 @@ where
 import Network.AWS.CodeCommit.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +51,11 @@ import qualified Network.AWS.Response as Response
 data UpdateComment = UpdateComment'
   { -- | The system-generated ID of the comment you want to update. To get this
     -- ID, use GetCommentsForComparedCommit or GetCommentsForPullRequest.
-    commentId :: Core.Text,
+    commentId :: Prelude.Text,
     -- | The updated content to replace the existing content of the comment.
-    content :: Core.Text
+    content :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateComment' with all optional fields omitted.
@@ -70,9 +71,9 @@ data UpdateComment = UpdateComment'
 -- 'content', 'updateComment_content' - The updated content to replace the existing content of the comment.
 newUpdateComment ::
   -- | 'commentId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'content'
-  Core.Text ->
+  Prelude.Text ->
   UpdateComment
 newUpdateComment pCommentId_ pContent_ =
   UpdateComment'
@@ -82,11 +83,11 @@ newUpdateComment pCommentId_ pContent_ =
 
 -- | The system-generated ID of the comment you want to update. To get this
 -- ID, use GetCommentsForComparedCommit or GetCommentsForPullRequest.
-updateComment_commentId :: Lens.Lens' UpdateComment Core.Text
+updateComment_commentId :: Lens.Lens' UpdateComment Prelude.Text
 updateComment_commentId = Lens.lens (\UpdateComment' {commentId} -> commentId) (\s@UpdateComment' {} a -> s {commentId = a} :: UpdateComment)
 
 -- | The updated content to replace the existing content of the comment.
-updateComment_content :: Lens.Lens' UpdateComment Core.Text
+updateComment_content :: Lens.Lens' UpdateComment Prelude.Text
 updateComment_content = Lens.lens (\UpdateComment' {content} -> content) (\s@UpdateComment' {} a -> s {content = a} :: UpdateComment)
 
 instance Core.AWSRequest UpdateComment where
@@ -98,50 +99,52 @@ instance Core.AWSRequest UpdateComment where
     Response.receiveJSON
       ( \s h x ->
           UpdateCommentResponse'
-            Core.<$> (x Core..?> "comment")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "comment")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateComment
+instance Prelude.Hashable UpdateComment
 
-instance Core.NFData UpdateComment
+instance Prelude.NFData UpdateComment
 
 instance Core.ToHeaders UpdateComment where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeCommit_20150413.UpdateComment" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateComment where
   toJSON UpdateComment' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("commentId" Core..= commentId),
-            Core.Just ("content" Core..= content)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("commentId" Core..= commentId),
+            Prelude.Just ("content" Core..= content)
           ]
       )
 
 instance Core.ToPath UpdateComment where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateComment where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCommentResponse' smart constructor.
 data UpdateCommentResponse = UpdateCommentResponse'
   { -- | Information about the updated comment.
-    comment :: Core.Maybe Comment,
+    comment :: Prelude.Maybe Comment,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateCommentResponse' with all optional fields omitted.
@@ -156,20 +159,20 @@ data UpdateCommentResponse = UpdateCommentResponse'
 -- 'httpStatus', 'updateCommentResponse_httpStatus' - The response's http status code.
 newUpdateCommentResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateCommentResponse
 newUpdateCommentResponse pHttpStatus_ =
   UpdateCommentResponse'
-    { comment = Core.Nothing,
+    { comment = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the updated comment.
-updateCommentResponse_comment :: Lens.Lens' UpdateCommentResponse (Core.Maybe Comment)
+updateCommentResponse_comment :: Lens.Lens' UpdateCommentResponse (Prelude.Maybe Comment)
 updateCommentResponse_comment = Lens.lens (\UpdateCommentResponse' {comment} -> comment) (\s@UpdateCommentResponse' {} a -> s {comment = a} :: UpdateCommentResponse)
 
 -- | The response's http status code.
-updateCommentResponse_httpStatus :: Lens.Lens' UpdateCommentResponse Core.Int
+updateCommentResponse_httpStatus :: Lens.Lens' UpdateCommentResponse Prelude.Int
 updateCommentResponse_httpStatus = Lens.lens (\UpdateCommentResponse' {httpStatus} -> httpStatus) (\s@UpdateCommentResponse' {} a -> s {httpStatus = a} :: UpdateCommentResponse)
 
-instance Core.NFData UpdateCommentResponse
+instance Prelude.NFData UpdateCommentResponse

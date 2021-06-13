@@ -21,21 +21,22 @@ module Network.AWS.Pinpoint.Types.SMSChannelRequest where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the status and settings of the SMS channel for an application.
 --
 -- /See:/ 'newSMSChannelRequest' smart constructor.
 data SMSChannelRequest = SMSChannelRequest'
   { -- | Specifies whether to enable the SMS channel for the application.
-    enabled :: Core.Maybe Core.Bool,
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The registered short code that you want to use when you send messages
     -- through the SMS channel.
-    shortCode :: Core.Maybe Core.Text,
+    shortCode :: Prelude.Maybe Prelude.Text,
     -- | The identity that you want to display on recipients\' devices when they
     -- receive messages from the SMS channel.
-    senderId :: Core.Maybe Core.Text
+    senderId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SMSChannelRequest' with all optional fields omitted.
@@ -56,35 +57,35 @@ newSMSChannelRequest ::
   SMSChannelRequest
 newSMSChannelRequest =
   SMSChannelRequest'
-    { enabled = Core.Nothing,
-      shortCode = Core.Nothing,
-      senderId = Core.Nothing
+    { enabled = Prelude.Nothing,
+      shortCode = Prelude.Nothing,
+      senderId = Prelude.Nothing
     }
 
 -- | Specifies whether to enable the SMS channel for the application.
-sMSChannelRequest_enabled :: Lens.Lens' SMSChannelRequest (Core.Maybe Core.Bool)
+sMSChannelRequest_enabled :: Lens.Lens' SMSChannelRequest (Prelude.Maybe Prelude.Bool)
 sMSChannelRequest_enabled = Lens.lens (\SMSChannelRequest' {enabled} -> enabled) (\s@SMSChannelRequest' {} a -> s {enabled = a} :: SMSChannelRequest)
 
 -- | The registered short code that you want to use when you send messages
 -- through the SMS channel.
-sMSChannelRequest_shortCode :: Lens.Lens' SMSChannelRequest (Core.Maybe Core.Text)
+sMSChannelRequest_shortCode :: Lens.Lens' SMSChannelRequest (Prelude.Maybe Prelude.Text)
 sMSChannelRequest_shortCode = Lens.lens (\SMSChannelRequest' {shortCode} -> shortCode) (\s@SMSChannelRequest' {} a -> s {shortCode = a} :: SMSChannelRequest)
 
 -- | The identity that you want to display on recipients\' devices when they
 -- receive messages from the SMS channel.
-sMSChannelRequest_senderId :: Lens.Lens' SMSChannelRequest (Core.Maybe Core.Text)
+sMSChannelRequest_senderId :: Lens.Lens' SMSChannelRequest (Prelude.Maybe Prelude.Text)
 sMSChannelRequest_senderId = Lens.lens (\SMSChannelRequest' {senderId} -> senderId) (\s@SMSChannelRequest' {} a -> s {senderId = a} :: SMSChannelRequest)
 
-instance Core.Hashable SMSChannelRequest
+instance Prelude.Hashable SMSChannelRequest
 
-instance Core.NFData SMSChannelRequest
+instance Prelude.NFData SMSChannelRequest
 
 instance Core.ToJSON SMSChannelRequest where
   toJSON SMSChannelRequest' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Enabled" Core..=) Core.<$> enabled,
-            ("ShortCode" Core..=) Core.<$> shortCode,
-            ("SenderId" Core..=) Core.<$> senderId
+      ( Prelude.catMaybes
+          [ ("Enabled" Core..=) Prelude.<$> enabled,
+            ("ShortCode" Core..=) Prelude.<$> shortCode,
+            ("SenderId" Core..=) Prelude.<$> senderId
           ]
       )

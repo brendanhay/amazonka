@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.ResourceLimits where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the maximum number of training jobs and parallel training jobs
 -- that a hyperparameter tuning job can launch.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data ResourceLimits = ResourceLimits'
   { -- | The maximum number of training jobs that a hyperparameter tuning job can
     -- launch.
-    maxNumberOfTrainingJobs :: Core.Natural,
+    maxNumberOfTrainingJobs :: Prelude.Natural,
     -- | The maximum number of concurrent training jobs that a hyperparameter
     -- tuning job can launch.
-    maxParallelTrainingJobs :: Core.Natural
+    maxParallelTrainingJobs :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourceLimits' with all optional fields omitted.
@@ -51,9 +52,9 @@ data ResourceLimits = ResourceLimits'
 -- tuning job can launch.
 newResourceLimits ::
   -- | 'maxNumberOfTrainingJobs'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'maxParallelTrainingJobs'
-  Core.Natural ->
+  Prelude.Natural ->
   ResourceLimits
 newResourceLimits
   pMaxNumberOfTrainingJobs_
@@ -66,12 +67,12 @@ newResourceLimits
 
 -- | The maximum number of training jobs that a hyperparameter tuning job can
 -- launch.
-resourceLimits_maxNumberOfTrainingJobs :: Lens.Lens' ResourceLimits Core.Natural
+resourceLimits_maxNumberOfTrainingJobs :: Lens.Lens' ResourceLimits Prelude.Natural
 resourceLimits_maxNumberOfTrainingJobs = Lens.lens (\ResourceLimits' {maxNumberOfTrainingJobs} -> maxNumberOfTrainingJobs) (\s@ResourceLimits' {} a -> s {maxNumberOfTrainingJobs = a} :: ResourceLimits)
 
 -- | The maximum number of concurrent training jobs that a hyperparameter
 -- tuning job can launch.
-resourceLimits_maxParallelTrainingJobs :: Lens.Lens' ResourceLimits Core.Natural
+resourceLimits_maxParallelTrainingJobs :: Lens.Lens' ResourceLimits Prelude.Natural
 resourceLimits_maxParallelTrainingJobs = Lens.lens (\ResourceLimits' {maxParallelTrainingJobs} -> maxParallelTrainingJobs) (\s@ResourceLimits' {} a -> s {maxParallelTrainingJobs = a} :: ResourceLimits)
 
 instance Core.FromJSON ResourceLimits where
@@ -80,23 +81,23 @@ instance Core.FromJSON ResourceLimits where
       "ResourceLimits"
       ( \x ->
           ResourceLimits'
-            Core.<$> (x Core..: "MaxNumberOfTrainingJobs")
-            Core.<*> (x Core..: "MaxParallelTrainingJobs")
+            Prelude.<$> (x Core..: "MaxNumberOfTrainingJobs")
+            Prelude.<*> (x Core..: "MaxParallelTrainingJobs")
       )
 
-instance Core.Hashable ResourceLimits
+instance Prelude.Hashable ResourceLimits
 
-instance Core.NFData ResourceLimits
+instance Prelude.NFData ResourceLimits
 
 instance Core.ToJSON ResourceLimits where
   toJSON ResourceLimits' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "MaxNumberOfTrainingJobs"
                   Core..= maxNumberOfTrainingJobs
               ),
-            Core.Just
+            Prelude.Just
               ( "MaxParallelTrainingJobs"
                   Core..= maxParallelTrainingJobs
               )

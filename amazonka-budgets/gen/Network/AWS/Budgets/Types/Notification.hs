@@ -25,6 +25,7 @@ import Network.AWS.Budgets.Types.NotificationType
 import Network.AWS.Budgets.Types.ThresholdType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A notification that is associated with a budget. A budget can have up to
 -- ten notifications.
@@ -49,7 +50,7 @@ import qualified Network.AWS.Lens as Lens
 data Notification = Notification'
   { -- | Whether this notification is in alarm. If a budget notification is in
     -- the @ALARM@ state, you have passed the set threshold for the budget.
-    notificationState :: Core.Maybe NotificationState,
+    notificationState :: Prelude.Maybe NotificationState,
     -- | The type of threshold for a notification. For @ABSOLUTE_VALUE@
     -- thresholds, AWS notifies you when you go over or are forecasted to go
     -- over your total cost threshold. For @PERCENTAGE@ thresholds, AWS
@@ -57,7 +58,7 @@ data Notification = Notification'
     -- percentage of your forecasted spend. For example, if you have a budget
     -- for 200 dollars and you have a @PERCENTAGE@ threshold of 80%, AWS
     -- notifies you when you go over 160 dollars.
-    thresholdType :: Core.Maybe ThresholdType,
+    thresholdType :: Prelude.Maybe ThresholdType,
     -- | Whether the notification is for how much you have spent (@ACTUAL@) or
     -- for how much you\'re forecasted to spend (@FORECASTED@).
     notificationType :: NotificationType,
@@ -67,9 +68,9 @@ data Notification = Notification'
     -- always a percentage, and many customers find value being alerted between
     -- 50% - 200% of the budgeted amount. The maximum limit for your threshold
     -- is 1,000,000% above the budgeted amount.
-    threshold :: Core.Double
+    threshold :: Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Notification' with all optional fields omitted.
@@ -105,15 +106,15 @@ newNotification ::
   -- | 'comparisonOperator'
   ComparisonOperator ->
   -- | 'threshold'
-  Core.Double ->
+  Prelude.Double ->
   Notification
 newNotification
   pNotificationType_
   pComparisonOperator_
   pThreshold_ =
     Notification'
-      { notificationState = Core.Nothing,
-        thresholdType = Core.Nothing,
+      { notificationState = Prelude.Nothing,
+        thresholdType = Prelude.Nothing,
         notificationType = pNotificationType_,
         comparisonOperator = pComparisonOperator_,
         threshold = pThreshold_
@@ -121,7 +122,7 @@ newNotification
 
 -- | Whether this notification is in alarm. If a budget notification is in
 -- the @ALARM@ state, you have passed the set threshold for the budget.
-notification_notificationState :: Lens.Lens' Notification (Core.Maybe NotificationState)
+notification_notificationState :: Lens.Lens' Notification (Prelude.Maybe NotificationState)
 notification_notificationState = Lens.lens (\Notification' {notificationState} -> notificationState) (\s@Notification' {} a -> s {notificationState = a} :: Notification)
 
 -- | The type of threshold for a notification. For @ABSOLUTE_VALUE@
@@ -131,7 +132,7 @@ notification_notificationState = Lens.lens (\Notification' {notificationState} -
 -- percentage of your forecasted spend. For example, if you have a budget
 -- for 200 dollars and you have a @PERCENTAGE@ threshold of 80%, AWS
 -- notifies you when you go over 160 dollars.
-notification_thresholdType :: Lens.Lens' Notification (Core.Maybe ThresholdType)
+notification_thresholdType :: Lens.Lens' Notification (Prelude.Maybe ThresholdType)
 notification_thresholdType = Lens.lens (\Notification' {thresholdType} -> thresholdType) (\s@Notification' {} a -> s {thresholdType = a} :: Notification)
 
 -- | Whether the notification is for how much you have spent (@ACTUAL@) or
@@ -147,7 +148,7 @@ notification_comparisonOperator = Lens.lens (\Notification' {comparisonOperator}
 -- always a percentage, and many customers find value being alerted between
 -- 50% - 200% of the budgeted amount. The maximum limit for your threshold
 -- is 1,000,000% above the budgeted amount.
-notification_threshold :: Lens.Lens' Notification Core.Double
+notification_threshold :: Lens.Lens' Notification Prelude.Double
 notification_threshold = Lens.lens (\Notification' {threshold} -> threshold) (\s@Notification' {} a -> s {threshold = a} :: Notification)
 
 instance Core.FromJSON Notification where
@@ -156,28 +157,28 @@ instance Core.FromJSON Notification where
       "Notification"
       ( \x ->
           Notification'
-            Core.<$> (x Core..:? "NotificationState")
-            Core.<*> (x Core..:? "ThresholdType")
-            Core.<*> (x Core..: "NotificationType")
-            Core.<*> (x Core..: "ComparisonOperator")
-            Core.<*> (x Core..: "Threshold")
+            Prelude.<$> (x Core..:? "NotificationState")
+            Prelude.<*> (x Core..:? "ThresholdType")
+            Prelude.<*> (x Core..: "NotificationType")
+            Prelude.<*> (x Core..: "ComparisonOperator")
+            Prelude.<*> (x Core..: "Threshold")
       )
 
-instance Core.Hashable Notification
+instance Prelude.Hashable Notification
 
-instance Core.NFData Notification
+instance Prelude.NFData Notification
 
 instance Core.ToJSON Notification where
   toJSON Notification' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("NotificationState" Core..=)
-              Core.<$> notificationState,
-            ("ThresholdType" Core..=) Core.<$> thresholdType,
-            Core.Just
+              Prelude.<$> notificationState,
+            ("ThresholdType" Core..=) Prelude.<$> thresholdType,
+            Prelude.Just
               ("NotificationType" Core..= notificationType),
-            Core.Just
+            Prelude.Just
               ("ComparisonOperator" Core..= comparisonOperator),
-            Core.Just ("Threshold" Core..= threshold)
+            Prelude.Just ("Threshold" Core..= threshold)
           ]
       )

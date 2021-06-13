@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data GetChannels = GetChannels'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+    applicationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetChannels' with all optional fields omitted.
@@ -66,14 +67,14 @@ data GetChannels = GetChannels'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newGetChannels ::
   -- | 'applicationId'
-  Core.Text ->
+  Prelude.Text ->
   GetChannels
 newGetChannels pApplicationId_ =
   GetChannels' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getChannels_applicationId :: Lens.Lens' GetChannels Core.Text
+getChannels_applicationId :: Lens.Lens' GetChannels Prelude.Text
 getChannels_applicationId = Lens.lens (\GetChannels' {applicationId} -> applicationId) (\s@GetChannels' {} a -> s {applicationId = a} :: GetChannels)
 
 instance Core.AWSRequest GetChannels where
@@ -83,38 +84,40 @@ instance Core.AWSRequest GetChannels where
     Response.receiveJSON
       ( \s h x ->
           GetChannelsResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (Core.eitherParseJSON x)
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Core.Hashable GetChannels
+instance Prelude.Hashable GetChannels
 
-instance Core.NFData GetChannels
+instance Prelude.NFData GetChannels
 
 instance Core.ToHeaders GetChannels where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath GetChannels where
   toPath GetChannels' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/apps/", Core.toBS applicationId, "/channels"]
 
 instance Core.ToQuery GetChannels where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetChannelsResponse' smart constructor.
 data GetChannelsResponse = GetChannelsResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     channelsResponse :: ChannelsResponse
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetChannelsResponse' with all optional fields omitted.
@@ -129,7 +132,7 @@ data GetChannelsResponse = GetChannelsResponse'
 -- 'channelsResponse', 'getChannelsResponse_channelsResponse' - Undocumented member.
 newGetChannelsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'channelsResponse'
   ChannelsResponse ->
   GetChannelsResponse
@@ -142,11 +145,11 @@ newGetChannelsResponse
       }
 
 -- | The response's http status code.
-getChannelsResponse_httpStatus :: Lens.Lens' GetChannelsResponse Core.Int
+getChannelsResponse_httpStatus :: Lens.Lens' GetChannelsResponse Prelude.Int
 getChannelsResponse_httpStatus = Lens.lens (\GetChannelsResponse' {httpStatus} -> httpStatus) (\s@GetChannelsResponse' {} a -> s {httpStatus = a} :: GetChannelsResponse)
 
 -- | Undocumented member.
 getChannelsResponse_channelsResponse :: Lens.Lens' GetChannelsResponse ChannelsResponse
 getChannelsResponse_channelsResponse = Lens.lens (\GetChannelsResponse' {channelsResponse} -> channelsResponse) (\s@GetChannelsResponse' {} a -> s {channelsResponse = a} :: GetChannelsResponse)
 
-instance Core.NFData GetChannelsResponse
+instance Prelude.NFData GetChannelsResponse

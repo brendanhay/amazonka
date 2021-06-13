@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -54,17 +55,17 @@ import Network.AWS.SSM.Types
 data DescribePatchBaselines = DescribePatchBaselines'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of patch baselines to return (per page).
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Each element in the array is a structure containing:
     --
     -- Key: (string, \"NAME_PREFIX\" or \"OWNER\")
     --
     -- Value: (array of strings, exactly 1 entry, between 1 and 255 characters)
-    filters :: Core.Maybe [PatchOrchestratorFilter]
+    filters :: Prelude.Maybe [PatchOrchestratorFilter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePatchBaselines' with all optional fields omitted.
@@ -88,18 +89,19 @@ newDescribePatchBaselines ::
   DescribePatchBaselines
 newDescribePatchBaselines =
   DescribePatchBaselines'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
-      filters = Core.Nothing
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describePatchBaselines_nextToken :: Lens.Lens' DescribePatchBaselines (Core.Maybe Core.Text)
+describePatchBaselines_nextToken :: Lens.Lens' DescribePatchBaselines (Prelude.Maybe Prelude.Text)
 describePatchBaselines_nextToken = Lens.lens (\DescribePatchBaselines' {nextToken} -> nextToken) (\s@DescribePatchBaselines' {} a -> s {nextToken = a} :: DescribePatchBaselines)
 
 -- | The maximum number of patch baselines to return (per page).
-describePatchBaselines_maxResults :: Lens.Lens' DescribePatchBaselines (Core.Maybe Core.Natural)
+describePatchBaselines_maxResults :: Lens.Lens' DescribePatchBaselines (Prelude.Maybe Prelude.Natural)
 describePatchBaselines_maxResults = Lens.lens (\DescribePatchBaselines' {maxResults} -> maxResults) (\s@DescribePatchBaselines' {} a -> s {maxResults = a} :: DescribePatchBaselines)
 
 -- | Each element in the array is a structure containing:
@@ -107,30 +109,30 @@ describePatchBaselines_maxResults = Lens.lens (\DescribePatchBaselines' {maxResu
 -- Key: (string, \"NAME_PREFIX\" or \"OWNER\")
 --
 -- Value: (array of strings, exactly 1 entry, between 1 and 255 characters)
-describePatchBaselines_filters :: Lens.Lens' DescribePatchBaselines (Core.Maybe [PatchOrchestratorFilter])
-describePatchBaselines_filters = Lens.lens (\DescribePatchBaselines' {filters} -> filters) (\s@DescribePatchBaselines' {} a -> s {filters = a} :: DescribePatchBaselines) Core.. Lens.mapping Lens._Coerce
+describePatchBaselines_filters :: Lens.Lens' DescribePatchBaselines (Prelude.Maybe [PatchOrchestratorFilter])
+describePatchBaselines_filters = Lens.lens (\DescribePatchBaselines' {filters} -> filters) (\s@DescribePatchBaselines' {} a -> s {filters = a} :: DescribePatchBaselines) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribePatchBaselines where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? describePatchBaselinesResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describePatchBaselinesResponse_baselineIdentities
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describePatchBaselines_nextToken
+          Prelude.& describePatchBaselines_nextToken
           Lens..~ rs
           Lens.^? describePatchBaselinesResponse_nextToken
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribePatchBaselines where
   type
@@ -141,57 +143,59 @@ instance Core.AWSRequest DescribePatchBaselines where
     Response.receiveJSON
       ( \s h x ->
           DescribePatchBaselinesResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> ( x Core..?> "BaselineIdentities"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "BaselineIdentities"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribePatchBaselines
+instance Prelude.Hashable DescribePatchBaselines
 
-instance Core.NFData DescribePatchBaselines
+instance Prelude.NFData DescribePatchBaselines
 
 instance Core.ToHeaders DescribePatchBaselines where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonSSM.DescribePatchBaselines" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribePatchBaselines where
   toJSON DescribePatchBaselines' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            ("Filters" Core..=) Core.<$> filters
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Filters" Core..=) Prelude.<$> filters
           ]
       )
 
 instance Core.ToPath DescribePatchBaselines where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribePatchBaselines where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePatchBaselinesResponse' smart constructor.
 data DescribePatchBaselinesResponse = DescribePatchBaselinesResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of PatchBaselineIdentity elements.
-    baselineIdentities :: Core.Maybe [PatchBaselineIdentity],
+    baselineIdentities :: Prelude.Maybe [PatchBaselineIdentity],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribePatchBaselinesResponse' with all optional fields omitted.
@@ -209,27 +213,29 @@ data DescribePatchBaselinesResponse = DescribePatchBaselinesResponse'
 -- 'httpStatus', 'describePatchBaselinesResponse_httpStatus' - The response's http status code.
 newDescribePatchBaselinesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribePatchBaselinesResponse
 newDescribePatchBaselinesResponse pHttpStatus_ =
   DescribePatchBaselinesResponse'
     { nextToken =
-        Core.Nothing,
-      baselineIdentities = Core.Nothing,
+        Prelude.Nothing,
+      baselineIdentities = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-describePatchBaselinesResponse_nextToken :: Lens.Lens' DescribePatchBaselinesResponse (Core.Maybe Core.Text)
+describePatchBaselinesResponse_nextToken :: Lens.Lens' DescribePatchBaselinesResponse (Prelude.Maybe Prelude.Text)
 describePatchBaselinesResponse_nextToken = Lens.lens (\DescribePatchBaselinesResponse' {nextToken} -> nextToken) (\s@DescribePatchBaselinesResponse' {} a -> s {nextToken = a} :: DescribePatchBaselinesResponse)
 
 -- | An array of PatchBaselineIdentity elements.
-describePatchBaselinesResponse_baselineIdentities :: Lens.Lens' DescribePatchBaselinesResponse (Core.Maybe [PatchBaselineIdentity])
-describePatchBaselinesResponse_baselineIdentities = Lens.lens (\DescribePatchBaselinesResponse' {baselineIdentities} -> baselineIdentities) (\s@DescribePatchBaselinesResponse' {} a -> s {baselineIdentities = a} :: DescribePatchBaselinesResponse) Core.. Lens.mapping Lens._Coerce
+describePatchBaselinesResponse_baselineIdentities :: Lens.Lens' DescribePatchBaselinesResponse (Prelude.Maybe [PatchBaselineIdentity])
+describePatchBaselinesResponse_baselineIdentities = Lens.lens (\DescribePatchBaselinesResponse' {baselineIdentities} -> baselineIdentities) (\s@DescribePatchBaselinesResponse' {} a -> s {baselineIdentities = a} :: DescribePatchBaselinesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describePatchBaselinesResponse_httpStatus :: Lens.Lens' DescribePatchBaselinesResponse Core.Int
+describePatchBaselinesResponse_httpStatus :: Lens.Lens' DescribePatchBaselinesResponse Prelude.Int
 describePatchBaselinesResponse_httpStatus = Lens.lens (\DescribePatchBaselinesResponse' {httpStatus} -> httpStatus) (\s@DescribePatchBaselinesResponse' {} a -> s {httpStatus = a} :: DescribePatchBaselinesResponse)
 
-instance Core.NFData DescribePatchBaselinesResponse
+instance
+  Prelude.NFData
+    DescribePatchBaselinesResponse

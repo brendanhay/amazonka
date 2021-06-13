@@ -21,15 +21,16 @@ module Network.AWS.IoT.Types.ValidationError where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an error found in a behavior specification.
 --
 -- /See:/ 'newValidationError' smart constructor.
 data ValidationError = ValidationError'
   { -- | The description of an error found in the behaviors.
-    errorMessage :: Core.Maybe Core.Text
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ValidationError' with all optional fields omitted.
@@ -43,10 +44,10 @@ data ValidationError = ValidationError'
 newValidationError ::
   ValidationError
 newValidationError =
-  ValidationError' {errorMessage = Core.Nothing}
+  ValidationError' {errorMessage = Prelude.Nothing}
 
 -- | The description of an error found in the behaviors.
-validationError_errorMessage :: Lens.Lens' ValidationError (Core.Maybe Core.Text)
+validationError_errorMessage :: Lens.Lens' ValidationError (Prelude.Maybe Prelude.Text)
 validationError_errorMessage = Lens.lens (\ValidationError' {errorMessage} -> errorMessage) (\s@ValidationError' {} a -> s {errorMessage = a} :: ValidationError)
 
 instance Core.FromJSON ValidationError where
@@ -55,9 +56,9 @@ instance Core.FromJSON ValidationError where
       "ValidationError"
       ( \x ->
           ValidationError'
-            Core.<$> (x Core..:? "errorMessage")
+            Prelude.<$> (x Core..:? "errorMessage")
       )
 
-instance Core.Hashable ValidationError
+instance Prelude.Hashable ValidationError
 
-instance Core.NFData ValidationError
+instance Prelude.NFData ValidationError

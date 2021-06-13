@@ -21,19 +21,20 @@ module Network.AWS.CodeBuild.Types.VpcConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the VPC configuration that AWS CodeBuild accesses.
 --
 -- /See:/ 'newVpcConfig' smart constructor.
 data VpcConfig = VpcConfig'
   { -- | A list of one or more security groups IDs in your Amazon VPC.
-    securityGroupIds :: Core.Maybe [Core.Text],
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the Amazon VPC.
-    vpcId :: Core.Maybe Core.Text,
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | A list of one or more subnet IDs in your Amazon VPC.
-    subnets :: Core.Maybe [Core.Text]
+    subnets :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpcConfig' with all optional fields omitted.
@@ -52,22 +53,22 @@ newVpcConfig ::
   VpcConfig
 newVpcConfig =
   VpcConfig'
-    { securityGroupIds = Core.Nothing,
-      vpcId = Core.Nothing,
-      subnets = Core.Nothing
+    { securityGroupIds = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      subnets = Prelude.Nothing
     }
 
 -- | A list of one or more security groups IDs in your Amazon VPC.
-vpcConfig_securityGroupIds :: Lens.Lens' VpcConfig (Core.Maybe [Core.Text])
-vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securityGroupIds) (\s@VpcConfig' {} a -> s {securityGroupIds = a} :: VpcConfig) Core.. Lens.mapping Lens._Coerce
+vpcConfig_securityGroupIds :: Lens.Lens' VpcConfig (Prelude.Maybe [Prelude.Text])
+vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securityGroupIds) (\s@VpcConfig' {} a -> s {securityGroupIds = a} :: VpcConfig) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the Amazon VPC.
-vpcConfig_vpcId :: Lens.Lens' VpcConfig (Core.Maybe Core.Text)
+vpcConfig_vpcId :: Lens.Lens' VpcConfig (Prelude.Maybe Prelude.Text)
 vpcConfig_vpcId = Lens.lens (\VpcConfig' {vpcId} -> vpcId) (\s@VpcConfig' {} a -> s {vpcId = a} :: VpcConfig)
 
 -- | A list of one or more subnet IDs in your Amazon VPC.
-vpcConfig_subnets :: Lens.Lens' VpcConfig (Core.Maybe [Core.Text])
-vpcConfig_subnets = Lens.lens (\VpcConfig' {subnets} -> subnets) (\s@VpcConfig' {} a -> s {subnets = a} :: VpcConfig) Core.. Lens.mapping Lens._Coerce
+vpcConfig_subnets :: Lens.Lens' VpcConfig (Prelude.Maybe [Prelude.Text])
+vpcConfig_subnets = Lens.lens (\VpcConfig' {subnets} -> subnets) (\s@VpcConfig' {} a -> s {subnets = a} :: VpcConfig) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON VpcConfig where
   parseJSON =
@@ -75,22 +76,24 @@ instance Core.FromJSON VpcConfig where
       "VpcConfig"
       ( \x ->
           VpcConfig'
-            Core.<$> (x Core..:? "securityGroupIds" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "vpcId")
-            Core.<*> (x Core..:? "subnets" Core..!= Core.mempty)
+            Prelude.<$> ( x Core..:? "securityGroupIds"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "vpcId")
+            Prelude.<*> (x Core..:? "subnets" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable VpcConfig
+instance Prelude.Hashable VpcConfig
 
-instance Core.NFData VpcConfig
+instance Prelude.NFData VpcConfig
 
 instance Core.ToJSON VpcConfig where
   toJSON VpcConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("securityGroupIds" Core..=)
-              Core.<$> securityGroupIds,
-            ("vpcId" Core..=) Core.<$> vpcId,
-            ("subnets" Core..=) Core.<$> subnets
+              Prelude.<$> securityGroupIds,
+            ("vpcId" Core..=) Prelude.<$> vpcId,
+            ("subnets" Core..=) Prelude.<$> subnets
           ]
       )

@@ -58,6 +58,7 @@ where
 import Network.AWS.CloudWatchLogs.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,7 +69,7 @@ data PutQueryDefinition = PutQueryDefinition'
     --
     -- If you are updating a query definition and you omit this parameter, then
     -- the updated definition will contain no log groups.
-    logGroupNames :: Core.Maybe [Core.Text],
+    logGroupNames :: Prelude.Maybe [Prelude.Text],
     -- | If you are updating a query definition, use this parameter to specify
     -- the ID of the query definition that you want to update. You can use
     -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions>
@@ -77,18 +78,18 @@ data PutQueryDefinition = PutQueryDefinition'
     -- If you are creating a query definition, do not specify this parameter.
     -- CloudWatch generates a unique ID for the new query definition and
     -- include it in the response to this operation.
-    queryDefinitionId :: Core.Maybe Core.Text,
+    queryDefinitionId :: Prelude.Maybe Prelude.Text,
     -- | A name for the query definition. If you are saving a lot of query
     -- definitions, we recommend that you name them so that you can easily find
     -- the ones you want by using the first part of the name as a filter in the
     -- @queryDefinitionNamePrefix@ parameter of
     -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions>.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The query string to use for this definition. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax>.
-    queryString :: Core.Text
+    queryString :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutQueryDefinition' with all optional fields omitted.
@@ -123,14 +124,15 @@ data PutQueryDefinition = PutQueryDefinition'
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax>.
 newPutQueryDefinition ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'queryString'
-  Core.Text ->
+  Prelude.Text ->
   PutQueryDefinition
 newPutQueryDefinition pName_ pQueryString_ =
   PutQueryDefinition'
-    { logGroupNames = Core.Nothing,
-      queryDefinitionId = Core.Nothing,
+    { logGroupNames =
+        Prelude.Nothing,
+      queryDefinitionId = Prelude.Nothing,
       name = pName_,
       queryString = pQueryString_
     }
@@ -140,8 +142,8 @@ newPutQueryDefinition pName_ pQueryString_ =
 --
 -- If you are updating a query definition and you omit this parameter, then
 -- the updated definition will contain no log groups.
-putQueryDefinition_logGroupNames :: Lens.Lens' PutQueryDefinition (Core.Maybe [Core.Text])
-putQueryDefinition_logGroupNames = Lens.lens (\PutQueryDefinition' {logGroupNames} -> logGroupNames) (\s@PutQueryDefinition' {} a -> s {logGroupNames = a} :: PutQueryDefinition) Core.. Lens.mapping Lens._Coerce
+putQueryDefinition_logGroupNames :: Lens.Lens' PutQueryDefinition (Prelude.Maybe [Prelude.Text])
+putQueryDefinition_logGroupNames = Lens.lens (\PutQueryDefinition' {logGroupNames} -> logGroupNames) (\s@PutQueryDefinition' {} a -> s {logGroupNames = a} :: PutQueryDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If you are updating a query definition, use this parameter to specify
 -- the ID of the query definition that you want to update. You can use
@@ -151,7 +153,7 @@ putQueryDefinition_logGroupNames = Lens.lens (\PutQueryDefinition' {logGroupName
 -- If you are creating a query definition, do not specify this parameter.
 -- CloudWatch generates a unique ID for the new query definition and
 -- include it in the response to this operation.
-putQueryDefinition_queryDefinitionId :: Lens.Lens' PutQueryDefinition (Core.Maybe Core.Text)
+putQueryDefinition_queryDefinitionId :: Lens.Lens' PutQueryDefinition (Prelude.Maybe Prelude.Text)
 putQueryDefinition_queryDefinitionId = Lens.lens (\PutQueryDefinition' {queryDefinitionId} -> queryDefinitionId) (\s@PutQueryDefinition' {} a -> s {queryDefinitionId = a} :: PutQueryDefinition)
 
 -- | A name for the query definition. If you are saving a lot of query
@@ -159,12 +161,12 @@ putQueryDefinition_queryDefinitionId = Lens.lens (\PutQueryDefinition' {queryDef
 -- the ones you want by using the first part of the name as a filter in the
 -- @queryDefinitionNamePrefix@ parameter of
 -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions>.
-putQueryDefinition_name :: Lens.Lens' PutQueryDefinition Core.Text
+putQueryDefinition_name :: Lens.Lens' PutQueryDefinition Prelude.Text
 putQueryDefinition_name = Lens.lens (\PutQueryDefinition' {name} -> name) (\s@PutQueryDefinition' {} a -> s {name = a} :: PutQueryDefinition)
 
 -- | The query string to use for this definition. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax>.
-putQueryDefinition_queryString :: Lens.Lens' PutQueryDefinition Core.Text
+putQueryDefinition_queryString :: Lens.Lens' PutQueryDefinition Prelude.Text
 putQueryDefinition_queryString = Lens.lens (\PutQueryDefinition' {queryString} -> queryString) (\s@PutQueryDefinition' {} a -> s {queryString = a} :: PutQueryDefinition)
 
 instance Core.AWSRequest PutQueryDefinition where
@@ -176,53 +178,55 @@ instance Core.AWSRequest PutQueryDefinition where
     Response.receiveJSON
       ( \s h x ->
           PutQueryDefinitionResponse'
-            Core.<$> (x Core..?> "queryDefinitionId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "queryDefinitionId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutQueryDefinition
+instance Prelude.Hashable PutQueryDefinition
 
-instance Core.NFData PutQueryDefinition
+instance Prelude.NFData PutQueryDefinition
 
 instance Core.ToHeaders PutQueryDefinition where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Logs_20140328.PutQueryDefinition" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutQueryDefinition where
   toJSON PutQueryDefinition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("logGroupNames" Core..=) Core.<$> logGroupNames,
+      ( Prelude.catMaybes
+          [ ("logGroupNames" Core..=) Prelude.<$> logGroupNames,
             ("queryDefinitionId" Core..=)
-              Core.<$> queryDefinitionId,
-            Core.Just ("name" Core..= name),
-            Core.Just ("queryString" Core..= queryString)
+              Prelude.<$> queryDefinitionId,
+            Prelude.Just ("name" Core..= name),
+            Prelude.Just ("queryString" Core..= queryString)
           ]
       )
 
 instance Core.ToPath PutQueryDefinition where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutQueryDefinition where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutQueryDefinitionResponse' smart constructor.
 data PutQueryDefinitionResponse = PutQueryDefinitionResponse'
   { -- | The ID of the query definition.
-    queryDefinitionId :: Core.Maybe Core.Text,
+    queryDefinitionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutQueryDefinitionResponse' with all optional fields omitted.
@@ -237,21 +241,21 @@ data PutQueryDefinitionResponse = PutQueryDefinitionResponse'
 -- 'httpStatus', 'putQueryDefinitionResponse_httpStatus' - The response's http status code.
 newPutQueryDefinitionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutQueryDefinitionResponse
 newPutQueryDefinitionResponse pHttpStatus_ =
   PutQueryDefinitionResponse'
     { queryDefinitionId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the query definition.
-putQueryDefinitionResponse_queryDefinitionId :: Lens.Lens' PutQueryDefinitionResponse (Core.Maybe Core.Text)
+putQueryDefinitionResponse_queryDefinitionId :: Lens.Lens' PutQueryDefinitionResponse (Prelude.Maybe Prelude.Text)
 putQueryDefinitionResponse_queryDefinitionId = Lens.lens (\PutQueryDefinitionResponse' {queryDefinitionId} -> queryDefinitionId) (\s@PutQueryDefinitionResponse' {} a -> s {queryDefinitionId = a} :: PutQueryDefinitionResponse)
 
 -- | The response's http status code.
-putQueryDefinitionResponse_httpStatus :: Lens.Lens' PutQueryDefinitionResponse Core.Int
+putQueryDefinitionResponse_httpStatus :: Lens.Lens' PutQueryDefinitionResponse Prelude.Int
 putQueryDefinitionResponse_httpStatus = Lens.lens (\PutQueryDefinitionResponse' {httpStatus} -> httpStatus) (\s@PutQueryDefinitionResponse' {} a -> s {httpStatus = a} :: PutQueryDefinitionResponse)
 
-instance Core.NFData PutQueryDefinitionResponse
+instance Prelude.NFData PutQueryDefinitionResponse

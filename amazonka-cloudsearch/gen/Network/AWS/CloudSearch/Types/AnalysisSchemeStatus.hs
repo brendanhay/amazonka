@@ -23,6 +23,7 @@ import Network.AWS.CloudSearch.Types.AnalysisScheme
 import Network.AWS.CloudSearch.Types.OptionStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The status and configuration of an @AnalysisScheme@.
 --
@@ -31,7 +32,7 @@ data AnalysisSchemeStatus = AnalysisSchemeStatus'
   { options :: AnalysisScheme,
     status :: OptionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AnalysisSchemeStatus' with all optional fields omitted.
@@ -67,8 +68,9 @@ analysisSchemeStatus_status = Lens.lens (\AnalysisSchemeStatus' {status} -> stat
 instance Core.FromXML AnalysisSchemeStatus where
   parseXML x =
     AnalysisSchemeStatus'
-      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")
+      Prelude.<$> (x Core..@ "Options")
+      Prelude.<*> (x Core..@ "Status")
 
-instance Core.Hashable AnalysisSchemeStatus
+instance Prelude.Hashable AnalysisSchemeStatus
 
-instance Core.NFData AnalysisSchemeStatus
+instance Prelude.NFData AnalysisSchemeStatus

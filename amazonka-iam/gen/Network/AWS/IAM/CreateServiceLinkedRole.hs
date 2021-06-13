@@ -55,6 +55,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,9 +70,9 @@ data CreateServiceLinkedRole = CreateServiceLinkedRole'
     -- Some services do not support the @CustomSuffix@ parameter. If you
     -- provide an optional suffix and the operation fails, try the operation
     -- again without the suffix.
-    customSuffix :: Core.Maybe Core.Text,
+    customSuffix :: Prelude.Maybe Prelude.Text,
     -- | The description of the role.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The service principal for the AWS service to which this role is
     -- attached. You use a string similar to a URL but without the http:\/\/ in
     -- front. For example: @elasticbeanstalk.amazonaws.com@.
@@ -82,9 +83,9 @@ data CreateServiceLinkedRole = CreateServiceLinkedRole'
     -- in the /IAM User Guide/. Look for the services that have __Yes__ in the
     -- __Service-Linked Role__ column. Choose the __Yes__ link to view the
     -- service-linked role documentation for that service.
-    aWSServiceName :: Core.Text
+    aWSServiceName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateServiceLinkedRole' with all optional fields omitted.
@@ -118,13 +119,13 @@ data CreateServiceLinkedRole = CreateServiceLinkedRole'
 -- service-linked role documentation for that service.
 newCreateServiceLinkedRole ::
   -- | 'aWSServiceName'
-  Core.Text ->
+  Prelude.Text ->
   CreateServiceLinkedRole
 newCreateServiceLinkedRole pAWSServiceName_ =
   CreateServiceLinkedRole'
     { customSuffix =
-        Core.Nothing,
-      description = Core.Nothing,
+        Prelude.Nothing,
+      description = Prelude.Nothing,
       aWSServiceName = pAWSServiceName_
     }
 
@@ -137,11 +138,11 @@ newCreateServiceLinkedRole pAWSServiceName_ =
 -- Some services do not support the @CustomSuffix@ parameter. If you
 -- provide an optional suffix and the operation fails, try the operation
 -- again without the suffix.
-createServiceLinkedRole_customSuffix :: Lens.Lens' CreateServiceLinkedRole (Core.Maybe Core.Text)
+createServiceLinkedRole_customSuffix :: Lens.Lens' CreateServiceLinkedRole (Prelude.Maybe Prelude.Text)
 createServiceLinkedRole_customSuffix = Lens.lens (\CreateServiceLinkedRole' {customSuffix} -> customSuffix) (\s@CreateServiceLinkedRole' {} a -> s {customSuffix = a} :: CreateServiceLinkedRole)
 
 -- | The description of the role.
-createServiceLinkedRole_description :: Lens.Lens' CreateServiceLinkedRole (Core.Maybe Core.Text)
+createServiceLinkedRole_description :: Lens.Lens' CreateServiceLinkedRole (Prelude.Maybe Prelude.Text)
 createServiceLinkedRole_description = Lens.lens (\CreateServiceLinkedRole' {description} -> description) (\s@CreateServiceLinkedRole' {} a -> s {description = a} :: CreateServiceLinkedRole)
 
 -- | The service principal for the AWS service to which this role is
@@ -154,7 +155,7 @@ createServiceLinkedRole_description = Lens.lens (\CreateServiceLinkedRole' {desc
 -- in the /IAM User Guide/. Look for the services that have __Yes__ in the
 -- __Service-Linked Role__ column. Choose the __Yes__ link to view the
 -- service-linked role documentation for that service.
-createServiceLinkedRole_aWSServiceName :: Lens.Lens' CreateServiceLinkedRole Core.Text
+createServiceLinkedRole_aWSServiceName :: Lens.Lens' CreateServiceLinkedRole Prelude.Text
 createServiceLinkedRole_aWSServiceName = Lens.lens (\CreateServiceLinkedRole' {aWSServiceName} -> aWSServiceName) (\s@CreateServiceLinkedRole' {} a -> s {aWSServiceName = a} :: CreateServiceLinkedRole)
 
 instance Core.AWSRequest CreateServiceLinkedRole where
@@ -167,26 +168,27 @@ instance Core.AWSRequest CreateServiceLinkedRole where
       "CreateServiceLinkedRoleResult"
       ( \s h x ->
           CreateServiceLinkedRoleResponse'
-            Core.<$> (x Core..@? "Role")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "Role")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateServiceLinkedRole
+instance Prelude.Hashable CreateServiceLinkedRole
 
-instance Core.NFData CreateServiceLinkedRole
+instance Prelude.NFData CreateServiceLinkedRole
 
 instance Core.ToHeaders CreateServiceLinkedRole where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateServiceLinkedRole where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateServiceLinkedRole where
   toQuery CreateServiceLinkedRole' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateServiceLinkedRole" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("CreateServiceLinkedRole" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "CustomSuffix" Core.=: customSuffix,
         "Description" Core.=: description,
         "AWSServiceName" Core.=: aWSServiceName
@@ -195,11 +197,11 @@ instance Core.ToQuery CreateServiceLinkedRole where
 -- | /See:/ 'newCreateServiceLinkedRoleResponse' smart constructor.
 data CreateServiceLinkedRoleResponse = CreateServiceLinkedRoleResponse'
   { -- | A Role object that contains details about the newly created role.
-    role' :: Core.Maybe Role,
+    role' :: Prelude.Maybe Role,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateServiceLinkedRoleResponse' with all optional fields omitted.
@@ -214,21 +216,23 @@ data CreateServiceLinkedRoleResponse = CreateServiceLinkedRoleResponse'
 -- 'httpStatus', 'createServiceLinkedRoleResponse_httpStatus' - The response's http status code.
 newCreateServiceLinkedRoleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateServiceLinkedRoleResponse
 newCreateServiceLinkedRoleResponse pHttpStatus_ =
   CreateServiceLinkedRoleResponse'
     { role' =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A Role object that contains details about the newly created role.
-createServiceLinkedRoleResponse_role :: Lens.Lens' CreateServiceLinkedRoleResponse (Core.Maybe Role)
+createServiceLinkedRoleResponse_role :: Lens.Lens' CreateServiceLinkedRoleResponse (Prelude.Maybe Role)
 createServiceLinkedRoleResponse_role = Lens.lens (\CreateServiceLinkedRoleResponse' {role'} -> role') (\s@CreateServiceLinkedRoleResponse' {} a -> s {role' = a} :: CreateServiceLinkedRoleResponse)
 
 -- | The response's http status code.
-createServiceLinkedRoleResponse_httpStatus :: Lens.Lens' CreateServiceLinkedRoleResponse Core.Int
+createServiceLinkedRoleResponse_httpStatus :: Lens.Lens' CreateServiceLinkedRoleResponse Prelude.Int
 createServiceLinkedRoleResponse_httpStatus = Lens.lens (\CreateServiceLinkedRoleResponse' {httpStatus} -> httpStatus) (\s@CreateServiceLinkedRoleResponse' {} a -> s {httpStatus = a} :: CreateServiceLinkedRoleResponse)
 
-instance Core.NFData CreateServiceLinkedRoleResponse
+instance
+  Prelude.NFData
+    CreateServiceLinkedRoleResponse

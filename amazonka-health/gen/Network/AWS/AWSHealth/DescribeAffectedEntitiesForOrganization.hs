@@ -71,6 +71,7 @@ where
 import Network.AWS.AWSHealth.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -81,17 +82,17 @@ data DescribeAffectedEntitiesForOrganization = DescribeAffectedEntitiesForOrgani
     -- response. To retrieve the next batch of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return in one batch, between 10 and 100,
     -- inclusive.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The locale (language) to return information in. English (en) is the
     -- default and the only supported value at this time.
-    locale :: Core.Maybe Core.Text,
+    locale :: Prelude.Maybe Prelude.Text,
     -- | A JSON set of elements including the @awsAccountId@ and the @eventArn@.
-    organizationEntityFilters :: Core.NonEmpty EventAccountFilter
+    organizationEntityFilters :: Prelude.NonEmpty EventAccountFilter
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAffectedEntitiesForOrganization' with all optional fields omitted.
@@ -116,15 +117,15 @@ data DescribeAffectedEntitiesForOrganization = DescribeAffectedEntitiesForOrgani
 -- 'organizationEntityFilters', 'describeAffectedEntitiesForOrganization_organizationEntityFilters' - A JSON set of elements including the @awsAccountId@ and the @eventArn@.
 newDescribeAffectedEntitiesForOrganization ::
   -- | 'organizationEntityFilters'
-  Core.NonEmpty EventAccountFilter ->
+  Prelude.NonEmpty EventAccountFilter ->
   DescribeAffectedEntitiesForOrganization
 newDescribeAffectedEntitiesForOrganization
   pOrganizationEntityFilters_ =
     DescribeAffectedEntitiesForOrganization'
       { nextToken =
-          Core.Nothing,
-        maxResults = Core.Nothing,
-        locale = Core.Nothing,
+          Prelude.Nothing,
+        maxResults = Prelude.Nothing,
+        locale = Prelude.Nothing,
         organizationEntityFilters =
           Lens._Coerce
             Lens.# pOrganizationEntityFilters_
@@ -135,22 +136,22 @@ newDescribeAffectedEntitiesForOrganization
 -- response. To retrieve the next batch of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
-describeAffectedEntitiesForOrganization_nextToken :: Lens.Lens' DescribeAffectedEntitiesForOrganization (Core.Maybe Core.Text)
+describeAffectedEntitiesForOrganization_nextToken :: Lens.Lens' DescribeAffectedEntitiesForOrganization (Prelude.Maybe Prelude.Text)
 describeAffectedEntitiesForOrganization_nextToken = Lens.lens (\DescribeAffectedEntitiesForOrganization' {nextToken} -> nextToken) (\s@DescribeAffectedEntitiesForOrganization' {} a -> s {nextToken = a} :: DescribeAffectedEntitiesForOrganization)
 
 -- | The maximum number of items to return in one batch, between 10 and 100,
 -- inclusive.
-describeAffectedEntitiesForOrganization_maxResults :: Lens.Lens' DescribeAffectedEntitiesForOrganization (Core.Maybe Core.Natural)
+describeAffectedEntitiesForOrganization_maxResults :: Lens.Lens' DescribeAffectedEntitiesForOrganization (Prelude.Maybe Prelude.Natural)
 describeAffectedEntitiesForOrganization_maxResults = Lens.lens (\DescribeAffectedEntitiesForOrganization' {maxResults} -> maxResults) (\s@DescribeAffectedEntitiesForOrganization' {} a -> s {maxResults = a} :: DescribeAffectedEntitiesForOrganization)
 
 -- | The locale (language) to return information in. English (en) is the
 -- default and the only supported value at this time.
-describeAffectedEntitiesForOrganization_locale :: Lens.Lens' DescribeAffectedEntitiesForOrganization (Core.Maybe Core.Text)
+describeAffectedEntitiesForOrganization_locale :: Lens.Lens' DescribeAffectedEntitiesForOrganization (Prelude.Maybe Prelude.Text)
 describeAffectedEntitiesForOrganization_locale = Lens.lens (\DescribeAffectedEntitiesForOrganization' {locale} -> locale) (\s@DescribeAffectedEntitiesForOrganization' {} a -> s {locale = a} :: DescribeAffectedEntitiesForOrganization)
 
 -- | A JSON set of elements including the @awsAccountId@ and the @eventArn@.
-describeAffectedEntitiesForOrganization_organizationEntityFilters :: Lens.Lens' DescribeAffectedEntitiesForOrganization (Core.NonEmpty EventAccountFilter)
-describeAffectedEntitiesForOrganization_organizationEntityFilters = Lens.lens (\DescribeAffectedEntitiesForOrganization' {organizationEntityFilters} -> organizationEntityFilters) (\s@DescribeAffectedEntitiesForOrganization' {} a -> s {organizationEntityFilters = a} :: DescribeAffectedEntitiesForOrganization) Core.. Lens._Coerce
+describeAffectedEntitiesForOrganization_organizationEntityFilters :: Lens.Lens' DescribeAffectedEntitiesForOrganization (Prelude.NonEmpty EventAccountFilter)
+describeAffectedEntitiesForOrganization_organizationEntityFilters = Lens.lens (\DescribeAffectedEntitiesForOrganization' {organizationEntityFilters} -> organizationEntityFilters) (\s@DescribeAffectedEntitiesForOrganization' {} a -> s {organizationEntityFilters = a} :: DescribeAffectedEntitiesForOrganization) Prelude.. Lens._Coerce
 
 instance
   Core.AWSPager
@@ -160,22 +161,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeAffectedEntitiesForOrganizationResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAffectedEntitiesForOrganizationResponse_entities
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeAffectedEntitiesForOrganization_nextToken
+          Prelude.& describeAffectedEntitiesForOrganization_nextToken
           Lens..~ rs
             Lens.^? describeAffectedEntitiesForOrganizationResponse_nextToken
-              Core.. Lens._Just
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -190,18 +191,18 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAffectedEntitiesForOrganizationResponse'
-            Core.<$> (x Core..?> "nextToken")
-              Core.<*> (x Core..?> "failedSet" Core..!@ Core.mempty)
-              Core.<*> (x Core..?> "entities" Core..!@ Core.mempty)
-              Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+              Prelude.<*> (x Core..?> "failedSet" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Core..?> "entities" Core..!@ Prelude.mempty)
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     DescribeAffectedEntitiesForOrganization
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeAffectedEntitiesForOrganization
 
 instance
@@ -209,14 +210,16 @@ instance
     DescribeAffectedEntitiesForOrganization
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSHealth_20160804.DescribeAffectedEntitiesForOrganization" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -226,11 +229,11 @@ instance
   where
   toJSON DescribeAffectedEntitiesForOrganization' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResults" Core..=) Core.<$> maxResults,
-            ("locale" Core..=) Core.<$> locale,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("locale" Core..=) Prelude.<$> locale,
+            Prelude.Just
               ( "organizationEntityFilters"
                   Core..= organizationEntityFilters
               )
@@ -241,13 +244,13 @@ instance
   Core.ToPath
     DescribeAffectedEntitiesForOrganization
   where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance
   Core.ToQuery
     DescribeAffectedEntitiesForOrganization
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAffectedEntitiesForOrganizationResponse' smart constructor.
 data DescribeAffectedEntitiesForOrganizationResponse = DescribeAffectedEntitiesForOrganizationResponse'
@@ -256,17 +259,17 @@ data DescribeAffectedEntitiesForOrganizationResponse = DescribeAffectedEntitiesF
     -- response. To retrieve the next batch of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A JSON set of elements of the failed response, including the
     -- @awsAccountId@, @errorMessage@, @errorName@, and @eventArn@.
-    failedSet :: Core.Maybe [OrganizationAffectedEntitiesErrorItem],
+    failedSet :: Prelude.Maybe [OrganizationAffectedEntitiesErrorItem],
     -- | A JSON set of elements including the @awsAccountId@ and its @entityArn@,
     -- @entityValue@ and its @entityArn@, @lastUpdatedTime@, and @statusCode@.
-    entities :: Core.Maybe [AffectedEntity],
+    entities :: Prelude.Maybe [AffectedEntity],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAffectedEntitiesForOrganizationResponse' with all optional fields omitted.
@@ -291,15 +294,16 @@ data DescribeAffectedEntitiesForOrganizationResponse = DescribeAffectedEntitiesF
 -- 'httpStatus', 'describeAffectedEntitiesForOrganizationResponse_httpStatus' - The response's http status code.
 newDescribeAffectedEntitiesForOrganizationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeAffectedEntitiesForOrganizationResponse
 newDescribeAffectedEntitiesForOrganizationResponse
   pHttpStatus_ =
     DescribeAffectedEntitiesForOrganizationResponse'
       { nextToken =
-          Core.Nothing,
-        failedSet = Core.Nothing,
-        entities = Core.Nothing,
+          Prelude.Nothing,
+        failedSet =
+          Prelude.Nothing,
+        entities = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -308,23 +312,23 @@ newDescribeAffectedEntitiesForOrganizationResponse
 -- response. To retrieve the next batch of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
-describeAffectedEntitiesForOrganizationResponse_nextToken :: Lens.Lens' DescribeAffectedEntitiesForOrganizationResponse (Core.Maybe Core.Text)
+describeAffectedEntitiesForOrganizationResponse_nextToken :: Lens.Lens' DescribeAffectedEntitiesForOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeAffectedEntitiesForOrganizationResponse_nextToken = Lens.lens (\DescribeAffectedEntitiesForOrganizationResponse' {nextToken} -> nextToken) (\s@DescribeAffectedEntitiesForOrganizationResponse' {} a -> s {nextToken = a} :: DescribeAffectedEntitiesForOrganizationResponse)
 
 -- | A JSON set of elements of the failed response, including the
 -- @awsAccountId@, @errorMessage@, @errorName@, and @eventArn@.
-describeAffectedEntitiesForOrganizationResponse_failedSet :: Lens.Lens' DescribeAffectedEntitiesForOrganizationResponse (Core.Maybe [OrganizationAffectedEntitiesErrorItem])
-describeAffectedEntitiesForOrganizationResponse_failedSet = Lens.lens (\DescribeAffectedEntitiesForOrganizationResponse' {failedSet} -> failedSet) (\s@DescribeAffectedEntitiesForOrganizationResponse' {} a -> s {failedSet = a} :: DescribeAffectedEntitiesForOrganizationResponse) Core.. Lens.mapping Lens._Coerce
+describeAffectedEntitiesForOrganizationResponse_failedSet :: Lens.Lens' DescribeAffectedEntitiesForOrganizationResponse (Prelude.Maybe [OrganizationAffectedEntitiesErrorItem])
+describeAffectedEntitiesForOrganizationResponse_failedSet = Lens.lens (\DescribeAffectedEntitiesForOrganizationResponse' {failedSet} -> failedSet) (\s@DescribeAffectedEntitiesForOrganizationResponse' {} a -> s {failedSet = a} :: DescribeAffectedEntitiesForOrganizationResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A JSON set of elements including the @awsAccountId@ and its @entityArn@,
 -- @entityValue@ and its @entityArn@, @lastUpdatedTime@, and @statusCode@.
-describeAffectedEntitiesForOrganizationResponse_entities :: Lens.Lens' DescribeAffectedEntitiesForOrganizationResponse (Core.Maybe [AffectedEntity])
-describeAffectedEntitiesForOrganizationResponse_entities = Lens.lens (\DescribeAffectedEntitiesForOrganizationResponse' {entities} -> entities) (\s@DescribeAffectedEntitiesForOrganizationResponse' {} a -> s {entities = a} :: DescribeAffectedEntitiesForOrganizationResponse) Core.. Lens.mapping Lens._Coerce
+describeAffectedEntitiesForOrganizationResponse_entities :: Lens.Lens' DescribeAffectedEntitiesForOrganizationResponse (Prelude.Maybe [AffectedEntity])
+describeAffectedEntitiesForOrganizationResponse_entities = Lens.lens (\DescribeAffectedEntitiesForOrganizationResponse' {entities} -> entities) (\s@DescribeAffectedEntitiesForOrganizationResponse' {} a -> s {entities = a} :: DescribeAffectedEntitiesForOrganizationResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAffectedEntitiesForOrganizationResponse_httpStatus :: Lens.Lens' DescribeAffectedEntitiesForOrganizationResponse Core.Int
+describeAffectedEntitiesForOrganizationResponse_httpStatus :: Lens.Lens' DescribeAffectedEntitiesForOrganizationResponse Prelude.Int
 describeAffectedEntitiesForOrganizationResponse_httpStatus = Lens.lens (\DescribeAffectedEntitiesForOrganizationResponse' {httpStatus} -> httpStatus) (\s@DescribeAffectedEntitiesForOrganizationResponse' {} a -> s {httpStatus = a} :: DescribeAffectedEntitiesForOrganizationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeAffectedEntitiesForOrganizationResponse

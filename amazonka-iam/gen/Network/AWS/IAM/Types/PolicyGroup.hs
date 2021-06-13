@@ -21,6 +21,7 @@ module Network.AWS.IAM.Types.PolicyGroup where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a group that a managed policy is attached to.
 --
@@ -34,14 +35,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPolicyGroup' smart constructor.
 data PolicyGroup = PolicyGroup'
   { -- | The name (friendly name, not ARN) identifying the group.
-    groupName :: Core.Maybe Core.Text,
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The stable and unique string identifying the group. For more information
     -- about IDs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    groupId :: Core.Maybe Core.Text
+    groupId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PolicyGroup' with all optional fields omitted.
@@ -61,27 +62,27 @@ newPolicyGroup ::
   PolicyGroup
 newPolicyGroup =
   PolicyGroup'
-    { groupName = Core.Nothing,
-      groupId = Core.Nothing
+    { groupName = Prelude.Nothing,
+      groupId = Prelude.Nothing
     }
 
 -- | The name (friendly name, not ARN) identifying the group.
-policyGroup_groupName :: Lens.Lens' PolicyGroup (Core.Maybe Core.Text)
+policyGroup_groupName :: Lens.Lens' PolicyGroup (Prelude.Maybe Prelude.Text)
 policyGroup_groupName = Lens.lens (\PolicyGroup' {groupName} -> groupName) (\s@PolicyGroup' {} a -> s {groupName = a} :: PolicyGroup)
 
 -- | The stable and unique string identifying the group. For more information
 -- about IDs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
-policyGroup_groupId :: Lens.Lens' PolicyGroup (Core.Maybe Core.Text)
+policyGroup_groupId :: Lens.Lens' PolicyGroup (Prelude.Maybe Prelude.Text)
 policyGroup_groupId = Lens.lens (\PolicyGroup' {groupId} -> groupId) (\s@PolicyGroup' {} a -> s {groupId = a} :: PolicyGroup)
 
 instance Core.FromXML PolicyGroup where
   parseXML x =
     PolicyGroup'
-      Core.<$> (x Core..@? "GroupName")
-      Core.<*> (x Core..@? "GroupId")
+      Prelude.<$> (x Core..@? "GroupName")
+      Prelude.<*> (x Core..@? "GroupId")
 
-instance Core.Hashable PolicyGroup
+instance Prelude.Hashable PolicyGroup
 
-instance Core.NFData PolicyGroup
+instance Prelude.NFData PolicyGroup

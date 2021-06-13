@@ -21,6 +21,7 @@ module Network.AWS.Route53AutoNaming.Types.DnsRecord where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53AutoNaming.Types.RecordType
 
 -- | A complex type that contains information about the Route 53 DNS records
@@ -135,9 +136,9 @@ data DnsRecord = DnsRecord'
     -- request, the @TTL@ value is ignored. Always specify a TTL for the
     -- service; you can use a service to register instances that create either
     -- alias or non-alias records.
-    ttl :: Core.Natural
+    ttl :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DnsRecord' with all optional fields omitted.
@@ -258,7 +259,7 @@ newDnsRecord ::
   -- | 'type''
   RecordType ->
   -- | 'ttl'
-  Core.Natural ->
+  Prelude.Natural ->
   DnsRecord
 newDnsRecord pType_ pTTL_ =
   DnsRecord' {type' = pType_, ttl = pTTL_}
@@ -372,7 +373,7 @@ dnsRecord_type = Lens.lens (\DnsRecord' {type'} -> type') (\s@DnsRecord' {} a ->
 -- request, the @TTL@ value is ignored. Always specify a TTL for the
 -- service; you can use a service to register instances that create either
 -- alias or non-alias records.
-dnsRecord_ttl :: Lens.Lens' DnsRecord Core.Natural
+dnsRecord_ttl :: Lens.Lens' DnsRecord Prelude.Natural
 dnsRecord_ttl = Lens.lens (\DnsRecord' {ttl} -> ttl) (\s@DnsRecord' {} a -> s {ttl = a} :: DnsRecord)
 
 instance Core.FromJSON DnsRecord where
@@ -381,18 +382,18 @@ instance Core.FromJSON DnsRecord where
       "DnsRecord"
       ( \x ->
           DnsRecord'
-            Core.<$> (x Core..: "Type") Core.<*> (x Core..: "TTL")
+            Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "TTL")
       )
 
-instance Core.Hashable DnsRecord
+instance Prelude.Hashable DnsRecord
 
-instance Core.NFData DnsRecord
+instance Prelude.NFData DnsRecord
 
 instance Core.ToJSON DnsRecord where
   toJSON DnsRecord' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Type" Core..= type'),
-            Core.Just ("TTL" Core..= ttl)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Type" Core..= type'),
+            Prelude.Just ("TTL" Core..= ttl)
           ]
       )

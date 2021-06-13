@@ -49,6 +49,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,15 +58,15 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newRegisterCertificate' smart constructor.
 data RegisterCertificate = RegisterCertificate'
   { -- | The CA certificate used to sign the device certificate being registered.
-    caCertificatePem :: Core.Maybe Core.Text,
+    caCertificatePem :: Prelude.Maybe Prelude.Text,
     -- | A boolean value that specifies if the certificate is set to active.
-    setAsActive :: Core.Maybe Core.Bool,
+    setAsActive :: Prelude.Maybe Prelude.Bool,
     -- | The status of the register certificate request.
-    status :: Core.Maybe CertificateStatus,
+    status :: Prelude.Maybe CertificateStatus,
     -- | The certificate data, in PEM format.
-    certificatePem :: Core.Text
+    certificatePem :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterCertificate' with all optional fields omitted.
@@ -84,31 +85,31 @@ data RegisterCertificate = RegisterCertificate'
 -- 'certificatePem', 'registerCertificate_certificatePem' - The certificate data, in PEM format.
 newRegisterCertificate ::
   -- | 'certificatePem'
-  Core.Text ->
+  Prelude.Text ->
   RegisterCertificate
 newRegisterCertificate pCertificatePem_ =
   RegisterCertificate'
     { caCertificatePem =
-        Core.Nothing,
-      setAsActive = Core.Nothing,
-      status = Core.Nothing,
+        Prelude.Nothing,
+      setAsActive = Prelude.Nothing,
+      status = Prelude.Nothing,
       certificatePem = pCertificatePem_
     }
 
 -- | The CA certificate used to sign the device certificate being registered.
-registerCertificate_caCertificatePem :: Lens.Lens' RegisterCertificate (Core.Maybe Core.Text)
+registerCertificate_caCertificatePem :: Lens.Lens' RegisterCertificate (Prelude.Maybe Prelude.Text)
 registerCertificate_caCertificatePem = Lens.lens (\RegisterCertificate' {caCertificatePem} -> caCertificatePem) (\s@RegisterCertificate' {} a -> s {caCertificatePem = a} :: RegisterCertificate)
 
 -- | A boolean value that specifies if the certificate is set to active.
-registerCertificate_setAsActive :: Lens.Lens' RegisterCertificate (Core.Maybe Core.Bool)
+registerCertificate_setAsActive :: Lens.Lens' RegisterCertificate (Prelude.Maybe Prelude.Bool)
 registerCertificate_setAsActive = Lens.lens (\RegisterCertificate' {setAsActive} -> setAsActive) (\s@RegisterCertificate' {} a -> s {setAsActive = a} :: RegisterCertificate)
 
 -- | The status of the register certificate request.
-registerCertificate_status :: Lens.Lens' RegisterCertificate (Core.Maybe CertificateStatus)
+registerCertificate_status :: Lens.Lens' RegisterCertificate (Prelude.Maybe CertificateStatus)
 registerCertificate_status = Lens.lens (\RegisterCertificate' {status} -> status) (\s@RegisterCertificate' {} a -> s {status = a} :: RegisterCertificate)
 
 -- | The certificate data, in PEM format.
-registerCertificate_certificatePem :: Lens.Lens' RegisterCertificate Core.Text
+registerCertificate_certificatePem :: Lens.Lens' RegisterCertificate Prelude.Text
 registerCertificate_certificatePem = Lens.lens (\RegisterCertificate' {certificatePem} -> certificatePem) (\s@RegisterCertificate' {} a -> s {certificatePem = a} :: RegisterCertificate)
 
 instance Core.AWSRequest RegisterCertificate where
@@ -120,48 +121,49 @@ instance Core.AWSRequest RegisterCertificate where
     Response.receiveJSON
       ( \s h x ->
           RegisterCertificateResponse'
-            Core.<$> (x Core..?> "certificateArn")
-            Core.<*> (x Core..?> "certificateId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "certificateArn")
+            Prelude.<*> (x Core..?> "certificateId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable RegisterCertificate
+instance Prelude.Hashable RegisterCertificate
 
-instance Core.NFData RegisterCertificate
+instance Prelude.NFData RegisterCertificate
 
 instance Core.ToHeaders RegisterCertificate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON RegisterCertificate where
   toJSON RegisterCertificate' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("caCertificatePem" Core..=)
-              Core.<$> caCertificatePem,
-            ("status" Core..=) Core.<$> status,
-            Core.Just ("certificatePem" Core..= certificatePem)
+              Prelude.<$> caCertificatePem,
+            ("status" Core..=) Prelude.<$> status,
+            Prelude.Just
+              ("certificatePem" Core..= certificatePem)
           ]
       )
 
 instance Core.ToPath RegisterCertificate where
-  toPath = Core.const "/certificate/register"
+  toPath = Prelude.const "/certificate/register"
 
 instance Core.ToQuery RegisterCertificate where
   toQuery RegisterCertificate' {..} =
-    Core.mconcat ["setAsActive" Core.=: setAsActive]
+    Prelude.mconcat ["setAsActive" Core.=: setAsActive]
 
 -- | The output from the RegisterCertificate operation.
 --
 -- /See:/ 'newRegisterCertificateResponse' smart constructor.
 data RegisterCertificateResponse = RegisterCertificateResponse'
   { -- | The certificate ARN.
-    certificateArn :: Core.Maybe Core.Text,
+    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The certificate identifier.
-    certificateId :: Core.Maybe Core.Text,
+    certificateId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterCertificateResponse' with all optional fields omitted.
@@ -178,26 +180,26 @@ data RegisterCertificateResponse = RegisterCertificateResponse'
 -- 'httpStatus', 'registerCertificateResponse_httpStatus' - The response's http status code.
 newRegisterCertificateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RegisterCertificateResponse
 newRegisterCertificateResponse pHttpStatus_ =
   RegisterCertificateResponse'
     { certificateArn =
-        Core.Nothing,
-      certificateId = Core.Nothing,
+        Prelude.Nothing,
+      certificateId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The certificate ARN.
-registerCertificateResponse_certificateArn :: Lens.Lens' RegisterCertificateResponse (Core.Maybe Core.Text)
+registerCertificateResponse_certificateArn :: Lens.Lens' RegisterCertificateResponse (Prelude.Maybe Prelude.Text)
 registerCertificateResponse_certificateArn = Lens.lens (\RegisterCertificateResponse' {certificateArn} -> certificateArn) (\s@RegisterCertificateResponse' {} a -> s {certificateArn = a} :: RegisterCertificateResponse)
 
 -- | The certificate identifier.
-registerCertificateResponse_certificateId :: Lens.Lens' RegisterCertificateResponse (Core.Maybe Core.Text)
+registerCertificateResponse_certificateId :: Lens.Lens' RegisterCertificateResponse (Prelude.Maybe Prelude.Text)
 registerCertificateResponse_certificateId = Lens.lens (\RegisterCertificateResponse' {certificateId} -> certificateId) (\s@RegisterCertificateResponse' {} a -> s {certificateId = a} :: RegisterCertificateResponse)
 
 -- | The response's http status code.
-registerCertificateResponse_httpStatus :: Lens.Lens' RegisterCertificateResponse Core.Int
+registerCertificateResponse_httpStatus :: Lens.Lens' RegisterCertificateResponse Prelude.Int
 registerCertificateResponse_httpStatus = Lens.lens (\RegisterCertificateResponse' {httpStatus} -> httpStatus) (\s@RegisterCertificateResponse' {} a -> s {httpStatus = a} :: RegisterCertificateResponse)
 
-instance Core.NFData RegisterCertificateResponse
+instance Prelude.NFData RegisterCertificateResponse

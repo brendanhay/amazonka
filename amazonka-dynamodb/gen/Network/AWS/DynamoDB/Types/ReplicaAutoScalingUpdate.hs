@@ -23,19 +23,20 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate
 import Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingUpdate
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the auto scaling settings of a replica that will be modified.
 --
 -- /See:/ 'newReplicaAutoScalingUpdate' smart constructor.
 data ReplicaAutoScalingUpdate = ReplicaAutoScalingUpdate'
-  { replicaProvisionedReadCapacityAutoScalingUpdate :: Core.Maybe AutoScalingSettingsUpdate,
+  { replicaProvisionedReadCapacityAutoScalingUpdate :: Prelude.Maybe AutoScalingSettingsUpdate,
     -- | Represents the auto scaling settings of global secondary indexes that
     -- will be modified.
-    replicaGlobalSecondaryIndexUpdates :: Core.Maybe [ReplicaGlobalSecondaryIndexAutoScalingUpdate],
+    replicaGlobalSecondaryIndexUpdates :: Prelude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingUpdate],
     -- | The Region where the replica exists.
-    regionName :: Core.Text
+    regionName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReplicaAutoScalingUpdate' with all optional fields omitted.
@@ -53,43 +54,44 @@ data ReplicaAutoScalingUpdate = ReplicaAutoScalingUpdate'
 -- 'regionName', 'replicaAutoScalingUpdate_regionName' - The Region where the replica exists.
 newReplicaAutoScalingUpdate ::
   -- | 'regionName'
-  Core.Text ->
+  Prelude.Text ->
   ReplicaAutoScalingUpdate
 newReplicaAutoScalingUpdate pRegionName_ =
   ReplicaAutoScalingUpdate'
     { replicaProvisionedReadCapacityAutoScalingUpdate =
-        Core.Nothing,
-      replicaGlobalSecondaryIndexUpdates = Core.Nothing,
+        Prelude.Nothing,
+      replicaGlobalSecondaryIndexUpdates =
+        Prelude.Nothing,
       regionName = pRegionName_
     }
 
 -- | Undocumented member.
-replicaAutoScalingUpdate_replicaProvisionedReadCapacityAutoScalingUpdate :: Lens.Lens' ReplicaAutoScalingUpdate (Core.Maybe AutoScalingSettingsUpdate)
+replicaAutoScalingUpdate_replicaProvisionedReadCapacityAutoScalingUpdate :: Lens.Lens' ReplicaAutoScalingUpdate (Prelude.Maybe AutoScalingSettingsUpdate)
 replicaAutoScalingUpdate_replicaProvisionedReadCapacityAutoScalingUpdate = Lens.lens (\ReplicaAutoScalingUpdate' {replicaProvisionedReadCapacityAutoScalingUpdate} -> replicaProvisionedReadCapacityAutoScalingUpdate) (\s@ReplicaAutoScalingUpdate' {} a -> s {replicaProvisionedReadCapacityAutoScalingUpdate = a} :: ReplicaAutoScalingUpdate)
 
 -- | Represents the auto scaling settings of global secondary indexes that
 -- will be modified.
-replicaAutoScalingUpdate_replicaGlobalSecondaryIndexUpdates :: Lens.Lens' ReplicaAutoScalingUpdate (Core.Maybe [ReplicaGlobalSecondaryIndexAutoScalingUpdate])
-replicaAutoScalingUpdate_replicaGlobalSecondaryIndexUpdates = Lens.lens (\ReplicaAutoScalingUpdate' {replicaGlobalSecondaryIndexUpdates} -> replicaGlobalSecondaryIndexUpdates) (\s@ReplicaAutoScalingUpdate' {} a -> s {replicaGlobalSecondaryIndexUpdates = a} :: ReplicaAutoScalingUpdate) Core.. Lens.mapping Lens._Coerce
+replicaAutoScalingUpdate_replicaGlobalSecondaryIndexUpdates :: Lens.Lens' ReplicaAutoScalingUpdate (Prelude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingUpdate])
+replicaAutoScalingUpdate_replicaGlobalSecondaryIndexUpdates = Lens.lens (\ReplicaAutoScalingUpdate' {replicaGlobalSecondaryIndexUpdates} -> replicaGlobalSecondaryIndexUpdates) (\s@ReplicaAutoScalingUpdate' {} a -> s {replicaGlobalSecondaryIndexUpdates = a} :: ReplicaAutoScalingUpdate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Region where the replica exists.
-replicaAutoScalingUpdate_regionName :: Lens.Lens' ReplicaAutoScalingUpdate Core.Text
+replicaAutoScalingUpdate_regionName :: Lens.Lens' ReplicaAutoScalingUpdate Prelude.Text
 replicaAutoScalingUpdate_regionName = Lens.lens (\ReplicaAutoScalingUpdate' {regionName} -> regionName) (\s@ReplicaAutoScalingUpdate' {} a -> s {regionName = a} :: ReplicaAutoScalingUpdate)
 
-instance Core.Hashable ReplicaAutoScalingUpdate
+instance Prelude.Hashable ReplicaAutoScalingUpdate
 
-instance Core.NFData ReplicaAutoScalingUpdate
+instance Prelude.NFData ReplicaAutoScalingUpdate
 
 instance Core.ToJSON ReplicaAutoScalingUpdate where
   toJSON ReplicaAutoScalingUpdate' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ( "ReplicaProvisionedReadCapacityAutoScalingUpdate"
                 Core..=
             )
-              Core.<$> replicaProvisionedReadCapacityAutoScalingUpdate,
+              Prelude.<$> replicaProvisionedReadCapacityAutoScalingUpdate,
             ("ReplicaGlobalSecondaryIndexUpdates" Core..=)
-              Core.<$> replicaGlobalSecondaryIndexUpdates,
-            Core.Just ("RegionName" Core..= regionName)
+              Prelude.<$> replicaGlobalSecondaryIndexUpdates,
+            Prelude.Just ("RegionName" Core..= regionName)
           ]
       )

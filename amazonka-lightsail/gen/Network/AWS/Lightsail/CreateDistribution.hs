@@ -55,6 +55,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,20 +67,20 @@ data CreateDistribution = CreateDistribution'
     -- and IPv6.
     --
     -- The default value is @dualstack@.
-    ipAddressType :: Core.Maybe IpAddressType,
+    ipAddressType :: Prelude.Maybe IpAddressType,
     -- | An object that describes the cache behavior settings for the
     -- distribution.
-    cacheBehaviorSettings :: Core.Maybe CacheSettings,
+    cacheBehaviorSettings :: Prelude.Maybe CacheSettings,
     -- | The tag keys and optional values to add to the distribution during
     -- create.
     --
     -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | An array of objects that describe the per-path cache behavior for the
     -- distribution.
-    cacheBehaviors :: Core.Maybe [CacheBehaviorPerPath],
+    cacheBehaviors :: Prelude.Maybe [CacheBehaviorPerPath],
     -- | The name for the distribution.
-    distributionName :: Core.Text,
+    distributionName :: Prelude.Text,
     -- | An object that describes the origin resource for the distribution, such
     -- as a Lightsail instance or load balancer.
     --
@@ -95,9 +96,9 @@ data CreateDistribution = CreateDistribution'
     --
     -- Use the @GetDistributionBundles@ action to get a list of distribution
     -- bundle IDs that you can specify.
-    bundleId :: Core.Text
+    bundleId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDistribution' with all optional fields omitted.
@@ -144,13 +145,13 @@ data CreateDistribution = CreateDistribution'
 -- bundle IDs that you can specify.
 newCreateDistribution ::
   -- | 'distributionName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'origin'
   InputOrigin ->
   -- | 'defaultCacheBehavior'
   CacheBehavior ->
   -- | 'bundleId'
-  Core.Text ->
+  Prelude.Text ->
   CreateDistribution
 newCreateDistribution
   pDistributionName_
@@ -158,10 +159,11 @@ newCreateDistribution
   pDefaultCacheBehavior_
   pBundleId_ =
     CreateDistribution'
-      { ipAddressType = Core.Nothing,
-        cacheBehaviorSettings = Core.Nothing,
-        tags = Core.Nothing,
-        cacheBehaviors = Core.Nothing,
+      { ipAddressType =
+          Prelude.Nothing,
+        cacheBehaviorSettings = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        cacheBehaviors = Prelude.Nothing,
         distributionName = pDistributionName_,
         origin = pOrigin_,
         defaultCacheBehavior = pDefaultCacheBehavior_,
@@ -174,28 +176,28 @@ newCreateDistribution
 -- and IPv6.
 --
 -- The default value is @dualstack@.
-createDistribution_ipAddressType :: Lens.Lens' CreateDistribution (Core.Maybe IpAddressType)
+createDistribution_ipAddressType :: Lens.Lens' CreateDistribution (Prelude.Maybe IpAddressType)
 createDistribution_ipAddressType = Lens.lens (\CreateDistribution' {ipAddressType} -> ipAddressType) (\s@CreateDistribution' {} a -> s {ipAddressType = a} :: CreateDistribution)
 
 -- | An object that describes the cache behavior settings for the
 -- distribution.
-createDistribution_cacheBehaviorSettings :: Lens.Lens' CreateDistribution (Core.Maybe CacheSettings)
+createDistribution_cacheBehaviorSettings :: Lens.Lens' CreateDistribution (Prelude.Maybe CacheSettings)
 createDistribution_cacheBehaviorSettings = Lens.lens (\CreateDistribution' {cacheBehaviorSettings} -> cacheBehaviorSettings) (\s@CreateDistribution' {} a -> s {cacheBehaviorSettings = a} :: CreateDistribution)
 
 -- | The tag keys and optional values to add to the distribution during
 -- create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
-createDistribution_tags :: Lens.Lens' CreateDistribution (Core.Maybe [Tag])
-createDistribution_tags = Lens.lens (\CreateDistribution' {tags} -> tags) (\s@CreateDistribution' {} a -> s {tags = a} :: CreateDistribution) Core.. Lens.mapping Lens._Coerce
+createDistribution_tags :: Lens.Lens' CreateDistribution (Prelude.Maybe [Tag])
+createDistribution_tags = Lens.lens (\CreateDistribution' {tags} -> tags) (\s@CreateDistribution' {} a -> s {tags = a} :: CreateDistribution) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An array of objects that describe the per-path cache behavior for the
 -- distribution.
-createDistribution_cacheBehaviors :: Lens.Lens' CreateDistribution (Core.Maybe [CacheBehaviorPerPath])
-createDistribution_cacheBehaviors = Lens.lens (\CreateDistribution' {cacheBehaviors} -> cacheBehaviors) (\s@CreateDistribution' {} a -> s {cacheBehaviors = a} :: CreateDistribution) Core.. Lens.mapping Lens._Coerce
+createDistribution_cacheBehaviors :: Lens.Lens' CreateDistribution (Prelude.Maybe [CacheBehaviorPerPath])
+createDistribution_cacheBehaviors = Lens.lens (\CreateDistribution' {cacheBehaviors} -> cacheBehaviors) (\s@CreateDistribution' {} a -> s {cacheBehaviors = a} :: CreateDistribution) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name for the distribution.
-createDistribution_distributionName :: Lens.Lens' CreateDistribution Core.Text
+createDistribution_distributionName :: Lens.Lens' CreateDistribution Prelude.Text
 createDistribution_distributionName = Lens.lens (\CreateDistribution' {distributionName} -> distributionName) (\s@CreateDistribution' {} a -> s {distributionName = a} :: CreateDistribution)
 
 -- | An object that describes the origin resource for the distribution, such
@@ -217,7 +219,7 @@ createDistribution_defaultCacheBehavior = Lens.lens (\CreateDistribution' {defau
 --
 -- Use the @GetDistributionBundles@ action to get a list of distribution
 -- bundle IDs that you can specify.
-createDistribution_bundleId :: Lens.Lens' CreateDistribution Core.Text
+createDistribution_bundleId :: Lens.Lens' CreateDistribution Prelude.Text
 createDistribution_bundleId = Lens.lens (\CreateDistribution' {bundleId} -> bundleId) (\s@CreateDistribution' {} a -> s {bundleId = a} :: CreateDistribution)
 
 instance Core.AWSRequest CreateDistribution where
@@ -229,66 +231,69 @@ instance Core.AWSRequest CreateDistribution where
     Response.receiveJSON
       ( \s h x ->
           CreateDistributionResponse'
-            Core.<$> (x Core..?> "operation")
-            Core.<*> (x Core..?> "distribution")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operation")
+            Prelude.<*> (x Core..?> "distribution")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateDistribution
+instance Prelude.Hashable CreateDistribution
 
-instance Core.NFData CreateDistribution
+instance Prelude.NFData CreateDistribution
 
 instance Core.ToHeaders CreateDistribution where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.CreateDistribution" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateDistribution where
   toJSON CreateDistribution' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ipAddressType" Core..=) Core.<$> ipAddressType,
+      ( Prelude.catMaybes
+          [ ("ipAddressType" Core..=) Prelude.<$> ipAddressType,
             ("cacheBehaviorSettings" Core..=)
-              Core.<$> cacheBehaviorSettings,
-            ("tags" Core..=) Core.<$> tags,
-            ("cacheBehaviors" Core..=) Core.<$> cacheBehaviors,
-            Core.Just
+              Prelude.<$> cacheBehaviorSettings,
+            ("tags" Core..=) Prelude.<$> tags,
+            ("cacheBehaviors" Core..=)
+              Prelude.<$> cacheBehaviors,
+            Prelude.Just
               ("distributionName" Core..= distributionName),
-            Core.Just ("origin" Core..= origin),
-            Core.Just
+            Prelude.Just ("origin" Core..= origin),
+            Prelude.Just
               ( "defaultCacheBehavior"
                   Core..= defaultCacheBehavior
               ),
-            Core.Just ("bundleId" Core..= bundleId)
+            Prelude.Just ("bundleId" Core..= bundleId)
           ]
       )
 
 instance Core.ToPath CreateDistribution where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateDistribution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDistributionResponse' smart constructor.
 data CreateDistributionResponse = CreateDistributionResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operation :: Core.Maybe Operation,
+    operation :: Prelude.Maybe Operation,
     -- | An object that describes the distribution created.
-    distribution :: Core.Maybe LightsailDistribution,
+    distribution :: Prelude.Maybe LightsailDistribution,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateDistributionResponse' with all optional fields omitted.
@@ -307,28 +312,28 @@ data CreateDistributionResponse = CreateDistributionResponse'
 -- 'httpStatus', 'createDistributionResponse_httpStatus' - The response's http status code.
 newCreateDistributionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateDistributionResponse
 newCreateDistributionResponse pHttpStatus_ =
   CreateDistributionResponse'
     { operation =
-        Core.Nothing,
-      distribution = Core.Nothing,
+        Prelude.Nothing,
+      distribution = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-createDistributionResponse_operation :: Lens.Lens' CreateDistributionResponse (Core.Maybe Operation)
+createDistributionResponse_operation :: Lens.Lens' CreateDistributionResponse (Prelude.Maybe Operation)
 createDistributionResponse_operation = Lens.lens (\CreateDistributionResponse' {operation} -> operation) (\s@CreateDistributionResponse' {} a -> s {operation = a} :: CreateDistributionResponse)
 
 -- | An object that describes the distribution created.
-createDistributionResponse_distribution :: Lens.Lens' CreateDistributionResponse (Core.Maybe LightsailDistribution)
+createDistributionResponse_distribution :: Lens.Lens' CreateDistributionResponse (Prelude.Maybe LightsailDistribution)
 createDistributionResponse_distribution = Lens.lens (\CreateDistributionResponse' {distribution} -> distribution) (\s@CreateDistributionResponse' {} a -> s {distribution = a} :: CreateDistributionResponse)
 
 -- | The response's http status code.
-createDistributionResponse_httpStatus :: Lens.Lens' CreateDistributionResponse Core.Int
+createDistributionResponse_httpStatus :: Lens.Lens' CreateDistributionResponse Prelude.Int
 createDistributionResponse_httpStatus = Lens.lens (\CreateDistributionResponse' {httpStatus} -> httpStatus) (\s@CreateDistributionResponse' {} a -> s {httpStatus = a} :: CreateDistributionResponse)
 
-instance Core.NFData CreateDistributionResponse
+instance Prelude.NFData CreateDistributionResponse

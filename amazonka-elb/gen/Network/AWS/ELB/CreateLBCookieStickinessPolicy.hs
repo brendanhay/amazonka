@@ -62,6 +62,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,15 +74,15 @@ data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy'
     -- stale. If you do not specify this parameter, the default value is 0,
     -- which indicates that the sticky session should last for the duration of
     -- the browser session.
-    cookieExpirationPeriod :: Core.Maybe Core.Integer,
+    cookieExpirationPeriod :: Prelude.Maybe Prelude.Integer,
     -- | The name of the load balancer.
-    loadBalancerName :: Core.Text,
+    loadBalancerName :: Prelude.Text,
     -- | The name of the policy being created. Policy names must consist of
     -- alphanumeric characters and dashes (-). This name must be unique within
     -- the set of policies for this load balancer.
-    policyName :: Core.Text
+    policyName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLBCookieStickinessPolicy' with all optional fields omitted.
@@ -103,16 +104,16 @@ data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy'
 -- the set of policies for this load balancer.
 newCreateLBCookieStickinessPolicy ::
   -- | 'loadBalancerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policyName'
-  Core.Text ->
+  Prelude.Text ->
   CreateLBCookieStickinessPolicy
 newCreateLBCookieStickinessPolicy
   pLoadBalancerName_
   pPolicyName_ =
     CreateLBCookieStickinessPolicy'
       { cookieExpirationPeriod =
-          Core.Nothing,
+          Prelude.Nothing,
         loadBalancerName = pLoadBalancerName_,
         policyName = pPolicyName_
       }
@@ -121,17 +122,17 @@ newCreateLBCookieStickinessPolicy
 -- stale. If you do not specify this parameter, the default value is 0,
 -- which indicates that the sticky session should last for the duration of
 -- the browser session.
-createLBCookieStickinessPolicy_cookieExpirationPeriod :: Lens.Lens' CreateLBCookieStickinessPolicy (Core.Maybe Core.Integer)
+createLBCookieStickinessPolicy_cookieExpirationPeriod :: Lens.Lens' CreateLBCookieStickinessPolicy (Prelude.Maybe Prelude.Integer)
 createLBCookieStickinessPolicy_cookieExpirationPeriod = Lens.lens (\CreateLBCookieStickinessPolicy' {cookieExpirationPeriod} -> cookieExpirationPeriod) (\s@CreateLBCookieStickinessPolicy' {} a -> s {cookieExpirationPeriod = a} :: CreateLBCookieStickinessPolicy)
 
 -- | The name of the load balancer.
-createLBCookieStickinessPolicy_loadBalancerName :: Lens.Lens' CreateLBCookieStickinessPolicy Core.Text
+createLBCookieStickinessPolicy_loadBalancerName :: Lens.Lens' CreateLBCookieStickinessPolicy Prelude.Text
 createLBCookieStickinessPolicy_loadBalancerName = Lens.lens (\CreateLBCookieStickinessPolicy' {loadBalancerName} -> loadBalancerName) (\s@CreateLBCookieStickinessPolicy' {} a -> s {loadBalancerName = a} :: CreateLBCookieStickinessPolicy)
 
 -- | The name of the policy being created. Policy names must consist of
 -- alphanumeric characters and dashes (-). This name must be unique within
 -- the set of policies for this load balancer.
-createLBCookieStickinessPolicy_policyName :: Lens.Lens' CreateLBCookieStickinessPolicy Core.Text
+createLBCookieStickinessPolicy_policyName :: Lens.Lens' CreateLBCookieStickinessPolicy Prelude.Text
 createLBCookieStickinessPolicy_policyName = Lens.lens (\CreateLBCookieStickinessPolicy' {policyName} -> policyName) (\s@CreateLBCookieStickinessPolicy' {} a -> s {policyName = a} :: CreateLBCookieStickinessPolicy)
 
 instance
@@ -147,30 +148,35 @@ instance
       "CreateLBCookieStickinessPolicyResult"
       ( \s h x ->
           CreateLBCookieStickinessPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateLBCookieStickinessPolicy
+instance
+  Prelude.Hashable
+    CreateLBCookieStickinessPolicy
 
-instance Core.NFData CreateLBCookieStickinessPolicy
+instance
+  Prelude.NFData
+    CreateLBCookieStickinessPolicy
 
 instance
   Core.ToHeaders
     CreateLBCookieStickinessPolicy
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateLBCookieStickinessPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateLBCookieStickinessPolicy where
   toQuery CreateLBCookieStickinessPolicy' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "CreateLBCookieStickinessPolicy" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+        "Version"
+          Core.=: ("2012-06-01" :: Prelude.ByteString),
         "CookieExpirationPeriod"
           Core.=: cookieExpirationPeriod,
         "LoadBalancerName" Core.=: loadBalancerName,
@@ -182,9 +188,9 @@ instance Core.ToQuery CreateLBCookieStickinessPolicy where
 -- /See:/ 'newCreateLBCookieStickinessPolicyResponse' smart constructor.
 data CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLBCookieStickinessPolicyResponse' with all optional fields omitted.
@@ -197,7 +203,7 @@ data CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResp
 -- 'httpStatus', 'createLBCookieStickinessPolicyResponse_httpStatus' - The response's http status code.
 newCreateLBCookieStickinessPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateLBCookieStickinessPolicyResponse
 newCreateLBCookieStickinessPolicyResponse
   pHttpStatus_ =
@@ -207,9 +213,9 @@ newCreateLBCookieStickinessPolicyResponse
       }
 
 -- | The response's http status code.
-createLBCookieStickinessPolicyResponse_httpStatus :: Lens.Lens' CreateLBCookieStickinessPolicyResponse Core.Int
+createLBCookieStickinessPolicyResponse_httpStatus :: Lens.Lens' CreateLBCookieStickinessPolicyResponse Prelude.Int
 createLBCookieStickinessPolicyResponse_httpStatus = Lens.lens (\CreateLBCookieStickinessPolicyResponse' {httpStatus} -> httpStatus) (\s@CreateLBCookieStickinessPolicyResponse' {} a -> s {httpStatus = a} :: CreateLBCookieStickinessPolicyResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateLBCookieStickinessPolicyResponse

@@ -21,6 +21,7 @@ module Network.AWS.StepFunctions.Types.CloudWatchEventsExecutionDataDetails wher
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides details about execution input or output.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data CloudWatchEventsExecutionDataDetails = CloudWatchEventsExecutionDataDetails'
   { -- | Indicates whether input or output was included in the response. Always
     -- @true@ for API calls.
-    included :: Core.Maybe Core.Bool
+    included :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CloudWatchEventsExecutionDataDetails' with all optional fields omitted.
@@ -47,12 +48,12 @@ newCloudWatchEventsExecutionDataDetails ::
 newCloudWatchEventsExecutionDataDetails =
   CloudWatchEventsExecutionDataDetails'
     { included =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Indicates whether input or output was included in the response. Always
 -- @true@ for API calls.
-cloudWatchEventsExecutionDataDetails_included :: Lens.Lens' CloudWatchEventsExecutionDataDetails (Core.Maybe Core.Bool)
+cloudWatchEventsExecutionDataDetails_included :: Lens.Lens' CloudWatchEventsExecutionDataDetails (Prelude.Maybe Prelude.Bool)
 cloudWatchEventsExecutionDataDetails_included = Lens.lens (\CloudWatchEventsExecutionDataDetails' {included} -> included) (\s@CloudWatchEventsExecutionDataDetails' {} a -> s {included = a} :: CloudWatchEventsExecutionDataDetails)
 
 instance
@@ -64,13 +65,13 @@ instance
       "CloudWatchEventsExecutionDataDetails"
       ( \x ->
           CloudWatchEventsExecutionDataDetails'
-            Core.<$> (x Core..:? "included")
+            Prelude.<$> (x Core..:? "included")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CloudWatchEventsExecutionDataDetails
 
 instance
-  Core.NFData
+  Prelude.NFData
     CloudWatchEventsExecutionDataDetails

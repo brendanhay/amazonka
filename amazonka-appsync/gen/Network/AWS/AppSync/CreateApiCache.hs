@@ -47,6 +47,7 @@ where
 import Network.AWS.AppSync.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,16 +57,16 @@ import qualified Network.AWS.Response as Response
 data CreateApiCache = CreateApiCache'
   { -- | At rest encryption flag for cache. This setting cannot be updated after
     -- creation.
-    atRestEncryptionEnabled :: Core.Maybe Core.Bool,
+    atRestEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Transit encryption flag when connecting to cache. This setting cannot be
     -- updated after creation.
-    transitEncryptionEnabled :: Core.Maybe Core.Bool,
+    transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The GraphQL API Id.
-    apiId :: Core.Text,
+    apiId :: Prelude.Text,
     -- | TTL in seconds for cache entries.
     --
     -- Valid values are between 1 and 3600 seconds.
-    ttl :: Core.Integer,
+    ttl :: Prelude.Integer,
     -- | Caching behavior.
     --
     -- -   __FULL_REQUEST_CACHING__: All requests are fully cached.
@@ -113,7 +114,7 @@ data CreateApiCache = CreateApiCache'
     -- -   __R4_8XLARGE__: A r4.8xlarge instance type.
     type' :: ApiCacheType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateApiCache' with all optional fields omitted.
@@ -182,9 +183,9 @@ data CreateApiCache = CreateApiCache'
 -- -   __R4_8XLARGE__: A r4.8xlarge instance type.
 newCreateApiCache ::
   -- | 'apiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'ttl'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'apiCachingBehavior'
   ApiCachingBehavior ->
   -- | 'type''
@@ -197,8 +198,8 @@ newCreateApiCache
   pType_ =
     CreateApiCache'
       { atRestEncryptionEnabled =
-          Core.Nothing,
-        transitEncryptionEnabled = Core.Nothing,
+          Prelude.Nothing,
+        transitEncryptionEnabled = Prelude.Nothing,
         apiId = pApiId_,
         ttl = pTtl_,
         apiCachingBehavior = pApiCachingBehavior_,
@@ -207,22 +208,22 @@ newCreateApiCache
 
 -- | At rest encryption flag for cache. This setting cannot be updated after
 -- creation.
-createApiCache_atRestEncryptionEnabled :: Lens.Lens' CreateApiCache (Core.Maybe Core.Bool)
+createApiCache_atRestEncryptionEnabled :: Lens.Lens' CreateApiCache (Prelude.Maybe Prelude.Bool)
 createApiCache_atRestEncryptionEnabled = Lens.lens (\CreateApiCache' {atRestEncryptionEnabled} -> atRestEncryptionEnabled) (\s@CreateApiCache' {} a -> s {atRestEncryptionEnabled = a} :: CreateApiCache)
 
 -- | Transit encryption flag when connecting to cache. This setting cannot be
 -- updated after creation.
-createApiCache_transitEncryptionEnabled :: Lens.Lens' CreateApiCache (Core.Maybe Core.Bool)
+createApiCache_transitEncryptionEnabled :: Lens.Lens' CreateApiCache (Prelude.Maybe Prelude.Bool)
 createApiCache_transitEncryptionEnabled = Lens.lens (\CreateApiCache' {transitEncryptionEnabled} -> transitEncryptionEnabled) (\s@CreateApiCache' {} a -> s {transitEncryptionEnabled = a} :: CreateApiCache)
 
 -- | The GraphQL API Id.
-createApiCache_apiId :: Lens.Lens' CreateApiCache Core.Text
+createApiCache_apiId :: Lens.Lens' CreateApiCache Prelude.Text
 createApiCache_apiId = Lens.lens (\CreateApiCache' {apiId} -> apiId) (\s@CreateApiCache' {} a -> s {apiId = a} :: CreateApiCache)
 
 -- | TTL in seconds for cache entries.
 --
 -- Valid values are between 1 and 3600 seconds.
-createApiCache_ttl :: Lens.Lens' CreateApiCache Core.Integer
+createApiCache_ttl :: Lens.Lens' CreateApiCache Prelude.Integer
 createApiCache_ttl = Lens.lens (\CreateApiCache' {ttl} -> ttl) (\s@CreateApiCache' {} a -> s {ttl = a} :: CreateApiCache)
 
 -- | Caching behavior.
@@ -284,56 +285,58 @@ instance Core.AWSRequest CreateApiCache where
     Response.receiveJSON
       ( \s h x ->
           CreateApiCacheResponse'
-            Core.<$> (x Core..?> "apiCache")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "apiCache")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateApiCache
+instance Prelude.Hashable CreateApiCache
 
-instance Core.NFData CreateApiCache
+instance Prelude.NFData CreateApiCache
 
 instance Core.ToHeaders CreateApiCache where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateApiCache where
   toJSON CreateApiCache' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("atRestEncryptionEnabled" Core..=)
-              Core.<$> atRestEncryptionEnabled,
+              Prelude.<$> atRestEncryptionEnabled,
             ("transitEncryptionEnabled" Core..=)
-              Core.<$> transitEncryptionEnabled,
-            Core.Just ("ttl" Core..= ttl),
-            Core.Just
+              Prelude.<$> transitEncryptionEnabled,
+            Prelude.Just ("ttl" Core..= ttl),
+            Prelude.Just
               ("apiCachingBehavior" Core..= apiCachingBehavior),
-            Core.Just ("type" Core..= type')
+            Prelude.Just ("type" Core..= type')
           ]
       )
 
 instance Core.ToPath CreateApiCache where
   toPath CreateApiCache' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/v1/apis/", Core.toBS apiId, "/ApiCaches"]
 
 instance Core.ToQuery CreateApiCache where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @CreateApiCache@ operation.
 --
 -- /See:/ 'newCreateApiCacheResponse' smart constructor.
 data CreateApiCacheResponse = CreateApiCacheResponse'
   { -- | The @ApiCache@ object.
-    apiCache :: Core.Maybe ApiCache,
+    apiCache :: Prelude.Maybe ApiCache,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateApiCacheResponse' with all optional fields omitted.
@@ -348,20 +351,20 @@ data CreateApiCacheResponse = CreateApiCacheResponse'
 -- 'httpStatus', 'createApiCacheResponse_httpStatus' - The response's http status code.
 newCreateApiCacheResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateApiCacheResponse
 newCreateApiCacheResponse pHttpStatus_ =
   CreateApiCacheResponse'
-    { apiCache = Core.Nothing,
+    { apiCache = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ApiCache@ object.
-createApiCacheResponse_apiCache :: Lens.Lens' CreateApiCacheResponse (Core.Maybe ApiCache)
+createApiCacheResponse_apiCache :: Lens.Lens' CreateApiCacheResponse (Prelude.Maybe ApiCache)
 createApiCacheResponse_apiCache = Lens.lens (\CreateApiCacheResponse' {apiCache} -> apiCache) (\s@CreateApiCacheResponse' {} a -> s {apiCache = a} :: CreateApiCacheResponse)
 
 -- | The response's http status code.
-createApiCacheResponse_httpStatus :: Lens.Lens' CreateApiCacheResponse Core.Int
+createApiCacheResponse_httpStatus :: Lens.Lens' CreateApiCacheResponse Prelude.Int
 createApiCacheResponse_httpStatus = Lens.lens (\CreateApiCacheResponse' {httpStatus} -> httpStatus) (\s@CreateApiCacheResponse' {} a -> s {httpStatus = a} :: CreateApiCacheResponse)
 
-instance Core.NFData CreateApiCacheResponse
+instance Prelude.NFData CreateApiCacheResponse

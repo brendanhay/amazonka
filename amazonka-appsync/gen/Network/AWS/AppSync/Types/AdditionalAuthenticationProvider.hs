@@ -24,20 +24,21 @@ import Network.AWS.AppSync.Types.CognitoUserPoolConfig
 import Network.AWS.AppSync.Types.OpenIDConnectConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an additional authentication provider.
 --
 -- /See:/ 'newAdditionalAuthenticationProvider' smart constructor.
 data AdditionalAuthenticationProvider = AdditionalAuthenticationProvider'
   { -- | The OpenID Connect configuration.
-    openIDConnectConfig :: Core.Maybe OpenIDConnectConfig,
+    openIDConnectConfig :: Prelude.Maybe OpenIDConnectConfig,
     -- | The Amazon Cognito user pool configuration.
-    userPoolConfig :: Core.Maybe CognitoUserPoolConfig,
+    userPoolConfig :: Prelude.Maybe CognitoUserPoolConfig,
     -- | The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user
     -- pools.
-    authenticationType :: Core.Maybe AuthenticationType
+    authenticationType :: Prelude.Maybe AuthenticationType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AdditionalAuthenticationProvider' with all optional fields omitted.
@@ -58,22 +59,22 @@ newAdditionalAuthenticationProvider ::
 newAdditionalAuthenticationProvider =
   AdditionalAuthenticationProvider'
     { openIDConnectConfig =
-        Core.Nothing,
-      userPoolConfig = Core.Nothing,
-      authenticationType = Core.Nothing
+        Prelude.Nothing,
+      userPoolConfig = Prelude.Nothing,
+      authenticationType = Prelude.Nothing
     }
 
 -- | The OpenID Connect configuration.
-additionalAuthenticationProvider_openIDConnectConfig :: Lens.Lens' AdditionalAuthenticationProvider (Core.Maybe OpenIDConnectConfig)
+additionalAuthenticationProvider_openIDConnectConfig :: Lens.Lens' AdditionalAuthenticationProvider (Prelude.Maybe OpenIDConnectConfig)
 additionalAuthenticationProvider_openIDConnectConfig = Lens.lens (\AdditionalAuthenticationProvider' {openIDConnectConfig} -> openIDConnectConfig) (\s@AdditionalAuthenticationProvider' {} a -> s {openIDConnectConfig = a} :: AdditionalAuthenticationProvider)
 
 -- | The Amazon Cognito user pool configuration.
-additionalAuthenticationProvider_userPoolConfig :: Lens.Lens' AdditionalAuthenticationProvider (Core.Maybe CognitoUserPoolConfig)
+additionalAuthenticationProvider_userPoolConfig :: Lens.Lens' AdditionalAuthenticationProvider (Prelude.Maybe CognitoUserPoolConfig)
 additionalAuthenticationProvider_userPoolConfig = Lens.lens (\AdditionalAuthenticationProvider' {userPoolConfig} -> userPoolConfig) (\s@AdditionalAuthenticationProvider' {} a -> s {userPoolConfig = a} :: AdditionalAuthenticationProvider)
 
 -- | The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user
 -- pools.
-additionalAuthenticationProvider_authenticationType :: Lens.Lens' AdditionalAuthenticationProvider (Core.Maybe AuthenticationType)
+additionalAuthenticationProvider_authenticationType :: Lens.Lens' AdditionalAuthenticationProvider (Prelude.Maybe AuthenticationType)
 additionalAuthenticationProvider_authenticationType = Lens.lens (\AdditionalAuthenticationProvider' {authenticationType} -> authenticationType) (\s@AdditionalAuthenticationProvider' {} a -> s {authenticationType = a} :: AdditionalAuthenticationProvider)
 
 instance
@@ -85,25 +86,28 @@ instance
       "AdditionalAuthenticationProvider"
       ( \x ->
           AdditionalAuthenticationProvider'
-            Core.<$> (x Core..:? "openIDConnectConfig")
-            Core.<*> (x Core..:? "userPoolConfig")
-            Core.<*> (x Core..:? "authenticationType")
+            Prelude.<$> (x Core..:? "openIDConnectConfig")
+            Prelude.<*> (x Core..:? "userPoolConfig")
+            Prelude.<*> (x Core..:? "authenticationType")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AdditionalAuthenticationProvider
 
-instance Core.NFData AdditionalAuthenticationProvider
+instance
+  Prelude.NFData
+    AdditionalAuthenticationProvider
 
 instance Core.ToJSON AdditionalAuthenticationProvider where
   toJSON AdditionalAuthenticationProvider' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("openIDConnectConfig" Core..=)
-              Core.<$> openIDConnectConfig,
-            ("userPoolConfig" Core..=) Core.<$> userPoolConfig,
+              Prelude.<$> openIDConnectConfig,
+            ("userPoolConfig" Core..=)
+              Prelude.<$> userPoolConfig,
             ("authenticationType" Core..=)
-              Core.<$> authenticationType
+              Prelude.<$> authenticationType
           ]
       )

@@ -25,23 +25,24 @@ import Network.AWS.Glue.Types.NotificationProperty
 import Network.AWS.Glue.Types.Predecessor
 import Network.AWS.Glue.Types.WorkerType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a job run.
 --
 -- /See:/ 'newJobRun' smart constructor.
 data JobRun = JobRun'
   { -- | A list of predecessors to this job run.
-    predecessorRuns :: Core.Maybe [Predecessor],
+    predecessorRuns :: Prelude.Maybe [Predecessor],
     -- | The amount of time (in seconds) that the job run consumed resources.
-    executionTime :: Core.Maybe Core.Int,
+    executionTime :: Prelude.Maybe Prelude.Int,
     -- | The name of the @SecurityConfiguration@ structure to be used with this
     -- job run.
-    securityConfiguration :: Core.Maybe Core.Text,
+    securityConfiguration :: Prelude.Maybe Prelude.Text,
     -- | The @JobRun@ timeout in minutes. This is the maximum time that a job run
     -- can consume resources before it is terminated and enters @TIMEOUT@
     -- status. The default is 2,880 minutes (48 hours). This overrides the
     -- timeout value set in the parent job.
-    timeout :: Core.Maybe Core.Natural,
+    timeout :: Prelude.Maybe Prelude.Natural,
     -- | The number of AWS Glue data processing units (DPUs) that can be
     -- allocated when this job runs. A DPU is a relative measure of processing
     -- power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
@@ -61,30 +62,30 @@ data JobRun = JobRun'
     --     (@JobCommand.Name@=\"glueetl\"), you can allocate from 2 to 100
     --     DPUs. The default is 10 DPUs. This job type cannot have a fractional
     --     DPU allocation.
-    maxCapacity :: Core.Maybe Core.Double,
+    maxCapacity :: Prelude.Maybe Prelude.Double,
     -- | The ID of this job run.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | Specifies configuration properties of a job run notification.
-    notificationProperty :: Core.Maybe NotificationProperty,
+    notificationProperty :: Prelude.Maybe NotificationProperty,
     -- | The last time that this job run was modified.
-    lastModifiedOn :: Core.Maybe Core.POSIX,
+    lastModifiedOn :: Prelude.Maybe Core.POSIX,
     -- | The name of the trigger that started this job run.
-    triggerName :: Core.Maybe Core.Text,
+    triggerName :: Prelude.Maybe Prelude.Text,
     -- | The number of workers of a defined @workerType@ that are allocated when
     -- a job runs.
     --
     -- The maximum number of workers you can define are 299 for @G.1X@, and 149
     -- for @G.2X@.
-    numberOfWorkers :: Core.Maybe Core.Int,
+    numberOfWorkers :: Prelude.Maybe Prelude.Int,
     -- | The name of the log group for secure logging that can be server-side
     -- encrypted in Amazon CloudWatch using AWS KMS. This name can be
     -- @\/aws-glue\/jobs\/@, in which case the default encryption is @NONE@. If
     -- you add a role name and @SecurityConfiguration@ name (in other words,
     -- @\/aws-glue\/jobs-yourRoleName-yourSecurityConfigurationName\/@), then
     -- that security configuration is used to encrypt the log group.
-    logGroupName :: Core.Maybe Core.Text,
+    logGroupName :: Prelude.Maybe Prelude.Text,
     -- | The date and time that this job run completed.
-    completedOn :: Core.Maybe Core.POSIX,
+    completedOn :: Prelude.Maybe Core.POSIX,
     -- | Glue version determines the versions of Apache Spark and Python that AWS
     -- Glue supports. The Python version indicates the version supported for
     -- jobs of type Spark.
@@ -96,11 +97,11 @@ data JobRun = JobRun'
     --
     -- Jobs that are created without specifying a Glue version default to Glue
     -- 0.9.
-    glueVersion :: Core.Maybe Core.Text,
+    glueVersion :: Prelude.Maybe Prelude.Text,
     -- | The current state of the job run. For more information about the
     -- statuses of jobs that have terminated abnormally, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/job-run-statuses.html AWS Glue Job Run Statuses>.
-    jobRunState :: Core.Maybe JobRunState,
+    jobRunState :: Prelude.Maybe JobRunState,
     -- | The type of predefined worker that is allocated when a job runs. Accepts
     -- a value of Standard, G.1X, or G.2X.
     --
@@ -112,13 +113,13 @@ data JobRun = JobRun'
     --
     -- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
     --     memory and a 128GB disk, and 1 executor per worker.
-    workerType :: Core.Maybe WorkerType,
+    workerType :: Prelude.Maybe WorkerType,
     -- | An error message associated with this job run.
-    errorMessage :: Core.Maybe Core.Text,
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which this job run was started.
-    startedOn :: Core.Maybe Core.POSIX,
+    startedOn :: Prelude.Maybe Core.POSIX,
     -- | The name of the job definition being used in this run.
-    jobName :: Core.Maybe Core.Text,
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | The job arguments associated with this run. For this job run, they
     -- replace the default arguments set in the job definition itself.
     --
@@ -134,7 +135,7 @@ data JobRun = JobRun'
     -- up your job, see the
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue>
     -- topic in the developer guide.
-    arguments :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    arguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | This field is deprecated. Use @MaxCapacity@ instead.
     --
     -- The number of AWS Glue data processing units (DPUs) allocated to this
@@ -142,14 +143,14 @@ data JobRun = JobRun'
     -- a relative measure of processing power that consists of 4 vCPUs of
     -- compute capacity and 16 GB of memory. For more information, see the
     -- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
-    allocatedCapacity :: Core.Maybe Core.Int,
+    allocatedCapacity :: Prelude.Maybe Prelude.Int,
     -- | The ID of the previous run of this job. For example, the @JobRunId@
     -- specified in the @StartJobRun@ action.
-    previousRunId :: Core.Maybe Core.Text,
+    previousRunId :: Prelude.Maybe Prelude.Text,
     -- | The number of the attempt to run this job.
-    attempt :: Core.Maybe Core.Int
+    attempt :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JobRun' with all optional fields omitted.
@@ -280,48 +281,48 @@ newJobRun ::
   JobRun
 newJobRun =
   JobRun'
-    { predecessorRuns = Core.Nothing,
-      executionTime = Core.Nothing,
-      securityConfiguration = Core.Nothing,
-      timeout = Core.Nothing,
-      maxCapacity = Core.Nothing,
-      id = Core.Nothing,
-      notificationProperty = Core.Nothing,
-      lastModifiedOn = Core.Nothing,
-      triggerName = Core.Nothing,
-      numberOfWorkers = Core.Nothing,
-      logGroupName = Core.Nothing,
-      completedOn = Core.Nothing,
-      glueVersion = Core.Nothing,
-      jobRunState = Core.Nothing,
-      workerType = Core.Nothing,
-      errorMessage = Core.Nothing,
-      startedOn = Core.Nothing,
-      jobName = Core.Nothing,
-      arguments = Core.Nothing,
-      allocatedCapacity = Core.Nothing,
-      previousRunId = Core.Nothing,
-      attempt = Core.Nothing
+    { predecessorRuns = Prelude.Nothing,
+      executionTime = Prelude.Nothing,
+      securityConfiguration = Prelude.Nothing,
+      timeout = Prelude.Nothing,
+      maxCapacity = Prelude.Nothing,
+      id = Prelude.Nothing,
+      notificationProperty = Prelude.Nothing,
+      lastModifiedOn = Prelude.Nothing,
+      triggerName = Prelude.Nothing,
+      numberOfWorkers = Prelude.Nothing,
+      logGroupName = Prelude.Nothing,
+      completedOn = Prelude.Nothing,
+      glueVersion = Prelude.Nothing,
+      jobRunState = Prelude.Nothing,
+      workerType = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      startedOn = Prelude.Nothing,
+      jobName = Prelude.Nothing,
+      arguments = Prelude.Nothing,
+      allocatedCapacity = Prelude.Nothing,
+      previousRunId = Prelude.Nothing,
+      attempt = Prelude.Nothing
     }
 
 -- | A list of predecessors to this job run.
-jobRun_predecessorRuns :: Lens.Lens' JobRun (Core.Maybe [Predecessor])
-jobRun_predecessorRuns = Lens.lens (\JobRun' {predecessorRuns} -> predecessorRuns) (\s@JobRun' {} a -> s {predecessorRuns = a} :: JobRun) Core.. Lens.mapping Lens._Coerce
+jobRun_predecessorRuns :: Lens.Lens' JobRun (Prelude.Maybe [Predecessor])
+jobRun_predecessorRuns = Lens.lens (\JobRun' {predecessorRuns} -> predecessorRuns) (\s@JobRun' {} a -> s {predecessorRuns = a} :: JobRun) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The amount of time (in seconds) that the job run consumed resources.
-jobRun_executionTime :: Lens.Lens' JobRun (Core.Maybe Core.Int)
+jobRun_executionTime :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Int)
 jobRun_executionTime = Lens.lens (\JobRun' {executionTime} -> executionTime) (\s@JobRun' {} a -> s {executionTime = a} :: JobRun)
 
 -- | The name of the @SecurityConfiguration@ structure to be used with this
 -- job run.
-jobRun_securityConfiguration :: Lens.Lens' JobRun (Core.Maybe Core.Text)
+jobRun_securityConfiguration :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Text)
 jobRun_securityConfiguration = Lens.lens (\JobRun' {securityConfiguration} -> securityConfiguration) (\s@JobRun' {} a -> s {securityConfiguration = a} :: JobRun)
 
 -- | The @JobRun@ timeout in minutes. This is the maximum time that a job run
 -- can consume resources before it is terminated and enters @TIMEOUT@
 -- status. The default is 2,880 minutes (48 hours). This overrides the
 -- timeout value set in the parent job.
-jobRun_timeout :: Lens.Lens' JobRun (Core.Maybe Core.Natural)
+jobRun_timeout :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Natural)
 jobRun_timeout = Lens.lens (\JobRun' {timeout} -> timeout) (\s@JobRun' {} a -> s {timeout = a} :: JobRun)
 
 -- | The number of AWS Glue data processing units (DPUs) that can be
@@ -343,23 +344,23 @@ jobRun_timeout = Lens.lens (\JobRun' {timeout} -> timeout) (\s@JobRun' {} a -> s
 --     (@JobCommand.Name@=\"glueetl\"), you can allocate from 2 to 100
 --     DPUs. The default is 10 DPUs. This job type cannot have a fractional
 --     DPU allocation.
-jobRun_maxCapacity :: Lens.Lens' JobRun (Core.Maybe Core.Double)
+jobRun_maxCapacity :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Double)
 jobRun_maxCapacity = Lens.lens (\JobRun' {maxCapacity} -> maxCapacity) (\s@JobRun' {} a -> s {maxCapacity = a} :: JobRun)
 
 -- | The ID of this job run.
-jobRun_id :: Lens.Lens' JobRun (Core.Maybe Core.Text)
+jobRun_id :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Text)
 jobRun_id = Lens.lens (\JobRun' {id} -> id) (\s@JobRun' {} a -> s {id = a} :: JobRun)
 
 -- | Specifies configuration properties of a job run notification.
-jobRun_notificationProperty :: Lens.Lens' JobRun (Core.Maybe NotificationProperty)
+jobRun_notificationProperty :: Lens.Lens' JobRun (Prelude.Maybe NotificationProperty)
 jobRun_notificationProperty = Lens.lens (\JobRun' {notificationProperty} -> notificationProperty) (\s@JobRun' {} a -> s {notificationProperty = a} :: JobRun)
 
 -- | The last time that this job run was modified.
-jobRun_lastModifiedOn :: Lens.Lens' JobRun (Core.Maybe Core.UTCTime)
-jobRun_lastModifiedOn = Lens.lens (\JobRun' {lastModifiedOn} -> lastModifiedOn) (\s@JobRun' {} a -> s {lastModifiedOn = a} :: JobRun) Core.. Lens.mapping Core._Time
+jobRun_lastModifiedOn :: Lens.Lens' JobRun (Prelude.Maybe Prelude.UTCTime)
+jobRun_lastModifiedOn = Lens.lens (\JobRun' {lastModifiedOn} -> lastModifiedOn) (\s@JobRun' {} a -> s {lastModifiedOn = a} :: JobRun) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the trigger that started this job run.
-jobRun_triggerName :: Lens.Lens' JobRun (Core.Maybe Core.Text)
+jobRun_triggerName :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Text)
 jobRun_triggerName = Lens.lens (\JobRun' {triggerName} -> triggerName) (\s@JobRun' {} a -> s {triggerName = a} :: JobRun)
 
 -- | The number of workers of a defined @workerType@ that are allocated when
@@ -367,7 +368,7 @@ jobRun_triggerName = Lens.lens (\JobRun' {triggerName} -> triggerName) (\s@JobRu
 --
 -- The maximum number of workers you can define are 299 for @G.1X@, and 149
 -- for @G.2X@.
-jobRun_numberOfWorkers :: Lens.Lens' JobRun (Core.Maybe Core.Int)
+jobRun_numberOfWorkers :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Int)
 jobRun_numberOfWorkers = Lens.lens (\JobRun' {numberOfWorkers} -> numberOfWorkers) (\s@JobRun' {} a -> s {numberOfWorkers = a} :: JobRun)
 
 -- | The name of the log group for secure logging that can be server-side
@@ -376,12 +377,12 @@ jobRun_numberOfWorkers = Lens.lens (\JobRun' {numberOfWorkers} -> numberOfWorker
 -- you add a role name and @SecurityConfiguration@ name (in other words,
 -- @\/aws-glue\/jobs-yourRoleName-yourSecurityConfigurationName\/@), then
 -- that security configuration is used to encrypt the log group.
-jobRun_logGroupName :: Lens.Lens' JobRun (Core.Maybe Core.Text)
+jobRun_logGroupName :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Text)
 jobRun_logGroupName = Lens.lens (\JobRun' {logGroupName} -> logGroupName) (\s@JobRun' {} a -> s {logGroupName = a} :: JobRun)
 
 -- | The date and time that this job run completed.
-jobRun_completedOn :: Lens.Lens' JobRun (Core.Maybe Core.UTCTime)
-jobRun_completedOn = Lens.lens (\JobRun' {completedOn} -> completedOn) (\s@JobRun' {} a -> s {completedOn = a} :: JobRun) Core.. Lens.mapping Core._Time
+jobRun_completedOn :: Lens.Lens' JobRun (Prelude.Maybe Prelude.UTCTime)
+jobRun_completedOn = Lens.lens (\JobRun' {completedOn} -> completedOn) (\s@JobRun' {} a -> s {completedOn = a} :: JobRun) Prelude.. Lens.mapping Core._Time
 
 -- | Glue version determines the versions of Apache Spark and Python that AWS
 -- Glue supports. The Python version indicates the version supported for
@@ -394,13 +395,13 @@ jobRun_completedOn = Lens.lens (\JobRun' {completedOn} -> completedOn) (\s@JobRu
 --
 -- Jobs that are created without specifying a Glue version default to Glue
 -- 0.9.
-jobRun_glueVersion :: Lens.Lens' JobRun (Core.Maybe Core.Text)
+jobRun_glueVersion :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Text)
 jobRun_glueVersion = Lens.lens (\JobRun' {glueVersion} -> glueVersion) (\s@JobRun' {} a -> s {glueVersion = a} :: JobRun)
 
 -- | The current state of the job run. For more information about the
 -- statuses of jobs that have terminated abnormally, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/job-run-statuses.html AWS Glue Job Run Statuses>.
-jobRun_jobRunState :: Lens.Lens' JobRun (Core.Maybe JobRunState)
+jobRun_jobRunState :: Lens.Lens' JobRun (Prelude.Maybe JobRunState)
 jobRun_jobRunState = Lens.lens (\JobRun' {jobRunState} -> jobRunState) (\s@JobRun' {} a -> s {jobRunState = a} :: JobRun)
 
 -- | The type of predefined worker that is allocated when a job runs. Accepts
@@ -414,19 +415,19 @@ jobRun_jobRunState = Lens.lens (\JobRun' {jobRunState} -> jobRunState) (\s@JobRu
 --
 -- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
 --     memory and a 128GB disk, and 1 executor per worker.
-jobRun_workerType :: Lens.Lens' JobRun (Core.Maybe WorkerType)
+jobRun_workerType :: Lens.Lens' JobRun (Prelude.Maybe WorkerType)
 jobRun_workerType = Lens.lens (\JobRun' {workerType} -> workerType) (\s@JobRun' {} a -> s {workerType = a} :: JobRun)
 
 -- | An error message associated with this job run.
-jobRun_errorMessage :: Lens.Lens' JobRun (Core.Maybe Core.Text)
+jobRun_errorMessage :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Text)
 jobRun_errorMessage = Lens.lens (\JobRun' {errorMessage} -> errorMessage) (\s@JobRun' {} a -> s {errorMessage = a} :: JobRun)
 
 -- | The date and time at which this job run was started.
-jobRun_startedOn :: Lens.Lens' JobRun (Core.Maybe Core.UTCTime)
-jobRun_startedOn = Lens.lens (\JobRun' {startedOn} -> startedOn) (\s@JobRun' {} a -> s {startedOn = a} :: JobRun) Core.. Lens.mapping Core._Time
+jobRun_startedOn :: Lens.Lens' JobRun (Prelude.Maybe Prelude.UTCTime)
+jobRun_startedOn = Lens.lens (\JobRun' {startedOn} -> startedOn) (\s@JobRun' {} a -> s {startedOn = a} :: JobRun) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the job definition being used in this run.
-jobRun_jobName :: Lens.Lens' JobRun (Core.Maybe Core.Text)
+jobRun_jobName :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Text)
 jobRun_jobName = Lens.lens (\JobRun' {jobName} -> jobName) (\s@JobRun' {} a -> s {jobName = a} :: JobRun)
 
 -- | The job arguments associated with this run. For this job run, they
@@ -444,8 +445,8 @@ jobRun_jobName = Lens.lens (\JobRun' {jobName} -> jobName) (\s@JobRun' {} a -> s
 -- up your job, see the
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue>
 -- topic in the developer guide.
-jobRun_arguments :: Lens.Lens' JobRun (Core.Maybe (Core.HashMap Core.Text Core.Text))
-jobRun_arguments = Lens.lens (\JobRun' {arguments} -> arguments) (\s@JobRun' {} a -> s {arguments = a} :: JobRun) Core.. Lens.mapping Lens._Coerce
+jobRun_arguments :: Lens.Lens' JobRun (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+jobRun_arguments = Lens.lens (\JobRun' {arguments} -> arguments) (\s@JobRun' {} a -> s {arguments = a} :: JobRun) Prelude.. Lens.mapping Lens._Coerce
 
 -- | This field is deprecated. Use @MaxCapacity@ instead.
 --
@@ -454,16 +455,16 @@ jobRun_arguments = Lens.lens (\JobRun' {arguments} -> arguments) (\s@JobRun' {} 
 -- a relative measure of processing power that consists of 4 vCPUs of
 -- compute capacity and 16 GB of memory. For more information, see the
 -- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
-jobRun_allocatedCapacity :: Lens.Lens' JobRun (Core.Maybe Core.Int)
+jobRun_allocatedCapacity :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Int)
 jobRun_allocatedCapacity = Lens.lens (\JobRun' {allocatedCapacity} -> allocatedCapacity) (\s@JobRun' {} a -> s {allocatedCapacity = a} :: JobRun)
 
 -- | The ID of the previous run of this job. For example, the @JobRunId@
 -- specified in the @StartJobRun@ action.
-jobRun_previousRunId :: Lens.Lens' JobRun (Core.Maybe Core.Text)
+jobRun_previousRunId :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Text)
 jobRun_previousRunId = Lens.lens (\JobRun' {previousRunId} -> previousRunId) (\s@JobRun' {} a -> s {previousRunId = a} :: JobRun)
 
 -- | The number of the attempt to run this job.
-jobRun_attempt :: Lens.Lens' JobRun (Core.Maybe Core.Int)
+jobRun_attempt :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Int)
 jobRun_attempt = Lens.lens (\JobRun' {attempt} -> attempt) (\s@JobRun' {} a -> s {attempt = a} :: JobRun)
 
 instance Core.FromJSON JobRun where
@@ -472,30 +473,32 @@ instance Core.FromJSON JobRun where
       "JobRun"
       ( \x ->
           JobRun'
-            Core.<$> (x Core..:? "PredecessorRuns" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "ExecutionTime")
-            Core.<*> (x Core..:? "SecurityConfiguration")
-            Core.<*> (x Core..:? "Timeout")
-            Core.<*> (x Core..:? "MaxCapacity")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "NotificationProperty")
-            Core.<*> (x Core..:? "LastModifiedOn")
-            Core.<*> (x Core..:? "TriggerName")
-            Core.<*> (x Core..:? "NumberOfWorkers")
-            Core.<*> (x Core..:? "LogGroupName")
-            Core.<*> (x Core..:? "CompletedOn")
-            Core.<*> (x Core..:? "GlueVersion")
-            Core.<*> (x Core..:? "JobRunState")
-            Core.<*> (x Core..:? "WorkerType")
-            Core.<*> (x Core..:? "ErrorMessage")
-            Core.<*> (x Core..:? "StartedOn")
-            Core.<*> (x Core..:? "JobName")
-            Core.<*> (x Core..:? "Arguments" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "AllocatedCapacity")
-            Core.<*> (x Core..:? "PreviousRunId")
-            Core.<*> (x Core..:? "Attempt")
+            Prelude.<$> ( x Core..:? "PredecessorRuns"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "ExecutionTime")
+            Prelude.<*> (x Core..:? "SecurityConfiguration")
+            Prelude.<*> (x Core..:? "Timeout")
+            Prelude.<*> (x Core..:? "MaxCapacity")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "NotificationProperty")
+            Prelude.<*> (x Core..:? "LastModifiedOn")
+            Prelude.<*> (x Core..:? "TriggerName")
+            Prelude.<*> (x Core..:? "NumberOfWorkers")
+            Prelude.<*> (x Core..:? "LogGroupName")
+            Prelude.<*> (x Core..:? "CompletedOn")
+            Prelude.<*> (x Core..:? "GlueVersion")
+            Prelude.<*> (x Core..:? "JobRunState")
+            Prelude.<*> (x Core..:? "WorkerType")
+            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "StartedOn")
+            Prelude.<*> (x Core..:? "JobName")
+            Prelude.<*> (x Core..:? "Arguments" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "AllocatedCapacity")
+            Prelude.<*> (x Core..:? "PreviousRunId")
+            Prelude.<*> (x Core..:? "Attempt")
       )
 
-instance Core.Hashable JobRun
+instance Prelude.Hashable JobRun
 
-instance Core.NFData JobRun
+instance Prelude.NFData JobRun

@@ -75,6 +75,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -83,14 +84,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdateFleetPortSettings' smart constructor.
 data UpdateFleetPortSettings = UpdateFleetPortSettings'
   { -- | A collection of port settings to be added to the fleet resource.
-    inboundPermissionAuthorizations :: Core.Maybe [IpPermission],
+    inboundPermissionAuthorizations :: Prelude.Maybe [IpPermission],
     -- | A collection of port settings to be removed from the fleet resource.
-    inboundPermissionRevocations :: Core.Maybe [IpPermission],
+    inboundPermissionRevocations :: Prelude.Maybe [IpPermission],
     -- | A unique identifier for a fleet to update port settings for. You can use
     -- either the fleet ID or ARN value.
-    fleetId :: Core.Text
+    fleetId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFleetPortSettings' with all optional fields omitted.
@@ -108,27 +109,27 @@ data UpdateFleetPortSettings = UpdateFleetPortSettings'
 -- either the fleet ID or ARN value.
 newUpdateFleetPortSettings ::
   -- | 'fleetId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateFleetPortSettings
 newUpdateFleetPortSettings pFleetId_ =
   UpdateFleetPortSettings'
     { inboundPermissionAuthorizations =
-        Core.Nothing,
-      inboundPermissionRevocations = Core.Nothing,
+        Prelude.Nothing,
+      inboundPermissionRevocations = Prelude.Nothing,
       fleetId = pFleetId_
     }
 
 -- | A collection of port settings to be added to the fleet resource.
-updateFleetPortSettings_inboundPermissionAuthorizations :: Lens.Lens' UpdateFleetPortSettings (Core.Maybe [IpPermission])
-updateFleetPortSettings_inboundPermissionAuthorizations = Lens.lens (\UpdateFleetPortSettings' {inboundPermissionAuthorizations} -> inboundPermissionAuthorizations) (\s@UpdateFleetPortSettings' {} a -> s {inboundPermissionAuthorizations = a} :: UpdateFleetPortSettings) Core.. Lens.mapping Lens._Coerce
+updateFleetPortSettings_inboundPermissionAuthorizations :: Lens.Lens' UpdateFleetPortSettings (Prelude.Maybe [IpPermission])
+updateFleetPortSettings_inboundPermissionAuthorizations = Lens.lens (\UpdateFleetPortSettings' {inboundPermissionAuthorizations} -> inboundPermissionAuthorizations) (\s@UpdateFleetPortSettings' {} a -> s {inboundPermissionAuthorizations = a} :: UpdateFleetPortSettings) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A collection of port settings to be removed from the fleet resource.
-updateFleetPortSettings_inboundPermissionRevocations :: Lens.Lens' UpdateFleetPortSettings (Core.Maybe [IpPermission])
-updateFleetPortSettings_inboundPermissionRevocations = Lens.lens (\UpdateFleetPortSettings' {inboundPermissionRevocations} -> inboundPermissionRevocations) (\s@UpdateFleetPortSettings' {} a -> s {inboundPermissionRevocations = a} :: UpdateFleetPortSettings) Core.. Lens.mapping Lens._Coerce
+updateFleetPortSettings_inboundPermissionRevocations :: Lens.Lens' UpdateFleetPortSettings (Prelude.Maybe [IpPermission])
+updateFleetPortSettings_inboundPermissionRevocations = Lens.lens (\UpdateFleetPortSettings' {inboundPermissionRevocations} -> inboundPermissionRevocations) (\s@UpdateFleetPortSettings' {} a -> s {inboundPermissionRevocations = a} :: UpdateFleetPortSettings) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier for a fleet to update port settings for. You can use
 -- either the fleet ID or ARN value.
-updateFleetPortSettings_fleetId :: Lens.Lens' UpdateFleetPortSettings Core.Text
+updateFleetPortSettings_fleetId :: Lens.Lens' UpdateFleetPortSettings Prelude.Text
 updateFleetPortSettings_fleetId = Lens.lens (\UpdateFleetPortSettings' {fleetId} -> fleetId) (\s@UpdateFleetPortSettings' {} a -> s {fleetId = a} :: UpdateFleetPortSettings)
 
 instance Core.AWSRequest UpdateFleetPortSettings where
@@ -140,55 +141,57 @@ instance Core.AWSRequest UpdateFleetPortSettings where
     Response.receiveJSON
       ( \s h x ->
           UpdateFleetPortSettingsResponse'
-            Core.<$> (x Core..?> "FleetId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "FleetId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateFleetPortSettings
+instance Prelude.Hashable UpdateFleetPortSettings
 
-instance Core.NFData UpdateFleetPortSettings
+instance Prelude.NFData UpdateFleetPortSettings
 
 instance Core.ToHeaders UpdateFleetPortSettings where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "GameLift.UpdateFleetPortSettings" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateFleetPortSettings where
   toJSON UpdateFleetPortSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("InboundPermissionAuthorizations" Core..=)
-              Core.<$> inboundPermissionAuthorizations,
+              Prelude.<$> inboundPermissionAuthorizations,
             ("InboundPermissionRevocations" Core..=)
-              Core.<$> inboundPermissionRevocations,
-            Core.Just ("FleetId" Core..= fleetId)
+              Prelude.<$> inboundPermissionRevocations,
+            Prelude.Just ("FleetId" Core..= fleetId)
           ]
       )
 
 instance Core.ToPath UpdateFleetPortSettings where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateFleetPortSettings where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newUpdateFleetPortSettingsResponse' smart constructor.
 data UpdateFleetPortSettingsResponse = UpdateFleetPortSettingsResponse'
   { -- | A unique identifier for a fleet that was updated.
-    fleetId :: Core.Maybe Core.Text,
+    fleetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFleetPortSettingsResponse' with all optional fields omitted.
@@ -203,21 +206,23 @@ data UpdateFleetPortSettingsResponse = UpdateFleetPortSettingsResponse'
 -- 'httpStatus', 'updateFleetPortSettingsResponse_httpStatus' - The response's http status code.
 newUpdateFleetPortSettingsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateFleetPortSettingsResponse
 newUpdateFleetPortSettingsResponse pHttpStatus_ =
   UpdateFleetPortSettingsResponse'
     { fleetId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique identifier for a fleet that was updated.
-updateFleetPortSettingsResponse_fleetId :: Lens.Lens' UpdateFleetPortSettingsResponse (Core.Maybe Core.Text)
+updateFleetPortSettingsResponse_fleetId :: Lens.Lens' UpdateFleetPortSettingsResponse (Prelude.Maybe Prelude.Text)
 updateFleetPortSettingsResponse_fleetId = Lens.lens (\UpdateFleetPortSettingsResponse' {fleetId} -> fleetId) (\s@UpdateFleetPortSettingsResponse' {} a -> s {fleetId = a} :: UpdateFleetPortSettingsResponse)
 
 -- | The response's http status code.
-updateFleetPortSettingsResponse_httpStatus :: Lens.Lens' UpdateFleetPortSettingsResponse Core.Int
+updateFleetPortSettingsResponse_httpStatus :: Lens.Lens' UpdateFleetPortSettingsResponse Prelude.Int
 updateFleetPortSettingsResponse_httpStatus = Lens.lens (\UpdateFleetPortSettingsResponse' {httpStatus} -> httpStatus) (\s@UpdateFleetPortSettingsResponse' {} a -> s {httpStatus = a} :: UpdateFleetPortSettingsResponse)
 
-instance Core.NFData UpdateFleetPortSettingsResponse
+instance
+  Prelude.NFData
+    UpdateFleetPortSettingsResponse

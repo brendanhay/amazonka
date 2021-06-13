@@ -22,6 +22,7 @@ module Network.AWS.EKS.Types.Logging where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.LogSetup
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the logging configuration for resources in your
 -- cluster.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newLogging' smart constructor.
 data Logging = Logging'
   { -- | The cluster control plane logging configuration for your cluster.
-    clusterLogging :: Core.Maybe [LogSetup]
+    clusterLogging :: Prelude.Maybe [LogSetup]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Logging' with all optional fields omitted.
@@ -44,11 +45,12 @@ data Logging = Logging'
 -- 'clusterLogging', 'logging_clusterLogging' - The cluster control plane logging configuration for your cluster.
 newLogging ::
   Logging
-newLogging = Logging' {clusterLogging = Core.Nothing}
+newLogging =
+  Logging' {clusterLogging = Prelude.Nothing}
 
 -- | The cluster control plane logging configuration for your cluster.
-logging_clusterLogging :: Lens.Lens' Logging (Core.Maybe [LogSetup])
-logging_clusterLogging = Lens.lens (\Logging' {clusterLogging} -> clusterLogging) (\s@Logging' {} a -> s {clusterLogging = a} :: Logging) Core.. Lens.mapping Lens._Coerce
+logging_clusterLogging :: Lens.Lens' Logging (Prelude.Maybe [LogSetup])
+logging_clusterLogging = Lens.lens (\Logging' {clusterLogging} -> clusterLogging) (\s@Logging' {} a -> s {clusterLogging = a} :: Logging) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON Logging where
   parseJSON =
@@ -56,16 +58,20 @@ instance Core.FromJSON Logging where
       "Logging"
       ( \x ->
           Logging'
-            Core.<$> (x Core..:? "clusterLogging" Core..!= Core.mempty)
+            Prelude.<$> ( x Core..:? "clusterLogging"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable Logging
+instance Prelude.Hashable Logging
 
-instance Core.NFData Logging
+instance Prelude.NFData Logging
 
 instance Core.ToJSON Logging where
   toJSON Logging' {..} =
     Core.object
-      ( Core.catMaybes
-          [("clusterLogging" Core..=) Core.<$> clusterLogging]
+      ( Prelude.catMaybes
+          [ ("clusterLogging" Core..=)
+              Prelude.<$> clusterLogging
+          ]
       )

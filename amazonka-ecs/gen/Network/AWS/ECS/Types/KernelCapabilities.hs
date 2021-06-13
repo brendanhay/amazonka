@@ -21,6 +21,7 @@ module Network.AWS.ECS.Types.KernelCapabilities where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Linux capabilities for the container that are added to or dropped
 -- from the default configuration provided by Docker. For more information
@@ -45,7 +46,7 @@ data KernelCapabilities = KernelCapabilities'
     --
     -- Valid values:
     -- @\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"@
-    drop :: Core.Maybe [Core.Text],
+    drop :: Prelude.Maybe [Prelude.Text],
     -- | The Linux capabilities for the container that have been added to the
     -- default configuration provided by Docker. This parameter maps to
     -- @CapAdd@ in the
@@ -60,9 +61,9 @@ data KernelCapabilities = KernelCapabilities'
     --
     -- Valid values:
     -- @\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"@
-    add :: Core.Maybe [Core.Text]
+    add :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KernelCapabilities' with all optional fields omitted.
@@ -102,8 +103,8 @@ newKernelCapabilities ::
   KernelCapabilities
 newKernelCapabilities =
   KernelCapabilities'
-    { drop = Core.Nothing,
-      add = Core.Nothing
+    { drop = Prelude.Nothing,
+      add = Prelude.Nothing
     }
 
 -- | The Linux capabilities for the container that have been removed from the
@@ -117,8 +118,8 @@ newKernelCapabilities =
 --
 -- Valid values:
 -- @\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"@
-kernelCapabilities_drop :: Lens.Lens' KernelCapabilities (Core.Maybe [Core.Text])
-kernelCapabilities_drop = Lens.lens (\KernelCapabilities' {drop} -> drop) (\s@KernelCapabilities' {} a -> s {drop = a} :: KernelCapabilities) Core.. Lens.mapping Lens._Coerce
+kernelCapabilities_drop :: Lens.Lens' KernelCapabilities (Prelude.Maybe [Prelude.Text])
+kernelCapabilities_drop = Lens.lens (\KernelCapabilities' {drop} -> drop) (\s@KernelCapabilities' {} a -> s {drop = a} :: KernelCapabilities) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Linux capabilities for the container that have been added to the
 -- default configuration provided by Docker. This parameter maps to
@@ -134,8 +135,8 @@ kernelCapabilities_drop = Lens.lens (\KernelCapabilities' {drop} -> drop) (\s@Ke
 --
 -- Valid values:
 -- @\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"@
-kernelCapabilities_add :: Lens.Lens' KernelCapabilities (Core.Maybe [Core.Text])
-kernelCapabilities_add = Lens.lens (\KernelCapabilities' {add} -> add) (\s@KernelCapabilities' {} a -> s {add = a} :: KernelCapabilities) Core.. Lens.mapping Lens._Coerce
+kernelCapabilities_add :: Lens.Lens' KernelCapabilities (Prelude.Maybe [Prelude.Text])
+kernelCapabilities_add = Lens.lens (\KernelCapabilities' {add} -> add) (\s@KernelCapabilities' {} a -> s {add = a} :: KernelCapabilities) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON KernelCapabilities where
   parseJSON =
@@ -143,19 +144,19 @@ instance Core.FromJSON KernelCapabilities where
       "KernelCapabilities"
       ( \x ->
           KernelCapabilities'
-            Core.<$> (x Core..:? "drop" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "add" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "drop" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "add" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable KernelCapabilities
+instance Prelude.Hashable KernelCapabilities
 
-instance Core.NFData KernelCapabilities
+instance Prelude.NFData KernelCapabilities
 
 instance Core.ToJSON KernelCapabilities where
   toJSON KernelCapabilities' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("drop" Core..=) Core.<$> drop,
-            ("add" Core..=) Core.<$> add
+      ( Prelude.catMaybes
+          [ ("drop" Core..=) Prelude.<$> drop,
+            ("add" Core..=) Prelude.<$> add
           ]
       )

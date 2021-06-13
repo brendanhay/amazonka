@@ -43,15 +43,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeStudio' smart constructor.
 data DescribeStudio = DescribeStudio'
   { -- | The Amazon EMR Studio ID.
-    studioId :: Core.Text
+    studioId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeStudio' with all optional fields omitted.
@@ -64,13 +65,13 @@ data DescribeStudio = DescribeStudio'
 -- 'studioId', 'describeStudio_studioId' - The Amazon EMR Studio ID.
 newDescribeStudio ::
   -- | 'studioId'
-  Core.Text ->
+  Prelude.Text ->
   DescribeStudio
 newDescribeStudio pStudioId_ =
   DescribeStudio' {studioId = pStudioId_}
 
 -- | The Amazon EMR Studio ID.
-describeStudio_studioId :: Lens.Lens' DescribeStudio Core.Text
+describeStudio_studioId :: Lens.Lens' DescribeStudio Prelude.Text
 describeStudio_studioId = Lens.lens (\DescribeStudio' {studioId} -> studioId) (\s@DescribeStudio' {} a -> s {studioId = a} :: DescribeStudio)
 
 instance Core.AWSRequest DescribeStudio where
@@ -82,48 +83,50 @@ instance Core.AWSRequest DescribeStudio where
     Response.receiveJSON
       ( \s h x ->
           DescribeStudioResponse'
-            Core.<$> (x Core..?> "Studio")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Studio")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeStudio
+instance Prelude.Hashable DescribeStudio
 
-instance Core.NFData DescribeStudio
+instance Prelude.NFData DescribeStudio
 
 instance Core.ToHeaders DescribeStudio where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ElasticMapReduce.DescribeStudio" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeStudio where
   toJSON DescribeStudio' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("StudioId" Core..= studioId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("StudioId" Core..= studioId)]
       )
 
 instance Core.ToPath DescribeStudio where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeStudio where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeStudioResponse' smart constructor.
 data DescribeStudioResponse = DescribeStudioResponse'
   { -- | The Amazon EMR Studio details.
-    studio :: Core.Maybe Studio,
+    studio :: Prelude.Maybe Studio,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeStudioResponse' with all optional fields omitted.
@@ -138,20 +141,20 @@ data DescribeStudioResponse = DescribeStudioResponse'
 -- 'httpStatus', 'describeStudioResponse_httpStatus' - The response's http status code.
 newDescribeStudioResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeStudioResponse
 newDescribeStudioResponse pHttpStatus_ =
   DescribeStudioResponse'
-    { studio = Core.Nothing,
+    { studio = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon EMR Studio details.
-describeStudioResponse_studio :: Lens.Lens' DescribeStudioResponse (Core.Maybe Studio)
+describeStudioResponse_studio :: Lens.Lens' DescribeStudioResponse (Prelude.Maybe Studio)
 describeStudioResponse_studio = Lens.lens (\DescribeStudioResponse' {studio} -> studio) (\s@DescribeStudioResponse' {} a -> s {studio = a} :: DescribeStudioResponse)
 
 -- | The response's http status code.
-describeStudioResponse_httpStatus :: Lens.Lens' DescribeStudioResponse Core.Int
+describeStudioResponse_httpStatus :: Lens.Lens' DescribeStudioResponse Prelude.Int
 describeStudioResponse_httpStatus = Lens.lens (\DescribeStudioResponse' {httpStatus} -> httpStatus) (\s@DescribeStudioResponse' {} a -> s {httpStatus = a} :: DescribeStudioResponse)
 
-instance Core.NFData DescribeStudioResponse
+instance Prelude.NFData DescribeStudioResponse

@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.SuccessfulInstanceCreditSpecificationItem where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the burstable performance instance whose credit option for CPU
 -- usage was successfully modified.
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSuccessfulInstanceCreditSpecificationItem' smart constructor.
 data SuccessfulInstanceCreditSpecificationItem = SuccessfulInstanceCreditSpecificationItem'
   { -- | The ID of the instance.
-    instanceId :: Core.Maybe Core.Text
+    instanceId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SuccessfulInstanceCreditSpecificationItem' with all optional fields omitted.
@@ -47,11 +48,11 @@ newSuccessfulInstanceCreditSpecificationItem ::
 newSuccessfulInstanceCreditSpecificationItem =
   SuccessfulInstanceCreditSpecificationItem'
     { instanceId =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | The ID of the instance.
-successfulInstanceCreditSpecificationItem_instanceId :: Lens.Lens' SuccessfulInstanceCreditSpecificationItem (Core.Maybe Core.Text)
+successfulInstanceCreditSpecificationItem_instanceId :: Lens.Lens' SuccessfulInstanceCreditSpecificationItem (Prelude.Maybe Prelude.Text)
 successfulInstanceCreditSpecificationItem_instanceId = Lens.lens (\SuccessfulInstanceCreditSpecificationItem' {instanceId} -> instanceId) (\s@SuccessfulInstanceCreditSpecificationItem' {} a -> s {instanceId = a} :: SuccessfulInstanceCreditSpecificationItem)
 
 instance
@@ -60,12 +61,12 @@ instance
   where
   parseXML x =
     SuccessfulInstanceCreditSpecificationItem'
-      Core.<$> (x Core..@? "instanceId")
+      Prelude.<$> (x Core..@? "instanceId")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     SuccessfulInstanceCreditSpecificationItem
 
 instance
-  Core.NFData
+  Prelude.NFData
     SuccessfulInstanceCreditSpecificationItem

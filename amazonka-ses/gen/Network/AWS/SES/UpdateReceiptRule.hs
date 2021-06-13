@@ -46,6 +46,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -57,11 +58,11 @@ import Network.AWS.SES.Types
 -- /See:/ 'newUpdateReceiptRule' smart constructor.
 data UpdateReceiptRule = UpdateReceiptRule'
   { -- | The name of the receipt rule set that the receipt rule belongs to.
-    ruleSetName :: Core.Text,
+    ruleSetName :: Prelude.Text,
     -- | A data structure that contains the updated receipt rule information.
     rule :: ReceiptRule
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateReceiptRule' with all optional fields omitted.
@@ -76,7 +77,7 @@ data UpdateReceiptRule = UpdateReceiptRule'
 -- 'rule', 'updateReceiptRule_rule' - A data structure that contains the updated receipt rule information.
 newUpdateReceiptRule ::
   -- | 'ruleSetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'rule'
   ReceiptRule ->
   UpdateReceiptRule
@@ -87,7 +88,7 @@ newUpdateReceiptRule pRuleSetName_ pRule_ =
     }
 
 -- | The name of the receipt rule set that the receipt rule belongs to.
-updateReceiptRule_ruleSetName :: Lens.Lens' UpdateReceiptRule Core.Text
+updateReceiptRule_ruleSetName :: Lens.Lens' UpdateReceiptRule Prelude.Text
 updateReceiptRule_ruleSetName = Lens.lens (\UpdateReceiptRule' {ruleSetName} -> ruleSetName) (\s@UpdateReceiptRule' {} a -> s {ruleSetName = a} :: UpdateReceiptRule)
 
 -- | A data structure that contains the updated receipt rule information.
@@ -104,25 +105,26 @@ instance Core.AWSRequest UpdateReceiptRule where
       "UpdateReceiptRuleResult"
       ( \s h x ->
           UpdateReceiptRuleResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateReceiptRule
+instance Prelude.Hashable UpdateReceiptRule
 
-instance Core.NFData UpdateReceiptRule
+instance Prelude.NFData UpdateReceiptRule
 
 instance Core.ToHeaders UpdateReceiptRule where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateReceiptRule where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateReceiptRule where
   toQuery UpdateReceiptRule' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateReceiptRule" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("UpdateReceiptRule" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "RuleSetName" Core.=: ruleSetName,
         "Rule" Core.=: rule
       ]
@@ -132,9 +134,9 @@ instance Core.ToQuery UpdateReceiptRule where
 -- /See:/ 'newUpdateReceiptRuleResponse' smart constructor.
 data UpdateReceiptRuleResponse = UpdateReceiptRuleResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateReceiptRuleResponse' with all optional fields omitted.
@@ -147,7 +149,7 @@ data UpdateReceiptRuleResponse = UpdateReceiptRuleResponse'
 -- 'httpStatus', 'updateReceiptRuleResponse_httpStatus' - The response's http status code.
 newUpdateReceiptRuleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateReceiptRuleResponse
 newUpdateReceiptRuleResponse pHttpStatus_ =
   UpdateReceiptRuleResponse'
@@ -156,7 +158,7 @@ newUpdateReceiptRuleResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateReceiptRuleResponse_httpStatus :: Lens.Lens' UpdateReceiptRuleResponse Core.Int
+updateReceiptRuleResponse_httpStatus :: Lens.Lens' UpdateReceiptRuleResponse Prelude.Int
 updateReceiptRuleResponse_httpStatus = Lens.lens (\UpdateReceiptRuleResponse' {httpStatus} -> httpStatus) (\s@UpdateReceiptRuleResponse' {} a -> s {httpStatus = a} :: UpdateReceiptRuleResponse)
 
-instance Core.NFData UpdateReceiptRuleResponse
+instance Prelude.NFData UpdateReceiptRuleResponse

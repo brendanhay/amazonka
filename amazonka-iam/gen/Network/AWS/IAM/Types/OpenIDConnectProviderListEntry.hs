@@ -21,15 +21,16 @@ module Network.AWS.IAM.Types.OpenIDConnectProviderListEntry where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the Amazon Resource Name (ARN) for an IAM OpenID Connect
 -- provider.
 --
 -- /See:/ 'newOpenIDConnectProviderListEntry' smart constructor.
 data OpenIDConnectProviderListEntry = OpenIDConnectProviderListEntry'
-  { arn :: Core.Maybe Core.Text
+  { arn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OpenIDConnectProviderListEntry' with all optional fields omitted.
@@ -43,17 +44,24 @@ data OpenIDConnectProviderListEntry = OpenIDConnectProviderListEntry'
 newOpenIDConnectProviderListEntry ::
   OpenIDConnectProviderListEntry
 newOpenIDConnectProviderListEntry =
-  OpenIDConnectProviderListEntry' {arn = Core.Nothing}
+  OpenIDConnectProviderListEntry'
+    { arn =
+        Prelude.Nothing
+    }
 
 -- | Undocumented member.
-openIDConnectProviderListEntry_arn :: Lens.Lens' OpenIDConnectProviderListEntry (Core.Maybe Core.Text)
+openIDConnectProviderListEntry_arn :: Lens.Lens' OpenIDConnectProviderListEntry (Prelude.Maybe Prelude.Text)
 openIDConnectProviderListEntry_arn = Lens.lens (\OpenIDConnectProviderListEntry' {arn} -> arn) (\s@OpenIDConnectProviderListEntry' {} a -> s {arn = a} :: OpenIDConnectProviderListEntry)
 
 instance Core.FromXML OpenIDConnectProviderListEntry where
   parseXML x =
     OpenIDConnectProviderListEntry'
-      Core.<$> (x Core..@? "Arn")
+      Prelude.<$> (x Core..@? "Arn")
 
-instance Core.Hashable OpenIDConnectProviderListEntry
+instance
+  Prelude.Hashable
+    OpenIDConnectProviderListEntry
 
-instance Core.NFData OpenIDConnectProviderListEntry
+instance
+  Prelude.NFData
+    OpenIDConnectProviderListEntry

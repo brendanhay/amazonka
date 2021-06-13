@@ -21,6 +21,7 @@ module Network.AWS.CloudWatch.Types.PartialFailure where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This array is empty if the API operation was successful for all the
 -- rules specified in the request. If the operation could not process one
@@ -29,15 +30,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newPartialFailure' smart constructor.
 data PartialFailure = PartialFailure'
   { -- | The type of error.
-    exceptionType :: Core.Maybe Core.Text,
+    exceptionType :: Prelude.Maybe Prelude.Text,
     -- | The code of the error.
-    failureCode :: Core.Maybe Core.Text,
+    failureCode :: Prelude.Maybe Prelude.Text,
     -- | A description of the error.
-    failureDescription :: Core.Maybe Core.Text,
+    failureDescription :: Prelude.Maybe Prelude.Text,
     -- | The specified rule that could not be deleted.
-    failureResource :: Core.Maybe Core.Text
+    failureResource :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PartialFailure' with all optional fields omitted.
@@ -58,36 +59,36 @@ newPartialFailure ::
   PartialFailure
 newPartialFailure =
   PartialFailure'
-    { exceptionType = Core.Nothing,
-      failureCode = Core.Nothing,
-      failureDescription = Core.Nothing,
-      failureResource = Core.Nothing
+    { exceptionType = Prelude.Nothing,
+      failureCode = Prelude.Nothing,
+      failureDescription = Prelude.Nothing,
+      failureResource = Prelude.Nothing
     }
 
 -- | The type of error.
-partialFailure_exceptionType :: Lens.Lens' PartialFailure (Core.Maybe Core.Text)
+partialFailure_exceptionType :: Lens.Lens' PartialFailure (Prelude.Maybe Prelude.Text)
 partialFailure_exceptionType = Lens.lens (\PartialFailure' {exceptionType} -> exceptionType) (\s@PartialFailure' {} a -> s {exceptionType = a} :: PartialFailure)
 
 -- | The code of the error.
-partialFailure_failureCode :: Lens.Lens' PartialFailure (Core.Maybe Core.Text)
+partialFailure_failureCode :: Lens.Lens' PartialFailure (Prelude.Maybe Prelude.Text)
 partialFailure_failureCode = Lens.lens (\PartialFailure' {failureCode} -> failureCode) (\s@PartialFailure' {} a -> s {failureCode = a} :: PartialFailure)
 
 -- | A description of the error.
-partialFailure_failureDescription :: Lens.Lens' PartialFailure (Core.Maybe Core.Text)
+partialFailure_failureDescription :: Lens.Lens' PartialFailure (Prelude.Maybe Prelude.Text)
 partialFailure_failureDescription = Lens.lens (\PartialFailure' {failureDescription} -> failureDescription) (\s@PartialFailure' {} a -> s {failureDescription = a} :: PartialFailure)
 
 -- | The specified rule that could not be deleted.
-partialFailure_failureResource :: Lens.Lens' PartialFailure (Core.Maybe Core.Text)
+partialFailure_failureResource :: Lens.Lens' PartialFailure (Prelude.Maybe Prelude.Text)
 partialFailure_failureResource = Lens.lens (\PartialFailure' {failureResource} -> failureResource) (\s@PartialFailure' {} a -> s {failureResource = a} :: PartialFailure)
 
 instance Core.FromXML PartialFailure where
   parseXML x =
     PartialFailure'
-      Core.<$> (x Core..@? "ExceptionType")
-      Core.<*> (x Core..@? "FailureCode")
-      Core.<*> (x Core..@? "FailureDescription")
-      Core.<*> (x Core..@? "FailureResource")
+      Prelude.<$> (x Core..@? "ExceptionType")
+      Prelude.<*> (x Core..@? "FailureCode")
+      Prelude.<*> (x Core..@? "FailureDescription")
+      Prelude.<*> (x Core..@? "FailureResource")
 
-instance Core.Hashable PartialFailure
+instance Prelude.Hashable PartialFailure
 
-instance Core.NFData PartialFailure
+instance Prelude.NFData PartialFailure

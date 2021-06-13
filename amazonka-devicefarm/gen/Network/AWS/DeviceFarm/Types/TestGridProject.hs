@@ -21,6 +21,7 @@ module Network.AWS.DeviceFarm.Types.TestGridProject where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A Selenium testing project. Projects are used to collect and collate
 -- sessions.
@@ -28,15 +29,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTestGridProject' smart constructor.
 data TestGridProject = TestGridProject'
   { -- | The ARN for the project.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | A human-readable name for the project.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | A human-readable description for the project.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | When the project was created.
-    created :: Core.Maybe Core.POSIX
+    created :: Prelude.Maybe Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TestGridProject' with all optional fields omitted.
@@ -57,27 +58,27 @@ newTestGridProject ::
   TestGridProject
 newTestGridProject =
   TestGridProject'
-    { arn = Core.Nothing,
-      name = Core.Nothing,
-      description = Core.Nothing,
-      created = Core.Nothing
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      description = Prelude.Nothing,
+      created = Prelude.Nothing
     }
 
 -- | The ARN for the project.
-testGridProject_arn :: Lens.Lens' TestGridProject (Core.Maybe Core.Text)
+testGridProject_arn :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.Text)
 testGridProject_arn = Lens.lens (\TestGridProject' {arn} -> arn) (\s@TestGridProject' {} a -> s {arn = a} :: TestGridProject)
 
 -- | A human-readable name for the project.
-testGridProject_name :: Lens.Lens' TestGridProject (Core.Maybe Core.Text)
+testGridProject_name :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.Text)
 testGridProject_name = Lens.lens (\TestGridProject' {name} -> name) (\s@TestGridProject' {} a -> s {name = a} :: TestGridProject)
 
 -- | A human-readable description for the project.
-testGridProject_description :: Lens.Lens' TestGridProject (Core.Maybe Core.Text)
+testGridProject_description :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.Text)
 testGridProject_description = Lens.lens (\TestGridProject' {description} -> description) (\s@TestGridProject' {} a -> s {description = a} :: TestGridProject)
 
 -- | When the project was created.
-testGridProject_created :: Lens.Lens' TestGridProject (Core.Maybe Core.UTCTime)
-testGridProject_created = Lens.lens (\TestGridProject' {created} -> created) (\s@TestGridProject' {} a -> s {created = a} :: TestGridProject) Core.. Lens.mapping Core._Time
+testGridProject_created :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.UTCTime)
+testGridProject_created = Lens.lens (\TestGridProject' {created} -> created) (\s@TestGridProject' {} a -> s {created = a} :: TestGridProject) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON TestGridProject where
   parseJSON =
@@ -85,12 +86,12 @@ instance Core.FromJSON TestGridProject where
       "TestGridProject"
       ( \x ->
           TestGridProject'
-            Core.<$> (x Core..:? "arn")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "description")
-            Core.<*> (x Core..:? "created")
+            Prelude.<$> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "created")
       )
 
-instance Core.Hashable TestGridProject
+instance Prelude.Hashable TestGridProject
 
-instance Core.NFData TestGridProject
+instance Prelude.NFData TestGridProject

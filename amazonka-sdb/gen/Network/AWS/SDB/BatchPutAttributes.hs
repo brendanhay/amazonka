@@ -85,6 +85,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SDB.Types
@@ -92,11 +93,11 @@ import Network.AWS.SDB.Types
 -- | /See:/ 'newBatchPutAttributes' smart constructor.
 data BatchPutAttributes = BatchPutAttributes'
   { -- | The name of the domain in which the attributes are being stored.
-    domainName :: Core.Text,
+    domainName :: Prelude.Text,
     -- | A list of items on which to perform the operation.
     items :: [ReplaceableItem]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchPutAttributes' with all optional fields omitted.
@@ -111,21 +112,21 @@ data BatchPutAttributes = BatchPutAttributes'
 -- 'items', 'batchPutAttributes_items' - A list of items on which to perform the operation.
 newBatchPutAttributes ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   BatchPutAttributes
 newBatchPutAttributes pDomainName_ =
   BatchPutAttributes'
     { domainName = pDomainName_,
-      items = Core.mempty
+      items = Prelude.mempty
     }
 
 -- | The name of the domain in which the attributes are being stored.
-batchPutAttributes_domainName :: Lens.Lens' BatchPutAttributes Core.Text
+batchPutAttributes_domainName :: Lens.Lens' BatchPutAttributes Prelude.Text
 batchPutAttributes_domainName = Lens.lens (\BatchPutAttributes' {domainName} -> domainName) (\s@BatchPutAttributes' {} a -> s {domainName = a} :: BatchPutAttributes)
 
 -- | A list of items on which to perform the operation.
 batchPutAttributes_items :: Lens.Lens' BatchPutAttributes [ReplaceableItem]
-batchPutAttributes_items = Lens.lens (\BatchPutAttributes' {items} -> items) (\s@BatchPutAttributes' {} a -> s {items = a} :: BatchPutAttributes) Core.. Lens._Coerce
+batchPutAttributes_items = Lens.lens (\BatchPutAttributes' {items} -> items) (\s@BatchPutAttributes' {} a -> s {items = a} :: BatchPutAttributes) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchPutAttributes where
   type
@@ -135,22 +136,23 @@ instance Core.AWSRequest BatchPutAttributes where
   response =
     Response.receiveNull BatchPutAttributesResponse'
 
-instance Core.Hashable BatchPutAttributes
+instance Prelude.Hashable BatchPutAttributes
 
-instance Core.NFData BatchPutAttributes
+instance Prelude.NFData BatchPutAttributes
 
 instance Core.ToHeaders BatchPutAttributes where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath BatchPutAttributes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchPutAttributes where
   toQuery BatchPutAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("BatchPutAttributes" :: Core.ByteString),
-        "Version" Core.=: ("2009-04-15" :: Core.ByteString),
+          Core.=: ("BatchPutAttributes" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2009-04-15" :: Prelude.ByteString),
         "DomainName" Core.=: domainName,
         Core.toQueryList "Item" items
       ]
@@ -159,7 +161,7 @@ instance Core.ToQuery BatchPutAttributes where
 data BatchPutAttributesResponse = BatchPutAttributesResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchPutAttributesResponse' with all optional fields omitted.
@@ -170,4 +172,4 @@ newBatchPutAttributesResponse ::
 newBatchPutAttributesResponse =
   BatchPutAttributesResponse'
 
-instance Core.NFData BatchPutAttributesResponse
+instance Prelude.NFData BatchPutAttributesResponse

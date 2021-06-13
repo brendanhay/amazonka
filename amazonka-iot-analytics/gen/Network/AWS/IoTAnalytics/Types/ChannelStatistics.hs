@@ -22,15 +22,16 @@ module Network.AWS.IoTAnalytics.Types.ChannelStatistics where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.EstimatedResourceSize
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Statistics information about the channel.
 --
 -- /See:/ 'newChannelStatistics' smart constructor.
 data ChannelStatistics = ChannelStatistics'
   { -- | The estimated size of the channel.
-    size :: Core.Maybe EstimatedResourceSize
+    size :: Prelude.Maybe EstimatedResourceSize
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ChannelStatistics' with all optional fields omitted.
@@ -44,10 +45,10 @@ data ChannelStatistics = ChannelStatistics'
 newChannelStatistics ::
   ChannelStatistics
 newChannelStatistics =
-  ChannelStatistics' {size = Core.Nothing}
+  ChannelStatistics' {size = Prelude.Nothing}
 
 -- | The estimated size of the channel.
-channelStatistics_size :: Lens.Lens' ChannelStatistics (Core.Maybe EstimatedResourceSize)
+channelStatistics_size :: Lens.Lens' ChannelStatistics (Prelude.Maybe EstimatedResourceSize)
 channelStatistics_size = Lens.lens (\ChannelStatistics' {size} -> size) (\s@ChannelStatistics' {} a -> s {size = a} :: ChannelStatistics)
 
 instance Core.FromJSON ChannelStatistics where
@@ -55,9 +56,9 @@ instance Core.FromJSON ChannelStatistics where
     Core.withObject
       "ChannelStatistics"
       ( \x ->
-          ChannelStatistics' Core.<$> (x Core..:? "size")
+          ChannelStatistics' Prelude.<$> (x Core..:? "size")
       )
 
-instance Core.Hashable ChannelStatistics
+instance Prelude.Hashable ChannelStatistics
 
-instance Core.NFData ChannelStatistics
+instance Prelude.NFData ChannelStatistics

@@ -47,6 +47,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,7 +57,7 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetGatewayResponse' smart constructor.
 data GetGatewayResponse = GetGatewayResponse'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required]
     --
     -- The response type of the associated GatewayResponse. Valid values are
@@ -83,7 +84,7 @@ data GetGatewayResponse = GetGatewayResponse'
     -- -   UNSUPPORTED_MEDIA_TYPE
     responseType :: GatewayResponseType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetGatewayResponse' with all optional fields omitted.
@@ -121,7 +122,7 @@ data GetGatewayResponse = GetGatewayResponse'
 -- -   UNSUPPORTED_MEDIA_TYPE
 newGetGatewayResponse ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'responseType'
   GatewayResponseType ->
   GetGatewayResponse
@@ -132,7 +133,7 @@ newGetGatewayResponse pRestApiId_ pResponseType_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-getGatewayResponse_restApiId :: Lens.Lens' GetGatewayResponse Core.Text
+getGatewayResponse_restApiId :: Lens.Lens' GetGatewayResponse Prelude.Text
 getGatewayResponse_restApiId = Lens.lens (\GetGatewayResponse' {restApiId} -> restApiId) (\s@GetGatewayResponse' {} a -> s {restApiId = a} :: GetGatewayResponse)
 
 -- | [Required]
@@ -169,22 +170,22 @@ instance Core.AWSRequest GetGatewayResponse where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetGatewayResponse
+instance Prelude.Hashable GetGatewayResponse
 
-instance Core.NFData GetGatewayResponse
+instance Prelude.NFData GetGatewayResponse
 
 instance Core.ToHeaders GetGatewayResponse where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetGatewayResponse where
   toPath GetGatewayResponse' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/gatewayresponses/",
@@ -192,4 +193,4 @@ instance Core.ToPath GetGatewayResponse where
       ]
 
 instance Core.ToQuery GetGatewayResponse where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DisassociateCertificate = DisassociateCertificate'
   { -- | The ARN of the ACM certificate that you want to disassociate from your
     -- MediaConvert resource.
-    arn :: Core.Text
+    arn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateCertificate' with all optional fields omitted.
@@ -66,14 +67,14 @@ data DisassociateCertificate = DisassociateCertificate'
 -- MediaConvert resource.
 newDisassociateCertificate ::
   -- | 'arn'
-  Core.Text ->
+  Prelude.Text ->
   DisassociateCertificate
 newDisassociateCertificate pArn_ =
   DisassociateCertificate' {arn = pArn_}
 
 -- | The ARN of the ACM certificate that you want to disassociate from your
 -- MediaConvert resource.
-disassociateCertificate_arn :: Lens.Lens' DisassociateCertificate Core.Text
+disassociateCertificate_arn :: Lens.Lens' DisassociateCertificate Prelude.Text
 disassociateCertificate_arn = Lens.lens (\DisassociateCertificate' {arn} -> arn) (\s@DisassociateCertificate' {} a -> s {arn = a} :: DisassociateCertificate)
 
 instance Core.AWSRequest DisassociateCertificate where
@@ -85,36 +86,38 @@ instance Core.AWSRequest DisassociateCertificate where
     Response.receiveEmpty
       ( \s h x ->
           DisassociateCertificateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DisassociateCertificate
+instance Prelude.Hashable DisassociateCertificate
 
-instance Core.NFData DisassociateCertificate
+instance Prelude.NFData DisassociateCertificate
 
 instance Core.ToHeaders DisassociateCertificate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToPath DisassociateCertificate where
   toPath DisassociateCertificate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/2017-08-29/certificates/", Core.toBS arn]
 
 instance Core.ToQuery DisassociateCertificate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateCertificateResponse' smart constructor.
 data DisassociateCertificateResponse = DisassociateCertificateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DisassociateCertificateResponse' with all optional fields omitted.
@@ -127,7 +130,7 @@ data DisassociateCertificateResponse = DisassociateCertificateResponse'
 -- 'httpStatus', 'disassociateCertificateResponse_httpStatus' - The response's http status code.
 newDisassociateCertificateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DisassociateCertificateResponse
 newDisassociateCertificateResponse pHttpStatus_ =
   DisassociateCertificateResponse'
@@ -136,7 +139,9 @@ newDisassociateCertificateResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disassociateCertificateResponse_httpStatus :: Lens.Lens' DisassociateCertificateResponse Core.Int
+disassociateCertificateResponse_httpStatus :: Lens.Lens' DisassociateCertificateResponse Prelude.Int
 disassociateCertificateResponse_httpStatus = Lens.lens (\DisassociateCertificateResponse' {httpStatus} -> httpStatus) (\s@DisassociateCertificateResponse' {} a -> s {httpStatus = a} :: DisassociateCertificateResponse)
 
-instance Core.NFData DisassociateCertificateResponse
+instance
+  Prelude.NFData
+    DisassociateCertificateResponse

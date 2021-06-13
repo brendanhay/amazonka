@@ -49,15 +49,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListSecurityConfigurations' smart constructor.
 data ListSecurityConfigurations = ListSecurityConfigurations'
   { -- | The pagination token that indicates the set of results to retrieve.
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListSecurityConfigurations' with all optional fields omitted.
@@ -71,10 +72,13 @@ data ListSecurityConfigurations = ListSecurityConfigurations'
 newListSecurityConfigurations ::
   ListSecurityConfigurations
 newListSecurityConfigurations =
-  ListSecurityConfigurations' {marker = Core.Nothing}
+  ListSecurityConfigurations'
+    { marker =
+        Prelude.Nothing
+    }
 
 -- | The pagination token that indicates the set of results to retrieve.
-listSecurityConfigurations_marker :: Lens.Lens' ListSecurityConfigurations (Core.Maybe Core.Text)
+listSecurityConfigurations_marker :: Lens.Lens' ListSecurityConfigurations (Prelude.Maybe Prelude.Text)
 listSecurityConfigurations_marker = Lens.lens (\ListSecurityConfigurations' {marker} -> marker) (\s@ListSecurityConfigurations' {} a -> s {marker = a} :: ListSecurityConfigurations)
 
 instance Core.AWSPager ListSecurityConfigurations where
@@ -82,22 +86,22 @@ instance Core.AWSPager ListSecurityConfigurations where
     | Core.stop
         ( rs
             Lens.^? listSecurityConfigurationsResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSecurityConfigurationsResponse_securityConfigurations
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listSecurityConfigurations_marker
+          Prelude.& listSecurityConfigurations_marker
           Lens..~ rs
           Lens.^? listSecurityConfigurationsResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSecurityConfigurations where
   type
@@ -108,53 +112,57 @@ instance Core.AWSRequest ListSecurityConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListSecurityConfigurationsResponse'
-            Core.<$> ( x Core..?> "SecurityConfigurations"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (x Core..?> "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "SecurityConfigurations"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListSecurityConfigurations
+instance Prelude.Hashable ListSecurityConfigurations
 
-instance Core.NFData ListSecurityConfigurations
+instance Prelude.NFData ListSecurityConfigurations
 
 instance Core.ToHeaders ListSecurityConfigurations where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ElasticMapReduce.ListSecurityConfigurations" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListSecurityConfigurations where
   toJSON ListSecurityConfigurations' {..} =
     Core.object
-      (Core.catMaybes [("Marker" Core..=) Core.<$> marker])
+      ( Prelude.catMaybes
+          [("Marker" Core..=) Prelude.<$> marker]
+      )
 
 instance Core.ToPath ListSecurityConfigurations where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListSecurityConfigurations where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSecurityConfigurationsResponse' smart constructor.
 data ListSecurityConfigurationsResponse = ListSecurityConfigurationsResponse'
   { -- | The creation date and time, and name, of each security configuration.
-    securityConfigurations :: Core.Maybe [SecurityConfigurationSummary],
+    securityConfigurations :: Prelude.Maybe [SecurityConfigurationSummary],
     -- | A pagination token that indicates the next set of results to retrieve.
     -- Include the marker in the next ListSecurityConfiguration call to
     -- retrieve the next page of results, if required.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListSecurityConfigurationsResponse' with all optional fields omitted.
@@ -173,30 +181,30 @@ data ListSecurityConfigurationsResponse = ListSecurityConfigurationsResponse'
 -- 'httpStatus', 'listSecurityConfigurationsResponse_httpStatus' - The response's http status code.
 newListSecurityConfigurationsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListSecurityConfigurationsResponse
 newListSecurityConfigurationsResponse pHttpStatus_ =
   ListSecurityConfigurationsResponse'
     { securityConfigurations =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The creation date and time, and name, of each security configuration.
-listSecurityConfigurationsResponse_securityConfigurations :: Lens.Lens' ListSecurityConfigurationsResponse (Core.Maybe [SecurityConfigurationSummary])
-listSecurityConfigurationsResponse_securityConfigurations = Lens.lens (\ListSecurityConfigurationsResponse' {securityConfigurations} -> securityConfigurations) (\s@ListSecurityConfigurationsResponse' {} a -> s {securityConfigurations = a} :: ListSecurityConfigurationsResponse) Core.. Lens.mapping Lens._Coerce
+listSecurityConfigurationsResponse_securityConfigurations :: Lens.Lens' ListSecurityConfigurationsResponse (Prelude.Maybe [SecurityConfigurationSummary])
+listSecurityConfigurationsResponse_securityConfigurations = Lens.lens (\ListSecurityConfigurationsResponse' {securityConfigurations} -> securityConfigurations) (\s@ListSecurityConfigurationsResponse' {} a -> s {securityConfigurations = a} :: ListSecurityConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A pagination token that indicates the next set of results to retrieve.
 -- Include the marker in the next ListSecurityConfiguration call to
 -- retrieve the next page of results, if required.
-listSecurityConfigurationsResponse_marker :: Lens.Lens' ListSecurityConfigurationsResponse (Core.Maybe Core.Text)
+listSecurityConfigurationsResponse_marker :: Lens.Lens' ListSecurityConfigurationsResponse (Prelude.Maybe Prelude.Text)
 listSecurityConfigurationsResponse_marker = Lens.lens (\ListSecurityConfigurationsResponse' {marker} -> marker) (\s@ListSecurityConfigurationsResponse' {} a -> s {marker = a} :: ListSecurityConfigurationsResponse)
 
 -- | The response's http status code.
-listSecurityConfigurationsResponse_httpStatus :: Lens.Lens' ListSecurityConfigurationsResponse Core.Int
+listSecurityConfigurationsResponse_httpStatus :: Lens.Lens' ListSecurityConfigurationsResponse Prelude.Int
 listSecurityConfigurationsResponse_httpStatus = Lens.lens (\ListSecurityConfigurationsResponse' {httpStatus} -> httpStatus) (\s@ListSecurityConfigurationsResponse' {} a -> s {httpStatus = a} :: ListSecurityConfigurationsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     ListSecurityConfigurationsResponse

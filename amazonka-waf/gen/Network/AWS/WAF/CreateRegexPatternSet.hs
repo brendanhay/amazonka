@@ -73,6 +73,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -81,11 +82,11 @@ import Network.AWS.WAF.Types
 data CreateRegexPatternSet = CreateRegexPatternSet'
   { -- | A friendly name or description of the RegexPatternSet. You can\'t change
     -- @Name@ after you create a @RegexPatternSet@.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Core.Text
+    changeToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateRegexPatternSet' with all optional fields omitted.
@@ -101,9 +102,9 @@ data CreateRegexPatternSet = CreateRegexPatternSet'
 -- 'changeToken', 'createRegexPatternSet_changeToken' - The value returned by the most recent call to GetChangeToken.
 newCreateRegexPatternSet ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'changeToken'
-  Core.Text ->
+  Prelude.Text ->
   CreateRegexPatternSet
 newCreateRegexPatternSet pName_ pChangeToken_ =
   CreateRegexPatternSet'
@@ -113,11 +114,11 @@ newCreateRegexPatternSet pName_ pChangeToken_ =
 
 -- | A friendly name or description of the RegexPatternSet. You can\'t change
 -- @Name@ after you create a @RegexPatternSet@.
-createRegexPatternSet_name :: Lens.Lens' CreateRegexPatternSet Core.Text
+createRegexPatternSet_name :: Lens.Lens' CreateRegexPatternSet Prelude.Text
 createRegexPatternSet_name = Lens.lens (\CreateRegexPatternSet' {name} -> name) (\s@CreateRegexPatternSet' {} a -> s {name = a} :: CreateRegexPatternSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-createRegexPatternSet_changeToken :: Lens.Lens' CreateRegexPatternSet Core.Text
+createRegexPatternSet_changeToken :: Lens.Lens' CreateRegexPatternSet Prelude.Text
 createRegexPatternSet_changeToken = Lens.lens (\CreateRegexPatternSet' {changeToken} -> changeToken) (\s@CreateRegexPatternSet' {} a -> s {changeToken = a} :: CreateRegexPatternSet)
 
 instance Core.AWSRequest CreateRegexPatternSet where
@@ -129,55 +130,57 @@ instance Core.AWSRequest CreateRegexPatternSet where
     Response.receiveJSON
       ( \s h x ->
           CreateRegexPatternSetResponse'
-            Core.<$> (x Core..?> "RegexPatternSet")
-            Core.<*> (x Core..?> "ChangeToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "RegexPatternSet")
+            Prelude.<*> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateRegexPatternSet
+instance Prelude.Hashable CreateRegexPatternSet
 
-instance Core.NFData CreateRegexPatternSet
+instance Prelude.NFData CreateRegexPatternSet
 
 instance Core.ToHeaders CreateRegexPatternSet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSWAF_20150824.CreateRegexPatternSet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateRegexPatternSet where
   toJSON CreateRegexPatternSet' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("ChangeToken" Core..= changeToken)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
 instance Core.ToPath CreateRegexPatternSet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateRegexPatternSet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRegexPatternSetResponse' smart constructor.
 data CreateRegexPatternSetResponse = CreateRegexPatternSetResponse'
   { -- | A RegexPatternSet that contains no objects.
-    regexPatternSet :: Core.Maybe RegexPatternSet,
+    regexPatternSet :: Prelude.Maybe RegexPatternSet,
     -- | The @ChangeToken@ that you used to submit the @CreateRegexPatternSet@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Core.Maybe Core.Text,
+    changeToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateRegexPatternSetResponse' with all optional fields omitted.
@@ -196,28 +199,28 @@ data CreateRegexPatternSetResponse = CreateRegexPatternSetResponse'
 -- 'httpStatus', 'createRegexPatternSetResponse_httpStatus' - The response's http status code.
 newCreateRegexPatternSetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateRegexPatternSetResponse
 newCreateRegexPatternSetResponse pHttpStatus_ =
   CreateRegexPatternSetResponse'
     { regexPatternSet =
-        Core.Nothing,
-      changeToken = Core.Nothing,
+        Prelude.Nothing,
+      changeToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A RegexPatternSet that contains no objects.
-createRegexPatternSetResponse_regexPatternSet :: Lens.Lens' CreateRegexPatternSetResponse (Core.Maybe RegexPatternSet)
+createRegexPatternSetResponse_regexPatternSet :: Lens.Lens' CreateRegexPatternSetResponse (Prelude.Maybe RegexPatternSet)
 createRegexPatternSetResponse_regexPatternSet = Lens.lens (\CreateRegexPatternSetResponse' {regexPatternSet} -> regexPatternSet) (\s@CreateRegexPatternSetResponse' {} a -> s {regexPatternSet = a} :: CreateRegexPatternSetResponse)
 
 -- | The @ChangeToken@ that you used to submit the @CreateRegexPatternSet@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-createRegexPatternSetResponse_changeToken :: Lens.Lens' CreateRegexPatternSetResponse (Core.Maybe Core.Text)
+createRegexPatternSetResponse_changeToken :: Lens.Lens' CreateRegexPatternSetResponse (Prelude.Maybe Prelude.Text)
 createRegexPatternSetResponse_changeToken = Lens.lens (\CreateRegexPatternSetResponse' {changeToken} -> changeToken) (\s@CreateRegexPatternSetResponse' {} a -> s {changeToken = a} :: CreateRegexPatternSetResponse)
 
 -- | The response's http status code.
-createRegexPatternSetResponse_httpStatus :: Lens.Lens' CreateRegexPatternSetResponse Core.Int
+createRegexPatternSetResponse_httpStatus :: Lens.Lens' CreateRegexPatternSetResponse Prelude.Int
 createRegexPatternSetResponse_httpStatus = Lens.lens (\CreateRegexPatternSetResponse' {httpStatus} -> httpStatus) (\s@CreateRegexPatternSetResponse' {} a -> s {httpStatus = a} :: CreateRegexPatternSetResponse)
 
-instance Core.NFData CreateRegexPatternSetResponse
+instance Prelude.NFData CreateRegexPatternSetResponse

@@ -22,29 +22,30 @@ module Network.AWS.CloudFront.Types.RealtimeLogConfigs where
 import Network.AWS.CloudFront.Types.RealtimeLogConfig
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of real-time log configurations.
 --
 -- /See:/ 'newRealtimeLogConfigs' smart constructor.
 data RealtimeLogConfigs = RealtimeLogConfigs'
   { -- | Contains the list of real-time log configurations.
-    items :: Core.Maybe [RealtimeLogConfig],
+    items :: Prelude.Maybe [RealtimeLogConfig],
     -- | If there are more items in the list than are in this response, this
     -- element is present. It contains the value that you should use in the
     -- @Marker@ field of a subsequent request to continue listing real-time log
     -- configurations where you left off.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of real-time log configurations requested.
-    maxItems :: Core.Int,
+    maxItems :: Prelude.Int,
     -- | A flag that indicates whether there are more real-time log
     -- configurations than are contained in this list.
-    isTruncated :: Core.Bool,
+    isTruncated :: Prelude.Bool,
     -- | This parameter indicates where this list of real-time log configurations
     -- begins. This list includes real-time log configurations that occur after
     -- the marker.
-    marker :: Core.Text
+    marker :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RealtimeLogConfigs' with all optional fields omitted.
@@ -71,61 +72,61 @@ data RealtimeLogConfigs = RealtimeLogConfigs'
 -- the marker.
 newRealtimeLogConfigs ::
   -- | 'maxItems'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'isTruncated'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'marker'
-  Core.Text ->
+  Prelude.Text ->
   RealtimeLogConfigs
 newRealtimeLogConfigs
   pMaxItems_
   pIsTruncated_
   pMarker_ =
     RealtimeLogConfigs'
-      { items = Core.Nothing,
-        nextMarker = Core.Nothing,
+      { items = Prelude.Nothing,
+        nextMarker = Prelude.Nothing,
         maxItems = pMaxItems_,
         isTruncated = pIsTruncated_,
         marker = pMarker_
       }
 
 -- | Contains the list of real-time log configurations.
-realtimeLogConfigs_items :: Lens.Lens' RealtimeLogConfigs (Core.Maybe [RealtimeLogConfig])
-realtimeLogConfigs_items = Lens.lens (\RealtimeLogConfigs' {items} -> items) (\s@RealtimeLogConfigs' {} a -> s {items = a} :: RealtimeLogConfigs) Core.. Lens.mapping Lens._Coerce
+realtimeLogConfigs_items :: Lens.Lens' RealtimeLogConfigs (Prelude.Maybe [RealtimeLogConfig])
+realtimeLogConfigs_items = Lens.lens (\RealtimeLogConfigs' {items} -> items) (\s@RealtimeLogConfigs' {} a -> s {items = a} :: RealtimeLogConfigs) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If there are more items in the list than are in this response, this
 -- element is present. It contains the value that you should use in the
 -- @Marker@ field of a subsequent request to continue listing real-time log
 -- configurations where you left off.
-realtimeLogConfigs_nextMarker :: Lens.Lens' RealtimeLogConfigs (Core.Maybe Core.Text)
+realtimeLogConfigs_nextMarker :: Lens.Lens' RealtimeLogConfigs (Prelude.Maybe Prelude.Text)
 realtimeLogConfigs_nextMarker = Lens.lens (\RealtimeLogConfigs' {nextMarker} -> nextMarker) (\s@RealtimeLogConfigs' {} a -> s {nextMarker = a} :: RealtimeLogConfigs)
 
 -- | The maximum number of real-time log configurations requested.
-realtimeLogConfigs_maxItems :: Lens.Lens' RealtimeLogConfigs Core.Int
+realtimeLogConfigs_maxItems :: Lens.Lens' RealtimeLogConfigs Prelude.Int
 realtimeLogConfigs_maxItems = Lens.lens (\RealtimeLogConfigs' {maxItems} -> maxItems) (\s@RealtimeLogConfigs' {} a -> s {maxItems = a} :: RealtimeLogConfigs)
 
 -- | A flag that indicates whether there are more real-time log
 -- configurations than are contained in this list.
-realtimeLogConfigs_isTruncated :: Lens.Lens' RealtimeLogConfigs Core.Bool
+realtimeLogConfigs_isTruncated :: Lens.Lens' RealtimeLogConfigs Prelude.Bool
 realtimeLogConfigs_isTruncated = Lens.lens (\RealtimeLogConfigs' {isTruncated} -> isTruncated) (\s@RealtimeLogConfigs' {} a -> s {isTruncated = a} :: RealtimeLogConfigs)
 
 -- | This parameter indicates where this list of real-time log configurations
 -- begins. This list includes real-time log configurations that occur after
 -- the marker.
-realtimeLogConfigs_marker :: Lens.Lens' RealtimeLogConfigs Core.Text
+realtimeLogConfigs_marker :: Lens.Lens' RealtimeLogConfigs Prelude.Text
 realtimeLogConfigs_marker = Lens.lens (\RealtimeLogConfigs' {marker} -> marker) (\s@RealtimeLogConfigs' {} a -> s {marker = a} :: RealtimeLogConfigs)
 
 instance Core.FromXML RealtimeLogConfigs where
   parseXML x =
     RealtimeLogConfigs'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "member")
-               )
-      Core.<*> (x Core..@? "NextMarker")
-      Core.<*> (x Core..@ "MaxItems")
-      Core.<*> (x Core..@ "IsTruncated")
-      Core.<*> (x Core..@ "Marker")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> (x Core..@? "NextMarker")
+      Prelude.<*> (x Core..@ "MaxItems")
+      Prelude.<*> (x Core..@ "IsTruncated")
+      Prelude.<*> (x Core..@ "Marker")
 
-instance Core.Hashable RealtimeLogConfigs
+instance Prelude.Hashable RealtimeLogConfigs
 
-instance Core.NFData RealtimeLogConfigs
+instance Prelude.NFData RealtimeLogConfigs

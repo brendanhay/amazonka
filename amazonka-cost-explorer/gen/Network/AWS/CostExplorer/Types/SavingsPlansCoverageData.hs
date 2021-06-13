@@ -21,6 +21,7 @@ module Network.AWS.CostExplorer.Types.SavingsPlansCoverageData where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specific coverage percentage, On-Demand costs, and spend covered by
 -- Savings Plans, and total Savings Plans costs for an account.
@@ -28,17 +29,17 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSavingsPlansCoverageData' smart constructor.
 data SavingsPlansCoverageData = SavingsPlansCoverageData'
   { -- | The total cost of your AWS usage, regardless of your purchase option.
-    totalCost :: Core.Maybe Core.Text,
+    totalCost :: Prelude.Maybe Prelude.Text,
     -- | The percentage of your existing Savings Plans covered usage, divided by
     -- all of your eligible Savings Plans usage in an account(or set of
     -- accounts).
-    coveragePercentage :: Core.Maybe Core.Text,
+    coveragePercentage :: Prelude.Maybe Prelude.Text,
     -- | The amount of your AWS usage that is covered by a Savings Plans.
-    spendCoveredBySavingsPlans :: Core.Maybe Core.Text,
+    spendCoveredBySavingsPlans :: Prelude.Maybe Prelude.Text,
     -- | The cost of your AWS usage at the public On-Demand rate.
-    onDemandCost :: Core.Maybe Core.Text
+    onDemandCost :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SavingsPlansCoverageData' with all optional fields omitted.
@@ -61,28 +62,29 @@ newSavingsPlansCoverageData ::
   SavingsPlansCoverageData
 newSavingsPlansCoverageData =
   SavingsPlansCoverageData'
-    { totalCost = Core.Nothing,
-      coveragePercentage = Core.Nothing,
-      spendCoveredBySavingsPlans = Core.Nothing,
-      onDemandCost = Core.Nothing
+    { totalCost =
+        Prelude.Nothing,
+      coveragePercentage = Prelude.Nothing,
+      spendCoveredBySavingsPlans = Prelude.Nothing,
+      onDemandCost = Prelude.Nothing
     }
 
 -- | The total cost of your AWS usage, regardless of your purchase option.
-savingsPlansCoverageData_totalCost :: Lens.Lens' SavingsPlansCoverageData (Core.Maybe Core.Text)
+savingsPlansCoverageData_totalCost :: Lens.Lens' SavingsPlansCoverageData (Prelude.Maybe Prelude.Text)
 savingsPlansCoverageData_totalCost = Lens.lens (\SavingsPlansCoverageData' {totalCost} -> totalCost) (\s@SavingsPlansCoverageData' {} a -> s {totalCost = a} :: SavingsPlansCoverageData)
 
 -- | The percentage of your existing Savings Plans covered usage, divided by
 -- all of your eligible Savings Plans usage in an account(or set of
 -- accounts).
-savingsPlansCoverageData_coveragePercentage :: Lens.Lens' SavingsPlansCoverageData (Core.Maybe Core.Text)
+savingsPlansCoverageData_coveragePercentage :: Lens.Lens' SavingsPlansCoverageData (Prelude.Maybe Prelude.Text)
 savingsPlansCoverageData_coveragePercentage = Lens.lens (\SavingsPlansCoverageData' {coveragePercentage} -> coveragePercentage) (\s@SavingsPlansCoverageData' {} a -> s {coveragePercentage = a} :: SavingsPlansCoverageData)
 
 -- | The amount of your AWS usage that is covered by a Savings Plans.
-savingsPlansCoverageData_spendCoveredBySavingsPlans :: Lens.Lens' SavingsPlansCoverageData (Core.Maybe Core.Text)
+savingsPlansCoverageData_spendCoveredBySavingsPlans :: Lens.Lens' SavingsPlansCoverageData (Prelude.Maybe Prelude.Text)
 savingsPlansCoverageData_spendCoveredBySavingsPlans = Lens.lens (\SavingsPlansCoverageData' {spendCoveredBySavingsPlans} -> spendCoveredBySavingsPlans) (\s@SavingsPlansCoverageData' {} a -> s {spendCoveredBySavingsPlans = a} :: SavingsPlansCoverageData)
 
 -- | The cost of your AWS usage at the public On-Demand rate.
-savingsPlansCoverageData_onDemandCost :: Lens.Lens' SavingsPlansCoverageData (Core.Maybe Core.Text)
+savingsPlansCoverageData_onDemandCost :: Lens.Lens' SavingsPlansCoverageData (Prelude.Maybe Prelude.Text)
 savingsPlansCoverageData_onDemandCost = Lens.lens (\SavingsPlansCoverageData' {onDemandCost} -> onDemandCost) (\s@SavingsPlansCoverageData' {} a -> s {onDemandCost = a} :: SavingsPlansCoverageData)
 
 instance Core.FromJSON SavingsPlansCoverageData where
@@ -91,12 +93,12 @@ instance Core.FromJSON SavingsPlansCoverageData where
       "SavingsPlansCoverageData"
       ( \x ->
           SavingsPlansCoverageData'
-            Core.<$> (x Core..:? "TotalCost")
-            Core.<*> (x Core..:? "CoveragePercentage")
-            Core.<*> (x Core..:? "SpendCoveredBySavingsPlans")
-            Core.<*> (x Core..:? "OnDemandCost")
+            Prelude.<$> (x Core..:? "TotalCost")
+            Prelude.<*> (x Core..:? "CoveragePercentage")
+            Prelude.<*> (x Core..:? "SpendCoveredBySavingsPlans")
+            Prelude.<*> (x Core..:? "OnDemandCost")
       )
 
-instance Core.Hashable SavingsPlansCoverageData
+instance Prelude.Hashable SavingsPlansCoverageData
 
-instance Core.NFData SavingsPlansCoverageData
+instance Prelude.NFData SavingsPlansCoverageData

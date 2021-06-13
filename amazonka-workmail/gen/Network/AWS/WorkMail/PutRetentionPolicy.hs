@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -51,17 +52,17 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newPutRetentionPolicy' smart constructor.
 data PutRetentionPolicy = PutRetentionPolicy'
   { -- | The retention policy ID.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The retention policy description.
-    description :: Core.Maybe (Core.Sensitive Core.Text),
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The organization ID.
-    organizationId :: Core.Text,
+    organizationId :: Prelude.Text,
     -- | The retention policy name.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | The retention policy folder configurations.
     folderConfigurations :: [FolderConfiguration]
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRetentionPolicy' with all optional fields omitted.
@@ -82,38 +83,38 @@ data PutRetentionPolicy = PutRetentionPolicy'
 -- 'folderConfigurations', 'putRetentionPolicy_folderConfigurations' - The retention policy folder configurations.
 newPutRetentionPolicy ::
   -- | 'organizationId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   PutRetentionPolicy
 newPutRetentionPolicy pOrganizationId_ pName_ =
   PutRetentionPolicy'
-    { id = Core.Nothing,
-      description = Core.Nothing,
+    { id = Prelude.Nothing,
+      description = Prelude.Nothing,
       organizationId = pOrganizationId_,
       name = pName_,
-      folderConfigurations = Core.mempty
+      folderConfigurations = Prelude.mempty
     }
 
 -- | The retention policy ID.
-putRetentionPolicy_id :: Lens.Lens' PutRetentionPolicy (Core.Maybe Core.Text)
+putRetentionPolicy_id :: Lens.Lens' PutRetentionPolicy (Prelude.Maybe Prelude.Text)
 putRetentionPolicy_id = Lens.lens (\PutRetentionPolicy' {id} -> id) (\s@PutRetentionPolicy' {} a -> s {id = a} :: PutRetentionPolicy)
 
 -- | The retention policy description.
-putRetentionPolicy_description :: Lens.Lens' PutRetentionPolicy (Core.Maybe Core.Text)
-putRetentionPolicy_description = Lens.lens (\PutRetentionPolicy' {description} -> description) (\s@PutRetentionPolicy' {} a -> s {description = a} :: PutRetentionPolicy) Core.. Lens.mapping Core._Sensitive
+putRetentionPolicy_description :: Lens.Lens' PutRetentionPolicy (Prelude.Maybe Prelude.Text)
+putRetentionPolicy_description = Lens.lens (\PutRetentionPolicy' {description} -> description) (\s@PutRetentionPolicy' {} a -> s {description = a} :: PutRetentionPolicy) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The organization ID.
-putRetentionPolicy_organizationId :: Lens.Lens' PutRetentionPolicy Core.Text
+putRetentionPolicy_organizationId :: Lens.Lens' PutRetentionPolicy Prelude.Text
 putRetentionPolicy_organizationId = Lens.lens (\PutRetentionPolicy' {organizationId} -> organizationId) (\s@PutRetentionPolicy' {} a -> s {organizationId = a} :: PutRetentionPolicy)
 
 -- | The retention policy name.
-putRetentionPolicy_name :: Lens.Lens' PutRetentionPolicy Core.Text
+putRetentionPolicy_name :: Lens.Lens' PutRetentionPolicy Prelude.Text
 putRetentionPolicy_name = Lens.lens (\PutRetentionPolicy' {name} -> name) (\s@PutRetentionPolicy' {} a -> s {name = a} :: PutRetentionPolicy)
 
 -- | The retention policy folder configurations.
 putRetentionPolicy_folderConfigurations :: Lens.Lens' PutRetentionPolicy [FolderConfiguration]
-putRetentionPolicy_folderConfigurations = Lens.lens (\PutRetentionPolicy' {folderConfigurations} -> folderConfigurations) (\s@PutRetentionPolicy' {} a -> s {folderConfigurations = a} :: PutRetentionPolicy) Core.. Lens._Coerce
+putRetentionPolicy_folderConfigurations = Lens.lens (\PutRetentionPolicy' {folderConfigurations} -> folderConfigurations) (\s@PutRetentionPolicy' {} a -> s {folderConfigurations = a} :: PutRetentionPolicy) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest PutRetentionPolicy where
   type
@@ -124,35 +125,38 @@ instance Core.AWSRequest PutRetentionPolicy where
     Response.receiveEmpty
       ( \s h x ->
           PutRetentionPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutRetentionPolicy
+instance Prelude.Hashable PutRetentionPolicy
 
-instance Core.NFData PutRetentionPolicy
+instance Prelude.NFData PutRetentionPolicy
 
 instance Core.ToHeaders PutRetentionPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "WorkMailService.PutRetentionPolicy" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutRetentionPolicy where
   toJSON PutRetentionPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Id" Core..=) Core.<$> id,
-            ("Description" Core..=) Core.<$> description,
-            Core.Just ("OrganizationId" Core..= organizationId),
-            Core.Just ("Name" Core..= name),
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("Id" Core..=) Prelude.<$> id,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just
+              ("OrganizationId" Core..= organizationId),
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just
               ( "FolderConfigurations"
                   Core..= folderConfigurations
               )
@@ -160,17 +164,17 @@ instance Core.ToJSON PutRetentionPolicy where
       )
 
 instance Core.ToPath PutRetentionPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutRetentionPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRetentionPolicyResponse' smart constructor.
 data PutRetentionPolicyResponse = PutRetentionPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutRetentionPolicyResponse' with all optional fields omitted.
@@ -183,7 +187,7 @@ data PutRetentionPolicyResponse = PutRetentionPolicyResponse'
 -- 'httpStatus', 'putRetentionPolicyResponse_httpStatus' - The response's http status code.
 newPutRetentionPolicyResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutRetentionPolicyResponse
 newPutRetentionPolicyResponse pHttpStatus_ =
   PutRetentionPolicyResponse'
@@ -192,7 +196,7 @@ newPutRetentionPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putRetentionPolicyResponse_httpStatus :: Lens.Lens' PutRetentionPolicyResponse Core.Int
+putRetentionPolicyResponse_httpStatus :: Lens.Lens' PutRetentionPolicyResponse Prelude.Int
 putRetentionPolicyResponse_httpStatus = Lens.lens (\PutRetentionPolicyResponse' {httpStatus} -> httpStatus) (\s@PutRetentionPolicyResponse' {} a -> s {httpStatus = a} :: PutRetentionPolicyResponse)
 
-instance Core.NFData PutRetentionPolicyResponse
+instance Prelude.NFData PutRetentionPolicyResponse

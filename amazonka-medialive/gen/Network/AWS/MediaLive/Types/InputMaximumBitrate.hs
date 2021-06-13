@@ -28,6 +28,7 @@ module Network.AWS.MediaLive.Types.InputMaximumBitrate
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Maximum input bitrate in megabits per second. Bitrates up to 50 Mbps are
 -- supported currently.
@@ -36,15 +37,15 @@ newtype InputMaximumBitrate = InputMaximumBitrate'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

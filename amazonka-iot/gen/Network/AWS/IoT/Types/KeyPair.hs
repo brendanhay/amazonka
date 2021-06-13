@@ -21,17 +21,18 @@ module Network.AWS.IoT.Types.KeyPair where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a key pair.
 --
 -- /See:/ 'newKeyPair' smart constructor.
 data KeyPair = KeyPair'
   { -- | The public key.
-    publicKey :: Core.Maybe Core.Text,
+    publicKey :: Prelude.Maybe Prelude.Text,
     -- | The private key.
-    privateKey :: Core.Maybe (Core.Sensitive Core.Text)
+    privateKey :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'KeyPair' with all optional fields omitted.
@@ -48,17 +49,17 @@ newKeyPair ::
   KeyPair
 newKeyPair =
   KeyPair'
-    { publicKey = Core.Nothing,
-      privateKey = Core.Nothing
+    { publicKey = Prelude.Nothing,
+      privateKey = Prelude.Nothing
     }
 
 -- | The public key.
-keyPair_publicKey :: Lens.Lens' KeyPair (Core.Maybe Core.Text)
+keyPair_publicKey :: Lens.Lens' KeyPair (Prelude.Maybe Prelude.Text)
 keyPair_publicKey = Lens.lens (\KeyPair' {publicKey} -> publicKey) (\s@KeyPair' {} a -> s {publicKey = a} :: KeyPair)
 
 -- | The private key.
-keyPair_privateKey :: Lens.Lens' KeyPair (Core.Maybe Core.Text)
-keyPair_privateKey = Lens.lens (\KeyPair' {privateKey} -> privateKey) (\s@KeyPair' {} a -> s {privateKey = a} :: KeyPair) Core.. Lens.mapping Core._Sensitive
+keyPair_privateKey :: Lens.Lens' KeyPair (Prelude.Maybe Prelude.Text)
+keyPair_privateKey = Lens.lens (\KeyPair' {privateKey} -> privateKey) (\s@KeyPair' {} a -> s {privateKey = a} :: KeyPair) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON KeyPair where
   parseJSON =
@@ -66,10 +67,10 @@ instance Core.FromJSON KeyPair where
       "KeyPair"
       ( \x ->
           KeyPair'
-            Core.<$> (x Core..:? "PublicKey")
-            Core.<*> (x Core..:? "PrivateKey")
+            Prelude.<$> (x Core..:? "PublicKey")
+            Prelude.<*> (x Core..:? "PrivateKey")
       )
 
-instance Core.Hashable KeyPair
+instance Prelude.Hashable KeyPair
 
-instance Core.NFData KeyPair
+instance Prelude.NFData KeyPair

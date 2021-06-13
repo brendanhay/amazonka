@@ -23,17 +23,18 @@ import Network.AWS.CloudDirectory.Types.AttributeKey
 import Network.AWS.CloudDirectory.Types.LinkAttributeAction
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Structure that contains attribute update information.
 --
 -- /See:/ 'newLinkAttributeUpdate' smart constructor.
 data LinkAttributeUpdate = LinkAttributeUpdate'
   { -- | The action to perform as part of the attribute update.
-    attributeAction :: Core.Maybe LinkAttributeAction,
+    attributeAction :: Prelude.Maybe LinkAttributeAction,
     -- | The key of the attribute being updated.
-    attributeKey :: Core.Maybe AttributeKey
+    attributeKey :: Prelude.Maybe AttributeKey
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LinkAttributeUpdate' with all optional fields omitted.
@@ -51,28 +52,28 @@ newLinkAttributeUpdate ::
 newLinkAttributeUpdate =
   LinkAttributeUpdate'
     { attributeAction =
-        Core.Nothing,
-      attributeKey = Core.Nothing
+        Prelude.Nothing,
+      attributeKey = Prelude.Nothing
     }
 
 -- | The action to perform as part of the attribute update.
-linkAttributeUpdate_attributeAction :: Lens.Lens' LinkAttributeUpdate (Core.Maybe LinkAttributeAction)
+linkAttributeUpdate_attributeAction :: Lens.Lens' LinkAttributeUpdate (Prelude.Maybe LinkAttributeAction)
 linkAttributeUpdate_attributeAction = Lens.lens (\LinkAttributeUpdate' {attributeAction} -> attributeAction) (\s@LinkAttributeUpdate' {} a -> s {attributeAction = a} :: LinkAttributeUpdate)
 
 -- | The key of the attribute being updated.
-linkAttributeUpdate_attributeKey :: Lens.Lens' LinkAttributeUpdate (Core.Maybe AttributeKey)
+linkAttributeUpdate_attributeKey :: Lens.Lens' LinkAttributeUpdate (Prelude.Maybe AttributeKey)
 linkAttributeUpdate_attributeKey = Lens.lens (\LinkAttributeUpdate' {attributeKey} -> attributeKey) (\s@LinkAttributeUpdate' {} a -> s {attributeKey = a} :: LinkAttributeUpdate)
 
-instance Core.Hashable LinkAttributeUpdate
+instance Prelude.Hashable LinkAttributeUpdate
 
-instance Core.NFData LinkAttributeUpdate
+instance Prelude.NFData LinkAttributeUpdate
 
 instance Core.ToJSON LinkAttributeUpdate where
   toJSON LinkAttributeUpdate' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AttributeAction" Core..=)
-              Core.<$> attributeAction,
-            ("AttributeKey" Core..=) Core.<$> attributeKey
+              Prelude.<$> attributeAction,
+            ("AttributeKey" Core..=) Prelude.<$> attributeKey
           ]
       )

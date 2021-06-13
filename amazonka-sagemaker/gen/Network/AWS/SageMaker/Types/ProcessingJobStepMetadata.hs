@@ -21,15 +21,16 @@ module Network.AWS.SageMaker.Types.ProcessingJobStepMetadata where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata for a processing job step.
 --
 -- /See:/ 'newProcessingJobStepMetadata' smart constructor.
 data ProcessingJobStepMetadata = ProcessingJobStepMetadata'
   { -- | The Amazon Resource Name (ARN) of the processing job.
-    arn :: Core.Maybe Core.Text
+    arn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ProcessingJobStepMetadata' with all optional fields omitted.
@@ -43,10 +44,10 @@ data ProcessingJobStepMetadata = ProcessingJobStepMetadata'
 newProcessingJobStepMetadata ::
   ProcessingJobStepMetadata
 newProcessingJobStepMetadata =
-  ProcessingJobStepMetadata' {arn = Core.Nothing}
+  ProcessingJobStepMetadata' {arn = Prelude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the processing job.
-processingJobStepMetadata_arn :: Lens.Lens' ProcessingJobStepMetadata (Core.Maybe Core.Text)
+processingJobStepMetadata_arn :: Lens.Lens' ProcessingJobStepMetadata (Prelude.Maybe Prelude.Text)
 processingJobStepMetadata_arn = Lens.lens (\ProcessingJobStepMetadata' {arn} -> arn) (\s@ProcessingJobStepMetadata' {} a -> s {arn = a} :: ProcessingJobStepMetadata)
 
 instance Core.FromJSON ProcessingJobStepMetadata where
@@ -55,9 +56,9 @@ instance Core.FromJSON ProcessingJobStepMetadata where
       "ProcessingJobStepMetadata"
       ( \x ->
           ProcessingJobStepMetadata'
-            Core.<$> (x Core..:? "Arn")
+            Prelude.<$> (x Core..:? "Arn")
       )
 
-instance Core.Hashable ProcessingJobStepMetadata
+instance Prelude.Hashable ProcessingJobStepMetadata
 
-instance Core.NFData ProcessingJobStepMetadata
+instance Prelude.NFData ProcessingJobStepMetadata

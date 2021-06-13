@@ -42,6 +42,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +55,11 @@ data CancelJobExecution = CancelJobExecution'
     -- contains the current job execution status data is returned. (This makes
     -- it unnecessary to perform a separate DescribeJobExecution request in
     -- order to obtain the job execution status data.)
-    expectedVersion :: Core.Maybe Core.Integer,
+    expectedVersion :: Prelude.Maybe Prelude.Integer,
     -- | A collection of name\/value pairs that describe the status of the job
     -- execution. If not specified, the statusDetails are unchanged. You can
     -- specify at most 10 name\/value pairs.
-    statusDetails :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    statusDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | (Optional) If @true@ the job execution will be canceled if it has status
     -- IN_PROGRESS or QUEUED, otherwise the job execution will be canceled only
     -- if it has status QUEUED. If you attempt to cancel a job execution that
@@ -69,13 +70,13 @@ data CancelJobExecution = CancelJobExecution'
     -- Canceling a job execution which is \"IN_PROGRESS\", will cause the
     -- device to be unable to update the job execution status. Use caution and
     -- ensure that the device is able to recover to a valid state.
-    force :: Core.Maybe Core.Bool,
+    force :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the job to be canceled.
-    jobId :: Core.Text,
+    jobId :: Prelude.Text,
     -- | The name of the thing whose execution of the job will be canceled.
-    thingName :: Core.Text
+    thingName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelJobExecution' with all optional fields omitted.
@@ -113,15 +114,16 @@ data CancelJobExecution = CancelJobExecution'
 -- 'thingName', 'cancelJobExecution_thingName' - The name of the thing whose execution of the job will be canceled.
 newCancelJobExecution ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'thingName'
-  Core.Text ->
+  Prelude.Text ->
   CancelJobExecution
 newCancelJobExecution pJobId_ pThingName_ =
   CancelJobExecution'
-    { expectedVersion = Core.Nothing,
-      statusDetails = Core.Nothing,
-      force = Core.Nothing,
+    { expectedVersion =
+        Prelude.Nothing,
+      statusDetails = Prelude.Nothing,
+      force = Prelude.Nothing,
       jobId = pJobId_,
       thingName = pThingName_
     }
@@ -133,14 +135,14 @@ newCancelJobExecution pJobId_ pThingName_ =
 -- contains the current job execution status data is returned. (This makes
 -- it unnecessary to perform a separate DescribeJobExecution request in
 -- order to obtain the job execution status data.)
-cancelJobExecution_expectedVersion :: Lens.Lens' CancelJobExecution (Core.Maybe Core.Integer)
+cancelJobExecution_expectedVersion :: Lens.Lens' CancelJobExecution (Prelude.Maybe Prelude.Integer)
 cancelJobExecution_expectedVersion = Lens.lens (\CancelJobExecution' {expectedVersion} -> expectedVersion) (\s@CancelJobExecution' {} a -> s {expectedVersion = a} :: CancelJobExecution)
 
 -- | A collection of name\/value pairs that describe the status of the job
 -- execution. If not specified, the statusDetails are unchanged. You can
 -- specify at most 10 name\/value pairs.
-cancelJobExecution_statusDetails :: Lens.Lens' CancelJobExecution (Core.Maybe (Core.HashMap Core.Text Core.Text))
-cancelJobExecution_statusDetails = Lens.lens (\CancelJobExecution' {statusDetails} -> statusDetails) (\s@CancelJobExecution' {} a -> s {statusDetails = a} :: CancelJobExecution) Core.. Lens.mapping Lens._Coerce
+cancelJobExecution_statusDetails :: Lens.Lens' CancelJobExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+cancelJobExecution_statusDetails = Lens.lens (\CancelJobExecution' {statusDetails} -> statusDetails) (\s@CancelJobExecution' {} a -> s {statusDetails = a} :: CancelJobExecution) Prelude.. Lens.mapping Lens._Coerce
 
 -- | (Optional) If @true@ the job execution will be canceled if it has status
 -- IN_PROGRESS or QUEUED, otherwise the job execution will be canceled only
@@ -152,15 +154,15 @@ cancelJobExecution_statusDetails = Lens.lens (\CancelJobExecution' {statusDetail
 -- Canceling a job execution which is \"IN_PROGRESS\", will cause the
 -- device to be unable to update the job execution status. Use caution and
 -- ensure that the device is able to recover to a valid state.
-cancelJobExecution_force :: Lens.Lens' CancelJobExecution (Core.Maybe Core.Bool)
+cancelJobExecution_force :: Lens.Lens' CancelJobExecution (Prelude.Maybe Prelude.Bool)
 cancelJobExecution_force = Lens.lens (\CancelJobExecution' {force} -> force) (\s@CancelJobExecution' {} a -> s {force = a} :: CancelJobExecution)
 
 -- | The ID of the job to be canceled.
-cancelJobExecution_jobId :: Lens.Lens' CancelJobExecution Core.Text
+cancelJobExecution_jobId :: Lens.Lens' CancelJobExecution Prelude.Text
 cancelJobExecution_jobId = Lens.lens (\CancelJobExecution' {jobId} -> jobId) (\s@CancelJobExecution' {} a -> s {jobId = a} :: CancelJobExecution)
 
 -- | The name of the thing whose execution of the job will be canceled.
-cancelJobExecution_thingName :: Lens.Lens' CancelJobExecution Core.Text
+cancelJobExecution_thingName :: Lens.Lens' CancelJobExecution Prelude.Text
 cancelJobExecution_thingName = Lens.lens (\CancelJobExecution' {thingName} -> thingName) (\s@CancelJobExecution' {} a -> s {thingName = a} :: CancelJobExecution)
 
 instance Core.AWSRequest CancelJobExecution where
@@ -171,26 +173,26 @@ instance Core.AWSRequest CancelJobExecution where
   response =
     Response.receiveNull CancelJobExecutionResponse'
 
-instance Core.Hashable CancelJobExecution
+instance Prelude.Hashable CancelJobExecution
 
-instance Core.NFData CancelJobExecution
+instance Prelude.NFData CancelJobExecution
 
 instance Core.ToHeaders CancelJobExecution where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CancelJobExecution where
   toJSON CancelJobExecution' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("expectedVersion" Core..=)
-              Core.<$> expectedVersion,
-            ("statusDetails" Core..=) Core.<$> statusDetails
+              Prelude.<$> expectedVersion,
+            ("statusDetails" Core..=) Prelude.<$> statusDetails
           ]
       )
 
 instance Core.ToPath CancelJobExecution where
   toPath CancelJobExecution' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/things/",
         Core.toBS thingName,
         "/jobs/",
@@ -200,13 +202,13 @@ instance Core.ToPath CancelJobExecution where
 
 instance Core.ToQuery CancelJobExecution where
   toQuery CancelJobExecution' {..} =
-    Core.mconcat ["force" Core.=: force]
+    Prelude.mconcat ["force" Core.=: force]
 
 -- | /See:/ 'newCancelJobExecutionResponse' smart constructor.
 data CancelJobExecutionResponse = CancelJobExecutionResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelJobExecutionResponse' with all optional fields omitted.
@@ -217,4 +219,4 @@ newCancelJobExecutionResponse ::
 newCancelJobExecutionResponse =
   CancelJobExecutionResponse'
 
-instance Core.NFData CancelJobExecutionResponse
+instance Prelude.NFData CancelJobExecutionResponse

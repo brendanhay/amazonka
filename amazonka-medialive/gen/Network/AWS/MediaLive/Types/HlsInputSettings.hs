@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.HlsInputSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Hls Input Settings
 --
@@ -28,22 +29,22 @@ import qualified Network.AWS.Lens as Lens
 data HlsInputSettings = HlsInputSettings'
   { -- | The number of seconds between retries when an attempt to read a manifest
     -- or segment fails.
-    retryInterval :: Core.Maybe Core.Natural,
+    retryInterval :: Prelude.Maybe Prelude.Natural,
     -- | When specified the HLS stream with the m3u8 BANDWIDTH that most closely
     -- matches this value will be chosen, otherwise the highest bandwidth
     -- stream in the m3u8 will be chosen. The bitrate is specified in bits per
     -- second, as in an HLS manifest.
-    bandwidth :: Core.Maybe Core.Natural,
+    bandwidth :: Prelude.Maybe Prelude.Natural,
     -- | The number of consecutive times that attempts to read a manifest or
     -- segment must fail before the input is considered unavailable.
-    retries :: Core.Maybe Core.Natural,
+    retries :: Prelude.Maybe Prelude.Natural,
     -- | When specified, reading of the HLS input will begin this many buffer
     -- segments from the end (most recently written segment). When not
     -- specified, the HLS input will begin with the first segment specified in
     -- the m3u8.
-    bufferSegments :: Core.Maybe Core.Natural
+    bufferSegments :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HlsInputSettings' with all optional fields omitted.
@@ -72,34 +73,34 @@ newHlsInputSettings ::
   HlsInputSettings
 newHlsInputSettings =
   HlsInputSettings'
-    { retryInterval = Core.Nothing,
-      bandwidth = Core.Nothing,
-      retries = Core.Nothing,
-      bufferSegments = Core.Nothing
+    { retryInterval = Prelude.Nothing,
+      bandwidth = Prelude.Nothing,
+      retries = Prelude.Nothing,
+      bufferSegments = Prelude.Nothing
     }
 
 -- | The number of seconds between retries when an attempt to read a manifest
 -- or segment fails.
-hlsInputSettings_retryInterval :: Lens.Lens' HlsInputSettings (Core.Maybe Core.Natural)
+hlsInputSettings_retryInterval :: Lens.Lens' HlsInputSettings (Prelude.Maybe Prelude.Natural)
 hlsInputSettings_retryInterval = Lens.lens (\HlsInputSettings' {retryInterval} -> retryInterval) (\s@HlsInputSettings' {} a -> s {retryInterval = a} :: HlsInputSettings)
 
 -- | When specified the HLS stream with the m3u8 BANDWIDTH that most closely
 -- matches this value will be chosen, otherwise the highest bandwidth
 -- stream in the m3u8 will be chosen. The bitrate is specified in bits per
 -- second, as in an HLS manifest.
-hlsInputSettings_bandwidth :: Lens.Lens' HlsInputSettings (Core.Maybe Core.Natural)
+hlsInputSettings_bandwidth :: Lens.Lens' HlsInputSettings (Prelude.Maybe Prelude.Natural)
 hlsInputSettings_bandwidth = Lens.lens (\HlsInputSettings' {bandwidth} -> bandwidth) (\s@HlsInputSettings' {} a -> s {bandwidth = a} :: HlsInputSettings)
 
 -- | The number of consecutive times that attempts to read a manifest or
 -- segment must fail before the input is considered unavailable.
-hlsInputSettings_retries :: Lens.Lens' HlsInputSettings (Core.Maybe Core.Natural)
+hlsInputSettings_retries :: Lens.Lens' HlsInputSettings (Prelude.Maybe Prelude.Natural)
 hlsInputSettings_retries = Lens.lens (\HlsInputSettings' {retries} -> retries) (\s@HlsInputSettings' {} a -> s {retries = a} :: HlsInputSettings)
 
 -- | When specified, reading of the HLS input will begin this many buffer
 -- segments from the end (most recently written segment). When not
 -- specified, the HLS input will begin with the first segment specified in
 -- the m3u8.
-hlsInputSettings_bufferSegments :: Lens.Lens' HlsInputSettings (Core.Maybe Core.Natural)
+hlsInputSettings_bufferSegments :: Lens.Lens' HlsInputSettings (Prelude.Maybe Prelude.Natural)
 hlsInputSettings_bufferSegments = Lens.lens (\HlsInputSettings' {bufferSegments} -> bufferSegments) (\s@HlsInputSettings' {} a -> s {bufferSegments = a} :: HlsInputSettings)
 
 instance Core.FromJSON HlsInputSettings where
@@ -108,23 +109,24 @@ instance Core.FromJSON HlsInputSettings where
       "HlsInputSettings"
       ( \x ->
           HlsInputSettings'
-            Core.<$> (x Core..:? "retryInterval")
-            Core.<*> (x Core..:? "bandwidth")
-            Core.<*> (x Core..:? "retries")
-            Core.<*> (x Core..:? "bufferSegments")
+            Prelude.<$> (x Core..:? "retryInterval")
+            Prelude.<*> (x Core..:? "bandwidth")
+            Prelude.<*> (x Core..:? "retries")
+            Prelude.<*> (x Core..:? "bufferSegments")
       )
 
-instance Core.Hashable HlsInputSettings
+instance Prelude.Hashable HlsInputSettings
 
-instance Core.NFData HlsInputSettings
+instance Prelude.NFData HlsInputSettings
 
 instance Core.ToJSON HlsInputSettings where
   toJSON HlsInputSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("retryInterval" Core..=) Core.<$> retryInterval,
-            ("bandwidth" Core..=) Core.<$> bandwidth,
-            ("retries" Core..=) Core.<$> retries,
-            ("bufferSegments" Core..=) Core.<$> bufferSegments
+      ( Prelude.catMaybes
+          [ ("retryInterval" Core..=) Prelude.<$> retryInterval,
+            ("bandwidth" Core..=) Prelude.<$> bandwidth,
+            ("retries" Core..=) Prelude.<$> retries,
+            ("bufferSegments" Core..=)
+              Prelude.<$> bufferSegments
           ]
       )

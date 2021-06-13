@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.JourneyEmailMessage where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the \"From\" address for an email message that\'s sent to
 -- participants in a journey.
@@ -30,9 +31,9 @@ data JourneyEmailMessage = JourneyEmailMessage'
   { -- | The verified email address to send the email message from. The default
     -- address is the FromAddress specified for the email channel for the
     -- application.
-    fromAddress :: Core.Maybe Core.Text
+    fromAddress :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'JourneyEmailMessage' with all optional fields omitted.
@@ -48,12 +49,12 @@ data JourneyEmailMessage = JourneyEmailMessage'
 newJourneyEmailMessage ::
   JourneyEmailMessage
 newJourneyEmailMessage =
-  JourneyEmailMessage' {fromAddress = Core.Nothing}
+  JourneyEmailMessage' {fromAddress = Prelude.Nothing}
 
 -- | The verified email address to send the email message from. The default
 -- address is the FromAddress specified for the email channel for the
 -- application.
-journeyEmailMessage_fromAddress :: Lens.Lens' JourneyEmailMessage (Core.Maybe Core.Text)
+journeyEmailMessage_fromAddress :: Lens.Lens' JourneyEmailMessage (Prelude.Maybe Prelude.Text)
 journeyEmailMessage_fromAddress = Lens.lens (\JourneyEmailMessage' {fromAddress} -> fromAddress) (\s@JourneyEmailMessage' {} a -> s {fromAddress = a} :: JourneyEmailMessage)
 
 instance Core.FromJSON JourneyEmailMessage where
@@ -62,16 +63,16 @@ instance Core.FromJSON JourneyEmailMessage where
       "JourneyEmailMessage"
       ( \x ->
           JourneyEmailMessage'
-            Core.<$> (x Core..:? "FromAddress")
+            Prelude.<$> (x Core..:? "FromAddress")
       )
 
-instance Core.Hashable JourneyEmailMessage
+instance Prelude.Hashable JourneyEmailMessage
 
-instance Core.NFData JourneyEmailMessage
+instance Prelude.NFData JourneyEmailMessage
 
 instance Core.ToJSON JourneyEmailMessage where
   toJSON JourneyEmailMessage' {..} =
     Core.object
-      ( Core.catMaybes
-          [("FromAddress" Core..=) Core.<$> fromAddress]
+      ( Prelude.catMaybes
+          [("FromAddress" Core..=) Prelude.<$> fromAddress]
       )

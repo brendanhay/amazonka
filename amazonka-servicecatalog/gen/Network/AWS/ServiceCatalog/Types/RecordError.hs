@@ -21,17 +21,18 @@ module Network.AWS.ServiceCatalog.Types.RecordError where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The error code and description resulting from an operation.
 --
 -- /See:/ 'newRecordError' smart constructor.
 data RecordError = RecordError'
   { -- | The numeric value of the error.
-    code :: Core.Maybe Core.Text,
+    code :: Prelude.Maybe Prelude.Text,
     -- | The description of the error.
-    description :: Core.Maybe Core.Text
+    description :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RecordError' with all optional fields omitted.
@@ -48,16 +49,16 @@ newRecordError ::
   RecordError
 newRecordError =
   RecordError'
-    { code = Core.Nothing,
-      description = Core.Nothing
+    { code = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The numeric value of the error.
-recordError_code :: Lens.Lens' RecordError (Core.Maybe Core.Text)
+recordError_code :: Lens.Lens' RecordError (Prelude.Maybe Prelude.Text)
 recordError_code = Lens.lens (\RecordError' {code} -> code) (\s@RecordError' {} a -> s {code = a} :: RecordError)
 
 -- | The description of the error.
-recordError_description :: Lens.Lens' RecordError (Core.Maybe Core.Text)
+recordError_description :: Lens.Lens' RecordError (Prelude.Maybe Prelude.Text)
 recordError_description = Lens.lens (\RecordError' {description} -> description) (\s@RecordError' {} a -> s {description = a} :: RecordError)
 
 instance Core.FromJSON RecordError where
@@ -66,10 +67,10 @@ instance Core.FromJSON RecordError where
       "RecordError"
       ( \x ->
           RecordError'
-            Core.<$> (x Core..:? "Code")
-            Core.<*> (x Core..:? "Description")
+            Prelude.<$> (x Core..:? "Code")
+            Prelude.<*> (x Core..:? "Description")
       )
 
-instance Core.Hashable RecordError
+instance Prelude.Hashable RecordError
 
-instance Core.NFData RecordError
+instance Prelude.NFData RecordError

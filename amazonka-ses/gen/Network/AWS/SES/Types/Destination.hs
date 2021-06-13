@@ -21,6 +21,7 @@ module Network.AWS.SES.Types.Destination where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the destination of the message, consisting of To:, CC:, and
 -- BCC: fields.
@@ -37,13 +38,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDestination' smart constructor.
 data Destination = Destination'
   { -- | The recipients to place on the To: line of the message.
-    toAddresses :: Core.Maybe [Core.Text],
+    toAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The recipients to place on the CC: line of the message.
-    ccAddresses :: Core.Maybe [Core.Text],
+    ccAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The recipients to place on the BCC: line of the message.
-    bccAddresses :: Core.Maybe [Core.Text]
+    bccAddresses :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Destination' with all optional fields omitted.
@@ -62,37 +63,37 @@ newDestination ::
   Destination
 newDestination =
   Destination'
-    { toAddresses = Core.Nothing,
-      ccAddresses = Core.Nothing,
-      bccAddresses = Core.Nothing
+    { toAddresses = Prelude.Nothing,
+      ccAddresses = Prelude.Nothing,
+      bccAddresses = Prelude.Nothing
     }
 
 -- | The recipients to place on the To: line of the message.
-destination_toAddresses :: Lens.Lens' Destination (Core.Maybe [Core.Text])
-destination_toAddresses = Lens.lens (\Destination' {toAddresses} -> toAddresses) (\s@Destination' {} a -> s {toAddresses = a} :: Destination) Core.. Lens.mapping Lens._Coerce
+destination_toAddresses :: Lens.Lens' Destination (Prelude.Maybe [Prelude.Text])
+destination_toAddresses = Lens.lens (\Destination' {toAddresses} -> toAddresses) (\s@Destination' {} a -> s {toAddresses = a} :: Destination) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The recipients to place on the CC: line of the message.
-destination_ccAddresses :: Lens.Lens' Destination (Core.Maybe [Core.Text])
-destination_ccAddresses = Lens.lens (\Destination' {ccAddresses} -> ccAddresses) (\s@Destination' {} a -> s {ccAddresses = a} :: Destination) Core.. Lens.mapping Lens._Coerce
+destination_ccAddresses :: Lens.Lens' Destination (Prelude.Maybe [Prelude.Text])
+destination_ccAddresses = Lens.lens (\Destination' {ccAddresses} -> ccAddresses) (\s@Destination' {} a -> s {ccAddresses = a} :: Destination) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The recipients to place on the BCC: line of the message.
-destination_bccAddresses :: Lens.Lens' Destination (Core.Maybe [Core.Text])
-destination_bccAddresses = Lens.lens (\Destination' {bccAddresses} -> bccAddresses) (\s@Destination' {} a -> s {bccAddresses = a} :: Destination) Core.. Lens.mapping Lens._Coerce
+destination_bccAddresses :: Lens.Lens' Destination (Prelude.Maybe [Prelude.Text])
+destination_bccAddresses = Lens.lens (\Destination' {bccAddresses} -> bccAddresses) (\s@Destination' {} a -> s {bccAddresses = a} :: Destination) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable Destination
+instance Prelude.Hashable Destination
 
-instance Core.NFData Destination
+instance Prelude.NFData Destination
 
 instance Core.ToQuery Destination where
   toQuery Destination' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "ToAddresses"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> toAddresses),
+            (Core.toQueryList "member" Prelude.<$> toAddresses),
         "CcAddresses"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> ccAddresses),
+            (Core.toQueryList "member" Prelude.<$> ccAddresses),
         "BccAddresses"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> bccAddresses)
+            (Core.toQueryList "member" Prelude.<$> bccAddresses)
       ]

@@ -25,6 +25,7 @@ import Network.AWS.KinesisAnalytics.Types.InputUpdate
 import Network.AWS.KinesisAnalytics.Types.OutputUpdate
 import Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceUpdate
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes updates to apply to an existing Amazon Kinesis Analytics
 -- application.
@@ -32,17 +33,17 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newApplicationUpdate' smart constructor.
 data ApplicationUpdate = ApplicationUpdate'
   { -- | Describes application reference data source updates.
-    referenceDataSourceUpdates :: Core.Maybe [ReferenceDataSourceUpdate],
+    referenceDataSourceUpdates :: Prelude.Maybe [ReferenceDataSourceUpdate],
     -- | Describes application input configuration updates.
-    inputUpdates :: Core.Maybe [InputUpdate],
+    inputUpdates :: Prelude.Maybe [InputUpdate],
     -- | Describes application CloudWatch logging option updates.
-    cloudWatchLoggingOptionUpdates :: Core.Maybe [CloudWatchLoggingOptionUpdate],
+    cloudWatchLoggingOptionUpdates :: Prelude.Maybe [CloudWatchLoggingOptionUpdate],
     -- | Describes application code updates.
-    applicationCodeUpdate :: Core.Maybe Core.Text,
+    applicationCodeUpdate :: Prelude.Maybe Prelude.Text,
     -- | Describes application output configuration updates.
-    outputUpdates :: Core.Maybe [OutputUpdate]
+    outputUpdates :: Prelude.Maybe [OutputUpdate]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ApplicationUpdate' with all optional fields omitted.
@@ -66,48 +67,48 @@ newApplicationUpdate ::
 newApplicationUpdate =
   ApplicationUpdate'
     { referenceDataSourceUpdates =
-        Core.Nothing,
-      inputUpdates = Core.Nothing,
-      cloudWatchLoggingOptionUpdates = Core.Nothing,
-      applicationCodeUpdate = Core.Nothing,
-      outputUpdates = Core.Nothing
+        Prelude.Nothing,
+      inputUpdates = Prelude.Nothing,
+      cloudWatchLoggingOptionUpdates = Prelude.Nothing,
+      applicationCodeUpdate = Prelude.Nothing,
+      outputUpdates = Prelude.Nothing
     }
 
 -- | Describes application reference data source updates.
-applicationUpdate_referenceDataSourceUpdates :: Lens.Lens' ApplicationUpdate (Core.Maybe [ReferenceDataSourceUpdate])
-applicationUpdate_referenceDataSourceUpdates = Lens.lens (\ApplicationUpdate' {referenceDataSourceUpdates} -> referenceDataSourceUpdates) (\s@ApplicationUpdate' {} a -> s {referenceDataSourceUpdates = a} :: ApplicationUpdate) Core.. Lens.mapping Lens._Coerce
+applicationUpdate_referenceDataSourceUpdates :: Lens.Lens' ApplicationUpdate (Prelude.Maybe [ReferenceDataSourceUpdate])
+applicationUpdate_referenceDataSourceUpdates = Lens.lens (\ApplicationUpdate' {referenceDataSourceUpdates} -> referenceDataSourceUpdates) (\s@ApplicationUpdate' {} a -> s {referenceDataSourceUpdates = a} :: ApplicationUpdate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Describes application input configuration updates.
-applicationUpdate_inputUpdates :: Lens.Lens' ApplicationUpdate (Core.Maybe [InputUpdate])
-applicationUpdate_inputUpdates = Lens.lens (\ApplicationUpdate' {inputUpdates} -> inputUpdates) (\s@ApplicationUpdate' {} a -> s {inputUpdates = a} :: ApplicationUpdate) Core.. Lens.mapping Lens._Coerce
+applicationUpdate_inputUpdates :: Lens.Lens' ApplicationUpdate (Prelude.Maybe [InputUpdate])
+applicationUpdate_inputUpdates = Lens.lens (\ApplicationUpdate' {inputUpdates} -> inputUpdates) (\s@ApplicationUpdate' {} a -> s {inputUpdates = a} :: ApplicationUpdate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Describes application CloudWatch logging option updates.
-applicationUpdate_cloudWatchLoggingOptionUpdates :: Lens.Lens' ApplicationUpdate (Core.Maybe [CloudWatchLoggingOptionUpdate])
-applicationUpdate_cloudWatchLoggingOptionUpdates = Lens.lens (\ApplicationUpdate' {cloudWatchLoggingOptionUpdates} -> cloudWatchLoggingOptionUpdates) (\s@ApplicationUpdate' {} a -> s {cloudWatchLoggingOptionUpdates = a} :: ApplicationUpdate) Core.. Lens.mapping Lens._Coerce
+applicationUpdate_cloudWatchLoggingOptionUpdates :: Lens.Lens' ApplicationUpdate (Prelude.Maybe [CloudWatchLoggingOptionUpdate])
+applicationUpdate_cloudWatchLoggingOptionUpdates = Lens.lens (\ApplicationUpdate' {cloudWatchLoggingOptionUpdates} -> cloudWatchLoggingOptionUpdates) (\s@ApplicationUpdate' {} a -> s {cloudWatchLoggingOptionUpdates = a} :: ApplicationUpdate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Describes application code updates.
-applicationUpdate_applicationCodeUpdate :: Lens.Lens' ApplicationUpdate (Core.Maybe Core.Text)
+applicationUpdate_applicationCodeUpdate :: Lens.Lens' ApplicationUpdate (Prelude.Maybe Prelude.Text)
 applicationUpdate_applicationCodeUpdate = Lens.lens (\ApplicationUpdate' {applicationCodeUpdate} -> applicationCodeUpdate) (\s@ApplicationUpdate' {} a -> s {applicationCodeUpdate = a} :: ApplicationUpdate)
 
 -- | Describes application output configuration updates.
-applicationUpdate_outputUpdates :: Lens.Lens' ApplicationUpdate (Core.Maybe [OutputUpdate])
-applicationUpdate_outputUpdates = Lens.lens (\ApplicationUpdate' {outputUpdates} -> outputUpdates) (\s@ApplicationUpdate' {} a -> s {outputUpdates = a} :: ApplicationUpdate) Core.. Lens.mapping Lens._Coerce
+applicationUpdate_outputUpdates :: Lens.Lens' ApplicationUpdate (Prelude.Maybe [OutputUpdate])
+applicationUpdate_outputUpdates = Lens.lens (\ApplicationUpdate' {outputUpdates} -> outputUpdates) (\s@ApplicationUpdate' {} a -> s {outputUpdates = a} :: ApplicationUpdate) Prelude.. Lens.mapping Lens._Coerce
 
-instance Core.Hashable ApplicationUpdate
+instance Prelude.Hashable ApplicationUpdate
 
-instance Core.NFData ApplicationUpdate
+instance Prelude.NFData ApplicationUpdate
 
 instance Core.ToJSON ApplicationUpdate where
   toJSON ApplicationUpdate' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ReferenceDataSourceUpdates" Core..=)
-              Core.<$> referenceDataSourceUpdates,
-            ("InputUpdates" Core..=) Core.<$> inputUpdates,
+              Prelude.<$> referenceDataSourceUpdates,
+            ("InputUpdates" Core..=) Prelude.<$> inputUpdates,
             ("CloudWatchLoggingOptionUpdates" Core..=)
-              Core.<$> cloudWatchLoggingOptionUpdates,
+              Prelude.<$> cloudWatchLoggingOptionUpdates,
             ("ApplicationCodeUpdate" Core..=)
-              Core.<$> applicationCodeUpdate,
-            ("OutputUpdates" Core..=) Core.<$> outputUpdates
+              Prelude.<$> applicationCodeUpdate,
+            ("OutputUpdates" Core..=) Prelude.<$> outputUpdates
           ]
       )

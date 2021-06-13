@@ -41,15 +41,16 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteRoom' smart constructor.
 data DeleteRoom = DeleteRoom'
   { -- | The ARN of the room to delete. Required.
-    roomArn :: Core.Maybe Core.Text
+    roomArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRoom' with all optional fields omitted.
@@ -62,10 +63,11 @@ data DeleteRoom = DeleteRoom'
 -- 'roomArn', 'deleteRoom_roomArn' - The ARN of the room to delete. Required.
 newDeleteRoom ::
   DeleteRoom
-newDeleteRoom = DeleteRoom' {roomArn = Core.Nothing}
+newDeleteRoom =
+  DeleteRoom' {roomArn = Prelude.Nothing}
 
 -- | The ARN of the room to delete. Required.
-deleteRoom_roomArn :: Lens.Lens' DeleteRoom (Core.Maybe Core.Text)
+deleteRoom_roomArn :: Lens.Lens' DeleteRoom (Prelude.Maybe Prelude.Text)
 deleteRoom_roomArn = Lens.lens (\DeleteRoom' {roomArn} -> roomArn) (\s@DeleteRoom' {} a -> s {roomArn = a} :: DeleteRoom)
 
 instance Core.AWSRequest DeleteRoom where
@@ -75,43 +77,47 @@ instance Core.AWSRequest DeleteRoom where
     Response.receiveEmpty
       ( \s h x ->
           DeleteRoomResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteRoom
+instance Prelude.Hashable DeleteRoom
 
-instance Core.NFData DeleteRoom
+instance Prelude.NFData DeleteRoom
 
 instance Core.ToHeaders DeleteRoom where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AlexaForBusiness.DeleteRoom" :: Core.ByteString),
+              Core.=# ( "AlexaForBusiness.DeleteRoom" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteRoom where
   toJSON DeleteRoom' {..} =
     Core.object
-      ( Core.catMaybes
-          [("RoomArn" Core..=) Core.<$> roomArn]
+      ( Prelude.catMaybes
+          [("RoomArn" Core..=) Prelude.<$> roomArn]
       )
 
 instance Core.ToPath DeleteRoom where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteRoom where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRoomResponse' smart constructor.
 data DeleteRoomResponse = DeleteRoomResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteRoomResponse' with all optional fields omitted.
@@ -124,13 +130,13 @@ data DeleteRoomResponse = DeleteRoomResponse'
 -- 'httpStatus', 'deleteRoomResponse_httpStatus' - The response's http status code.
 newDeleteRoomResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteRoomResponse
 newDeleteRoomResponse pHttpStatus_ =
   DeleteRoomResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteRoomResponse_httpStatus :: Lens.Lens' DeleteRoomResponse Core.Int
+deleteRoomResponse_httpStatus :: Lens.Lens' DeleteRoomResponse Prelude.Int
 deleteRoomResponse_httpStatus = Lens.lens (\DeleteRoomResponse' {httpStatus} -> httpStatus) (\s@DeleteRoomResponse' {} a -> s {httpStatus = a} :: DeleteRoomResponse)
 
-instance Core.NFData DeleteRoomResponse
+instance Prelude.NFData DeleteRoomResponse

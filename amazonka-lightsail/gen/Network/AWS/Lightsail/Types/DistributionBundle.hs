@@ -21,24 +21,25 @@ module Network.AWS.Lightsail.Types.DistributionBundle where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the specifications of a distribution bundle.
 --
 -- /See:/ 'newDistributionBundle' smart constructor.
 data DistributionBundle = DistributionBundle'
   { -- | The ID of the bundle.
-    bundleId :: Core.Maybe Core.Text,
+    bundleId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the bundle is active, and can be specified for a new
     -- distribution.
-    isActive :: Core.Maybe Core.Bool,
+    isActive :: Prelude.Maybe Prelude.Bool,
     -- | The name of the distribution bundle.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The monthly network transfer quota of the bundle.
-    transferPerMonthInGb :: Core.Maybe Core.Int,
+    transferPerMonthInGb :: Prelude.Maybe Prelude.Int,
     -- | The monthly price, in US dollars, of the bundle.
-    price :: Core.Maybe Core.Double
+    price :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DistributionBundle' with all optional fields omitted.
@@ -62,32 +63,32 @@ newDistributionBundle ::
   DistributionBundle
 newDistributionBundle =
   DistributionBundle'
-    { bundleId = Core.Nothing,
-      isActive = Core.Nothing,
-      name = Core.Nothing,
-      transferPerMonthInGb = Core.Nothing,
-      price = Core.Nothing
+    { bundleId = Prelude.Nothing,
+      isActive = Prelude.Nothing,
+      name = Prelude.Nothing,
+      transferPerMonthInGb = Prelude.Nothing,
+      price = Prelude.Nothing
     }
 
 -- | The ID of the bundle.
-distributionBundle_bundleId :: Lens.Lens' DistributionBundle (Core.Maybe Core.Text)
+distributionBundle_bundleId :: Lens.Lens' DistributionBundle (Prelude.Maybe Prelude.Text)
 distributionBundle_bundleId = Lens.lens (\DistributionBundle' {bundleId} -> bundleId) (\s@DistributionBundle' {} a -> s {bundleId = a} :: DistributionBundle)
 
 -- | Indicates whether the bundle is active, and can be specified for a new
 -- distribution.
-distributionBundle_isActive :: Lens.Lens' DistributionBundle (Core.Maybe Core.Bool)
+distributionBundle_isActive :: Lens.Lens' DistributionBundle (Prelude.Maybe Prelude.Bool)
 distributionBundle_isActive = Lens.lens (\DistributionBundle' {isActive} -> isActive) (\s@DistributionBundle' {} a -> s {isActive = a} :: DistributionBundle)
 
 -- | The name of the distribution bundle.
-distributionBundle_name :: Lens.Lens' DistributionBundle (Core.Maybe Core.Text)
+distributionBundle_name :: Lens.Lens' DistributionBundle (Prelude.Maybe Prelude.Text)
 distributionBundle_name = Lens.lens (\DistributionBundle' {name} -> name) (\s@DistributionBundle' {} a -> s {name = a} :: DistributionBundle)
 
 -- | The monthly network transfer quota of the bundle.
-distributionBundle_transferPerMonthInGb :: Lens.Lens' DistributionBundle (Core.Maybe Core.Int)
+distributionBundle_transferPerMonthInGb :: Lens.Lens' DistributionBundle (Prelude.Maybe Prelude.Int)
 distributionBundle_transferPerMonthInGb = Lens.lens (\DistributionBundle' {transferPerMonthInGb} -> transferPerMonthInGb) (\s@DistributionBundle' {} a -> s {transferPerMonthInGb = a} :: DistributionBundle)
 
 -- | The monthly price, in US dollars, of the bundle.
-distributionBundle_price :: Lens.Lens' DistributionBundle (Core.Maybe Core.Double)
+distributionBundle_price :: Lens.Lens' DistributionBundle (Prelude.Maybe Prelude.Double)
 distributionBundle_price = Lens.lens (\DistributionBundle' {price} -> price) (\s@DistributionBundle' {} a -> s {price = a} :: DistributionBundle)
 
 instance Core.FromJSON DistributionBundle where
@@ -96,13 +97,13 @@ instance Core.FromJSON DistributionBundle where
       "DistributionBundle"
       ( \x ->
           DistributionBundle'
-            Core.<$> (x Core..:? "bundleId")
-            Core.<*> (x Core..:? "isActive")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "transferPerMonthInGb")
-            Core.<*> (x Core..:? "price")
+            Prelude.<$> (x Core..:? "bundleId")
+            Prelude.<*> (x Core..:? "isActive")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "transferPerMonthInGb")
+            Prelude.<*> (x Core..:? "price")
       )
 
-instance Core.Hashable DistributionBundle
+instance Prelude.Hashable DistributionBundle
 
-instance Core.NFData DistributionBundle
+instance Prelude.NFData DistributionBundle

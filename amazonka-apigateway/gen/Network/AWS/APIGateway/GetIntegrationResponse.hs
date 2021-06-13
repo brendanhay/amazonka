@@ -48,6 +48,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,16 +57,16 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetIntegrationResponse' smart constructor.
 data GetIntegrationResponse = GetIntegrationResponse'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] Specifies a get integration response request\'s resource
     -- identifier.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | [Required] Specifies a get integration response request\'s HTTP method.
-    httpMethod :: Core.Text,
+    httpMethod :: Prelude.Text,
     -- | [Required] Specifies a get integration response request\'s status code.
-    statusCode :: Core.Text
+    statusCode :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetIntegrationResponse' with all optional fields omitted.
@@ -85,13 +86,13 @@ data GetIntegrationResponse = GetIntegrationResponse'
 -- 'statusCode', 'getIntegrationResponse_statusCode' - [Required] Specifies a get integration response request\'s status code.
 newGetIntegrationResponse ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'httpMethod'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'statusCode'
-  Core.Text ->
+  Prelude.Text ->
   GetIntegrationResponse
 newGetIntegrationResponse
   pRestApiId_
@@ -106,20 +107,20 @@ newGetIntegrationResponse
       }
 
 -- | [Required] The string identifier of the associated RestApi.
-getIntegrationResponse_restApiId :: Lens.Lens' GetIntegrationResponse Core.Text
+getIntegrationResponse_restApiId :: Lens.Lens' GetIntegrationResponse Prelude.Text
 getIntegrationResponse_restApiId = Lens.lens (\GetIntegrationResponse' {restApiId} -> restApiId) (\s@GetIntegrationResponse' {} a -> s {restApiId = a} :: GetIntegrationResponse)
 
 -- | [Required] Specifies a get integration response request\'s resource
 -- identifier.
-getIntegrationResponse_resourceId :: Lens.Lens' GetIntegrationResponse Core.Text
+getIntegrationResponse_resourceId :: Lens.Lens' GetIntegrationResponse Prelude.Text
 getIntegrationResponse_resourceId = Lens.lens (\GetIntegrationResponse' {resourceId} -> resourceId) (\s@GetIntegrationResponse' {} a -> s {resourceId = a} :: GetIntegrationResponse)
 
 -- | [Required] Specifies a get integration response request\'s HTTP method.
-getIntegrationResponse_httpMethod :: Lens.Lens' GetIntegrationResponse Core.Text
+getIntegrationResponse_httpMethod :: Lens.Lens' GetIntegrationResponse Prelude.Text
 getIntegrationResponse_httpMethod = Lens.lens (\GetIntegrationResponse' {httpMethod} -> httpMethod) (\s@GetIntegrationResponse' {} a -> s {httpMethod = a} :: GetIntegrationResponse)
 
 -- | [Required] Specifies a get integration response request\'s status code.
-getIntegrationResponse_statusCode :: Lens.Lens' GetIntegrationResponse Core.Text
+getIntegrationResponse_statusCode :: Lens.Lens' GetIntegrationResponse Prelude.Text
 getIntegrationResponse_statusCode = Lens.lens (\GetIntegrationResponse' {statusCode} -> statusCode) (\s@GetIntegrationResponse' {} a -> s {statusCode = a} :: GetIntegrationResponse)
 
 instance Core.AWSRequest GetIntegrationResponse where
@@ -131,22 +132,22 @@ instance Core.AWSRequest GetIntegrationResponse where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetIntegrationResponse
+instance Prelude.Hashable GetIntegrationResponse
 
-instance Core.NFData GetIntegrationResponse
+instance Prelude.NFData GetIntegrationResponse
 
 instance Core.ToHeaders GetIntegrationResponse where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetIntegrationResponse where
   toPath GetIntegrationResponse' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/resources/",
@@ -158,4 +159,4 @@ instance Core.ToPath GetIntegrationResponse where
       ]
 
 instance Core.ToQuery GetIntegrationResponse where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

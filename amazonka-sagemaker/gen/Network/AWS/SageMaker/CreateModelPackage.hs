@@ -68,6 +68,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -75,24 +76,24 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newCreateModelPackage' smart constructor.
 data CreateModelPackage = CreateModelPackage'
   { -- | Details about the algorithm that was used to create the model package.
-    sourceAlgorithmSpecification :: Core.Maybe SourceAlgorithmSpecification,
-    metadataProperties :: Core.Maybe MetadataProperties,
+    sourceAlgorithmSpecification :: Prelude.Maybe SourceAlgorithmSpecification,
+    metadataProperties :: Prelude.Maybe MetadataProperties,
     -- | Specifies configurations for one or more transform jobs that Amazon
     -- SageMaker runs to test the model package.
-    validationSpecification :: Core.Maybe ModelPackageValidationSpecification,
+    validationSpecification :: Prelude.Maybe ModelPackageValidationSpecification,
     -- | A structure that contains model metrics reports.
-    modelMetrics :: Core.Maybe ModelMetrics,
+    modelMetrics :: Prelude.Maybe ModelMetrics,
     -- | Whether to certify the model package for listing on AWS Marketplace.
     --
     -- This parameter is optional for unversioned models, and does not apply to
     -- versioned models.
-    certifyForMarketplace :: Core.Maybe Core.Bool,
+    certifyForMarketplace :: Prelude.Maybe Prelude.Bool,
     -- | The name of the model package. The name must have 1 to 63 characters.
     -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
     --
     -- This parameter is required for unversioned models. It is not applicable
     -- to versioned models.
-    modelPackageName :: Core.Maybe Core.Text,
+    modelPackageName :: Prelude.Maybe Prelude.Text,
     -- | Whether the model is approved for deployment.
     --
     -- This parameter is optional for versioned models, and does not apply to
@@ -100,12 +101,12 @@ data CreateModelPackage = CreateModelPackage'
     --
     -- For versioned models, the value of this parameter must be set to
     -- @Approved@ to deploy the model.
-    modelApprovalStatus :: Core.Maybe ModelApprovalStatus,
+    modelApprovalStatus :: Prelude.Maybe ModelApprovalStatus,
     -- | A list of key value pairs associated with the model. For more
     -- information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
     -- in the /AWS General Reference Guide/.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | Specifies details about inference jobs that can be run with models based
     -- on this model package, including the following:
     --
@@ -117,18 +118,18 @@ data CreateModelPackage = CreateModelPackage'
     --
     -- -   The input and output content formats that the model package supports
     --     for inference.
-    inferenceSpecification :: Core.Maybe InferenceSpecification,
+    inferenceSpecification :: Prelude.Maybe InferenceSpecification,
     -- | A description of the model package.
-    modelPackageDescription :: Core.Maybe Core.Text,
+    modelPackageDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the model group that this model version belongs to.
     --
     -- This parameter is required for versioned models, and does not apply to
     -- unversioned models.
-    modelPackageGroupName :: Core.Maybe Core.Text,
+    modelPackageGroupName :: Prelude.Maybe Prelude.Text,
     -- | A unique token that guarantees that the call to this API is idempotent.
-    clientToken :: Core.Maybe Core.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateModelPackage' with all optional fields omitted.
@@ -196,42 +197,42 @@ newCreateModelPackage ::
 newCreateModelPackage =
   CreateModelPackage'
     { sourceAlgorithmSpecification =
-        Core.Nothing,
-      metadataProperties = Core.Nothing,
-      validationSpecification = Core.Nothing,
-      modelMetrics = Core.Nothing,
-      certifyForMarketplace = Core.Nothing,
-      modelPackageName = Core.Nothing,
-      modelApprovalStatus = Core.Nothing,
-      tags = Core.Nothing,
-      inferenceSpecification = Core.Nothing,
-      modelPackageDescription = Core.Nothing,
-      modelPackageGroupName = Core.Nothing,
-      clientToken = Core.Nothing
+        Prelude.Nothing,
+      metadataProperties = Prelude.Nothing,
+      validationSpecification = Prelude.Nothing,
+      modelMetrics = Prelude.Nothing,
+      certifyForMarketplace = Prelude.Nothing,
+      modelPackageName = Prelude.Nothing,
+      modelApprovalStatus = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      inferenceSpecification = Prelude.Nothing,
+      modelPackageDescription = Prelude.Nothing,
+      modelPackageGroupName = Prelude.Nothing,
+      clientToken = Prelude.Nothing
     }
 
 -- | Details about the algorithm that was used to create the model package.
-createModelPackage_sourceAlgorithmSpecification :: Lens.Lens' CreateModelPackage (Core.Maybe SourceAlgorithmSpecification)
+createModelPackage_sourceAlgorithmSpecification :: Lens.Lens' CreateModelPackage (Prelude.Maybe SourceAlgorithmSpecification)
 createModelPackage_sourceAlgorithmSpecification = Lens.lens (\CreateModelPackage' {sourceAlgorithmSpecification} -> sourceAlgorithmSpecification) (\s@CreateModelPackage' {} a -> s {sourceAlgorithmSpecification = a} :: CreateModelPackage)
 
 -- | Undocumented member.
-createModelPackage_metadataProperties :: Lens.Lens' CreateModelPackage (Core.Maybe MetadataProperties)
+createModelPackage_metadataProperties :: Lens.Lens' CreateModelPackage (Prelude.Maybe MetadataProperties)
 createModelPackage_metadataProperties = Lens.lens (\CreateModelPackage' {metadataProperties} -> metadataProperties) (\s@CreateModelPackage' {} a -> s {metadataProperties = a} :: CreateModelPackage)
 
 -- | Specifies configurations for one or more transform jobs that Amazon
 -- SageMaker runs to test the model package.
-createModelPackage_validationSpecification :: Lens.Lens' CreateModelPackage (Core.Maybe ModelPackageValidationSpecification)
+createModelPackage_validationSpecification :: Lens.Lens' CreateModelPackage (Prelude.Maybe ModelPackageValidationSpecification)
 createModelPackage_validationSpecification = Lens.lens (\CreateModelPackage' {validationSpecification} -> validationSpecification) (\s@CreateModelPackage' {} a -> s {validationSpecification = a} :: CreateModelPackage)
 
 -- | A structure that contains model metrics reports.
-createModelPackage_modelMetrics :: Lens.Lens' CreateModelPackage (Core.Maybe ModelMetrics)
+createModelPackage_modelMetrics :: Lens.Lens' CreateModelPackage (Prelude.Maybe ModelMetrics)
 createModelPackage_modelMetrics = Lens.lens (\CreateModelPackage' {modelMetrics} -> modelMetrics) (\s@CreateModelPackage' {} a -> s {modelMetrics = a} :: CreateModelPackage)
 
 -- | Whether to certify the model package for listing on AWS Marketplace.
 --
 -- This parameter is optional for unversioned models, and does not apply to
 -- versioned models.
-createModelPackage_certifyForMarketplace :: Lens.Lens' CreateModelPackage (Core.Maybe Core.Bool)
+createModelPackage_certifyForMarketplace :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Bool)
 createModelPackage_certifyForMarketplace = Lens.lens (\CreateModelPackage' {certifyForMarketplace} -> certifyForMarketplace) (\s@CreateModelPackage' {} a -> s {certifyForMarketplace = a} :: CreateModelPackage)
 
 -- | The name of the model package. The name must have 1 to 63 characters.
@@ -239,7 +240,7 @@ createModelPackage_certifyForMarketplace = Lens.lens (\CreateModelPackage' {cert
 --
 -- This parameter is required for unversioned models. It is not applicable
 -- to versioned models.
-createModelPackage_modelPackageName :: Lens.Lens' CreateModelPackage (Core.Maybe Core.Text)
+createModelPackage_modelPackageName :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
 createModelPackage_modelPackageName = Lens.lens (\CreateModelPackage' {modelPackageName} -> modelPackageName) (\s@CreateModelPackage' {} a -> s {modelPackageName = a} :: CreateModelPackage)
 
 -- | Whether the model is approved for deployment.
@@ -249,15 +250,15 @@ createModelPackage_modelPackageName = Lens.lens (\CreateModelPackage' {modelPack
 --
 -- For versioned models, the value of this parameter must be set to
 -- @Approved@ to deploy the model.
-createModelPackage_modelApprovalStatus :: Lens.Lens' CreateModelPackage (Core.Maybe ModelApprovalStatus)
+createModelPackage_modelApprovalStatus :: Lens.Lens' CreateModelPackage (Prelude.Maybe ModelApprovalStatus)
 createModelPackage_modelApprovalStatus = Lens.lens (\CreateModelPackage' {modelApprovalStatus} -> modelApprovalStatus) (\s@CreateModelPackage' {} a -> s {modelApprovalStatus = a} :: CreateModelPackage)
 
 -- | A list of key value pairs associated with the model. For more
 -- information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
 -- in the /AWS General Reference Guide/.
-createModelPackage_tags :: Lens.Lens' CreateModelPackage (Core.Maybe [Tag])
-createModelPackage_tags = Lens.lens (\CreateModelPackage' {tags} -> tags) (\s@CreateModelPackage' {} a -> s {tags = a} :: CreateModelPackage) Core.. Lens.mapping Lens._Coerce
+createModelPackage_tags :: Lens.Lens' CreateModelPackage (Prelude.Maybe [Tag])
+createModelPackage_tags = Lens.lens (\CreateModelPackage' {tags} -> tags) (\s@CreateModelPackage' {} a -> s {tags = a} :: CreateModelPackage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies details about inference jobs that can be run with models based
 -- on this model package, including the following:
@@ -270,22 +271,22 @@ createModelPackage_tags = Lens.lens (\CreateModelPackage' {tags} -> tags) (\s@Cr
 --
 -- -   The input and output content formats that the model package supports
 --     for inference.
-createModelPackage_inferenceSpecification :: Lens.Lens' CreateModelPackage (Core.Maybe InferenceSpecification)
+createModelPackage_inferenceSpecification :: Lens.Lens' CreateModelPackage (Prelude.Maybe InferenceSpecification)
 createModelPackage_inferenceSpecification = Lens.lens (\CreateModelPackage' {inferenceSpecification} -> inferenceSpecification) (\s@CreateModelPackage' {} a -> s {inferenceSpecification = a} :: CreateModelPackage)
 
 -- | A description of the model package.
-createModelPackage_modelPackageDescription :: Lens.Lens' CreateModelPackage (Core.Maybe Core.Text)
+createModelPackage_modelPackageDescription :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
 createModelPackage_modelPackageDescription = Lens.lens (\CreateModelPackage' {modelPackageDescription} -> modelPackageDescription) (\s@CreateModelPackage' {} a -> s {modelPackageDescription = a} :: CreateModelPackage)
 
 -- | The name of the model group that this model version belongs to.
 --
 -- This parameter is required for versioned models, and does not apply to
 -- unversioned models.
-createModelPackage_modelPackageGroupName :: Lens.Lens' CreateModelPackage (Core.Maybe Core.Text)
+createModelPackage_modelPackageGroupName :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
 createModelPackage_modelPackageGroupName = Lens.lens (\CreateModelPackage' {modelPackageGroupName} -> modelPackageGroupName) (\s@CreateModelPackage' {} a -> s {modelPackageGroupName = a} :: CreateModelPackage)
 
 -- | A unique token that guarantees that the call to this API is idempotent.
-createModelPackage_clientToken :: Lens.Lens' CreateModelPackage (Core.Maybe Core.Text)
+createModelPackage_clientToken :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
 createModelPackage_clientToken = Lens.lens (\CreateModelPackage' {clientToken} -> clientToken) (\s@CreateModelPackage' {} a -> s {clientToken = a} :: CreateModelPackage)
 
 instance Core.AWSRequest CreateModelPackage where
@@ -297,67 +298,71 @@ instance Core.AWSRequest CreateModelPackage where
     Response.receiveJSON
       ( \s h x ->
           CreateModelPackageResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "ModelPackageArn")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "ModelPackageArn")
       )
 
-instance Core.Hashable CreateModelPackage
+instance Prelude.Hashable CreateModelPackage
 
-instance Core.NFData CreateModelPackage
+instance Prelude.NFData CreateModelPackage
 
 instance Core.ToHeaders CreateModelPackage where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateModelPackage" :: Core.ByteString),
+              Core.=# ( "SageMaker.CreateModelPackage" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateModelPackage where
   toJSON CreateModelPackage' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("SourceAlgorithmSpecification" Core..=)
-              Core.<$> sourceAlgorithmSpecification,
+              Prelude.<$> sourceAlgorithmSpecification,
             ("MetadataProperties" Core..=)
-              Core.<$> metadataProperties,
+              Prelude.<$> metadataProperties,
             ("ValidationSpecification" Core..=)
-              Core.<$> validationSpecification,
-            ("ModelMetrics" Core..=) Core.<$> modelMetrics,
+              Prelude.<$> validationSpecification,
+            ("ModelMetrics" Core..=) Prelude.<$> modelMetrics,
             ("CertifyForMarketplace" Core..=)
-              Core.<$> certifyForMarketplace,
+              Prelude.<$> certifyForMarketplace,
             ("ModelPackageName" Core..=)
-              Core.<$> modelPackageName,
+              Prelude.<$> modelPackageName,
             ("ModelApprovalStatus" Core..=)
-              Core.<$> modelApprovalStatus,
-            ("Tags" Core..=) Core.<$> tags,
+              Prelude.<$> modelApprovalStatus,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("InferenceSpecification" Core..=)
-              Core.<$> inferenceSpecification,
+              Prelude.<$> inferenceSpecification,
             ("ModelPackageDescription" Core..=)
-              Core.<$> modelPackageDescription,
+              Prelude.<$> modelPackageDescription,
             ("ModelPackageGroupName" Core..=)
-              Core.<$> modelPackageGroupName,
-            ("ClientToken" Core..=) Core.<$> clientToken
+              Prelude.<$> modelPackageGroupName,
+            ("ClientToken" Core..=) Prelude.<$> clientToken
           ]
       )
 
 instance Core.ToPath CreateModelPackage where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateModelPackage where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateModelPackageResponse' smart constructor.
 data CreateModelPackageResponse = CreateModelPackageResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the new model package.
-    modelPackageArn :: Core.Text
+    modelPackageArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateModelPackageResponse' with all optional fields omitted.
@@ -372,9 +377,9 @@ data CreateModelPackageResponse = CreateModelPackageResponse'
 -- 'modelPackageArn', 'createModelPackageResponse_modelPackageArn' - The Amazon Resource Name (ARN) of the new model package.
 newCreateModelPackageResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'modelPackageArn'
-  Core.Text ->
+  Prelude.Text ->
   CreateModelPackageResponse
 newCreateModelPackageResponse
   pHttpStatus_
@@ -386,11 +391,11 @@ newCreateModelPackageResponse
       }
 
 -- | The response's http status code.
-createModelPackageResponse_httpStatus :: Lens.Lens' CreateModelPackageResponse Core.Int
+createModelPackageResponse_httpStatus :: Lens.Lens' CreateModelPackageResponse Prelude.Int
 createModelPackageResponse_httpStatus = Lens.lens (\CreateModelPackageResponse' {httpStatus} -> httpStatus) (\s@CreateModelPackageResponse' {} a -> s {httpStatus = a} :: CreateModelPackageResponse)
 
 -- | The Amazon Resource Name (ARN) of the new model package.
-createModelPackageResponse_modelPackageArn :: Lens.Lens' CreateModelPackageResponse Core.Text
+createModelPackageResponse_modelPackageArn :: Lens.Lens' CreateModelPackageResponse Prelude.Text
 createModelPackageResponse_modelPackageArn = Lens.lens (\CreateModelPackageResponse' {modelPackageArn} -> modelPackageArn) (\s@CreateModelPackageResponse' {} a -> s {modelPackageArn = a} :: CreateModelPackageResponse)
 
-instance Core.NFData CreateModelPackageResponse
+instance Prelude.NFData CreateModelPackageResponse

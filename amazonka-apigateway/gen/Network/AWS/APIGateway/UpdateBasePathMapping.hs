@@ -45,6 +45,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,15 +55,15 @@ import qualified Network.AWS.Response as Response
 data UpdateBasePathMapping = UpdateBasePathMapping'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Core.Maybe [PatchOperation],
+    patchOperations :: Prelude.Maybe [PatchOperation],
     -- | [Required] The domain name of the BasePathMapping resource to change.
-    domainName :: Core.Text,
+    domainName :: Prelude.Text,
     -- | [Required] The base path of the BasePathMapping resource to change.
     --
     -- To specify an empty base path, set this parameter to @\'(none)\'@.
-    basePath :: Core.Text
+    basePath :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateBasePathMapping' with all optional fields omitted.
@@ -82,31 +83,31 @@ data UpdateBasePathMapping = UpdateBasePathMapping'
 -- To specify an empty base path, set this parameter to @\'(none)\'@.
 newUpdateBasePathMapping ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'basePath'
-  Core.Text ->
+  Prelude.Text ->
   UpdateBasePathMapping
 newUpdateBasePathMapping pDomainName_ pBasePath_ =
   UpdateBasePathMapping'
     { patchOperations =
-        Core.Nothing,
+        Prelude.Nothing,
       domainName = pDomainName_,
       basePath = pBasePath_
     }
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateBasePathMapping_patchOperations :: Lens.Lens' UpdateBasePathMapping (Core.Maybe [PatchOperation])
-updateBasePathMapping_patchOperations = Lens.lens (\UpdateBasePathMapping' {patchOperations} -> patchOperations) (\s@UpdateBasePathMapping' {} a -> s {patchOperations = a} :: UpdateBasePathMapping) Core.. Lens.mapping Lens._Coerce
+updateBasePathMapping_patchOperations :: Lens.Lens' UpdateBasePathMapping (Prelude.Maybe [PatchOperation])
+updateBasePathMapping_patchOperations = Lens.lens (\UpdateBasePathMapping' {patchOperations} -> patchOperations) (\s@UpdateBasePathMapping' {} a -> s {patchOperations = a} :: UpdateBasePathMapping) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Required] The domain name of the BasePathMapping resource to change.
-updateBasePathMapping_domainName :: Lens.Lens' UpdateBasePathMapping Core.Text
+updateBasePathMapping_domainName :: Lens.Lens' UpdateBasePathMapping Prelude.Text
 updateBasePathMapping_domainName = Lens.lens (\UpdateBasePathMapping' {domainName} -> domainName) (\s@UpdateBasePathMapping' {} a -> s {domainName = a} :: UpdateBasePathMapping)
 
 -- | [Required] The base path of the BasePathMapping resource to change.
 --
 -- To specify an empty base path, set this parameter to @\'(none)\'@.
-updateBasePathMapping_basePath :: Lens.Lens' UpdateBasePathMapping Core.Text
+updateBasePathMapping_basePath :: Lens.Lens' UpdateBasePathMapping Prelude.Text
 updateBasePathMapping_basePath = Lens.lens (\UpdateBasePathMapping' {basePath} -> basePath) (\s@UpdateBasePathMapping' {} a -> s {basePath = a} :: UpdateBasePathMapping)
 
 instance Core.AWSRequest UpdateBasePathMapping where
@@ -118,31 +119,31 @@ instance Core.AWSRequest UpdateBasePathMapping where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable UpdateBasePathMapping
+instance Prelude.Hashable UpdateBasePathMapping
 
-instance Core.NFData UpdateBasePathMapping
+instance Prelude.NFData UpdateBasePathMapping
 
 instance Core.ToHeaders UpdateBasePathMapping where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToJSON UpdateBasePathMapping where
   toJSON UpdateBasePathMapping' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("patchOperations" Core..=)
-              Core.<$> patchOperations
+              Prelude.<$> patchOperations
           ]
       )
 
 instance Core.ToPath UpdateBasePathMapping where
   toPath UpdateBasePathMapping' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/domainnames/",
         Core.toBS domainName,
         "/basepathmappings/",
@@ -150,4 +151,4 @@ instance Core.ToPath UpdateBasePathMapping where
       ]
 
 instance Core.ToQuery UpdateBasePathMapping where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

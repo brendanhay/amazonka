@@ -63,6 +63,7 @@ where
 import Network.AWS.Athena.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,13 +73,13 @@ data GetQueryResults = GetQueryResults'
     -- pagination if a previous request was truncated. To obtain the next set
     -- of pages, pass in the @NextToken@ from the response object of the
     -- previous page call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results (rows) to return in this request.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique ID of the query execution.
-    queryExecutionId :: Core.Text
+    queryExecutionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetQueryResults' with all optional fields omitted.
@@ -98,12 +99,12 @@ data GetQueryResults = GetQueryResults'
 -- 'queryExecutionId', 'getQueryResults_queryExecutionId' - The unique ID of the query execution.
 newGetQueryResults ::
   -- | 'queryExecutionId'
-  Core.Text ->
+  Prelude.Text ->
   GetQueryResults
 newGetQueryResults pQueryExecutionId_ =
   GetQueryResults'
-    { nextToken = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       queryExecutionId = pQueryExecutionId_
     }
 
@@ -111,37 +112,40 @@ newGetQueryResults pQueryExecutionId_ =
 -- pagination if a previous request was truncated. To obtain the next set
 -- of pages, pass in the @NextToken@ from the response object of the
 -- previous page call.
-getQueryResults_nextToken :: Lens.Lens' GetQueryResults (Core.Maybe Core.Text)
+getQueryResults_nextToken :: Lens.Lens' GetQueryResults (Prelude.Maybe Prelude.Text)
 getQueryResults_nextToken = Lens.lens (\GetQueryResults' {nextToken} -> nextToken) (\s@GetQueryResults' {} a -> s {nextToken = a} :: GetQueryResults)
 
 -- | The maximum number of results (rows) to return in this request.
-getQueryResults_maxResults :: Lens.Lens' GetQueryResults (Core.Maybe Core.Natural)
+getQueryResults_maxResults :: Lens.Lens' GetQueryResults (Prelude.Maybe Prelude.Natural)
 getQueryResults_maxResults = Lens.lens (\GetQueryResults' {maxResults} -> maxResults) (\s@GetQueryResults' {} a -> s {maxResults = a} :: GetQueryResults)
 
 -- | The unique ID of the query execution.
-getQueryResults_queryExecutionId :: Lens.Lens' GetQueryResults Core.Text
+getQueryResults_queryExecutionId :: Lens.Lens' GetQueryResults Prelude.Text
 getQueryResults_queryExecutionId = Lens.lens (\GetQueryResults' {queryExecutionId} -> queryExecutionId) (\s@GetQueryResults' {} a -> s {queryExecutionId = a} :: GetQueryResults)
 
 instance Core.AWSPager GetQueryResults where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getQueryResultsResponse_nextToken Core.. Lens._Just
+            Lens.^? getQueryResultsResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getQueryResultsResponse_resultSet Core.. Lens._Just
-              Core.. resultSet_rows
-              Core.. Lens._Just
+            Lens.^? getQueryResultsResponse_resultSet
+              Prelude.. Lens._Just
+              Prelude.. resultSet_rows
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& getQueryResults_nextToken
+          Prelude.& getQueryResults_nextToken
           Lens..~ rs
-          Lens.^? getQueryResultsResponse_nextToken Core.. Lens._Just
+          Lens.^? getQueryResultsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest GetQueryResults where
   type
@@ -152,43 +156,47 @@ instance Core.AWSRequest GetQueryResults where
     Response.receiveJSON
       ( \s h x ->
           GetQueryResultsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "ResultSet")
-            Core.<*> (x Core..?> "UpdateCount")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "ResultSet")
+            Prelude.<*> (x Core..?> "UpdateCount")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetQueryResults
+instance Prelude.Hashable GetQueryResults
 
-instance Core.NFData GetQueryResults
+instance Prelude.NFData GetQueryResults
 
 instance Core.ToHeaders GetQueryResults where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonAthena.GetQueryResults" :: Core.ByteString),
+              Core.=# ( "AmazonAthena.GetQueryResults" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetQueryResults where
   toJSON GetQueryResults' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just
               ("QueryExecutionId" Core..= queryExecutionId)
           ]
       )
 
 instance Core.ToPath GetQueryResults where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetQueryResults where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetQueryResultsResponse' smart constructor.
 data GetQueryResultsResponse = GetQueryResultsResponse'
@@ -196,15 +204,15 @@ data GetQueryResultsResponse = GetQueryResultsResponse'
     -- pagination if a previous request was truncated. To obtain the next set
     -- of pages, pass in the @NextToken@ from the response object of the
     -- previous page call.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The results of the query execution.
-    resultSet :: Core.Maybe ResultSet,
+    resultSet :: Prelude.Maybe ResultSet,
     -- | The number of rows inserted with a CREATE TABLE AS SELECT statement.
-    updateCount :: Core.Maybe Core.Integer,
+    updateCount :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetQueryResultsResponse' with all optional fields omitted.
@@ -226,13 +234,14 @@ data GetQueryResultsResponse = GetQueryResultsResponse'
 -- 'httpStatus', 'getQueryResultsResponse_httpStatus' - The response's http status code.
 newGetQueryResultsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetQueryResultsResponse
 newGetQueryResultsResponse pHttpStatus_ =
   GetQueryResultsResponse'
-    { nextToken = Core.Nothing,
-      resultSet = Core.Nothing,
-      updateCount = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      resultSet = Prelude.Nothing,
+      updateCount = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -240,19 +249,19 @@ newGetQueryResultsResponse pHttpStatus_ =
 -- pagination if a previous request was truncated. To obtain the next set
 -- of pages, pass in the @NextToken@ from the response object of the
 -- previous page call.
-getQueryResultsResponse_nextToken :: Lens.Lens' GetQueryResultsResponse (Core.Maybe Core.Text)
+getQueryResultsResponse_nextToken :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe Prelude.Text)
 getQueryResultsResponse_nextToken = Lens.lens (\GetQueryResultsResponse' {nextToken} -> nextToken) (\s@GetQueryResultsResponse' {} a -> s {nextToken = a} :: GetQueryResultsResponse)
 
 -- | The results of the query execution.
-getQueryResultsResponse_resultSet :: Lens.Lens' GetQueryResultsResponse (Core.Maybe ResultSet)
+getQueryResultsResponse_resultSet :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe ResultSet)
 getQueryResultsResponse_resultSet = Lens.lens (\GetQueryResultsResponse' {resultSet} -> resultSet) (\s@GetQueryResultsResponse' {} a -> s {resultSet = a} :: GetQueryResultsResponse)
 
 -- | The number of rows inserted with a CREATE TABLE AS SELECT statement.
-getQueryResultsResponse_updateCount :: Lens.Lens' GetQueryResultsResponse (Core.Maybe Core.Integer)
+getQueryResultsResponse_updateCount :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe Prelude.Integer)
 getQueryResultsResponse_updateCount = Lens.lens (\GetQueryResultsResponse' {updateCount} -> updateCount) (\s@GetQueryResultsResponse' {} a -> s {updateCount = a} :: GetQueryResultsResponse)
 
 -- | The response's http status code.
-getQueryResultsResponse_httpStatus :: Lens.Lens' GetQueryResultsResponse Core.Int
+getQueryResultsResponse_httpStatus :: Lens.Lens' GetQueryResultsResponse Prelude.Int
 getQueryResultsResponse_httpStatus = Lens.lens (\GetQueryResultsResponse' {httpStatus} -> httpStatus) (\s@GetQueryResultsResponse' {} a -> s {httpStatus = a} :: GetQueryResultsResponse)
 
-instance Core.NFData GetQueryResultsResponse
+instance Prelude.NFData GetQueryResultsResponse

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.SourceAlgorithm where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies an algorithm that was used to create the model package. The
 -- algorithm must be either an algorithm resource in your Amazon SageMaker
@@ -34,13 +35,13 @@ data SourceAlgorithm = SourceAlgorithm'
     --
     -- The model artifacts must be in an S3 bucket that is in the same region
     -- as the algorithm.
-    modelDataUrl :: Core.Maybe Core.Text,
+    modelDataUrl :: Prelude.Maybe Prelude.Text,
     -- | The name of an algorithm that was used to create the model package. The
     -- algorithm must be either an algorithm resource in your Amazon SageMaker
     -- account or an algorithm in AWS Marketplace that you are subscribed to.
-    algorithmName :: Core.Text
+    algorithmName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SourceAlgorithm' with all optional fields omitted.
@@ -62,11 +63,11 @@ data SourceAlgorithm = SourceAlgorithm'
 -- account or an algorithm in AWS Marketplace that you are subscribed to.
 newSourceAlgorithm ::
   -- | 'algorithmName'
-  Core.Text ->
+  Prelude.Text ->
   SourceAlgorithm
 newSourceAlgorithm pAlgorithmName_ =
   SourceAlgorithm'
-    { modelDataUrl = Core.Nothing,
+    { modelDataUrl = Prelude.Nothing,
       algorithmName = pAlgorithmName_
     }
 
@@ -76,13 +77,13 @@ newSourceAlgorithm pAlgorithmName_ =
 --
 -- The model artifacts must be in an S3 bucket that is in the same region
 -- as the algorithm.
-sourceAlgorithm_modelDataUrl :: Lens.Lens' SourceAlgorithm (Core.Maybe Core.Text)
+sourceAlgorithm_modelDataUrl :: Lens.Lens' SourceAlgorithm (Prelude.Maybe Prelude.Text)
 sourceAlgorithm_modelDataUrl = Lens.lens (\SourceAlgorithm' {modelDataUrl} -> modelDataUrl) (\s@SourceAlgorithm' {} a -> s {modelDataUrl = a} :: SourceAlgorithm)
 
 -- | The name of an algorithm that was used to create the model package. The
 -- algorithm must be either an algorithm resource in your Amazon SageMaker
 -- account or an algorithm in AWS Marketplace that you are subscribed to.
-sourceAlgorithm_algorithmName :: Lens.Lens' SourceAlgorithm Core.Text
+sourceAlgorithm_algorithmName :: Lens.Lens' SourceAlgorithm Prelude.Text
 sourceAlgorithm_algorithmName = Lens.lens (\SourceAlgorithm' {algorithmName} -> algorithmName) (\s@SourceAlgorithm' {} a -> s {algorithmName = a} :: SourceAlgorithm)
 
 instance Core.FromJSON SourceAlgorithm where
@@ -91,19 +92,20 @@ instance Core.FromJSON SourceAlgorithm where
       "SourceAlgorithm"
       ( \x ->
           SourceAlgorithm'
-            Core.<$> (x Core..:? "ModelDataUrl")
-            Core.<*> (x Core..: "AlgorithmName")
+            Prelude.<$> (x Core..:? "ModelDataUrl")
+            Prelude.<*> (x Core..: "AlgorithmName")
       )
 
-instance Core.Hashable SourceAlgorithm
+instance Prelude.Hashable SourceAlgorithm
 
-instance Core.NFData SourceAlgorithm
+instance Prelude.NFData SourceAlgorithm
 
 instance Core.ToJSON SourceAlgorithm where
   toJSON SourceAlgorithm' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("ModelDataUrl" Core..=) Core.<$> modelDataUrl,
-            Core.Just ("AlgorithmName" Core..= algorithmName)
+      ( Prelude.catMaybes
+          [ ("ModelDataUrl" Core..=) Prelude.<$> modelDataUrl,
+            Prelude.Just
+              ("AlgorithmName" Core..= algorithmName)
           ]
       )

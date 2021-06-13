@@ -41,15 +41,16 @@ where
 import Network.AWS.AppStream.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartFleet' smart constructor.
 data StartFleet = StartFleet'
   { -- | The name of the fleet.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartFleet' with all optional fields omitted.
@@ -62,12 +63,12 @@ data StartFleet = StartFleet'
 -- 'name', 'startFleet_name' - The name of the fleet.
 newStartFleet ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   StartFleet
 newStartFleet pName_ = StartFleet' {name = pName_}
 
 -- | The name of the fleet.
-startFleet_name :: Lens.Lens' StartFleet Core.Text
+startFleet_name :: Lens.Lens' StartFleet Prelude.Text
 startFleet_name = Lens.lens (\StartFleet' {name} -> name) (\s@StartFleet' {} a -> s {name = a} :: StartFleet)
 
 instance Core.AWSRequest StartFleet where
@@ -77,43 +78,47 @@ instance Core.AWSRequest StartFleet where
     Response.receiveEmpty
       ( \s h x ->
           StartFleetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable StartFleet
+instance Prelude.Hashable StartFleet
 
-instance Core.NFData StartFleet
+instance Prelude.NFData StartFleet
 
 instance Core.ToHeaders StartFleet where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "PhotonAdminProxyService.StartFleet" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON StartFleet where
   toJSON StartFleet' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("Name" Core..= name)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
 instance Core.ToPath StartFleet where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery StartFleet where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartFleetResponse' smart constructor.
 data StartFleetResponse = StartFleetResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartFleetResponse' with all optional fields omitted.
@@ -126,13 +131,13 @@ data StartFleetResponse = StartFleetResponse'
 -- 'httpStatus', 'startFleetResponse_httpStatus' - The response's http status code.
 newStartFleetResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   StartFleetResponse
 newStartFleetResponse pHttpStatus_ =
   StartFleetResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-startFleetResponse_httpStatus :: Lens.Lens' StartFleetResponse Core.Int
+startFleetResponse_httpStatus :: Lens.Lens' StartFleetResponse Prelude.Int
 startFleetResponse_httpStatus = Lens.lens (\StartFleetResponse' {httpStatus} -> httpStatus) (\s@StartFleetResponse' {} a -> s {httpStatus = a} :: StartFleetResponse)
 
-instance Core.NFData StartFleetResponse
+instance Prelude.NFData StartFleetResponse

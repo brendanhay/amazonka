@@ -21,6 +21,7 @@ module Network.AWS.WAFRegional.Types.SqlInjectionMatchSet where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -43,7 +44,7 @@ import Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple
 -- /See:/ 'newSqlInjectionMatchSet' smart constructor.
 data SqlInjectionMatchSet = SqlInjectionMatchSet'
   { -- | The name, if any, of the @SqlInjectionMatchSet@.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a @SqlInjectionMatchSet@. You use
     -- @SqlInjectionMatchSetId@ to get information about a
     -- @SqlInjectionMatchSet@ (see GetSqlInjectionMatchSet), update a
@@ -54,12 +55,12 @@ data SqlInjectionMatchSet = SqlInjectionMatchSet'
     --
     -- @SqlInjectionMatchSetId@ is returned by CreateSqlInjectionMatchSet and
     -- by ListSqlInjectionMatchSets.
-    sqlInjectionMatchSetId :: Core.Text,
+    sqlInjectionMatchSetId :: Prelude.Text,
     -- | Specifies the parts of web requests that you want to inspect for
     -- snippets of malicious SQL code.
     sqlInjectionMatchTuples :: [SqlInjectionMatchTuple]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SqlInjectionMatchSet' with all optional fields omitted.
@@ -86,17 +87,17 @@ data SqlInjectionMatchSet = SqlInjectionMatchSet'
 -- snippets of malicious SQL code.
 newSqlInjectionMatchSet ::
   -- | 'sqlInjectionMatchSetId'
-  Core.Text ->
+  Prelude.Text ->
   SqlInjectionMatchSet
 newSqlInjectionMatchSet pSqlInjectionMatchSetId_ =
   SqlInjectionMatchSet'
-    { name = Core.Nothing,
+    { name = Prelude.Nothing,
       sqlInjectionMatchSetId = pSqlInjectionMatchSetId_,
-      sqlInjectionMatchTuples = Core.mempty
+      sqlInjectionMatchTuples = Prelude.mempty
     }
 
 -- | The name, if any, of the @SqlInjectionMatchSet@.
-sqlInjectionMatchSet_name :: Lens.Lens' SqlInjectionMatchSet (Core.Maybe Core.Text)
+sqlInjectionMatchSet_name :: Lens.Lens' SqlInjectionMatchSet (Prelude.Maybe Prelude.Text)
 sqlInjectionMatchSet_name = Lens.lens (\SqlInjectionMatchSet' {name} -> name) (\s@SqlInjectionMatchSet' {} a -> s {name = a} :: SqlInjectionMatchSet)
 
 -- | A unique identifier for a @SqlInjectionMatchSet@. You use
@@ -109,13 +110,13 @@ sqlInjectionMatchSet_name = Lens.lens (\SqlInjectionMatchSet' {name} -> name) (\
 --
 -- @SqlInjectionMatchSetId@ is returned by CreateSqlInjectionMatchSet and
 -- by ListSqlInjectionMatchSets.
-sqlInjectionMatchSet_sqlInjectionMatchSetId :: Lens.Lens' SqlInjectionMatchSet Core.Text
+sqlInjectionMatchSet_sqlInjectionMatchSetId :: Lens.Lens' SqlInjectionMatchSet Prelude.Text
 sqlInjectionMatchSet_sqlInjectionMatchSetId = Lens.lens (\SqlInjectionMatchSet' {sqlInjectionMatchSetId} -> sqlInjectionMatchSetId) (\s@SqlInjectionMatchSet' {} a -> s {sqlInjectionMatchSetId = a} :: SqlInjectionMatchSet)
 
 -- | Specifies the parts of web requests that you want to inspect for
 -- snippets of malicious SQL code.
 sqlInjectionMatchSet_sqlInjectionMatchTuples :: Lens.Lens' SqlInjectionMatchSet [SqlInjectionMatchTuple]
-sqlInjectionMatchSet_sqlInjectionMatchTuples = Lens.lens (\SqlInjectionMatchSet' {sqlInjectionMatchTuples} -> sqlInjectionMatchTuples) (\s@SqlInjectionMatchSet' {} a -> s {sqlInjectionMatchTuples = a} :: SqlInjectionMatchSet) Core.. Lens._Coerce
+sqlInjectionMatchSet_sqlInjectionMatchTuples = Lens.lens (\SqlInjectionMatchSet' {sqlInjectionMatchTuples} -> sqlInjectionMatchTuples) (\s@SqlInjectionMatchSet' {} a -> s {sqlInjectionMatchTuples = a} :: SqlInjectionMatchSet) Prelude.. Lens._Coerce
 
 instance Core.FromJSON SqlInjectionMatchSet where
   parseJSON =
@@ -123,13 +124,13 @@ instance Core.FromJSON SqlInjectionMatchSet where
       "SqlInjectionMatchSet"
       ( \x ->
           SqlInjectionMatchSet'
-            Core.<$> (x Core..:? "Name")
-            Core.<*> (x Core..: "SqlInjectionMatchSetId")
-            Core.<*> ( x Core..:? "SqlInjectionMatchTuples"
-                         Core..!= Core.mempty
-                     )
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..: "SqlInjectionMatchSetId")
+            Prelude.<*> ( x Core..:? "SqlInjectionMatchTuples"
+                            Core..!= Prelude.mempty
+                        )
       )
 
-instance Core.Hashable SqlInjectionMatchSet
+instance Prelude.Hashable SqlInjectionMatchSet
 
-instance Core.NFData SqlInjectionMatchSet
+instance Prelude.NFData SqlInjectionMatchSet

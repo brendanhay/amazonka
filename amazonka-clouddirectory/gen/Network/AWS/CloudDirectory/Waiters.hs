@@ -19,3 +19,4 @@ import Network.AWS.CloudDirectory.Lens
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude

@@ -71,17 +71,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreatePublicVirtualInterface' smart constructor.
 data CreatePublicVirtualInterface = CreatePublicVirtualInterface'
   { -- | The ID of the connection.
-    connectionId :: Core.Text,
+    connectionId :: Prelude.Text,
     -- | Information about the public virtual interface.
     newPublicVirtualInterface' :: NewPublicVirtualInterface
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreatePublicVirtualInterface' with all optional fields omitted.
@@ -96,7 +97,7 @@ data CreatePublicVirtualInterface = CreatePublicVirtualInterface'
 -- 'newPublicVirtualInterface'', 'createPublicVirtualInterface_newPublicVirtualInterface' - Information about the public virtual interface.
 newCreatePublicVirtualInterface ::
   -- | 'connectionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'newPublicVirtualInterface''
   NewPublicVirtualInterface ->
   CreatePublicVirtualInterface
@@ -111,7 +112,7 @@ newCreatePublicVirtualInterface
       }
 
 -- | The ID of the connection.
-createPublicVirtualInterface_connectionId :: Lens.Lens' CreatePublicVirtualInterface Core.Text
+createPublicVirtualInterface_connectionId :: Lens.Lens' CreatePublicVirtualInterface Prelude.Text
 createPublicVirtualInterface_connectionId = Lens.lens (\CreatePublicVirtualInterface' {connectionId} -> connectionId) (\s@CreatePublicVirtualInterface' {} a -> s {connectionId = a} :: CreatePublicVirtualInterface)
 
 -- | Information about the public virtual interface.
@@ -127,29 +128,33 @@ instance Core.AWSRequest CreatePublicVirtualInterface where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable CreatePublicVirtualInterface
+instance
+  Prelude.Hashable
+    CreatePublicVirtualInterface
 
-instance Core.NFData CreatePublicVirtualInterface
+instance Prelude.NFData CreatePublicVirtualInterface
 
 instance Core.ToHeaders CreatePublicVirtualInterface where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OvertureService.CreatePublicVirtualInterface" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreatePublicVirtualInterface where
   toJSON CreatePublicVirtualInterface' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("connectionId" Core..= connectionId),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("connectionId" Core..= connectionId),
+            Prelude.Just
               ( "newPublicVirtualInterface"
                   Core..= newPublicVirtualInterface'
               )
@@ -157,7 +162,7 @@ instance Core.ToJSON CreatePublicVirtualInterface where
       )
 
 instance Core.ToPath CreatePublicVirtualInterface where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreatePublicVirtualInterface where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.ADMMessage where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.Action
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the settings for a one-time message that\'s sent directly to
 -- an endpoint through the ADM (Amazon Device Messaging) channel.
@@ -32,38 +33,38 @@ data ADMMessage = ADMMessage'
     -- is a push notification that doesn\'t display on a recipient\'s device.
     -- Silent push notifications can be used for cases such as updating an
     -- app\'s configuration or supporting phone home functionality.
-    silentPush :: Core.Maybe Core.Bool,
+    silentPush :: Prelude.Maybe Prelude.Bool,
     -- | The URL of the large icon image to display in the content view of the
     -- push notification.
-    imageIconUrl :: Core.Maybe Core.Text,
+    imageIconUrl :: Prelude.Maybe Prelude.Text,
     -- | The amount of time, in seconds, that ADM should store the message if the
     -- recipient\'s device is offline. Amazon Pinpoint specifies this value in
     -- the expiresAfter parameter when it sends the notification message to
     -- ADM.
-    expiresAfter :: Core.Maybe Core.Text,
+    expiresAfter :: Prelude.Maybe Prelude.Text,
     -- | The JSON data payload to use for the push notification, if the
     -- notification is a silent push notification. This payload is added to the
     -- data.pinpoint.jsonBody object of the notification.
-    data' :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    data' :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The title to display above the notification message on the recipient\'s
     -- device.
-    title :: Core.Maybe Core.Text,
+    title :: Prelude.Maybe Prelude.Text,
     -- | The icon image name of the asset saved in your app.
-    iconReference :: Core.Maybe Core.Text,
+    iconReference :: Prelude.Maybe Prelude.Text,
     -- | The body of the notification message.
-    body :: Core.Maybe Core.Text,
+    body :: Prelude.Maybe Prelude.Text,
     -- | An arbitrary string that indicates that multiple messages are logically
     -- the same and that Amazon Device Messaging (ADM) can drop previously
     -- enqueued messages in favor of this message.
-    consolidationKey :: Core.Maybe Core.Text,
+    consolidationKey :: Prelude.Maybe Prelude.Text,
     -- | The default message variables to use in the notification message. You
     -- can override the default variables with individual address variables.
-    substitutions :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
+    substitutions :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The URL of an image to display in the push notification.
-    imageUrl :: Core.Maybe Core.Text,
+    imageUrl :: Prelude.Maybe Prelude.Text,
     -- | The base64-encoded, MD5 checksum of the value specified by the Data
     -- property. ADM uses the MD5 value to verify the integrity of the data.
-    md5 :: Core.Maybe Core.Text,
+    md5 :: Prelude.Maybe Prelude.Text,
     -- | The action to occur if the recipient taps the push notification. Valid
     -- values are:
     --
@@ -76,25 +77,25 @@ data ADMMessage = ADMMessage'
     --
     -- -   URL - The default mobile browser on the recipient\'s device opens
     --     and loads the web page at a URL that you specify.
-    action :: Core.Maybe Action,
+    action :: Prelude.Maybe Action,
     -- | The sound to play when the recipient receives the push notification. You
     -- can use the default stream or specify the file name of a sound resource
     -- that\'s bundled in your app. On an Android platform, the sound file must
     -- reside in \/res\/raw\/.
-    sound :: Core.Maybe Core.Text,
+    sound :: Prelude.Maybe Prelude.Text,
     -- | The URL to open in the recipient\'s default mobile browser, if a
     -- recipient taps the push notification and the value of the Action
     -- property is URL.
-    url :: Core.Maybe Core.Text,
+    url :: Prelude.Maybe Prelude.Text,
     -- | The URL of the small icon image to display in the status bar and the
     -- content view of the push notification.
-    smallImageIconUrl :: Core.Maybe Core.Text,
+    smallImageIconUrl :: Prelude.Maybe Prelude.Text,
     -- | The raw, JSON-formatted string to use as the payload for the
     -- notification message. If specified, this value overrides all other
     -- content for the message.
-    rawContent :: Core.Maybe Core.Text
+    rawContent :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ADMMessage' with all optional fields omitted.
@@ -172,80 +173,80 @@ newADMMessage ::
   ADMMessage
 newADMMessage =
   ADMMessage'
-    { silentPush = Core.Nothing,
-      imageIconUrl = Core.Nothing,
-      expiresAfter = Core.Nothing,
-      data' = Core.Nothing,
-      title = Core.Nothing,
-      iconReference = Core.Nothing,
-      body = Core.Nothing,
-      consolidationKey = Core.Nothing,
-      substitutions = Core.Nothing,
-      imageUrl = Core.Nothing,
-      md5 = Core.Nothing,
-      action = Core.Nothing,
-      sound = Core.Nothing,
-      url = Core.Nothing,
-      smallImageIconUrl = Core.Nothing,
-      rawContent = Core.Nothing
+    { silentPush = Prelude.Nothing,
+      imageIconUrl = Prelude.Nothing,
+      expiresAfter = Prelude.Nothing,
+      data' = Prelude.Nothing,
+      title = Prelude.Nothing,
+      iconReference = Prelude.Nothing,
+      body = Prelude.Nothing,
+      consolidationKey = Prelude.Nothing,
+      substitutions = Prelude.Nothing,
+      imageUrl = Prelude.Nothing,
+      md5 = Prelude.Nothing,
+      action = Prelude.Nothing,
+      sound = Prelude.Nothing,
+      url = Prelude.Nothing,
+      smallImageIconUrl = Prelude.Nothing,
+      rawContent = Prelude.Nothing
     }
 
 -- | Specifies whether the notification is a silent push notification, which
 -- is a push notification that doesn\'t display on a recipient\'s device.
 -- Silent push notifications can be used for cases such as updating an
 -- app\'s configuration or supporting phone home functionality.
-aDMMessage_silentPush :: Lens.Lens' ADMMessage (Core.Maybe Core.Bool)
+aDMMessage_silentPush :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Bool)
 aDMMessage_silentPush = Lens.lens (\ADMMessage' {silentPush} -> silentPush) (\s@ADMMessage' {} a -> s {silentPush = a} :: ADMMessage)
 
 -- | The URL of the large icon image to display in the content view of the
 -- push notification.
-aDMMessage_imageIconUrl :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+aDMMessage_imageIconUrl :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_imageIconUrl = Lens.lens (\ADMMessage' {imageIconUrl} -> imageIconUrl) (\s@ADMMessage' {} a -> s {imageIconUrl = a} :: ADMMessage)
 
 -- | The amount of time, in seconds, that ADM should store the message if the
 -- recipient\'s device is offline. Amazon Pinpoint specifies this value in
 -- the expiresAfter parameter when it sends the notification message to
 -- ADM.
-aDMMessage_expiresAfter :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+aDMMessage_expiresAfter :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_expiresAfter = Lens.lens (\ADMMessage' {expiresAfter} -> expiresAfter) (\s@ADMMessage' {} a -> s {expiresAfter = a} :: ADMMessage)
 
 -- | The JSON data payload to use for the push notification, if the
 -- notification is a silent push notification. This payload is added to the
 -- data.pinpoint.jsonBody object of the notification.
-aDMMessage_data :: Lens.Lens' ADMMessage (Core.Maybe (Core.HashMap Core.Text Core.Text))
-aDMMessage_data = Lens.lens (\ADMMessage' {data'} -> data') (\s@ADMMessage' {} a -> s {data' = a} :: ADMMessage) Core.. Lens.mapping Lens._Coerce
+aDMMessage_data :: Lens.Lens' ADMMessage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+aDMMessage_data = Lens.lens (\ADMMessage' {data'} -> data') (\s@ADMMessage' {} a -> s {data' = a} :: ADMMessage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The title to display above the notification message on the recipient\'s
 -- device.
-aDMMessage_title :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+aDMMessage_title :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_title = Lens.lens (\ADMMessage' {title} -> title) (\s@ADMMessage' {} a -> s {title = a} :: ADMMessage)
 
 -- | The icon image name of the asset saved in your app.
-aDMMessage_iconReference :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+aDMMessage_iconReference :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_iconReference = Lens.lens (\ADMMessage' {iconReference} -> iconReference) (\s@ADMMessage' {} a -> s {iconReference = a} :: ADMMessage)
 
 -- | The body of the notification message.
-aDMMessage_body :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+aDMMessage_body :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_body = Lens.lens (\ADMMessage' {body} -> body) (\s@ADMMessage' {} a -> s {body = a} :: ADMMessage)
 
 -- | An arbitrary string that indicates that multiple messages are logically
 -- the same and that Amazon Device Messaging (ADM) can drop previously
 -- enqueued messages in favor of this message.
-aDMMessage_consolidationKey :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+aDMMessage_consolidationKey :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_consolidationKey = Lens.lens (\ADMMessage' {consolidationKey} -> consolidationKey) (\s@ADMMessage' {} a -> s {consolidationKey = a} :: ADMMessage)
 
 -- | The default message variables to use in the notification message. You
 -- can override the default variables with individual address variables.
-aDMMessage_substitutions :: Lens.Lens' ADMMessage (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
-aDMMessage_substitutions = Lens.lens (\ADMMessage' {substitutions} -> substitutions) (\s@ADMMessage' {} a -> s {substitutions = a} :: ADMMessage) Core.. Lens.mapping Lens._Coerce
+aDMMessage_substitutions :: Lens.Lens' ADMMessage (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+aDMMessage_substitutions = Lens.lens (\ADMMessage' {substitutions} -> substitutions) (\s@ADMMessage' {} a -> s {substitutions = a} :: ADMMessage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The URL of an image to display in the push notification.
-aDMMessage_imageUrl :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+aDMMessage_imageUrl :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_imageUrl = Lens.lens (\ADMMessage' {imageUrl} -> imageUrl) (\s@ADMMessage' {} a -> s {imageUrl = a} :: ADMMessage)
 
 -- | The base64-encoded, MD5 checksum of the value specified by the Data
 -- property. ADM uses the MD5 value to verify the integrity of the data.
-aDMMessage_md5 :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+aDMMessage_md5 :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_md5 = Lens.lens (\ADMMessage' {md5} -> md5) (\s@ADMMessage' {} a -> s {md5 = a} :: ADMMessage)
 
 -- | The action to occur if the recipient taps the push notification. Valid
@@ -260,58 +261,58 @@ aDMMessage_md5 = Lens.lens (\ADMMessage' {md5} -> md5) (\s@ADMMessage' {} a -> s
 --
 -- -   URL - The default mobile browser on the recipient\'s device opens
 --     and loads the web page at a URL that you specify.
-aDMMessage_action :: Lens.Lens' ADMMessage (Core.Maybe Action)
+aDMMessage_action :: Lens.Lens' ADMMessage (Prelude.Maybe Action)
 aDMMessage_action = Lens.lens (\ADMMessage' {action} -> action) (\s@ADMMessage' {} a -> s {action = a} :: ADMMessage)
 
 -- | The sound to play when the recipient receives the push notification. You
 -- can use the default stream or specify the file name of a sound resource
 -- that\'s bundled in your app. On an Android platform, the sound file must
 -- reside in \/res\/raw\/.
-aDMMessage_sound :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+aDMMessage_sound :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_sound = Lens.lens (\ADMMessage' {sound} -> sound) (\s@ADMMessage' {} a -> s {sound = a} :: ADMMessage)
 
 -- | The URL to open in the recipient\'s default mobile browser, if a
 -- recipient taps the push notification and the value of the Action
 -- property is URL.
-aDMMessage_url :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+aDMMessage_url :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_url = Lens.lens (\ADMMessage' {url} -> url) (\s@ADMMessage' {} a -> s {url = a} :: ADMMessage)
 
 -- | The URL of the small icon image to display in the status bar and the
 -- content view of the push notification.
-aDMMessage_smallImageIconUrl :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+aDMMessage_smallImageIconUrl :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_smallImageIconUrl = Lens.lens (\ADMMessage' {smallImageIconUrl} -> smallImageIconUrl) (\s@ADMMessage' {} a -> s {smallImageIconUrl = a} :: ADMMessage)
 
 -- | The raw, JSON-formatted string to use as the payload for the
 -- notification message. If specified, this value overrides all other
 -- content for the message.
-aDMMessage_rawContent :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+aDMMessage_rawContent :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_rawContent = Lens.lens (\ADMMessage' {rawContent} -> rawContent) (\s@ADMMessage' {} a -> s {rawContent = a} :: ADMMessage)
 
-instance Core.Hashable ADMMessage
+instance Prelude.Hashable ADMMessage
 
-instance Core.NFData ADMMessage
+instance Prelude.NFData ADMMessage
 
 instance Core.ToJSON ADMMessage where
   toJSON ADMMessage' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SilentPush" Core..=) Core.<$> silentPush,
-            ("ImageIconUrl" Core..=) Core.<$> imageIconUrl,
-            ("ExpiresAfter" Core..=) Core.<$> expiresAfter,
-            ("Data" Core..=) Core.<$> data',
-            ("Title" Core..=) Core.<$> title,
-            ("IconReference" Core..=) Core.<$> iconReference,
-            ("Body" Core..=) Core.<$> body,
+      ( Prelude.catMaybes
+          [ ("SilentPush" Core..=) Prelude.<$> silentPush,
+            ("ImageIconUrl" Core..=) Prelude.<$> imageIconUrl,
+            ("ExpiresAfter" Core..=) Prelude.<$> expiresAfter,
+            ("Data" Core..=) Prelude.<$> data',
+            ("Title" Core..=) Prelude.<$> title,
+            ("IconReference" Core..=) Prelude.<$> iconReference,
+            ("Body" Core..=) Prelude.<$> body,
             ("ConsolidationKey" Core..=)
-              Core.<$> consolidationKey,
-            ("Substitutions" Core..=) Core.<$> substitutions,
-            ("ImageUrl" Core..=) Core.<$> imageUrl,
-            ("MD5" Core..=) Core.<$> md5,
-            ("Action" Core..=) Core.<$> action,
-            ("Sound" Core..=) Core.<$> sound,
-            ("Url" Core..=) Core.<$> url,
+              Prelude.<$> consolidationKey,
+            ("Substitutions" Core..=) Prelude.<$> substitutions,
+            ("ImageUrl" Core..=) Prelude.<$> imageUrl,
+            ("MD5" Core..=) Prelude.<$> md5,
+            ("Action" Core..=) Prelude.<$> action,
+            ("Sound" Core..=) Prelude.<$> sound,
+            ("Url" Core..=) Prelude.<$> url,
             ("SmallImageIconUrl" Core..=)
-              Core.<$> smallImageIconUrl,
-            ("RawContent" Core..=) Core.<$> rawContent
+              Prelude.<$> smallImageIconUrl,
+            ("RawContent" Core..=) Prelude.<$> rawContent
           ]
       )

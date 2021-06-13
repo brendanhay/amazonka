@@ -22,17 +22,18 @@ module Network.AWS.Polly.Types.LexiconDescription where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Polly.Types.LexiconAttributes
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the content of the lexicon.
 --
 -- /See:/ 'newLexiconDescription' smart constructor.
 data LexiconDescription = LexiconDescription'
   { -- | Provides lexicon metadata.
-    attributes :: Core.Maybe LexiconAttributes,
+    attributes :: Prelude.Maybe LexiconAttributes,
     -- | Name of the lexicon.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LexiconDescription' with all optional fields omitted.
@@ -49,16 +50,16 @@ newLexiconDescription ::
   LexiconDescription
 newLexiconDescription =
   LexiconDescription'
-    { attributes = Core.Nothing,
-      name = Core.Nothing
+    { attributes = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | Provides lexicon metadata.
-lexiconDescription_attributes :: Lens.Lens' LexiconDescription (Core.Maybe LexiconAttributes)
+lexiconDescription_attributes :: Lens.Lens' LexiconDescription (Prelude.Maybe LexiconAttributes)
 lexiconDescription_attributes = Lens.lens (\LexiconDescription' {attributes} -> attributes) (\s@LexiconDescription' {} a -> s {attributes = a} :: LexiconDescription)
 
 -- | Name of the lexicon.
-lexiconDescription_name :: Lens.Lens' LexiconDescription (Core.Maybe Core.Text)
+lexiconDescription_name :: Lens.Lens' LexiconDescription (Prelude.Maybe Prelude.Text)
 lexiconDescription_name = Lens.lens (\LexiconDescription' {name} -> name) (\s@LexiconDescription' {} a -> s {name = a} :: LexiconDescription)
 
 instance Core.FromJSON LexiconDescription where
@@ -67,10 +68,10 @@ instance Core.FromJSON LexiconDescription where
       "LexiconDescription"
       ( \x ->
           LexiconDescription'
-            Core.<$> (x Core..:? "Attributes")
-            Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Attributes")
+            Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable LexiconDescription
+instance Prelude.Hashable LexiconDescription
 
-instance Core.NFData LexiconDescription
+instance Prelude.NFData LexiconDescription

@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.FleetCapacityReservationUsageStrategy
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the strategy for using unused Capacity Reservations for
 -- fulfilling On-Demand capacity.
@@ -52,9 +53,9 @@ data CapacityReservationOptionsRequest = CapacityReservationOptionsRequest'
     --
     -- If you do not specify a value, the fleet fulfils the On-Demand capacity
     -- according to the chosen On-Demand allocation strategy.
-    usageStrategy :: Core.Maybe FleetCapacityReservationUsageStrategy
+    usageStrategy :: Prelude.Maybe FleetCapacityReservationUsageStrategy
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CapacityReservationOptionsRequest' with all optional fields omitted.
@@ -83,7 +84,7 @@ newCapacityReservationOptionsRequest ::
 newCapacityReservationOptionsRequest =
   CapacityReservationOptionsRequest'
     { usageStrategy =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Indicates whether to use unused Capacity Reservations for fulfilling
@@ -100,15 +101,15 @@ newCapacityReservationOptionsRequest =
 --
 -- If you do not specify a value, the fleet fulfils the On-Demand capacity
 -- according to the chosen On-Demand allocation strategy.
-capacityReservationOptionsRequest_usageStrategy :: Lens.Lens' CapacityReservationOptionsRequest (Core.Maybe FleetCapacityReservationUsageStrategy)
+capacityReservationOptionsRequest_usageStrategy :: Lens.Lens' CapacityReservationOptionsRequest (Prelude.Maybe FleetCapacityReservationUsageStrategy)
 capacityReservationOptionsRequest_usageStrategy = Lens.lens (\CapacityReservationOptionsRequest' {usageStrategy} -> usageStrategy) (\s@CapacityReservationOptionsRequest' {} a -> s {usageStrategy = a} :: CapacityReservationOptionsRequest)
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     CapacityReservationOptionsRequest
 
 instance
-  Core.NFData
+  Prelude.NFData
     CapacityReservationOptionsRequest
 
 instance
@@ -116,5 +117,5 @@ instance
     CapacityReservationOptionsRequest
   where
   toQuery CapacityReservationOptionsRequest' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["UsageStrategy" Core.=: usageStrategy]

@@ -724,6 +724,7 @@ import Network.AWS.GameLift.Types.VpcPeeringAuthorization
 import Network.AWS.GameLift.Types.VpcPeeringConnection
 import Network.AWS.GameLift.Types.VpcPeeringConnectionStatus
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-10-01@ of the Amazon GameLift SDK configuration.
@@ -737,7 +738,7 @@ defaultService =
       Core._serviceVersion = "2015-10-01",
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
-      Core._serviceTimeout = Core.Just 70,
+      Core._serviceTimeout = Prelude.Just 70,
       Core._serviceCheck = Core.statusSuccess,
       Core._serviceError = Core.parseJSONError "GameLift",
       Core._serviceRetry = retry
@@ -752,51 +753,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 504) e =
-        Core.Just "gateway_timeout"
+        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throughput_exceeded"
+        Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 503) e =
-        Core.Just "service_unavailable"
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 502) e =
-        Core.Just "bad_gateway"
+        Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 429) e =
-        Core.Just "too_many_requests"
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "request_throttled_exception"
+        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttled_exception"
+        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 509) e =
-        Core.Just "limit_exceeded"
+        Prelude.Just "limit_exceeded"
       | Lens.has (Core.hasStatus 500) e =
-        Core.Just "general_server_error"
+        Prelude.Just "general_server_error"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
-              Core.. Core.hasStatus 400
+              Prelude.. Core.hasStatus 400
           )
           e =
-        Core.Just "throttling_exception"
+        Prelude.Just "throttling_exception"
       | Lens.has
-          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
           e =
-        Core.Just "throttling"
-      | Core.otherwise = Core.Nothing
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | A service resource associated with the request could not be found.
 -- Clients should not retry such requests.
-_NotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -805,7 +808,7 @@ _NotFoundException =
 -- | The specified game server group has no available game servers to fulfill
 -- a @ClaimGameServer@ request. Clients can retry such requests immediately
 -- or after a waiting period.
-_OutOfCapacityException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_OutOfCapacityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _OutOfCapacityException =
   Core._MatchServiceError
     defaultService
@@ -814,7 +817,7 @@ _OutOfCapacityException =
 -- | The requested tagging operation did not succeed. This may be due to
 -- invalid tag format or the maximum tag limit may have been exceeded.
 -- Resolve the issue before retrying.
-_TaggingFailedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TaggingFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TaggingFailedException =
   Core._MatchServiceError
     defaultService
@@ -823,7 +826,7 @@ _TaggingFailedException =
 -- | The specified fleet has no available instances to fulfill a
 -- @CreateGameSession@ request. Clients can retry such requests immediately
 -- or after a waiting period.
-_FleetCapacityExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_FleetCapacityExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _FleetCapacityExceededException =
   Core._MatchServiceError
     defaultService
@@ -831,7 +834,7 @@ _FleetCapacityExceededException =
 
 -- | The client failed authentication. Clients should not retry such
 -- requests.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnauthorizedException =
   Core._MatchServiceError
     defaultService
@@ -840,7 +843,7 @@ _UnauthorizedException =
 -- | The service encountered an unrecoverable internal failure while
 -- processing the request. Clients can retry such requests immediately or
 -- after a waiting period.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServiceException =
   Core._MatchServiceError
     defaultService
@@ -849,7 +852,7 @@ _InternalServiceException =
 -- | The requested operation would cause a conflict with the current state of
 -- a resource associated with the request and\/or the game instance.
 -- Resolve the conflict before retrying.
-_InvalidGameSessionStatusException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidGameSessionStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidGameSessionStatusException =
   Core._MatchServiceError
     defaultService
@@ -857,7 +860,7 @@ _InvalidGameSessionStatusException =
 
 -- | One or more parameter values in the request are invalid. Correct the
 -- invalid parameter values before retrying.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -868,7 +871,7 @@ _InvalidRequestException =
 -- message returned in this exception is the message defined in the routing
 -- strategy itself. Such requests should only be retried if the routing
 -- strategy for the specified alias is modified.
-_TerminalRoutingStrategyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TerminalRoutingStrategyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TerminalRoutingStrategyException =
   Core._MatchServiceError
     defaultService
@@ -877,7 +880,7 @@ _TerminalRoutingStrategyException =
 -- | The game instance is currently full and cannot allow the requested
 -- player(s) to join. Clients can retry such requests immediately or after
 -- a waiting period.
-_GameSessionFullException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_GameSessionFullException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _GameSessionFullException =
   Core._MatchServiceError
     defaultService
@@ -886,7 +889,7 @@ _GameSessionFullException =
 -- | The requested operation would cause a conflict with the current state of
 -- a resource associated with the request and\/or the fleet. Resolve the
 -- conflict before retrying.
-_InvalidFleetStatusException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidFleetStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidFleetStatusException =
   Core._MatchServiceError
     defaultService
@@ -894,7 +897,7 @@ _InvalidFleetStatusException =
 
 -- | The requested operation would cause the resource to exceed the allowed
 -- service limit. Resolve the issue before retrying.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -903,7 +906,7 @@ _LimitExceededException =
 -- | The requested operation would cause a conflict with the current state of
 -- a service resource associated with the request. Resolve the conflict
 -- before retrying this request.
-_ConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -911,14 +914,14 @@ _ConflictException =
 
 -- | A game session with this custom ID string already exists in this fleet.
 -- Resolve this conflict before retrying this request.
-_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _IdempotentParameterMismatchException =
   Core._MatchServiceError
     defaultService
     "IdempotentParameterMismatchException"
 
 -- | The requested operation is not supported in the Region specified.
-_UnsupportedRegionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnsupportedRegionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedRegionException =
   Core._MatchServiceError
     defaultService

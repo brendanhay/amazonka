@@ -42,15 +42,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteCodeSigningConfig' smart constructor.
 data DeleteCodeSigningConfig = DeleteCodeSigningConfig'
   { -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-    codeSigningConfigArn :: Core.Text
+    codeSigningConfigArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCodeSigningConfig' with all optional fields omitted.
@@ -63,7 +64,7 @@ data DeleteCodeSigningConfig = DeleteCodeSigningConfig'
 -- 'codeSigningConfigArn', 'deleteCodeSigningConfig_codeSigningConfigArn' - The The Amazon Resource Name (ARN) of the code signing configuration.
 newDeleteCodeSigningConfig ::
   -- | 'codeSigningConfigArn'
-  Core.Text ->
+  Prelude.Text ->
   DeleteCodeSigningConfig
 newDeleteCodeSigningConfig pCodeSigningConfigArn_ =
   DeleteCodeSigningConfig'
@@ -72,7 +73,7 @@ newDeleteCodeSigningConfig pCodeSigningConfigArn_ =
     }
 
 -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-deleteCodeSigningConfig_codeSigningConfigArn :: Lens.Lens' DeleteCodeSigningConfig Core.Text
+deleteCodeSigningConfig_codeSigningConfigArn :: Lens.Lens' DeleteCodeSigningConfig Prelude.Text
 deleteCodeSigningConfig_codeSigningConfigArn = Lens.lens (\DeleteCodeSigningConfig' {codeSigningConfigArn} -> codeSigningConfigArn) (\s@DeleteCodeSigningConfig' {} a -> s {codeSigningConfigArn = a} :: DeleteCodeSigningConfig)
 
 instance Core.AWSRequest DeleteCodeSigningConfig where
@@ -84,32 +85,32 @@ instance Core.AWSRequest DeleteCodeSigningConfig where
     Response.receiveEmpty
       ( \s h x ->
           DeleteCodeSigningConfigResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteCodeSigningConfig
+instance Prelude.Hashable DeleteCodeSigningConfig
 
-instance Core.NFData DeleteCodeSigningConfig
+instance Prelude.NFData DeleteCodeSigningConfig
 
 instance Core.ToHeaders DeleteCodeSigningConfig where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteCodeSigningConfig where
   toPath DeleteCodeSigningConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-04-22/code-signing-configs/",
         Core.toBS codeSigningConfigArn
       ]
 
 instance Core.ToQuery DeleteCodeSigningConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCodeSigningConfigResponse' smart constructor.
 data DeleteCodeSigningConfigResponse = DeleteCodeSigningConfigResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCodeSigningConfigResponse' with all optional fields omitted.
@@ -122,7 +123,7 @@ data DeleteCodeSigningConfigResponse = DeleteCodeSigningConfigResponse'
 -- 'httpStatus', 'deleteCodeSigningConfigResponse_httpStatus' - The response's http status code.
 newDeleteCodeSigningConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteCodeSigningConfigResponse
 newDeleteCodeSigningConfigResponse pHttpStatus_ =
   DeleteCodeSigningConfigResponse'
@@ -131,7 +132,9 @@ newDeleteCodeSigningConfigResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteCodeSigningConfigResponse_httpStatus :: Lens.Lens' DeleteCodeSigningConfigResponse Core.Int
+deleteCodeSigningConfigResponse_httpStatus :: Lens.Lens' DeleteCodeSigningConfigResponse Prelude.Int
 deleteCodeSigningConfigResponse_httpStatus = Lens.lens (\DeleteCodeSigningConfigResponse' {httpStatus} -> httpStatus) (\s@DeleteCodeSigningConfigResponse' {} a -> s {httpStatus = a} :: DeleteCodeSigningConfigResponse)
 
-instance Core.NFData DeleteCodeSigningConfigResponse
+instance
+  Prelude.NFData
+    DeleteCodeSigningConfigResponse

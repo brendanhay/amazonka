@@ -21,17 +21,18 @@ module Network.AWS.DirectoryService.Types.Attribute where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a named directory attribute.
 --
 -- /See:/ 'newAttribute' smart constructor.
 data Attribute = Attribute'
   { -- | The name of the attribute.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The value of the attribute.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Attribute' with all optional fields omitted.
@@ -48,16 +49,16 @@ newAttribute ::
   Attribute
 newAttribute =
   Attribute'
-    { name = Core.Nothing,
-      value = Core.Nothing
+    { name = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The name of the attribute.
-attribute_name :: Lens.Lens' Attribute (Core.Maybe Core.Text)
+attribute_name :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_name = Lens.lens (\Attribute' {name} -> name) (\s@Attribute' {} a -> s {name = a} :: Attribute)
 
 -- | The value of the attribute.
-attribute_value :: Lens.Lens' Attribute (Core.Maybe Core.Text)
+attribute_value :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -> s {value = a} :: Attribute)
 
 instance Core.FromJSON Attribute where
@@ -66,18 +67,18 @@ instance Core.FromJSON Attribute where
       "Attribute"
       ( \x ->
           Attribute'
-            Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable Attribute
+instance Prelude.Hashable Attribute
 
-instance Core.NFData Attribute
+instance Prelude.NFData Attribute
 
 instance Core.ToJSON Attribute where
   toJSON Attribute' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Name" Core..=) Core.<$> name,
-            ("Value" Core..=) Core.<$> value
+      ( Prelude.catMaybes
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

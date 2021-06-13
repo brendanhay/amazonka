@@ -22,6 +22,7 @@ import Network.AWS.CloudFormation.Lens
 import Network.AWS.CloudFormation.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.CloudFormation.DescribeChangeSet' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newChangeSetCreateComplete :: Core.Wait DescribeChangeSet
@@ -36,13 +37,13 @@ newChangeSetCreateComplete =
             "CREATE_COMPLETE"
             Core.AcceptSuccess
             ( describeChangeSetResponse_status
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
             ( describeChangeSetResponse_status
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ValidationError"
@@ -63,40 +64,40 @@ newStackRollbackComplete =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "UPDATE_FAILED"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "UPDATE_ROLLBACK_FAILED"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "DELETE_FAILED"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ValidationError"
@@ -117,10 +118,10 @@ newStackDeleteComplete =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError "ValidationError" Core.AcceptSuccess,
           Core.matchAny
@@ -128,60 +129,60 @@ newStackDeleteComplete =
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "CREATE_FAILED"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "ROLLBACK_FAILED"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "UPDATE_ROLLBACK_IN_PROGRESS"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "UPDATE_ROLLBACK_FAILED"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "UPDATE_ROLLBACK_COMPLETE"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -212,40 +213,40 @@ newStackUpdateComplete =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "UPDATE_FAILED"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "UPDATE_ROLLBACK_FAILED"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "UPDATE_ROLLBACK_COMPLETE"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ValidationError"
@@ -266,60 +267,60 @@ newStackCreateComplete =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "CREATE_FAILED"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "DELETE_COMPLETE"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "DELETE_FAILED"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "ROLLBACK_FAILED"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "ROLLBACK_COMPLETE"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ValidationError"
@@ -340,15 +341,15 @@ newTypeRegistrationComplete =
             "COMPLETE"
             Core.AcceptSuccess
             ( describeTypeRegistrationResponse_progressStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
             ( describeTypeRegistrationResponse_progressStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -366,60 +367,60 @@ newStackImportComplete =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "ROLLBACK_COMPLETE"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "ROLLBACK_FAILED"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "IMPORT_ROLLBACK_IN_PROGRESS"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "IMPORT_ROLLBACK_FAILED"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "IMPORT_ROLLBACK_COMPLETE"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeStacksResponse_stacks Core.. Lens._Just)
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
                 )
-                Core.. stack_stackStatus
-                Core.. Lens.to Core.toTextCI
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ValidationError"

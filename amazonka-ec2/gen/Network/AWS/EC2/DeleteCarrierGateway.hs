@@ -48,6 +48,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +58,11 @@ data DeleteCarrierGateway = DeleteCarrierGateway'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the carrier gateway.
-    carrierGatewayId :: Core.Text
+    carrierGatewayId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCarrierGateway' with all optional fields omitted.
@@ -79,11 +80,11 @@ data DeleteCarrierGateway = DeleteCarrierGateway'
 -- 'carrierGatewayId', 'deleteCarrierGateway_carrierGatewayId' - The ID of the carrier gateway.
 newDeleteCarrierGateway ::
   -- | 'carrierGatewayId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteCarrierGateway
 newDeleteCarrierGateway pCarrierGatewayId_ =
   DeleteCarrierGateway'
-    { dryRun = Core.Nothing,
+    { dryRun = Prelude.Nothing,
       carrierGatewayId = pCarrierGatewayId_
     }
 
@@ -91,11 +92,11 @@ newDeleteCarrierGateway pCarrierGatewayId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteCarrierGateway_dryRun :: Lens.Lens' DeleteCarrierGateway (Core.Maybe Core.Bool)
+deleteCarrierGateway_dryRun :: Lens.Lens' DeleteCarrierGateway (Prelude.Maybe Prelude.Bool)
 deleteCarrierGateway_dryRun = Lens.lens (\DeleteCarrierGateway' {dryRun} -> dryRun) (\s@DeleteCarrierGateway' {} a -> s {dryRun = a} :: DeleteCarrierGateway)
 
 -- | The ID of the carrier gateway.
-deleteCarrierGateway_carrierGatewayId :: Lens.Lens' DeleteCarrierGateway Core.Text
+deleteCarrierGateway_carrierGatewayId :: Lens.Lens' DeleteCarrierGateway Prelude.Text
 deleteCarrierGateway_carrierGatewayId = Lens.lens (\DeleteCarrierGateway' {carrierGatewayId} -> carrierGatewayId) (\s@DeleteCarrierGateway' {} a -> s {carrierGatewayId = a} :: DeleteCarrierGateway)
 
 instance Core.AWSRequest DeleteCarrierGateway where
@@ -107,26 +108,27 @@ instance Core.AWSRequest DeleteCarrierGateway where
     Response.receiveXML
       ( \s h x ->
           DeleteCarrierGatewayResponse'
-            Core.<$> (x Core..@? "carrierGateway")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "carrierGateway")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteCarrierGateway
+instance Prelude.Hashable DeleteCarrierGateway
 
-instance Core.NFData DeleteCarrierGateway
+instance Prelude.NFData DeleteCarrierGateway
 
 instance Core.ToHeaders DeleteCarrierGateway where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteCarrierGateway where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteCarrierGateway where
   toQuery DeleteCarrierGateway' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteCarrierGateway" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("DeleteCarrierGateway" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "CarrierGatewayId" Core.=: carrierGatewayId
       ]
@@ -134,11 +136,11 @@ instance Core.ToQuery DeleteCarrierGateway where
 -- | /See:/ 'newDeleteCarrierGatewayResponse' smart constructor.
 data DeleteCarrierGatewayResponse = DeleteCarrierGatewayResponse'
   { -- | Information about the carrier gateway.
-    carrierGateway :: Core.Maybe CarrierGateway,
+    carrierGateway :: Prelude.Maybe CarrierGateway,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteCarrierGatewayResponse' with all optional fields omitted.
@@ -153,21 +155,21 @@ data DeleteCarrierGatewayResponse = DeleteCarrierGatewayResponse'
 -- 'httpStatus', 'deleteCarrierGatewayResponse_httpStatus' - The response's http status code.
 newDeleteCarrierGatewayResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteCarrierGatewayResponse
 newDeleteCarrierGatewayResponse pHttpStatus_ =
   DeleteCarrierGatewayResponse'
     { carrierGateway =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the carrier gateway.
-deleteCarrierGatewayResponse_carrierGateway :: Lens.Lens' DeleteCarrierGatewayResponse (Core.Maybe CarrierGateway)
+deleteCarrierGatewayResponse_carrierGateway :: Lens.Lens' DeleteCarrierGatewayResponse (Prelude.Maybe CarrierGateway)
 deleteCarrierGatewayResponse_carrierGateway = Lens.lens (\DeleteCarrierGatewayResponse' {carrierGateway} -> carrierGateway) (\s@DeleteCarrierGatewayResponse' {} a -> s {carrierGateway = a} :: DeleteCarrierGatewayResponse)
 
 -- | The response's http status code.
-deleteCarrierGatewayResponse_httpStatus :: Lens.Lens' DeleteCarrierGatewayResponse Core.Int
+deleteCarrierGatewayResponse_httpStatus :: Lens.Lens' DeleteCarrierGatewayResponse Prelude.Int
 deleteCarrierGatewayResponse_httpStatus = Lens.lens (\DeleteCarrierGatewayResponse' {httpStatus} -> httpStatus) (\s@DeleteCarrierGatewayResponse' {} a -> s {httpStatus = a} :: DeleteCarrierGatewayResponse)
 
-instance Core.NFData DeleteCarrierGatewayResponse
+instance Prelude.NFData DeleteCarrierGatewayResponse

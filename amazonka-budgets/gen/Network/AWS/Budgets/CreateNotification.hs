@@ -45,6 +45,7 @@ where
 import Network.AWS.Budgets.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,18 +55,18 @@ import qualified Network.AWS.Response as Response
 data CreateNotification = CreateNotification'
   { -- | The @accountId@ that is associated with the budget that you want to
     -- create a notification for.
-    accountId :: Core.Text,
+    accountId :: Prelude.Text,
     -- | The name of the budget that you want AWS to notify you about. Budget
     -- names must be unique within an account.
-    budgetName :: Core.Text,
+    budgetName :: Prelude.Text,
     -- | The notification that you want to create.
     notification :: Notification,
     -- | A list of subscribers that you want to associate with the notification.
     -- Each notification can have one SNS subscriber and up to 10 email
     -- subscribers.
-    subscribers :: Core.NonEmpty Subscriber
+    subscribers :: Prelude.NonEmpty Subscriber
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateNotification' with all optional fields omitted.
@@ -88,13 +89,13 @@ data CreateNotification = CreateNotification'
 -- subscribers.
 newCreateNotification ::
   -- | 'accountId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'budgetName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'notification'
   Notification ->
   -- | 'subscribers'
-  Core.NonEmpty Subscriber ->
+  Prelude.NonEmpty Subscriber ->
   CreateNotification
 newCreateNotification
   pAccountId_
@@ -110,12 +111,12 @@ newCreateNotification
 
 -- | The @accountId@ that is associated with the budget that you want to
 -- create a notification for.
-createNotification_accountId :: Lens.Lens' CreateNotification Core.Text
+createNotification_accountId :: Lens.Lens' CreateNotification Prelude.Text
 createNotification_accountId = Lens.lens (\CreateNotification' {accountId} -> accountId) (\s@CreateNotification' {} a -> s {accountId = a} :: CreateNotification)
 
 -- | The name of the budget that you want AWS to notify you about. Budget
 -- names must be unique within an account.
-createNotification_budgetName :: Lens.Lens' CreateNotification Core.Text
+createNotification_budgetName :: Lens.Lens' CreateNotification Prelude.Text
 createNotification_budgetName = Lens.lens (\CreateNotification' {budgetName} -> budgetName) (\s@CreateNotification' {} a -> s {budgetName = a} :: CreateNotification)
 
 -- | The notification that you want to create.
@@ -125,8 +126,8 @@ createNotification_notification = Lens.lens (\CreateNotification' {notification}
 -- | A list of subscribers that you want to associate with the notification.
 -- Each notification can have one SNS subscriber and up to 10 email
 -- subscribers.
-createNotification_subscribers :: Lens.Lens' CreateNotification (Core.NonEmpty Subscriber)
-createNotification_subscribers = Lens.lens (\CreateNotification' {subscribers} -> subscribers) (\s@CreateNotification' {} a -> s {subscribers = a} :: CreateNotification) Core.. Lens._Coerce
+createNotification_subscribers :: Lens.Lens' CreateNotification (Prelude.NonEmpty Subscriber)
+createNotification_subscribers = Lens.lens (\CreateNotification' {subscribers} -> subscribers) (\s@CreateNotification' {} a -> s {subscribers = a} :: CreateNotification) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateNotification where
   type
@@ -137,51 +138,53 @@ instance Core.AWSRequest CreateNotification where
     Response.receiveEmpty
       ( \s h x ->
           CreateNotificationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateNotification
+instance Prelude.Hashable CreateNotification
 
-instance Core.NFData CreateNotification
+instance Prelude.NFData CreateNotification
 
 instance Core.ToHeaders CreateNotification where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSBudgetServiceGateway.CreateNotification" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateNotification where
   toJSON CreateNotification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("AccountId" Core..= accountId),
-            Core.Just ("BudgetName" Core..= budgetName),
-            Core.Just ("Notification" Core..= notification),
-            Core.Just ("Subscribers" Core..= subscribers)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("AccountId" Core..= accountId),
+            Prelude.Just ("BudgetName" Core..= budgetName),
+            Prelude.Just ("Notification" Core..= notification),
+            Prelude.Just ("Subscribers" Core..= subscribers)
           ]
       )
 
 instance Core.ToPath CreateNotification where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateNotification where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Response of CreateNotification
 --
 -- /See:/ 'newCreateNotificationResponse' smart constructor.
 data CreateNotificationResponse = CreateNotificationResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateNotificationResponse' with all optional fields omitted.
@@ -194,7 +197,7 @@ data CreateNotificationResponse = CreateNotificationResponse'
 -- 'httpStatus', 'createNotificationResponse_httpStatus' - The response's http status code.
 newCreateNotificationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateNotificationResponse
 newCreateNotificationResponse pHttpStatus_ =
   CreateNotificationResponse'
@@ -203,7 +206,7 @@ newCreateNotificationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createNotificationResponse_httpStatus :: Lens.Lens' CreateNotificationResponse Core.Int
+createNotificationResponse_httpStatus :: Lens.Lens' CreateNotificationResponse Prelude.Int
 createNotificationResponse_httpStatus = Lens.lens (\CreateNotificationResponse' {httpStatus} -> httpStatus) (\s@CreateNotificationResponse' {} a -> s {httpStatus = a} :: CreateNotificationResponse)
 
-instance Core.NFData CreateNotificationResponse
+instance Prelude.NFData CreateNotificationResponse

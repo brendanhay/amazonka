@@ -21,6 +21,7 @@ module Network.AWS.ECS.Types.SystemControl where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of namespaced kernel parameters to set in the container. This
 -- parameter maps to @Sysctls@ in the
@@ -48,11 +49,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSystemControl' smart constructor.
 data SystemControl = SystemControl'
   { -- | The namespaced kernel parameter for which to set a @value@.
-    namespace :: Core.Maybe Core.Text,
+    namespace :: Prelude.Maybe Prelude.Text,
     -- | The value for the namespaced kernel parameter specified in @namespace@.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SystemControl' with all optional fields omitted.
@@ -69,16 +70,16 @@ newSystemControl ::
   SystemControl
 newSystemControl =
   SystemControl'
-    { namespace = Core.Nothing,
-      value = Core.Nothing
+    { namespace = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The namespaced kernel parameter for which to set a @value@.
-systemControl_namespace :: Lens.Lens' SystemControl (Core.Maybe Core.Text)
+systemControl_namespace :: Lens.Lens' SystemControl (Prelude.Maybe Prelude.Text)
 systemControl_namespace = Lens.lens (\SystemControl' {namespace} -> namespace) (\s@SystemControl' {} a -> s {namespace = a} :: SystemControl)
 
 -- | The value for the namespaced kernel parameter specified in @namespace@.
-systemControl_value :: Lens.Lens' SystemControl (Core.Maybe Core.Text)
+systemControl_value :: Lens.Lens' SystemControl (Prelude.Maybe Prelude.Text)
 systemControl_value = Lens.lens (\SystemControl' {value} -> value) (\s@SystemControl' {} a -> s {value = a} :: SystemControl)
 
 instance Core.FromJSON SystemControl where
@@ -87,19 +88,19 @@ instance Core.FromJSON SystemControl where
       "SystemControl"
       ( \x ->
           SystemControl'
-            Core.<$> (x Core..:? "namespace")
-            Core.<*> (x Core..:? "value")
+            Prelude.<$> (x Core..:? "namespace")
+            Prelude.<*> (x Core..:? "value")
       )
 
-instance Core.Hashable SystemControl
+instance Prelude.Hashable SystemControl
 
-instance Core.NFData SystemControl
+instance Prelude.NFData SystemControl
 
 instance Core.ToJSON SystemControl where
   toJSON SystemControl' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("namespace" Core..=) Core.<$> namespace,
-            ("value" Core..=) Core.<$> value
+      ( Prelude.catMaybes
+          [ ("namespace" Core..=) Prelude.<$> namespace,
+            ("value" Core..=) Prelude.<$> value
           ]
       )

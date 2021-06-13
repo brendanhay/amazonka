@@ -51,22 +51,23 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeListeners' smart constructor.
 data DescribeListeners = DescribeListeners'
   { -- | The Amazon Resource Name (ARN) of the load balancer.
-    loadBalancerArn :: Core.Maybe Core.Text,
+    loadBalancerArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return with this call.
-    pageSize :: Core.Maybe Core.Natural,
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Names (ARN) of the listeners.
-    listenerArns :: Core.Maybe [Core.Text],
+    listenerArns :: Prelude.Maybe [Prelude.Text],
     -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
-    marker :: Core.Maybe Core.Text
+    marker :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeListeners' with all optional fields omitted.
@@ -88,27 +89,28 @@ newDescribeListeners ::
   DescribeListeners
 newDescribeListeners =
   DescribeListeners'
-    { loadBalancerArn = Core.Nothing,
-      pageSize = Core.Nothing,
-      listenerArns = Core.Nothing,
-      marker = Core.Nothing
+    { loadBalancerArn =
+        Prelude.Nothing,
+      pageSize = Prelude.Nothing,
+      listenerArns = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
-describeListeners_loadBalancerArn :: Lens.Lens' DescribeListeners (Core.Maybe Core.Text)
+describeListeners_loadBalancerArn :: Lens.Lens' DescribeListeners (Prelude.Maybe Prelude.Text)
 describeListeners_loadBalancerArn = Lens.lens (\DescribeListeners' {loadBalancerArn} -> loadBalancerArn) (\s@DescribeListeners' {} a -> s {loadBalancerArn = a} :: DescribeListeners)
 
 -- | The maximum number of results to return with this call.
-describeListeners_pageSize :: Lens.Lens' DescribeListeners (Core.Maybe Core.Natural)
+describeListeners_pageSize :: Lens.Lens' DescribeListeners (Prelude.Maybe Prelude.Natural)
 describeListeners_pageSize = Lens.lens (\DescribeListeners' {pageSize} -> pageSize) (\s@DescribeListeners' {} a -> s {pageSize = a} :: DescribeListeners)
 
 -- | The Amazon Resource Names (ARN) of the listeners.
-describeListeners_listenerArns :: Lens.Lens' DescribeListeners (Core.Maybe [Core.Text])
-describeListeners_listenerArns = Lens.lens (\DescribeListeners' {listenerArns} -> listenerArns) (\s@DescribeListeners' {} a -> s {listenerArns = a} :: DescribeListeners) Core.. Lens.mapping Lens._Coerce
+describeListeners_listenerArns :: Lens.Lens' DescribeListeners (Prelude.Maybe [Prelude.Text])
+describeListeners_listenerArns = Lens.lens (\DescribeListeners' {listenerArns} -> listenerArns) (\s@DescribeListeners' {} a -> s {listenerArns = a} :: DescribeListeners) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
-describeListeners_marker :: Lens.Lens' DescribeListeners (Core.Maybe Core.Text)
+describeListeners_marker :: Lens.Lens' DescribeListeners (Prelude.Maybe Prelude.Text)
 describeListeners_marker = Lens.lens (\DescribeListeners' {marker} -> marker) (\s@DescribeListeners' {} a -> s {marker = a} :: DescribeListeners)
 
 instance Core.AWSPager DescribeListeners where
@@ -116,22 +118,22 @@ instance Core.AWSPager DescribeListeners where
     | Core.stop
         ( rs
             Lens.^? describeListenersResponse_nextMarker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeListenersResponse_listeners
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeListeners_marker
+          Prelude.& describeListeners_marker
           Lens..~ rs
           Lens.^? describeListenersResponse_nextMarker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeListeners where
   type
@@ -143,34 +145,35 @@ instance Core.AWSRequest DescribeListeners where
       "DescribeListenersResult"
       ( \s h x ->
           DescribeListenersResponse'
-            Core.<$> (x Core..@? "NextMarker")
-            Core.<*> ( x Core..@? "Listeners" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextMarker")
+            Prelude.<*> ( x Core..@? "Listeners" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeListeners
+instance Prelude.Hashable DescribeListeners
 
-instance Core.NFData DescribeListeners
+instance Prelude.NFData DescribeListeners
 
 instance Core.ToHeaders DescribeListeners where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeListeners where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeListeners where
   toQuery DescribeListeners' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeListeners" :: Core.ByteString),
-        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+          Core.=: ("DescribeListeners" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
         "LoadBalancerArn" Core.=: loadBalancerArn,
         "PageSize" Core.=: pageSize,
         "ListenerArns"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> listenerArns),
+            (Core.toQueryList "member" Prelude.<$> listenerArns),
         "Marker" Core.=: marker
       ]
 
@@ -178,13 +181,13 @@ instance Core.ToQuery DescribeListeners where
 data DescribeListenersResponse = DescribeListenersResponse'
   { -- | If there are additional results, this is the marker for the next set of
     -- results. Otherwise, this is null.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | Information about the listeners.
-    listeners :: Core.Maybe [Listener],
+    listeners :: Prelude.Maybe [Listener],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeListenersResponse' with all optional fields omitted.
@@ -202,27 +205,27 @@ data DescribeListenersResponse = DescribeListenersResponse'
 -- 'httpStatus', 'describeListenersResponse_httpStatus' - The response's http status code.
 newDescribeListenersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeListenersResponse
 newDescribeListenersResponse pHttpStatus_ =
   DescribeListenersResponse'
     { nextMarker =
-        Core.Nothing,
-      listeners = Core.Nothing,
+        Prelude.Nothing,
+      listeners = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the marker for the next set of
 -- results. Otherwise, this is null.
-describeListenersResponse_nextMarker :: Lens.Lens' DescribeListenersResponse (Core.Maybe Core.Text)
+describeListenersResponse_nextMarker :: Lens.Lens' DescribeListenersResponse (Prelude.Maybe Prelude.Text)
 describeListenersResponse_nextMarker = Lens.lens (\DescribeListenersResponse' {nextMarker} -> nextMarker) (\s@DescribeListenersResponse' {} a -> s {nextMarker = a} :: DescribeListenersResponse)
 
 -- | Information about the listeners.
-describeListenersResponse_listeners :: Lens.Lens' DescribeListenersResponse (Core.Maybe [Listener])
-describeListenersResponse_listeners = Lens.lens (\DescribeListenersResponse' {listeners} -> listeners) (\s@DescribeListenersResponse' {} a -> s {listeners = a} :: DescribeListenersResponse) Core.. Lens.mapping Lens._Coerce
+describeListenersResponse_listeners :: Lens.Lens' DescribeListenersResponse (Prelude.Maybe [Listener])
+describeListenersResponse_listeners = Lens.lens (\DescribeListenersResponse' {listeners} -> listeners) (\s@DescribeListenersResponse' {} a -> s {listeners = a} :: DescribeListenersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeListenersResponse_httpStatus :: Lens.Lens' DescribeListenersResponse Core.Int
+describeListenersResponse_httpStatus :: Lens.Lens' DescribeListenersResponse Prelude.Int
 describeListenersResponse_httpStatus = Lens.lens (\DescribeListenersResponse' {httpStatus} -> httpStatus) (\s@DescribeListenersResponse' {} a -> s {httpStatus = a} :: DescribeListenersResponse)
 
-instance Core.NFData DescribeListenersResponse
+instance Prelude.NFData DescribeListenersResponse

@@ -69,6 +69,7 @@ where
 import Network.AWS.CertificateManagerPCA.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -78,16 +79,16 @@ data PutPolicy = PutPolicy'
     -- policy. The ARN of the CA can be found by calling the
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
     -- action.
-    resourceArn :: Core.Text,
+    resourceArn :: Prelude.Text,
     -- | The path and file name of a JSON-formatted IAM policy to attach to the
     -- specified private CA resource. If this policy does not contain all
     -- required statements or if it includes any statement that is not allowed,
     -- the @PutPolicy@ action returns an @InvalidPolicyException@. For
     -- information about IAM policy and statement structure, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json Overview of JSON Policies>.
-    policy :: Core.Text
+    policy :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutPolicy' with all optional fields omitted.
@@ -110,9 +111,9 @@ data PutPolicy = PutPolicy'
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json Overview of JSON Policies>.
 newPutPolicy ::
   -- | 'resourceArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'policy'
-  Core.Text ->
+  Prelude.Text ->
   PutPolicy
 newPutPolicy pResourceArn_ pPolicy_ =
   PutPolicy'
@@ -124,7 +125,7 @@ newPutPolicy pResourceArn_ pPolicy_ =
 -- policy. The ARN of the CA can be found by calling the
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
 -- action.
-putPolicy_resourceArn :: Lens.Lens' PutPolicy Core.Text
+putPolicy_resourceArn :: Lens.Lens' PutPolicy Prelude.Text
 putPolicy_resourceArn = Lens.lens (\PutPolicy' {resourceArn} -> resourceArn) (\s@PutPolicy' {} a -> s {resourceArn = a} :: PutPolicy)
 
 -- | The path and file name of a JSON-formatted IAM policy to attach to the
@@ -133,7 +134,7 @@ putPolicy_resourceArn = Lens.lens (\PutPolicy' {resourceArn} -> resourceArn) (\s
 -- the @PutPolicy@ action returns an @InvalidPolicyException@. For
 -- information about IAM policy and statement structure, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json Overview of JSON Policies>.
-putPolicy_policy :: Lens.Lens' PutPolicy Core.Text
+putPolicy_policy :: Lens.Lens' PutPolicy Prelude.Text
 putPolicy_policy = Lens.lens (\PutPolicy' {policy} -> policy) (\s@PutPolicy' {} a -> s {policy = a} :: PutPolicy)
 
 instance Core.AWSRequest PutPolicy where
@@ -141,41 +142,43 @@ instance Core.AWSRequest PutPolicy where
   request = Request.postJSON defaultService
   response = Response.receiveNull PutPolicyResponse'
 
-instance Core.Hashable PutPolicy
+instance Prelude.Hashable PutPolicy
 
-instance Core.NFData PutPolicy
+instance Prelude.NFData PutPolicy
 
 instance Core.ToHeaders PutPolicy where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("ACMPrivateCA.PutPolicy" :: Core.ByteString),
+              Core.=# ("ACMPrivateCA.PutPolicy" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON PutPolicy where
   toJSON PutPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceArn" Core..= resourceArn),
-            Core.Just ("Policy" Core..= policy)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceArn" Core..= resourceArn),
+            Prelude.Just ("Policy" Core..= policy)
           ]
       )
 
 instance Core.ToPath PutPolicy where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery PutPolicy where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutPolicyResponse' smart constructor.
 data PutPolicyResponse = PutPolicyResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutPolicyResponse' with all optional fields omitted.
@@ -185,4 +188,4 @@ newPutPolicyResponse ::
   PutPolicyResponse
 newPutPolicyResponse = PutPolicyResponse'
 
-instance Core.NFData PutPolicyResponse
+instance Prelude.NFData PutPolicyResponse

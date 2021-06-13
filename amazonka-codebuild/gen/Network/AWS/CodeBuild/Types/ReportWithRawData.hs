@@ -21,17 +21,18 @@ module Network.AWS.CodeBuild.Types.ReportWithRawData where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the unmodified data for the report. For more information, see .
 --
 -- /See:/ 'newReportWithRawData' smart constructor.
 data ReportWithRawData = ReportWithRawData'
   { -- | The ARN of the report.
-    reportArn :: Core.Maybe Core.Text,
+    reportArn :: Prelude.Maybe Prelude.Text,
     -- | The value of the requested data field from the report.
-    data' :: Core.Maybe Core.Text
+    data' :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReportWithRawData' with all optional fields omitted.
@@ -48,16 +49,16 @@ newReportWithRawData ::
   ReportWithRawData
 newReportWithRawData =
   ReportWithRawData'
-    { reportArn = Core.Nothing,
-      data' = Core.Nothing
+    { reportArn = Prelude.Nothing,
+      data' = Prelude.Nothing
     }
 
 -- | The ARN of the report.
-reportWithRawData_reportArn :: Lens.Lens' ReportWithRawData (Core.Maybe Core.Text)
+reportWithRawData_reportArn :: Lens.Lens' ReportWithRawData (Prelude.Maybe Prelude.Text)
 reportWithRawData_reportArn = Lens.lens (\ReportWithRawData' {reportArn} -> reportArn) (\s@ReportWithRawData' {} a -> s {reportArn = a} :: ReportWithRawData)
 
 -- | The value of the requested data field from the report.
-reportWithRawData_data :: Lens.Lens' ReportWithRawData (Core.Maybe Core.Text)
+reportWithRawData_data :: Lens.Lens' ReportWithRawData (Prelude.Maybe Prelude.Text)
 reportWithRawData_data = Lens.lens (\ReportWithRawData' {data'} -> data') (\s@ReportWithRawData' {} a -> s {data' = a} :: ReportWithRawData)
 
 instance Core.FromJSON ReportWithRawData where
@@ -66,10 +67,10 @@ instance Core.FromJSON ReportWithRawData where
       "ReportWithRawData"
       ( \x ->
           ReportWithRawData'
-            Core.<$> (x Core..:? "reportArn")
-            Core.<*> (x Core..:? "data")
+            Prelude.<$> (x Core..:? "reportArn")
+            Prelude.<*> (x Core..:? "data")
       )
 
-instance Core.Hashable ReportWithRawData
+instance Prelude.Hashable ReportWithRawData
 
-instance Core.NFData ReportWithRawData
+instance Prelude.NFData ReportWithRawData

@@ -44,6 +44,7 @@ where
 import Network.AWS.AppStream.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +56,11 @@ data EnableUser = EnableUser'
     -- specify an email address that doesn\'t use the same capitalization as
     -- the email address specified when their user pool account was created, a
     -- \"user does not exist\" error message displays.
-    userName :: Core.Sensitive Core.Text,
+    userName :: Core.Sensitive Prelude.Text,
     -- | The authentication type for the user. You must specify USERPOOL.
     authenticationType :: AuthenticationType
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableUser' with all optional fields omitted.
@@ -79,7 +80,7 @@ data EnableUser = EnableUser'
 -- 'authenticationType', 'enableUser_authenticationType' - The authentication type for the user. You must specify USERPOOL.
 newEnableUser ::
   -- | 'userName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'authenticationType'
   AuthenticationType ->
   EnableUser
@@ -96,8 +97,8 @@ newEnableUser pUserName_ pAuthenticationType_ =
 -- specify an email address that doesn\'t use the same capitalization as
 -- the email address specified when their user pool account was created, a
 -- \"user does not exist\" error message displays.
-enableUser_userName :: Lens.Lens' EnableUser Core.Text
-enableUser_userName = Lens.lens (\EnableUser' {userName} -> userName) (\s@EnableUser' {} a -> s {userName = a} :: EnableUser) Core.. Core._Sensitive
+enableUser_userName :: Lens.Lens' EnableUser Prelude.Text
+enableUser_userName = Lens.lens (\EnableUser' {userName} -> userName) (\s@EnableUser' {} a -> s {userName = a} :: EnableUser) Prelude.. Core._Sensitive
 
 -- | The authentication type for the user. You must specify USERPOOL.
 enableUser_authenticationType :: Lens.Lens' EnableUser AuthenticationType
@@ -110,48 +111,50 @@ instance Core.AWSRequest EnableUser where
     Response.receiveEmpty
       ( \s h x ->
           EnableUserResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable EnableUser
+instance Prelude.Hashable EnableUser
 
-instance Core.NFData EnableUser
+instance Prelude.NFData EnableUser
 
 instance Core.ToHeaders EnableUser where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "PhotonAdminProxyService.EnableUser" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON EnableUser where
   toJSON EnableUser' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("UserName" Core..= userName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserName" Core..= userName),
+            Prelude.Just
               ("AuthenticationType" Core..= authenticationType)
           ]
       )
 
 instance Core.ToPath EnableUser where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery EnableUser where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableUserResponse' smart constructor.
 data EnableUserResponse = EnableUserResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EnableUserResponse' with all optional fields omitted.
@@ -164,13 +167,13 @@ data EnableUserResponse = EnableUserResponse'
 -- 'httpStatus', 'enableUserResponse_httpStatus' - The response's http status code.
 newEnableUserResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   EnableUserResponse
 newEnableUserResponse pHttpStatus_ =
   EnableUserResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-enableUserResponse_httpStatus :: Lens.Lens' EnableUserResponse Core.Int
+enableUserResponse_httpStatus :: Lens.Lens' EnableUserResponse Prelude.Int
 enableUserResponse_httpStatus = Lens.lens (\EnableUserResponse' {httpStatus} -> httpStatus) (\s@EnableUserResponse' {} a -> s {httpStatus = a} :: EnableUserResponse)
 
-instance Core.NFData EnableUserResponse
+instance Prelude.NFData EnableUserResponse

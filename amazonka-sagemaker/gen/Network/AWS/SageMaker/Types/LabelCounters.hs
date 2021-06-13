@@ -21,23 +21,24 @@ module Network.AWS.SageMaker.Types.LabelCounters where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides a breakdown of the number of objects labeled.
 --
 -- /See:/ 'newLabelCounters' smart constructor.
 data LabelCounters = LabelCounters'
   { -- | The total number of objects not yet labeled.
-    unlabeled :: Core.Maybe Core.Natural,
+    unlabeled :: Prelude.Maybe Prelude.Natural,
     -- | The total number of objects that could not be labeled due to an error.
-    failedNonRetryableError :: Core.Maybe Core.Natural,
+    failedNonRetryableError :: Prelude.Maybe Prelude.Natural,
     -- | The total number of objects labeled by automated data labeling.
-    machineLabeled :: Core.Maybe Core.Natural,
+    machineLabeled :: Prelude.Maybe Prelude.Natural,
     -- | The total number of objects labeled by a human worker.
-    humanLabeled :: Core.Maybe Core.Natural,
+    humanLabeled :: Prelude.Maybe Prelude.Natural,
     -- | The total number of objects labeled.
-    totalLabeled :: Core.Maybe Core.Natural
+    totalLabeled :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LabelCounters' with all optional fields omitted.
@@ -60,31 +61,31 @@ newLabelCounters ::
   LabelCounters
 newLabelCounters =
   LabelCounters'
-    { unlabeled = Core.Nothing,
-      failedNonRetryableError = Core.Nothing,
-      machineLabeled = Core.Nothing,
-      humanLabeled = Core.Nothing,
-      totalLabeled = Core.Nothing
+    { unlabeled = Prelude.Nothing,
+      failedNonRetryableError = Prelude.Nothing,
+      machineLabeled = Prelude.Nothing,
+      humanLabeled = Prelude.Nothing,
+      totalLabeled = Prelude.Nothing
     }
 
 -- | The total number of objects not yet labeled.
-labelCounters_unlabeled :: Lens.Lens' LabelCounters (Core.Maybe Core.Natural)
+labelCounters_unlabeled :: Lens.Lens' LabelCounters (Prelude.Maybe Prelude.Natural)
 labelCounters_unlabeled = Lens.lens (\LabelCounters' {unlabeled} -> unlabeled) (\s@LabelCounters' {} a -> s {unlabeled = a} :: LabelCounters)
 
 -- | The total number of objects that could not be labeled due to an error.
-labelCounters_failedNonRetryableError :: Lens.Lens' LabelCounters (Core.Maybe Core.Natural)
+labelCounters_failedNonRetryableError :: Lens.Lens' LabelCounters (Prelude.Maybe Prelude.Natural)
 labelCounters_failedNonRetryableError = Lens.lens (\LabelCounters' {failedNonRetryableError} -> failedNonRetryableError) (\s@LabelCounters' {} a -> s {failedNonRetryableError = a} :: LabelCounters)
 
 -- | The total number of objects labeled by automated data labeling.
-labelCounters_machineLabeled :: Lens.Lens' LabelCounters (Core.Maybe Core.Natural)
+labelCounters_machineLabeled :: Lens.Lens' LabelCounters (Prelude.Maybe Prelude.Natural)
 labelCounters_machineLabeled = Lens.lens (\LabelCounters' {machineLabeled} -> machineLabeled) (\s@LabelCounters' {} a -> s {machineLabeled = a} :: LabelCounters)
 
 -- | The total number of objects labeled by a human worker.
-labelCounters_humanLabeled :: Lens.Lens' LabelCounters (Core.Maybe Core.Natural)
+labelCounters_humanLabeled :: Lens.Lens' LabelCounters (Prelude.Maybe Prelude.Natural)
 labelCounters_humanLabeled = Lens.lens (\LabelCounters' {humanLabeled} -> humanLabeled) (\s@LabelCounters' {} a -> s {humanLabeled = a} :: LabelCounters)
 
 -- | The total number of objects labeled.
-labelCounters_totalLabeled :: Lens.Lens' LabelCounters (Core.Maybe Core.Natural)
+labelCounters_totalLabeled :: Lens.Lens' LabelCounters (Prelude.Maybe Prelude.Natural)
 labelCounters_totalLabeled = Lens.lens (\LabelCounters' {totalLabeled} -> totalLabeled) (\s@LabelCounters' {} a -> s {totalLabeled = a} :: LabelCounters)
 
 instance Core.FromJSON LabelCounters where
@@ -93,13 +94,13 @@ instance Core.FromJSON LabelCounters where
       "LabelCounters"
       ( \x ->
           LabelCounters'
-            Core.<$> (x Core..:? "Unlabeled")
-            Core.<*> (x Core..:? "FailedNonRetryableError")
-            Core.<*> (x Core..:? "MachineLabeled")
-            Core.<*> (x Core..:? "HumanLabeled")
-            Core.<*> (x Core..:? "TotalLabeled")
+            Prelude.<$> (x Core..:? "Unlabeled")
+            Prelude.<*> (x Core..:? "FailedNonRetryableError")
+            Prelude.<*> (x Core..:? "MachineLabeled")
+            Prelude.<*> (x Core..:? "HumanLabeled")
+            Prelude.<*> (x Core..:? "TotalLabeled")
       )
 
-instance Core.Hashable LabelCounters
+instance Prelude.Hashable LabelCounters
 
-instance Core.NFData LabelCounters
+instance Prelude.NFData LabelCounters

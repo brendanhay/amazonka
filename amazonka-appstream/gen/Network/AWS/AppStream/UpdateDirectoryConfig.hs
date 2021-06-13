@@ -46,6 +46,7 @@ where
 import Network.AWS.AppStream.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,14 +54,14 @@ import qualified Network.AWS.Response as Response
 data UpdateDirectoryConfig = UpdateDirectoryConfig'
   { -- | The credentials for the service account used by the fleet or image
     -- builder to connect to the directory.
-    serviceAccountCredentials :: Core.Maybe ServiceAccountCredentials,
+    serviceAccountCredentials :: Prelude.Maybe ServiceAccountCredentials,
     -- | The distinguished names of the organizational units for computer
     -- accounts.
-    organizationalUnitDistinguishedNames :: Core.Maybe [Core.Text],
+    organizationalUnitDistinguishedNames :: Prelude.Maybe [Prelude.Text],
     -- | The name of the Directory Config object.
-    directoryName :: Core.Text
+    directoryName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDirectoryConfig' with all optional fields omitted.
@@ -79,28 +80,29 @@ data UpdateDirectoryConfig = UpdateDirectoryConfig'
 -- 'directoryName', 'updateDirectoryConfig_directoryName' - The name of the Directory Config object.
 newUpdateDirectoryConfig ::
   -- | 'directoryName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateDirectoryConfig
 newUpdateDirectoryConfig pDirectoryName_ =
   UpdateDirectoryConfig'
     { serviceAccountCredentials =
-        Core.Nothing,
-      organizationalUnitDistinguishedNames = Core.Nothing,
+        Prelude.Nothing,
+      organizationalUnitDistinguishedNames =
+        Prelude.Nothing,
       directoryName = pDirectoryName_
     }
 
 -- | The credentials for the service account used by the fleet or image
 -- builder to connect to the directory.
-updateDirectoryConfig_serviceAccountCredentials :: Lens.Lens' UpdateDirectoryConfig (Core.Maybe ServiceAccountCredentials)
+updateDirectoryConfig_serviceAccountCredentials :: Lens.Lens' UpdateDirectoryConfig (Prelude.Maybe ServiceAccountCredentials)
 updateDirectoryConfig_serviceAccountCredentials = Lens.lens (\UpdateDirectoryConfig' {serviceAccountCredentials} -> serviceAccountCredentials) (\s@UpdateDirectoryConfig' {} a -> s {serviceAccountCredentials = a} :: UpdateDirectoryConfig)
 
 -- | The distinguished names of the organizational units for computer
 -- accounts.
-updateDirectoryConfig_organizationalUnitDistinguishedNames :: Lens.Lens' UpdateDirectoryConfig (Core.Maybe [Core.Text])
-updateDirectoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\UpdateDirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@UpdateDirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: UpdateDirectoryConfig) Core.. Lens.mapping Lens._Coerce
+updateDirectoryConfig_organizationalUnitDistinguishedNames :: Lens.Lens' UpdateDirectoryConfig (Prelude.Maybe [Prelude.Text])
+updateDirectoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\UpdateDirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@UpdateDirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: UpdateDirectoryConfig) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the Directory Config object.
-updateDirectoryConfig_directoryName :: Lens.Lens' UpdateDirectoryConfig Core.Text
+updateDirectoryConfig_directoryName :: Lens.Lens' UpdateDirectoryConfig Prelude.Text
 updateDirectoryConfig_directoryName = Lens.lens (\UpdateDirectoryConfig' {directoryName} -> directoryName) (\s@UpdateDirectoryConfig' {} a -> s {directoryName = a} :: UpdateDirectoryConfig)
 
 instance Core.AWSRequest UpdateDirectoryConfig where
@@ -112,53 +114,56 @@ instance Core.AWSRequest UpdateDirectoryConfig where
     Response.receiveJSON
       ( \s h x ->
           UpdateDirectoryConfigResponse'
-            Core.<$> (x Core..?> "DirectoryConfig")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "DirectoryConfig")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateDirectoryConfig
+instance Prelude.Hashable UpdateDirectoryConfig
 
-instance Core.NFData UpdateDirectoryConfig
+instance Prelude.NFData UpdateDirectoryConfig
 
 instance Core.ToHeaders UpdateDirectoryConfig where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "PhotonAdminProxyService.UpdateDirectoryConfig" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateDirectoryConfig where
   toJSON UpdateDirectoryConfig' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ServiceAccountCredentials" Core..=)
-              Core.<$> serviceAccountCredentials,
+              Prelude.<$> serviceAccountCredentials,
             ("OrganizationalUnitDistinguishedNames" Core..=)
-              Core.<$> organizationalUnitDistinguishedNames,
-            Core.Just ("DirectoryName" Core..= directoryName)
+              Prelude.<$> organizationalUnitDistinguishedNames,
+            Prelude.Just
+              ("DirectoryName" Core..= directoryName)
           ]
       )
 
 instance Core.ToPath UpdateDirectoryConfig where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateDirectoryConfig where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDirectoryConfigResponse' smart constructor.
 data UpdateDirectoryConfigResponse = UpdateDirectoryConfigResponse'
   { -- | Information about the Directory Config object.
-    directoryConfig :: Core.Maybe DirectoryConfig,
+    directoryConfig :: Prelude.Maybe DirectoryConfig,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDirectoryConfigResponse' with all optional fields omitted.
@@ -173,21 +178,21 @@ data UpdateDirectoryConfigResponse = UpdateDirectoryConfigResponse'
 -- 'httpStatus', 'updateDirectoryConfigResponse_httpStatus' - The response's http status code.
 newUpdateDirectoryConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateDirectoryConfigResponse
 newUpdateDirectoryConfigResponse pHttpStatus_ =
   UpdateDirectoryConfigResponse'
     { directoryConfig =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the Directory Config object.
-updateDirectoryConfigResponse_directoryConfig :: Lens.Lens' UpdateDirectoryConfigResponse (Core.Maybe DirectoryConfig)
+updateDirectoryConfigResponse_directoryConfig :: Lens.Lens' UpdateDirectoryConfigResponse (Prelude.Maybe DirectoryConfig)
 updateDirectoryConfigResponse_directoryConfig = Lens.lens (\UpdateDirectoryConfigResponse' {directoryConfig} -> directoryConfig) (\s@UpdateDirectoryConfigResponse' {} a -> s {directoryConfig = a} :: UpdateDirectoryConfigResponse)
 
 -- | The response's http status code.
-updateDirectoryConfigResponse_httpStatus :: Lens.Lens' UpdateDirectoryConfigResponse Core.Int
+updateDirectoryConfigResponse_httpStatus :: Lens.Lens' UpdateDirectoryConfigResponse Prelude.Int
 updateDirectoryConfigResponse_httpStatus = Lens.lens (\UpdateDirectoryConfigResponse' {httpStatus} -> httpStatus) (\s@UpdateDirectoryConfigResponse' {} a -> s {httpStatus = a} :: UpdateDirectoryConfigResponse)
 
-instance Core.NFData UpdateDirectoryConfigResponse
+instance Prelude.NFData UpdateDirectoryConfigResponse

@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.H265AlternateTransferFunctionSei
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Enables Alternate Transfer Function SEI message for outputs using Hybrid
 -- Log Gamma (HLG) Electro-Optical Transfer Function (EOTF).
@@ -35,15 +36,15 @@ newtype H265AlternateTransferFunctionSei = H265AlternateTransferFunctionSei'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

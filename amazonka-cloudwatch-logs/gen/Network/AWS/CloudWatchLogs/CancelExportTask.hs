@@ -40,15 +40,16 @@ where
 import Network.AWS.CloudWatchLogs.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCancelExportTask' smart constructor.
 data CancelExportTask = CancelExportTask'
   { -- | The ID of the export task.
-    taskId :: Core.Text
+    taskId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelExportTask' with all optional fields omitted.
@@ -61,13 +62,13 @@ data CancelExportTask = CancelExportTask'
 -- 'taskId', 'cancelExportTask_taskId' - The ID of the export task.
 newCancelExportTask ::
   -- | 'taskId'
-  Core.Text ->
+  Prelude.Text ->
   CancelExportTask
 newCancelExportTask pTaskId_ =
   CancelExportTask' {taskId = pTaskId_}
 
 -- | The ID of the export task.
-cancelExportTask_taskId :: Lens.Lens' CancelExportTask Core.Text
+cancelExportTask_taskId :: Lens.Lens' CancelExportTask Prelude.Text
 cancelExportTask_taskId = Lens.lens (\CancelExportTask' {taskId} -> taskId) (\s@CancelExportTask' {} a -> s {taskId = a} :: CancelExportTask)
 
 instance Core.AWSRequest CancelExportTask where
@@ -78,41 +79,43 @@ instance Core.AWSRequest CancelExportTask where
   response =
     Response.receiveNull CancelExportTaskResponse'
 
-instance Core.Hashable CancelExportTask
+instance Prelude.Hashable CancelExportTask
 
-instance Core.NFData CancelExportTask
+instance Prelude.NFData CancelExportTask
 
 instance Core.ToHeaders CancelExportTask where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Logs_20140328.CancelExportTask" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CancelExportTask where
   toJSON CancelExportTask' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("taskId" Core..= taskId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("taskId" Core..= taskId)]
       )
 
 instance Core.ToPath CancelExportTask where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CancelExportTask where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelExportTaskResponse' smart constructor.
 data CancelExportTaskResponse = CancelExportTaskResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CancelExportTaskResponse' with all optional fields omitted.
@@ -123,4 +126,4 @@ newCancelExportTaskResponse ::
 newCancelExportTaskResponse =
   CancelExportTaskResponse'
 
-instance Core.NFData CancelExportTaskResponse
+instance Prelude.NFData CancelExportTaskResponse

@@ -21,6 +21,7 @@ module Network.AWS.WorkMail.Types.Delegate where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkMail.Types.MemberType
 
 -- | The name of the attribute, which is one of the values defined in the
@@ -30,11 +31,11 @@ import Network.AWS.WorkMail.Types.MemberType
 data Delegate = Delegate'
   { -- | The identifier for the user or group associated as the resource\'s
     -- delegate.
-    id :: Core.Text,
+    id :: Prelude.Text,
     -- | The type of the delegate: user or group.
     type' :: MemberType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Delegate' with all optional fields omitted.
@@ -50,7 +51,7 @@ data Delegate = Delegate'
 -- 'type'', 'delegate_type' - The type of the delegate: user or group.
 newDelegate ::
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'type''
   MemberType ->
   Delegate
@@ -59,7 +60,7 @@ newDelegate pId_ pType_ =
 
 -- | The identifier for the user or group associated as the resource\'s
 -- delegate.
-delegate_id :: Lens.Lens' Delegate Core.Text
+delegate_id :: Lens.Lens' Delegate Prelude.Text
 delegate_id = Lens.lens (\Delegate' {id} -> id) (\s@Delegate' {} a -> s {id = a} :: Delegate)
 
 -- | The type of the delegate: user or group.
@@ -72,9 +73,9 @@ instance Core.FromJSON Delegate where
       "Delegate"
       ( \x ->
           Delegate'
-            Core.<$> (x Core..: "Id") Core.<*> (x Core..: "Type")
+            Prelude.<$> (x Core..: "Id") Prelude.<*> (x Core..: "Type")
       )
 
-instance Core.Hashable Delegate
+instance Prelude.Hashable Delegate
 
-instance Core.NFData Delegate
+instance Prelude.NFData Delegate

@@ -51,6 +51,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,7 +63,7 @@ data CreateCloudFormationStack = CreateCloudFormationStack'
     -- instance entry in this array.
     instances :: [InstanceEntry]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCloudFormationStack' with all optional fields omitted.
@@ -79,14 +80,17 @@ data CreateCloudFormationStack = CreateCloudFormationStack'
 newCreateCloudFormationStack ::
   CreateCloudFormationStack
 newCreateCloudFormationStack =
-  CreateCloudFormationStack' {instances = Core.mempty}
+  CreateCloudFormationStack'
+    { instances =
+        Prelude.mempty
+    }
 
 -- | An array of parameters that will be used to create the new Amazon EC2
 -- instance. You can only pass one instance entry at a time in this array.
 -- You will get an invalid parameter error if you pass more than one
 -- instance entry in this array.
 createCloudFormationStack_instances :: Lens.Lens' CreateCloudFormationStack [InstanceEntry]
-createCloudFormationStack_instances = Lens.lens (\CreateCloudFormationStack' {instances} -> instances) (\s@CreateCloudFormationStack' {} a -> s {instances = a} :: CreateCloudFormationStack) Core.. Lens._Coerce
+createCloudFormationStack_instances = Lens.lens (\CreateCloudFormationStack' {instances} -> instances) (\s@CreateCloudFormationStack' {} a -> s {instances = a} :: CreateCloudFormationStack) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest CreateCloudFormationStack where
   type
@@ -97,50 +101,52 @@ instance Core.AWSRequest CreateCloudFormationStack where
     Response.receiveJSON
       ( \s h x ->
           CreateCloudFormationStackResponse'
-            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateCloudFormationStack
+instance Prelude.Hashable CreateCloudFormationStack
 
-instance Core.NFData CreateCloudFormationStack
+instance Prelude.NFData CreateCloudFormationStack
 
 instance Core.ToHeaders CreateCloudFormationStack where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Lightsail_20161128.CreateCloudFormationStack" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateCloudFormationStack where
   toJSON CreateCloudFormationStack' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("instances" Core..= instances)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("instances" Core..= instances)]
       )
 
 instance Core.ToPath CreateCloudFormationStack where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateCloudFormationStack where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCloudFormationStackResponse' smart constructor.
 data CreateCloudFormationStackResponse = CreateCloudFormationStackResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Core.Maybe [Operation],
+    operations :: Prelude.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCloudFormationStackResponse' with all optional fields omitted.
@@ -157,25 +163,25 @@ data CreateCloudFormationStackResponse = CreateCloudFormationStackResponse'
 -- 'httpStatus', 'createCloudFormationStackResponse_httpStatus' - The response's http status code.
 newCreateCloudFormationStackResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateCloudFormationStackResponse
 newCreateCloudFormationStackResponse pHttpStatus_ =
   CreateCloudFormationStackResponse'
     { operations =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-createCloudFormationStackResponse_operations :: Lens.Lens' CreateCloudFormationStackResponse (Core.Maybe [Operation])
-createCloudFormationStackResponse_operations = Lens.lens (\CreateCloudFormationStackResponse' {operations} -> operations) (\s@CreateCloudFormationStackResponse' {} a -> s {operations = a} :: CreateCloudFormationStackResponse) Core.. Lens.mapping Lens._Coerce
+createCloudFormationStackResponse_operations :: Lens.Lens' CreateCloudFormationStackResponse (Prelude.Maybe [Operation])
+createCloudFormationStackResponse_operations = Lens.lens (\CreateCloudFormationStackResponse' {operations} -> operations) (\s@CreateCloudFormationStackResponse' {} a -> s {operations = a} :: CreateCloudFormationStackResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createCloudFormationStackResponse_httpStatus :: Lens.Lens' CreateCloudFormationStackResponse Core.Int
+createCloudFormationStackResponse_httpStatus :: Lens.Lens' CreateCloudFormationStackResponse Prelude.Int
 createCloudFormationStackResponse_httpStatus = Lens.lens (\CreateCloudFormationStackResponse' {httpStatus} -> httpStatus) (\s@CreateCloudFormationStackResponse' {} a -> s {httpStatus = a} :: CreateCloudFormationStackResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     CreateCloudFormationStackResponse

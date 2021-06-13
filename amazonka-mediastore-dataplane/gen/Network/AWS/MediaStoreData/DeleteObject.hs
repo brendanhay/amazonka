@@ -41,6 +41,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStoreData.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,9 +49,9 @@ import qualified Network.AWS.Response as Response
 data DeleteObject = DeleteObject'
   { -- | The path (including the file name) where the object is stored in the
     -- container. Format: \<folder name>\/\<folder name>\/\<file name>
-    path :: Core.Text
+    path :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteObject' with all optional fields omitted.
@@ -64,13 +65,13 @@ data DeleteObject = DeleteObject'
 -- container. Format: \<folder name>\/\<folder name>\/\<file name>
 newDeleteObject ::
   -- | 'path'
-  Core.Text ->
+  Prelude.Text ->
   DeleteObject
 newDeleteObject pPath_ = DeleteObject' {path = pPath_}
 
 -- | The path (including the file name) where the object is stored in the
 -- container. Format: \<folder name>\/\<folder name>\/\<file name>
-deleteObject_path :: Lens.Lens' DeleteObject Core.Text
+deleteObject_path :: Lens.Lens' DeleteObject Prelude.Text
 deleteObject_path = Lens.lens (\DeleteObject' {path} -> path) (\s@DeleteObject' {} a -> s {path = a} :: DeleteObject)
 
 instance Core.AWSRequest DeleteObject where
@@ -80,29 +81,29 @@ instance Core.AWSRequest DeleteObject where
     Response.receiveEmpty
       ( \s h x ->
           DeleteObjectResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteObject
+instance Prelude.Hashable DeleteObject
 
-instance Core.NFData DeleteObject
+instance Prelude.NFData DeleteObject
 
 instance Core.ToHeaders DeleteObject where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteObject where
   toPath DeleteObject' {..} =
-    Core.mconcat ["/", Core.toBS path]
+    Prelude.mconcat ["/", Core.toBS path]
 
 instance Core.ToQuery DeleteObject where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteObjectResponse' smart constructor.
 data DeleteObjectResponse = DeleteObjectResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteObjectResponse' with all optional fields omitted.
@@ -115,13 +116,13 @@ data DeleteObjectResponse = DeleteObjectResponse'
 -- 'httpStatus', 'deleteObjectResponse_httpStatus' - The response's http status code.
 newDeleteObjectResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteObjectResponse
 newDeleteObjectResponse pHttpStatus_ =
   DeleteObjectResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteObjectResponse_httpStatus :: Lens.Lens' DeleteObjectResponse Core.Int
+deleteObjectResponse_httpStatus :: Lens.Lens' DeleteObjectResponse Prelude.Int
 deleteObjectResponse_httpStatus = Lens.lens (\DeleteObjectResponse' {httpStatus} -> httpStatus) (\s@DeleteObjectResponse' {} a -> s {httpStatus = a} :: DeleteObjectResponse)
 
-instance Core.NFData DeleteObjectResponse
+instance Prelude.NFData DeleteObjectResponse

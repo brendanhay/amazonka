@@ -43,6 +43,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,12 +52,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetInvalidation' smart constructor.
 data GetInvalidation = GetInvalidation'
   { -- | The distribution\'s ID.
-    distributionId :: Core.Text,
+    distributionId :: Prelude.Text,
     -- | The identifier for the invalidation request, for example,
     -- @IDFDVBD632BHDS5@.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInvalidation' with all optional fields omitted.
@@ -72,9 +73,9 @@ data GetInvalidation = GetInvalidation'
 -- @IDFDVBD632BHDS5@.
 newGetInvalidation ::
   -- | 'distributionId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   GetInvalidation
 newGetInvalidation pDistributionId_ pId_ =
   GetInvalidation'
@@ -83,12 +84,12 @@ newGetInvalidation pDistributionId_ pId_ =
     }
 
 -- | The distribution\'s ID.
-getInvalidation_distributionId :: Lens.Lens' GetInvalidation Core.Text
+getInvalidation_distributionId :: Lens.Lens' GetInvalidation Prelude.Text
 getInvalidation_distributionId = Lens.lens (\GetInvalidation' {distributionId} -> distributionId) (\s@GetInvalidation' {} a -> s {distributionId = a} :: GetInvalidation)
 
 -- | The identifier for the invalidation request, for example,
 -- @IDFDVBD632BHDS5@.
-getInvalidation_id :: Lens.Lens' GetInvalidation Core.Text
+getInvalidation_id :: Lens.Lens' GetInvalidation Prelude.Text
 getInvalidation_id = Lens.lens (\GetInvalidation' {id} -> id) (\s@GetInvalidation' {} a -> s {id = a} :: GetInvalidation)
 
 instance Core.AWSRequest GetInvalidation where
@@ -100,20 +101,20 @@ instance Core.AWSRequest GetInvalidation where
     Response.receiveXML
       ( \s h x ->
           GetInvalidationResponse'
-            Core.<$> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetInvalidation
+instance Prelude.Hashable GetInvalidation
 
-instance Core.NFData GetInvalidation
+instance Prelude.NFData GetInvalidation
 
 instance Core.ToHeaders GetInvalidation where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetInvalidation where
   toPath GetInvalidation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-05-31/distribution/",
         Core.toBS distributionId,
         "/invalidation/",
@@ -121,7 +122,7 @@ instance Core.ToPath GetInvalidation where
       ]
 
 instance Core.ToQuery GetInvalidation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The returned result of the corresponding request.
 --
@@ -129,11 +130,11 @@ instance Core.ToQuery GetInvalidation where
 data GetInvalidationResponse = GetInvalidationResponse'
   { -- | The invalidation\'s information. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html Invalidation Complex Type>.
-    invalidation :: Core.Maybe Invalidation,
+    invalidation :: Prelude.Maybe Invalidation,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetInvalidationResponse' with all optional fields omitted.
@@ -149,22 +150,22 @@ data GetInvalidationResponse = GetInvalidationResponse'
 -- 'httpStatus', 'getInvalidationResponse_httpStatus' - The response's http status code.
 newGetInvalidationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetInvalidationResponse
 newGetInvalidationResponse pHttpStatus_ =
   GetInvalidationResponse'
     { invalidation =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The invalidation\'s information. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html Invalidation Complex Type>.
-getInvalidationResponse_invalidation :: Lens.Lens' GetInvalidationResponse (Core.Maybe Invalidation)
+getInvalidationResponse_invalidation :: Lens.Lens' GetInvalidationResponse (Prelude.Maybe Invalidation)
 getInvalidationResponse_invalidation = Lens.lens (\GetInvalidationResponse' {invalidation} -> invalidation) (\s@GetInvalidationResponse' {} a -> s {invalidation = a} :: GetInvalidationResponse)
 
 -- | The response's http status code.
-getInvalidationResponse_httpStatus :: Lens.Lens' GetInvalidationResponse Core.Int
+getInvalidationResponse_httpStatus :: Lens.Lens' GetInvalidationResponse Prelude.Int
 getInvalidationResponse_httpStatus = Lens.lens (\GetInvalidationResponse' {httpStatus} -> httpStatus) (\s@GetInvalidationResponse' {} a -> s {httpStatus = a} :: GetInvalidationResponse)
 
-instance Core.NFData GetInvalidationResponse
+instance Prelude.NFData GetInvalidationResponse

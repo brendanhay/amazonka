@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,13 +65,13 @@ data UpdateRole = UpdateRole'
     -- operations to create a console URL. For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html Using IAM roles>
     -- in the /IAM User Guide/.
-    maxSessionDuration :: Core.Maybe Core.Natural,
+    maxSessionDuration :: Prelude.Maybe Prelude.Natural,
     -- | The new description that you want to apply to the specified role.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the role that you want to modify.
-    roleName :: Core.Text
+    roleName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRole' with all optional fields omitted.
@@ -102,12 +103,12 @@ data UpdateRole = UpdateRole'
 -- 'roleName', 'updateRole_roleName' - The name of the role that you want to modify.
 newUpdateRole ::
   -- | 'roleName'
-  Core.Text ->
+  Prelude.Text ->
   UpdateRole
 newUpdateRole pRoleName_ =
   UpdateRole'
-    { maxSessionDuration = Core.Nothing,
-      description = Core.Nothing,
+    { maxSessionDuration = Prelude.Nothing,
+      description = Prelude.Nothing,
       roleName = pRoleName_
     }
 
@@ -127,15 +128,15 @@ newUpdateRole pRoleName_ =
 -- operations to create a console URL. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html Using IAM roles>
 -- in the /IAM User Guide/.
-updateRole_maxSessionDuration :: Lens.Lens' UpdateRole (Core.Maybe Core.Natural)
+updateRole_maxSessionDuration :: Lens.Lens' UpdateRole (Prelude.Maybe Prelude.Natural)
 updateRole_maxSessionDuration = Lens.lens (\UpdateRole' {maxSessionDuration} -> maxSessionDuration) (\s@UpdateRole' {} a -> s {maxSessionDuration = a} :: UpdateRole)
 
 -- | The new description that you want to apply to the specified role.
-updateRole_description :: Lens.Lens' UpdateRole (Core.Maybe Core.Text)
+updateRole_description :: Lens.Lens' UpdateRole (Prelude.Maybe Prelude.Text)
 updateRole_description = Lens.lens (\UpdateRole' {description} -> description) (\s@UpdateRole' {} a -> s {description = a} :: UpdateRole)
 
 -- | The name of the role that you want to modify.
-updateRole_roleName :: Lens.Lens' UpdateRole Core.Text
+updateRole_roleName :: Lens.Lens' UpdateRole Prelude.Text
 updateRole_roleName = Lens.lens (\UpdateRole' {roleName} -> roleName) (\s@UpdateRole' {} a -> s {roleName = a} :: UpdateRole)
 
 instance Core.AWSRequest UpdateRole where
@@ -146,24 +147,26 @@ instance Core.AWSRequest UpdateRole where
       "UpdateRoleResult"
       ( \s h x ->
           UpdateRoleResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateRole
+instance Prelude.Hashable UpdateRole
 
-instance Core.NFData UpdateRole
+instance Prelude.NFData UpdateRole
 
 instance Core.ToHeaders UpdateRole where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateRole where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateRole where
   toQuery UpdateRole' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("UpdateRole" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("UpdateRole" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "MaxSessionDuration" Core.=: maxSessionDuration,
         "Description" Core.=: description,
         "RoleName" Core.=: roleName
@@ -172,9 +175,9 @@ instance Core.ToQuery UpdateRole where
 -- | /See:/ 'newUpdateRoleResponse' smart constructor.
 data UpdateRoleResponse = UpdateRoleResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRoleResponse' with all optional fields omitted.
@@ -187,13 +190,13 @@ data UpdateRoleResponse = UpdateRoleResponse'
 -- 'httpStatus', 'updateRoleResponse_httpStatus' - The response's http status code.
 newUpdateRoleResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateRoleResponse
 newUpdateRoleResponse pHttpStatus_ =
   UpdateRoleResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateRoleResponse_httpStatus :: Lens.Lens' UpdateRoleResponse Core.Int
+updateRoleResponse_httpStatus :: Lens.Lens' UpdateRoleResponse Prelude.Int
 updateRoleResponse_httpStatus = Lens.lens (\UpdateRoleResponse' {httpStatus} -> httpStatus) (\s@UpdateRoleResponse' {} a -> s {httpStatus = a} :: UpdateRoleResponse)
 
-instance Core.NFData UpdateRoleResponse
+instance Prelude.NFData UpdateRoleResponse

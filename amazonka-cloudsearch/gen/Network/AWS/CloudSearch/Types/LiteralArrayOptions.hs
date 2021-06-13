@@ -21,6 +21,7 @@ module Network.AWS.CloudSearch.Types.LiteralArrayOptions where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Options for a field that contains an array of literal strings. Present
 -- if @IndexFieldType@ specifies the field is of type @literal-array@. All
@@ -29,18 +30,18 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newLiteralArrayOptions' smart constructor.
 data LiteralArrayOptions = LiteralArrayOptions'
   { -- | A list of source fields to map to the field.
-    sourceFields :: Core.Maybe Core.Text,
+    sourceFields :: Prelude.Maybe Prelude.Text,
     -- | Whether facet information can be returned for the field.
-    facetEnabled :: Core.Maybe Core.Bool,
+    facetEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the contents of the field can be returned in the search results.
-    returnEnabled :: Core.Maybe Core.Bool,
+    returnEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the contents of the field are searchable.
-    searchEnabled :: Core.Maybe Core.Bool,
+    searchEnabled :: Prelude.Maybe Prelude.Bool,
     -- | A value to use for the field if the field isn\'t specified for a
     -- document.
-    defaultValue :: Core.Maybe Core.Text
+    defaultValue :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LiteralArrayOptions' with all optional fields omitted.
@@ -64,50 +65,51 @@ newLiteralArrayOptions ::
   LiteralArrayOptions
 newLiteralArrayOptions =
   LiteralArrayOptions'
-    { sourceFields = Core.Nothing,
-      facetEnabled = Core.Nothing,
-      returnEnabled = Core.Nothing,
-      searchEnabled = Core.Nothing,
-      defaultValue = Core.Nothing
+    { sourceFields =
+        Prelude.Nothing,
+      facetEnabled = Prelude.Nothing,
+      returnEnabled = Prelude.Nothing,
+      searchEnabled = Prelude.Nothing,
+      defaultValue = Prelude.Nothing
     }
 
 -- | A list of source fields to map to the field.
-literalArrayOptions_sourceFields :: Lens.Lens' LiteralArrayOptions (Core.Maybe Core.Text)
+literalArrayOptions_sourceFields :: Lens.Lens' LiteralArrayOptions (Prelude.Maybe Prelude.Text)
 literalArrayOptions_sourceFields = Lens.lens (\LiteralArrayOptions' {sourceFields} -> sourceFields) (\s@LiteralArrayOptions' {} a -> s {sourceFields = a} :: LiteralArrayOptions)
 
 -- | Whether facet information can be returned for the field.
-literalArrayOptions_facetEnabled :: Lens.Lens' LiteralArrayOptions (Core.Maybe Core.Bool)
+literalArrayOptions_facetEnabled :: Lens.Lens' LiteralArrayOptions (Prelude.Maybe Prelude.Bool)
 literalArrayOptions_facetEnabled = Lens.lens (\LiteralArrayOptions' {facetEnabled} -> facetEnabled) (\s@LiteralArrayOptions' {} a -> s {facetEnabled = a} :: LiteralArrayOptions)
 
 -- | Whether the contents of the field can be returned in the search results.
-literalArrayOptions_returnEnabled :: Lens.Lens' LiteralArrayOptions (Core.Maybe Core.Bool)
+literalArrayOptions_returnEnabled :: Lens.Lens' LiteralArrayOptions (Prelude.Maybe Prelude.Bool)
 literalArrayOptions_returnEnabled = Lens.lens (\LiteralArrayOptions' {returnEnabled} -> returnEnabled) (\s@LiteralArrayOptions' {} a -> s {returnEnabled = a} :: LiteralArrayOptions)
 
 -- | Whether the contents of the field are searchable.
-literalArrayOptions_searchEnabled :: Lens.Lens' LiteralArrayOptions (Core.Maybe Core.Bool)
+literalArrayOptions_searchEnabled :: Lens.Lens' LiteralArrayOptions (Prelude.Maybe Prelude.Bool)
 literalArrayOptions_searchEnabled = Lens.lens (\LiteralArrayOptions' {searchEnabled} -> searchEnabled) (\s@LiteralArrayOptions' {} a -> s {searchEnabled = a} :: LiteralArrayOptions)
 
 -- | A value to use for the field if the field isn\'t specified for a
 -- document.
-literalArrayOptions_defaultValue :: Lens.Lens' LiteralArrayOptions (Core.Maybe Core.Text)
+literalArrayOptions_defaultValue :: Lens.Lens' LiteralArrayOptions (Prelude.Maybe Prelude.Text)
 literalArrayOptions_defaultValue = Lens.lens (\LiteralArrayOptions' {defaultValue} -> defaultValue) (\s@LiteralArrayOptions' {} a -> s {defaultValue = a} :: LiteralArrayOptions)
 
 instance Core.FromXML LiteralArrayOptions where
   parseXML x =
     LiteralArrayOptions'
-      Core.<$> (x Core..@? "SourceFields")
-      Core.<*> (x Core..@? "FacetEnabled")
-      Core.<*> (x Core..@? "ReturnEnabled")
-      Core.<*> (x Core..@? "SearchEnabled")
-      Core.<*> (x Core..@? "DefaultValue")
+      Prelude.<$> (x Core..@? "SourceFields")
+      Prelude.<*> (x Core..@? "FacetEnabled")
+      Prelude.<*> (x Core..@? "ReturnEnabled")
+      Prelude.<*> (x Core..@? "SearchEnabled")
+      Prelude.<*> (x Core..@? "DefaultValue")
 
-instance Core.Hashable LiteralArrayOptions
+instance Prelude.Hashable LiteralArrayOptions
 
-instance Core.NFData LiteralArrayOptions
+instance Prelude.NFData LiteralArrayOptions
 
 instance Core.ToQuery LiteralArrayOptions where
   toQuery LiteralArrayOptions' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "SourceFields" Core.=: sourceFields,
         "FacetEnabled" Core.=: facetEnabled,
         "ReturnEnabled" Core.=: returnEnabled,

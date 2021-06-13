@@ -22,6 +22,7 @@ module Network.AWS.CloudHSMv2.Types.Hsm where
 import Network.AWS.CloudHSMv2.Types.HsmState
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a hardware security module (HSM) in an AWS
 -- CloudHSM cluster.
@@ -29,23 +30,23 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newHsm' smart constructor.
 data Hsm = Hsm'
   { -- | The identifier (ID) of the cluster that contains the HSM.
-    clusterId :: Core.Maybe Core.Text,
+    clusterId :: Prelude.Maybe Prelude.Text,
     -- | A description of the HSM\'s state.
-    stateMessage :: Core.Maybe Core.Text,
+    stateMessage :: Prelude.Maybe Prelude.Text,
     -- | The IP address of the HSM\'s elastic network interface (ENI).
-    eniIp :: Core.Maybe Core.Text,
+    eniIp :: Prelude.Maybe Prelude.Text,
     -- | The identifier (ID) of the HSM\'s elastic network interface (ENI).
-    eniId :: Core.Maybe Core.Text,
+    eniId :: Prelude.Maybe Prelude.Text,
     -- | The HSM\'s state.
-    state :: Core.Maybe HsmState,
+    state :: Prelude.Maybe HsmState,
     -- | The Availability Zone that contains the HSM.
-    availabilityZone :: Core.Maybe Core.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The subnet that contains the HSM\'s elastic network interface (ENI).
-    subnetId :: Core.Maybe Core.Text,
+    subnetId :: Prelude.Maybe Prelude.Text,
     -- | The HSM\'s identifier (ID).
-    hsmId :: Core.Text
+    hsmId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Hsm' with all optional fields omitted.
@@ -72,50 +73,50 @@ data Hsm = Hsm'
 -- 'hsmId', 'hsm_hsmId' - The HSM\'s identifier (ID).
 newHsm ::
   -- | 'hsmId'
-  Core.Text ->
+  Prelude.Text ->
   Hsm
 newHsm pHsmId_ =
   Hsm'
-    { clusterId = Core.Nothing,
-      stateMessage = Core.Nothing,
-      eniIp = Core.Nothing,
-      eniId = Core.Nothing,
-      state = Core.Nothing,
-      availabilityZone = Core.Nothing,
-      subnetId = Core.Nothing,
+    { clusterId = Prelude.Nothing,
+      stateMessage = Prelude.Nothing,
+      eniIp = Prelude.Nothing,
+      eniId = Prelude.Nothing,
+      state = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      subnetId = Prelude.Nothing,
       hsmId = pHsmId_
     }
 
 -- | The identifier (ID) of the cluster that contains the HSM.
-hsm_clusterId :: Lens.Lens' Hsm (Core.Maybe Core.Text)
+hsm_clusterId :: Lens.Lens' Hsm (Prelude.Maybe Prelude.Text)
 hsm_clusterId = Lens.lens (\Hsm' {clusterId} -> clusterId) (\s@Hsm' {} a -> s {clusterId = a} :: Hsm)
 
 -- | A description of the HSM\'s state.
-hsm_stateMessage :: Lens.Lens' Hsm (Core.Maybe Core.Text)
+hsm_stateMessage :: Lens.Lens' Hsm (Prelude.Maybe Prelude.Text)
 hsm_stateMessage = Lens.lens (\Hsm' {stateMessage} -> stateMessage) (\s@Hsm' {} a -> s {stateMessage = a} :: Hsm)
 
 -- | The IP address of the HSM\'s elastic network interface (ENI).
-hsm_eniIp :: Lens.Lens' Hsm (Core.Maybe Core.Text)
+hsm_eniIp :: Lens.Lens' Hsm (Prelude.Maybe Prelude.Text)
 hsm_eniIp = Lens.lens (\Hsm' {eniIp} -> eniIp) (\s@Hsm' {} a -> s {eniIp = a} :: Hsm)
 
 -- | The identifier (ID) of the HSM\'s elastic network interface (ENI).
-hsm_eniId :: Lens.Lens' Hsm (Core.Maybe Core.Text)
+hsm_eniId :: Lens.Lens' Hsm (Prelude.Maybe Prelude.Text)
 hsm_eniId = Lens.lens (\Hsm' {eniId} -> eniId) (\s@Hsm' {} a -> s {eniId = a} :: Hsm)
 
 -- | The HSM\'s state.
-hsm_state :: Lens.Lens' Hsm (Core.Maybe HsmState)
+hsm_state :: Lens.Lens' Hsm (Prelude.Maybe HsmState)
 hsm_state = Lens.lens (\Hsm' {state} -> state) (\s@Hsm' {} a -> s {state = a} :: Hsm)
 
 -- | The Availability Zone that contains the HSM.
-hsm_availabilityZone :: Lens.Lens' Hsm (Core.Maybe Core.Text)
+hsm_availabilityZone :: Lens.Lens' Hsm (Prelude.Maybe Prelude.Text)
 hsm_availabilityZone = Lens.lens (\Hsm' {availabilityZone} -> availabilityZone) (\s@Hsm' {} a -> s {availabilityZone = a} :: Hsm)
 
 -- | The subnet that contains the HSM\'s elastic network interface (ENI).
-hsm_subnetId :: Lens.Lens' Hsm (Core.Maybe Core.Text)
+hsm_subnetId :: Lens.Lens' Hsm (Prelude.Maybe Prelude.Text)
 hsm_subnetId = Lens.lens (\Hsm' {subnetId} -> subnetId) (\s@Hsm' {} a -> s {subnetId = a} :: Hsm)
 
 -- | The HSM\'s identifier (ID).
-hsm_hsmId :: Lens.Lens' Hsm Core.Text
+hsm_hsmId :: Lens.Lens' Hsm Prelude.Text
 hsm_hsmId = Lens.lens (\Hsm' {hsmId} -> hsmId) (\s@Hsm' {} a -> s {hsmId = a} :: Hsm)
 
 instance Core.FromJSON Hsm where
@@ -124,16 +125,16 @@ instance Core.FromJSON Hsm where
       "Hsm"
       ( \x ->
           Hsm'
-            Core.<$> (x Core..:? "ClusterId")
-            Core.<*> (x Core..:? "StateMessage")
-            Core.<*> (x Core..:? "EniIp")
-            Core.<*> (x Core..:? "EniId")
-            Core.<*> (x Core..:? "State")
-            Core.<*> (x Core..:? "AvailabilityZone")
-            Core.<*> (x Core..:? "SubnetId")
-            Core.<*> (x Core..: "HsmId")
+            Prelude.<$> (x Core..:? "ClusterId")
+            Prelude.<*> (x Core..:? "StateMessage")
+            Prelude.<*> (x Core..:? "EniIp")
+            Prelude.<*> (x Core..:? "EniId")
+            Prelude.<*> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "AvailabilityZone")
+            Prelude.<*> (x Core..:? "SubnetId")
+            Prelude.<*> (x Core..: "HsmId")
       )
 
-instance Core.Hashable Hsm
+instance Prelude.Hashable Hsm
 
-instance Core.NFData Hsm
+instance Prelude.NFData Hsm

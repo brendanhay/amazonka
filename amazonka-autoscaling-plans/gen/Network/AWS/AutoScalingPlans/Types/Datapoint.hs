@@ -21,6 +21,7 @@ module Network.AWS.AutoScalingPlans.Types.Datapoint where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a single value in the forecast data used for predictive
 -- scaling.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDatapoint' smart constructor.
 data Datapoint = Datapoint'
   { -- | The time stamp for the data point in UTC format.
-    timestamp :: Core.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Core.POSIX,
     -- | The value of the data point.
-    value :: Core.Maybe Core.Double
+    value :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Datapoint' with all optional fields omitted.
@@ -49,16 +50,16 @@ newDatapoint ::
   Datapoint
 newDatapoint =
   Datapoint'
-    { timestamp = Core.Nothing,
-      value = Core.Nothing
+    { timestamp = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The time stamp for the data point in UTC format.
-datapoint_timestamp :: Lens.Lens' Datapoint (Core.Maybe Core.UTCTime)
-datapoint_timestamp = Lens.lens (\Datapoint' {timestamp} -> timestamp) (\s@Datapoint' {} a -> s {timestamp = a} :: Datapoint) Core.. Lens.mapping Core._Time
+datapoint_timestamp :: Lens.Lens' Datapoint (Prelude.Maybe Prelude.UTCTime)
+datapoint_timestamp = Lens.lens (\Datapoint' {timestamp} -> timestamp) (\s@Datapoint' {} a -> s {timestamp = a} :: Datapoint) Prelude.. Lens.mapping Core._Time
 
 -- | The value of the data point.
-datapoint_value :: Lens.Lens' Datapoint (Core.Maybe Core.Double)
+datapoint_value :: Lens.Lens' Datapoint (Prelude.Maybe Prelude.Double)
 datapoint_value = Lens.lens (\Datapoint' {value} -> value) (\s@Datapoint' {} a -> s {value = a} :: Datapoint)
 
 instance Core.FromJSON Datapoint where
@@ -67,10 +68,10 @@ instance Core.FromJSON Datapoint where
       "Datapoint"
       ( \x ->
           Datapoint'
-            Core.<$> (x Core..:? "Timestamp")
-            Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Timestamp")
+            Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable Datapoint
+instance Prelude.Hashable Datapoint
 
-instance Core.NFData Datapoint
+instance Prelude.NFData Datapoint

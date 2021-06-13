@@ -51,6 +51,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SDB.Types
@@ -59,12 +60,12 @@ import Network.AWS.SDB.Types
 data ListDomains = ListDomains'
   { -- | A string informing Amazon SimpleDB where to start the next list of
     -- domain names.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of domain names you want returned. The range is 1 to
     -- 100. The default setting is 100.
-    maxNumberOfDomains :: Core.Maybe Core.Int
+    maxNumberOfDomains :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDomains' with all optional fields omitted.
@@ -83,38 +84,38 @@ newListDomains ::
   ListDomains
 newListDomains =
   ListDomains'
-    { nextToken = Core.Nothing,
-      maxNumberOfDomains = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxNumberOfDomains = Prelude.Nothing
     }
 
 -- | A string informing Amazon SimpleDB where to start the next list of
 -- domain names.
-listDomains_nextToken :: Lens.Lens' ListDomains (Core.Maybe Core.Text)
+listDomains_nextToken :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Text)
 listDomains_nextToken = Lens.lens (\ListDomains' {nextToken} -> nextToken) (\s@ListDomains' {} a -> s {nextToken = a} :: ListDomains)
 
 -- | The maximum number of domain names you want returned. The range is 1 to
 -- 100. The default setting is 100.
-listDomains_maxNumberOfDomains :: Lens.Lens' ListDomains (Core.Maybe Core.Int)
+listDomains_maxNumberOfDomains :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Int)
 listDomains_maxNumberOfDomains = Lens.lens (\ListDomains' {maxNumberOfDomains} -> maxNumberOfDomains) (\s@ListDomains' {} a -> s {maxNumberOfDomains = a} :: ListDomains)
 
 instance Core.AWSPager ListDomains where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listDomainsResponse_nextToken Core.. Lens._Just
+            Lens.^? listDomainsResponse_nextToken Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listDomainsResponse_domainNames Core.. Lens._Just
+            Lens.^? listDomainsResponse_domainNames Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listDomains_nextToken
+          Prelude.& listDomains_nextToken
           Lens..~ rs
-          Lens.^? listDomainsResponse_nextToken Core.. Lens._Just
+          Lens.^? listDomainsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDomains where
   type AWSResponse ListDomains = ListDomainsResponse
@@ -124,26 +125,28 @@ instance Core.AWSRequest ListDomains where
       "ListDomainsResult"
       ( \s h x ->
           ListDomainsResponse'
-            Core.<$> (x Core..@? "NextToken")
-            Core.<*> (Core.may (Core.parseXMLList "DomainName") x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> (Core.may (Core.parseXMLList "DomainName") x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListDomains
+instance Prelude.Hashable ListDomains
 
-instance Core.NFData ListDomains
+instance Prelude.NFData ListDomains
 
 instance Core.ToHeaders ListDomains where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListDomains where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListDomains where
   toQuery ListDomains' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("ListDomains" :: Core.ByteString),
-        "Version" Core.=: ("2009-04-15" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ListDomains" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2009-04-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "MaxNumberOfDomains" Core.=: maxNumberOfDomains
       ]
@@ -152,13 +155,13 @@ instance Core.ToQuery ListDomains where
 data ListDomainsResponse = ListDomainsResponse'
   { -- | An opaque token indicating that there are more domains than the
     -- specified @MaxNumberOfDomains@ still available.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of domain names that match the expression.
-    domainNames :: Core.Maybe [Core.Text],
+    domainNames :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDomainsResponse' with all optional fields omitted.
@@ -176,26 +179,26 @@ data ListDomainsResponse = ListDomainsResponse'
 -- 'httpStatus', 'listDomainsResponse_httpStatus' - The response's http status code.
 newListDomainsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListDomainsResponse
 newListDomainsResponse pHttpStatus_ =
   ListDomainsResponse'
-    { nextToken = Core.Nothing,
-      domainNames = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      domainNames = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An opaque token indicating that there are more domains than the
 -- specified @MaxNumberOfDomains@ still available.
-listDomainsResponse_nextToken :: Lens.Lens' ListDomainsResponse (Core.Maybe Core.Text)
+listDomainsResponse_nextToken :: Lens.Lens' ListDomainsResponse (Prelude.Maybe Prelude.Text)
 listDomainsResponse_nextToken = Lens.lens (\ListDomainsResponse' {nextToken} -> nextToken) (\s@ListDomainsResponse' {} a -> s {nextToken = a} :: ListDomainsResponse)
 
 -- | A list of domain names that match the expression.
-listDomainsResponse_domainNames :: Lens.Lens' ListDomainsResponse (Core.Maybe [Core.Text])
-listDomainsResponse_domainNames = Lens.lens (\ListDomainsResponse' {domainNames} -> domainNames) (\s@ListDomainsResponse' {} a -> s {domainNames = a} :: ListDomainsResponse) Core.. Lens.mapping Lens._Coerce
+listDomainsResponse_domainNames :: Lens.Lens' ListDomainsResponse (Prelude.Maybe [Prelude.Text])
+listDomainsResponse_domainNames = Lens.lens (\ListDomainsResponse' {domainNames} -> domainNames) (\s@ListDomainsResponse' {} a -> s {domainNames = a} :: ListDomainsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listDomainsResponse_httpStatus :: Lens.Lens' ListDomainsResponse Core.Int
+listDomainsResponse_httpStatus :: Lens.Lens' ListDomainsResponse Prelude.Int
 listDomainsResponse_httpStatus = Lens.lens (\ListDomainsResponse' {httpStatus} -> httpStatus) (\s@ListDomainsResponse' {} a -> s {httpStatus = a} :: ListDomainsResponse)
 
-instance Core.NFData ListDomainsResponse
+instance Prelude.NFData ListDomainsResponse

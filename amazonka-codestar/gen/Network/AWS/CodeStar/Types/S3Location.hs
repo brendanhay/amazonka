@@ -21,6 +21,7 @@ module Network.AWS.CodeStar.Types.S3Location where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The Amazon S3 location where the source code files provided with the
 -- project request are stored.
@@ -29,12 +30,12 @@ import qualified Network.AWS.Lens as Lens
 data S3Location = S3Location'
   { -- | The Amazon S3 bucket name where the source code files provided with the
     -- project request are stored.
-    bucketName :: Core.Maybe Core.Text,
+    bucketName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 object key where the source code files provided with the
     -- project request are stored.
-    bucketKey :: Core.Maybe Core.Text
+    bucketKey :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3Location' with all optional fields omitted.
@@ -53,29 +54,29 @@ newS3Location ::
   S3Location
 newS3Location =
   S3Location'
-    { bucketName = Core.Nothing,
-      bucketKey = Core.Nothing
+    { bucketName = Prelude.Nothing,
+      bucketKey = Prelude.Nothing
     }
 
 -- | The Amazon S3 bucket name where the source code files provided with the
 -- project request are stored.
-s3Location_bucketName :: Lens.Lens' S3Location (Core.Maybe Core.Text)
+s3Location_bucketName :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
 s3Location_bucketName = Lens.lens (\S3Location' {bucketName} -> bucketName) (\s@S3Location' {} a -> s {bucketName = a} :: S3Location)
 
 -- | The Amazon S3 object key where the source code files provided with the
 -- project request are stored.
-s3Location_bucketKey :: Lens.Lens' S3Location (Core.Maybe Core.Text)
+s3Location_bucketKey :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
 s3Location_bucketKey = Lens.lens (\S3Location' {bucketKey} -> bucketKey) (\s@S3Location' {} a -> s {bucketKey = a} :: S3Location)
 
-instance Core.Hashable S3Location
+instance Prelude.Hashable S3Location
 
-instance Core.NFData S3Location
+instance Prelude.NFData S3Location
 
 instance Core.ToJSON S3Location where
   toJSON S3Location' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("bucketName" Core..=) Core.<$> bucketName,
-            ("bucketKey" Core..=) Core.<$> bucketKey
+      ( Prelude.catMaybes
+          [ ("bucketName" Core..=) Prelude.<$> bucketName,
+            ("bucketKey" Core..=) Prelude.<$> bucketKey
           ]
       )

@@ -21,6 +21,7 @@ import Network.AWS.ECS.DescribeTasks
 import Network.AWS.ECS.Lens
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.ECS.DescribeTasks' every 6 seconds until a successful state is reached. An error is returned after 100 failed checks.
 newTasksRunning :: Core.Wait DescribeTasks
@@ -35,33 +36,35 @@ newTasksRunning =
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeTasksResponse_tasks Core.. Lens._Just)
+                    (describeTasksResponse_tasks Prelude.. Lens._Just)
                 )
-                Core.. task_lastStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. task_lastStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "MISSING"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeTasksResponse_failures Core.. Lens._Just)
+                    ( describeTasksResponse_failures
+                        Prelude.. Lens._Just
+                    )
                 )
-                Core.. failure_reason
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. failure_reason
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "RUNNING"
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeTasksResponse_tasks Core.. Lens._Just)
+                    (describeTasksResponse_tasks Prelude.. Lens._Just)
                 )
-                Core.. task_lastStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. task_lastStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -79,11 +82,11 @@ newTasksStopped =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeTasksResponse_tasks Core.. Lens._Just)
+                    (describeTasksResponse_tasks Prelude.. Lens._Just)
                 )
-                Core.. task_lastStatus
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. task_lastStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }
@@ -102,12 +105,12 @@ newServicesInactive =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeServicesResponse_failures
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. failure_reason
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. failure_reason
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
             "INACTIVE"
@@ -115,12 +118,12 @@ newServicesInactive =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeServicesResponse_services
-                        Core.. Lens._Just
+                        Prelude.. Lens._Just
                     )
                 )
-                Core.. containerService_status
-                Core.. Lens._Just
-                Core.. Lens.to Core.toTextCI
+                Prelude.. containerService_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
             )
         ]
     }

@@ -52,6 +52,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ImportExport.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,13 +60,13 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateJob' smart constructor.
 data UpdateJob = UpdateJob'
-  { aPIVersion :: Core.Maybe Core.Text,
-    jobId :: Core.Text,
-    manifest :: Core.Text,
+  { aPIVersion :: Prelude.Maybe Prelude.Text,
+    jobId :: Prelude.Text,
+    manifest :: Prelude.Text,
     jobType :: JobType,
-    validateOnly :: Core.Bool
+    validateOnly :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateJob' with all optional fields omitted.
@@ -86,13 +87,13 @@ data UpdateJob = UpdateJob'
 -- 'validateOnly', 'updateJob_validateOnly' - Undocumented member.
 newUpdateJob ::
   -- | 'jobId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'manifest'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'jobType'
   JobType ->
   -- | 'validateOnly'
-  Core.Bool ->
+  Prelude.Bool ->
   UpdateJob
 newUpdateJob
   pJobId_
@@ -100,7 +101,7 @@ newUpdateJob
   pJobType_
   pValidateOnly_ =
     UpdateJob'
-      { aPIVersion = Core.Nothing,
+      { aPIVersion = Prelude.Nothing,
         jobId = pJobId_,
         manifest = pManifest_,
         jobType = pJobType_,
@@ -108,15 +109,15 @@ newUpdateJob
       }
 
 -- | Undocumented member.
-updateJob_aPIVersion :: Lens.Lens' UpdateJob (Core.Maybe Core.Text)
+updateJob_aPIVersion :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
 updateJob_aPIVersion = Lens.lens (\UpdateJob' {aPIVersion} -> aPIVersion) (\s@UpdateJob' {} a -> s {aPIVersion = a} :: UpdateJob)
 
 -- | Undocumented member.
-updateJob_jobId :: Lens.Lens' UpdateJob Core.Text
+updateJob_jobId :: Lens.Lens' UpdateJob Prelude.Text
 updateJob_jobId = Lens.lens (\UpdateJob' {jobId} -> jobId) (\s@UpdateJob' {} a -> s {jobId = a} :: UpdateJob)
 
 -- | Undocumented member.
-updateJob_manifest :: Lens.Lens' UpdateJob Core.Text
+updateJob_manifest :: Lens.Lens' UpdateJob Prelude.Text
 updateJob_manifest = Lens.lens (\UpdateJob' {manifest} -> manifest) (\s@UpdateJob' {} a -> s {manifest = a} :: UpdateJob)
 
 -- | Undocumented member.
@@ -124,7 +125,7 @@ updateJob_jobType :: Lens.Lens' UpdateJob JobType
 updateJob_jobType = Lens.lens (\UpdateJob' {jobType} -> jobType) (\s@UpdateJob' {} a -> s {jobType = a} :: UpdateJob)
 
 -- | Undocumented member.
-updateJob_validateOnly :: Lens.Lens' UpdateJob Core.Bool
+updateJob_validateOnly :: Lens.Lens' UpdateJob Prelude.Bool
 updateJob_validateOnly = Lens.lens (\UpdateJob' {validateOnly} -> validateOnly) (\s@UpdateJob' {} a -> s {validateOnly = a} :: UpdateJob)
 
 instance Core.AWSRequest UpdateJob where
@@ -135,30 +136,31 @@ instance Core.AWSRequest UpdateJob where
       "UpdateJobResult"
       ( \s h x ->
           UpdateJobResponse'
-            Core.<$> (x Core..@? "WarningMessage")
-            Core.<*> ( x Core..@? "ArtifactList" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (x Core..@? "Success")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "WarningMessage")
+            Prelude.<*> ( x Core..@? "ArtifactList" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "Success")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateJob
+instance Prelude.Hashable UpdateJob
 
-instance Core.NFData UpdateJob
+instance Prelude.NFData UpdateJob
 
 instance Core.ToHeaders UpdateJob where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateJob where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateJob where
   toQuery UpdateJob' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Operation=UpdateJob",
-        "Action" Core.=: ("UpdateJob" :: Core.ByteString),
-        "Version" Core.=: ("2010-06-01" :: Core.ByteString),
+        "Action" Core.=: ("UpdateJob" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-06-01" :: Prelude.ByteString),
         "APIVersion" Core.=: aPIVersion,
         "JobId" Core.=: jobId,
         "Manifest" Core.=: manifest,
@@ -170,13 +172,13 @@ instance Core.ToQuery UpdateJob where
 --
 -- /See:/ 'newUpdateJobResponse' smart constructor.
 data UpdateJobResponse = UpdateJobResponse'
-  { warningMessage :: Core.Maybe Core.Text,
-    artifactList :: Core.Maybe [Artifact],
-    success :: Core.Maybe Core.Bool,
+  { warningMessage :: Prelude.Maybe Prelude.Text,
+    artifactList :: Prelude.Maybe [Artifact],
+    success :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateJobResponse' with all optional fields omitted.
@@ -195,30 +197,31 @@ data UpdateJobResponse = UpdateJobResponse'
 -- 'httpStatus', 'updateJobResponse_httpStatus' - The response's http status code.
 newUpdateJobResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateJobResponse
 newUpdateJobResponse pHttpStatus_ =
   UpdateJobResponse'
-    { warningMessage = Core.Nothing,
-      artifactList = Core.Nothing,
-      success = Core.Nothing,
+    { warningMessage =
+        Prelude.Nothing,
+      artifactList = Prelude.Nothing,
+      success = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-updateJobResponse_warningMessage :: Lens.Lens' UpdateJobResponse (Core.Maybe Core.Text)
+updateJobResponse_warningMessage :: Lens.Lens' UpdateJobResponse (Prelude.Maybe Prelude.Text)
 updateJobResponse_warningMessage = Lens.lens (\UpdateJobResponse' {warningMessage} -> warningMessage) (\s@UpdateJobResponse' {} a -> s {warningMessage = a} :: UpdateJobResponse)
 
 -- | Undocumented member.
-updateJobResponse_artifactList :: Lens.Lens' UpdateJobResponse (Core.Maybe [Artifact])
-updateJobResponse_artifactList = Lens.lens (\UpdateJobResponse' {artifactList} -> artifactList) (\s@UpdateJobResponse' {} a -> s {artifactList = a} :: UpdateJobResponse) Core.. Lens.mapping Lens._Coerce
+updateJobResponse_artifactList :: Lens.Lens' UpdateJobResponse (Prelude.Maybe [Artifact])
+updateJobResponse_artifactList = Lens.lens (\UpdateJobResponse' {artifactList} -> artifactList) (\s@UpdateJobResponse' {} a -> s {artifactList = a} :: UpdateJobResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-updateJobResponse_success :: Lens.Lens' UpdateJobResponse (Core.Maybe Core.Bool)
+updateJobResponse_success :: Lens.Lens' UpdateJobResponse (Prelude.Maybe Prelude.Bool)
 updateJobResponse_success = Lens.lens (\UpdateJobResponse' {success} -> success) (\s@UpdateJobResponse' {} a -> s {success = a} :: UpdateJobResponse)
 
 -- | The response's http status code.
-updateJobResponse_httpStatus :: Lens.Lens' UpdateJobResponse Core.Int
+updateJobResponse_httpStatus :: Lens.Lens' UpdateJobResponse Prelude.Int
 updateJobResponse_httpStatus = Lens.lens (\UpdateJobResponse' {httpStatus} -> httpStatus) (\s@UpdateJobResponse' {} a -> s {httpStatus = a} :: UpdateJobResponse)
 
-instance Core.NFData UpdateJobResponse
+instance Prelude.NFData UpdateJobResponse

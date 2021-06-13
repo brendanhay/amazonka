@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.TensorBoardOutputConfig where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration of storage locations for the Debugger TensorBoard output
 -- data.
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 data TensorBoardOutputConfig = TensorBoardOutputConfig'
   { -- | Path to local storage location for tensorBoard output. Defaults to
     -- @\/opt\/ml\/output\/tensorboard@.
-    localPath :: Core.Maybe Core.Text,
+    localPath :: Prelude.Maybe Prelude.Text,
     -- | Path to Amazon S3 storage location for TensorBoard output.
-    s3OutputPath :: Core.Text
+    s3OutputPath :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TensorBoardOutputConfig' with all optional fields omitted.
@@ -49,21 +50,22 @@ data TensorBoardOutputConfig = TensorBoardOutputConfig'
 -- 's3OutputPath', 'tensorBoardOutputConfig_s3OutputPath' - Path to Amazon S3 storage location for TensorBoard output.
 newTensorBoardOutputConfig ::
   -- | 's3OutputPath'
-  Core.Text ->
+  Prelude.Text ->
   TensorBoardOutputConfig
 newTensorBoardOutputConfig pS3OutputPath_ =
   TensorBoardOutputConfig'
-    { localPath = Core.Nothing,
+    { localPath =
+        Prelude.Nothing,
       s3OutputPath = pS3OutputPath_
     }
 
 -- | Path to local storage location for tensorBoard output. Defaults to
 -- @\/opt\/ml\/output\/tensorboard@.
-tensorBoardOutputConfig_localPath :: Lens.Lens' TensorBoardOutputConfig (Core.Maybe Core.Text)
+tensorBoardOutputConfig_localPath :: Lens.Lens' TensorBoardOutputConfig (Prelude.Maybe Prelude.Text)
 tensorBoardOutputConfig_localPath = Lens.lens (\TensorBoardOutputConfig' {localPath} -> localPath) (\s@TensorBoardOutputConfig' {} a -> s {localPath = a} :: TensorBoardOutputConfig)
 
 -- | Path to Amazon S3 storage location for TensorBoard output.
-tensorBoardOutputConfig_s3OutputPath :: Lens.Lens' TensorBoardOutputConfig Core.Text
+tensorBoardOutputConfig_s3OutputPath :: Lens.Lens' TensorBoardOutputConfig Prelude.Text
 tensorBoardOutputConfig_s3OutputPath = Lens.lens (\TensorBoardOutputConfig' {s3OutputPath} -> s3OutputPath) (\s@TensorBoardOutputConfig' {} a -> s {s3OutputPath = a} :: TensorBoardOutputConfig)
 
 instance Core.FromJSON TensorBoardOutputConfig where
@@ -72,19 +74,19 @@ instance Core.FromJSON TensorBoardOutputConfig where
       "TensorBoardOutputConfig"
       ( \x ->
           TensorBoardOutputConfig'
-            Core.<$> (x Core..:? "LocalPath")
-            Core.<*> (x Core..: "S3OutputPath")
+            Prelude.<$> (x Core..:? "LocalPath")
+            Prelude.<*> (x Core..: "S3OutputPath")
       )
 
-instance Core.Hashable TensorBoardOutputConfig
+instance Prelude.Hashable TensorBoardOutputConfig
 
-instance Core.NFData TensorBoardOutputConfig
+instance Prelude.NFData TensorBoardOutputConfig
 
 instance Core.ToJSON TensorBoardOutputConfig where
   toJSON TensorBoardOutputConfig' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("LocalPath" Core..=) Core.<$> localPath,
-            Core.Just ("S3OutputPath" Core..= s3OutputPath)
+      ( Prelude.catMaybes
+          [ ("LocalPath" Core..=) Prelude.<$> localPath,
+            Prelude.Just ("S3OutputPath" Core..= s3OutputPath)
           ]
       )

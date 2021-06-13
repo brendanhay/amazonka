@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.HibernationOptions where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether your instance is configured for hibernation. This
 -- parameter is valid only if the instance meets the
@@ -34,9 +35,9 @@ import qualified Network.AWS.Lens as Lens
 data HibernationOptions = HibernationOptions'
   { -- | If this parameter is set to @true@, your instance is enabled for
     -- hibernation; otherwise, it is not enabled for hibernation.
-    configured :: Core.Maybe Core.Bool
+    configured :: Prelude.Maybe Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'HibernationOptions' with all optional fields omitted.
@@ -51,18 +52,18 @@ data HibernationOptions = HibernationOptions'
 newHibernationOptions ::
   HibernationOptions
 newHibernationOptions =
-  HibernationOptions' {configured = Core.Nothing}
+  HibernationOptions' {configured = Prelude.Nothing}
 
 -- | If this parameter is set to @true@, your instance is enabled for
 -- hibernation; otherwise, it is not enabled for hibernation.
-hibernationOptions_configured :: Lens.Lens' HibernationOptions (Core.Maybe Core.Bool)
+hibernationOptions_configured :: Lens.Lens' HibernationOptions (Prelude.Maybe Prelude.Bool)
 hibernationOptions_configured = Lens.lens (\HibernationOptions' {configured} -> configured) (\s@HibernationOptions' {} a -> s {configured = a} :: HibernationOptions)
 
 instance Core.FromXML HibernationOptions where
   parseXML x =
     HibernationOptions'
-      Core.<$> (x Core..@? "configured")
+      Prelude.<$> (x Core..@? "configured")
 
-instance Core.Hashable HibernationOptions
+instance Prelude.Hashable HibernationOptions
 
-instance Core.NFData HibernationOptions
+instance Prelude.NFData HibernationOptions

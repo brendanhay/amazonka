@@ -22,6 +22,7 @@ module Network.AWS.Comprehend.Types.EndpointProperties where
 import Network.AWS.Comprehend.Types.EndpointStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies information about the specified endpoint.
 --
@@ -29,28 +30,28 @@ import qualified Network.AWS.Lens as Lens
 data EndpointProperties = EndpointProperties'
   { -- | The number of inference units currently used by the model using this
     -- endpoint.
-    currentInferenceUnits :: Core.Maybe Core.Natural,
+    currentInferenceUnits :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the status of the endpoint. Because the endpoint updates and
     -- creation are asynchronous, so customers will need to wait for the
     -- endpoint to be @Ready@ status before making inference requests.
-    status :: Core.Maybe EndpointStatus,
+    status :: Prelude.Maybe EndpointStatus,
     -- | The creation date and time of the endpoint.
-    creationTime :: Core.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The desired number of inference units to be used by the model using this
     -- endpoint. Each inference unit represents of a throughput of 100
     -- characters per second.
-    desiredInferenceUnits :: Core.Maybe Core.Natural,
+    desiredInferenceUnits :: Prelude.Maybe Prelude.Natural,
     -- | Specifies a reason for failure in cases of @Failed@ status.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Number (ARN) of the model to which the endpoint is
     -- attached.
-    modelArn :: Core.Maybe Core.Text,
+    modelArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the endpoint was last modified.
-    lastModifiedTime :: Core.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Number (ARN) of the endpoint.
-    endpointArn :: Core.Maybe Core.Text
+    endpointArn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EndpointProperties' with all optional fields omitted.
@@ -86,52 +87,52 @@ newEndpointProperties ::
 newEndpointProperties =
   EndpointProperties'
     { currentInferenceUnits =
-        Core.Nothing,
-      status = Core.Nothing,
-      creationTime = Core.Nothing,
-      desiredInferenceUnits = Core.Nothing,
-      message = Core.Nothing,
-      modelArn = Core.Nothing,
-      lastModifiedTime = Core.Nothing,
-      endpointArn = Core.Nothing
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      desiredInferenceUnits = Prelude.Nothing,
+      message = Prelude.Nothing,
+      modelArn = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      endpointArn = Prelude.Nothing
     }
 
 -- | The number of inference units currently used by the model using this
 -- endpoint.
-endpointProperties_currentInferenceUnits :: Lens.Lens' EndpointProperties (Core.Maybe Core.Natural)
+endpointProperties_currentInferenceUnits :: Lens.Lens' EndpointProperties (Prelude.Maybe Prelude.Natural)
 endpointProperties_currentInferenceUnits = Lens.lens (\EndpointProperties' {currentInferenceUnits} -> currentInferenceUnits) (\s@EndpointProperties' {} a -> s {currentInferenceUnits = a} :: EndpointProperties)
 
 -- | Specifies the status of the endpoint. Because the endpoint updates and
 -- creation are asynchronous, so customers will need to wait for the
 -- endpoint to be @Ready@ status before making inference requests.
-endpointProperties_status :: Lens.Lens' EndpointProperties (Core.Maybe EndpointStatus)
+endpointProperties_status :: Lens.Lens' EndpointProperties (Prelude.Maybe EndpointStatus)
 endpointProperties_status = Lens.lens (\EndpointProperties' {status} -> status) (\s@EndpointProperties' {} a -> s {status = a} :: EndpointProperties)
 
 -- | The creation date and time of the endpoint.
-endpointProperties_creationTime :: Lens.Lens' EndpointProperties (Core.Maybe Core.UTCTime)
-endpointProperties_creationTime = Lens.lens (\EndpointProperties' {creationTime} -> creationTime) (\s@EndpointProperties' {} a -> s {creationTime = a} :: EndpointProperties) Core.. Lens.mapping Core._Time
+endpointProperties_creationTime :: Lens.Lens' EndpointProperties (Prelude.Maybe Prelude.UTCTime)
+endpointProperties_creationTime = Lens.lens (\EndpointProperties' {creationTime} -> creationTime) (\s@EndpointProperties' {} a -> s {creationTime = a} :: EndpointProperties) Prelude.. Lens.mapping Core._Time
 
 -- | The desired number of inference units to be used by the model using this
 -- endpoint. Each inference unit represents of a throughput of 100
 -- characters per second.
-endpointProperties_desiredInferenceUnits :: Lens.Lens' EndpointProperties (Core.Maybe Core.Natural)
+endpointProperties_desiredInferenceUnits :: Lens.Lens' EndpointProperties (Prelude.Maybe Prelude.Natural)
 endpointProperties_desiredInferenceUnits = Lens.lens (\EndpointProperties' {desiredInferenceUnits} -> desiredInferenceUnits) (\s@EndpointProperties' {} a -> s {desiredInferenceUnits = a} :: EndpointProperties)
 
 -- | Specifies a reason for failure in cases of @Failed@ status.
-endpointProperties_message :: Lens.Lens' EndpointProperties (Core.Maybe Core.Text)
+endpointProperties_message :: Lens.Lens' EndpointProperties (Prelude.Maybe Prelude.Text)
 endpointProperties_message = Lens.lens (\EndpointProperties' {message} -> message) (\s@EndpointProperties' {} a -> s {message = a} :: EndpointProperties)
 
 -- | The Amazon Resource Number (ARN) of the model to which the endpoint is
 -- attached.
-endpointProperties_modelArn :: Lens.Lens' EndpointProperties (Core.Maybe Core.Text)
+endpointProperties_modelArn :: Lens.Lens' EndpointProperties (Prelude.Maybe Prelude.Text)
 endpointProperties_modelArn = Lens.lens (\EndpointProperties' {modelArn} -> modelArn) (\s@EndpointProperties' {} a -> s {modelArn = a} :: EndpointProperties)
 
 -- | The date and time that the endpoint was last modified.
-endpointProperties_lastModifiedTime :: Lens.Lens' EndpointProperties (Core.Maybe Core.UTCTime)
-endpointProperties_lastModifiedTime = Lens.lens (\EndpointProperties' {lastModifiedTime} -> lastModifiedTime) (\s@EndpointProperties' {} a -> s {lastModifiedTime = a} :: EndpointProperties) Core.. Lens.mapping Core._Time
+endpointProperties_lastModifiedTime :: Lens.Lens' EndpointProperties (Prelude.Maybe Prelude.UTCTime)
+endpointProperties_lastModifiedTime = Lens.lens (\EndpointProperties' {lastModifiedTime} -> lastModifiedTime) (\s@EndpointProperties' {} a -> s {lastModifiedTime = a} :: EndpointProperties) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Number (ARN) of the endpoint.
-endpointProperties_endpointArn :: Lens.Lens' EndpointProperties (Core.Maybe Core.Text)
+endpointProperties_endpointArn :: Lens.Lens' EndpointProperties (Prelude.Maybe Prelude.Text)
 endpointProperties_endpointArn = Lens.lens (\EndpointProperties' {endpointArn} -> endpointArn) (\s@EndpointProperties' {} a -> s {endpointArn = a} :: EndpointProperties)
 
 instance Core.FromJSON EndpointProperties where
@@ -140,16 +141,16 @@ instance Core.FromJSON EndpointProperties where
       "EndpointProperties"
       ( \x ->
           EndpointProperties'
-            Core.<$> (x Core..:? "CurrentInferenceUnits")
-            Core.<*> (x Core..:? "Status")
-            Core.<*> (x Core..:? "CreationTime")
-            Core.<*> (x Core..:? "DesiredInferenceUnits")
-            Core.<*> (x Core..:? "Message")
-            Core.<*> (x Core..:? "ModelArn")
-            Core.<*> (x Core..:? "LastModifiedTime")
-            Core.<*> (x Core..:? "EndpointArn")
+            Prelude.<$> (x Core..:? "CurrentInferenceUnits")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "DesiredInferenceUnits")
+            Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "ModelArn")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "EndpointArn")
       )
 
-instance Core.Hashable EndpointProperties
+instance Prelude.Hashable EndpointProperties
 
-instance Core.NFData EndpointProperties
+instance Prelude.NFData EndpointProperties

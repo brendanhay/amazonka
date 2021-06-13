@@ -48,6 +48,7 @@ where
 import Network.AWS.CertificateManager.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,9 +60,9 @@ data GetCertificate = GetCertificate'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-    certificateArn :: Core.Text
+    certificateArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCertificate' with all optional fields omitted.
@@ -79,7 +80,7 @@ data GetCertificate = GetCertificate'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
 newGetCertificate ::
   -- | 'certificateArn'
-  Core.Text ->
+  Prelude.Text ->
   GetCertificate
 newGetCertificate pCertificateArn_ =
   GetCertificate' {certificateArn = pCertificateArn_}
@@ -90,7 +91,7 @@ newGetCertificate pCertificateArn_ =
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-getCertificate_certificateArn :: Lens.Lens' GetCertificate Core.Text
+getCertificate_certificateArn :: Lens.Lens' GetCertificate Prelude.Text
 getCertificate_certificateArn = Lens.lens (\GetCertificate' {certificateArn} -> certificateArn) (\s@GetCertificate' {} a -> s {certificateArn = a} :: GetCertificate)
 
 instance Core.AWSRequest GetCertificate where
@@ -102,55 +103,57 @@ instance Core.AWSRequest GetCertificate where
     Response.receiveJSON
       ( \s h x ->
           GetCertificateResponse'
-            Core.<$> (x Core..?> "CertificateChain")
-            Core.<*> (x Core..?> "Certificate")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "CertificateChain")
+            Prelude.<*> (x Core..?> "Certificate")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetCertificate
+instance Prelude.Hashable GetCertificate
 
-instance Core.NFData GetCertificate
+instance Prelude.NFData GetCertificate
 
 instance Core.ToHeaders GetCertificate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CertificateManager.GetCertificate" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetCertificate where
   toJSON GetCertificate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("CertificateArn" Core..= certificateArn)
           ]
       )
 
 instance Core.ToPath GetCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetCertificate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCertificateResponse' smart constructor.
 data GetCertificateResponse = GetCertificateResponse'
   { -- | Certificates forming the requested certificate\'s chain of trust. The
     -- chain consists of the certificate of the issuing CA and the intermediate
     -- certificates of any other subordinate CAs.
-    certificateChain :: Core.Maybe Core.Text,
+    certificateChain :: Prelude.Maybe Prelude.Text,
     -- | The ACM-issued certificate corresponding to the ARN specified as input.
-    certificate :: Core.Maybe Core.Text,
+    certificate :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetCertificateResponse' with all optional fields omitted.
@@ -169,28 +172,28 @@ data GetCertificateResponse = GetCertificateResponse'
 -- 'httpStatus', 'getCertificateResponse_httpStatus' - The response's http status code.
 newGetCertificateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetCertificateResponse
 newGetCertificateResponse pHttpStatus_ =
   GetCertificateResponse'
     { certificateChain =
-        Core.Nothing,
-      certificate = Core.Nothing,
+        Prelude.Nothing,
+      certificate = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Certificates forming the requested certificate\'s chain of trust. The
 -- chain consists of the certificate of the issuing CA and the intermediate
 -- certificates of any other subordinate CAs.
-getCertificateResponse_certificateChain :: Lens.Lens' GetCertificateResponse (Core.Maybe Core.Text)
+getCertificateResponse_certificateChain :: Lens.Lens' GetCertificateResponse (Prelude.Maybe Prelude.Text)
 getCertificateResponse_certificateChain = Lens.lens (\GetCertificateResponse' {certificateChain} -> certificateChain) (\s@GetCertificateResponse' {} a -> s {certificateChain = a} :: GetCertificateResponse)
 
 -- | The ACM-issued certificate corresponding to the ARN specified as input.
-getCertificateResponse_certificate :: Lens.Lens' GetCertificateResponse (Core.Maybe Core.Text)
+getCertificateResponse_certificate :: Lens.Lens' GetCertificateResponse (Prelude.Maybe Prelude.Text)
 getCertificateResponse_certificate = Lens.lens (\GetCertificateResponse' {certificate} -> certificate) (\s@GetCertificateResponse' {} a -> s {certificate = a} :: GetCertificateResponse)
 
 -- | The response's http status code.
-getCertificateResponse_httpStatus :: Lens.Lens' GetCertificateResponse Core.Int
+getCertificateResponse_httpStatus :: Lens.Lens' GetCertificateResponse Prelude.Int
 getCertificateResponse_httpStatus = Lens.lens (\GetCertificateResponse' {httpStatus} -> httpStatus) (\s@GetCertificateResponse' {} a -> s {httpStatus = a} :: GetCertificateResponse)
 
-instance Core.NFData GetCertificateResponse
+instance Prelude.NFData GetCertificateResponse

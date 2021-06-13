@@ -21,6 +21,7 @@ module Network.AWS.Redshift.Types.EventInfoMap where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | Describes event information.
@@ -28,17 +29,17 @@ import Network.AWS.Redshift.Internal
 -- /See:/ 'newEventInfoMap' smart constructor.
 data EventInfoMap = EventInfoMap'
   { -- | The identifier of an Amazon Redshift event.
-    eventId :: Core.Maybe Core.Text,
+    eventId :: Prelude.Maybe Prelude.Text,
     -- | The severity of the event.
     --
     -- Values: ERROR, INFO
-    severity :: Core.Maybe Core.Text,
+    severity :: Prelude.Maybe Prelude.Text,
     -- | The description of an Amazon Redshift event.
-    eventDescription :: Core.Maybe Core.Text,
+    eventDescription :: Prelude.Maybe Prelude.Text,
     -- | The category of an Amazon Redshift event.
-    eventCategories :: Core.Maybe [Core.Text]
+    eventCategories :: Prelude.Maybe [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventInfoMap' with all optional fields omitted.
@@ -61,40 +62,40 @@ newEventInfoMap ::
   EventInfoMap
 newEventInfoMap =
   EventInfoMap'
-    { eventId = Core.Nothing,
-      severity = Core.Nothing,
-      eventDescription = Core.Nothing,
-      eventCategories = Core.Nothing
+    { eventId = Prelude.Nothing,
+      severity = Prelude.Nothing,
+      eventDescription = Prelude.Nothing,
+      eventCategories = Prelude.Nothing
     }
 
 -- | The identifier of an Amazon Redshift event.
-eventInfoMap_eventId :: Lens.Lens' EventInfoMap (Core.Maybe Core.Text)
+eventInfoMap_eventId :: Lens.Lens' EventInfoMap (Prelude.Maybe Prelude.Text)
 eventInfoMap_eventId = Lens.lens (\EventInfoMap' {eventId} -> eventId) (\s@EventInfoMap' {} a -> s {eventId = a} :: EventInfoMap)
 
 -- | The severity of the event.
 --
 -- Values: ERROR, INFO
-eventInfoMap_severity :: Lens.Lens' EventInfoMap (Core.Maybe Core.Text)
+eventInfoMap_severity :: Lens.Lens' EventInfoMap (Prelude.Maybe Prelude.Text)
 eventInfoMap_severity = Lens.lens (\EventInfoMap' {severity} -> severity) (\s@EventInfoMap' {} a -> s {severity = a} :: EventInfoMap)
 
 -- | The description of an Amazon Redshift event.
-eventInfoMap_eventDescription :: Lens.Lens' EventInfoMap (Core.Maybe Core.Text)
+eventInfoMap_eventDescription :: Lens.Lens' EventInfoMap (Prelude.Maybe Prelude.Text)
 eventInfoMap_eventDescription = Lens.lens (\EventInfoMap' {eventDescription} -> eventDescription) (\s@EventInfoMap' {} a -> s {eventDescription = a} :: EventInfoMap)
 
 -- | The category of an Amazon Redshift event.
-eventInfoMap_eventCategories :: Lens.Lens' EventInfoMap (Core.Maybe [Core.Text])
-eventInfoMap_eventCategories = Lens.lens (\EventInfoMap' {eventCategories} -> eventCategories) (\s@EventInfoMap' {} a -> s {eventCategories = a} :: EventInfoMap) Core.. Lens.mapping Lens._Coerce
+eventInfoMap_eventCategories :: Lens.Lens' EventInfoMap (Prelude.Maybe [Prelude.Text])
+eventInfoMap_eventCategories = Lens.lens (\EventInfoMap' {eventCategories} -> eventCategories) (\s@EventInfoMap' {} a -> s {eventCategories = a} :: EventInfoMap) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML EventInfoMap where
   parseXML x =
     EventInfoMap'
-      Core.<$> (x Core..@? "EventId")
-      Core.<*> (x Core..@? "Severity")
-      Core.<*> (x Core..@? "EventDescription")
-      Core.<*> ( x Core..@? "EventCategories" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "EventCategory")
-               )
+      Prelude.<$> (x Core..@? "EventId")
+      Prelude.<*> (x Core..@? "Severity")
+      Prelude.<*> (x Core..@? "EventDescription")
+      Prelude.<*> ( x Core..@? "EventCategories" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "EventCategory")
+                  )
 
-instance Core.Hashable EventInfoMap
+instance Prelude.Hashable EventInfoMap
 
-instance Core.NFData EventInfoMap
+instance Prelude.NFData EventInfoMap

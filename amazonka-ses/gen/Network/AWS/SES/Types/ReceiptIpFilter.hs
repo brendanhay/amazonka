@@ -21,6 +21,7 @@ module Network.AWS.SES.Types.ReceiptIpFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.ReceiptFilterPolicy
 
 -- | A receipt IP address filter enables you to specify whether to accept or
@@ -39,9 +40,9 @@ data ReceiptIpFilter = ReceiptIpFilter'
     -- example of a single email address is 10.0.0.1. An example of a range of
     -- IP addresses is 10.0.0.1\/24. For more information about CIDR notation,
     -- see <https://tools.ietf.org/html/rfc2317 RFC 2317>.
-    cidr :: Core.Text
+    cidr :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ReceiptIpFilter' with all optional fields omitted.
@@ -63,7 +64,7 @@ newReceiptIpFilter ::
   -- | 'policy'
   ReceiptFilterPolicy ->
   -- | 'cidr'
-  Core.Text ->
+  Prelude.Text ->
   ReceiptIpFilter
 newReceiptIpFilter pPolicy_ pCidr_ =
   ReceiptIpFilter' {policy = pPolicy_, cidr = pCidr_}
@@ -78,19 +79,19 @@ receiptIpFilter_policy = Lens.lens (\ReceiptIpFilter' {policy} -> policy) (\s@Re
 -- example of a single email address is 10.0.0.1. An example of a range of
 -- IP addresses is 10.0.0.1\/24. For more information about CIDR notation,
 -- see <https://tools.ietf.org/html/rfc2317 RFC 2317>.
-receiptIpFilter_cidr :: Lens.Lens' ReceiptIpFilter Core.Text
+receiptIpFilter_cidr :: Lens.Lens' ReceiptIpFilter Prelude.Text
 receiptIpFilter_cidr = Lens.lens (\ReceiptIpFilter' {cidr} -> cidr) (\s@ReceiptIpFilter' {} a -> s {cidr = a} :: ReceiptIpFilter)
 
 instance Core.FromXML ReceiptIpFilter where
   parseXML x =
     ReceiptIpFilter'
-      Core.<$> (x Core..@ "Policy") Core.<*> (x Core..@ "Cidr")
+      Prelude.<$> (x Core..@ "Policy") Prelude.<*> (x Core..@ "Cidr")
 
-instance Core.Hashable ReceiptIpFilter
+instance Prelude.Hashable ReceiptIpFilter
 
-instance Core.NFData ReceiptIpFilter
+instance Prelude.NFData ReceiptIpFilter
 
 instance Core.ToQuery ReceiptIpFilter where
   toQuery ReceiptIpFilter' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Policy" Core.=: policy, "Cidr" Core.=: cidr]

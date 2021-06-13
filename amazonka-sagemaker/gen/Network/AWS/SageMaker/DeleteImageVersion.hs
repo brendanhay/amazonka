@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -49,11 +50,11 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteImageVersion' smart constructor.
 data DeleteImageVersion = DeleteImageVersion'
   { -- | The name of the image.
-    imageName :: Core.Text,
+    imageName :: Prelude.Text,
     -- | The version to delete.
-    version :: Core.Natural
+    version :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteImageVersion' with all optional fields omitted.
@@ -68,9 +69,9 @@ data DeleteImageVersion = DeleteImageVersion'
 -- 'version', 'deleteImageVersion_version' - The version to delete.
 newDeleteImageVersion ::
   -- | 'imageName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'version'
-  Core.Natural ->
+  Prelude.Natural ->
   DeleteImageVersion
 newDeleteImageVersion pImageName_ pVersion_ =
   DeleteImageVersion'
@@ -79,11 +80,11 @@ newDeleteImageVersion pImageName_ pVersion_ =
     }
 
 -- | The name of the image.
-deleteImageVersion_imageName :: Lens.Lens' DeleteImageVersion Core.Text
+deleteImageVersion_imageName :: Lens.Lens' DeleteImageVersion Prelude.Text
 deleteImageVersion_imageName = Lens.lens (\DeleteImageVersion' {imageName} -> imageName) (\s@DeleteImageVersion' {} a -> s {imageName = a} :: DeleteImageVersion)
 
 -- | The version to delete.
-deleteImageVersion_version :: Lens.Lens' DeleteImageVersion Core.Natural
+deleteImageVersion_version :: Lens.Lens' DeleteImageVersion Prelude.Natural
 deleteImageVersion_version = Lens.lens (\DeleteImageVersion' {version} -> version) (\s@DeleteImageVersion' {} a -> s {version = a} :: DeleteImageVersion)
 
 instance Core.AWSRequest DeleteImageVersion where
@@ -95,45 +96,49 @@ instance Core.AWSRequest DeleteImageVersion where
     Response.receiveEmpty
       ( \s h x ->
           DeleteImageVersionResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeleteImageVersion
+instance Prelude.Hashable DeleteImageVersion
 
-instance Core.NFData DeleteImageVersion
+instance Prelude.NFData DeleteImageVersion
 
 instance Core.ToHeaders DeleteImageVersion where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteImageVersion" :: Core.ByteString),
+              Core.=# ( "SageMaker.DeleteImageVersion" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteImageVersion where
   toJSON DeleteImageVersion' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ImageName" Core..= imageName),
-            Core.Just ("Version" Core..= version)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ImageName" Core..= imageName),
+            Prelude.Just ("Version" Core..= version)
           ]
       )
 
 instance Core.ToPath DeleteImageVersion where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteImageVersion where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteImageVersionResponse' smart constructor.
 data DeleteImageVersionResponse = DeleteImageVersionResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteImageVersionResponse' with all optional fields omitted.
@@ -146,7 +151,7 @@ data DeleteImageVersionResponse = DeleteImageVersionResponse'
 -- 'httpStatus', 'deleteImageVersionResponse_httpStatus' - The response's http status code.
 newDeleteImageVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeleteImageVersionResponse
 newDeleteImageVersionResponse pHttpStatus_ =
   DeleteImageVersionResponse'
@@ -155,7 +160,7 @@ newDeleteImageVersionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteImageVersionResponse_httpStatus :: Lens.Lens' DeleteImageVersionResponse Core.Int
+deleteImageVersionResponse_httpStatus :: Lens.Lens' DeleteImageVersionResponse Prelude.Int
 deleteImageVersionResponse_httpStatus = Lens.lens (\DeleteImageVersionResponse' {httpStatus} -> httpStatus) (\s@DeleteImageVersionResponse' {} a -> s {httpStatus = a} :: DeleteImageVersionResponse)
 
-instance Core.NFData DeleteImageVersionResponse
+instance Prelude.NFData DeleteImageVersionResponse

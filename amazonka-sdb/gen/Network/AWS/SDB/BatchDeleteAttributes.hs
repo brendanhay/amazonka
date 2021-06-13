@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SDB.Types
@@ -52,11 +53,11 @@ import Network.AWS.SDB.Types
 -- | /See:/ 'newBatchDeleteAttributes' smart constructor.
 data BatchDeleteAttributes = BatchDeleteAttributes'
   { -- | The name of the domain in which the attributes are being deleted.
-    domainName :: Core.Text,
+    domainName :: Prelude.Text,
     -- | A list of items on which to perform the operation.
     items :: [DeletableItem]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteAttributes' with all optional fields omitted.
@@ -71,21 +72,21 @@ data BatchDeleteAttributes = BatchDeleteAttributes'
 -- 'items', 'batchDeleteAttributes_items' - A list of items on which to perform the operation.
 newBatchDeleteAttributes ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   BatchDeleteAttributes
 newBatchDeleteAttributes pDomainName_ =
   BatchDeleteAttributes'
     { domainName = pDomainName_,
-      items = Core.mempty
+      items = Prelude.mempty
     }
 
 -- | The name of the domain in which the attributes are being deleted.
-batchDeleteAttributes_domainName :: Lens.Lens' BatchDeleteAttributes Core.Text
+batchDeleteAttributes_domainName :: Lens.Lens' BatchDeleteAttributes Prelude.Text
 batchDeleteAttributes_domainName = Lens.lens (\BatchDeleteAttributes' {domainName} -> domainName) (\s@BatchDeleteAttributes' {} a -> s {domainName = a} :: BatchDeleteAttributes)
 
 -- | A list of items on which to perform the operation.
 batchDeleteAttributes_items :: Lens.Lens' BatchDeleteAttributes [DeletableItem]
-batchDeleteAttributes_items = Lens.lens (\BatchDeleteAttributes' {items} -> items) (\s@BatchDeleteAttributes' {} a -> s {items = a} :: BatchDeleteAttributes) Core.. Lens._Coerce
+batchDeleteAttributes_items = Lens.lens (\BatchDeleteAttributes' {items} -> items) (\s@BatchDeleteAttributes' {} a -> s {items = a} :: BatchDeleteAttributes) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest BatchDeleteAttributes where
   type
@@ -95,22 +96,23 @@ instance Core.AWSRequest BatchDeleteAttributes where
   response =
     Response.receiveNull BatchDeleteAttributesResponse'
 
-instance Core.Hashable BatchDeleteAttributes
+instance Prelude.Hashable BatchDeleteAttributes
 
-instance Core.NFData BatchDeleteAttributes
+instance Prelude.NFData BatchDeleteAttributes
 
 instance Core.ToHeaders BatchDeleteAttributes where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath BatchDeleteAttributes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery BatchDeleteAttributes where
   toQuery BatchDeleteAttributes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("BatchDeleteAttributes" :: Core.ByteString),
-        "Version" Core.=: ("2009-04-15" :: Core.ByteString),
+          Core.=: ("BatchDeleteAttributes" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2009-04-15" :: Prelude.ByteString),
         "DomainName" Core.=: domainName,
         Core.toQueryList "Item" items
       ]
@@ -119,7 +121,7 @@ instance Core.ToQuery BatchDeleteAttributes where
 data BatchDeleteAttributesResponse = BatchDeleteAttributesResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteAttributesResponse' with all optional fields omitted.
@@ -130,4 +132,4 @@ newBatchDeleteAttributesResponse ::
 newBatchDeleteAttributesResponse =
   BatchDeleteAttributesResponse'
 
-instance Core.NFData BatchDeleteAttributesResponse
+instance Prelude.NFData BatchDeleteAttributesResponse

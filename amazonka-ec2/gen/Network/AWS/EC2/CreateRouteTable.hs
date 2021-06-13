@@ -49,22 +49,23 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateRouteTable' smart constructor.
 data CreateRouteTable = CreateRouteTable'
   { -- | The tags to assign to the route table.
-    tagSpecifications :: Core.Maybe [TagSpecification],
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the VPC.
-    vpcId :: Core.Text
+    vpcId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateRouteTable' with all optional fields omitted.
@@ -84,28 +85,29 @@ data CreateRouteTable = CreateRouteTable'
 -- 'vpcId', 'createRouteTable_vpcId' - The ID of the VPC.
 newCreateRouteTable ::
   -- | 'vpcId'
-  Core.Text ->
+  Prelude.Text ->
   CreateRouteTable
 newCreateRouteTable pVpcId_ =
   CreateRouteTable'
-    { tagSpecifications = Core.Nothing,
-      dryRun = Core.Nothing,
+    { tagSpecifications =
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       vpcId = pVpcId_
     }
 
 -- | The tags to assign to the route table.
-createRouteTable_tagSpecifications :: Lens.Lens' CreateRouteTable (Core.Maybe [TagSpecification])
-createRouteTable_tagSpecifications = Lens.lens (\CreateRouteTable' {tagSpecifications} -> tagSpecifications) (\s@CreateRouteTable' {} a -> s {tagSpecifications = a} :: CreateRouteTable) Core.. Lens.mapping Lens._Coerce
+createRouteTable_tagSpecifications :: Lens.Lens' CreateRouteTable (Prelude.Maybe [TagSpecification])
+createRouteTable_tagSpecifications = Lens.lens (\CreateRouteTable' {tagSpecifications} -> tagSpecifications) (\s@CreateRouteTable' {} a -> s {tagSpecifications = a} :: CreateRouteTable) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createRouteTable_dryRun :: Lens.Lens' CreateRouteTable (Core.Maybe Core.Bool)
+createRouteTable_dryRun :: Lens.Lens' CreateRouteTable (Prelude.Maybe Prelude.Bool)
 createRouteTable_dryRun = Lens.lens (\CreateRouteTable' {dryRun} -> dryRun) (\s@CreateRouteTable' {} a -> s {dryRun = a} :: CreateRouteTable)
 
 -- | The ID of the VPC.
-createRouteTable_vpcId :: Lens.Lens' CreateRouteTable Core.Text
+createRouteTable_vpcId :: Lens.Lens' CreateRouteTable Prelude.Text
 createRouteTable_vpcId = Lens.lens (\CreateRouteTable' {vpcId} -> vpcId) (\s@CreateRouteTable' {} a -> s {vpcId = a} :: CreateRouteTable)
 
 instance Core.AWSRequest CreateRouteTable where
@@ -117,29 +119,30 @@ instance Core.AWSRequest CreateRouteTable where
     Response.receiveXML
       ( \s h x ->
           CreateRouteTableResponse'
-            Core.<$> (x Core..@? "routeTable")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "routeTable")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateRouteTable
+instance Prelude.Hashable CreateRouteTable
 
-instance Core.NFData CreateRouteTable
+instance Prelude.NFData CreateRouteTable
 
 instance Core.ToHeaders CreateRouteTable where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath CreateRouteTable where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateRouteTable where
   toQuery CreateRouteTable' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateRouteTable" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("CreateRouteTable" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
-              Core.<$> tagSpecifications
+              Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
         "VpcId" Core.=: vpcId
@@ -148,11 +151,11 @@ instance Core.ToQuery CreateRouteTable where
 -- | /See:/ 'newCreateRouteTableResponse' smart constructor.
 data CreateRouteTableResponse = CreateRouteTableResponse'
   { -- | Information about the route table.
-    routeTable :: Core.Maybe RouteTable,
+    routeTable :: Prelude.Maybe RouteTable,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateRouteTableResponse' with all optional fields omitted.
@@ -167,21 +170,21 @@ data CreateRouteTableResponse = CreateRouteTableResponse'
 -- 'httpStatus', 'createRouteTableResponse_httpStatus' - The response's http status code.
 newCreateRouteTableResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateRouteTableResponse
 newCreateRouteTableResponse pHttpStatus_ =
   CreateRouteTableResponse'
     { routeTable =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the route table.
-createRouteTableResponse_routeTable :: Lens.Lens' CreateRouteTableResponse (Core.Maybe RouteTable)
+createRouteTableResponse_routeTable :: Lens.Lens' CreateRouteTableResponse (Prelude.Maybe RouteTable)
 createRouteTableResponse_routeTable = Lens.lens (\CreateRouteTableResponse' {routeTable} -> routeTable) (\s@CreateRouteTableResponse' {} a -> s {routeTable = a} :: CreateRouteTableResponse)
 
 -- | The response's http status code.
-createRouteTableResponse_httpStatus :: Lens.Lens' CreateRouteTableResponse Core.Int
+createRouteTableResponse_httpStatus :: Lens.Lens' CreateRouteTableResponse Prelude.Int
 createRouteTableResponse_httpStatus = Lens.lens (\CreateRouteTableResponse' {httpStatus} -> httpStatus) (\s@CreateRouteTableResponse' {} a -> s {httpStatus = a} :: CreateRouteTableResponse)
 
-instance Core.NFData CreateRouteTableResponse
+instance Prelude.NFData CreateRouteTableResponse

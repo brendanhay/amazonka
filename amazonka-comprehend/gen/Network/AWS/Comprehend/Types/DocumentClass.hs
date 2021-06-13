@@ -21,18 +21,19 @@ module Network.AWS.Comprehend.Types.DocumentClass where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the class that categorizes the document being analyzed
 --
 -- /See:/ 'newDocumentClass' smart constructor.
 data DocumentClass = DocumentClass'
   { -- | The name of the class.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The confidence score that Amazon Comprehend has this class correctly
     -- attributed.
-    score :: Core.Maybe Core.Double
+    score :: Prelude.Maybe Prelude.Double
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DocumentClass' with all optional fields omitted.
@@ -50,17 +51,17 @@ newDocumentClass ::
   DocumentClass
 newDocumentClass =
   DocumentClass'
-    { name = Core.Nothing,
-      score = Core.Nothing
+    { name = Prelude.Nothing,
+      score = Prelude.Nothing
     }
 
 -- | The name of the class.
-documentClass_name :: Lens.Lens' DocumentClass (Core.Maybe Core.Text)
+documentClass_name :: Lens.Lens' DocumentClass (Prelude.Maybe Prelude.Text)
 documentClass_name = Lens.lens (\DocumentClass' {name} -> name) (\s@DocumentClass' {} a -> s {name = a} :: DocumentClass)
 
 -- | The confidence score that Amazon Comprehend has this class correctly
 -- attributed.
-documentClass_score :: Lens.Lens' DocumentClass (Core.Maybe Core.Double)
+documentClass_score :: Lens.Lens' DocumentClass (Prelude.Maybe Prelude.Double)
 documentClass_score = Lens.lens (\DocumentClass' {score} -> score) (\s@DocumentClass' {} a -> s {score = a} :: DocumentClass)
 
 instance Core.FromJSON DocumentClass where
@@ -69,9 +70,9 @@ instance Core.FromJSON DocumentClass where
       "DocumentClass"
       ( \x ->
           DocumentClass'
-            Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "Score")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Score")
       )
 
-instance Core.Hashable DocumentClass
+instance Prelude.Hashable DocumentClass
 
-instance Core.NFData DocumentClass
+instance Prelude.NFData DocumentClass

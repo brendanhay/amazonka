@@ -22,6 +22,7 @@ module Network.AWS.Inspector.Types.EventSubscription where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types.InspectorEvent
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This data type is used in the Subscription data type.
 --
@@ -33,7 +34,7 @@ data EventSubscription = EventSubscription'
     -- | The time at which SubscribeToEvent is called.
     subscribedAt :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventSubscription' with all optional fields omitted.
@@ -51,7 +52,7 @@ newEventSubscription ::
   -- | 'event'
   InspectorEvent ->
   -- | 'subscribedAt'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   EventSubscription
 newEventSubscription pEvent_ pSubscribedAt_ =
   EventSubscription'
@@ -65,8 +66,8 @@ eventSubscription_event :: Lens.Lens' EventSubscription InspectorEvent
 eventSubscription_event = Lens.lens (\EventSubscription' {event} -> event) (\s@EventSubscription' {} a -> s {event = a} :: EventSubscription)
 
 -- | The time at which SubscribeToEvent is called.
-eventSubscription_subscribedAt :: Lens.Lens' EventSubscription Core.UTCTime
-eventSubscription_subscribedAt = Lens.lens (\EventSubscription' {subscribedAt} -> subscribedAt) (\s@EventSubscription' {} a -> s {subscribedAt = a} :: EventSubscription) Core.. Core._Time
+eventSubscription_subscribedAt :: Lens.Lens' EventSubscription Prelude.UTCTime
+eventSubscription_subscribedAt = Lens.lens (\EventSubscription' {subscribedAt} -> subscribedAt) (\s@EventSubscription' {} a -> s {subscribedAt = a} :: EventSubscription) Prelude.. Core._Time
 
 instance Core.FromJSON EventSubscription where
   parseJSON =
@@ -74,10 +75,10 @@ instance Core.FromJSON EventSubscription where
       "EventSubscription"
       ( \x ->
           EventSubscription'
-            Core.<$> (x Core..: "event")
-            Core.<*> (x Core..: "subscribedAt")
+            Prelude.<$> (x Core..: "event")
+            Prelude.<*> (x Core..: "subscribedAt")
       )
 
-instance Core.Hashable EventSubscription
+instance Prelude.Hashable EventSubscription
 
-instance Core.NFData EventSubscription
+instance Prelude.NFData EventSubscription

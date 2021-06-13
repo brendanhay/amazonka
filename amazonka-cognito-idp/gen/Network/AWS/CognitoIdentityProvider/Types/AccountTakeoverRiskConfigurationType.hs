@@ -23,6 +23,7 @@ import Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverActionsType
 import Network.AWS.CognitoIdentityProvider.Types.NotifyConfigurationType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration for mitigation actions and notification for different
 -- levels of risk detected for a potential account takeover.
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newAccountTakeoverRiskConfigurationType' smart constructor.
 data AccountTakeoverRiskConfigurationType = AccountTakeoverRiskConfigurationType'
   { -- | The notify configuration used to construct email notifications.
-    notifyConfiguration :: Core.Maybe NotifyConfigurationType,
+    notifyConfiguration :: Prelude.Maybe NotifyConfigurationType,
     -- | Account takeover risk configuration actions
     actions :: AccountTakeoverActionsType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AccountTakeoverRiskConfigurationType' with all optional fields omitted.
@@ -54,12 +55,12 @@ newAccountTakeoverRiskConfigurationType ::
 newAccountTakeoverRiskConfigurationType pActions_ =
   AccountTakeoverRiskConfigurationType'
     { notifyConfiguration =
-        Core.Nothing,
+        Prelude.Nothing,
       actions = pActions_
     }
 
 -- | The notify configuration used to construct email notifications.
-accountTakeoverRiskConfigurationType_notifyConfiguration :: Lens.Lens' AccountTakeoverRiskConfigurationType (Core.Maybe NotifyConfigurationType)
+accountTakeoverRiskConfigurationType_notifyConfiguration :: Lens.Lens' AccountTakeoverRiskConfigurationType (Prelude.Maybe NotifyConfigurationType)
 accountTakeoverRiskConfigurationType_notifyConfiguration = Lens.lens (\AccountTakeoverRiskConfigurationType' {notifyConfiguration} -> notifyConfiguration) (\s@AccountTakeoverRiskConfigurationType' {} a -> s {notifyConfiguration = a} :: AccountTakeoverRiskConfigurationType)
 
 -- | Account takeover risk configuration actions
@@ -75,16 +76,16 @@ instance
       "AccountTakeoverRiskConfigurationType"
       ( \x ->
           AccountTakeoverRiskConfigurationType'
-            Core.<$> (x Core..:? "NotifyConfiguration")
-            Core.<*> (x Core..: "Actions")
+            Prelude.<$> (x Core..:? "NotifyConfiguration")
+            Prelude.<*> (x Core..: "Actions")
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     AccountTakeoverRiskConfigurationType
 
 instance
-  Core.NFData
+  Prelude.NFData
     AccountTakeoverRiskConfigurationType
 
 instance
@@ -93,9 +94,9 @@ instance
   where
   toJSON AccountTakeoverRiskConfigurationType' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("NotifyConfiguration" Core..=)
-              Core.<$> notifyConfiguration,
-            Core.Just ("Actions" Core..= actions)
+              Prelude.<$> notifyConfiguration,
+            Prelude.Just ("Actions" Core..= actions)
           ]
       )

@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.DistributionList where
 import Network.AWS.CloudFront.Types.DistributionSummary
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A distribution list.
 --
@@ -29,25 +30,25 @@ import qualified Network.AWS.Lens as Lens
 data DistributionList = DistributionList'
   { -- | A complex type that contains one @DistributionSummary@ element for each
     -- distribution that was created by the current AWS account.
-    items :: Core.Maybe [DistributionSummary],
+    items :: Prelude.Maybe [DistributionSummary],
     -- | If @IsTruncated@ is @true@, this element is present and contains the
     -- value you can use for the @Marker@ request parameter to continue listing
     -- your distributions where they left off.
-    nextMarker :: Core.Maybe Core.Text,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The value you provided for the @Marker@ request parameter.
-    marker :: Core.Text,
+    marker :: Prelude.Text,
     -- | The value you provided for the @MaxItems@ request parameter.
-    maxItems :: Core.Int,
+    maxItems :: Prelude.Int,
     -- | A flag that indicates whether more distributions remain to be listed. If
     -- your results were truncated, you can make a follow-up pagination request
     -- using the @Marker@ request parameter to retrieve more distributions in
     -- the list.
-    isTruncated :: Core.Bool,
+    isTruncated :: Prelude.Bool,
     -- | The number of distributions that were created by the current AWS
     -- account.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DistributionList' with all optional fields omitted.
@@ -77,13 +78,13 @@ data DistributionList = DistributionList'
 -- account.
 newDistributionList ::
   -- | 'marker'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'maxItems'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'isTruncated'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   DistributionList
 newDistributionList
   pMarker_
@@ -91,8 +92,8 @@ newDistributionList
   pIsTruncated_
   pQuantity_ =
     DistributionList'
-      { items = Core.Nothing,
-        nextMarker = Core.Nothing,
+      { items = Prelude.Nothing,
+        nextMarker = Prelude.Nothing,
         marker = pMarker_,
         maxItems = pMaxItems_,
         isTruncated = pIsTruncated_,
@@ -101,47 +102,47 @@ newDistributionList
 
 -- | A complex type that contains one @DistributionSummary@ element for each
 -- distribution that was created by the current AWS account.
-distributionList_items :: Lens.Lens' DistributionList (Core.Maybe [DistributionSummary])
-distributionList_items = Lens.lens (\DistributionList' {items} -> items) (\s@DistributionList' {} a -> s {items = a} :: DistributionList) Core.. Lens.mapping Lens._Coerce
+distributionList_items :: Lens.Lens' DistributionList (Prelude.Maybe [DistributionSummary])
+distributionList_items = Lens.lens (\DistributionList' {items} -> items) (\s@DistributionList' {} a -> s {items = a} :: DistributionList) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value you can use for the @Marker@ request parameter to continue listing
 -- your distributions where they left off.
-distributionList_nextMarker :: Lens.Lens' DistributionList (Core.Maybe Core.Text)
+distributionList_nextMarker :: Lens.Lens' DistributionList (Prelude.Maybe Prelude.Text)
 distributionList_nextMarker = Lens.lens (\DistributionList' {nextMarker} -> nextMarker) (\s@DistributionList' {} a -> s {nextMarker = a} :: DistributionList)
 
 -- | The value you provided for the @Marker@ request parameter.
-distributionList_marker :: Lens.Lens' DistributionList Core.Text
+distributionList_marker :: Lens.Lens' DistributionList Prelude.Text
 distributionList_marker = Lens.lens (\DistributionList' {marker} -> marker) (\s@DistributionList' {} a -> s {marker = a} :: DistributionList)
 
 -- | The value you provided for the @MaxItems@ request parameter.
-distributionList_maxItems :: Lens.Lens' DistributionList Core.Int
+distributionList_maxItems :: Lens.Lens' DistributionList Prelude.Int
 distributionList_maxItems = Lens.lens (\DistributionList' {maxItems} -> maxItems) (\s@DistributionList' {} a -> s {maxItems = a} :: DistributionList)
 
 -- | A flag that indicates whether more distributions remain to be listed. If
 -- your results were truncated, you can make a follow-up pagination request
 -- using the @Marker@ request parameter to retrieve more distributions in
 -- the list.
-distributionList_isTruncated :: Lens.Lens' DistributionList Core.Bool
+distributionList_isTruncated :: Lens.Lens' DistributionList Prelude.Bool
 distributionList_isTruncated = Lens.lens (\DistributionList' {isTruncated} -> isTruncated) (\s@DistributionList' {} a -> s {isTruncated = a} :: DistributionList)
 
 -- | The number of distributions that were created by the current AWS
 -- account.
-distributionList_quantity :: Lens.Lens' DistributionList Core.Int
+distributionList_quantity :: Lens.Lens' DistributionList Prelude.Int
 distributionList_quantity = Lens.lens (\DistributionList' {quantity} -> quantity) (\s@DistributionList' {} a -> s {quantity = a} :: DistributionList)
 
 instance Core.FromXML DistributionList where
   parseXML x =
     DistributionList'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "DistributionSummary")
-               )
-      Core.<*> (x Core..@? "NextMarker")
-      Core.<*> (x Core..@ "Marker")
-      Core.<*> (x Core..@ "MaxItems")
-      Core.<*> (x Core..@ "IsTruncated")
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "DistributionSummary")
+                  )
+      Prelude.<*> (x Core..@? "NextMarker")
+      Prelude.<*> (x Core..@ "Marker")
+      Prelude.<*> (x Core..@ "MaxItems")
+      Prelude.<*> (x Core..@ "IsTruncated")
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable DistributionList
+instance Prelude.Hashable DistributionList
 
-instance Core.NFData DistributionList
+instance Prelude.NFData DistributionList

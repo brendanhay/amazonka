@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.PatchFilterGroup where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.PatchFilter
 
 -- | A set of patch filters, typically used for approval rules.
@@ -30,7 +31,7 @@ data PatchFilterGroup = PatchFilterGroup'
   { -- | The set of patch filters that make up the group.
     patchFilters :: [PatchFilter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PatchFilterGroup' with all optional fields omitted.
@@ -44,11 +45,11 @@ data PatchFilterGroup = PatchFilterGroup'
 newPatchFilterGroup ::
   PatchFilterGroup
 newPatchFilterGroup =
-  PatchFilterGroup' {patchFilters = Core.mempty}
+  PatchFilterGroup' {patchFilters = Prelude.mempty}
 
 -- | The set of patch filters that make up the group.
 patchFilterGroup_patchFilters :: Lens.Lens' PatchFilterGroup [PatchFilter]
-patchFilterGroup_patchFilters = Lens.lens (\PatchFilterGroup' {patchFilters} -> patchFilters) (\s@PatchFilterGroup' {} a -> s {patchFilters = a} :: PatchFilterGroup) Core.. Lens._Coerce
+patchFilterGroup_patchFilters = Lens.lens (\PatchFilterGroup' {patchFilters} -> patchFilters) (\s@PatchFilterGroup' {} a -> s {patchFilters = a} :: PatchFilterGroup) Prelude.. Lens._Coerce
 
 instance Core.FromJSON PatchFilterGroup where
   parseJSON =
@@ -56,16 +57,16 @@ instance Core.FromJSON PatchFilterGroup where
       "PatchFilterGroup"
       ( \x ->
           PatchFilterGroup'
-            Core.<$> (x Core..:? "PatchFilters" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "PatchFilters" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable PatchFilterGroup
+instance Prelude.Hashable PatchFilterGroup
 
-instance Core.NFData PatchFilterGroup
+instance Prelude.NFData PatchFilterGroup
 
 instance Core.ToJSON PatchFilterGroup where
   toJSON PatchFilterGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("PatchFilters" Core..= patchFilters)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("PatchFilters" Core..= patchFilters)]
       )

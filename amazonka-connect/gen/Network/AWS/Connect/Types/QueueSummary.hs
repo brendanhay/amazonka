@@ -22,21 +22,22 @@ module Network.AWS.Connect.Types.QueueSummary where
 import Network.AWS.Connect.Types.QueueType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains summary information about a queue.
 --
 -- /See:/ 'newQueueSummary' smart constructor.
 data QueueSummary = QueueSummary'
   { -- | The type of queue.
-    queueType :: Core.Maybe QueueType,
+    queueType :: Prelude.Maybe QueueType,
     -- | The Amazon Resource Name (ARN) of the queue.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the queue.
-    id :: Core.Maybe Core.Text,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the queue.
-    name :: Core.Maybe Core.Text
+    name :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'QueueSummary' with all optional fields omitted.
@@ -57,26 +58,26 @@ newQueueSummary ::
   QueueSummary
 newQueueSummary =
   QueueSummary'
-    { queueType = Core.Nothing,
-      arn = Core.Nothing,
-      id = Core.Nothing,
-      name = Core.Nothing
+    { queueType = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The type of queue.
-queueSummary_queueType :: Lens.Lens' QueueSummary (Core.Maybe QueueType)
+queueSummary_queueType :: Lens.Lens' QueueSummary (Prelude.Maybe QueueType)
 queueSummary_queueType = Lens.lens (\QueueSummary' {queueType} -> queueType) (\s@QueueSummary' {} a -> s {queueType = a} :: QueueSummary)
 
 -- | The Amazon Resource Name (ARN) of the queue.
-queueSummary_arn :: Lens.Lens' QueueSummary (Core.Maybe Core.Text)
+queueSummary_arn :: Lens.Lens' QueueSummary (Prelude.Maybe Prelude.Text)
 queueSummary_arn = Lens.lens (\QueueSummary' {arn} -> arn) (\s@QueueSummary' {} a -> s {arn = a} :: QueueSummary)
 
 -- | The identifier of the queue.
-queueSummary_id :: Lens.Lens' QueueSummary (Core.Maybe Core.Text)
+queueSummary_id :: Lens.Lens' QueueSummary (Prelude.Maybe Prelude.Text)
 queueSummary_id = Lens.lens (\QueueSummary' {id} -> id) (\s@QueueSummary' {} a -> s {id = a} :: QueueSummary)
 
 -- | The name of the queue.
-queueSummary_name :: Lens.Lens' QueueSummary (Core.Maybe Core.Text)
+queueSummary_name :: Lens.Lens' QueueSummary (Prelude.Maybe Prelude.Text)
 queueSummary_name = Lens.lens (\QueueSummary' {name} -> name) (\s@QueueSummary' {} a -> s {name = a} :: QueueSummary)
 
 instance Core.FromJSON QueueSummary where
@@ -85,12 +86,12 @@ instance Core.FromJSON QueueSummary where
       "QueueSummary"
       ( \x ->
           QueueSummary'
-            Core.<$> (x Core..:? "QueueType")
-            Core.<*> (x Core..:? "Arn")
-            Core.<*> (x Core..:? "Id")
-            Core.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "QueueType")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Name")
       )
 
-instance Core.Hashable QueueSummary
+instance Prelude.Hashable QueueSummary
 
-instance Core.NFData QueueSummary
+instance Prelude.NFData QueueSummary

@@ -64,6 +64,7 @@ where
 import Network.AWS.CloudHSM.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,9 +72,9 @@ import qualified Network.AWS.Response as Response
 data ListLunaClients = ListLunaClients'
   { -- | The @NextToken@ value from a previous call to @ListLunaClients@. Pass
     -- null if this is the first call.
-    nextToken :: Core.Maybe Core.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListLunaClients' with all optional fields omitted.
@@ -88,29 +89,31 @@ data ListLunaClients = ListLunaClients'
 newListLunaClients ::
   ListLunaClients
 newListLunaClients =
-  ListLunaClients' {nextToken = Core.Nothing}
+  ListLunaClients' {nextToken = Prelude.Nothing}
 
 -- | The @NextToken@ value from a previous call to @ListLunaClients@. Pass
 -- null if this is the first call.
-listLunaClients_nextToken :: Lens.Lens' ListLunaClients (Core.Maybe Core.Text)
+listLunaClients_nextToken :: Lens.Lens' ListLunaClients (Prelude.Maybe Prelude.Text)
 listLunaClients_nextToken = Lens.lens (\ListLunaClients' {nextToken} -> nextToken) (\s@ListLunaClients' {} a -> s {nextToken = a} :: ListLunaClients)
 
 instance Core.AWSPager ListLunaClients where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listLunaClientsResponse_nextToken Core.. Lens._Just
+            Lens.^? listLunaClientsResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         (rs Lens.^. listLunaClientsResponse_clientList) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listLunaClients_nextToken
+          Prelude.& listLunaClients_nextToken
           Lens..~ rs
-          Lens.^? listLunaClientsResponse_nextToken Core.. Lens._Just
+          Lens.^? listLunaClientsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLunaClients where
   type
@@ -121,52 +124,54 @@ instance Core.AWSRequest ListLunaClients where
     Response.receiveJSON
       ( \s h x ->
           ListLunaClientsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..?> "ClientList" Core..!@ Core.mempty)
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "ClientList" Core..!@ Prelude.mempty)
       )
 
-instance Core.Hashable ListLunaClients
+instance Prelude.Hashable ListLunaClients
 
-instance Core.NFData ListLunaClients
+instance Prelude.NFData ListLunaClients
 
 instance Core.ToHeaders ListLunaClients where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CloudHsmFrontendService.ListLunaClients" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListLunaClients where
   toJSON ListLunaClients' {..} =
     Core.object
-      ( Core.catMaybes
-          [("NextToken" Core..=) Core.<$> nextToken]
+      ( Prelude.catMaybes
+          [("NextToken" Core..=) Prelude.<$> nextToken]
       )
 
 instance Core.ToPath ListLunaClients where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListLunaClients where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListLunaClientsResponse' smart constructor.
 data ListLunaClientsResponse = ListLunaClientsResponse'
   { -- | If not null, more results are available. Pass this to @ListLunaClients@
     -- to retrieve the next set of items.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The list of clients.
-    clientList :: [Core.Text]
+    clientList :: [Prelude.Text]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListLunaClientsResponse' with all optional fields omitted.
@@ -184,26 +189,27 @@ data ListLunaClientsResponse = ListLunaClientsResponse'
 -- 'clientList', 'listLunaClientsResponse_clientList' - The list of clients.
 newListLunaClientsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListLunaClientsResponse
 newListLunaClientsResponse pHttpStatus_ =
   ListLunaClientsResponse'
-    { nextToken = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      clientList = Core.mempty
+      clientList = Prelude.mempty
     }
 
 -- | If not null, more results are available. Pass this to @ListLunaClients@
 -- to retrieve the next set of items.
-listLunaClientsResponse_nextToken :: Lens.Lens' ListLunaClientsResponse (Core.Maybe Core.Text)
+listLunaClientsResponse_nextToken :: Lens.Lens' ListLunaClientsResponse (Prelude.Maybe Prelude.Text)
 listLunaClientsResponse_nextToken = Lens.lens (\ListLunaClientsResponse' {nextToken} -> nextToken) (\s@ListLunaClientsResponse' {} a -> s {nextToken = a} :: ListLunaClientsResponse)
 
 -- | The response's http status code.
-listLunaClientsResponse_httpStatus :: Lens.Lens' ListLunaClientsResponse Core.Int
+listLunaClientsResponse_httpStatus :: Lens.Lens' ListLunaClientsResponse Prelude.Int
 listLunaClientsResponse_httpStatus = Lens.lens (\ListLunaClientsResponse' {httpStatus} -> httpStatus) (\s@ListLunaClientsResponse' {} a -> s {httpStatus = a} :: ListLunaClientsResponse)
 
 -- | The list of clients.
-listLunaClientsResponse_clientList :: Lens.Lens' ListLunaClientsResponse [Core.Text]
-listLunaClientsResponse_clientList = Lens.lens (\ListLunaClientsResponse' {clientList} -> clientList) (\s@ListLunaClientsResponse' {} a -> s {clientList = a} :: ListLunaClientsResponse) Core.. Lens._Coerce
+listLunaClientsResponse_clientList :: Lens.Lens' ListLunaClientsResponse [Prelude.Text]
+listLunaClientsResponse_clientList = Lens.lens (\ListLunaClientsResponse' {clientList} -> clientList) (\s@ListLunaClientsResponse' {} a -> s {clientList = a} :: ListLunaClientsResponse) Prelude.. Lens._Coerce
 
-instance Core.NFData ListLunaClientsResponse
+instance Prelude.NFData ListLunaClientsResponse

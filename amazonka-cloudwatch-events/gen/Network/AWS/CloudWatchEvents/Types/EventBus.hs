@@ -21,6 +21,7 @@ module Network.AWS.CloudWatchEvents.Types.EventBus where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An event bus receives events from a source and routes them to rules
 -- associated with that event bus. Your account\'s default event bus
@@ -33,14 +34,14 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEventBus' smart constructor.
 data EventBus = EventBus'
   { -- | The ARN of the event bus.
-    arn :: Core.Maybe Core.Text,
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the event bus.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The permissions policy of the event bus, describing which other AWS
     -- accounts can write events to this event bus.
-    policy :: Core.Maybe Core.Text
+    policy :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EventBus' with all optional fields omitted.
@@ -60,22 +61,22 @@ newEventBus ::
   EventBus
 newEventBus =
   EventBus'
-    { arn = Core.Nothing,
-      name = Core.Nothing,
-      policy = Core.Nothing
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      policy = Prelude.Nothing
     }
 
 -- | The ARN of the event bus.
-eventBus_arn :: Lens.Lens' EventBus (Core.Maybe Core.Text)
+eventBus_arn :: Lens.Lens' EventBus (Prelude.Maybe Prelude.Text)
 eventBus_arn = Lens.lens (\EventBus' {arn} -> arn) (\s@EventBus' {} a -> s {arn = a} :: EventBus)
 
 -- | The name of the event bus.
-eventBus_name :: Lens.Lens' EventBus (Core.Maybe Core.Text)
+eventBus_name :: Lens.Lens' EventBus (Prelude.Maybe Prelude.Text)
 eventBus_name = Lens.lens (\EventBus' {name} -> name) (\s@EventBus' {} a -> s {name = a} :: EventBus)
 
 -- | The permissions policy of the event bus, describing which other AWS
 -- accounts can write events to this event bus.
-eventBus_policy :: Lens.Lens' EventBus (Core.Maybe Core.Text)
+eventBus_policy :: Lens.Lens' EventBus (Prelude.Maybe Prelude.Text)
 eventBus_policy = Lens.lens (\EventBus' {policy} -> policy) (\s@EventBus' {} a -> s {policy = a} :: EventBus)
 
 instance Core.FromJSON EventBus where
@@ -84,11 +85,11 @@ instance Core.FromJSON EventBus where
       "EventBus"
       ( \x ->
           EventBus'
-            Core.<$> (x Core..:? "Arn")
-            Core.<*> (x Core..:? "Name")
-            Core.<*> (x Core..:? "Policy")
+            Prelude.<$> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Policy")
       )
 
-instance Core.Hashable EventBus
+instance Prelude.Hashable EventBus
 
-instance Core.NFData EventBus
+instance Prelude.NFData EventBus

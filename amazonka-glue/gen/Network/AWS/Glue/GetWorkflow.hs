@@ -43,6 +43,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +51,11 @@ import qualified Network.AWS.Response as Response
 data GetWorkflow = GetWorkflow'
   { -- | Specifies whether to include a graph when returning the workflow
     -- resource metadata.
-    includeGraph :: Core.Maybe Core.Bool,
+    includeGraph :: Prelude.Maybe Prelude.Bool,
     -- | The name of the workflow to retrieve.
-    name :: Core.Text
+    name :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetWorkflow' with all optional fields omitted.
@@ -70,21 +71,21 @@ data GetWorkflow = GetWorkflow'
 -- 'name', 'getWorkflow_name' - The name of the workflow to retrieve.
 newGetWorkflow ::
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   GetWorkflow
 newGetWorkflow pName_ =
   GetWorkflow'
-    { includeGraph = Core.Nothing,
+    { includeGraph = Prelude.Nothing,
       name = pName_
     }
 
 -- | Specifies whether to include a graph when returning the workflow
 -- resource metadata.
-getWorkflow_includeGraph :: Lens.Lens' GetWorkflow (Core.Maybe Core.Bool)
+getWorkflow_includeGraph :: Lens.Lens' GetWorkflow (Prelude.Maybe Prelude.Bool)
 getWorkflow_includeGraph = Lens.lens (\GetWorkflow' {includeGraph} -> includeGraph) (\s@GetWorkflow' {} a -> s {includeGraph = a} :: GetWorkflow)
 
 -- | The name of the workflow to retrieve.
-getWorkflow_name :: Lens.Lens' GetWorkflow Core.Text
+getWorkflow_name :: Lens.Lens' GetWorkflow Prelude.Text
 getWorkflow_name = Lens.lens (\GetWorkflow' {name} -> name) (\s@GetWorkflow' {} a -> s {name = a} :: GetWorkflow)
 
 instance Core.AWSRequest GetWorkflow where
@@ -94,48 +95,50 @@ instance Core.AWSRequest GetWorkflow where
     Response.receiveJSON
       ( \s h x ->
           GetWorkflowResponse'
-            Core.<$> (x Core..?> "Workflow")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Workflow")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetWorkflow
+instance Prelude.Hashable GetWorkflow
 
-instance Core.NFData GetWorkflow
+instance Prelude.NFData GetWorkflow
 
 instance Core.ToHeaders GetWorkflow where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetWorkflow" :: Core.ByteString),
+              Core.=# ("AWSGlue.GetWorkflow" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetWorkflow where
   toJSON GetWorkflow' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("IncludeGraph" Core..=) Core.<$> includeGraph,
-            Core.Just ("Name" Core..= name)
+      ( Prelude.catMaybes
+          [ ("IncludeGraph" Core..=) Prelude.<$> includeGraph,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
 instance Core.ToPath GetWorkflow where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetWorkflow where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetWorkflowResponse' smart constructor.
 data GetWorkflowResponse = GetWorkflowResponse'
   { -- | The resource metadata for the workflow.
-    workflow :: Core.Maybe Workflow,
+    workflow :: Prelude.Maybe Workflow,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetWorkflowResponse' with all optional fields omitted.
@@ -150,20 +153,20 @@ data GetWorkflowResponse = GetWorkflowResponse'
 -- 'httpStatus', 'getWorkflowResponse_httpStatus' - The response's http status code.
 newGetWorkflowResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetWorkflowResponse
 newGetWorkflowResponse pHttpStatus_ =
   GetWorkflowResponse'
-    { workflow = Core.Nothing,
+    { workflow = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The resource metadata for the workflow.
-getWorkflowResponse_workflow :: Lens.Lens' GetWorkflowResponse (Core.Maybe Workflow)
+getWorkflowResponse_workflow :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Workflow)
 getWorkflowResponse_workflow = Lens.lens (\GetWorkflowResponse' {workflow} -> workflow) (\s@GetWorkflowResponse' {} a -> s {workflow = a} :: GetWorkflowResponse)
 
 -- | The response's http status code.
-getWorkflowResponse_httpStatus :: Lens.Lens' GetWorkflowResponse Core.Int
+getWorkflowResponse_httpStatus :: Lens.Lens' GetWorkflowResponse Prelude.Int
 getWorkflowResponse_httpStatus = Lens.lens (\GetWorkflowResponse' {httpStatus} -> httpStatus) (\s@GetWorkflowResponse' {} a -> s {httpStatus = a} :: GetWorkflowResponse)
 
-instance Core.NFData GetWorkflowResponse
+instance Prelude.NFData GetWorkflowResponse

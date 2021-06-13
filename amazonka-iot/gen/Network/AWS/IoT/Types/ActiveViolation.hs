@@ -24,6 +24,7 @@ import Network.AWS.IoT.Types.Behavior
 import Network.AWS.IoT.Types.MetricValue
 import Network.AWS.IoT.Types.ViolationEventAdditionalInfo
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an active Device Defender security profile behavior
 -- violation.
@@ -31,24 +32,24 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newActiveViolation' smart constructor.
 data ActiveViolation = ActiveViolation'
   { -- | The ID of the active violation.
-    violationId :: Core.Maybe Core.Text,
+    violationId :: Prelude.Maybe Prelude.Text,
     -- | The time the most recent violation occurred.
-    lastViolationTime :: Core.Maybe Core.POSIX,
+    lastViolationTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the thing responsible for the active violation.
-    thingName :: Core.Maybe Core.Text,
+    thingName :: Prelude.Maybe Prelude.Text,
     -- | The value of the metric (the measurement) that caused the most recent
     -- violation.
-    lastViolationValue :: Core.Maybe MetricValue,
+    lastViolationValue :: Prelude.Maybe MetricValue,
     -- | The security profile with the behavior is in violation.
-    securityProfileName :: Core.Maybe Core.Text,
+    securityProfileName :: Prelude.Maybe Prelude.Text,
     -- | The behavior that is being violated.
-    behavior :: Core.Maybe Behavior,
+    behavior :: Prelude.Maybe Behavior,
     -- | The time the violation started.
-    violationStartTime :: Core.Maybe Core.POSIX,
+    violationStartTime :: Prelude.Maybe Core.POSIX,
     -- | The details of a violation event.
-    violationEventAdditionalInfo :: Core.Maybe ViolationEventAdditionalInfo
+    violationEventAdditionalInfo :: Prelude.Maybe ViolationEventAdditionalInfo
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActiveViolation' with all optional fields omitted.
@@ -78,47 +79,47 @@ newActiveViolation ::
   ActiveViolation
 newActiveViolation =
   ActiveViolation'
-    { violationId = Core.Nothing,
-      lastViolationTime = Core.Nothing,
-      thingName = Core.Nothing,
-      lastViolationValue = Core.Nothing,
-      securityProfileName = Core.Nothing,
-      behavior = Core.Nothing,
-      violationStartTime = Core.Nothing,
-      violationEventAdditionalInfo = Core.Nothing
+    { violationId = Prelude.Nothing,
+      lastViolationTime = Prelude.Nothing,
+      thingName = Prelude.Nothing,
+      lastViolationValue = Prelude.Nothing,
+      securityProfileName = Prelude.Nothing,
+      behavior = Prelude.Nothing,
+      violationStartTime = Prelude.Nothing,
+      violationEventAdditionalInfo = Prelude.Nothing
     }
 
 -- | The ID of the active violation.
-activeViolation_violationId :: Lens.Lens' ActiveViolation (Core.Maybe Core.Text)
+activeViolation_violationId :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.Text)
 activeViolation_violationId = Lens.lens (\ActiveViolation' {violationId} -> violationId) (\s@ActiveViolation' {} a -> s {violationId = a} :: ActiveViolation)
 
 -- | The time the most recent violation occurred.
-activeViolation_lastViolationTime :: Lens.Lens' ActiveViolation (Core.Maybe Core.UTCTime)
-activeViolation_lastViolationTime = Lens.lens (\ActiveViolation' {lastViolationTime} -> lastViolationTime) (\s@ActiveViolation' {} a -> s {lastViolationTime = a} :: ActiveViolation) Core.. Lens.mapping Core._Time
+activeViolation_lastViolationTime :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.UTCTime)
+activeViolation_lastViolationTime = Lens.lens (\ActiveViolation' {lastViolationTime} -> lastViolationTime) (\s@ActiveViolation' {} a -> s {lastViolationTime = a} :: ActiveViolation) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the thing responsible for the active violation.
-activeViolation_thingName :: Lens.Lens' ActiveViolation (Core.Maybe Core.Text)
+activeViolation_thingName :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.Text)
 activeViolation_thingName = Lens.lens (\ActiveViolation' {thingName} -> thingName) (\s@ActiveViolation' {} a -> s {thingName = a} :: ActiveViolation)
 
 -- | The value of the metric (the measurement) that caused the most recent
 -- violation.
-activeViolation_lastViolationValue :: Lens.Lens' ActiveViolation (Core.Maybe MetricValue)
+activeViolation_lastViolationValue :: Lens.Lens' ActiveViolation (Prelude.Maybe MetricValue)
 activeViolation_lastViolationValue = Lens.lens (\ActiveViolation' {lastViolationValue} -> lastViolationValue) (\s@ActiveViolation' {} a -> s {lastViolationValue = a} :: ActiveViolation)
 
 -- | The security profile with the behavior is in violation.
-activeViolation_securityProfileName :: Lens.Lens' ActiveViolation (Core.Maybe Core.Text)
+activeViolation_securityProfileName :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.Text)
 activeViolation_securityProfileName = Lens.lens (\ActiveViolation' {securityProfileName} -> securityProfileName) (\s@ActiveViolation' {} a -> s {securityProfileName = a} :: ActiveViolation)
 
 -- | The behavior that is being violated.
-activeViolation_behavior :: Lens.Lens' ActiveViolation (Core.Maybe Behavior)
+activeViolation_behavior :: Lens.Lens' ActiveViolation (Prelude.Maybe Behavior)
 activeViolation_behavior = Lens.lens (\ActiveViolation' {behavior} -> behavior) (\s@ActiveViolation' {} a -> s {behavior = a} :: ActiveViolation)
 
 -- | The time the violation started.
-activeViolation_violationStartTime :: Lens.Lens' ActiveViolation (Core.Maybe Core.UTCTime)
-activeViolation_violationStartTime = Lens.lens (\ActiveViolation' {violationStartTime} -> violationStartTime) (\s@ActiveViolation' {} a -> s {violationStartTime = a} :: ActiveViolation) Core.. Lens.mapping Core._Time
+activeViolation_violationStartTime :: Lens.Lens' ActiveViolation (Prelude.Maybe Prelude.UTCTime)
+activeViolation_violationStartTime = Lens.lens (\ActiveViolation' {violationStartTime} -> violationStartTime) (\s@ActiveViolation' {} a -> s {violationStartTime = a} :: ActiveViolation) Prelude.. Lens.mapping Core._Time
 
 -- | The details of a violation event.
-activeViolation_violationEventAdditionalInfo :: Lens.Lens' ActiveViolation (Core.Maybe ViolationEventAdditionalInfo)
+activeViolation_violationEventAdditionalInfo :: Lens.Lens' ActiveViolation (Prelude.Maybe ViolationEventAdditionalInfo)
 activeViolation_violationEventAdditionalInfo = Lens.lens (\ActiveViolation' {violationEventAdditionalInfo} -> violationEventAdditionalInfo) (\s@ActiveViolation' {} a -> s {violationEventAdditionalInfo = a} :: ActiveViolation)
 
 instance Core.FromJSON ActiveViolation where
@@ -127,16 +128,16 @@ instance Core.FromJSON ActiveViolation where
       "ActiveViolation"
       ( \x ->
           ActiveViolation'
-            Core.<$> (x Core..:? "violationId")
-            Core.<*> (x Core..:? "lastViolationTime")
-            Core.<*> (x Core..:? "thingName")
-            Core.<*> (x Core..:? "lastViolationValue")
-            Core.<*> (x Core..:? "securityProfileName")
-            Core.<*> (x Core..:? "behavior")
-            Core.<*> (x Core..:? "violationStartTime")
-            Core.<*> (x Core..:? "violationEventAdditionalInfo")
+            Prelude.<$> (x Core..:? "violationId")
+            Prelude.<*> (x Core..:? "lastViolationTime")
+            Prelude.<*> (x Core..:? "thingName")
+            Prelude.<*> (x Core..:? "lastViolationValue")
+            Prelude.<*> (x Core..:? "securityProfileName")
+            Prelude.<*> (x Core..:? "behavior")
+            Prelude.<*> (x Core..:? "violationStartTime")
+            Prelude.<*> (x Core..:? "violationEventAdditionalInfo")
       )
 
-instance Core.Hashable ActiveViolation
+instance Prelude.Hashable ActiveViolation
 
-instance Core.NFData ActiveViolation
+instance Prelude.NFData ActiveViolation

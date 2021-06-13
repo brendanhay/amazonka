@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.InstancePortInfo
 import Network.AWS.Lightsail.Types.MonthlyTransfer
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes monthly data transfer rates and port information for an
 -- instance.
@@ -30,12 +31,12 @@ import Network.AWS.Lightsail.Types.MonthlyTransfer
 -- /See:/ 'newInstanceNetworking' smart constructor.
 data InstanceNetworking = InstanceNetworking'
   { -- | The amount of data in GB allocated for monthly data transfers.
-    monthlyTransfer :: Core.Maybe MonthlyTransfer,
+    monthlyTransfer :: Prelude.Maybe MonthlyTransfer,
     -- | An array of key-value pairs containing information about the ports on
     -- the instance.
-    ports :: Core.Maybe [InstancePortInfo]
+    ports :: Prelude.Maybe [InstancePortInfo]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstanceNetworking' with all optional fields omitted.
@@ -53,18 +54,19 @@ newInstanceNetworking ::
   InstanceNetworking
 newInstanceNetworking =
   InstanceNetworking'
-    { monthlyTransfer = Core.Nothing,
-      ports = Core.Nothing
+    { monthlyTransfer =
+        Prelude.Nothing,
+      ports = Prelude.Nothing
     }
 
 -- | The amount of data in GB allocated for monthly data transfers.
-instanceNetworking_monthlyTransfer :: Lens.Lens' InstanceNetworking (Core.Maybe MonthlyTransfer)
+instanceNetworking_monthlyTransfer :: Lens.Lens' InstanceNetworking (Prelude.Maybe MonthlyTransfer)
 instanceNetworking_monthlyTransfer = Lens.lens (\InstanceNetworking' {monthlyTransfer} -> monthlyTransfer) (\s@InstanceNetworking' {} a -> s {monthlyTransfer = a} :: InstanceNetworking)
 
 -- | An array of key-value pairs containing information about the ports on
 -- the instance.
-instanceNetworking_ports :: Lens.Lens' InstanceNetworking (Core.Maybe [InstancePortInfo])
-instanceNetworking_ports = Lens.lens (\InstanceNetworking' {ports} -> ports) (\s@InstanceNetworking' {} a -> s {ports = a} :: InstanceNetworking) Core.. Lens.mapping Lens._Coerce
+instanceNetworking_ports :: Lens.Lens' InstanceNetworking (Prelude.Maybe [InstancePortInfo])
+instanceNetworking_ports = Lens.lens (\InstanceNetworking' {ports} -> ports) (\s@InstanceNetworking' {} a -> s {ports = a} :: InstanceNetworking) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON InstanceNetworking where
   parseJSON =
@@ -72,10 +74,10 @@ instance Core.FromJSON InstanceNetworking where
       "InstanceNetworking"
       ( \x ->
           InstanceNetworking'
-            Core.<$> (x Core..:? "monthlyTransfer")
-            Core.<*> (x Core..:? "ports" Core..!= Core.mempty)
+            Prelude.<$> (x Core..:? "monthlyTransfer")
+            Prelude.<*> (x Core..:? "ports" Core..!= Prelude.mempty)
       )
 
-instance Core.Hashable InstanceNetworking
+instance Prelude.Hashable InstanceNetworking
 
-instance Core.NFData InstanceNetworking
+instance Prelude.NFData InstanceNetworking

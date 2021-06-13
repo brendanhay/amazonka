@@ -68,6 +68,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,7 +76,7 @@ import qualified Network.AWS.Response as Response
 data InviteAccountToOrganization = InviteAccountToOrganization'
   { -- | Additional information that you want to include in the generated email
     -- to the recipient account owner.
-    notes :: Core.Maybe (Core.Sensitive Core.Text),
+    notes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A list of tags that you want to attach to the account when it becomes a
     -- member of the organization. For each tag in the list, you must specify
     -- both a tag key and a value. You can set the value to an empty string,
@@ -95,7 +96,7 @@ data InviteAccountToOrganization = InviteAccountToOrganization'
     -- If any one of the tags is invalid or if you exceed the allowed number of
     -- tags for an account, then the entire request fails and invitations are
     -- not sent.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The identifier (ID) of the AWS account that you want to invite to join
     -- your organization. This is a JSON object that contains the following
     -- elements:
@@ -114,7 +115,7 @@ data InviteAccountToOrganization = InviteAccountToOrganization'
     -- @--target Id=diego\@example.com,Type=EMAIL@
     target :: HandshakeParty
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InviteAccountToOrganization' with all optional fields omitted.
@@ -169,15 +170,16 @@ newInviteAccountToOrganization ::
   InviteAccountToOrganization
 newInviteAccountToOrganization pTarget_ =
   InviteAccountToOrganization'
-    { notes = Core.Nothing,
-      tags = Core.Nothing,
+    { notes =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       target = pTarget_
     }
 
 -- | Additional information that you want to include in the generated email
 -- to the recipient account owner.
-inviteAccountToOrganization_notes :: Lens.Lens' InviteAccountToOrganization (Core.Maybe Core.Text)
-inviteAccountToOrganization_notes = Lens.lens (\InviteAccountToOrganization' {notes} -> notes) (\s@InviteAccountToOrganization' {} a -> s {notes = a} :: InviteAccountToOrganization) Core.. Lens.mapping Core._Sensitive
+inviteAccountToOrganization_notes :: Lens.Lens' InviteAccountToOrganization (Prelude.Maybe Prelude.Text)
+inviteAccountToOrganization_notes = Lens.lens (\InviteAccountToOrganization' {notes} -> notes) (\s@InviteAccountToOrganization' {} a -> s {notes = a} :: InviteAccountToOrganization) Prelude.. Lens.mapping Core._Sensitive
 
 -- | A list of tags that you want to attach to the account when it becomes a
 -- member of the organization. For each tag in the list, you must specify
@@ -198,8 +200,8 @@ inviteAccountToOrganization_notes = Lens.lens (\InviteAccountToOrganization' {no
 -- If any one of the tags is invalid or if you exceed the allowed number of
 -- tags for an account, then the entire request fails and invitations are
 -- not sent.
-inviteAccountToOrganization_tags :: Lens.Lens' InviteAccountToOrganization (Core.Maybe [Tag])
-inviteAccountToOrganization_tags = Lens.lens (\InviteAccountToOrganization' {tags} -> tags) (\s@InviteAccountToOrganization' {} a -> s {tags = a} :: InviteAccountToOrganization) Core.. Lens.mapping Lens._Coerce
+inviteAccountToOrganization_tags :: Lens.Lens' InviteAccountToOrganization (Prelude.Maybe [Tag])
+inviteAccountToOrganization_tags = Lens.lens (\InviteAccountToOrganization' {tags} -> tags) (\s@InviteAccountToOrganization' {} a -> s {tags = a} :: InviteAccountToOrganization) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier (ID) of the AWS account that you want to invite to join
 -- your organization. This is a JSON object that contains the following
@@ -229,52 +231,54 @@ instance Core.AWSRequest InviteAccountToOrganization where
     Response.receiveJSON
       ( \s h x ->
           InviteAccountToOrganizationResponse'
-            Core.<$> (x Core..?> "Handshake")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Handshake")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable InviteAccountToOrganization
+instance Prelude.Hashable InviteAccountToOrganization
 
-instance Core.NFData InviteAccountToOrganization
+instance Prelude.NFData InviteAccountToOrganization
 
 instance Core.ToHeaders InviteAccountToOrganization where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.InviteAccountToOrganization" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON InviteAccountToOrganization where
   toJSON InviteAccountToOrganization' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Notes" Core..=) Core.<$> notes,
-            ("Tags" Core..=) Core.<$> tags,
-            Core.Just ("Target" Core..= target)
+      ( Prelude.catMaybes
+          [ ("Notes" Core..=) Prelude.<$> notes,
+            ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("Target" Core..= target)
           ]
       )
 
 instance Core.ToPath InviteAccountToOrganization where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery InviteAccountToOrganization where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newInviteAccountToOrganizationResponse' smart constructor.
 data InviteAccountToOrganizationResponse = InviteAccountToOrganizationResponse'
   { -- | A structure that contains details about the handshake that is created to
     -- support this invitation request.
-    handshake :: Core.Maybe Handshake,
+    handshake :: Prelude.Maybe Handshake,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InviteAccountToOrganizationResponse' with all optional fields omitted.
@@ -290,24 +294,24 @@ data InviteAccountToOrganizationResponse = InviteAccountToOrganizationResponse'
 -- 'httpStatus', 'inviteAccountToOrganizationResponse_httpStatus' - The response's http status code.
 newInviteAccountToOrganizationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   InviteAccountToOrganizationResponse
 newInviteAccountToOrganizationResponse pHttpStatus_ =
   InviteAccountToOrganizationResponse'
     { handshake =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains details about the handshake that is created to
 -- support this invitation request.
-inviteAccountToOrganizationResponse_handshake :: Lens.Lens' InviteAccountToOrganizationResponse (Core.Maybe Handshake)
+inviteAccountToOrganizationResponse_handshake :: Lens.Lens' InviteAccountToOrganizationResponse (Prelude.Maybe Handshake)
 inviteAccountToOrganizationResponse_handshake = Lens.lens (\InviteAccountToOrganizationResponse' {handshake} -> handshake) (\s@InviteAccountToOrganizationResponse' {} a -> s {handshake = a} :: InviteAccountToOrganizationResponse)
 
 -- | The response's http status code.
-inviteAccountToOrganizationResponse_httpStatus :: Lens.Lens' InviteAccountToOrganizationResponse Core.Int
+inviteAccountToOrganizationResponse_httpStatus :: Lens.Lens' InviteAccountToOrganizationResponse Prelude.Int
 inviteAccountToOrganizationResponse_httpStatus = Lens.lens (\InviteAccountToOrganizationResponse' {httpStatus} -> httpStatus) (\s@InviteAccountToOrganizationResponse' {} a -> s {httpStatus = a} :: InviteAccountToOrganizationResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     InviteAccountToOrganizationResponse

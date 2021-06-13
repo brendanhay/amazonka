@@ -67,6 +67,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -78,11 +79,11 @@ data GetDataSource = GetDataSource'
     -- If true, @DataSourceSchema@ is returned.
     --
     -- If false, @DataSourceSchema@ is not returned.
-    verbose :: Core.Maybe Core.Bool,
+    verbose :: Prelude.Maybe Prelude.Bool,
     -- | The ID assigned to the @DataSource@ at creation.
-    dataSourceId :: Core.Text
+    dataSourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDataSource' with all optional fields omitted.
@@ -102,11 +103,11 @@ data GetDataSource = GetDataSource'
 -- 'dataSourceId', 'getDataSource_dataSourceId' - The ID assigned to the @DataSource@ at creation.
 newGetDataSource ::
   -- | 'dataSourceId'
-  Core.Text ->
+  Prelude.Text ->
   GetDataSource
 newGetDataSource pDataSourceId_ =
   GetDataSource'
-    { verbose = Core.Nothing,
+    { verbose = Prelude.Nothing,
       dataSourceId = pDataSourceId_
     }
 
@@ -116,11 +117,11 @@ newGetDataSource pDataSourceId_ =
 -- If true, @DataSourceSchema@ is returned.
 --
 -- If false, @DataSourceSchema@ is not returned.
-getDataSource_verbose :: Lens.Lens' GetDataSource (Core.Maybe Core.Bool)
+getDataSource_verbose :: Lens.Lens' GetDataSource (Prelude.Maybe Prelude.Bool)
 getDataSource_verbose = Lens.lens (\GetDataSource' {verbose} -> verbose) (\s@GetDataSource' {} a -> s {verbose = a} :: GetDataSource)
 
 -- | The ID assigned to the @DataSource@ at creation.
-getDataSource_dataSourceId :: Lens.Lens' GetDataSource Core.Text
+getDataSource_dataSourceId :: Lens.Lens' GetDataSource Prelude.Text
 getDataSource_dataSourceId = Lens.lens (\GetDataSource' {dataSourceId} -> dataSourceId) (\s@GetDataSource' {} a -> s {dataSourceId = a} :: GetDataSource)
 
 instance Core.AWSRequest GetDataSource where
@@ -132,60 +133,62 @@ instance Core.AWSRequest GetDataSource where
     Response.receiveJSON
       ( \s h x ->
           GetDataSourceResponse'
-            Core.<$> (x Core..?> "Status")
-            Core.<*> (x Core..?> "StartedAt")
-            Core.<*> (x Core..?> "DataRearrangement")
-            Core.<*> (x Core..?> "RoleARN")
-            Core.<*> (x Core..?> "RedshiftMetadata")
-            Core.<*> (x Core..?> "Message")
-            Core.<*> (x Core..?> "DataSourceId")
-            Core.<*> (x Core..?> "ComputeStatistics")
-            Core.<*> (x Core..?> "DataLocationS3")
-            Core.<*> (x Core..?> "CreatedAt")
-            Core.<*> (x Core..?> "NumberOfFiles")
-            Core.<*> (x Core..?> "FinishedAt")
-            Core.<*> (x Core..?> "CreatedByIamUser")
-            Core.<*> (x Core..?> "Name")
-            Core.<*> (x Core..?> "DataSourceSchema")
-            Core.<*> (x Core..?> "DataSizeInBytes")
-            Core.<*> (x Core..?> "ComputeTime")
-            Core.<*> (x Core..?> "RDSMetadata")
-            Core.<*> (x Core..?> "LastUpdatedAt")
-            Core.<*> (x Core..?> "LogUri")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "StartedAt")
+            Prelude.<*> (x Core..?> "DataRearrangement")
+            Prelude.<*> (x Core..?> "RoleARN")
+            Prelude.<*> (x Core..?> "RedshiftMetadata")
+            Prelude.<*> (x Core..?> "Message")
+            Prelude.<*> (x Core..?> "DataSourceId")
+            Prelude.<*> (x Core..?> "ComputeStatistics")
+            Prelude.<*> (x Core..?> "DataLocationS3")
+            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<*> (x Core..?> "NumberOfFiles")
+            Prelude.<*> (x Core..?> "FinishedAt")
+            Prelude.<*> (x Core..?> "CreatedByIamUser")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "DataSourceSchema")
+            Prelude.<*> (x Core..?> "DataSizeInBytes")
+            Prelude.<*> (x Core..?> "ComputeTime")
+            Prelude.<*> (x Core..?> "RDSMetadata")
+            Prelude.<*> (x Core..?> "LastUpdatedAt")
+            Prelude.<*> (x Core..?> "LogUri")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetDataSource
+instance Prelude.Hashable GetDataSource
 
-instance Core.NFData GetDataSource
+instance Prelude.NFData GetDataSource
 
 instance Core.ToHeaders GetDataSource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonML_20141212.GetDataSource" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetDataSource where
   toJSON GetDataSource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Verbose" Core..=) Core.<$> verbose,
-            Core.Just ("DataSourceId" Core..= dataSourceId)
+      ( Prelude.catMaybes
+          [ ("Verbose" Core..=) Prelude.<$> verbose,
+            Prelude.Just ("DataSourceId" Core..= dataSourceId)
           ]
       )
 
 instance Core.ToPath GetDataSource where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetDataSource where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetDataSource@ operation and describes a
 -- @DataSource@.
@@ -201,67 +204,67 @@ data GetDataSourceResponse = GetDataSourceResponse'
     --     completion. It is not usable.
     -- -   @COMPLETED@ - The creation process completed successfully.
     -- -   @DELETED@ - The @DataSource@ is marked as deleted. It is not usable.
-    status :: Core.Maybe EntityStatus,
+    status :: Prelude.Maybe EntityStatus,
     -- | The epoch time when Amazon Machine Learning marked the @DataSource@ as
     -- @INPROGRESS@. @StartedAt@ isn\'t available if the @DataSource@ is in the
     -- @PENDING@ state.
-    startedAt :: Core.Maybe Core.POSIX,
+    startedAt :: Prelude.Maybe Core.POSIX,
     -- | A JSON string that represents the splitting and rearrangement
     -- requirement used when this @DataSource@ was created.
-    dataRearrangement :: Core.Maybe Core.Text,
-    roleARN :: Core.Maybe Core.Text,
-    redshiftMetadata :: Core.Maybe RedshiftMetadata,
+    dataRearrangement :: Prelude.Maybe Prelude.Text,
+    roleARN :: Prelude.Maybe Prelude.Text,
+    redshiftMetadata :: Prelude.Maybe RedshiftMetadata,
     -- | The user-supplied description of the most recent details about creating
     -- the @DataSource@.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The ID assigned to the @DataSource@ at creation. This value should be
     -- identical to the value of the @DataSourceId@ in the request.
-    dataSourceId :: Core.Maybe Core.Text,
+    dataSourceId :: Prelude.Maybe Prelude.Text,
     -- | The parameter is @true@ if statistics need to be generated from the
     -- observation data.
-    computeStatistics :: Core.Maybe Core.Bool,
+    computeStatistics :: Prelude.Maybe Prelude.Bool,
     -- | The location of the data file or directory in Amazon Simple Storage
     -- Service (Amazon S3).
-    dataLocationS3 :: Core.Maybe Core.Text,
+    dataLocationS3 :: Prelude.Maybe Prelude.Text,
     -- | The time that the @DataSource@ was created. The time is expressed in
     -- epoch time.
-    createdAt :: Core.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The number of data files referenced by the @DataSource@.
-    numberOfFiles :: Core.Maybe Core.Integer,
+    numberOfFiles :: Prelude.Maybe Prelude.Integer,
     -- | The epoch time when Amazon Machine Learning marked the @DataSource@ as
     -- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
     -- @DataSource@ is in the @COMPLETED@ or @FAILED@ state.
-    finishedAt :: Core.Maybe Core.POSIX,
+    finishedAt :: Prelude.Maybe Core.POSIX,
     -- | The AWS user account from which the @DataSource@ was created. The
     -- account type can be either an AWS root account or an AWS Identity and
     -- Access Management (IAM) user account.
-    createdByIamUser :: Core.Maybe Core.Text,
+    createdByIamUser :: Prelude.Maybe Prelude.Text,
     -- | A user-supplied name or description of the @DataSource@.
-    name :: Core.Maybe Core.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The schema used by all of the data files of this @DataSource@.
     --
     -- Note
     --
     -- This parameter is provided as part of the verbose format.
-    dataSourceSchema :: Core.Maybe Core.Text,
+    dataSourceSchema :: Prelude.Maybe Prelude.Text,
     -- | The total size of observations in the data files.
-    dataSizeInBytes :: Core.Maybe Core.Integer,
+    dataSizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | The approximate CPU time in milliseconds that Amazon Machine Learning
     -- spent processing the @DataSource@, normalized and scaled on computation
     -- resources. @ComputeTime@ is only available if the @DataSource@ is in the
     -- @COMPLETED@ state and the @ComputeStatistics@ is set to true.
-    computeTime :: Core.Maybe Core.Integer,
-    rDSMetadata :: Core.Maybe RDSMetadata,
+    computeTime :: Prelude.Maybe Prelude.Integer,
+    rDSMetadata :: Prelude.Maybe RDSMetadata,
     -- | The time of the most recent edit to the @DataSource@. The time is
     -- expressed in epoch time.
-    lastUpdatedAt :: Core.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
     -- | A link to the file containing logs of @CreateDataSourceFrom*@
     -- operations.
-    logUri :: Core.Maybe Core.Text,
+    logUri :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDataSourceResponse' with all optional fields omitted.
@@ -343,30 +346,30 @@ data GetDataSourceResponse = GetDataSourceResponse'
 -- 'httpStatus', 'getDataSourceResponse_httpStatus' - The response's http status code.
 newGetDataSourceResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetDataSourceResponse
 newGetDataSourceResponse pHttpStatus_ =
   GetDataSourceResponse'
-    { status = Core.Nothing,
-      startedAt = Core.Nothing,
-      dataRearrangement = Core.Nothing,
-      roleARN = Core.Nothing,
-      redshiftMetadata = Core.Nothing,
-      message = Core.Nothing,
-      dataSourceId = Core.Nothing,
-      computeStatistics = Core.Nothing,
-      dataLocationS3 = Core.Nothing,
-      createdAt = Core.Nothing,
-      numberOfFiles = Core.Nothing,
-      finishedAt = Core.Nothing,
-      createdByIamUser = Core.Nothing,
-      name = Core.Nothing,
-      dataSourceSchema = Core.Nothing,
-      dataSizeInBytes = Core.Nothing,
-      computeTime = Core.Nothing,
-      rDSMetadata = Core.Nothing,
-      lastUpdatedAt = Core.Nothing,
-      logUri = Core.Nothing,
+    { status = Prelude.Nothing,
+      startedAt = Prelude.Nothing,
+      dataRearrangement = Prelude.Nothing,
+      roleARN = Prelude.Nothing,
+      redshiftMetadata = Prelude.Nothing,
+      message = Prelude.Nothing,
+      dataSourceId = Prelude.Nothing,
+      computeStatistics = Prelude.Nothing,
+      dataLocationS3 = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      numberOfFiles = Prelude.Nothing,
+      finishedAt = Prelude.Nothing,
+      createdByIamUser = Prelude.Nothing,
+      name = Prelude.Nothing,
+      dataSourceSchema = Prelude.Nothing,
+      dataSizeInBytes = Prelude.Nothing,
+      computeTime = Prelude.Nothing,
+      rDSMetadata = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
+      logUri = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -379,71 +382,71 @@ newGetDataSourceResponse pHttpStatus_ =
 --     completion. It is not usable.
 -- -   @COMPLETED@ - The creation process completed successfully.
 -- -   @DELETED@ - The @DataSource@ is marked as deleted. It is not usable.
-getDataSourceResponse_status :: Lens.Lens' GetDataSourceResponse (Core.Maybe EntityStatus)
+getDataSourceResponse_status :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe EntityStatus)
 getDataSourceResponse_status = Lens.lens (\GetDataSourceResponse' {status} -> status) (\s@GetDataSourceResponse' {} a -> s {status = a} :: GetDataSourceResponse)
 
 -- | The epoch time when Amazon Machine Learning marked the @DataSource@ as
 -- @INPROGRESS@. @StartedAt@ isn\'t available if the @DataSource@ is in the
 -- @PENDING@ state.
-getDataSourceResponse_startedAt :: Lens.Lens' GetDataSourceResponse (Core.Maybe Core.UTCTime)
-getDataSourceResponse_startedAt = Lens.lens (\GetDataSourceResponse' {startedAt} -> startedAt) (\s@GetDataSourceResponse' {} a -> s {startedAt = a} :: GetDataSourceResponse) Core.. Lens.mapping Core._Time
+getDataSourceResponse_startedAt :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe Prelude.UTCTime)
+getDataSourceResponse_startedAt = Lens.lens (\GetDataSourceResponse' {startedAt} -> startedAt) (\s@GetDataSourceResponse' {} a -> s {startedAt = a} :: GetDataSourceResponse) Prelude.. Lens.mapping Core._Time
 
 -- | A JSON string that represents the splitting and rearrangement
 -- requirement used when this @DataSource@ was created.
-getDataSourceResponse_dataRearrangement :: Lens.Lens' GetDataSourceResponse (Core.Maybe Core.Text)
+getDataSourceResponse_dataRearrangement :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe Prelude.Text)
 getDataSourceResponse_dataRearrangement = Lens.lens (\GetDataSourceResponse' {dataRearrangement} -> dataRearrangement) (\s@GetDataSourceResponse' {} a -> s {dataRearrangement = a} :: GetDataSourceResponse)
 
 -- | Undocumented member.
-getDataSourceResponse_roleARN :: Lens.Lens' GetDataSourceResponse (Core.Maybe Core.Text)
+getDataSourceResponse_roleARN :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe Prelude.Text)
 getDataSourceResponse_roleARN = Lens.lens (\GetDataSourceResponse' {roleARN} -> roleARN) (\s@GetDataSourceResponse' {} a -> s {roleARN = a} :: GetDataSourceResponse)
 
 -- | Undocumented member.
-getDataSourceResponse_redshiftMetadata :: Lens.Lens' GetDataSourceResponse (Core.Maybe RedshiftMetadata)
+getDataSourceResponse_redshiftMetadata :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe RedshiftMetadata)
 getDataSourceResponse_redshiftMetadata = Lens.lens (\GetDataSourceResponse' {redshiftMetadata} -> redshiftMetadata) (\s@GetDataSourceResponse' {} a -> s {redshiftMetadata = a} :: GetDataSourceResponse)
 
 -- | The user-supplied description of the most recent details about creating
 -- the @DataSource@.
-getDataSourceResponse_message :: Lens.Lens' GetDataSourceResponse (Core.Maybe Core.Text)
+getDataSourceResponse_message :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe Prelude.Text)
 getDataSourceResponse_message = Lens.lens (\GetDataSourceResponse' {message} -> message) (\s@GetDataSourceResponse' {} a -> s {message = a} :: GetDataSourceResponse)
 
 -- | The ID assigned to the @DataSource@ at creation. This value should be
 -- identical to the value of the @DataSourceId@ in the request.
-getDataSourceResponse_dataSourceId :: Lens.Lens' GetDataSourceResponse (Core.Maybe Core.Text)
+getDataSourceResponse_dataSourceId :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe Prelude.Text)
 getDataSourceResponse_dataSourceId = Lens.lens (\GetDataSourceResponse' {dataSourceId} -> dataSourceId) (\s@GetDataSourceResponse' {} a -> s {dataSourceId = a} :: GetDataSourceResponse)
 
 -- | The parameter is @true@ if statistics need to be generated from the
 -- observation data.
-getDataSourceResponse_computeStatistics :: Lens.Lens' GetDataSourceResponse (Core.Maybe Core.Bool)
+getDataSourceResponse_computeStatistics :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe Prelude.Bool)
 getDataSourceResponse_computeStatistics = Lens.lens (\GetDataSourceResponse' {computeStatistics} -> computeStatistics) (\s@GetDataSourceResponse' {} a -> s {computeStatistics = a} :: GetDataSourceResponse)
 
 -- | The location of the data file or directory in Amazon Simple Storage
 -- Service (Amazon S3).
-getDataSourceResponse_dataLocationS3 :: Lens.Lens' GetDataSourceResponse (Core.Maybe Core.Text)
+getDataSourceResponse_dataLocationS3 :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe Prelude.Text)
 getDataSourceResponse_dataLocationS3 = Lens.lens (\GetDataSourceResponse' {dataLocationS3} -> dataLocationS3) (\s@GetDataSourceResponse' {} a -> s {dataLocationS3 = a} :: GetDataSourceResponse)
 
 -- | The time that the @DataSource@ was created. The time is expressed in
 -- epoch time.
-getDataSourceResponse_createdAt :: Lens.Lens' GetDataSourceResponse (Core.Maybe Core.UTCTime)
-getDataSourceResponse_createdAt = Lens.lens (\GetDataSourceResponse' {createdAt} -> createdAt) (\s@GetDataSourceResponse' {} a -> s {createdAt = a} :: GetDataSourceResponse) Core.. Lens.mapping Core._Time
+getDataSourceResponse_createdAt :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe Prelude.UTCTime)
+getDataSourceResponse_createdAt = Lens.lens (\GetDataSourceResponse' {createdAt} -> createdAt) (\s@GetDataSourceResponse' {} a -> s {createdAt = a} :: GetDataSourceResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The number of data files referenced by the @DataSource@.
-getDataSourceResponse_numberOfFiles :: Lens.Lens' GetDataSourceResponse (Core.Maybe Core.Integer)
+getDataSourceResponse_numberOfFiles :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe Prelude.Integer)
 getDataSourceResponse_numberOfFiles = Lens.lens (\GetDataSourceResponse' {numberOfFiles} -> numberOfFiles) (\s@GetDataSourceResponse' {} a -> s {numberOfFiles = a} :: GetDataSourceResponse)
 
 -- | The epoch time when Amazon Machine Learning marked the @DataSource@ as
 -- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
 -- @DataSource@ is in the @COMPLETED@ or @FAILED@ state.
-getDataSourceResponse_finishedAt :: Lens.Lens' GetDataSourceResponse (Core.Maybe Core.UTCTime)
-getDataSourceResponse_finishedAt = Lens.lens (\GetDataSourceResponse' {finishedAt} -> finishedAt) (\s@GetDataSourceResponse' {} a -> s {finishedAt = a} :: GetDataSourceResponse) Core.. Lens.mapping Core._Time
+getDataSourceResponse_finishedAt :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe Prelude.UTCTime)
+getDataSourceResponse_finishedAt = Lens.lens (\GetDataSourceResponse' {finishedAt} -> finishedAt) (\s@GetDataSourceResponse' {} a -> s {finishedAt = a} :: GetDataSourceResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The AWS user account from which the @DataSource@ was created. The
 -- account type can be either an AWS root account or an AWS Identity and
 -- Access Management (IAM) user account.
-getDataSourceResponse_createdByIamUser :: Lens.Lens' GetDataSourceResponse (Core.Maybe Core.Text)
+getDataSourceResponse_createdByIamUser :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe Prelude.Text)
 getDataSourceResponse_createdByIamUser = Lens.lens (\GetDataSourceResponse' {createdByIamUser} -> createdByIamUser) (\s@GetDataSourceResponse' {} a -> s {createdByIamUser = a} :: GetDataSourceResponse)
 
 -- | A user-supplied name or description of the @DataSource@.
-getDataSourceResponse_name :: Lens.Lens' GetDataSourceResponse (Core.Maybe Core.Text)
+getDataSourceResponse_name :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe Prelude.Text)
 getDataSourceResponse_name = Lens.lens (\GetDataSourceResponse' {name} -> name) (\s@GetDataSourceResponse' {} a -> s {name = a} :: GetDataSourceResponse)
 
 -- | The schema used by all of the data files of this @DataSource@.
@@ -451,36 +454,36 @@ getDataSourceResponse_name = Lens.lens (\GetDataSourceResponse' {name} -> name) 
 -- Note
 --
 -- This parameter is provided as part of the verbose format.
-getDataSourceResponse_dataSourceSchema :: Lens.Lens' GetDataSourceResponse (Core.Maybe Core.Text)
+getDataSourceResponse_dataSourceSchema :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe Prelude.Text)
 getDataSourceResponse_dataSourceSchema = Lens.lens (\GetDataSourceResponse' {dataSourceSchema} -> dataSourceSchema) (\s@GetDataSourceResponse' {} a -> s {dataSourceSchema = a} :: GetDataSourceResponse)
 
 -- | The total size of observations in the data files.
-getDataSourceResponse_dataSizeInBytes :: Lens.Lens' GetDataSourceResponse (Core.Maybe Core.Integer)
+getDataSourceResponse_dataSizeInBytes :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe Prelude.Integer)
 getDataSourceResponse_dataSizeInBytes = Lens.lens (\GetDataSourceResponse' {dataSizeInBytes} -> dataSizeInBytes) (\s@GetDataSourceResponse' {} a -> s {dataSizeInBytes = a} :: GetDataSourceResponse)
 
 -- | The approximate CPU time in milliseconds that Amazon Machine Learning
 -- spent processing the @DataSource@, normalized and scaled on computation
 -- resources. @ComputeTime@ is only available if the @DataSource@ is in the
 -- @COMPLETED@ state and the @ComputeStatistics@ is set to true.
-getDataSourceResponse_computeTime :: Lens.Lens' GetDataSourceResponse (Core.Maybe Core.Integer)
+getDataSourceResponse_computeTime :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe Prelude.Integer)
 getDataSourceResponse_computeTime = Lens.lens (\GetDataSourceResponse' {computeTime} -> computeTime) (\s@GetDataSourceResponse' {} a -> s {computeTime = a} :: GetDataSourceResponse)
 
 -- | Undocumented member.
-getDataSourceResponse_rDSMetadata :: Lens.Lens' GetDataSourceResponse (Core.Maybe RDSMetadata)
+getDataSourceResponse_rDSMetadata :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe RDSMetadata)
 getDataSourceResponse_rDSMetadata = Lens.lens (\GetDataSourceResponse' {rDSMetadata} -> rDSMetadata) (\s@GetDataSourceResponse' {} a -> s {rDSMetadata = a} :: GetDataSourceResponse)
 
 -- | The time of the most recent edit to the @DataSource@. The time is
 -- expressed in epoch time.
-getDataSourceResponse_lastUpdatedAt :: Lens.Lens' GetDataSourceResponse (Core.Maybe Core.UTCTime)
-getDataSourceResponse_lastUpdatedAt = Lens.lens (\GetDataSourceResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetDataSourceResponse' {} a -> s {lastUpdatedAt = a} :: GetDataSourceResponse) Core.. Lens.mapping Core._Time
+getDataSourceResponse_lastUpdatedAt :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe Prelude.UTCTime)
+getDataSourceResponse_lastUpdatedAt = Lens.lens (\GetDataSourceResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetDataSourceResponse' {} a -> s {lastUpdatedAt = a} :: GetDataSourceResponse) Prelude.. Lens.mapping Core._Time
 
 -- | A link to the file containing logs of @CreateDataSourceFrom*@
 -- operations.
-getDataSourceResponse_logUri :: Lens.Lens' GetDataSourceResponse (Core.Maybe Core.Text)
+getDataSourceResponse_logUri :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe Prelude.Text)
 getDataSourceResponse_logUri = Lens.lens (\GetDataSourceResponse' {logUri} -> logUri) (\s@GetDataSourceResponse' {} a -> s {logUri = a} :: GetDataSourceResponse)
 
 -- | The response's http status code.
-getDataSourceResponse_httpStatus :: Lens.Lens' GetDataSourceResponse Core.Int
+getDataSourceResponse_httpStatus :: Lens.Lens' GetDataSourceResponse Prelude.Int
 getDataSourceResponse_httpStatus = Lens.lens (\GetDataSourceResponse' {httpStatus} -> httpStatus) (\s@GetDataSourceResponse' {} a -> s {httpStatus = a} :: GetDataSourceResponse)
 
-instance Core.NFData GetDataSourceResponse
+instance Prelude.NFData GetDataSourceResponse

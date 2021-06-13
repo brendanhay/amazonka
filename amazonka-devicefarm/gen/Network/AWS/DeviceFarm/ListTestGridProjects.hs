@@ -44,17 +44,18 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTestGridProjects' smart constructor.
 data ListTestGridProjects = ListTestGridProjects'
   { -- | From a response, used to continue a paginated listing.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Return no more than this number of results.
-    maxResult :: Core.Maybe Core.Natural
+    maxResult :: Prelude.Maybe Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTestGridProjects' with all optional fields omitted.
@@ -71,16 +72,16 @@ newListTestGridProjects ::
   ListTestGridProjects
 newListTestGridProjects =
   ListTestGridProjects'
-    { nextToken = Core.Nothing,
-      maxResult = Core.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResult = Prelude.Nothing
     }
 
 -- | From a response, used to continue a paginated listing.
-listTestGridProjects_nextToken :: Lens.Lens' ListTestGridProjects (Core.Maybe Core.Text)
+listTestGridProjects_nextToken :: Lens.Lens' ListTestGridProjects (Prelude.Maybe Prelude.Text)
 listTestGridProjects_nextToken = Lens.lens (\ListTestGridProjects' {nextToken} -> nextToken) (\s@ListTestGridProjects' {} a -> s {nextToken = a} :: ListTestGridProjects)
 
 -- | Return no more than this number of results.
-listTestGridProjects_maxResult :: Lens.Lens' ListTestGridProjects (Core.Maybe Core.Natural)
+listTestGridProjects_maxResult :: Lens.Lens' ListTestGridProjects (Prelude.Maybe Prelude.Natural)
 listTestGridProjects_maxResult = Lens.lens (\ListTestGridProjects' {maxResult} -> maxResult) (\s@ListTestGridProjects' {} a -> s {maxResult = a} :: ListTestGridProjects)
 
 instance Core.AWSRequest ListTestGridProjects where
@@ -92,54 +93,58 @@ instance Core.AWSRequest ListTestGridProjects where
     Response.receiveJSON
       ( \s h x ->
           ListTestGridProjectsResponse'
-            Core.<$> (x Core..?> "nextToken")
-            Core.<*> (x Core..?> "testGridProjects" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "testGridProjects"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListTestGridProjects
+instance Prelude.Hashable ListTestGridProjects
 
-instance Core.NFData ListTestGridProjects
+instance Prelude.NFData ListTestGridProjects
 
 instance Core.ToHeaders ListTestGridProjects where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "DeviceFarm_20150623.ListTestGridProjects" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListTestGridProjects where
   toJSON ListTestGridProjects' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("nextToken" Core..=) Core.<$> nextToken,
-            ("maxResult" Core..=) Core.<$> maxResult
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResult" Core..=) Prelude.<$> maxResult
           ]
       )
 
 instance Core.ToPath ListTestGridProjects where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListTestGridProjects where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTestGridProjectsResponse' smart constructor.
 data ListTestGridProjectsResponse = ListTestGridProjectsResponse'
   { -- | Used for pagination. Pass into ListTestGridProjects to get more results
     -- in a paginated request.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of TestGridProjects, based on a ListTestGridProjectsRequest.
-    testGridProjects :: Core.Maybe [TestGridProject],
+    testGridProjects :: Prelude.Maybe [TestGridProject],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTestGridProjectsResponse' with all optional fields omitted.
@@ -157,27 +162,27 @@ data ListTestGridProjectsResponse = ListTestGridProjectsResponse'
 -- 'httpStatus', 'listTestGridProjectsResponse_httpStatus' - The response's http status code.
 newListTestGridProjectsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListTestGridProjectsResponse
 newListTestGridProjectsResponse pHttpStatus_ =
   ListTestGridProjectsResponse'
     { nextToken =
-        Core.Nothing,
-      testGridProjects = Core.Nothing,
+        Prelude.Nothing,
+      testGridProjects = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Used for pagination. Pass into ListTestGridProjects to get more results
 -- in a paginated request.
-listTestGridProjectsResponse_nextToken :: Lens.Lens' ListTestGridProjectsResponse (Core.Maybe Core.Text)
+listTestGridProjectsResponse_nextToken :: Lens.Lens' ListTestGridProjectsResponse (Prelude.Maybe Prelude.Text)
 listTestGridProjectsResponse_nextToken = Lens.lens (\ListTestGridProjectsResponse' {nextToken} -> nextToken) (\s@ListTestGridProjectsResponse' {} a -> s {nextToken = a} :: ListTestGridProjectsResponse)
 
 -- | The list of TestGridProjects, based on a ListTestGridProjectsRequest.
-listTestGridProjectsResponse_testGridProjects :: Lens.Lens' ListTestGridProjectsResponse (Core.Maybe [TestGridProject])
-listTestGridProjectsResponse_testGridProjects = Lens.lens (\ListTestGridProjectsResponse' {testGridProjects} -> testGridProjects) (\s@ListTestGridProjectsResponse' {} a -> s {testGridProjects = a} :: ListTestGridProjectsResponse) Core.. Lens.mapping Lens._Coerce
+listTestGridProjectsResponse_testGridProjects :: Lens.Lens' ListTestGridProjectsResponse (Prelude.Maybe [TestGridProject])
+listTestGridProjectsResponse_testGridProjects = Lens.lens (\ListTestGridProjectsResponse' {testGridProjects} -> testGridProjects) (\s@ListTestGridProjectsResponse' {} a -> s {testGridProjects = a} :: ListTestGridProjectsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTestGridProjectsResponse_httpStatus :: Lens.Lens' ListTestGridProjectsResponse Core.Int
+listTestGridProjectsResponse_httpStatus :: Lens.Lens' ListTestGridProjectsResponse Prelude.Int
 listTestGridProjectsResponse_httpStatus = Lens.lens (\ListTestGridProjectsResponse' {httpStatus} -> httpStatus) (\s@ListTestGridProjectsResponse' {} a -> s {httpStatus = a} :: ListTestGridProjectsResponse)
 
-instance Core.NFData ListTestGridProjectsResponse
+instance Prelude.NFData ListTestGridProjectsResponse

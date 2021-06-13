@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.IcmpTypeCode where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the ICMP type and code.
 --
@@ -29,11 +30,11 @@ import qualified Network.AWS.Lens as Lens
 data IcmpTypeCode = IcmpTypeCode'
   { -- | The ICMP code. A value of -1 means all codes for the specified ICMP
     -- type.
-    code :: Core.Maybe Core.Int,
+    code :: Prelude.Maybe Prelude.Int,
     -- | The ICMP type. A value of -1 means all types.
-    type' :: Core.Maybe Core.Int
+    type' :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'IcmpTypeCode' with all optional fields omitted.
@@ -51,29 +52,29 @@ newIcmpTypeCode ::
   IcmpTypeCode
 newIcmpTypeCode =
   IcmpTypeCode'
-    { code = Core.Nothing,
-      type' = Core.Nothing
+    { code = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The ICMP code. A value of -1 means all codes for the specified ICMP
 -- type.
-icmpTypeCode_code :: Lens.Lens' IcmpTypeCode (Core.Maybe Core.Int)
+icmpTypeCode_code :: Lens.Lens' IcmpTypeCode (Prelude.Maybe Prelude.Int)
 icmpTypeCode_code = Lens.lens (\IcmpTypeCode' {code} -> code) (\s@IcmpTypeCode' {} a -> s {code = a} :: IcmpTypeCode)
 
 -- | The ICMP type. A value of -1 means all types.
-icmpTypeCode_type :: Lens.Lens' IcmpTypeCode (Core.Maybe Core.Int)
+icmpTypeCode_type :: Lens.Lens' IcmpTypeCode (Prelude.Maybe Prelude.Int)
 icmpTypeCode_type = Lens.lens (\IcmpTypeCode' {type'} -> type') (\s@IcmpTypeCode' {} a -> s {type' = a} :: IcmpTypeCode)
 
 instance Core.FromXML IcmpTypeCode where
   parseXML x =
     IcmpTypeCode'
-      Core.<$> (x Core..@? "code") Core.<*> (x Core..@? "type")
+      Prelude.<$> (x Core..@? "code") Prelude.<*> (x Core..@? "type")
 
-instance Core.Hashable IcmpTypeCode
+instance Prelude.Hashable IcmpTypeCode
 
-instance Core.NFData IcmpTypeCode
+instance Prelude.NFData IcmpTypeCode
 
 instance Core.ToQuery IcmpTypeCode where
   toQuery IcmpTypeCode' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["Code" Core.=: code, "Type" Core.=: type']

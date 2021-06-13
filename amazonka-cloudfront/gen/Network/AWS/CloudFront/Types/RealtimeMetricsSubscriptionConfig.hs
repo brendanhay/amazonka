@@ -22,6 +22,7 @@ module Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig where
 import Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionStatus
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A subscription configuration for additional CloudWatch metrics.
 --
@@ -31,7 +32,7 @@ data RealtimeMetricsSubscriptionConfig = RealtimeMetricsSubscriptionConfig'
     -- for a given CloudFront distribution.
     realtimeMetricsSubscriptionStatus :: RealtimeMetricsSubscriptionStatus
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RealtimeMetricsSubscriptionConfig' with all optional fields omitted.
@@ -65,19 +66,19 @@ instance
   where
   parseXML x =
     RealtimeMetricsSubscriptionConfig'
-      Core.<$> (x Core..@ "RealtimeMetricsSubscriptionStatus")
+      Prelude.<$> (x Core..@ "RealtimeMetricsSubscriptionStatus")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     RealtimeMetricsSubscriptionConfig
 
 instance
-  Core.NFData
+  Prelude.NFData
     RealtimeMetricsSubscriptionConfig
 
 instance Core.ToXML RealtimeMetricsSubscriptionConfig where
   toXML RealtimeMetricsSubscriptionConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "RealtimeMetricsSubscriptionStatus"
           Core.@= realtimeMetricsSubscriptionStatus
       ]

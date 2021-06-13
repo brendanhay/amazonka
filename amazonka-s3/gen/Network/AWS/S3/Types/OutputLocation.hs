@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.OutputLocation where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.S3Location
 
@@ -30,9 +31,9 @@ import Network.AWS.S3.Types.S3Location
 data OutputLocation = OutputLocation'
   { -- | Describes an S3 location that will receive the results of the restore
     -- request.
-    s3 :: Core.Maybe S3Location
+    s3 :: Prelude.Maybe S3Location
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OutputLocation' with all optional fields omitted.
@@ -47,17 +48,17 @@ data OutputLocation = OutputLocation'
 newOutputLocation ::
   OutputLocation
 newOutputLocation =
-  OutputLocation' {s3 = Core.Nothing}
+  OutputLocation' {s3 = Prelude.Nothing}
 
 -- | Describes an S3 location that will receive the results of the restore
 -- request.
-outputLocation_s3 :: Lens.Lens' OutputLocation (Core.Maybe S3Location)
+outputLocation_s3 :: Lens.Lens' OutputLocation (Prelude.Maybe S3Location)
 outputLocation_s3 = Lens.lens (\OutputLocation' {s3} -> s3) (\s@OutputLocation' {} a -> s {s3 = a} :: OutputLocation)
 
-instance Core.Hashable OutputLocation
+instance Prelude.Hashable OutputLocation
 
-instance Core.NFData OutputLocation
+instance Prelude.NFData OutputLocation
 
 instance Core.ToXML OutputLocation where
   toXML OutputLocation' {..} =
-    Core.mconcat ["S3" Core.@= s3]
+    Prelude.mconcat ["S3" Core.@= s3]

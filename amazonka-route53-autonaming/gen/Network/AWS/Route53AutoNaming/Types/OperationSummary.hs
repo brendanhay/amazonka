@@ -21,6 +21,7 @@ module Network.AWS.Route53AutoNaming.Types.OperationSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53AutoNaming.Types.OperationStatus
 
 -- | A complex type that contains information about an operation that matches
@@ -41,11 +42,11 @@ data OperationSummary = OperationSummary'
     --
     -- -   __FAIL__: The operation failed. For the failure reason, see
     --     @ErrorMessage@.
-    status :: Core.Maybe OperationStatus,
+    status :: Prelude.Maybe OperationStatus,
     -- | The ID for an operation.
-    id :: Core.Maybe Core.Text
+    id :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OperationSummary' with all optional fields omitted.
@@ -72,8 +73,8 @@ newOperationSummary ::
   OperationSummary
 newOperationSummary =
   OperationSummary'
-    { status = Core.Nothing,
-      id = Core.Nothing
+    { status = Prelude.Nothing,
+      id = Prelude.Nothing
     }
 
 -- | The status of the operation. Values include the following:
@@ -87,11 +88,11 @@ newOperationSummary =
 --
 -- -   __FAIL__: The operation failed. For the failure reason, see
 --     @ErrorMessage@.
-operationSummary_status :: Lens.Lens' OperationSummary (Core.Maybe OperationStatus)
+operationSummary_status :: Lens.Lens' OperationSummary (Prelude.Maybe OperationStatus)
 operationSummary_status = Lens.lens (\OperationSummary' {status} -> status) (\s@OperationSummary' {} a -> s {status = a} :: OperationSummary)
 
 -- | The ID for an operation.
-operationSummary_id :: Lens.Lens' OperationSummary (Core.Maybe Core.Text)
+operationSummary_id :: Lens.Lens' OperationSummary (Prelude.Maybe Prelude.Text)
 operationSummary_id = Lens.lens (\OperationSummary' {id} -> id) (\s@OperationSummary' {} a -> s {id = a} :: OperationSummary)
 
 instance Core.FromJSON OperationSummary where
@@ -100,9 +101,9 @@ instance Core.FromJSON OperationSummary where
       "OperationSummary"
       ( \x ->
           OperationSummary'
-            Core.<$> (x Core..:? "Status") Core.<*> (x Core..:? "Id")
+            Prelude.<$> (x Core..:? "Status") Prelude.<*> (x Core..:? "Id")
       )
 
-instance Core.Hashable OperationSummary
+instance Prelude.Hashable OperationSummary
 
-instance Core.NFData OperationSummary
+instance Prelude.NFData OperationSummary

@@ -47,15 +47,16 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeregisterInstance' smart constructor.
 data DeregisterInstance = DeregisterInstance'
   { -- | The instance ID.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterInstance' with all optional fields omitted.
@@ -68,13 +69,13 @@ data DeregisterInstance = DeregisterInstance'
 -- 'instanceId', 'deregisterInstance_instanceId' - The instance ID.
 newDeregisterInstance ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   DeregisterInstance
 newDeregisterInstance pInstanceId_ =
   DeregisterInstance' {instanceId = pInstanceId_}
 
 -- | The instance ID.
-deregisterInstance_instanceId :: Lens.Lens' DeregisterInstance Core.Text
+deregisterInstance_instanceId :: Lens.Lens' DeregisterInstance Prelude.Text
 deregisterInstance_instanceId = Lens.lens (\DeregisterInstance' {instanceId} -> instanceId) (\s@DeregisterInstance' {} a -> s {instanceId = a} :: DeregisterInstance)
 
 instance Core.AWSRequest DeregisterInstance where
@@ -85,41 +86,43 @@ instance Core.AWSRequest DeregisterInstance where
   response =
     Response.receiveNull DeregisterInstanceResponse'
 
-instance Core.Hashable DeregisterInstance
+instance Prelude.Hashable DeregisterInstance
 
-instance Core.NFData DeregisterInstance
+instance Prelude.NFData DeregisterInstance
 
 instance Core.ToHeaders DeregisterInstance where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.DeregisterInstance" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeregisterInstance where
   toJSON DeregisterInstance' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("InstanceId" Core..= instanceId)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("InstanceId" Core..= instanceId)]
       )
 
 instance Core.ToPath DeregisterInstance where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeregisterInstance where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterInstanceResponse' smart constructor.
 data DeregisterInstanceResponse = DeregisterInstanceResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterInstanceResponse' with all optional fields omitted.
@@ -130,4 +133,4 @@ newDeregisterInstanceResponse ::
 newDeregisterInstanceResponse =
   DeregisterInstanceResponse'
 
-instance Core.NFData DeregisterInstanceResponse
+instance Prelude.NFData DeregisterInstanceResponse

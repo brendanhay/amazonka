@@ -45,6 +45,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,13 +53,13 @@ import qualified Network.AWS.Response as Response
 data UpdateFieldLevelEncryptionConfig = UpdateFieldLevelEncryptionConfig'
   { -- | The value of the @ETag@ header that you received when retrieving the
     -- configuration identity to update. For example: @E2QWRUHAPOMQZL@.
-    ifMatch :: Core.Maybe Core.Text,
+    ifMatch :: Prelude.Maybe Prelude.Text,
     -- | Request to update a field-level encryption configuration.
     fieldLevelEncryptionConfig :: FieldLevelEncryptionConfig,
     -- | The ID of the configuration you want to update.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFieldLevelEncryptionConfig' with all optional fields omitted.
@@ -78,14 +79,14 @@ newUpdateFieldLevelEncryptionConfig ::
   -- | 'fieldLevelEncryptionConfig'
   FieldLevelEncryptionConfig ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   UpdateFieldLevelEncryptionConfig
 newUpdateFieldLevelEncryptionConfig
   pFieldLevelEncryptionConfig_
   pId_ =
     UpdateFieldLevelEncryptionConfig'
       { ifMatch =
-          Core.Nothing,
+          Prelude.Nothing,
         fieldLevelEncryptionConfig =
           pFieldLevelEncryptionConfig_,
         id = pId_
@@ -93,7 +94,7 @@ newUpdateFieldLevelEncryptionConfig
 
 -- | The value of the @ETag@ header that you received when retrieving the
 -- configuration identity to update. For example: @E2QWRUHAPOMQZL@.
-updateFieldLevelEncryptionConfig_ifMatch :: Lens.Lens' UpdateFieldLevelEncryptionConfig (Core.Maybe Core.Text)
+updateFieldLevelEncryptionConfig_ifMatch :: Lens.Lens' UpdateFieldLevelEncryptionConfig (Prelude.Maybe Prelude.Text)
 updateFieldLevelEncryptionConfig_ifMatch = Lens.lens (\UpdateFieldLevelEncryptionConfig' {ifMatch} -> ifMatch) (\s@UpdateFieldLevelEncryptionConfig' {} a -> s {ifMatch = a} :: UpdateFieldLevelEncryptionConfig)
 
 -- | Request to update a field-level encryption configuration.
@@ -101,7 +102,7 @@ updateFieldLevelEncryptionConfig_fieldLevelEncryptionConfig :: Lens.Lens' Update
 updateFieldLevelEncryptionConfig_fieldLevelEncryptionConfig = Lens.lens (\UpdateFieldLevelEncryptionConfig' {fieldLevelEncryptionConfig} -> fieldLevelEncryptionConfig) (\s@UpdateFieldLevelEncryptionConfig' {} a -> s {fieldLevelEncryptionConfig = a} :: UpdateFieldLevelEncryptionConfig)
 
 -- | The ID of the configuration you want to update.
-updateFieldLevelEncryptionConfig_id :: Lens.Lens' UpdateFieldLevelEncryptionConfig Core.Text
+updateFieldLevelEncryptionConfig_id :: Lens.Lens' UpdateFieldLevelEncryptionConfig Prelude.Text
 updateFieldLevelEncryptionConfig_id = Lens.lens (\UpdateFieldLevelEncryptionConfig' {id} -> id) (\s@UpdateFieldLevelEncryptionConfig' {} a -> s {id = a} :: UpdateFieldLevelEncryptionConfig)
 
 instance
@@ -116,16 +117,18 @@ instance
     Response.receiveXML
       ( \s h x ->
           UpdateFieldLevelEncryptionConfigResponse'
-            Core.<$> (h Core..#? "ETag")
-            Core.<*> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdateFieldLevelEncryptionConfig
 
-instance Core.NFData UpdateFieldLevelEncryptionConfig
+instance
+  Prelude.NFData
+    UpdateFieldLevelEncryptionConfig
 
 instance
   Core.ToElement
@@ -141,11 +144,11 @@ instance
     UpdateFieldLevelEncryptionConfig
   where
   toHeaders UpdateFieldLevelEncryptionConfig' {..} =
-    Core.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Core.=# ifMatch]
 
 instance Core.ToPath UpdateFieldLevelEncryptionConfig where
   toPath UpdateFieldLevelEncryptionConfig' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-05-31/field-level-encryption/",
         Core.toBS id,
         "/config"
@@ -155,19 +158,19 @@ instance
   Core.ToQuery
     UpdateFieldLevelEncryptionConfig
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFieldLevelEncryptionConfigResponse' smart constructor.
 data UpdateFieldLevelEncryptionConfigResponse = UpdateFieldLevelEncryptionConfigResponse'
   { -- | The value of the @ETag@ header that you received when updating the
     -- configuration. For example: @E2QWRUHAPOMQZL@.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | Return the results of updating the configuration.
-    fieldLevelEncryption :: Core.Maybe FieldLevelEncryption,
+    fieldLevelEncryption :: Prelude.Maybe FieldLevelEncryption,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateFieldLevelEncryptionConfigResponse' with all optional fields omitted.
@@ -185,31 +188,31 @@ data UpdateFieldLevelEncryptionConfigResponse = UpdateFieldLevelEncryptionConfig
 -- 'httpStatus', 'updateFieldLevelEncryptionConfigResponse_httpStatus' - The response's http status code.
 newUpdateFieldLevelEncryptionConfigResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateFieldLevelEncryptionConfigResponse
 newUpdateFieldLevelEncryptionConfigResponse
   pHttpStatus_ =
     UpdateFieldLevelEncryptionConfigResponse'
       { eTag =
-          Core.Nothing,
+          Prelude.Nothing,
         fieldLevelEncryption =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The value of the @ETag@ header that you received when updating the
 -- configuration. For example: @E2QWRUHAPOMQZL@.
-updateFieldLevelEncryptionConfigResponse_eTag :: Lens.Lens' UpdateFieldLevelEncryptionConfigResponse (Core.Maybe Core.Text)
+updateFieldLevelEncryptionConfigResponse_eTag :: Lens.Lens' UpdateFieldLevelEncryptionConfigResponse (Prelude.Maybe Prelude.Text)
 updateFieldLevelEncryptionConfigResponse_eTag = Lens.lens (\UpdateFieldLevelEncryptionConfigResponse' {eTag} -> eTag) (\s@UpdateFieldLevelEncryptionConfigResponse' {} a -> s {eTag = a} :: UpdateFieldLevelEncryptionConfigResponse)
 
 -- | Return the results of updating the configuration.
-updateFieldLevelEncryptionConfigResponse_fieldLevelEncryption :: Lens.Lens' UpdateFieldLevelEncryptionConfigResponse (Core.Maybe FieldLevelEncryption)
+updateFieldLevelEncryptionConfigResponse_fieldLevelEncryption :: Lens.Lens' UpdateFieldLevelEncryptionConfigResponse (Prelude.Maybe FieldLevelEncryption)
 updateFieldLevelEncryptionConfigResponse_fieldLevelEncryption = Lens.lens (\UpdateFieldLevelEncryptionConfigResponse' {fieldLevelEncryption} -> fieldLevelEncryption) (\s@UpdateFieldLevelEncryptionConfigResponse' {} a -> s {fieldLevelEncryption = a} :: UpdateFieldLevelEncryptionConfigResponse)
 
 -- | The response's http status code.
-updateFieldLevelEncryptionConfigResponse_httpStatus :: Lens.Lens' UpdateFieldLevelEncryptionConfigResponse Core.Int
+updateFieldLevelEncryptionConfigResponse_httpStatus :: Lens.Lens' UpdateFieldLevelEncryptionConfigResponse Prelude.Int
 updateFieldLevelEncryptionConfigResponse_httpStatus = Lens.lens (\UpdateFieldLevelEncryptionConfigResponse' {httpStatus} -> httpStatus) (\s@UpdateFieldLevelEncryptionConfigResponse' {} a -> s {httpStatus = a} :: UpdateFieldLevelEncryptionConfigResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateFieldLevelEncryptionConfigResponse

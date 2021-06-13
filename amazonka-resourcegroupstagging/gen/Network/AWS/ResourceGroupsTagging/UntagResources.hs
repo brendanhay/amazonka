@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroupsTagging.Types
 import qualified Network.AWS.Response as Response
@@ -66,12 +67,12 @@ data UntagResources = UntagResources'
     -- information, see
     -- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
     -- in the /AWS General Reference/.
-    resourceARNList :: Core.NonEmpty Core.Text,
+    resourceARNList :: Prelude.NonEmpty Prelude.Text,
     -- | Specifies a list of tag keys that you want to remove from the specified
     -- resources.
-    tagKeys :: Core.NonEmpty Core.Text
+    tagKeys :: Prelude.NonEmpty Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagResources' with all optional fields omitted.
@@ -93,9 +94,9 @@ data UntagResources = UntagResources'
 -- resources.
 newUntagResources ::
   -- | 'resourceARNList'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   -- | 'tagKeys'
-  Core.NonEmpty Core.Text ->
+  Prelude.NonEmpty Prelude.Text ->
   UntagResources
 newUntagResources pResourceARNList_ pTagKeys_ =
   UntagResources'
@@ -111,13 +112,13 @@ newUntagResources pResourceARNList_ pTagKeys_ =
 -- information, see
 -- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
 -- in the /AWS General Reference/.
-untagResources_resourceARNList :: Lens.Lens' UntagResources (Core.NonEmpty Core.Text)
-untagResources_resourceARNList = Lens.lens (\UntagResources' {resourceARNList} -> resourceARNList) (\s@UntagResources' {} a -> s {resourceARNList = a} :: UntagResources) Core.. Lens._Coerce
+untagResources_resourceARNList :: Lens.Lens' UntagResources (Prelude.NonEmpty Prelude.Text)
+untagResources_resourceARNList = Lens.lens (\UntagResources' {resourceARNList} -> resourceARNList) (\s@UntagResources' {} a -> s {resourceARNList = a} :: UntagResources) Prelude.. Lens._Coerce
 
 -- | Specifies a list of tag keys that you want to remove from the specified
 -- resources.
-untagResources_tagKeys :: Lens.Lens' UntagResources (Core.NonEmpty Core.Text)
-untagResources_tagKeys = Lens.lens (\UntagResources' {tagKeys} -> tagKeys) (\s@UntagResources' {} a -> s {tagKeys = a} :: UntagResources) Core.. Lens._Coerce
+untagResources_tagKeys :: Lens.Lens' UntagResources (Prelude.NonEmpty Prelude.Text)
+untagResources_tagKeys = Lens.lens (\UntagResources' {tagKeys} -> tagKeys) (\s@UntagResources' {} a -> s {tagKeys = a} :: UntagResources) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UntagResources where
   type
@@ -128,44 +129,46 @@ instance Core.AWSRequest UntagResources where
     Response.receiveJSON
       ( \s h x ->
           UntagResourcesResponse'
-            Core.<$> ( x Core..?> "FailedResourcesMap"
-                         Core..!@ Core.mempty
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..?> "FailedResourcesMap"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UntagResources
+instance Prelude.Hashable UntagResources
 
-instance Core.NFData UntagResources
+instance Prelude.NFData UntagResources
 
 instance Core.ToHeaders UntagResources where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "ResourceGroupsTaggingAPI_20170126.UntagResources" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UntagResources where
   toJSON UntagResources' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ResourceARNList" Core..= resourceARNList),
-            Core.Just ("TagKeys" Core..= tagKeys)
+            Prelude.Just ("TagKeys" Core..= tagKeys)
           ]
       )
 
 instance Core.ToPath UntagResources where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UntagResources where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUntagResourcesResponse' smart constructor.
 data UntagResourcesResponse = UntagResourcesResponse'
@@ -174,11 +177,11 @@ data UntagResourcesResponse = UntagResourcesResponse'
     -- @FailureInfo@ object that contains an error code, a status code, and an
     -- error message. If there are no errors, the @FailedResourcesMap@ is
     -- empty.
-    failedResourcesMap :: Core.Maybe (Core.HashMap Core.Text FailureInfo),
+    failedResourcesMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text FailureInfo),
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagResourcesResponse' with all optional fields omitted.
@@ -197,12 +200,12 @@ data UntagResourcesResponse = UntagResourcesResponse'
 -- 'httpStatus', 'untagResourcesResponse_httpStatus' - The response's http status code.
 newUntagResourcesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UntagResourcesResponse
 newUntagResourcesResponse pHttpStatus_ =
   UntagResourcesResponse'
     { failedResourcesMap =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -211,11 +214,11 @@ newUntagResourcesResponse pHttpStatus_ =
 -- @FailureInfo@ object that contains an error code, a status code, and an
 -- error message. If there are no errors, the @FailedResourcesMap@ is
 -- empty.
-untagResourcesResponse_failedResourcesMap :: Lens.Lens' UntagResourcesResponse (Core.Maybe (Core.HashMap Core.Text FailureInfo))
-untagResourcesResponse_failedResourcesMap = Lens.lens (\UntagResourcesResponse' {failedResourcesMap} -> failedResourcesMap) (\s@UntagResourcesResponse' {} a -> s {failedResourcesMap = a} :: UntagResourcesResponse) Core.. Lens.mapping Lens._Coerce
+untagResourcesResponse_failedResourcesMap :: Lens.Lens' UntagResourcesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text FailureInfo))
+untagResourcesResponse_failedResourcesMap = Lens.lens (\UntagResourcesResponse' {failedResourcesMap} -> failedResourcesMap) (\s@UntagResourcesResponse' {} a -> s {failedResourcesMap = a} :: UntagResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-untagResourcesResponse_httpStatus :: Lens.Lens' UntagResourcesResponse Core.Int
+untagResourcesResponse_httpStatus :: Lens.Lens' UntagResourcesResponse Prelude.Int
 untagResourcesResponse_httpStatus = Lens.lens (\UntagResourcesResponse' {httpStatus} -> httpStatus) (\s@UntagResourcesResponse' {} a -> s {httpStatus = a} :: UntagResourcesResponse)
 
-instance Core.NFData UntagResourcesResponse
+instance Prelude.NFData UntagResourcesResponse

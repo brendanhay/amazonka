@@ -45,19 +45,20 @@ where
 import Network.AWS.CloudDirectory.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetObjectInformation' smart constructor.
 data GetObjectInformation = GetObjectInformation'
   { -- | The consistency level at which to retrieve the object information.
-    consistencyLevel :: Core.Maybe ConsistencyLevel,
+    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
     -- | The ARN of the directory being retrieved.
-    directoryArn :: Core.Text,
+    directoryArn :: Prelude.Text,
     -- | A reference to the object.
     objectReference :: ObjectReference
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetObjectInformation' with all optional fields omitted.
@@ -74,7 +75,7 @@ data GetObjectInformation = GetObjectInformation'
 -- 'objectReference', 'getObjectInformation_objectReference' - A reference to the object.
 newGetObjectInformation ::
   -- | 'directoryArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'objectReference'
   ObjectReference ->
   GetObjectInformation
@@ -83,17 +84,17 @@ newGetObjectInformation
   pObjectReference_ =
     GetObjectInformation'
       { consistencyLevel =
-          Core.Nothing,
+          Prelude.Nothing,
         directoryArn = pDirectoryArn_,
         objectReference = pObjectReference_
       }
 
 -- | The consistency level at which to retrieve the object information.
-getObjectInformation_consistencyLevel :: Lens.Lens' GetObjectInformation (Core.Maybe ConsistencyLevel)
+getObjectInformation_consistencyLevel :: Lens.Lens' GetObjectInformation (Prelude.Maybe ConsistencyLevel)
 getObjectInformation_consistencyLevel = Lens.lens (\GetObjectInformation' {consistencyLevel} -> consistencyLevel) (\s@GetObjectInformation' {} a -> s {consistencyLevel = a} :: GetObjectInformation)
 
 -- | The ARN of the directory being retrieved.
-getObjectInformation_directoryArn :: Lens.Lens' GetObjectInformation Core.Text
+getObjectInformation_directoryArn :: Lens.Lens' GetObjectInformation Prelude.Text
 getObjectInformation_directoryArn = Lens.lens (\GetObjectInformation' {directoryArn} -> directoryArn) (\s@GetObjectInformation' {} a -> s {directoryArn = a} :: GetObjectInformation)
 
 -- | A reference to the object.
@@ -109,18 +110,18 @@ instance Core.AWSRequest GetObjectInformation where
     Response.receiveJSON
       ( \s h x ->
           GetObjectInformationResponse'
-            Core.<$> (x Core..?> "SchemaFacets" Core..!@ Core.mempty)
-            Core.<*> (x Core..?> "ObjectIdentifier")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "SchemaFacets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ObjectIdentifier")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetObjectInformation
+instance Prelude.Hashable GetObjectInformation
 
-instance Core.NFData GetObjectInformation
+instance Prelude.NFData GetObjectInformation
 
 instance Core.ToHeaders GetObjectInformation where
   toHeaders GetObjectInformation' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-consistency-level" Core.=# consistencyLevel,
         "x-amz-data-partition" Core.=# directoryArn
       ]
@@ -128,19 +129,19 @@ instance Core.ToHeaders GetObjectInformation where
 instance Core.ToJSON GetObjectInformation where
   toJSON GetObjectInformation' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("ObjectReference" Core..= objectReference)
           ]
       )
 
 instance Core.ToPath GetObjectInformation where
   toPath =
-    Core.const
+    Prelude.const
       "/amazonclouddirectory/2017-01-11/object/information"
 
 instance Core.ToQuery GetObjectInformation where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetObjectInformationResponse' smart constructor.
 data GetObjectInformationResponse = GetObjectInformationResponse'
@@ -148,13 +149,13 @@ data GetObjectInformationResponse = GetObjectInformationResponse'
     -- not include minor version information, the most recently applied minor
     -- version of each Facet is in effect. See GetAppliedSchemaVersion for
     -- details.
-    schemaFacets :: Core.Maybe [SchemaFacet],
+    schemaFacets :: Prelude.Maybe [SchemaFacet],
     -- | The @ObjectIdentifier@ of the specified object.
-    objectIdentifier :: Core.Maybe Core.Text,
+    objectIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetObjectInformationResponse' with all optional fields omitted.
@@ -174,13 +175,13 @@ data GetObjectInformationResponse = GetObjectInformationResponse'
 -- 'httpStatus', 'getObjectInformationResponse_httpStatus' - The response's http status code.
 newGetObjectInformationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetObjectInformationResponse
 newGetObjectInformationResponse pHttpStatus_ =
   GetObjectInformationResponse'
     { schemaFacets =
-        Core.Nothing,
-      objectIdentifier = Core.Nothing,
+        Prelude.Nothing,
+      objectIdentifier = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -188,15 +189,15 @@ newGetObjectInformationResponse pHttpStatus_ =
 -- not include minor version information, the most recently applied minor
 -- version of each Facet is in effect. See GetAppliedSchemaVersion for
 -- details.
-getObjectInformationResponse_schemaFacets :: Lens.Lens' GetObjectInformationResponse (Core.Maybe [SchemaFacet])
-getObjectInformationResponse_schemaFacets = Lens.lens (\GetObjectInformationResponse' {schemaFacets} -> schemaFacets) (\s@GetObjectInformationResponse' {} a -> s {schemaFacets = a} :: GetObjectInformationResponse) Core.. Lens.mapping Lens._Coerce
+getObjectInformationResponse_schemaFacets :: Lens.Lens' GetObjectInformationResponse (Prelude.Maybe [SchemaFacet])
+getObjectInformationResponse_schemaFacets = Lens.lens (\GetObjectInformationResponse' {schemaFacets} -> schemaFacets) (\s@GetObjectInformationResponse' {} a -> s {schemaFacets = a} :: GetObjectInformationResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The @ObjectIdentifier@ of the specified object.
-getObjectInformationResponse_objectIdentifier :: Lens.Lens' GetObjectInformationResponse (Core.Maybe Core.Text)
+getObjectInformationResponse_objectIdentifier :: Lens.Lens' GetObjectInformationResponse (Prelude.Maybe Prelude.Text)
 getObjectInformationResponse_objectIdentifier = Lens.lens (\GetObjectInformationResponse' {objectIdentifier} -> objectIdentifier) (\s@GetObjectInformationResponse' {} a -> s {objectIdentifier = a} :: GetObjectInformationResponse)
 
 -- | The response's http status code.
-getObjectInformationResponse_httpStatus :: Lens.Lens' GetObjectInformationResponse Core.Int
+getObjectInformationResponse_httpStatus :: Lens.Lens' GetObjectInformationResponse Prelude.Int
 getObjectInformationResponse_httpStatus = Lens.lens (\GetObjectInformationResponse' {httpStatus} -> httpStatus) (\s@GetObjectInformationResponse' {} a -> s {httpStatus = a} :: GetObjectInformationResponse)
 
-instance Core.NFData GetObjectInformationResponse
+instance Prelude.NFData GetObjectInformationResponse

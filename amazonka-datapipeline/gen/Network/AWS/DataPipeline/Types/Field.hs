@@ -21,6 +21,7 @@ module Network.AWS.DataPipeline.Types.Field where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A key-value pair that describes a property of a pipeline object. The
 -- value is specified as either a string value (@StringValue@) or a
@@ -29,13 +30,13 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newField' smart constructor.
 data Field = Field'
   { -- | The field value, expressed as a String.
-    stringValue :: Core.Maybe Core.Text,
+    stringValue :: Prelude.Maybe Prelude.Text,
     -- | The field value, expressed as the identifier of another object.
-    refValue :: Core.Maybe Core.Text,
+    refValue :: Prelude.Maybe Prelude.Text,
     -- | The field identifier.
-    key :: Core.Text
+    key :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Field' with all optional fields omitted.
@@ -52,25 +53,25 @@ data Field = Field'
 -- 'key', 'field_key' - The field identifier.
 newField ::
   -- | 'key'
-  Core.Text ->
+  Prelude.Text ->
   Field
 newField pKey_ =
   Field'
-    { stringValue = Core.Nothing,
-      refValue = Core.Nothing,
+    { stringValue = Prelude.Nothing,
+      refValue = Prelude.Nothing,
       key = pKey_
     }
 
 -- | The field value, expressed as a String.
-field_stringValue :: Lens.Lens' Field (Core.Maybe Core.Text)
+field_stringValue :: Lens.Lens' Field (Prelude.Maybe Prelude.Text)
 field_stringValue = Lens.lens (\Field' {stringValue} -> stringValue) (\s@Field' {} a -> s {stringValue = a} :: Field)
 
 -- | The field value, expressed as the identifier of another object.
-field_refValue :: Lens.Lens' Field (Core.Maybe Core.Text)
+field_refValue :: Lens.Lens' Field (Prelude.Maybe Prelude.Text)
 field_refValue = Lens.lens (\Field' {refValue} -> refValue) (\s@Field' {} a -> s {refValue = a} :: Field)
 
 -- | The field identifier.
-field_key :: Lens.Lens' Field Core.Text
+field_key :: Lens.Lens' Field Prelude.Text
 field_key = Lens.lens (\Field' {key} -> key) (\s@Field' {} a -> s {key = a} :: Field)
 
 instance Core.FromJSON Field where
@@ -79,21 +80,21 @@ instance Core.FromJSON Field where
       "Field"
       ( \x ->
           Field'
-            Core.<$> (x Core..:? "stringValue")
-            Core.<*> (x Core..:? "refValue")
-            Core.<*> (x Core..: "key")
+            Prelude.<$> (x Core..:? "stringValue")
+            Prelude.<*> (x Core..:? "refValue")
+            Prelude.<*> (x Core..: "key")
       )
 
-instance Core.Hashable Field
+instance Prelude.Hashable Field
 
-instance Core.NFData Field
+instance Prelude.NFData Field
 
 instance Core.ToJSON Field where
   toJSON Field' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("stringValue" Core..=) Core.<$> stringValue,
-            ("refValue" Core..=) Core.<$> refValue,
-            Core.Just ("key" Core..= key)
+      ( Prelude.catMaybes
+          [ ("stringValue" Core..=) Prelude.<$> stringValue,
+            ("refValue" Core..=) Prelude.<$> refValue,
+            Prelude.Just ("key" Core..= key)
           ]
       )

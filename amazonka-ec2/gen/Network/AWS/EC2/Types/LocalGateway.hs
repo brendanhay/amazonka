@@ -23,23 +23,24 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a local gateway.
 --
 -- /See:/ 'newLocalGateway' smart constructor.
 data LocalGateway = LocalGateway'
   { -- | The AWS account ID that owns the local gateway.
-    ownerId :: Core.Maybe Core.Text,
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Outpost.
-    outpostArn :: Core.Maybe Core.Text,
+    outpostArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the local gateway.
-    localGatewayId :: Core.Maybe Core.Text,
+    localGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The state of the local gateway.
-    state :: Core.Maybe Core.Text,
+    state :: Prelude.Maybe Prelude.Text,
     -- | The tags assigned to the local gateway.
-    tags :: Core.Maybe [Tag]
+    tags :: Prelude.Maybe [Tag]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LocalGateway' with all optional fields omitted.
@@ -62,44 +63,44 @@ newLocalGateway ::
   LocalGateway
 newLocalGateway =
   LocalGateway'
-    { ownerId = Core.Nothing,
-      outpostArn = Core.Nothing,
-      localGatewayId = Core.Nothing,
-      state = Core.Nothing,
-      tags = Core.Nothing
+    { ownerId = Prelude.Nothing,
+      outpostArn = Prelude.Nothing,
+      localGatewayId = Prelude.Nothing,
+      state = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | The AWS account ID that owns the local gateway.
-localGateway_ownerId :: Lens.Lens' LocalGateway (Core.Maybe Core.Text)
+localGateway_ownerId :: Lens.Lens' LocalGateway (Prelude.Maybe Prelude.Text)
 localGateway_ownerId = Lens.lens (\LocalGateway' {ownerId} -> ownerId) (\s@LocalGateway' {} a -> s {ownerId = a} :: LocalGateway)
 
 -- | The Amazon Resource Name (ARN) of the Outpost.
-localGateway_outpostArn :: Lens.Lens' LocalGateway (Core.Maybe Core.Text)
+localGateway_outpostArn :: Lens.Lens' LocalGateway (Prelude.Maybe Prelude.Text)
 localGateway_outpostArn = Lens.lens (\LocalGateway' {outpostArn} -> outpostArn) (\s@LocalGateway' {} a -> s {outpostArn = a} :: LocalGateway)
 
 -- | The ID of the local gateway.
-localGateway_localGatewayId :: Lens.Lens' LocalGateway (Core.Maybe Core.Text)
+localGateway_localGatewayId :: Lens.Lens' LocalGateway (Prelude.Maybe Prelude.Text)
 localGateway_localGatewayId = Lens.lens (\LocalGateway' {localGatewayId} -> localGatewayId) (\s@LocalGateway' {} a -> s {localGatewayId = a} :: LocalGateway)
 
 -- | The state of the local gateway.
-localGateway_state :: Lens.Lens' LocalGateway (Core.Maybe Core.Text)
+localGateway_state :: Lens.Lens' LocalGateway (Prelude.Maybe Prelude.Text)
 localGateway_state = Lens.lens (\LocalGateway' {state} -> state) (\s@LocalGateway' {} a -> s {state = a} :: LocalGateway)
 
 -- | The tags assigned to the local gateway.
-localGateway_tags :: Lens.Lens' LocalGateway (Core.Maybe [Tag])
-localGateway_tags = Lens.lens (\LocalGateway' {tags} -> tags) (\s@LocalGateway' {} a -> s {tags = a} :: LocalGateway) Core.. Lens.mapping Lens._Coerce
+localGateway_tags :: Lens.Lens' LocalGateway (Prelude.Maybe [Tag])
+localGateway_tags = Lens.lens (\LocalGateway' {tags} -> tags) (\s@LocalGateway' {} a -> s {tags = a} :: LocalGateway) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML LocalGateway where
   parseXML x =
     LocalGateway'
-      Core.<$> (x Core..@? "ownerId")
-      Core.<*> (x Core..@? "outpostArn")
-      Core.<*> (x Core..@? "localGatewayId")
-      Core.<*> (x Core..@? "state")
-      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "item")
-               )
+      Prelude.<$> (x Core..@? "ownerId")
+      Prelude.<*> (x Core..@? "outpostArn")
+      Prelude.<*> (x Core..@? "localGatewayId")
+      Prelude.<*> (x Core..@? "state")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
 
-instance Core.Hashable LocalGateway
+instance Prelude.Hashable LocalGateway
 
-instance Core.NFData LocalGateway
+instance Prelude.NFData LocalGateway

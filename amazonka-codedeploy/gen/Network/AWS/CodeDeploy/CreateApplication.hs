@@ -44,6 +44,7 @@ where
 import Network.AWS.CodeDeploy.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,15 +55,15 @@ data CreateApplication = CreateApplication'
   { -- | The metadata that you apply to CodeDeploy applications to help you
     -- organize and categorize them. Each tag consists of a key and an optional
     -- value, both of which you define.
-    tags :: Core.Maybe [Tag],
+    tags :: Prelude.Maybe [Tag],
     -- | The destination platform type for the deployment (@Lambda@, @Server@, or
     -- @ECS@).
-    computePlatform :: Core.Maybe ComputePlatform,
+    computePlatform :: Prelude.Maybe ComputePlatform,
     -- | The name of the application. This name must be unique with the
     -- applicable IAM user or AWS account.
-    applicationName :: Core.Text
+    applicationName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateApplication' with all optional fields omitted.
@@ -83,29 +84,29 @@ data CreateApplication = CreateApplication'
 -- applicable IAM user or AWS account.
 newCreateApplication ::
   -- | 'applicationName'
-  Core.Text ->
+  Prelude.Text ->
   CreateApplication
 newCreateApplication pApplicationName_ =
   CreateApplication'
-    { tags = Core.Nothing,
-      computePlatform = Core.Nothing,
+    { tags = Prelude.Nothing,
+      computePlatform = Prelude.Nothing,
       applicationName = pApplicationName_
     }
 
 -- | The metadata that you apply to CodeDeploy applications to help you
 -- organize and categorize them. Each tag consists of a key and an optional
 -- value, both of which you define.
-createApplication_tags :: Lens.Lens' CreateApplication (Core.Maybe [Tag])
-createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Core.. Lens.mapping Lens._Coerce
+createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe [Tag])
+createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The destination platform type for the deployment (@Lambda@, @Server@, or
 -- @ECS@).
-createApplication_computePlatform :: Lens.Lens' CreateApplication (Core.Maybe ComputePlatform)
+createApplication_computePlatform :: Lens.Lens' CreateApplication (Prelude.Maybe ComputePlatform)
 createApplication_computePlatform = Lens.lens (\CreateApplication' {computePlatform} -> computePlatform) (\s@CreateApplication' {} a -> s {computePlatform = a} :: CreateApplication)
 
 -- | The name of the application. This name must be unique with the
 -- applicable IAM user or AWS account.
-createApplication_applicationName :: Lens.Lens' CreateApplication Core.Text
+createApplication_applicationName :: Lens.Lens' CreateApplication Prelude.Text
 createApplication_applicationName = Lens.lens (\CreateApplication' {applicationName} -> applicationName) (\s@CreateApplication' {} a -> s {applicationName = a} :: CreateApplication)
 
 instance Core.AWSRequest CreateApplication where
@@ -117,54 +118,57 @@ instance Core.AWSRequest CreateApplication where
     Response.receiveJSON
       ( \s h x ->
           CreateApplicationResponse'
-            Core.<$> (x Core..?> "applicationId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "applicationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateApplication
+instance Prelude.Hashable CreateApplication
 
-instance Core.NFData CreateApplication
+instance Prelude.NFData CreateApplication
 
 instance Core.ToHeaders CreateApplication where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CodeDeploy_20141006.CreateApplication" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("tags" Core..=) Core.<$> tags,
-            ("computePlatform" Core..=) Core.<$> computePlatform,
-            Core.Just
+      ( Prelude.catMaybes
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("computePlatform" Core..=)
+              Prelude.<$> computePlatform,
+            Prelude.Just
               ("applicationName" Core..= applicationName)
           ]
       )
 
 instance Core.ToPath CreateApplication where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateApplication where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @CreateApplication@ operation.
 --
 -- /See:/ 'newCreateApplicationResponse' smart constructor.
 data CreateApplicationResponse = CreateApplicationResponse'
   { -- | A unique application ID.
-    applicationId :: Core.Maybe Core.Text,
+    applicationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateApplicationResponse' with all optional fields omitted.
@@ -179,21 +183,21 @@ data CreateApplicationResponse = CreateApplicationResponse'
 -- 'httpStatus', 'createApplicationResponse_httpStatus' - The response's http status code.
 newCreateApplicationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateApplicationResponse
 newCreateApplicationResponse pHttpStatus_ =
   CreateApplicationResponse'
     { applicationId =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique application ID.
-createApplicationResponse_applicationId :: Lens.Lens' CreateApplicationResponse (Core.Maybe Core.Text)
+createApplicationResponse_applicationId :: Lens.Lens' CreateApplicationResponse (Prelude.Maybe Prelude.Text)
 createApplicationResponse_applicationId = Lens.lens (\CreateApplicationResponse' {applicationId} -> applicationId) (\s@CreateApplicationResponse' {} a -> s {applicationId = a} :: CreateApplicationResponse)
 
 -- | The response's http status code.
-createApplicationResponse_httpStatus :: Lens.Lens' CreateApplicationResponse Core.Int
+createApplicationResponse_httpStatus :: Lens.Lens' CreateApplicationResponse Prelude.Int
 createApplicationResponse_httpStatus = Lens.lens (\CreateApplicationResponse' {httpStatus} -> httpStatus) (\s@CreateApplicationResponse' {} a -> s {httpStatus = a} :: CreateApplicationResponse)
 
-instance Core.NFData CreateApplicationResponse
+instance Prelude.NFData CreateApplicationResponse

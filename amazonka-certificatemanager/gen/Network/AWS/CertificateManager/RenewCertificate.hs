@@ -44,6 +44,7 @@ where
 import Network.AWS.CertificateManager.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +57,9 @@ data RenewCertificate = RenewCertificate'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-    certificateArn :: Core.Text
+    certificateArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RenewCertificate' with all optional fields omitted.
@@ -77,7 +78,7 @@ data RenewCertificate = RenewCertificate'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
 newRenewCertificate ::
   -- | 'certificateArn'
-  Core.Text ->
+  Prelude.Text ->
   RenewCertificate
 newRenewCertificate pCertificateArn_ =
   RenewCertificate'
@@ -92,7 +93,7 @@ newRenewCertificate pCertificateArn_ =
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-renewCertificate_certificateArn :: Lens.Lens' RenewCertificate Core.Text
+renewCertificate_certificateArn :: Lens.Lens' RenewCertificate Prelude.Text
 renewCertificate_certificateArn = Lens.lens (\RenewCertificate' {certificateArn} -> certificateArn) (\s@RenewCertificate' {} a -> s {certificateArn = a} :: RenewCertificate)
 
 instance Core.AWSRequest RenewCertificate where
@@ -103,43 +104,45 @@ instance Core.AWSRequest RenewCertificate where
   response =
     Response.receiveNull RenewCertificateResponse'
 
-instance Core.Hashable RenewCertificate
+instance Prelude.Hashable RenewCertificate
 
-instance Core.NFData RenewCertificate
+instance Prelude.NFData RenewCertificate
 
 instance Core.ToHeaders RenewCertificate where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "CertificateManager.RenewCertificate" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RenewCertificate where
   toJSON RenewCertificate' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("CertificateArn" Core..= certificateArn)
           ]
       )
 
 instance Core.ToPath RenewCertificate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RenewCertificate where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRenewCertificateResponse' smart constructor.
 data RenewCertificateResponse = RenewCertificateResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RenewCertificateResponse' with all optional fields omitted.
@@ -150,4 +153,4 @@ newRenewCertificateResponse ::
 newRenewCertificateResponse =
   RenewCertificateResponse'
 
-instance Core.NFData RenewCertificateResponse
+instance Prelude.NFData RenewCertificateResponse

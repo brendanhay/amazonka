@@ -21,6 +21,7 @@ module Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
@@ -36,19 +37,19 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newSubscribedRuleGroupSummary' smart constructor.
 data SubscribedRuleGroupSummary = SubscribedRuleGroupSummary'
   { -- | A unique identifier for a @RuleGroup@.
-    ruleGroupId :: Core.Text,
+    ruleGroupId :: Prelude.Text,
     -- | A friendly name or description of the @RuleGroup@. You can\'t change the
     -- name of a @RuleGroup@ after you create it.
-    name :: Core.Text,
+    name :: Prelude.Text,
     -- | A friendly name or description for the metrics for this @RuleGroup@. The
     -- name can contain only alphanumeric characters (A-Z, a-z, 0-9), with
     -- maximum length 128 and minimum length one. It can\'t contain whitespace
     -- or metric names reserved for AWS WAF, including \"All\" and
     -- \"Default_Action.\" You can\'t change the name of the metric after you
     -- create the @RuleGroup@.
-    metricName :: Core.Text
+    metricName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SubscribedRuleGroupSummary' with all optional fields omitted.
@@ -71,11 +72,11 @@ data SubscribedRuleGroupSummary = SubscribedRuleGroupSummary'
 -- create the @RuleGroup@.
 newSubscribedRuleGroupSummary ::
   -- | 'ruleGroupId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'name'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'metricName'
-  Core.Text ->
+  Prelude.Text ->
   SubscribedRuleGroupSummary
 newSubscribedRuleGroupSummary
   pRuleGroupId_
@@ -89,12 +90,12 @@ newSubscribedRuleGroupSummary
       }
 
 -- | A unique identifier for a @RuleGroup@.
-subscribedRuleGroupSummary_ruleGroupId :: Lens.Lens' SubscribedRuleGroupSummary Core.Text
+subscribedRuleGroupSummary_ruleGroupId :: Lens.Lens' SubscribedRuleGroupSummary Prelude.Text
 subscribedRuleGroupSummary_ruleGroupId = Lens.lens (\SubscribedRuleGroupSummary' {ruleGroupId} -> ruleGroupId) (\s@SubscribedRuleGroupSummary' {} a -> s {ruleGroupId = a} :: SubscribedRuleGroupSummary)
 
 -- | A friendly name or description of the @RuleGroup@. You can\'t change the
 -- name of a @RuleGroup@ after you create it.
-subscribedRuleGroupSummary_name :: Lens.Lens' SubscribedRuleGroupSummary Core.Text
+subscribedRuleGroupSummary_name :: Lens.Lens' SubscribedRuleGroupSummary Prelude.Text
 subscribedRuleGroupSummary_name = Lens.lens (\SubscribedRuleGroupSummary' {name} -> name) (\s@SubscribedRuleGroupSummary' {} a -> s {name = a} :: SubscribedRuleGroupSummary)
 
 -- | A friendly name or description for the metrics for this @RuleGroup@. The
@@ -103,7 +104,7 @@ subscribedRuleGroupSummary_name = Lens.lens (\SubscribedRuleGroupSummary' {name}
 -- or metric names reserved for AWS WAF, including \"All\" and
 -- \"Default_Action.\" You can\'t change the name of the metric after you
 -- create the @RuleGroup@.
-subscribedRuleGroupSummary_metricName :: Lens.Lens' SubscribedRuleGroupSummary Core.Text
+subscribedRuleGroupSummary_metricName :: Lens.Lens' SubscribedRuleGroupSummary Prelude.Text
 subscribedRuleGroupSummary_metricName = Lens.lens (\SubscribedRuleGroupSummary' {metricName} -> metricName) (\s@SubscribedRuleGroupSummary' {} a -> s {metricName = a} :: SubscribedRuleGroupSummary)
 
 instance Core.FromJSON SubscribedRuleGroupSummary where
@@ -112,11 +113,11 @@ instance Core.FromJSON SubscribedRuleGroupSummary where
       "SubscribedRuleGroupSummary"
       ( \x ->
           SubscribedRuleGroupSummary'
-            Core.<$> (x Core..: "RuleGroupId")
-            Core.<*> (x Core..: "Name")
-            Core.<*> (x Core..: "MetricName")
+            Prelude.<$> (x Core..: "RuleGroupId")
+            Prelude.<*> (x Core..: "Name")
+            Prelude.<*> (x Core..: "MetricName")
       )
 
-instance Core.Hashable SubscribedRuleGroupSummary
+instance Prelude.Hashable SubscribedRuleGroupSummary
 
-instance Core.NFData SubscribedRuleGroupSummary
+instance Prelude.NFData SubscribedRuleGroupSummary

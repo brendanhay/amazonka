@@ -21,18 +21,19 @@ module Network.AWS.Glue.Types.ImportLabelsTaskRunProperties where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies configuration properties for an importing labels task run.
 --
 -- /See:/ 'newImportLabelsTaskRunProperties' smart constructor.
 data ImportLabelsTaskRunProperties = ImportLabelsTaskRunProperties'
   { -- | Indicates whether to overwrite your existing labels.
-    replace :: Core.Maybe Core.Bool,
+    replace :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Simple Storage Service (Amazon S3) path from where you will
     -- import the labels.
-    inputS3Path :: Core.Maybe Core.Text
+    inputS3Path :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportLabelsTaskRunProperties' with all optional fields omitted.
@@ -51,17 +52,17 @@ newImportLabelsTaskRunProperties ::
 newImportLabelsTaskRunProperties =
   ImportLabelsTaskRunProperties'
     { replace =
-        Core.Nothing,
-      inputS3Path = Core.Nothing
+        Prelude.Nothing,
+      inputS3Path = Prelude.Nothing
     }
 
 -- | Indicates whether to overwrite your existing labels.
-importLabelsTaskRunProperties_replace :: Lens.Lens' ImportLabelsTaskRunProperties (Core.Maybe Core.Bool)
+importLabelsTaskRunProperties_replace :: Lens.Lens' ImportLabelsTaskRunProperties (Prelude.Maybe Prelude.Bool)
 importLabelsTaskRunProperties_replace = Lens.lens (\ImportLabelsTaskRunProperties' {replace} -> replace) (\s@ImportLabelsTaskRunProperties' {} a -> s {replace = a} :: ImportLabelsTaskRunProperties)
 
 -- | The Amazon Simple Storage Service (Amazon S3) path from where you will
 -- import the labels.
-importLabelsTaskRunProperties_inputS3Path :: Lens.Lens' ImportLabelsTaskRunProperties (Core.Maybe Core.Text)
+importLabelsTaskRunProperties_inputS3Path :: Lens.Lens' ImportLabelsTaskRunProperties (Prelude.Maybe Prelude.Text)
 importLabelsTaskRunProperties_inputS3Path = Lens.lens (\ImportLabelsTaskRunProperties' {inputS3Path} -> inputS3Path) (\s@ImportLabelsTaskRunProperties' {} a -> s {inputS3Path = a} :: ImportLabelsTaskRunProperties)
 
 instance Core.FromJSON ImportLabelsTaskRunProperties where
@@ -70,10 +71,12 @@ instance Core.FromJSON ImportLabelsTaskRunProperties where
       "ImportLabelsTaskRunProperties"
       ( \x ->
           ImportLabelsTaskRunProperties'
-            Core.<$> (x Core..:? "Replace")
-            Core.<*> (x Core..:? "InputS3Path")
+            Prelude.<$> (x Core..:? "Replace")
+            Prelude.<*> (x Core..:? "InputS3Path")
       )
 
-instance Core.Hashable ImportLabelsTaskRunProperties
+instance
+  Prelude.Hashable
+    ImportLabelsTaskRunProperties
 
-instance Core.NFData ImportLabelsTaskRunProperties
+instance Prelude.NFData ImportLabelsTaskRunProperties

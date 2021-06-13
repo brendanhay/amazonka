@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.ScalingConstraints
 import Network.AWS.EMR.Types.ScalingRule
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | An automatic scaling policy for a core instance group or task instance
 -- group in an Amazon EMR cluster. An automatic scaling policy defines how
@@ -39,7 +40,7 @@ data AutoScalingPolicy = AutoScalingPolicy'
     -- policy.
     rules :: [ScalingRule]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AutoScalingPolicy' with all optional fields omitted.
@@ -62,7 +63,7 @@ newAutoScalingPolicy ::
 newAutoScalingPolicy pConstraints_ =
   AutoScalingPolicy'
     { constraints = pConstraints_,
-      rules = Core.mempty
+      rules = Prelude.mempty
     }
 
 -- | The upper and lower EC2 instance limits for an automatic scaling policy.
@@ -74,17 +75,17 @@ autoScalingPolicy_constraints = Lens.lens (\AutoScalingPolicy' {constraints} -> 
 -- | The scale-in and scale-out rules that comprise the automatic scaling
 -- policy.
 autoScalingPolicy_rules :: Lens.Lens' AutoScalingPolicy [ScalingRule]
-autoScalingPolicy_rules = Lens.lens (\AutoScalingPolicy' {rules} -> rules) (\s@AutoScalingPolicy' {} a -> s {rules = a} :: AutoScalingPolicy) Core.. Lens._Coerce
+autoScalingPolicy_rules = Lens.lens (\AutoScalingPolicy' {rules} -> rules) (\s@AutoScalingPolicy' {} a -> s {rules = a} :: AutoScalingPolicy) Prelude.. Lens._Coerce
 
-instance Core.Hashable AutoScalingPolicy
+instance Prelude.Hashable AutoScalingPolicy
 
-instance Core.NFData AutoScalingPolicy
+instance Prelude.NFData AutoScalingPolicy
 
 instance Core.ToJSON AutoScalingPolicy where
   toJSON AutoScalingPolicy' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Constraints" Core..= constraints),
-            Core.Just ("Rules" Core..= rules)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Constraints" Core..= constraints),
+            Prelude.Just ("Rules" Core..= rules)
           ]
       )

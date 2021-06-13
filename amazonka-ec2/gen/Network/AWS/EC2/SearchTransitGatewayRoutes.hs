@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +56,11 @@ data SearchTransitGatewayRoutes = SearchTransitGatewayRoutes'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of routes to return.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the transit gateway route table.
-    transitGatewayRouteTableId :: Core.Text,
+    transitGatewayRouteTableId :: Prelude.Text,
     -- | One or more filters. The possible values are:
     --
     -- -   @attachment.transit-gateway-attachment-id@- The id of the transit
@@ -94,7 +95,7 @@ data SearchTransitGatewayRoutes = SearchTransitGatewayRoutes'
     -- -   @type@ - The type of route (@propagated@ | @static@).
     filters :: [Filter]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SearchTransitGatewayRoutes' with all optional fields omitted.
@@ -147,31 +148,32 @@ data SearchTransitGatewayRoutes = SearchTransitGatewayRoutes'
 -- -   @type@ - The type of route (@propagated@ | @static@).
 newSearchTransitGatewayRoutes ::
   -- | 'transitGatewayRouteTableId'
-  Core.Text ->
+  Prelude.Text ->
   SearchTransitGatewayRoutes
 newSearchTransitGatewayRoutes
   pTransitGatewayRouteTableId_ =
     SearchTransitGatewayRoutes'
-      { dryRun = Core.Nothing,
-        maxResults = Core.Nothing,
+      { dryRun =
+          Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_,
-        filters = Core.mempty
+        filters = Prelude.mempty
       }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-searchTransitGatewayRoutes_dryRun :: Lens.Lens' SearchTransitGatewayRoutes (Core.Maybe Core.Bool)
+searchTransitGatewayRoutes_dryRun :: Lens.Lens' SearchTransitGatewayRoutes (Prelude.Maybe Prelude.Bool)
 searchTransitGatewayRoutes_dryRun = Lens.lens (\SearchTransitGatewayRoutes' {dryRun} -> dryRun) (\s@SearchTransitGatewayRoutes' {} a -> s {dryRun = a} :: SearchTransitGatewayRoutes)
 
 -- | The maximum number of routes to return.
-searchTransitGatewayRoutes_maxResults :: Lens.Lens' SearchTransitGatewayRoutes (Core.Maybe Core.Natural)
+searchTransitGatewayRoutes_maxResults :: Lens.Lens' SearchTransitGatewayRoutes (Prelude.Maybe Prelude.Natural)
 searchTransitGatewayRoutes_maxResults = Lens.lens (\SearchTransitGatewayRoutes' {maxResults} -> maxResults) (\s@SearchTransitGatewayRoutes' {} a -> s {maxResults = a} :: SearchTransitGatewayRoutes)
 
 -- | The ID of the transit gateway route table.
-searchTransitGatewayRoutes_transitGatewayRouteTableId :: Lens.Lens' SearchTransitGatewayRoutes Core.Text
+searchTransitGatewayRoutes_transitGatewayRouteTableId :: Lens.Lens' SearchTransitGatewayRoutes Prelude.Text
 searchTransitGatewayRoutes_transitGatewayRouteTableId = Lens.lens (\SearchTransitGatewayRoutes' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@SearchTransitGatewayRoutes' {} a -> s {transitGatewayRouteTableId = a} :: SearchTransitGatewayRoutes)
 
 -- | One or more filters. The possible values are:
@@ -207,7 +209,7 @@ searchTransitGatewayRoutes_transitGatewayRouteTableId = Lens.lens (\SearchTransi
 --
 -- -   @type@ - The type of route (@propagated@ | @static@).
 searchTransitGatewayRoutes_filters :: Lens.Lens' SearchTransitGatewayRoutes [Filter]
-searchTransitGatewayRoutes_filters = Lens.lens (\SearchTransitGatewayRoutes' {filters} -> filters) (\s@SearchTransitGatewayRoutes' {} a -> s {filters = a} :: SearchTransitGatewayRoutes) Core.. Lens._Coerce
+searchTransitGatewayRoutes_filters = Lens.lens (\SearchTransitGatewayRoutes' {filters} -> filters) (\s@SearchTransitGatewayRoutes' {} a -> s {filters = a} :: SearchTransitGatewayRoutes) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest SearchTransitGatewayRoutes where
   type
@@ -218,29 +220,30 @@ instance Core.AWSRequest SearchTransitGatewayRoutes where
     Response.receiveXML
       ( \s h x ->
           SearchTransitGatewayRoutesResponse'
-            Core.<$> ( x Core..@? "routeSet" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "item")
-                     )
-            Core.<*> (x Core..@? "additionalRoutesAvailable")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "routeSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (x Core..@? "additionalRoutesAvailable")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable SearchTransitGatewayRoutes
+instance Prelude.Hashable SearchTransitGatewayRoutes
 
-instance Core.NFData SearchTransitGatewayRoutes
+instance Prelude.NFData SearchTransitGatewayRoutes
 
 instance Core.ToHeaders SearchTransitGatewayRoutes where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SearchTransitGatewayRoutes where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SearchTransitGatewayRoutes where
   toQuery SearchTransitGatewayRoutes' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("SearchTransitGatewayRoutes" :: Core.ByteString),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          Core.=: ("SearchTransitGatewayRoutes" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         "TransitGatewayRouteTableId"
@@ -251,13 +254,13 @@ instance Core.ToQuery SearchTransitGatewayRoutes where
 -- | /See:/ 'newSearchTransitGatewayRoutesResponse' smart constructor.
 data SearchTransitGatewayRoutesResponse = SearchTransitGatewayRoutesResponse'
   { -- | Information about the routes.
-    routes :: Core.Maybe [TransitGatewayRoute],
+    routes :: Prelude.Maybe [TransitGatewayRoute],
     -- | Indicates whether there are additional routes available.
-    additionalRoutesAvailable :: Core.Maybe Core.Bool,
+    additionalRoutesAvailable :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SearchTransitGatewayRoutesResponse' with all optional fields omitted.
@@ -274,29 +277,29 @@ data SearchTransitGatewayRoutesResponse = SearchTransitGatewayRoutesResponse'
 -- 'httpStatus', 'searchTransitGatewayRoutesResponse_httpStatus' - The response's http status code.
 newSearchTransitGatewayRoutesResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   SearchTransitGatewayRoutesResponse
 newSearchTransitGatewayRoutesResponse pHttpStatus_ =
   SearchTransitGatewayRoutesResponse'
     { routes =
-        Core.Nothing,
+        Prelude.Nothing,
       additionalRoutesAvailable =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the routes.
-searchTransitGatewayRoutesResponse_routes :: Lens.Lens' SearchTransitGatewayRoutesResponse (Core.Maybe [TransitGatewayRoute])
-searchTransitGatewayRoutesResponse_routes = Lens.lens (\SearchTransitGatewayRoutesResponse' {routes} -> routes) (\s@SearchTransitGatewayRoutesResponse' {} a -> s {routes = a} :: SearchTransitGatewayRoutesResponse) Core.. Lens.mapping Lens._Coerce
+searchTransitGatewayRoutesResponse_routes :: Lens.Lens' SearchTransitGatewayRoutesResponse (Prelude.Maybe [TransitGatewayRoute])
+searchTransitGatewayRoutesResponse_routes = Lens.lens (\SearchTransitGatewayRoutesResponse' {routes} -> routes) (\s@SearchTransitGatewayRoutesResponse' {} a -> s {routes = a} :: SearchTransitGatewayRoutesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether there are additional routes available.
-searchTransitGatewayRoutesResponse_additionalRoutesAvailable :: Lens.Lens' SearchTransitGatewayRoutesResponse (Core.Maybe Core.Bool)
+searchTransitGatewayRoutesResponse_additionalRoutesAvailable :: Lens.Lens' SearchTransitGatewayRoutesResponse (Prelude.Maybe Prelude.Bool)
 searchTransitGatewayRoutesResponse_additionalRoutesAvailable = Lens.lens (\SearchTransitGatewayRoutesResponse' {additionalRoutesAvailable} -> additionalRoutesAvailable) (\s@SearchTransitGatewayRoutesResponse' {} a -> s {additionalRoutesAvailable = a} :: SearchTransitGatewayRoutesResponse)
 
 -- | The response's http status code.
-searchTransitGatewayRoutesResponse_httpStatus :: Lens.Lens' SearchTransitGatewayRoutesResponse Core.Int
+searchTransitGatewayRoutesResponse_httpStatus :: Lens.Lens' SearchTransitGatewayRoutesResponse Prelude.Int
 searchTransitGatewayRoutesResponse_httpStatus = Lens.lens (\SearchTransitGatewayRoutesResponse' {httpStatus} -> httpStatus) (\s@SearchTransitGatewayRoutesResponse' {} a -> s {httpStatus = a} :: SearchTransitGatewayRoutesResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     SearchTransitGatewayRoutesResponse

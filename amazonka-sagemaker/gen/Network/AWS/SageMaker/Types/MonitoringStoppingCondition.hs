@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.MonitoringStoppingCondition where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A time limit for how long the monitoring job is allowed to run before
 -- stopping.
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newMonitoringStoppingCondition' smart constructor.
 data MonitoringStoppingCondition = MonitoringStoppingCondition'
   { -- | The maximum runtime allowed in seconds.
-    maxRuntimeInSeconds :: Core.Natural
+    maxRuntimeInSeconds :: Prelude.Natural
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MonitoringStoppingCondition' with all optional fields omitted.
@@ -43,7 +44,7 @@ data MonitoringStoppingCondition = MonitoringStoppingCondition'
 -- 'maxRuntimeInSeconds', 'monitoringStoppingCondition_maxRuntimeInSeconds' - The maximum runtime allowed in seconds.
 newMonitoringStoppingCondition ::
   -- | 'maxRuntimeInSeconds'
-  Core.Natural ->
+  Prelude.Natural ->
   MonitoringStoppingCondition
 newMonitoringStoppingCondition pMaxRuntimeInSeconds_ =
   MonitoringStoppingCondition'
@@ -52,7 +53,7 @@ newMonitoringStoppingCondition pMaxRuntimeInSeconds_ =
     }
 
 -- | The maximum runtime allowed in seconds.
-monitoringStoppingCondition_maxRuntimeInSeconds :: Lens.Lens' MonitoringStoppingCondition Core.Natural
+monitoringStoppingCondition_maxRuntimeInSeconds :: Lens.Lens' MonitoringStoppingCondition Prelude.Natural
 monitoringStoppingCondition_maxRuntimeInSeconds = Lens.lens (\MonitoringStoppingCondition' {maxRuntimeInSeconds} -> maxRuntimeInSeconds) (\s@MonitoringStoppingCondition' {} a -> s {maxRuntimeInSeconds = a} :: MonitoringStoppingCondition)
 
 instance Core.FromJSON MonitoringStoppingCondition where
@@ -61,18 +62,18 @@ instance Core.FromJSON MonitoringStoppingCondition where
       "MonitoringStoppingCondition"
       ( \x ->
           MonitoringStoppingCondition'
-            Core.<$> (x Core..: "MaxRuntimeInSeconds")
+            Prelude.<$> (x Core..: "MaxRuntimeInSeconds")
       )
 
-instance Core.Hashable MonitoringStoppingCondition
+instance Prelude.Hashable MonitoringStoppingCondition
 
-instance Core.NFData MonitoringStoppingCondition
+instance Prelude.NFData MonitoringStoppingCondition
 
 instance Core.ToJSON MonitoringStoppingCondition where
   toJSON MonitoringStoppingCondition' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("MaxRuntimeInSeconds" Core..= maxRuntimeInSeconds)
           ]
       )

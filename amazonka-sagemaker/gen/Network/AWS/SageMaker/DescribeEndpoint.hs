@@ -50,6 +50,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -57,9 +58,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDescribeEndpoint' smart constructor.
 data DescribeEndpoint = DescribeEndpoint'
   { -- | The name of the endpoint.
-    endpointName :: Core.Text
+    endpointName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEndpoint' with all optional fields omitted.
@@ -72,13 +73,13 @@ data DescribeEndpoint = DescribeEndpoint'
 -- 'endpointName', 'describeEndpoint_endpointName' - The name of the endpoint.
 newDescribeEndpoint ::
   -- | 'endpointName'
-  Core.Text ->
+  Prelude.Text ->
   DescribeEndpoint
 newDescribeEndpoint pEndpointName_ =
   DescribeEndpoint' {endpointName = pEndpointName_}
 
 -- | The name of the endpoint.
-describeEndpoint_endpointName :: Lens.Lens' DescribeEndpoint Core.Text
+describeEndpoint_endpointName :: Lens.Lens' DescribeEndpoint Prelude.Text
 describeEndpoint_endpointName = Lens.lens (\DescribeEndpoint' {endpointName} -> endpointName) (\s@DescribeEndpoint' {} a -> s {endpointName = a} :: DescribeEndpoint)
 
 instance Core.AWSRequest DescribeEndpoint where
@@ -90,65 +91,67 @@ instance Core.AWSRequest DescribeEndpoint where
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointResponse'
-            Core.<$> (x Core..?> "ProductionVariants")
-            Core.<*> (x Core..?> "LastDeploymentConfig")
-            Core.<*> (x Core..?> "FailureReason")
-            Core.<*> (x Core..?> "DataCaptureConfig")
-            Core.<*> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "EndpointName")
-            Core.<*> (x Core..:> "EndpointArn")
-            Core.<*> (x Core..:> "EndpointConfigName")
-            Core.<*> (x Core..:> "EndpointStatus")
-            Core.<*> (x Core..:> "CreationTime")
-            Core.<*> (x Core..:> "LastModifiedTime")
+            Prelude.<$> (x Core..?> "ProductionVariants")
+            Prelude.<*> (x Core..?> "LastDeploymentConfig")
+            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<*> (x Core..?> "DataCaptureConfig")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "EndpointName")
+            Prelude.<*> (x Core..:> "EndpointArn")
+            Prelude.<*> (x Core..:> "EndpointConfigName")
+            Prelude.<*> (x Core..:> "EndpointStatus")
+            Prelude.<*> (x Core..:> "CreationTime")
+            Prelude.<*> (x Core..:> "LastModifiedTime")
       )
 
-instance Core.Hashable DescribeEndpoint
+instance Prelude.Hashable DescribeEndpoint
 
-instance Core.NFData DescribeEndpoint
+instance Prelude.NFData DescribeEndpoint
 
 instance Core.ToHeaders DescribeEndpoint where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DescribeEndpoint" :: Core.ByteString),
+              Core.=# ("SageMaker.DescribeEndpoint" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeEndpoint where
   toJSON DescribeEndpoint' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("EndpointName" Core..= endpointName)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("EndpointName" Core..= endpointName)]
       )
 
 instance Core.ToPath DescribeEndpoint where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeEndpoint where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEndpointResponse' smart constructor.
 data DescribeEndpointResponse = DescribeEndpointResponse'
   { -- | An array of ProductionVariantSummary objects, one for each model hosted
     -- behind this endpoint.
-    productionVariants :: Core.Maybe (Core.NonEmpty ProductionVariantSummary),
+    productionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary),
     -- | The most recent deployment configuration for the endpoint.
-    lastDeploymentConfig :: Core.Maybe DeploymentConfig,
+    lastDeploymentConfig :: Prelude.Maybe DeploymentConfig,
     -- | If the status of the endpoint is @Failed@, the reason why it failed.
-    failureReason :: Core.Maybe Core.Text,
-    dataCaptureConfig :: Core.Maybe DataCaptureConfigSummary,
+    failureReason :: Prelude.Maybe Prelude.Text,
+    dataCaptureConfig :: Prelude.Maybe DataCaptureConfigSummary,
     -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Name of the endpoint.
-    endpointName :: Core.Text,
+    endpointName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the endpoint.
-    endpointArn :: Core.Text,
+    endpointArn :: Prelude.Text,
     -- | The name of the endpoint configuration associated with this endpoint.
-    endpointConfigName :: Core.Text,
+    endpointConfigName :: Prelude.Text,
     -- | The status of the endpoint.
     --
     -- -   @OutOfService@: Endpoint is not available to take incoming requests.
@@ -187,7 +190,7 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
     -- | A timestamp that shows when the endpoint was last modified.
     lastModifiedTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeEndpointResponse' with all optional fields omitted.
@@ -252,19 +255,19 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
 -- 'lastModifiedTime', 'describeEndpointResponse_lastModifiedTime' - A timestamp that shows when the endpoint was last modified.
 newDescribeEndpointResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'endpointName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'endpointArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'endpointConfigName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'endpointStatus'
   EndpointStatus ->
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'lastModifiedTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   DescribeEndpointResponse
 newDescribeEndpointResponse
   pHttpStatus_
@@ -276,10 +279,10 @@ newDescribeEndpointResponse
   pLastModifiedTime_ =
     DescribeEndpointResponse'
       { productionVariants =
-          Core.Nothing,
-        lastDeploymentConfig = Core.Nothing,
-        failureReason = Core.Nothing,
-        dataCaptureConfig = Core.Nothing,
+          Prelude.Nothing,
+        lastDeploymentConfig = Prelude.Nothing,
+        failureReason = Prelude.Nothing,
+        dataCaptureConfig = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         endpointName = pEndpointName_,
         endpointArn = pEndpointArn_,
@@ -292,35 +295,35 @@ newDescribeEndpointResponse
 
 -- | An array of ProductionVariantSummary objects, one for each model hosted
 -- behind this endpoint.
-describeEndpointResponse_productionVariants :: Lens.Lens' DescribeEndpointResponse (Core.Maybe (Core.NonEmpty ProductionVariantSummary))
-describeEndpointResponse_productionVariants = Lens.lens (\DescribeEndpointResponse' {productionVariants} -> productionVariants) (\s@DescribeEndpointResponse' {} a -> s {productionVariants = a} :: DescribeEndpointResponse) Core.. Lens.mapping Lens._Coerce
+describeEndpointResponse_productionVariants :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary))
+describeEndpointResponse_productionVariants = Lens.lens (\DescribeEndpointResponse' {productionVariants} -> productionVariants) (\s@DescribeEndpointResponse' {} a -> s {productionVariants = a} :: DescribeEndpointResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The most recent deployment configuration for the endpoint.
-describeEndpointResponse_lastDeploymentConfig :: Lens.Lens' DescribeEndpointResponse (Core.Maybe DeploymentConfig)
+describeEndpointResponse_lastDeploymentConfig :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe DeploymentConfig)
 describeEndpointResponse_lastDeploymentConfig = Lens.lens (\DescribeEndpointResponse' {lastDeploymentConfig} -> lastDeploymentConfig) (\s@DescribeEndpointResponse' {} a -> s {lastDeploymentConfig = a} :: DescribeEndpointResponse)
 
 -- | If the status of the endpoint is @Failed@, the reason why it failed.
-describeEndpointResponse_failureReason :: Lens.Lens' DescribeEndpointResponse (Core.Maybe Core.Text)
+describeEndpointResponse_failureReason :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.Text)
 describeEndpointResponse_failureReason = Lens.lens (\DescribeEndpointResponse' {failureReason} -> failureReason) (\s@DescribeEndpointResponse' {} a -> s {failureReason = a} :: DescribeEndpointResponse)
 
 -- | Undocumented member.
-describeEndpointResponse_dataCaptureConfig :: Lens.Lens' DescribeEndpointResponse (Core.Maybe DataCaptureConfigSummary)
+describeEndpointResponse_dataCaptureConfig :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe DataCaptureConfigSummary)
 describeEndpointResponse_dataCaptureConfig = Lens.lens (\DescribeEndpointResponse' {dataCaptureConfig} -> dataCaptureConfig) (\s@DescribeEndpointResponse' {} a -> s {dataCaptureConfig = a} :: DescribeEndpointResponse)
 
 -- | The response's http status code.
-describeEndpointResponse_httpStatus :: Lens.Lens' DescribeEndpointResponse Core.Int
+describeEndpointResponse_httpStatus :: Lens.Lens' DescribeEndpointResponse Prelude.Int
 describeEndpointResponse_httpStatus = Lens.lens (\DescribeEndpointResponse' {httpStatus} -> httpStatus) (\s@DescribeEndpointResponse' {} a -> s {httpStatus = a} :: DescribeEndpointResponse)
 
 -- | Name of the endpoint.
-describeEndpointResponse_endpointName :: Lens.Lens' DescribeEndpointResponse Core.Text
+describeEndpointResponse_endpointName :: Lens.Lens' DescribeEndpointResponse Prelude.Text
 describeEndpointResponse_endpointName = Lens.lens (\DescribeEndpointResponse' {endpointName} -> endpointName) (\s@DescribeEndpointResponse' {} a -> s {endpointName = a} :: DescribeEndpointResponse)
 
 -- | The Amazon Resource Name (ARN) of the endpoint.
-describeEndpointResponse_endpointArn :: Lens.Lens' DescribeEndpointResponse Core.Text
+describeEndpointResponse_endpointArn :: Lens.Lens' DescribeEndpointResponse Prelude.Text
 describeEndpointResponse_endpointArn = Lens.lens (\DescribeEndpointResponse' {endpointArn} -> endpointArn) (\s@DescribeEndpointResponse' {} a -> s {endpointArn = a} :: DescribeEndpointResponse)
 
 -- | The name of the endpoint configuration associated with this endpoint.
-describeEndpointResponse_endpointConfigName :: Lens.Lens' DescribeEndpointResponse Core.Text
+describeEndpointResponse_endpointConfigName :: Lens.Lens' DescribeEndpointResponse Prelude.Text
 describeEndpointResponse_endpointConfigName = Lens.lens (\DescribeEndpointResponse' {endpointConfigName} -> endpointConfigName) (\s@DescribeEndpointResponse' {} a -> s {endpointConfigName = a} :: DescribeEndpointResponse)
 
 -- | The status of the endpoint.
@@ -359,11 +362,11 @@ describeEndpointResponse_endpointStatus :: Lens.Lens' DescribeEndpointResponse E
 describeEndpointResponse_endpointStatus = Lens.lens (\DescribeEndpointResponse' {endpointStatus} -> endpointStatus) (\s@DescribeEndpointResponse' {} a -> s {endpointStatus = a} :: DescribeEndpointResponse)
 
 -- | A timestamp that shows when the endpoint was created.
-describeEndpointResponse_creationTime :: Lens.Lens' DescribeEndpointResponse Core.UTCTime
-describeEndpointResponse_creationTime = Lens.lens (\DescribeEndpointResponse' {creationTime} -> creationTime) (\s@DescribeEndpointResponse' {} a -> s {creationTime = a} :: DescribeEndpointResponse) Core.. Core._Time
+describeEndpointResponse_creationTime :: Lens.Lens' DescribeEndpointResponse Prelude.UTCTime
+describeEndpointResponse_creationTime = Lens.lens (\DescribeEndpointResponse' {creationTime} -> creationTime) (\s@DescribeEndpointResponse' {} a -> s {creationTime = a} :: DescribeEndpointResponse) Prelude.. Core._Time
 
 -- | A timestamp that shows when the endpoint was last modified.
-describeEndpointResponse_lastModifiedTime :: Lens.Lens' DescribeEndpointResponse Core.UTCTime
-describeEndpointResponse_lastModifiedTime = Lens.lens (\DescribeEndpointResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEndpointResponse' {} a -> s {lastModifiedTime = a} :: DescribeEndpointResponse) Core.. Core._Time
+describeEndpointResponse_lastModifiedTime :: Lens.Lens' DescribeEndpointResponse Prelude.UTCTime
+describeEndpointResponse_lastModifiedTime = Lens.lens (\DescribeEndpointResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEndpointResponse' {} a -> s {lastModifiedTime = a} :: DescribeEndpointResponse) Prelude.. Core._Time
 
-instance Core.NFData DescribeEndpointResponse
+instance Prelude.NFData DescribeEndpointResponse

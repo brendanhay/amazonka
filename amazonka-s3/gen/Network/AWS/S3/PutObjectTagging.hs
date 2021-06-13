@@ -98,6 +98,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -107,15 +108,15 @@ data PutObjectTagging = PutObjectTagging'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Core.Text,
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The MD5 hash for the request body.
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Core.Maybe Core.Text,
+    contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The versionId of the object that the tag-set will be added to.
-    versionId :: Core.Maybe ObjectVersionId,
-    requestPayer :: Core.Maybe RequestPayer,
+    versionId :: Prelude.Maybe ObjectVersionId,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The bucket name containing the object.
     --
     -- When using this API with an access point, you must direct requests to
@@ -142,7 +143,7 @@ data PutObjectTagging = PutObjectTagging'
     -- | Container for the @TagSet@ and @Tag@ elements
     tagging :: Tagging
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutObjectTagging' with all optional fields omitted.
@@ -200,10 +201,10 @@ newPutObjectTagging ::
 newPutObjectTagging pBucket_ pKey_ pTagging_ =
   PutObjectTagging'
     { expectedBucketOwner =
-        Core.Nothing,
-      contentMD5 = Core.Nothing,
-      versionId = Core.Nothing,
-      requestPayer = Core.Nothing,
+        Prelude.Nothing,
+      contentMD5 = Prelude.Nothing,
+      versionId = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_,
       tagging = pTagging_
@@ -212,22 +213,22 @@ newPutObjectTagging pBucket_ pKey_ pTagging_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putObjectTagging_expectedBucketOwner :: Lens.Lens' PutObjectTagging (Core.Maybe Core.Text)
+putObjectTagging_expectedBucketOwner :: Lens.Lens' PutObjectTagging (Prelude.Maybe Prelude.Text)
 putObjectTagging_expectedBucketOwner = Lens.lens (\PutObjectTagging' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectTagging' {} a -> s {expectedBucketOwner = a} :: PutObjectTagging)
 
 -- | The MD5 hash for the request body.
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putObjectTagging_contentMD5 :: Lens.Lens' PutObjectTagging (Core.Maybe Core.Text)
+putObjectTagging_contentMD5 :: Lens.Lens' PutObjectTagging (Prelude.Maybe Prelude.Text)
 putObjectTagging_contentMD5 = Lens.lens (\PutObjectTagging' {contentMD5} -> contentMD5) (\s@PutObjectTagging' {} a -> s {contentMD5 = a} :: PutObjectTagging)
 
 -- | The versionId of the object that the tag-set will be added to.
-putObjectTagging_versionId :: Lens.Lens' PutObjectTagging (Core.Maybe ObjectVersionId)
+putObjectTagging_versionId :: Lens.Lens' PutObjectTagging (Prelude.Maybe ObjectVersionId)
 putObjectTagging_versionId = Lens.lens (\PutObjectTagging' {versionId} -> versionId) (\s@PutObjectTagging' {} a -> s {versionId = a} :: PutObjectTagging)
 
 -- | Undocumented member.
-putObjectTagging_requestPayer :: Lens.Lens' PutObjectTagging (Core.Maybe RequestPayer)
+putObjectTagging_requestPayer :: Lens.Lens' PutObjectTagging (Prelude.Maybe RequestPayer)
 putObjectTagging_requestPayer = Lens.lens (\PutObjectTagging' {requestPayer} -> requestPayer) (\s@PutObjectTagging' {} a -> s {requestPayer = a} :: PutObjectTagging)
 
 -- | The bucket name containing the object.
@@ -270,13 +271,13 @@ instance Core.AWSRequest PutObjectTagging where
     Response.receiveEmpty
       ( \s h x ->
           PutObjectTaggingResponse'
-            Core.<$> (h Core..#? "x-amz-version-id")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "x-amz-version-id")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable PutObjectTagging
+instance Prelude.Hashable PutObjectTagging
 
-instance Core.NFData PutObjectTagging
+instance Prelude.NFData PutObjectTagging
 
 instance Core.ToElement PutObjectTagging where
   toElement PutObjectTagging' {..} =
@@ -286,7 +287,7 @@ instance Core.ToElement PutObjectTagging where
 
 instance Core.ToHeaders PutObjectTagging where
   toHeaders PutObjectTagging' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "Content-MD5" Core.=# contentMD5,
@@ -295,22 +296,22 @@ instance Core.ToHeaders PutObjectTagging where
 
 instance Core.ToPath PutObjectTagging where
   toPath PutObjectTagging' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["/", Core.toBS bucket, "/", Core.toBS key]
 
 instance Core.ToQuery PutObjectTagging where
   toQuery PutObjectTagging' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["versionId" Core.=: versionId, "tagging"]
 
 -- | /See:/ 'newPutObjectTaggingResponse' smart constructor.
 data PutObjectTaggingResponse = PutObjectTaggingResponse'
   { -- | The versionId of the object the tag-set was added to.
-    versionId :: Core.Maybe ObjectVersionId,
+    versionId :: Prelude.Maybe ObjectVersionId,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutObjectTaggingResponse' with all optional fields omitted.
@@ -325,20 +326,21 @@ data PutObjectTaggingResponse = PutObjectTaggingResponse'
 -- 'httpStatus', 'putObjectTaggingResponse_httpStatus' - The response's http status code.
 newPutObjectTaggingResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   PutObjectTaggingResponse
 newPutObjectTaggingResponse pHttpStatus_ =
   PutObjectTaggingResponse'
-    { versionId = Core.Nothing,
+    { versionId =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The versionId of the object the tag-set was added to.
-putObjectTaggingResponse_versionId :: Lens.Lens' PutObjectTaggingResponse (Core.Maybe ObjectVersionId)
+putObjectTaggingResponse_versionId :: Lens.Lens' PutObjectTaggingResponse (Prelude.Maybe ObjectVersionId)
 putObjectTaggingResponse_versionId = Lens.lens (\PutObjectTaggingResponse' {versionId} -> versionId) (\s@PutObjectTaggingResponse' {} a -> s {versionId = a} :: PutObjectTaggingResponse)
 
 -- | The response's http status code.
-putObjectTaggingResponse_httpStatus :: Lens.Lens' PutObjectTaggingResponse Core.Int
+putObjectTaggingResponse_httpStatus :: Lens.Lens' PutObjectTaggingResponse Prelude.Int
 putObjectTaggingResponse_httpStatus = Lens.lens (\PutObjectTaggingResponse' {httpStatus} -> httpStatus) (\s@PutObjectTaggingResponse' {} a -> s {httpStatus = a} :: PutObjectTaggingResponse)
 
-instance Core.NFData PutObjectTaggingResponse
+instance Prelude.NFData PutObjectTaggingResponse

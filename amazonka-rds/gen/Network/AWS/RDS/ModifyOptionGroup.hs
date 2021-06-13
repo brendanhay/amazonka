@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -55,22 +56,22 @@ data ModifyOptionGroup = ModifyOptionGroup'
   { -- | Options in this list are added to the option group or, if already
     -- present, the specified configuration is used to update the existing
     -- configuration.
-    optionsToInclude :: Core.Maybe [OptionConfiguration],
+    optionsToInclude :: Prelude.Maybe [OptionConfiguration],
     -- | Options in this list are removed from the option group.
-    optionsToRemove :: Core.Maybe [Core.Text],
+    optionsToRemove :: Prelude.Maybe [Prelude.Text],
     -- | A value that indicates whether to apply the change immediately or during
     -- the next maintenance window for each instance associated with the option
     -- group.
-    applyImmediately :: Core.Maybe Core.Bool,
+    applyImmediately :: Prelude.Maybe Prelude.Bool,
     -- | The name of the option group to be modified.
     --
     -- Permanent options, such as the TDE option for Oracle Advanced Security
     -- TDE, can\'t be removed from an option group, and that option group
     -- can\'t be removed from a DB instance once it is associated with a DB
     -- instance
-    optionGroupName :: Core.Text
+    optionGroupName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyOptionGroup' with all optional fields omitted.
@@ -98,30 +99,31 @@ data ModifyOptionGroup = ModifyOptionGroup'
 -- instance
 newModifyOptionGroup ::
   -- | 'optionGroupName'
-  Core.Text ->
+  Prelude.Text ->
   ModifyOptionGroup
 newModifyOptionGroup pOptionGroupName_ =
   ModifyOptionGroup'
-    { optionsToInclude = Core.Nothing,
-      optionsToRemove = Core.Nothing,
-      applyImmediately = Core.Nothing,
+    { optionsToInclude =
+        Prelude.Nothing,
+      optionsToRemove = Prelude.Nothing,
+      applyImmediately = Prelude.Nothing,
       optionGroupName = pOptionGroupName_
     }
 
 -- | Options in this list are added to the option group or, if already
 -- present, the specified configuration is used to update the existing
 -- configuration.
-modifyOptionGroup_optionsToInclude :: Lens.Lens' ModifyOptionGroup (Core.Maybe [OptionConfiguration])
-modifyOptionGroup_optionsToInclude = Lens.lens (\ModifyOptionGroup' {optionsToInclude} -> optionsToInclude) (\s@ModifyOptionGroup' {} a -> s {optionsToInclude = a} :: ModifyOptionGroup) Core.. Lens.mapping Lens._Coerce
+modifyOptionGroup_optionsToInclude :: Lens.Lens' ModifyOptionGroup (Prelude.Maybe [OptionConfiguration])
+modifyOptionGroup_optionsToInclude = Lens.lens (\ModifyOptionGroup' {optionsToInclude} -> optionsToInclude) (\s@ModifyOptionGroup' {} a -> s {optionsToInclude = a} :: ModifyOptionGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Options in this list are removed from the option group.
-modifyOptionGroup_optionsToRemove :: Lens.Lens' ModifyOptionGroup (Core.Maybe [Core.Text])
-modifyOptionGroup_optionsToRemove = Lens.lens (\ModifyOptionGroup' {optionsToRemove} -> optionsToRemove) (\s@ModifyOptionGroup' {} a -> s {optionsToRemove = a} :: ModifyOptionGroup) Core.. Lens.mapping Lens._Coerce
+modifyOptionGroup_optionsToRemove :: Lens.Lens' ModifyOptionGroup (Prelude.Maybe [Prelude.Text])
+modifyOptionGroup_optionsToRemove = Lens.lens (\ModifyOptionGroup' {optionsToRemove} -> optionsToRemove) (\s@ModifyOptionGroup' {} a -> s {optionsToRemove = a} :: ModifyOptionGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A value that indicates whether to apply the change immediately or during
 -- the next maintenance window for each instance associated with the option
 -- group.
-modifyOptionGroup_applyImmediately :: Lens.Lens' ModifyOptionGroup (Core.Maybe Core.Bool)
+modifyOptionGroup_applyImmediately :: Lens.Lens' ModifyOptionGroup (Prelude.Maybe Prelude.Bool)
 modifyOptionGroup_applyImmediately = Lens.lens (\ModifyOptionGroup' {applyImmediately} -> applyImmediately) (\s@ModifyOptionGroup' {} a -> s {applyImmediately = a} :: ModifyOptionGroup)
 
 -- | The name of the option group to be modified.
@@ -130,7 +132,7 @@ modifyOptionGroup_applyImmediately = Lens.lens (\ModifyOptionGroup' {applyImmedi
 -- TDE, can\'t be removed from an option group, and that option group
 -- can\'t be removed from a DB instance once it is associated with a DB
 -- instance
-modifyOptionGroup_optionGroupName :: Lens.Lens' ModifyOptionGroup Core.Text
+modifyOptionGroup_optionGroupName :: Lens.Lens' ModifyOptionGroup Prelude.Text
 modifyOptionGroup_optionGroupName = Lens.lens (\ModifyOptionGroup' {optionGroupName} -> optionGroupName) (\s@ModifyOptionGroup' {} a -> s {optionGroupName = a} :: ModifyOptionGroup)
 
 instance Core.AWSRequest ModifyOptionGroup where
@@ -143,45 +145,48 @@ instance Core.AWSRequest ModifyOptionGroup where
       "ModifyOptionGroupResult"
       ( \s h x ->
           ModifyOptionGroupResponse'
-            Core.<$> (x Core..@? "OptionGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "OptionGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ModifyOptionGroup
+instance Prelude.Hashable ModifyOptionGroup
 
-instance Core.NFData ModifyOptionGroup
+instance Prelude.NFData ModifyOptionGroup
 
 instance Core.ToHeaders ModifyOptionGroup where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ModifyOptionGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ModifyOptionGroup where
   toQuery ModifyOptionGroup' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyOptionGroup" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("ModifyOptionGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "OptionsToInclude"
           Core.=: Core.toQuery
             ( Core.toQueryList "OptionConfiguration"
-                Core.<$> optionsToInclude
+                Prelude.<$> optionsToInclude
             ),
         "OptionsToRemove"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> optionsToRemove),
+            ( Core.toQueryList "member"
+                Prelude.<$> optionsToRemove
+            ),
         "ApplyImmediately" Core.=: applyImmediately,
         "OptionGroupName" Core.=: optionGroupName
       ]
 
 -- | /See:/ 'newModifyOptionGroupResponse' smart constructor.
 data ModifyOptionGroupResponse = ModifyOptionGroupResponse'
-  { optionGroup :: Core.Maybe OptionGroup,
+  { optionGroup :: Prelude.Maybe OptionGroup,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyOptionGroupResponse' with all optional fields omitted.
@@ -196,21 +201,21 @@ data ModifyOptionGroupResponse = ModifyOptionGroupResponse'
 -- 'httpStatus', 'modifyOptionGroupResponse_httpStatus' - The response's http status code.
 newModifyOptionGroupResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ModifyOptionGroupResponse
 newModifyOptionGroupResponse pHttpStatus_ =
   ModifyOptionGroupResponse'
     { optionGroup =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyOptionGroupResponse_optionGroup :: Lens.Lens' ModifyOptionGroupResponse (Core.Maybe OptionGroup)
+modifyOptionGroupResponse_optionGroup :: Lens.Lens' ModifyOptionGroupResponse (Prelude.Maybe OptionGroup)
 modifyOptionGroupResponse_optionGroup = Lens.lens (\ModifyOptionGroupResponse' {optionGroup} -> optionGroup) (\s@ModifyOptionGroupResponse' {} a -> s {optionGroup = a} :: ModifyOptionGroupResponse)
 
 -- | The response's http status code.
-modifyOptionGroupResponse_httpStatus :: Lens.Lens' ModifyOptionGroupResponse Core.Int
+modifyOptionGroupResponse_httpStatus :: Lens.Lens' ModifyOptionGroupResponse Prelude.Int
 modifyOptionGroupResponse_httpStatus = Lens.lens (\ModifyOptionGroupResponse' {httpStatus} -> httpStatus) (\s@ModifyOptionGroupResponse' {} a -> s {httpStatus = a} :: ModifyOptionGroupResponse)
 
-instance Core.NFData ModifyOptionGroupResponse
+instance Prelude.NFData ModifyOptionGroupResponse

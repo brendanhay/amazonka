@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,7 +59,7 @@ data GetAccessKeyLastUsed = GetAccessKeyLastUsed'
     -- that can consist of any upper or lowercased letter or digit.
     accessKeyId :: Core.AccessKey
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccessKeyLastUsed' with all optional fields omitted.
@@ -98,27 +99,28 @@ instance Core.AWSRequest GetAccessKeyLastUsed where
       "GetAccessKeyLastUsedResult"
       ( \s h x ->
           GetAccessKeyLastUsedResponse'
-            Core.<$> (x Core..@? "UserName")
-            Core.<*> (x Core..@? "AccessKeyLastUsed")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "UserName")
+            Prelude.<*> (x Core..@? "AccessKeyLastUsed")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetAccessKeyLastUsed
+instance Prelude.Hashable GetAccessKeyLastUsed
 
-instance Core.NFData GetAccessKeyLastUsed
+instance Prelude.NFData GetAccessKeyLastUsed
 
 instance Core.ToHeaders GetAccessKeyLastUsed where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetAccessKeyLastUsed where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetAccessKeyLastUsed where
   toQuery GetAccessKeyLastUsed' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("GetAccessKeyLastUsed" :: Core.ByteString),
-        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+          Core.=: ("GetAccessKeyLastUsed" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
         "AccessKeyId" Core.=: accessKeyId
       ]
 
@@ -129,13 +131,13 @@ instance Core.ToQuery GetAccessKeyLastUsed where
 -- /See:/ 'newGetAccessKeyLastUsedResponse' smart constructor.
 data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
   { -- | The name of the AWS IAM user that owns this access key.
-    userName :: Core.Maybe Core.Text,
+    userName :: Prelude.Maybe Prelude.Text,
     -- | Contains information about the last time the access key was used.
-    accessKeyLastUsed :: Core.Maybe AccessKeyLastUsed,
+    accessKeyLastUsed :: Prelude.Maybe AccessKeyLastUsed,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetAccessKeyLastUsedResponse' with all optional fields omitted.
@@ -152,26 +154,26 @@ data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
 -- 'httpStatus', 'getAccessKeyLastUsedResponse_httpStatus' - The response's http status code.
 newGetAccessKeyLastUsedResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetAccessKeyLastUsedResponse
 newGetAccessKeyLastUsedResponse pHttpStatus_ =
   GetAccessKeyLastUsedResponse'
     { userName =
-        Core.Nothing,
-      accessKeyLastUsed = Core.Nothing,
+        Prelude.Nothing,
+      accessKeyLastUsed = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the AWS IAM user that owns this access key.
-getAccessKeyLastUsedResponse_userName :: Lens.Lens' GetAccessKeyLastUsedResponse (Core.Maybe Core.Text)
+getAccessKeyLastUsedResponse_userName :: Lens.Lens' GetAccessKeyLastUsedResponse (Prelude.Maybe Prelude.Text)
 getAccessKeyLastUsedResponse_userName = Lens.lens (\GetAccessKeyLastUsedResponse' {userName} -> userName) (\s@GetAccessKeyLastUsedResponse' {} a -> s {userName = a} :: GetAccessKeyLastUsedResponse)
 
 -- | Contains information about the last time the access key was used.
-getAccessKeyLastUsedResponse_accessKeyLastUsed :: Lens.Lens' GetAccessKeyLastUsedResponse (Core.Maybe AccessKeyLastUsed)
+getAccessKeyLastUsedResponse_accessKeyLastUsed :: Lens.Lens' GetAccessKeyLastUsedResponse (Prelude.Maybe AccessKeyLastUsed)
 getAccessKeyLastUsedResponse_accessKeyLastUsed = Lens.lens (\GetAccessKeyLastUsedResponse' {accessKeyLastUsed} -> accessKeyLastUsed) (\s@GetAccessKeyLastUsedResponse' {} a -> s {accessKeyLastUsed = a} :: GetAccessKeyLastUsedResponse)
 
 -- | The response's http status code.
-getAccessKeyLastUsedResponse_httpStatus :: Lens.Lens' GetAccessKeyLastUsedResponse Core.Int
+getAccessKeyLastUsedResponse_httpStatus :: Lens.Lens' GetAccessKeyLastUsedResponse Prelude.Int
 getAccessKeyLastUsedResponse_httpStatus = Lens.lens (\GetAccessKeyLastUsedResponse' {httpStatus} -> httpStatus) (\s@GetAccessKeyLastUsedResponse' {} a -> s {httpStatus = a} :: GetAccessKeyLastUsedResponse)
 
-instance Core.NFData GetAccessKeyLastUsedResponse
+instance Prelude.NFData GetAccessKeyLastUsedResponse

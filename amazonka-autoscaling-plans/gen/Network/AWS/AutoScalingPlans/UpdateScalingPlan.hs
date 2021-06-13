@@ -47,6 +47,7 @@ where
 import Network.AWS.AutoScalingPlans.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,20 +58,20 @@ data UpdateScalingPlan = UpdateScalingPlan'
     -- For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html ApplicationSource>
     -- in the /AWS Auto Scaling API Reference/.
-    applicationSource :: Core.Maybe ApplicationSource,
+    applicationSource :: Prelude.Maybe ApplicationSource,
     -- | The scaling instructions.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html ScalingInstruction>
     -- in the /AWS Auto Scaling API Reference/.
-    scalingInstructions :: Core.Maybe [ScalingInstruction],
+    scalingInstructions :: Prelude.Maybe [ScalingInstruction],
     -- | The name of the scaling plan.
-    scalingPlanName :: Core.Text,
+    scalingPlanName :: Prelude.Text,
     -- | The version number of the scaling plan. The only valid value is @1@.
     -- Currently, you cannot have multiple scaling plan versions.
-    scalingPlanVersion :: Core.Integer
+    scalingPlanVersion :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateScalingPlan' with all optional fields omitted.
@@ -98,17 +99,17 @@ data UpdateScalingPlan = UpdateScalingPlan'
 -- Currently, you cannot have multiple scaling plan versions.
 newUpdateScalingPlan ::
   -- | 'scalingPlanName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'scalingPlanVersion'
-  Core.Integer ->
+  Prelude.Integer ->
   UpdateScalingPlan
 newUpdateScalingPlan
   pScalingPlanName_
   pScalingPlanVersion_ =
     UpdateScalingPlan'
       { applicationSource =
-          Core.Nothing,
-        scalingInstructions = Core.Nothing,
+          Prelude.Nothing,
+        scalingInstructions = Prelude.Nothing,
         scalingPlanName = pScalingPlanName_,
         scalingPlanVersion = pScalingPlanVersion_
       }
@@ -118,7 +119,7 @@ newUpdateScalingPlan
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html ApplicationSource>
 -- in the /AWS Auto Scaling API Reference/.
-updateScalingPlan_applicationSource :: Lens.Lens' UpdateScalingPlan (Core.Maybe ApplicationSource)
+updateScalingPlan_applicationSource :: Lens.Lens' UpdateScalingPlan (Prelude.Maybe ApplicationSource)
 updateScalingPlan_applicationSource = Lens.lens (\UpdateScalingPlan' {applicationSource} -> applicationSource) (\s@UpdateScalingPlan' {} a -> s {applicationSource = a} :: UpdateScalingPlan)
 
 -- | The scaling instructions.
@@ -126,16 +127,16 @@ updateScalingPlan_applicationSource = Lens.lens (\UpdateScalingPlan' {applicatio
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html ScalingInstruction>
 -- in the /AWS Auto Scaling API Reference/.
-updateScalingPlan_scalingInstructions :: Lens.Lens' UpdateScalingPlan (Core.Maybe [ScalingInstruction])
-updateScalingPlan_scalingInstructions = Lens.lens (\UpdateScalingPlan' {scalingInstructions} -> scalingInstructions) (\s@UpdateScalingPlan' {} a -> s {scalingInstructions = a} :: UpdateScalingPlan) Core.. Lens.mapping Lens._Coerce
+updateScalingPlan_scalingInstructions :: Lens.Lens' UpdateScalingPlan (Prelude.Maybe [ScalingInstruction])
+updateScalingPlan_scalingInstructions = Lens.lens (\UpdateScalingPlan' {scalingInstructions} -> scalingInstructions) (\s@UpdateScalingPlan' {} a -> s {scalingInstructions = a} :: UpdateScalingPlan) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the scaling plan.
-updateScalingPlan_scalingPlanName :: Lens.Lens' UpdateScalingPlan Core.Text
+updateScalingPlan_scalingPlanName :: Lens.Lens' UpdateScalingPlan Prelude.Text
 updateScalingPlan_scalingPlanName = Lens.lens (\UpdateScalingPlan' {scalingPlanName} -> scalingPlanName) (\s@UpdateScalingPlan' {} a -> s {scalingPlanName = a} :: UpdateScalingPlan)
 
 -- | The version number of the scaling plan. The only valid value is @1@.
 -- Currently, you cannot have multiple scaling plan versions.
-updateScalingPlan_scalingPlanVersion :: Lens.Lens' UpdateScalingPlan Core.Integer
+updateScalingPlan_scalingPlanVersion :: Lens.Lens' UpdateScalingPlan Prelude.Integer
 updateScalingPlan_scalingPlanVersion = Lens.lens (\UpdateScalingPlan' {scalingPlanVersion} -> scalingPlanVersion) (\s@UpdateScalingPlan' {} a -> s {scalingPlanVersion = a} :: UpdateScalingPlan)
 
 instance Core.AWSRequest UpdateScalingPlan where
@@ -147,53 +148,55 @@ instance Core.AWSRequest UpdateScalingPlan where
     Response.receiveEmpty
       ( \s h x ->
           UpdateScalingPlanResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateScalingPlan
+instance Prelude.Hashable UpdateScalingPlan
 
-instance Core.NFData UpdateScalingPlan
+instance Prelude.NFData UpdateScalingPlan
 
 instance Core.ToHeaders UpdateScalingPlan where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AnyScaleScalingPlannerFrontendService.UpdateScalingPlan" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateScalingPlan where
   toJSON UpdateScalingPlan' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ApplicationSource" Core..=)
-              Core.<$> applicationSource,
+              Prelude.<$> applicationSource,
             ("ScalingInstructions" Core..=)
-              Core.<$> scalingInstructions,
-            Core.Just
+              Prelude.<$> scalingInstructions,
+            Prelude.Just
               ("ScalingPlanName" Core..= scalingPlanName),
-            Core.Just
+            Prelude.Just
               ("ScalingPlanVersion" Core..= scalingPlanVersion)
           ]
       )
 
 instance Core.ToPath UpdateScalingPlan where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateScalingPlan where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateScalingPlanResponse' smart constructor.
 data UpdateScalingPlanResponse = UpdateScalingPlanResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateScalingPlanResponse' with all optional fields omitted.
@@ -206,7 +209,7 @@ data UpdateScalingPlanResponse = UpdateScalingPlanResponse'
 -- 'httpStatus', 'updateScalingPlanResponse_httpStatus' - The response's http status code.
 newUpdateScalingPlanResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateScalingPlanResponse
 newUpdateScalingPlanResponse pHttpStatus_ =
   UpdateScalingPlanResponse'
@@ -215,7 +218,7 @@ newUpdateScalingPlanResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateScalingPlanResponse_httpStatus :: Lens.Lens' UpdateScalingPlanResponse Core.Int
+updateScalingPlanResponse_httpStatus :: Lens.Lens' UpdateScalingPlanResponse Prelude.Int
 updateScalingPlanResponse_httpStatus = Lens.lens (\UpdateScalingPlanResponse' {httpStatus} -> httpStatus) (\s@UpdateScalingPlanResponse' {} a -> s {httpStatus = a} :: UpdateScalingPlanResponse)
 
-instance Core.NFData UpdateScalingPlanResponse
+instance Prelude.NFData UpdateScalingPlanResponse

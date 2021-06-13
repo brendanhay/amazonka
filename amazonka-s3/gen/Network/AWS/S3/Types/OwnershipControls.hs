@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.OwnershipControls where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.OwnershipControlsRule
 
@@ -31,7 +32,7 @@ data OwnershipControls = OwnershipControls'
   { -- | The container element for an ownership control rule.
     rules :: [OwnershipControlsRule]
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OwnershipControls' with all optional fields omitted.
@@ -45,21 +46,21 @@ data OwnershipControls = OwnershipControls'
 newOwnershipControls ::
   OwnershipControls
 newOwnershipControls =
-  OwnershipControls' {rules = Core.mempty}
+  OwnershipControls' {rules = Prelude.mempty}
 
 -- | The container element for an ownership control rule.
 ownershipControls_rules :: Lens.Lens' OwnershipControls [OwnershipControlsRule]
-ownershipControls_rules = Lens.lens (\OwnershipControls' {rules} -> rules) (\s@OwnershipControls' {} a -> s {rules = a} :: OwnershipControls) Core.. Lens._Coerce
+ownershipControls_rules = Lens.lens (\OwnershipControls' {rules} -> rules) (\s@OwnershipControls' {} a -> s {rules = a} :: OwnershipControls) Prelude.. Lens._Coerce
 
 instance Core.FromXML OwnershipControls where
   parseXML x =
     OwnershipControls'
-      Core.<$> (Core.parseXMLList "Rule" x)
+      Prelude.<$> (Core.parseXMLList "Rule" x)
 
-instance Core.Hashable OwnershipControls
+instance Prelude.Hashable OwnershipControls
 
-instance Core.NFData OwnershipControls
+instance Prelude.NFData OwnershipControls
 
 instance Core.ToXML OwnershipControls where
   toXML OwnershipControls' {..} =
-    Core.mconcat [Core.toXMLList "Rule" rules]
+    Prelude.mconcat [Core.toXMLList "Rule" rules]

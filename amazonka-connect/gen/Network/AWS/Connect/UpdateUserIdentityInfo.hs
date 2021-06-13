@@ -49,6 +49,7 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +58,11 @@ data UpdateUserIdentityInfo = UpdateUserIdentityInfo'
   { -- | The identity information for the user.
     identityInfo :: UserIdentityInfo,
     -- | The identifier of the user account.
-    userId :: Core.Text,
+    userId :: Prelude.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text
+    instanceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateUserIdentityInfo' with all optional fields omitted.
@@ -80,9 +81,9 @@ newUpdateUserIdentityInfo ::
   -- | 'identityInfo'
   UserIdentityInfo ->
   -- | 'userId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateUserIdentityInfo
 newUpdateUserIdentityInfo
   pIdentityInfo_
@@ -100,11 +101,11 @@ updateUserIdentityInfo_identityInfo :: Lens.Lens' UpdateUserIdentityInfo UserIde
 updateUserIdentityInfo_identityInfo = Lens.lens (\UpdateUserIdentityInfo' {identityInfo} -> identityInfo) (\s@UpdateUserIdentityInfo' {} a -> s {identityInfo = a} :: UpdateUserIdentityInfo)
 
 -- | The identifier of the user account.
-updateUserIdentityInfo_userId :: Lens.Lens' UpdateUserIdentityInfo Core.Text
+updateUserIdentityInfo_userId :: Lens.Lens' UpdateUserIdentityInfo Prelude.Text
 updateUserIdentityInfo_userId = Lens.lens (\UpdateUserIdentityInfo' {userId} -> userId) (\s@UpdateUserIdentityInfo' {} a -> s {userId = a} :: UpdateUserIdentityInfo)
 
 -- | The identifier of the Amazon Connect instance.
-updateUserIdentityInfo_instanceId :: Lens.Lens' UpdateUserIdentityInfo Core.Text
+updateUserIdentityInfo_instanceId :: Lens.Lens' UpdateUserIdentityInfo Prelude.Text
 updateUserIdentityInfo_instanceId = Lens.lens (\UpdateUserIdentityInfo' {instanceId} -> instanceId) (\s@UpdateUserIdentityInfo' {} a -> s {instanceId = a} :: UpdateUserIdentityInfo)
 
 instance Core.AWSRequest UpdateUserIdentityInfo where
@@ -116,29 +117,31 @@ instance Core.AWSRequest UpdateUserIdentityInfo where
     Response.receiveNull
       UpdateUserIdentityInfoResponse'
 
-instance Core.Hashable UpdateUserIdentityInfo
+instance Prelude.Hashable UpdateUserIdentityInfo
 
-instance Core.NFData UpdateUserIdentityInfo
+instance Prelude.NFData UpdateUserIdentityInfo
 
 instance Core.ToHeaders UpdateUserIdentityInfo where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateUserIdentityInfo where
   toJSON UpdateUserIdentityInfo' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("IdentityInfo" Core..= identityInfo)]
+      ( Prelude.catMaybes
+          [Prelude.Just ("IdentityInfo" Core..= identityInfo)]
       )
 
 instance Core.ToPath UpdateUserIdentityInfo where
   toPath UpdateUserIdentityInfo' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/users/",
         Core.toBS instanceId,
         "/",
@@ -147,13 +150,13 @@ instance Core.ToPath UpdateUserIdentityInfo where
       ]
 
 instance Core.ToQuery UpdateUserIdentityInfo where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserIdentityInfoResponse' smart constructor.
 data UpdateUserIdentityInfoResponse = UpdateUserIdentityInfoResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateUserIdentityInfoResponse' with all optional fields omitted.
@@ -164,4 +167,6 @@ newUpdateUserIdentityInfoResponse ::
 newUpdateUserIdentityInfoResponse =
   UpdateUserIdentityInfoResponse'
 
-instance Core.NFData UpdateUserIdentityInfoResponse
+instance
+  Prelude.NFData
+    UpdateUserIdentityInfoResponse

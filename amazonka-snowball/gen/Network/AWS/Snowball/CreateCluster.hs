@@ -53,6 +53,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
@@ -63,23 +64,23 @@ data CreateCluster = CreateCluster'
     -- @KmsKeyARN@ values are created by using the
     -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
     -- API action in AWS Key Management Service (AWS KMS).
-    kmsKeyARN :: Core.Maybe Core.Text,
+    kmsKeyARN :: Prelude.Maybe Prelude.Text,
     -- | The tax documents required in your AWS Region.
-    taxDocuments :: Core.Maybe TaxDocuments,
+    taxDocuments :: Prelude.Maybe TaxDocuments,
     -- | The type of AWS Snow Family device to use for this cluster.
     --
     -- For cluster jobs, AWS Snow Family currently supports only the @EDGE@
     -- device type.
-    snowballType :: Core.Maybe SnowballType,
+    snowballType :: Prelude.Maybe SnowballType,
     -- | An optional description of this specific cluster, for example
     -- @Environmental Data Cluster-01@.
-    description :: Core.Maybe Core.Text,
+    description :: Prelude.Maybe Prelude.Text,
     -- | The forwarding address ID for a cluster. This field is not supported in
     -- most regions.
-    forwardingAddressId :: Core.Maybe Core.Text,
+    forwardingAddressId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Simple Notification Service (Amazon SNS) notification
     -- settings for this cluster.
-    notification :: Core.Maybe Notification,
+    notification :: Prelude.Maybe Notification,
     -- | The type of job for this cluster. Currently, the only job type supported
     -- for clusters is @LOCAL_USE@.
     jobType :: JobType,
@@ -88,12 +89,12 @@ data CreateCluster = CreateCluster'
     -- Python language.
     resources :: JobResource,
     -- | The ID for the address that you want the cluster shipped to.
-    addressId :: Core.Text,
+    addressId :: Prelude.Text,
     -- | The @RoleARN@ that you want to associate with this cluster. @RoleArn@
     -- values are created by using the
     -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
     -- API action in AWS Identity and Access Management (IAM).
-    roleARN :: Core.Text,
+    roleARN :: Prelude.Text,
     -- | The shipping speed for each node in this cluster. This speed doesn\'t
     -- dictate how soon you\'ll get each Snowball Edge device, rather it
     -- represents how quickly each device moves to its destination while in
@@ -125,7 +126,7 @@ data CreateCluster = CreateCluster'
     -- -   In the US, you have access to one-day shipping and two-day shipping.
     shippingOption :: ShippingOption
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateCluster' with all optional fields omitted.
@@ -205,9 +206,9 @@ newCreateCluster ::
   -- | 'resources'
   JobResource ->
   -- | 'addressId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'roleARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'shippingOption'
   ShippingOption ->
   CreateCluster
@@ -218,12 +219,12 @@ newCreateCluster
   pRoleARN_
   pShippingOption_ =
     CreateCluster'
-      { kmsKeyARN = Core.Nothing,
-        taxDocuments = Core.Nothing,
-        snowballType = Core.Nothing,
-        description = Core.Nothing,
-        forwardingAddressId = Core.Nothing,
-        notification = Core.Nothing,
+      { kmsKeyARN = Prelude.Nothing,
+        taxDocuments = Prelude.Nothing,
+        snowballType = Prelude.Nothing,
+        description = Prelude.Nothing,
+        forwardingAddressId = Prelude.Nothing,
+        notification = Prelude.Nothing,
         jobType = pJobType_,
         resources = pResources_,
         addressId = pAddressId_,
@@ -235,33 +236,33 @@ newCreateCluster
 -- @KmsKeyARN@ values are created by using the
 -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
 -- API action in AWS Key Management Service (AWS KMS).
-createCluster_kmsKeyARN :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
+createCluster_kmsKeyARN :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_kmsKeyARN = Lens.lens (\CreateCluster' {kmsKeyARN} -> kmsKeyARN) (\s@CreateCluster' {} a -> s {kmsKeyARN = a} :: CreateCluster)
 
 -- | The tax documents required in your AWS Region.
-createCluster_taxDocuments :: Lens.Lens' CreateCluster (Core.Maybe TaxDocuments)
+createCluster_taxDocuments :: Lens.Lens' CreateCluster (Prelude.Maybe TaxDocuments)
 createCluster_taxDocuments = Lens.lens (\CreateCluster' {taxDocuments} -> taxDocuments) (\s@CreateCluster' {} a -> s {taxDocuments = a} :: CreateCluster)
 
 -- | The type of AWS Snow Family device to use for this cluster.
 --
 -- For cluster jobs, AWS Snow Family currently supports only the @EDGE@
 -- device type.
-createCluster_snowballType :: Lens.Lens' CreateCluster (Core.Maybe SnowballType)
+createCluster_snowballType :: Lens.Lens' CreateCluster (Prelude.Maybe SnowballType)
 createCluster_snowballType = Lens.lens (\CreateCluster' {snowballType} -> snowballType) (\s@CreateCluster' {} a -> s {snowballType = a} :: CreateCluster)
 
 -- | An optional description of this specific cluster, for example
 -- @Environmental Data Cluster-01@.
-createCluster_description :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
+createCluster_description :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_description = Lens.lens (\CreateCluster' {description} -> description) (\s@CreateCluster' {} a -> s {description = a} :: CreateCluster)
 
 -- | The forwarding address ID for a cluster. This field is not supported in
 -- most regions.
-createCluster_forwardingAddressId :: Lens.Lens' CreateCluster (Core.Maybe Core.Text)
+createCluster_forwardingAddressId :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_forwardingAddressId = Lens.lens (\CreateCluster' {forwardingAddressId} -> forwardingAddressId) (\s@CreateCluster' {} a -> s {forwardingAddressId = a} :: CreateCluster)
 
 -- | The Amazon Simple Notification Service (Amazon SNS) notification
 -- settings for this cluster.
-createCluster_notification :: Lens.Lens' CreateCluster (Core.Maybe Notification)
+createCluster_notification :: Lens.Lens' CreateCluster (Prelude.Maybe Notification)
 createCluster_notification = Lens.lens (\CreateCluster' {notification} -> notification) (\s@CreateCluster' {} a -> s {notification = a} :: CreateCluster)
 
 -- | The type of job for this cluster. Currently, the only job type supported
@@ -276,14 +277,14 @@ createCluster_resources :: Lens.Lens' CreateCluster JobResource
 createCluster_resources = Lens.lens (\CreateCluster' {resources} -> resources) (\s@CreateCluster' {} a -> s {resources = a} :: CreateCluster)
 
 -- | The ID for the address that you want the cluster shipped to.
-createCluster_addressId :: Lens.Lens' CreateCluster Core.Text
+createCluster_addressId :: Lens.Lens' CreateCluster Prelude.Text
 createCluster_addressId = Lens.lens (\CreateCluster' {addressId} -> addressId) (\s@CreateCluster' {} a -> s {addressId = a} :: CreateCluster)
 
 -- | The @RoleARN@ that you want to associate with this cluster. @RoleArn@
 -- values are created by using the
 -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
 -- API action in AWS Identity and Access Management (IAM).
-createCluster_roleARN :: Lens.Lens' CreateCluster Core.Text
+createCluster_roleARN :: Lens.Lens' CreateCluster Prelude.Text
 createCluster_roleARN = Lens.lens (\CreateCluster' {roleARN} -> roleARN) (\s@CreateCluster' {} a -> s {roleARN = a} :: CreateCluster)
 
 -- | The shipping speed for each node in this cluster. This speed doesn\'t
@@ -327,60 +328,63 @@ instance Core.AWSRequest CreateCluster where
     Response.receiveJSON
       ( \s h x ->
           CreateClusterResponse'
-            Core.<$> (x Core..?> "ClusterId")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "ClusterId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateCluster
+instance Prelude.Hashable CreateCluster
 
-instance Core.NFData CreateCluster
+instance Prelude.NFData CreateCluster
 
 instance Core.ToHeaders CreateCluster where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSIESnowballJobManagementService.CreateCluster" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("KmsKeyARN" Core..=) Core.<$> kmsKeyARN,
-            ("TaxDocuments" Core..=) Core.<$> taxDocuments,
-            ("SnowballType" Core..=) Core.<$> snowballType,
-            ("Description" Core..=) Core.<$> description,
+      ( Prelude.catMaybes
+          [ ("KmsKeyARN" Core..=) Prelude.<$> kmsKeyARN,
+            ("TaxDocuments" Core..=) Prelude.<$> taxDocuments,
+            ("SnowballType" Core..=) Prelude.<$> snowballType,
+            ("Description" Core..=) Prelude.<$> description,
             ("ForwardingAddressId" Core..=)
-              Core.<$> forwardingAddressId,
-            ("Notification" Core..=) Core.<$> notification,
-            Core.Just ("JobType" Core..= jobType),
-            Core.Just ("Resources" Core..= resources),
-            Core.Just ("AddressId" Core..= addressId),
-            Core.Just ("RoleARN" Core..= roleARN),
-            Core.Just ("ShippingOption" Core..= shippingOption)
+              Prelude.<$> forwardingAddressId,
+            ("Notification" Core..=) Prelude.<$> notification,
+            Prelude.Just ("JobType" Core..= jobType),
+            Prelude.Just ("Resources" Core..= resources),
+            Prelude.Just ("AddressId" Core..= addressId),
+            Prelude.Just ("RoleARN" Core..= roleARN),
+            Prelude.Just
+              ("ShippingOption" Core..= shippingOption)
           ]
       )
 
 instance Core.ToPath CreateCluster where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateCluster where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
   { -- | The automatically generated ID for a cluster.
-    clusterId :: Core.Maybe Core.Text,
+    clusterId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateClusterResponse' with all optional fields omitted.
@@ -395,20 +399,20 @@ data CreateClusterResponse = CreateClusterResponse'
 -- 'httpStatus', 'createClusterResponse_httpStatus' - The response's http status code.
 newCreateClusterResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateClusterResponse
 newCreateClusterResponse pHttpStatus_ =
   CreateClusterResponse'
-    { clusterId = Core.Nothing,
+    { clusterId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The automatically generated ID for a cluster.
-createClusterResponse_clusterId :: Lens.Lens' CreateClusterResponse (Core.Maybe Core.Text)
+createClusterResponse_clusterId :: Lens.Lens' CreateClusterResponse (Prelude.Maybe Prelude.Text)
 createClusterResponse_clusterId = Lens.lens (\CreateClusterResponse' {clusterId} -> clusterId) (\s@CreateClusterResponse' {} a -> s {clusterId = a} :: CreateClusterResponse)
 
 -- | The response's http status code.
-createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Core.Int
+createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Prelude.Int
 createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatus} -> httpStatus) (\s@CreateClusterResponse' {} a -> s {httpStatus = a} :: CreateClusterResponse)
 
-instance Core.NFData CreateClusterResponse
+instance Prelude.NFData CreateClusterResponse

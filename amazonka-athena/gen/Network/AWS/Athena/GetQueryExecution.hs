@@ -45,15 +45,16 @@ where
 import Network.AWS.Athena.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetQueryExecution' smart constructor.
 data GetQueryExecution = GetQueryExecution'
   { -- | The unique ID of the query execution.
-    queryExecutionId :: Core.Text
+    queryExecutionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetQueryExecution' with all optional fields omitted.
@@ -66,7 +67,7 @@ data GetQueryExecution = GetQueryExecution'
 -- 'queryExecutionId', 'getQueryExecution_queryExecutionId' - The unique ID of the query execution.
 newGetQueryExecution ::
   -- | 'queryExecutionId'
-  Core.Text ->
+  Prelude.Text ->
   GetQueryExecution
 newGetQueryExecution pQueryExecutionId_ =
   GetQueryExecution'
@@ -75,7 +76,7 @@ newGetQueryExecution pQueryExecutionId_ =
     }
 
 -- | The unique ID of the query execution.
-getQueryExecution_queryExecutionId :: Lens.Lens' GetQueryExecution Core.Text
+getQueryExecution_queryExecutionId :: Lens.Lens' GetQueryExecution Prelude.Text
 getQueryExecution_queryExecutionId = Lens.lens (\GetQueryExecution' {queryExecutionId} -> queryExecutionId) (\s@GetQueryExecution' {} a -> s {queryExecutionId = a} :: GetQueryExecution)
 
 instance Core.AWSRequest GetQueryExecution where
@@ -87,50 +88,52 @@ instance Core.AWSRequest GetQueryExecution where
     Response.receiveJSON
       ( \s h x ->
           GetQueryExecutionResponse'
-            Core.<$> (x Core..?> "QueryExecution")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "QueryExecution")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetQueryExecution
+instance Prelude.Hashable GetQueryExecution
 
-instance Core.NFData GetQueryExecution
+instance Prelude.NFData GetQueryExecution
 
 instance Core.ToHeaders GetQueryExecution where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AmazonAthena.GetQueryExecution" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetQueryExecution where
   toJSON GetQueryExecution' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("QueryExecutionId" Core..= queryExecutionId)
           ]
       )
 
 instance Core.ToPath GetQueryExecution where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetQueryExecution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetQueryExecutionResponse' smart constructor.
 data GetQueryExecutionResponse = GetQueryExecutionResponse'
   { -- | Information about the query execution.
-    queryExecution :: Core.Maybe QueryExecution,
+    queryExecution :: Prelude.Maybe QueryExecution,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetQueryExecutionResponse' with all optional fields omitted.
@@ -145,21 +148,21 @@ data GetQueryExecutionResponse = GetQueryExecutionResponse'
 -- 'httpStatus', 'getQueryExecutionResponse_httpStatus' - The response's http status code.
 newGetQueryExecutionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetQueryExecutionResponse
 newGetQueryExecutionResponse pHttpStatus_ =
   GetQueryExecutionResponse'
     { queryExecution =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the query execution.
-getQueryExecutionResponse_queryExecution :: Lens.Lens' GetQueryExecutionResponse (Core.Maybe QueryExecution)
+getQueryExecutionResponse_queryExecution :: Lens.Lens' GetQueryExecutionResponse (Prelude.Maybe QueryExecution)
 getQueryExecutionResponse_queryExecution = Lens.lens (\GetQueryExecutionResponse' {queryExecution} -> queryExecution) (\s@GetQueryExecutionResponse' {} a -> s {queryExecution = a} :: GetQueryExecutionResponse)
 
 -- | The response's http status code.
-getQueryExecutionResponse_httpStatus :: Lens.Lens' GetQueryExecutionResponse Core.Int
+getQueryExecutionResponse_httpStatus :: Lens.Lens' GetQueryExecutionResponse Prelude.Int
 getQueryExecutionResponse_httpStatus = Lens.lens (\GetQueryExecutionResponse' {httpStatus} -> httpStatus) (\s@GetQueryExecutionResponse' {} a -> s {httpStatus = a} :: GetQueryExecutionResponse)
 
-instance Core.NFData GetQueryExecutionResponse
+instance Prelude.NFData GetQueryExecutionResponse

@@ -44,6 +44,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -57,7 +58,7 @@ import Network.AWS.SES.Types
 data ListReceiptFilters = ListReceiptFilters'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListReceiptFilters' with all optional fields omitted.
@@ -77,29 +78,30 @@ instance Core.AWSRequest ListReceiptFilters where
       "ListReceiptFiltersResult"
       ( \s h x ->
           ListReceiptFiltersResponse'
-            Core.<$> ( x Core..@? "Filters" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "member")
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "Filters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListReceiptFilters
+instance Prelude.Hashable ListReceiptFilters
 
-instance Core.NFData ListReceiptFilters
+instance Prelude.NFData ListReceiptFilters
 
 instance Core.ToHeaders ListReceiptFilters where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListReceiptFilters where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListReceiptFilters where
   toQuery =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Action"
-              Core.=: ("ListReceiptFilters" :: Core.ByteString),
-            "Version" Core.=: ("2010-12-01" :: Core.ByteString)
+              Core.=: ("ListReceiptFilters" :: Prelude.ByteString),
+            "Version"
+              Core.=: ("2010-12-01" :: Prelude.ByteString)
           ]
       )
 
@@ -109,11 +111,11 @@ instance Core.ToQuery ListReceiptFilters where
 data ListReceiptFiltersResponse = ListReceiptFiltersResponse'
   { -- | A list of IP address filter data structures, which each consist of a
     -- name, an IP address range, and whether to allow or block mail from it.
-    filters :: Core.Maybe [ReceiptFilter],
+    filters :: Prelude.Maybe [ReceiptFilter],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListReceiptFiltersResponse' with all optional fields omitted.
@@ -129,21 +131,22 @@ data ListReceiptFiltersResponse = ListReceiptFiltersResponse'
 -- 'httpStatus', 'listReceiptFiltersResponse_httpStatus' - The response's http status code.
 newListReceiptFiltersResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListReceiptFiltersResponse
 newListReceiptFiltersResponse pHttpStatus_ =
   ListReceiptFiltersResponse'
-    { filters = Core.Nothing,
+    { filters =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of IP address filter data structures, which each consist of a
 -- name, an IP address range, and whether to allow or block mail from it.
-listReceiptFiltersResponse_filters :: Lens.Lens' ListReceiptFiltersResponse (Core.Maybe [ReceiptFilter])
-listReceiptFiltersResponse_filters = Lens.lens (\ListReceiptFiltersResponse' {filters} -> filters) (\s@ListReceiptFiltersResponse' {} a -> s {filters = a} :: ListReceiptFiltersResponse) Core.. Lens.mapping Lens._Coerce
+listReceiptFiltersResponse_filters :: Lens.Lens' ListReceiptFiltersResponse (Prelude.Maybe [ReceiptFilter])
+listReceiptFiltersResponse_filters = Lens.lens (\ListReceiptFiltersResponse' {filters} -> filters) (\s@ListReceiptFiltersResponse' {} a -> s {filters = a} :: ListReceiptFiltersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listReceiptFiltersResponse_httpStatus :: Lens.Lens' ListReceiptFiltersResponse Core.Int
+listReceiptFiltersResponse_httpStatus :: Lens.Lens' ListReceiptFiltersResponse Prelude.Int
 listReceiptFiltersResponse_httpStatus = Lens.lens (\ListReceiptFiltersResponse' {httpStatus} -> httpStatus) (\s@ListReceiptFiltersResponse' {} a -> s {httpStatus = a} :: ListReceiptFiltersResponse)
 
-instance Core.NFData ListReceiptFiltersResponse
+instance Prelude.NFData ListReceiptFiltersResponse

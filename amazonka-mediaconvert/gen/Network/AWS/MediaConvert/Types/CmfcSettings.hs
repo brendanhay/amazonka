@@ -25,6 +25,7 @@ import Network.AWS.MediaConvert.Types.CmfcAudioDuration
 import Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest
 import Network.AWS.MediaConvert.Types.CmfcScte35Esam
 import Network.AWS.MediaConvert.Types.CmfcScte35Source
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for MP4 segments in CMAF
 --
@@ -37,7 +38,7 @@ data CmfcSettings = CmfcSettings'
     -- MediaConvert adds both the I-frame only child manifest and the regular
     -- child manifest to the parent manifest. When you don\'t need the I-frame
     -- only child manifest, keep the default value Exclude (EXCLUDE).
-    iFrameOnlyManifest :: Core.Maybe CmfcIFrameOnlyManifest,
+    iFrameOnlyManifest :: Prelude.Maybe CmfcIFrameOnlyManifest,
     -- | Specify this setting only when your output will be consumed by a
     -- downstream repackaging workflow that is sensitive to very small duration
     -- differences between video and audio. For this situation, choose Match
@@ -52,19 +53,19 @@ data CmfcSettings = CmfcSettings'
     -- For unsegmented outputs, MediaConvert adds padding only to the end of
     -- the file. When you keep the default value, any minor discrepancies
     -- between audio and video duration will depend on your output audio codec.
-    audioDuration :: Core.Maybe CmfcAudioDuration,
+    audioDuration :: Prelude.Maybe CmfcAudioDuration,
     -- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose
     -- INSERT to put SCTE-35 markers in this output at the insertion points
     -- that you specify in an ESAM XML document. Provide the document in the
     -- setting SCC XML (sccXml).
-    scte35Esam :: Core.Maybe CmfcScte35Esam,
+    scte35Esam :: Prelude.Maybe CmfcScte35Esam,
     -- | Ignore this setting unless you have SCTE-35 markers in your input video
     -- file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that
     -- appear in your input to also appear in this output. Choose None (NONE)
     -- if you don\'t want those SCTE-35 markers in this output.
-    scte35Source :: Core.Maybe CmfcScte35Source
+    scte35Source :: Prelude.Maybe CmfcScte35Source
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CmfcSettings' with all optional fields omitted.
@@ -110,10 +111,10 @@ newCmfcSettings ::
   CmfcSettings
 newCmfcSettings =
   CmfcSettings'
-    { iFrameOnlyManifest = Core.Nothing,
-      audioDuration = Core.Nothing,
-      scte35Esam = Core.Nothing,
-      scte35Source = Core.Nothing
+    { iFrameOnlyManifest = Prelude.Nothing,
+      audioDuration = Prelude.Nothing,
+      scte35Esam = Prelude.Nothing,
+      scte35Source = Prelude.Nothing
     }
 
 -- | Choose Include (INCLUDE) to have MediaConvert generate an HLS child
@@ -123,7 +124,7 @@ newCmfcSettings =
 -- MediaConvert adds both the I-frame only child manifest and the regular
 -- child manifest to the parent manifest. When you don\'t need the I-frame
 -- only child manifest, keep the default value Exclude (EXCLUDE).
-cmfcSettings_iFrameOnlyManifest :: Lens.Lens' CmfcSettings (Core.Maybe CmfcIFrameOnlyManifest)
+cmfcSettings_iFrameOnlyManifest :: Lens.Lens' CmfcSettings (Prelude.Maybe CmfcIFrameOnlyManifest)
 cmfcSettings_iFrameOnlyManifest = Lens.lens (\CmfcSettings' {iFrameOnlyManifest} -> iFrameOnlyManifest) (\s@CmfcSettings' {} a -> s {iFrameOnlyManifest = a} :: CmfcSettings)
 
 -- | Specify this setting only when your output will be consumed by a
@@ -140,21 +141,21 @@ cmfcSettings_iFrameOnlyManifest = Lens.lens (\CmfcSettings' {iFrameOnlyManifest}
 -- For unsegmented outputs, MediaConvert adds padding only to the end of
 -- the file. When you keep the default value, any minor discrepancies
 -- between audio and video duration will depend on your output audio codec.
-cmfcSettings_audioDuration :: Lens.Lens' CmfcSettings (Core.Maybe CmfcAudioDuration)
+cmfcSettings_audioDuration :: Lens.Lens' CmfcSettings (Prelude.Maybe CmfcAudioDuration)
 cmfcSettings_audioDuration = Lens.lens (\CmfcSettings' {audioDuration} -> audioDuration) (\s@CmfcSettings' {} a -> s {audioDuration = a} :: CmfcSettings)
 
 -- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose
 -- INSERT to put SCTE-35 markers in this output at the insertion points
 -- that you specify in an ESAM XML document. Provide the document in the
 -- setting SCC XML (sccXml).
-cmfcSettings_scte35Esam :: Lens.Lens' CmfcSettings (Core.Maybe CmfcScte35Esam)
+cmfcSettings_scte35Esam :: Lens.Lens' CmfcSettings (Prelude.Maybe CmfcScte35Esam)
 cmfcSettings_scte35Esam = Lens.lens (\CmfcSettings' {scte35Esam} -> scte35Esam) (\s@CmfcSettings' {} a -> s {scte35Esam = a} :: CmfcSettings)
 
 -- | Ignore this setting unless you have SCTE-35 markers in your input video
 -- file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that
 -- appear in your input to also appear in this output. Choose None (NONE)
 -- if you don\'t want those SCTE-35 markers in this output.
-cmfcSettings_scte35Source :: Lens.Lens' CmfcSettings (Core.Maybe CmfcScte35Source)
+cmfcSettings_scte35Source :: Lens.Lens' CmfcSettings (Prelude.Maybe CmfcScte35Source)
 cmfcSettings_scte35Source = Lens.lens (\CmfcSettings' {scte35Source} -> scte35Source) (\s@CmfcSettings' {} a -> s {scte35Source = a} :: CmfcSettings)
 
 instance Core.FromJSON CmfcSettings where
@@ -163,24 +164,24 @@ instance Core.FromJSON CmfcSettings where
       "CmfcSettings"
       ( \x ->
           CmfcSettings'
-            Core.<$> (x Core..:? "iFrameOnlyManifest")
-            Core.<*> (x Core..:? "audioDuration")
-            Core.<*> (x Core..:? "scte35Esam")
-            Core.<*> (x Core..:? "scte35Source")
+            Prelude.<$> (x Core..:? "iFrameOnlyManifest")
+            Prelude.<*> (x Core..:? "audioDuration")
+            Prelude.<*> (x Core..:? "scte35Esam")
+            Prelude.<*> (x Core..:? "scte35Source")
       )
 
-instance Core.Hashable CmfcSettings
+instance Prelude.Hashable CmfcSettings
 
-instance Core.NFData CmfcSettings
+instance Prelude.NFData CmfcSettings
 
 instance Core.ToJSON CmfcSettings where
   toJSON CmfcSettings' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("iFrameOnlyManifest" Core..=)
-              Core.<$> iFrameOnlyManifest,
-            ("audioDuration" Core..=) Core.<$> audioDuration,
-            ("scte35Esam" Core..=) Core.<$> scte35Esam,
-            ("scte35Source" Core..=) Core.<$> scte35Source
+              Prelude.<$> iFrameOnlyManifest,
+            ("audioDuration" Core..=) Prelude.<$> audioDuration,
+            ("scte35Esam" Core..=) Prelude.<$> scte35Esam,
+            ("scte35Source" Core..=) Prelude.<$> scte35Source
           ]
       )

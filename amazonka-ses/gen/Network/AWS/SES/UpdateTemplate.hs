@@ -45,6 +45,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -53,7 +54,7 @@ import Network.AWS.SES.Types
 data UpdateTemplate = UpdateTemplate'
   { template :: Template
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateTemplate' with all optional fields omitted.
@@ -85,34 +86,35 @@ instance Core.AWSRequest UpdateTemplate where
       "UpdateTemplateResult"
       ( \s h x ->
           UpdateTemplateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateTemplate
+instance Prelude.Hashable UpdateTemplate
 
-instance Core.NFData UpdateTemplate
+instance Prelude.NFData UpdateTemplate
 
 instance Core.ToHeaders UpdateTemplate where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath UpdateTemplate where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateTemplate where
   toQuery UpdateTemplate' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateTemplate" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+          Core.=: ("UpdateTemplate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "Template" Core.=: template
       ]
 
 -- | /See:/ 'newUpdateTemplateResponse' smart constructor.
 data UpdateTemplateResponse = UpdateTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateTemplateResponse' with all optional fields omitted.
@@ -125,13 +127,13 @@ data UpdateTemplateResponse = UpdateTemplateResponse'
 -- 'httpStatus', 'updateTemplateResponse_httpStatus' - The response's http status code.
 newUpdateTemplateResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateTemplateResponse
 newUpdateTemplateResponse pHttpStatus_ =
   UpdateTemplateResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateTemplateResponse_httpStatus :: Lens.Lens' UpdateTemplateResponse Core.Int
+updateTemplateResponse_httpStatus :: Lens.Lens' UpdateTemplateResponse Prelude.Int
 updateTemplateResponse_httpStatus = Lens.lens (\UpdateTemplateResponse' {httpStatus} -> httpStatus) (\s@UpdateTemplateResponse' {} a -> s {httpStatus = a} :: UpdateTemplateResponse)
 
-instance Core.NFData UpdateTemplateResponse
+instance Prelude.NFData UpdateTemplateResponse

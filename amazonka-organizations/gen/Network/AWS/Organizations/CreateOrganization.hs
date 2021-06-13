@@ -57,6 +57,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -80,9 +81,9 @@ data CreateOrganization = CreateOrganization'
     --     information, see
     --     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all All features>
     --     in the /AWS Organizations User Guide./
-    featureSet :: Core.Maybe OrganizationFeatureSet
+    featureSet :: Prelude.Maybe OrganizationFeatureSet
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateOrganization' with all optional fields omitted.
@@ -113,7 +114,7 @@ data CreateOrganization = CreateOrganization'
 newCreateOrganization ::
   CreateOrganization
 newCreateOrganization =
-  CreateOrganization' {featureSet = Core.Nothing}
+  CreateOrganization' {featureSet = Prelude.Nothing}
 
 -- | Specifies the feature set supported by the new organization. Each
 -- feature set supports different levels of functionality.
@@ -133,7 +134,7 @@ newCreateOrganization =
 --     information, see
 --     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all All features>
 --     in the /AWS Organizations User Guide./
-createOrganization_featureSet :: Lens.Lens' CreateOrganization (Core.Maybe OrganizationFeatureSet)
+createOrganization_featureSet :: Lens.Lens' CreateOrganization (Prelude.Maybe OrganizationFeatureSet)
 createOrganization_featureSet = Lens.lens (\CreateOrganization' {featureSet} -> featureSet) (\s@CreateOrganization' {} a -> s {featureSet = a} :: CreateOrganization)
 
 instance Core.AWSRequest CreateOrganization where
@@ -145,48 +146,50 @@ instance Core.AWSRequest CreateOrganization where
     Response.receiveJSON
       ( \s h x ->
           CreateOrganizationResponse'
-            Core.<$> (x Core..?> "Organization")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Organization")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable CreateOrganization
+instance Prelude.Hashable CreateOrganization
 
-instance Core.NFData CreateOrganization
+instance Prelude.NFData CreateOrganization
 
 instance Core.ToHeaders CreateOrganization where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.CreateOrganization" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON CreateOrganization where
   toJSON CreateOrganization' {..} =
     Core.object
-      ( Core.catMaybes
-          [("FeatureSet" Core..=) Core.<$> featureSet]
+      ( Prelude.catMaybes
+          [("FeatureSet" Core..=) Prelude.<$> featureSet]
       )
 
 instance Core.ToPath CreateOrganization where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery CreateOrganization where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateOrganizationResponse' smart constructor.
 data CreateOrganizationResponse = CreateOrganizationResponse'
   { -- | A structure that contains details about the newly created organization.
-    organization :: Core.Maybe Organization,
+    organization :: Prelude.Maybe Organization,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateOrganizationResponse' with all optional fields omitted.
@@ -201,21 +204,21 @@ data CreateOrganizationResponse = CreateOrganizationResponse'
 -- 'httpStatus', 'createOrganizationResponse_httpStatus' - The response's http status code.
 newCreateOrganizationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   CreateOrganizationResponse
 newCreateOrganizationResponse pHttpStatus_ =
   CreateOrganizationResponse'
     { organization =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains details about the newly created organization.
-createOrganizationResponse_organization :: Lens.Lens' CreateOrganizationResponse (Core.Maybe Organization)
+createOrganizationResponse_organization :: Lens.Lens' CreateOrganizationResponse (Prelude.Maybe Organization)
 createOrganizationResponse_organization = Lens.lens (\CreateOrganizationResponse' {organization} -> organization) (\s@CreateOrganizationResponse' {} a -> s {organization = a} :: CreateOrganizationResponse)
 
 -- | The response's http status code.
-createOrganizationResponse_httpStatus :: Lens.Lens' CreateOrganizationResponse Core.Int
+createOrganizationResponse_httpStatus :: Lens.Lens' CreateOrganizationResponse Prelude.Int
 createOrganizationResponse_httpStatus = Lens.lens (\CreateOrganizationResponse' {httpStatus} -> httpStatus) (\s@CreateOrganizationResponse' {} a -> s {httpStatus = a} :: CreateOrganizationResponse)
 
-instance Core.NFData CreateOrganizationResponse
+instance Prelude.NFData CreateOrganizationResponse

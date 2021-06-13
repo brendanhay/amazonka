@@ -22,6 +22,7 @@ module Network.AWS.ECR.Types.EncryptionConfiguration where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.EncryptionType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The encryption configuration for the repository. This determines how the
 -- contents of your repository are encrypted at rest.
@@ -45,7 +46,7 @@ data EncryptionConfiguration = EncryptionConfiguration'
     -- encryption. The alias, key ID, or full ARN of the CMK can be specified.
     -- The key must exist in the same Region as the repository. If no key is
     -- specified, the default AWS managed CMK for Amazon ECR will be used.
-    kmsKey :: Core.Maybe Core.Text,
+    kmsKey :: Prelude.Maybe Prelude.Text,
     -- | The encryption type to use.
     --
     -- If you use the @KMS@ encryption type, the contents of the repository
@@ -64,7 +65,7 @@ data EncryptionConfiguration = EncryptionConfiguration'
     -- in the /Amazon Simple Storage Service Console Developer Guide./.
     encryptionType :: EncryptionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'EncryptionConfiguration' with all optional fields omitted.
@@ -101,7 +102,7 @@ newEncryptionConfiguration ::
   EncryptionConfiguration
 newEncryptionConfiguration pEncryptionType_ =
   EncryptionConfiguration'
-    { kmsKey = Core.Nothing,
+    { kmsKey = Prelude.Nothing,
       encryptionType = pEncryptionType_
     }
 
@@ -109,7 +110,7 @@ newEncryptionConfiguration pEncryptionType_ =
 -- encryption. The alias, key ID, or full ARN of the CMK can be specified.
 -- The key must exist in the same Region as the repository. If no key is
 -- specified, the default AWS managed CMK for Amazon ECR will be used.
-encryptionConfiguration_kmsKey :: Lens.Lens' EncryptionConfiguration (Core.Maybe Core.Text)
+encryptionConfiguration_kmsKey :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe Prelude.Text)
 encryptionConfiguration_kmsKey = Lens.lens (\EncryptionConfiguration' {kmsKey} -> kmsKey) (\s@EncryptionConfiguration' {} a -> s {kmsKey = a} :: EncryptionConfiguration)
 
 -- | The encryption type to use.
@@ -137,19 +138,20 @@ instance Core.FromJSON EncryptionConfiguration where
       "EncryptionConfiguration"
       ( \x ->
           EncryptionConfiguration'
-            Core.<$> (x Core..:? "kmsKey")
-            Core.<*> (x Core..: "encryptionType")
+            Prelude.<$> (x Core..:? "kmsKey")
+            Prelude.<*> (x Core..: "encryptionType")
       )
 
-instance Core.Hashable EncryptionConfiguration
+instance Prelude.Hashable EncryptionConfiguration
 
-instance Core.NFData EncryptionConfiguration
+instance Prelude.NFData EncryptionConfiguration
 
 instance Core.ToJSON EncryptionConfiguration where
   toJSON EncryptionConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("kmsKey" Core..=) Core.<$> kmsKey,
-            Core.Just ("encryptionType" Core..= encryptionType)
+      ( Prelude.catMaybes
+          [ ("kmsKey" Core..=) Prelude.<$> kmsKey,
+            Prelude.Just
+              ("encryptionType" Core..= encryptionType)
           ]
       )

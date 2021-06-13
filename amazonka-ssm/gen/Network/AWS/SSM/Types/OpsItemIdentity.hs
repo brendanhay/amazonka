@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.OpsItemIdentity where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the user or resource that created an OpsItem event.
 --
@@ -28,9 +29,9 @@ import qualified Network.AWS.Lens as Lens
 data OpsItemIdentity = OpsItemIdentity'
   { -- | The Amazon Resource Name (ARN) of the IAM entity that created the
     -- OpsItem event.
-    arn :: Core.Maybe Core.Text
+    arn :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OpsItemIdentity' with all optional fields omitted.
@@ -45,19 +46,21 @@ data OpsItemIdentity = OpsItemIdentity'
 newOpsItemIdentity ::
   OpsItemIdentity
 newOpsItemIdentity =
-  OpsItemIdentity' {arn = Core.Nothing}
+  OpsItemIdentity' {arn = Prelude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the IAM entity that created the
 -- OpsItem event.
-opsItemIdentity_arn :: Lens.Lens' OpsItemIdentity (Core.Maybe Core.Text)
+opsItemIdentity_arn :: Lens.Lens' OpsItemIdentity (Prelude.Maybe Prelude.Text)
 opsItemIdentity_arn = Lens.lens (\OpsItemIdentity' {arn} -> arn) (\s@OpsItemIdentity' {} a -> s {arn = a} :: OpsItemIdentity)
 
 instance Core.FromJSON OpsItemIdentity where
   parseJSON =
     Core.withObject
       "OpsItemIdentity"
-      (\x -> OpsItemIdentity' Core.<$> (x Core..:? "Arn"))
+      ( \x ->
+          OpsItemIdentity' Prelude.<$> (x Core..:? "Arn")
+      )
 
-instance Core.Hashable OpsItemIdentity
+instance Prelude.Hashable OpsItemIdentity
 
-instance Core.NFData OpsItemIdentity
+instance Prelude.NFData OpsItemIdentity

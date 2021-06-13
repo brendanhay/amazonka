@@ -23,6 +23,7 @@ import Network.AWS.CodePipeline.Types.ArtifactStoreType
 import Network.AWS.CodePipeline.Types.EncryptionKey
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The S3 bucket where artifacts for the pipeline are stored.
 --
@@ -35,7 +36,7 @@ data ArtifactStore = ArtifactStore'
   { -- | The encryption key used to encrypt the data in the artifact store, such
     -- as an AWS Key Management Service (AWS KMS) key. If this is undefined,
     -- the default key for Amazon S3 is used.
-    encryptionKey :: Core.Maybe EncryptionKey,
+    encryptionKey :: Prelude.Maybe EncryptionKey,
     -- | The type of the artifact store, such as S3.
     type' :: ArtifactStoreType,
     -- | The S3 bucket used for storing the artifacts for a pipeline. You can
@@ -43,9 +44,9 @@ data ArtifactStore = ArtifactStore'
     -- folder to contain the pipeline artifacts is created for you based on the
     -- name of the pipeline. You can use any S3 bucket in the same AWS Region
     -- as the pipeline to store your pipeline artifacts.
-    location :: Core.Text
+    location :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ArtifactStore' with all optional fields omitted.
@@ -70,11 +71,11 @@ newArtifactStore ::
   -- | 'type''
   ArtifactStoreType ->
   -- | 'location'
-  Core.Text ->
+  Prelude.Text ->
   ArtifactStore
 newArtifactStore pType_ pLocation_ =
   ArtifactStore'
-    { encryptionKey = Core.Nothing,
+    { encryptionKey = Prelude.Nothing,
       type' = pType_,
       location = pLocation_
     }
@@ -82,7 +83,7 @@ newArtifactStore pType_ pLocation_ =
 -- | The encryption key used to encrypt the data in the artifact store, such
 -- as an AWS Key Management Service (AWS KMS) key. If this is undefined,
 -- the default key for Amazon S3 is used.
-artifactStore_encryptionKey :: Lens.Lens' ArtifactStore (Core.Maybe EncryptionKey)
+artifactStore_encryptionKey :: Lens.Lens' ArtifactStore (Prelude.Maybe EncryptionKey)
 artifactStore_encryptionKey = Lens.lens (\ArtifactStore' {encryptionKey} -> encryptionKey) (\s@ArtifactStore' {} a -> s {encryptionKey = a} :: ArtifactStore)
 
 -- | The type of the artifact store, such as S3.
@@ -94,7 +95,7 @@ artifactStore_type = Lens.lens (\ArtifactStore' {type'} -> type') (\s@ArtifactSt
 -- folder to contain the pipeline artifacts is created for you based on the
 -- name of the pipeline. You can use any S3 bucket in the same AWS Region
 -- as the pipeline to store your pipeline artifacts.
-artifactStore_location :: Lens.Lens' ArtifactStore Core.Text
+artifactStore_location :: Lens.Lens' ArtifactStore Prelude.Text
 artifactStore_location = Lens.lens (\ArtifactStore' {location} -> location) (\s@ArtifactStore' {} a -> s {location = a} :: ArtifactStore)
 
 instance Core.FromJSON ArtifactStore where
@@ -103,21 +104,21 @@ instance Core.FromJSON ArtifactStore where
       "ArtifactStore"
       ( \x ->
           ArtifactStore'
-            Core.<$> (x Core..:? "encryptionKey")
-            Core.<*> (x Core..: "type")
-            Core.<*> (x Core..: "location")
+            Prelude.<$> (x Core..:? "encryptionKey")
+            Prelude.<*> (x Core..: "type")
+            Prelude.<*> (x Core..: "location")
       )
 
-instance Core.Hashable ArtifactStore
+instance Prelude.Hashable ArtifactStore
 
-instance Core.NFData ArtifactStore
+instance Prelude.NFData ArtifactStore
 
 instance Core.ToJSON ArtifactStore where
   toJSON ArtifactStore' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("encryptionKey" Core..=) Core.<$> encryptionKey,
-            Core.Just ("type" Core..= type'),
-            Core.Just ("location" Core..= location)
+      ( Prelude.catMaybes
+          [ ("encryptionKey" Core..=) Prelude.<$> encryptionKey,
+            Prelude.Just ("type" Core..= type'),
+            Prelude.Just ("location" Core..= location)
           ]
       )

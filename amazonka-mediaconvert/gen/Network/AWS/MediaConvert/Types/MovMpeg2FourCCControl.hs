@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.MovMpeg2FourCCControl
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When set to XDCAM, writes MPEG2 video streams into the QuickTime file
 -- using XDCAM fourcc codes. This increases compatibility with Apple
@@ -37,15 +38,15 @@ newtype MovMpeg2FourCCControl = MovMpeg2FourCCControl'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

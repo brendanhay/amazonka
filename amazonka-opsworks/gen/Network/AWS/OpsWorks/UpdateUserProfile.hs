@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,19 +55,19 @@ data UpdateUserProfile = UpdateUserProfile'
   { -- | Whether users can specify their own SSH public key through the My
     -- Settings page. For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
-    allowSelfManagement :: Core.Maybe Core.Bool,
+    allowSelfManagement :: Prelude.Maybe Prelude.Bool,
     -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
     -- [0-9], \'-\', and \'_\'. If the specified name includes other
     -- punctuation marks, AWS OpsWorks Stacks removes them. For example,
     -- @my.name@ will be changed to @myname@. If you do not specify an SSH user
     -- name, AWS OpsWorks Stacks generates one from the IAM user name.
-    sshUsername :: Core.Maybe Core.Text,
+    sshUsername :: Prelude.Maybe Prelude.Text,
     -- | The user\'s new SSH public key.
-    sshPublicKey :: Core.Maybe Core.Text,
+    sshPublicKey :: Prelude.Maybe Prelude.Text,
     -- | The user IAM ARN. This can also be a federated user\'s ARN.
-    iamUserArn :: Core.Text
+    iamUserArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateUserProfile' with all optional fields omitted.
@@ -91,21 +92,21 @@ data UpdateUserProfile = UpdateUserProfile'
 -- 'iamUserArn', 'updateUserProfile_iamUserArn' - The user IAM ARN. This can also be a federated user\'s ARN.
 newUpdateUserProfile ::
   -- | 'iamUserArn'
-  Core.Text ->
+  Prelude.Text ->
   UpdateUserProfile
 newUpdateUserProfile pIamUserArn_ =
   UpdateUserProfile'
     { allowSelfManagement =
-        Core.Nothing,
-      sshUsername = Core.Nothing,
-      sshPublicKey = Core.Nothing,
+        Prelude.Nothing,
+      sshUsername = Prelude.Nothing,
+      sshPublicKey = Prelude.Nothing,
       iamUserArn = pIamUserArn_
     }
 
 -- | Whether users can specify their own SSH public key through the My
 -- Settings page. For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
-updateUserProfile_allowSelfManagement :: Lens.Lens' UpdateUserProfile (Core.Maybe Core.Bool)
+updateUserProfile_allowSelfManagement :: Lens.Lens' UpdateUserProfile (Prelude.Maybe Prelude.Bool)
 updateUserProfile_allowSelfManagement = Lens.lens (\UpdateUserProfile' {allowSelfManagement} -> allowSelfManagement) (\s@UpdateUserProfile' {} a -> s {allowSelfManagement = a} :: UpdateUserProfile)
 
 -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
@@ -113,15 +114,15 @@ updateUserProfile_allowSelfManagement = Lens.lens (\UpdateUserProfile' {allowSel
 -- punctuation marks, AWS OpsWorks Stacks removes them. For example,
 -- @my.name@ will be changed to @myname@. If you do not specify an SSH user
 -- name, AWS OpsWorks Stacks generates one from the IAM user name.
-updateUserProfile_sshUsername :: Lens.Lens' UpdateUserProfile (Core.Maybe Core.Text)
+updateUserProfile_sshUsername :: Lens.Lens' UpdateUserProfile (Prelude.Maybe Prelude.Text)
 updateUserProfile_sshUsername = Lens.lens (\UpdateUserProfile' {sshUsername} -> sshUsername) (\s@UpdateUserProfile' {} a -> s {sshUsername = a} :: UpdateUserProfile)
 
 -- | The user\'s new SSH public key.
-updateUserProfile_sshPublicKey :: Lens.Lens' UpdateUserProfile (Core.Maybe Core.Text)
+updateUserProfile_sshPublicKey :: Lens.Lens' UpdateUserProfile (Prelude.Maybe Prelude.Text)
 updateUserProfile_sshPublicKey = Lens.lens (\UpdateUserProfile' {sshPublicKey} -> sshPublicKey) (\s@UpdateUserProfile' {} a -> s {sshPublicKey = a} :: UpdateUserProfile)
 
 -- | The user IAM ARN. This can also be a federated user\'s ARN.
-updateUserProfile_iamUserArn :: Lens.Lens' UpdateUserProfile Core.Text
+updateUserProfile_iamUserArn :: Lens.Lens' UpdateUserProfile Prelude.Text
 updateUserProfile_iamUserArn = Lens.lens (\UpdateUserProfile' {iamUserArn} -> iamUserArn) (\s@UpdateUserProfile' {} a -> s {iamUserArn = a} :: UpdateUserProfile)
 
 instance Core.AWSRequest UpdateUserProfile where
@@ -132,46 +133,48 @@ instance Core.AWSRequest UpdateUserProfile where
   response =
     Response.receiveNull UpdateUserProfileResponse'
 
-instance Core.Hashable UpdateUserProfile
+instance Prelude.Hashable UpdateUserProfile
 
-instance Core.NFData UpdateUserProfile
+instance Prelude.NFData UpdateUserProfile
 
 instance Core.ToHeaders UpdateUserProfile where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "OpsWorks_20130218.UpdateUserProfile" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON UpdateUserProfile where
   toJSON UpdateUserProfile' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("AllowSelfManagement" Core..=)
-              Core.<$> allowSelfManagement,
-            ("SshUsername" Core..=) Core.<$> sshUsername,
-            ("SshPublicKey" Core..=) Core.<$> sshPublicKey,
-            Core.Just ("IamUserArn" Core..= iamUserArn)
+              Prelude.<$> allowSelfManagement,
+            ("SshUsername" Core..=) Prelude.<$> sshUsername,
+            ("SshPublicKey" Core..=) Prelude.<$> sshPublicKey,
+            Prelude.Just ("IamUserArn" Core..= iamUserArn)
           ]
       )
 
 instance Core.ToPath UpdateUserProfile where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery UpdateUserProfile where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserProfileResponse' smart constructor.
 data UpdateUserProfileResponse = UpdateUserProfileResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateUserProfileResponse' with all optional fields omitted.
@@ -182,4 +185,4 @@ newUpdateUserProfileResponse ::
 newUpdateUserProfileResponse =
   UpdateUserProfileResponse'
 
-instance Core.NFData UpdateUserProfileResponse
+instance Prelude.NFData UpdateUserProfileResponse

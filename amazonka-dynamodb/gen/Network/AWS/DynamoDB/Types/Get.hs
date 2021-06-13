@@ -22,6 +22,7 @@ module Network.AWS.DynamoDB.Types.Get where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AttributeValue
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies an item and related attribute values to retrieve in a
 -- @TransactGetItem@ object.
@@ -33,17 +34,17 @@ data Get = Get'
     -- separated by commas. If no attribute names are specified, then all
     -- attributes of the specified item are returned. If any of the requested
     -- attributes are not found, they do not appear in the result.
-    projectionExpression :: Core.Maybe Core.Text,
+    projectionExpression :: Prelude.Maybe Prelude.Text,
     -- | One or more substitution tokens for attribute names in the
     -- ProjectionExpression parameter.
-    expressionAttributeNames :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A map of attribute names to @AttributeValue@ objects that specifies the
     -- primary key of the item to retrieve.
-    key :: Core.HashMap Core.Text AttributeValue,
+    key :: Prelude.HashMap Prelude.Text AttributeValue,
     -- | The name of the table from which to retrieve the specified item.
-    tableName :: Core.Text
+    tableName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Get' with all optional fields omitted.
@@ -68,13 +69,13 @@ data Get = Get'
 -- 'tableName', 'get_tableName' - The name of the table from which to retrieve the specified item.
 newGet ::
   -- | 'tableName'
-  Core.Text ->
+  Prelude.Text ->
   Get
 newGet pTableName_ =
   Get'
-    { projectionExpression = Core.Nothing,
-      expressionAttributeNames = Core.Nothing,
-      key = Core.mempty,
+    { projectionExpression = Prelude.Nothing,
+      expressionAttributeNames = Prelude.Nothing,
+      key = Prelude.mempty,
       tableName = pTableName_
     }
 
@@ -83,36 +84,36 @@ newGet pTableName_ =
 -- separated by commas. If no attribute names are specified, then all
 -- attributes of the specified item are returned. If any of the requested
 -- attributes are not found, they do not appear in the result.
-get_projectionExpression :: Lens.Lens' Get (Core.Maybe Core.Text)
+get_projectionExpression :: Lens.Lens' Get (Prelude.Maybe Prelude.Text)
 get_projectionExpression = Lens.lens (\Get' {projectionExpression} -> projectionExpression) (\s@Get' {} a -> s {projectionExpression = a} :: Get)
 
 -- | One or more substitution tokens for attribute names in the
 -- ProjectionExpression parameter.
-get_expressionAttributeNames :: Lens.Lens' Get (Core.Maybe (Core.HashMap Core.Text Core.Text))
-get_expressionAttributeNames = Lens.lens (\Get' {expressionAttributeNames} -> expressionAttributeNames) (\s@Get' {} a -> s {expressionAttributeNames = a} :: Get) Core.. Lens.mapping Lens._Coerce
+get_expressionAttributeNames :: Lens.Lens' Get (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+get_expressionAttributeNames = Lens.lens (\Get' {expressionAttributeNames} -> expressionAttributeNames) (\s@Get' {} a -> s {expressionAttributeNames = a} :: Get) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A map of attribute names to @AttributeValue@ objects that specifies the
 -- primary key of the item to retrieve.
-get_key :: Lens.Lens' Get (Core.HashMap Core.Text AttributeValue)
-get_key = Lens.lens (\Get' {key} -> key) (\s@Get' {} a -> s {key = a} :: Get) Core.. Lens._Coerce
+get_key :: Lens.Lens' Get (Prelude.HashMap Prelude.Text AttributeValue)
+get_key = Lens.lens (\Get' {key} -> key) (\s@Get' {} a -> s {key = a} :: Get) Prelude.. Lens._Coerce
 
 -- | The name of the table from which to retrieve the specified item.
-get_tableName :: Lens.Lens' Get Core.Text
+get_tableName :: Lens.Lens' Get Prelude.Text
 get_tableName = Lens.lens (\Get' {tableName} -> tableName) (\s@Get' {} a -> s {tableName = a} :: Get)
 
-instance Core.Hashable Get
+instance Prelude.Hashable Get
 
-instance Core.NFData Get
+instance Prelude.NFData Get
 
 instance Core.ToJSON Get where
   toJSON Get' {..} =
     Core.object
-      ( Core.catMaybes
+      ( Prelude.catMaybes
           [ ("ProjectionExpression" Core..=)
-              Core.<$> projectionExpression,
+              Prelude.<$> projectionExpression,
             ("ExpressionAttributeNames" Core..=)
-              Core.<$> expressionAttributeNames,
-            Core.Just ("Key" Core..= key),
-            Core.Just ("TableName" Core..= tableName)
+              Prelude.<$> expressionAttributeNames,
+            Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("TableName" Core..= tableName)
           ]
       )

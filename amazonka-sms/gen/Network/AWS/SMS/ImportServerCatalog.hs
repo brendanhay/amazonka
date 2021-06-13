@@ -41,6 +41,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -49,7 +50,7 @@ import Network.AWS.SMS.Types
 data ImportServerCatalog = ImportServerCatalog'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportServerCatalog' with all optional fields omitted.
@@ -68,41 +69,43 @@ instance Core.AWSRequest ImportServerCatalog where
     Response.receiveEmpty
       ( \s h x ->
           ImportServerCatalogResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ImportServerCatalog
+instance Prelude.Hashable ImportServerCatalog
 
-instance Core.NFData ImportServerCatalog
+instance Prelude.NFData ImportServerCatalog
 
 instance Core.ToHeaders ImportServerCatalog where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSServerMigrationService_V2016_10_24.ImportServerCatalog" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ImportServerCatalog where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath ImportServerCatalog where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ImportServerCatalog where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportServerCatalogResponse' smart constructor.
 data ImportServerCatalogResponse = ImportServerCatalogResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportServerCatalogResponse' with all optional fields omitted.
@@ -115,7 +118,7 @@ data ImportServerCatalogResponse = ImportServerCatalogResponse'
 -- 'httpStatus', 'importServerCatalogResponse_httpStatus' - The response's http status code.
 newImportServerCatalogResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ImportServerCatalogResponse
 newImportServerCatalogResponse pHttpStatus_ =
   ImportServerCatalogResponse'
@@ -124,7 +127,7 @@ newImportServerCatalogResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-importServerCatalogResponse_httpStatus :: Lens.Lens' ImportServerCatalogResponse Core.Int
+importServerCatalogResponse_httpStatus :: Lens.Lens' ImportServerCatalogResponse Prelude.Int
 importServerCatalogResponse_httpStatus = Lens.lens (\ImportServerCatalogResponse' {httpStatus} -> httpStatus) (\s@ImportServerCatalogResponse' {} a -> s {httpStatus = a} :: ImportServerCatalogResponse)
 
-instance Core.NFData ImportServerCatalogResponse
+instance Prelude.NFData ImportServerCatalogResponse

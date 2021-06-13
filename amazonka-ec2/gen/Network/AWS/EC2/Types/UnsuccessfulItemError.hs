@@ -22,6 +22,7 @@ module Network.AWS.EC2.Types.UnsuccessfulItemError where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the error that occurred. For more information about
 -- errors, see
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newUnsuccessfulItemError' smart constructor.
 data UnsuccessfulItemError = UnsuccessfulItemError'
   { -- | The error message accompanying the error code.
-    message :: Core.Maybe Core.Text,
+    message :: Prelude.Maybe Prelude.Text,
     -- | The error code.
-    code :: Core.Maybe Core.Text
+    code :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UnsuccessfulItemError' with all optional fields omitted.
@@ -51,23 +52,24 @@ newUnsuccessfulItemError ::
   UnsuccessfulItemError
 newUnsuccessfulItemError =
   UnsuccessfulItemError'
-    { message = Core.Nothing,
-      code = Core.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
 
 -- | The error message accompanying the error code.
-unsuccessfulItemError_message :: Lens.Lens' UnsuccessfulItemError (Core.Maybe Core.Text)
+unsuccessfulItemError_message :: Lens.Lens' UnsuccessfulItemError (Prelude.Maybe Prelude.Text)
 unsuccessfulItemError_message = Lens.lens (\UnsuccessfulItemError' {message} -> message) (\s@UnsuccessfulItemError' {} a -> s {message = a} :: UnsuccessfulItemError)
 
 -- | The error code.
-unsuccessfulItemError_code :: Lens.Lens' UnsuccessfulItemError (Core.Maybe Core.Text)
+unsuccessfulItemError_code :: Lens.Lens' UnsuccessfulItemError (Prelude.Maybe Prelude.Text)
 unsuccessfulItemError_code = Lens.lens (\UnsuccessfulItemError' {code} -> code) (\s@UnsuccessfulItemError' {} a -> s {code = a} :: UnsuccessfulItemError)
 
 instance Core.FromXML UnsuccessfulItemError where
   parseXML x =
     UnsuccessfulItemError'
-      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
-instance Core.Hashable UnsuccessfulItemError
+instance Prelude.Hashable UnsuccessfulItemError
 
-instance Core.NFData UnsuccessfulItemError
+instance Prelude.NFData UnsuccessfulItemError

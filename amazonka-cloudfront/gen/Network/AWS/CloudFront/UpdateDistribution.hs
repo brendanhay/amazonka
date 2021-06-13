@@ -115,6 +115,7 @@ where
 import Network.AWS.CloudFront.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -124,13 +125,13 @@ import qualified Network.AWS.Response as Response
 data UpdateDistribution = UpdateDistribution'
   { -- | The value of the @ETag@ header that you received when retrieving the
     -- distribution\'s configuration. For example: @E2QWRUHAPOMQZL@.
-    ifMatch :: Core.Maybe Core.Text,
+    ifMatch :: Prelude.Maybe Prelude.Text,
     -- | The distribution\'s configuration information.
     distributionConfig :: DistributionConfig,
     -- | The distribution\'s id.
-    id :: Core.Text
+    id :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDistribution' with all optional fields omitted.
@@ -150,18 +151,18 @@ newUpdateDistribution ::
   -- | 'distributionConfig'
   DistributionConfig ->
   -- | 'id'
-  Core.Text ->
+  Prelude.Text ->
   UpdateDistribution
 newUpdateDistribution pDistributionConfig_ pId_ =
   UpdateDistribution'
-    { ifMatch = Core.Nothing,
+    { ifMatch = Prelude.Nothing,
       distributionConfig = pDistributionConfig_,
       id = pId_
     }
 
 -- | The value of the @ETag@ header that you received when retrieving the
 -- distribution\'s configuration. For example: @E2QWRUHAPOMQZL@.
-updateDistribution_ifMatch :: Lens.Lens' UpdateDistribution (Core.Maybe Core.Text)
+updateDistribution_ifMatch :: Lens.Lens' UpdateDistribution (Prelude.Maybe Prelude.Text)
 updateDistribution_ifMatch = Lens.lens (\UpdateDistribution' {ifMatch} -> ifMatch) (\s@UpdateDistribution' {} a -> s {ifMatch = a} :: UpdateDistribution)
 
 -- | The distribution\'s configuration information.
@@ -169,7 +170,7 @@ updateDistribution_distributionConfig :: Lens.Lens' UpdateDistribution Distribut
 updateDistribution_distributionConfig = Lens.lens (\UpdateDistribution' {distributionConfig} -> distributionConfig) (\s@UpdateDistribution' {} a -> s {distributionConfig = a} :: UpdateDistribution)
 
 -- | The distribution\'s id.
-updateDistribution_id :: Lens.Lens' UpdateDistribution Core.Text
+updateDistribution_id :: Lens.Lens' UpdateDistribution Prelude.Text
 updateDistribution_id = Lens.lens (\UpdateDistribution' {id} -> id) (\s@UpdateDistribution' {} a -> s {id = a} :: UpdateDistribution)
 
 instance Core.AWSRequest UpdateDistribution where
@@ -181,14 +182,14 @@ instance Core.AWSRequest UpdateDistribution where
     Response.receiveXML
       ( \s h x ->
           UpdateDistributionResponse'
-            Core.<$> (h Core..#? "ETag")
-            Core.<*> (Core.parseXML x)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (h Core..#? "ETag")
+            Prelude.<*> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable UpdateDistribution
+instance Prelude.Hashable UpdateDistribution
 
-instance Core.NFData UpdateDistribution
+instance Prelude.NFData UpdateDistribution
 
 instance Core.ToElement UpdateDistribution where
   toElement UpdateDistribution' {..} =
@@ -198,31 +199,31 @@ instance Core.ToElement UpdateDistribution where
 
 instance Core.ToHeaders UpdateDistribution where
   toHeaders UpdateDistribution' {..} =
-    Core.mconcat ["If-Match" Core.=# ifMatch]
+    Prelude.mconcat ["If-Match" Core.=# ifMatch]
 
 instance Core.ToPath UpdateDistribution where
   toPath UpdateDistribution' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/2020-05-31/distribution/",
         Core.toBS id,
         "/config"
       ]
 
 instance Core.ToQuery UpdateDistribution where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'newUpdateDistributionResponse' smart constructor.
 data UpdateDistributionResponse = UpdateDistributionResponse'
   { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-    eTag :: Core.Maybe Core.Text,
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The distribution\'s information.
-    distribution :: Core.Maybe Distribution,
+    distribution :: Prelude.Maybe Distribution,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDistributionResponse' with all optional fields omitted.
@@ -239,25 +240,25 @@ data UpdateDistributionResponse = UpdateDistributionResponse'
 -- 'httpStatus', 'updateDistributionResponse_httpStatus' - The response's http status code.
 newUpdateDistributionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   UpdateDistributionResponse
 newUpdateDistributionResponse pHttpStatus_ =
   UpdateDistributionResponse'
-    { eTag = Core.Nothing,
-      distribution = Core.Nothing,
+    { eTag = Prelude.Nothing,
+      distribution = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-updateDistributionResponse_eTag :: Lens.Lens' UpdateDistributionResponse (Core.Maybe Core.Text)
+updateDistributionResponse_eTag :: Lens.Lens' UpdateDistributionResponse (Prelude.Maybe Prelude.Text)
 updateDistributionResponse_eTag = Lens.lens (\UpdateDistributionResponse' {eTag} -> eTag) (\s@UpdateDistributionResponse' {} a -> s {eTag = a} :: UpdateDistributionResponse)
 
 -- | The distribution\'s information.
-updateDistributionResponse_distribution :: Lens.Lens' UpdateDistributionResponse (Core.Maybe Distribution)
+updateDistributionResponse_distribution :: Lens.Lens' UpdateDistributionResponse (Prelude.Maybe Distribution)
 updateDistributionResponse_distribution = Lens.lens (\UpdateDistributionResponse' {distribution} -> distribution) (\s@UpdateDistributionResponse' {} a -> s {distribution = a} :: UpdateDistributionResponse)
 
 -- | The response's http status code.
-updateDistributionResponse_httpStatus :: Lens.Lens' UpdateDistributionResponse Core.Int
+updateDistributionResponse_httpStatus :: Lens.Lens' UpdateDistributionResponse Prelude.Int
 updateDistributionResponse_httpStatus = Lens.lens (\UpdateDistributionResponse' {httpStatus} -> httpStatus) (\s@UpdateDistributionResponse' {} a -> s {httpStatus = a} :: UpdateDistributionResponse)
 
-instance Core.NFData UpdateDistributionResponse
+instance Prelude.NFData UpdateDistributionResponse

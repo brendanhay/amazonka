@@ -58,6 +58,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -74,7 +75,7 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
     -- You can give an AWS account permission to restore a manual DB cluster
     -- snapshot from another AWS account by the
     -- @ModifyDBClusterSnapshotAttribute@ API action.
-    includeShared :: Core.Maybe Core.Bool,
+    includeShared :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the DB cluster to retrieve the list of DB cluster snapshots
     -- for. This parameter can\'t be used in conjunction with the
     -- @DBClusterSnapshotIdentifier@ parameter. This parameter isn\'t
@@ -83,7 +84,7 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
     -- Constraints:
     --
     -- -   If supplied, must match the identifier of an existing DBCluster.
-    dbClusterIdentifier :: Core.Maybe Core.Text,
+    dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The type of DB cluster snapshots to be returned. You can specify one of
     -- the following values:
     --
@@ -110,7 +111,7 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
     -- parameter doesn\'t apply when @SnapshotType@ is set to @shared@. The
     -- @IncludeShared@ parameter doesn\'t apply when @SnapshotType@ is set to
     -- @public@.
-    snapshotType :: Core.Maybe Core.Text,
+    snapshotType :: Prelude.Maybe Prelude.Text,
     -- | A filter that specifies one or more DB cluster snapshots to describe.
     --
     -- Supported filters:
@@ -123,7 +124,7 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
     -- -   @snapshot-type@ - Accepts types of DB cluster snapshots.
     --
     -- -   @engine@ - Accepts names of database engines.
-    filters :: Core.Maybe [Filter],
+    filters :: Prelude.Maybe [Filter],
     -- | A specific DB cluster snapshot identifier to describe. This parameter
     -- can\'t be used in conjunction with the @DBClusterIdentifier@ parameter.
     -- This value is stored as a lowercase string.
@@ -135,19 +136,19 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
     --
     -- -   If this identifier is for an automated snapshot, the @SnapshotType@
     --     parameter must also be specified.
-    dbClusterSnapshotIdentifier :: Core.Maybe Core.Text,
+    dbClusterSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to include manual DB cluster snapshots
     -- that are public and can be copied or restored by any AWS account. By
     -- default, the public snapshots are not included.
     --
     -- You can share a manual DB cluster snapshot as public by using the
     -- ModifyDBClusterSnapshotAttribute API action.
-    includePublic :: Core.Maybe Core.Bool,
+    includePublic :: Prelude.Maybe Prelude.Bool,
     -- | An optional pagination token provided by a previous
     -- @DescribeDBClusterSnapshots@ request. If this parameter is specified,
     -- the response includes only records beyond the marker, up to the value
     -- specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so you can retrieve the
@@ -156,9 +157,9 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Core.Maybe Core.Int
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDBClusterSnapshots' with all optional fields omitted.
@@ -263,14 +264,14 @@ newDescribeDBClusterSnapshots ::
 newDescribeDBClusterSnapshots =
   DescribeDBClusterSnapshots'
     { includeShared =
-        Core.Nothing,
-      dbClusterIdentifier = Core.Nothing,
-      snapshotType = Core.Nothing,
-      filters = Core.Nothing,
-      dbClusterSnapshotIdentifier = Core.Nothing,
-      includePublic = Core.Nothing,
-      marker = Core.Nothing,
-      maxRecords = Core.Nothing
+        Prelude.Nothing,
+      dbClusterIdentifier = Prelude.Nothing,
+      snapshotType = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      dbClusterSnapshotIdentifier = Prelude.Nothing,
+      includePublic = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | A value that indicates whether to include shared manual DB cluster
@@ -281,7 +282,7 @@ newDescribeDBClusterSnapshots =
 -- You can give an AWS account permission to restore a manual DB cluster
 -- snapshot from another AWS account by the
 -- @ModifyDBClusterSnapshotAttribute@ API action.
-describeDBClusterSnapshots_includeShared :: Lens.Lens' DescribeDBClusterSnapshots (Core.Maybe Core.Bool)
+describeDBClusterSnapshots_includeShared :: Lens.Lens' DescribeDBClusterSnapshots (Prelude.Maybe Prelude.Bool)
 describeDBClusterSnapshots_includeShared = Lens.lens (\DescribeDBClusterSnapshots' {includeShared} -> includeShared) (\s@DescribeDBClusterSnapshots' {} a -> s {includeShared = a} :: DescribeDBClusterSnapshots)
 
 -- | The ID of the DB cluster to retrieve the list of DB cluster snapshots
@@ -292,7 +293,7 @@ describeDBClusterSnapshots_includeShared = Lens.lens (\DescribeDBClusterSnapshot
 -- Constraints:
 --
 -- -   If supplied, must match the identifier of an existing DBCluster.
-describeDBClusterSnapshots_dbClusterIdentifier :: Lens.Lens' DescribeDBClusterSnapshots (Core.Maybe Core.Text)
+describeDBClusterSnapshots_dbClusterIdentifier :: Lens.Lens' DescribeDBClusterSnapshots (Prelude.Maybe Prelude.Text)
 describeDBClusterSnapshots_dbClusterIdentifier = Lens.lens (\DescribeDBClusterSnapshots' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@DescribeDBClusterSnapshots' {} a -> s {dbClusterIdentifier = a} :: DescribeDBClusterSnapshots)
 
 -- | The type of DB cluster snapshots to be returned. You can specify one of
@@ -321,7 +322,7 @@ describeDBClusterSnapshots_dbClusterIdentifier = Lens.lens (\DescribeDBClusterSn
 -- parameter doesn\'t apply when @SnapshotType@ is set to @shared@. The
 -- @IncludeShared@ parameter doesn\'t apply when @SnapshotType@ is set to
 -- @public@.
-describeDBClusterSnapshots_snapshotType :: Lens.Lens' DescribeDBClusterSnapshots (Core.Maybe Core.Text)
+describeDBClusterSnapshots_snapshotType :: Lens.Lens' DescribeDBClusterSnapshots (Prelude.Maybe Prelude.Text)
 describeDBClusterSnapshots_snapshotType = Lens.lens (\DescribeDBClusterSnapshots' {snapshotType} -> snapshotType) (\s@DescribeDBClusterSnapshots' {} a -> s {snapshotType = a} :: DescribeDBClusterSnapshots)
 
 -- | A filter that specifies one or more DB cluster snapshots to describe.
@@ -336,8 +337,8 @@ describeDBClusterSnapshots_snapshotType = Lens.lens (\DescribeDBClusterSnapshots
 -- -   @snapshot-type@ - Accepts types of DB cluster snapshots.
 --
 -- -   @engine@ - Accepts names of database engines.
-describeDBClusterSnapshots_filters :: Lens.Lens' DescribeDBClusterSnapshots (Core.Maybe [Filter])
-describeDBClusterSnapshots_filters = Lens.lens (\DescribeDBClusterSnapshots' {filters} -> filters) (\s@DescribeDBClusterSnapshots' {} a -> s {filters = a} :: DescribeDBClusterSnapshots) Core.. Lens.mapping Lens._Coerce
+describeDBClusterSnapshots_filters :: Lens.Lens' DescribeDBClusterSnapshots (Prelude.Maybe [Filter])
+describeDBClusterSnapshots_filters = Lens.lens (\DescribeDBClusterSnapshots' {filters} -> filters) (\s@DescribeDBClusterSnapshots' {} a -> s {filters = a} :: DescribeDBClusterSnapshots) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A specific DB cluster snapshot identifier to describe. This parameter
 -- can\'t be used in conjunction with the @DBClusterIdentifier@ parameter.
@@ -350,7 +351,7 @@ describeDBClusterSnapshots_filters = Lens.lens (\DescribeDBClusterSnapshots' {fi
 --
 -- -   If this identifier is for an automated snapshot, the @SnapshotType@
 --     parameter must also be specified.
-describeDBClusterSnapshots_dbClusterSnapshotIdentifier :: Lens.Lens' DescribeDBClusterSnapshots (Core.Maybe Core.Text)
+describeDBClusterSnapshots_dbClusterSnapshotIdentifier :: Lens.Lens' DescribeDBClusterSnapshots (Prelude.Maybe Prelude.Text)
 describeDBClusterSnapshots_dbClusterSnapshotIdentifier = Lens.lens (\DescribeDBClusterSnapshots' {dbClusterSnapshotIdentifier} -> dbClusterSnapshotIdentifier) (\s@DescribeDBClusterSnapshots' {} a -> s {dbClusterSnapshotIdentifier = a} :: DescribeDBClusterSnapshots)
 
 -- | A value that indicates whether to include manual DB cluster snapshots
@@ -359,14 +360,14 @@ describeDBClusterSnapshots_dbClusterSnapshotIdentifier = Lens.lens (\DescribeDBC
 --
 -- You can share a manual DB cluster snapshot as public by using the
 -- ModifyDBClusterSnapshotAttribute API action.
-describeDBClusterSnapshots_includePublic :: Lens.Lens' DescribeDBClusterSnapshots (Core.Maybe Core.Bool)
+describeDBClusterSnapshots_includePublic :: Lens.Lens' DescribeDBClusterSnapshots (Prelude.Maybe Prelude.Bool)
 describeDBClusterSnapshots_includePublic = Lens.lens (\DescribeDBClusterSnapshots' {includePublic} -> includePublic) (\s@DescribeDBClusterSnapshots' {} a -> s {includePublic = a} :: DescribeDBClusterSnapshots)
 
 -- | An optional pagination token provided by a previous
 -- @DescribeDBClusterSnapshots@ request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
-describeDBClusterSnapshots_marker :: Lens.Lens' DescribeDBClusterSnapshots (Core.Maybe Core.Text)
+describeDBClusterSnapshots_marker :: Lens.Lens' DescribeDBClusterSnapshots (Prelude.Maybe Prelude.Text)
 describeDBClusterSnapshots_marker = Lens.lens (\DescribeDBClusterSnapshots' {marker} -> marker) (\s@DescribeDBClusterSnapshots' {} a -> s {marker = a} :: DescribeDBClusterSnapshots)
 
 -- | The maximum number of records to include in the response. If more
@@ -377,7 +378,7 @@ describeDBClusterSnapshots_marker = Lens.lens (\DescribeDBClusterSnapshots' {mar
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
-describeDBClusterSnapshots_maxRecords :: Lens.Lens' DescribeDBClusterSnapshots (Core.Maybe Core.Int)
+describeDBClusterSnapshots_maxRecords :: Lens.Lens' DescribeDBClusterSnapshots (Prelude.Maybe Prelude.Int)
 describeDBClusterSnapshots_maxRecords = Lens.lens (\DescribeDBClusterSnapshots' {maxRecords} -> maxRecords) (\s@DescribeDBClusterSnapshots' {} a -> s {maxRecords = a} :: DescribeDBClusterSnapshots)
 
 instance Core.AWSPager DescribeDBClusterSnapshots where
@@ -385,22 +386,22 @@ instance Core.AWSPager DescribeDBClusterSnapshots where
     | Core.stop
         ( rs
             Lens.^? describeDBClusterSnapshotsResponse_marker
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBClusterSnapshotsResponse_dbClusterSnapshots
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& describeDBClusterSnapshots_marker
+          Prelude.& describeDBClusterSnapshots_marker
           Lens..~ rs
           Lens.^? describeDBClusterSnapshotsResponse_marker
-            Core.. Lens._Just
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBClusterSnapshots where
   type
@@ -412,35 +413,37 @@ instance Core.AWSRequest DescribeDBClusterSnapshots where
       "DescribeDBClusterSnapshotsResult"
       ( \s h x ->
           DescribeDBClusterSnapshotsResponse'
-            Core.<$> ( x Core..@? "DBClusterSnapshots" Core..!@ Core.mempty
-                         Core.>>= Core.may (Core.parseXMLList "DBClusterSnapshot")
-                     )
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> ( x Core..@? "DBClusterSnapshots"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "DBClusterSnapshot")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeDBClusterSnapshots
+instance Prelude.Hashable DescribeDBClusterSnapshots
 
-instance Core.NFData DescribeDBClusterSnapshots
+instance Prelude.NFData DescribeDBClusterSnapshots
 
 instance Core.ToHeaders DescribeDBClusterSnapshots where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DescribeDBClusterSnapshots where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeDBClusterSnapshots where
   toQuery DescribeDBClusterSnapshots' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDBClusterSnapshots" :: Core.ByteString),
-        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+          Core.=: ("DescribeDBClusterSnapshots" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
         "IncludeShared" Core.=: includeShared,
         "DBClusterIdentifier" Core.=: dbClusterIdentifier,
         "SnapshotType" Core.=: snapshotType,
         "Filters"
           Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Core.<$> filters),
+            (Core.toQueryList "Filter" Prelude.<$> filters),
         "DBClusterSnapshotIdentifier"
           Core.=: dbClusterSnapshotIdentifier,
         "IncludePublic" Core.=: includePublic,
@@ -454,16 +457,16 @@ instance Core.ToQuery DescribeDBClusterSnapshots where
 -- /See:/ 'newDescribeDBClusterSnapshotsResponse' smart constructor.
 data DescribeDBClusterSnapshotsResponse = DescribeDBClusterSnapshotsResponse'
   { -- | Provides a list of DB cluster snapshots for the user.
-    dbClusterSnapshots :: Core.Maybe [DBClusterSnapshot],
+    dbClusterSnapshots :: Prelude.Maybe [DBClusterSnapshot],
     -- | An optional pagination token provided by a previous
     -- @DescribeDBClusterSnapshots@ request. If this parameter is specified,
     -- the response includes only records beyond the marker, up to the value
     -- specified by @MaxRecords@.
-    marker :: Core.Maybe Core.Text,
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeDBClusterSnapshotsResponse' with all optional fields omitted.
@@ -483,31 +486,31 @@ data DescribeDBClusterSnapshotsResponse = DescribeDBClusterSnapshotsResponse'
 -- 'httpStatus', 'describeDBClusterSnapshotsResponse_httpStatus' - The response's http status code.
 newDescribeDBClusterSnapshotsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeDBClusterSnapshotsResponse
 newDescribeDBClusterSnapshotsResponse pHttpStatus_ =
   DescribeDBClusterSnapshotsResponse'
     { dbClusterSnapshots =
-        Core.Nothing,
-      marker = Core.Nothing,
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Provides a list of DB cluster snapshots for the user.
-describeDBClusterSnapshotsResponse_dbClusterSnapshots :: Lens.Lens' DescribeDBClusterSnapshotsResponse (Core.Maybe [DBClusterSnapshot])
-describeDBClusterSnapshotsResponse_dbClusterSnapshots = Lens.lens (\DescribeDBClusterSnapshotsResponse' {dbClusterSnapshots} -> dbClusterSnapshots) (\s@DescribeDBClusterSnapshotsResponse' {} a -> s {dbClusterSnapshots = a} :: DescribeDBClusterSnapshotsResponse) Core.. Lens.mapping Lens._Coerce
+describeDBClusterSnapshotsResponse_dbClusterSnapshots :: Lens.Lens' DescribeDBClusterSnapshotsResponse (Prelude.Maybe [DBClusterSnapshot])
+describeDBClusterSnapshotsResponse_dbClusterSnapshots = Lens.lens (\DescribeDBClusterSnapshotsResponse' {dbClusterSnapshots} -> dbClusterSnapshots) (\s@DescribeDBClusterSnapshotsResponse' {} a -> s {dbClusterSnapshots = a} :: DescribeDBClusterSnapshotsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous
 -- @DescribeDBClusterSnapshots@ request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
-describeDBClusterSnapshotsResponse_marker :: Lens.Lens' DescribeDBClusterSnapshotsResponse (Core.Maybe Core.Text)
+describeDBClusterSnapshotsResponse_marker :: Lens.Lens' DescribeDBClusterSnapshotsResponse (Prelude.Maybe Prelude.Text)
 describeDBClusterSnapshotsResponse_marker = Lens.lens (\DescribeDBClusterSnapshotsResponse' {marker} -> marker) (\s@DescribeDBClusterSnapshotsResponse' {} a -> s {marker = a} :: DescribeDBClusterSnapshotsResponse)
 
 -- | The response's http status code.
-describeDBClusterSnapshotsResponse_httpStatus :: Lens.Lens' DescribeDBClusterSnapshotsResponse Core.Int
+describeDBClusterSnapshotsResponse_httpStatus :: Lens.Lens' DescribeDBClusterSnapshotsResponse Prelude.Int
 describeDBClusterSnapshotsResponse_httpStatus = Lens.lens (\DescribeDBClusterSnapshotsResponse' {httpStatus} -> httpStatus) (\s@DescribeDBClusterSnapshotsResponse' {} a -> s {httpStatus = a} :: DescribeDBClusterSnapshotsResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     DescribeDBClusterSnapshotsResponse

@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.ObjectLockRule where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.DefaultRetention
 
@@ -30,9 +31,9 @@ import Network.AWS.S3.Types.DefaultRetention
 data ObjectLockRule = ObjectLockRule'
   { -- | The default retention period that you want to apply to new objects
     -- placed in the specified bucket.
-    defaultRetention :: Core.Maybe DefaultRetention
+    defaultRetention :: Prelude.Maybe DefaultRetention
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ObjectLockRule' with all optional fields omitted.
@@ -47,23 +48,23 @@ data ObjectLockRule = ObjectLockRule'
 newObjectLockRule ::
   ObjectLockRule
 newObjectLockRule =
-  ObjectLockRule' {defaultRetention = Core.Nothing}
+  ObjectLockRule' {defaultRetention = Prelude.Nothing}
 
 -- | The default retention period that you want to apply to new objects
 -- placed in the specified bucket.
-objectLockRule_defaultRetention :: Lens.Lens' ObjectLockRule (Core.Maybe DefaultRetention)
+objectLockRule_defaultRetention :: Lens.Lens' ObjectLockRule (Prelude.Maybe DefaultRetention)
 objectLockRule_defaultRetention = Lens.lens (\ObjectLockRule' {defaultRetention} -> defaultRetention) (\s@ObjectLockRule' {} a -> s {defaultRetention = a} :: ObjectLockRule)
 
 instance Core.FromXML ObjectLockRule where
   parseXML x =
     ObjectLockRule'
-      Core.<$> (x Core..@? "DefaultRetention")
+      Prelude.<$> (x Core..@? "DefaultRetention")
 
-instance Core.Hashable ObjectLockRule
+instance Prelude.Hashable ObjectLockRule
 
-instance Core.NFData ObjectLockRule
+instance Prelude.NFData ObjectLockRule
 
 instance Core.ToXML ObjectLockRule where
   toXML ObjectLockRule' {..} =
-    Core.mconcat
+    Prelude.mconcat
       ["DefaultRetention" Core.@= defaultRetention]

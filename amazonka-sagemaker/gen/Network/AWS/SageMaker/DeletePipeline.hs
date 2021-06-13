@@ -42,6 +42,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -49,13 +50,13 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeletePipeline' smart constructor.
 data DeletePipeline = DeletePipeline'
   { -- | The name of the pipeline to delete.
-    pipelineName :: Core.Text,
+    pipelineName :: Prelude.Text,
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the operation. An idempotent operation completes no more
     -- than one time.
-    clientRequestToken :: Core.Text
+    clientRequestToken :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePipeline' with all optional fields omitted.
@@ -72,9 +73,9 @@ data DeletePipeline = DeletePipeline'
 -- than one time.
 newDeletePipeline ::
   -- | 'pipelineName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'clientRequestToken'
-  Core.Text ->
+  Prelude.Text ->
   DeletePipeline
 newDeletePipeline pPipelineName_ pClientRequestToken_ =
   DeletePipeline'
@@ -83,13 +84,13 @@ newDeletePipeline pPipelineName_ pClientRequestToken_ =
     }
 
 -- | The name of the pipeline to delete.
-deletePipeline_pipelineName :: Lens.Lens' DeletePipeline Core.Text
+deletePipeline_pipelineName :: Lens.Lens' DeletePipeline Prelude.Text
 deletePipeline_pipelineName = Lens.lens (\DeletePipeline' {pipelineName} -> pipelineName) (\s@DeletePipeline' {} a -> s {pipelineName = a} :: DeletePipeline)
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the operation. An idempotent operation completes no more
 -- than one time.
-deletePipeline_clientRequestToken :: Lens.Lens' DeletePipeline Core.Text
+deletePipeline_clientRequestToken :: Lens.Lens' DeletePipeline Prelude.Text
 deletePipeline_clientRequestToken = Lens.lens (\DeletePipeline' {clientRequestToken} -> clientRequestToken) (\s@DeletePipeline' {} a -> s {clientRequestToken = a} :: DeletePipeline)
 
 instance Core.AWSRequest DeletePipeline where
@@ -101,49 +102,51 @@ instance Core.AWSRequest DeletePipeline where
     Response.receiveJSON
       ( \s h x ->
           DeletePipelineResponse'
-            Core.<$> (x Core..?> "PipelineArn")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "PipelineArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DeletePipeline
+instance Prelude.Hashable DeletePipeline
 
-instance Core.NFData DeletePipeline
+instance Prelude.NFData DeletePipeline
 
 instance Core.ToHeaders DeletePipeline where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeletePipeline" :: Core.ByteString),
+              Core.=# ("SageMaker.DeletePipeline" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeletePipeline where
   toJSON DeletePipeline' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("PipelineName" Core..= pipelineName),
-            Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just ("PipelineName" Core..= pipelineName),
+            Prelude.Just
               ("ClientRequestToken" Core..= clientRequestToken)
           ]
       )
 
 instance Core.ToPath DeletePipeline where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeletePipeline where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePipelineResponse' smart constructor.
 data DeletePipelineResponse = DeletePipelineResponse'
   { -- | The Amazon Resource Name (ARN) of the pipeline to delete.
-    pipelineArn :: Core.Maybe Core.Text,
+    pipelineArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeletePipelineResponse' with all optional fields omitted.
@@ -158,20 +161,21 @@ data DeletePipelineResponse = DeletePipelineResponse'
 -- 'httpStatus', 'deletePipelineResponse_httpStatus' - The response's http status code.
 newDeletePipelineResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DeletePipelineResponse
 newDeletePipelineResponse pHttpStatus_ =
   DeletePipelineResponse'
-    { pipelineArn = Core.Nothing,
+    { pipelineArn =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the pipeline to delete.
-deletePipelineResponse_pipelineArn :: Lens.Lens' DeletePipelineResponse (Core.Maybe Core.Text)
+deletePipelineResponse_pipelineArn :: Lens.Lens' DeletePipelineResponse (Prelude.Maybe Prelude.Text)
 deletePipelineResponse_pipelineArn = Lens.lens (\DeletePipelineResponse' {pipelineArn} -> pipelineArn) (\s@DeletePipelineResponse' {} a -> s {pipelineArn = a} :: DeletePipelineResponse)
 
 -- | The response's http status code.
-deletePipelineResponse_httpStatus :: Lens.Lens' DeletePipelineResponse Core.Int
+deletePipelineResponse_httpStatus :: Lens.Lens' DeletePipelineResponse Prelude.Int
 deletePipelineResponse_httpStatus = Lens.lens (\DeletePipelineResponse' {httpStatus} -> httpStatus) (\s@DeletePipelineResponse' {} a -> s {httpStatus = a} :: DeletePipelineResponse)
 
-instance Core.NFData DeletePipelineResponse
+instance Prelude.NFData DeletePipelineResponse

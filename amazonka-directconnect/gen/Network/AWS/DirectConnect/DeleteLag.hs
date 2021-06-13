@@ -58,15 +58,16 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteLag' smart constructor.
 data DeleteLag = DeleteLag'
   { -- | The ID of the LAG.
-    lagId :: Core.Text
+    lagId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLag' with all optional fields omitted.
@@ -79,12 +80,12 @@ data DeleteLag = DeleteLag'
 -- 'lagId', 'deleteLag_lagId' - The ID of the LAG.
 newDeleteLag ::
   -- | 'lagId'
-  Core.Text ->
+  Prelude.Text ->
   DeleteLag
 newDeleteLag pLagId_ = DeleteLag' {lagId = pLagId_}
 
 -- | The ID of the LAG.
-deleteLag_lagId :: Lens.Lens' DeleteLag Core.Text
+deleteLag_lagId :: Lens.Lens' DeleteLag Prelude.Text
 deleteLag_lagId = Lens.lens (\DeleteLag' {lagId} -> lagId) (\s@DeleteLag' {} a -> s {lagId = a} :: DeleteLag)
 
 instance Core.AWSRequest DeleteLag where
@@ -94,28 +95,32 @@ instance Core.AWSRequest DeleteLag where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable DeleteLag
+instance Prelude.Hashable DeleteLag
 
-instance Core.NFData DeleteLag
+instance Prelude.NFData DeleteLag
 
 instance Core.ToHeaders DeleteLag where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("OvertureService.DeleteLag" :: Core.ByteString),
+              Core.=# ("OvertureService.DeleteLag" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DeleteLag where
   toJSON DeleteLag' {..} =
     Core.object
-      (Core.catMaybes [Core.Just ("lagId" Core..= lagId)])
+      ( Prelude.catMaybes
+          [Prelude.Just ("lagId" Core..= lagId)]
+      )
 
 instance Core.ToPath DeleteLag where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DeleteLag where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty

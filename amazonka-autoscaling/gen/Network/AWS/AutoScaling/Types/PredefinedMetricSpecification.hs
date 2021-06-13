@@ -22,6 +22,7 @@ module Network.AWS.AutoScaling.Types.PredefinedMetricSpecification where
 import Network.AWS.AutoScaling.Types.MetricType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a predefined metric for a target tracking scaling policy to
 -- use with Amazon EC2 Auto Scaling.
@@ -53,7 +54,7 @@ data PredefinedMetricSpecification = PredefinedMetricSpecification'
     -- API operation. To find the ARN for the target group, use the
     -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups>
     -- API operation.
-    resourceLabel :: Core.Maybe Core.Text,
+    resourceLabel :: Prelude.Maybe Prelude.Text,
     -- | The metric type. The following predefined metrics are available:
     --
     -- -   @ASGAverageCPUUtilization@ - Average CPU utilization of the Auto
@@ -69,7 +70,7 @@ data PredefinedMetricSpecification = PredefinedMetricSpecification'
     --     in an Application Load Balancer target group.
     predefinedMetricType :: MetricType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PredefinedMetricSpecification' with all optional fields omitted.
@@ -126,7 +127,7 @@ newPredefinedMetricSpecification
   pPredefinedMetricType_ =
     PredefinedMetricSpecification'
       { resourceLabel =
-          Core.Nothing,
+          Prelude.Nothing,
         predefinedMetricType =
           pPredefinedMetricType_
       }
@@ -156,7 +157,7 @@ newPredefinedMetricSpecification
 -- API operation. To find the ARN for the target group, use the
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups>
 -- API operation.
-predefinedMetricSpecification_resourceLabel :: Lens.Lens' PredefinedMetricSpecification (Core.Maybe Core.Text)
+predefinedMetricSpecification_resourceLabel :: Lens.Lens' PredefinedMetricSpecification (Prelude.Maybe Prelude.Text)
 predefinedMetricSpecification_resourceLabel = Lens.lens (\PredefinedMetricSpecification' {resourceLabel} -> resourceLabel) (\s@PredefinedMetricSpecification' {} a -> s {resourceLabel = a} :: PredefinedMetricSpecification)
 
 -- | The metric type. The following predefined metrics are available:
@@ -178,16 +179,18 @@ predefinedMetricSpecification_predefinedMetricType = Lens.lens (\PredefinedMetri
 instance Core.FromXML PredefinedMetricSpecification where
   parseXML x =
     PredefinedMetricSpecification'
-      Core.<$> (x Core..@? "ResourceLabel")
-      Core.<*> (x Core..@ "PredefinedMetricType")
+      Prelude.<$> (x Core..@? "ResourceLabel")
+      Prelude.<*> (x Core..@ "PredefinedMetricType")
 
-instance Core.Hashable PredefinedMetricSpecification
+instance
+  Prelude.Hashable
+    PredefinedMetricSpecification
 
-instance Core.NFData PredefinedMetricSpecification
+instance Prelude.NFData PredefinedMetricSpecification
 
 instance Core.ToQuery PredefinedMetricSpecification where
   toQuery PredefinedMetricSpecification' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "ResourceLabel" Core.=: resourceLabel,
         "PredefinedMetricType" Core.=: predefinedMetricType
       ]

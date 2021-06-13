@@ -21,6 +21,7 @@ module Network.AWS.S3.Types.NotificationConfigurationFilter where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.S3KeyFilter
 
@@ -31,9 +32,9 @@ import Network.AWS.S3.Types.S3KeyFilter
 --
 -- /See:/ 'newNotificationConfigurationFilter' smart constructor.
 data NotificationConfigurationFilter = NotificationConfigurationFilter'
-  { key :: Core.Maybe S3KeyFilter
+  { key :: Prelude.Maybe S3KeyFilter
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'NotificationConfigurationFilter' with all optional fields omitted.
@@ -49,24 +50,26 @@ newNotificationConfigurationFilter ::
 newNotificationConfigurationFilter =
   NotificationConfigurationFilter'
     { key =
-        Core.Nothing
+        Prelude.Nothing
     }
 
 -- | Undocumented member.
-notificationConfigurationFilter_key :: Lens.Lens' NotificationConfigurationFilter (Core.Maybe S3KeyFilter)
+notificationConfigurationFilter_key :: Lens.Lens' NotificationConfigurationFilter (Prelude.Maybe S3KeyFilter)
 notificationConfigurationFilter_key = Lens.lens (\NotificationConfigurationFilter' {key} -> key) (\s@NotificationConfigurationFilter' {} a -> s {key = a} :: NotificationConfigurationFilter)
 
 instance Core.FromXML NotificationConfigurationFilter where
   parseXML x =
     NotificationConfigurationFilter'
-      Core.<$> (x Core..@? "S3Key")
+      Prelude.<$> (x Core..@? "S3Key")
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     NotificationConfigurationFilter
 
-instance Core.NFData NotificationConfigurationFilter
+instance
+  Prelude.NFData
+    NotificationConfigurationFilter
 
 instance Core.ToXML NotificationConfigurationFilter where
   toXML NotificationConfigurationFilter' {..} =
-    Core.mconcat ["S3Key" Core.@= key]
+    Prelude.mconcat ["S3Key" Core.@= key]

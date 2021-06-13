@@ -86,6 +86,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -104,7 +105,7 @@ data SendEmail = SendEmail'
     -- parameter is never overwritten. This email address must be either
     -- individually verified with Amazon SES, or from a domain that has been
     -- verified with Amazon SES.
-    returnPath :: Core.Maybe Core.Text,
+    returnPath :: Prelude.Maybe Prelude.Text,
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to use the email address specified in the @ReturnPath@
@@ -119,14 +120,14 @@ data SendEmail = SendEmail'
     --
     -- For more information about sending authorization, see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-    returnPathArn :: Core.Maybe Core.Text,
+    returnPathArn :: Prelude.Maybe Prelude.Text,
     -- | The reply-to email address(es) for the message. If the recipient replies
     -- to the message, each reply-to address will receive the reply.
-    replyToAddresses :: Core.Maybe [Core.Text],
+    replyToAddresses :: Prelude.Maybe [Prelude.Text],
     -- | A list of tags, in the form of name\/value pairs, to apply to an email
     -- that you send using @SendEmail@. Tags correspond to characteristics of
     -- the email that you define, so that you can publish email sending events.
-    tags :: Core.Maybe [MessageTag],
+    tags :: Prelude.Maybe [MessageTag],
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to send for the email address specified in the @Source@
@@ -141,10 +142,10 @@ data SendEmail = SendEmail'
     --
     -- For more information about sending authorization, see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-    sourceArn :: Core.Maybe Core.Text,
+    sourceArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the configuration set to use when you send an email using
     -- @SendEmail@.
-    configurationSetName :: Core.Maybe Core.Text,
+    configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | The email address that is sending the email. This email address must be
     -- either individually verified with Amazon SES, or from a domain that has
     -- been verified with Amazon SES. For information about verifying
@@ -170,13 +171,13 @@ data SendEmail = SendEmail'
     -- described in <https://tools.ietf.org/html/rfc2047 RFC 2047>. MIME
     -- encoded-word syntax uses the following form:
     -- @=?charset?encoding?encoded-text?=@.
-    source :: Core.Text,
+    source :: Prelude.Text,
     -- | The destination for this email, composed of To:, CC:, and BCC: fields.
     destination :: Destination,
     -- | The message to be sent.
     message :: Message
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendEmail' with all optional fields omitted.
@@ -266,7 +267,7 @@ data SendEmail = SendEmail'
 -- 'message', 'sendEmail_message' - The message to be sent.
 newSendEmail ::
   -- | 'source'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'destination'
   Destination ->
   -- | 'message'
@@ -274,12 +275,12 @@ newSendEmail ::
   SendEmail
 newSendEmail pSource_ pDestination_ pMessage_ =
   SendEmail'
-    { returnPath = Core.Nothing,
-      returnPathArn = Core.Nothing,
-      replyToAddresses = Core.Nothing,
-      tags = Core.Nothing,
-      sourceArn = Core.Nothing,
-      configurationSetName = Core.Nothing,
+    { returnPath = Prelude.Nothing,
+      returnPathArn = Prelude.Nothing,
+      replyToAddresses = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      sourceArn = Prelude.Nothing,
+      configurationSetName = Prelude.Nothing,
       source = pSource_,
       destination = pDestination_,
       message = pMessage_
@@ -293,7 +294,7 @@ newSendEmail pSource_ pDestination_ pMessage_ =
 -- parameter is never overwritten. This email address must be either
 -- individually verified with Amazon SES, or from a domain that has been
 -- verified with Amazon SES.
-sendEmail_returnPath :: Lens.Lens' SendEmail (Core.Maybe Core.Text)
+sendEmail_returnPath :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
 sendEmail_returnPath = Lens.lens (\SendEmail' {returnPath} -> returnPath) (\s@SendEmail' {} a -> s {returnPath = a} :: SendEmail)
 
 -- | This parameter is used only for sending authorization. It is the ARN of
@@ -310,19 +311,19 @@ sendEmail_returnPath = Lens.lens (\SendEmail' {returnPath} -> returnPath) (\s@Se
 --
 -- For more information about sending authorization, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-sendEmail_returnPathArn :: Lens.Lens' SendEmail (Core.Maybe Core.Text)
+sendEmail_returnPathArn :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
 sendEmail_returnPathArn = Lens.lens (\SendEmail' {returnPathArn} -> returnPathArn) (\s@SendEmail' {} a -> s {returnPathArn = a} :: SendEmail)
 
 -- | The reply-to email address(es) for the message. If the recipient replies
 -- to the message, each reply-to address will receive the reply.
-sendEmail_replyToAddresses :: Lens.Lens' SendEmail (Core.Maybe [Core.Text])
-sendEmail_replyToAddresses = Lens.lens (\SendEmail' {replyToAddresses} -> replyToAddresses) (\s@SendEmail' {} a -> s {replyToAddresses = a} :: SendEmail) Core.. Lens.mapping Lens._Coerce
+sendEmail_replyToAddresses :: Lens.Lens' SendEmail (Prelude.Maybe [Prelude.Text])
+sendEmail_replyToAddresses = Lens.lens (\SendEmail' {replyToAddresses} -> replyToAddresses) (\s@SendEmail' {} a -> s {replyToAddresses = a} :: SendEmail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of tags, in the form of name\/value pairs, to apply to an email
 -- that you send using @SendEmail@. Tags correspond to characteristics of
 -- the email that you define, so that you can publish email sending events.
-sendEmail_tags :: Lens.Lens' SendEmail (Core.Maybe [MessageTag])
-sendEmail_tags = Lens.lens (\SendEmail' {tags} -> tags) (\s@SendEmail' {} a -> s {tags = a} :: SendEmail) Core.. Lens.mapping Lens._Coerce
+sendEmail_tags :: Lens.Lens' SendEmail (Prelude.Maybe [MessageTag])
+sendEmail_tags = Lens.lens (\SendEmail' {tags} -> tags) (\s@SendEmail' {} a -> s {tags = a} :: SendEmail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -338,12 +339,12 @@ sendEmail_tags = Lens.lens (\SendEmail' {tags} -> tags) (\s@SendEmail' {} a -> s
 --
 -- For more information about sending authorization, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-sendEmail_sourceArn :: Lens.Lens' SendEmail (Core.Maybe Core.Text)
+sendEmail_sourceArn :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
 sendEmail_sourceArn = Lens.lens (\SendEmail' {sourceArn} -> sourceArn) (\s@SendEmail' {} a -> s {sourceArn = a} :: SendEmail)
 
 -- | The name of the configuration set to use when you send an email using
 -- @SendEmail@.
-sendEmail_configurationSetName :: Lens.Lens' SendEmail (Core.Maybe Core.Text)
+sendEmail_configurationSetName :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
 sendEmail_configurationSetName = Lens.lens (\SendEmail' {configurationSetName} -> configurationSetName) (\s@SendEmail' {} a -> s {configurationSetName = a} :: SendEmail)
 
 -- | The email address that is sending the email. This email address must be
@@ -371,7 +372,7 @@ sendEmail_configurationSetName = Lens.lens (\SendEmail' {configurationSetName} -
 -- described in <https://tools.ietf.org/html/rfc2047 RFC 2047>. MIME
 -- encoded-word syntax uses the following form:
 -- @=?charset?encoding?encoded-text?=@.
-sendEmail_source :: Lens.Lens' SendEmail Core.Text
+sendEmail_source :: Lens.Lens' SendEmail Prelude.Text
 sendEmail_source = Lens.lens (\SendEmail' {source} -> source) (\s@SendEmail' {} a -> s {source = a} :: SendEmail)
 
 -- | The destination for this email, composed of To:, CC:, and BCC: fields.
@@ -390,35 +391,37 @@ instance Core.AWSRequest SendEmail where
       "SendEmailResult"
       ( \s h x ->
           SendEmailResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..@ "MessageId")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "MessageId")
       )
 
-instance Core.Hashable SendEmail
+instance Prelude.Hashable SendEmail
 
-instance Core.NFData SendEmail
+instance Prelude.NFData SendEmail
 
 instance Core.ToHeaders SendEmail where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath SendEmail where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery SendEmail where
   toQuery SendEmail' {..} =
-    Core.mconcat
-      [ "Action" Core.=: ("SendEmail" :: Core.ByteString),
-        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("SendEmail" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
         "ReturnPath" Core.=: returnPath,
         "ReturnPathArn" Core.=: returnPathArn,
         "ReplyToAddresses"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
-                Core.<$> replyToAddresses
+                Prelude.<$> replyToAddresses
             ),
         "Tags"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> tags),
+            (Core.toQueryList "member" Prelude.<$> tags),
         "SourceArn" Core.=: sourceArn,
         "ConfigurationSetName" Core.=: configurationSetName,
         "Source" Core.=: source,
@@ -431,11 +434,11 @@ instance Core.ToQuery SendEmail where
 -- /See:/ 'newSendEmailResponse' smart constructor.
 data SendEmailResponse = SendEmailResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | The unique message identifier returned from the @SendEmail@ action.
-    messageId :: Core.Text
+    messageId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendEmailResponse' with all optional fields omitted.
@@ -450,9 +453,9 @@ data SendEmailResponse = SendEmailResponse'
 -- 'messageId', 'sendEmailResponse_messageId' - The unique message identifier returned from the @SendEmail@ action.
 newSendEmailResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'messageId'
-  Core.Text ->
+  Prelude.Text ->
   SendEmailResponse
 newSendEmailResponse pHttpStatus_ pMessageId_ =
   SendEmailResponse'
@@ -461,11 +464,11 @@ newSendEmailResponse pHttpStatus_ pMessageId_ =
     }
 
 -- | The response's http status code.
-sendEmailResponse_httpStatus :: Lens.Lens' SendEmailResponse Core.Int
+sendEmailResponse_httpStatus :: Lens.Lens' SendEmailResponse Prelude.Int
 sendEmailResponse_httpStatus = Lens.lens (\SendEmailResponse' {httpStatus} -> httpStatus) (\s@SendEmailResponse' {} a -> s {httpStatus = a} :: SendEmailResponse)
 
 -- | The unique message identifier returned from the @SendEmail@ action.
-sendEmailResponse_messageId :: Lens.Lens' SendEmailResponse Core.Text
+sendEmailResponse_messageId :: Lens.Lens' SendEmailResponse Prelude.Text
 sendEmailResponse_messageId = Lens.lens (\SendEmailResponse' {messageId} -> messageId) (\s@SendEmailResponse' {} a -> s {messageId = a} :: SendEmailResponse)
 
-instance Core.NFData SendEmailResponse
+instance Prelude.NFData SendEmailResponse

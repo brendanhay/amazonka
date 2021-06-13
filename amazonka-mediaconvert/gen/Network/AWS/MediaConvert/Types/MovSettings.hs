@@ -26,6 +26,7 @@ import Network.AWS.MediaConvert.Types.MovCslgAtom
 import Network.AWS.MediaConvert.Types.MovMpeg2FourCCControl
 import Network.AWS.MediaConvert.Types.MovPaddingControl
 import Network.AWS.MediaConvert.Types.MovReference
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for MOV Container.
 --
@@ -36,25 +37,25 @@ data MovSettings = MovSettings'
     -- When you keep the default value, OMNEON, MediaConvert increases the
     -- length of the edit list atom. This might cause file rejections when a
     -- recipient of the output file doesn\'t expct this extra padding.
-    paddingControl :: Core.Maybe MovPaddingControl,
+    paddingControl :: Prelude.Maybe MovPaddingControl,
     -- | When enabled, file composition times will start at zero, composition
     -- times in the \'ctts\' (composition time to sample) box for B-frames will
     -- be negative, and a \'cslg\' (composition shift least greatest) box will
     -- be included per 14496-1 amendment 1. This improves compatibility with
     -- Apple players and tools.
-    cslgAtom :: Core.Maybe MovCslgAtom,
+    cslgAtom :: Prelude.Maybe MovCslgAtom,
     -- | When set to XDCAM, writes MPEG2 video streams into the QuickTime file
     -- using XDCAM fourcc codes. This increases compatibility with Apple
     -- editors and players, but may decrease compatibility with other players.
     -- Only applicable when the video codec is MPEG2.
-    mpeg2FourCCControl :: Core.Maybe MovMpeg2FourCCControl,
+    mpeg2FourCCControl :: Prelude.Maybe MovMpeg2FourCCControl,
     -- | When enabled, include \'clap\' atom if appropriate for the video output
     -- settings.
-    clapAtom :: Core.Maybe MovClapAtom,
+    clapAtom :: Prelude.Maybe MovClapAtom,
     -- | Always keep the default value (SELF_CONTAINED) for this setting.
-    reference :: Core.Maybe MovReference
+    reference :: Prelude.Maybe MovReference
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'MovSettings' with all optional fields omitted.
@@ -89,11 +90,11 @@ newMovSettings ::
   MovSettings
 newMovSettings =
   MovSettings'
-    { paddingControl = Core.Nothing,
-      cslgAtom = Core.Nothing,
-      mpeg2FourCCControl = Core.Nothing,
-      clapAtom = Core.Nothing,
-      reference = Core.Nothing
+    { paddingControl = Prelude.Nothing,
+      cslgAtom = Prelude.Nothing,
+      mpeg2FourCCControl = Prelude.Nothing,
+      clapAtom = Prelude.Nothing,
+      reference = Prelude.Nothing
     }
 
 -- | To make this output compatible with Omenon, keep the default value,
@@ -101,7 +102,7 @@ newMovSettings =
 -- When you keep the default value, OMNEON, MediaConvert increases the
 -- length of the edit list atom. This might cause file rejections when a
 -- recipient of the output file doesn\'t expct this extra padding.
-movSettings_paddingControl :: Lens.Lens' MovSettings (Core.Maybe MovPaddingControl)
+movSettings_paddingControl :: Lens.Lens' MovSettings (Prelude.Maybe MovPaddingControl)
 movSettings_paddingControl = Lens.lens (\MovSettings' {paddingControl} -> paddingControl) (\s@MovSettings' {} a -> s {paddingControl = a} :: MovSettings)
 
 -- | When enabled, file composition times will start at zero, composition
@@ -109,23 +110,23 @@ movSettings_paddingControl = Lens.lens (\MovSettings' {paddingControl} -> paddin
 -- be negative, and a \'cslg\' (composition shift least greatest) box will
 -- be included per 14496-1 amendment 1. This improves compatibility with
 -- Apple players and tools.
-movSettings_cslgAtom :: Lens.Lens' MovSettings (Core.Maybe MovCslgAtom)
+movSettings_cslgAtom :: Lens.Lens' MovSettings (Prelude.Maybe MovCslgAtom)
 movSettings_cslgAtom = Lens.lens (\MovSettings' {cslgAtom} -> cslgAtom) (\s@MovSettings' {} a -> s {cslgAtom = a} :: MovSettings)
 
 -- | When set to XDCAM, writes MPEG2 video streams into the QuickTime file
 -- using XDCAM fourcc codes. This increases compatibility with Apple
 -- editors and players, but may decrease compatibility with other players.
 -- Only applicable when the video codec is MPEG2.
-movSettings_mpeg2FourCCControl :: Lens.Lens' MovSettings (Core.Maybe MovMpeg2FourCCControl)
+movSettings_mpeg2FourCCControl :: Lens.Lens' MovSettings (Prelude.Maybe MovMpeg2FourCCControl)
 movSettings_mpeg2FourCCControl = Lens.lens (\MovSettings' {mpeg2FourCCControl} -> mpeg2FourCCControl) (\s@MovSettings' {} a -> s {mpeg2FourCCControl = a} :: MovSettings)
 
 -- | When enabled, include \'clap\' atom if appropriate for the video output
 -- settings.
-movSettings_clapAtom :: Lens.Lens' MovSettings (Core.Maybe MovClapAtom)
+movSettings_clapAtom :: Lens.Lens' MovSettings (Prelude.Maybe MovClapAtom)
 movSettings_clapAtom = Lens.lens (\MovSettings' {clapAtom} -> clapAtom) (\s@MovSettings' {} a -> s {clapAtom = a} :: MovSettings)
 
 -- | Always keep the default value (SELF_CONTAINED) for this setting.
-movSettings_reference :: Lens.Lens' MovSettings (Core.Maybe MovReference)
+movSettings_reference :: Lens.Lens' MovSettings (Prelude.Maybe MovReference)
 movSettings_reference = Lens.lens (\MovSettings' {reference} -> reference) (\s@MovSettings' {} a -> s {reference = a} :: MovSettings)
 
 instance Core.FromJSON MovSettings where
@@ -134,26 +135,27 @@ instance Core.FromJSON MovSettings where
       "MovSettings"
       ( \x ->
           MovSettings'
-            Core.<$> (x Core..:? "paddingControl")
-            Core.<*> (x Core..:? "cslgAtom")
-            Core.<*> (x Core..:? "mpeg2FourCCControl")
-            Core.<*> (x Core..:? "clapAtom")
-            Core.<*> (x Core..:? "reference")
+            Prelude.<$> (x Core..:? "paddingControl")
+            Prelude.<*> (x Core..:? "cslgAtom")
+            Prelude.<*> (x Core..:? "mpeg2FourCCControl")
+            Prelude.<*> (x Core..:? "clapAtom")
+            Prelude.<*> (x Core..:? "reference")
       )
 
-instance Core.Hashable MovSettings
+instance Prelude.Hashable MovSettings
 
-instance Core.NFData MovSettings
+instance Prelude.NFData MovSettings
 
 instance Core.ToJSON MovSettings where
   toJSON MovSettings' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("paddingControl" Core..=) Core.<$> paddingControl,
-            ("cslgAtom" Core..=) Core.<$> cslgAtom,
+      ( Prelude.catMaybes
+          [ ("paddingControl" Core..=)
+              Prelude.<$> paddingControl,
+            ("cslgAtom" Core..=) Prelude.<$> cslgAtom,
             ("mpeg2FourCCControl" Core..=)
-              Core.<$> mpeg2FourCCControl,
-            ("clapAtom" Core..=) Core.<$> clapAtom,
-            ("reference" Core..=) Core.<$> reference
+              Prelude.<$> mpeg2FourCCControl,
+            ("clapAtom" Core..=) Prelude.<$> clapAtom,
+            ("reference" Core..=) Prelude.<$> reference
           ]
       )

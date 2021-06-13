@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,7 +54,7 @@ import qualified Network.AWS.Response as Response
 data DescribeOrganization = DescribeOrganization'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeOrganization' with all optional fields omitted.
@@ -72,35 +73,37 @@ instance Core.AWSRequest DescribeOrganization where
     Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationResponse'
-            Core.<$> (x Core..?> "Organization")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "Organization")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable DescribeOrganization
+instance Prelude.Hashable DescribeOrganization
 
-instance Core.NFData DescribeOrganization
+instance Prelude.NFData DescribeOrganization
 
 instance Core.ToHeaders DescribeOrganization where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AWSOrganizationsV20161128.DescribeOrganization" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON DescribeOrganization where
-  toJSON = Core.const (Core.Object Core.mempty)
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
 instance Core.ToPath DescribeOrganization where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery DescribeOrganization where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeOrganizationResponse' smart constructor.
 data DescribeOrganizationResponse = DescribeOrganizationResponse'
@@ -110,11 +113,11 @@ data DescribeOrganizationResponse = DescribeOrganizationResponse'
     -- shouldn\'t use it in your apps. It doesn\'t include any policy type
     -- supported by Organizations other than SCPs. To determine which policy
     -- types are enabled in your organization, use the @ ListRoots @ operation.
-    organization :: Core.Maybe Organization,
+    organization :: Prelude.Maybe Organization,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeOrganizationResponse' with all optional fields omitted.
@@ -134,12 +137,12 @@ data DescribeOrganizationResponse = DescribeOrganizationResponse'
 -- 'httpStatus', 'describeOrganizationResponse_httpStatus' - The response's http status code.
 newDescribeOrganizationResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   DescribeOrganizationResponse
 newDescribeOrganizationResponse pHttpStatus_ =
   DescribeOrganizationResponse'
     { organization =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -149,11 +152,11 @@ newDescribeOrganizationResponse pHttpStatus_ =
 -- shouldn\'t use it in your apps. It doesn\'t include any policy type
 -- supported by Organizations other than SCPs. To determine which policy
 -- types are enabled in your organization, use the @ ListRoots @ operation.
-describeOrganizationResponse_organization :: Lens.Lens' DescribeOrganizationResponse (Core.Maybe Organization)
+describeOrganizationResponse_organization :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Organization)
 describeOrganizationResponse_organization = Lens.lens (\DescribeOrganizationResponse' {organization} -> organization) (\s@DescribeOrganizationResponse' {} a -> s {organization = a} :: DescribeOrganizationResponse)
 
 -- | The response's http status code.
-describeOrganizationResponse_httpStatus :: Lens.Lens' DescribeOrganizationResponse Core.Int
+describeOrganizationResponse_httpStatus :: Lens.Lens' DescribeOrganizationResponse Prelude.Int
 describeOrganizationResponse_httpStatus = Lens.lens (\DescribeOrganizationResponse' {httpStatus} -> httpStatus) (\s@DescribeOrganizationResponse' {} a -> s {httpStatus = a} :: DescribeOrganizationResponse)
 
-instance Core.NFData DescribeOrganizationResponse
+instance Prelude.NFData DescribeOrganizationResponse

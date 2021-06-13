@@ -30,6 +30,7 @@ module Network.AWS.MediaConvert.Types.WatermarkingStrength
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Optional. Ignore this setting unless Nagra support directs you to
 -- specify a value. When you don\'t specify a value here, the Nagra
@@ -39,15 +40,15 @@ newtype WatermarkingStrength = WatermarkingStrength'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

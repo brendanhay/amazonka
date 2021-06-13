@@ -80,6 +80,7 @@ where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -93,9 +94,9 @@ data RegisterDomain = RegisterDomain'
     -- charged.
     --
     -- Default: @true@
-    autoRenew :: Core.Maybe Core.Bool,
+    autoRenew :: Prelude.Maybe Prelude.Bool,
     -- | Reserved for future use.
-    idnLangCode :: Core.Maybe Core.Text,
+    idnLangCode :: Prelude.Maybe Prelude.Text,
     -- | Whether you want to conceal contact information from WHOIS queries. If
     -- you specify @true@, WHOIS (\"who is\") queries return contact
     -- information either for Amazon Registrar (for .com, .net, and .org
@@ -104,7 +105,7 @@ data RegisterDomain = RegisterDomain'
     -- entered for the technical contact.
     --
     -- Default: @true@
-    privacyProtectTechContact :: Core.Maybe Core.Bool,
+    privacyProtectTechContact :: Prelude.Maybe Prelude.Bool,
     -- | Whether you want to conceal contact information from WHOIS queries. If
     -- you specify @true@, WHOIS (\"who is\") queries return contact
     -- information either for Amazon Registrar (for .com, .net, and .org
@@ -113,7 +114,7 @@ data RegisterDomain = RegisterDomain'
     -- entered for the registrant contact (the domain owner).
     --
     -- Default: @true@
-    privacyProtectRegistrantContact :: Core.Maybe Core.Bool,
+    privacyProtectRegistrantContact :: Prelude.Maybe Prelude.Bool,
     -- | Whether you want to conceal contact information from WHOIS queries. If
     -- you specify @true@, WHOIS (\"who is\") queries return contact
     -- information either for Amazon Registrar (for .com, .net, and .org
@@ -122,7 +123,7 @@ data RegisterDomain = RegisterDomain'
     -- entered for the admin contact.
     --
     -- Default: @true@
-    privacyProtectAdminContact :: Core.Maybe Core.Bool,
+    privacyProtectAdminContact :: Prelude.Maybe Prelude.Bool,
     -- | The domain name that you want to register. The top-level domain (TLD),
     -- such as .com, must be a TLD that Route 53 supports. For a list of
     -- supported TLDs, see
@@ -147,7 +148,7 @@ data RegisterDomain = RegisterDomain'
     -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53>.
     -- For more information, see
     -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html#domain-name-format-idns Formatting Internationalized Domain Names>.
-    domainName :: Core.Text,
+    domainName :: Prelude.Text,
     -- | The number of years that you want to register the domain for. Domains
     -- are registered for a minimum of one year. The maximum period depends on
     -- the top-level domain. For the range of valid values for your domain, see
@@ -155,7 +156,7 @@ data RegisterDomain = RegisterDomain'
     -- in the /Amazon Route 53 Developer Guide/.
     --
     -- Default: 1
-    durationInYears :: Core.Natural,
+    durationInYears :: Prelude.Natural,
     -- | Provides detailed contact information. For information about the values
     -- that you specify for each element, see
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail>.
@@ -169,7 +170,7 @@ data RegisterDomain = RegisterDomain'
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail>.
     techContact :: Core.Sensitive ContactDetail
   }
-  deriving (Core.Eq, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterDomain' with all optional fields omitted.
@@ -260,9 +261,9 @@ data RegisterDomain = RegisterDomain'
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail>.
 newRegisterDomain ::
   -- | 'domainName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'durationInYears'
-  Core.Natural ->
+  Prelude.Natural ->
   -- | 'adminContact'
   ContactDetail ->
   -- | 'registrantContact'
@@ -277,11 +278,11 @@ newRegisterDomain
   pRegistrantContact_
   pTechContact_ =
     RegisterDomain'
-      { autoRenew = Core.Nothing,
-        idnLangCode = Core.Nothing,
-        privacyProtectTechContact = Core.Nothing,
-        privacyProtectRegistrantContact = Core.Nothing,
-        privacyProtectAdminContact = Core.Nothing,
+      { autoRenew = Prelude.Nothing,
+        idnLangCode = Prelude.Nothing,
+        privacyProtectTechContact = Prelude.Nothing,
+        privacyProtectRegistrantContact = Prelude.Nothing,
+        privacyProtectAdminContact = Prelude.Nothing,
         domainName = pDomainName_,
         durationInYears = pDurationInYears_,
         adminContact = Core._Sensitive Lens.# pAdminContact_,
@@ -295,11 +296,11 @@ newRegisterDomain
 -- charged.
 --
 -- Default: @true@
-registerDomain_autoRenew :: Lens.Lens' RegisterDomain (Core.Maybe Core.Bool)
+registerDomain_autoRenew :: Lens.Lens' RegisterDomain (Prelude.Maybe Prelude.Bool)
 registerDomain_autoRenew = Lens.lens (\RegisterDomain' {autoRenew} -> autoRenew) (\s@RegisterDomain' {} a -> s {autoRenew = a} :: RegisterDomain)
 
 -- | Reserved for future use.
-registerDomain_idnLangCode :: Lens.Lens' RegisterDomain (Core.Maybe Core.Text)
+registerDomain_idnLangCode :: Lens.Lens' RegisterDomain (Prelude.Maybe Prelude.Text)
 registerDomain_idnLangCode = Lens.lens (\RegisterDomain' {idnLangCode} -> idnLangCode) (\s@RegisterDomain' {} a -> s {idnLangCode = a} :: RegisterDomain)
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -310,7 +311,7 @@ registerDomain_idnLangCode = Lens.lens (\RegisterDomain' {idnLangCode} -> idnLan
 -- entered for the technical contact.
 --
 -- Default: @true@
-registerDomain_privacyProtectTechContact :: Lens.Lens' RegisterDomain (Core.Maybe Core.Bool)
+registerDomain_privacyProtectTechContact :: Lens.Lens' RegisterDomain (Prelude.Maybe Prelude.Bool)
 registerDomain_privacyProtectTechContact = Lens.lens (\RegisterDomain' {privacyProtectTechContact} -> privacyProtectTechContact) (\s@RegisterDomain' {} a -> s {privacyProtectTechContact = a} :: RegisterDomain)
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -321,7 +322,7 @@ registerDomain_privacyProtectTechContact = Lens.lens (\RegisterDomain' {privacyP
 -- entered for the registrant contact (the domain owner).
 --
 -- Default: @true@
-registerDomain_privacyProtectRegistrantContact :: Lens.Lens' RegisterDomain (Core.Maybe Core.Bool)
+registerDomain_privacyProtectRegistrantContact :: Lens.Lens' RegisterDomain (Prelude.Maybe Prelude.Bool)
 registerDomain_privacyProtectRegistrantContact = Lens.lens (\RegisterDomain' {privacyProtectRegistrantContact} -> privacyProtectRegistrantContact) (\s@RegisterDomain' {} a -> s {privacyProtectRegistrantContact = a} :: RegisterDomain)
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -332,7 +333,7 @@ registerDomain_privacyProtectRegistrantContact = Lens.lens (\RegisterDomain' {pr
 -- entered for the admin contact.
 --
 -- Default: @true@
-registerDomain_privacyProtectAdminContact :: Lens.Lens' RegisterDomain (Core.Maybe Core.Bool)
+registerDomain_privacyProtectAdminContact :: Lens.Lens' RegisterDomain (Prelude.Maybe Prelude.Bool)
 registerDomain_privacyProtectAdminContact = Lens.lens (\RegisterDomain' {privacyProtectAdminContact} -> privacyProtectAdminContact) (\s@RegisterDomain' {} a -> s {privacyProtectAdminContact = a} :: RegisterDomain)
 
 -- | The domain name that you want to register. The top-level domain (TLD),
@@ -359,7 +360,7 @@ registerDomain_privacyProtectAdminContact = Lens.lens (\RegisterDomain' {privacy
 -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53>.
 -- For more information, see
 -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html#domain-name-format-idns Formatting Internationalized Domain Names>.
-registerDomain_domainName :: Lens.Lens' RegisterDomain Core.Text
+registerDomain_domainName :: Lens.Lens' RegisterDomain Prelude.Text
 registerDomain_domainName = Lens.lens (\RegisterDomain' {domainName} -> domainName) (\s@RegisterDomain' {} a -> s {domainName = a} :: RegisterDomain)
 
 -- | The number of years that you want to register the domain for. Domains
@@ -369,26 +370,26 @@ registerDomain_domainName = Lens.lens (\RegisterDomain' {domainName} -> domainNa
 -- in the /Amazon Route 53 Developer Guide/.
 --
 -- Default: 1
-registerDomain_durationInYears :: Lens.Lens' RegisterDomain Core.Natural
+registerDomain_durationInYears :: Lens.Lens' RegisterDomain Prelude.Natural
 registerDomain_durationInYears = Lens.lens (\RegisterDomain' {durationInYears} -> durationInYears) (\s@RegisterDomain' {} a -> s {durationInYears = a} :: RegisterDomain)
 
 -- | Provides detailed contact information. For information about the values
 -- that you specify for each element, see
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail>.
 registerDomain_adminContact :: Lens.Lens' RegisterDomain ContactDetail
-registerDomain_adminContact = Lens.lens (\RegisterDomain' {adminContact} -> adminContact) (\s@RegisterDomain' {} a -> s {adminContact = a} :: RegisterDomain) Core.. Core._Sensitive
+registerDomain_adminContact = Lens.lens (\RegisterDomain' {adminContact} -> adminContact) (\s@RegisterDomain' {} a -> s {adminContact = a} :: RegisterDomain) Prelude.. Core._Sensitive
 
 -- | Provides detailed contact information. For information about the values
 -- that you specify for each element, see
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail>.
 registerDomain_registrantContact :: Lens.Lens' RegisterDomain ContactDetail
-registerDomain_registrantContact = Lens.lens (\RegisterDomain' {registrantContact} -> registrantContact) (\s@RegisterDomain' {} a -> s {registrantContact = a} :: RegisterDomain) Core.. Core._Sensitive
+registerDomain_registrantContact = Lens.lens (\RegisterDomain' {registrantContact} -> registrantContact) (\s@RegisterDomain' {} a -> s {registrantContact = a} :: RegisterDomain) Prelude.. Core._Sensitive
 
 -- | Provides detailed contact information. For information about the values
 -- that you specify for each element, see
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail>.
 registerDomain_techContact :: Lens.Lens' RegisterDomain ContactDetail
-registerDomain_techContact = Lens.lens (\RegisterDomain' {techContact} -> techContact) (\s@RegisterDomain' {} a -> s {techContact = a} :: RegisterDomain) Core.. Core._Sensitive
+registerDomain_techContact = Lens.lens (\RegisterDomain' {techContact} -> techContact) (\s@RegisterDomain' {} a -> s {techContact = a} :: RegisterDomain) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest RegisterDomain where
   type
@@ -399,67 +400,69 @@ instance Core.AWSRequest RegisterDomain where
     Response.receiveJSON
       ( \s h x ->
           RegisterDomainResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-            Core.<*> (x Core..:> "OperationId")
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "OperationId")
       )
 
-instance Core.Hashable RegisterDomain
+instance Prelude.Hashable RegisterDomain
 
-instance Core.NFData RegisterDomain
+instance Prelude.NFData RegisterDomain
 
 instance Core.ToHeaders RegisterDomain where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "Route53Domains_v20140515.RegisterDomain" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON RegisterDomain where
   toJSON RegisterDomain' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("AutoRenew" Core..=) Core.<$> autoRenew,
-            ("IdnLangCode" Core..=) Core.<$> idnLangCode,
+      ( Prelude.catMaybes
+          [ ("AutoRenew" Core..=) Prelude.<$> autoRenew,
+            ("IdnLangCode" Core..=) Prelude.<$> idnLangCode,
             ("PrivacyProtectTechContact" Core..=)
-              Core.<$> privacyProtectTechContact,
+              Prelude.<$> privacyProtectTechContact,
             ("PrivacyProtectRegistrantContact" Core..=)
-              Core.<$> privacyProtectRegistrantContact,
+              Prelude.<$> privacyProtectRegistrantContact,
             ("PrivacyProtectAdminContact" Core..=)
-              Core.<$> privacyProtectAdminContact,
-            Core.Just ("DomainName" Core..= domainName),
-            Core.Just
+              Prelude.<$> privacyProtectAdminContact,
+            Prelude.Just ("DomainName" Core..= domainName),
+            Prelude.Just
               ("DurationInYears" Core..= durationInYears),
-            Core.Just ("AdminContact" Core..= adminContact),
-            Core.Just
+            Prelude.Just ("AdminContact" Core..= adminContact),
+            Prelude.Just
               ("RegistrantContact" Core..= registrantContact),
-            Core.Just ("TechContact" Core..= techContact)
+            Prelude.Just ("TechContact" Core..= techContact)
           ]
       )
 
 instance Core.ToPath RegisterDomain where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RegisterDomain where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The RegisterDomain response includes the following element.
 --
 -- /See:/ 'newRegisterDomainResponse' smart constructor.
 data RegisterDomainResponse = RegisterDomainResponse'
   { -- | The response's http status code.
-    httpStatus :: Core.Int,
+    httpStatus :: Prelude.Int,
     -- | Identifier for tracking the progress of the request. To query the
     -- operation status, use
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-    operationId :: Core.Text
+    operationId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterDomainResponse' with all optional fields omitted.
@@ -476,9 +479,9 @@ data RegisterDomainResponse = RegisterDomainResponse'
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
 newRegisterDomainResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'operationId'
-  Core.Text ->
+  Prelude.Text ->
   RegisterDomainResponse
 newRegisterDomainResponse pHttpStatus_ pOperationId_ =
   RegisterDomainResponse'
@@ -487,13 +490,13 @@ newRegisterDomainResponse pHttpStatus_ pOperationId_ =
     }
 
 -- | The response's http status code.
-registerDomainResponse_httpStatus :: Lens.Lens' RegisterDomainResponse Core.Int
+registerDomainResponse_httpStatus :: Lens.Lens' RegisterDomainResponse Prelude.Int
 registerDomainResponse_httpStatus = Lens.lens (\RegisterDomainResponse' {httpStatus} -> httpStatus) (\s@RegisterDomainResponse' {} a -> s {httpStatus = a} :: RegisterDomainResponse)
 
 -- | Identifier for tracking the progress of the request. To query the
 -- operation status, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-registerDomainResponse_operationId :: Lens.Lens' RegisterDomainResponse Core.Text
+registerDomainResponse_operationId :: Lens.Lens' RegisterDomainResponse Prelude.Text
 registerDomainResponse_operationId = Lens.lens (\RegisterDomainResponse' {operationId} -> operationId) (\s@RegisterDomainResponse' {} a -> s {operationId = a} :: RegisterDomainResponse)
 
-instance Core.NFData RegisterDomainResponse
+instance Prelude.NFData RegisterDomainResponse

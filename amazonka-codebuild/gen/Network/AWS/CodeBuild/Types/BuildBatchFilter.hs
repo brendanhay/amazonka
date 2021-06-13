@@ -22,6 +22,7 @@ module Network.AWS.CodeBuild.Types.BuildBatchFilter where
 import Network.AWS.CodeBuild.Types.StatusType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies filters when retrieving batch builds.
 --
@@ -29,9 +30,9 @@ import qualified Network.AWS.Lens as Lens
 data BuildBatchFilter = BuildBatchFilter'
   { -- | The status of the batch builds to retrieve. Only batch builds that have
     -- this status will be retrieved.
-    status :: Core.Maybe StatusType
+    status :: Prelude.Maybe StatusType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'BuildBatchFilter' with all optional fields omitted.
@@ -46,18 +47,20 @@ data BuildBatchFilter = BuildBatchFilter'
 newBuildBatchFilter ::
   BuildBatchFilter
 newBuildBatchFilter =
-  BuildBatchFilter' {status = Core.Nothing}
+  BuildBatchFilter' {status = Prelude.Nothing}
 
 -- | The status of the batch builds to retrieve. Only batch builds that have
 -- this status will be retrieved.
-buildBatchFilter_status :: Lens.Lens' BuildBatchFilter (Core.Maybe StatusType)
+buildBatchFilter_status :: Lens.Lens' BuildBatchFilter (Prelude.Maybe StatusType)
 buildBatchFilter_status = Lens.lens (\BuildBatchFilter' {status} -> status) (\s@BuildBatchFilter' {} a -> s {status = a} :: BuildBatchFilter)
 
-instance Core.Hashable BuildBatchFilter
+instance Prelude.Hashable BuildBatchFilter
 
-instance Core.NFData BuildBatchFilter
+instance Prelude.NFData BuildBatchFilter
 
 instance Core.ToJSON BuildBatchFilter where
   toJSON BuildBatchFilter' {..} =
     Core.object
-      (Core.catMaybes [("status" Core..=) Core.<$> status])
+      ( Prelude.catMaybes
+          [("status" Core..=) Prelude.<$> status]
+      )

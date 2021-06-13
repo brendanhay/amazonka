@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.Types.CmafManifestCompression
 where
 
 import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When set to GZIP, compresses HLS playlist.
 newtype CmafManifestCompression = CmafManifestCompression'
@@ -34,15 +35,15 @@ newtype CmafManifestCompression = CmafManifestCompression'
       Core.Text
   }
   deriving stock
-    ( Core.Show,
-      Core.Read,
-      Core.Eq,
-      Core.Ord,
-      Core.Generic
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
     )
   deriving newtype
-    ( Core.Hashable,
-      Core.NFData,
+    ( Prelude.Hashable,
+      Prelude.NFData,
       Core.FromText,
       Core.ToText,
       Core.ToByteString,

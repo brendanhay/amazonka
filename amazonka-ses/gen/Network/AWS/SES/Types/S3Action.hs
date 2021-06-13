@@ -21,6 +21,7 @@ module Network.AWS.SES.Types.S3Action where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When included in a receipt rule, this action saves the received message
 -- to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally,
@@ -45,7 +46,7 @@ data S3Action = S3Action'
   { -- | The key prefix of the Amazon S3 bucket. The key prefix is similar to a
     -- directory name that enables you to store similar data under the same
     -- directory in a bucket.
-    objectKeyPrefix :: Core.Maybe Core.Text,
+    objectKeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The customer master key that Amazon SES should use to encrypt your
     -- emails before saving them to the Amazon S3 bucket. You can use the
     -- default master key or a custom master key you created in AWS KMS as
@@ -83,17 +84,17 @@ data S3Action = S3Action'
     -- information about client-side encryption using AWS KMS master keys, see
     -- the
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html Amazon S3 Developer Guide>.
-    kmsKeyArn :: Core.Maybe Core.Text,
+    kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the Amazon SNS topic to notify when the message is saved to
     -- the Amazon S3 bucket. An example of an Amazon SNS topic ARN is
     -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
     -- Amazon SNS topics, see the
     -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
-    topicArn :: Core.Maybe Core.Text,
+    topicArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket that incoming email will be saved to.
-    bucketName :: Core.Text
+    bucketName :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'S3Action' with all optional fields omitted.
@@ -154,20 +155,20 @@ data S3Action = S3Action'
 -- 'bucketName', 's3Action_bucketName' - The name of the Amazon S3 bucket that incoming email will be saved to.
 newS3Action ::
   -- | 'bucketName'
-  Core.Text ->
+  Prelude.Text ->
   S3Action
 newS3Action pBucketName_ =
   S3Action'
-    { objectKeyPrefix = Core.Nothing,
-      kmsKeyArn = Core.Nothing,
-      topicArn = Core.Nothing,
+    { objectKeyPrefix = Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing,
+      topicArn = Prelude.Nothing,
       bucketName = pBucketName_
     }
 
 -- | The key prefix of the Amazon S3 bucket. The key prefix is similar to a
 -- directory name that enables you to store similar data under the same
 -- directory in a bucket.
-s3Action_objectKeyPrefix :: Lens.Lens' S3Action (Core.Maybe Core.Text)
+s3Action_objectKeyPrefix :: Lens.Lens' S3Action (Prelude.Maybe Prelude.Text)
 s3Action_objectKeyPrefix = Lens.lens (\S3Action' {objectKeyPrefix} -> objectKeyPrefix) (\s@S3Action' {} a -> s {objectKeyPrefix = a} :: S3Action)
 
 -- | The customer master key that Amazon SES should use to encrypt your
@@ -207,7 +208,7 @@ s3Action_objectKeyPrefix = Lens.lens (\S3Action' {objectKeyPrefix} -> objectKeyP
 -- information about client-side encryption using AWS KMS master keys, see
 -- the
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html Amazon S3 Developer Guide>.
-s3Action_kmsKeyArn :: Lens.Lens' S3Action (Core.Maybe Core.Text)
+s3Action_kmsKeyArn :: Lens.Lens' S3Action (Prelude.Maybe Prelude.Text)
 s3Action_kmsKeyArn = Lens.lens (\S3Action' {kmsKeyArn} -> kmsKeyArn) (\s@S3Action' {} a -> s {kmsKeyArn = a} :: S3Action)
 
 -- | The ARN of the Amazon SNS topic to notify when the message is saved to
@@ -215,28 +216,28 @@ s3Action_kmsKeyArn = Lens.lens (\S3Action' {kmsKeyArn} -> kmsKeyArn) (\s@S3Actio
 -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
 -- Amazon SNS topics, see the
 -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
-s3Action_topicArn :: Lens.Lens' S3Action (Core.Maybe Core.Text)
+s3Action_topicArn :: Lens.Lens' S3Action (Prelude.Maybe Prelude.Text)
 s3Action_topicArn = Lens.lens (\S3Action' {topicArn} -> topicArn) (\s@S3Action' {} a -> s {topicArn = a} :: S3Action)
 
 -- | The name of the Amazon S3 bucket that incoming email will be saved to.
-s3Action_bucketName :: Lens.Lens' S3Action Core.Text
+s3Action_bucketName :: Lens.Lens' S3Action Prelude.Text
 s3Action_bucketName = Lens.lens (\S3Action' {bucketName} -> bucketName) (\s@S3Action' {} a -> s {bucketName = a} :: S3Action)
 
 instance Core.FromXML S3Action where
   parseXML x =
     S3Action'
-      Core.<$> (x Core..@? "ObjectKeyPrefix")
-      Core.<*> (x Core..@? "KmsKeyArn")
-      Core.<*> (x Core..@? "TopicArn")
-      Core.<*> (x Core..@ "BucketName")
+      Prelude.<$> (x Core..@? "ObjectKeyPrefix")
+      Prelude.<*> (x Core..@? "KmsKeyArn")
+      Prelude.<*> (x Core..@? "TopicArn")
+      Prelude.<*> (x Core..@ "BucketName")
 
-instance Core.Hashable S3Action
+instance Prelude.Hashable S3Action
 
-instance Core.NFData S3Action
+instance Prelude.NFData S3Action
 
 instance Core.ToQuery S3Action where
   toQuery S3Action' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "ObjectKeyPrefix" Core.=: objectKeyPrefix,
         "KmsKeyArn" Core.=: kmsKeyArn,
         "TopicArn" Core.=: topicArn,

@@ -21,6 +21,7 @@ module Network.AWS.SageMaker.Types.AutoMLJobSummary where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AutoMLJobSecondaryStatus
 import Network.AWS.SageMaker.Types.AutoMLJobStatus
 
@@ -29,13 +30,13 @@ import Network.AWS.SageMaker.Types.AutoMLJobStatus
 -- /See:/ 'newAutoMLJobSummary' smart constructor.
 data AutoMLJobSummary = AutoMLJobSummary'
   { -- | The end time of an AutoML job.
-    endTime :: Core.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The failure reason of a job.
-    failureReason :: Core.Maybe Core.Text,
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The name of the object you are requesting.
-    autoMLJobName :: Core.Text,
+    autoMLJobName :: Prelude.Text,
     -- | The ARN of the job.
-    autoMLJobArn :: Core.Text,
+    autoMLJobArn :: Prelude.Text,
     -- | The job\'s status.
     autoMLJobStatus :: AutoMLJobStatus,
     -- | The job\'s secondary status.
@@ -45,7 +46,7 @@ data AutoMLJobSummary = AutoMLJobSummary'
     -- | When the job was last modified.
     lastModifiedTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AutoMLJobSummary' with all optional fields omitted.
@@ -72,17 +73,17 @@ data AutoMLJobSummary = AutoMLJobSummary'
 -- 'lastModifiedTime', 'autoMLJobSummary_lastModifiedTime' - When the job was last modified.
 newAutoMLJobSummary ::
   -- | 'autoMLJobName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'autoMLJobArn'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'autoMLJobStatus'
   AutoMLJobStatus ->
   -- | 'autoMLJobSecondaryStatus'
   AutoMLJobSecondaryStatus ->
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   -- | 'lastModifiedTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   AutoMLJobSummary
 newAutoMLJobSummary
   pAutoMLJobName_
@@ -92,8 +93,8 @@ newAutoMLJobSummary
   pCreationTime_
   pLastModifiedTime_ =
     AutoMLJobSummary'
-      { endTime = Core.Nothing,
-        failureReason = Core.Nothing,
+      { endTime = Prelude.Nothing,
+        failureReason = Prelude.Nothing,
         autoMLJobName = pAutoMLJobName_,
         autoMLJobArn = pAutoMLJobArn_,
         autoMLJobStatus = pAutoMLJobStatus_,
@@ -105,19 +106,19 @@ newAutoMLJobSummary
       }
 
 -- | The end time of an AutoML job.
-autoMLJobSummary_endTime :: Lens.Lens' AutoMLJobSummary (Core.Maybe Core.UTCTime)
-autoMLJobSummary_endTime = Lens.lens (\AutoMLJobSummary' {endTime} -> endTime) (\s@AutoMLJobSummary' {} a -> s {endTime = a} :: AutoMLJobSummary) Core.. Lens.mapping Core._Time
+autoMLJobSummary_endTime :: Lens.Lens' AutoMLJobSummary (Prelude.Maybe Prelude.UTCTime)
+autoMLJobSummary_endTime = Lens.lens (\AutoMLJobSummary' {endTime} -> endTime) (\s@AutoMLJobSummary' {} a -> s {endTime = a} :: AutoMLJobSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The failure reason of a job.
-autoMLJobSummary_failureReason :: Lens.Lens' AutoMLJobSummary (Core.Maybe Core.Text)
+autoMLJobSummary_failureReason :: Lens.Lens' AutoMLJobSummary (Prelude.Maybe Prelude.Text)
 autoMLJobSummary_failureReason = Lens.lens (\AutoMLJobSummary' {failureReason} -> failureReason) (\s@AutoMLJobSummary' {} a -> s {failureReason = a} :: AutoMLJobSummary)
 
 -- | The name of the object you are requesting.
-autoMLJobSummary_autoMLJobName :: Lens.Lens' AutoMLJobSummary Core.Text
+autoMLJobSummary_autoMLJobName :: Lens.Lens' AutoMLJobSummary Prelude.Text
 autoMLJobSummary_autoMLJobName = Lens.lens (\AutoMLJobSummary' {autoMLJobName} -> autoMLJobName) (\s@AutoMLJobSummary' {} a -> s {autoMLJobName = a} :: AutoMLJobSummary)
 
 -- | The ARN of the job.
-autoMLJobSummary_autoMLJobArn :: Lens.Lens' AutoMLJobSummary Core.Text
+autoMLJobSummary_autoMLJobArn :: Lens.Lens' AutoMLJobSummary Prelude.Text
 autoMLJobSummary_autoMLJobArn = Lens.lens (\AutoMLJobSummary' {autoMLJobArn} -> autoMLJobArn) (\s@AutoMLJobSummary' {} a -> s {autoMLJobArn = a} :: AutoMLJobSummary)
 
 -- | The job\'s status.
@@ -129,12 +130,12 @@ autoMLJobSummary_autoMLJobSecondaryStatus :: Lens.Lens' AutoMLJobSummary AutoMLJ
 autoMLJobSummary_autoMLJobSecondaryStatus = Lens.lens (\AutoMLJobSummary' {autoMLJobSecondaryStatus} -> autoMLJobSecondaryStatus) (\s@AutoMLJobSummary' {} a -> s {autoMLJobSecondaryStatus = a} :: AutoMLJobSummary)
 
 -- | When the job was created.
-autoMLJobSummary_creationTime :: Lens.Lens' AutoMLJobSummary Core.UTCTime
-autoMLJobSummary_creationTime = Lens.lens (\AutoMLJobSummary' {creationTime} -> creationTime) (\s@AutoMLJobSummary' {} a -> s {creationTime = a} :: AutoMLJobSummary) Core.. Core._Time
+autoMLJobSummary_creationTime :: Lens.Lens' AutoMLJobSummary Prelude.UTCTime
+autoMLJobSummary_creationTime = Lens.lens (\AutoMLJobSummary' {creationTime} -> creationTime) (\s@AutoMLJobSummary' {} a -> s {creationTime = a} :: AutoMLJobSummary) Prelude.. Core._Time
 
 -- | When the job was last modified.
-autoMLJobSummary_lastModifiedTime :: Lens.Lens' AutoMLJobSummary Core.UTCTime
-autoMLJobSummary_lastModifiedTime = Lens.lens (\AutoMLJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@AutoMLJobSummary' {} a -> s {lastModifiedTime = a} :: AutoMLJobSummary) Core.. Core._Time
+autoMLJobSummary_lastModifiedTime :: Lens.Lens' AutoMLJobSummary Prelude.UTCTime
+autoMLJobSummary_lastModifiedTime = Lens.lens (\AutoMLJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@AutoMLJobSummary' {} a -> s {lastModifiedTime = a} :: AutoMLJobSummary) Prelude.. Core._Time
 
 instance Core.FromJSON AutoMLJobSummary where
   parseJSON =
@@ -142,16 +143,16 @@ instance Core.FromJSON AutoMLJobSummary where
       "AutoMLJobSummary"
       ( \x ->
           AutoMLJobSummary'
-            Core.<$> (x Core..:? "EndTime")
-            Core.<*> (x Core..:? "FailureReason")
-            Core.<*> (x Core..: "AutoMLJobName")
-            Core.<*> (x Core..: "AutoMLJobArn")
-            Core.<*> (x Core..: "AutoMLJobStatus")
-            Core.<*> (x Core..: "AutoMLJobSecondaryStatus")
-            Core.<*> (x Core..: "CreationTime")
-            Core.<*> (x Core..: "LastModifiedTime")
+            Prelude.<$> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<*> (x Core..: "AutoMLJobName")
+            Prelude.<*> (x Core..: "AutoMLJobArn")
+            Prelude.<*> (x Core..: "AutoMLJobStatus")
+            Prelude.<*> (x Core..: "AutoMLJobSecondaryStatus")
+            Prelude.<*> (x Core..: "CreationTime")
+            Prelude.<*> (x Core..: "LastModifiedTime")
       )
 
-instance Core.Hashable AutoMLJobSummary
+instance Prelude.Hashable AutoMLJobSummary
 
-instance Core.NFData AutoMLJobSummary
+instance Prelude.NFData AutoMLJobSummary

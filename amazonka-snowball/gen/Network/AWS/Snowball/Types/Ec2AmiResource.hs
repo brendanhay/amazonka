@@ -21,6 +21,7 @@ module Network.AWS.Snowball.Types.Ec2AmiResource where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A JSON-formatted object that contains the IDs for an Amazon Machine
 -- Image (AMI), including the Amazon EC2 AMI ID and the Snow device AMI ID.
@@ -30,11 +31,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newEc2AmiResource' smart constructor.
 data Ec2AmiResource = Ec2AmiResource'
   { -- | The ID of the AMI on the Snow device.
-    snowballAmiId :: Core.Maybe Core.Text,
+    snowballAmiId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the AMI in Amazon EC2.
-    amiId :: Core.Text
+    amiId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Ec2AmiResource' with all optional fields omitted.
@@ -49,20 +50,20 @@ data Ec2AmiResource = Ec2AmiResource'
 -- 'amiId', 'ec2AmiResource_amiId' - The ID of the AMI in Amazon EC2.
 newEc2AmiResource ::
   -- | 'amiId'
-  Core.Text ->
+  Prelude.Text ->
   Ec2AmiResource
 newEc2AmiResource pAmiId_ =
   Ec2AmiResource'
-    { snowballAmiId = Core.Nothing,
+    { snowballAmiId = Prelude.Nothing,
       amiId = pAmiId_
     }
 
 -- | The ID of the AMI on the Snow device.
-ec2AmiResource_snowballAmiId :: Lens.Lens' Ec2AmiResource (Core.Maybe Core.Text)
+ec2AmiResource_snowballAmiId :: Lens.Lens' Ec2AmiResource (Prelude.Maybe Prelude.Text)
 ec2AmiResource_snowballAmiId = Lens.lens (\Ec2AmiResource' {snowballAmiId} -> snowballAmiId) (\s@Ec2AmiResource' {} a -> s {snowballAmiId = a} :: Ec2AmiResource)
 
 -- | The ID of the AMI in Amazon EC2.
-ec2AmiResource_amiId :: Lens.Lens' Ec2AmiResource Core.Text
+ec2AmiResource_amiId :: Lens.Lens' Ec2AmiResource Prelude.Text
 ec2AmiResource_amiId = Lens.lens (\Ec2AmiResource' {amiId} -> amiId) (\s@Ec2AmiResource' {} a -> s {amiId = a} :: Ec2AmiResource)
 
 instance Core.FromJSON Ec2AmiResource where
@@ -71,19 +72,19 @@ instance Core.FromJSON Ec2AmiResource where
       "Ec2AmiResource"
       ( \x ->
           Ec2AmiResource'
-            Core.<$> (x Core..:? "SnowballAmiId")
-            Core.<*> (x Core..: "AmiId")
+            Prelude.<$> (x Core..:? "SnowballAmiId")
+            Prelude.<*> (x Core..: "AmiId")
       )
 
-instance Core.Hashable Ec2AmiResource
+instance Prelude.Hashable Ec2AmiResource
 
-instance Core.NFData Ec2AmiResource
+instance Prelude.NFData Ec2AmiResource
 
 instance Core.ToJSON Ec2AmiResource where
   toJSON Ec2AmiResource' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("SnowballAmiId" Core..=) Core.<$> snowballAmiId,
-            Core.Just ("AmiId" Core..= amiId)
+      ( Prelude.catMaybes
+          [ ("SnowballAmiId" Core..=) Prelude.<$> snowballAmiId,
+            Prelude.Just ("AmiId" Core..= amiId)
           ]
       )

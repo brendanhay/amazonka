@@ -49,6 +49,7 @@ where
 import Network.AWS.AlexaBusiness.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,21 +60,21 @@ data ListDeviceEvents = ListDeviceEvents'
     -- the response only includes results beyond the token, up to the value
     -- specified by MaxResults. When the end of results is reached, the
     -- response has a value of null.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The event type to filter device events. If EventType isn\'t specified,
     -- this returns a list of all device events in reverse chronological order.
     -- If EventType is specified, this returns a list of device events for that
     -- EventType in reverse chronological order.
-    eventType :: Core.Maybe DeviceEventType,
+    eventType :: Prelude.Maybe DeviceEventType,
     -- | The maximum number of results to include in the response. The default
     -- value is 50. If more results exist than the specified MaxResults value,
     -- a token is included in the response so that the remaining results can be
     -- retrieved.
-    maxResults :: Core.Maybe Core.Natural,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of a device.
-    deviceArn :: Core.Text
+    deviceArn :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDeviceEvents' with all optional fields omitted.
@@ -102,13 +103,13 @@ data ListDeviceEvents = ListDeviceEvents'
 -- 'deviceArn', 'listDeviceEvents_deviceArn' - The ARN of a device.
 newListDeviceEvents ::
   -- | 'deviceArn'
-  Core.Text ->
+  Prelude.Text ->
   ListDeviceEvents
 newListDeviceEvents pDeviceArn_ =
   ListDeviceEvents'
-    { nextToken = Core.Nothing,
-      eventType = Core.Nothing,
-      maxResults = Core.Nothing,
+    { nextToken = Prelude.Nothing,
+      eventType = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       deviceArn = pDeviceArn_
     }
 
@@ -117,46 +118,48 @@ newListDeviceEvents pDeviceArn_ =
 -- the response only includes results beyond the token, up to the value
 -- specified by MaxResults. When the end of results is reached, the
 -- response has a value of null.
-listDeviceEvents_nextToken :: Lens.Lens' ListDeviceEvents (Core.Maybe Core.Text)
+listDeviceEvents_nextToken :: Lens.Lens' ListDeviceEvents (Prelude.Maybe Prelude.Text)
 listDeviceEvents_nextToken = Lens.lens (\ListDeviceEvents' {nextToken} -> nextToken) (\s@ListDeviceEvents' {} a -> s {nextToken = a} :: ListDeviceEvents)
 
 -- | The event type to filter device events. If EventType isn\'t specified,
 -- this returns a list of all device events in reverse chronological order.
 -- If EventType is specified, this returns a list of device events for that
 -- EventType in reverse chronological order.
-listDeviceEvents_eventType :: Lens.Lens' ListDeviceEvents (Core.Maybe DeviceEventType)
+listDeviceEvents_eventType :: Lens.Lens' ListDeviceEvents (Prelude.Maybe DeviceEventType)
 listDeviceEvents_eventType = Lens.lens (\ListDeviceEvents' {eventType} -> eventType) (\s@ListDeviceEvents' {} a -> s {eventType = a} :: ListDeviceEvents)
 
 -- | The maximum number of results to include in the response. The default
 -- value is 50. If more results exist than the specified MaxResults value,
 -- a token is included in the response so that the remaining results can be
 -- retrieved.
-listDeviceEvents_maxResults :: Lens.Lens' ListDeviceEvents (Core.Maybe Core.Natural)
+listDeviceEvents_maxResults :: Lens.Lens' ListDeviceEvents (Prelude.Maybe Prelude.Natural)
 listDeviceEvents_maxResults = Lens.lens (\ListDeviceEvents' {maxResults} -> maxResults) (\s@ListDeviceEvents' {} a -> s {maxResults = a} :: ListDeviceEvents)
 
 -- | The ARN of a device.
-listDeviceEvents_deviceArn :: Lens.Lens' ListDeviceEvents Core.Text
+listDeviceEvents_deviceArn :: Lens.Lens' ListDeviceEvents Prelude.Text
 listDeviceEvents_deviceArn = Lens.lens (\ListDeviceEvents' {deviceArn} -> deviceArn) (\s@ListDeviceEvents' {} a -> s {deviceArn = a} :: ListDeviceEvents)
 
 instance Core.AWSPager ListDeviceEvents where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listDeviceEventsResponse_nextToken Core.. Lens._Just
+            Lens.^? listDeviceEventsResponse_nextToken
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
+      Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDeviceEventsResponse_deviceEvents
-              Core.. Lens._Just
+              Prelude.. Lens._Just
         ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just Core.$
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
         rq
-          Lens.& listDeviceEvents_nextToken
+          Prelude.& listDeviceEvents_nextToken
           Lens..~ rs
-          Lens.^? listDeviceEventsResponse_nextToken Core.. Lens._Just
+          Lens.^? listDeviceEventsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDeviceEvents where
   type
@@ -167,55 +170,57 @@ instance Core.AWSRequest ListDeviceEvents where
     Response.receiveJSON
       ( \s h x ->
           ListDeviceEventsResponse'
-            Core.<$> (x Core..?> "NextToken")
-            Core.<*> (x Core..?> "DeviceEvents" Core..!@ Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "DeviceEvents" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable ListDeviceEvents
+instance Prelude.Hashable ListDeviceEvents
 
-instance Core.NFData ListDeviceEvents
+instance Prelude.NFData ListDeviceEvents
 
 instance Core.ToHeaders ListDeviceEvents where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
               Core.=# ( "AlexaForBusiness.ListDeviceEvents" ::
-                          Core.ByteString
+                          Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON ListDeviceEvents where
   toJSON ListDeviceEvents' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("EventType" Core..=) Core.<$> eventType,
-            ("MaxResults" Core..=) Core.<$> maxResults,
-            Core.Just ("DeviceArn" Core..= deviceArn)
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("EventType" Core..=) Prelude.<$> eventType,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("DeviceArn" Core..= deviceArn)
           ]
       )
 
 instance Core.ToPath ListDeviceEvents where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery ListDeviceEvents where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDeviceEventsResponse' smart constructor.
 data ListDeviceEventsResponse = ListDeviceEventsResponse'
   { -- | The token returned to indicate that there is more data available.
-    nextToken :: Core.Maybe Core.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The device events requested for the device ARN.
-    deviceEvents :: Core.Maybe [DeviceEvent],
+    deviceEvents :: Prelude.Maybe [DeviceEvent],
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDeviceEventsResponse' with all optional fields omitted.
@@ -232,25 +237,26 @@ data ListDeviceEventsResponse = ListDeviceEventsResponse'
 -- 'httpStatus', 'listDeviceEventsResponse_httpStatus' - The response's http status code.
 newListDeviceEventsResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   ListDeviceEventsResponse
 newListDeviceEventsResponse pHttpStatus_ =
   ListDeviceEventsResponse'
-    { nextToken = Core.Nothing,
-      deviceEvents = Core.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      deviceEvents = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token returned to indicate that there is more data available.
-listDeviceEventsResponse_nextToken :: Lens.Lens' ListDeviceEventsResponse (Core.Maybe Core.Text)
+listDeviceEventsResponse_nextToken :: Lens.Lens' ListDeviceEventsResponse (Prelude.Maybe Prelude.Text)
 listDeviceEventsResponse_nextToken = Lens.lens (\ListDeviceEventsResponse' {nextToken} -> nextToken) (\s@ListDeviceEventsResponse' {} a -> s {nextToken = a} :: ListDeviceEventsResponse)
 
 -- | The device events requested for the device ARN.
-listDeviceEventsResponse_deviceEvents :: Lens.Lens' ListDeviceEventsResponse (Core.Maybe [DeviceEvent])
-listDeviceEventsResponse_deviceEvents = Lens.lens (\ListDeviceEventsResponse' {deviceEvents} -> deviceEvents) (\s@ListDeviceEventsResponse' {} a -> s {deviceEvents = a} :: ListDeviceEventsResponse) Core.. Lens.mapping Lens._Coerce
+listDeviceEventsResponse_deviceEvents :: Lens.Lens' ListDeviceEventsResponse (Prelude.Maybe [DeviceEvent])
+listDeviceEventsResponse_deviceEvents = Lens.lens (\ListDeviceEventsResponse' {deviceEvents} -> deviceEvents) (\s@ListDeviceEventsResponse' {} a -> s {deviceEvents = a} :: ListDeviceEventsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listDeviceEventsResponse_httpStatus :: Lens.Lens' ListDeviceEventsResponse Core.Int
+listDeviceEventsResponse_httpStatus :: Lens.Lens' ListDeviceEventsResponse Prelude.Int
 listDeviceEventsResponse_httpStatus = Lens.lens (\ListDeviceEventsResponse' {httpStatus} -> httpStatus) (\s@ListDeviceEventsResponse' {} a -> s {httpStatus = a} :: ListDeviceEventsResponse)
 
-instance Core.NFData ListDeviceEventsResponse
+instance Prelude.NFData ListDeviceEventsResponse

@@ -44,6 +44,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,7 +53,7 @@ data PutLoggingOptions = PutLoggingOptions'
   { -- | The new values of the AWS IoT Analytics logging options.
     loggingOptions :: LoggingOptions
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutLoggingOptions' with all optional fields omitted.
@@ -85,33 +86,33 @@ instance Core.AWSRequest PutLoggingOptions where
   response =
     Response.receiveNull PutLoggingOptionsResponse'
 
-instance Core.Hashable PutLoggingOptions
+instance Prelude.Hashable PutLoggingOptions
 
-instance Core.NFData PutLoggingOptions
+instance Prelude.NFData PutLoggingOptions
 
 instance Core.ToHeaders PutLoggingOptions where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON PutLoggingOptions where
   toJSON PutLoggingOptions' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ("loggingOptions" Core..= loggingOptions)
           ]
       )
 
 instance Core.ToPath PutLoggingOptions where
-  toPath = Core.const "/logging"
+  toPath = Prelude.const "/logging"
 
 instance Core.ToQuery PutLoggingOptions where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutLoggingOptionsResponse' smart constructor.
 data PutLoggingOptionsResponse = PutLoggingOptionsResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutLoggingOptionsResponse' with all optional fields omitted.
@@ -122,4 +123,4 @@ newPutLoggingOptionsResponse ::
 newPutLoggingOptionsResponse =
   PutLoggingOptionsResponse'
 
-instance Core.NFData PutLoggingOptionsResponse
+instance Prelude.NFData PutLoggingOptionsResponse

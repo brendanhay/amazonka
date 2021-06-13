@@ -21,6 +21,7 @@ module Network.AWS.XRay.Types.AnomalousService where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.ServiceId
 
 -- | The service within the service graph that has anomalously high fault
@@ -28,9 +29,9 @@ import Network.AWS.XRay.Types.ServiceId
 --
 -- /See:/ 'newAnomalousService' smart constructor.
 data AnomalousService = AnomalousService'
-  { serviceId :: Core.Maybe ServiceId
+  { serviceId :: Prelude.Maybe ServiceId
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AnomalousService' with all optional fields omitted.
@@ -44,10 +45,10 @@ data AnomalousService = AnomalousService'
 newAnomalousService ::
   AnomalousService
 newAnomalousService =
-  AnomalousService' {serviceId = Core.Nothing}
+  AnomalousService' {serviceId = Prelude.Nothing}
 
 -- | Undocumented member.
-anomalousService_serviceId :: Lens.Lens' AnomalousService (Core.Maybe ServiceId)
+anomalousService_serviceId :: Lens.Lens' AnomalousService (Prelude.Maybe ServiceId)
 anomalousService_serviceId = Lens.lens (\AnomalousService' {serviceId} -> serviceId) (\s@AnomalousService' {} a -> s {serviceId = a} :: AnomalousService)
 
 instance Core.FromJSON AnomalousService where
@@ -55,9 +56,10 @@ instance Core.FromJSON AnomalousService where
     Core.withObject
       "AnomalousService"
       ( \x ->
-          AnomalousService' Core.<$> (x Core..:? "ServiceId")
+          AnomalousService'
+            Prelude.<$> (x Core..:? "ServiceId")
       )
 
-instance Core.Hashable AnomalousService
+instance Prelude.Hashable AnomalousService
 
-instance Core.NFData AnomalousService
+instance Prelude.NFData AnomalousService

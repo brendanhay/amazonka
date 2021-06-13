@@ -47,6 +47,7 @@ where
 import Network.AWS.APIGateway.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,13 +62,13 @@ data GetResource = GetResource'
     -- query parameter value must be a single-valued list and contain the
     -- @\"methods\"@ string. For example,
     -- @GET \/restapis\/{restapi_id}\/resources\/{resource_id}?embed=methods@.
-    embed :: Core.Maybe [Core.Text],
+    embed :: Prelude.Maybe [Prelude.Text],
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Core.Text,
+    restApiId :: Prelude.Text,
     -- | [Required] The identifier for the Resource resource.
-    resourceId :: Core.Text
+    resourceId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetResource' with all optional fields omitted.
@@ -90,13 +91,13 @@ data GetResource = GetResource'
 -- 'resourceId', 'getResource_resourceId' - [Required] The identifier for the Resource resource.
 newGetResource ::
   -- | 'restApiId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   GetResource
 newGetResource pRestApiId_ pResourceId_ =
   GetResource'
-    { embed = Core.Nothing,
+    { embed = Prelude.Nothing,
       restApiId = pRestApiId_,
       resourceId = pResourceId_
     }
@@ -108,15 +109,15 @@ newGetResource pRestApiId_ pResourceId_ =
 -- query parameter value must be a single-valued list and contain the
 -- @\"methods\"@ string. For example,
 -- @GET \/restapis\/{restapi_id}\/resources\/{resource_id}?embed=methods@.
-getResource_embed :: Lens.Lens' GetResource (Core.Maybe [Core.Text])
-getResource_embed = Lens.lens (\GetResource' {embed} -> embed) (\s@GetResource' {} a -> s {embed = a} :: GetResource) Core.. Lens.mapping Lens._Coerce
+getResource_embed :: Lens.Lens' GetResource (Prelude.Maybe [Prelude.Text])
+getResource_embed = Lens.lens (\GetResource' {embed} -> embed) (\s@GetResource' {} a -> s {embed = a} :: GetResource) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-getResource_restApiId :: Lens.Lens' GetResource Core.Text
+getResource_restApiId :: Lens.Lens' GetResource Prelude.Text
 getResource_restApiId = Lens.lens (\GetResource' {restApiId} -> restApiId) (\s@GetResource' {} a -> s {restApiId = a} :: GetResource)
 
 -- | [Required] The identifier for the Resource resource.
-getResource_resourceId :: Lens.Lens' GetResource Core.Text
+getResource_resourceId :: Lens.Lens' GetResource Prelude.Text
 getResource_resourceId = Lens.lens (\GetResource' {resourceId} -> resourceId) (\s@GetResource' {} a -> s {resourceId = a} :: GetResource)
 
 instance Core.AWSRequest GetResource where
@@ -126,22 +127,22 @@ instance Core.AWSRequest GetResource where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Core.Hashable GetResource
+instance Prelude.Hashable GetResource
 
-instance Core.NFData GetResource
+instance Prelude.NFData GetResource
 
 instance Core.ToHeaders GetResource where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Core.ByteString)
+              Core.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
 instance Core.ToPath GetResource where
   toPath GetResource' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/restapis/",
         Core.toBS restApiId,
         "/resources/",
@@ -150,8 +151,8 @@ instance Core.ToPath GetResource where
 
 instance Core.ToQuery GetResource where
   toQuery GetResource' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "embed"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Core.<$> embed)
+            (Core.toQueryList "member" Prelude.<$> embed)
       ]

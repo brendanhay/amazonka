@@ -70,6 +70,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -78,9 +79,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetGameSessionLogUrl' smart constructor.
 data GetGameSessionLogUrl = GetGameSessionLogUrl'
   { -- | A unique identifier for the game session to get logs for.
-    gameSessionId :: Core.Text
+    gameSessionId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetGameSessionLogUrl' with all optional fields omitted.
@@ -93,7 +94,7 @@ data GetGameSessionLogUrl = GetGameSessionLogUrl'
 -- 'gameSessionId', 'getGameSessionLogUrl_gameSessionId' - A unique identifier for the game session to get logs for.
 newGetGameSessionLogUrl ::
   -- | 'gameSessionId'
-  Core.Text ->
+  Prelude.Text ->
   GetGameSessionLogUrl
 newGetGameSessionLogUrl pGameSessionId_ =
   GetGameSessionLogUrl'
@@ -102,7 +103,7 @@ newGetGameSessionLogUrl pGameSessionId_ =
     }
 
 -- | A unique identifier for the game session to get logs for.
-getGameSessionLogUrl_gameSessionId :: Lens.Lens' GetGameSessionLogUrl Core.Text
+getGameSessionLogUrl_gameSessionId :: Lens.Lens' GetGameSessionLogUrl Prelude.Text
 getGameSessionLogUrl_gameSessionId = Lens.lens (\GetGameSessionLogUrl' {gameSessionId} -> gameSessionId) (\s@GetGameSessionLogUrl' {} a -> s {gameSessionId = a} :: GetGameSessionLogUrl)
 
 instance Core.AWSRequest GetGameSessionLogUrl where
@@ -114,37 +115,43 @@ instance Core.AWSRequest GetGameSessionLogUrl where
     Response.receiveJSON
       ( \s h x ->
           GetGameSessionLogUrlResponse'
-            Core.<$> (x Core..?> "PreSignedUrl")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..?> "PreSignedUrl")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.Hashable GetGameSessionLogUrl
+instance Prelude.Hashable GetGameSessionLogUrl
 
-instance Core.NFData GetGameSessionLogUrl
+instance Prelude.NFData GetGameSessionLogUrl
 
 instance Core.ToHeaders GetGameSessionLogUrl where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.GetGameSessionLogUrl" :: Core.ByteString),
+              Core.=# ( "GameLift.GetGameSessionLogUrl" ::
+                          Prelude.ByteString
+                      ),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON GetGameSessionLogUrl where
   toJSON GetGameSessionLogUrl' {..} =
     Core.object
-      ( Core.catMaybes
-          [Core.Just ("GameSessionId" Core..= gameSessionId)]
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("GameSessionId" Core..= gameSessionId)
+          ]
       )
 
 instance Core.ToPath GetGameSessionLogUrl where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery GetGameSessionLogUrl where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -154,11 +161,11 @@ data GetGameSessionLogUrlResponse = GetGameSessionLogUrlResponse'
     -- This URL is valid for 15 minutes, after which S3 will reject any
     -- download request using this URL. You can request a new URL any time
     -- within the 14-day period that the logs are retained.
-    preSignedUrl :: Core.Maybe Core.Text,
+    preSignedUrl :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetGameSessionLogUrlResponse' with all optional fields omitted.
@@ -176,12 +183,12 @@ data GetGameSessionLogUrlResponse = GetGameSessionLogUrlResponse'
 -- 'httpStatus', 'getGameSessionLogUrlResponse_httpStatus' - The response's http status code.
 newGetGameSessionLogUrlResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   GetGameSessionLogUrlResponse
 newGetGameSessionLogUrlResponse pHttpStatus_ =
   GetGameSessionLogUrlResponse'
     { preSignedUrl =
-        Core.Nothing,
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -189,11 +196,11 @@ newGetGameSessionLogUrlResponse pHttpStatus_ =
 -- This URL is valid for 15 minutes, after which S3 will reject any
 -- download request using this URL. You can request a new URL any time
 -- within the 14-day period that the logs are retained.
-getGameSessionLogUrlResponse_preSignedUrl :: Lens.Lens' GetGameSessionLogUrlResponse (Core.Maybe Core.Text)
+getGameSessionLogUrlResponse_preSignedUrl :: Lens.Lens' GetGameSessionLogUrlResponse (Prelude.Maybe Prelude.Text)
 getGameSessionLogUrlResponse_preSignedUrl = Lens.lens (\GetGameSessionLogUrlResponse' {preSignedUrl} -> preSignedUrl) (\s@GetGameSessionLogUrlResponse' {} a -> s {preSignedUrl = a} :: GetGameSessionLogUrlResponse)
 
 -- | The response's http status code.
-getGameSessionLogUrlResponse_httpStatus :: Lens.Lens' GetGameSessionLogUrlResponse Core.Int
+getGameSessionLogUrlResponse_httpStatus :: Lens.Lens' GetGameSessionLogUrlResponse Prelude.Int
 getGameSessionLogUrlResponse_httpStatus = Lens.lens (\GetGameSessionLogUrlResponse' {httpStatus} -> httpStatus) (\s@GetGameSessionLogUrlResponse' {} a -> s {httpStatus = a} :: GetGameSessionLogUrlResponse)
 
-instance Core.NFData GetGameSessionLogUrlResponse
+instance Prelude.NFData GetGameSessionLogUrlResponse

@@ -46,6 +46,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,15 +56,15 @@ data RestoreManagedPrefixListVersion = RestoreManagedPrefixListVersion'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Core.Maybe Core.Bool,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the prefix list.
-    prefixListId :: Core.Text,
+    prefixListId :: Prelude.Text,
     -- | The version to restore.
-    previousVersion :: Core.Integer,
+    previousVersion :: Prelude.Integer,
     -- | The current version number for the prefix list.
-    currentVersion :: Core.Integer
+    currentVersion :: Prelude.Integer
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RestoreManagedPrefixListVersion' with all optional fields omitted.
@@ -85,11 +86,11 @@ data RestoreManagedPrefixListVersion = RestoreManagedPrefixListVersion'
 -- 'currentVersion', 'restoreManagedPrefixListVersion_currentVersion' - The current version number for the prefix list.
 newRestoreManagedPrefixListVersion ::
   -- | 'prefixListId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'previousVersion'
-  Core.Integer ->
+  Prelude.Integer ->
   -- | 'currentVersion'
-  Core.Integer ->
+  Prelude.Integer ->
   RestoreManagedPrefixListVersion
 newRestoreManagedPrefixListVersion
   pPrefixListId_
@@ -97,7 +98,7 @@ newRestoreManagedPrefixListVersion
   pCurrentVersion_ =
     RestoreManagedPrefixListVersion'
       { dryRun =
-          Core.Nothing,
+          Prelude.Nothing,
         prefixListId = pPrefixListId_,
         previousVersion = pPreviousVersion_,
         currentVersion = pCurrentVersion_
@@ -107,19 +108,19 @@ newRestoreManagedPrefixListVersion
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-restoreManagedPrefixListVersion_dryRun :: Lens.Lens' RestoreManagedPrefixListVersion (Core.Maybe Core.Bool)
+restoreManagedPrefixListVersion_dryRun :: Lens.Lens' RestoreManagedPrefixListVersion (Prelude.Maybe Prelude.Bool)
 restoreManagedPrefixListVersion_dryRun = Lens.lens (\RestoreManagedPrefixListVersion' {dryRun} -> dryRun) (\s@RestoreManagedPrefixListVersion' {} a -> s {dryRun = a} :: RestoreManagedPrefixListVersion)
 
 -- | The ID of the prefix list.
-restoreManagedPrefixListVersion_prefixListId :: Lens.Lens' RestoreManagedPrefixListVersion Core.Text
+restoreManagedPrefixListVersion_prefixListId :: Lens.Lens' RestoreManagedPrefixListVersion Prelude.Text
 restoreManagedPrefixListVersion_prefixListId = Lens.lens (\RestoreManagedPrefixListVersion' {prefixListId} -> prefixListId) (\s@RestoreManagedPrefixListVersion' {} a -> s {prefixListId = a} :: RestoreManagedPrefixListVersion)
 
 -- | The version to restore.
-restoreManagedPrefixListVersion_previousVersion :: Lens.Lens' RestoreManagedPrefixListVersion Core.Integer
+restoreManagedPrefixListVersion_previousVersion :: Lens.Lens' RestoreManagedPrefixListVersion Prelude.Integer
 restoreManagedPrefixListVersion_previousVersion = Lens.lens (\RestoreManagedPrefixListVersion' {previousVersion} -> previousVersion) (\s@RestoreManagedPrefixListVersion' {} a -> s {previousVersion = a} :: RestoreManagedPrefixListVersion)
 
 -- | The current version number for the prefix list.
-restoreManagedPrefixListVersion_currentVersion :: Lens.Lens' RestoreManagedPrefixListVersion Core.Integer
+restoreManagedPrefixListVersion_currentVersion :: Lens.Lens' RestoreManagedPrefixListVersion Prelude.Integer
 restoreManagedPrefixListVersion_currentVersion = Lens.lens (\RestoreManagedPrefixListVersion' {currentVersion} -> currentVersion) (\s@RestoreManagedPrefixListVersion' {} a -> s {currentVersion = a} :: RestoreManagedPrefixListVersion)
 
 instance
@@ -134,33 +135,36 @@ instance
     Response.receiveXML
       ( \s h x ->
           RestoreManagedPrefixListVersionResponse'
-            Core.<$> (x Core..@? "prefixList")
-            Core.<*> (Core.pure (Core.fromEnum s))
+            Prelude.<$> (x Core..@? "prefixList")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     RestoreManagedPrefixListVersion
 
-instance Core.NFData RestoreManagedPrefixListVersion
+instance
+  Prelude.NFData
+    RestoreManagedPrefixListVersion
 
 instance
   Core.ToHeaders
     RestoreManagedPrefixListVersion
   where
-  toHeaders = Core.const Core.mempty
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath RestoreManagedPrefixListVersion where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery RestoreManagedPrefixListVersion where
   toQuery RestoreManagedPrefixListVersion' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Action"
           Core.=: ( "RestoreManagedPrefixListVersion" ::
-                      Core.ByteString
+                      Prelude.ByteString
                   ),
-        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
         "PrefixListId" Core.=: prefixListId,
         "PreviousVersion" Core.=: previousVersion,
@@ -170,11 +174,11 @@ instance Core.ToQuery RestoreManagedPrefixListVersion where
 -- | /See:/ 'newRestoreManagedPrefixListVersionResponse' smart constructor.
 data RestoreManagedPrefixListVersionResponse = RestoreManagedPrefixListVersionResponse'
   { -- | Information about the prefix list.
-    prefixList :: Core.Maybe ManagedPrefixList,
+    prefixList :: Prelude.Maybe ManagedPrefixList,
     -- | The response's http status code.
-    httpStatus :: Core.Int
+    httpStatus :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RestoreManagedPrefixListVersionResponse' with all optional fields omitted.
@@ -189,24 +193,24 @@ data RestoreManagedPrefixListVersionResponse = RestoreManagedPrefixListVersionRe
 -- 'httpStatus', 'restoreManagedPrefixListVersionResponse_httpStatus' - The response's http status code.
 newRestoreManagedPrefixListVersionResponse ::
   -- | 'httpStatus'
-  Core.Int ->
+  Prelude.Int ->
   RestoreManagedPrefixListVersionResponse
 newRestoreManagedPrefixListVersionResponse
   pHttpStatus_ =
     RestoreManagedPrefixListVersionResponse'
       { prefixList =
-          Core.Nothing,
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the prefix list.
-restoreManagedPrefixListVersionResponse_prefixList :: Lens.Lens' RestoreManagedPrefixListVersionResponse (Core.Maybe ManagedPrefixList)
+restoreManagedPrefixListVersionResponse_prefixList :: Lens.Lens' RestoreManagedPrefixListVersionResponse (Prelude.Maybe ManagedPrefixList)
 restoreManagedPrefixListVersionResponse_prefixList = Lens.lens (\RestoreManagedPrefixListVersionResponse' {prefixList} -> prefixList) (\s@RestoreManagedPrefixListVersionResponse' {} a -> s {prefixList = a} :: RestoreManagedPrefixListVersionResponse)
 
 -- | The response's http status code.
-restoreManagedPrefixListVersionResponse_httpStatus :: Lens.Lens' RestoreManagedPrefixListVersionResponse Core.Int
+restoreManagedPrefixListVersionResponse_httpStatus :: Lens.Lens' RestoreManagedPrefixListVersionResponse Prelude.Int
 restoreManagedPrefixListVersionResponse_httpStatus = Lens.lens (\RestoreManagedPrefixListVersionResponse' {httpStatus} -> httpStatus) (\s@RestoreManagedPrefixListVersionResponse' {} a -> s {httpStatus = a} :: RestoreManagedPrefixListVersionResponse)
 
 instance
-  Core.NFData
+  Prelude.NFData
     RestoreManagedPrefixListVersionResponse

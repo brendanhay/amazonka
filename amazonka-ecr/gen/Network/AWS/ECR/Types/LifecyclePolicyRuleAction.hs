@@ -22,15 +22,16 @@ module Network.AWS.ECR.Types.LifecyclePolicyRuleAction where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.ImageActionType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The type of action to be taken.
 --
 -- /See:/ 'newLifecyclePolicyRuleAction' smart constructor.
 data LifecyclePolicyRuleAction = LifecyclePolicyRuleAction'
   { -- | The type of action to be taken.
-    type' :: Core.Maybe ImageActionType
+    type' :: Prelude.Maybe ImageActionType
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LifecyclePolicyRuleAction' with all optional fields omitted.
@@ -44,10 +45,10 @@ data LifecyclePolicyRuleAction = LifecyclePolicyRuleAction'
 newLifecyclePolicyRuleAction ::
   LifecyclePolicyRuleAction
 newLifecyclePolicyRuleAction =
-  LifecyclePolicyRuleAction' {type' = Core.Nothing}
+  LifecyclePolicyRuleAction' {type' = Prelude.Nothing}
 
 -- | The type of action to be taken.
-lifecyclePolicyRuleAction_type :: Lens.Lens' LifecyclePolicyRuleAction (Core.Maybe ImageActionType)
+lifecyclePolicyRuleAction_type :: Lens.Lens' LifecyclePolicyRuleAction (Prelude.Maybe ImageActionType)
 lifecyclePolicyRuleAction_type = Lens.lens (\LifecyclePolicyRuleAction' {type'} -> type') (\s@LifecyclePolicyRuleAction' {} a -> s {type' = a} :: LifecyclePolicyRuleAction)
 
 instance Core.FromJSON LifecyclePolicyRuleAction where
@@ -56,9 +57,9 @@ instance Core.FromJSON LifecyclePolicyRuleAction where
       "LifecyclePolicyRuleAction"
       ( \x ->
           LifecyclePolicyRuleAction'
-            Core.<$> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "type")
       )
 
-instance Core.Hashable LifecyclePolicyRuleAction
+instance Prelude.Hashable LifecyclePolicyRuleAction
 
-instance Core.NFData LifecyclePolicyRuleAction
+instance Prelude.NFData LifecyclePolicyRuleAction

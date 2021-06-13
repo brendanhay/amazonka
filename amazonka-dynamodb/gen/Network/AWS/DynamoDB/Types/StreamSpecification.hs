@@ -22,6 +22,7 @@ module Network.AWS.DynamoDB.Types.StreamSpecification where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.StreamViewType
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the DynamoDB Streams configuration for a table in DynamoDB.
 --
@@ -42,12 +43,12 @@ data StreamSpecification = StreamSpecification'
     --
     -- -   @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of the
     --     item are written to the stream.
-    streamViewType :: Core.Maybe StreamViewType,
+    streamViewType :: Prelude.Maybe StreamViewType,
     -- | Indicates whether DynamoDB Streams is enabled (true) or disabled (false)
     -- on the table.
-    streamEnabled :: Core.Bool
+    streamEnabled :: Prelude.Bool
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StreamSpecification' with all optional fields omitted.
@@ -77,11 +78,12 @@ data StreamSpecification = StreamSpecification'
 -- on the table.
 newStreamSpecification ::
   -- | 'streamEnabled'
-  Core.Bool ->
+  Prelude.Bool ->
   StreamSpecification
 newStreamSpecification pStreamEnabled_ =
   StreamSpecification'
-    { streamViewType = Core.Nothing,
+    { streamViewType =
+        Prelude.Nothing,
       streamEnabled = pStreamEnabled_
     }
 
@@ -100,12 +102,12 @@ newStreamSpecification pStreamEnabled_ =
 --
 -- -   @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of the
 --     item are written to the stream.
-streamSpecification_streamViewType :: Lens.Lens' StreamSpecification (Core.Maybe StreamViewType)
+streamSpecification_streamViewType :: Lens.Lens' StreamSpecification (Prelude.Maybe StreamViewType)
 streamSpecification_streamViewType = Lens.lens (\StreamSpecification' {streamViewType} -> streamViewType) (\s@StreamSpecification' {} a -> s {streamViewType = a} :: StreamSpecification)
 
 -- | Indicates whether DynamoDB Streams is enabled (true) or disabled (false)
 -- on the table.
-streamSpecification_streamEnabled :: Lens.Lens' StreamSpecification Core.Bool
+streamSpecification_streamEnabled :: Lens.Lens' StreamSpecification Prelude.Bool
 streamSpecification_streamEnabled = Lens.lens (\StreamSpecification' {streamEnabled} -> streamEnabled) (\s@StreamSpecification' {} a -> s {streamEnabled = a} :: StreamSpecification)
 
 instance Core.FromJSON StreamSpecification where
@@ -114,19 +116,21 @@ instance Core.FromJSON StreamSpecification where
       "StreamSpecification"
       ( \x ->
           StreamSpecification'
-            Core.<$> (x Core..:? "StreamViewType")
-            Core.<*> (x Core..: "StreamEnabled")
+            Prelude.<$> (x Core..:? "StreamViewType")
+            Prelude.<*> (x Core..: "StreamEnabled")
       )
 
-instance Core.Hashable StreamSpecification
+instance Prelude.Hashable StreamSpecification
 
-instance Core.NFData StreamSpecification
+instance Prelude.NFData StreamSpecification
 
 instance Core.ToJSON StreamSpecification where
   toJSON StreamSpecification' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("StreamViewType" Core..=) Core.<$> streamViewType,
-            Core.Just ("StreamEnabled" Core..= streamEnabled)
+      ( Prelude.catMaybes
+          [ ("StreamViewType" Core..=)
+              Prelude.<$> streamViewType,
+            Prelude.Just
+              ("StreamEnabled" Core..= streamEnabled)
           ]
       )

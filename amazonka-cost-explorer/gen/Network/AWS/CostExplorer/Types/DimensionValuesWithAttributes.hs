@@ -21,6 +21,7 @@ module Network.AWS.CostExplorer.Types.DimensionValuesWithAttributes where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | The metadata of a specific type that you can use to filter and group
 -- your results. You can use @GetDimensionValues@ to find specific values.
@@ -28,11 +29,11 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newDimensionValuesWithAttributes' smart constructor.
 data DimensionValuesWithAttributes = DimensionValuesWithAttributes'
   { -- | The attribute that applies to a specific @Dimension@.
-    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The value of a dimension with a specific attribute.
-    value :: Core.Maybe Core.Text
+    value :: Prelude.Maybe Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DimensionValuesWithAttributes' with all optional fields omitted.
@@ -50,16 +51,16 @@ newDimensionValuesWithAttributes ::
 newDimensionValuesWithAttributes =
   DimensionValuesWithAttributes'
     { attributes =
-        Core.Nothing,
-      value = Core.Nothing
+        Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
 -- | The attribute that applies to a specific @Dimension@.
-dimensionValuesWithAttributes_attributes :: Lens.Lens' DimensionValuesWithAttributes (Core.Maybe (Core.HashMap Core.Text Core.Text))
-dimensionValuesWithAttributes_attributes = Lens.lens (\DimensionValuesWithAttributes' {attributes} -> attributes) (\s@DimensionValuesWithAttributes' {} a -> s {attributes = a} :: DimensionValuesWithAttributes) Core.. Lens.mapping Lens._Coerce
+dimensionValuesWithAttributes_attributes :: Lens.Lens' DimensionValuesWithAttributes (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+dimensionValuesWithAttributes_attributes = Lens.lens (\DimensionValuesWithAttributes' {attributes} -> attributes) (\s@DimensionValuesWithAttributes' {} a -> s {attributes = a} :: DimensionValuesWithAttributes) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The value of a dimension with a specific attribute.
-dimensionValuesWithAttributes_value :: Lens.Lens' DimensionValuesWithAttributes (Core.Maybe Core.Text)
+dimensionValuesWithAttributes_value :: Lens.Lens' DimensionValuesWithAttributes (Prelude.Maybe Prelude.Text)
 dimensionValuesWithAttributes_value = Lens.lens (\DimensionValuesWithAttributes' {value} -> value) (\s@DimensionValuesWithAttributes' {} a -> s {value = a} :: DimensionValuesWithAttributes)
 
 instance Core.FromJSON DimensionValuesWithAttributes where
@@ -68,10 +69,12 @@ instance Core.FromJSON DimensionValuesWithAttributes where
       "DimensionValuesWithAttributes"
       ( \x ->
           DimensionValuesWithAttributes'
-            Core.<$> (x Core..:? "Attributes" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Attributes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Value")
       )
 
-instance Core.Hashable DimensionValuesWithAttributes
+instance
+  Prelude.Hashable
+    DimensionValuesWithAttributes
 
-instance Core.NFData DimensionValuesWithAttributes
+instance Prelude.NFData DimensionValuesWithAttributes

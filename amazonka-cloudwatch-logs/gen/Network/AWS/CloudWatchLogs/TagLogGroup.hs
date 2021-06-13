@@ -48,17 +48,18 @@ where
 import Network.AWS.CloudWatchLogs.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newTagLogGroup' smart constructor.
 data TagLogGroup = TagLogGroup'
   { -- | The name of the log group.
-    logGroupName :: Core.Text,
+    logGroupName :: Prelude.Text,
     -- | The key-value pairs to use for the tags.
-    tags :: Core.HashMap Core.Text Core.Text
+    tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagLogGroup' with all optional fields omitted.
@@ -73,62 +74,64 @@ data TagLogGroup = TagLogGroup'
 -- 'tags', 'tagLogGroup_tags' - The key-value pairs to use for the tags.
 newTagLogGroup ::
   -- | 'logGroupName'
-  Core.Text ->
+  Prelude.Text ->
   TagLogGroup
 newTagLogGroup pLogGroupName_ =
   TagLogGroup'
     { logGroupName = pLogGroupName_,
-      tags = Core.mempty
+      tags = Prelude.mempty
     }
 
 -- | The name of the log group.
-tagLogGroup_logGroupName :: Lens.Lens' TagLogGroup Core.Text
+tagLogGroup_logGroupName :: Lens.Lens' TagLogGroup Prelude.Text
 tagLogGroup_logGroupName = Lens.lens (\TagLogGroup' {logGroupName} -> logGroupName) (\s@TagLogGroup' {} a -> s {logGroupName = a} :: TagLogGroup)
 
 -- | The key-value pairs to use for the tags.
-tagLogGroup_tags :: Lens.Lens' TagLogGroup (Core.HashMap Core.Text Core.Text)
-tagLogGroup_tags = Lens.lens (\TagLogGroup' {tags} -> tags) (\s@TagLogGroup' {} a -> s {tags = a} :: TagLogGroup) Core.. Lens._Coerce
+tagLogGroup_tags :: Lens.Lens' TagLogGroup (Prelude.HashMap Prelude.Text Prelude.Text)
+tagLogGroup_tags = Lens.lens (\TagLogGroup' {tags} -> tags) (\s@TagLogGroup' {} a -> s {tags = a} :: TagLogGroup) Prelude.. Lens._Coerce
 
 instance Core.AWSRequest TagLogGroup where
   type AWSResponse TagLogGroup = TagLogGroupResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull TagLogGroupResponse'
 
-instance Core.Hashable TagLogGroup
+instance Prelude.Hashable TagLogGroup
 
-instance Core.NFData TagLogGroup
+instance Prelude.NFData TagLogGroup
 
 instance Core.ToHeaders TagLogGroup where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("Logs_20140328.TagLogGroup" :: Core.ByteString),
+              Core.=# ("Logs_20140328.TagLogGroup" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
 instance Core.ToJSON TagLogGroup where
   toJSON TagLogGroup' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just ("logGroupName" Core..= logGroupName),
-            Core.Just ("tags" Core..= tags)
+      ( Prelude.catMaybes
+          [ Prelude.Just ("logGroupName" Core..= logGroupName),
+            Prelude.Just ("tags" Core..= tags)
           ]
       )
 
 instance Core.ToPath TagLogGroup where
-  toPath = Core.const "/"
+  toPath = Prelude.const "/"
 
 instance Core.ToQuery TagLogGroup where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTagLogGroupResponse' smart constructor.
 data TagLogGroupResponse = TagLogGroupResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagLogGroupResponse' with all optional fields omitted.
@@ -138,4 +141,4 @@ newTagLogGroupResponse ::
   TagLogGroupResponse
 newTagLogGroupResponse = TagLogGroupResponse'
 
-instance Core.NFData TagLogGroupResponse
+instance Prelude.NFData TagLogGroupResponse

@@ -21,6 +21,7 @@ module Network.AWS.OpsWorks.Types.VolumeConfiguration where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Amazon EBS volume configuration.
 --
@@ -29,7 +30,7 @@ data VolumeConfiguration = VolumeConfiguration'
   { -- | Specifies whether an Amazon EBS volume is encrypted. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>.
-    encrypted :: Core.Maybe Core.Bool,
+    encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The volume type. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>.
     --
@@ -48,20 +49,20 @@ data VolumeConfiguration = VolumeConfiguration'
     --
     -- -   @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500
     --     GiB and a maximum size of 16384 GiB.
-    volumeType :: Core.Maybe Core.Text,
+    volumeType :: Prelude.Maybe Prelude.Text,
     -- | The volume
     -- <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
-    raidLevel :: Core.Maybe Core.Int,
+    raidLevel :: Prelude.Maybe Prelude.Int,
     -- | For PIOPS volumes, the IOPS per disk.
-    iops :: Core.Maybe Core.Int,
+    iops :: Prelude.Maybe Prelude.Int,
     -- | The volume mount point. For example \"\/dev\/sdh\".
-    mountPoint :: Core.Text,
+    mountPoint :: Prelude.Text,
     -- | The number of disks in the volume.
-    numberOfDisks :: Core.Int,
+    numberOfDisks :: Prelude.Int,
     -- | The volume size.
-    size :: Core.Int
+    size :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VolumeConfiguration' with all optional fields omitted.
@@ -106,21 +107,21 @@ data VolumeConfiguration = VolumeConfiguration'
 -- 'size', 'volumeConfiguration_size' - The volume size.
 newVolumeConfiguration ::
   -- | 'mountPoint'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'numberOfDisks'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'size'
-  Core.Int ->
+  Prelude.Int ->
   VolumeConfiguration
 newVolumeConfiguration
   pMountPoint_
   pNumberOfDisks_
   pSize_ =
     VolumeConfiguration'
-      { encrypted = Core.Nothing,
-        volumeType = Core.Nothing,
-        raidLevel = Core.Nothing,
-        iops = Core.Nothing,
+      { encrypted = Prelude.Nothing,
+        volumeType = Prelude.Nothing,
+        raidLevel = Prelude.Nothing,
+        iops = Prelude.Nothing,
         mountPoint = pMountPoint_,
         numberOfDisks = pNumberOfDisks_,
         size = pSize_
@@ -129,7 +130,7 @@ newVolumeConfiguration
 -- | Specifies whether an Amazon EBS volume is encrypted. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>.
-volumeConfiguration_encrypted :: Lens.Lens' VolumeConfiguration (Core.Maybe Core.Bool)
+volumeConfiguration_encrypted :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Bool)
 volumeConfiguration_encrypted = Lens.lens (\VolumeConfiguration' {encrypted} -> encrypted) (\s@VolumeConfiguration' {} a -> s {encrypted = a} :: VolumeConfiguration)
 
 -- | The volume type. For more information, see
@@ -150,28 +151,28 @@ volumeConfiguration_encrypted = Lens.lens (\VolumeConfiguration' {encrypted} -> 
 --
 -- -   @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500
 --     GiB and a maximum size of 16384 GiB.
-volumeConfiguration_volumeType :: Lens.Lens' VolumeConfiguration (Core.Maybe Core.Text)
+volumeConfiguration_volumeType :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Text)
 volumeConfiguration_volumeType = Lens.lens (\VolumeConfiguration' {volumeType} -> volumeType) (\s@VolumeConfiguration' {} a -> s {volumeType = a} :: VolumeConfiguration)
 
 -- | The volume
 -- <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
-volumeConfiguration_raidLevel :: Lens.Lens' VolumeConfiguration (Core.Maybe Core.Int)
+volumeConfiguration_raidLevel :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Int)
 volumeConfiguration_raidLevel = Lens.lens (\VolumeConfiguration' {raidLevel} -> raidLevel) (\s@VolumeConfiguration' {} a -> s {raidLevel = a} :: VolumeConfiguration)
 
 -- | For PIOPS volumes, the IOPS per disk.
-volumeConfiguration_iops :: Lens.Lens' VolumeConfiguration (Core.Maybe Core.Int)
+volumeConfiguration_iops :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Int)
 volumeConfiguration_iops = Lens.lens (\VolumeConfiguration' {iops} -> iops) (\s@VolumeConfiguration' {} a -> s {iops = a} :: VolumeConfiguration)
 
 -- | The volume mount point. For example \"\/dev\/sdh\".
-volumeConfiguration_mountPoint :: Lens.Lens' VolumeConfiguration Core.Text
+volumeConfiguration_mountPoint :: Lens.Lens' VolumeConfiguration Prelude.Text
 volumeConfiguration_mountPoint = Lens.lens (\VolumeConfiguration' {mountPoint} -> mountPoint) (\s@VolumeConfiguration' {} a -> s {mountPoint = a} :: VolumeConfiguration)
 
 -- | The number of disks in the volume.
-volumeConfiguration_numberOfDisks :: Lens.Lens' VolumeConfiguration Core.Int
+volumeConfiguration_numberOfDisks :: Lens.Lens' VolumeConfiguration Prelude.Int
 volumeConfiguration_numberOfDisks = Lens.lens (\VolumeConfiguration' {numberOfDisks} -> numberOfDisks) (\s@VolumeConfiguration' {} a -> s {numberOfDisks = a} :: VolumeConfiguration)
 
 -- | The volume size.
-volumeConfiguration_size :: Lens.Lens' VolumeConfiguration Core.Int
+volumeConfiguration_size :: Lens.Lens' VolumeConfiguration Prelude.Int
 volumeConfiguration_size = Lens.lens (\VolumeConfiguration' {size} -> size) (\s@VolumeConfiguration' {} a -> s {size = a} :: VolumeConfiguration)
 
 instance Core.FromJSON VolumeConfiguration where
@@ -180,29 +181,29 @@ instance Core.FromJSON VolumeConfiguration where
       "VolumeConfiguration"
       ( \x ->
           VolumeConfiguration'
-            Core.<$> (x Core..:? "Encrypted")
-            Core.<*> (x Core..:? "VolumeType")
-            Core.<*> (x Core..:? "RaidLevel")
-            Core.<*> (x Core..:? "Iops")
-            Core.<*> (x Core..: "MountPoint")
-            Core.<*> (x Core..: "NumberOfDisks")
-            Core.<*> (x Core..: "Size")
+            Prelude.<$> (x Core..:? "Encrypted")
+            Prelude.<*> (x Core..:? "VolumeType")
+            Prelude.<*> (x Core..:? "RaidLevel")
+            Prelude.<*> (x Core..:? "Iops")
+            Prelude.<*> (x Core..: "MountPoint")
+            Prelude.<*> (x Core..: "NumberOfDisks")
+            Prelude.<*> (x Core..: "Size")
       )
 
-instance Core.Hashable VolumeConfiguration
+instance Prelude.Hashable VolumeConfiguration
 
-instance Core.NFData VolumeConfiguration
+instance Prelude.NFData VolumeConfiguration
 
 instance Core.ToJSON VolumeConfiguration where
   toJSON VolumeConfiguration' {..} =
     Core.object
-      ( Core.catMaybes
-          [ ("Encrypted" Core..=) Core.<$> encrypted,
-            ("VolumeType" Core..=) Core.<$> volumeType,
-            ("RaidLevel" Core..=) Core.<$> raidLevel,
-            ("Iops" Core..=) Core.<$> iops,
-            Core.Just ("MountPoint" Core..= mountPoint),
-            Core.Just ("NumberOfDisks" Core..= numberOfDisks),
-            Core.Just ("Size" Core..= size)
+      ( Prelude.catMaybes
+          [ ("Encrypted" Core..=) Prelude.<$> encrypted,
+            ("VolumeType" Core..=) Prelude.<$> volumeType,
+            ("RaidLevel" Core..=) Prelude.<$> raidLevel,
+            ("Iops" Core..=) Prelude.<$> iops,
+            Prelude.Just ("MountPoint" Core..= mountPoint),
+            Prelude.Just ("NumberOfDisks" Core..= numberOfDisks),
+            Prelude.Just ("Size" Core..= size)
           ]
       )

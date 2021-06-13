@@ -24,12 +24,13 @@ import Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace
 import Network.AWS.ApplicationAutoScaling.Types.SuspendedState
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a scalable target.
 --
 -- /See:/ 'newScalableTarget' smart constructor.
 data ScalableTarget = ScalableTarget'
-  { suspendedState :: Core.Maybe SuspendedState,
+  { suspendedState :: Prelude.Maybe SuspendedState,
     -- | The namespace of the AWS service that provides the resource, or a
     -- @custom-resource@.
     serviceNamespace :: ServiceNamespace,
@@ -93,7 +94,7 @@ data ScalableTarget = ScalableTarget'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-    resourceId :: Core.Text,
+    resourceId :: Prelude.Text,
     -- | The scalable dimension associated with the scalable target. This string
     -- consists of the service namespace, resource type, and scaling property.
     --
@@ -152,16 +153,16 @@ data ScalableTarget = ScalableTarget'
     --     GiB) for brokers in an Amazon MSK cluster.
     scalableDimension :: ScalableDimension,
     -- | The minimum value to scale to in response to a scale-in activity.
-    minCapacity :: Core.Int,
+    minCapacity :: Prelude.Int,
     -- | The maximum value to scale to in response to a scale-out activity.
-    maxCapacity :: Core.Int,
+    maxCapacity :: Prelude.Int,
     -- | The ARN of an IAM role that allows Application Auto Scaling to modify
     -- the scalable target on your behalf.
-    roleARN :: Core.Text,
+    roleARN :: Prelude.Text,
     -- | The Unix timestamp for when the scalable target was created.
     creationTime :: Core.POSIX
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScalableTarget' with all optional fields omitted.
@@ -306,17 +307,17 @@ newScalableTarget ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
   -- | 'resourceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'scalableDimension'
   ScalableDimension ->
   -- | 'minCapacity'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'maxCapacity'
-  Core.Int ->
+  Prelude.Int ->
   -- | 'roleARN'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'creationTime'
-  Core.UTCTime ->
+  Prelude.UTCTime ->
   ScalableTarget
 newScalableTarget
   pServiceNamespace_
@@ -327,7 +328,7 @@ newScalableTarget
   pRoleARN_
   pCreationTime_ =
     ScalableTarget'
-      { suspendedState = Core.Nothing,
+      { suspendedState = Prelude.Nothing,
         serviceNamespace = pServiceNamespace_,
         resourceId = pResourceId_,
         scalableDimension = pScalableDimension_,
@@ -338,7 +339,7 @@ newScalableTarget
       }
 
 -- | Undocumented member.
-scalableTarget_suspendedState :: Lens.Lens' ScalableTarget (Core.Maybe SuspendedState)
+scalableTarget_suspendedState :: Lens.Lens' ScalableTarget (Prelude.Maybe SuspendedState)
 scalableTarget_suspendedState = Lens.lens (\ScalableTarget' {suspendedState} -> suspendedState) (\s@ScalableTarget' {} a -> s {suspendedState = a} :: ScalableTarget)
 
 -- | The namespace of the AWS service that provides the resource, or a
@@ -406,7 +407,7 @@ scalableTarget_serviceNamespace = Lens.lens (\ScalableTarget' {serviceNamespace}
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-scalableTarget_resourceId :: Lens.Lens' ScalableTarget Core.Text
+scalableTarget_resourceId :: Lens.Lens' ScalableTarget Prelude.Text
 scalableTarget_resourceId = Lens.lens (\ScalableTarget' {resourceId} -> resourceId) (\s@ScalableTarget' {} a -> s {resourceId = a} :: ScalableTarget)
 
 -- | The scalable dimension associated with the scalable target. This string
@@ -469,21 +470,21 @@ scalableTarget_scalableDimension :: Lens.Lens' ScalableTarget ScalableDimension
 scalableTarget_scalableDimension = Lens.lens (\ScalableTarget' {scalableDimension} -> scalableDimension) (\s@ScalableTarget' {} a -> s {scalableDimension = a} :: ScalableTarget)
 
 -- | The minimum value to scale to in response to a scale-in activity.
-scalableTarget_minCapacity :: Lens.Lens' ScalableTarget Core.Int
+scalableTarget_minCapacity :: Lens.Lens' ScalableTarget Prelude.Int
 scalableTarget_minCapacity = Lens.lens (\ScalableTarget' {minCapacity} -> minCapacity) (\s@ScalableTarget' {} a -> s {minCapacity = a} :: ScalableTarget)
 
 -- | The maximum value to scale to in response to a scale-out activity.
-scalableTarget_maxCapacity :: Lens.Lens' ScalableTarget Core.Int
+scalableTarget_maxCapacity :: Lens.Lens' ScalableTarget Prelude.Int
 scalableTarget_maxCapacity = Lens.lens (\ScalableTarget' {maxCapacity} -> maxCapacity) (\s@ScalableTarget' {} a -> s {maxCapacity = a} :: ScalableTarget)
 
 -- | The ARN of an IAM role that allows Application Auto Scaling to modify
 -- the scalable target on your behalf.
-scalableTarget_roleARN :: Lens.Lens' ScalableTarget Core.Text
+scalableTarget_roleARN :: Lens.Lens' ScalableTarget Prelude.Text
 scalableTarget_roleARN = Lens.lens (\ScalableTarget' {roleARN} -> roleARN) (\s@ScalableTarget' {} a -> s {roleARN = a} :: ScalableTarget)
 
 -- | The Unix timestamp for when the scalable target was created.
-scalableTarget_creationTime :: Lens.Lens' ScalableTarget Core.UTCTime
-scalableTarget_creationTime = Lens.lens (\ScalableTarget' {creationTime} -> creationTime) (\s@ScalableTarget' {} a -> s {creationTime = a} :: ScalableTarget) Core.. Core._Time
+scalableTarget_creationTime :: Lens.Lens' ScalableTarget Prelude.UTCTime
+scalableTarget_creationTime = Lens.lens (\ScalableTarget' {creationTime} -> creationTime) (\s@ScalableTarget' {} a -> s {creationTime = a} :: ScalableTarget) Prelude.. Core._Time
 
 instance Core.FromJSON ScalableTarget where
   parseJSON =
@@ -491,16 +492,16 @@ instance Core.FromJSON ScalableTarget where
       "ScalableTarget"
       ( \x ->
           ScalableTarget'
-            Core.<$> (x Core..:? "SuspendedState")
-            Core.<*> (x Core..: "ServiceNamespace")
-            Core.<*> (x Core..: "ResourceId")
-            Core.<*> (x Core..: "ScalableDimension")
-            Core.<*> (x Core..: "MinCapacity")
-            Core.<*> (x Core..: "MaxCapacity")
-            Core.<*> (x Core..: "RoleARN")
-            Core.<*> (x Core..: "CreationTime")
+            Prelude.<$> (x Core..:? "SuspendedState")
+            Prelude.<*> (x Core..: "ServiceNamespace")
+            Prelude.<*> (x Core..: "ResourceId")
+            Prelude.<*> (x Core..: "ScalableDimension")
+            Prelude.<*> (x Core..: "MinCapacity")
+            Prelude.<*> (x Core..: "MaxCapacity")
+            Prelude.<*> (x Core..: "RoleARN")
+            Prelude.<*> (x Core..: "CreationTime")
       )
 
-instance Core.Hashable ScalableTarget
+instance Prelude.Hashable ScalableTarget
 
-instance Core.NFData ScalableTarget
+instance Prelude.NFData ScalableTarget

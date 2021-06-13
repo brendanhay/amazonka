@@ -21,6 +21,7 @@ module Network.AWS.CloudFront.Types.TrustedKeyGroups where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of key groups whose public keys CloudFront can use to verify the
 -- signatures of signed URLs and signed cookies.
@@ -28,15 +29,15 @@ import qualified Network.AWS.Lens as Lens
 -- /See:/ 'newTrustedKeyGroups' smart constructor.
 data TrustedKeyGroups = TrustedKeyGroups'
   { -- | A list of key groups identifiers.
-    items :: Core.Maybe [Core.Text],
+    items :: Prelude.Maybe [Prelude.Text],
     -- | This field is @true@ if any of the key groups in the list have public
     -- keys that CloudFront can use to verify the signatures of signed URLs and
     -- signed cookies. If not, this field is @false@.
-    enabled :: Core.Bool,
+    enabled :: Prelude.Bool,
     -- | The number of key groups in the list.
-    quantity :: Core.Int
+    quantity :: Prelude.Int
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TrustedKeyGroups' with all optional fields omitted.
@@ -55,50 +56,50 @@ data TrustedKeyGroups = TrustedKeyGroups'
 -- 'quantity', 'trustedKeyGroups_quantity' - The number of key groups in the list.
 newTrustedKeyGroups ::
   -- | 'enabled'
-  Core.Bool ->
+  Prelude.Bool ->
   -- | 'quantity'
-  Core.Int ->
+  Prelude.Int ->
   TrustedKeyGroups
 newTrustedKeyGroups pEnabled_ pQuantity_ =
   TrustedKeyGroups'
-    { items = Core.Nothing,
+    { items = Prelude.Nothing,
       enabled = pEnabled_,
       quantity = pQuantity_
     }
 
 -- | A list of key groups identifiers.
-trustedKeyGroups_items :: Lens.Lens' TrustedKeyGroups (Core.Maybe [Core.Text])
-trustedKeyGroups_items = Lens.lens (\TrustedKeyGroups' {items} -> items) (\s@TrustedKeyGroups' {} a -> s {items = a} :: TrustedKeyGroups) Core.. Lens.mapping Lens._Coerce
+trustedKeyGroups_items :: Lens.Lens' TrustedKeyGroups (Prelude.Maybe [Prelude.Text])
+trustedKeyGroups_items = Lens.lens (\TrustedKeyGroups' {items} -> items) (\s@TrustedKeyGroups' {} a -> s {items = a} :: TrustedKeyGroups) Prelude.. Lens.mapping Lens._Coerce
 
 -- | This field is @true@ if any of the key groups in the list have public
 -- keys that CloudFront can use to verify the signatures of signed URLs and
 -- signed cookies. If not, this field is @false@.
-trustedKeyGroups_enabled :: Lens.Lens' TrustedKeyGroups Core.Bool
+trustedKeyGroups_enabled :: Lens.Lens' TrustedKeyGroups Prelude.Bool
 trustedKeyGroups_enabled = Lens.lens (\TrustedKeyGroups' {enabled} -> enabled) (\s@TrustedKeyGroups' {} a -> s {enabled = a} :: TrustedKeyGroups)
 
 -- | The number of key groups in the list.
-trustedKeyGroups_quantity :: Lens.Lens' TrustedKeyGroups Core.Int
+trustedKeyGroups_quantity :: Lens.Lens' TrustedKeyGroups Prelude.Int
 trustedKeyGroups_quantity = Lens.lens (\TrustedKeyGroups' {quantity} -> quantity) (\s@TrustedKeyGroups' {} a -> s {quantity = a} :: TrustedKeyGroups)
 
 instance Core.FromXML TrustedKeyGroups where
   parseXML x =
     TrustedKeyGroups'
-      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
-                   Core.>>= Core.may (Core.parseXMLList "KeyGroup")
-               )
-      Core.<*> (x Core..@ "Enabled")
-      Core.<*> (x Core..@ "Quantity")
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "KeyGroup")
+                  )
+      Prelude.<*> (x Core..@ "Enabled")
+      Prelude.<*> (x Core..@ "Quantity")
 
-instance Core.Hashable TrustedKeyGroups
+instance Prelude.Hashable TrustedKeyGroups
 
-instance Core.NFData TrustedKeyGroups
+instance Prelude.NFData TrustedKeyGroups
 
 instance Core.ToXML TrustedKeyGroups where
   toXML TrustedKeyGroups' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "Items"
           Core.@= Core.toXML
-            (Core.toXMLList "KeyGroup" Core.<$> items),
+            (Core.toXMLList "KeyGroup" Prelude.<$> items),
         "Enabled" Core.@= enabled,
         "Quantity" Core.@= quantity
       ]

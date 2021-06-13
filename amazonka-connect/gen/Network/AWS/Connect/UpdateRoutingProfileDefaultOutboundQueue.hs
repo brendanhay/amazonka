@@ -40,19 +40,20 @@ where
 import Network.AWS.Connect.Types
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateRoutingProfileDefaultOutboundQueue' smart constructor.
 data UpdateRoutingProfileDefaultOutboundQueue = UpdateRoutingProfileDefaultOutboundQueue'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Core.Text,
+    instanceId :: Prelude.Text,
     -- | The identifier of the routing profile.
-    routingProfileId :: Core.Text,
+    routingProfileId :: Prelude.Text,
     -- | The identifier for the default outbound queue.
-    defaultOutboundQueueId :: Core.Text
+    defaultOutboundQueueId :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRoutingProfileDefaultOutboundQueue' with all optional fields omitted.
@@ -69,11 +70,11 @@ data UpdateRoutingProfileDefaultOutboundQueue = UpdateRoutingProfileDefaultOutbo
 -- 'defaultOutboundQueueId', 'updateRoutingProfileDefaultOutboundQueue_defaultOutboundQueueId' - The identifier for the default outbound queue.
 newUpdateRoutingProfileDefaultOutboundQueue ::
   -- | 'instanceId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'routingProfileId'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'defaultOutboundQueueId'
-  Core.Text ->
+  Prelude.Text ->
   UpdateRoutingProfileDefaultOutboundQueue
 newUpdateRoutingProfileDefaultOutboundQueue
   pInstanceId_
@@ -89,15 +90,15 @@ newUpdateRoutingProfileDefaultOutboundQueue
       }
 
 -- | The identifier of the Amazon Connect instance.
-updateRoutingProfileDefaultOutboundQueue_instanceId :: Lens.Lens' UpdateRoutingProfileDefaultOutboundQueue Core.Text
+updateRoutingProfileDefaultOutboundQueue_instanceId :: Lens.Lens' UpdateRoutingProfileDefaultOutboundQueue Prelude.Text
 updateRoutingProfileDefaultOutboundQueue_instanceId = Lens.lens (\UpdateRoutingProfileDefaultOutboundQueue' {instanceId} -> instanceId) (\s@UpdateRoutingProfileDefaultOutboundQueue' {} a -> s {instanceId = a} :: UpdateRoutingProfileDefaultOutboundQueue)
 
 -- | The identifier of the routing profile.
-updateRoutingProfileDefaultOutboundQueue_routingProfileId :: Lens.Lens' UpdateRoutingProfileDefaultOutboundQueue Core.Text
+updateRoutingProfileDefaultOutboundQueue_routingProfileId :: Lens.Lens' UpdateRoutingProfileDefaultOutboundQueue Prelude.Text
 updateRoutingProfileDefaultOutboundQueue_routingProfileId = Lens.lens (\UpdateRoutingProfileDefaultOutboundQueue' {routingProfileId} -> routingProfileId) (\s@UpdateRoutingProfileDefaultOutboundQueue' {} a -> s {routingProfileId = a} :: UpdateRoutingProfileDefaultOutboundQueue)
 
 -- | The identifier for the default outbound queue.
-updateRoutingProfileDefaultOutboundQueue_defaultOutboundQueueId :: Lens.Lens' UpdateRoutingProfileDefaultOutboundQueue Core.Text
+updateRoutingProfileDefaultOutboundQueue_defaultOutboundQueueId :: Lens.Lens' UpdateRoutingProfileDefaultOutboundQueue Prelude.Text
 updateRoutingProfileDefaultOutboundQueue_defaultOutboundQueueId = Lens.lens (\UpdateRoutingProfileDefaultOutboundQueue' {defaultOutboundQueueId} -> defaultOutboundQueueId) (\s@UpdateRoutingProfileDefaultOutboundQueue' {} a -> s {defaultOutboundQueueId = a} :: UpdateRoutingProfileDefaultOutboundQueue)
 
 instance
@@ -114,11 +115,11 @@ instance
       UpdateRoutingProfileDefaultOutboundQueueResponse'
 
 instance
-  Core.Hashable
+  Prelude.Hashable
     UpdateRoutingProfileDefaultOutboundQueue
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateRoutingProfileDefaultOutboundQueue
 
 instance
@@ -126,10 +127,12 @@ instance
     UpdateRoutingProfileDefaultOutboundQueue
   where
   toHeaders =
-    Core.const
-      ( Core.mconcat
+    Prelude.const
+      ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
           ]
       )
 
@@ -139,8 +142,8 @@ instance
   where
   toJSON UpdateRoutingProfileDefaultOutboundQueue' {..} =
     Core.object
-      ( Core.catMaybes
-          [ Core.Just
+      ( Prelude.catMaybes
+          [ Prelude.Just
               ( "DefaultOutboundQueueId"
                   Core..= defaultOutboundQueueId
               )
@@ -152,7 +155,7 @@ instance
     UpdateRoutingProfileDefaultOutboundQueue
   where
   toPath UpdateRoutingProfileDefaultOutboundQueue' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "/routing-profiles/",
         Core.toBS instanceId,
         "/",
@@ -164,13 +167,13 @@ instance
   Core.ToQuery
     UpdateRoutingProfileDefaultOutboundQueue
   where
-  toQuery = Core.const Core.mempty
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRoutingProfileDefaultOutboundQueueResponse' smart constructor.
 data UpdateRoutingProfileDefaultOutboundQueueResponse = UpdateRoutingProfileDefaultOutboundQueueResponse'
   {
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateRoutingProfileDefaultOutboundQueueResponse' with all optional fields omitted.
@@ -182,5 +185,5 @@ newUpdateRoutingProfileDefaultOutboundQueueResponse =
   UpdateRoutingProfileDefaultOutboundQueueResponse'
 
 instance
-  Core.NFData
+  Prelude.NFData
     UpdateRoutingProfileDefaultOutboundQueueResponse

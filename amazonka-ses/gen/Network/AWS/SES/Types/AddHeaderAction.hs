@@ -21,6 +21,7 @@ module Network.AWS.SES.Types.AddHeaderAction where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 
 -- | When included in a receipt rule, this action adds a header to the
 -- received email.
@@ -33,12 +34,12 @@ data AddHeaderAction = AddHeaderAction'
   { -- | The name of the header to add. Must be between 1 and 50 characters,
     -- inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and
     -- dashes only.
-    headerName :: Core.Text,
+    headerName :: Prelude.Text,
     -- | Must be less than 2048 characters, and must not contain newline
     -- characters (\"\\r\" or \"\\n\").
-    headerValue :: Core.Text
+    headerValue :: Prelude.Text
   }
-  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AddHeaderAction' with all optional fields omitted.
@@ -56,9 +57,9 @@ data AddHeaderAction = AddHeaderAction'
 -- characters (\"\\r\" or \"\\n\").
 newAddHeaderAction ::
   -- | 'headerName'
-  Core.Text ->
+  Prelude.Text ->
   -- | 'headerValue'
-  Core.Text ->
+  Prelude.Text ->
   AddHeaderAction
 newAddHeaderAction pHeaderName_ pHeaderValue_ =
   AddHeaderAction'
@@ -69,27 +70,27 @@ newAddHeaderAction pHeaderName_ pHeaderValue_ =
 -- | The name of the header to add. Must be between 1 and 50 characters,
 -- inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and
 -- dashes only.
-addHeaderAction_headerName :: Lens.Lens' AddHeaderAction Core.Text
+addHeaderAction_headerName :: Lens.Lens' AddHeaderAction Prelude.Text
 addHeaderAction_headerName = Lens.lens (\AddHeaderAction' {headerName} -> headerName) (\s@AddHeaderAction' {} a -> s {headerName = a} :: AddHeaderAction)
 
 -- | Must be less than 2048 characters, and must not contain newline
 -- characters (\"\\r\" or \"\\n\").
-addHeaderAction_headerValue :: Lens.Lens' AddHeaderAction Core.Text
+addHeaderAction_headerValue :: Lens.Lens' AddHeaderAction Prelude.Text
 addHeaderAction_headerValue = Lens.lens (\AddHeaderAction' {headerValue} -> headerValue) (\s@AddHeaderAction' {} a -> s {headerValue = a} :: AddHeaderAction)
 
 instance Core.FromXML AddHeaderAction where
   parseXML x =
     AddHeaderAction'
-      Core.<$> (x Core..@ "HeaderName")
-      Core.<*> (x Core..@ "HeaderValue")
+      Prelude.<$> (x Core..@ "HeaderName")
+      Prelude.<*> (x Core..@ "HeaderValue")
 
-instance Core.Hashable AddHeaderAction
+instance Prelude.Hashable AddHeaderAction
 
-instance Core.NFData AddHeaderAction
+instance Prelude.NFData AddHeaderAction
 
 instance Core.ToQuery AddHeaderAction where
   toQuery AddHeaderAction' {..} =
-    Core.mconcat
+    Prelude.mconcat
       [ "HeaderName" Core.=: headerName,
         "HeaderValue" Core.=: headerValue
       ]

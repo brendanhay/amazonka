@@ -854,7 +854,7 @@ waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
     expect x =
       case _acceptExpect x of
         Status' i -> Exts.intE i
-        Boolean b -> con . mappend "Core." . Text.pack $ show b
+        Boolean b -> con . mappend "Prelude." . Text.pack $ show b
         Textual t -> str t
 
     criteria x =

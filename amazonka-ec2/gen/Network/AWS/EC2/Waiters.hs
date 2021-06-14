@@ -358,7 +358,7 @@ newPasswordDataAvailable =
       Core._waitDelay = 15,
       Core._waitAcceptors =
         [ Core.matchAll
-            Core.True
+            Prelude.True
             Core.AcceptSuccess
             ( Core.nonEmptyText
                 getPasswordDataResponse_passwordData
@@ -457,7 +457,7 @@ newKeyPairExists =
       Core._waitDelay = 5,
       Core._waitAcceptors =
         [ Core.matchNonEmpty
-            Core.True
+            Prelude.True
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
@@ -554,7 +554,7 @@ newImageExists =
       Core._waitDelay = 15,
       Core._waitAcceptors =
         [ Core.matchNonEmpty
-            Core.True
+            Prelude.True
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
@@ -693,7 +693,7 @@ newSecurityGroupExists =
       Core._waitDelay = 5,
       Core._waitAcceptors =
         [ Core.matchNonEmpty
-            Core.True
+            Prelude.True
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf

@@ -33,7 +33,7 @@ newDBSnapshotDeleted =
       Core._waitDelay = 30,
       Core._waitAcceptors =
         [ Core.matchNonEmpty
-            Core.True
+            Prelude.True
             Core.AcceptSuccess
             ( describeDBSnapshotsResponse_dbSnapshots
                 Prelude.. Lens._Just
@@ -311,7 +311,7 @@ newDBClusterSnapshotDeleted =
       Core._waitDelay = 30,
       Core._waitAcceptors =
         [ Core.matchNonEmpty
-            Core.True
+            Prelude.True
             Core.AcceptSuccess
             ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
                 Prelude.. Lens._Just
@@ -383,7 +383,7 @@ newDBInstanceDeleted =
       Core._waitDelay = 30,
       Core._waitAcceptors =
         [ Core.matchNonEmpty
-            Core.True
+            Prelude.True
             Core.AcceptSuccess
             ( describeDBInstancesResponse_dbInstances
                 Prelude.. Lens._Just

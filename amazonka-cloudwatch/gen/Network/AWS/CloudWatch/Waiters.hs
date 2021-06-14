@@ -31,7 +31,7 @@ newAlarmExists =
       Core._waitDelay = 5,
       Core._waitAcceptors =
         [ Core.matchNonEmpty
-            Core.True
+            Prelude.True
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
@@ -52,7 +52,7 @@ newCompositeAlarmExists =
       Core._waitDelay = 5,
       Core._waitAcceptors =
         [ Core.matchNonEmpty
-            Core.True
+            Prelude.True
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf

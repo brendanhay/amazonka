@@ -8,13 +8,13 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
 echo "Formatting Cabal"
 
-find gen test amazonka amazonka-s3-encryption \
+find gen test examples amazonka amazonka-s3-encryption \
   -type f -name '*.cabal' \
   -exec cabal-fmt --inplace --indent=2 {} \+
 
 echo "Formatting Haskell"
 
-find gen test amazonka amazonka-s3-encryption \
+find gen test examples amazonka amazonka-s3-encryption \
   -type f -name '*.hs' \
   -exec ormolu --mode=inplace \
   -o '-XPatternSynonyms' \

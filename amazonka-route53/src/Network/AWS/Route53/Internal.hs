@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
@@ -23,6 +22,7 @@ module Network.AWS.Route53.Internal
     ) where
 
 import Network.AWS.Core
+import Network.AWS.Prelude
 import qualified Data.Text as Text
 
 -- | A Route53 identifier for resources such as hosted zones and delegation sets.
@@ -37,8 +37,6 @@ newtype ResourceId = ResourceId { fromResourceId :: Text }
         , Ord
         , Read
         , Show
-        
-        
         , Generic
         , IsString
         , FromText

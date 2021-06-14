@@ -1,10 +1,3 @@
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE TupleSections #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE NoImplicitPrelude #-}
-
 -- |
 -- Module      : Network.AWS.S3.Encryption.Encrypt
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -19,6 +12,7 @@ import qualified Control.Lens as Lens
 import Data.Coerce (coerce)
 import qualified Network.AWS as AWS
 import Network.AWS.Core
+import Network.AWS.Prelude
 import qualified Network.AWS.S3 as S3
 import Network.AWS.S3.Encryption.Envelope
 import Network.AWS.S3.Encryption.Instructions

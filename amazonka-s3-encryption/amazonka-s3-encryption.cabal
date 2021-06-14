@@ -1,16 +1,16 @@
+cabal-version:      2.2
 name:               amazonka-s3-encryption
 version:            1.6.1
 synopsis:           Amazon Simple Storage Service SDK - Client-Side Encryption.
 homepage:           https://github.com/brendanhay/amazonka
 bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            OtherLicense
+license:            MPL-2.0
 license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay@gmail.com>
 copyright:          Copyright (c) 2016 Brendan Hay
-category:           Network, AWS, Cloud, Distributed Computing, Cryptography
+category:           AWS
 build-type:         Simple
-cabal-version:      >=1.10
 extra-source-files: README.md
 description:
   Addons for <http://hackage.haskell.org/package/amazonka-s3 amazonka-s3> to
@@ -42,10 +42,43 @@ source-repository head
   type:     git
   location: git://github.com/brendanhay/amazonka.git
 
+common base
+  default-language:   Haskell2010
+  ghc-options:
+    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -fwarn-missing-deriving-strategies
+
+  default-extensions:
+    NoImplicitPrelude
+    DataKinds
+    DeriveAnyClass
+    DeriveFoldable
+    DeriveFunctor
+    DeriveGeneric
+    DeriveTraversable
+    DerivingStrategies
+    DerivingVia
+    FlexibleContexts
+    FlexibleInstances
+    GeneralizedNewtypeDeriving
+    LambdaCase
+    NamedFieldPuns
+    OverloadedStrings
+    PatternSynonyms
+    RankNTypes
+    RecordWildCards
+    ScopedTypeVariables
+    StrictData
+    TupleSections
+    TypeApplications
+    TypeFamilies
+    ViewPatterns
+
+  build-depends:      base >=4.13 && <5
+
 library
-  default-language: Haskell2010
-  hs-source-dirs:   src
-  ghc-options:      -Wall
+  import:          base
+  hs-source-dirs:  src
   exposed-modules:
     Network.AWS.S3.Encryption
     Network.AWS.S3.Encryption.Body
@@ -56,11 +89,10 @@ library
     Network.AWS.S3.Encryption.Types
 
   build-depends:
-      aeson                 >=1.3     && <1.6
+    , aeson                 >=1.3     && <1.6
     , amazonka              >=1.6.1   && <1.6.2
     , amazonka-kms          >=1.6.1   && <1.6.2
     , amazonka-s3           >=1.6.1   && <1.6.2
-    , base                  >=4.13    && <5
     , bytestring            >=0.10.8
     , case-insensitive      >=1.2
     , conduit               >=1.3

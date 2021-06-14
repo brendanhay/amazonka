@@ -1,6 +1,3 @@
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE NoImplicitPrelude #-}
-
 -- |
 -- Module      : Network.AWS.S3.Encryption.Body
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -14,6 +11,7 @@ import qualified Conduit
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Lazy as LBS
 import Network.AWS.Core
+import Network.AWS.Prelude
 
 -- Resides here since it's unsafe without the use of enforceChunks,
 -- which incurs extra dependencies not desired in core.

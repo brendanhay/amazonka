@@ -1,6 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies #-}
-
 -- |
 -- Module      : Network.AWS.S3.Encryption
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -92,6 +89,7 @@ import Control.Monad.Reader
 import Crypto.PubKey.RSA.Types as RSA
 import Crypto.Random
 import Network.AWS as AWS
+import Network.AWS.Prelude
 import Network.AWS.S3
 import Network.AWS.S3.Encryption.Decrypt
 import Network.AWS.S3.Encryption.Encrypt
@@ -179,11 +177,8 @@ initiate ::
   Env ->
   CreateMultipartUpload ->
   m
-    ( Either
-        EncryptionError
-        ( CreateMultipartUploadResponse,
-          UploadPart -> Encrypted UploadPart
-        )
+    ( CreateMultipartUploadResponse,
+      UploadPart -> Encrypted UploadPart
     )
 initiate key env x = do
   (a, _) <- encrypted key env x
@@ -205,11 +200,8 @@ initiateInstructions ::
   Env ->
   CreateMultipartUpload ->
   m
-    ( Either
-        EncryptionError
-        ( CreateMultipartUploadResponse,
-          UploadPart -> Encrypted UploadPart
-        )
+    ( CreateMultipartUploadResponse,
+      UploadPart -> Encrypted UploadPart
     )
 initiateInstructions key env x = do
   (a, b) <- encrypted key env x
@@ -261,12 +253,10 @@ cleanupInstructions ::
   Env ->
   a ->
   m (AWSResponse a)
-cleanupInstructions env x =
-  do
-    rs <- send env x
-    _ <- send env (deleteInstructions x)
-  return
-  rs
+cleanupInstructions env x = do
+  rs <- send env x
+  _ <- send env (deleteInstructions x)
+  return rs
 
 -- $usage
 -- When sending requests that make use of a master key, an extension to the underlying

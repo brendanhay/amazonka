@@ -1,9 +1,3 @@
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE ViewPatterns #-}
-{-# LANGUAGE NoImplicitPrelude #-}
-
 -- |
 -- Module      : Network.AWS.S3.Encryption.Envelope
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -33,6 +27,7 @@ import qualified Network.AWS as AWS
 import Network.AWS.Core
 import qualified Network.AWS.KMS as KMS
 import qualified Network.AWS.KMS.Lens as KMS
+import Network.AWS.Prelude
 import Network.AWS.S3.Encryption.Body
 import Network.AWS.S3.Encryption.Types
 
@@ -65,24 +60,24 @@ newV1 f d =
 
 decodeV1 ::
   MonadResource m =>
+  (ByteString -> IO ByteString) ->
   [(CI Text, Text)] ->
-  m (Either EncryptionError Envelope)
-decodeV1 decryptKey meta =
-  liftIO . Except.runExceptT $ do
-    Base64 k <- Except.liftEither (meta .& "X-Amz-Key")
-    Base64 i <- Except.liftEither (meta .& "X-Amz-IV")
-    d <- Except.liftEither (meta .& "X-Amz-Matdesc")
+  m Envelope
+decodeV1 decryptKey meta = do
+  Base64 k <- meta .& "X-Amz-Key"
+  Base64 i <- meta .& "X-Amz-IV"
+  d <- meta .& "X-Amz-Matdesc"
 
-    key <- ExceptT (decryptKey k)
-    iv <- Except.liftEither (createIV i)
-    cipher <- Except.liftEither (createCipher key)
+  key <- liftIO (decryptKey k)
+  iv <- createIV i
+  cipher <- createCipher key
 
-    pure . V1 cipher $
-      V1Envelope
-        { _v1Key = key,
-          _v1IV = iv,
-          _v1Description = d
-        }
+  pure . V1 cipher $
+    V1Envelope
+      { _v1Key = key,
+        _v1IV = iv,
+        _v1Description = d
+      }
 
 data V2Envelope = V2Envelope
   { -- | @x-amz-key-v2@: CEK in key wrapped form. This is necessary so that
@@ -108,30 +103,33 @@ data V2Envelope = V2Envelope
     _v2Description :: !Description
   }
 
-newV2 :: MonadResource m => Text -> AWS.Env -> Description -> m Envelope
+newV2 ::
+  MonadResource m =>
+  Text ->
+  AWS.Env ->
+  Description ->
+  m Envelope
 newV2 kid env d = do
-  let ctx = Map.insert "kms_cmk_id" kid (fromDescription d)
+  let context = Map.insert "kms_cmk_id" kid (fromDescription d)
 
   rs <-
     AWS.send env $
       KMS.newGenerateDataKey kid
-        & KMS.generateDataKey_encryptionContext ?~ ctx
+        & KMS.generateDataKey_encryptionContext ?~ context
         & KMS.generateDataKey_keySpec ?~ KMS.DataKeySpec_AES_256
 
   ivBytes <- liftIO (getRandomBytes aesBlockSize)
+  iv <- createIV ivBytes
+  cipher <- createCipher (rs ^. KMS.generateDataKeyResponse_plaintext)
 
-  pure $ do
-    iv <- createIV ivBytes
-    cipher <- createCipher (response ^. KMS.generateDataKeyResponse_plaintext)
-
-    pure . V2 cipher $
-      V2Envelope
-        { _v2Key = response ^. KMS.generateDataKeyResponse_ciphertextBlob,
-          _v2IV = iv,
-          _v2CEKAlgorithm = AES_CBC_PKCS5Padding,
-          _v2WrapAlgorithm = KMSWrap,
-          _v2Description = Description context
-        }
+  pure . V2 cipher $
+    V2Envelope
+      { _v2Key = rs ^. KMS.generateDataKeyResponse_ciphertextBlob,
+        _v2IV = iv,
+        _v2CEKAlgorithm = AES_CBC_PKCS5Padding,
+        _v2WrapAlgorithm = KMSWrap,
+        _v2Description = Description context
+      }
 
 decodeV2 ::
   MonadResource m =>
@@ -197,7 +195,11 @@ toMetadata = \case
     b64 :: ByteString -> ByteString
     b64 = toBS . Base64
 
-newEnvelope :: MonadResource m => Key -> AWS.Env -> m Envelope
+newEnvelope ::
+  MonadResource m =>
+  Key ->
+  AWS.Env ->
+  m Envelope
 newEnvelope key env =
   case key of
     Symmetric c d -> newV1 (pure . Cipher.ecbEncrypt c) d
@@ -208,20 +210,18 @@ decodeEnvelope ::
   MonadResource m =>
   Key ->
   AWS.Env ->
-  Key ->
   [(CI Text, Text)] ->
   m Envelope
 decodeEnvelope key env xs =
   case key of
-    Symmetric c _ -> decodeV1 xs (pure . Cipher.ecbDecrypt c)
-    Asymmetric p _ -> decodeV1 xs (rsaDecrypt p)
+    Symmetric c _ -> decodeV1 (pure . Cipher.ecbDecrypt c) xs
+    Asymmetric p _ -> decodeV1 (rsaDecrypt p) xs
     KMS _ d -> decodeV2 env xs d
 
 fromMetadata ::
   MonadResource m =>
   Key ->
   AWS.Env ->
-  Key ->
   HashMap Text Text ->
   m Envelope
 fromMetadata key env =
@@ -252,10 +252,14 @@ bodyDecrypt (getCipher -> (aes, iv)) x =
        in fromMaybe r (Padding.unpad (Padding.PKCS7 aesBlockSize) r)
 
 rsaEncrypt :: KeyPair -> ByteString -> IO ByteString
-rsaEncrypt k = RSA.encrypt (toPublicKey k) >=> hoistEither PubKeyFailure
+rsaEncrypt k =
+  RSA.encrypt (toPublicKey k)
+    >=> hoistEither . first PubKeyFailure
 
 rsaDecrypt :: KeyPair -> ByteString -> IO ByteString
-rsaDecrypt k = RSA.decryptSafer (toPrivateKey k) >=> hoistEither PubKeyFailure
+rsaDecrypt k =
+  RSA.decryptSafer (toPrivateKey k)
+    >=> hoistEither . first PubKeyFailure
 
 getCipher :: Envelope -> (AES.AES256, Cipher.IV AES.AES256)
 getCipher = \case
@@ -280,11 +284,10 @@ plaintext rs =
 xs .& k =
   case k `lookup` xs of
     Nothing -> throwIO (EnvelopeMissing k)
-    Just x -> hoistEither (EnvelopeInvalid k) (fromText x)
+    Just x -> hoistEither (EnvelopeInvalid k `first` fromText x)
 
-hoistEither :: MonadIO m => (e -> EncryptionError) -> Either e a -> m a
-hoistEither f (Left e) = throwIO (f e)
-hoistEither _ (Right x) = pure x
+hoistEither :: MonadIO m => Either EncryptionError a -> m a
+hoistEither = either throwIO pure
 
-throwIO :: (MonadIO m, Exception e) => e -> m a
+throwIO :: MonadIO m => EncryptionError -> m a
 throwIO = liftIO . Exception.throwIO

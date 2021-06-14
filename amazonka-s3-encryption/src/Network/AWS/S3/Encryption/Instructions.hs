@@ -1,10 +1,3 @@
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE ViewPatterns #-}
-{-# LANGUAGE NoImplicitPrelude #-}
-
 -- |
 -- Module      : Network.AWS.S3.Encryption.Instructions
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -18,10 +11,10 @@ import Control.Arrow ((&&&))
 import Control.Lens ((%~))
 import qualified Control.Lens as Lens
 import qualified Data.Aeson.Types as Aeson
-import Data.Bifunctor (first)
 import Data.Coerce (coerce)
 import qualified Network.AWS as AWS
 import Network.AWS.Core
+import Network.AWS.Prelude
 import qualified Network.AWS.Response as Response
 import qualified Network.AWS.S3 as S3
 import Network.AWS.S3.Encryption.Envelope
@@ -60,7 +53,7 @@ data PutInstructions = PutInstructions
   { _piExt :: Ext,
     _piPut :: S3.PutObject
   }
-  deriving (Show)
+  deriving stock (Show)
 
 putInstructions :: AddInstructions a => a -> Envelope -> PutInstructions
 putInstructions (addInstructions -> (b, k)) =
@@ -82,7 +75,7 @@ data GetInstructions = GetInstructions
   { _giExt :: Ext,
     _giGet :: S3.GetObject
   }
-  deriving (Show)
+  deriving stock (Show)
 
 getInstructions :: AddInstructions a => a -> GetInstructions
 getInstructions =
@@ -123,7 +116,7 @@ data DeleteInstructions = DeleteInstructions
   { _diExt :: Ext,
     _diDelete :: S3.DeleteObject
   }
-  deriving (Show)
+  deriving stock (Show)
 
 deleteInstructions :: RemoveInstructions a => a -> DeleteInstructions
 deleteInstructions =

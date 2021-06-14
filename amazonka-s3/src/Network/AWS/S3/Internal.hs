@@ -1,5 +1,4 @@
 {-# LANGUAGE BangPatterns               #-}
-{-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
@@ -40,6 +39,7 @@ module Network.AWS.S3.Internal
 
 import Network.AWS.Lens (IndexedTraversal', Iso', Prism', Traversal', iso, prism, traversed, _1, _2)
 import Network.AWS.Core
+import Network.AWS.Prelude
 import qualified Data.Text as Text
 
 newtype BucketName = BucketName Text
@@ -48,8 +48,6 @@ newtype BucketName = BucketName Text
         , Ord
         , Read
         , Show
-        
-        
         , Generic
         , IsString
         , FromText
@@ -73,8 +71,6 @@ newtype ETag = ETag ByteString
         , Ord
         , Read
         , Show
-        
-        
         , Generic
         , IsString
         , FromText
@@ -95,8 +91,6 @@ newtype ObjectVersionId = ObjectVersionId Text
         , Ord
         , Read
         , Show
-        
-        
         , Generic
         , IsString
         , FromText
@@ -117,8 +111,6 @@ newtype LocationConstraint = LocationConstraint { constraintRegion :: Region }
         , Ord
         , Read
         , Show
-        
-        
         , Generic
         , ToText
         , ToByteString
@@ -155,8 +147,6 @@ newtype ObjectKey = ObjectKey Text
         , Ord
         , Read
         , Show
-        
-        
         , Generic
         , IsString
         , FromText

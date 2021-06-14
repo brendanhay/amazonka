@@ -1,8 +1,4 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE NoImplicitPrelude #-}
 
 -- |
 -- Module      : Network.AWS.S3.Encryption.Types
@@ -21,8 +17,8 @@ import qualified Crypto.PubKey.RSA.Types as RSA
 import qualified Data.Aeson as Aeson
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
-import qualified Network.AWS as AWS
 import Network.AWS.Core
+import Network.AWS.Prelude
 import qualified Network.AWS.S3 as S3
 
 -- | An error thrown when performing encryption or decryption.
@@ -39,7 +35,7 @@ data EncryptionError
     EnvelopeInvalid (CI Text) String
   | -- | KMS error when retrieving decrypted plaintext.
     PlaintextUnavailable
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 instance Exception EncryptionError
 
@@ -73,11 +69,12 @@ instance ToByteString WrappingAlgorithm where
   toBS KMSWrap = "kms"
 
 data Location = Metadata | Discard
-  deriving (Eq)
+  deriving stock (Eq)
 
 -- | An instructions file extension.
 newtype Ext = Ext Text
-  deriving (Eq, Show, IsString)
+  deriving stock (Eq, Show)
+  deriving newtype (IsString)
 
 -- | Defaults to @.instruction@
 defaultExtension :: Ext
@@ -93,7 +90,8 @@ appendExtension (Ext s) o@(S3.ObjectKey k)
 -- material description is merged with the description stored on the object during
 -- decryption.
 newtype Description = Description {fromDescription :: HashMap Text Text}
-  deriving (Eq, Show, Semigroup, Monoid, FromJSON, ToJSON)
+  deriving stock (Eq, Show)
+  deriving newtype (Semigroup, Monoid, FromJSON, ToJSON)
 
 instance ToByteString Description where
   toBS = toBS . Aeson.encode
